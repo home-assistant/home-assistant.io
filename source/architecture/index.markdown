@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "architecture"
+title: "Architecture"
 date: 2014-12-18 21:49
 sidebar: false
 comments: true
