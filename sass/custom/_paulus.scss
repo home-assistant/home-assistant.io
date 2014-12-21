@@ -17,15 +17,26 @@
   margin-top: -18px;
 }
 
+.hero-buttons a {
+  margin: 0 30px 10px 0;
 
+  &:last-child {
+    margin: 0;
+  }
+}
 
 article.post, article.page {
-  table, img {
+  img, table {
     border-radius: 3px;
-    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;    
   }
 
-  table {
+  img.no-shadow {
+    border: 0;
+    box-shadow: none;
+  }
+
+  & > table {
     background-color: white;
   }
 }

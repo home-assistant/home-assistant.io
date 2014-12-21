@@ -9,7 +9,7 @@ footer: true
 ---
 
 <a href='{{ root_url }}/images/ha_architecture.png'>
-  <img src='{{ root_url }}/images/ha_architecture.png' style='border: 0; box-shadow: none;'/>
+  <img src='{{ root_url }}/images/ha_architecture.png' class='no-shadow' />
 </a>
 
 The core of Home Assistant exists of the following parts.
@@ -47,7 +47,7 @@ Home Assistant supports running multiple synchronzied instances using a master-s
 Because each slave maintains its own ServiceRegistry it is possible to have multiple slaves respond to one service call.
 
 <a href='{{ root_url }}/images/architecture-remote.png'>
-  <img src='{{ root_url }}/images/architecture-remote.png' style='border: 0; box-shadow: none;' />
+  <img src='{{ root_url }}/images/architecture-remote.png' class='no-shadow' />
 </a>
 
 A slave instance can be started with the following code and has the same support for components as a master-instance.
