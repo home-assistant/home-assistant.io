@@ -1,0 +1,111 @@
+$meta-color: lighten($text-color, 20%);
+
+article {
+
+  blockquote {
+    @extend .clearfix;
+    border-left: 2px solid $primary-color;
+    color: lighten($text-color, 15%);
+    font-family: $serif;
+    font-size: 1.25em;
+    font-style: italic;
+    padding-left: 15px;
+
+    footer {
+      float: right;
+      font-family: $sans-serif;
+      font-size: 0.8em;
+      strong::after {
+        content: " \2014 ";
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .pullquote-left::before, .pullquote-right::before {
+    @media only screen and (max-width: $palm-end){
+      border-top:    1px dotted $primary-color;
+      border-bottom: 1px dotted $primary-color;
+      padding: 0 10px;
+      width: 100%;
+    }
+    border: medium none;
+    color: $primary-color;
+    content: "\201C" attr(data-pullquote) "\201D";
+    float: right;
+    font-family: $serif;
+    font-size: 1.4em;
+    font-style: italic;
+    line-height: 1.45em;
+    margin: 0.3em 0 1em 1.5em;
+    padding: 0;
+    position: relative;
+      top: 7px;
+    width: 45%;
+  }
+
+  .tags {
+    @extend .inline;
+    display: inline;
+    li {
+      margin-right: 2px;
+      &::after {
+        content: ",";
+      }
+      &:last-child::after {
+        content: "";
+      }
+      a {
+        color: $meta-color;
+        text-decoration: none;
+        &:hover {text-decoration: underline;}
+      }
+    }
+  }
+
+  .meta {
+    $meta-color: $site-background;
+    font-size: 12px;
+    padding: 0 0 5px;
+    > time {
+      margin-right: 20px;
+    }
+  }
+
+  // Blog listings, index page
+  &.listing {
+    margin-bottom: 20px;
+    h1 {
+      margin-bottom: 0;
+      a {
+        color: $title-color;
+        text-decoration: none;
+      }
+    }
+    .entry-content {
+      margin: 10px 0;
+    }
+    + hr {
+      border: none;
+      border-bottom: 1px solid $primary-color;
+    }
+  }
+
+  &.post {
+    @media only screen and (max-width: $palm-end){
+      .tags {
+        clear: both;
+        margin-top: 7px;
+      }
+    }
+    h1 {
+      margin-bottom: 0;
+    }
+    .meta {
+      border-bottom: 1px solid $primary-color;
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $IMAGES
+\*------------------------------------*/
+/**
+ * Demo: jsfiddle.net/inuitcss/yMtur
+ */
+/**
+ * Fluid images.
+ */
+img{
+    max-width:100%;
+}
+
+
+/**
+ * Non-fluid images if you specify `width` and/or `height` attributes.
+ */
+img[width],
+img[height]{
+    max-width:none;
+}
+
+
+/**
+ * Rounded images.
+ */
+.img--round { border-radius:$brand-round; }
+
+
+/**
+ * Image placement variations.
+ */
+.img--right{
+    float:right;
+    margin-bottom:$base-spacing-unit;
+    margin-left:$base-spacing-unit;
+}
+.img--left{
+    float:left;
+    margin-right:$base-spacing-unit;
+    margin-bottom:$base-spacing-unit;
+}
+.img--center{
+    display:block;
+    margin-right:auto;
+    margin-bottom:$base-spacing-unit;
+    margin-left:auto;
+}
+
+
+/**
+ * Keep your images on your baseline.
+ *
+ * Please note, these will not work too nicely with fluid images and will
+ * distort when resized below a certain width. Use with caution.
+ */
+.img--short{
+    height:5 * $base-spacing-unit;
+}
+.img--medium{
+    height:10 * $base-spacing-unit;
+}
+.img--tall{
+    height:15 * $base-spacing-unit;
+}
+
+
+/**
+ * Images in `figure` elements.
+ */
+figure > img{
+    display:block;
+}

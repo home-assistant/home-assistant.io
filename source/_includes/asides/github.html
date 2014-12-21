@@ -1,0 +1,19 @@
+{% if site.social.github.user %}
+<section id="github-repos" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    GitHub Repos
+    {% if site.social.github.show_profile_link or site.github_show_profile_link %}
+    <small class="pull-right">
+      <a class="btn" href="//github.com/{{ site.social.github.user }}" title="@{{ site.social.github.user }} on GitHub" target="_blank">
+        <i class="icon-external-link"></i>
+      </a>
+    </small>
+    {% endif %}
+  </h1>
+  <ul id="gh_repos" class="divided">
+    <li class="loading">
+      <i class="icon-spinner icon-spin"></i>
+    </li>
+  </ul>
+</section>
+{% endif %}

@@ -1,0 +1,57 @@
+body, html {
+  background-color: $site-background;
+  color: $text-color;
+  font-family: $sans-serif;
+  height: 100%;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:visited {
+    color: darken($link-color, 10%);
+  }
+  .menu & {
+    color: $link-color;
+  }
+}
+
+.gist {
+  font-size: 0.75em;
+}
+
+.title.indent {
+  @media only screen and (max-width: $palm-end){
+    &::before {
+      display: none;
+    }
+  }
+  &::before {
+    content: "// ";
+    color: $primary-color;
+  }
+}
+
+.divider {
+  border: none;
+  border-bottom: 2px solid $primary-color;
+  clear: both;
+  margin: 2em 0;
+}
+
+article.post,
+article.page {
+  img {
+    border: 5px solid #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    &.right {
+      float: right;
+      margin: 0 0 10px 20px;
+    }
+    &.left {
+      float: left;
+      margin: 0 20px 10px 0;
+    }
+  }
+}

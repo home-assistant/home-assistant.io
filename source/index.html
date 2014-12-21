@@ -1,0 +1,56 @@
+---
+layout: page
+# title: "This is the title for your homepage"
+date: 2014-12-18 22:39
+comments: true
+show_title: false
+sidebar: false
+hero_unit: true
+is_homepage: true
+---
+
+<div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
+      <div class="grid">
+        <div class="grid__item one-whole lap-one-third">
+          <span class="icon">
+            <i class="icon-home"></i>
+          </span>
+        </div>
+
+        <div class="grid__item one-whole lap-two-thirds">
+          {% include custom/grid_item_left.html %}
+        </div>
+      </div>
+    </div>
+
+    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
+      <div class="grid">
+        <div class="grid__item one-whole lap-one-third">
+          <span class="icon">
+            <i class="icon-mobile-phone"></i>
+          </span>
+        </div>
+
+        <div class="grid__item one-whole lap-two-thirds">
+          {% include custom/grid_item_middle.html %}
+        </div>
+      </div>
+    </div>
+
+    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
+      <div class="grid">
+        <div class="grid__item one-whole lap-one-third">
+          <span class="icon">
+            <i class="icon-cogs"></i>
+          </span>
+        </div>
+
+        <div class="grid__item one-whole lap-two-thirds">
+         {% include custom/grid_item_right.html %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

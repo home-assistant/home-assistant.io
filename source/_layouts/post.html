@@ -1,0 +1,15 @@
+---
+layout: default
+is_post: true
+---
+
+<article class="post">
+  {% include blog/post/article.html %}
+</article>
+
+{% if site.disqus_short_name and page.comments == true %} 
+<section id="disqus">
+  <h1 class="indent title">Comments</h1>
+  <div id="disqus_thread" aria-live="polite">{% include blog/post/disqus_thread.html %}</div>
+</section>
+{% endif %}

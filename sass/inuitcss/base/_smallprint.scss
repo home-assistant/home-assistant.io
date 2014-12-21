@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $SMALLPRINT
+\*------------------------------------*/
+/**
+ * A series of classes for setting tiny type; for use in smallprint etc.
+ */
+.smallprint,
+.milli{
+    @include font-size($milli-size);
+}
+.micro{
+    @include font-size($micro-size);
+}

@@ -1,0 +1,21 @@
+#page-wrap {
+  min-height: 100%;
+  margin-bottom: -$footer-height;
+  &::after {
+    content: "";
+    display: block;
+    height: $footer-height;
+  }
+}
+
+body > footer {
+  @include box-shadow(0 0 3px rgba(0, 0, 0, 0.25));
+  background-color: $footer-background;
+  height: $footer-height;
+  margin-top: 3em;
+}
+
+.copyright {
+  margin: 0;
+  padding: 20px 0;
+}

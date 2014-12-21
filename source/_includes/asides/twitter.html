@@ -1,0 +1,17 @@
+{% if site.social.twitter.user and site.social.twitter.widget.is_shown %}
+<section id="twitter-timeline" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    Latest Tweets
+    {% if site.social.twitter.widget.show_profile_link %}
+    <small class="pull-right">
+      <a class="btn" href="//twitter.com/{{ site.social.twitter.user }}" title="@{{ site.social.twitter.user }} on Twitter" target="_blank">
+        <i class="icon-external-link"></i>
+      </a>
+    </small>
+    {% endif %}
+  </h1>
+
+  <a class="twitter-timeline" data-dnt="true" href="//twitter.com/{{ site.social.twitter.user }}"  data-widget-id="{{ site.social.twitter.widget.widget_id }}"  data-link-color="#049cdb" data-tweet-limit="{{ site.social.twitter.widget.tweet_count }}" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @{{ site.social.twitter.user }}</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+{% endif %}

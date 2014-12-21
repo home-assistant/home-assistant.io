@@ -1,13 +1,14 @@
+# See options at https://github.com/coogie/oscailte
 # ----------------------- #
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: https://home-assistant.io
+title: Home Assistant
+subtitle: Open-source home automation platform running on Python 3
+author: Paulus Schoutsen
 simple_search: https://www.google.com/search
-description:
+description: Home Assistant is an open-source home automation platform running on Python 3.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -29,7 +30,7 @@ email:
 root: /
 permalink: /blog/:year/:month/:day/:title/
 source: source
-destination: public
+destination: public/
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
@@ -70,7 +71,7 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: balloob
 twitter_tweet_button: true
 
 # Google +1
@@ -79,8 +80,8 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user:
-googleplus_hidden: false
+googleplus_user: +PaulusSchoutsen
+googleplus_hidden: true
 
 # Pinboard
 pinboard_user:
@@ -99,3 +100,6 @@ google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+social:
+  visible: false

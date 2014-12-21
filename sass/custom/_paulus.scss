@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+// https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
+
+.ha-title {
+  white-space: nowrap;
+
+  img {
+    width: 40px;
+    vertical-align: middle;
+  }
+}
+
+.usp ul {
+  text-align: left;
+  margin-left: 27px;
+  margin-top: -18px;
+}
+
+.note {
+  background: #e7f2fa;
+  padding: 12px;
+  margin-bottom: 1em;
+  box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+
+  .title::before {
+    font-family: "FontAwesome";
+    content: "\f05a";
+    margin-right: 5px;   
+  }
+
+  .title {
+    border-top-left-radius: 0.4em;
+    border-top-right-radius: 0.4em;
+    font-weight: bold;
+    display: block;
+    color: #fff;
+    background: #6ab0de;
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+
+  .content {
+    margin-bottom: 0;
+  }
+}

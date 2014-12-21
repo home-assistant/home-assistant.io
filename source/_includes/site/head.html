@@ -1,0 +1,33 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+  {% if page.description %} {% capture fb_description %}{{ page.description }}{% endcapture %} {% else %} {% capture fb_description %}{{ content | raw_content }}{% endcapture %} {% endif %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="author" content="{{ site.author }}">
+    {% capture description %}{% if page.description %}{{ page.description }}{% elsif site.description %}{{ site.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+    <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
+    {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io">
+    {% if site.social.facebook.app_id %}
+    <meta property="fb:admins" content="{{ site.social.facebook.app_id }}">
+    <meta property="og:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:url" content="{% if canonical %}{{ canonical }}{% else %}{{ site.url }}{% endif %}/">
+    <meta property="og:type" content="{% if page.facebook.type %}{{ page.facebook.type }}{% else %}website{% endif %}">
+    <meta property="og:description" content="{{ fb_description | strip_html | condense_spaces | truncate:200 }}">
+    {% if site.social.facebook.user %}<meta property="og:author" content="https://facebook.com/{{ site.social.facebook.user }}">{% endif %}
+    {% if page.facebook.image %}<meta property="og:image" content="{{ page.facebook.image }}">{% endif %}
+    {% endif %}
+    <link href="{{ root_url }}/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="{{ root_url }}{{ site.subscribe_rss }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml">
+    <link rel='shortcut icon' href='{{ root_url }}/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='{{ root_url }}/images/favicon-192x192.png' sizes='192x192' />
+</head>

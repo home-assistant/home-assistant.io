@@ -1,0 +1,46 @@
+{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}{% include site/head.html %}
+
+  <body {% if page.body_id %} id="{{ page.body_id }}"{% endif %}>
+
+    <header>
+      {% include site/header.html %}
+    </header>
+
+    {% if page.hero_unit %}
+      {% include site/hero_unit.html %}
+    {% endif %}
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        {% if page.is_post and page.sidebar == false %}
+        <div class="grid__item four-fifths lap-one-whole palm-one-whole">
+        {% elsif page.is_homepage %}
+        <div class="grid__item one-whole">
+        {% else %}
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        {% endif %}
+
+          {{ content | expand_urls: root_url }}
+
+        </div>
+
+        {% unless page.sidebar == false %}
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          {% include site/sidebar.html %}
+        </aside>
+        {% endunless %}
+      </div>
+    </div>
+
+    <footer>
+      {% include site/footer.html %}
+    </footer>
+
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    {% include javascripts/scripts.html %}
+
+  </body>
+</html>

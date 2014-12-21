@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@if $use-block-list == true or $use-matrix == true{
+
+/*------------------------------------*\
+    $BLOCK-LIST
+\*------------------------------------*/
+/**
+ * Create big blocky lists of content, e.g.:
+ *
+   <ul class=block-list>
+      <li>Foo</li>
+      <li>Bar</li>
+      <li>Baz</li>
+      <li><a href=# class=block-list__link>Foo Bar Baz</a></li>
+   </ul>
+ *
+ * Extend this object in your theme stylesheet.
+ *
+ * Demo: jsfiddle.net/inuitcss/hR57q
+ *
+ */
+.block-list{
+
+    &,
+    > li{
+        border:0 solid $base-ui-color;
+    }
+}
+.block-list{
+    list-style:none;
+    margin-left:0;
+    border-top-width:1px;
+
+    > li{
+        border-bottom-width:1px;
+        padding:$half-spacing-unit;
+    }
+}
+        .block-list__link{
+            display:block;
+            padding:$half-spacing-unit;
+            margin:-$half-spacing-unit;
+        }
+
+}//endif
