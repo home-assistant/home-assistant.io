@@ -17,6 +17,19 @@
   margin-top: -18px;
 }
 
+
+
+article.post, article.page {
+  table, img {
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+  }
+
+  table {
+    background-color: white;
+  }
+}
+
 .note {
   background: #e7f2fa;
   padding: 12px;
@@ -30,8 +43,8 @@
   }
 
   .title {
-    border-top-left-radius: 0.4em;
-    border-top-right-radius: 0.4em;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     font-weight: bold;
     display: block;
     color: #fff;
@@ -44,5 +57,17 @@
 
   .content {
     margin-bottom: 0;
+  }
+
+  &.warning {
+    background-color: #E5EABB;
+    
+    .title {
+      background-color: rgb(187, 185, 13);;
+    }
+
+    .title::before {
+      content: "\f071";
+    }
   }
 }

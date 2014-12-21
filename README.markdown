@@ -1,3 +1,8 @@
+To test changes to home-assistant.io locally, run `rake preview` and navigate to [http://127.0.0.1:4000](http://127.0.0.1:4000).
+
+Deploying is done using `rake deploy`.
+
+
 ## What is Octopress?
 
 Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.

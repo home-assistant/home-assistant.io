@@ -26,10 +26,10 @@ If you're using Docker, you can use
 docker run -d --name="home-assistant" -v /path/to/homeassistant/config:/config -v /etc/localtime:/etc/localtime:ro -p 8123:8123 balloob/home-assistant
 ```
 
-After you got the demo mode running it is time to enable some real components and get started. An example configuration file has been provided in [/config/home-assistant.conf.example](https://github.com/balloob/home-assistant/blob/master/config/home-assistant.conf.example).
+After you got the demo mode running it is time to enable some [components]({{site_root}}/components/) and get started. An example configuration file has been provided in [`/config/home-assistant.conf.example`](https://github.com/balloob/home-assistant/blob/master/config/home-assistant.conf.example).
 
 <div class='note'><p class='title'>Note</p><p class='content'>
-You can append `?api_password=YOUR_PASSWORD` to the url of the web interface to log in automatically.
+You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
 </p></div>
 
 <div class='note'><p class='title'>Note</p><p class='content'>
@@ -72,7 +72,7 @@ Tomato requires an extra config variable called `http_id`. The value can be obta
 Before the Luci scanner can be used you have to install the luci RPC package on OpenWRT: `opkg install luci-mod-rpc`.
 </p></div>
 
-Once tracking, the `device_tracker` component will maintain a file in your config dir called `known_devices.csv`. Edit this file to adjust which devices have to be tracked.
+Once tracking, the `device_tracker` component will maintain a file in your config dir called `known_devices.csv`. Edit this file to adjust which devices have to be tracked. Here you can also setup a url for each device to be used as the entity picture.
 
 As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using nmap. The IP addresses to scan can be specified in any format that nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 
