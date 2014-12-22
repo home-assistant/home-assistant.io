@@ -18,7 +18,7 @@ pip3 install -r requirements.txt
 python3 -m homeassistant
 ```
 
-This will start the Home Assistant server and create an initial configuration file in `config/home-assistant.conf` that is setup for demo mode. It will launch its web interface on [http://127.0.0.1:8123](http://127.0.0.1:8123). The default password is 'password'.
+This will start the Home Assistant server and create an initial configuration file `config/home-assistant.conf` that is setup for demo mode. It will launch its web interface on [http://127.0.0.1:8123](http://127.0.0.1:8123). The default password is 'password'.
 
 If you're using Docker, you can use
 
@@ -26,7 +26,7 @@ If you're using Docker, you can use
 docker run -d --name="home-assistant" -v /path/to/homeassistant/config:/config -v /etc/localtime:/etc/localtime:ro -p 8123:8123 balloob/home-assistant
 ```
 
-After you got the demo mode running it is time to enable some [components]({{site_root}}/components/) and get started. An example configuration file has been provided in [`/config/home-assistant.conf.example`](https://github.com/balloob/home-assistant/blob/master/config/home-assistant.conf.example).
+After you got the demo mode running it is time to customize your configuration and enable some [built-in components]({{site_root}}/components/). See [`/config/home-assistant.conf.example`](https://github.com/balloob/home-assistant/blob/master/config/home-assistant.conf.example) for an example configuration.
 
 <div class='note'><p class='title'>Note</p><p class='content'>
 You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
@@ -69,7 +69,7 @@ Tomato requires an extra config variable called `http_id`. The value can be obta
 </p></div>
 
 <div class='note'><p class='title'>Note on Luci</p><p class='content'>
-Before the Luci scanner can be used you have to install the luci RPC package on OpenWRT: `opkg install luci-mod-rpc`.
+Before the Luci scanner can be used you have to install the luci RPC package on OpenWRT: <code>opkg install luci-mod-rpc</code>.
 </p></div>
 
 Once tracking, the `device_tracker` component will maintain a file in your config dir called `known_devices.csv`. Edit this file to adjust which devices have to be tracked. Here you can also setup a url for each device to be used as the entity picture.

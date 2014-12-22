@@ -30,7 +30,7 @@ Successful calls will return status code 200 or 201. Other status codes that can
 
 The api supports the following actions:
 
-**/api - GET**<br>
+#### GET /api
 Returns message if API is up and running.
 
 ```json
@@ -39,7 +39,7 @@ Returns message if API is up and running.
 }
 ```
 
-**/api/events - GET**<br>
+#### GET /api/events
 Returns an array of event objects. Each event object contain event name and listener count.
 
 ```json
@@ -55,7 +55,7 @@ Returns an array of event objects. Each event object contain event name and list
 ]
 ```
 
-**/api/services - GET**<br>
+#### GET /api/services
 Returns an array of service objects. Each object contains the domain and which services it contains.
 
 ```json
@@ -76,7 +76,7 @@ Returns an array of service objects. Each object contains the domain and which s
 ]
 ```
 
-**/api/states - GET**<br>
+#### GET /api/states
 Returns an array of state objects. Each state has the following attributes: entity_id, state, last_changed and attributes.
 
 ```json
@@ -99,7 +99,7 @@ Returns an array of state objects. Each state has the following attributes: enti
 ]
 ```
 
-**/api/states/&lt;entity_id>** - GET<br>
+#### GET /api/states/&lt;entity_id>
 Returns a state object for specified entity_id. Returns 404 if not found.
 
 ```json
@@ -114,13 +114,20 @@ Returns a state object for specified entity_id. Returns 404 if not found.
 }
 ```
 
-**/api/states/&lt;entity_id>** - POST<br>
+#### POST /api/states/&lt;entity_id>
 Updates or creates the current state of an entity.
 
-Return code is 200 if the entity existed, 201 if the state of a new entity was set. A location header will be returned with the url of the new resource. The response body will contain a JSON encoded State object.<br>
-<br>
-parameter: state - string<br>
-optional parameter: attributes - JSON object
+Expects a JSON object that has atleast a state attribute:
+
+```json
+{
+    "state": "below_horizon",
+    "next_rising": "07:04:15 29-10-2013",
+    "next_setting": "18:00:31 29-10-2013"
+}
+```
+
+Return code is 200 if the entity existed, 201 if the state of a new entity was set. A location header will be returned with the url of the new resource. The response body will contain a JSON encoded State object.
 
 ```json
 {
@@ -134,9 +141,18 @@ optional parameter: attributes - JSON object
 }
 ```
 
-**/api/events/&lt;event_type>** - POST<br>
-Fires an event with event_type<br>
-optional body: JSON encoded object that represents event_data
+#### POST /api/events/&lt;event_type>
+Fires an event with event_type
+
+You can pass an optional JSON object to be used as `event_data`.
+
+```json
+{
+    "next_rising": "18:00:31 29-10-2013"
+}
+```
+
+Returns a message if successful.
 
 ```json
 {
@@ -144,11 +160,18 @@ optional body: JSON encoded object that represents event_data
 }
 ```
 
-**/api/services/&lt;domain>/&lt;service>** - POST<br>
-Calls a service within a specific domain. Will return when the service has been executed or 10 seconds has past, whichever comes first.<br>
-optional body: JSON encoded object that represents service_data
+#### POST /api/services/&lt;domain>/&lt;service>
+Calls a service within a specific domain. Will return when the service has been executed or 10 seconds has past, whichever comes first.
 
-Returns a list of states that have changed since the start of this service call.
+You can pass an optional JSON object to be used as `service_data`.
+
+```json
+{
+    "entity_id": "light.Ceiling"
+}
+```
+
+Returns a list of states that have changed while the service was being executed.
 
 ```json
 [
@@ -170,11 +193,24 @@ Returns a list of states that have changed since the start of this service call.
 ]
 ```
 
-**/api/event_forwarding** - POST<br>
-Setup event forwarding to another Home Assistant instance.<br>
-parameter: host - string<br>
-parameter: api_password - string<br>
-optional parameter: port - int<br>
+<div class='note'><p class='title'>Note</p><p class='content'>
+The result will include any changed states that changed while the service was being executed, even if their change was the result of something else happening in the system. 
+</p></div>
+
+#### POST /api/event_forwarding
+Setup event forwarding to another Home Assistant instance.
+
+Requires a JSON object that represents the API to forward to.
+
+```json
+{
+    "host": "machine",
+    "api_password": "my_super_secret_password",
+    "port": 8880 // optional
+}
+```
+
+It will return a message if event forwarding was setup successful.
 
 ```json
 {
@@ -182,15 +218,27 @@ optional parameter: port - int<br>
 }
 ```
 
-**/api/event_forwarding** - DELETE<br>
+#### DELETE /api/event_forwarding
 Cancel event forwarding to another Home Assistant instance.<br>
-parameter: host - string<br>
-optional parameter: port - int<br>
 
-If your client does not support DELETE HTTP requests you can add an optional attribute _METHOD and set its value to DELETE.
+Requires a JSON object that represents the API to cancel forwarding to.
+
+```json
+{
+    "host": "machine",
+    "api_password": "my_super_secret_password",
+    "port": 8880 // optional
+}
+```
+
+It will return a message if event forwarding was cancelled successful.
 
 ```json
 {
     "message": "Event forwarding cancelled."
 }
 ```
+
+<div class='note'><p class='title'>Note</p><p class='content'>
+If your client does not support <code>DELETE</code> HTTP requests you can add an optional attribute <code>_METHOD</code> and set its value to <code>DELETE</code>.
+</p></div>

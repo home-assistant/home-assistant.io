@@ -30,9 +30,13 @@ This setup allows us to create simple yet powerful logic for controlling your ho
       If the sun has set and the lights are not on:
         Turn on the lights
 
+<!-- comment to seperate markdown blockquotes -->
+
     In the event that the combined state of all tracked devices changes to 'Not Home':
       If the lights are on:
         Turn off the lights
+
+<!-- comment to seperate markdown blockquotes -->
 
     In the event of the sun setting:
       If the lights are off and the combined state of all tracked device equals 'Home':
@@ -43,8 +47,6 @@ By using the Bus as a central communication hub between components it is easy to
 ## Multiple connected instances
 
 Home Assistant supports running multiple synchronzied instances using a master-slave model. Slaves forward all local events fired and states set to the master instance which will then replicate it to each slave.
-
-Because each slave maintains its own ServiceRegistry it is possible to have multiple slaves respond to one service call.
 
 <a href='{{ root_url }}/images/architecture-remote.png'>
   <img src='{{ root_url }}/images/architecture-remote.png' class='no-shadow' />
@@ -65,3 +67,7 @@ http.setup(hass, "my_local_api_password")
 hass.start()
 hass.block_till_stopped()
 ```
+
+<div class='note'><p class='title'>Note</p><p class='content'>
+Because each slave maintains its own ServiceRegistry it is possible to have multiple slaves respond to one service call.
+</p></div>
