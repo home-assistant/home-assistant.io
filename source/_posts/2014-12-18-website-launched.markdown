@@ -7,4 +7,4 @@ categories: website
 author: Paulus
 ---
 
-I finally took the time to setup a simple website to help people getting started with Home Assistant. This will make sure that the README on GitHub can be purely focussed on developers.
+I finally took the time to setup a simple website to help people getting started with Home Assistant. The process was super smooth thanks to the great tools [Jekyll](http://jekyllrb.com) and [Octopress](http://octopress.org) and the great services [GitHub Pages](https://pages.github.com) and [CloudFlare](https://cloudflare.com).
