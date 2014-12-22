@@ -37,14 +37,14 @@ article.post, article.page {
   }
 
   & > table {
-    background-color: white;
+    background-color: #F3FCF5;
   }
 }
 
 .note {
   background: #e7f2fa;
   padding: 12px;
-  margin-bottom: 1em;
+  margin-bottom: 24px;
   box-shadow: rgba(0,0,0,0.06) 0 0 10px;
 
   .title::before {
@@ -71,7 +71,7 @@ article.post, article.page {
   }
 
   &.warning {
-    background-color: #E5EABB;
+    background-color: #F7F9E1;
     
     .title {
       background-color: rgb(187, 185, 13);;
