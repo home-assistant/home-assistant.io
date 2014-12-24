@@ -12,16 +12,49 @@ body{ -webkit-animation: bugfix infinite 1s; }
 
 .header { position: relative; }
 #toggle, .toggle { display: none; }
-.menu > li { list-style: none; float:left;  }
+.menu li { list-style: none; float:left;  }
 
 @media only screen and (max-width: $lap-end){
   .menu { display: none; opacity: 0; width: 100%; position: absolute; right: 0; }
-  .menu > li { display: block; width: 100%; margin: 0; }
-  .menu > li > a { display: block; width: 100%; text-decoration: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+  .menu li { display: block; width: 100%; margin: 0; }
+  .menu li a { display: block; width: 100%; text-decoration: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
   .toggle { display: block; position: relative; cursor: pointer; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
   #toggle:checked ~ .menu { display: block; opacity: 1; z-index: 999; }
 }
 
+/* support for submenus */
+ul.menu li {
+  position: relative;
+
+  &:hover ul {
+    display: block;
+  }
+
+  ul {
+    display: none;
+
+    z-index: 10;
+    position: absolute;
+    top: 68px;
+
+    margin-left: 0;
+    background-color: white;
+
+    li {
+      white-space: nowrap;
+      float: none;
+
+      a {
+        display: block;
+        padding: 20px 10px;
+
+        &:hover, &:focus {
+          background: $grayLighter;
+        }
+      }
+    }
+  }
+}
 
 /*--------------------------------
  Presentation Styles (Editable)
@@ -35,7 +68,7 @@ header .grid {
   top: 68px;
 }
 
-.menu > li > a{
+.menu li a{
   @include box-sizing(border-box);
   @include transition(all 0.25s linear);
   display: block;
@@ -64,15 +97,15 @@ header .grid {
     border-bottom: 4px solid $navigation-color;
   }
   
-  .menu, .menu > li, .menu > li > a{
+  .menu, .menu li, .menu li a{
     height: auto;
   }
   
-  .menu > li > a{
-    padding: 15px 15px;
+  .menu li a{
+    padding: 15px 15px !important;
   }
   
-  .menu > li > a:hover, .menu > li > a:focus{
+  .menu li a:hover, .menu li a:focus{
     background: $grayLighter;
     box-shadow: inset 5px 0px $navigation-color;
     padding: 15px 15px 15px 25px;
@@ -100,6 +133,13 @@ header .grid {
   
   #toggle:checked + .toggle::after{
     content: attr(data-close);
+  }
+
+  /* submenus */
+  ul.menu li ul {
+    display: block;
+    position: relative;
+    top: 0;
   }
 }
 
