@@ -14,7 +14,10 @@ body{ -webkit-animation: bugfix infinite 1s; }
 #toggle, .toggle { display: none; }
 .menu li { list-style: none; float:left;  }
 
-@media only screen and (max-width: $lap-end){
+$menu-collapse: 790px;
+
+// @media only screen and (max-width: $lap-end){
+@media only screen and (max-width: $menu-collapse){
   .menu { display: none; opacity: 0; width: 100%; position: absolute; right: 0; }
   .menu li { display: block; width: 100%; margin: 0; }
   .menu li a { display: block; width: 100%; text-decoration: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
@@ -90,7 +93,7 @@ header .grid {
   z-index: 20; 
 }
 
-@media only screen and (max-width: $lap-end){
+@media only screen and (max-width: $menu-collapse){
   .menu{
     background: $white;
     border-top:    1px solid $navigation-color;
@@ -111,15 +114,21 @@ header .grid {
     padding: 15px 15px 15px 25px;
   }
   
+  .toggle {
+    position: absolute;
+    top: 17px;
+    right: 10px;
+  }
+
   .toggle::after {
     @include border-radius(2px);
     @include box-sizing(border-box);
     @include transition(all 0.5s linear);
-    content: attr(data-open);
-    display: block;
+    font-family: "FontAwesome";
+    content: "\f0c9";
+    display: inline-block;
     width: 100%;
-    margin: 20px 0;
-    padding: 10px 50px;
+    padding: 10px 15px;
     background: $navigation-color;
     text-align: center;
     font-size: 12px;
@@ -140,19 +149,5 @@ header .grid {
     display: block;
     position: relative;
     top: 0;
-  }
-}
-
-@media only screen and (max-width: 479px){
-  .toggle {
-    display: inline-block;
-    position: absolute;
-    top: -3px;
-    right: 10px;
-  }
-  .toggle::after {
-    padding: 10px 15px;
-    font-family: "FontAwesome";
-    content: "\f0c9";
   }
 }
