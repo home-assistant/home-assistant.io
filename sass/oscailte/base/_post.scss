@@ -69,8 +69,12 @@ article {
     $meta-color: $site-background;
     font-size: 12px;
     padding: 0 0 5px;
-    > time {
+    > * {
       margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 

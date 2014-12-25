@@ -1,6 +1,6 @@
 {% capture category %}{% if post %}{{ post.categories | category_links | size }}{% else %}{{ page.categories | category_links | size }}{% endif %}{% endcapture %}
 {% unless category == '0' %}
-  <div class="pull-left">
+  <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     {% if post %}
@@ -13,5 +13,5 @@
       {% endfor %}
     {% endif %}
     </ul>
-  </div>
+  </span>
 {% endunless %}
