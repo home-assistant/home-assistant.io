@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io">
     {% if site.social.facebook.app_id %}
-    <meta property="fb:admins" content="{{ site.social.facebook.app_id }}">
+    <meta property="fb:app_id" content="{{ site.social.facebook.app_id }}">
     <meta property="og:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:url" content="{% if canonical %}{{ canonical }}{% else %}{{ site.url }}{% endif %}/">
