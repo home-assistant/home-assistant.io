@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Getting Started"
+description: "Step by step guide to get started with Home Assistant."
 date: 2014-12-18 22:57
 sidebar: false
 comments: false

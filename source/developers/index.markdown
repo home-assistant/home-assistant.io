@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Developers"
+description: "Home Assistant developer information. Everything to get you started"
 date: 2014-12-21 13:32
 sidebar: false
 comments: false

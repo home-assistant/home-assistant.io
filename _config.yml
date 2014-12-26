@@ -106,3 +106,5 @@ facebook_like: true
 
 social:
   visible: false
+  facebook:
+    app_id: 338291289691179

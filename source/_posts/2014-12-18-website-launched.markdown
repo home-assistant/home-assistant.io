@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Website launched!"
+description: "Home Assistant website has launched!"
 date: 2014-12-18 23:24:45 -0800
 date_formatted: "December 18, 2014"
 comments: true

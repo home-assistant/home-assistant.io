@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Rest API"
+description: "Home Assistant Rest API documentation"
 date: 2014-12-21 13:27
 sidebar: false
 comments: false
