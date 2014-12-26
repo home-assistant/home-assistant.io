@@ -3,7 +3,7 @@ layout: page
 title: "Getting Started"
 date: 2014-12-18 22:57
 sidebar: false
-comments: true
+comments: false
 sharing: true
 footer: true
 ---
@@ -28,13 +28,13 @@ docker run -d --name="home-assistant" -v /path/to/homeassistant/config:/config -
 
 After you got the demo mode running it is time to customize your configuration and enable some [built-in components]({{site_root}}/components/). See [`/config/home-assistant.conf.example`](https://github.com/balloob/home-assistant/blob/master/config/home-assistant.conf.example) for an example configuration.
 
-<div class='note'><p class='title'>Note</p><p class='content'>
+<p class='note'>
 You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
-</p></div>
+</p>
 
-<div class='note'><p class='title'>Note</p><p class='content'>
+<p class='note'>
 For the light and switch component, you can specify multiple platforms by using sequential sections: [switch], [switch 2], [switch 3] etc
-</p></div>
+</p>
 
 ### Philips Hue
 To get Philips Hue working you will have to connect Home Assistant to the Hue bridge.
@@ -64,13 +64,13 @@ username=admin
 password=MY_PASSWORD
 ```
 
-<div class='note'><p class='title'>Note on Tomato</p><p class='content'>
+<p class='note' data-title='on Tomato'>
 Tomato requires an extra config variable called `http_id`. The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code.
-</p></div>
+</p>
 
-<div class='note'><p class='title'>Note on Luci</p><p class='content'>
+<p class='note' data-title='on Luci'>
 Before the Luci scanner can be used you have to install the luci RPC package on OpenWRT: <code>opkg install luci-mod-rpc</code>.
-</p></div>
+</p>
 
 Once tracking, the `device_tracker` component will maintain a file in your config dir called `known_devices.csv`. Edit this file to adjust which devices have to be tracked. Here you can also setup a url for each device to be used as the entity picture.
 

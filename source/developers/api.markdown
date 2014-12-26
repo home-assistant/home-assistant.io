@@ -3,7 +3,7 @@ layout: page
 title: "Rest API"
 date: 2014-12-21 13:27
 sidebar: false
-comments: true
+comments: false
 sharing: true
 footer: true
 ---
@@ -17,9 +17,9 @@ In the package [`homeassistant.remote`](https://github.com/balloob/home-assistan
 
 The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (as specified in your `home-assistant.conf`).
 
-<div class='note'><p class='title'>Note</p><p class='content'>
+<p class='note'>
 You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
-</p></div>
+</p>
 
 Successful calls will return status code 200 or 201. Other status codes that can return are:
 
@@ -193,9 +193,9 @@ Returns a list of states that have changed while the service was being executed.
 ]
 ```
 
-<div class='note'><p class='title'>Note</p><p class='content'>
+<p class='note'>
 The result will include any changed states that changed while the service was being executed, even if their change was the result of something else happening in the system. 
-</p></div>
+</p>
 
 #### POST /api/event_forwarding
 Setup event forwarding to another Home Assistant instance.
@@ -239,6 +239,6 @@ It will return a message if event forwarding was cancelled successful.
 }
 ```
 
-<div class='note'><p class='title'>Note</p><p class='content'>
+<p class='note'>
 If your client does not support <code>DELETE</code> HTTP requests you can add an optional attribute <code>_METHOD</code> and set its value to <code>DELETE</code>.
-</p></div>
+</p>

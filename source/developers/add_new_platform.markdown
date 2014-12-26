@@ -3,7 +3,7 @@ layout: page
 title: "Adding support for a new platform"
 date: 2014-12-21 13:27
 sidebar: false
-comments: true
+comments: false
 sharing: true
 footer: true
 ---
@@ -20,6 +20,6 @@ For example, the built-in `switch` component consists of the following files in 
 
 If you are planning to add support for a new type of device to an existing component, you can get away with only writing platform logic. Have a look at how the component works with other platforms and create a similar file for the platform that you would like to add.
 
-<div class='note'><p class='title'>Note</p><p class='content'>
+<p class='note'>
 Platform logic should not interface directly with the devices but use a third-party Python 3 library that speaks the actual API.
-</p></div>
+</p>

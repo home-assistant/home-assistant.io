@@ -3,7 +3,7 @@ layout: page
 title: "Components"
 date: 2014-12-21 13:35
 sidebar: false
-comments: true
+comments: false
 sharing: true
 footer: true
 ---

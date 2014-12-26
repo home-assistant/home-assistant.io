@@ -3,7 +3,7 @@ layout: page
 title: "Frontend development"
 date: 2014-12-21 13:32
 sidebar: false
-comments: true
+comments: false
 sharing: true
 footer: true
 ---
@@ -21,9 +21,9 @@ development=1
 
 After turning on development mode, you will have to install the webcomponents that the frontend depends on. You can do this by running the `build_frontend` script.
 
-<div class='note warning'><p class='title'>Warning</p><p class='content'>
+<p class='note warning'>
 Do not use development mode in production. Home Assistant uses aggresive caching to improve the mobile experience. This is disabled during development so that you do not have to restart the server in between changes.
-</p></div>
+</p>
 
 # Building the frontend
 

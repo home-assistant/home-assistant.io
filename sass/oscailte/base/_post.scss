@@ -70,7 +70,8 @@ article {
     font-size: 12px;
     padding: 0 0 5px;
     > * {
-      margin-right: 20px;
+      margin-right: 15px;
+      white-space: nowrap;
 
       &:last-child {
         margin-right: 0;
