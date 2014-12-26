@@ -1,11 +1,40 @@
-<div class="sharing">
+<section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
   {% if site.twitter_tweet_button %}
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="{{ site.url }}{{ page.url }}" data-via="{{ site.twitter_user }}" data-counturl="{{ site.url }}{{ page.url }}" >Tweet</a>
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-url="{{ site.url }}{{ page.url }}"
+     data-counturl="{{ site.url }}{{ page.url }}" >Tweet</a>
   {% endif %}
   {% if site.google_plus_one %}
   <div class="g-plusone" data-size="{{ site.google_plus_one_size }}"></div>
   {% endif %}
   {% if site.facebook_like %}
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="{{ site.url }}{{ page.url }}"
+         data-layout="button_count">
+    </div>
   {% endif %}
-</div>
+</section>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '338291289691179',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>

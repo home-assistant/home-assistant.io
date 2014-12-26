@@ -55,7 +55,7 @@ titlecase: true       # Converts page and post titles to titlecase
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+default_asides: [post/sharing.html, asides/recent_posts.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
@@ -78,8 +78,8 @@ twitter_user: balloob
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: false
-google_plus_one_size: medium
+google_plus_one: true
+google_plus_one_size: standard
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
@@ -102,7 +102,7 @@ disqus_show_comment_count: true
 google_analytics_tracking_id: UA-57927901-1
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
 
 social:
   visible: false
