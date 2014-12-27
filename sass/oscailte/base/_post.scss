@@ -77,6 +77,12 @@ article {
         margin-right: 0;
       }
     }
+
+    .comments::before {
+      content: "\f075";
+      font-family: "FontAwesome";
+      padding-right: 3px;
+    }
   }
 
   // Blog listings, index page
