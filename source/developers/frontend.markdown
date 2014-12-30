@@ -36,21 +36,32 @@ npm install -g bower vulcanize
 
 After that you can run [`./build_frontend`](https://github.com/balloob/home-assistant/blob/master/build_frontend) from the project directory. This will take all the used webcomponents and 'vulcanize' it into a single file to be served by Home Assistant. The script also updates [`homeassistant/components/http/frontend.py`](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/frontend.py) with an MD5 hash of the frontend.
 
-# Adding new state cards
+# Adding state cards
 
 The main interface of Home Assistant is a list of current states in the State Machine. It will filter out the group states and offers options to filter by groups on the top.
 
 Currently there are two supported card types:
 
- * Display: shows the state in the card
- * Toggle: allows the user to toggle a device on/off from its state
+ * Display: shows the state on the card
+ * Toggle: allows the user to toggle a device on/off from the card
 
 To add your own card type, follow the following steps:
 
  1. Adjust the cardType property of the State class in [home-assistant-api.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/home-assistant-api.html) to return your new card type when appropriate.
- 2. Create a new component following the naming convention state-card-CARDTYPE.html.
- 3. Import your new component and add a template for it in [states-cards.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/states-cards.html).
+ 2. Create a new component following the naming convention state-card-CARDTYPE.html in [/cards/](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/cards/).
+ 3. Import your new component and add a template for it in [/cards/state-card-content.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/cards/state-card-content.html).
 
+# More info screens for custom types
 
+When you click on a card, the more info dialog will open for that card. This will allow you to see more information and more options to control that entity.
 
+<p class='img' style='max-width: 300px; margin-left: auto; margin-right: auto;'>
+  <img src='/images/screenshots/more-info-dialog-light.png'>
+  The more info dialog for a light allows us to control the color and the brightness.
+</p>
 
+To add your own more info dialog, follow the following steps:
+
+ 1. Adjust the moreInfoType property of the State class in [home-assistant-api.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/home-assistant-api.html) to return your new more info type when appropriate.
+ 2. Create a new component following the naming convention more-info-CARDTYPE.html in [/more-infos/](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/more-infos/).
+ 3. Import your new component and add a template for it in [/more-infos/more-info-content.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/more-infos/more-info-content.html).
