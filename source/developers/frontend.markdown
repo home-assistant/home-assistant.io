@@ -49,7 +49,7 @@ To add your own card type, follow the following steps:
 
  1. Adjust the cardType property of the State class in [home-assistant-api.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/home-assistant-api.html) to return your new card type when appropriate.
  2. Create a new component following the naming convention state-card-CARDTYPE.html in [/cards/](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/cards/).
- 3. Import your new component and add a template for it in [/cards/state-card-content.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/cards/state-card-content.html).
+ 3. Import your new component in [/cards/state-card-content.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/cards/state-card-content.html).
 
 # More info screens for custom types
 
@@ -64,4 +64,4 @@ To add your own more info dialog, follow the following steps:
 
  1. Adjust the moreInfoType property of the State class in [home-assistant-api.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/home-assistant-api.html) to return your new more info type when appropriate.
  2. Create a new component following the naming convention more-info-CARDTYPE.html in [/more-infos/](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/more-infos/).
- 3. Import your new component and add a template for it in [/more-infos/more-info-content.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/more-infos/more-info-content.html).
+ 3. Import your new component in [/more-infos/more-info-content.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/more-infos/more-info-content.html).
