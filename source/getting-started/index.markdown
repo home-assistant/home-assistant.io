@@ -24,7 +24,7 @@ This will start the Home Assistant server and create an initial configuration fi
 If you're using Docker, you can use
 
 ```bash
-docker run -d --name="home-assistant" -v /path/to/homeassistant/config:/config -v /etc/localtime:/etc/localtime:ro -p 8123:8123 balloob/home-assistant
+docker run -d --name="home-assistant" -v /path/to/homeassistant/config:/config -v /etc/localtime:/etc/localtime:ro --net=host balloob/home-assistant
 ```
 
 After you got the demo mode running it is time to customize your configuration and enable some [built-in components]({{site_root}}/components/). See [`/config/home-assistant.conf.example`](https://github.com/balloob/home-assistant/blob/master/config/home-assistant.conf.example) for an example configuration.
