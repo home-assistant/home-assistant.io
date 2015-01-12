@@ -25,6 +25,7 @@ If you are planning to add support for a new type of device to an existing compo
 Platform logic should not interface directly with the devices but use a third-party Python 3 library that speaks the actual API.
 </p>
 
+<a name='discovery'></a>
 ## Allowing your platform to be discovered
 
 Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an `SERVICE_DISCOVERED` event will be fired with the found service and the information. The `discovery` component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the `SERVICE_DISCOVERED` event.
