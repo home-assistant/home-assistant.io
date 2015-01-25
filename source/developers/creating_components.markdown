@@ -10,7 +10,20 @@ footer: true
 ---
 
 Home Assistant offers [built-in components]({{site_root}}/components/) but it
-is easy to built your own.
+is easy to built your own. If you are the kind of person that likes to learn from code rather then guide then head over to the [`config/custom_compnents`](https://github.com/balloob/home-assistant/tree/master/config/custom_components) folder in the repository for two example components.
+
+The first is [hello_world.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/hello_world.py), which is the classic Hello World example for Home Assistant. The second one is [example.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py) which showcases various ways you can tap into Home Assistant to be notified when certain events occur.
+
+If you want to load these components in Home Assistant, add the following lines to your `home-assistant.conf` file:
+
+```
+[hello_world]
+
+[example]
+target=TARGET_ENTITY
+```
+
+`TARGET_ENTITY` should be one of your devices that can be turned on and off, ie a light or a switch. Example value could be `light.Ceiling` or `switch.AC` (if you have these devices with those names).
 
 ## Loading components
 

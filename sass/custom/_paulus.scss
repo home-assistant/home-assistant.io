@@ -58,6 +58,10 @@ article.post, article.page, article.listing {
   li {
     margin-bottom: 10px;
 
+    & > p {
+      margin-bottom: 0;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
