@@ -50,10 +50,6 @@ time_seconds=0
 
 ```
 
-<p class='note warning'>
-Home Assistant checks your time filters every 3 seconds. That means that the value of seconds will only be 0, 3, 6, 9…60. Setting up a filter for `time_seconds=10` will never fire!
-</p>
-
 #### State-based automation
 This allows you to trigger actions based on state changes of any entity within Home Assistant. You can omit the `state_from` and `state_to` to match all.
 

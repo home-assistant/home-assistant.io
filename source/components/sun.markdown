@@ -17,6 +17,8 @@ To set it up, add the following lines to your `home-assistant.conf`:
 [homeassistant]
 latitude=32.87336
 longitude=-117.22743
+
+[sun]
 ```
 
 <p class='img'>
