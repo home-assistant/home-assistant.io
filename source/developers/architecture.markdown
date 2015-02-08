@@ -42,14 +42,14 @@ Home Assistant can be extended by **components**. Each component is responsible 
 We can differentiate between two different types of
 components within Home Assistant.
 
-#### Components that interact with an Internet of Things domain
+#### {% linkable_title Components that interact with an Internet of Things domain %}
 These components will track devices within a specific domain and exist of a core part and platform specific logic. These components make their information available via the State Machine and the Event Bus. The component will also register services in the Service Registry to expose control of the devices.
 
 For example, one of the built-in components is the `switch` component. This component is responsible for interaction with different types of switches.
 
 If you are planning to add support for a new platform, please check out the [add new platform section]({{root_url}}/developers/add_new_platform.html).
 
-#### Components that respond to events that happen within Home Assistant
+#### {% linkable_title Components that respond to events that happen within Home Assistant %}
 These components provide small pieces of home automation logic or services that do common tasks within your house.
 
 For example the `device_sun_light_trigger` component tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and there are people home. The component uses logic along the following lines:
@@ -72,7 +72,7 @@ For example the `device_sun_light_trigger` component tracks the state of devices
 
 Another example of a home automation component can be found in [`/config/custom_components/example.py`](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py).
 
-### The full picture
+### {% linkable_title The full picture %}
 
 When we put all the different pieces of Home Assistant together we see that we match pretty close to the initial sketched home automation overview. The smart home AI is not implemented yet and therefor ommitted from the following picture.
 
@@ -85,7 +85,7 @@ When we put all the different pieces of Home Assistant together we see that we m
 
 Component's platform logic uses 3rd party Python libraries to communicate with the devices. This is done so that we can leverage great device libraries that are out there in the Python community.
 
-## Multiple connected instances
+## {% linkable_title Multiple connected instances %}
 
 Home Assistant supports running multiple synchronzied instances using a master-slave model. Whenever `events.fire` or `states.set` is called on the salve it will forward it to the master. The master will replicate all events and changed states to its slaves.
 

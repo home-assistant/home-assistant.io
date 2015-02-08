@@ -26,17 +26,17 @@ Platform logic should not interface directly with the devices but use a third-pa
 </p>
 
 <a name='discovery'></a>
-## Allowing your platform to be discovered
+## {% linkable_title Allowing your platform to be discovered %}
 
 Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an `SERVICE_DISCOVERED` event will be fired with the found service and the information. The `discovery` component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the `SERVICE_DISCOVERED` event.
 
-### Add discovery instructions
+### {% linkable_title Add discovery instructions %}
 
 Device discovery  for Home Assistant has been extracted into an external library called [NetDisco](https://github.com/balloob/netdisco). This library is integrated using [the `discovery` component](https://github.com/balloob/home-assistant/blob/dev/homeassistant/components/discovery.py) and scans the network in intervals for uPnP and zeroconf/mDNS services.
 
 To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. [See the repository for examples of existing discoverables.](https://github.com/balloob/netdisco/tree/master/netdisco/discoverables)
 
-### Listening to `SERVICE_DISCOVERED` events
+### {% linkable_title Listening to `SERVICE_DISCOVERED` events %}
 
 From your component, you will have to set up the listening for specific services. Below an example how one would listen for discovered Chromecasts:
 
@@ -54,7 +54,7 @@ def setup(hass, config):
         hass, discovery.services.GOOGLE_CAST, chromecast_discovered)
 ```
 
-### Auto-loading your component upon discovery
+### {% linkable_title Auto-loading your component upon discovery %}
 
 The Discovery component is capable of setting up your components before firing the `SERVICE_DISCOVERD` event. To do this you will have to update the [`SERVICE_HANDLERS`](https://github.com/balloob/home-assistant/blob/dev/homeassistant/components/discovery.py#L29) constant in [the `discovery` component](https://github.com/balloob/home-assistant/blob/dev/homeassistant/components/discovery.py).
 

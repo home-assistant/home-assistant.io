@@ -40,7 +40,7 @@ If you're using Docker, you can use
 docker run -d --name="home-assistant" -v /path/to/homeassistant/config:/config -v /etc/localtime:/etc/localtime:ro --net=host balloob/home-assistant
 ```
 
-## Configuring Home Assistant
+## {% linkable_title Configuring Home Assistant %}
 
 The configuration for Home Assistant lives by default in the `config` folder. The file `home-assistant.conf` is the main file that contains which components will be loaded and what their configuration is. An example configuration file is located at [`config/home-assistant.conf.example`](https://github.com/balloob/home-assistant/blob/master/config/home-assistant.conf.example).
 
@@ -65,7 +65,7 @@ api_password=YOUR_PASSWORD
 You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
 </p>
 
-### Adding devices and services
+### {% linkable_title Adding devices and services %}
 
 Home Assistant will be able to automatically discover and configure any Google Chromecasts, Belkin WeMo switches and Philips Hue bridges in your network if you have [the discovery component]({{site_root}}/components/discovery.html) enabled (which is by default).
 
@@ -78,7 +78,7 @@ Not all devices can be discovered, so if you hae any of the following devices or
  * [Sun]({{site_root}}/components/sun.html)
  * [Add support for your own device or service]({{site_root}}/developers/add_new_platform.html)
 
-### Setting up Home Automation
+### {% linkable_title Setting up Home Automation %}
 
 When all your devices are set up it's time to put the cherry on the pie: automation. There are many ways to automate your home with Home Assistant so we have divided it into a couple of topics:
 

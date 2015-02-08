@@ -11,7 +11,7 @@ footer: true
 
 Home Assistant uses [Polymer](https://www.polymer-project.org/) for the frontend. Polymer allows building encapsulated and interoperable custom elements that extend HTML itself.
 
-# Turning on development mode
+# {% linkable_title Turning on development mode %}
 Home Assistant will by default serve the compiled version of the frontend. To change it so that the components are served separately, update your `home-assistant.conf` to have these lines:
 
 ```
@@ -26,7 +26,7 @@ After turning on development mode, you will have to install the webcomponents th
 Do not use development mode in production. Home Assistant uses aggresive caching to improve the mobile experience. This is disabled during development so that you do not have to restart the server in between changes.
 </p>
 
-# Building the frontend
+# {% linkable_title Building the frontend %}
 
 To build the frontend you need to install node and the npm packages bower and vulcanize.
 
@@ -36,7 +36,7 @@ npm install -g bower vulcanize
 
 After that you can run [`./build_frontend`](https://github.com/balloob/home-assistant/blob/master/build_frontend) from the project directory. This will take all the used webcomponents and 'vulcanize' it into a single file to be served by Home Assistant. The script also updates [`homeassistant/components/http/frontend.py`](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/frontend.py) with an MD5 hash of the frontend.
 
-# Adding state cards
+# {% linkable_title Adding state cards %}
 
 The main interface of Home Assistant is a list of current states in the State Machine. It will filter out the group states and offers options to filter by groups on the top.
 
@@ -51,7 +51,7 @@ To add your own card type, follow the following steps:
  2. Create a new component following the naming convention state-card-CARDTYPE.html in [/cards/](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/cards/).
  3. Import your new component in [/cards/state-card-content.html](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/www_static/polymer/cards/state-card-content.html).
 
-# More info screens for custom types
+# {% linkable_title More info screens for custom types %}
 
 When you click on a card, the more info dialog will open for that card. This will allow you to see more information and more options to control that entity.
 

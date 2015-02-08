@@ -2,6 +2,25 @@
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
 
+h1:hover a.title-link,
+h2:hover a.title-link,
+h3:hover a.title-link,
+h4:hover a.title-link,
+h5:hover a.title-link,
+h6:hover a.title-link {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: -50px;
+    padding-right: 40px;
+    font-family: "FontAwesome";
+    content: "\f0c1"
+  }
+}
+
+f0c1
+
 .ha-title {
   white-space: nowrap;
 

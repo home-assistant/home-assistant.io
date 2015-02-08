@@ -31,7 +31,7 @@ Successful calls will return status code 200 or 201. Other status codes that can
 
 The api supports the following actions:
 
-#### GET /api
+#### {% linkable_title GET /api %}
 Returns message if API is up and running.
 
 ```json
@@ -40,7 +40,7 @@ Returns message if API is up and running.
 }
 ```
 
-#### GET /api/events
+#### {% linkable_title GET /api/events %}
 Returns an array of event objects. Each event object contain event name and listener count.
 
 ```json
@@ -56,7 +56,7 @@ Returns an array of event objects. Each event object contain event name and list
 ]
 ```
 
-#### GET /api/services
+#### {% linkable_title GET /api/services %}
 Returns an array of service objects. Each object contains the domain and which services it contains.
 
 ```json
@@ -77,7 +77,7 @@ Returns an array of service objects. Each object contains the domain and which s
 ]
 ```
 
-#### GET /api/states
+#### {% linkable_title GET /api/states %}
 Returns an array of state objects. Each state has the following attributes: entity_id, state, last_changed and attributes.
 
 ```json
@@ -100,7 +100,7 @@ Returns an array of state objects. Each state has the following attributes: enti
 ]
 ```
 
-#### GET /api/states/&lt;entity_id>
+#### {% linkable_title GET /api/states/&lt;entity_id> %}
 Returns a state object for specified entity_id. Returns 404 if not found.
 
 ```json
@@ -115,7 +115,7 @@ Returns a state object for specified entity_id. Returns 404 if not found.
 }
 ```
 
-#### POST /api/states/&lt;entity_id>
+#### {% linkable_title POST /api/states/&lt;entity_id> %}
 Updates or creates the current state of an entity.
 
 Expects a JSON object that has atleast a state attribute:
@@ -142,7 +142,7 @@ Return code is 200 if the entity existed, 201 if the state of a new entity was s
 }
 ```
 
-#### POST /api/events/&lt;event_type>
+#### {% linkable_title POST /api/events/&lt;event_type> %}
 Fires an event with event_type
 
 You can pass an optional JSON object to be used as `event_data`.
@@ -161,7 +161,7 @@ Returns a message if successful.
 }
 ```
 
-#### POST /api/services/&lt;domain>/&lt;service>
+#### {% linkable_title POST /api/services/&lt;domain>/&lt;service> %}
 Calls a service within a specific domain. Will return when the service has been executed or 10 seconds has past, whichever comes first.
 
 You can pass an optional JSON object to be used as `service_data`.
@@ -198,7 +198,7 @@ Returns a list of states that have changed while the service was being executed.
 The result will include any changed states that changed while the service was being executed, even if their change was the result of something else happening in the system. 
 </p>
 
-#### POST /api/event_forwarding
+#### {% linkable_title POST /api/event_forwarding %}
 Setup event forwarding to another Home Assistant instance.
 
 Requires a JSON object that represents the API to forward to.
@@ -219,7 +219,7 @@ It will return a message if event forwarding was setup successful.
 }
 ```
 
-#### DELETE /api/event_forwarding
+#### {% linkable_title DELETE /api/event_forwarding %}
 Cancel event forwarding to another Home Assistant instance.<br>
 
 Requires a JSON object that represents the API to cancel forwarding to.
