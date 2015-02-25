@@ -19,8 +19,6 @@ h6:hover a.title-link {
   }
 }
 
-f0c1
-
 .ha-title {
   white-space: nowrap;
 
@@ -124,3 +122,43 @@ p.note {
   }
 
 }
+
+.install-instructions-container {
+  #normal-install, #raspberry-install, #docker-install, .install-instructions {
+    display: none;
+  }
+
+  label.menu-selector {
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    white-space: nowrap;
+    border-bottom: 5px solid $grayLight;
+    transition: border-bottom-color .5s;
+  }
+
+  label.menu-selector + label.menu-selector {
+    margin-left: 10px;
+  }
+
+  #normal-install:checked ~ .menu-selector.normal,
+  #raspberry-install:checked ~ .menu-selector.raspberry,
+  #docker-install:checked ~ .menu-selector.docker
+   {
+    border-bottom-color: $blue;
+  }
+
+  #normal-install:checked ~ .install-instructions.normal,
+  #raspberry-install:checked ~ .install-instructions.raspberry,
+  #docker-install:checked ~ .install-instructions.docker
+   {
+    display: block;
+  }
+
+  .install-instructions {
+    margin-top: 30px;
+  }
+}
+
+
+
