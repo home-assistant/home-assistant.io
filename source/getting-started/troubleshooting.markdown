@@ -16,3 +16,5 @@ Check if Python 3.4 is installed by running `python3 --version`. If it is not in
 Pip should come bundled with the latest Python 3 but is ommitted by some distributions. If you are unable to run `python3 -m pip --version` you can install pip by [downloading the installer](https://bootstrap.pypa.io/get-pip.py) and run it with Python 3: `python3 get-pip.py`.
 
 Check if Git is installed by running `git --version`. If you are unable to run this command you can install it by following [these instructions](http://git-scm.com/downloads).
+
+When you are on Linux, it can happen that the requirements fail to install. If this is the case you can fix this by installing the Python 3 development package. For Debian/Ubuntu this can be done by running `apt-get install python3-dev`.
