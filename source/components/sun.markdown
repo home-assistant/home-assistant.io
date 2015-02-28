@@ -11,14 +11,14 @@ footer: true
 
 The `sun` component will use your current location to track if the sun is above or below the horizon. This is a common ingredient within Home Automation.
 
-To set it up, add the following lines to your `home-assistant.conf`:
+To set it up, add the following lines to your `configuration.yaml`:
 
 ```
-[homeassistant]
-latitude=32.87336
-longitude=-117.22743
+homeassistant:
+  latitude: 32.87336
+  longitude: -117.22743
 
-[sun]
+sun:
 ```
 
 <p class='img'>

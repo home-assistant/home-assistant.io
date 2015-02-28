@@ -12,12 +12,11 @@ footer: true
 Home Assistant uses [Polymer](https://www.polymer-project.org/) for the frontend. Polymer allows building encapsulated and interoperable custom elements that extend HTML itself.
 
 # {% linkable_title Turning on development mode %}
-Home Assistant will by default serve the compiled version of the frontend. To change it so that the components are served separately, update your `home-assistant.conf` to have these lines:
+Home Assistant will by default serve the compiled version of the frontend. To change it so that the components are served separately, update your `configuration.yaml` to have these lines:
 
 ```
-[http]
-api_password=YOUR_PASSWORD
-development=1
+http:
+  development: 1
 ```
 
 After turning on development mode, you will have to install the webcomponents that the frontend depends on. You can do this by running the `build_frontend` script.

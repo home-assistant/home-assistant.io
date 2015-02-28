@@ -145,23 +145,21 @@ python3 -m homeassistant
 
 ## {% linkable_title Configuring Home Assistant %}
 
-The configuration for Home Assistant lives by default in the `config` folder. The file `home-assistant.conf` is the main file that contains which components will be loaded and what their configuration is. An example configuration file is located at [`config/home-assistant.conf.example`](https://github.com/balloob/home-assistant/blob/master/config/home-assistant.conf.example).
+The configuration for Home Assistant lives by default in the `config` folder. The file `configuration.yaml` is the main file that contains which components will be loaded and what their configuration is. An example configuration file is located at [`config/configuration.yaml.example`](https://github.com/balloob/home-assistant/blob/master/config/configuration.yaml.example).
 
 When launched for the first time, Home Assistant will write a default configuration enabling the web interface and device discovery. It can take up to a minute for your devices to be discovered and show up in the interface.
 
 <p class='note'>
-  You will have to restart Home Assistant for changes in <code>home-assistant.conf</code> to take effect.
+  You will have to restart Home Assistant for changes in <code>configuration.yaml</code> to take effect.
 </p>
 
 ### Password protecting the web interface
 
-The first thing you want to add is a password for the web interface. Use your favourite text editor to open the file `/config/home-assistant.conf`. Look for the line that says `[http]` and add the line `api_password=YOUR_PASSWORD` below. Your configuration should now look like this:
+The first thing you want to add is a password for the web interface. Use your favourite text editor to open the file `/config/configuration.yaml` and add the following to the bottom:
 
 ```
-[http]
-api_password=YOUR_PASSWORD
-
-[discovery]
+http:
+  api_password: YOUR_PASSWORD
 ```
 
 <p class='note'>

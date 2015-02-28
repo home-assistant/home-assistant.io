@@ -13,10 +13,10 @@ footer: true
 Chromecasts have recently received a new API which is not yet supported by Home Assistant. Therefore we currently can only detect them and do not know what they are up to.
 </p> 
 
-Interacts with Chromecasts on your network. Will be automatically discovered if you setup [the discovery component]({{site_root}}/components/discovery.html). Can also be forced to load by adding the following lines to your `home-assistant.conf`:
+Interacts with Chromecasts on your network. Will be automatically discovered if you setup [the discovery component]({{site_root}}/components/discovery.html). Can also be forced to load by adding the following lines to your `configuration.yaml`:
 
 ```
-[chromecast]
+chromecast:
 ```
 
 ## Services

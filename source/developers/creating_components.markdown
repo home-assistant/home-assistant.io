@@ -14,13 +14,13 @@ is easy to built your own. If you are the kind of person that likes to learn fro
 
 The first is [hello_world.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/hello_world.py), which is the classic Hello World example for Home Assistant. The second one is [example.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py) which showcases various ways you can tap into Home Assistant to be notified when certain events occur.
 
-If you want to load these components in Home Assistant, add the following lines to your `home-assistant.conf` file:
+If you want to load these components in Home Assistant, add the following lines to your `configuration.yaml` file:
 
 ```
-[hello_world]
+hello_world:
 
-[example]
-target=TARGET_ENTITY
+example:
+  target: TARGET_ENTITY
 ```
 
 `TARGET_ENTITY` should be one of your devices that can be turned on and off, ie a light or a switch. Example value could be `light.Ceiling` or `switch.AC` (if you have these devices with those names).
@@ -64,8 +64,8 @@ The Home Assistant object contains three objects to help you interact with the s
 If your configuration file containes the following lines:
 
 ```
-[example]
-host=paulusschoutsen.nl
+example:
+  host: paulusschoutsen.nl
 ```
 
 Then in the setup-method of your component you will be able to refer to `config['example']['host']` to get the value `paulusschoutsen.nl`.

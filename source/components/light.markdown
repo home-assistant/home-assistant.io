@@ -20,15 +20,15 @@ It supports the following platforms:
 
 Preferred way to setup the Philips Hue platform is through the [the discovery component]({{site_root}}/components/discovery.html). For the Wink light platform enable [the wink component]({{site_root}}/components/wink.html).
 
-If you really feel like enabling the light component directly, add the following lines to your `home-assistant.conf`:
+If you want to enable the light component directly, add the following lines to your `configuration.yaml`:
 
 ```
-[light]
-platform=hue
+light:
+  platform: hue
 ```
 
 <p class='note'>
-The light component supports multiple entries in <code>home-assistant.conf</code> by appending a sequential number to the section: <code>[light 2]</code>, <code>[light 3]</code> etc.
+The light component supports multiple entries in <code>configuration.yaml</code> by appending a sequential number to the section: <code>light 2:</code>, <code>light 3:</code> etc.
 </p>
 
 ### Service `light.turn_on`

@@ -11,10 +11,10 @@ footer: true
 
 Shows the values of that sensors that is connected to your Tellstick.
 
-To enable it, add the following lines to your `home-assistant.conf`:
+To enable it, add the following lines to your `configuration.yaml`:
 
 ```
-[tellstick_sensor]
+tellstick_sensor:
 ```
 
 <p class='note warning'>

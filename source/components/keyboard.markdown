@@ -18,8 +18,8 @@ The `keyboard` component simulates key presses on the host machine. It currently
  * `keyboard/media_next_track`
  * `keyboard/media_prev_track`
 
-To load this component, add the following lines to your `home-assistant.conf`:
+To load this component, add the following lines to your `configuration.yaml`:
 
 ```
-[keyboard]
+keyboard:
 ```

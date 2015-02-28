@@ -17,10 +17,10 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
 
 It will be able to add Google Chreomcasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
-To load this component, add the following lines to your `home-assistant.conf`:
+To load this component, add the following lines to your `configuration.yaml`:
 
 ```
-[discovery]
+discovery:
 ```
 
 If you are developing a new platform, please read [how to make your platform discoverable]({{site_root}}/developers/add_new_platform.html#discovery).

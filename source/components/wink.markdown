@@ -20,11 +20,11 @@ To get started with the Wink API, you will first need to get yourself an API acc
 <iframe src="https://winkbearertoken.appspot.com"
         style='width: 100%; height: 200px; border: 0; margin: 0 auto 15px; border-left: 2px solid #049cdb; padding-left: 15px;'></iframe>
 
-After you have gotten your access token, add the following to your `home-assitant.conf`:
+After you have gotten your access token, add the following to your `configuration.yaml`:
 
 ```
-[wink]
-access_token=YOUR_ACCESS_TOKEN
+wink:
+  access_token: YOUR_ACCESS_TOKEN
 ```
 
 This will connect to the Wink hub and automatically set up any lights, switches and sensors that it finds.

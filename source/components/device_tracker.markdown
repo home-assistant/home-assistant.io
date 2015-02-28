@@ -9,14 +9,14 @@ sharing: true
 footer: true
 ---
 
-Home Assistant can get information from your wireless router to track which devices are connected. There are three different types of supported wireless routers: tomato, netgear and luci (OpenWRT). To get started add the following lines to your `home-assistant.conf` (example for Netgear):
+Home Assistant can get information from your wireless router to track which devices are connected. There are three different types of supported wireless routers: tomato, netgear and luci (OpenWRT). To get started add the following lines to your `configuration.yaml` (example for Netgear):
 
 ```
-[device_tracker]
-platform=netgear
-host=192.168.1.1
-username=admin
-password=MY_PASSWORD
+device_tracker:
+  platform: netgear
+  host: 192.168.1.1
+  username: admin
+  password: MY_PASSWORD
 ```
 
 <p class='note' data-title='on Tomato'>
@@ -32,7 +32,7 @@ Once tracking, the `device_tracker` component will maintain a file in your confi
 As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using nmap. The IP addresses to scan can be specified in any format that nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 
 ```
-[device_tracker]
-platform=nmap_tracker
-hosts=192.168.1.1/24
+device_tracker:
+  platform: nmap_tracker
+  hosts: 192.168.1.1/24
 ```

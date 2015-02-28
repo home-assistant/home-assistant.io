@@ -17,16 +17,16 @@ Home Assistant has a built-in component called `device_sun_light_trigger` to hel
 
 This component requires the components [sun]({{site_root/components/sun.html}}), [device_tracker]({{site_root}}/components/device_tracker.html) and [light]({{site_root}}/components/light.html) to be enabled.
 
-To enable this component, add the following lines to your `home-assistant.conf`:
+To enable this component, add the following lines to your `configuration.yaml`:
 
 ```
-[device_sun_light_trigger]
-# Specify a specific light/group of lights that has to be turned on
-light_group=group.living_room
-# Specify which light profile to use when turning lights on
-light_profile=relax
-# Disable lights being turned off when everybody leaves the house
-disable_turn_off=1
+device_sun_light_trigger:
+  # Specify a specific light/group of lights that has to be turned on
+  light_group: group.living_room
+  # Specify which light profile to use when turning lights on
+  light_profile: relax
+  # Disable lights being turned off when everybody leaves the house
+  disable_turn_off: 1
 ```
 
 The options `light_group`, `light_profile` and `disable_turn_off` are optional.

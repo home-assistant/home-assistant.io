@@ -16,7 +16,7 @@ Home Assistent runs a webserver accessible on port 8123.
 
 In the package [`homeassistant.remote`](https://github.com/balloob/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the HTTP API can be found.
 
-The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (as specified in your `home-assistant.conf`).
+The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml`).
 
 <p class='note'>
 You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.

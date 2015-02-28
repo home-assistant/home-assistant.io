@@ -11,10 +11,10 @@ footer: true
 
 The browser component provides a service to open urls in the default browser on the host machine.
 
-To load this component, add the following lines to your `home-assistant.conf`:
+To load this component, add the following lines to your `configuration.yaml`:
 
 ```
-[browser]
+browser:
 ```
 
 #### Service `browser/browse_url`

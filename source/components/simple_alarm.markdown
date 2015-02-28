@@ -13,12 +13,12 @@ The component `simple_alarm` is capable of detecting intruders. It does so by ch
 
 This component depends on the compoments [device_tracker]({{site_root}}/components/device_tracker.html) and [light]({{site_root}}/components/light.html) being setup.
 
-To set it up, add the following lines to your `home-assistant.conf`:
+To set it up, add the following lines to your `configuration.yaml`:
 
 ```
-[simple_alarm]
-# Which light/light group has to flash when a known device comes home
-known_light=light.Bowl
-# Which light/light group has to flash red when light turns on while no one home
-unknown_light=group.living_room
+simple_alarm:
+  # Which light/light group has to flash when a known device comes home
+  known_light: light.Bowl
+  # Which light/light group has to flash red when light turns on while no one home
+  unknown_light: group.living_room
 ```

@@ -11,11 +11,11 @@ footer: true
 
 The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist.
 
-To enable it, add the following lines to your `home-assistant.conf`:
+To enable it, add the following lines to your `configuration.yaml`:
 
 ```
-[downloader]
-download_dir=downloads
+downloader:
+  download_dir: downloads
 ```
 
 #### Service `downloader/download_file`
