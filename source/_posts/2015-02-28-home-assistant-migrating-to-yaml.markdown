@@ -6,6 +6,7 @@ date: 2015-03-01 20:38:00 +0100
 date_formatted: March 1, 2015
 author: "Theodor Lindquist"
 comments: true
+categories: core
 ---
 
 Home Assistant is now using [YAML](http://yaml.org/) for it's configuration file. 
