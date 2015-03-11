@@ -162,10 +162,6 @@ http:
   api_password: YOUR_PASSWORD
 ```
 
-<p class='note'>
-You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
-</p>
-
 ### {% linkable_title Adding devices and services %}
 
 Home Assistant will be able to automatically discover and configure any Google Chromecasts, Belkin WeMo switches and Philips Hue bridges in your network if you have [the discovery component]({{site_root}}/components/discovery.html) enabled (which is by default).
@@ -187,3 +183,7 @@ When all your devices are set up it's time to put the cherry on the pie: automat
  * [Intruder alerts]({{site_root}}/components/simple_alarm.html) (built-in component)
  * [Setup your own automation rules]({{site_root}}/components/automation.html) (using configuration file)
  * [Create your own automation component]({{site_root}}/developers/creating_components.html) (writing Python code)
+
+### {% linkable_title Setting up your phone or tablet %}
+
+Home Assistant runs as a self hosted web application. Home Assistant contains support to be added to your homescreen. If you're on Android you can follow [the visual guide]({{site_root}}/getting-started/android.html). For other devices, open Home Assistant on your mobile browser and click on the add to homescreen option.
