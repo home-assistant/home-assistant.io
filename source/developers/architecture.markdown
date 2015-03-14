@@ -100,13 +100,17 @@ A slave instance can be started with the following code and has the same support
 
 ```python
 import homeassistant.remote as remote
-import homeassistant.components.http as http
+import homeassistant.bootstrap as bootstrap
 
-remote_api = remote.API("remote_host_or_ip", "remote_api_password")
+# Location of the Master API: host, password, port.
+# Password and port are optional.
+remote_api = remote.API("127.0.0.1", "password", 8124)
 
+# Initialize slave
 hass = remote.HomeAssistant(remote_api)
 
-http.setup(hass, "my_local_api_password")
+# To add an interface to the slave on localhost:8123
+bootstrap.setup_component(hass, 'frontend')
 
 hass.start()
 hass.block_till_stopped()
