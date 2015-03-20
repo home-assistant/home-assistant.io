@@ -166,7 +166,7 @@ http:
 
 Home Assistant will be able to automatically discover and configure any Google Chromecasts, Belkin WeMo switches and Philips Hue bridges in your network if you have [the discovery component]({{site_root}}/components/discovery.html) enabled (which is by default).
 
-Not all devices can be discovered, so if you hae any of the following devices or services, please see their respective pages for installation instructions:
+Not all devices can be discovered, so if you have any of the following devices or services, please see their respective pages for installation instructions:
 
  * [Nest thermostat]({{site_root}}/components/thermostat.html)
  * [Wink hub]({{site_root}}/components/wink.html)

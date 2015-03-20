@@ -39,4 +39,4 @@ sun:
 | State Attributes | Description |
 | --------- | ----------- |
 | `next_rising` | Date and time of the next sun rising
-| `nest_setting` | Date and time of the next sun setting
+| `next_setting` | Date and time of the next sun setting
