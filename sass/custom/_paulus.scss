@@ -1,5 +1,20 @@
 @charset "UTF-8";
 
+.usp .icon i {
+  border: none !important;
+}
+
+.supported-brands {
+  text-align: center;
+  img {
+    border: none !important;
+    box-shadow: none !important;
+    max-height: 50px;
+    max-width: 200px;
+    margin: 10px;
+  }
+}
+
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
 
 h1:hover a.title-link,
