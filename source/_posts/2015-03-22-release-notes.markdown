@@ -47,6 +47,7 @@ scene:
         brightness: 200
 ```
 
+<a name='sabnzbd'></a>
 __SABnzbd__<br>
 <img src='/images/supported_brands/sabnzbd.png' style='border:none; box-shadow: none; float: right;' height='50' />
 James Cole has contributed support to integrate SABnzbd. This will allow you to monitor your downloads from within Home Assistant and setup automation based on the information.
@@ -68,6 +69,7 @@ sensor:
         - type: 'disk_free'
 ```
 
+<a name='pushover'></a>
 __PushOver__<br>
 <img src='/images/supported_brands/pushover.png' style='border:none; box-shadow: none; float: right;' height='50' />
 James Cole has also contributed support for <a href='https://pushover.net/'>the PushOver service</a> as a platform for the notify component. This allows components to send messages to the user using PushOver.
