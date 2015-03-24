@@ -17,6 +17,29 @@ When launched for the first time, Home Assistant will write a default configurat
   You will have to restart Home Assistant for changes in <code>configuration.yaml</code> to take effect.
 </p>
 
+### Setting up the basic info
+
+By default Home Assistant will try to detect your location and will automatically select a temperature unit and time zone based on your location. You can overwrite this by adding the following information to your `configuration.yaml`:
+
+```yaml
+homeassistant:
+  # Omitted values in this section will be auto detected using freegeoip.net
+
+  # Location required to calculate the time the sun rises and sets
+  latitude: 32.87336
+  longitude: 117.22743
+
+  # C for Celcius, F for Fahrenheit
+  temperature_unit: C
+
+  # Pick yours from here:
+  # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Los_Angeles
+
+  # Name of the location where Home Assistant is running
+  name: Home
+```
+
 ### Password protecting the web interface
 
 The first thing you want to add is a password for the web interface. Use your favourite text editor to open the file `/config/configuration.yaml` and add the following to the bottom:
