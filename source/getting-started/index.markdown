@@ -59,6 +59,10 @@ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/lo
 <p class='note'>
 When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href='http://en.wikipedia.org/wiki/List_of_tz_database_time_zones'>your timezone</a>)
 </p>
+
+<p class='note warning'>
+Home Assistant currently does not fare well if server and client are in different time zones.
+</p>
 </div>
 
 <div class='install-instructions raspberry'>
@@ -139,6 +143,9 @@ python3 -m homeassistant
   If you want to update to the latest version in the future, run: <code>scripts/update</code>.
 </p>
 
+<p class='note warning'>
+Home Assistant currently does not fare well if server and client are in different time zones.
+</p>
 </div>
 
 </div>
