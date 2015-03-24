@@ -9,16 +9,7 @@ sharing: true
 footer: true
 ---
 
-Interacts with media players on your network. Currently only supports Chromecasts. These will be automatically discovered if you setup [the discovery component]({{site_root}}/components/discovery.html). Can also be forced to load by adding the following lines to your `configuration.yaml`:
-
-```
-media_player:
-  platform: chromecast
-```
-
-<p class='note warning'>
-Chromecasts have recently received a new API which is not yet supported by Home Assistant. Therefore we currently can only detect them and do not know what they are up to.
-</p> 
+Interacts with media players on your network. Currently only supports [Chromecasts](/components/media_player.cast.html).
 
 ## Services
 

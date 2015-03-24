@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-.usp .icon i {
-  border: none !important;
-}
-
 .supported-brands {
   text-align: center;
   img {
@@ -12,6 +8,18 @@
     max-height: 50px;
     max-width: 200px;
     margin: 10px;
+  }
+}
+
+.brand {
+  border: none !important;
+  box-shadow: none !important;
+  max-height: 50px;
+  max-width: 200px;
+  margin: 10px;
+
+  &.overview {
+    max-width: 100px;
   }
 }
 
@@ -43,10 +51,16 @@ h6:hover a.title-link {
   }
 }
 
-.usp ul {
-  text-align: left;
-  margin-left: 27px;
-  margin-top: -18px;
+.usp {
+  ul {
+    text-align: left;
+    margin-left: 27px;
+    margin-top: -18px;
+  }
+
+  .icon i {
+  border: none !important;
+  }
 }
 
 .hero-buttons a {

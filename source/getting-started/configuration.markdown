@@ -41,6 +41,8 @@ Not all devices can be discovered, so if you have any of the following devices o
  * [Device tracking]({{site_root}}/components/device_tracker.html)
  * [Add support for your own device or service]({{site_root}}/developers/add_new_platform.html)
 
+See the [components overview page](/components/) for a complete list of supported devices.
+
 ### {% linkable_title Setting up Home Automation %}
 
 When all your devices are set up it's time to put the cherry on the pie: automation. There are many ways to automate your home with Home Assistant so we have divided it into a couple of topics:

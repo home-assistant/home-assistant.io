@@ -1,0 +1,24 @@
+---
+layout: page
+title: "Scheduler"
+description: "Instructions how to setup the scheduler within Home Assistant."
+date: 2015-03-23 19:59
+sidebar: false
+comments: false
+sharing: true
+footer: true
+---
+
+A component that will act as a scheduler and performe actions based
+on the events in the schedule.
+
+It will read a json object from `schedule.json` in the config dir and create a schedule based on it.
+
+Each schedule is a JSON with the keys `id`, `name`, `description`, `entity_ids`, `events`.
+
+- days is an array with the weekday number (monday=0) that the schdule
+    is active
+- entity_ids an array with entity ids that the events in the schedule should
+    effect (can also be groups)
+- events is an array of objects that describe the different events that is
+    supported. Read in the events descriptions for more information
