@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistent runs a webserver accessible on port 8123.
+Home Assistant runs a web server accessible on port 8123.
 
   * http://127.0.0.1:8123/ is an interface to control Home Assistant.
   * http://localhost:8123/api/ is a Rest API.
