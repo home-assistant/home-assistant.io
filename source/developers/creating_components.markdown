@@ -10,7 +10,7 @@ footer: true
 ---
 
 Home Assistant offers [built-in components]({{site_root}}/components/) but it
-is easy to built your own. If you are the kind of person that likes to learn from code rather then guide then head over to the [`config/custom_compnents`](https://github.com/balloob/home-assistant/tree/master/config/custom_components) folder in the repository for two example components.
+is easy to built your own. If you are the kind of person that likes to learn from code rather then guide then head over to the [`config/custom_components`](https://github.com/balloob/home-assistant/tree/master/config/custom_components) folder in the repository for two example components.
 
 The first is [hello_world.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/hello_world.py), which is the classic Hello World example for Home Assistant. The second one is [example.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py) which showcases various ways you can tap into Home Assistant to be notified when certain events occur.
 
@@ -61,7 +61,7 @@ The Home Assistant object contains three objects to help you interact with the s
 | <code>hass.services</code> | This is the ServiceRegistry. It allows you to register services.<br>[See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L589). |
 
 ### {% linkable_title Example on using the configuration parameter %}
-If your configuration file containes the following lines:
+If your configuration file contains the following lines:
 
 ```
 example:

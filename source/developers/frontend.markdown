@@ -19,10 +19,10 @@ http:
   development: 1
 ```
 
-After turning on development mode, you will have to install the webcomponents that the frontend depends on. You can do this by running the `build_frontend` script.
+After turning on development mode, you will have to install the web components that the frontend depends on. You can do this by running the `build_frontend` script.
 
 <p class='note warning'>
-Do not use development mode in production. Home Assistant uses aggresive caching to improve the mobile experience. This is disabled during development so that you do not have to restart the server in between changes.
+Do not use development mode in production. Home Assistant uses aggressive caching to improve the mobile experience. This is disabled during development so that you do not have to restart the server in between changes.
 </p>
 
 # {% linkable_title Building the frontend %}
@@ -33,7 +33,7 @@ To build the frontend you need to install node and the npm packages bower and vu
 npm install -g bower vulcanize
 ```
 
-After that you can run [`./build_frontend`](https://github.com/balloob/home-assistant/blob/master/build_frontend) from the project directory. This will take all the used webcomponents and 'vulcanize' it into a single file to be served by Home Assistant. The script also updates [`homeassistant/components/http/frontend.py`](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/frontend.py) with an MD5 hash of the frontend.
+After that you can run [`./build_frontend`](https://github.com/balloob/home-assistant/blob/master/build_frontend) from the project directory. This will take all the used web components and 'vulcanize' it into a single file to be served by Home Assistant. The script also updates [`homeassistant/components/http/frontend.py`](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/http/frontend.py) with an MD5 hash of the frontend.
 
 # {% linkable_title Adding state cards %}
 

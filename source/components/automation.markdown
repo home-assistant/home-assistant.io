@@ -18,7 +18,7 @@ automation:
   # Optional alias that the logs will use to refer to the entry
   alias: Sunset notification
 
-  # Type of trigger and informatino for the trigger
+  # Type of trigger and information for the trigger
   platform: state
   state_entity_id: sun.sun
   state_from: above_horizon

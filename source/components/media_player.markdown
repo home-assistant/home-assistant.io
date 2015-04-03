@@ -25,7 +25,7 @@ Available services: `turn_off`, `volume_up`, `volume_down`, `media_play_pause`, 
 There are three services to start playing YouTube video's on the media player.
 
 #### Service `media_player/play_youtube_video`
-Service to start playing a YouTube vide on the media player. 
+Service to start playing a YouTube video on the media player. 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
