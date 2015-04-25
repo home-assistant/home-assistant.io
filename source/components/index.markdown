@@ -83,6 +83,12 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td><a href='/components/sensor.transmission.html'><img src='/images/supported_brands/transmission.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.transmission.html'>Transmission</a></td>
+  <td>Monitor status and download speeds.</td>
+</tr>
+
+<tr>
   <td><a href='/components/media_player.cast.html'><img src='/images/supported_brands/google_cast.png' class='brand overview' /></a></td>
   <td><a href='/components/media_player.cast.html'>Google Cast devices</a></td>
   <td>Track what is being played and control playback. (temporarely disabled awaiting protobuf 3 release)</td>
@@ -104,6 +110,7 @@ Home Assistant integrates with a variety of third party Home Automation hubs and
 [<img src='/images/supported_brands/telldus_tellstick.png' class='brand' />](/components/tellstick.html)
 [<img src='/images/supported_brands/vera.png' class='brand' />](/components/vera.html)
 [<img src='/images/supported_brands/wink.png' class='brand' />](/components/wink.html)
+[<img src='/images/supported_brands/modbus.png' class='brand' />](/components/modbus.html)
 
 
 ## {% linkable_title Services %}
@@ -125,6 +132,12 @@ Home Assistant integrates with a variety of third party Home Automation hubs and
 <td></td>
 <td><a href='/components/discovery.html'>Discovery</a></td>
 <td>Scans the network for supported devices.</td>
+</tr>
+
+<tr>
+<td></td>
+<td><a href='/components/logbook.html'>Logbook</a></td>
+<td>Provides a logbook-style view on the Entity history.</td>
 </tr>
 
 <tr>

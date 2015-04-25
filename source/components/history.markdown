@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "History support"
-description: "Instructions how enable historyt support for Home Assistant."
+description: "Instructions how to enable history support for Home Assistant."
 date: 2015-03-23 19:59
 sidebar: false
 comments: false
