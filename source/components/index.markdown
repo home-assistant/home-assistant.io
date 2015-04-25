@@ -88,7 +88,18 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td>Track what is being played and control playback. (temporarely disabled awaiting protobuf 3 release)</td>
 </tr>
 
+<tr>
+  <td><a href='/components/isy994.html'><img src='/images/supported_brands/universal_devices.png' class='brand overview' /></a></td>
+  <td><a href='/components/isy994.html'>Insteon and X10 Devices</a></td>
+  <td>ISY994 controller for Insteon and X10 devices as well as create custom switches and sensors.</td>
+</tr>
+
 </table>
+
+<p class='note'>
+Support for these devices is provided by the Home Assistant community and not
+the manufacturers of these devices.
+</p>
 
 ## {% linkable_title Organization %}
 | Type | Description
@@ -105,6 +116,10 @@ Home Assistant integrates with a variety of third party Home Automation hubs and
 [<img src='/images/supported_brands/vera.png' class='brand' />](/components/vera.html)
 [<img src='/images/supported_brands/wink.png' class='brand' />](/components/wink.html)
 
+<p class='note'>
+Support for these devices is provided by the Home Assistant community and not
+the manufacturers of these devices.
+</p>
 
 ## {% linkable_title Services %}
 

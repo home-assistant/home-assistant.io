@@ -55,16 +55,41 @@ Home Assistant will be able to automatically discover and configure any Google C
 
 Not all devices can be discovered, so if you have any of the following devices or services, please see their respective pages for installation instructions:
 
+ * [Device tracking]({{site_root}}/components/device_tracker.html)
+ * [ISY994 controller]({{site_root}}/components/isy994.html)
  * [Nest thermostat]({{site_root}}/components/thermostat.html)
- * [Wink hub]({{site_root}}/components/wink.html)
- * [TellStick](/components/tellstick.html)
  * [PushBullet]({{site_root}}/components/notify.html)
  * [PushOver](/blog/2015/03/22/release-notes/#pushover)
  * [SABnzbd](/blog/2015/03/22/release-notes/#sabnzbd)
- * [Device tracking]({{site_root}}/components/device_tracker.html)
+ * [TellStick](/components/tellstick.html)
+ * [Wink hub]({{site_root}}/components/wink.html)
  * [Add support for your own device or service]({{site_root}}/developers/add_new_platform.html)
 
 See the [components overview page](/components/) for a complete list of supported devices.
+
+### {% linkable_title Hiding devices and services %}
+
+By default, most of your devices will be visible on the Home Assistant Sates
+page. You may find it desireable to hide some of these devices from the default
+view. Some components may also hide some entities by default. You also have the
+ability to show these previously hidden entities.
+
+Most enties on the homepage may be hidden or shown in the configuration file by
+adding the following lines to the homeassistant section:
+
+```yaml
+homeassistant:
+
+    # Add this to your existing configuration
+
+    visibility:
+        entity_id: hide
+        entity_id: show
+```
+
+Replace entity_id with the ID for the entity that you would like to either show
+or hide. Entity IDs can be retrieved from the web interface by using the Set
+State page in the Developer Tools.
 
 ### {% linkable_title Setting up Home Automation %}
 
