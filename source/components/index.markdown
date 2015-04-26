@@ -89,9 +89,15 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td><a href='/components/isy994.html'><img src='/images/supported_brands/universal_devices.png' class='brand overview' /></a></td>
-  <td><a href='/components/isy994.html'>Insteon and X10 Devices</a></td>
-  <td>ISY994 controller for Insteon and X10 devices as well as create custom switches and sensors.</td>
+  <td><a href='/components/isy994.html'><img src='/images/supported_brands/insteon.png' class='brand overview' /></a></td>
+  <td><a href='/components/isy994.html'>Insteon Devices</a></td>
+  <td>Insteon devices can be controlled with the ISY994 controller.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/isy994.html'><img src='/images/supported_brands/x10.gif' class='brand overview' /></a></td>
+  <td><a href='/components/isy994.html'>X10 Devices</a></td>
+  <td>X10 devices can be controlled with the ISY994 controller.</td>
 </tr>
 
 </table>
@@ -115,6 +121,7 @@ Home Assistant integrates with a variety of third party Home Automation hubs and
 [<img src='/images/supported_brands/telldus_tellstick.png' class='brand' />](/components/tellstick.html)
 [<img src='/images/supported_brands/vera.png' class='brand' />](/components/vera.html)
 [<img src='/images/supported_brands/wink.png' class='brand' />](/components/wink.html)
+[<img src='/images/supported_brands/universal_devices.png' class='brand' />](/components/isy994.html)
 
 <p class='note'>
 Support for these devices is provided by the Home Assistant community and not
@@ -172,6 +179,11 @@ the manufacturers of these devices.
 <td>Simulate key presses on the host machine</td>
 </tr>
 </table>
+
+<p class='note'>
+Support for these services is provided by the Home Assistant community and not
+the service providers.
+</p>
 
 ## {% linkable_title Automation %}
 

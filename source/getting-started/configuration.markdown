@@ -67,29 +67,31 @@ Not all devices can be discovered, so if you have any of the following devices o
 
 See the [components overview page](/components/) for a complete list of supported devices.
 
-### {% linkable_title Hiding devices and services %}
+### {% linkable_title Customizing devices and services %}
 
-By default, most of your devices will be visible on the Home Assistant Sates
-page. You may find it desireable to hide some of these devices from the default
-view. Some components may also hide some entities by default. You also have the
-ability to show these previously hidden entities.
+By default, most of your devices will be visible on the Home Assistant States
+page and have a default icon determined by their domain. You may find it 
+desireable to customize the look and feel of your front page by altering some
+of these parameters.
 
-Most enties on the homepage may be hidden or shown in the configuration file by
-adding the following lines to the homeassistant section:
+By adding the following parameters to the *homeassistant* section of your
+*configuration.yaml* file, you can customize the attributes of any state on
+your front page.
 
 ```yaml
 homeassistant:
 
     # Add this to your existing configuration
 
-    visibility:
-        entity_id: hide
-        entity_id: show
+    customize:
+        SOME_ENTITY_ID:
+            hidden: true
+            entity_picture: http://URL.TO/PICTURE
+            friendly_name: SOME CUSTOM NAME
 ```
 
-Replace entity_id with the ID for the entity that you would like to either show
-or hide. Entity IDs can be retrieved from the web interface by using the Set
-State page in the Developer Tools.
+Entity IDs can be retrieved from the web interface by using the Set State page 
+in the Developer Tools.
 
 ### {% linkable_title Setting up Home Automation %}
 

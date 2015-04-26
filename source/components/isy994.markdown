@@ -43,9 +43,9 @@ The ISY_USERNAME and ISY_PASSWORD are the configured username and password used
 to access the ISY interface.
 
 The SENSOR_STRING is a string that is used to identify which devices are to be
-treated as sensors instead of lights of switches. By default, this string is
+assumed to be sensors instead of lights of switches. By default, this string is
 'Sensor'. If this string is found in the device name, Home Assistant will
-assume treat is as a sensor.
+assume it is as a sensor.
 
 The HIDDEN_STRING is a string that is used to identify which devices are to be
 hidden on Home Assistant's front page. This string will be stripped from the

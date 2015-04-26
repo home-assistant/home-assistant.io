@@ -65,14 +65,13 @@ This option is currently limited to built-in components.
 ### {% linkable_title Creating Entities %}
 
 Home Assistant will call a function with the following signature to initialize
-your new component. This function must exist in the component module you
-create.
+your new platform. This function must exist in the platform module you create.
 
 ```python
 def setup_platform(hass, config, add_devices, discovery_info=None)
 ```
 
-In this function, your component should create the appropriate entities and
+In this function, your platform should create the appropriate entities and
 register them with the Home Assistant core. Entities are Home Assistant's
 representation of lights, switches, sensors, etc. It is best practice for all
 new entities to inherit the
