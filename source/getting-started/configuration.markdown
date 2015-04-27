@@ -55,16 +55,43 @@ Home Assistant will be able to automatically discover and configure any Google C
 
 Not all devices can be discovered, so if you have any of the following devices or services, please see their respective pages for installation instructions:
 
+ * [Device tracking]({{site_root}}/components/device_tracker.html)
+ * [ISY994 controller]({{site_root}}/components/isy994.html)
  * [Nest thermostat]({{site_root}}/components/thermostat.html)
- * [Wink hub]({{site_root}}/components/wink.html)
- * [TellStick](/components/tellstick.html)
  * [PushBullet]({{site_root}}/components/notify.html)
  * [PushOver](/blog/2015/03/22/release-notes/#pushover)
  * [SABnzbd](/blog/2015/03/22/release-notes/#sabnzbd)
- * [Device tracking]({{site_root}}/components/device_tracker.html)
+ * [TellStick](/components/tellstick.html)
+ * [Wink hub]({{site_root}}/components/wink.html)
  * [Add support for your own device or service]({{site_root}}/developers/add_new_platform.html)
 
 See the [components overview page](/components/) for a complete list of supported devices.
+
+### {% linkable_title Customizing devices and services %}
+
+By default, most of your devices will be visible on the Home Assistant States
+page and have a default icon determined by their domain. You may find it 
+desireable to customize the look and feel of your front page by altering some
+of these parameters.
+
+By adding the following parameters to the *homeassistant* section of your
+*configuration.yaml* file, you can customize the attributes of any state on
+your front page.
+
+```yaml
+homeassistant:
+
+    # Add this to your existing configuration
+
+    customize:
+        SOME_ENTITY_ID:
+            hidden: true
+            entity_picture: http://URL.TO/PICTURE
+            friendly_name: SOME CUSTOM NAME
+```
+
+Entity IDs can be retrieved from the web interface by using the Set State page 
+in the Developer Tools.
 
 ### {% linkable_title Setting up Home Automation %}
 
