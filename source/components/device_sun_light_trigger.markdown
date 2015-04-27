@@ -21,10 +21,14 @@ To enable this component, add the following lines to your `configuration.yaml`:
 
 ```
 device_sun_light_trigger:
+  # Each of these 4 options are optional.
+
   # Specify a specific light/group of lights that has to be turned on
   light_group: group.living_room
   # Specify which light profile to use when turning lights on
   light_profile: relax
+  # Specify which group of devices to track
+  device_group: group.my_devices
   # Disable lights being turned off when everybody leaves the house
   disable_turn_off: 1
 ```
