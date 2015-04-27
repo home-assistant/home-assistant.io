@@ -123,8 +123,10 @@ Expects a JSON object that has atleast a state attribute:
 ```json
 {
     "state": "below_horizon",
-    "next_rising": "07:04:15 29-10-2013",
-    "next_setting": "18:00:31 29-10-2013"
+    "attributes": {
+        "next_rising": "07:04:15 29-10-2013",
+        "next_setting": "18:00:31 29-10-2013"
+    }
 }
 ```
 
