@@ -193,7 +193,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-<td></td>
+<td><img src='/images/supported_brands/openweathermap.png' class='brand' /></td>
 <td><a href='/components/openweathermap.html'>OpenWeatherMap</a></td>
 <td>Display current meteorological data from your location</td>
 </tr>
