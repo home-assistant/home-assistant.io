@@ -191,6 +191,12 @@ the manufacturers of these devices.
 <td><a href='/components/keyboard.html'>Keyboard</a></td>
 <td>Simulate key presses on the host machine</td>
 </tr>
+
+<tr>
+<td></td>
+<td><a href='/components/openweathermap.html'>OpenWeatherMap</a></td>
+<td>Display current meteorological data from your location</td>
+</tr>
 </table>
 
 <p class='note'>
