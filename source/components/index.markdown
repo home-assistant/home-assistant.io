@@ -163,6 +163,12 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
+<td><img src='/images/supported_brands/nma.png' class='brand' /></td>
+<td><a href='/components/notify.nma.html'>Notify My Android (NMA)</a></td>
+<td>Allow sending messages using Notify My Android (NMA)</td>
+</tr>
+
+<tr>
 <td><img src='/images/supported_brands/pushbullet.png' class='brand' /></td>
 <td><a href='/components/notify.pushbullet.html'>PushBullet</a></td>
 <td>Allow sending messages using PushBullet</td>
