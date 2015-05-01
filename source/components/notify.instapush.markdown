@@ -37,6 +37,6 @@ curl -X POST \
       -d '{"event":"notification","trackers":{"home-assistant":"Switch 1"}}' \
     https://api.instapush.im/v1/post
 ```
-For further details, please check the [API](https://instapush.im/developer/rest)
+For further details, please check the [API](https://instapush.im/developer/rest).
 
 To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation.html).
