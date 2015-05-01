@@ -16,7 +16,7 @@ The openweathermap platform uses [OpenWeatherMap](http://openweathermap.org/) as
 # Example configuration.yaml entry
 sensor:
   platform: openweathermap
-  api_key: YOUR_APP_KEY
+  api_key: YOUR_API_KEY
   monitored_variables:
     - type: 'weather'
     - type: 'temperature'
