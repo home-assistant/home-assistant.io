@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Notifications"
+title: "Notify My Android (NMA) notification support"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-05-01 18:00
 sidebar: false
