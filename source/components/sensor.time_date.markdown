@@ -18,10 +18,11 @@ sensor:
   monitored_variables:
     - type: 'time'
     - type: 'date'
-    - type: 'datetime'
+    - type: 'date_time'
+    - type: 'time_date'
 ```
 
-The type *datetime* shows the date and the time. The other two types just the time or the date. 
+The types *date_time* and *time_date* shows the date and the time. The other two types just the time or the date. 
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/time_date.png' />
