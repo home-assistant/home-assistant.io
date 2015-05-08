@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/transmission.png' class='brand pull-right' />
-James Cole has contributed support to integrate Transmission. This will allow you to monitor your downloads from within Home Assistant and setup automation based on the information.
+James Cole has contributed support to integrate [Transmission](http://www.transmissionbt.com/). This will allow you to monitor your downloads from within Home Assistant and setup automation based on the information.
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,3 +26,5 @@ sensor:
     - type: 'download_speed'
     - type: 'upload_speed'
 ```
+
+
