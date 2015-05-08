@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/transmission.png' class='brand pull-right' />
-[Transmission](http://www.transmissionbt.com/) allows you to monitor your downloads from within Home Assistant and setup automation based on the information.
+The [Transmission](http://www.transmissionbt.com/) platform allows you to monitor your downloads from within Home Assistant and setup automation based on the information.
 
 ```yaml
 # Example configuration.yaml entry
