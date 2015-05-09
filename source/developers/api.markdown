@@ -18,10 +18,26 @@ In the package [`homeassistant.remote`](https://github.com/balloob/home-assistan
 
 The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml`).
 
+There are several ways to consume the Home Assistant API. One is with `curl`:
+
 ```bash
 curl -X GET \
     -H "x-ha-access: YOUR_PASSWORD" \
     http://localhost:8123/api
+```
+
+Another option is to use Python and the [Requests](http://docs.python-requests.org/en/latest/) module. 
+
+```python
+from requests import get
+
+url = 'http://localhost:8123/api/'
+headers = {'x-ha-access': 'YOUR_PASSWORD',
+           'content-type': 'application/json'}
+
+response = get(url, headers=headers)
+
+print(response.text)
 ```
 
 <p class='note'>
@@ -251,3 +267,4 @@ It will return a message if event forwarding was cancelled successful.
 <p class='note'>
 If your client does not support <code>DELETE</code> HTTP requests you can add an optional attribute <code>_METHOD</code> and set its value to <code>DELETE</code>.
 </p>
+
