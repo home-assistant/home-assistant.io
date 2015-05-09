@@ -18,6 +18,12 @@ In the package [`homeassistant.remote`](https://github.com/balloob/home-assistan
 
 The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml`).
 
+```bash
+curl -X GET \
+    -H "x-ha-access: YOUR_PASSWORD" \
+    http://localhost:8123/api
+```
+
 <p class='note'>
 You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
 </p>
