@@ -218,7 +218,7 @@ the manufacturers of these devices.
 
 <tr>
 <td></td>
-<td><a href='/components/time_date.html'>Time & Date</a></td>
+<td><a href='/components/sensor.time_date.html'>Time & Date</a></td>
 <td>Displays the time and the date.</td>
 </tr>
 </table>
