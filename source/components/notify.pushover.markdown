@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/pushover.png' class='brand pull-right' />
-James Cole has contributed support for <a href='https://pushover.net/'>the PushOver service</a> as a platform for the notify component. This allows components to send messages to the user using PushOver.
+James Cole has contributed support for the [PushOver service](https://pushover.net/) as a platform for the notify component. This allows components to send messages to the user using PushOver.
 
 ```yaml
 # Example configuration.yaml entry
