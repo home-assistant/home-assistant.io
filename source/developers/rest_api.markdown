@@ -14,11 +14,9 @@ Home Assistant runs a web server accessible on port 8123.
   * http://127.0.0.1:8123/ is an interface to control Home Assistant.
   * http://localhost:8123/api/ is a Rest API.
 
-In the package [`homeassistant.remote`](https://github.com/balloob/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the HTTP API can be found.
+The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml` file).
 
-The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml`).
-
-There are several ways to consume the Home Assistant API. One is with `curl`:
+There are multiple ways to consume the Home Assistant Rest API. One is with `curl`:
 
 ```bash
 curl -X GET \
@@ -36,7 +34,6 @@ headers = {'x-ha-access': 'YOUR_PASSWORD',
            'content-type': 'application/json'}
 
 response = get(url, headers=headers)
-
 print(response.text)
 ```
 
@@ -51,7 +48,9 @@ Successful calls will return status code 200 or 201. Other status codes that can
  - 404 (Not Found)
  - 405 (Method not allowed)
 
-The api supports the following actions:
+### {% linkable_title Actions %}
+
+The API supports the following actions:
 
 #### {% linkable_title GET /api %}
 Returns message if API is up and running.
