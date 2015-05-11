@@ -58,13 +58,13 @@ For example the `device_sun_light_trigger` component tracks the state of devices
       If the sun has set and the lights are not on:
         Turn on the lights
 
-<!-- comment to seperate markdown blockquotes -->
+<!-- comment to separate markdown blockquotes -->
 
     In the event that the combined state of all tracked devices changes to 'Not Home':
       If the lights are on:
         Turn off the lights
 
-<!-- comment to seperate markdown blockquotes -->
+<!-- comment to separate markdown blockquotes -->
 
     In the event of the sun setting:
       If the lights are off and the combined state of all tracked device equals 'Home':
@@ -74,7 +74,7 @@ Another example of a home automation component can be found in [`/config/custom_
 
 ### {% linkable_title The full picture %}
 
-When we put all the different pieces of Home Assistant together we see that we match pretty close to the initial sketched home automation overview. The smart home AI is not implemented yet and therefor ommitted from the following picture.
+When we put all the different pieces of Home Assistant together we see that we match pretty close to the initial sketched home automation overview. The smart home AI is not implemented yet and therefor omitted from the following picture.
 
 <p class='img'>
   <a href='{{ root_url }}/images/architecture/ha_full_architecture.png'>
