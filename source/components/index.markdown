@@ -187,6 +187,12 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
+<td><img src='/images/supported_brands/xmpp.png' class='brand' /></td>
+<td><a href='/components/notify.xmpp.html'>Jabber (XMPP)</a></td>
+<td>Allow sending messages using Jabber (XMPP)</td>
+</tr>
+
+<tr>
 <td></td>
 <td><a href='/components/browser.html'>Browser</a></td>
 <td>Open URLs on the host machine</td>
