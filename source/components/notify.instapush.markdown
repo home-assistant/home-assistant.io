@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Instapush otification support"
+title: "Instapush notification support"
 description: "Instructions how to add Instapush notifications to Home Assistant."
 date: 2015-05-01 18:00
 sidebar: false
