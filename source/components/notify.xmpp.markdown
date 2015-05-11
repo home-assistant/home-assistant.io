@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/xmpp.png' class='brand pull-right' />
-The xmpp platform allows you to deliver notifications from Home Assistant to a Jabber (XMPP) account.
+The xmpp platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](http://xmpp.org) account.
 
 ```yaml
 # Example configuration.yaml entry
