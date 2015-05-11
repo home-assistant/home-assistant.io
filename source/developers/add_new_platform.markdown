@@ -80,9 +80,9 @@ This abstract class contains logic for integrating most standard features into
 your entities, such as visibility, entity IDs, updates, and many more. That is
 why it is best practice to reference the existing class.
 
-A list of entities can be registered with Home Assitant using the *add_devices*
+A list of entities can be registered with Home Assistant using the *add_devices*
 function that is provided as an input to *setup_platform*. Once entities are
 registered with with Home Assistant their updates will be provided to the core
-and the core will have control over them. For more information on how Entites
+and the core will have control over them. For more information on how Entities
 can be customized, take a look at the [Entity Abstract
 Class](https://github.com/balloob/home-assistant/blob/master/homeassistant/helpers/entity.py#L18).
