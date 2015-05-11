@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/netgear.png' class='brand' />
-
+This platform allows you to detect presence by looking at connected devices to a [Netgear](http://www.netgear.com/) device.
 
 ```yaml
 # Example configuration.yaml entry
