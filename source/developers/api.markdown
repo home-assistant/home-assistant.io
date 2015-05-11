@@ -118,7 +118,7 @@ Returns a state object for specified entity_id. Returns 404 if not found.
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
 Updates or creates the current state of an entity.
 
-Expects a JSON object that has atleast a state attribute:
+Expects a JSON object that has at least a state attribute:
 
 ```json
 {
