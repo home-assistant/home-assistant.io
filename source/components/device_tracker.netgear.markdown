@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/netgear.png' class='brand' />
+<img src='/images/supported_brands/netgear.png' class='brand pull-right' />
 This platform allows you to detect presence by looking at connected devices to a [Netgear](http://www.netgear.com/) device.
 
 ```yaml

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/ddwrt.png' class='brand' />
+<img src='/images/supported_brands/ddwrt.png' class='brand pull-right' />
 This platform offers presence detection by looking at connected devices to a [DD-WRT](http://www.dd-wrt.com/site/index) based router.
 
 ```yaml

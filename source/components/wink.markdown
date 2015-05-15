@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/wink.png' class='brand pull-right' />
 Wink is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:
 
 <blockquote>Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.</blockquote>

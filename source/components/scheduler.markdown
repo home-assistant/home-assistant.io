@@ -22,3 +22,32 @@ Each schedule is a JSON with the keys `id`, `name`, `description`, `entity_ids`,
     effect (can also be groups)
 - events is an array of objects that describe the different events that is
     supported. Read in the events descriptions for more information
+
+Example `schedule.json`
+
+```json
+[
+    {
+        "id": "window_lamps",
+        "name": "Window lamps",
+        "description": "Turn on window lamps on sunset and turn off at 22:30",
+        "days": [0, 1, 2, 3, 4],
+        "entity_ids": [
+            "group.window_lamps"
+        ],
+        "events": [
+            {
+                "type": "time",
+                "service": "switch.turn_off",
+                "time": "22:30:00"
+            },
+            {
+                "type": "sun",
+                "service": "switch.turn_on",
+                "event": "sunset",
+                "offset": "-00:45:00"
+            }
+        ]
+    }
+]
+```

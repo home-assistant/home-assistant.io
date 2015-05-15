@@ -24,7 +24,7 @@ Installing and running Home Assistant on your local machine is easy. Make sure y
 ```bash
 git clone --recursive https://github.com/balloob/home-assistant.git
 cd home-assistant
-python3 -m pip install -r requirements.txt
+python3 -m pip install --user -r requirements.txt
 python3 -m homeassistant --open-ui
 ```
 </p>
