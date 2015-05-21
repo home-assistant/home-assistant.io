@@ -225,7 +225,13 @@ the manufacturers of these devices.
 <tr>
 <td><img src='/images/supported_brands/openweathermap.png' class='brand' /></td>
 <td><a href='/components/sensor.openweathermap.html'>OpenWeatherMap</a></td>
-<td>Display current meteorological data from your location</td>
+<td>Display current meteorological data from your location.</td>
+</tr>
+
+<tr>
+<td><img src='/images/supported_brands/bitcoin.png' class='brand' /></td>
+<td><a href='/components/sensor.bitcoin.html'>Bitcoin</a></td>
+<td>Display details about the Bitcoin Network and your Blockchain.info online wallet.</td>
 </tr>
 
 <tr>
