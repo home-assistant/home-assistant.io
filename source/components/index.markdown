@@ -31,7 +31,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td><a href='/components/sensor.sabnzbd.html'><img src='/images/supported_brands/sabnzbd.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.sabnzbd.html'>SABnzbd clients</a></td>
-  <td>Monitor queue and download speeds</td>
+  <td>Monitor queue and download speeds.</td>
 </tr>
 
 <tr>
@@ -103,7 +103,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td><a href='/components/media_player.cast.html'><img src='/images/supported_brands/google_cast.png' class='brand overview' /></a></td>
   <td><a href='/components/media_player.cast.html'>Google Cast devices</a></td>
-  <td>Track what is being played and control playback. (temporarely disabled awaiting protobuf 3 release)</td>
+  <td>Track what is being played and control playback. (temporarely disabled awaiting protobuf 3 release).</td>
 </tr>
 
 <tr>
@@ -177,37 +177,37 @@ the manufacturers of these devices.
 <tr>
 <td><img src='/images/supported_brands/nma.png' class='brand' /></td>
 <td><a href='/components/notify.nma.html'>Notify My Android (NMA)</a></td>
-<td>Allow sending messages using Notify My Android (NMA)</td>
+<td>Allow sending messages using Notify My Android (NMA).</td>
 </tr>
 
 <tr>
 <td><img src='/images/supported_brands/instapush.png' class='brand' /></td>
 <td><a href='/components/notify.instapush.html'>Instapush</a></td>
-<td>Allow sending messages using Instapush</td>
+<td>Allow sending messages using Instapush.</td>
 </tr>
 
 <tr>
 <td><img src='/images/supported_brands/pushbullet.png' class='brand' /></td>
 <td><a href='/components/notify.pushbullet.html'>PushBullet</a></td>
-<td>Allow sending messages using PushBullet</td>
+<td>Allow sending messages using PushBullet.</td>
 </tr>
 
 <tr>
 <td><img src='/images/supported_brands/pushover.png' class='brand' /></td>
 <td><a href='/components/notify.pushover.html'>PushOver</a></td>
-<td>Allow sending messages using PushOver</td>
+<td>Allow sending messages using PushOver.</td>
 </tr>
 
 <tr>
 <td><img src='/images/supported_brands/xmpp.png' class='brand' /></td>
 <td><a href='/components/notify.xmpp.html'>Jabber (XMPP)</a></td>
-<td>Allow sending messages using Jabber (XMPP)</td>
+<td>Allow sending messages using Jabber (XMPP).</td>
 </tr>
 
 <tr>
 <td></td>
 <td><a href='/components/browser.html'>Browser</a></td>
-<td>Open URLs on the host machine</td>
+<td>Open URLs on the host machine.</td>
 </tr>
 
 <tr>
@@ -219,19 +219,22 @@ the manufacturers of these devices.
 <tr>
 <td></td>
 <td><a href='/components/keyboard.html'>Keyboard</a></td>
-<td>Simulate key presses on the host machine</td>
+<td>Simulate key presses on the host machine.</td>
 </tr>
 
 <tr>
 <td><img src='/images/supported_brands/openweathermap.png' class='brand' /></td>
 <td><a href='/components/sensor.openweathermap.html'>OpenWeatherMap</a></td>
 <td>Display current meteorological data from your location.</td>
+<<<<<<< HEAD
 </tr>
 
 <tr>
 <td><img src='/images/supported_brands/bitcoin.png' class='brand' /></td>
 <td><a href='/components/sensor.bitcoin.html'>Bitcoin</a></td>
 <td>Display details about the Bitcoin Network and your Blockchain.info online wallet.</td>
+=======
+>>>>>>> f9261e70a652b2bcd1f852f2cdc93ad21184e594
 </tr>
 
 <tr>
