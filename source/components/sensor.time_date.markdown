@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The time and date platform simple displays the time, the date, or both.
+The time and date platform simple displays the time in various formats, the date, or both.
 
 ```yaml
 # Example configuration.yaml entry
@@ -20,9 +20,11 @@ sensor:
     - type: 'date'
     - type: 'date_time'
     - type: 'time_date'
+    - type: 'time_utc'
+    - type: 'beat'
 ```
 
-The types *date_time* and *time_date* shows the date and the time. The other two types just the time or the date. 
+The types *date_time* and *time_date* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](http://www.swatch.com/en_us/internet-time).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/time_date.png' />
