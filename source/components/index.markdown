@@ -226,7 +226,6 @@ the manufacturers of these devices.
 <td><img src='/images/supported_brands/openweathermap.png' class='brand' /></td>
 <td><a href='/components/sensor.openweathermap.html'>OpenWeatherMap</a></td>
 <td>Display current meteorological data from your location.</td>
-<<<<<<< HEAD
 </tr>
 
 <tr>
