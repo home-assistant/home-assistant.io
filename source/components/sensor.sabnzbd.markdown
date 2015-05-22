@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/sabnzbd.png' class='brand pull-right' />
-James Cole has contributed support to integrate SABnzbd. This will allow you to monitor your downloads from within Home Assistant and setup automation based on the information.
+James Cole has contributed support to integrate [SABnzbd](http://sabnzbd.org). This will allow you to monitor your downloads from within Home Assistant and setup automation based on the information.
 
 ```yaml
 # Example configuration.yaml entry
