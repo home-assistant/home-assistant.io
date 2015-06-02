@@ -9,7 +9,9 @@ sharing: true
 footer: true
 ---
 
-Theodor has contributed a new sensor platform to allow you to monitor disk usage, memory usage, CPU usage and running processes. This platform has superseded the process component which is now considered deprecated.
+The system monitoring sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
+
+To add this platform to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -22,3 +24,5 @@ sensor:
       - type: process
         arg: kodi
 ```
+
+[Theodor Lindquist](https://github.com/theolind) has contributed the System monitoring platform.
