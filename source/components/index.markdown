@@ -96,8 +96,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td><a href='/components/sensor.transmission.html'><img src='/images/supported_brands/transmission.png' class='brand overview' /></a></td>
-  <td><a href='/components/sensor.transmission.html'>Transmission</a></td>
-  <td>Monitor status and download speeds.</td>
+  <td>
+    <a href='/components/sensor.transmission.html'>Transmission sensor</a></br>
+    <a href='/components/switch.transmission.html'>Transmission switch</a>
+  </td>
+  <td>Monitor status and download speeds. Change the speed limits.</td>
 </tr>
 
 <tr>
