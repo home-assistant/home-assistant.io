@@ -10,7 +10,9 @@ footer: true
 ---
 
 <img src='/images/supported_brands/pushover.png' class='brand pull-right' />
-James Cole has contributed support for the [PushOver service](https://pushover.net/) as a platform for the notify component. This allows components to send messages to the user using PushOver.
+The [PushOver service](https://pushover.net/) is a platform for the notify component. This allows components to send messages to the user using PushOver.
+
+To use PushOver notifications, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -41,3 +43,5 @@ automation:
 ```
 
 For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation.html).
+
+[James Cole](https://github.com/jamespcole) has contributed the PushOver platform.
