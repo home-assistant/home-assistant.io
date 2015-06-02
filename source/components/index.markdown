@@ -245,6 +245,12 @@ the manufacturers of these devices.
 
 <tr>
 <td></td>
+<td><a href='/components/sensor.swiss_public_transport.html'>Swiss Public Transport</a></td>
+<td>Display timetable data for traveling in Switzerland.</td>
+</tr>
+
+<tr>
+<td></td>
 <td><a href='/components/sensor.time_date.html'>Time & Date</a></td>
 <td>Displays the time and the date.</td>
 </tr>
