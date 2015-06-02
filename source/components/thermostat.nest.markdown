@@ -9,6 +9,9 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/nest_thermostat.png' class='brand pull-right' />
+The nest thermostat platform let you control a thermostat from [Nest](https://nest.com).
+
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```
