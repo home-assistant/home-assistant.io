@@ -103,7 +103,13 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td><a href='/components/media_player.cast.html'><img src='/images/supported_brands/google_cast.png' class='brand overview' /></a></td>
   <td><a href='/components/media_player.cast.html'>Google Cast devices</a></td>
-  <td>Track what is being played and control playback. (temporarely disabled awaiting protobuf 3 release).</td>
+  <td>Track what is being played and control playback (temporarely disabled awaiting protobuf 3 release).</td>
+</tr>
+
+<tr>
+  <td><a href='/components/media_player.mpd.html'><img src='/images/supported_brands/mpd.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.mpd.html'>Music Player Daemon (MPD)</a></td>
+  <td>Track what is being played and control playback.</td>
 </tr>
 
 <tr>
