@@ -9,7 +9,12 @@ sharing: true
 footer: true
 ---
 
-Interacts with media players on your network. Currently only supports [Chromecasts](/components/media_player.cast.html).
+Interacts with media players on your network.
+
+Currently supported devices:
+
+- [Chromecasts](/components/media_player.cast.html)
+- [Music Player Daemon](/components/media_player.mpd.html)
 
 ## Services
 
