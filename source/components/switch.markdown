@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Lights"
-description: "Instructions how to setup your lights with Home Assistant."
+title: "Switches"
+description: "Instructions how to setup your switches with Home Assistant."
 date: 2015-01-24 14:39
 sidebar: false
 comments: false
