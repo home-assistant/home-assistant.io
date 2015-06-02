@@ -11,7 +11,7 @@ footer: true
 
 <img src='/images/supported_brands/z-wave.png' class='brand pull-right' />
 
-Z-Wave support for Home Assistant is very new. We have started now by integrating only the sensors.
+[Z-Wave](http://www.z-wave.com/) support for Home Assistant is very new. We have started now by integrating only the sensors.
 
 Support for Z-Wave can be added by plugging a Z-Wave USB stick into your computer.
 
