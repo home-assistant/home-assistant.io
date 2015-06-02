@@ -10,7 +10,9 @@ footer: true
 ---
 
 <img src='/images/supported_brands/sabnzbd.png' class='brand pull-right' />
-James Cole has contributed support to integrate [SABnzbd](http://sabnzbd.org). This will allow you to monitor your downloads from within Home Assistant and setup automation based on the information.
+The sabnzbd platform will allow you to monitor your downloads with [SABnzbd](http://sabnzbd.org) from within Home Assistant and setup automation based on the information.
+
+To use sabnzbd with your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,3 +31,4 @@ sensor:
         - type: 'disk_free'
 ```
 
+[James Cole](https://github.com/jamespcole) has contributed the sabnzbd platform.
