@@ -209,7 +209,7 @@ the manufacturers of these devices.
 
 <tr>
 <td><img src='/images/supported_brands/smtp.png' class='brand' /></td>
-<td><a href='/components/notify.xmpp.html'>E-Mail</a></td>
+<td><a href='/components/notify.smtp.html'>E-Mail</a></td>
 <td>Allow sending e-mail messages.</td>
 </tr>
 
