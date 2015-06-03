@@ -208,6 +208,12 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
+<td><img src='/images/supported_brands/smtp.png' class='brand' /></td>
+<td><a href='/components/notify.xmpp.html'>E-Mail</a></td>
+<td>Allow sending e-mail messages.</td>
+</tr>
+
+<tr>
 <td><img src='/images/supported_brands/xmpp.png' class='brand' /></td>
 <td><a href='/components/notify.xmpp.html'>Jabber (XMPP)</a></td>
 <td>Allow sending messages using Jabber (XMPP).</td>
