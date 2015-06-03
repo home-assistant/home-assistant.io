@@ -15,7 +15,7 @@ The time and date platform simple displays the time in various formats, the date
 # Example configuration.yaml entry
 sensor:
   platform: time_date
-  monitored_variables:
+  display_options:
     - type: 'time'
     - type: 'date'
     - type: 'date_time'
