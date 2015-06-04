@@ -60,7 +60,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td><a href='/components/sensor.mysensors.html'><img src='/images/supported_brands/mysensors.png' class='brand overview' /></a></td>
-  <td><a href='/components/sensor.mysensors.html'>MySensors switches</a></td>
+  <td><a href='/components/sensor.mysensors.html'>MySensors</a></td>
   <td>Integrate MySensors sensors.</td>
 </tr>
 
