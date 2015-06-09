@@ -22,8 +22,10 @@ notify:
   priority: SYSLOG_PRIORITY
 ```
 
+The table contains values to use in your `configuration.yaml` file.
+
 | facility  | option  | priority  |
-| --------- |:-------:| ---------:|
+| :-------- |:--------| :---------|
 | kernel    | pid     | 5         |
 | user      | cons    | 4         |
 | mail      | ndelay  | 3         |
