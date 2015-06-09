@@ -214,6 +214,12 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
+<td></td>
+<td><a href='/components/notify.syslog.html'>Syslog</a></td>
+<td>Allow sending messages to a local syslog.</td>
+</tr>
+
+<tr>
 <td><img src='/images/supported_brands/xmpp.png' class='brand' /></td>
 <td><a href='/components/notify.xmpp.html'>Jabber (XMPP)</a></td>
 <td>Allow sending messages using Jabber (XMPP).</td>
