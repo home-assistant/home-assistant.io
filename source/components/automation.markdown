@@ -21,8 +21,8 @@ automation:
   # Type of trigger and information for the trigger
   platform: state
   state_entity_id: sun.sun
-  state_from: above_horizon
-  state_to: below_horizon
+  state_from: 'above_horizon'
+  state_to: 'below_horizon'
 
   # Action to be done when trigger activated
   execute_service: notify.notify
@@ -53,24 +53,28 @@ Here are some example values:
 This allows you to trigger actions based on state changes of any entity within Home Assistant. You can omit the `state_from` and `state_to` to match all.
 
 ```
-# Match when the sun sets
+  # Match when the sun sets
   platform: state
   state_entity_id: sun.sun
-  state_from: above_horizon
-  state_to: below_horizon
+  state_from: 'above_horizon'
+  state_to: 'below_horizon'
 
   # Match when a person comes home
   platform: state
   state_entity_id: device_tracker.Paulus_OnePlus_One
-  state_from: not_home
-  state_to: home
+  state_from: 'not_home'
+  state_to: 'home'
 
   # Match when a light turns on
   platform: state
   state_entity_id: light.Ceiling
-  state_from: off
-  state_to: on
+  state_from: 'off'
+  state_to: 'on'
 ```
+
+<p class='note'>
+  Use quotes around your values for <code>state_from</code> and <code>state_to</code> to avoid the YAML parser interpreting some values as booleans.
+</p>
 
 ## Setting up the action
 
@@ -100,8 +104,8 @@ automation:
 
   platform: state
   state_entity_id: sun.sun
-  state_from: above_horizon
-  state_to: below_horizon
+  state_from: 'above_horizon'
+  state_to: 'below_horizon'
 
   execute_service: notify.notify
   service_data: {"message":"The sun has set"}
@@ -121,8 +125,8 @@ automation 3:
 
   platform: state
   state_entity_id: device_tracker.Paulus_OnePlus
-  state_from: not_home
-  state_to: home
+  state_from: 'not_home'
+  state_to: 'home'
 
   execute_service: homeassistant.turn_on
   service_entity_id: group.Study_Room
