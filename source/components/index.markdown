@@ -116,6 +116,24 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td></td>
+  <td><a href='/components/switch.command_switch.html'>Command line Switch</a></td>
+  <td>Switch that issues command line commands when turned on and off.</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td><a href='/components/light.limitlessled.html'>LimitlessLED</a></td>
+  <td>Control your LimitlessLED lights.</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td><a href='/components/switch.hikvision.html'>Hikvision</a></td>
+  <td>Control the motion detection setting on your Hikvision camera.</td>
+</tr>
+
+<tr>
   <td><a href='/components/isy994.html'><img src='/images/supported_brands/insteon.png' class='brand overview' /></a></td>
   <td><a href='/components/isy994.html'>Insteon Devices</a></td>
   <td>Insteon devices can be controlled with the ISY994 controller.</td>

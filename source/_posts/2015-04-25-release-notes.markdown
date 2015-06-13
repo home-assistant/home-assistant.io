@@ -38,6 +38,8 @@ I (Paulus) have added a logbook component. The logbook component provides a diff
 logbook:
 ```
 
+<!--more-->
+
 __Transmission support__<br>
 <img src='/images/supported_brands/transmission.png' style='border:none; box-shadow: none; float: right;' height='50' />
 James has also contributed support for integrating Transmission into Home Assistant.

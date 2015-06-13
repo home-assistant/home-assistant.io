@@ -18,6 +18,8 @@ I would like to give a big shout out to our newest contributor [fabaff](https://
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/balloob/home-assistant/issues'>GitHub</a>.
 </p>
 
+<!--more-->
+
 __Overwriting Entity Attributes__<br>
 Before diving into the newly supported devices and services, I want to highlight an awesome configuration enhancement by [rmkraus](https://github.com/rmkraus): overwriting entity attributes.
 

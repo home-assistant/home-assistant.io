@@ -32,6 +32,8 @@ script:
           entity_id: group.living_room
 ```
 
+<!--more-->
+
 __Scene__<br>
 I (Paulus) have contributed a scene component. A user can create scenes that capture the states you want certain entities to be. For example a scene can contain that light A should be turned on and light B should be bright red. Deactivating a scene will restore the previous state from before the scene was activated. Just like scripts, scenes have their own separate page to see which scenes are on.
 
