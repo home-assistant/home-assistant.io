@@ -184,7 +184,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/conversation.html'><img src='/images/supported_brands/system-users.png' class='brand overview' /></a></td>
   <td><a href='/components/conversation.html'>Conversation</a></td>
   <td>Process textual commands like ones received by speech-to-text engines.</td>
 </tr>
