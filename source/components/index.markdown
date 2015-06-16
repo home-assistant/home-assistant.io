@@ -256,7 +256,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-<td></td>
+<td><a href='/components/keyboard.html'><img src='/images/supported_brands/keyboard.png' class='brand overview' /></a></td>
 <td><a href='/components/keyboard.html'>Keyboard</a></td>
 <td>Simulate key presses on the host machine.</td>
 </tr>
