@@ -128,7 +128,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/switch.hikvision.html'><img src='/images/supported_brands/hikvision.png' class='brand overview' /></a></td>
   <td><a href='/components/switch.hikvision.html'>Hikvision</a></td>
   <td>Control the motion detection setting on your Hikvision camera.</td>
 </tr>
