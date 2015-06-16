@@ -9,7 +9,10 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/clock.png' class='brand pull-right' />
 The time and date platform simple displays the time in various formats, the date, or both.
+
+To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
