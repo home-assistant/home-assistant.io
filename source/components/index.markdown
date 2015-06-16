@@ -250,7 +250,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-<td></td>
+<td><a href='/components/downloader.html'><img src='/images/supported_brands/download.png' class='brand overview' /></a></td>
 <td><a href='/components/downloader.html'>Downloader</a></td>
 <td>Allows downloading URLs to the host machine.</td>
 </tr>
