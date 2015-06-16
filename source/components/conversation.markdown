@@ -9,7 +9,10 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/system-users.png' class='brand pull-right' />
 The conversation component can process sentences into commands for Home Assistant. It is currently limited to parsing commands in the format `turn <Friendly Name> <on/off>`.
+
+To enable the conversion option in your installation, add the following to your `configuration.yaml` file:
 
 ```
 conversation:
