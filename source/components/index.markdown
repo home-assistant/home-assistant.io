@@ -178,7 +178,7 @@ the manufacturers of these devices.
 
 <table>
 <tr>
-  <td></td>
+  <td><a href='/components/hostory.html'><img src='/images/supported_brands/history.png' class='brand overview' /></a></td>
   <td><a href='/components/history.html'>History</a></td>
   <td>Track the state of entities and allow users to browse through history.</td>
 </tr>
