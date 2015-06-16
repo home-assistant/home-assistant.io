@@ -92,7 +92,7 @@ eval "$(pyenv virtualenv-init -)"
 
 ```bash
 sudo apt-get install python3-dev
-sudo apt-get install libsqlite3-dev libreadline-dev
+sudo apt-get install libsqlite3-dev libreadline-dev libbz2-dev
 ```
 
 <p>Log out and then back in so your bashrc is reloaded.</p>
