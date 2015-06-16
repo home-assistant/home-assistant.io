@@ -15,6 +15,7 @@ The mpd platform allows you to control a [Music Player Daemon](http://www.musicp
 To add MPD to your installation, add the following to your `configuration.yaml` file:
 
 ```
+# Example configuration.yaml entry
 media_player:
   platform: mpd
   server: 127.0.0.1
