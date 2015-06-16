@@ -202,25 +202,25 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td><img src='/images/supported_brands/nma.png' class='brand' /></td>
+  <td><a href='/components/notify.nma.html'><img src='/images/supported_brands/nma.png' class='brand overview' /></a></td>
   <td><a href='/components/notify.nma.html'>Notify My Android (NMA)</a></td>
   <td>Allow sending messages using Notify My Android (NMA).</td>
 </tr>
 
 <tr>
-  <td><img src='/images/supported_brands/instapush.png' class='brand' /></td>
+  <td><a href='/components/notify.instapush.html'><img src='/images/supported_brands/instapush.png' class='brand overview' /></a></td>
   <td><a href='/components/notify.instapush.html'>Instapush</a></td>
   <td>Allow sending messages using Instapush.</td>
 </tr>
 
 <tr>
-  <td><img src='/images/supported_brands/pushbullet.png' class='brand' /></td>
+  <td><a href='/components/notify.pushbullet.html'><img src='/images/supported_brands/pushbullet.png' class='brand overview' /></a></td>
   <td><a href='/components/notify.pushbullet.html'>PushBullet</a></td>
   <td>Allow sending messages using PushBullet.</td>
 </tr>
 
 <tr>
-  <td><img src='/images/supported_brands/pushover.png' class='brand' /></td>
+  <td><a href='/components/notify.pushover.html'><img src='/images/supported_brands/pushover.png' class='brand overview' /></a></td>
   <td><a href='/components/notify.pushover.html'>PushOver</a></td>
   <td>Allow sending messages using PushOver.</td>
 </tr>
@@ -238,7 +238,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td><img src='/images/supported_brands/xmpp.png' class='brand' /></td>
+  <td><a href='/components/notify.xmpp.html'><img src='/images/supported_brands/xmpp.png' class='brand overview' /></a></td>
   <td><a href='/components/notify.xmpp.html'>Jabber (XMPP)</a></td>
   <td>Allow sending messages using Jabber (XMPP).</td>
 </tr>
@@ -262,13 +262,13 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td><img src='/images/supported_brands/openweathermap.png' class='brand' /></td>
+  <td><a href='/components/sensor.openweathermap.html'><img src='/images/supported_brands/openweathermap.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.openweathermap.html'>OpenWeatherMap</a></td>
   <td>Display current meteorological data from your location.</td>
 </tr>
 
 <tr>
-  <td><img src='/images/supported_brands/bitcoin.png' class='brand' /></td>
+  <td><a href='/components/sensor.bitcoin.html'><img src='/images/supported_brands/bitcoin.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.bitcoin.html'>Bitcoin</a></td>
   <td>Display details about the Bitcoin Network and your Blockchain.info online wallet.</td>
 </tr>
