@@ -280,7 +280,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/sensor.time_date.html'><img src='/images/supported_brands/clock.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.time_date.html'>Time & Date</a></td>
   <td>Displays the time and the date.</td>
 </tr>
