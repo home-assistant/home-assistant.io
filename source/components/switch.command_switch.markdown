@@ -9,7 +9,10 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/commandline.png' class='brand pull-right' />
 A switch platform that issues specific commands when it is turned on and off. This might very well become our most platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
+
+To enable it, add the following lines to your `configuration.yaml`:
 
 ```
 # Example configuration.yaml entry
