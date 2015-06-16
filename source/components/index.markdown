@@ -178,111 +178,111 @@ the manufacturers of these devices.
 
 <table>
 <tr>
-<td></td>
-<td><a href='/components/history.html'>History</a></td>
-<td>Track the state of entities and allow users to browse through history.</td>
+  <td></td>
+  <td><a href='/components/history.html'>History</a></td>
+  <td>Track the state of entities and allow users to browse through history.</td>
 </tr>
 
 <tr>
-<td></td>
-<td><a href='/components/conversation.html'>Conversation</a></td>
-<td>Process textual commands like ones received by speech-to-text engines.</td>
+  <td></td>
+  <td><a href='/components/conversation.html'>Conversation</a></td>
+  <td>Process textual commands like ones received by speech-to-text engines.</td>
 </tr>
 
 <tr>
-<td></td>
-<td><a href='/components/discovery.html'>Discovery</a></td>
-<td>Scans the network for supported devices.</td>
+  <td></td>
+  <td><a href='/components/discovery.html'>Discovery</a></td>
+  <td>Scans the network for supported devices.</td>
 </tr>
 
 <tr>
-<td></td>
-<td><a href='/components/logbook.html'>Logbook</a></td>
-<td>Provides a logbook-style view on the Entity history.</td>
+  <td></td>
+  <td><a href='/components/logbook.html'>Logbook</a></td>
+  <td>Provides a logbook-style view on the Entity history.</td>
 </tr>
 
 <tr>
-<td><img src='/images/supported_brands/nma.png' class='brand' /></td>
-<td><a href='/components/notify.nma.html'>Notify My Android (NMA)</a></td>
-<td>Allow sending messages using Notify My Android (NMA).</td>
+  <td><img src='/images/supported_brands/nma.png' class='brand' /></td>
+  <td><a href='/components/notify.nma.html'>Notify My Android (NMA)</a></td>
+  <td>Allow sending messages using Notify My Android (NMA).</td>
 </tr>
 
 <tr>
-<td><img src='/images/supported_brands/instapush.png' class='brand' /></td>
-<td><a href='/components/notify.instapush.html'>Instapush</a></td>
-<td>Allow sending messages using Instapush.</td>
+  <td><img src='/images/supported_brands/instapush.png' class='brand' /></td>
+  <td><a href='/components/notify.instapush.html'>Instapush</a></td>
+  <td>Allow sending messages using Instapush.</td>
 </tr>
 
 <tr>
-<td><img src='/images/supported_brands/pushbullet.png' class='brand' /></td>
-<td><a href='/components/notify.pushbullet.html'>PushBullet</a></td>
-<td>Allow sending messages using PushBullet.</td>
+  <td><img src='/images/supported_brands/pushbullet.png' class='brand' /></td>
+  <td><a href='/components/notify.pushbullet.html'>PushBullet</a></td>
+  <td>Allow sending messages using PushBullet.</td>
 </tr>
 
 <tr>
-<td><img src='/images/supported_brands/pushover.png' class='brand' /></td>
-<td><a href='/components/notify.pushover.html'>PushOver</a></td>
-<td>Allow sending messages using PushOver.</td>
+  <td><img src='/images/supported_brands/pushover.png' class='brand' /></td>
+  <td><a href='/components/notify.pushover.html'>PushOver</a></td>
+  <td>Allow sending messages using PushOver.</td>
 </tr>
 
 <tr>
-<td><img src='/images/supported_brands/smtp.png' class='brand' /></td>
-<td><a href='/components/notify.smtp.html'>E-Mail</a></td>
-<td>Allow sending e-mail messages.</td>
+  <td><img src='/images/supported_brands/smtp.png' class='brand' /></td>
+  <td><a href='/components/notify.smtp.html'>E-Mail</a></td>
+  <td>Allow sending e-mail messages.</td>
 </tr>
 
 <tr>
-<td></td>
-<td><a href='/components/notify.syslog.html'>Syslog</a></td>
-<td>Allow sending messages to a local syslog.</td>
+  <td></td>
+  <td><a href='/components/notify.syslog.html'>Syslog</a></td>
+  <td>Allow sending messages to a local syslog.</td>
 </tr>
 
 <tr>
-<td><img src='/images/supported_brands/xmpp.png' class='brand' /></td>
-<td><a href='/components/notify.xmpp.html'>Jabber (XMPP)</a></td>
-<td>Allow sending messages using Jabber (XMPP).</td>
+  <td><img src='/images/supported_brands/xmpp.png' class='brand' /></td>
+  <td><a href='/components/notify.xmpp.html'>Jabber (XMPP)</a></td>
+  <td>Allow sending messages using Jabber (XMPP).</td>
 </tr>
 
 <tr>
-<td></td>
-<td><a href='/components/browser.html'>Browser</a></td>
-<td>Open URLs on the host machine.</td>
+  <td></td>
+  <td><a href='/components/browser.html'>Browser</a></td>
+  <td>Open URLs on the host machine.</td>
 </tr>
 
 <tr>
-<td><a href='/components/downloader.html'><img src='/images/supported_brands/download.png' class='brand overview' /></a></td>
-<td><a href='/components/downloader.html'>Downloader</a></td>
-<td>Allows downloading URLs to the host machine.</td>
+  <td><a href='/components/downloader.html'><img src='/images/supported_brands/download.png' class='brand overview' /></a></td>
+  <td><a href='/components/downloader.html'>Downloader</a></td>
+  <td>Allows downloading URLs to the host machine.</td>
 </tr>
 
 <tr>
-<td><a href='/components/keyboard.html'><img src='/images/supported_brands/keyboard.png' class='brand overview' /></a></td>
-<td><a href='/components/keyboard.html'>Keyboard</a></td>
-<td>Simulate key presses on the host machine.</td>
+  <td><a href='/components/keyboard.html'><img src='/images/supported_brands/keyboard.png' class='brand overview' /></a></td>
+  <td><a href='/components/keyboard.html'>Keyboard</a></td>
+  <td>Simulate key presses on the host machine.</td>
 </tr>
 
 <tr>
-<td><img src='/images/supported_brands/openweathermap.png' class='brand' /></td>
-<td><a href='/components/sensor.openweathermap.html'>OpenWeatherMap</a></td>
-<td>Display current meteorological data from your location.</td>
+  <td><img src='/images/supported_brands/openweathermap.png' class='brand' /></td>
+  <td><a href='/components/sensor.openweathermap.html'>OpenWeatherMap</a></td>
+  <td>Display current meteorological data from your location.</td>
 </tr>
 
 <tr>
-<td><img src='/images/supported_brands/bitcoin.png' class='brand' /></td>
-<td><a href='/components/sensor.bitcoin.html'>Bitcoin</a></td>
-<td>Display details about the Bitcoin Network and your Blockchain.info online wallet.</td>
+  <td><img src='/images/supported_brands/bitcoin.png' class='brand' /></td>
+  <td><a href='/components/sensor.bitcoin.html'>Bitcoin</a></td>
+  <td>Display details about the Bitcoin Network and your Blockchain.info online wallet.</td>
 </tr>
 
 <tr>
-<td></td>
-<td><a href='/components/sensor.swiss_public_transport.html'>Swiss Public Transport</a></td>
-<td>Display timetable data for traveling in Switzerland.</td>
+  <td></td>
+  <td><a href='/components/sensor.swiss_public_transport.html'>Swiss Public Transport</a></td>
+  <td>Display timetable data for traveling in Switzerland.</td>
 </tr>
 
 <tr>
-<td></td>
-<td><a href='/components/sensor.time_date.html'>Time & Date</a></td>
-<td>Displays the time and the date.</td>
+  <td></td>
+  <td><a href='/components/sensor.time_date.html'>Time & Date</a></td>
+  <td>Displays the time and the date.</td>
 </tr>
 </table>
 
