@@ -232,7 +232,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/notify.syslog.html'><img src='/images/supported_brands/applications-system.png' class='brand overview' /></a></td>
   <td><a href='/components/notify.syslog.html'>Syslog</a></td>
   <td>Allow sending messages to a local syslog.</td>
 </tr>
