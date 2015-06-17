@@ -122,7 +122,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/light.limitlessled.html'><img src='/images/supported_brands/dialog-information.png' class='brand overview' /></a></td>
   <td><a href='/components/light.limitlessled.html'>LimitlessLED</a></td>
   <td>Control your LimitlessLED lights.</td>
 </tr>
