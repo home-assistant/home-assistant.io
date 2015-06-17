@@ -244,7 +244,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/browser.html'><img src='/images/supported_brands/web-browser.png' class='brand overview' /></a></td>
   <td><a href='/components/browser.html'>Browser</a></td>
   <td>Open URLs on the host machine.</td>
 </tr>
