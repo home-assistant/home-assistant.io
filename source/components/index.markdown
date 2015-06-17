@@ -35,7 +35,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/sensor.systemmonitor.html'><img src='/images/supported_brands/utilities-system-monitor.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.systemmonitor.html'>System Monitor</a></td>
   <td>Track CPU, memory and disk usage on the host machine.</td>
 </tr>
