@@ -190,7 +190,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/discovery.html'><img src='/images/supported_brands/system-search.png' class='brand overview' /></a></td>
   <td><a href='/components/discovery.html'>Discovery</a></td>
   <td>Scans the network for supported devices.</td>
 </tr>
