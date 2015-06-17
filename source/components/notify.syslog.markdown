@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/applications-system.png' class='brand pull-right' />
 The syslog platform allows you to deliver notifications from Home Assistant to the local syslog.
 
 To enable syslog notifications in your installation, add the following to your `configuration.yaml` file:
