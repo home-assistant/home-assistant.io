@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/system-search.png' class='brand pull-right' />
 Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP devices on your network. Currently the `discovery` component can detect:
 
  * Google Chromecast
