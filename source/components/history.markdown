@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/history.png' class='brand pull-right' />
+<img src='/images/supported_brands/x-office-presentation.png' class='brand pull-right' />
 This component will track everything that is going on within Home Assistant and allows the user to browse through it.
 
 To enable the history option in your installation, add the following to your `configuration.yaml` file:
