@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/download.png' class='brand pull-right' />
+<img src='/images/supported_brands/emblem-downloads.png' class='brand pull-right' />
 The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist.
 
 To enable it, add the following lines to your `configuration.yaml`:
