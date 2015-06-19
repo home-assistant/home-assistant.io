@@ -11,15 +11,15 @@ footer: true
 
 One of the things most people want at some point in their home automation is to get notified when certain events occur. For this reason there is a `notify` component in Home Assistant.
 
-Home Assistant currently supports the awesome [PushBullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers and friends.
+Home Assistant currently supports a wide range of services for notifications:
 
-To add PushBullet to your installation, add the following to your `configuration.yaml` file:
-
-```
-notify:
-  platform: pushbullet
-  api_key: YOUR_API_KEY
-```
+- [Instapush](/components/notify.instapush.html)
+- [Notify My Android (NMA)](/components/notify.nma.html)
+- [PushBullet](/components/notify.pushbullet.html)
+- [PushOver](/components/notify.pushover.html)
+- [E-Mail](/components/notify.smtp.html)
+- [Syslog](/components/notify.syslog.html)
+- [Jabber (XMPP)](/components/notify.xmpp.html)
 
 ### Automation example
 
