@@ -22,6 +22,7 @@ sensor:
       - type: disk_use_percent
         arg: /home
       - type: memory_free
+      - type: processor_use
 ```
 
 The table contains types and their argument to use in your `configuration.yaml` file.
