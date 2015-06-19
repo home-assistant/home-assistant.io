@@ -27,7 +27,7 @@ sensor:
 
 The table contains types and their argument to use in your `configuration.yaml` file.
 
-| Type                | Argument                 |
+| Type (- type:)      | Argument (arg:)          |
 | :------------------ |:-------------------------|
 | disk_use_percent    | Path, eg. '/'            |
 | disk_use            |                          |
