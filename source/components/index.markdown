@@ -268,6 +268,12 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
+  <td><a href='/components/sensor.forecast.html'><img src='/images/supported_brands/weather-few-clouds.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.forecast.html'>Forecast.io</a></td>
+  <td>Display current meteorological data from your location.</td>
+</tr>
+
+<tr>
   <td><a href='/components/sensor.bitcoin.html'><img src='/images/supported_brands/bitcoin.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.bitcoin.html'>Bitcoin</a></td>
   <td>Display details about the Bitcoin Network and your Blockchain.info online wallet.</td>
