@@ -20,21 +20,4 @@ notify:
   api_key: YOUR_API_KEY
 ```
 
-### Automation example
-
-Notifications are great to be used within Home Automation. Below is a an example configuration that you can add to your `configuration.yaml` to be notified when the sun sets.
-
-```
-automation:
-  alias: Sun set notification
-
-  platform: state
-  state_entity_id: sun.sun
-  state_from: above_horizon
-  state_to: below_horizon
-
-  execute_service: notify.notify
-  service_data: {"message":"YAY"}
-```
-
 For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation.html).
