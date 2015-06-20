@@ -21,7 +21,7 @@ To add OpenWeatherMap to your installation, add the following to your `configura
 sensor:
   platform: openweathermap
   api_key: YOUR_API_KEY
-  monitored_conditions
+  monitored_conditions:
     - type: 'weather'
     - type: 'temperature'
     - type: 'wind_speed'
@@ -31,4 +31,4 @@ sensor:
     - type: 'rain'
     - type: 'snow'
 ```
-Details about the API are available in the (OpenWeatherMap documentation)[http://bugs.openweathermap.org/projects/api/wiki].
+Details about the API are available in the [OpenWeatherMap documentation](http://bugs.openweathermap.org/projects/api/wiki).
