@@ -19,12 +19,12 @@ To enable this sensor in your installation, add the following to your `configura
 sensor:
   platform: time_date
   display_options:
-    - type: 'time'
-    - type: 'date'
-    - type: 'date_time'
-    - type: 'time_date'
-    - type: 'time_utc'
-    - type: 'beat'
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'time_date'
+    - 'time_utc'
+    - 'beat'
 ```
 
 The types *date_time* and *time_date* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](http://www.swatch.com/en_us/internet-time).
