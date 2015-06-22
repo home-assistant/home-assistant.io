@@ -89,6 +89,12 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td><a href='/components/device_tracker.tplink.html'><img src='/images/supported_brands/tp-link.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.tplink.html'>TP-Link routers</a></td>
+  <td>Offers presence detection by looking at connected devices.</td>
+</tr>
+
+<tr>
   <td></td>
   <td><a href='/components/device_tracker.nmap_scanner.html'>NMap network scanning</a></td>
   <td>Offers presence detection by scanning the network for connected devices.</td>
