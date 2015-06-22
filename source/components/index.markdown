@@ -83,7 +83,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/device_tracker.tomato.html'><img src='/images/supported_brands/network-wired-disconnected.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.tomato.html'>Tomato routers</a></td>
   <td>Offers presence detection by looking at connected devices.</td>
 </tr>
