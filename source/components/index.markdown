@@ -298,7 +298,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/sensor.swiss_public_transport.html'><img src='/images/supported_brands/appointment-new.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.swiss_public_transport.html'>Swiss Public Transport</a></td>
   <td>Display timetable data for traveling in Switzerland.</td>
 </tr>
