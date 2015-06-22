@@ -15,6 +15,7 @@ Currently supported devices:
 
 - [Chromecasts](/components/media_player.cast.html)
 - [Music Player Daemon](/components/media_player.mpd.html)
+- [Kodi](/components/media_player.kodi.html)
 
 ## Services
 
