@@ -95,7 +95,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/device_tracker.nmap_scanner.html'><img src='/images/supported_brands/network-workgroup.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.nmap_scanner.html'>NMap network scanning</a></td>
   <td>Offers presence detection by scanning the network for connected devices.</td>
 </tr>
