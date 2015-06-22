@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/keyboard.png' class='brand pull-right' />
+<img src='/images/supported_brands/input-keyboard.png' class='brand pull-right' />
 The `keyboard` component simulates key presses on the host machine. It currently offers the following Buttons as a Service (BaaS):
 
  * `keyboard/volume_up`
