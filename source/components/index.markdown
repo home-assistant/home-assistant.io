@@ -202,7 +202,7 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
-  <td><a href='/components/logbook.html'><img src='/images/supported_brands/logbook.png' class='brand overview' /></a></td>
+  <td><a href='/components/logbook.html'><img src='/images/supported_brands/accessories-text-editor.png' class='brand overview' /></a></td>
   <td><a href='/components/logbook.html'>Logbook</a></td>
   <td>Provides a logbook-style view on the Entity history.</td>
 </tr>
