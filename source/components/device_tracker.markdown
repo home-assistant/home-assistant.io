@@ -15,6 +15,7 @@ Home Assistant can get information from your wireless router to track which devi
 - [tomato](/components/device_tracker.tomato.html)
 - [netgear](/components/device_tracker.netgear.html)
 - [luci (OpenWRT)](/components/device_tracker.luci.html)
+- [TP-Link](/components/device_tracker.tplink.html)
 
 You can also decide to directly scan the network for devices by using the [nmap scanner](/components/device_tracker.nmap_scanner.html).
 
