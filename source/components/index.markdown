@@ -208,6 +208,12 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
+  <td><a href='/components/notify.file.html'><img src='/images/supported_brands/text-x-generic.png' class='brand overview' /></a></td>
+  <td><a href='/components/notify.file.html'>File</a></td>
+  <td>Allow sending messages to a file.</td>
+</tr>
+
+<tr>
   <td><a href='/components/notify.nma.html'><img src='/images/supported_brands/nma.png' class='brand overview' /></a></td>
   <td><a href='/components/notify.nma.html'>Notify My Android (NMA)</a></td>
   <td>Allow sending messages using Notify My Android (NMA).</td>
