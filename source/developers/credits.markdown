@@ -37,6 +37,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Julien Danjou](https://github.com/jd)
 - [kixam](https://github.com/kixam)
 - [Markus Stenberg](https://github.com/fingon)
+- [Michael Arnauts](https://github.com/michaelarnauts)
 - [Piratonym](https://github.com/Piratonym)
 - [Rev Michael Greb](https://github.com/mikegrb)
 - [Ryan Kraus](https://github.com/rmkraus)
