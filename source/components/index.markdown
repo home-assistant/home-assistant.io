@@ -184,7 +184,7 @@ the manufacturers of these devices.
 
 <table>
 <tr>
-  <td><a href='/components/hostory.html'><img src='/images/supported_brands/x-office-presentation.png' class='brand overview' /></a></td>
+  <td><a href='/components/history.html'><img src='/images/supported_brands/x-office-presentation.png' class='brand overview' /></a></td>
   <td><a href='/components/history.html'>History</a></td>
   <td>Track the state of entities and allow users to browse through history.</td>
 </tr>
