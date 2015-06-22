@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/logbook.png' class='brand pull-right' />
+<img src='/images/supported_brands/accessories-text-editor.png' class='brand pull-right' />
 The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in chronological order. [See the demo for a live example](/demo/).
 
 To enable the logbook in your installation, add the following to your `configuration.yaml` file:
