@@ -22,13 +22,13 @@ sensor:
   platform: openweathermap
   api_key: YOUR_API_KEY
   monitored_conditions:
-    - type: 'weather'
-    - type: 'temperature'
-    - type: 'wind_speed'
-    - type: 'humidity'
-    - type: 'pressure'
-    - type: 'clouds'
-    - type: 'rain'
-    - type: 'snow'
+    - weather
+    - temperature
+    - wind_speed
+    - humidity
+    - pressure
+    - clouds
+    - rain
+    - snow
 ```
 Details about the API are available in the [OpenWeatherMap documentation](http://bugs.openweathermap.org/projects/api/wiki).
