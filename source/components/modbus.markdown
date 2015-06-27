@@ -10,7 +10,9 @@ footer: true
 ---
 
 <img src='/images/supported_brands/modbus.png' class='brand pull-right' />
-Modbus is a serial communication protocol to control PLCs. It currently supports sensors and switches which can be controlled over serial, TCP and UDP connections.
+[Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller). It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
+
+To add modbus to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
