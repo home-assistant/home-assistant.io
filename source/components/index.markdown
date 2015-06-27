@@ -157,6 +157,12 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td>X10 devices can be controlled with the ISY994 controller.</td>
 </tr>
 
+<tr>
+  <td><a href='/components/arduino.html'><img src='/images/supported_brands/arduino.png' class='brand overview' /></a></td>
+  <td><a href='/components/arduino.html'>Arduino boards</a></td>
+  <td>Controls your Arduino's digital pins and read from the analog pins.</td>
+</tr>
+
 </table>
 
 <p class='note'>
@@ -172,7 +178,7 @@ the manufacturers of these devices.
 
 ## {% linkable_title Hubs %}
 
-Home Assistant integrates with a variety of third party Home Automation hubs and networks. It allows you to control the connected switches, lights and sensors via Home Assistant. Click on the following logo's for setup instructions:
+Home Assistant integrates with a variety of third party Home Automation hubs and networks. It allows you to control the connected switches, lights and sensors via Home Assistant. Click on the following logos for setup instructions:
 
 [<img src='/images/supported_brands/z-wave.png' class='brand' />](/components/zwave.html)
 [<img src='/images/supported_brands/telldus_tellstick.png' class='brand' />](/components/tellstick.html)
@@ -180,6 +186,7 @@ Home Assistant integrates with a variety of third party Home Automation hubs and
 [<img src='/images/supported_brands/wink.png' class='brand' />](/components/wink.html)
 [<img src='/images/supported_brands/universal_devices.png' class='brand' />](/components/isy994.html)
 [<img src='/images/supported_brands/modbus.png' class='brand' />](/components/modbus.html)
+[<img src='/images/supported_brands/arduino.png' class='brand' />](/components/arduino.html)
 
 <p class='note'>
 Support for these devices is provided by the Home Assistant community and not
