@@ -19,6 +19,8 @@ There are a lot of extensions (so called [shields](https://www.arduino.cc/en/Mai
 
 The arduino component is designed to let you use a directly attached board to your Home Assistant host over USB.
 
+You need to have the [Firmata firmware](https://github.com/firmata/) on your board. Please upload the `StandardFirmata` sketch to your board, please refer to the [Arduino documentation](https://www.arduino.cc/en/Main/Howto) for further information.
+
 To integrate an Arduino boards with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
