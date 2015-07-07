@@ -23,14 +23,16 @@ Installing and running Home Assistant on your local machine is easy. Make sure y
 <p>
 ```bash
 git clone --recursive https://github.com/balloob/home-assistant.git
+python3 -m venv home-assistant
 cd home-assistant
-python3 -m pip install --user -r requirements.txt
+python3 -m pip install -r requirements.txt
 python3 -m homeassistant --open-ui
 ```
 </p>
 <p>Running these commands will:</p>
 <ol>
 <li>Download Home Assistant</li>
+<li>Setup an isolated environment</li>
 <li>Navigate to downloaded files</li>
 <li>Install the dependencies</li>
 <li>Launch Home Assistant and serve web interface on <a href='http://localhost:8123'>http://localhost:8123</a></li>
@@ -38,7 +40,7 @@ python3 -m homeassistant --open-ui
 <p>If you run into any issues, please see the <a href='{{site_root}}/getting-started/troubleshooting.html'>troubleshooting page</a>.</p>
 
 <p class='note'>
-  You can run Home Assistant in demo mode by appending <code>--demo-mode</code> to line 4.
+  You can run Home Assistant in demo mode by appending <code>--demo-mode</code> to line 5.
 </p>
 
 <p class='note'>
@@ -60,9 +62,6 @@ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/lo
 When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href='http://en.wikipedia.org/wiki/List_of_tz_database_time_zones'>your timezone</a>)
 </p>
 
-<p class='note warning'>
-Home Assistant currently does not fare well if server and client are in different time zones.
-</p>
 </div>
 
 <div class='install-instructions raspberry'>
@@ -136,16 +135,9 @@ python3 -m homeassistant
 <p>It will be up and running on port 8123</p>
 
 <p class='note'>
-  You can run Home Assistant in demo mode by appending <code>--demo-mode</code> to line 4.
-</p>
-
-<p class='note'>
   If you want to update to the latest version in the future, run: <code>scripts/update</code>.
 </p>
 
-<p class='note warning'>
-Home Assistant currently does not fare well if server and client are in different time zones.
-</p>
 </div>
 
 </div>
