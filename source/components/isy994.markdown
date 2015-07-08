@@ -21,7 +21,7 @@ Home Assistant is capable of communicating with any switch, sensor, and light
 that is configured on the controller. Using the programs on the controller,
 custom switches and sensors can also be created.
 
-To integrate your ISY994 controller with Home Assistant, add the following 
+To integrate your ISY994 controller with Home Assistant, add the following
 section to your `configuration.yaml` file:
 
 ```yaml
@@ -35,11 +35,12 @@ isy994:
     # optional
     sensor_string: SENSOR_STRING
     hidden_string: HIDDEN_STRING
+    tls: TLS_VERSION
 ```
 
 The ISY_ADDRESS should be in full URL format. For example:
 http://192.168.10.100:80
-    
+
 The ISY_USERNAME and ISY_PASSWORD are the configured username and password used
 to access the ISY interface.
 
@@ -52,6 +53,12 @@ The HIDDEN_STRING is a string that is used to identify which devices are to be
 hidden on Home Assistant's front page. This string will be stripped from the
 device's name before being used. By default, this value is '{HIDE ME}'.
 
+The TLS_VERSION value is the version of TLS that the ISY controller is using
+for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not
+set, it is assumed to be version 1.1. This is the default for most users.
+ISY994 Pro users may likely be using 1.2. When using HTTPS in the ISY_ADDRESS
+string, it is best practice to set this value.
+
 Once the ISY controller is configured, it will automatically import any lights,
 switches, and sensors it can locate.
 
@@ -62,7 +69,7 @@ switches can be created that will appear natively inside of Home Assistant.
 Home Assistant will scan two different directories for switch configurations on
 the controller. These directories must exist at the root level. The two
 directories used to make switches are *HA.doors* and *HA.switches*. Currently,
-the two receive identical treatment in Home Assistant. 
+the two receive identical treatment in Home Assistant.
 
 A switch is created by creating a directory under either of these root
 dirctories with the name you would like to call the switch. Two programs are
