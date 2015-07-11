@@ -163,6 +163,18 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td>Controls your Arduino's digital pins and read from the analog pins.</td>
 </tr>
 
+<tr>
+  <td><a href='/components/sensor.efergy.html'><img src='/images/supported_brands/efergy.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.efergy.html'>Efergy Engage hubs</a></td>
+  <td>Monitors home energy use as measured by an Efergy engage hub.</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td><a href='/components/camera.generic.html'>Generic IP cameras</a></td>
+  <td>Integrate any IP camera or image url into a camera feed.</td>
+</tr>
+
 </table>
 
 <p class='note'>

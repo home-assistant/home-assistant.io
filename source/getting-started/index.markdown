@@ -25,7 +25,6 @@ Installing and running Home Assistant on your local machine is easy. Make sure y
 git clone --recursive https://github.com/balloob/home-assistant.git
 python3 -m venv home-assistant
 cd home-assistant
-python3 -m pip install -r requirements.txt
 python3 -m homeassistant --open-ui
 ```
 </p>
@@ -79,7 +78,7 @@ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-
 ```bash
 nano ~/.bashrc
 ```
- 
+
 <p>Then add these lines to the end of the file and save:</p>
 ```
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -120,11 +119,6 @@ git clone --recursive https://github.com/balloob/home-assistant.git
 ```bash
 cd home-assistant
 pyenv local homeassistant
-```
-
-<p><b>Step 6. Finish the install</b></p>
-```bash
-python3 -m pip install -r requirements.txt
 ```
 
 <p><b>Step 7. Start it up</b></p>
