@@ -44,6 +44,8 @@ npm run js_dev
 
 `npm run js_dev` will start the process that will ensure that your latest changes to the JavaScript files will be loaded when you refresh the page. This command has to be always running while working on home-assistant-js.
 
+After your changes have been accepted into the `home-assistant-js` repository, we'll have to update Home Assistant Polymer to use the latest version. This can be done by updating `package.json`. Look for the line that contains `home-assistant-js` and update the SHA to the SHA of your commit.
+
 # {% linkable_title Building the Polymer frontend %}
 
 Building a new version of the frontend is as simple as running `scripts/build_frontend`. This fires off the following commands:
