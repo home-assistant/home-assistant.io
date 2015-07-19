@@ -56,9 +56,9 @@ The Home Assistant object contains three objects to help you interact with the s
 
 | Object | Description |
 | ------ | ----------- |
-| <code>hass.states</code> | This is the StateMachine. It allows you to set states and track when they are changed. [See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L473). |
-| <code>hass.events</code> | This is the EventBus. It allows you to trigger and listen for events.<br>[See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L308). |
-| <code>hass.services</code> | This is the ServiceRegistry. It allows you to register services.<br>[See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L589). |
+| <code>hass.states</code> | This is the StateMachine. It allows you to set states and track when they are changed. [See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L589). |
+| <code>hass.bus</code> | This is the EventBus. It allows you to trigger and listen for events.<br>[See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L387). |
+| <code>hass.services</code> | This is the ServiceRegistry. It allows you to register services.<br>[See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L738). |
 
 ### {% linkable_title Example on using the configuration parameter %}
 If your configuration file contains the following lines:
