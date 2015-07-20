@@ -35,7 +35,7 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
 
 __Arduino__<br>
 <img src='/images/supported_brands/arduino.png' style='border:none; box-shadow: none; float: right;' height='50' />
-Fabian has contributed support for interfacing with Arduinos. This makes it possible to connect your Arduino via USB and expose pins as sensor data and write to pins via switches. Have a look at [the docs](/components/arduino.markdown) for an extensive guide to get started.
+Fabian has contributed support for interfacing with Arduinos. This makes it possible to connect your Arduino via USB and expose pins as sensor data and write to pins via switches. Have a look at [the docs](/components/arduino.html) for an extensive guide to get started.
 
 ```yaml
 # Example configuration.yaml entry
@@ -106,7 +106,7 @@ sensor:
 ```
 
 __Forecast.io__<br>
-Fabiann has added support for [Forecast.io](https://forecast.io/) to get weather forecasts for Home Assistant. You need an API key which is free but requires a [registration](https://developer.forecast.io/register). To add Forecast.io to your installation, add the following to your `configuration.yaml` file:
+Fabian has added support for [Forecast.io](https://forecast.io/) to get weather forecasts for Home Assistant. You need an API key which is free but requires a [registration](https://developer.forecast.io/register). To add Forecast.io to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
