@@ -170,7 +170,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/camera.generic.html'><img src='/images/supported_brands/camera-web.png' class='brand overview' /></a></td>
   <td><a href='/components/camera.generic.html'>Generic IP cameras</a></td>
   <td>Integrate any IP camera or image url into a camera feed.</td>
 </tr>
