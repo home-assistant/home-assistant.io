@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ---
+<img src='/images/supported_brands/camera-web.png' class='brand pull-right' />
 
 This component allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.
 
