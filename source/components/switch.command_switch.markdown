@@ -19,7 +19,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 switch:
   platform: command_switch
   switches:
-    - kitchen_light:
-        oncmd: switch_command on kitchen
-        offcmd: switch_command off kitchen
+    kitchen_light:
+      oncmd: switch_command on kitchen
+      offcmd: switch_command off kitchen
 ```
