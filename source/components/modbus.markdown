@@ -38,6 +38,9 @@ sensor:
           name: My boolean sensor
         2:
           name: My other boolean sensor
+    coils:
+        0:
+            name: My coil switch
 
 switch:
   platform: modbus
