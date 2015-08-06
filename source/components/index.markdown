@@ -146,6 +146,12 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td><a href='/components/switch.edimax.html'><img src='/images/supported_brands/edimax.png' class='brand overview' /></a></td>
+  <td><a href='/components/switch.edimax.html'>Edimax switches</a></td>
+  <td>Control the state of your Edimax switches.</td>
+</tr>
+
+<tr>
   <td><a href='/components/isy994.html'><img src='/images/supported_brands/insteon.png' class='brand overview' /></a></td>
   <td><a href='/components/isy994.html'>Insteon Devices</a></td>
   <td>Insteon devices can be controlled with the ISY994 controller.</td>
