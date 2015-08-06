@@ -12,6 +12,8 @@ footer: true
 <img src='/images/supported_brands/ddwrt.png' class='brand pull-right' />
 This platform offers presence detection by looking at connected devices to a [DD-WRT](http://www.dd-wrt.com/site/index) based router.
 
+To use a DD-WRRT router in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
