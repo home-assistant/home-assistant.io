@@ -263,6 +263,12 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
+  <td><a href='/components/notify.slack.html'><img src='/images/supported_brands/slack.png' class='brand' /></a></td>
+  <td><a href='/components/notify.slack.html'>Slack</a></td>
+  <td>Allow sending messages over Slack.</td>
+</tr>
+
+<tr>
   <td><a href='/components/notify.smtp.html'><img src='/images/supported_brands/smtp.png' class='brand' /></a></td>
   <td><a href='/components/notify.smtp.html'>E-Mail</a></td>
   <td>Allow sending e-mail messages.</td>
