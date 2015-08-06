@@ -65,6 +65,12 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td></td>
+  <td><a href='/components/sensor.temper.html'>TEMPer sensors</a></td>
+  <td>Integrate TEMPer sensors to get the current temperature.</td>
+</tr>
+
+<tr>
   <td><a href='/components/device_tracker.ddwrt.html'><img src='/images/supported_brands/ddwrt.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.ddwrt.html'>DD-WRT routers</a></td>
   <td>Offers presence detection by looking at connected devices.</td>
