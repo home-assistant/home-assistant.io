@@ -10,7 +10,7 @@ footer: true
 ---
 The rfxtrx platform support sensors that communicate in the frequency range of 433.92 MHz. 
 
-To enable the RFXtrx sensor in your installation, add the following to your `configuration.yaml` file:
+To enable the RFXtrx sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
