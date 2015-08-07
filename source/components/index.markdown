@@ -164,6 +164,12 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td><a href='/components/switch.rpi_gpio.html'><img src='/images/supported_brands/raspberry-pi.png' class='brand overview' /></a></td>
+  <td><a href='/components/switch.rpi_gpio.html'>Raspberry PI GPIO</a></td>
+  <td>Control the GPIO of a Raspberry Pi.</td>
+</tr>
+
+<tr>
   <td><a href='/components/isy994.html'><img src='/images/supported_brands/insteon.png' class='brand overview' /></a></td>
   <td><a href='/components/isy994.html'>Insteon Devices</a></td>
   <td>Insteon devices can be controlled with the ISY994 controller.</td>
