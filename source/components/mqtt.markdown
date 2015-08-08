@@ -32,7 +32,7 @@ mqtt:
   qos: 0
   retain: 0
 ```
-
+<img src='/images/supported_brands/preferences-system-sharing.png' class='brand pull-right' />
 For debbuging purposes `mosquitto` is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:
 
 ```bash
