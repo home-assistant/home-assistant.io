@@ -363,6 +363,12 @@ the manufacturers of these devices.
   <td><a href='/components/sensor.time_date.html'>Time & Date</a></td>
   <td>Displays the time and the date.</td>
 </tr>
+
+<tr>
+  <td><a href='/components/mqtt.html'><img src='/images/supported_brands/preferences-system-sharing.png' class='brand overview' /></a></td>
+  <td><a href='/components/mqtt.html'>MQTT</a></td>
+  <td>Allow sending and recieving MQTT messages.</td>
+</tr>
 </table>
 
 <p class='note'>
