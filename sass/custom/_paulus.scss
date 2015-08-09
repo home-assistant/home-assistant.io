@@ -189,5 +189,42 @@ p.note {
   }
 }
 
+.prep-instructions-container {
+  #generic-prep, #fedora-prep, #centos-prep, .prep-instructions {
+    display: none;
+  }
+
+  label.menu-selector {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    white-space: nowrap;
+    border-bottom: 2px solid $grayLight;
+    transition: border-bottom-color .5s;
+  }
+
+  label.menu-selector + label.menu-selector {
+    margin-left: 10px;
+  }
+
+  #generic-prep:checked ~ .menu-selector.generic,
+  #fedora-prep:checked ~ .menu-selector.fedora,
+  #centos-prep:checked ~ .menu-selector.centos
+   {
+    border-bottom-color: $blue;
+  }
+
+  #generic-prep:checked ~ .prep-instructions.generic,
+  #fedora-prep:checked ~ .prep-instructions.fedora,
+  #centos-prep:checked ~ .prep-instructions.centos
+   {
+    display: block;
+  }
+
+  .prep-instructions {
+    margin-top: 20px;
+  }
+}
+
 
 
