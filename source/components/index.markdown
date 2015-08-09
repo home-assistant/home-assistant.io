@@ -16,100 +16,222 @@ Components add support for devices, automation and much much more to Home Assist
 
 Entities are things that you want to observe within Home Assistant. Support for these things are provided by the entity components [Light](/components/light.html), [Switch](/components/switch.html), [Thermostat](/components/thermostat.html), [Media player](/components/media_player.html), [Device tracker](/components/device_tracker.html), [Sun](/components/sun.html).
 
+
+<!-- 1. column LIGHT -->
+<div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item one-half lap-one-whole palm-one-whole usp">
+      <div class="grid">
+
+        <div class="grid__item one-whole lap-two-half">
+          <h2 class="title">Light and environment</h2>
+
 <table>
-<tr>
-<th colspan='2'>Type</th>
-<th>Description</th>
-</tr>
 
 <tr>
   <td><a href='/components/light.hue.html'><img src='/images/supported_brands/philips_hue.png' class='brand overview' /></a></td>
-  <td><a href='/components/light.hue.html'>Philips Hue</a></td>
-  <td>Turn lights on, control brightness and color.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/sensor.sabnzbd.html'><img src='/images/supported_brands/sabnzbd.png' class='brand overview' /></a></td>
-  <td><a href='/components/sensor.sabnzbd.html'>SABnzbd clients</a></td>
-  <td>Monitor queue and download speeds.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/sensor.systemmonitor.html'><img src='/images/supported_brands/utilities-system-monitor.png' class='brand overview' /></a></td>
-  <td><a href='/components/sensor.systemmonitor.html'>System Monitor</a></td>
-  <td>Track CPU, memory and disk usage on the host machine.</td>
+  <td><a href='/components/light.hue.html'>Philips Hue</a> turns lights on, controls brightness and color.</td>
 </tr>
 
 <tr>
   <td><a href='/components/thermostat.nest.html'><img src='/images/supported_brands/nest_thermostat.png' class='brand overview' /></a></td>
-  <td><a href='/components/thermostat.nest.html'>Nest thermostats</a></td>
-  <td>See current temperature and control target temperature and away mode.</td>
+  <td><a href='/components/thermostat.nest.html'>Nest thermostats</a> displays current temperature and control target temperature and away mode.</td>
 </tr>
 
 <tr>
   <td></td>
-  <td><a href='/components/thermostat.heat_control.html'>Heat Control</a></td>
-  <td>Turn home Assistant into your own thermostat by reading a temperature sensor and controlling a switch connected to a heater.</td>
+  <td><a href='/components/thermostat.heat_control.html'>Heat Control</a> reads a temperature sensor and control a switch connected to a heater.</td>
 </tr>
 
 <tr>
   <td><a href='/components/switch.wemo.html'><img src='/images/supported_brands/belkin_wemo.png' class='brand overview' /></a></td>
-  <td><a href='/components/switch.wemo.html'>WeMo switches</a></td>
-  <td>Control WeMo switches and read the usage statistics from Insight switches.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/sensor.mysensors.html'><img src='/images/supported_brands/mysensors.png' class='brand overview' /></a></td>
-  <td><a href='/components/sensor.mysensors.html'>MySensors</a></td>
-  <td>Integrate MySensors sensors.</td>
+  <td><a href='/components/switch.wemo.html'>WeMo switches</a> controls and reads the usage statistics from Insight switches.</td>
 </tr>
 
 <tr>
   <td></td>
-  <td><a href='/components/sensor.temper.html'>TEMPer sensors</a></td>
-  <td>Integrate TEMPer sensors to get the current temperature.</td>
+  <td><a href='/components/sensor.temper.html'>TEMPer sensors</a> reads the current temperature.</td>
+</tr>
+
+
+<tr>
+  <td><a href='/components/light.limitlessled.html'><img src='/images/supported_brands/dialog-information.png' class='brand overview' /></a></td>
+  <td><a href='/components/light.limitlessled.html'>LimitlessLED</a> controls your LimitlessLED lights.</td>
 </tr>
 
 <tr>
+  <td><a href='/components/switch.edimax.html'><img src='/images/supported_brands/edimax.png' class='brand overview' /></a></td>
+  <td><a href='/components/switch.edimax.html'>Edimax switches</a> controls the state of those devices.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/sensor.efergy.html'><img src='/images/supported_brands/efergy.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.efergy.html'>Efergy Engage hubs</a> monitors home energy use.</td>
+</tr>
+
+</table>
+        </div>
+      </div>
+    </div>
+<!-- 2. column DEVICES -->
+    <div class="grid__item one-half lap-one-whole palm-one-whole usp">
+      <div class="grid">
+
+        <div class="grid__item one-whole lap-two-hald">
+          <h2 class="title">Devices</h2>
+
+<table>
+
+<tr>
+  <td><a href='/components/sensor.mysensors.html'><img src='/images/supported_brands/mysensors.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.mysensors.html'>MySensors</a> integrates MySensors sensors.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/switch.rpi_gpio.html'><img src='/images/supported_brands/raspberry-pi.png' class='brand overview' /></a></td>
+  <td><a href='/components/switch.rpi_gpio.html'>Raspberry PI GPIO</a> controls the GPIO of a Raspberry Pi.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/isy994.html'><img src='/images/supported_brands/insteon.png' class='brand overview' /></a></td>
+  <td><a href='/components/isy994.html'>Insteon</a> controls devices connected with the ISY994 controller.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/isy994.html'><img src='/images/supported_brands/x10.gif' class='brand overview' /></a></td>
+  <td><a href='/components/isy994.html'>X10</a> controls devices connected with the ISY994 controller.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/arduino.html'><img src='/images/supported_brands/arduino.png' class='brand overview' /></a></td>
+  <td><a href='/components/arduino.html'>Arduino</a> controls digital pins and read from analog pins.</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td><a href='/components/sensor.rfxtrx.html'>RFXtrx</a> sensors monitors values from RFXtrx sensors.</td>
+</tr>
+
+</table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 1. column PRESENCE DETECTION -->
+<div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
+      <div class="grid">
+
+        <div class="grid__item one-whole lap-two-thirds">
+          <h2 class="title">Presence detection</h2>
+            <p>Offers presence detection by looking at connected devices or by scanning the network.</p>
+<table>
+<tr>
   <td><a href='/components/device_tracker.asuswrt.html'><img src='/images/supported_brands/asus.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.asuswrt.html'>ASUSWRT routers</a></td>
-  <td>Offers presence detection by looking at connected devices.</td>
 </tr>
 
 <tr>
   <td><a href='/components/device_tracker.ddwrt.html'><img src='/images/supported_brands/ddwrt.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.ddwrt.html'>DD-WRT routers</a></td>
-  <td>Offers presence detection by looking at connected devices.</td>
 </tr>
 
 <tr>
   <td><a href='/components/device_tracker.luci.html'><img src='/images/supported_brands/openwrt.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.luci.html'>OpenWRT routers</a></td>
-  <td>Offers presence detection by looking at connected devices.</td>
 </tr>
 
 <tr>
   <td><a href='/components/device_tracker.netgear.html'><img src='/images/supported_brands/netgear.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.netgear.html'>Netgear routers</a></td>
-  <td>Offers presence detection by looking at connected devices.</td>
 </tr>
 
 <tr>
   <td><a href='/components/device_tracker.tomato.html'><img src='/images/supported_brands/network-wired-disconnected.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.tomato.html'>Tomato routers</a></td>
-  <td>Offers presence detection by looking at connected devices.</td>
 </tr>
 
 <tr>
   <td><a href='/components/device_tracker.tplink.html'><img src='/images/supported_brands/tp-link.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.tplink.html'>TP-Link routers</a></td>
-  <td>Offers presence detection by looking at connected devices.</td>
 </tr>
 
 <tr>
   <td><a href='/components/device_tracker.nmap_scanner.html'><img src='/images/supported_brands/network-workgroup.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.nmap_scanner.html'>NMap network scanning</a></td>
-  <td>Offers presence detection by scanning the network for connected devices.</td>
+</tr>
+
+</table>
+
+        </div>
+      </div>
+    </div>
+<!-- 2. column MEDIA PLAYER -->
+    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
+      <div class="grid">
+
+        <div class="grid__item one-whole lap-two-thirds">
+          <h2 class="title">Media player</h2>
+            <p>Control your media player and get details about the played track.</p>
+
+<table>
+
+<tr>
+  <td><a href='/components/media_player.cast.html'><img src='/images/supported_brands/google_cast.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.cast.html'>Google Cast devices</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/media_player.kodi.html'><img src='/images/supported_brands/kodi.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.kodi.html'>Kodi</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/media_player.mpd.html'><img src='/images/supported_brands/mpd.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.mpd.html'>Music Player Daemon (MPD)</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/media_player.squeezebox.html'><img src='/images/supported_brands/logitech.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.squeezebox.html'>Logitech Squeezebox</a></td>
+</tr>
+
+</table>
+
+        </div>
+      </div>
+    </div>
+<!-- 3. column CAMERA AND VARIOUS -->
+    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
+      <div class="grid">
+        <div class="grid__item one-whole lap-two-thirds">
+         <h2 class="title">Cameras and various other entities</h2>
+           <p>The feature set of the available IP camera depends heavily on the implementation. </p>
+
+<table>
+<tr>
+  <td><a href='/components/switch.hikvision.html'><img src='/images/supported_brands/hikvision.png' class='brand overview' /></a></td>
+  <td><a href='/components/switch.hikvision.html'>Hikvision</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/camera.generic.html'><img src='/images/supported_brands/camera-web.png' class='brand overview' /></a></td>
+  <td><a href='/components/camera.generic.html'>Generic IP cameras</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/sensor.sabnzbd.html'><img src='/images/supported_brands/sabnzbd.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.sabnzbd.html'>SABnzbd clients</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/sensor.systemmonitor.html'><img src='/images/supported_brands/utilities-system-monitor.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.systemmonitor.html'>System Monitor</a></td>
 </tr>
 
 <tr>
@@ -118,94 +240,21 @@ Entities are things that you want to observe within Home Assistant. Support for 
     <a href='/components/sensor.transmission.html'>Transmission sensor</a></br>
     <a href='/components/switch.transmission.html'>Transmission switch</a>
   </td>
-  <td>Monitor status and download speeds. Change the speed limits.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/media_player.cast.html'><img src='/images/supported_brands/google_cast.png' class='brand overview' /></a></td>
-  <td><a href='/components/media_player.cast.html'>Google Cast devices</a></td>
-  <td>Track what is being played and control playback (temporarely disabled awaiting protobuf 3 release).</td>
-</tr>
-
-<tr>
-  <td><a href='/components/media_player.kodi.html'><img src='/images/supported_brands/kodi.png' class='brand overview' /></a></td>
-  <td><a href='/components/media_player.kodi.html'>Kodi</a></td>
-  <td>Track what is being played and control playback.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/media_player.mpd.html'><img src='/images/supported_brands/mpd.png' class='brand overview' /></a></td>
-  <td><a href='/components/media_player.mpd.html'>Music Player Daemon (MPD)</a></td>
-  <td>Track what is being played and control playback.</td>
 </tr>
 
 <tr>
   <td><a href='/components/switch.command_switch.html'><img src='/images/supported_brands/utilities-terminal.png' class='brand overview' /></a></td>
   <td><a href='/components/switch.command_switch.html'>Command line Switch</a></td>
-  <td>Switch that issues command line commands when turned on and off.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/light.limitlessled.html'><img src='/images/supported_brands/dialog-information.png' class='brand overview' /></a></td>
-  <td><a href='/components/light.limitlessled.html'>LimitlessLED</a></td>
-  <td>Control your LimitlessLED lights.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/switch.hikvision.html'><img src='/images/supported_brands/hikvision.png' class='brand overview' /></a></td>
-  <td><a href='/components/switch.hikvision.html'>Hikvision</a></td>
-  <td>Control the motion detection setting on your Hikvision camera.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/switch.edimax.html'><img src='/images/supported_brands/edimax.png' class='brand overview' /></a></td>
-  <td><a href='/components/switch.edimax.html'>Edimax switches</a></td>
-  <td>Control the state of your Edimax switches.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/switch.rpi_gpio.html'><img src='/images/supported_brands/raspberry-pi.png' class='brand overview' /></a></td>
-  <td><a href='/components/switch.rpi_gpio.html'>Raspberry PI GPIO</a></td>
-  <td>Control the GPIO of a Raspberry Pi.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/isy994.html'><img src='/images/supported_brands/insteon.png' class='brand overview' /></a></td>
-  <td><a href='/components/isy994.html'>Insteon Devices</a></td>
-  <td>Insteon devices can be controlled with the ISY994 controller.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/isy994.html'><img src='/images/supported_brands/x10.gif' class='brand overview' /></a></td>
-  <td><a href='/components/isy994.html'>X10 Devices</a></td>
-  <td>X10 devices can be controlled with the ISY994 controller.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/arduino.html'><img src='/images/supported_brands/arduino.png' class='brand overview' /></a></td>
-  <td><a href='/components/arduino.html'>Arduino boards</a></td>
-  <td>Controls your Arduino's digital pins and read from the analog pins.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/sensor.efergy.html'><img src='/images/supported_brands/efergy.png' class='brand overview' /></a></td>
-  <td><a href='/components/sensor.efergy.html'>Efergy Engage hubs</a></td>
-  <td>Monitors home energy use as measured by an Efergy engage hub.</td>
-</tr>
-
-<tr>
-  <td></td>
-  <td><a href='/components/sensor.rfxtrx.html'>RFXtrx sensors</a></td>
-  <td>Monitors values from RFXtrx sensors.</td>
-</tr>
-
-<tr>
-  <td><a href='/components/camera.generic.html'><img src='/images/supported_brands/camera-web.png' class='brand overview' /></a></td>
-  <td><a href='/components/camera.generic.html'>Generic IP cameras</a></td>
-  <td>Integrate any IP camera or image url into a camera feed.</td>
 </tr>
 
 </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <p class='note'>
 Support for these devices is provided by the Home Assistant community and not
