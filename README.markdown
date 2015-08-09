@@ -1,6 +1,8 @@
 # Home Assistant website
 
-### Jekyll project to generate and deploy [Home-Assistant.io](https://home-assistant.io)
+This is the source for the [Home Assistant](https://github.com/balloob/home-assistant) website available at [Home-Assistant.io](https://home-assistant.io).
+
+## Jekyll project to generate and deploy 
 
 | Command | Action |
 |---|---|
