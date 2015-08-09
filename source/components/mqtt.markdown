@@ -17,8 +17,7 @@ To integrate MQTT into Home Assistant, add the following section to your `config
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  broker: 127.0.0.1
-  topic: home-assistant
+  broker: IP_ADDRESS_BROKER
 ```
 There are more optional entries available if your broker is using different settings or you have a special need.
 
@@ -33,10 +32,10 @@ mqtt:
   retain: 0
 ```
 <img src='/images/supported_brands/preferences-system-sharing.png' class='brand pull-right' />
-For debbuging purposes `mosquitto` is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:
+For debugging purposes `mosquitto` is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:
 
 ```bash
-$ mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
+mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
 ```
 
 Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose "Call Service" and then `mqtt/mqtt_send` under "Available Services". Enter something similar to the example below into the "Service Data" field.
@@ -57,7 +56,7 @@ The message should appear on the bus:
 For reading all messages sent on the topic `home-assistant` to a broker running on localhost:
 
 ```bash
-$ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
+mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 ```
 
 <p class='note'>
