@@ -15,6 +15,8 @@ group :development do
   gem 'rb-fsevent', '~> 0.9'
   gem 'stringex', '~> 1.4.0'
   gem 'jekyll-time-to-read'
+  gem 'execjs'
+  gem 'therubyracer', :platforms => :ruby
 end
 
 gem 'sinatra', '~> 1.4.2'
