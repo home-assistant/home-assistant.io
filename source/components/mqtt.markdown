@@ -29,7 +29,8 @@ mqtt:
   topic: home-assistant
   keepalive: 60
   qos: 0
-  retain: 0
+  username: your_username
+  password: your_secret_password
 ```
 <img src='/images/supported_brands/preferences-system-sharing.png' class='brand pull-right' />
 For debugging purposes `mosquitto` is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:
@@ -42,7 +43,7 @@ Another way to send MQTT messages by hand is to use the "Developer Tools" in the
 
 ```json
 {
-   "subtopic":"switch/1/on",
+   "topic":"home-assistant/switch/1/on",
    "payload":"Switch is ON"
 }
 ```
