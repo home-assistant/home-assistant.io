@@ -18,7 +18,76 @@ footer: true
 <label class='menu-selector docker' for='docker-install'>Install using Docker</label>
 <div class='install-instructions normal'>
 
+<h3>Preparation</h3>
+<!-- ###### Preparation START ######################## -->
+<div class='prep-instructions-container'>
+<input name='prep-instructions' type='radio' id='generic-prep' checked>
+<input name='prep-instructions' type='radio' id='fedora-prep'>
+<input name='prep-instructions' type='radio' id='centos-prep'>
+<label class='menu-selector generic' for='generic-prep'>Generic</label>
+<label class='menu-selector fedora' for='fedora-prep'>Fedora</label>
+<label class='menu-selector centos' for='centos-prep'>CentOS</label>
+
+<!-- ###### Preparation instructions Generic ######################## -->
+<div class='prep-instructions generic'>
 Installing and running Home Assistant on your local machine is easy. Make sure you have <a href='https://www.python.org/downloads/'>Python 3.4</a> and <a href='http://git-scm.com/downloads'>git</a> installed and execute the following code in a console:
+
+
+</div>
+<!-- ###### Preparation instructions Fedora ######################## -->
+<div class='prep-instructions fedora'>
+<p>The preparation of a <a href='https://fedoraproject.org'>Fedora</a> 22 host will only take a couple of minutes. First install Python 3.4, <code>git</code> and the other needed packages out of the <a href='https://admin.fedoraproject.org/pkgdb'>Fedora Package Collection</a>. This ensure that you receive updates in the future.</p>
+
+<p class='note'>
+It's assumed that your user has an entry in the sudoers file. Otherwise, run the commands which needs more privileges as root.
+</p>
+
+```bash
+sudo dnf -y install python3 python3-devel git gcc
+```
+
+</div>
+<!-- ##### Preparation instructions Centos ######################### -->
+<div class='prep-instructions centos'>
+
+<p><a href='https://www.centos.org/'>CentOS</a> is providing longtime support and often not shipping the latest release of a software component. To run, Python 3.x on CentOS <a href='https://www.softwarecollections.org/en/scls/rhscl/rh-python34/'>Software Collections</a> needs to be activated.</p>
+
+<h5>Step 1. Install the tools for the Software Collection</h5>
+
+```bash
+sudo yum -y install scl-utils
+```
+
+<h5>Step 2. Make the repository available.</h5>
+
+```bash
+sudo yum -y install rhscl-rh-python34-*.noarch.rpm
+```
+
+<h5>Step 3. Install Python 3.x</h5>
+
+```bash
+sudo yum -y install rh-python34
+```
+
+<h5>Step 4. Start using software collections:</h5>
+
+```bash
+sudo scl enable rh-python34 bash
+```
+
+</div>
+
+</div>
+
+<br />
+<!-- ###### Preparation END ######################## -->
+
+
+
+
+
+<h3>Installation</h3>
 
 <p>
 ```bash
@@ -87,7 +156,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
 
-<p><b>Step 2. Install requirements</b></p>
+<h5>Step 2. Install requirements</h5>
 
 ```bash
 sudo apt-get install python3-dev
@@ -138,3 +207,4 @@ python3 -m homeassistant
 </div>
 
 ###[Next step: configuring Home Assistant &raquo;](/getting-started/configuration.html)
+
