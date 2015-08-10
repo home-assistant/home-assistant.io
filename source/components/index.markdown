@@ -141,7 +141,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td><a href='/components/media_player.squeezebox.html'><img src='/images/supported_brands/logitech.png' class='brand overview' /></a></td>
-  <td><a href='/components/media_player.squeezeboy.html'>Squeezebox</a></td>
+  <td><a href='/components/media_player.squeezebox.html'>Squeezebox</a></td>
   <td>Track what is being played and control playback.</td>
 </tr>
 
