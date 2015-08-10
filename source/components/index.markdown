@@ -16,6 +16,7 @@ Components add support for devices, automation, and much much more to Home Assis
 
 Entities are things that you want to observe within Home Assistant. Support for these things are provided by the entity components [Light](/components/light.html), [Switch](/components/switch.html), [Thermostat](/components/thermostat.html), [Media player](/components/media_player.html), [Device tracker](/components/device_tracker.html), and [Sun](/components/sun.html).
 
+
 <!-- 1. column LIGHT AND ENVIRONMENT -->
 <div class="grid-wrapper">
   <div class="grid">
@@ -25,6 +26,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
         <div class="grid__item one-whole lap-two-half">
           <h2 class="title">Light and environment</h2>
 	    <p></p>
+
 <table>
 
 <tr>
