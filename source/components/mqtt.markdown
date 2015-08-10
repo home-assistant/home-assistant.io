@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 ---
-MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport. 
+<img src='/images/supported_brands/mqtt.png' class='brand pull-right' />
+MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
 The MQTT component needs an MQTT broker like [Mosquitto](http://mosquitto.org/) or [Mosca](http://www.mosca.io/). The Eclipse Foundation is running a public MQTT broker at [iot.eclipse.org](iot.eclipse.org) or the Mosquitto Project under [test.mosquitto.org](http://test.mosquitto.org). If you prefer to use a public, keep in mind to adjust the topic and that your messages may be publicly accessible.
 
@@ -18,21 +19,24 @@ To integrate MQTT into Home Assistant, add the following section to your `config
 # Example configuration.yaml entry
 mqtt:
   broker: IP_ADDRESS_BROKER
-```
-There are more optional entries available if your broker is using different settings or you have a special need.
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  broker: 127.0.0.1
+  # All the other options are optional:
   port: 1883
-  topic: home-assistant
   keepalive: 60
   qos: 0
   username: your_username
   password: your_secret_password
 ```
-<img src='/images/supported_brands/preferences-system-sharing.png' class='brand pull-right' />
+
+<p class='note'>
+The MQTT component has no TLS support at the moment. This means that only plain-text communication is possible.
+</p>
+
+## Building on top of MQTT
+
+There are two ways to integrate MQTT into your process. One is by using the [MQTT-automation rule](/components/automation.html#mqtt-based-automation). The other one is by integrating it into a component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
+
+## Testing
+
 For debugging purposes `mosquitto` is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:
 
 ```bash
@@ -59,7 +63,3 @@ For reading all messages sent on the topic `home-assistant` to a broker running 
 ```bash
 mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 ```
-
-<p class='note'>
-The MQTT component has no TLS support at the moment. This means that only plain-text communication is possible.
-</p>

@@ -29,10 +29,10 @@ automation:
   service_data: {"message":"The sun has set"}
 ```
 
-## Setting up triggers
+## {% linkable_title Setting up triggers %}
 
-#### Time-based automation
-This allows you to trigger actions whenever the time matches your filter. You can setup filters to match on hours, minutes and seconds. Any filter that you omit will match all values. 
+#### {% linkable_title Time-based automation %}
+This allows you to trigger actions whenever the time matches your filter. You can setup filters to match on hours, minutes and seconds. Any filter that you omit will match all values.
 
 Here are some example values:
 
@@ -49,7 +49,7 @@ Here are some example values:
   time_seconds: 0
 ```
 
-#### State-based automation
+#### {% linkable_title State-based automation %}
 This allows you to trigger actions based on state changes of any entity within Home Assistant. You can omit the `state_from` and `state_to` to match all.
 
 ```
@@ -76,7 +76,21 @@ This allows you to trigger actions based on state changes of any entity within H
   Use quotes around your values for <code>state_from</code> and <code>state_to</code> to avoid the YAML parser interpreting some values as booleans.
 </p>
 
-## Setting up the action
+#### {% linkable_title MQTT-based automation %}
+This allows you to trigger actions based on messages on an MQTT topic. You can specify an optional payload to match as well.
+
+```
+  # Match any changes to bathroom light
+  platform: mqtt
+  mqtt_topic: home/bathroom/light
+
+  # Match only if bathroom light is turned on
+  platform: mqtt
+  mqtt_topic: home/bathroom/light
+  mqtt_payload: 'on'
+```
+
+## {% linkable_title Setting up the action %}
 
 Currently the only supported action is calling a service. Services are what devices expose to be controlled, so this will allow us to control anything that Home Assistant can control.
 
@@ -95,7 +109,7 @@ Currently the only supported action is calling a service. Services are what devi
   service_data: {"message":"YAY"}
 ```
 
-## Putting it all together
+## {% linkable_title Putting it all together %}
 For every combination of a trigger and an action we will have to combine the configuration lines and add it to an `automation` component entry in `configuration.yaml`. You can add an optional `alias` key to the configuration to make the logs more understandable. To setup multiple entries, append 2, 3 etc to the section name. An example of a `configuration.yaml` file:
 
 ```
