@@ -17,9 +17,9 @@ To use your Edimax switch in your installation, add the following to your `confi
 ```
 # Example configuration.yaml entry
 switch:
-    platform: edimax
-    host: 192.168.1.32
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    name: Edimax Smart Plug
+  platform: edimax
+  host: 192.168.1.32
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  name: Edimax Smart Plug
 ```

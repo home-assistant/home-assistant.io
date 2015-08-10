@@ -16,5 +16,5 @@ To use your TEMPer sensor in your installation, add the following to your `confi
 ```
 # Example configuration.yaml entry
 sensor:
-    platform: temper
+  platform: temper
 ```

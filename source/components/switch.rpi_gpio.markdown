@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/rapberry-pi.png' class='brand pull-right' />
+<img src='/images/supported_brands/raspberry-pi.png' class='brand pull-right' />
 The rpi_gpio switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
