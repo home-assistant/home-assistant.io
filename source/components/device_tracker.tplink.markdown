@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/tp-link.png' class='brand pull-right' />
-This platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device.
+This platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device. This includes the ArcherC9 line.
 
 ```yaml
 # Example configuration.yaml entry
