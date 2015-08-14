@@ -73,7 +73,7 @@ sudo yum -y install rh-python34
 <h5>Step 4. Start using software collections:</h5>
 
 ```bash
-sudo scl enable rh-python34 bash
+scl enable rh-python34 bash
 ```
 
 </div>
