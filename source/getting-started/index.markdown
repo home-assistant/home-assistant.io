@@ -61,7 +61,7 @@ sudo yum -y install scl-utils
 <h5>Step 2. Make the repository available.</h5>
 
 ```bash
-sudo yum -y install rhscl-rh-python34-*.noarch.rpm
+sudo yum -y install https://www.softwarecollections.org/en/scls/rhscl/rh-python34/epel-7-x86_64/download/rhscl-rh-python34-epel-7-x86_64.noarch.rpm
 ```
 
 <h5>Step 3. Install Python 3.x</h5>
