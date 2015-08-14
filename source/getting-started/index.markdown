@@ -83,10 +83,6 @@ scl enable rh-python34 bash
 <br />
 <!-- ###### Preparation END ######################## -->
 
-
-
-
-
 <h3>Installation</h3>
 
 <p>
@@ -106,7 +102,22 @@ python3 -m homeassistant --open-ui
 <li>Activate the isolated environment (on Windows, run <code>Scripts/activate.bat</code>)</li>
 <li>Launch Home Assistant and serve web interface on <a href='http://localhost:8123'>http://localhost:8123</a></li>
 </ol>
-<p>If you run into any issues, please see the <a href='{{site_root}}/getting-started/troubleshooting.html'>troubleshooting page</a>.</p>
+<br />
+
+<!-- ###### Post-Installation START ######################## -->
+<h3>Post-Installation</h3>
+
+<div class='post-instructions-container'>
+<input name='post-instructions' type='radio' id='generic-post' checked>
+<input name='post-instructions' type='radio' id='fedora-post'>
+<input name='post-instructions' type='radio' id='debian-post'>
+<label class='menu-selector generic-post' for='generic-post'>Generic</label>
+<label class='menu-selector fedora-post' for='fedora-post'>Fedora/CentOS</label>
+<label class='menu-selector debian-post' for='debian-post'>Debian</label>
+
+<!-- ###### Post-installation instructions Generic ######################## -->
+<div class='post-instructions generic-post'>
+<p>There is nothing else to do. If you run into any issues, please see the <a href='{{site_root}}/getting-started/troubleshooting.html'>troubleshooting page</a>.</p>
 
 <p class='note'>
   You can run Home Assistant in demo mode by appending <code>--demo-mode</code> to line 5.
@@ -116,8 +127,92 @@ python3 -m homeassistant --open-ui
   If you want to update to the latest version in the future, run: <code>scripts/update</code>.
 </p>
 
+
+</div>
+<!-- ###### Post-installation instructions Fedora/CentOS ######################## -->
+<div class='post-instructions fedora-post'>
+<p>By default, the access to port 8123 is not allowed. If you want to allow other hosts in your local network access, open port 8123.</p>
+
+```bash
+sudo firewall-cmd --permanent --add-port=8123/tcp
+sudo firewall-cmd --reload
+```
+<p>Home Assistant will serve its web interface on <a href='http://[IP address of the host]:8123'>http://[IP address of the host]:8123</a>.</p>
+
+<p>If you want that Home Assistant is lauched automatically, an extra step is needed to setup <code>systemd</code>. You need a service file to control Home Assistant with <code>systemd</code>. The <code>WorkingDirectory</code> and the <code>PYTHONPATH</code> must point to your clone git repository.</p>
+
+```bash
+su -c 'cat <<EOF >> /lib/systemd/system/home-assistant.service
+[Unit]
+Description=Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/fab/home-assistant/
+Environment="PYTHONPATH=/home/fab/home-assistant/"
+ExecStart=/usr/bin/python3.4 -m homeassistant
+
+[Install]
+WantedBy=multi-user.target
+EOF'
+```
+
+<p>You need to reload <code>systemd</code> to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.</p>
+
+```bash
+sudo systemctl --system daemon-reload
+sudo systemctl enable home-assistant
+sudo systemctl start home-assistant
+```
+
+<p>If everything went well, <code>sudo systemctl start home-assistant</code> should give you a positive feedback.</p>
+
+```bash
+$ sudo systemctl status home-assistant -l
+● home-assistant.service - Home Assistant
+   Loaded: loaded (/usr/lib/systemd/system/home-assistant.service; disabled; vendor preset: disabled)
+   Active: active (running) since Thu 2015-06-25 23:38:37 CEST; 3min 13s ago
+ Main PID: 8557 (python3.4)
+   CGroup: /system.slice/home-assistant.service
+           └─8557 /usr/bin/python3.4 -m homeassistant
+[...]
+```
+
+<p>To get Home Assistant's logging output, simple use <code>journalctl</code>.</p>
+
+```bash
+sudo journalctl -f -u home-assistant
+```
+
+<p class='note'>
+  If you want to update to the latest version in the future, run: <code>scripts/update</code> and restart Home Assistant.
+</p>
+
+
+<p class='note'>
+Those instructions were written for Fedora 22 Server and Workstation. They may work for Cloud flavor as well but this was not tested.
+</p>
+
+
+</div>
+<!-- ##### Post-installation instructions Debian ######################### -->
+<div class='post-instructions debian-post'>
+
+<p>Coming soon...</p>
+
+
+
 </div>
 
+</div>
+
+<br />
+<!-- ###### Post-installation END ######################## -->
+
+</div>
+
+<!-- ###### Docker START ######################## -->
 <div class='install-instructions docker'>
 <p>Installation with Docker is straightforward. Adjust the following command so that <code>/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
 
@@ -133,6 +228,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
 
 </div>
 
+<!-- ###### Paspberry Pi START ######################## -->
 <div class='install-instructions raspberry'>
 
 <p>Home Assistant uses Python 3.4. This makes installation on a Raspberry Pi a bit more difficult as it is not available in the package repository. Please follow the following instructions to get it up and running.</p>
