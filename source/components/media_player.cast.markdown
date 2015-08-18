@@ -10,15 +10,13 @@ footer: true
 ---
 
 <img src='/images/supported_brands/google_cast.png' class='brand pull-right' />
-Google Cast devices will be automatically discovered if you enable [the discovery component]({{site_root}}/components/discovery.html).
+Google Cast devices will be automatically discovered if you enable [the discovery component]({{site_root}}/components/discovery.html). There is a issue where Chromecasts can only be discovered if your device is connected to the same subnet as your Chromecast.
 
-Can also be forced to load by adding the following lines to your `configuration.yaml`:
+Chromecast platform can also be forced to load by adding the following lines to your `configuration.yaml`:
 
 ```
 media_player:
   platform: chromecast
+  # Optional. Will scan for devices if left out
+  host: 192.168.1.9
 ```
-
-<p class='note warning'>
-Chromecasts have recently received a new API which is not yet supported by Home Assistant. Therefore we currently can only detect them and do not know what they are up to.
-</p> 
