@@ -233,8 +233,10 @@ Home Assistant integrates with a variety of third party Home Automation hubs and
 [<img src='/images/supported_brands/vera.png' class='brand' alt="Vera" />](/components/vera.html)
 [<img src='/images/supported_brands/wink.png' class='brand' alt="Wink" />](/components/wink.html)
 [<img src='/images/supported_brands/universal_devices.png' class='brand' alt="ISY994" />](/components/isy994.html)
+
 [<img src='/images/supported_brands/modbus.png' class='brand' alt="Modbus" />](/components/modbus.html)
 [<img src='/images/supported_brands/arduino.png' class='brand' alt="Arduino" />](/components/arduino.html)
+[<img src='/images/supported_brands/verisure.png' class='brand' alt="Verisure" />](/components/verisure.html)
 
 <p class='note'>
 Support for these devices is provided by the Home Assistant community and not
