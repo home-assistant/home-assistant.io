@@ -189,5 +189,78 @@ p.note {
   }
 }
 
+.prep-instructions-container {
+  #generic-prep, #fedora-prep, #centos-prep, .prep-instructions {
+    display: none;
+  }
 
+  label.menu-selector {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    white-space: nowrap;
+    border-bottom: 2px solid $grayLight;
+    transition: border-bottom-color .5s;
+  }
+
+  label.menu-selector + label.menu-selector {
+    margin-left: 10px;
+  }
+
+  #generic-prep:checked ~ .menu-selector.generic,
+  #fedora-prep:checked ~ .menu-selector.fedora,
+  #centos-prep:checked ~ .menu-selector.centos
+   {
+    border-bottom-color: $blue;
+  }
+
+  #generic-prep:checked ~ .prep-instructions.generic,
+  #fedora-prep:checked ~ .prep-instructions.fedora,
+  #centos-prep:checked ~ .prep-instructions.centos
+   {
+    display: block;
+  }
+
+  .prep-instructions {
+    margin-top: 20px;
+  }
+}
+
+.post-instructions-container {
+  #generic-post, #fedora-post, #debian-post, .post-instructions {
+    display: none;
+  }
+
+  label.menu-selector {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    white-space: nowrap;
+    border-bottom: 2px solid $grayLight;
+    transition: border-bottom-color .5s;
+  }
+
+  label.menu-selector + label.menu-selector {
+    margin-left: 10px;
+  }
+
+  #generic-post:checked ~ .menu-selector.generic-post,
+  #fedora-post:checked ~ .menu-selector.fedora-post,
+  #debian-post:checked ~ .menu-selector.debian-post
+   {
+    border-bottom-color: $blue;
+  }
+
+  #generic-post:checked ~ .post-instructions.generic-post,
+  #fedora-post:checked ~ .post-instructions.fedora-post,
+  #debian-post:checked ~ .post-instructions.debian-post
+   {
+    display: block;
+  }
+
+  .post-instructions {
+    margin-top: 20px;
+  }
+
+}
 

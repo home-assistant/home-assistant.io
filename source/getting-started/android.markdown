@@ -21,4 +21,4 @@ Home Assistant is not available on the Play Store. Instead, Home Assistant lever
 <img src='/images/screenshots/android-homescreen-guide.gif' />
 </p>
 
-Some internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while being remote. You can solve this by using a free Dynamic DNS service like [No-IP](http://www.noip.com/).
+Some internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while being remote. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).

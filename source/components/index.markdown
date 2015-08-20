@@ -65,6 +65,18 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td></td>
+  <td><a href='/components/sensor.temper.html'>TEMPer sensors</a></td>
+  <td>Integrate TEMPer sensors to get the current temperature.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/device_tracker.asuswrt.html'><img src='/images/supported_brands/asus.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.asuswrt.html'>ASUSWRT routers</a></td>
+  <td>Offers presence detection by looking at connected devices.</td>
+</tr>
+
+<tr>
   <td><a href='/components/device_tracker.ddwrt.html'><img src='/images/supported_brands/ddwrt.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.ddwrt.html'>DD-WRT routers</a></td>
   <td>Offers presence detection by looking at connected devices.</td>
@@ -128,6 +140,12 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td><a href='/components/media_player.squeezebox.html'><img src='/images/supported_brands/logitech.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.squeezebox.html'>Squeezebox</a></td>
+  <td>Track what is being played and control playback.</td>
+</tr>
+
+<tr>
   <td><a href='/components/switch.command_switch.html'><img src='/images/supported_brands/utilities-terminal.png' class='brand overview' /></a></td>
   <td><a href='/components/switch.command_switch.html'>Command line Switch</a></td>
   <td>Switch that issues command line commands when turned on and off.</td>
@@ -143,6 +161,18 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td><a href='/components/switch.hikvision.html'><img src='/images/supported_brands/hikvision.png' class='brand overview' /></a></td>
   <td><a href='/components/switch.hikvision.html'>Hikvision</a></td>
   <td>Control the motion detection setting on your Hikvision camera.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/switch.edimax.html'><img src='/images/supported_brands/edimax.png' class='brand overview' /></a></td>
+  <td><a href='/components/switch.edimax.html'>Edimax switches</a></td>
+  <td>Control the state of your Edimax switches.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/switch.rpi_gpio.html'><img src='/images/supported_brands/raspberry-pi.png' class='brand overview' /></a></td>
+  <td><a href='/components/switch.rpi_gpio.html'>Raspberry PI GPIO</a></td>
+  <td>Control the GPIO of a Raspberry Pi.</td>
 </tr>
 
 <tr>
@@ -163,6 +193,24 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td>Controls your Arduino's digital pins and read from the analog pins.</td>
 </tr>
 
+<tr>
+  <td><a href='/components/sensor.efergy.html'><img src='/images/supported_brands/efergy.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.efergy.html'>Efergy Engage hubs</a></td>
+  <td>Monitors home energy use as measured by an Efergy engage hub.</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td><a href='/components/sensor.rfxtrx.html'>RFXtrx sensors</a></td>
+  <td>Monitors values from RFXtrx sensors.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/camera.generic.html'><img src='/images/supported_brands/camera-web.png' class='brand overview' /></a></td>
+  <td><a href='/components/camera.generic.html'>Generic IP cameras</a></td>
+  <td>Integrate any IP camera or image url into a camera feed.</td>
+</tr>
+
 </table>
 
 <p class='note'>
@@ -180,13 +228,15 @@ the manufacturers of these devices.
 
 Home Assistant integrates with a variety of third party Home Automation hubs and networks. It allows you to control the connected switches, lights and sensors via Home Assistant. Click on the following logos for setup instructions:
 
-[<img src='/images/supported_brands/z-wave.png' class='brand' />](/components/zwave.html)
-[<img src='/images/supported_brands/telldus_tellstick.png' class='brand' />](/components/tellstick.html)
-[<img src='/images/supported_brands/vera.png' class='brand' />](/components/vera.html)
-[<img src='/images/supported_brands/wink.png' class='brand' />](/components/wink.html)
-[<img src='/images/supported_brands/universal_devices.png' class='brand' />](/components/isy994.html)
-[<img src='/images/supported_brands/modbus.png' class='brand' />](/components/modbus.html)
-[<img src='/images/supported_brands/arduino.png' class='brand' />](/components/arduino.html)
+[<img src='/images/supported_brands/z-wave.png' class='brand' alt="Zwave" />](/components/zwave.html)
+[<img src='/images/supported_brands/telldus_tellstick.png' class='brand' alt="Tellstick" />](/components/tellstick.html)
+[<img src='/images/supported_brands/vera.png' class='brand' alt="Vera" />](/components/vera.html)
+[<img src='/images/supported_brands/wink.png' class='brand' alt="Wink" />](/components/wink.html)
+[<img src='/images/supported_brands/universal_devices.png' class='brand' alt="ISY994" />](/components/isy994.html)
+
+[<img src='/images/supported_brands/modbus.png' class='brand' alt="Modbus" />](/components/modbus.html)
+[<img src='/images/supported_brands/arduino.png' class='brand' alt="Arduino" />](/components/arduino.html)
+[<img src='/images/supported_brands/verisure.png' class='brand' alt="Verisure" />](/components/verisure.html)
 
 <p class='note'>
 Support for these devices is provided by the Home Assistant community and not
@@ -248,6 +298,12 @@ the manufacturers of these devices.
   <td><a href='/components/notify.pushover.html'><img src='/images/supported_brands/pushover.png' class='brand overview' /></a></td>
   <td><a href='/components/notify.pushover.html'>PushOver</a></td>
   <td>Allow sending messages using PushOver.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/notify.slack.html'><img src='/images/supported_brands/slack.png' class='brand' /></a></td>
+  <td><a href='/components/notify.slack.html'>Slack</a></td>
+  <td>Allow sending messages over Slack.</td>
 </tr>
 
 <tr>
@@ -314,6 +370,12 @@ the manufacturers of these devices.
   <td><a href='/components/sensor.time_date.html'><img src='/images/supported_brands/clock.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.time_date.html'>Time & Date</a></td>
   <td>Displays the time and the date.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/mqtt.html'><img src='/images/supported_brands/mqtt.png' class='brand overview' /></a></td>
+  <td><a href='/components/mqtt.html'>MQTT</a></td>
+  <td>Allow sending and recieving MQTT messages.</td>
 </tr>
 </table>
 
