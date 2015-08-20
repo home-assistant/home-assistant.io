@@ -15,12 +15,17 @@ The xmpp platform allows you to deliver notifications from Home Assistant to a [
 ```yaml
 # Example configuration.yaml entry
 notify:
+    name: NOTIFIER_NAME
     platform: xmpp
     sender: YOUR_JID
     password: YOUR_JABBER_ACCOUNT_PASSWORD
     recipient: YOUR_RECIPIENT
 ```
 
-All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender. 
+Setting the optional parameter `name` allows multiple notifiers to be created.
+The default value is `notify`. The notifier will bind to the service
+`notify.NOTIFIER_NAME`.
+
+All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
 
 To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation.html).

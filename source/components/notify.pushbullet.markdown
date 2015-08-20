@@ -14,10 +14,15 @@ Home Assistant currently supports the awesome [PushBullet](https://www.pushbulle
 
 To add PushBullet to your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 notify:
+  name: NOTIFIER_NAME
   platform: pushbullet
   api_key: YOUR_API_KEY
 ```
+
+Setting the optional parameter `name` allows multiple notifiers to be created.
+The default value is `notify`. The notifier will bind to the service
+`notify.NOTIFIER_NAME`.
 
 For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation.html).

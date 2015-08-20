@@ -25,7 +25,7 @@ automation:
   state_to: 'below_horizon'
 
   # Action to be done when trigger activated
-  execute_service: notify.notify
+  execute_service: notify.NOTIFIER_NAME
   service_data: {"message":"The sun has set"}
 ```
 
@@ -105,7 +105,7 @@ Currently the only supported action is calling a service. Services are what devi
   service_data: {"rgb_color": [255, 0, 0]}
 
   # Notify the user
-  execute_service: notify.notify
+  execute_service: notify.NOTIFIER_NAME
   service_data: {"message":"YAY"}
 ```
 
@@ -121,7 +121,7 @@ automation:
   state_from: 'above_horizon'
   state_to: 'below_horizon'
 
-  execute_service: notify.notify
+  execute_service: notify.NOTIFIER_NAME
   service_data: {"message":"The sun has set"}
 
 automation 2:
@@ -147,5 +147,5 @@ automation 3:
 ```
 
 <p class='note'>
-All configuration entries have to be sequential. If you have <code>automation:</code>, <code>automation 2:</code> and <code>automation 4:</code> then the last one will not be processed. 
+All configuration entries have to be sequential. If you have <code>automation:</code>, <code>automation 2:</code> and <code>automation 4:</code> then the last one will not be processed.
 </p>
