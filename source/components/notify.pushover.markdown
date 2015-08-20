@@ -17,6 +17,7 @@ To use PushOver notifications, add the following to your `configuration.yaml` fi
 ```yaml
 # Example configuration.yaml entry
 notify:
+    name: NOTIFIER_NAME
     platform: pushover
     # Get this by registering a new application on https://pushover.net
     api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
@@ -24,6 +25,9 @@ notify:
     user_key: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
+Setting the optional parameter `name` allows multiple notifiers to be created.
+The default value is `notify`. The notifier will bind to the service
+`notify.NOTIFIER_NAME`.
 
 ### Automation example
 
@@ -38,7 +42,7 @@ automation:
   state_from: above_horizon
   state_to: below_horizon
 
-  execute_service: notify.notify
+  execute_service: notify.NOTIFIER_NAME
   service_data: {"message":"YAY"}
 ```
 

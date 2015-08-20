@@ -17,6 +17,7 @@ To enable notification by e-mail in your installation, add the following to your
 ```yaml
 # Example configuration.yaml entry
 notify:
+  name: NOTIFIER_NAME
   platform: mail
   server: MAIL_SERVER
   port: YOUR_SMTP_PORT
@@ -27,9 +28,13 @@ notify:
   recipient: YOUR_RECIPIENT
 ```
 
-This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations. 
+Setting the optional parameter `name` allows multiple notifiers to be created.
+The default value is `notify`. The notifier will bind to the service
+`notify.NOTIFIER_NAME`.
 
-A combination that will work properly is port 587 and STARTTLS. It's recommanded to enable STARTTLS, if possible. 
+This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
+
+A combination that will work properly is port 587 and STARTTLS. It's recommanded to enable STARTTLS, if possible.
 
 Keep in mind that if the password contains a colon, it needs to be wrapped in apostrophes in the `configuration.yaml` file.
 
