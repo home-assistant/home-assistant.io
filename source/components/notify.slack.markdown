@@ -19,8 +19,12 @@ To enable the slack notification in your installation, add the following to your
 ```yaml
 # Example configuration.yaml entry
 notify:
+  name: NOTIFIER_NAME
   platform: slack
   api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
   default_channel: '#general'
 ```
 
+Setting the optional parameter `name` allows multiple notifiers to be created.
+The default value is `notify`. The notifier will bind to the service
+`notify.NOTIFIER_NAME`.

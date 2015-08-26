@@ -11,7 +11,13 @@ footer: true
 
 <img src='/images/supported_brands/verisure.png' class='brand pull-right' />
 
-Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices. We support hygrometers, smartplugs and thermometers.
+Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
+
+We support:
+
+  * Smartplugs
+  * Reading from thermometers and hygrometers integrated in various devices
+  * Reading alarm status
 
 Username and password are required. Other variables are optional and allow you to disable certain devices.
 
