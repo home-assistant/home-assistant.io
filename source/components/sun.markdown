@@ -19,7 +19,10 @@ homeassistant:
   longitude: -117.22743
 
 sun:
+  elevation: 123
 ```
+
+`elevation` is optional. If not given, it will be queried from Google Maps using the specified location.
 
 <p class='img'>
 <img src='{{site_root}}/images/screenshots/more-info-dialog-sun.png' />
