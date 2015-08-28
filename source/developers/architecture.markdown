@@ -28,7 +28,7 @@ The Home Assistant core is responsible for Home Control. It has four parts to ma
  * The **Event Bus** facilitates the firing and listening of events. This is the beating heart of Home Assistant.
  * The **State Machine** keeps track of the states of things. Fires a `state_changed` event when a state has been changed.
  * The **Service Registry** listens on the event bus for `call_service` events and allows other code to register services.
- * The **Timer** will send every 10 seconds a `time_changed` event on the event bus.
+ * The **Timer** will send every 1 second a `time_changed` event on the event bus.
 
 <p class='img'>
   <a href='{{ root_url }}/images/architecture/ha_architecture.png'>
