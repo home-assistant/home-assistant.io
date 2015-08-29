@@ -21,10 +21,9 @@
     <meta property="og:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:url" content="{% if canonical %}{{ canonical }}{% else %}{{ site.url }}{% endif %}/">
-    <meta property="og:type" content="{% if page.facebook.type %}{{ page.facebook.type }}{% else %}website{% endif %}">
+    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
     <meta property="og:description" content="{{ fb_description | strip_html | condense_spaces | truncate:200 }}">
-    {% if site.social.facebook.user %}<meta property="og:author" content="https://facebook.com/{{ site.social.facebook.user }}">{% endif %}
-    {% if page.facebook.image %}<meta property="og:image" content="{{ page.facebook.image }}">{% endif %}
+    <meta property="og:image" content="{% if page.og_image %}{{ page.og_image | prepend: site.url }}{% else %}https://home-assistant.io/images/favicon-192x192.png{% endif %}">
     {% endif %}
     <link href="{{ root_url }}/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="{{ root_url }}{{ site.subscribe_rss }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml">

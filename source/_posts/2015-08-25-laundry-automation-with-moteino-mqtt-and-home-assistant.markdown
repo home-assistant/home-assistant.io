@@ -6,6 +6,7 @@ date: 2015-08-26 08:12 -0700
 date_formatted: "August 26, 2015"
 comments: true
 categories: user-stories
+og_image: /images/blog/2015-08-laundry-automation/moteino-and-sensors.jpg
 ---
 
 
