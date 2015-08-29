@@ -21,7 +21,7 @@
     <meta property="og:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:url" content="{% if canonical %}{{ canonical }}{% else %}{{ site.url }}{% endif %}/">
-    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+    <meta property="og:type" content="{% if page.categories %}article{% else %}website{% endif %}">
     <meta property="og:description" content="{{ fb_description | strip_html | condense_spaces | truncate:200 }}">
     <meta property="og:image" content="{% if page.og_image %}{{ page.og_image | prepend: site.url }}{% else %}https://home-assistant.io/images/favicon-192x192.png{% endif %}">
     {% endif %}
