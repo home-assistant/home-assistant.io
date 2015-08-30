@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/technicolor.png' class='brand pull-right' />
 Thomson produced networking equipment (under the brand name SpeedTouch) till 2010 and was then renamed to Technicolor.
 
 This platform allows you to detect presence by looking at connected devices to a [Thomson](http://www.technicolor.com) device.
