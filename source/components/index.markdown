@@ -54,7 +54,6 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td><a href='/components/sensor.temper.html'>TEMPer sensors</a> reads the current temperature.</td>
 </tr>
 
-
 <tr>
   <td><a href='/components/light.limitlessled.html'><img src='/images/supported_brands/dialog-information.png' class='brand overview' /></a></td>
   <td><a href='/components/light.limitlessled.html'>LimitlessLED</a> controls your LimitlessLED lights.</td>
@@ -68,6 +67,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td><a href='/components/sensor.efergy.html'><img src='/images/supported_brands/efergy.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.efergy.html'>Efergy Engage hubs</a> monitors home energy use.</td>
+</tr>
+
+<tr>
+  <td></td>
+  <td><a href='/components/sensor.dht.html'>DHTxx</a> reads the temperature and humidity.</td>
 </tr>
 
 </table>
@@ -90,7 +94,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td><a href='/components/switch.rpi_gpio.html'><img src='/images/supported_brands/raspberry-pi.png' class='brand overview' /></a></td>
-  <td><a href='/components/switch.rpi_gpio.html'>Raspberry PI GPIO</a> controls the GPIO of a Raspberry Pi.</td>
+  <td>Raspberry PI <a href='/components/switch.rpi_gpio.html'>switch</a> controls and <a href='/components/sensor.rpi_gpio.html'>sensor</a> reads the values of GPIOs.</td>
 </tr>
 
 <tr>
@@ -133,6 +137,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
             <p>Offers presence detection by looking at connected devices or by scanning the network.</p>
 <table>
 <tr>
+  <td><a href='/components/device_tracker.actiontec.html'><img src='/images/supported_brands/actiontec.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.actiontec.html'>Actiontec routers</a></td>
+</tr>
+
+<tr>
   <td><a href='/components/device_tracker.asuswrt.html'><img src='/images/supported_brands/asus.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.asuswrt.html'>ASUSWRT routers</a></td>
 </tr>
@@ -160,6 +169,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td><a href='/components/device_tracker.tplink.html'><img src='/images/supported_brands/tp-link.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.tplink.html'>TP-Link routers</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/device_tracker.thomson.html'><img src='/images/supported_brands/technicolor.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.thomson.html'>Thomson routers</a></td>
 </tr>
 
 <tr>
@@ -238,7 +252,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td><a href='/components/sensor.transmission.html'><img src='/images/supported_brands/transmission.png' class='brand overview' /></a></td>
   <td>
-    <a href='/components/sensor.transmission.html'>Transmission</a> monitors status/speeds and <a href='/components/switch.transmission.html'>changes</a> the speed limits.</br>
+    <a href='/components/sensor.transmission.html'>Transmission</a> monitors status/speeds and <a href='/components/switch.transmission.html'>changes</a> the speed limits.
   </td>
 </tr>
 
