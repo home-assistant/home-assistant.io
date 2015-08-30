@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Raspberry PI GPIO support"
+title: "Raspberry PI GPIO switch support"
 description: "Instructions how to integrate the GPIO of a Raspberry PI into Home Assistant."
 date: 2015-08-07 14:00
 sidebar: false
@@ -28,3 +28,4 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 <p class='note warning'>
 As this requires access to the GPIO, you will need to run Home Assistant as root.
 </p>
+
