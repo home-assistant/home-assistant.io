@@ -78,12 +78,12 @@ Entities are things that you want to observe within Home Assistant. Support for 
         </div>
       </div>
     </div>
-<!-- 2. column DEVICES -->
+<!-- 2. column DEVICES AND PROTOCOLS -->
     <div class="grid__item one-half lap-one-whole palm-one-whole usp">
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-hald">
-          <h2 class="title">Devices</h2>
+          <h2 class="title">Devices and protocols</h2>
             <p></p>
 <table>
 
@@ -115,6 +115,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td></td>
   <td><a href='/components/sensor.rfxtrx.html'>RFXtrx</a> sensors monitors values from RFXtrx sensors.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/mqtt.html'><img src='/images/supported_brands/mqtt.png' class='brand overview'/></a></td>
+  <td><a href='/components/mqtt.html'>MQTT</a> allows sending and recieving MQTT messages.</td>
 </tr>
 
 </table>
