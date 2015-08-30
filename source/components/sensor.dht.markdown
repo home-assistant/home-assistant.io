@@ -1,0 +1,32 @@
+---
+layout: page
+title: "DHT support"
+description: "Instructions how to integrate DHTxx sensors within Home Assistant."
+date: 2015-08-30 19:15
+sidebar: false
+comments: false
+sharing: true
+footer: true
+---
+
+The dht sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
+
+To use your DHTxx sensor in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  platform: dht
+  sensor: DHT22
+  pin: 23
+  monitored_conditions:
+    - temperature
+    - humidity
+```
+
+The name of the pin to which the sensor is connected has a different names on different platfroms. 'P8_11' for Beaglebone, '23' for Raspberry Pi.
+
+<p class='note warning'>
+As this requires access to the GPIO, you will need to run Home Assistant as root.
+</p>
+
