@@ -122,3 +122,15 @@ sensor:
     - temperature
     - humidity
 ```
+
+__Aruba device tracker__<br>
+[Michael Arnauts](https://github.com/michaelarnauts) has contributed support for Aruba wireless routers for presence detection.
+
+```yaml
+# Example configuration.yaml entry
+device_tracker:
+  platform: aruba
+  host: YOUR_ACCESS_POINT_IP
+  username: YOUR_ADMIN_USERNAME
+  password: YOUR_ADMIN_PASSWORD
+```
