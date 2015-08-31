@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Bitcoin support"
-description: "Instructions how to integrate the time and the date within Home Assistant."
+description: "Instructions how to integrate Bitcoin data within Home Assistant."
 date: 2015-05-08 17:15
 sidebar: false
 comments: false

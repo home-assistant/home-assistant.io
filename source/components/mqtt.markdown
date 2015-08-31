@@ -33,7 +33,10 @@ The MQTT component has no TLS support at the moment. This means that only plain-
 
 ## Building on top of MQTT
 
-There are two ways to integrate MQTT into your process. One is by using the [MQTT-automation rule](/components/automation.html#mqtt-based-automation). The other one is by integrating it into a component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
+ - [MQTT Sensor](/components/sensor.mqtt.html)
+ - [MQTT Switch](/components/switch.mqtt.html)
+ - [MQTT-automation rule](/components/automation.html#mqtt-based-automation).
+ - Integrating it into a component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
 
 ## Testing
 

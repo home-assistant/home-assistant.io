@@ -24,7 +24,7 @@ sensor:
     - humidity
 ```
 
-The name of the pin to which the sensor is connected has a different names on different platfroms. 'P8_11' for Beaglebone, '23' for Raspberry Pi.
+The name of the pin to which the sensor is connected has different names on different platforms. 'P8_11' for Beaglebone, '23' for Raspberry Pi.
 
 <p class='note warning'>
 As this requires access to the GPIO, you will need to run Home Assistant as root.
