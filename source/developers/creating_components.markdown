@@ -42,6 +42,22 @@ You can override a built-in component by having a component with the same name i
 Home Assistant will use the directory that contains your config file as the directory that holds your customizations. By default this is the <code>config</code> folder in your current work directory. You can use a different folder by running Home Assistant with the --config argument: <code>python3 homeassistant --config /YOUR/CONFIG/PATH/</code>.
 </p>
 
+## {% linkable_title Dependencies %}
+
+Home Assistant allows components and platforms to specify their dependencies and requirements using the variables
+`DEPENDENCIES` and `REQUIREMENTS`. Both are lists that contain strings.
+
+Dependencies are other Home Assistant components that should be setup before the platform is loaded.
+An example is the MQTT sensor component, which requires an active connection to a MQTT broker. If
+Home Assistant is unable to load and setup the MQTT component, it will not setup the MQTT sensor
+component.
+
+Requirements are Python libraries that you would normally install using `pip`. Each entry in a
+requirement list is a pip compatible string. For example, the media player Cast platform depends
+on the Python package PyChromecast thus `REQUIREMENTS = ['pychromecast==0.6.12']`. If Home
+Assistant is unable to install the package or verify it is installed, the component will fail to
+load.
+
 ## {% linkable_title Initializing components %}
 
 After loading, the bootstrapper will call `setup(hass, config)` method on the component to initialize it. The following parameters are passed in:

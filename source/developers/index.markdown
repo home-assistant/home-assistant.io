@@ -9,9 +9,49 @@ sharing: true
 footer: true
 ---
 
-Home Assistant is build from the ground-up to be easily extensible by other developers using components. It uses [Python 3](https://www.python.org/) for the backend and [Polymer (Webcomponents)](https://www.polymer-project.org/) for the frontend. 
+Home Assistant is build from the ground-up to be easily extensible by other developers using
+components. It uses [Python 3](https://www.python.org/) for the backend and
+[Polymer (Webcomponents)](https://www.polymer-project.org/) for the frontend.
 
-For further reading, see:
+Home Assistant is open-source and MIT licensed. The source can be found here:
+
+ - [home-assistant](https://github.com/home-assistant) - Python server-backend
+ - [home-assistant-js](https://github.com/home-assistant-js) - javascript-backend powering the client
+ - [home-assistant-polymer](https://github.com/home-assistant-polymer) - Polymer UI
+
+### {% linkable_title Starting development %}
+
+You will need to setup a development environment if you want to start developing a new feature or
+component for Home Assistant.
+
+ 1. Clone the Home Assistant repository:<br>
+    `git clone https://github.com/balloob/home-assistant.git`
+ 2. Setup your computer for development:<br>
+    `python3 setup.py develop`
+
+After following these steps, running `hass` will invoke your local installation.
+
+### {% linkable_title Submitting improvements %}
+
+Improvements to Home Assistant should be submitted one feature at a time using Github pull
+requests.
+
+ 1. Go to [the Home Assistant repository](https://github.com/balloob/home-assistant)
+    and click fork in the top right.
+ 2. Follow steps in the previous section but with your forked repository.
+ 3. Create a new branch to hold your changes<br>
+    `git checkout -b some-feature`
+ 4. Make the changes you want
+ 5. Commit the changes<br>
+    `git add .`<br>
+    `git commit -m "Added some-feature"`
+ 6. Push your commited changes back to your fork on Github<br>
+    `git push origin HEAD`
+ 7. Follow [these steps](https://help.github.com/articles/creating-a-pull-request/) to create your
+    pull request.
+
+### {% linkable_title Further reading %}
+
 <ul>
   <li><a href="{{ root_url }}/developers/architecture.html">
     Home Assistant Architecture
