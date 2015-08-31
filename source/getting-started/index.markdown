@@ -30,20 +30,20 @@ footer: true
 
 <!-- ###### Preparation instructions Generic ######################## -->
 <div class='prep-instructions generic'>
-Installing and running Home Assistant on your local machine is easy. Make sure you have <a href='https://www.python.org/downloads/'>Python 3.4</a> and <a href='http://git-scm.com/downloads'>git</a> installed and execute the following code in a console:
+Installing and running Home Assistant on your local machine is easy. Make sure you have <a href='https://www.python.org/downloads/'>Python 3.4</a> installed and execute the following code in a console:
 
 
 </div>
 <!-- ###### Preparation instructions Fedora ######################## -->
 <div class='prep-instructions fedora'>
-<p>The preparation of a <a href='https://fedoraproject.org'>Fedora</a> 22 host will only take a couple of minutes. First install Python 3.4, <code>git</code> and the other needed packages out of the <a href='https://admin.fedoraproject.org/pkgdb'>Fedora Package Collection</a>. This ensure that you receive updates in the future.</p>
+<p>The preparation of a <a href='https://fedoraproject.org'>Fedora</a> 22 host will only take a couple of minutes. First install Python 3.4 and the other needed packages out of the <a href='https://admin.fedoraproject.org/pkgdb'>Fedora Package Collection</a>. This ensure that you receive updates in the future.</p>
 
 <p class='note'>
 It's assumed that your user has an entry in the sudoers file. Otherwise, run the commands which needs more privileges as root.
 </p>
 
 ```bash
-sudo dnf -y install python3 python3-devel git gcc
+sudo dnf -y install python3 python3-devel gcc
 ```
 
 </div>
@@ -87,19 +87,13 @@ scl enable rh-python34 bash
 
 <p>
 ```bash
-git clone --recursive https://github.com/balloob/home-assistant.git
-python3 -m venv home-assistant
-cd home-assistant
-source bin/activate
-python3 -m homeassistant --open-ui
+pip3 install homeassistant
+hass --open-ui
 ```
 </p>
 <p>Running these commands will:</p>
 <ol>
-<li>Download Home Assistant</li>
-<li>Setup an isolated environment</li>
-<li>Navigate to downloaded files</li>
-<li>Activate the isolated environment (on Windows, run <code>Scripts/activate.bat</code>)</li>
+<li>Install Home Assistant</li>
 <li>Launch Home Assistant and serve web interface on <a href='http://localhost:8123'>http://localhost:8123</a></li>
 </ol>
 <br />
@@ -113,20 +107,15 @@ python3 -m homeassistant --open-ui
 <input name='post-instructions' type='radio' id='debian-post'>
 <label class='menu-selector generic-post' for='generic-post'>Generic</label>
 <label class='menu-selector fedora-post' for='fedora-post'>Fedora/CentOS</label>
-<label class='menu-selector debian-post' for='debian-post'>Debian</label>
+<!-- <label class='menu-selector debian-post' for='debian-post'>Debian</label> -->
 
 <!-- ###### Post-installation instructions Generic ######################## -->
 <div class='post-instructions generic-post'>
 <p>There is nothing else to do. If you run into any issues, please see the <a href='{{site_root}}/getting-started/troubleshooting.html'>troubleshooting page</a>.</p>
 
-<p class='note'>
-  You can run Home Assistant in demo mode by appending <code>--demo-mode</code> to line 5.
-</p>
+<p>If you want to see what Home Assistant can do, you can start the demo mode by running <code>hass --demo-mode</code>.</p>
 
-<p class='note'>
-  If you want to update to the latest version in the future, run: <code>scripts/update</code>.
-</p>
-
+<p>In the future, if you want to update to the latest version, run <code>pip3 install --upgrade home-assistant</code>.</p>
 
 </div>
 <!-- ###### Post-installation instructions Fedora/CentOS ######################## -->
@@ -139,7 +128,11 @@ sudo firewall-cmd --reload
 ```
 <p>Home Assistant will serve its web interface on <a href='http://[IP address of the host]:8123'>http://[IP address of the host]:8123</a>.</p>
 
-<p>If you want that Home Assistant is lauched automatically, an extra step is needed to setup <code>systemd</code>. You need a service file to control Home Assistant with <code>systemd</code>. The <code>WorkingDirectory</code> and the <code>PYTHONPATH</code> must point to your clone git repository.</p>
+<p>If you want that Home Assistant is lauched automatically, an extra step is needed to setup <code>systemd</code>. You need a service file to control Home Assistant with <code>systemd</code>. <!-- The <code>WorkingDirectory</code> and the <code>PYTHONPATH</code> must point to your clone git repository. --></p>
+
+<!-- WorkingDirectory=/home/fab/home-assistant/
+Environment="PYTHONPATH=/home/fab/home-assistant/" -->
+
 
 ```bash
 su -c 'cat <<EOF >> /lib/systemd/system/home-assistant.service
@@ -149,8 +142,6 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/fab/home-assistant/
-Environment="PYTHONPATH=/home/fab/home-assistant/"
 ExecStart=/usr/bin/python3.4 -m homeassistant
 
 [Install]
@@ -185,10 +176,7 @@ $ sudo systemctl status home-assistant -l
 sudo journalctl -f -u home-assistant
 ```
 
-<p class='note'>
-  If you want to update to the latest version in the future, run: <code>scripts/update</code> and restart Home Assistant.
-</p>
-
+<p>In the future, if you want to update to the latest version, run <code>pip3 install --upgrade home-assistant</code>.</p>
 
 <p class='note'>
 Those instructions were written for Fedora 22 Server and Workstation. They may work for Cloud flavor as well but this was not tested.
@@ -276,27 +264,25 @@ pyenv install 3.4.2
 pyenv virtualenv 3.4.2 homeassistant
 ```
 
-<p><b>Step 5. Clone the source</b></p>
-```bash
-git clone --recursive https://github.com/balloob/home-assistant.git
-```
-
-<p><b>Step 6. Set the virtual environment</b></p>
+<p><b>Step 5. Set the virtual environment</b></p>
 ```bash
 cd home-assistant
 pyenv local homeassistant
 ```
 
+<p><b>Step 6. Install Home Assistant</b></p>
+```bash
+pip3 install homeassistant
+```
+
 <p><b>Step 7. Start it up</b></p>
 ```bash
-python3 -m homeassistant
+hass
 ```
 
 <p>It will be up and running on port 8123</p>
 
-<p class='note'>
-  If you want to update to the latest version in the future, run: <code>scripts/update</code>.
-</p>
+<p>In the future, if you want to update to the latest version, run <code>pip3 install --upgrade home-assistant</code>.</p>
 
 </div>
 
