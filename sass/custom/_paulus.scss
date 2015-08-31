@@ -1,5 +1,32 @@
 @charset "UTF-8";
 
+.hero {
+  background-color: #038FC7;
+
+  .lead {
+    margin-bottom: 16px;
+  }
+
+  .hero-buttons a {
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .front-install {
+    background-color: #333;
+    margin-bottom: 16px;
+    display: inline-block;
+    padding: 8px;
+    color: #DDD;
+
+    .sh {
+      color: #c82829;
+    }
+  }
+}
+
 .supported-brands {
   text-align: center;
   img {
