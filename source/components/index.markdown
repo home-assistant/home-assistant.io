@@ -147,6 +147,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td></td>
+  <td><a href='/components/device_tracker.aruba.html'>Aruba routers</a></td>
+</tr>
+
+<tr>
   <td><a href='/components/device_tracker.asuswrt.html'><img src='/images/supported_brands/asus.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.asuswrt.html'>ASUSWRT routers</a></td>
 </tr>
