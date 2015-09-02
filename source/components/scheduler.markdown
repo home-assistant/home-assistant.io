@@ -12,7 +12,12 @@ footer: true
 A component that will act as a scheduler and performe actions based
 on the events in the schedule.
 
-It will read a json object from `schedule.json` in the config dir and create a schedule based on it.
+Load the component by enabling it in `configuration.yaml`
+```
+scheduler:
+```
+
+It will read a json object from the file `schedule.json` in the config dir (`~/.homeassistant`) and create a schedule based on it.
 
 Each schedule is a JSON with the keys `id`, `name`, `description`, `entity_ids`, `events`.
 
@@ -23,7 +28,7 @@ Each schedule is a JSON with the keys `id`, `name`, `description`, `entity_ids`,
 - events is an array of objects that describe the different events that is
     supported. Read in the events descriptions for more information
 
-Example `schedule.json`
+Example `schedule.json` file
 
 ```json
 [
