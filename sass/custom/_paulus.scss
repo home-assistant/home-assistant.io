@@ -102,7 +102,7 @@ h6:hover a.title-link {
 article.post, article.page, article.listing {
   img, table {
     border-radius: 3px;
-    box-shadow: rgba(0,0,0,0.06) 0 0 10px;    
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
   }
 
   img.no-shadow {
@@ -120,7 +120,7 @@ article.post, article.page, article.listing {
     text-align: center;
     padding-bottom: 3px;
     font-size: .9rem;
-    box-shadow: rgba(0,0,0,0.06) 0 0 10px;    
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
 
     img {
       display: block;
@@ -171,87 +171,13 @@ p.note {
 
   &.warning {
     background-color: #F7F9E1;
-    
+
     &::before {
       background-color: rgb(187, 185, 13);;
       content: "\f071" " Warning " attr(data-title);
     }
   }
 
-}
-
-.install-instructions-container {
-  #normal-install, #raspberry-install, #docker-install, .install-instructions {
-    display: none;
-  }
-
-  label.menu-selector {
-    display: inline-block;
-    text-align: center;
-    padding: 20px;
-    white-space: nowrap;
-    border-bottom: 5px solid $grayLight;
-    transition: border-bottom-color .5s;
-  }
-
-  label.menu-selector + label.menu-selector {
-    margin-left: 10px;
-  }
-
-  #normal-install:checked ~ .menu-selector.normal,
-  #raspberry-install:checked ~ .menu-selector.raspberry,
-  #docker-install:checked ~ .menu-selector.docker
-   {
-    border-bottom-color: $blue;
-  }
-
-  #normal-install:checked ~ .install-instructions.normal,
-  #raspberry-install:checked ~ .install-instructions.raspberry,
-  #docker-install:checked ~ .install-instructions.docker
-   {
-    display: block;
-  }
-
-  .install-instructions {
-    margin-top: 30px;
-  }
-}
-
-.prep-instructions-container {
-  #generic-prep, #fedora-prep, #centos-prep, .prep-instructions {
-    display: none;
-  }
-
-  label.menu-selector {
-    display: inline-block;
-    text-align: center;
-    padding: 10px;
-    white-space: nowrap;
-    border-bottom: 2px solid $grayLight;
-    transition: border-bottom-color .5s;
-  }
-
-  label.menu-selector + label.menu-selector {
-    margin-left: 10px;
-  }
-
-  #generic-prep:checked ~ .menu-selector.generic,
-  #fedora-prep:checked ~ .menu-selector.fedora,
-  #centos-prep:checked ~ .menu-selector.centos
-   {
-    border-bottom-color: $blue;
-  }
-
-  #generic-prep:checked ~ .prep-instructions.generic,
-  #fedora-prep:checked ~ .prep-instructions.fedora,
-  #centos-prep:checked ~ .prep-instructions.centos
-   {
-    display: block;
-  }
-
-  .prep-instructions {
-    margin-top: 20px;
-  }
 }
 
 .post-instructions-container {
@@ -292,3 +218,76 @@ p.note {
 
 }
 
+.install-channels-container {
+  #prod-channel, #beta-channel, #dev-channel, .install-channels {
+    display: none;
+  }
+
+  label.menu-selector {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    white-space: nowrap;
+    border-bottom: 2px solid $grayLight;
+    transition: border-bottom-color .5s;
+  }
+
+  label.menu-selector + label.menu-selector {
+    margin-left: 10px;
+  }
+
+  #prod-channel:checked ~ .menu-selector.prodchan,
+  #beta-channel:checked ~ .menu-selector.betachan,
+  #dev-channel:checked ~ .menu-selector.devchan
+   {
+    border-bottom-color: $blue;
+  }
+
+  #prod-channel:checked ~ .install-channels.prodchan,
+  #beta-channel:checked ~ .install-channels.betachan,
+  #dev-channel:checked ~ .install-channels.devchan
+   {
+    display: block;
+  }
+
+  .install-channels {
+    margin-top: 20px;
+  }
+}
+
+.advanced-installs-container {
+  #docker-install, #debian-install, #fedora-install, .advanced-installs {
+    display: none;
+  }
+
+  label.menu-selector {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    white-space: nowrap;
+    border-bottom: 2px solid $grayLight;
+    transition: border-bottom-color .5s;
+  }
+
+  label.menu-selector + label.menu-selector {
+    margin-left: 10px;
+  }
+
+  #docker-install:checked ~ .menu-selector.docker,
+  #debian-install:checked ~ .menu-selector.debian,
+  #fedora-install:checked ~ .menu-selector.fedora
+   {
+    border-bottom-color: $blue;
+  }
+
+  #docker-install:checked ~ .advanced-installs.docker,
+  #debian-install:checked ~ .advanced-installs.debian,
+  #fedora-install:checked ~ .advanced-installs.fedora
+   {
+    display: block;
+  }
+
+  .advanced-installs {
+    margin-top: 20px;
+  }
+}
