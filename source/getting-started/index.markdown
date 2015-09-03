@@ -27,7 +27,7 @@ Installing and running Home Assistant on your local machine is easy. Make sure y
 <p>
 ```bash
 pip3 install homeassistant
-hass --open-ui
+hass \-\-open-ui
 ```
 </p>
 <p>Running these commands will:</p>
@@ -42,7 +42,7 @@ hass --open-ui
 <p>Installation with Docker is straightforward. Adjust the following command so that <code>/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
 
 ```bash
-docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host balloob/home-assistant
+docker run -d \-\-name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro \-\-net=host balloob/home-assistant
 ```
 
 <p>This will launch Home Assistant and serve its web interface from port 8123 on your Docker host.</p>
@@ -61,7 +61,7 @@ Once that is complete, installing and running Home Assistant on your local machi
 <p>
 ```bash
 pip3 install homeassistant
-hass --open-ui
+hass \-\-open-ui
 ```
 </p>
 <p>Running these commands will:</p>
@@ -87,15 +87,15 @@ hass --open-ui
 <h3>Staying Up to Date</h3>
 <p>In order to update Home Assistant to the latest stable release, simply type the following into a console:</p>
 ```bash
-pip install --upgrade homeassistant
+pip install \-\-upgrade homeassistant
 ```
 <p>If you would like to stay up to date with the newest unstable builds (alphas, betas, and release candidates), use this command:</p>
 ```bash
-pip install --upgrade --pre homeassistant
+pip install \-\-upgrade \-\-pre homeassistant
 ```
 
 <h3>What's Next</h3>
-<p>If you want to see what Home Assistant can do, you can start the demo mode by running <code>hass --demo-mode</code>. Home Assistant has a few other command line flags that can be displayed by running <code>hass --help</code>.</p>
+<p>If you want to see what Home Assistant can do, you can start the demo mode by running <code>hass \-\-demo-mode</code>. Home Assistant has a few other command line flags that can be displayed by running <code>hass \-\-help</code>.</p>
 <p>From here you may now start configuring Home Assistant to your liking. For more advanced users, the <a href='{{site_root}}/getting-started/advanced.html'>advanced configuration page</a> contains brief tutorials on creating more advanced installations.</p>
 
 
