@@ -180,17 +180,17 @@ p.note {
 
 }
 
-.post-instructions-container {
-  #generic-post, #fedora-post, #debian-post, .post-instructions {
+.install-instructions-container {
+  #normal-install, #raspberry-install, #docker-install, .install-instructions {
     display: none;
   }
 
   label.menu-selector {
     display: inline-block;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     white-space: nowrap;
-    border-bottom: 2px solid $grayLight;
+    border-bottom: 5px solid $grayLight;
     transition: border-bottom-color .5s;
   }
 
@@ -198,65 +198,27 @@ p.note {
     margin-left: 10px;
   }
 
-  #generic-post:checked ~ .menu-selector.generic-post,
-  #fedora-post:checked ~ .menu-selector.fedora-post,
-  #debian-post:checked ~ .menu-selector.debian-post
+  #normal-install:checked ~ .menu-selector.normal,
+  #raspberry-install:checked ~ .menu-selector.raspberry,
+  #docker-install:checked ~ .menu-selector.docker
    {
     border-bottom-color: $blue;
   }
 
-  #generic-post:checked ~ .post-instructions.generic-post,
-  #fedora-post:checked ~ .post-instructions.fedora-post,
-  #debian-post:checked ~ .post-instructions.debian-post
+  #normal-install:checked ~ .install-instructions.normal,
+  #raspberry-install:checked ~ .install-instructions.raspberry,
+  #docker-install:checked ~ .install-instructions.docker
    {
     display: block;
   }
 
-  .post-instructions {
-    margin-top: 20px;
-  }
-
-}
-
-.install-channels-container {
-  #prod-channel, #beta-channel, #dev-channel, .install-channels {
-    display: none;
-  }
-
-  label.menu-selector {
-    display: inline-block;
-    text-align: center;
-    padding: 10px;
-    white-space: nowrap;
-    border-bottom: 2px solid $grayLight;
-    transition: border-bottom-color .5s;
-  }
-
-  label.menu-selector + label.menu-selector {
-    margin-left: 10px;
-  }
-
-  #prod-channel:checked ~ .menu-selector.prodchan,
-  #beta-channel:checked ~ .menu-selector.betachan,
-  #dev-channel:checked ~ .menu-selector.devchan
-   {
-    border-bottom-color: $blue;
-  }
-
-  #prod-channel:checked ~ .install-channels.prodchan,
-  #beta-channel:checked ~ .install-channels.betachan,
-  #dev-channel:checked ~ .install-channels.devchan
-   {
-    display: block;
-  }
-
-  .install-channels {
-    margin-top: 20px;
+  .install-instructions {
+    margin-top: 30px;
   }
 }
 
 .advanced-installs-container {
-  #docker-install, #debian-install, #fedora-install, .advanced-installs {
+  #debian-install, #fedora-install, .advanced-installs {
     display: none;
   }
 
@@ -273,14 +235,12 @@ p.note {
     margin-left: 10px;
   }
 
-  #docker-install:checked ~ .menu-selector.docker,
   #debian-install:checked ~ .menu-selector.debian,
   #fedora-install:checked ~ .menu-selector.fedora
    {
     border-bottom-color: $blue;
   }
 
-  #docker-install:checked ~ .advanced-installs.docker,
   #debian-install:checked ~ .advanced-installs.debian,
   #fedora-install:checked ~ .advanced-installs.fedora
    {

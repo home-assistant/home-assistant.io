@@ -12,27 +12,10 @@ footer: true
 Here are some general tutorials on how to setup some of the more advanced deployments that are frequently requested.
 
 <div class='advanced-installs-container'>
-<input name='advanced-installs' type='radio' id='docker-install' checked>
-<input name='advanced-installs' type='radio' id='debian-install'>
+<input name='advanced-installs' type='radio' id='debian-install' checked>
 <input name='advanced-installs' type='radio' id='fedora-install'>
-<label class='menu-selector docker' for='docker-install'>Docker Installation</label>
 <label class='menu-selector debian' for='debian-install'>Debian (Ubuntu, Raspbian) Daemon</label>
 <label class='menu-selector fedora' for='fedora-install'>Fedora (RHEL, CentOS) Daemon</label>
-
-<div class='advanced-installs docker'>
-**Docker Deployment**
-<p>Installation with Docker is straightforward. Adjust the following command so that <code>/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
-
-```bash
-docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host balloob/home-assistant
-```
-
-<p>This will launch Home Assistant and serve its web interface from port 8123 on your Docker host.</p>
-
-<p class='note'>
-When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href='http://en.wikipedia.org/wiki/List_of_tz_database_time_zones'>your timezone</a>)
-</p>
-</div> <!-- DOCKER -->
 
 <div class='advanced-installs debian'>
 **Debian Deamon**

@@ -9,79 +9,67 @@ sharing: true
 footer: true
 ---
 
-<h3>Requirements</h3>
-<p>Home Assistant requires at least <a href="https://www.python.org/downloads/" target="_blank">Python 3.4</a>. For the Raspberry Pi, install instructions can be found <a href="http://depado.markdownblog.com/2015-03-12-short-tutorial-raspbian-python3-4-rpi-gpio" target="_blank">here</a>. Other systems generally have this bundled or contain easy to install packages.</p>
-
-<p>To ensure Python 3.4 is installed, type the following command into the console:</p>
-
-```bash
-python3 --version
-```
+<div class='install-instructions-container'>
+<input name='install-instructions' type='radio' id='normal-install' checked>
+<input name='install-instructions' type='radio' id='raspberry-install'>
+<input name='install-instructions' type='radio' id='docker-install'>
+<label class='menu-selector normal' for='normal-install'>Install on local machine</label>
+<label class='menu-selector raspberry' for='raspberry-install'>Install on a Raspberry Pi</label>
+<label class='menu-selector docker' for='docker-install'>Install using Docker</label>
 
 
 <h3>Installation</h3>
-<div class='install-channels-container'>
-<input name='install-channels' type='radio' id='prod-channel' checked>
-<input name='install-channels' type='radio' id='beta-channel'>
-<input name='install-channels' type='radio' id='dev-channel'>
-<label class='menu-selector prodchan' for='prod-channel'>Production Channel</label>
-<label class='menu-selector betachan' for='beta-channel'>Beta Channel</label>
-<label class='menu-selector devchan' for='dev-channel'>Development Channel</label>
 
-<div class='install-channels prodchan'>
-<p>Installing from the production channel is fast, easy, and will provide you with access to the newest stable builds. This is recommended for most users. To install, execute the following code in a console:</p>
+
+<div class='install-instructions normal'>
+Installing and running Home Assistant on your local machine is easy. Make sure you have <a href='https://www.python.org/downloads/' target="_blank">Python 3.4</a> installed and execute the following code in a console:
+
+<p>
 ```bash
 pip3 install homeassistant
 hass --open-ui
 ```
-<p>Running these commands will:
+</p>
+<p>Running these commands will:</p>
 <ol>
 <li>Install Home Assistant</li>
-<li>Launch Home Assistant and serve web interface on <a href='http://localhost:8123'>http://localhost:8123</a></li>
-</ol></p>
-<p>When new stable versions are released, you can upgrade to newest version by typing the following into a console:</p>
-```bash
-pip3 install --upgrade homeassistant
-```
-</div>
+<li>Launch Home Assistant and serve web interface on <a href='http://localhost:8123' target="_blank">http://localhost:8123</a></li>
+</ol>
+</div> <!-- INSTALL-INSTRUCTIONS NORMAL -->
 
-<div class='install-channels betachan'>
-<p>The beta channel will provide you with newer features sooner but at the risk of reduced stability. The brave and curious are welcomed here. To install, execute the following code in a console:</p>
+
+<div class='install-instructions docker'>
+<p>Installation with Docker is straightforward. Adjust the following command so that <code>/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
+
 ```bash
-pip3 install --pre homeassistant
+docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host balloob/home-assistant
+```
+
+<p>This will launch Home Assistant and serve its web interface from port 8123 on your Docker host.</p>
+
+<p class='note'>
+When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href='http://en.wikipedia.org/wiki/List_of_tz_database_time_zones' target="_blank">your timezone</a>)
+</p>
+</div> <!-- INSTALL-INSTRUCTIONS DOCKER -->
+
+
+<div class='install-instructions raspberry'>
+<p>Home Assistant uses Python 3.4 which is not shipped with the current Raspbian distibution for the Raspberry Pi. Before installing Home Assistant, you will have to <a href="http://depado.markdownblog.com/2015-03-12-short-tutorial-raspbian-python3-4-rpi-gpio"> target="_blank"install Python 3.4</a>.
+
+Once that is complete, installing and running Home Assistant on your local machine is easy. Make sure you have <a href='https://www.python.org/downloads/' target="_blank">Python 3.4</a> installed and execute the following code in a console:
+
+<p>
+```bash
+pip3 install homeassistant
 hass --open-ui
 ```
-<p>Running these commands will:
+</p>
+<p>Running these commands will:</p>
 <ol>
 <li>Install Home Assistant</li>
-<li>Launch Home Assistant and serve web interface on <a href='http://localhost:8123'>http://localhost:8123</a></li>
-</ol></p>
-<p>When new a new release candidate, alpha, or beta version is released, you can upgrade to newest version by typing the following into a console:</p>
-```bash
-pip3 install --pre --upgrade homeassistant
-```
-</div>
-
-<div class='install-channels devchan'>
-<p>The development channel provides builds that are on the bleeding edge. This builds have not been fully tested or used. This is best for potential contributors and tinkerers. Subscribing to this channel is not for the faint of heart and requires significant knowledge of Git and Python.</p>
-```bash
-# Clone repo from git, you may want to use your own fork
-git clone --recursive https://github.com/balloob/home-assistant.git
-cd home-assistant
-# You may want to switch to a virtual environment here
-# Install Home Assistant in development mode
-python3 setup.py develop
-# Optionally pre-emptively install all possible dependencies
-pip3 install -r requirements_all.txt
-```
-<p>To keep up-to-date with the development channel, you will have to fetch and merge from the dev branch in the head repository. Be careful when doing this.</p>
-```bash
-git fetch balloob
-git merge remotes/balloob/dev
-```
-</div>
-
-</div><!-- install-channels-container -->
+<li>Launch Home Assistant and serve web interface on <a href='http://localhost:8123' target="_blank">http://localhost:8123</a></li>
+</ol>
+</div> <!-- INSTALL-INSTRUCTIONS RASPBERRY -->
 
 
 <h3>Troubleshooting</h3>
@@ -96,10 +84,19 @@ git merge remotes/balloob/dev
 </ul>
 </p>
 
+<h3>Staying Up to Date</h3>
+<p>In order to update Home Assistant to the latest stable release, simply type the following into a console:</p>
+```bash
+pip install --upgrade homeassistant
+```
+<p>If you would like to stay up to date with the newest unstable builds (alphas, betas, and release candidates), use this command:</p>
+```bash
+pip install --upgrade --pre homeassistant
+```
 
 <h3>What's Next</h3>
 <p>If you want to see what Home Assistant can do, you can start the demo mode by running <code>hass --demo-mode</code>. Home Assistant has a few other command line flags that can be displayed by running <code>hass --help</code>.</p>
-<p>From here you may now start configuring Home Assistant to your liking. For more advanced users, the <a href='{{site_root}}/getting-started/advanced.html'>advanced configuration page</a> contains brief tutorials on creating more advanced installations such as installing daemons and using Docker.</p>
+<p>From here you may now start configuring Home Assistant to your liking. For more advanced users, the <a href='{{site_root}}/getting-started/advanced.html'>advanced configuration page</a> contains brief tutorials on creating more advanced installations.</p>
 
 
 ###[Next step: configuring Home Assistant &raquo;](/getting-started/configuration.html)
