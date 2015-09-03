@@ -54,7 +54,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
 
 
 <div class='install-instructions raspberry'>
-<p>Home Assistant uses Python 3.4 which is not shipped with the current Raspbian distibution for the Raspberry Pi. Before installing Home Assistant, you will have to <a href="http://depado.markdownblog.com/2015-03-12-short-tutorial-raspbian-python3-4-rpi-gpio"> target="_blank"install Python 3.4</a>.
+<p>Home Assistant uses Python 3.4 which is not shipped with the current Raspbian distibution for the Raspberry Pi. Before installing Home Assistant, you will have to <a href="http://depado.markdownblog.com/2015-03-12-short-tutorial-raspbian-python3-4-rpi-gpio" target="_blank">install Python 3.4</a>.
 
 Once that is complete, installing and running Home Assistant on your local machine is easy. Make sure you have <a href='https://www.python.org/downloads/' target="_blank">Python 3.4</a> installed and execute the following code in a console:
 
