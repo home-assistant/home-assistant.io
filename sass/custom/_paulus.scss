@@ -218,16 +218,17 @@ p.note {
 }
 
 .advanced-installs-container {
-  #debian-install, #fedora-install, .advanced-installs {
+
+  #upstart-install, #systemd-install, .advanced-installs {
     display: none;
   }
 
   label.menu-selector {
     display: inline-block;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     white-space: nowrap;
-    border-bottom: 2px solid $grayLight;
+    border-bottom: 5px solid $grayLight;
     transition: border-bottom-color .5s;
   }
 
@@ -235,19 +236,19 @@ p.note {
     margin-left: 10px;
   }
 
-  #debian-install:checked ~ .menu-selector.debian,
-  #fedora-install:checked ~ .menu-selector.fedora
+  #upstart-install:checked ~ .menu-selector.upstart,
+  #systemd-install:checked ~ .menu-selector.systemd
    {
     border-bottom-color: $blue;
   }
 
-  #debian-install:checked ~ .advanced-installs.debian,
-  #fedora-install:checked ~ .advanced-installs.fedora
+  #upstart-install:checked ~ .advanced-installs.upstart,
+  #systemd-install:checked ~ .advanced-installs.systemd
    {
     display: block;
   }
 
   .advanced-installs {
-    margin-top: 20px;
+    margin-top: 30px;
   }
 }

@@ -74,7 +74,7 @@ hass \-\-open-ui
 
 <h3>Troubleshooting</h3>
 
-<p>If you run into any issues, please see the <a href='{{site_root}}/getting-started/troubleshooting.html'>troubleshooting page</a>. It contains solutions to many of the common issues.</p>
+<p>If you run into any issues, please see the <a href='{{site_root}}/getting-started/troubleshooting.html'>troubleshooting page</a>. It contains solutions to many of the more commonly encountered issues.</p>
 
 <p>For additional help, in addition to this site, there are three sources:
 <ul>
@@ -99,4 +99,4 @@ pip install \-\-upgrade \-\-pre homeassistant
 <p>From here you may now start configuring Home Assistant to your liking. For more advanced users, the <a href='{{site_root}}/getting-started/advanced.html'>advanced configuration page</a> contains brief tutorials on creating more advanced installations.</p>
 
 
-###[Next step: configuring Home Assistant &raquo;](/getting-started/configuration.html)
+###[Next step: Configuring Home Assistant &raquo;](/getting-started/configuration.html)
