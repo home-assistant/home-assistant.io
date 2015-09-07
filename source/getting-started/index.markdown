@@ -307,7 +307,7 @@ nohup myscript.sh </dev/null 1>&2&> nohup.log &
 ![Shutdown Home Assistant](http://i.imgur.com/QGIrkgJ.png)
 
 <p class='note'>
-NOTE: Make sure your Home Assistant installation is working correctly before trying to launch as a background process.  You can use `tail -f ~/.homeassistant/home-assistant.log` to review any errors.  You can press CTRL-C to exit the log.
+NOTE: Make sure your Home Assistant installation is working correctly before trying to launch as a background process.  You can use `tail -f ~/.homeassistant/home-assistant.log` to review any errors or `tail -f ~/nohup.log` to view a more verbose version.  You can press CTRL-C to exit either of the logs.
 </p>
 
 </div>
