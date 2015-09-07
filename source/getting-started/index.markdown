@@ -284,6 +284,18 @@ hass
 
 <p>In the future, if you want to update to the latest version, run <code>pip3 install --upgrade home-assistant</code>.</p>
 
+<p><b>Additional tweaks for the Raspberry Pi</b></p>
+<p>If you are going to run the Pi in text only mode or headless, you can run the following command:</p>
+```bash
+sudo raspi-config
+```
+
+<p>Select option 8 : `Advanced Options` </br>
+and then `Memory Split` </br>
+Give the GPU (Graphics Processor) the least amount of memory (16). </br>
+
+This will give the lion's share of the memory to the core functions.</p>
+
 </div>
 
 </div>
