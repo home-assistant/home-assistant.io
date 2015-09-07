@@ -21,9 +21,11 @@ sensor:
   platform: mqtt
   name: "MQTT Sensor"
   state_topic: "home/bedroom/temperature"
+  qos: 0
   unit_of_measurement: "°C"
 ```
 
 - **name**: The name of the sensor. Default is 'MQTT Sensor'. *Optional*
 - **state_topic**: The MQTT topic subscribed to receive sensor values. *Required*
+- **qos**: The maximum QoS level of the state topic. Default is 0. *Optional*
 - **unit_of_measurement**: Defines the units of measurement of the sensor, if any. *Optional*
