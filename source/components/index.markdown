@@ -70,7 +70,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/sensor.dht.html'><img src='/images/supported_brands/dht.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.dht.html'>DHTxx</a> reads the temperature and humidity.</td>
 </tr>
 
