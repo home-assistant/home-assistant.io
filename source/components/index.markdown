@@ -114,12 +114,17 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td></td>
-  <td><a href='/components/sensor.rfxtrx.html'>RFXtrx</a> sensors monitors values from RFXtrx sensors.</td>
+  <td><a href='/components/sensor.rfxtrx.html'>RFXtrx</a> sensors monitors values from RFXtrx devices.</td>
 </tr>
 
 <tr>
   <td><a href='/components/mqtt.html'><img src='/images/supported_brands/mqtt.png' class='brand overview'/></a></td>
   <td><a href='/components/mqtt.html'>MQTT</a> allows sending and recieving MQTT messages.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/sensor.arest.html'><img src='/images/supported_brands/arest.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.arest.html'>aREST</a> sensors monitors values from aREST enabled devices.</td>
 </tr>
 
 </table>
