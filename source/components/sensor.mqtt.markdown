@@ -21,11 +21,9 @@ sensor:
   platform: mqtt
   name: "MQTT Sensor"
   state_topic: "home/bedroom/temperature"
-  unit_of_measurement: "ºC"
+  unit_of_measurement: "°C"
 ```
 
-state_topic: The MQTT topic subscribed to receive sensor values. *Required*
-
-name: The name of the sensor. Default is 'MQTT Sensor'. *Optional*
-
-unit_of_measurement: Defines the units of measurement of the sensor, if any. *Optional*
+- **name**: The name of the sensor. Default is 'MQTT Sensor'. *Optional*
+- **state_topic**: The MQTT topic subscribed to receive sensor values. *Required*
+- **unit_of_measurement**: Defines the units of measurement of the sensor, if any. *Optional*
