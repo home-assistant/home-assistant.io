@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/dht.png' class='brand pull-right' />
 The dht sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
 
 To use your DHTxx sensor in your installation, add the following to your `configuration.yaml` file:
