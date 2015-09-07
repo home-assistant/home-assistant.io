@@ -36,14 +36,9 @@ switch:
   optimistic: false
 ```
 
-command_topic: The MQTT topic to publish commands to change the switch state. *Required*
-
-name: The name of the switch. Default is 'MQTT Switch'. *Optional*
-
-state_topic: The MQTT topic subscribed to receive state updates. *Optional*
-
-payload_on: The payload that represents enabled state. Default is "ON". *Optional*
-
-payload_off: The payload that represents disabled state. Default is "OFF". *Optional*
-
-optimistic: Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false. *Optional*
+- **name**: The name of the switch. Default is 'MQTT Switch'. *Optional*
+- **state_topic**: The MQTT topic subscribed to receive state updates. *Optional*
+- **command_topic**: The MQTT topic to publish commands to change the switch state. *Required*
+- **payload_on**: The payload that represents enabled state. Default is "ON". *Optional*
+- **payload_off**: The payload that represents disabled state. Default is "OFF". *Optional*
+- **optimistic**: Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false. *Optional*
