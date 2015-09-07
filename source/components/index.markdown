@@ -213,7 +213,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td><a href='/components/media_player.cast.html'><img src='/images/supported_brands/google_cast.png' class='brand overview' /></a></td>
-  <td><a href='/components/media_player.cast.html'>Google Cast devices</a></td>
+  <td><a href='/components/media_player.cast.html'>Google Cast</a></td>
 </tr>
 
 <tr>
@@ -435,7 +435,7 @@ the manufacturers of these devices.
       <div class="grid">
         <div class="grid__item one-whole lap-two-thirds">
          <h2 class="title">Web services</h2>
-           <p>The web services displays data grabbed from an external source.</p>
+           <p>The web services displays data grabbed from an external source or interact with them.</p>
 
 <table>
 
@@ -456,7 +456,12 @@ the manufacturers of these devices.
 
 <tr>
   <td><a href='/components/sensor.swiss_public_transport.html'><img src='/images/supported_brands/appointment-new.png' class='brand overview' /></a></td>
-  <td><a href='/components/sensor.swiss_public_transport.html'>Swiss Public Transport</a> displays  Swiss timetable data for traveling.</td>
+  <td><a href='/components/sensor.swiss_public_transport.html'>Swiss Public Transport</a> displays Swiss timetable data for traveling.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/ifttt.html'><img src='/images/supported_brands/ifttt.png' class='brand overview' /></a></td>
+  <td><a href='/components/ifttt.html'>IFTTT</a> allows the triggering of recipes.</td>
 </tr>
 
 </table>
