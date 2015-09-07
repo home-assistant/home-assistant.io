@@ -299,7 +299,7 @@ This will give the lion's share of the memory to the core functions.</p>
 <p> If you would like to run `hass` as a background process on the Raspberry Pi, you can run the following command:</p>
 
 ```bash
-nohup myscript.sh </dev/null 1>&2&> nohup.log &
+nohup hass </dev/null 1>&2&> nohup.log &
 ```
 <p> This will launch Home Assistant as a background process and continue to run even after disconnecting from a terminal session.</p>
 <p> You can shut down Home Assistant using the Developer services on the Web Interface.</p>
