@@ -31,6 +31,7 @@ switch:
   name: "Bedroom Switch"
   state_topic: "home/bedroom/switch1"
   command_topic: "home/bedroom/switch1/set"
+  qos: 0
   payload_on: "ON"
   payload_off: "OFF"
   optimistic: false
@@ -39,6 +40,7 @@ switch:
 - **name**: The name of the switch. Default is 'MQTT Switch'. *Optional*
 - **state_topic**: The MQTT topic subscribed to receive state updates. *Optional*
 - **command_topic**: The MQTT topic to publish commands to change the switch state. *Required*
+- **qos**: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages. *Optional*
 - **payload_on**: The payload that represents enabled state. Default is "ON". *Optional*
 - **payload_off**: The payload that represents disabled state. Default is "OFF". *Optional*
 - **optimistic**: Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false. *Optional*
