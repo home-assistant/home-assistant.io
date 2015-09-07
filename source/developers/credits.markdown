@@ -30,6 +30,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Finbarr Brady](https://github.com/fbradyirl)
 - [Geoff Norton](https://github.com/kangaroo)
 - [gottsman](https://github.com/gottsman)
+- [Greg Dowling](https://github.com/pavoni)
 - [Guillem Barba](https://github.com/gbarba)
 - [Gustav Ahlberg](https://github.com/Gyran)
 - [Issac Kelly](https://github.com/issackelly)
