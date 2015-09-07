@@ -48,6 +48,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Rev Michael Greb](https://github.com/mikegrb)
 - [rkabadi](https://github.com/rkabadi)
 - [Ryan Kraus](https://github.com/rmkraus)
+- [sfam](https://github.com/sfam)
 - [Theodor Lindquist](https://github.com/theolind)
 - [vitorespindola](https://github.com/vitorespindola)
 - [wind-rider](https://github.com/wind-rider)
