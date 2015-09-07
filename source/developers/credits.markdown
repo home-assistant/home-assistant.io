@@ -44,6 +44,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Markus Stenberg](https://github.com/fingon)
 - [Michael Arnauts](https://github.com/michaelarnauts)
 - [miniconfig](https://github.com/miniconfig)
+- [Per Sandström](https://github.com/persandstrom)
 - [Piratonym](https://github.com/Piratonym)
 - [Rev Michael Greb](https://github.com/mikegrb)
 - [rkabadi](https://github.com/rkabadi)
