@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/aruba.png' class='brand pull-right' />
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](http://www.arubanetworks.com/products/networking/aruba-instant/) device. This has been tested on an ARUBA AP-105.
 
 <p class='note warning'>
