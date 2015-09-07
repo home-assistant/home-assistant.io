@@ -119,7 +119,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td><a href='/components/mqtt.html'><img src='/images/supported_brands/mqtt.png' class='brand overview'/></a></td>
-  <td><a href='/components/mqtt.html'>MQTT</a> allows sending and recieving MQTT messages.</td>
+  <td><a href='/components/mqtt.html'>MQTT</a> allows sending and recieving MQTT messages, incl. <a href='/components/switch.mqtt.html'>switch</a> and <a href='/components/sensor.mqtt.html'>sensor</a>.</td>
 </tr>
 
 <tr>
