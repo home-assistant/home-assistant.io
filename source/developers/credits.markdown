@@ -22,6 +22,7 @@ This page contains a list of people who have contributed in one way or another t
 - [andythigpen](https://github.com/andythigpen)
 - [Austin](https://github.com/trainman419)
 - [Azelphur](https://github.com/Azelphur)
+- [Carlo Costanzo](https://github.com/CCOSTAN)
 - [Chris Mulder](https://github.com/chrisvis)
 - [Daniel Iversen](https://github.com/danielhiversen)
 - [Edwin Smulders](https://github.com/Dutchy-)
