@@ -24,7 +24,9 @@ You can find your secret key by viewing the properties of the [Maker Channel] (h
 
 Once you have added your entries to `configuration.yaml`, restart your Home Assistant server.  This will load up the IFTTT component and create a service trigger.
 
-Note: After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
+<p class='note'>
+After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
+</p> 
 
 ![](http://i.imgur.com/azkEyUl.png)
 
