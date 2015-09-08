@@ -25,7 +25,7 @@ Optimistic mode can be forced, even if state topic is available.
 Try to enable it, if experiencing incorrect switch operation.
 
 ```yaml
-# Example configuration.yml entr
+# Example configuration.yml entry
 switch:
   platform: mqtt
   name: "Bedroom Switch"
