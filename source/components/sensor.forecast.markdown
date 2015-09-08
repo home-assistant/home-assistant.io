@@ -12,7 +12,7 @@ footer: true
 <img src='/images/supported_brands/weather-few-clouds.png' class='brand pull-right' />
 The forecast platform uses the [Forecast.io](https://forecast.io/) web service as a source for meteorological data for your location. 
 
-You need an API key which is free but requires a [registration](https://developer.forecast.io/register).
+You need an API key which is free but requires a [registration](https://developer.forecast.io/register). You can make 1000 requests per day. This means that you could create approximately every 1.4 minute one.
 
 To add Forecast.io to your installation, add the following to your `configuration.yaml` file:
 
@@ -38,9 +38,7 @@ sensor:
 
 Configuration variables:
 
-- **api_key** (*Required*): To retrieve this value log into your account at http://forecast.io/. You can make 1000 requests per day. This means that you could create approximately every 1.4 minute one.
-- **password** (*Optional*): Password for your online wallet.
-- **currency** (*Optional*): The currency to exchange to, eg. CHF, USD, EUR, etc. Default is USD.
+- **api_key** (*Required*): Your API key for http://forecast.io/. 
 - **display_conditions** array: Conditions to display in the frontend.
   - **summary**: A human-readable text summary.
   - **precip_type**: The type of precipitation occurring.
