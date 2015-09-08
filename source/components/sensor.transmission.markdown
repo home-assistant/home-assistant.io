@@ -16,9 +16,9 @@ The [Transmission](http://www.transmissionbt.com/) platform allows you to monito
 # Example configuration.yaml entry
 sensor:
   platform: transmission
-  name: Transmission
   host: 192.168.1.26
   port: 9091
+  name: Transmission
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
   monitored_variables:
@@ -27,10 +27,23 @@ sensor:
     - type: 'upload_speed'
 ```
 
+Configuration variables:
+
+- **host** (*Required*): This is the IP address of your Transmission daemon, e.g. 192.168.1.32.
+- **port** (*Optional*): The port your Transmission daemon uses, defaults to 9091.
+- **name** (*Optional*): The name to use when displaying this Transmission instance.
+- **username** (*Required*): Your Transmission username
+- **password** (*Required*): Your Transmission password
+- **display_variables** array: Conditions to display in the frontend.
+  - **current_status**: The status of your Transmission daemon.
+  - **download_speed**: The current download speed.
+  - **upload_speed**: The current upload speed.
+
+
 To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to **Edit** -> **Perferences** and choose the tab **Remote**. Check **Allow remote access**, enter your username and your password, and uncheck the network restriction as needed.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/transmission-perf.png' />
+  <img src='{{site_root}}/images/screenshots/transmission_perf.png' />
 </p>
 
 If everthing is setup correctly, the details will show up in the frontend.
