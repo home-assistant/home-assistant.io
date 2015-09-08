@@ -55,7 +55,7 @@ Configuration variables:
 - **password** (*Optional*): Password for your online wallet.
 - **currency** (*Optional*): The currency to exchange to, eg. CHF, USD, EUR, etc. Default is USD.
 
-- **display_options** array:
+- **display_options** array: Options to display in the frontend.
 	- **exchangerate**: Exchange rate of 1 BTC
 	- **trade_volume_btc**: Trade volume
 	- **miners_revenue_usd**: Miners revenue
