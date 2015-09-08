@@ -14,7 +14,8 @@ Google Cast devices will be automatically discovered if you enable [the discover
 
 Chromecast platform can also be forced to load by adding the following lines to your `configuration.yaml`:
 
-```
+```yaml
+# Example configuration.yaml entry
 media_player:
   platform: chromecast
   # Optional. Will scan for devices if left out
