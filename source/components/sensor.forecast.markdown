@@ -35,4 +35,24 @@ sensor:
     - visibility
     - ozone
 ```
-Details about the API are available in the (Forecast.io documentation)[https://developer.forecast.io/docs/v2].
+
+Configuration variables:
+
+- **api_key** (*Required*): To retrieve this value log into your account at http://forecast.io/. You can make 1000 requests per day. This means that you could create approximately every 1.4 minute one.
+- **password** (*Optional*): Password for your online wallet.
+- **currency** (*Optional*): The currency to exchange to, eg. CHF, USD, EUR, etc. Default is USD.
+- **display_conditions** array: Conditions to display in the frontend.
+  - **summary**: A human-readable text summary.
+  - **precip_type**: The type of precipitation occurring.
+  - **precip_intensity**: The average expected intensity of precipitation occurring.
+  - **temperature**: The current temperature.
+  - **dew_point**: The dew point.
+  - **wind_speed**: The wind speed.
+  - **wind_bearing**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
+  - **cloud_cover**: The percentage of sky occluded by clouds.
+  - **humidity**: The relative humidity.
+  - **pressure**: The sea-level air pressure in millibars.
+  - **visibility**: The average visibility.
+  - **ozone**: The columnar density of total atmospheric ozone in Dobson.
+
+Details about the API are available in the [Forecast.io documentation](https://developer.forecast.io/docs/v2).
