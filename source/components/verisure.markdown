@@ -19,15 +19,25 @@ We support:
   * Reading from thermometers and hygrometers integrated in various devices
   * Reading alarm status
 
-Username and password are required. Other variables are optional and allow you to disable certain devices.
+To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 verisure:
-  username: user@example.com
-  password: password
+  username: USERNAME
+  password: PASSWORD
   alarm: 1
   hygrometers: 0
   smartplugs: 1
   thermometers: 0
 ```
+
+Configuration variables:
+
+- **username** (*Required*): The username to Verisure mypages.
+- **password** (*Required*): The password to Verisure mypages.
+- **alarm** (*Optional*): Set to 1 to show alarm, 0 to disable. Default 1.
+- **hygrometers** (*Optional*): Set to 1 to show hygrometers, 0 to disable. Default 1.
+- **smartplugs** (*Optional*): Set to 1 to show smartplugs, 0 to disable. Default 1.
+- **thermometers** (*Optional*): Set to 1 to show thermometers, 0 to disable. Default 1.
+
