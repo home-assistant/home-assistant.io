@@ -12,9 +12,10 @@ footer: true
 <img src='/images/supported_brands/denon.png' class='brand pull-right' />
 The denon platform allows you to control a [Denon Network Receivers](http://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo) from Home Assistant.
 
-Supported device:
+Supported devices:
 
 - Denon DRA-N5
+- Denon RCD-N8 (untested)
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
@@ -35,5 +36,3 @@ A few notes:
 - As long as this module is active and connected, the receiver does not seem to accept additional telnet connections.
 - Be careful with the volume. 50 % or even 100 % are very loud.
 - To be able to wake up the receiver, activate the "remote" setting in the receiver's settings.
-- Play and pause are supported, toggling is not possible.
-- Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
