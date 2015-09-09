@@ -11,11 +11,15 @@ footer: true
 
 Home Assistant can get information from your wireless router to track which devices are connected. There are three different types of supported wireless routers:
 
+- [Actiontec](/components/device_tracker.actiontec.html)
+- [Aruba](/components/device_tracker.aruba.html)
+- [ASUSWRT](/components/device_tracker.asuswrt.html)
 - [DD-WRT](/components/device_tracker.ddwrt.html)
-- [tomato](/components/device_tracker.tomato.html)
-- [netgear](/components/device_tracker.netgear.html)
 - [luci (OpenWRT)](/components/device_tracker.luci.html)
+- [netgear](/components/device_tracker.netgear.html)
+- [tomato](/components/device_tracker.tomato.html)
 - [TP-Link](/components/device_tracker.tplink.html)
+- [Thomsom](/components/device_tracker.thomson.html)
 
 You can also decide to directly scan the network for devices by using the [nmap scanner](/components/device_tracker.nmap_scanner.html).
 
