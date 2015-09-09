@@ -39,7 +39,7 @@ sensor:
 Configuration variables:
 
 - **api_key** (*Required*): Your API key for http://forecast.io/. 
-- **display_conditions** array: Conditions to display in the frontend.
+- **display_conditions** array (*Required*): Conditions to display in the frontend.
   - **summary**: A human-readable text summary.
   - **precip_type**: The type of precipitation occurring.
   - **precip_intensity**: The average expected intensity of precipitation occurring.

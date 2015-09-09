@@ -37,7 +37,7 @@ Configuration variables:
 
 - **api_key** (*Required*): Your API key for http://openweathermap.org/.
 - **forecast** (*Optional*): Enables the forecast. The default is to display the current conditions.
-- **display_conditions** array: Conditions to display in the frontend.
+- **display_conditions** array (*Required*): Conditions to display in the frontend.
   - **weather**: A human-readable text summary.
   - **temperature**: The current temperature.
   - **wind_speed**: The wind speed.
