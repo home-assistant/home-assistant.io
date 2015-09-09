@@ -28,8 +28,10 @@ To integrate an Arduino boards with Home Assistant, add the following section to
 arduino:
   port: /dev/ttyACM0
 ```
-The port where is your board connected to your Home Assistant host. If you are using an original Arduino the port will be named `ttyACM*`. The exact
-number can be determined with `ls /dev/ttyACM*`.
+
+Configuration variables:
+
+- **port** (*Required*): The port where your board is connected to your Home Assistant host. If you are using an original Arduino the port will be named `ttyACM*`. The exact number can be determined with `ls /dev/ttyACM*`.
 
 ```bash
 ls /dev/ttyACM*
@@ -60,9 +62,13 @@ switch:
       type: digital
 ```
 
-The digital pins are numbered from 0 to 13. The available pins are 2 till 13. For testing purposes you can use pin 13 because with that pin you can control the internal LED.
+Configuration variables:
 
-The name field of the pins array will be used in the frontend.
+- **pins** array (*Required*): Pins to use.
+  - **name**: Name that will be used in the frontend for the pin.
+  - **type**: The type of the pin. At the moment only 'digital' is supported.
+
+The digital pins are numbered from 0 to 13. The available pins are 2 till 13. For testing purposes you can use pin 13 because with that pin you can control the internal LED.
 
 ## Sensor Configuration
 
@@ -83,7 +89,11 @@ sensor:
       type: analog
 ```
 
-The 6 analog pins are numbered from A0 to A5.
+Configuration variables:
 
-The name field of the pins array will be used in the frontend.
+- **pins** array (*Required*): Pins to use.
+  - **name**: Name that will be used in the frontend for the pin.
+  - **type**: The type of the pin. At the moment only 'analog' is supported.
+
+The 6 analog pins are numbered from A0 to A5.
 
