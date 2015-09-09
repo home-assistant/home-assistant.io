@@ -14,12 +14,21 @@ This component allows you to integrate any IP camera into Home Assistant. It sup
 
 Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network.
 
+To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 camera:
   platform: generic
-  name: my sample camera
-  username: MY_USERNAME
-  password: MY_PASSWORD
   still_image_url: http://194.218.96.92/jpg/image.jpg
+  name: my sample camera
+  username: USERNAME
+  password: PASSWORD
 ```
+
+Configuration variables:
+
+- **still_image_url** *Required*: The URL your camera serves the image on, eg. http://192.168.1.21:2112/
+- **name** *Optional*: This parameter allows you to override the name of your camera.
+- **username** *Optional*: The username for accessing your camera.
+- **password** *Optional*: The password for accessing your camera.
