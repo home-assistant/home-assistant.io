@@ -25,12 +25,13 @@ You can also decide to directly scan the network for devices by using the [nmap 
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
 
-```
+```yaml
+# Example configuration.yaml entry for Netgear device
 device_tracker:
   platform: netgear
   host: 192.168.1.1
   username: admin
-  password: MY_PASSWORD
+  password: YOUR_PASSWORD
 ```
 
 Once tracking, the `device_tracker` component will maintain a file in your config dir called `known_devices.csv`. Edit this file to adjust which devices have to be tracked. Here you can also setup a url for each device to be used as the entity picture.
