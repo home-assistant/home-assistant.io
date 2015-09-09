@@ -23,3 +23,10 @@ switch:
       oncmd: switch_command on kitchen
       offcmd: switch_command off kitchen
 ```
+
+Configuration variables:
+
+- **switches**  array (*Required*): Contains all command switches.
+  - **'entry'** (*Required*): Name of the command switch. Multiple entries are possible.
+    - **oncmd** (*Required*): The action to take for on.
+    - **offcmd** (*Required*): The action to take for off.
