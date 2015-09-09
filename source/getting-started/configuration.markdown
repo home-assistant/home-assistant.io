@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-By default, Home Assistant will create a configuration folder. Depending on your operating system this is `~/.homeassistant` (OS X/Linux) or `%APPDATA%/.homeassistant` (Windows). If you want to use a different folder for configuration, run `hass --config path/to/config`.</p>
+Home Assistant will create a configuration folder when it is run for the first time. Depending on your operating system this is `~/.homeassistant` (OS X/Linux) or `%APPDATA%/.homeassistant` (Windows). If you want to use a different folder for configuration, run `hass --config path/to/config`.</p>
 
 Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains which components will be loaded and what their configuration is. An example configuration file is located at [`here`](https://github.com/balloob/home-assistant/blob/master/config/configuration.yaml.example).
 
