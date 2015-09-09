@@ -22,13 +22,13 @@ To add a Denon Network Receiver to your installation, add the following to your 
 # Example configuration.yaml entry
 media_player:
   platform: denon
-  name: Music station
   host: IP_ADDRESS
+  name: Music station
 ```
 Configuration variables:
 
-- **host** *Required*: IP address of the device. Example: 192.168.1.32
-- **name** *Optional*: Name of the device
+- **host** (*Required*): IP address of the device. Example: 192.168.1.32
+- **name** (*Optional*): Name of the device
 
 A few notes:
 
