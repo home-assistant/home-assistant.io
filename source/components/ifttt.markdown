@@ -11,34 +11,43 @@ footer: true
 <img src='/images/supported_brands/ifttt.png' class='brand pull-right' />
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so called "recipes". With the ifttt component you can trigger recipes through the "maker" channel.
 
-To load the IFTTT component into Home Assistant, add the following section to your `configuration.yaml` file:
-
 ```yaml
 # Example configuration.yaml entry
 ifttt:
   key: xxxxx-x-xxxxxxxxxxxxx
 ```
 
-You can find your secret key by viewing the properties of the [Maker Channel] (https://ifttt.com/maker)
-![](http://i.imgur.com/9JNHmJe.png)
+Key is your API key which can be obtained by viewing the properties of the [Maker Channel](https://ifttt.com/maker).
 
-Once you have added your entries to `configuration.yaml`, restart your Home Assistant server.  This will load up the IFTTT component and create a service trigger.
+<p class='img'>
+<img src='/images/components/ifttt/finding_key.png' />
+Property screen of the Maker Channel
+</p>
+
+Once you have added your key to `configuration.yaml`, restart your Home Assistant server. This will load up the IFTTT component and make a service available to trigger events in IFTTT.
 
 <p class='note'>
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
-</p> 
+</p>
 
-![](http://i.imgur.com/azkEyUl.png)
+### {% linkable_title Testing your trigger %}
 
-You can use the developer tools to test your [Maker Channel] (https://ifttt.com/maker) trigger.
-The payload for the trigger should be {"`event`":"`EventName`"}.
+You can use the developer tools to test your [Maker Channel](https://ifttt.com/maker) trigger. To do this, open the Home Assistant UI, open the sidebar, click on the first icon in the developer tools. This should get you to the 'Call Service' screen. Fill in the following values:
 
-Example : `{"event":"TestHA_Trigger"}`
+Field | Value
+----- | -----
+domain | `ifttt`
+service | `trigger`
+Service Data | `{"event": "EventName", "value1": "Hello World"}`
 
-![example](http://i.imgur.com/MV1L2np.png)
+<p class='img'>
+<img src='/images/components/ifttt/testing_service.png' />
+When your screen looks like this, click the 'call service' button.
+</p>
 
-On the [Maker Channel] (https://ifttt.com/maker) side of things, you should have a recipe that looks something similiar to this:
+### {% linkable_title Setting up a recipe %}
 
-![Maker Channel Preview](http://i.imgur.com/znvymX7.png)
-
-
+<p class='img'>
+<img src='/images/components/ifttt/setup_trigger.png' />
+You need to setup a unique trigger for each event you sent to IFTTT.
+</p>
