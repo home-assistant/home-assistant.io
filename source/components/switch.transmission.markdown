@@ -30,6 +30,6 @@ Configuration variables:
 - **host** (*Required*): This is the IP address of your Transmission daemon, e.g. 192.168.1.32.
 - **port** (*Optional*): The port your Transmission daemon uses, defaults to 9091.
 - **name** (*Optional*): The name to use when displaying this Transmission instance.
-- **username** (*Required*): Your Transmission username, if you use authentication.
-- **password** (*Required*): Your Transmission password, if you use authentication.
+- **username** (*Optional*): Your Transmission username, if you use authentication.
+- **password** (*Optional*): Your Transmission password, if you use authentication.
 
