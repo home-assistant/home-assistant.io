@@ -18,6 +18,10 @@ Chromecast platform can also be forced to load by adding the following lines to 
 # Example configuration.yaml entry
 media_player:
   platform: chromecast
-  # Optional. Will scan for devices if left out
   host: 192.168.1.9
 ```
+
+Configuration variables:
+
+- **host** *Optional*: Use only if you don't want to scan for devices.
+
