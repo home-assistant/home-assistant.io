@@ -18,9 +18,14 @@ To add limitlessled to your installation, add the following to your `configurati
 # Example configuration.yaml entry
 light:
   platform: limitlessled
-  host: 192.168.1.10
+  host: IP_ADDRESS
   group_1_name: Living Room
   group_2_name: Bedroom
   group_3_name: Office
   group_4_name: Kitchen
 ```
+
+Configuration variables:
+
+- **host** (*Required*): IP address of the device, eg. 192.168.1.32
+- **group_X_name** (*Required*): Name of the group. Multiple entries with a consecutive number.
