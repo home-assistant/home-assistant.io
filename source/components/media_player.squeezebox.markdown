@@ -20,7 +20,13 @@ media_player:
   platform: squeezebox
   host: 192.168.1.21
   port: 9090
-  username: user
-  password: password
+  username: USERNAME
+  password: PASSWORD
 ```
 
+Configuration variables:
+
+- **host** *Required*: The host name or address of the Logitech Media Server.
+- **port** *Optional*: Telnet port to Logitech Media Server, default 9090.
+- **username** *Optional*: The username, if password protection is enabled.
+- **password** *Optional*: The password, if password protection is enabled.
