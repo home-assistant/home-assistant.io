@@ -17,9 +17,14 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```
 thermostat:
   platform: nest
-  username: myemail@mydomain.com
-  password: mypassword
+  username: USERNAME
+  password: PASSWORD
 ```
+
+Configuration variables:
+
+- **username** (*Required*): Your Nest username.
+- **password** (*Required*): Your Nest password.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
