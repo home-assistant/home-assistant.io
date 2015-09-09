@@ -10,11 +10,21 @@ footer: true
 ---
 
 <img src='/images/supported_brands/mysensors.png' class='brand pull-right' />
-Integrate your [MySensors sensors](https://www.mysensors.org) by adding the following to your `configuration.yaml`:
+The [MySensors](https://www.mysensors.org) project combines Arduino boards with NRF24L01 radio boards to build sensor networks.
+
+Integrate your Serial MYSensors Gateway by adding the following to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   platform: mysensors
   port: /dev/ttyACM0
+```
+
+Configuration variables:
+
+- **port** (*Required*): The port where your board is connected to your Home Assistant host. If you are using an original Arduino the port will be named `ttyACM*`. The exact number can be determined with `ls /dev/ttyACM*`.
+
+```bash
+ls /dev/ttyACM*
 ```
