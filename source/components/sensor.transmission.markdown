@@ -22,9 +22,9 @@ sensor:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
   monitored_variables:
-    - type: 'current_status'
-    - type: 'download_speed'
-    - type: 'upload_speed'
+    - 'current_status'
+    - 'download_speed'
+    - 'upload_speed'
 ```
 
 Configuration variables:
@@ -32,8 +32,8 @@ Configuration variables:
 - **host** (*Required*): This is the IP address of your Transmission daemon, e.g. 192.168.1.32.
 - **port** (*Optional*): The port your Transmission daemon uses, defaults to 9091.
 - **name** (*Optional*): The name to use when displaying this Transmission instance.
-- **username** (*Required*): Your Transmission username
-- **password** (*Required*): Your Transmission password
+- **username** (*Optional*): Your Transmission username, if you use authentication.
+- **password** (*Optional*): Your Transmission password, if you use authentication.
 - **display_variables** array: Conditions to display in the frontend.
   - **current_status**: The status of your Transmission daemon.
   - **download_speed**: The current download speed.
