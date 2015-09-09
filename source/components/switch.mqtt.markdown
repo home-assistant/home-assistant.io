@@ -44,3 +44,7 @@ switch:
 - **payload_on**: The payload that represents enabled state. Default is "ON". *Optional*
 - **payload_off**: The payload that represents disabled state. Default is "OFF". *Optional*
 - **optimistic**: Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false. *Optional*
+
+<p class='note warning'>
+Make sure that your topics match exact. <code>some-topic/</code> and <code>some-topic</code> are different topics.
+</p>
