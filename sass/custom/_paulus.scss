@@ -102,7 +102,7 @@ h6:hover a.title-link {
 article.post, article.page, article.listing {
   img, table {
     border-radius: 3px;
-    box-shadow: rgba(0,0,0,0.06) 0 0 10px;    
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
   }
 
   img.no-shadow {
@@ -120,7 +120,7 @@ article.post, article.page, article.listing {
     text-align: center;
     padding-bottom: 3px;
     font-size: .9rem;
-    box-shadow: rgba(0,0,0,0.06) 0 0 10px;    
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
 
     img {
       display: block;
@@ -171,7 +171,7 @@ p.note {
 
   &.warning {
     background-color: #F7F9E1;
-    
+
     &::before {
       background-color: rgb(187, 185, 13);;
       content: "\f071" " Warning " attr(data-title);
@@ -217,17 +217,18 @@ p.note {
   }
 }
 
-.prep-instructions-container {
-  #generic-prep, #fedora-prep, #centos-prep, .prep-instructions {
+.advanced-installs-container {
+
+  #upstart-install, #systemd-install, .advanced-installs {
     display: none;
   }
 
   label.menu-selector {
     display: inline-block;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     white-space: nowrap;
-    border-bottom: 2px solid $grayLight;
+    border-bottom: 5px solid $grayLight;
     transition: border-bottom-color .5s;
   }
 
@@ -235,60 +236,19 @@ p.note {
     margin-left: 10px;
   }
 
-  #generic-prep:checked ~ .menu-selector.generic,
-  #fedora-prep:checked ~ .menu-selector.fedora,
-  #centos-prep:checked ~ .menu-selector.centos
+  #upstart-install:checked ~ .menu-selector.upstart,
+  #systemd-install:checked ~ .menu-selector.systemd
    {
     border-bottom-color: $blue;
   }
 
-  #generic-prep:checked ~ .prep-instructions.generic,
-  #fedora-prep:checked ~ .prep-instructions.fedora,
-  #centos-prep:checked ~ .prep-instructions.centos
+  #upstart-install:checked ~ .advanced-installs.upstart,
+  #systemd-install:checked ~ .advanced-installs.systemd
    {
     display: block;
   }
 
-  .prep-instructions {
-    margin-top: 20px;
+  .advanced-installs {
+    margin-top: 30px;
   }
 }
-
-.post-instructions-container {
-  #generic-post, #fedora-post, #debian-post, .post-instructions {
-    display: none;
-  }
-
-  label.menu-selector {
-    display: inline-block;
-    text-align: center;
-    padding: 10px;
-    white-space: nowrap;
-    border-bottom: 2px solid $grayLight;
-    transition: border-bottom-color .5s;
-  }
-
-  label.menu-selector + label.menu-selector {
-    margin-left: 10px;
-  }
-
-  #generic-post:checked ~ .menu-selector.generic-post,
-  #fedora-post:checked ~ .menu-selector.fedora-post,
-  #debian-post:checked ~ .menu-selector.debian-post
-   {
-    border-bottom-color: $blue;
-  }
-
-  #generic-post:checked ~ .post-instructions.generic-post,
-  #fedora-post:checked ~ .post-instructions.fedora-post,
-  #debian-post:checked ~ .post-instructions.debian-post
-   {
-    display: block;
-  }
-
-  .post-instructions {
-    margin-top: 20px;
-  }
-
-}
-
