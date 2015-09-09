@@ -29,14 +29,12 @@ sensor:
 Configuration variables:
 
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, e.g. http://192.168.1.10.
-
 - **monitored_variables** array:
-
   - **name** (*Required*): The name of the variable you wish to monitor.
   - **unit** (*Optional*): Defines the units of measurement of the sensor, if any.
 
 
-The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you find below a sketch for the Arduino device family. 
+The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you find below a sketch for the Arduino device family. There are two variables (`temperature` and `humidity`) which will act as endpoints. 
 
 ```c
 /*
@@ -99,8 +97,13 @@ void loop() {
 }
 
 ```
+Accessing one of the endpoints (eg. http://192.168.1.10/temperature) will give you the value inside a JSON response.
 
-The JSON response contains the variables and their current values along with some device details.
+```json
+{"temperature": 23, "id": "sensor01", "name": "livingroom", "connected": true}
+```
+
+The root will give you a JSON response that contains all variables and their current values along with some device details.
 
 ```json
 {
