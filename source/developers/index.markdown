@@ -64,4 +64,5 @@ requests.
     Adding support for a new platform
   </a></li>
   <li><a href="{{ root_url }}/developers/api.html">Rest API</a></li>
+  <li><a href="{{ root_url }}/developers/website.html">Website </a></li>
 </ul>
