@@ -87,11 +87,11 @@ hass \-\-open-ui
 <h3>Staying Up to Date</h3>
 <p>In order to update Home Assistant to the latest stable release, simply type the following into a console:</p>
 ```bash
-pip install \-\-upgrade homeassistant
+pip3 install \-\-upgrade homeassistant
 ```
 <p>If you would like to stay up to date with the newest unstable builds (alphas, betas, and release candidates), use this command:</p>
 ```bash
-pip install \-\-upgrade \-\-pre homeassistant
+pip3 install \-\-upgrade \-\-pre homeassistant
 ```
 
 <h3>What's Next</h3>
