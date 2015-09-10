@@ -37,13 +37,15 @@ switch:
   optimistic: false
 ```
 
-- **name**: The name of the switch. Default is 'MQTT Switch'. *Optional*
-- **state_topic**: The MQTT topic subscribed to receive state updates. *Optional*
-- **command_topic**: The MQTT topic to publish commands to change the switch state. *Required*
-- **qos**: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages. *Optional*
-- **payload_on**: The payload that represents enabled state. Default is "ON". *Optional*
-- **payload_off**: The payload that represents disabled state. Default is "OFF". *Optional*
-- **optimistic**: Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false. *Optional*
+Configuration variables:
+
+- **name** (*Optional*): The name of the switch. Default is 'MQTT Switch'.
+- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
+- **command_topic** (*Required*): The MQTT topic to publish commands to change the switch state.
+- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+- **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
+- **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
+- **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.
 
 <p class='note warning'>
 Make sure that your topics match exact. <code>some-topic/</code> and <code>some-topic</code> are different topics.
