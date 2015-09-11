@@ -10,14 +10,15 @@ categories: how-to
 og_image: /images/blog/2015-09-mqtt/arduino.png
 ---
 
-The [MQTT](https://en.wikipedia.org/wiki/MQTT) support was added to Home Assistant recently. The [MQTT component](https://home-assistant.io/components/mqtt.html) will enable you to do all sort of things. Most likely you will use it to communicate with your devices. But Home Assistant doesn't care where the data is coming from or is limited to real hardware as long as there is MQTT support. This means that it doesn't matter if the data is coming from a human, a web service, or a device. 
+<img src='/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='80' />
+The [MQTT](https://en.wikipedia.org/wiki/MQTT) support was added to Home Assistant recently. The [MQTT component](https://home-assistant.io/components/mqtt.html) will enable you to do all sort of things. Most likely you will use it to communicate with your devices. But Home Assistant doesn't care where the data is coming from or is limited to real hardware as long as there is MQTT support. This means that it doesn't matter if the data is coming from a human, a web service, or a device.
 
-A great example is shown in a [Laundry Automation](https://home-assistant.io/blog/2015/08/26/laundry-automation-with-moteino-mqtt-and-home-assistant/) post in this blog. 
+A great example is shown in a [Laundry Automation](https://home-assistant.io/blog/2015/08/26/laundry-automation-with-moteino-mqtt-and-home-assistant/) post in this blog.
 
-This post will give you a small overview of some other possibilities on how to use MQTT with Home Assistant. 
+This post will give you a small overview of some other possibilities on how to use MQTT with Home Assistant.
 
 <!--more-->
-## {% linkable_title Manual usage %}
+### {% linkable_title Manual usage %}
 
 The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let's create a "Mood" sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snipplets to add to the `configuration.yaml` file consists of two parts: one for the broker and one for the sensor.
 
@@ -32,7 +33,7 @@ sensor:
     unit_of_measurement: " "
 ```
 
-After a restart of Home Assistant the "Mood" sensor will show up in the frontend. For more details about the configuration of MQTT itself and the sensor, please refer to the [MQTT component](https://home-assistant.io/components/mqtt.html) or the [MQTT sensor](https://home-assistant.io/components/sensor.mqtt.html) documentation. 
+After a restart of Home Assistant the "Mood" sensor will show up in the frontend. For more details about the configuration of MQTT itself and the sensor, please refer to the [MQTT component](https://home-assistant.io/components/mqtt.html) or the [MQTT sensor](https://home-assistant.io/components/sensor.mqtt.html) documentation.
 
 Now we can set the mood. The commandline tool (`mosquitto_pub`) which is shipped with `mosquitto` is used to send an MQTT message.
 
@@ -45,9 +46,9 @@ mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
   The Mood sensor
 </p>
 
-## {% linkable_title Python MQTT bindings %}
+### {% linkable_title Python MQTT bindings %}
 
-The last section was pretty boring, I know. Nobody wants to send MQTT messages by hand if there is a computer on the desk. If you are playing the lottery this section is for you. If not, read it anyway because the lottery is just an example :-). 
+The last section was pretty boring, I know. Nobody wants to send MQTT messages by hand if there is a computer on the desk. If you are playing the lottery this section is for you. If not, read it anyway because the lottery is just an example :-).
 
 This example is using the [Paho MQTT Python binding](https://eclipse.org/paho/clients/python/) because those binding should be available on the host where Home Assistant is running. If you want to use this example on another machine, please make sure that the bindings are installed (`pip3 install paho-mqtt`).
 
@@ -98,7 +99,7 @@ Every 5 seconds a message with a new number is sent to the broker and picked up 
 
 With only a few lines of Python and an MQTT broker you can create your own "smartdevice" or send information to Home Assistant which you haven't think of. Of course this is not limited to Python. If there is an MQTT library available, the device can be used with Home Assistant now.
 
-## {% linkable_title Arduino %}
+### {% linkable_title Arduino %}
 
 To get started with real hardware that is capable to send MQTT messages, the Arduino platform is an inexpensive way to do it. In this section an Arduino UNO with an Ethernet shield and a photo resistor is used. The photo resistor is connected to analog pin 0 (A0) and has an output from 0 to 1024.
 
@@ -197,5 +198,3 @@ After a restart of Home Assistant the values of your Arduino will be available.
 </p>
 
 I hope that this post could give you some ideas about the usage Home Assistant and MQTT. If you are working on a cool project that includes Home Assistant, please let us now.
-
-
