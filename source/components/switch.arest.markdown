@@ -30,7 +30,7 @@ Configuration variables:
 
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, e.g. http://192.168.1.10.
 - **pins** (*Required*): An array with all used pins of your board.
-  - **name** (*Required*): The name of the variable you wish to monitor.
+  - **name** (*Required*): The name of the pin you wish to toggle.
 
 Accessing one of the endpoints (eg. http://192.168.1.10/analog/2/) will give you a JSON response. The interesting part is `return_value` which represents the sensor's data.
 
