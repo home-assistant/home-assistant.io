@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Different ways to use MQTT with Home Assistant"
+title: "Using MQTT with Home Assistant"
 description: "This post describes three different ways to use MQTT with Home Assistant."
-date: 2015-09-10 11:19:38 +0200
-date_formatted: "September 10, 2015"
+date: 2015-09-11 11:19:38 +0200
+date_formatted: "September 11, 2015"
 author: Fabian Affolter
 comments: true
-categories: 
+categories: how-to
 og_image: /images/blog/2015-09-mqtt/arduino.png
 ---
 
