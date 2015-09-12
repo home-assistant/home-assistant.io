@@ -30,7 +30,6 @@ sensor:
   - platform: mqtt
     name: "Fabian's Mood"
     state_topic: "home-assistant/fabian/mood"
-    unit_of_measurement: " "
 ```
 
 After a restart of Home Assistant the "Mood" sensor will show up in the frontend. For more details about the configuration of MQTT itself and the sensor, please refer to the [MQTT component](https://home-assistant.io/components/mqtt.html) or the [MQTT sensor](https://home-assistant.io/components/sensor.mqtt.html) documentation.
@@ -46,19 +45,21 @@ mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
   The Mood sensor
 </p>
 
+This is a really bad example. Don't do this in the real world because you won't be able to create diagrams of historical data. Better use a numerical value. 
+
 ### {% linkable_title Python MQTT bindings %}
 
 The last section was pretty boring, I know. Nobody wants to send MQTT messages by hand if there is a computer on the desk. If you are playing the lottery this section is for you. If not, read it anyway because the lottery is just an example :-).
 
 This example is using the [Paho MQTT Python binding](https://eclipse.org/paho/clients/python/) because those binding should be available on the host where Home Assistant is running. If you want to use this example on another machine, please make sure that the bindings are installed (`pip3 install paho-mqtt`).
 
-The first step is to add an additional MQTT sensor to the `configuration.yaml` file. The sensor will be called "Lottery".
+The first step is to add an additional MQTT sensor to the `configuration.yaml` file. The sensor will be called "Lottery" and the unit of measurement will be "No.".
 
 ```yaml
   - platform: mqtt
     name: "Lottery"
     state_topic: "home-assistant/lottery/number"
-    unit_of_measurement: " "
+    unit_of_measurement: "No."
 ```
 
 Don't forget to restart Home Assistant to make the configuration active.
@@ -187,7 +188,7 @@ The Arduino will send the value of the sensor every second. To use the data in H
   - platform: mqtt
     name: "Brightness"
     state_topic: "home-assistant/sensor01/brightness"
-    unit_of_measurement: " "
+    unit_of_measurement: "cd"
 ```
 
 After a restart of Home Assistant the values of your Arduino will be available.
