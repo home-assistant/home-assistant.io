@@ -10,7 +10,9 @@ footer: true
 ---
 
 <img src='/images/supported_brands/itunes.png' class='brand pull-right' />
-The iTunes platform allows you to control [iTunes](http://apple.com/itunes/) via [itunes-api](https://github.com/maddox/itunes-api) from Home Assistant.
+ The iTunes platform allows you to control [iTunes](http://apple.com/itunes/) via
+ [itunes-api](https://github.com/maddox/itunes-api) from Home Assistant. Play,
+ pause, or skip songs remotely on iTunes running on your Mac.
 
 <p class='note'>
 iTunes itself can not be remotely controlled. In order to control your iTunes,
