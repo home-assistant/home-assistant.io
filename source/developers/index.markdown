@@ -15,9 +15,9 @@ components. It uses [Python 3](https://www.python.org/) for the backend and
 
 Home Assistant is open-source and MIT licensed. The source can be found here:
 
- - [home-assistant](https://github.com/home-assistant) - Python server-backend
- - [home-assistant-js](https://github.com/home-assistant-js) - javascript-backend powering the client
- - [home-assistant-polymer](https://github.com/home-assistant-polymer) - Polymer UI
+ - [home-assistant](https://github.com/balloob/home-assistant) - Python server-backend
+ - [home-assistant-js](https://github.com/balloob/home-assistant-js) - javascript-backend powering the client
+ - [home-assistant-polymer](https://github.com/balloob/home-assistant-polymer) - Polymer UI
 
 ### {% linkable_title Starting development %}
 
