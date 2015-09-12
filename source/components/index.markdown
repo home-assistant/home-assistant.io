@@ -241,6 +241,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td><a href='/components/media_player.denon.html'>Denon Network Receivers</a></td>
 </tr>
 
+<tr>
+  <td><a href='/components/media_player.sonos.html'><img src='/images/supported_brands/sonos.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.sonos.html'>Sonos devices</a></td>
+</tr>
+
 </table>
 
         </div>
