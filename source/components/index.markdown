@@ -222,6 +222,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td><a href='/components/media_player.itunes.html'><img src='/images/supported_brands/itunes.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.itunes.html'>iTunes</a></td>
+</tr>
+
+<tr>
   <td><a href='/components/media_player.mpd.html'><img src='/images/supported_brands/mpd.png' class='brand overview' /></a></td>
   <td><a href='/components/media_player.mpd.html'>Music Player Daemon (MPD)</a></td>
 </tr>
