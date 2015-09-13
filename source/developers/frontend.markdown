@@ -28,13 +28,25 @@ http:
   development: 1
 ```
 
-After turning on development mode, you will have to install the web components that the frontend depends on. Firing off a build of the frontend by running `scripts/build_frontend` will ensure all dependencies are installed.
+Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend
+repository is not cloned by default. You will have to trigger this manually by running from the
+command line:
 
-Once this is done, you can start editting the webcomponents in the folder `homeassistant/components/frontend/www_static/home-assistant-polymer/src`. To see the changes you've made, simply refresh your browser.
+```bash
+git submodule update --init
+```
+
+After checking out the frontend code, you will have to install the frontend dependencies. Firing off
+a build of the frontend by running `scripts/build_frontend` will ensure they get installed.
+
+Once this is done, you can start editting the webcomponents in the folder
+`homeassistant/components/frontend/www_static/home-assistant-polymer/src`. To see the changes you've
+made, simply refresh your browser.
 
 ## {% linkable_title Enabling JavaScript backend development %}
 
-Polymer is only providing a UI toolkit for Home Assistant. All data management and interaction with the server is done by `home-assistant-js` leveraging NuclearJS. To enable JavaScript development:
+Polymer is only providing a UI toolkit for Home Assistant. All data management and interaction with
+the server is done by `home-assistant-js` leveraging NuclearJS. To enable JavaScript development:
 
 ```bash
 cd homeassistant/components/frontend/www_static/home-assistant-polymer/
@@ -42,9 +54,13 @@ npm run setup_js_dev
 npm run js_dev
 ```
 
-`npm run js_dev` will start the process that will ensure that your latest changes to the JavaScript files will be loaded when you refresh the page. This command has to be always running while working on home-assistant-js.
+`npm run js_dev` will start the process that will ensure that your latest changes to the JavaScript
+files will be loaded when you refresh the page. This command has to be always running while working
+on home-assistant-js.
 
-After your changes have been accepted into the `home-assistant-js` repository, we'll have to update Home Assistant Polymer to use the latest version. This can be done by updating `package.json`. Look for the line that contains `home-assistant-js` and update the SHA to the SHA of your commit.
+After your changes have been accepted into the `home-assistant-js` repository, we'll have to update
+Home Assistant Polymer to use the latest version. This can be done by updating `package.json`. Look
+for the line that contains `home-assistant-js` and update the SHA to the SHA of your commit.
 
 # {% linkable_title Building the Polymer frontend %}
 
@@ -72,15 +88,16 @@ The main interface of Home Assistant is a list of the current entities and their
 
 Some domains will be filtered out of the main view and are available through separate menu options. Examples are `group`, `script`, `scene`.
 
-The different card types can be found [here](https://github.com/balloob/home-assistant-polymer/tree/master/src/cards).
+The different card types can be found [here](https://github.com/balloob/home-assistant-polymer/tree/master/src/state-summary).
 
-Adding a custom card type can be done with a few simple steps. For this example we will add a new state card for the domain `camera`:  
+Adding a custom card type can be done with a few simple steps. For this example we will add a new
+state card for the domain `camera`:
 _(All files in this example link to their source-code)_
 
  1. Add `'camera'` to the array `DOMAINS_WITH_CARD` in the file [`/util/state-card-type.js`](https://github.com/balloob/home-assistant-polymer/blob/master/src/util/state-card-type.js#L3-L4).
- 2. Create the files `state-card-camera.html` and `state-card-camera.js` in the folder [`/cards/`](https://github.com/balloob/home-assistant-polymer/tree/master/src/cards).
- 3. Add `require('./state-card-camera')` to [`state-card-content.js`](https://github.com/balloob/home-assistant-polymer/blob/master/src/cards/state-card-content.js).
- 4. Add `<link rel="import" href="state-card-camera.html">` to [`state-card-content.html`](https://github.com/balloob/home-assistant-polymer/blob/master/src/cards/state-card-content.html).
+ 2. Create the files `state-card-camera.html` and `state-card-camera.js` in the folder [`/state-summary/`](https://github.com/balloob/home-assistant-polymer/tree/master/src/state-summary).
+ 3. Add `require('./state-card-camera')` to [`state-card-content.js`](https://github.com/balloob/home-assistant-polymer/blob/master/src/state-summary/state-card-content.js).
+ 4. Add `<link rel="import" href="state-card-camera.html">` to [`state-card-content.html`](https://github.com/balloob/home-assistant-polymer/blob/master/src/state-summary/state-card-content.html).
 
 # {% linkable_title More info screens for custom types %}
 
