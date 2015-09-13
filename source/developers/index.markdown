@@ -31,6 +31,10 @@ component for Home Assistant.
 
 After following these steps, running `hass` will invoke your local installation.
 
+If you plan to work on the <a href="{{ root_url}}/developers/frontend.html">Frontend UI</a>, you'll need to clone with --recursive:
+    `git clone --recursive https://github.com/balloob/home-assistant.git`
+
+
 ### {% linkable_title Submitting improvements %}
 
 Improvements to Home Assistant should be submitted one feature at a time using Github pull

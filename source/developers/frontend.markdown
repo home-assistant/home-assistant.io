@@ -28,6 +28,12 @@ http:
   development: 1
 ```
 
+Before starting with frontend development ensure that you meet a few requirements:
+
+* You used --recursive when cloning the repository
+    `git clone --recursive https://github.com/balloob/home-assistant.git`
+* You have a recent version of node (0.12 or higher) and npm (2.14 or higher)
+
 After turning on development mode, you will have to install the web components that the frontend depends on. Firing off a build of the frontend by running `scripts/build_frontend` will ensure all dependencies are installed.
 
 Once this is done, you can start editting the webcomponents in the folder `homeassistant/components/frontend/www_static/home-assistant-polymer/src`. To see the changes you've made, simply refresh your browser.
