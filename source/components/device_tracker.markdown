@@ -32,6 +32,10 @@ device_tracker:
   host: 192.168.1.1
   username: admin
   password: YOUR_PASSWORD
+  track_new_devices: yes
 ```
 
-Once tracking, the `device_tracker` component will maintain a file in your config dir called `known_devices.csv`. Edit this file to adjust which devices have to be tracked. Here you can also setup a url for each device to be used as the entity picture.
+By default, the device tracker will add all found devices into the `known_devices.yaml`.  It will default to displaying them in the UI as well.  To disable displaying new devices in the UI, change the value of `track_new_devices:` to `no`.
+
+
+Once tracking, the `device_tracker` component will maintain a file in your config dir called `known_devices.yaml`. Edit this file to adjust which devices have to be tracked. Here you can also setup a url for each device to be used as the entity picture and set whether the device will be show in the UI when in away state..
