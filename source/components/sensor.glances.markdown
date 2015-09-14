@@ -66,18 +66,3 @@ Configuration variables:
   - **'process_thread'**: Number of threads
   - **'process_sleeping'**: Number of sleeping processes
 
-<p class='note warning'>
-Make sure that the URL matches exactly your endpoint or resource.
-</p>
-
-`curl` could help you with the identification of the variable you want to display in your Home Assistant frontend. The example below show the JSON response of a device that is running with [aREST](http://arest.io/).
-
-```bash
-$ curl -X GET http://192.168.1.31/temperature/
-{"temperature": 77, "id": "sensor02", "name": "livingroom", "connected": true}
-```
-
-resources
-*Required
-Resources to monitor on the host. See the configuration example above for a
-list of all available conditions to monitor.
