@@ -43,57 +43,8 @@ If that is not working, check your `dmesg` or `journalctl -f` output. Keep in mi
 A word of caution: The Arduino boards are not storing states. This means that with every initialization the pins are set to off/low.
 </p>
 
-## Switch Configuration
+## Building on top of the Arduino component
 
-Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3,5,6,9,10, and 11 on a Arduino Uno) is not supported yet.
-
-To enable the Arduino switch pins with Home Assistant, add the following section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  platform: arduino
-  pins:
-    11:
-      name: Fan Office
-      type: digital
-    12:
-      name: Light Desk
-      type: digital
-```
-
-Configuration variables:
-
-- **pins** array (*Required*): Pins to use.
-  - **name**: Name that will be used in the frontend for the pin.
-  - **type**: The type of the pin. At the moment only 'digital' is supported.
-
-The digital pins are numbered from 0 to 13. The available pins are 2 till 13. For testing purposes you can use pin 13 because with that pin you can control the internal LED.
-
-## Sensor Configuration
-
-The sensor platform allow you to get an numerical values from an analog input pin. Usually between 0 and 1024. 
-
-To enable an Arduino sensor with Home Assistant, add the following section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  platform: arduino
-  pins:
-    1:
-      name: Door switch
-      type: analog
-    0:
-      name: Brightness
-      type: analog
-```
-
-Configuration variables:
-
-- **pins** array (*Required*): Pins to use.
-  - **name**: Name that will be used in the frontend for the pin.
-  - **type**: The type of the pin. At the moment only 'analog' is supported.
-
-The 6 analog pins are numbered from A0 to A5.
+ - [Arduino Sensor](/components/sensor.arduino.html)
+ - [Arduino Switch](/components/switch.arduino.html)
 
