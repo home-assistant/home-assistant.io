@@ -220,7 +220,7 @@ p.note {
 
 .advanced-installs-container {
 
-  #upstart-install, #systemd-install, .advanced-installs {
+  #upstart-install, #systemd-install, #osx-install, .advanced-installs {
     display: none;
   }
 
@@ -238,13 +238,15 @@ p.note {
   }
 
   #upstart-install:checked ~ .menu-selector.upstart,
-  #systemd-install:checked ~ .menu-selector.systemd
+  #systemd-install:checked ~ .menu-selector.systemd,
+  #osx-install:checked ~ .menu-selector.osx
    {
     border-bottom-color: $blue;
   }
 
   #upstart-install:checked ~ .advanced-installs.upstart,
-  #systemd-install:checked ~ .advanced-installs.systemd
+  #systemd-install:checked ~ .advanced-installs.systemd,
+  #osx-install:checked ~ .advanced-installs.osx
    {
     display: block;
   }
