@@ -47,6 +47,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Markus Stenberg](https://github.com/fingon)
 - [Michael Arnauts](https://github.com/michaelarnauts)
 - [Michael Gilbert](https://github.com/Zyell)
+- [Nolan Gilley](https://github.com/nkgilley)
 - [miniconfig](https://github.com/miniconfig)
 - [Per Sandström](https://github.com/persandstrom)
 - [Piratonym](https://github.com/Piratonym)
