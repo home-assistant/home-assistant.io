@@ -46,6 +46,7 @@ This page contains a list of people who have contributed in one way or another t
 - [MakeMeASandwich](https://github.com/MakeMeASandwich)
 - [Markus Stenberg](https://github.com/fingon)
 - [Michael Arnauts](https://github.com/michaelarnauts)
+- [Michael Gilbert](https://github.com/Zyell)
 - [miniconfig](https://github.com/miniconfig)
 - [Per Sandström](https://github.com/persandstrom)
 - [Piratonym](https://github.com/Piratonym)
