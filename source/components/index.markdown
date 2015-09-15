@@ -288,7 +288,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td><a href='/components/switch.command_switch.html'><img src='/images/supported_brands/utilities-terminal.png' class='brand overview' /></a></td>
-  <td><a href='/components/switch.command_switch.html'>Command line</a> issues command line commands.</td>
+  <td>Command line <a href='/components/switch.command_switch.html'>switches</a> and <a href='/components/sensor.command_sensor.html'>sensors</a> issues command line commands to do or the get something.</td>
 </tr>
 
 <tr>
