@@ -21,4 +21,15 @@ scene:
         state: on
         color: [0.33, 0.66]
         brightness: 200
+       
+ - name: all_lights_on
+   entities:
+      group.all_lights:
+        state: on
+
+ - name: all_lights_off
+   entities:
+      group.all_lights:
+        state: off
+
 ```
