@@ -14,10 +14,10 @@ Here are some general tutorials on how to setup some of the more advanced deploy
 <div class='advanced-installs-container'>
 <input name='advanced-installs' type='radio' id='upstart-install' checked>
 <input name='advanced-installs' type='radio' id='systemd-install'>
-<input name='advanced-installs' type='radio' id='launchd-install'>
+<input name='advanced-installs' type='radio' id='osx-install'>
 <label class='menu-selector upstart' for='upstart-install'>Upstart Daemon</label>
 <label class='menu-selector systemd' for='systemd-install'>Systemd Daemon</label>
-<label class='menu-selector launchd' for='launchd-install'>Launchd Daemon</label>
+<label class='menu-selector osx' for='osx-install'>OS X</label>
 
 
 <div class='advanced-installs upstart'>
@@ -98,9 +98,9 @@ sudo journalctl -f -u home-assistant
 ```
 </div> <!-- SYSTEMD -->
 
-<div class='advanced-installs launchd'>
-OS X uses launchd to manage it's services. Setting up Home Assistant via launchd
-will let OS X start it on boot and make sure it's always running.
+<div class='advanced-installs osx'>
+Setting up Home Assistant to run as a background service is simple. OS X will
+start it on boot and make sure it's always running.
 
 To get Home Assistant installed as a background service, run:
 
@@ -122,6 +122,6 @@ Home Assistant has been uninstalled.
 
 ```
 
-</div> <!-- LAUNCHD -->
+</div> <!-- OSX -->
 
 ###[&laquo; Back to Getting Started](/getting-started/index.html)
