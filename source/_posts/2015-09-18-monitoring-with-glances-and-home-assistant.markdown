@@ -19,9 +19,9 @@ The basic problem is to get the data from the remote host. Starting with [psutil
 
 The [Glances sensor](/components/sensor.glances.html) sensor uses that API to get all needed data. 
 
-In this post a default Fedora 22 Workstation installation is used on the host that should be monitored. In fact, it doesn't matter if the system is the local one or a remote one as long as Glances is available. With some adjustments it should work on your own system too. The difference will be the package and the firewall management tools.
+In this post a default Fedora 22 Workstation installation is used on the host that should be monitored. In fact, it doesn't matter if the system is the local one or a remote one as long as Glances is available. With some adjustments it should work on your own systems too. The difference will be the package and the firewall management tools.
 
-First some extra packages are needed beside Glances, especially the [bootle](http://bottlepy.org/docs/dev/index.html) webserver. I guess that Glances is available for your distribution as well. Otherwise follow those [instructions](https://github.com/nicolargo/glances#installation).
+First some extra packages are needed beside Glances, especially the [bottle](http://bottlepy.org/docs/dev/index.html) webserver. I guess that Glances is available for your distribution as well. Otherwise follow those [instructions](https://github.com/nicolargo/glances#installation).
 
 ```
 sudo dnf -y install glances python-bottle
