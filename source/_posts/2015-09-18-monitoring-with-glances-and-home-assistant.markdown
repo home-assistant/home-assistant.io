@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Monitoring with Glances and Home Assistant"
+title: "Remote Monitoring with Glances"
 description: "This post describes the setup for monitoring remote hosts with Home Assistant."
 date: 2015-09-18 11:00:00 +0200
 date_formatted: "September 18, 2015"
