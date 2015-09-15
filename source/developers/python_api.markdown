@@ -33,6 +33,26 @@ hass.start()
 living_room = hass.states.get('group.living_room')
 ```
 
+### {% linkable_title Get details about servies and events %}
+
+Similar to the output in the "Developer Tools" of the frontend 
+
+```python
+import homeassistant.remote as remote
+
+api = remote.API('host', 'password')
+
+print('-- Available services:')
+services = remote.get_services(api)
+for service in services:
+    print(service['services'])
+
+print('\n-- Available event')
+events = remote.get_event_listeners(api)
+for event in events:
+    print(event)
+```
+
 ### {% linkable_title Get the state of an entity %}
 
 To get the details of a single entity the `get_state` method is used. 
@@ -84,7 +104,7 @@ The state will be set to those value until the next update occurs.
 
 ### {% linkable_title Blinking all entites of a domain %}
 
-If you want to switch on all entities of a domain there is a bit more needed than in the examples before. Now will be services involved.
+If you want to turn on all entities of a domain, just a service which was retrieved by `get_services`.
 
 
 ```python
@@ -92,18 +112,26 @@ import time
 import homeassistant.remote as remote
 
 domain = 'switch'
-services = remote.get_services(api)
-turn_on = None
-turn_off = None
 
-for service in services:
-    if service['domain'] == domain:
-        turn_on = service['services'][0]
-        turn_off = service['services'][1]
-
-remote.call_service(api, 'switch', turn_on)
+remote.call_service(api, domain, 'turn_on')
 time.sleep(10)
-remote.call_service(api, 'switch', turn_off)
+remote.call_service(api, domain, 'turn_off')
+```
+
+### {% linkable_title Control a single entity %}
+
+To turn on or off a single switch, the ID of the entity is needed as attribute.
+
+```python
+import time
+import homeassistant.remote as remote
+
+domain = 'switch'
+switch_name = 'switch.livingroom_pin_2'
+
+remote.call_service(api, domain, 'turn_on', {'entity_id': '{}'.format(switch_name)})
+time.sleep(5)
+remote.call_service(api, domain, 'turn_off', {'entity_id': '{}'.format(switch_name)})
 ```
 
 For more details please check the source of [homeassistant.remote](https://github.com/balloob/home-assistant/blob/master/homeassistant/remote.py).
