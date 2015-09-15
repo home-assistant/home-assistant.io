@@ -51,6 +51,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Per Sandström](https://github.com/persandstrom)
 - [Piratonym](https://github.com/Piratonym)
 - [Rev Michael Greb](https://github.com/mikegrb)
+- [rhooper](https://github.com/rhooper)
 - [rkabadi](https://github.com/rkabadi)
 - [Ryan Kraus](https://github.com/rmkraus)
 - [sfam](https://github.com/sfam)
