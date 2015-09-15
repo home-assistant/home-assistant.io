@@ -14,8 +14,10 @@ Here are some general tutorials on how to setup some of the more advanced deploy
 <div class='advanced-installs-container'>
 <input name='advanced-installs' type='radio' id='upstart-install' checked>
 <input name='advanced-installs' type='radio' id='systemd-install'>
+<input name='advanced-installs' type='radio' id='launchd-install'>
 <label class='menu-selector upstart' for='upstart-install'>Upstart Daemon</label>
 <label class='menu-selector systemd' for='systemd-install'>Systemd Daemon</label>
+<label class='menu-selector launchd' for='launchd-install'>Launchd Daemon</label>
 
 
 <div class='advanced-installs upstart'>
@@ -95,5 +97,31 @@ To get Home Assistant's logging output, simple use <code>journalctl</code>.
 sudo journalctl -f -u home-assistant
 ```
 </div> <!-- SYSTEMD -->
+
+<div class='advanced-installs launchd'>
+OS X uses launchd to manage it's services. Setting up Home Assistant via launchd
+will let OS X start it on boot and make sure it's always running.
+
+To get Home Assistant installed as a background service, run:
+
+```bash
+$ hass --install-osx
+
+Home Assistant has been installed.         Open it here: http://localhost:8123
+
+```
+
+Home Assistant will log to `~/Library/Logs/homeassistant.log`
+
+To uninstall the service, run:
+
+```bash
+$ hass --uninstall-osx
+
+Home Assistant has been uninstalled.
+
+```
+
+</div> <!-- LAUNCHD -->
 
 ###[&laquo; Back to Getting Started](/getting-started/index.html)
