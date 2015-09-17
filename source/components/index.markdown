@@ -269,6 +269,10 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td><a href='/components/camera.generic.html'>IP camera</a> integrates a generic IP camera or image url.</td>
 </tr>
 
+  <td><a href='/components/camera.foscam.html'><img src='/images/supported_brands/foscam.png' class='brand overview' /></a></td>
+  <td><a href='/components/switch.Foscam.html'>Foscam</a> let you see your live stream.</td>
+</tr>
+
 <tr>
   <td><a href='/components/sensor.sabnzbd.html'><img src='/images/supported_brands/sabnzbd.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.sabnzbd.html'>SABnzbd clients</a> monitors queue and download speeds.</td>
