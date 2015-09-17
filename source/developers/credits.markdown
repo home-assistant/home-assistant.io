@@ -34,6 +34,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Greg Dowling](https://github.com/pavoni)
 - [Guillem Barba](https://github.com/gbarba)
 - [Gustav Ahlberg](https://github.com/Gyran)
+- [Heathbar](https://github.com/heathbar)
 - [Issac Kelly](https://github.com/issackelly)
 - [James Cole](https://github.com/jamespcole)
 - [Jeffrey Tang](https://github.com/Qrtn)
