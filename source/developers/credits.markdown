@@ -41,6 +41,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Jeff Schroeder](https://github.com/SEJeff)
 - [John McLaughlin](https://github.com/loghound)
 - [John Williams](https://github.com/Jaidan)
+- [Jon Maddox](https://github.com/maddox)
 - [Joseph Piron](https://github.com/eagleamon)
 - [Julien Danjou](https://github.com/jd)
 - [kixam](https://github.com/kixam)
