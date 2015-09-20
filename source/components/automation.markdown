@@ -17,7 +17,7 @@ A configuration section of an automation requires a `trigger` and an `action` se
 full configuration but only the relevant part.
 
 ```yaml
-# Example of a full entry in configuration.yaml
+# Example of entry in configuration.yaml
 automation:
   alias: Light on in the evening
   trigger:
@@ -32,8 +32,8 @@ automation:
       entity_id: group.all_devices
       state: home
     - platform: time
-      after: 16:00:00
-      before: 23:00:00
+      after: "16:00:00"
+      before: "23:00:00"
   action:
     service: homeassistant.turn_on
     entity_id: group.living_room
@@ -101,12 +101,12 @@ automation:
     platform: state
     entity_id: device_tracker.paulus
     # Optional
-    from: not_home
-    to: home
+    from: "not_home"
+    to: "home"
 ```
 
 <p class='note'>
-  Use quotes around your values for <code>state_from</code> and <code>state_to</code> to avoid the YAML parser interpreting some values as booleans.
+  Use quotes around your values for <code>from</code> and <code>to</code> to avoid the YAML parser interpreting some values as booleans.
 </p>
 
 #### {% linkable_title Sun trigger %}
@@ -135,7 +135,7 @@ automation:
     # All following are optional.
     # When 'after' is used, you cannot also match on hour, minute, seconds.
     # Military time format.
-    after: 15:32:00
+    after: "15:32:00"
     hours: 10
     minutes: 5
     seconds: 0
@@ -199,8 +199,8 @@ automation:
   condition:
     platform: time
     # At least one of the following is required.
-    after: 15:00:00
-    before: 23:00:00
+    after: "15:00:00"
+    before: "23:00:00"
     weekday:
       - mon
       - wed

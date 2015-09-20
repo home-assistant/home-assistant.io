@@ -17,7 +17,7 @@ offers [a few built-in automations](/components/#automation) but mainly you'll b
 
 Every automation rule consists of triggers, an action to be performed and optional conditions.
 
-Triggers can be any event observed in Home Assistant. For example, it can be a certain point in time
+Triggers can be anything observed in Home Assistant. For example, it can be a certain point in time
 or a person coming home, which can be observed by the state changing from `not_home` to `home`.
 
 Actions will call services within Home Assistant. For example, turn a light on, set the temperature
@@ -52,8 +52,12 @@ example tell which device to turn on or what color to use.
 
 ## {% linkable_title Creating your first automation rule %}
 
-Before we dive deeper into what every piece of automation _can_ do, let's loot at a simple automation
+Before we dive deeper into what every piece of automation _can_ do, let's look at a simple automation
 rule: **Turn on the lights when the sun sets**
+
+In this example, we are defining a trigger to track the sunset and tell it to fire when the sun is
+setting. When this event is triggered, the service `light.turn_on` is called without any
+parameters. Because we specify no parameters, it will turn on all the lights.
 
 ```yaml
 # Example configuration.yaml entry
@@ -65,10 +69,6 @@ automation:
   action:
     service: light.turn_on
 ```
-
-In this example, we are defining a trigger to track the sunset and tell it to fire one hour before
-the sun is setting. When this event is triggered, the service `light.turn_on` is called without any
-parameters. Because we specify no parameters, it will turn on all the lights.
 
 After a few days of running this automation rule you come to realize that this automation rule is not
 good enough. It was already dark when the lights went on and the one day you weren't home, the lights

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/denon.png' class='brand pull-right' />
+<img src='/images/supported_brands/sonos.png' class='brand pull-right' />
 The sonos platform allows you to control your [Sonos](http://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant.
 
 To add your Sonos components to your installation, add the following to your `configuration.yaml` file.  It will perform auto-discovery of your connected speakers.
