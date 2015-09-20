@@ -21,7 +21,10 @@ Home Assistant can get information from your wireless router to track which devi
 - [TP-Link](/components/device_tracker.tplink.html)
 - [Thomsom](/components/device_tracker.thomson.html)
 
-You can also decide to directly scan the network for devices by using the [nmap scanner](/components/device_tracker.nmap_scanner.html).
+Alternative trackers:
+
+- [MQTT](/components/device_tracker.mqtt.html)
+- [nmap scanner](/components/device_tracker.nmap_scanner.html) to scan the network for devices
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
 
@@ -32,10 +35,15 @@ device_tracker:
   host: 192.168.1.1
   username: admin
   password: YOUR_PASSWORD
+
+  # Optional configuration
+
+  # If new devices have to be added to the UI and tracked by default (default: yes)
   track_new_devices: yes
+  # How often to scan for new devices (default: 12)
+  interval_seconds: 12
+  # Seconds to wait till marking someone as not home after not being seen (default: 180)
+  consider_home: 180
 ```
 
-By default, the device tracker will add all found devices into the `known_devices.yaml`.  It will default to displaying them in the UI as well.  To disable displaying new devices in the UI, change the value of `track_new_devices:` to `no`.
-
-
-Once tracking, the `device_tracker` component will maintain a file in your config dir called `known_devices.yaml`. Edit this file to adjust which devices have to be tracked. Here you can also setup a url for each device to be used as the entity picture and set whether the device will be show in the UI when in away state..
+Once tracking, a file will be created in your config dir called `known_devices.yaml`. Edit this file to adjust which devices have to be tracked. Here you can also setup a url for each device to be used as the entity picture and set whether the device will be show in the UI when in away state.

@@ -24,7 +24,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-half">
-          <h2 class="title">Light and environment</h2>
+          <h2 class="title" id='light'>Light and environment</h2>
 	    <p></p>
 
 <table>
@@ -83,7 +83,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-hald">
-          <h2 class="title">Devices and protocols</h2>
+          <h2 class="title" id='devices'>Devices and protocols</h2>
             <p></p>
 <table>
 
@@ -143,7 +143,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-thirds">
-          <h2 class="title">Presence detection</h2>
+          <h2 class="title" id='presence'>Presence detection</h2>
             <p>Offers presence detection by looking at connected devices or by scanning the network.</p>
 <table>
 <tr>
@@ -211,7 +211,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-thirds">
-          <h2 class="title">Media player</h2>
+          <h2 class="title" id='media-player'>Media player</h2>
             <p>Controls your media player (Playback and Volume) and get details about the played track.</p>
 
 <table>
@@ -260,7 +260,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
     <div class="grid__item one-third lap-one-whole palm-one-whole usp">
       <div class="grid">
         <div class="grid__item one-whole lap-two-thirds">
-         <h2 class="title">Cameras and various other entities</h2>
+         <h2 class="title" id='camera'>Cameras and various other entities</h2>
            <p>Camera allows you to see what going in real-time. Other entities report the current state and/or let you control it.</p>
 
 <table>
@@ -350,7 +350,7 @@ the manufacturers of these devices.
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-thirds">
-          <h2 class="title">Internals</h2>
+          <h2 class="title" id='internal'>Internals</h2>
             <p>Those services offers you a wide range of possibilities out-of-box.</p>
 <table>
 
@@ -404,7 +404,7 @@ the manufacturers of these devices.
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-thirds">
-          <h2 class="title">Notifications</h2>
+          <h2 class="title" id='notify-service'>Notifications</h2>
             <p>Allows you to send customized messages to the given service.</p>
 
 <table>
@@ -463,7 +463,7 @@ the manufacturers of these devices.
     <div class="grid__item one-third lap-one-whole palm-one-whole usp">
       <div class="grid">
         <div class="grid__item one-whole lap-two-thirds">
-         <h2 class="title">Web services</h2>
+         <h2 class="title" id='web-service'>Web services</h2>
            <p>The web services displays data grabbed from an external source or interact with them.</p>
 
 <table>
@@ -512,7 +512,6 @@ the service providers.
 | Type | Description
 | ---- | -----------
 | [Automation](/components/automation.html) | Allow for automating service calls when a specific state is met
-| [Scheduler](/components/scheduler.html) | Allows for scheduling service calls when sun sets or it is specific time
 | [Script](/components/script.html) | Allow user to define scripts to run from within Home Assistant
 | [Device sun light trigger](/components/device_sun_light_trigger.html) | Slowly fade in the lights to compensate the setting sun. Also turns on lights when you get home after dark.
 | [Simple alarm](/components/simple_alarm.html) | Let the lights blink red when the lights turn on while no one is home.
@@ -522,10 +521,3 @@ the service providers.
 | Type | Description
 | ---- | -----------
 | [Configurator](/components/configurator.html) | Component used by other components to get configuration from the user.
-
-
-{% comment %}
-{% directory path:components exclude:index %}
-  * [{{ file.slug | replace: '_',' ' | capitalize }}]({{ file.slug | prepend: '/components/' | append: '.html' }})
-{% enddirectory %}
-{% endcomment %}

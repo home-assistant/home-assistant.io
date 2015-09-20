@@ -54,7 +54,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
 
 
 <div class='install-instructions raspberry'>
-<p>Home Assistant uses Python 3.4 which is not shipped with the current Raspbian distibution for the Raspberry Pi. Before installing Home Assistant, you will have to <a href="http://depado.markdownblog.com/2015-03-12-short-tutorial-raspbian-python3-4-rpi-gpio" target="_blank">install Python 3.4</a>.
+<p>Home Assistant uses Python 3.4 which is not shipped with the current Raspbian distibution for the Raspberry Pi. Before installing Home Assistant, you will have to <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=113961#p779265" target="_blank">install Python 3.4</a>.
 
 Once that is complete, installing and running Home Assistant on your local machine is easy. Make sure you have <a href='https://www.python.org/downloads/' target="_blank">Python 3.4</a> installed and execute the following code in a console:
 
@@ -72,31 +72,27 @@ hass \-\-open-ui
 </div> <!-- INSTALL-INSTRUCTIONS RASPBERRY -->
 
 
-<h3>Troubleshooting</h3>
+### {% linkable_title Troubleshooting %}
 
-<p>If you run into any issues, please see the <a href='{{site_root}}/getting-started/troubleshooting.html'>troubleshooting page</a>. It contains solutions to many of the more commonly encountered issues.</p>
+If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting.html). It contains solutions to many of the more commonly encountered issues.
 
-<p>For additional help, in addition to this site, there are three sources:
-<ul>
-<li><a href="https://gitter.im/balloob/home-assistant" target="_blank">Gitter Chatroom</a> for general Home Assistant discussions and questions.</li>
-<li><a href="https://groups.google.com/forum/#!forum/home-assistant-dev" target="_blank">Development Mailing List</a> for development related questions and discussing new features.</li>
-<li><a href="https://github.com/balloob/home-assistant" target="_blank">GitHub Page</a> for issue reporting.</li>
-</ul>
-</p>
+For additional help, in addition to this site, there are three sources:
 
-<h3>Staying Up to Date</h3>
-<p>In order to update Home Assistant to the latest stable release, simply type the following into a console:</p>
+ - [Gitter Chatroom](https://gitter.im/balloob/home-assistant) for general Home Assistant discussions and questions.
+ - [Development Mailing List](https://groups.google.com/forum/#!forum/home-assistant-dev) for development related questions and discussing new features.
+ - [GitHub Page](https://github.com/balloob/home-assistant) for issue reporting.
+
+### {% linkable_title What's next %}
+If you want to have Home Assistant start on boot, [autostart instructions](/getting-started/autostart.html) can be found here.
+
+To see what Home Assistant can do, launch demo mode:
+```bash
+hass \-\-demo-mode
+```
+
+To update Home Assistant to the latest release:
 ```bash
 pip3 install \-\-upgrade homeassistant
 ```
-<p>If you would like to stay up to date with the newest unstable builds (alphas, betas, and release candidates), use this command:</p>
-```bash
-pip3 install \-\-upgrade \-\-pre homeassistant
-```
-
-<h3>What's Next</h3>
-<p>If you want to see what Home Assistant can do, you can start the demo mode by running <code>hass \-\-demo-mode</code>. Home Assistant has a few other command line flags that can be displayed by running <code>hass \-\-help</code>.</p>
-<p>From here you may now start configuring Home Assistant to your liking. For more advanced users, the <a href='{{site_root}}/getting-started/advanced.html'>advanced configuration page</a> contains brief tutorials on creating more advanced installations.</p>
-
 
 ###[Next step: Configuring Home Assistant &raquo;](/getting-started/configuration.html)

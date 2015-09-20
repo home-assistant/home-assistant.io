@@ -1,15 +1,13 @@
 ---
 layout: page
-title: "Advanced Installation"
-description: "Brief advanced installation tutorials."
+title: "Launch Home Assistant on boot"
+description: "Instructions how to setup Home Assistant to launch on boot on various platforms.."
 date: 2015-9-1 22:57
 sidebar: false
 comments: false
 sharing: true
 footer: true
 ---
-
-Here are some general tutorials on how to setup some of the more advanced deployments that are frequently requested.
 
 <div class='advanced-installs-container'>
 <input name='advanced-installs' type='radio' id='upstart-install' checked>
@@ -29,7 +27,7 @@ ps -p 1 -o comm=
 
 If the preceding command returns the string `init`, you are likely using Upstart.
 
-Upstart will launch init scripts that are located in the directory <code>/etc/init.d/</code>. A sample init script for systems using Upstart is <a href="https://raw.githubusercontent.com/balloob/home-assistant/dev/scripts/hass-daemon">maintained by this project</a>.
+Upstart will launch init scripts that are located in the directory <code>/etc/init.d/</code>. A sample init script for systems using Upstart is <a href="https://raw.githubusercontent.com/balloob/home-assistant/dev/script/hass-daemon">maintained by this project</a>.
 
 To install this script, download it, tweak it to you liking, and install it by following the directions in the header. This script will setup Home Assistant to run when the system boots. To start/stop Home Assistant manually, issue the following commands:
 ```bash

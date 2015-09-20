@@ -9,143 +9,232 @@ sharing: true
 footer: true
 ---
 
-This page will talk about automating Home Assistant using the `automation` component. For more advanced ways of automation, see the [create a component]({{site_root}}/developers/creating_components.html) page.
+This page will go into more detail about the various options the `automation` component offers. If
+you haven't yet, read the [getting started page on automation](/getting-started/automation.html).
 
-Each part of automation consists of two parts: the trigger part and the action part. The final result will look something like this:
+A configuration section of an automation requires a `trigger` and an `action` section. `condition` and
+`condition_type` are optional. To keep this page compact, all following sections will not show the
+full configuration but only the relevant part.
 
-```
+```yaml
+# Example of a full entry in configuration.yaml
 automation:
-  # Optional alias that the logs will use to refer to the entry
-  alias: Sunset notification
-
-  # Type of trigger and information for the trigger
-  platform: state
-  state_entity_id: sun.sun
-  state_from: 'above_horizon'
-  state_to: 'below_horizon'
-
-  # Action to be done when trigger activated
-  execute_service: notify.NOTIFIER_NAME
-  service_data: {"message":"The sun has set"}
+  alias: Light on in the evening
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-01:00:00"
+    - platform: state
+      entity_id: group.all_devices
+      state: home
+  condition:
+    - platform: state
+      entity_id: group.all_devices
+      state: home
+    - platform: time
+      after: 16:00:00
+      before: 23:00:00
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.living_room
 ```
 
-## {% linkable_title Setting up triggers %}
+<p class='note'>
+All configuration entries have to be sequential. If you have <code>automation:</code>, <code>automation 2:</code> and <code>automation 4:</code> then the last one will not be processed.
+</p>
 
-#### {% linkable_title Time-based automation %}
-This allows you to trigger actions whenever the time matches your filter. You can setup filters to match on hours, minutes and seconds. Any filter that you omit will match all values.
+ - [Jump to conditions](#conditions)
+ - [Jump to actions](#actions)
 
-Here are some example values:
+### {% linkable_title Triggers %}
 
+Triggers are what starts the processing of an automation rule. It is possible to specify multiple
+triggers for the same rule. Once a trigger starts, Home Assistant will validate the conditions, if any,
+and call the action.
+
+#### {% linkable_title Event trigger %}
+Triggers when an event is being processed. Events are the raw building blocks of Home Assistant.
+You can match events on just the event name or also require specific event data to be present.
+
+```yaml
+automation:
+  trigger:
+    platform: event
+    event_type: MY_CUSTOM_EVENT
+    # optional
+    event_data:
+      mood: happy
 ```
-  # Match at the start of every hour
-  platform: time
-  time_minutes: 0
-  time_seconds: 0
 
-  # Match at 4pm
-  platform: time
-  time_hours: 16
-  time_minutes: 0
-  time_seconds: 0
+#### {% linkable_title MQTT trigger %}
+Triggers when a specific message is received on given topic. Optionally can match on the payload
+being sent over the topic.
+
+```yaml
+automation:
+  trigger:
+    platform: mqtt
+    topic: living_room/switch/ac
+    # Optional
+    payload: 'on'
 ```
 
-#### {% linkable_title State-based automation %}
-This allows you to trigger actions based on state changes of any entity within Home Assistant. You can omit the `state_from` and `state_to` to match all.
+#### {% linkable_title Numeric state trigger %}
+On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.
 
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature
+    # At least one of the following required
+    above: 17
+    below: 25
 ```
-  # Match when the sun sets
-  platform: state
-  state_entity_id: sun.sun
-  state_from: 'above_horizon'
-  state_to: 'below_horizon'
 
-  # Match when a person comes home
-  platform: state
-  state_entity_id: device_tracker.Paulus_OnePlus_One
-  state_from: 'not_home'
-  state_to: 'home'
+#### {% linkable_title State trigger %}
+Triggers when the state of an entity changes. If only entity_id given will match all state changes.
 
-  # Match when a light turns on
-  platform: state
-  state_entity_id: light.Ceiling
-  state_from: 'off'
-  state_to: 'on'
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: device_tracker.paulus
+    # Optional
+    from: not_home
+    to: home
 ```
 
 <p class='note'>
   Use quotes around your values for <code>state_from</code> and <code>state_to</code> to avoid the YAML parser interpreting some values as booleans.
 </p>
 
-#### {% linkable_title MQTT-based automation %}
-This allows you to trigger actions based on messages on an MQTT topic. You can specify an optional payload to match as well.
+#### {% linkable_title Sun trigger %}
+Triggers based on sunrise and sunset, both with an optional offset.
 
-```
-  # Match any changes to bathroom light
-  platform: mqtt
-  mqtt_topic: home/bathroom/light
-
-  # Match only if bathroom light is turned on
-  platform: mqtt
-  mqtt_topic: home/bathroom/light
-  mqtt_payload: 'on'
-```
-
-## {% linkable_title Setting up the action %}
-
-Currently the only supported action is calling a service. Services are what devices expose to be controlled, so this will allow us to control anything that Home Assistant can control.
-
-```
-  # Turn the lights Ceiling and Wall on.
-  execute_service: light.turn_on
-  service_entity_id: light.Ceiling,light.Wall
-
-  # Turn the lights Ceiling and Wall on and turn them red.
-  execute_service: light.turn_on
-  service_entity_id: light.Ceiling,light.Wall
-  service_data: {"rgb_color": [255, 0, 0]}
-
-  # Notify the user
-  execute_service: notify.NOTIFIER_NAME
-  service_data: {"message":"YAY"}
+```yaml
+automation:
+  trigger:
+    platform: sun
+    # Possible values: sunset, sunrise
+    event: sunset
+    # Optional time offset
+    offset: -00:45:00
 ```
 
-## {% linkable_title Putting it all together %}
-For every combination of a trigger and an action we will have to combine the configuration lines and add it to an `automation` component entry in `configuration.yaml`. You can add an optional `alias` key to the configuration to make the logs more understandable. To setup multiple entries, append 2, 3 etc to the section name. An example of a `configuration.yaml` file:
+#### {% linkable_title Time trigger %}
+Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific
+point in time each day. Alternatively, you can also match if the hour, minute or second of the current
+time has a specifc value. For example, by only setting minutes in the config to 5 it will trigger every
+hour when it is 5 minutes past whole.
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    # All following are optional.
+    # When 'after' is used, you cannot also match on hour, minute, seconds.
+    # Military time format.
+    after: 15:32:00
+    hours: 10
+    minutes: 5
+    seconds: 0
+```
+
+### {% linkable_title Conditions %}
+
+Conditions are an optional part of an automation rule and be used to prevent an action from happening
+when triggered. Conditions look very familiar to triggers but are very different. A trigger will look
+at events happening at the system while a condition only looks at how the system looks right now.
+A trigger can observe that a switch is being turned on. A condition can only see if a switch is on
+or off.
+
+An automation rule can have mulitiple triggers. By default the action will only fire if all conditions
+pass. An optional key `condition_type: 'or'` can be set on the automation rule to fire action if any
+condition matches.
+
+```yaml
+automation:
+  condition_type: or
+```
+
+If your triggers and conditions are exactly the same, you can use a shortcut to specify conditions.
+In this case, triggers that are not valid conditions will be ignored.
+```yaml
+automation:
+  condition: use_trigger_values
+```
+
+#### {% linkable_title Numeric state condition %}
+Attempts to parse the state of specified entity as a number and triggers if value is above and/or
+below a threshold.
+
+```yaml
+automation:
+  condition:
+    platform: numeric_state
+    entity_id: sensor.temperature
+    # At least one of the following required
+    above: 17
+    below: 25
+```
+
+#### {% linkable_title State condition %}
+Tests if an entity is a specified state.
+
+```yaml
+automation:
+  condition:
+    platform: state
+    entity_id: device_tracker.paulus
+    state: not_home
+```
+
+#### {% linkable_title Time condition %}
+The time condition can test if it is after a specified time, before a specified time or if it is a
+certain day of the week.
+
+```yaml
+automation:
+  condition:
+    platform: time
+    # At least one of the following is required.
+    after: 15:00:00
+    before: 23:00:00
+    weekday:
+      - mon
+      - wed
+      - fri
+```
+
+
+### {% linkable_title Actions %}
+
+When an automation rule fires, it calls a service. For this service you can specify an entity id it
+should apply to and optional service parameters (to specify for example the brightness).
 
 ```
 automation:
-  alias: Sunset notification
-
-  platform: state
-  state_entity_id: sun.sun
-  state_from: 'above_horizon'
-  state_to: 'below_horizon'
-
-  execute_service: notify.NOTIFIER_NAME
-  service_data: {"message":"The sun has set"}
-
-automation 2:
-  alias: Turn lights off at 8am in the morning
-
-  platform: time
-  time_hours: 8
-  time_minutes: 0
-  time_seconds: 0
-
-  execute_service: light.turn_off
-
-automation 3:
-  alias: Turn lights in study room on when Paulus comes home
-
-  platform: state
-  state_entity_id: device_tracker.Paulus_OnePlus
-  state_from: 'not_home'
-  state_to: 'home'
-
-  execute_service: homeassistant.turn_on
-  service_entity_id: group.Study_Room
+  # Change the light in the kitchen and living room to 150 brightness and color red.
+  action:
+    service: homeassistant.turn_on
+    entity_id:
+      - light.kitchen
+      - light.living_room
+    data:
+      brightness: 150
+      rgb_color: [255, 0, 0]
 ```
 
-<p class='note'>
-All configuration entries have to be sequential. If you have <code>automation:</code>, <code>automation 2:</code> and <code>automation 4:</code> then the last one will not be processed.
-</p>
+```
+automation:
+  # Notify me on my mobile phone of an event
+  action:
+    service: notify.notify
+    data:
+      message: Something just happened, better take a look!
+```
+
+If you want to specify multiple services to be called or include a delay, have a look at the
+[script component](/components/script.html). If you want to describe how certain entities should look,
+check out the [scene component](/components/scene.html).
