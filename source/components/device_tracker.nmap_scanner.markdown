@@ -19,6 +19,9 @@ If you're on Debian or Ubuntu, you might have to install the packages for arp an
 device_tracker:
   platform: nmap_tracker
   hosts: 192.168.1.1/24
+  home_interval: 10
 ```
+
+`home_interval` is an optional value set in minutes.  This will be the number of minutes to exclude devices from a scan while they are home.  This is useful for iOS users that are experiencing issues where thier iDevices drop off the network for periods in order to save battery life.
 
 See the [device tracker component page](/components/device_tracker.html) for instructions how to configure the people to be tracked.
