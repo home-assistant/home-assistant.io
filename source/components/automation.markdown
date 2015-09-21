@@ -125,8 +125,8 @@ automation:
 #### {% linkable_title Time trigger %}
 Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific
 point in time each day. Alternatively, you can also match if the hour, minute or second of the current
-time has a specifc value. For example, by only setting minutes in the config to 5 it will trigger every
-hour when it is 5 minutes past whole.
+time has a specific value. For example, by only setting minutes in the config to 5 it will trigger every
+hour when it is 5 minutes past whole.  You cannot use `after` together with hour, minute or second.
 
 ```yaml
 automation:
@@ -135,11 +135,18 @@ automation:
     # All following are optional.
     # When 'after' is used, you cannot also match on hour, minute, seconds.
     # Military time format.
-    after: "15:32:00"
-    hours: 10
+    # after: "15:32:00"
+    hours: 0
     minutes: 5
     seconds: 0
+    weekday:
+      - sat
+      - sun
 ```
+
+You can use `weekday` to limit the trigger times to speific days as well (also available in conditions). Valid values for `weekday` are (sun, mon, tue, wed, thu, fri & sat)
+
+The above example will trigger on Saturday and Sunday every hour on the 5 (2:05, 3:05, 4:05, etc).
 
 ### {% linkable_title Conditions %}
 
@@ -192,7 +199,7 @@ automation:
 
 #### {% linkable_title Time condition %}
 The time condition can test if it is after a specified time, before a specified time or if it is a
-certain day of the week.
+certain day of the week
 
 ```yaml
 automation:
@@ -207,6 +214,7 @@ automation:
       - fri
 ```
 
+Valid values for `weekday` are (sun, mon, tue, wed, thu, fri & sat)
 
 ### {% linkable_title Actions %}
 
