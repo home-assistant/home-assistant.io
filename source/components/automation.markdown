@@ -221,7 +221,7 @@ Valid values for `weekday` are (sun, mon, tue, wed, thu, fri & sat)
 When an automation rule fires, it calls a service. For this service you can specify an entity id it
 should apply to and optional service parameters (to specify for example the brightness).
 
-```
+```yaml
 automation:
   # Change the light in the kitchen and living room to 150 brightness and color red.
   action:
@@ -234,7 +234,7 @@ automation:
       rgb_color: [255, 0, 0]
 ```
 
-```
+```yaml
 automation:
   # Notify me on my mobile phone of an event
   action:
@@ -246,3 +246,16 @@ automation:
 If you want to specify multiple services to be called or include a delay, have a look at the
 [script component](/components/script.html). If you want to describe how certain entities should look,
 check out the [scene component](/components/scene.html).
+
+Troubleshooting Tip: You can verify that your automation rules are being initialized correctly by watching both the realtime logs and also the `logbook`.  The realtime logs will show the rules being initialized (once for each trigger)
+```bash
+INFO (MainThread) [homeassistant.components.automation] Initialized rule Rainy Day
+INFO (MainThread) [homeassistant.components.automation] Initialized rule Rainy Day
+INFO (MainThread) [homeassistant.components.automation] Initialized rule Rainy Day
+INFO (MainThread) [homeassistant.components.automation] Initialized rule Rain is over
+```
+
+The `LogBook` component will show a line entry when an automoation is triggered.  You can look at the previous entry to determine which trigger in the rule triggered the event.</br>
+
+![Sample](http://i.imgur.com/2s1ukCb.png)
+
