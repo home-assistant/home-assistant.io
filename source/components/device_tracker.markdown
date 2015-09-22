@@ -25,7 +25,7 @@ Alternative trackers:
 
 - [MQTT](/components/device_tracker.mqtt.html)
 - [nmap scanner](/components/device_tracker.nmap_scanner.html) to scan the network for devices
-- [Owntrack](/components/device_tracker.owntrack.html)
+- [Owntrack](/components/device_tracker.owntracks.html)
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
 
