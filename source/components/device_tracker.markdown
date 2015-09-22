@@ -38,11 +38,12 @@ device_tracker:
 
   # Optional configuration
 
-  # If new devices have to be added to the UI and tracked by default (default: yes)
+  # If new discovered devices are tracked by default (default: yes)
   track_new_devices: yes
-  # How often to scan for new devices (default: 12)
+  # Seconds between each scan for new devices (default: 12)
   interval_seconds: 12
-  # Seconds to wait till marking someone as not home after not being seen (default: 180)
+  # Seconds to wait till marking someone as not home after not being seen
+  # (default: 180)
   consider_home: 180
 ```
 
