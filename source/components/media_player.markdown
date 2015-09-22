@@ -14,8 +14,10 @@ Interacts with media players on your network.
 Currently supported devices:
 
 - [Chromecasts](/components/media_player.cast.html)
-- [Music Player Daemon](/components/media_player.mpd.html)
+- [Denon Network Receivers](/components/media_player.denon.html)
 - [Kodi](/components/media_player.kodi.html)
+- [Music Player Daemon](/components/media_player.mpd.html)
+- [Squeezebox](/components/media_player.squeezebox.html)
 
 ## Services
 

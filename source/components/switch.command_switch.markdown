@@ -14,7 +14,7 @@ A switch platform that issues specific commands when it is turned on and off. Th
 
 To enable it, add the following lines to your `configuration.yaml`:
 
-```
+```yaml
 # Example configuration.yaml entry
 switch:
   platform: command_switch
@@ -23,3 +23,24 @@ switch:
       oncmd: switch_command on kitchen
       offcmd: switch_command off kitchen
 ```
+
+Configuration variables:
+
+- **switches** (*Required*): The array that contains all command switches.
+  - **entry** (*Required*): Name of the command switch. Multiple entries are possible.
+    - **oncmd** (*Required*): The action to take for on.
+    - **offcmd** (*Required*): The action to take for off.
+
+
+The example below is doing the same as the [aREST switch](/components/switch.arest.html). The commandline tool `[curl](http://curl.haxx.se/)` is used to toogle a pin which is controllable through REST.
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  platform: command_switch
+  switches:
+    arest_pin4:
+      oncmd: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
+      offcmd: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
+```
+

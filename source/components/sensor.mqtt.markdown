@@ -19,13 +19,15 @@ last known value. Otherwise, the initial state will be undefined.
 # Example configuration.yml entry
 sensor:
   platform: mqtt
-  name: "MQTT Sensor"
   state_topic: "home/bedroom/temperature"
-  unit_of_measurement: "ºC"
+  name: "MQTT Sensor"
+  qos: 0
+  unit_of_measurement: "°C"
 ```
 
-state_topic: The MQTT topic subscribed to receive sensor values. *Required*
+Configuration variables:
 
-name: The name of the sensor. Default is 'MQTT Sensor'. *Optional*
-
-unit_of_measurement: Defines the units of measurement of the sensor, if any. *Optional*
+- **state_topic** (*Required*): The MQTT topic subscribed to receive sensor values.
+- **name** (*Optional*): The name of the sensor. Default is 'MQTT Sensor'. 
+- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0.
+- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.

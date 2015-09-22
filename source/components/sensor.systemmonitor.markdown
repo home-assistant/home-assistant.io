@@ -25,6 +25,13 @@ sensor:
       - type: processor_use
 ```
 
+Configuration variables:
+
+- **resources** array (*Required*): Contains all entries to display.
+  - **type** (*Required*): The type of the information to display, please check the table below for details.
+  - **arg** (*Optional*): Argument to use, please check the table below for details.
+
+
 The table contains types and their argument to use in your `configuration.yaml` file.
 
 | Type (- type:)      | Argument (arg:)          |

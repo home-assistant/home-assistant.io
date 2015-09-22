@@ -24,7 +24,11 @@ sensor:
   platform: swiss_public_transport
   from: STATION_ID
   to: STATION_ID
-
 ```
+
+Configuration variables:
+
+- **from** (*Required*): The ID of the station of the start station.
+- **to** (*Required*): The ID of the station of the end station.
 
 The public timetables are coming from [Swiss public transport](http://transport.opendata.ch).

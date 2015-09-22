@@ -24,7 +24,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-half">
-          <h2 class="title">Light and environment</h2>
+          <h2 class="title" id='light'>Light and environment</h2>
 	    <p></p>
 
 <table>
@@ -70,7 +70,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/sensor.dht.html'><img src='/images/supported_brands/dht.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.dht.html'>DHTxx</a> reads the temperature and humidity.</td>
 </tr>
 
@@ -83,7 +83,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-hald">
-          <h2 class="title">Devices and protocols</h2>
+          <h2 class="title" id='devices'>Devices and protocols</h2>
             <p></p>
 <table>
 
@@ -114,12 +114,17 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td></td>
-  <td><a href='/components/sensor.rfxtrx.html'>RFXtrx</a> sensors monitors values from RFXtrx sensors.</td>
+  <td><a href='/components/sensor.rfxtrx.html'>RFXtrx</a> sensors monitors values from RFXtrx devices.</td>
 </tr>
 
 <tr>
   <td><a href='/components/mqtt.html'><img src='/images/supported_brands/mqtt.png' class='brand overview'/></a></td>
-  <td><a href='/components/mqtt.html'>MQTT</a> allows sending and recieving MQTT messages.</td>
+  <td><a href='/components/mqtt.html'>MQTT</a> allows sending and recieving MQTT messages, incl. <a href='/components/switch.mqtt.html'>switches</a> and <a href='/components/sensor.mqtt.html'>sensors</a>.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/sensor.arest.html'><img src='/images/supported_brands/arest.png' class='brand overview' /></a></td>
+  <td>aREST <a href='/components/sensor.arest.html'>sensors</a> observe and <a href='/components/switch.arest.html'>switches</a> controls the pins of aREST enabled devices.</td>
 </tr>
 
 </table>
@@ -138,7 +143,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-thirds">
-          <h2 class="title">Presence detection</h2>
+          <h2 class="title" id='presence'>Presence detection</h2>
             <p>Offers presence detection by looking at connected devices or by scanning the network.</p>
 <table>
 <tr>
@@ -147,7 +152,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
+  <td><a href='/components/device_tracker.aruba.html'><img src='/images/supported_brands/aruba.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.aruba.html'>Aruba routers</a></td>
 </tr>
 
@@ -164,6 +169,16 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td><a href='/components/device_tracker.luci.html'><img src='/images/supported_brands/openwrt.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.luci.html'>OpenWRT routers</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/device_tracker.owntrack.html'><img src='/images/supported_brands/oowntrack.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.owntrack.html'>Owntrack devices</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/device_tracker.mqtt.html'><img src='/images/supported_brands/mqtt.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.mqtt.html'>MQTT devices</a></td>
 </tr>
 
 <tr>
@@ -201,19 +216,24 @@ Entities are things that you want to observe within Home Assistant. Support for 
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-thirds">
-          <h2 class="title">Media player</h2>
+          <h2 class="title" id='media-player'>Media player</h2>
             <p>Controls your media player (Playback and Volume) and get details about the played track.</p>
 
 <table>
 
 <tr>
   <td><a href='/components/media_player.cast.html'><img src='/images/supported_brands/google_cast.png' class='brand overview' /></a></td>
-  <td><a href='/components/media_player.cast.html'>Google Cast devices</a></td>
+  <td><a href='/components/media_player.cast.html'>Google Cast</a></td>
 </tr>
 
 <tr>
   <td><a href='/components/media_player.kodi.html'><img src='/images/supported_brands/kodi.png' class='brand overview' /></a></td>
   <td><a href='/components/media_player.kodi.html'>Kodi</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/media_player.itunes.html'><img src='/images/supported_brands/itunes.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.itunes.html'>iTunes</a></td>
 </tr>
 
 <tr>
@@ -226,6 +246,16 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td><a href='/components/media_player.squeezebox.html'>Logitech Squeezebox</a></td>
 </tr>
 
+<tr>
+  <td><a href='/components/media_player.denon.html'><img src='/images/supported_brands/denon.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.denon.html'>Denon Network Receivers</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/media_player.sonos.html'><img src='/images/supported_brands/sonos.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.sonos.html'>Sonos devices</a></td>
+</tr>
+
 </table>
 
         </div>
@@ -235,7 +265,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
     <div class="grid__item one-third lap-one-whole palm-one-whole usp">
       <div class="grid">
         <div class="grid__item one-whole lap-two-thirds">
-         <h2 class="title">Cameras and various other entities</h2>
+         <h2 class="title" id='camera'>Cameras and various other entities</h2>
            <p>Camera allows you to see what going in real-time. Other entities report the current state and/or let you control it.</p>
 
 <table>
@@ -247,6 +277,10 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td><a href='/components/camera.generic.html'><img src='/images/supported_brands/camera-web.png' class='brand overview' /></a></td>
   <td><a href='/components/camera.generic.html'>IP camera</a> integrates a generic IP camera or image url.</td>
+</tr>
+
+  <td><a href='/components/camera.foscam.html'><img src='/images/supported_brands/foscam.png' class='brand overview' /></a></td>
+  <td><a href='/components/switch.Foscam.html'>Foscam</a> let you see your live stream.</td>
 </tr>
 
 <tr>
@@ -268,7 +302,12 @@ Entities are things that you want to observe within Home Assistant. Support for 
 
 <tr>
   <td><a href='/components/switch.command_switch.html'><img src='/images/supported_brands/utilities-terminal.png' class='brand overview' /></a></td>
-  <td><a href='/components/switch.command_switch.html'>Command line</a> issues command line commands.</td>
+  <td>Command line <a href='/components/switch.command_switch.html'>switches</a> and <a href='/components/sensor.command_sensor.html'>sensors</a> issues command line commands to do or the get something.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/sensor.glances.html'><img src='/images/supported_brands/glances.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.glances.html'>Glances</a> tracks system information on remote hosts.</td>
 </tr>
 
 </table>
@@ -300,7 +339,7 @@ Home Assistant integrates with a variety of third party Home Automation hubs and
 [<img src='/images/supported_brands/wink.png' class='brand' alt="Wink" />](/components/wink.html)
 [<img src='/images/supported_brands/universal_devices.png' class='brand' alt="ISY994" />](/components/isy994.html)
 [<img src='/images/supported_brands/modbus.png' class='brand' alt="Modbus" />](/components/modbus.html)
-[<img src='/images/supported_brands/arduino.png' class='brand' alt="Arduino" />](/components/arduino.html)
+[<img src='/images/supported_brands/verisure.png' class='brand' alt="Verisure" />](/components/verisure.html)
 
 <p class='note'>
 Support for these devices is provided by the Home Assistant community and not
@@ -316,7 +355,7 @@ the manufacturers of these devices.
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-thirds">
-          <h2 class="title">Internals</h2>
+          <h2 class="title" id='internal'>Internals</h2>
             <p>Those services offers you a wide range of possibilities out-of-box.</p>
 <table>
 
@@ -370,7 +409,7 @@ the manufacturers of these devices.
       <div class="grid">
 
         <div class="grid__item one-whole lap-two-thirds">
-          <h2 class="title">Notifications</h2>
+          <h2 class="title" id='notify-service'>Notifications</h2>
             <p>Allows you to send customized messages to the given service.</p>
 
 <table>
@@ -429,8 +468,8 @@ the manufacturers of these devices.
     <div class="grid__item one-third lap-one-whole palm-one-whole usp">
       <div class="grid">
         <div class="grid__item one-whole lap-two-thirds">
-         <h2 class="title">Web services</h2>
-           <p>The web services displays data grabbed from an external source.</p>
+         <h2 class="title" id='web-service'>Web services</h2>
+           <p>The web services displays data grabbed from an external source or interact with them.</p>
 
 <table>
 
@@ -451,7 +490,12 @@ the manufacturers of these devices.
 
 <tr>
   <td><a href='/components/sensor.swiss_public_transport.html'><img src='/images/supported_brands/appointment-new.png' class='brand overview' /></a></td>
-  <td><a href='/components/sensor.swiss_public_transport.html'>Swiss Public Transport</a> displays  Swiss timetable data for traveling.</td>
+  <td><a href='/components/sensor.swiss_public_transport.html'>Swiss Public Transport</a> displays Swiss timetable data for traveling.</td>
+</tr>
+
+<tr>
+  <td><a href='/components/ifttt.html'><img src='/images/supported_brands/ifttt.png' class='brand overview' /></a></td>
+  <td><a href='/components/ifttt.html'>IFTTT</a> allows the triggering of recipes.</td>
 </tr>
 
 </table>
@@ -473,7 +517,6 @@ the service providers.
 | Type | Description
 | ---- | -----------
 | [Automation](/components/automation.html) | Allow for automating service calls when a specific state is met
-| [Scheduler](/components/scheduler.html) | Allows for scheduling service calls when sun sets or it is specific time
 | [Script](/components/script.html) | Allow user to define scripts to run from within Home Assistant
 | [Device sun light trigger](/components/device_sun_light_trigger.html) | Slowly fade in the lights to compensate the setting sun. Also turns on lights when you get home after dark.
 | [Simple alarm](/components/simple_alarm.html) | Let the lights blink red when the lights turn on while no one is home.
@@ -483,10 +526,3 @@ the service providers.
 | Type | Description
 | ---- | -----------
 | [Configurator](/components/configurator.html) | Component used by other components to get configuration from the user.
-
-
-{% comment %}
-{% directory path:components exclude:index %}
-  * [{{ file.slug | replace: '_',' ' | capitalize }}]({{ file.slug | prepend: '/components/' | append: '.html' }})
-{% enddirectory %}
-{% endcomment %}

@@ -9,7 +9,8 @@ sharing: true
 footer: true
 ---
 
-Andythigpen has contributed a script component. This allows users to create a sequence of service calls and delays. Scripts can be started using the service `script/turn_on` and interrupted using the service `script/turn_off`. A separate page has been added to the frontend to see the status of your scripts.
+The script component allows users to create a sequence of service calls and delays. Scripts can be
+started using the service `script/turn_on` and interrupted using the service `script/turn_off`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -18,6 +19,13 @@ script:
   wakeup:
     alias: Wake Up
     sequence:
+      - event: logbook_entry
+        event_data:
+          name: Paulus
+          message: is waking up
+          # Optional
+          entity_id: device_tracker.paulus
+          domain: light
       - alias: Bedroom lights on
         execute_service: light.turn_on
         service_data:

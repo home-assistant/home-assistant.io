@@ -25,3 +25,14 @@ sensor:
       period: day
       currency: $
 ```
+
+Configuration variables:
+
+- **app_token** (*Required*): The App Token for your account.
+- **utc_offset** (*Required*): Some variables (currently only the daily_cost) require that the
+negative number of minutes your timezone is ahead/behind UTC time.
+- **monitored_variables** array (*Required*): Variables to monitor.
+  - **type** (*Required*): Name of the variable.
+  - **period** (*Optional*): Some variables take a period argument. Valid options are "day", "week", "month", and "year".
+  - **currency** (*Optional*): This is used to display the cost/period as the unit when monitoring the cost. It should correspond to the actual currency used in your dashboard.
+

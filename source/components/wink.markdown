@@ -28,6 +28,10 @@ wink:
   access_token: YOUR_ACCESS_TOKEN
 ```
 
+Configuration variables:
+
+- **access_token** (*Required*): The retrieved access token.
+
 This will connect to the Wink hub and automatically set up any lights, switches and sensors that it finds.
 
 <p class='note'>

@@ -31,3 +31,11 @@ As an alternative, the Home Assistant docker image has support for Z-Wave built-
 zwave:
   usb_path: /dev/ttyUSB0
 ```
+
+Configuration variables:
+
+- **usb_path** (*Required*): The port where your device is connected to your Home Assistant host.
+
+```bash
+ls /dev/ttyUSB*
+```

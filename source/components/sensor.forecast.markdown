@@ -12,7 +12,7 @@ footer: true
 <img src='/images/supported_brands/weather-few-clouds.png' class='brand pull-right' />
 The forecast platform uses the [Forecast.io](https://forecast.io/) web service as a source for meteorological data for your location. 
 
-You need an API key which is free but requires a [registration](https://developer.forecast.io/register).
+You need an API key which is free but requires a [registration](https://developer.forecast.io/register). You can make 1000 requests per day. This means that you could create approximately every 1.4 minute one.
 
 To add Forecast.io to your installation, add the following to your `configuration.yaml` file:
 
@@ -35,4 +35,22 @@ sensor:
     - visibility
     - ozone
 ```
-Details about the API are available in the (Forecast.io documentation)[https://developer.forecast.io/docs/v2].
+
+Configuration variables:
+
+- **api_key** (*Required*): Your API key for http://forecast.io/. 
+- **display_conditions** array (*Required*): Conditions to display in the frontend.
+  - **summary**: A human-readable text summary.
+  - **precip_type**: The type of precipitation occurring.
+  - **precip_intensity**: The average expected intensity of precipitation occurring.
+  - **temperature**: The current temperature.
+  - **dew_point**: The dew point.
+  - **wind_speed**: The wind speed.
+  - **wind_bearing**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
+  - **cloud_cover**: The percentage of sky occluded by clouds.
+  - **humidity**: The relative humidity.
+  - **pressure**: The sea-level air pressure in millibars.
+  - **visibility**: The average visibility.
+  - **ozone**: The columnar density of total atmospheric ozone in Dobson.
+
+Details about the API are available in the [Forecast.io documentation](https://developer.forecast.io/docs/v2).

@@ -11,7 +11,7 @@ footer: true
 
 Home Assistant runs a web server accessible on port 8123.
 
-  * http://127.0.0.1:8123/ is an interface to control Home Assistant.
+  * http://localhost:8123/ is an interface to control Home Assistant.
   * http://localhost:8123/api/ is a Rest API.
 
 The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml` file).
@@ -21,7 +21,7 @@ There are multiple ways to consume the Home Assistant Rest API. One is with `cur
 ```bash
 curl -X GET \
     -H "x-ha-access: YOUR_PASSWORD" \
-    http://localhost:8123/api
+    http://localhost:8123/api/
 ```
 
 Another option is to use Python and the [Requests](http://docs.python-requests.org/en/latest/) module. 

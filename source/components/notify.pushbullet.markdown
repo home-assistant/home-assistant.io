@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Notifications"
+title: "PushBullet notification support"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-01-20 22:36
 sidebar: false

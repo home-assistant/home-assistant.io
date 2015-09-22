@@ -15,7 +15,7 @@
     <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io">
+    <link rel="canonical" href="{{ canonical }}">
     {% if site.social.facebook.app_id %}
     <meta property="fb:app_id" content="{{ site.social.facebook.app_id }}">
     <meta property="og:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">

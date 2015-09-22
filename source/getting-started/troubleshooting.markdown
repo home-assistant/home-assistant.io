@@ -17,7 +17,7 @@ This utility should have been installed as part of the Python 3.4 installation. 
 is installed by running `python3 --version`. If it is not installed,
 [download it here](https://www.python.org/getit/).
 
-If you are to succesfully run `python3 --version` but not `pip3`, run the following command instead
+If you are able to successfully run `python3 --version` but not `pip3`, run the following command instead
 to install Home Assistant: `python3 -m pip install homeassistant`.
 
 **No module named pip**<br>
@@ -27,8 +27,27 @@ by some distributions. If you are unable to run `python3 -m pip --version` you c
 `python3 get-pip.py`.
 
 **No access to the frontend**<br>
-In newer Linux distributions (at least Fedora 22/CentOS 7) the access to a host are very limited.
-This means that you can't access the Home Assistant Frontend that is running on a host in your
-network. Check the Post-installation section on the [Getting started](/getting-started/) page and
-follow the instruction that match your distribution to allow access to port 8123.
+In newer Linux distributions (at least Fedora 22/CentOS 7) the access to a host is very limited.
+This means that you can't access the Home Assistant Frontend that is running on a host outside of the host machine. Windows and OSX machines may also have issues with this.
 
+To fix this you will need to open your machine's firewall for TCP traffic over port 8123. The method for doing this will vary depending on your operating system and the firewall you have installed. Below are some suggestions to try. Google is your friend here.
+
+[Windows](http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7) and [Mac OSX](https://support.apple.com/en-us/HT201642) have good instructions posted.
+
+For firewalld systems (Fedora, RHEL, etc.):
+```bash
+sudo firewall-cmd --permanent --add-port=8123/tcp
+sudo firewall-cmd --reload
+```
+
+For UFW systems (Ubuntu, Debian, Raspbian, etc.):
+```bash
+sudo ufw allow 8123/tcp
+```
+
+For iptables systems (usually the default):
+```bash
+iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
+iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhere
+```
+###[&laquo; Back to Getting Started](/getting-started/index.html)

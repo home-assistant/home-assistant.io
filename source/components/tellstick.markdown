@@ -9,11 +9,13 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/telldus_tellstick.png' class='brand pull-right' />
 The TellStick Home Assistant integration allows users to add switches and sensors.
 
 To get started, add the following information to your `configuration.yaml`:
 
-```YAML
+```yaml
+# Example configuration.yaml entry
 switch:
   platform: tellstick
 
@@ -32,3 +34,5 @@ light:
   platform: tellstick
 
 ```
+
+

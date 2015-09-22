@@ -23,3 +23,11 @@ switch:
   password: YOUR_PASSWORD
   name: Edimax Smart Plug
 ```
+
+Configuration variables:
+
+- **host** (*Required*): The IP address of your Edimax switch, eg. 192.168.1.32
+- **username** (*Required*): Your username for the Edimax switch.
+- **password** (*Required*): Your password for the Edimax switch.
+- **name** (*Optional*): The name to use when displaying this switch.
+

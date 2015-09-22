@@ -19,13 +19,21 @@ To integrate MQTT into Home Assistant, add the following section to your `config
 # Example configuration.yaml entry
 mqtt:
   broker: IP_ADDRESS_BROKER
-  # All the other options are optional:
   port: 1883
+  client_id: home-assistant-1
   keepalive: 60
-  qos: 0
-  username: your_username
-  password: your_secret_password
+  username: USERNAME
+  password: PASSWORD
 ```
+
+Configuration variables:
+
+- **broker** (*Required*): The IP address of your MQTT broker, e.g. 192.168.1.32.
+- **port** (*Optional*): The network port to connect to. Default is 1883.
+- **client_id** (*Optional*): Client ID that Home Assistant will use. Has to be unique on the server. Default is a random generated one.
+- **keepalive** (*Optional*): The keep alive in seconds for this client. Default is 60.
+- **username** (*Optional*): The username to use with your MQTT broker.
+- **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
 
 <p class='note'>
 The MQTT component has no TLS support at the moment. This means that only plain-text communication is possible.
@@ -35,7 +43,8 @@ The MQTT component has no TLS support at the moment. This means that only plain-
 
  - [MQTT Sensor](/components/sensor.mqtt.html)
  - [MQTT Switch](/components/switch.mqtt.html)
- - [MQTT-automation rule](/components/automation.html#mqtt-based-automation).
+ - [MQTT Device Tracker](/components/device_tracker.mqtt.html)
+ - [MQTT-automation rule](/components/automation.html#mqtt-based-automation)
  - Integrating it into a component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
 
 ## Testing

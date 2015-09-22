@@ -18,8 +18,15 @@ To add MPD to your installation, add the following to your `configuration.yaml` 
 # Example configuration.yaml entry
 media_player:
   platform: mpd
-  server: 127.0.0.1
+  server: IP_ADDRESS
   port: 6600
   location: bedroom
+  password: PASSWORD
 ```
 
+Configuration variables:
+
+- **server** *Required*: IP address of the Music Player Daemon. Example: 192.168.1.32
+- **port** *Optional*: Port of the Music Player Daemon, defaults to 6600. Example: 6600
+- **location** *Optional*: Location of your Music Player Daemon.
+- **password** *Optional*: Password for your Music Player Daemon.

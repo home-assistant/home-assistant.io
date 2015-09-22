@@ -21,46 +21,33 @@ Home Assistant is capable of communicating with any switch, sensor, and light
 that is configured on the controller. Using the programs on the controller,
 custom switches and sensors can also be created.
 
-To integrate your ISY994 controller with Home Assistant, add the following
-section to your `configuration.yaml` file:
+To integrate your ISY994 controller with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 isy994:
-    # requried
-    host: ISY_ADDRESS
-    username: ISY_USERNAME
-    password: ISY_PASSWORD
-
-    # optional
-    sensor_string: SENSOR_STRING
-    hidden_string: HIDDEN_STRING
-    tls: TLS_VERSION
+  host: ISY_ADDRESS
+  username: ISY_USERNAME
+  password: ISY_PASSWORD
+  sensor_string: SENSOR_STRING
+  hidden_string: HIDDEN_STRING
+  tls: TLS_VERSION
 ```
+Configuration variables:
 
-The ISY_ADDRESS should be in full URL format. For example:
-http://192.168.10.100:80
+- **host** (*Required*): The host entry should be in full URL format, eg. http://192.168.10.100:80
+- **username** (*Required*): The username that used to access the ISY interface.
+- **password** (*Required*): The password that used to access the ISY interface.
 
-The ISY_USERNAME and ISY_PASSWORD are the configured username and password used
-to access the ISY interface.
-
-The SENSOR_STRING is a string that is used to identify which devices are to be
-assumed to be sensors instead of lights of switches. By default, this string is
-'Sensor'. If this string is found in the device name, Home Assistant will
+- **sensor_string** (*Optional*): This is the string that is used to identify which devices are to be assumed to be sensors instead of lights of switches. By default, this string is 'Sensor'. If this string is found in the device name, Home Assistant will
 assume it is as a sensor.
-
-The HIDDEN_STRING is a string that is used to identify which devices are to be
+- **hidden_string** (*Optional*): The HIDDEN_STRING is a string that is used to identify which devices are to be
 hidden on Home Assistant's front page. This string will be stripped from the
 device's name before being used. By default, this value is '{HIDE ME}'.
+- **tls** (*Optional*): This entry should refelct the version of TLS that the ISY controller is using for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not set, it is assumed to be version 1.1. This is the default for most users.
+ISY994 Pro users may likely be using 1.2. When using HTTPS in the host entry, it is best practice to set this value.
 
-The TLS_VERSION value is the version of TLS that the ISY controller is using
-for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not
-set, it is assumed to be version 1.1. This is the default for most users.
-ISY994 Pro users may likely be using 1.2. When using HTTPS in the ISY_ADDRESS
-string, it is best practice to set this value.
-
-Once the ISY controller is configured, it will automatically import any lights,
-switches, and sensors it can locate.
+Once the ISY controller is configured, it will automatically import any lights, switches, and sensors it can locate.
 
 ### Creating Custom Switches ###
 

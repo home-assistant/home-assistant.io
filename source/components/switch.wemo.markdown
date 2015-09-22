@@ -17,5 +17,5 @@ They will be automatically discovered if the discovery component is enabled.
 ```yaml
 # Example configuration.yaml entry
 switch:
-  - platform: wemo
+  platform: wemo
 ```
