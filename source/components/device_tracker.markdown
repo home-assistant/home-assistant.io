@@ -17,15 +17,15 @@ Home Assistant can get information from your wireless router to track which devi
 - [DD-WRT](/components/device_tracker.ddwrt.html)
 - [luci (OpenWRT)](/components/device_tracker.luci.html)
 - [netgear](/components/device_tracker.netgear.html)
+- [Thomson](/components/device_tracker.thomson.html)
 - [tomato](/components/device_tracker.tomato.html)
 - [TP-Link](/components/device_tracker.tplink.html)
-- [Thomsom](/components/device_tracker.thomson.html)
 
 Alternative trackers:
 
 - [MQTT](/components/device_tracker.mqtt.html)
-- [Owntrack](/components/device_tracker.owntrack.html)
 - [nmap scanner](/components/device_tracker.nmap_scanner.html) to scan the network for devices
+- [Owntrack](/components/device_tracker.owntrack.html)
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
 
