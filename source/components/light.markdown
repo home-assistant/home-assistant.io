@@ -38,12 +38,12 @@ Turns one light on or multiple lights on using [groups]({{site_root}}/components
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | Only act on specified lights. Else targets all.
-| `transition_seconds` | yes | Seconds to take to switch to new state.
+| `transition` | yes | Seconds to take to switch to new state. *not supported by Wink
 | `profile` | yes | Which light profile to use.
 | `xy_color` | yes | Two comma seperated floats that represent the color in XY
 | `rgb_color` | yes | Three comma seperated integers that represent the color in RGB
-| `brightness` | yes | Integer between 0 and 255 for how bright the color should be
-| `flash` | yes | Tell light to flash, can be either value `short` or `long`
+| `brightness` | yes | Integer between 0 and 255 for how bright the color should be 
+| `flash` | yes | Tell light to flash, can be either value `short` or `long`. *not supported by Wink
 
 ### Service `light.turn_off`
 
