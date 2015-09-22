@@ -172,8 +172,8 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td><a href='/components/device_tracker.owntrack.html'><img src='/images/supported_brands/oowntrack.png' class='brand overview' /></a></td>
-  <td><a href='/components/device_tracker.owntrack.html'>Owntrack devices</a></td>
+  <td><a href='/components/device_tracker.owntracks.html'><img src='/images/supported_brands/oowntracks.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.owntracks.html'>OwnTracks devices</a></td>
 </tr>
 
 <tr>
