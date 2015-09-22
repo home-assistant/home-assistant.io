@@ -22,14 +22,16 @@ sensor:
   name: "Command sensor"
   unit_of_measurement: "°C"
   correction_factor: 0.4921
+  decimal_places: 0
 ```
 
 Configuration variables:
 
 - **command** (*Required*): The action to take to get the value.
 - **name** (*Optional*): Name of the command sensor.
-- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
+- **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 - **correction_factor** (*Optional*): A float value to do some basic calculations.
+- **decimal_places** (*Optional*): Number of decimal places of the value. Default is 0.
 
 ## {% linkable_title Examples %}
 
