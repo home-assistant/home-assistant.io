@@ -19,7 +19,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 sensor:
   platform: command_sensor
   command: SENSOR_COMMAND
-  name: "Command sensor"
+  name: Command sensor
   unit_of_measurement: "°C"
   correction_factor: 0.4921
   decimal_places: 0
