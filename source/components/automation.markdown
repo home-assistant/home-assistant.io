@@ -40,13 +40,15 @@ automation:
 ```
 
 <p class='note'>
-All configuration entries have to be sequential. If you have <code>automation:</code>, <code>automation 2:</code> and <code>automation 4:</code> then the last one will not be processed.
+All configuration entries have to be sequential. If you have <code>automation:</code>,
+<code>automation 2:</code> and <code>automation 4:</code> then the last one will not be processed.
 </p>
 
  - [Jump to conditions](#conditions)
  - [Jump to actions](#actions)
+ - [Jump to troubleshooting](#troubleshooting)
 
-### {% linkable_title Triggers %}
+## {% linkable_title Triggers %}
 
 Triggers are what starts the processing of an automation rule. It is possible to specify multiple
 triggers for the same rule. Once a trigger starts, Home Assistant will validate the conditions, if any,
@@ -80,7 +82,8 @@ automation:
 ```
 
 #### {% linkable_title Numeric state trigger %}
-On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.
+On state change of a specified entity, attempts to parse the state as a number and triggers if value
+is above and/or below a threshold.
 
 ```yaml
 automation:
@@ -106,7 +109,8 @@ automation:
 ```
 
 <p class='note'>
-  Use quotes around your values for <code>from</code> and <code>to</code> to avoid the YAML parser interpreting some values as booleans.
+  Use quotes around your values for <code>from</code> and <code>to</code> to avoid the YAML parser
+  interpreting some values as booleans.
 </p>
 
 #### {% linkable_title Sun trigger %}
@@ -144,11 +148,12 @@ automation:
       - sun
 ```
 
-You can use `weekday` to limit the trigger times to speific days as well (also available in conditions). Valid values for `weekday` are (sun, mon, tue, wed, thu, fri & sat)
+You can use `weekday` to limit the trigger times to speific days as well (also available in conditions).
+Valid values for `weekday` are (`sun`, `mon`, `tue`, `wed`, `thu`, `fri` & `sat`)
 
 The above example will trigger on Saturday and Sunday every hour on the 5 (2:05, 3:05, 4:05, etc).
 
-### {% linkable_title Conditions %}
+## {% linkable_title Conditions %}
 
 Conditions are an optional part of an automation rule and be used to prevent an action from happening
 when triggered. Conditions look very familiar to triggers but are very different. A trigger will look
@@ -216,7 +221,7 @@ automation:
 
 Valid values for `weekday` are (sun, mon, tue, wed, thu, fri & sat)
 
-### {% linkable_title Actions %}
+## {% linkable_title Actions %}
 
 When an automation rule fires, it calls a service. For this service you can specify an entity id it
 should apply to and optional service parameters (to specify for example the brightness).
@@ -247,15 +252,19 @@ If you want to specify multiple services to be called or include a delay, have a
 [script component](/components/script.html). If you want to describe how certain entities should look,
 check out the [scene component](/components/scene.html).
 
-Troubleshooting Tip: You can verify that your automation rules are being initialized correctly by watching both the realtime logs and also the `logbook`.  The realtime logs will show the rules being initialized (once for each trigger)
+## {% linkable_title Troubleshooting %}
+
+You can verify that your automation rules are being initialized correctly by watching both the realtime
+logs and also the logbook.  The realtime logs will show the rules being initialized (once for each trigger):
+
 ```bash
-INFO (MainThread) [homeassistant.components.automation] Initialized rule Rainy Day
-INFO (MainThread) [homeassistant.components.automation] Initialized rule Rainy Day
-INFO (MainThread) [homeassistant.components.automation] Initialized rule Rainy Day
-INFO (MainThread) [homeassistant.components.automation] Initialized rule Rain is over
+INFO [homeassistant.components.automation] Initialized rule Rainy Day
+INFO [homeassistant.components.automation] Initialized rule Rainy Day
+INFO [homeassistant.components.automation] Initialized rule Rainy Day
+INFO [homeassistant.components.automation] Initialized rule Rain is over
 ```
 
-The `LogBook` component will show a line entry when an automoation is triggered.  You can look at the previous entry to determine which trigger in the rule triggered the event.</br>
+The Logbook component will show a line entry when an automation is triggered.  You can look at the
+previous entry to determine which trigger in the rule triggered the event.
 
-![Sample](http://i.imgur.com/2s1ukCb.png)
-
+![Logbook example](/images/components/automation/logbook.png)
