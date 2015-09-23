@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/utilities-terminal.png' class='brand pull-right' />
-A sensor platform that issues specific commands git get data. This might very well become our most platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
+A sensor platform that issues specific commands to get data. This might very well become our most powerful platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -39,7 +39,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title Hard drive temperature %}
 
-There are several days to get the temperature of your hard drive. A simple solution is to use [hddtemp](https://savannah.nongnu.org/projects/hddtemp/).
+There are several ways to get the temperature of your hard drive. A simple solution is to use [hddtemp](https://savannah.nongnu.org/projects/hddtemp/).
 
 ```bash
 hddtemp -n /dev/sda
@@ -58,7 +58,7 @@ sensor:
 
 ### {% linkable_title CPU temperature %}
 
-Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system various details about a system can be retrieved. Here the CPU temperature 
+Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature 
 is of interest. Add something similar to your `configuration.yaml` file:
 
 ```yaml
