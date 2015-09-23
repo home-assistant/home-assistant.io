@@ -74,7 +74,7 @@ Another example of a home automation component can be found in [`/config/custom_
 
 ### {% linkable_title The full picture %}
 
-When we put all the different pieces of Home Assistant together we see that we match pretty close to the initial sketched home automation overview. The smart home AI is not implemented yet and therefor omitted from the following picture.
+When we put all the different pieces of Home Assistant together we see that we match pretty close to the initial sketched home automation overview. The smart home AI is not implemented yet and therefore omitted from the following picture.
 
 <p class='img'>
   <a href='{{ root_url }}/images/architecture/ha_full_architecture.png'>
