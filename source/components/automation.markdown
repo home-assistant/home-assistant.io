@@ -19,7 +19,7 @@ full configuration but only the relevant part.
 ```yaml
 # Example of entry in configuration.yaml
 automation:
-  alias: Light on in the evening
+- alias: 'Rule 1 Light on in the evening'
   trigger:
     - platform: sun
       event: sunset
@@ -37,11 +37,24 @@ automation:
   action:
     service: homeassistant.turn_on
     entity_id: group.living_room
+    
+- alias: 'Rule 2 - Away Mode'
+
+  trigger:
+   - platform: state
+     entity_id: group.all_devices
+     state: 'not_home'
+
+  condition: use_trigger_values
+  condition:
+  action:
+     service: light.turn_off
+     entity_id: group.all_lights
+
 ```
 
 <p class='note'>
-All configuration entries have to be sequential. If you have <code>automation:</code>,
-<code>automation 2:</code> and <code>automation 4:</code> then the last one will not be processed.
+With the updated automation layout, you are now able to list all rules under on a single `automation:` entry.  Use `-alias` to define the start of each rule.
 </p>
 
  - [Jump to conditions](#conditions)
