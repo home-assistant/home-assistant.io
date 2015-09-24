@@ -25,9 +25,8 @@ You will need to setup a development environment if you want to start developing
 component for Home Assistant perform theses steps
 
 ```bash
-cd your_root_folder_project
 git clone https://github.com/balloob/home-assistant.git
-cd your_root_folder_project/home-assistant
+cd home-assistant
 script/setup
 ```
 
