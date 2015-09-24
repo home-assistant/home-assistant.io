@@ -65,4 +65,38 @@ $ curl -X GET http://192.168.1.31/temperature/
 {"temperature": 77, "id": "sensor02", "name": "livingroom", "connected": true}
 ```
 
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title External IP address %}
+
+Always want to know your external IP address. [JSON Test](http://www.jsontest.com) will provide you this information at their http://ip.jsontest.com/ endpoint.
+
+To display the IP address, the entry for a sensor in the `configuration.yaml` file will look like this.
+
+```yaml
+# Example configuration.yaml entry
+  - platform: rest
+    resource: http://ip.jsontest.com
+    name: External IP
+    variable: 'ip'
+```
+
+### {% linkable_title Single value from a local Glances instance %}
+
+The [glances](/components/sensor.glances.html) sensor is doing a similar thing
+
+Add something similar to the entry below to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+  - platform: rest
+    resource: http://IP_ADRRESS:61208/api/2/mem/used
+    name: Used mem
+    variable: 'used'
+    unit_of_measurement: MB
+    correction_factor: 0.000000954
+    decimal_places: 0
+```
 
