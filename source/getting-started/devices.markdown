@@ -51,6 +51,7 @@ of these parameters. This can be done by adding the following config to the `hom
 homeassistant:
 
     # Add this to your existing configuration
+    # Only the `entity_id` is required.  All other options are optional.
     customize:
         some.entity_id:
             hidden: true
