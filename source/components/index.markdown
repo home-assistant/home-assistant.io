@@ -127,6 +127,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td>aREST <a href='/components/sensor.arest.html'>sensors</a> observe and <a href='/components/switch.arest.html'>switches</a> controls the pins of aREST enabled devices.</td>
 </tr>
 
+<tr>
+  <td><a href='/components/sensor.rest.html'><img src='/images/supported_brands/rest.png' class='brand overview' /></a></td>
+  <td>REST <a href='/components/sensor.rest.html'>sensors</a> observe RESTful enabled devices or services.</td>
+</tr>
+
 </table>
 
         </div>
