@@ -22,12 +22,14 @@ Home Assistant is open-source and MIT licensed. The source can be found here:
 ### {% linkable_title Starting development %}
 
 You will need to setup a development environment if you want to start developing a new feature or
-component for Home Assistant.
+component for Home Assistant perform theses steps
 
- 1. Clone the Home Assistant repository:<br>
-    `git clone https://github.com/balloob/home-assistant.git`
- 2. Setup your computer for development:<br>
-    `python3 setup.py develop`
+```bash
+cd your_root_folder_project
+git clone https://github.com/balloob/home-assistant.git
+cd your_root_folder_project/home-assistant
+script/setup
+```
 
 After following these steps, running `hass` will invoke your local installation.
 
