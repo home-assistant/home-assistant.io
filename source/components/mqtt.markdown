@@ -11,7 +11,7 @@ footer: true
 <img src='/images/supported_brands/mqtt.png' class='brand pull-right' />
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
-The MQTT component needs an MQTT broker like [Mosquitto](http://mosquitto.org/) or [Mosca](http://www.mosca.io/). The Eclipse Foundation is running a public MQTT broker at [iot.eclipse.org](iot.eclipse.org) or the Mosquitto Project under [test.mosquitto.org](http://test.mosquitto.org). If you prefer to use a public, keep in mind to adjust the topic and that your messages may be publicly accessible.
+The MQTT component needs an MQTT broker like [Mosquitto](http://mosquitto.org/) or [Mosca](http://www.mosca.io/). The Eclipse Foundation is running a public MQTT broker at [iot.eclipse.org](http://iot.eclipse.org) or the Mosquitto Project under [test.mosquitto.org](http://test.mosquitto.org). If you prefer to use a public, keep in mind to adjust the topic and that your messages may be publicly accessible.
 
 To integrate MQTT into Home Assistant, add the following section to your `configuration.yaml` file:
 
