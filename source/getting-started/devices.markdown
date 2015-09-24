@@ -14,7 +14,7 @@ routers, Belkin WeMo switches, Philips Hue bridges and Sonos speakers in your ne
 [the discovery component]({{site_root}}/components/discovery.html) enabled (which is by default).
 
 See the [components overview page](/components/) to find installation instructions for your devices
-and services.
+and services.  Many components use the `sensor` platform.  Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
 
 To get the most out of automation, it is useful to setup the following things:
 
