@@ -14,7 +14,10 @@ routers, Belkin WeMo switches, Philips Hue bridges and Sonos speakers in your ne
 [the discovery component]({{site_root}}/components/discovery.html) enabled (which is by default).
 
 See the [components overview page](/components/) to find installation instructions for your devices
-and services.
+and services.  Many components use the `sensor` platform.  Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
+<p class='note'>
+Most components that support multiple entries within the <code>configuration.yaml</code> follow the <code>component:</code>, <code>component 2:</code> format.
+</p>
 
 To get the most out of automation, it is useful to setup the following things:
 
@@ -51,6 +54,7 @@ of these parameters. This can be done by adding the following config to the `hom
 homeassistant:
 
     # Add this to your existing configuration
+    # Only the `entity_id` is required.  All other options are optional.
     customize:
         some.entity_id:
             hidden: true
