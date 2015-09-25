@@ -10,7 +10,7 @@ footer: true
 ---
 
 The script component allows users to create a sequence of service calls and delays. Scripts can be
-started using the service `script/turn_on` and interrupted using the service `script/turn_off`.
+started using the service `script.turn_on` and interrupted using the service `script.turn_off`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,14 +27,14 @@ script:
           entity_id: device_tracker.paulus
           domain: light
       - alias: Bedroom lights on
-        execute_service: light.turn_on
-        service_data:
+        service: light.turn_on
+        data:
           entity_id: group.bedroom
       - delay:
           # supports seconds, milliseconds, minutes, hours, etc.
           minutes: 1
       - alias: Living room lights on
-        execute_service: light.turn_on
-        service_data:
+        service: light.turn_on
+        data:
           entity_id: group.living_room
 ```
