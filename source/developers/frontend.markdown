@@ -37,7 +37,7 @@ git submodule update --init
 ```
 
 After checking out the frontend code, you will have to install the frontend dependencies. Firing off
-a build of the frontend by running `scripts/build_frontend` will ensure they get installed.
+a build of the frontend by running `script/build_frontend` will ensure they get installed.
 
 Once this is done, you can start editting the webcomponents in the folder
 `homeassistant/components/frontend/www_static/home-assistant-polymer/src`. To see the changes you've
@@ -64,7 +64,7 @@ for the line that contains `home-assistant-js` and update the SHA to the SHA of 
 
 # {% linkable_title Building the Polymer frontend %}
 
-Building a new version of the frontend is as simple as running `scripts/build_frontend`. This fires off the following commands:
+Building a new version of the frontend is as simple as running `script/build_frontend`. This fires off the following commands:
 
  * **home-assistant-polymer**: Install NPM dependencies.
  * **home-assistant-polymer**: start frontend build.
