@@ -285,7 +285,7 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
   <td><a href='/components/camera.foscam.html'><img src='/images/supported_brands/foscam.png' class='brand overview' /></a></td>
-  <td><a href='/components/switch.Foscam.html'>Foscam</a> let you see your live stream.</td>
+  <td><a href='/components/camera.Foscam.html'>Foscam</a> let you see your live stream.</td>
 </tr>
 
 <tr>
