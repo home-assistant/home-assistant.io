@@ -38,7 +38,7 @@ automation:
      data: {"event":"anything_on"}
 
 - alias: 'ManyThing Recording OFF'
-# This calls an IFTTT recipe to turn off recording of the ManyThing Camera when we are home except at night.
+# This calls an IFTTT recipe to turn off recording of the ManyThing Camera when we are home unless it's nighttime.
   trigger:
    - platform: state
      entity_id: group.all_devices
