@@ -69,7 +69,7 @@ Assistant. If your ISP is giving you a new IP address from time to time, conside
 </p>
 
 ### {% linkable_title Additional Channel Examples %}
-Additional examples of using IFTTT channels can be found here.
+Additional examples of using IFTTT channels can be found below.
 
 Channel | Description
 ----- | -----
