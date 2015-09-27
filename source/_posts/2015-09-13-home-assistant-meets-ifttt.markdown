@@ -61,14 +61,17 @@ Setup Maker channel with event name `HA_FIRE_ALARM` and Twitter channel to tweet
 ```yaml
 # Configuration.yaml entry
 automation:
-  alias: Post a tweet when fire alarm is triggered
+- alias: Post a tweet when fire alarm is triggered
+  trigger:
+   - platform: mqtt
+     mqtt_topic: home/alarm/fire
+     mqtt_payload: 'on'
 
-  platform: mqtt
-  mqtt_topic: home/alarm/fire
-  mqtt_payload: 'on'
+  condition: use_trigger_values
 
-  execute_service: ifttt.trigger
-  service_data: {"event":"HA_FIRE_ALARM", "value1":"The fire alarm just triggered!"}
+  action:
+    service: ifttt.trigger
+    data: {"event":"HA_FIRE_ALARM", "value1":"The fire alarm just triggered!"}
 ```
 
 ## {% linkable_title Turn on lights when I get home %}
