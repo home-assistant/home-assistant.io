@@ -13,7 +13,7 @@ footer: true
 camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
 
 <p>To get manything support, HA will use IFTTT's [Maker Channel](https://ifttt.com/maker) and the [ManyThing Channel](https://ifttt.com/manything).
-Use the [IFTTT Setup instructions] (https://home-assistant.io/components/ifttt.html) to activate the IFTTT Platform.
+Use the [IFTTT Setup instructions] (/components/ifttt.html) to activate the IFTTT Platform.
 
 After setting up IFTTT, Maker Channel and ManyThing Channel, you can use the following examples to configure Home Assistant.
 
