@@ -63,3 +63,7 @@ Assistant. If your ISP is giving you a new IP address from time to time, conside
 [DuckDNS][duck-dns].
 
 [duck-dns]: https://duckdns.org
+
+<p class='img'>
+<img src='/images/components/ifttt/ifttt_to_HA.png' />
+</p>
