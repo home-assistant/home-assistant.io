@@ -67,3 +67,10 @@ Assistant. If your ISP is giving you a new IP address from time to time, conside
 <p class='img'>
 <img src='/images/components/ifttt/ifttt_to_HA.png' />
 </p>
+
+### {% linkable_title Additional Channel Examples %}
+Additional examples of using IFTTT channels can be found here.
+
+Channel | Description
+----- | -----
+[Manything](/components/ifttt.manything.html) | Automates turning recording ON and OFF based on Home Assistant AWAY and HOME values.
