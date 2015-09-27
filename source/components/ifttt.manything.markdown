@@ -25,7 +25,7 @@ automation:
 # This calls an IFTTT recipe to turn on recording of the ManyThing Camera when we leave the house during the day.
   trigger:
    - platform: state
-     entity_id: group.family
+     entity_id: group.all_devices
      state: 'not_home'
 
   condition:
@@ -41,7 +41,7 @@ automation:
 # This calls an IFTTT recipe to turn off recording of the ManyThing Camera when we are home except at night.
   trigger:
    - platform: state
-     entity_id: group.family
+     entity_id: group.all_devices
      state: 'home'
    - platform: state
      entity_id: sun.sun
