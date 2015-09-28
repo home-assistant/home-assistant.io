@@ -45,7 +45,7 @@ automation:
      state: 'home'
    - platform: state
      entity_id: sun.sun
-     state: 'below_horizon'
+     state: 'above_horizon'
 
 
   condition: use_trigger_values
