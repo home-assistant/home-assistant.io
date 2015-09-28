@@ -40,9 +40,11 @@ sensor 2:
 
 Another common problem is that a required configuration setting is missing. If this is the
 case, the component will report this to `home-assistant.log`. You can have a look at
-[the component page](/components/) for instructions how to setup the components. If you find any
-errors or want to expand the documentation, please
-[let us know](https://github.com/balloob/home-assistant.io/issues).
+[the component page](/components/) for instructions how to setup the components. 
+
+Incorrect indentation within the `configuration.yaml` can also create issues.  [Online YAML parsers](http://yaml-online-parser.appspot.com/) are available to verify your text is properly formatted.  If there are errors, you will also see the tracebacks in the `home-assistant.log` referencing the line number from `configuration.yaml`.  This information along with the YAML parsers can be a fast way to resolve small validation issues.
+
+If you find any errors or want to expand the documentation, please [let us know](https://github.com/balloob/home-assistant.io/issues).
 
 **Problems with dependencies<br>**
 Almost all components have external dependencies to communicate with your devices and services.
