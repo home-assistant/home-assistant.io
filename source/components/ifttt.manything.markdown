@@ -12,17 +12,17 @@ footer: true
 [Manything](https://manything.com) is a smart app that turns your iPhone, iPod, or iPad into a wifi 
 camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
 
-<p>To get manything support, HA will use IFTTT's [Maker Channel](https://ifttt.com/maker) and the [ManyThing Channel](https://ifttt.com/manything).
-Use the [IFTTT Setup instructions] (/components/ifttt.html) to activate the IFTTT Platform.
+To get manything support, HA will use IFTTT's [Maker Channel](https://ifttt.com/maker) and the [ManyThing Channel](https://ifttt.com/manything).
+Use the [IFTTT Setup instructions](/components/ifttt.html) to activate the IFTTT Platform.
 
 After setting up IFTTT, Maker Channel and ManyThing Channel, you can use the following examples to configure Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
- 
 automation:
 - alias: 'ManyThing Recording ON'
-# This calls an IFTTT recipe to turn on recording of the ManyThing Camera when we leave the house during the day.
+  # This calls an IFTTT recipe to turn on recording of the ManyThing Camera
+  # if we leave the house during the day.
   trigger:
    - platform: state
      entity_id: group.all_devices
@@ -35,10 +35,11 @@ automation:
 
   action:
      service: ifttt.trigger
-     data: {"event":"anything_on"}
+     data: {"event":"manything_on"}
 
 - alias: 'ManyThing Recording OFF'
-# This calls an IFTTT recipe to turn off recording of the ManyThing Camera when we are home unless it's nighttime.
+  # This calls an IFTTT recipe to turn off recording of the ManyThing Camera
+  # when we are home unless it's nighttime.
   trigger:
    - platform: state
      entity_id: group.all_devices
@@ -47,13 +48,11 @@ automation:
      entity_id: sun.sun
      state: 'above_horizon'
 
-
   condition: use_trigger_values
 
   action:
      service: ifttt.trigger
-     data: {"event":"anything_off"}
-
+     data: {"event":"manything_off"}
 ```
 
 ### {% linkable_title Testing your trigger %}
