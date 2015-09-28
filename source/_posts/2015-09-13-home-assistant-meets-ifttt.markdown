@@ -67,9 +67,7 @@ automation:
      mqtt_topic: home/alarm/fire
      mqtt_payload: 'on'
 
-  condition: use_trigger_values
-
-  action:
+    action:
     service: ifttt.trigger
     data: {"event":"HA_FIRE_ALARM", "value1":"The fire alarm just triggered!"}
 ```
