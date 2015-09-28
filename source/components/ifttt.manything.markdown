@@ -55,6 +55,14 @@ automation:
      data: {"event":"manything_off"}
 ```
 
+### {% linkable_title Setting up a recipe %}
+
+<p class='img'>
+<img src='/images/components/ifttt/IFTTT_manything_trigger.png' />
+You need to setup a unique trigger for each event you sent to IFTTT.
+For ManyThing support, you need to set up an <code>on</code> and <code>off</code> event.
+</p>
+
 ### {% linkable_title Testing your trigger %}
 
 You can use the developer tools to test your [Maker Channel](https://ifttt.com/maker) trigger. To do this, open the Home Assistant UI, open the sidebar, click on the first icon in the developer tools. This should get you to the 'Call Service' screen. Fill in the following values:
@@ -65,11 +73,4 @@ domain | `ifttt`
 service | `trigger`
 Service Data | `{"event": "manything_on"}`
 
-### {% linkable_title Setting up a recipe %}
-
-<p class='img'>
-<img src='/images/components/ifttt/IFTTT_manything_trigger.png' />
-You need to setup a unique trigger for each event you sent to IFTTT.
-For ManyThing support, you need to set up an <code>on</code> and <code>off</code> event.
-</p>
 
