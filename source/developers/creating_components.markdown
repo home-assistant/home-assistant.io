@@ -64,17 +64,17 @@ After loading, the bootstrapper will call `setup(hass, config)` method on the co
 
 | Parameter | Description |
 | --------- | ----------- |
-| <code>hass</code> | The Home Assistant object. Call its methods to track time, register services, listen for events or track states: [Overview of available methods.](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L38) |
-| <code>config</code> | A dict containing the configuration. The keys of the config-dict are component names and the value is another dict with the component configuration. |
+| <code>hass</code> | The Home Assistant object. Call its methods to track time, register services, listen for events or track states: [Overview of available methods.](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L55) |
+| <code>config</code> | A dict containing the configuration. The keys of the config-dict are component names and the value is another dict with the component configuration.: [Details](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L687) |
 
 ### {% linkable_title Guidance on using the Home Assistant object %}
 The Home Assistant object contains three objects to help you interact with the system.
 
 | Object | Description |
 | ------ | ----------- |
-| <code>hass.states</code> | This is the StateMachine. It allows you to set states and track when they are changed. [See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L589). |
-| <code>hass.bus</code> | This is the EventBus. It allows you to trigger and listen for events.<br>[See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L387). |
-| <code>hass.services</code> | This is the ServiceRegistry. It allows you to register services.<br>[See available methods](https://github.com/balloob/home-assistant/blob/master/homeassistant/__init__.py#L738). |
+| <code>hass.states</code> | This is the StateMachine. It allows you to set states and track when they are changed. [See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L434). |
+| <code>hass.bus</code> | This is the EventBus. It allows you to trigger and listen for events.<br>[See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L229). |
+| <code>hass.services</code> | This is the ServiceRegistry. It allows you to register services.<br>[See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L568). |
 
 ### {% linkable_title Example on using the configuration parameter %}
 If your configuration file contains the following lines:
