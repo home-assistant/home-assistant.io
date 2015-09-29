@@ -26,6 +26,12 @@ by some distributions. If you are unable to run `python3 -m pip --version` you c
 [downloading the installer](https://bootstrap.pypa.io/get-pip.py) and run it with Python 3:
 `python3 get-pip.py`.
 
+**CentOS and Python 3**<br>
+To run Python 3.x on [CentOS](https://www.centos.org/) or RHEL, [Software Collections](https://www.softwarecollections.org/en/scls/rhscl/rh-python34/) needs to be activated.</p>
+
+**Run the development version**<br>
+If you want to stay on top of the development of Home Assistant then you can upgrade to the latest stuff what is available in the dev branch `pip3 install --upgrade git+git://github.com/balloob/home-assistant.git@dev`. Keep in mind, that stable releases of Home Assistant are published often.
+
 **No access to the frontend**<br>
 In newer Linux distributions (at least Fedora 22/CentOS 7) the access to a host is very limited.
 This means that you can't access the Home Assistant Frontend that is running on a host outside of the host machine. Windows and OSX machines may also have issues with this.
