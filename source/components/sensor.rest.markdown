@@ -35,7 +35,7 @@ sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: POST
-  variable: 'temperature'
+  variable: 'temperature' or ['Temperatures', 0, 'CurrentReading']
   payload: '{ "device" : "heater" }'
   name: REST POST sensor
   unit_of_measurement: "°C"
@@ -47,7 +47,7 @@ Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
-- **variable** (*Optional*): Defines the unit of measurement of the sensor, if any.
+- **variable** (*Optional*): Defines the variable or a list of element for complex responses to extract, if any.
 - **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary-
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
