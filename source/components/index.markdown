@@ -401,7 +401,7 @@ the manufacturers of these devices.
 
 <tr>
   <td><a href='/components/sensor.time_date.html'><img src='/images/supported_brands/clock.png' class='brand overview' /></a></td>
-  <td><a href='/components/sensor.time_date.html'>Time & Date</a> displays the time and the date.</td>
+  <td><a href='/components/sensor.time_date.html'>Time & Date</a> displays the time and the date and <a href='/components/sensor.worldclock.html'>Worldclock</a> from a different time zone.</td>
 </tr>
 
 </table>
