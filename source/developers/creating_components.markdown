@@ -48,7 +48,7 @@ Home Assistant allows components and platforms to specify their dependencies and
 `DEPENDENCIES` and `REQUIREMENTS`. Both are lists that contain strings.
 
 Dependencies are other Home Assistant components that should be setup before the platform is loaded.
-An example is the MQTT sensor component, which requires an active connection to a MQTT broker. If
+An example is the MQTT sensor component, which requires an active connection to an MQTT broker. If
 Home Assistant is unable to load and setup the MQTT component, it will not setup the MQTT sensor
 component.
 

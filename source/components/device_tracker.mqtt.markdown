@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/mqtt.png' class='brand pull-right' />
-This platform allows you to detect presence by monitoring a MQTT topic for new locations. To use this
+This platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this
 platform, you specify a unique topic for each device.
 
 ```yaml

@@ -328,12 +328,6 @@ Support for these devices is provided by the Home Assistant community and not
 the manufacturers of these devices.
 </p>
 
-## {% linkable_title Organization %}
-| Type | Description
-| ---- | -----------
-| [Group](/components/group.html) | Allows grouping of entities
-| [Scene](/components/scene.html) | Allow defining preferred state of a set of entities
-
 ## {% linkable_title Hubs %}
 
 Home Assistant integrates with a variety of third party Home Automation hubs and networks. It allows you to control the connected switches, lights and sensors via Home Assistant. Click on the following logos for setup instructions:
@@ -516,6 +510,12 @@ the manufacturers of these devices.
 Support for these services is provided by the Home Assistant community and not
 the service providers.
 </p>
+
+## {% linkable_title Organization %}
+| Type | Description
+| ---- | -----------
+| [Group](/components/group.html) | Allows grouping of entities
+| [Scene](/components/scene.html) | Allow defining preferred state of a set of entities
 
 ## {% linkable_title Automation %}
 

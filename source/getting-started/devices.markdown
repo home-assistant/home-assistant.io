@@ -19,11 +19,6 @@ and services.  Many components use the `sensor` platform.  Sensors need to be ad
 Most components that support multiple entries within the <code>configuration.yaml</code> follow the <code>component:</code>, <code>component 2:</code> format.
 </p>
 
-To get the most out of automation, it is useful to setup the following things:
-
- * [Presence Detection](/components/#presence)
- * [Notification service](/components/#notify-service)
-
 If you can't find support for your favorite device or service,
 [consider adding support](/developers/add_new_platform.html)
 
@@ -63,4 +58,4 @@ homeassistant:
 ```
 
 
-###[Next step: Setting up automation &raquo;](/getting-started/automation.html)
+###[Next step: Setting up presence detection &raquo;](/getting-started/presence-detection.html)

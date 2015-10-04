@@ -169,3 +169,4 @@ go automate!
  - Learn about the available [automation conditions](/components/automation.html#conditions)
  - Learn about [scripts](/components/script.html) to help you trigger multiple actions and delays
  - Learn about [scenes](/components/scene.html) to help you set many entities at once to your liking
+ - Setup the [notification component](/components/#notify-service) to sent yourself messages
