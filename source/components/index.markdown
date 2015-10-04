@@ -523,6 +523,7 @@ the service providers.
 | ---- | -----------
 | [Automation](/components/automation.html) | Allow for automating service calls when a specific state is met
 | [Script](/components/script.html) | Allow user to define scripts to run from within Home Assistant
+| [Zone](/components/zone.html) | Allow user to define zones within Home Assistant
 | [Device sun light trigger](/components/device_sun_light_trigger.html) | Slowly fade in the lights to compensate the setting sun. Also turns on lights when you get home after dark.
 | [Simple alarm](/components/simple_alarm.html) | Let the lights blink red when the lights turn on while no one is home.
 
