@@ -29,6 +29,6 @@ sensor:
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
 <p class='note warning'>
-As this requires access to the GPIO, you will need to run Home Assistant as root.
+If you are not running Raspbian Jessie, you will need to run Home Assistant as root.
 </p>
 

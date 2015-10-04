@@ -18,13 +18,54 @@ Home Assistant will print out the configuration directory it is using when start
 Whenever a component or configuration option results in a warning, it will be stored in
 `home-assistant.log`. This file is reset on start of Home Assistant.
 
+### {% linkable_title YAML %}
+
+Home Assistant uses the YAML syntax for configuration. YAML can be confusing at start but it is really
+powerful in allowing you to express complex configurations.
+
+The basics of YAML are lists and lookup tables containing key-value pairs. Lists will have each item
+start with a `-` while lookup tables will have the format `key: value`. The last value for a key is
+used in case you specify a duplicate key.
+
+```yaml
+# A list
+- hello
+- how
+- are
+- you
+
+# Lookup table
+beer: ice cold  # <-- will be ignored because key specified twice
+beer: warm
+wine: room temperature
+water: cold
+
+# Nesting tables
+device_tracker:
+  platform: mqtt
+
+# Nesting a list of tables in a table
+sensor:
+  - platform: mqtt
+    state_topic: sensor/topic
+  - platform: mqtt
+    state_topic: sensor2/topic
+```
+
+Indentation is used to specify which objects are nested under one anohter. Getting the right indentation
+can be tricky if you're not using an editor with a fixed width font. You can test your
+configuration using [this online YAML parser](http://yaml-online-parser.appspot.com/).
+
+To learn more about the quirks of YAML, read
+[YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html)
+by SaltStack.
+
 ### {% linkable_title My component does not show up %}
 When a component does not show up, many different things can be the case. Before you try any of
 these steps, make sure to look at the `home-assistant.log` file and see if there are any errors
 related to your component you are trying to set up.
 
 **Problems with the configuration<br>**
-
 `configuration.yaml` does not allow multiple sections to have the same name. If you want a
  specific component to be loaded twice, append a number to the name.
 
@@ -40,11 +81,10 @@ sensor 2:
 
 Another common problem is that a required configuration setting is missing. If this is the
 case, the component will report this to `home-assistant.log`. You can have a look at
-[the component page](/components/) for instructions how to setup the components. 
+[the component page](/components/) for instructions how to setup the components.
 
-Incorrect indentation within the `configuration.yaml` can also create issues.  [Online YAML parsers](http://yaml-online-parser.appspot.com/) are available to verify your text is properly formatted.  If there are errors, you will also see the tracebacks in the `home-assistant.log` referencing the line number from `configuration.yaml`.  This information along with the YAML parsers can be a fast way to resolve small validation issues.
-
-If you find any errors or want to expand the documentation, please [let us know](https://github.com/balloob/home-assistant.io/issues).
+If you find any errors or want to expand the documentation, please
+[let us know](https://github.com/balloob/home-assistant.io/issues).
 
 **Problems with dependencies<br>**
 Almost all components have external dependencies to communicate with your devices and services.

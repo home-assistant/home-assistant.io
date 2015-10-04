@@ -9,9 +9,8 @@ sharing: true
 footer: true
 ---
 <img src='/images/supported_brands/mqtt.png' class='brand pull-right' />
-MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
-
-The MQTT component needs an MQTT broker like [Mosquitto](http://mosquitto.org/) or [Mosca](http://www.mosca.io/). The Eclipse Foundation is running a public MQTT broker at [iot.eclipse.org](http://iot.eclipse.org/getting-started) or the Mosquitto Project under [test.mosquitto.org](http://test.mosquitto.org). If you prefer to use a public, keep in mind to adjust the topic and that your messages may be publicly accessible.
+MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol
+on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
 To integrate MQTT into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -24,6 +23,7 @@ mqtt:
   keepalive: 60
   username: USERNAME
   password: PASSWORD
+  certificate: /home/paulus/dev/addtrustexternalcaroot.crt
 ```
 
 Configuration variables:
@@ -34,20 +34,90 @@ Configuration variables:
 - **keepalive** (*Optional*): The keep alive in seconds for this client. Default is 60.
 - **username** (*Optional*): The username to use with your MQTT broker.
 - **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
+- **certificate** (*Optional*): Certificate to use to encrypt communication with the broker.
+
+## {% linkable_title Picking a broker %}
+
+The MQTT component needs you to run an MQTT broker for Home Assistant to connect to.
+
+There are three options, each with various degrees of ease of setup and privacy.
+
+#### {% linkable_title Run your own %}
+
+Most private option but requires a bit more work. There are two free and open-source brokers to pick
+from: [Mosquitto](http://mosquitto.org/) and [Mosca](http://www.mosca.io/).
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  broker: 192.168.1.100
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  username: USERNAME
+  password: PASSWORD
+```
+
+#### {% linkable_title Public MQTT %}
+
+The Mosquitto project runs a [public broker](http://test.mosquitto.org). Easiest to setup but there
+is 0 privacy as all messages are public. Use this only for testing purposes and not for real tracking
+of your devices.
+
+```yaml
+mqtt:
+  broker: test.mosquitto.org
+  port: 1883
+
+  # Optional, if you want encryption
+  # (doesn't really matter because broker is public)
+  port: 8883
+  # Download certificate from http://test.mosquitto.org/ssl/mosquitto.org.crt
+  certificate: /home/paulus/downloads/mosquitto.org.crt
+```
+
+#### {% linkable_title CloudMQTT %}
+
+[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free up to 10
+connected devices. This is enough to get started with for example
+[OwnTracks](/components/device_tracker.owntracks.html) and give you a taste of what is possible.
 
 <p class='note'>
-The MQTT component has no TLS support at the moment. This means that only plain-text communication is possible.
+Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
 </p>
 
-## Building on top of MQTT
+ 1. [Create an account](https://customer.cloudmqtt.com/login) (no payment details needed)
+ 2. [Create a new CloudMQTT instance](https://customer.cloudmqtt.com/subscription/create)
+    (Cute Cat is the free plan)
+ 3. From the control panel, click on the _Details_ button.
+ 4. Create unique users for Home Assistant and each phone to connect<br>(CloudMQTT does not allow two
+    connections from the same user)
+      a. Under manage users, fill in username, password and click add
+      b. Under ACLs, select user, topic `#`, check 'read access' and 'write access'
+ 5. Copy the instance info to your configuration.yaml:
+```yaml
+    mqtt:
+      broker: <Server>
+      port: <SSL Port>
+      username: <User>
+      password: <Password>
+```
+
+<p class='note'>
+Home Assistant will automatically load the correct certificate if you connect to an encrypted channel
+of CloudMQTT (port range 20 000 - 30 000).
+</p>
+
+## {% linkable_title Building on top of MQTT %}
 
  - [MQTT Sensor](/components/sensor.mqtt.html)
  - [MQTT Switch](/components/switch.mqtt.html)
  - [MQTT Device Tracker](/components/device_tracker.mqtt.html)
+ - [OwnTracks Device Tracker](/components/device_tracker.owntracks.html)
  - [MQTT-automation rule](/components/automation.html#mqtt-based-automation)
  - Integrating it into a component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
 
-## Testing
+## {% linkable_title Testing your setup %}
 
 For debugging purposes `mosquitto` is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:
 

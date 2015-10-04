@@ -18,9 +18,6 @@ footer: true
 <label class='menu-selector docker' for='docker-install'>Install using Docker</label>
 
 
-<h3>Installation</h3>
-
-
 <div class='install-instructions normal'>
 Installing and running Home Assistant on your local machine is easy. Make sure you have <a href='https://www.python.org/downloads/' target="_blank">Python 3.4</a> installed and execute the following code in a console:
 
@@ -33,44 +30,50 @@ hass \-\-open-ui
 <p>Running these commands will:</p>
 <ol>
 <li>Install Home Assistant</li>
-<li>Launch Home Assistant and serve web interface on <a href='http://localhost:8123' target="_blank">http://localhost:8123</a></li>
+<li>Launch Home Assistant and serve web interface on
+<a href='http://localhost:8123' target="_blank">http://localhost:8123</a></li>
 </ol>
 </div> <!-- INSTALL-INSTRUCTIONS NORMAL -->
 
 
 <div class='install-instructions docker'>
-<p>Installation with Docker is straightforward. Adjust the following command so that <code>/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
+
+Installation with Docker is straightforward. Adjust the following command so that `/path/to/your/config/`
+points at the folder where you want to store your config and run it:
 
 ```bash
 docker run -d \-\-name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro \-\-net=host balloob/home-assistant
 ```
 
-<p>This will launch Home Assistant and serve its web interface from port 8123 on your Docker host.</p>
+This will launch Home Assistant and serve its web interface from port 8123 on your Docker host.
 
 <p class='note'>
-When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href='http://en.wikipedia.org/wiki/List_of_tz_database_time_zones' target="_blank">your timezone</a>)
+When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace
+<code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code>
+(replacing America/Los_Angeles with <a href='http://en.wikipedia.org/wiki/List_of_tz_database_time_zones' target="_blank">your timezone</a>)
 </p>
+
 </div> <!-- INSTALL-INSTRUCTIONS DOCKER -->
 
 
 <div class='install-instructions raspberry'>
-<p>Home Assistant uses Python 3.4 which is not shipped with the current Raspbian distibution for the Raspberry Pi. Before installing Home Assistant, you will have to <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=113961#p779265" target="_blank">install Python 3.4</a>.
 
-Once that is complete, installing and running Home Assistant on your local machine is easy. Make sure you have <a href='https://www.python.org/downloads/' target="_blank">Python 3.4</a> installed and execute the following code in a console:
+Home Assistant requires the Raspberry Pi to run <a href='https://www.raspberrypi.org/downloads/raspbian/'>Raspbian Jessie</a>.
+This version has been released on September 24, 2015 and comes by default with Python 3.4 which is required for Home Assistant.
 
-<p>
+Execute the following code in a console:
+
 ```bash
 pip3 install homeassistant
 hass \-\-open-ui
 ```
-</p>
-<p>Running these commands will:</p>
-<ol>
-<li>Install Home Assistant</li>
-<li>Launch Home Assistant and serve web interface on <a href='http://localhost:8123' target="_blank">http://localhost:8123</a></li>
-</ol>
-</div> <!-- INSTALL-INSTRUCTIONS RASPBERRY -->
 
+Running these commands will:
+
+ - Install Home Assistant
+ - Launch Home Assistant and serve web interface on [http://localhost:8123](http://localhost:8123)
+
+</div> <!-- INSTALL-INSTRUCTIONS RASPBERRY -->
 
 ### {% linkable_title Troubleshooting %}
 

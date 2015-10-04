@@ -10,7 +10,11 @@ footer: true
 ---
 
 <img src='/images/supported_brands/owntracks.png' class='brand pull-right' />
-This platform allows you to detect presence by monitoring MQTT topics uses by [Owntracks](http://owntracks.org/) for new locations. 
+This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows
+users to track their location on Android and iOS phones and publish it to a MQTT broker. This platform
+will connect to the broker and monitor for new locations.
+
+This component requires [the MQTT component](/components/mqtt.html) to be set up.
 
 To integrate Owntracks in Home Assistant, add the following section to your `configuration.yaml` file:
 

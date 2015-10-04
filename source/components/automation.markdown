@@ -19,15 +19,21 @@ full configuration but only the relevant part.
 ```yaml
 # Example of entry in configuration.yaml
 automation:
+# Turns on lights 1 hour before sunset if people are home
+# and if people get home between 16:00-23:00
 - alias: 'Rule 1 Light on in the evening'
   trigger:
+    # Prefix the first line of each trigger configuration
+    # with a '-' to enter multiple
     - platform: sun
       event: sunset
-      offset: "-01:00:00"
+      offset: '-01:00:00'
     - platform: state
       entity_id: group.all_devices
       state: home
   condition:
+    # Prefix the first line of each condition configuration
+    # with a '-'' to enter multiple
     - platform: state
       entity_id: group.all_devices
       state: home
@@ -37,20 +43,31 @@ automation:
   action:
     service: homeassistant.turn_on
     entity_id: group.living_room
-    
+
+# Turn off lights when everybody leaves the house
 - alias: 'Rule 2 - Away Mode'
-
   trigger:
-   - platform: state
-     entity_id: group.all_devices
-     state: 'not_home'
-
-  condition: use_trigger_values
-  condition:
+    platform: state
+    entity_id: group.all_devices
+    state: 'not_home'
   action:
-     service: light.turn_off
-     entity_id: group.all_lights
+    service: light.turn_off
+    entity_id: group.all_lights
 
+# Notify when Paulus leaves the house in the evening
+- alias: 'Leave Home notification'
+  trigger:
+    platform: zone
+    event: leave
+    zone: zone.home
+    entity_id: device_tracker.paulus
+  condition:
+    platform: time
+    after: '20:00'
+  action:
+    service: notify.notify
+    data:
+      message: 'Paulus left the house'
 ```
 
 <p class='note'>
@@ -166,6 +183,22 @@ Valid values for `weekday` are (`sun`, `mon`, `tue`, `wed`, `thu`, `fri` & `sat`
 
 The above example will trigger on Saturday and Sunday every hour on the 5 (2:05, 3:05, 4:05, etc).
 
+
+#### {% linkable_title Zone trigger %}
+Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work,
+you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently
+this is limited to the [OwnTracks platform](/components/device_tracker.owntracks.html).
+
+```yaml
+automation:
+  trigger:
+    platform: zone
+    entity_id: device_tracker.paulus
+    zone: zone.home
+    # Event is either enter or leave
+    event: enter
+```
+
 ## {% linkable_title Conditions %}
 
 Conditions are an optional part of an automation rule and be used to prevent an action from happening
@@ -233,6 +266,19 @@ automation:
 ```
 
 Valid values for `weekday` are (sun, mon, tue, wed, thu, fri & sat)
+
+#### {% linkable_title Zone condition %}
+Zone conditions test if an entity is in a certain zone. For zone automation to work,
+you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently
+this is limited to the [OwnTracks platform](/components/device_tracker.owntracks.html).
+
+```yaml
+automation:
+  condition:
+    platform: zone
+    entity_id: device_tracker.paulus
+    zone: zone.home
+```
 
 ## {% linkable_title Actions %}
 
