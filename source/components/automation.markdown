@@ -144,7 +144,7 @@ automation:
 </p>
 
 #### {% linkable_title Sun trigger %}
-Triggers based on sunrise and sunset, both with an optional offset.
+Triggers based on sunrise and sunset, both with an optional offset to simulate Dawn/Dusk scenarios.
 
 ```yaml
 automation:
@@ -152,7 +152,7 @@ automation:
     platform: sun
     # Possible values: sunset, sunrise
     event: sunset
-    # Optional time offset
+    # Optional time offset for Dusk scenario
     offset: -00:45:00
 ```
 
