@@ -37,9 +37,33 @@ sun:
 | `above_horizon` | When the sun is above the horizon.
 | `below_horizon` | When the sun is below the horizon.
 
-
+| Possible events | Description |
+| --------- | ----------- |
+| `sunrise` | When the sun is above the horizon.
+| `sunset` | When the sun is below the horizon.
 
 | State Attributes | Description |
 | --------- | ----------- |
 | `next_rising` | Date and time of the next sun rising
 | `next_setting` | Date and time of the next sun setting
+
+Dawn and Dusk scenarios can be achieved by using an optional `offset:` in the automation trigger.
+
+```yaml
+- alias: 'Turn Lights on at Dusk if we are home'
+
+  trigger:
+   - platform: sun
+     event: 'sunset'
+     offset: '-00:45:00'
+
+  condition:
+   - platform: state
+     entity_id: group.family
+     state: 'home'
+
+  action:
+     service: light.turn_on
+     entity_id: light.couch_lamp
+
+```
