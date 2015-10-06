@@ -13,7 +13,7 @@ This temper sensor platform allows you to get the current temperature from a TEM
 
 To use your TEMPer sensor in your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 sensor:
   platform: temper

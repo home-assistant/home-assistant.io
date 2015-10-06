@@ -54,7 +54,7 @@ Maker channel setup:
   <img src='/images/blog/2015-09-ifttt/recipe-twitter.png' />
 </p>
 
-This will tweet a message when a MQTT message is received that the smoke alarm has been triggered.
+This will tweet a message when an MQTT message is received that the smoke alarm has been triggered.
 Setup Maker channel with event name `HA_FIRE_ALARM` and Twitter channel to tweet the message in
 `value1`.
 

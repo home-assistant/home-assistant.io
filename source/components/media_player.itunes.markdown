@@ -20,7 +20,7 @@ footer: true
 
 To add iTunes to your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 media_player:
   platform: itunes

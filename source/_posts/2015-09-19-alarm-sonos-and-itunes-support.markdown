@@ -28,7 +28,7 @@ __iTunes and airplay speakers__<br>
 [@maddox](https://github.com/maddox) has contributed support for controlling iTunes and airplay speakers. For this to work you will
 have to run [itunes-api](https://github.com/maddox/itunes-api) on your Mac as middleware.
 
-```
+```yaml
 # Example configuration.yaml entry
 media_player:
   platform: itunes

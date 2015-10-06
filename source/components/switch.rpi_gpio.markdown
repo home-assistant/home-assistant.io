@@ -14,7 +14,7 @@ The rpi_gpio switch platform allows you to control the GPIOs of your [Raspberry 
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 switch:
   platform: rpi_gpio

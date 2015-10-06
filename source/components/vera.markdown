@@ -11,7 +11,7 @@ footer: true
 
 <img src='/images/supported_brands/vera.png' class='brand' />
 
-```
+```yaml
 # Example configuration.yaml entry
 sensor:
     platform: vera

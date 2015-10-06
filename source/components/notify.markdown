@@ -27,7 +27,7 @@ Home Assistant currently supports a wide range of services for notifications:
 
 Notifications are great to be used within Home Automation. Below is a an example configuration that you can add to your `configuration.yaml` to be notified when the sun sets.
 
-```
+```yaml
 automation:
   alias: Sun set notification
 

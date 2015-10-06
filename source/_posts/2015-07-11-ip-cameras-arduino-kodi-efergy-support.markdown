@@ -64,7 +64,7 @@ __Kodi (XBMC)__<br>
 <img src='/images/supported_brands/kodi.png' style='border:none; box-shadow: none; float: right;' height='50' />
 Ettisan has contributed a Kodi (XBMC) platform for the media player component. This allows you to track all the media that you are playing and allow you to control it.
 
-```
+```yaml
 # Example configuration.yaml entry
 media_player:
   platform: kodi

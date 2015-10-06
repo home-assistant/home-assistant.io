@@ -17,7 +17,7 @@ including the network-prefix notation (`192.168.1.1/24`) and the range notation 
 If you're on Debian or Ubuntu, you might have to install the packages for arp and nmap. Do so by
 running `apt-get install net-tools nmap`.
 
-```
+```yaml
 # Example configuration.yaml entry
 device_tracker:
   platform: nmap_tracker

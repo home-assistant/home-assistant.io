@@ -15,7 +15,8 @@ Philips Hue support is integrated into Home Assistant as a light platform. The p
 
 If you want to enable the light component directly, add the following lines to your `configuration.yaml`:
 
-```
+```yaml
+# Example configuration.yaml entry
 light:
   platform: hue
 ```

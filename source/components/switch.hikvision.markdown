@@ -14,7 +14,7 @@ This hikvisioncam switch platform allows you to control your motion detection se
 
 To use your Hikvision cam in your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 switch:
     platform: hikvisioncam

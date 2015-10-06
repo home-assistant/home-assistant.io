@@ -23,7 +23,7 @@ logbook:
 
 It is possible to add custom entries to the logbook by using the script component to fire an event.
 
-```
+```yaml
 # Example configuration.yaml entry
 script:
   add_logbook_entry:

@@ -23,7 +23,7 @@ To get started with the Wink API, you will first need to get yourself an API acc
 
 After you have gotten your access token, add the following to your `configuration.yaml`:
 
-```
+```yaml
 wink:
   access_token: YOUR_ACCESS_TOKEN
 ```

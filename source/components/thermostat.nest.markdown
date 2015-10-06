@@ -14,7 +14,7 @@ The nest thermostat platform let you control a thermostat from [Nest](https://ne
 
 To set it up, add the following information to your `configuration.yaml` file:
 
-```
+```yaml
 thermostat:
   platform: nest
   username: USERNAME

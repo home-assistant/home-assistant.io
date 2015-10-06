@@ -23,7 +23,7 @@ Do not use development mode in production. Home Assistant uses aggressive cachin
 # {% linkable_title Turning on development mode %}
 Home Assistant will by default serve the compiled version of the frontend. To change it so that each component and JavaScript are served separately, update your `configuration.yaml` to have these lines:
 
-```
+```yaml
 http:
   development: 1
 ```

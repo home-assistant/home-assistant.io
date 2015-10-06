@@ -33,7 +33,7 @@ The default value is `notify`. The notifier will bind to the service
 
 Notifications are great to be used within Home Automation. Below is a an example configuration that you can add to your `configuration.yaml` to be notified when the sun sets.
 
-```
+```yaml
 automation:
   alias: Sun set notification
 

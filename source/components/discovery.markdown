@@ -21,7 +21,8 @@ It will be able to add Google Chreomcasts and Belkin WeMo switches automatically
 
 To load this component, add the following lines to your `configuration.yaml`:
 
-```
+```yaml
+# Example configuration.yaml entry
 discovery:
 ```
 

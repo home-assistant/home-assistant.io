@@ -167,7 +167,7 @@ switch:
 __Hikvision camera motion detection support__<br>
 This switch platform allows you to control your motion detection setting on your Hikvision camera.
 
-```
+```yaml
 # Example configuration.yaml entry
 switch:
     platform: hikvisioncam

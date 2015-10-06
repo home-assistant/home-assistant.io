@@ -14,7 +14,7 @@ The `downloader` component provides a service to download files. It will raise a
 
 To enable it, add the following lines to your `configuration.yaml`:
 
-```
+```yaml
 # Example configuration.yaml entry
 downloader:
   download_dir: downloads

@@ -14,7 +14,7 @@ The kodi platform allows you to control a [Kodi](http://kodi.tv/) multimedia sys
 
 To add Kodi to your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 media_player:
   platform: kodi

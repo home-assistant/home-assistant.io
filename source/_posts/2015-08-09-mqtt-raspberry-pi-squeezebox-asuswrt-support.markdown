@@ -36,7 +36,7 @@ __Raspberry PI GPIO Support__<br>
 <img src='/images/supported_brands/raspberry-pi.png' style='border:none; box-shadow: none; float: right;' height='50' />
 [@gbarba](https://github.com/gbarba) has contributed support to use the general purpose input and output pins on a Raspberry PI as switches inside Home Assistant.
 
-```
+```yaml
 # Example configuration.yaml entry
 switch:
   platform: rpi_gpio
@@ -62,7 +62,7 @@ __Logitech Squeezebox media player support__<br>
 <img src='/images/supported_brands/logitech.png' style='border:none; box-shadow: none; float: right;' height='50' />
 [@persandstrom](https://github.com/persandstrom) also contributed support for the Logitech Squeezebox media player. This allows you to control your Logitech Squeezebox from Home Assistant.
 
-```
+```yaml
 # Example configuration.yaml entry
 media_player:
   platform: squeezebox
@@ -88,7 +88,7 @@ __Edimax Smart Switches support__<br>
 <img src='/images/supported_brands/edimax.png' style='border:none; box-shadow: none; float: right;' height='50' />
 [@rkabadi](https://github.com/rkabadi) has contributed support for integrating Edimax Smart Switches into Home Assistant.
 
-```
+```yaml
 # Example configuration.yaml entry
 switch:
   platform: edimax
@@ -113,7 +113,7 @@ The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-i
 __TEMPer temperature sensor support__<br>
 Support for Temper temperature sensors has been contributed by [@rkabadi](https://github.com/rkabadi).
 
-```
+```yaml
 # Example configuration.yaml entry
 sensor:
   platform: temper

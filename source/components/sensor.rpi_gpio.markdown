@@ -14,7 +14,7 @@ The rpi_gpio sensor platform allows you to read sensor values of the GPIOs of yo
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 sensor:
   platform: rpi_gpio

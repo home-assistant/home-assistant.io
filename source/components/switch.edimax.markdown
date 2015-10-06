@@ -14,7 +14,7 @@ This edimax switch platform allows you to control the state of your [Edimax](htt
 
 To use your Edimax switch in your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 switch:
   platform: edimax

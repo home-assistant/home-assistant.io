@@ -14,7 +14,7 @@ The limitlessled can control your [LimitlessLED](http://www.limitlessled.com/) l
 
 To add limitlessled to your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 light:
   platform: limitlessled

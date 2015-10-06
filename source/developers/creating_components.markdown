@@ -16,7 +16,7 @@ The first is [hello_world.py](https://github.com/balloob/home-assistant/blob/mas
 
 If you want to load these components in Home Assistant, add the following lines to your `configuration.yaml` file:
 
-```
+```yaml
 hello_world:
 
 example:
@@ -79,7 +79,7 @@ The Home Assistant object contains three objects to help you interact with the s
 ### {% linkable_title Example on using the configuration parameter %}
 If your configuration file contains the following lines:
 
-```
+```yaml
 example:
   host: paulusschoutsen.nl
 ```

@@ -14,7 +14,7 @@ The squeezebox platform allows you to control a [Logitech Squeezebox](https://en
 
 To add your Squeezebox to your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 media_player:
   platform: squeezebox
