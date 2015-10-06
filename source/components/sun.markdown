@@ -9,23 +9,24 @@ sharing: true
 footer: true
 ---
 
-The `sun` component will use your current location to track if the sun is above or below the horizon. This is a common ingredient within Home Automation.
+The `sun` component will use your current location to track if the sun is above or below the horizon.
+The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].
 
-To set it up, add the following lines to your `configuration.yaml`:
+[automation-trigger]: /components/automation.html#sun-trigger
 
-```
+```yaml
+# Example configuration.yaml entry
 homeassistant:
   latitude: 32.87336
   longitude: -117.22743
 
 sun:
+  # Optional. If ommitted will be retrieved from Google Maps
   elevation: 123
 ```
 
-`elevation` is optional. If not given, it will be queried from Google Maps using the specified location.
-
 <p class='img'>
-<img src='{{site_root}}/images/screenshots/more-info-dialog-sun.png' />
+<img src='/images/screenshots/more-info-dialog-sun.png' />
 </p>
 
 ### Implementation Details
