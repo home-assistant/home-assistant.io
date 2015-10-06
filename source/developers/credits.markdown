@@ -19,6 +19,7 @@ This page contains a list of people who have contributed in one way or another t
 
 (in alphabetical order)
 
+- [Adrien Brault](https://github.com/adrienbrault)
 - [andythigpen](https://github.com/andythigpen)
 - [Austin](https://github.com/trainman419)
 - [Azelphur](https://github.com/Azelphur)
