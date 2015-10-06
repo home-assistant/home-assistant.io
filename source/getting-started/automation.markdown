@@ -170,3 +170,8 @@ go automate!
  - Learn about [scripts](/components/script.html) to help you trigger multiple actions and delays
  - Learn about [scenes](/components/scene.html) to help you set many entities at once to your liking
  - Setup the [notification component](/components/#notify-service) to sent yourself messages
+
+<p class='note warning'>
+  Whenever you write the value <code>on</code> or <code>off</code>, surround it with quotes to avoid
+  the YAML parser interpreting the values as booleans.
+</p>

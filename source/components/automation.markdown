@@ -30,16 +30,16 @@ automation:
       offset: '-01:00:00'
     - platform: state
       entity_id: group.all_devices
-      state: home
+      state: 'home'
   condition:
     # Prefix the first line of each condition configuration
     # with a '-'' to enter multiple
     - platform: state
       entity_id: group.all_devices
-      state: home
+      state: 'home'
     - platform: time
-      after: "16:00:00"
-      before: "23:00:00"
+      after: '16:00:00'
+      before: '23:00:00'
   action:
     service: homeassistant.turn_on
     entity_id: group.living_room
@@ -69,10 +69,6 @@ automation:
     data:
       message: 'Paulus left the house'
 ```
-
-<p class='note'>
-With the updated automation layout, you are now able to list all rules under on a single `automation:` entry.  Use `-alias` to define the start of each rule.
-</p>
 
  - [Jump to conditions](#conditions)
  - [Jump to actions](#actions)
@@ -134,11 +130,11 @@ automation:
     platform: state
     entity_id: device_tracker.paulus
     # Optional
-    from: "not_home"
-    to: "home"
+    from: 'not_home'
+    to: 'home'
 ```
 
-<p class='note'>
+<p class='note warning'>
   Use quotes around your values for <code>from</code> and <code>to</code> to avoid the YAML parser
   interpreting some values as booleans.
 </p>
@@ -170,7 +166,7 @@ automation:
     # All following are optional.
     # When 'after' is used, you cannot also match on hour, minute, seconds.
     # Military time format.
-    # after: "15:32:00"
+    # after: '15:32:00'
     hours: 0
     minutes: 5
     seconds: 0
@@ -258,8 +254,8 @@ automation:
   condition:
     platform: time
     # At least one of the following is required.
-    after: "15:00:00"
-    before: "23:00:00"
+    after: '15:00:00'
+    before: '23:00:00'
     weekday:
       - mon
       - wed

@@ -9,6 +9,11 @@ sharing: true
 footer: true
 ---
 
+<p class='note warning'>
+Z-Wave support is currently broken as we're unable to compile
+<a href='https://github.com/OpenZWave/python-openzwave/tree/python3'>Python Open Z-Wave</a>.
+</p>
+
 <img src='/images/supported_brands/z-wave.png' class='brand pull-right' />
 
 [Z-Wave](http://www.z-wave.com/) support for Home Assistant is very new. We have started now by integrating only the sensors.

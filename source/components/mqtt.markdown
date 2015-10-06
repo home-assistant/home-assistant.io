@@ -114,7 +114,8 @@ of CloudMQTT (port range 20 000 - 30 000).
  - [MQTT Switch](/components/switch.mqtt.html)
  - [MQTT Device Tracker](/components/device_tracker.mqtt.html)
  - [OwnTracks Device Tracker](/components/device_tracker.owntracks.html)
- - [MQTT-automation rule](/components/automation.html#mqtt-based-automation)
+ - [MQTT automation rule](/components/automation.html#mqtt-based-automation)
+ - [MQTT alarm](/components/alarm_control_panel.mqtt.html)
  - Integrating it into a component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
 
 ## {% linkable_title Testing your setup %}

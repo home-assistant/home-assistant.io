@@ -48,13 +48,13 @@ of these parameters. This can be done by adding the following config to the `hom
 # Example configuration.yaml entry
 homeassistant:
 
-    # Add this to your existing configuration
-    # Only the `entity_id` is required.  All other options are optional.
-    customize:
-        some.entity_id:
-            hidden: true
-            entity_picture: http://placehold.it/200x200
-            friendly_name: My better name
+  # Add this to your existing configuration
+  # Only the `entity_id` is required.  All other options are optional.
+  customize:
+    some.entity_id:
+      hidden: true
+      entity_picture: http://placehold.it/200x200
+      friendly_name: My better name
 ```
 
 
