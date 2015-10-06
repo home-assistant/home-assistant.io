@@ -48,6 +48,7 @@ This page contains a list of people who have contributed in one way or another t
 - [MakeMeASandwich](https://github.com/MakeMeASandwich)
 - [Markus Stenberg](https://github.com/fingon)
 - [Michael Arnauts](https://github.com/michaelarnauts)
+- [Michael Auchter](https://github.com/auchter)
 - [Michael Gilbert](https://github.com/Zyell)
 - [Nolan Gilley](https://github.com/nkgilley)
 - [miniconfig](https://github.com/miniconfig)
