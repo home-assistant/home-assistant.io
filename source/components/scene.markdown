@@ -32,7 +32,7 @@ scene:
       light.tv_back_light: on
       light.ceiling:
         state: on
-        color: [0.33, 0.66]
+        xy_color: [0.33, 0.66]
         brightness: 200
 
   - name: Movies
