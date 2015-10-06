@@ -227,6 +227,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <table>
 
 <tr>
+  <td><a href='/components/media_player.denon.html'><img src='/images/supported_brands/denon.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.denon.html'>Denon Network Receivers</a></td>
+</tr>
+
+<tr>
   <td><a href='/components/media_player.cast.html'><img src='/images/supported_brands/google_cast.png' class='brand overview' /></a></td>
   <td><a href='/components/media_player.cast.html'>Google Cast</a></td>
 </tr>
@@ -242,18 +247,18 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td><a href='/components/media_player.mpd.html'><img src='/images/supported_brands/mpd.png' class='brand overview' /></a></td>
-  <td><a href='/components/media_player.mpd.html'>Music Player Daemon (MPD)</a></td>
-</tr>
-
-<tr>
   <td><a href='/components/media_player.squeezebox.html'><img src='/images/supported_brands/logitech.png' class='brand overview' /></a></td>
   <td><a href='/components/media_player.squeezebox.html'>Logitech Squeezebox</a></td>
 </tr>
 
 <tr>
-  <td><a href='/components/media_player.denon.html'><img src='/images/supported_brands/denon.png' class='brand overview' /></a></td>
-  <td><a href='/components/media_player.denon.html'>Denon Network Receivers</a></td>
+  <td><a href='/components/media_player.mpd.html'><img src='/images/supported_brands/mpd.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.mpd.html'>Music Player Daemon (MPD)</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/media_player.plex.html'><img src='/images/supported_brands/plex.png' class='brand overview' /></a></td>
+  <td><a href='/components/media_player.plex.html'>Plex</a></td>
 </tr>
 
 <tr>
