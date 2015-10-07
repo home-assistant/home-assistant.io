@@ -32,3 +32,5 @@ For valid time zones check the **TZ** column in the [Wikipedia overview](https:/
 ```python
 python3 -c "import pytz;print(pytz.all_timezones)"
 ```
+
+Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
