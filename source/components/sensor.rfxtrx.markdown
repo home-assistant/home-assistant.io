@@ -23,6 +23,6 @@ Configuration variables:
 
 - **device** (*Required*): The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
 
-
+Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
 
 
