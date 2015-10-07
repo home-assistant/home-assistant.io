@@ -66,3 +66,4 @@ Configuration variables:
   - **'process_thread'**: Number of threads
   - **'process_sleeping'**: Number of sleeping processes
 
+Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
