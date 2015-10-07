@@ -54,3 +54,5 @@ Configuration variables:
   - **ozone**: The columnar density of total atmospheric ozone in Dobson.
 
 Details about the API are available in the [Forecast.io documentation](https://developer.forecast.io/docs/v2).
+
+Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
