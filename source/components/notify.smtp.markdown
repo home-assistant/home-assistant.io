@@ -18,7 +18,7 @@ To enable notification by e-mail in your installation, add the following to your
 # Example configuration.yaml entry
 notify:
   name: NOTIFIER_NAME
-  platform: mail
+  platform: smtp
   server: MAIL_SERVER
   port: YOUR_SMTP_PORT
   sender: SENDER_EMAIL_ADDRESS
