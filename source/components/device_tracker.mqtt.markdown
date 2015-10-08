@@ -22,3 +22,9 @@ device_tracker:
     paulus_oneplus: /location/paulus
     annetherese_n4: /location/annetherese
 ```
+
+Configuration variables:
+
+- **devices** (*Required*): List of devices with their topic.
+- **qos** (*Optional*): The QoS level of the topic.
+
