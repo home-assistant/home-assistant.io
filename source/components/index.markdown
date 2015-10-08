@@ -74,6 +74,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td><a href='/components/sensor.dht.html'>DHTxx</a> reads the temperature and humidity.</td>
 </tr>
 
+<tr>
+  <td><a href='/components/light.blinkstick.html'><img src='/images/supported_brands/blinkstick.png' class='brand overview' /></a></td>
+  <td><a href='/components/light.blinkstick.html'>Blickstick</a> controls your Blinkstick lights or device.</td>
+</tr>
+
 </table>
         </div>
       </div>
