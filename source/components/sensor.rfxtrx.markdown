@@ -18,7 +18,7 @@ sensor:
   platform: rfxtrx
   devices:
     ac09c4f1: Temperature
-    ac09c4f2: Humididy
+    ac09c4f2: Humidity
   automatic_add: True
 ```
 
