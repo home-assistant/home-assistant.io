@@ -47,6 +47,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Joseph Piron](https://github.com/eagleamon)
 - [Julien Danjou](https://github.com/jd)
 - [kixam](https://github.com/kixam)
+- [Magnus Knutas](https://github.com/MagnusKnutas)
 - [MakeMeASandwich](https://github.com/MakeMeASandwich)
 - [Markus Stenberg](https://github.com/fingon)
 - [Michael Arnauts](https://github.com/michaelarnauts)
