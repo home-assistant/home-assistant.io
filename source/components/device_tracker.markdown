@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant can get information from your wireless router to track which devices are connected. There are three different types of supported wireless routers:
+Home Assistant can get information from your wireless router to track which devices are connected. There are several brands of supported wireless routers:
 
 - [Actiontec](/components/device_tracker.actiontec.html)
 - [Aruba](/components/device_tracker.aruba.html)
@@ -20,6 +20,7 @@ Home Assistant can get information from your wireless router to track which devi
 - [Thomson](/components/device_tracker.thomson.html)
 - [tomato](/components/device_tracker.tomato.html)
 - [TP-Link](/components/device_tracker.tplink.html)
+- [Generic SNMP](/components/device_tracker.snmp.html)
 
 Alternative trackers:
 
