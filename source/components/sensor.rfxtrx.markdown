@@ -10,18 +10,22 @@ footer: true
 ---
 The rfxtrx platform support sensors that communicate in the frequency range of 433.92 MHz.
 
-To enable the RFXtrx sensors in your installation, add the following to your `configuration.yaml` file:
+To enable RFXtrx sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   platform: rfxtrx
-  device: PATH_TO_DEVICE
+  devices:
+    ac09c4f1: Temperature
+    ac09c4f2: Humididy
+  automatic_add: True
 ```
 
 Configuration variables:
 
-- **device** (*Required*): The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
+- **devices** (*Required*): A list of devices with their name to use in the frontend.
+- **automatic_add** (*Optional*): To enable the automatic addition of new sensors.
 
 
 
