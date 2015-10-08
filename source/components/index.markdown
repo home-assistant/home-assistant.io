@@ -216,6 +216,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td><a href='/components/device_tracker.nmap_scanner.html'>NMap network scanning</a></td>
 </tr>
 
+<tr>
+  <td><a href='/components/device_tracker.snmp.html'><img src='/images/supported_brands/network-snmp.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.snmp.html'>Generic SNMP</a></td>
+</tr>
+
 </table>
 
         </div>
