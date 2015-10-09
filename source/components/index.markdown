@@ -473,6 +473,11 @@ the manufacturers of these devices.
   <td><a href='/components/notify.xmpp.html'>Jabber (XMPP)</a></td>
 </tr>
 
+<tr>
+  <td><a href='/components/notify.telegram.html'><img src='/images/supported_brands/telegram.png' class='brand overview' /></a></td>
+  <td><a href='/components/notify.telegram.html'>Telegram</a></td>
+</tr>
+
 </table>
 
         </div>
