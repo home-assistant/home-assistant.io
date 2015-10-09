@@ -118,8 +118,8 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td></td>
-  <td><a href='/components/sensor.rfxtrx.html'>RFXtrx</a> sensors monitors values from RFXtrx devices.</td>
+  <td><a href='/components/rfxtrx.html'><img src='/images/supported_brands/rfxtrx.png' class='brand overview'/></a></td>
+  <td><a href='/components/rfxtrx.html'>RFXtrx</a> controls and monitors RFXtrx devices.</td>
 </tr>
 
 <tr>
