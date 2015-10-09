@@ -15,8 +15,11 @@ Currently supported devices:
 
 - [Chromecasts](/components/media_player.cast.html)
 - [Denon Network Receivers](/components/media_player.denon.html)
+- [iTunes](/components/media_player.itunes.html)
 - [Kodi](/components/media_player.kodi.html)
 - [Music Player Daemon](/components/media_player.mpd.html)
+- [Plex](/components/media_player.plex.html)
+- [Sonos](/components/media_player.sonos.html)
 - [Squeezebox](/components/media_player.squeezebox.html)
 
 ## Services
