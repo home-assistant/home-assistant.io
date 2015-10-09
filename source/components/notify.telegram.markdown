@@ -33,7 +33,7 @@ To enable Telegram notifications in your installation, add the following to your
 notify:
   name: NOTIFIER_NAME
   platform: telegram
-  # Get those by creating a new application, event, and tracker on https://instapush.im
+  # Get those by creating a new bot on https://core.telegram.org/bots
   api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
   chat_id: YOUR_CHAT_ID
 ```
