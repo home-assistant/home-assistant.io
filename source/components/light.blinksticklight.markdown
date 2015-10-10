@@ -18,11 +18,11 @@ To add blinkstick to your installation, add the following to your `configuration
 # Example configuration.yaml entry
 light:
   platform: blinksticklight
-  serial: /dev/ttyUSB0
+  serial: BS000795-1.1
   name: Living Room
 ```
 
 Configuration variables:
 
-- **serial** (*Required*): The port where your stick is connected to.
+- **serial** (*Required*): The serial number of your stick.
 - **name** (*Required*): Name of the stick.
