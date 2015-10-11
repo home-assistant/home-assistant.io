@@ -74,7 +74,7 @@ The `correction_factor` will make sure that the value is shown in a useful forma
 
 ### {% linkable_title Use an external script %}
 
-The example is doing the same as the [aREST sensor](/components/sensor.arest.html) but with an external Python script. It should give you an idea about interacting with devices which are exposing a REST API.
+The example is doing the same as the [aREST sensor](/components/sensor.arest.html) but with an external Python script. It should give you an idea about interacting with devices which are exposing a RESTful API.
 
 The one-line script to retrieve a value is shown below. Of course would it be possible to use this directly in the `configuration.yaml` file but need extra care about the quotation marks.
 
