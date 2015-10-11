@@ -31,6 +31,11 @@ Configuration variables:
     - **oncmd** (*Required*): The action to take for on.
     - **offcmd** (*Required*): The action to take for off.
 
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this switch.
+
+### {% linkable_title aREST device %}
 
 The example below is doing the same as the [aREST switch](/components/switch.arest.html). The commandline tool `[curl](http://curl.haxx.se/)` is used to toogle a pin which is controllable through REST.
 
@@ -42,5 +47,23 @@ switch:
     arest_pin4:
       oncmd: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
       offcmd: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
+```
+
+### {% linkable_title Shutdown your local host %}
+
+This switch will shutdown your system that is hosting Home Assistant.
+
+<p class='note warning'>
+This switch will shudown your host immediately, there will be no confirmation.
+</p>
+
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  platform: command_switch
+  switches:
+    Home Assistant system shutdown:
+      offcmd: "/usr/sbin/poweroff"
 ```
 
