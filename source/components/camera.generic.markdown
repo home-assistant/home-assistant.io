@@ -14,6 +14,11 @@ This component allows you to integrate any IP camera into Home Assistant. It sup
 
 Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network.
 
+As part of the basic support the following features will be provided:
+- MJPEG video streaming
+- Saving a snapshot
+- Recording(JPEG frame capture)
+
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
