@@ -22,10 +22,14 @@ notify:
     recipient: YOUR_RECIPIENT
 ```
 
-Setting the optional parameter `name` allows multiple notifiers to be created.
-The default value is `notify`. The notifier will bind to the service
-`notify.NOTIFIER_NAME`.
+Configuration variables:
+
+- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+- **sender** (*Required*): The Jabber ID (JID) that will act as origin of the messages. Add your JID including the domain, eg. your_name@jabber.org.
+- **password** (*Required*): The password for your given Jabber account.
+- **priority** (*Required*): The Jabber ID (JID) that will receive the messages.
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
+
 
 To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation.html).
