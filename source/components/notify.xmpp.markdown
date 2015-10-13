@@ -15,11 +15,11 @@ The xmpp platform allows you to deliver notifications from Home Assistant to a [
 ```yaml
 # Example configuration.yaml entry
 notify:
-    name: NOTIFIER_NAME
-    platform: xmpp
-    sender: YOUR_JID
-    password: YOUR_JABBER_ACCOUNT_PASSWORD
-    recipient: YOUR_RECIPIENT
+  name: NOTIFIER_NAME
+  platform: xmpp
+  sender: YOUR_JID
+  password: YOUR_JABBER_ACCOUNT_PASSWORD
+  recipient: YOUR_RECIPIENT
 ```
 
 Configuration variables:
