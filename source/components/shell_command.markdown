@@ -10,7 +10,7 @@ footer: true
 ---
 
 <img src='/images/supported_brands/utilities-terminal.png' class='brand pull-right' />
-This component can expose regular shell commands as services
+This component can expose regular shell commands as services.
 
 ```yaml
 # Example configuration.yaml entry
