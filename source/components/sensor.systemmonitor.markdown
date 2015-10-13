@@ -17,12 +17,12 @@ To add this platform to your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /home
-      - type: memory_free
-      - type: processor_use
+  platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_free
+    - type: processor_use
 ```
 
 Configuration variables:
@@ -30,7 +30,6 @@ Configuration variables:
 - **resources** array (*Required*): Contains all entries to display.
   - **type** (*Required*): The type of the information to display, please check the table below for details.
   - **arg** (*Optional*): Argument to use, please check the table below for details.
-
 
 The table contains types and their argument to use in your `configuration.yaml` file.
 
@@ -57,4 +56,3 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | since_last_boot     |                          |
 
 
-[Theodor Lindquist](https://github.com/theolind) has contributed the System monitoring platform.
