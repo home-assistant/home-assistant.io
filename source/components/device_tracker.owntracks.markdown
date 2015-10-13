@@ -24,3 +24,6 @@ To integrate Owntracks in Home Assistant, add the following section to your `con
 device_tracker:
   platform: owntracks
 ```
+
+There is no further configuration needed for tracking Owntracks devices.
+
