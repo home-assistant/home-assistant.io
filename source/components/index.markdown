@@ -182,16 +182,6 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
-  <td><a href='/components/device_tracker.owntracks.html'><img src='/images/supported_brands/owntracks.png' class='brand overview' /></a></td>
-  <td><a href='/components/device_tracker.owntracks.html'>OwnTracks devices</a></td>
-</tr>
-
-<tr>
-  <td><a href='/components/device_tracker.mqtt.html'><img src='/images/supported_brands/mqtt.png' class='brand overview' /></a></td>
-  <td><a href='/components/device_tracker.mqtt.html'>MQTT devices</a></td>
-</tr>
-
-<tr>
   <td><a href='/components/device_tracker.netgear.html'><img src='/images/supported_brands/netgear.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.netgear.html'>Netgear routers</a></td>
 </tr>
@@ -219,6 +209,21 @@ Entities are things that you want to observe within Home Assistant. Support for 
 <tr>
   <td><a href='/components/device_tracker.snmp.html'><img src='/images/supported_brands/network-snmp.png' class='brand overview' /></a></td>
   <td><a href='/components/device_tracker.snmp.html'>Generic SNMP</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/device_tracker.owntracks.html'><img src='/images/supported_brands/owntracks.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.owntracks.html'>OwnTracks devices</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/device_tracker.mqtt.html'><img src='/images/supported_brands/mqtt.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.mqtt.html'>MQTT devices</a></td>
+</tr>
+
+<tr>
+  <td><a href='/components/device_tracker.geofancy.html'><img src='/images/supported_brands/geofancy.png' class='brand overview' /></a></td>
+  <td><a href='/components/device_tracker.geofancy.html'>Geofancy devices</a></td>
 </tr>
 
 </table>
