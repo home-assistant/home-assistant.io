@@ -414,6 +414,11 @@ the manufacturers of these devices.
 </tr>
 
 <tr>
+  <td><a href='/components/shell_command.html'><img src='/images/supported_brands/utilities-terminal.png' class='brand overview' /></a></td>
+  <td><a href='/components/shell_command.html'>Shell commands</a> expose shell commands as services.</td>
+</tr>
+
+<tr>
   <td><a href='/components/sensor.time_date.html'><img src='/images/supported_brands/clock.png' class='brand overview' /></a></td>
   <td><a href='/components/sensor.time_date.html'>Time & Date</a> displays the time and the date and <a href='/components/sensor.worldclock.html'>Worldclock</a> from a different time zone.</td>
 </tr>
