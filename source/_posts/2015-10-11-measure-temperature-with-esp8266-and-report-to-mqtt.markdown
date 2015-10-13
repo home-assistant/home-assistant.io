@@ -17,6 +17,11 @@ For this tutorial, I'll walk through how to get going with ESP8266, get the temp
 report it to MQTT where Home Asssistant can pick it up.
 
 <p class='img'>
+<img src='/images/blog/2015-10-esp8266-temp/setup.png' />
+Picture of the final setup (+ 2 LED for decoration)
+</p>
+
+<p class='img'>
 <img src='/images/blog/2015-10-esp8266-temp/ha-sensor.png' />
 Home Assistant will keep track of historical values and allow you to integrate it into automation.
 </p>
