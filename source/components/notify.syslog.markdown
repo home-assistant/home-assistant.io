@@ -24,9 +24,12 @@ notify:
   priority: SYSLOG_PRIORITY
 ```
 
-Setting the optional parameter `name` allows multiple notifiers to be created.
-The default value is `notify`. The notifier will bind to the service
-`notify.NOTIFIER_NAME`.
+Configuration variables:
+
+- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+- **facility** (*Optional*): Facility according to RFC 3164 (http://tools.ietf.org/html/rfc3164). Default is 'syslog' if no value is given. Check the table below for entries.
+- **option** (*Optional*): Log option. Default is 'pid' if no value is given. Check the table below for entries.
+- **priority** (*Optional*): Priority of the messages. Default is 'info' if no value is given. Check the table below for entries.
 
 The table contains values to use in your `configuration.yaml` file.
 
