@@ -29,3 +29,36 @@ Configuration variables:
 - **pending_time** (*Optional*): The time in seconds of the pending time before arming the alarm. Default is 60 seconds.
 - **trigger_time** (*Optional*): The time in seconds of the trigger time in which the alarm is firing. Default is 120 seconds.
 
+
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this panel.
+
+### {% linkable_title Sensors %}
+
+Using sensors to trigger the alarm.
+
+```yaml
+automation:
+- alias: 'Trigger alarm while armed away'
+  trigger:
+    - platform: state
+      entity_id: sensor.pir1
+      state: 'active'
+    - platform: state
+      entity_id: sensor.pir2
+      state: 'active'
+    - platform: state
+      entity_id: sensor.door
+      state: 'open'
+    - platform: state
+      entity_id: sensor.window
+      state: 'open'
+  condition:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.ha_alarm
+```
