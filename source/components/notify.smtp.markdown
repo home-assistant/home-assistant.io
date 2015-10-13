@@ -28,9 +28,17 @@ notify:
   recipient: YOUR_RECIPIENT
 ```
 
-Setting the optional parameter `name` allows multiple notifiers to be created.
-The default value is `notify`. The notifier will bind to the service
-`notify.NOTIFIER_NAME`.
+Configuration variables:
+
+- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+- **server** (*Required*): SMTP server which is used to end the notifications. For Google Mail, eg. smtp.gmail.com. Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps').
+- **port** (*Required*): The port that the SMTP server is using, eg. 587 for Google Mail and STARTTLS or 465/993 depending on your SMTP servers.
+- **sender** (*Required*): E-Mail address of the sender.
+- **username** (*Required*): Username for the SMTP account.
+- **password** (*Required*):Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
+- **recipient** (*Required*): Recipient of the notification.
+- **starttls** (*Optional*): Enables STARTTLS, eg. 1 or 0.
+
 
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 
