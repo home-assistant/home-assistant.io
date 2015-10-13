@@ -17,35 +17,22 @@ To use PushOver notifications, add the following to your `configuration.yaml` fi
 ```yaml
 # Example configuration.yaml entry
 notify:
-    name: NOTIFIER_NAME
-    platform: pushover
-    # Get this by registering a new application on https://pushover.net
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-    # Get this by logging into your account on https://pushover.net
-    user_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+  name: NOTIFIER_NAME
+  platform: pushover
+  api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+  user_key: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
-Setting the optional parameter `name` allows multiple notifiers to be created.
-The default value is `notify`. The notifier will bind to the service
-`notify.NOTIFIER_NAME`.
+Configuration variables:
 
-### Automation example
+- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+- **api_key** (*Required*): This parameter is optional but should be configured, in order to get an API key you should go to https://pushover.net and register a new application.
+- **user_key** (*Required*): To retrieve this value log into your account at https://pushover.net
 
-Notifications are great to be used within Home Automation. Below is a an example configuration that you can add to your `configuration.yaml` to be notified when the sun sets.
+This is a quote from the pushover website regarding free/open source apps:
+> "If you are creating a client-side library, application, or open source project that will be redistributed and installed by end-users, you may want to require each of your users to register their own application rather than including your own API token with the software."
 
-```yaml
-automation:
-  alias: Sun set notification
-
-  platform: state
-  state_entity_id: sun.sun
-  state_from: above_horizon
-  state_to: below_horizon
-
-  execute_service: notify.NOTIFIER_NAME
-  service_data: {"message":"YAY"}
-```
+When setting up the application you can use this [icon](https://home-assistant.io/images/favicon-192x192.png).
 
 For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation.html).
 
-[James Cole](https://github.com/jamespcole) has contributed the PushOver platform.
