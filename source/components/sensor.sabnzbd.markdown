@@ -17,18 +17,24 @@ To use sabnzbd with your installation, add the following to your `configuration.
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: sabnzbd
-    name: SAB
-    api_key: YOUR_API_KEY
-    # Example: http://192.168.1.32:8124/
-    base_url: YOUR_SABNZBD_BASE_URL
-    monitored_variables:
-        - type: 'current_status'
-        - type: 'speed'
-        - type: 'queue_size'
-        - type: 'queue_remaining'
-        - type: 'disk_size'
-        - type: 'disk_free'
+  platform: sabnzbd
+  name: SAB
+  api_key: YOUR_API_KEY
+  base_url: YOUR_SABNZBD_BASE_URL
+  monitored_variables:
+    - type: 'current_status'
+    - type: 'speed'
+    - type: 'queue_size'
+    - type: 'queue_remaining'
+    - type: 'disk_size'
+    - type: 'disk_free'
 ```
 
-[James Cole](https://github.com/jamespcole) has contributed the sabnzbd platform.
+Configuration variables:
+
+- **base_url** (*Required*): This is the base URL of your SABnzbd instance including the port number if not running on 80, eg. http://192.168.1.32:8124/
+- **api_key** (*Required*): Name that will be used in the frontend for the pin.
+- **name** (*Optional*): The name to use when displaying this SABnzbd instance.
+- **monitored_variables** (*Required*): Array of the monitored variables.
+  - **type** (*Required*): Valid entries are: *'current_status'*, *'speed'*, *'queue_size'*, *'queue_remaining'*, *'disk_size'*, and *'disk_free'*
+
