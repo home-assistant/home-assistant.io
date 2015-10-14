@@ -25,7 +25,6 @@ sun:
   elevation: 123
 ```
 
-
 Configuration variables:
 
 - **elevation** (*Optional*): The solar elevation angle is the altitude of the sun. If ommitted will be retrieved from Google Maps.
@@ -34,9 +33,10 @@ Configuration variables:
 <img src='/images/screenshots/more-info-dialog-sun.png' />
 </p>
 
-### Implementation Details
+### {% linkable_title Implementation Details %}
 
-#### Maintains entity `sun.sun`.
+
+#### {% linkable_title Maintains entity `sun.sun` %}
 
 | Possible state | Description |
 | --------- | ----------- |
