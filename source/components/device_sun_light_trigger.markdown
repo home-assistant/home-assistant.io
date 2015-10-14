@@ -15,22 +15,23 @@ Home Assistant has a built-in component called `device_sun_light_trigger` to hel
  * Turn on the lights when people get home after the sun has set
  * Turn off the lights when all people leave the house
 
-This component requires the components [sun]({{site_root/components/sun.html}}), [device_tracker]({{site_root}}/components/device_tracker.html) and [light]({{site_root}}/components/light.html) to be enabled.
+This component requires the components [sun](/components/sun.html), [device_tracker](/components/device_tracker.html) and [light](/components/light.html) to be enabled.
 
-To enable this component, add the following lines to your `configuration.yaml`:
+To enable this component, add the following lines to your `configuration.yaml` file:
 
-```
+```yaml
+# Example configuration.yaml entry
 device_sun_light_trigger:
-  # Each of these 4 options are optional.
-
-  # Specify a specific light/group of lights that has to be turned on
   light_group: group.living_room
-  # Specify which light profile to use when turning lights on
   light_profile: relax
-  # Specify which group of devices to track
   device_group: group.my_devices
-  # Disable lights being turned off when everybody leaves the house
   disable_turn_off: 1
 ```
 
-The options `light_group`, `light_profile` and `disable_turn_off` are optional.
+Configuration variables:
+
+- **light_group** (*Optional*): Specify a specific light/group of lights that has to be turned on.
+- **light_profile** (*Optional*): Specify which light profile to use when turning lights on.
+- **device_group** (*Optional*): Specify which group of devices to track.
+- **disable_turn_off** (*Optional*): Disable lights being turned off when everybody leaves the house.
+
