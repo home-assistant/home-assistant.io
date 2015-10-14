@@ -26,7 +26,10 @@ media_player:
 
 Configuration variables:
 
-- **server** *Required*: IP address of the Music Player Daemon. Example: 192.168.1.32
-- **port** *Optional*: Port of the Music Player Daemon, defaults to 6600. Example: 6600
+- **server** *Required*: IP address of the Music Player Daemon, eg. 192.168.1.32
+- **port** *Optional*: Port of the Music Player Daemon, defaults to 6600.
 - **location** *Optional*: Location of your Music Player Daemon.
 - **password** *Optional*: Password for your Music Player Daemon.
+
+This platform works with [Music Player Daemon](http://www.musicpd.org/) and [mopidy](https://www.mopidy.com/) with [Mopidy-MPD](https://docs.mopidy.com/en/latest/ext/mpd/) as used by [Pi MusicBox](http://www.pimusicbox.com/).
+
