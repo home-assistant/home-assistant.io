@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/weather-clear.png.png' class='brand pull-right' />
+<img src='/images/supported_brands/weather-clear.png' class='brand pull-right' />
 The `sun` component will use your current location to track if the sun is above or below the horizon.
 The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].
 
