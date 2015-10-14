@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ---
 
+<img src='/images/supported_brands/weather-clear.png.png' class='brand pull-right' />
 The `sun` component will use your current location to track if the sun is above or below the horizon.
 The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].
 
@@ -21,9 +22,13 @@ homeassistant:
   longitude: -117.22743
 
 sun:
-  # Optional. If ommitted will be retrieved from Google Maps
   elevation: 123
 ```
+
+
+Configuration variables:
+
+- **elevation** (*Optional*): The solar elevation angle is the altitude of the sun. If ommitted will be retrieved from Google Maps.
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sun.png' />
