@@ -35,6 +35,18 @@ Configuration variables:
 
 ### {% linkable_title Implementation Details %}
 
+The suns event listener will call the service when the sun rises or sets with an offset.
+
+The sun event need to have the type 'sun', which service to call, which event (sunset or sunrise) and the offset.
+
+```json
+{
+    "type": "sun",
+    "service": "switch.turn_on",
+    "event": "sunset",
+    "offset": "-01:00:00"
+}
+```
 
 #### {% linkable_title Maintains entity `sun.sun` %}
 
