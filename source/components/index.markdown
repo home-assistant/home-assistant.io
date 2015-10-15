@@ -319,6 +319,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
 </tr>
 
 <tr>
+  <td><a href='/components/sensor.cpuspeed.html'><img src='/images/supported_brands/utilities-system-monitor.png' class='brand overview' /></a></td>
+  <td><a href='/components/sensor.cpuspeed.html'>CPU speed</a> only tracks CPU speed on the host machine.</td>
+</tr>
+
+<tr>
   <td><a href='/components/sensor.transmission.html'><img src='/images/supported_brands/transmission.png' class='brand overview' /></a></td>
   <td>
     <a href='/components/sensor.transmission.html'>Transmission</a> monitors status/speeds and <a href='/components/switch.transmission.html'>changes</a> the speed limits.
