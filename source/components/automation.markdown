@@ -206,11 +206,16 @@ or off.
 
 An automation rule can have mulitiple triggers. By default the action will only fire if all conditions
 pass. An optional key `condition_type: 'or'` can be set on the automation rule to fire action if any
-condition matches.
+condition matches.  In the example below, the automation would trigger if the time is before 05:00 _OR_ after 20:00.
 
 ```yaml
 automation:
   condition_type: or
+  condition:
+   - platform: time
+     before: '05:00'
+   - platform: time
+     after: '20:00'
 ```
 
 If your triggers and conditions are exactly the same, you can use a shortcut to specify conditions.
