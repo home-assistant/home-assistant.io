@@ -19,7 +19,9 @@ the [home-assistant.io repository](https://github.com/balloob/home-assistant.io/
 {% enddirectory %}
 
 #### Configuration.yaml Gists
-Please be sure to properly scrub your configuration.yaml files before publically sharing on this page.
 
 - [Carlo Costanzo](https://github.com/CCOSTAN) - [Configuration.yaml](https://gist.github.com/CCOSTAN/9934de973a293b809868) 
 
+<p class='note warning'>
+  Please be sure to properly scrub your configuration.yaml of usernames, passwords and other personal information you do not want public before sharing on this page.
+</p>
