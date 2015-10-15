@@ -211,6 +211,7 @@ condition matches.  In the example below, the automation would trigger if the ti
 ```yaml
 automation:
   condition_type: or
+  condition:
    - platform: time
      before: '05:00'
    - platform: time
