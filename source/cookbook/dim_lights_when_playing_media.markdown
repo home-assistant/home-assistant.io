@@ -23,28 +23,28 @@ A 2 second transition gives a nice 'feel' to the switch.
 scene:
   - name: Livingroom normal
     entities:
-      light.light1:
-        state: on
-        transition: 2
-        brightness: 150
-        xy_color: [ 0.4448, 0.4066 ]
-      light.light2:
-        state: on
-        transition: 2
-        brightness: 215
-        xy_color: [ 0.4448, 0.4066 ]
+        light.light1:
+            state: on
+            transition: 2
+            brightness: 150
+            xy_color: [ 0.4448, 0.4066 ]
+        light.light2:
+            state: on
+            transition: 2
+            brightness: 215
+            xy_color: [ 0.4448, 0.4066 ]
   - name: Livingroom dim
     entities:
-      light.light1
-        state: on
-        transition: 2
-        brightness: 75
-        xy_color: [ 0.5926, 0.3814 ]
-      light.light2
-        state: on
-        transition: 2
-        brightness: 145
-        xy_color: [ 0.5529, 0.4107 ]
+        light.light1:
+            state: on
+            transition: 2
+            brightness: 75
+            xy_color: [ 0.5926, 0.3814 ]
+        light.light2:
+            state: on
+            transition: 2
+            brightness: 145
+            xy_color: [ 0.5529, 0.4107 ]
 ```
 
 
