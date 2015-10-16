@@ -22,8 +22,8 @@ rake preview
 ```
 
 
-### Preparation on CentOS
-On CentOS (here 7.1.1503) Ruby is not available by default. Please take the notes here as a little guide for the Ruby installation process. 
+### Preparation on Fedora and CentOS
+On Fedora 22 or CentOS 7.1.1503 Ruby is not available by default. Please take the notes here as a little guide for the Ruby installation process. 
 
 ```bash
 curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
