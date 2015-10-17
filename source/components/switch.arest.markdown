@@ -19,9 +19,10 @@ To use your aREST enabled device in your installation, add the following to your
 switch:
   platform: arest
   resource: http://IP_ADDRESS
+  name: Office
   pins:
     11:
-      name: Fan Office
+      name: Fan
     12:
       name: Light Desk
 ```
@@ -29,6 +30,7 @@ switch:
 Configuration variables:
 
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, eg. http://192.168.1.10.
+- **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
 - **pins** (*Required*): An array with all used pins of your board.
   - **name** (*Required*): The name of the pin you wish to toggle.
 
