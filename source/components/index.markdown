@@ -79,6 +79,11 @@ Entities are things that you want to observe within Home Assistant. Support for 
   <td><a href='/components/light.blinksticklight.html'>Blickstick</a> controls your Blinkstick lights or device.</td>
 </tr>
 
+<tr>
+  <td><a href='/components/thermostat.radiotherm.html'><img src='/images/supported_brands/radiotherm.png' class='brand overview' /></a></td>
+  <td><a href='/components/thermostat.radiotherm.html'>Radiotherm thermostats</a> displays current temperature and control target temperature/away mode.</td>
+</tr>
+
 </table>
         </div>
       </div>
