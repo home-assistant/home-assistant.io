@@ -22,19 +22,31 @@ sensor:
   name: Office
   monitored_variables:
     - name: temperature
-      unit: '°C'
+      unit_of_measurement: '°C'
     - name: humidity
-      unit: '%'
+      unit_of_measurement: '%'
+    pins:
+      A0:
+        name: Pin 0 analog
+        unit_of_measurement: "ca"
+        correction_factor: 0.01
+        decimal_places: 1
+      3:
+        name: Pin 3 digital
 ```
 
 Configuration variables:
 
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, e.g. http://192.168.1.10.
 - **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
-- **monitored_variables** array: List of exposed variables.
+- **monitored_variables** array (*Optional*): List of exposed variables.
   - **name** (*Required*): The name of the variable you wish to monitor.
   - **unit** (*Optional*): Defines the units of measurement of the sensor, if any.
-
+- **pins** array (*Optional*): List of pins to monitor. Analog pins need a leading **A** for the pin number.
+  - **name** (*Optional*): The name of the variable you wish to monitor.
+  - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
+  - **correction_factor** (*Optional*): A float value to do some basic calculations.
+  - **decimal_places** (*Optional*): Number of decimal places of the value. Default is 0.
 
 The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you find below a sketch for the Arduino device family. There are two variables (`temperature` and `humidity`) which will act as endpoints. 
 
