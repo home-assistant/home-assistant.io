@@ -49,3 +49,6 @@ Configuration variables:
 
 Details about the API are available in the [OpenWeatherMap documentation](http://bugs.openweathermap.org/projects/api/wiki).
 
+Only metric measurements are supported at the moment.
+
+
