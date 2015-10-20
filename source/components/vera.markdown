@@ -9,28 +9,11 @@ sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/vera.png' class='brand' />
+<img src='/images/supported_brands/vera.png' class='brand pull-right' />
+The [Vera](http://getvera.com) ecosystem is using Z-Wave for communication between the Vera controller and the devices.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-    platform: vera
-    vera_controller_url: http://YOUR_VERA_IP:3480/
-    device_data:
-        10:
-            name: Another sensor
+## {% linkable_title Building on top of MQTT %}
 
-switch:
-    platform: vera
-    vera_controller_url: http://YOUR_VERA_IP:3480/
-    device_data:
-        12:
-            name: Another Switch
-
-light:
-    platform: vera
-    vera_controller_url: http://YOUR_VERA_IP:3480/
-    device_data:
-        11:
-            name: Another light
-```
+ - [Vera Sensor](/components/sensor.vera.html)
+ - [Vera Switch](/components/switch.vera.html)
+ - [Vera Light](/components/light.vera.html)
