@@ -52,4 +52,3 @@ If everthing is setup correctly, the details will show up in the frontend.
   <img src='{{site_root}}/images/screenshots/transmission.png' />
 </p>
 
-[James Cole](https://github.com/jamespcole) has contributed the transmission platform.
