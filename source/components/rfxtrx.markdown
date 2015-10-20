@@ -22,7 +22,7 @@ rfxtrx:
 Configuration variables:
 
 - **device** (*Required*): The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
-- **debug** (*Optional*): If you want to recieve debug output.
+- **debug** (*Optional*): If you want to receive debug output.
 
 
 ## {% linkable_title Building on top of RFXtrx %}
