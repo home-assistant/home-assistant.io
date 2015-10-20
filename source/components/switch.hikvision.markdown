@@ -12,6 +12,10 @@ footer: true
 <img src='/images/supported_brands/hikvision.png' class='brand pull-right' />
 This hikvisioncam switch platform allows you to control your motion detection setting on your [Hikvision](http://www.hikvision.com/) camera.
 
+<p class='note warning'>
+Currently works using default https port only.
+</p>
+
 To use your Hikvision cam in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
