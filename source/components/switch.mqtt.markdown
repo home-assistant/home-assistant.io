@@ -10,19 +10,13 @@ footer: true
 ---
 
 <img src='/images/supported_brands/mqtt.png' class='brand pull-right' />
-In an ideal scenario, the MQTT device will have a state topic to publish
-state changes. If these messages are published with RETAIN flag, the MQTT
-switch will receive an instant state update after subscription and will
-start with correct state. Otherwise, the initial state of the switch will
-be false/off.
+In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will
+start with correct state. Otherwise, the initial state of the switch will be false/off.
 
-When a state topic is not available, the switch will work in optimistic mode.
-In this mode, the switch will immediately change state after every command.
-Otherwise, the switch will wait for state confirmation from device
-(message from state_topic).
+When a state topic is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from device
+(message from `state_topic`).
 
-Optimistic mode can be forced, even if state topic is available.
-Try to enable it, if experiencing incorrect switch operation.
+Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect switch operation.
 
 ```yaml
 # Example configuration.yml entry
