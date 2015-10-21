@@ -14,6 +14,23 @@ footer: true
 
 To add modbus to your installation, add the following to your `configuration.yaml` file:
 
+For a network connection:
+
+#Modbus TCP
+modbus:
+  type: tcp
+  host: IP_ADDRESS
+  port: 2020
+```
+
+Configuration variables:
+
+- **type** (*Required*): Type of the connection to Modebus.
+- **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
+- **port** (*Required*): The port for the comminication.
+
+For a serial connection:
+
 ```yaml
 # Example configuration.yaml entry
 modbus:
@@ -24,32 +41,20 @@ modbus:
   stopbits: 1
   bytesize: 8
   parity: N
-
-sensor:
-  platform: modbus
-  slave: 1
-  registers:
-    16:
-      name: My integer sensor
-        unit: C
-    24:
-      bits:
-        0:
-          name: My boolean sensor
-        2:
-          name: My other boolean sensor
-    coils:
-        0:
-            name: My coil switch
-
-switch:
-  platform: modbus
-  slave: 1
-  registers:
-    24:
-      bits:
-        0:
-          name: My switch
-        2:
-          name: My other switch
 ```
+
+Configuration variables:
+
+- **type** (*Required*): Type of the connection to Modebus.
+- **method** (*Required*): Method of the connection to Modbus.
+- **port** (*Required*): The port where your Modbus device is connected to your Home Assistant host.
+- **baudrate** (*Required*): The speed for the serial connection.
+- **stopbits** (*Required*): The stopbits for the serial connection.
+- **bytesize** (*Required*): The bytesize for the serial connection.
+- **parity** (*Required*): The parity for the serial connection.
+
+## {% linkable_title Building on top of Modbus %}
+
+ - [Modbus Sensor](/components/sensor.modbus.html)
+ - [Modbus Switch](/components/switch.modbus.html)
+
