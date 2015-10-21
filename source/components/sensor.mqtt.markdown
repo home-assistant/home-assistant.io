@@ -10,10 +10,9 @@ footer: true
 ---
 
 <img src='/images/supported_brands/mqtt.png' class='brand pull-right' />
-This generic sensor implementation uses the MQTT message payload
-as the sensor value. If messages in this state_topic are published
-with RETAIN flag, the sensor will receive an instant update with
-last known value. Otherwise, the initial state will be undefined.
+This MQTT sensor implementation uses the MQTT message payload as the sensor value. If messages in this state_topic are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
+
+To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yml entry
