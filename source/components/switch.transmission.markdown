@@ -18,7 +18,7 @@ To add Transmission to your installation, add the following to your `configurati
 # Example configuration.yaml entry
 switch:
   platform: transmission
-  host: 192.168.1.26
+  host: IP_ADDRESS
   port: 9091
   name: Transmission
   username: USERNAME
@@ -27,7 +27,7 @@ switch:
 
 Configuration variables:
 
-- **host** (*Required*): This is the IP address of your Transmission daemon, e.g. 192.168.1.32.
+- **host** (*Required*): This is the IP address of your Transmission daemon, eg. 192.168.1.32.
 - **port** (*Optional*): The port your Transmission daemon uses, defaults to 9091.
 - **name** (*Optional*): The name to use when displaying this Transmission instance.
 - **username** (*Optional*): Your Transmission username, if you use authentication.
