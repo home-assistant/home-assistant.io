@@ -18,13 +18,22 @@ To use your Raspberry Pi's GPIO in your installation, add the following to your 
 # Example configuration.yaml entry
 sensor:
   platform: rpi_gpio
-  pull_mode: "UP"
-  value_high: "Active"
-  value_low: "Inactive"
   ports:
     11: PIR Office
     12: PIR Bedroom
+  pull_mode: "UP"
+  value_high: "Active"
+  value_low: "Inactive"
 ```
+
+Configuration variables:
+
+- **ports** array (*Required*): Array of used ports.
+  - **port: name** (*Required*): Your username for the Edimax switch.
+- **pull_mode** (*Optional*): The internal pull to use (UP or DOWN). Default is UP.
+- **value_high** (*Optional*): The value of the sensor when the port is HIGH. Default is "HIGH".
+- **value_low** (*Optional*): The value of the sensor when the port is LOW. Default is "LOW".
+- **bouncetime** (*Optional*): The time in milliseconds for port debouncing. Default is 50ms.
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
@@ -32,3 +41,6 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 If you are not running Raspbian Jessie, you will need to run Home Assistant as root.
 </p>
 
+<p class='note warning'>
+To avoid having to run Home Assistant as root when using this component, run a Raspbian version released at or after September 29, 2015.
+</p>
