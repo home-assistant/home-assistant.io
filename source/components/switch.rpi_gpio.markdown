@@ -21,7 +21,14 @@ switch:
   ports:
     11: Fan Office
     12: Light Desk
+  invert_logic: false
 ```
+
+Configuration variables:
+
+- **ports** array (*Required*): Array of used ports.
+  - **port: name** (*Required*): Your username for the Edimax switch.
+- **invert_logic (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH)
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
