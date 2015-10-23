@@ -9,8 +9,7 @@ sharing: true
 footer: true
 ---
 <img src='/images/supported_brands/mqtt.png' class='brand pull-right' />
-MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol
-on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
+MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
 To integrate MQTT into Home Assistant, add the following section to your `configuration.yaml` file:
 
