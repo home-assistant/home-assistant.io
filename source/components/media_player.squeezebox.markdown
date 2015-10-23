@@ -18,7 +18,7 @@ To add your Squeezebox to your installation, add the following to your `configur
 # Example configuration.yaml entry
 media_player:
   platform: squeezebox
-  host: 192.168.1.21
+  host: IP_ADDRESS
   port: 9090
   username: USERNAME
   password: PASSWORD
@@ -26,7 +26,7 @@ media_player:
 
 Configuration variables:
 
-- **host** *Required*: The host name or address of the Logitech Media Server.
+- **host** *Required*: The host name or address of the Logitech Media Server, eg. 192.168.1.21.
 - **port** *Optional*: Telnet port to Logitech Media Server, default 9090.
 - **username** *Optional*: The username, if password protection is enabled.
 - **password** *Optional*: The password, if password protection is enabled.
