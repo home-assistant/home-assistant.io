@@ -14,6 +14,8 @@ The rest switch platform allows you to control a given endpoint that supports a 
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
+```yaml
+# Example configuration.yaml entry
 switch:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
