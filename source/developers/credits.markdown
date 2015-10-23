@@ -55,6 +55,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Michael Gilbert](https://github.com/Zyell)
 - [miniconfig](https://github.com/miniconfig)
 - [Nolan Gilley](https://github.com/nkgilley)
+- [Pascal Bach](https://github.com/bachp)
 - [Per Sandström](https://github.com/persandstrom)
 - [Piratonym](https://github.com/Piratonym)
 - [Rev Michael Greb](https://github.com/mikegrb)
