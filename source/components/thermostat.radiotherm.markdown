@@ -23,10 +23,16 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 thermostat:
   platform: radiotherm
-  host: IP_ADDRESSE
+  host:
+    - 192.168.99.137
+    - 192.168.99.202
+  hold_temp: True
 ```
 
 Configuration variables:
 
-- **host** (*Required*): Your Radiotherm thermostat.
+- **host** (*Required*): List of your Radiotherm thermostats
+- **hold_temp** (*Required*): Boolean to control if hass temp adjustments hold(True) or are temporary(False)
+
+Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to `False` if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.
 
