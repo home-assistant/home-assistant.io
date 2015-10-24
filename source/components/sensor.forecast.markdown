@@ -23,9 +23,14 @@ sensor:
   api_key: YOUR_APP_KEY
   monitored_conditions:
     - summary
+    - icon
+    - nearest_storm_distance
+    - nearest_storm_bearing
     - precip_type
     - precip_intensity
+    - precip_probability
     - temperature
+    - apparent_temperature
     - dew_point
     - wind_speed
     - wind_bearing
@@ -39,7 +44,7 @@ sensor:
 Configuration variables:
 
 - **api_key** (*Required*): Your API key for http://forecast.io/. 
-- **display_conditions** array (*Required*): Conditions to display in the frontend.
+- **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **summary**: A human-readable text summary.
   - **precip_type**: The type of precipitation occurring.
   - **precip_intensity**: The average expected intensity of precipitation occurring.
@@ -52,5 +57,7 @@ Configuration variables:
   - **pressure**: The sea-level air pressure in millibars.
   - **visibility**: The average visibility.
   - **ozone**: The columnar density of total atmospheric ozone in Dobson.
+- **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are auto, us, si, ca, and uk2.
+`auto` will let forecast.io decide the unit system based on location.
 
 Details about the API are available in the [Forecast.io documentation](https://developer.forecast.io/docs/v2).
