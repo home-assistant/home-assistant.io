@@ -33,6 +33,8 @@ Configuration variables:
 
 A few notes:
 
-- As long as this module is active and connected, the receiver does not seem to accept additional telnet connections.
-- Be careful with the volume. 50 % or even 100 % are very loud.
+- The receiver handles only one telnet connection and refuses others.
+- Be careful with the volume. 50% or even 100% are very loud.
 - To be able to wake up the receiver, activate the "remote" setting in the receiver's settings.
+- Play and pause are supported, toggling is not possible.
+- Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
