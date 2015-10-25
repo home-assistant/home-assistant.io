@@ -1,7 +1,7 @@
 ---
 layout: component
-title: "Command line switches"
-description: "Instructions how to have a switch call command line commands."
+title: "Command line switch"
+description: "Instructions how to have switches call command line commands."
 date: 2015-06-10 22:41
 sidebar: true
 comments: false
@@ -11,7 +11,7 @@ ha_category: Switch
 ---
 
 
-A switch platform that issues specific commands when it is turned on and off. This might very well become our most platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
+The switch platform that issues specific commands when it is turned on and off. This might very well become our most platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
 
 To enable it, add the following lines to your `configuration.yaml`:
 
