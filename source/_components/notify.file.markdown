@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "File notification"
+title: "File"
 description: "Instructions how to add file notifications to Home Assistant."
 date: 2015-06-22 10:00
 sidebar: true
