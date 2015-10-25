@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Vera switches"
+title: "Vera switch"
 description: "Instructions how to integrate Vera switches into Home Assistant."
 date: 2015-10-20 21:00
 sidebar: true
