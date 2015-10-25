@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "DHT"
+title: "DHT sensor"
 description: "Instructions how to integrate DHTxx sensors within Home Assistant."
 date: 2015-08-30 19:15
 sidebar: true
