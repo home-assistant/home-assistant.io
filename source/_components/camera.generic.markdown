@@ -1,15 +1,15 @@
 ---
-layout: page
+layout: component
 title: "Generic IP Camera"
 description: "Instructions how to integrate IP cameras within Home Assistant."
 date: 2015-07-11 0:36
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Camera
 ---
-<img src='/images/supported_brands/camera-web.png' class='brand pull-right' />
+
 
 This component allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.
 

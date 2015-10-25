@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "FireTV support"
+layout: component
+title: "FireTV"
 description: "Instructions how to integrate Music Player Daemon into Home Assistant."
 date: 2015-10-23 18:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: firetv.png
 ha_category: Media Player
 ---
 
-<img src='/images/supported_brands/firetv.png' class='brand pull-right' />
+
 The firetv platform allows you to control a [Amazon Fire TV/stick](http://www.amazon.com/Amazon-DV83YW-Fire-TV/dp/B00U3FPN4U).
 
 The python-firetv Python 2.x module with its helper script that exposes a HTTP server to fetch state and perform actions is used.

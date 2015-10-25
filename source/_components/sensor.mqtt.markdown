@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "MQTT Sensor support"
+layout: component
+title: "MQTT Sensor"
 description: "Instructions how to integrate MQTT sensors within Home Assistant."
 date: 2015-05-30 23:21
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: mqtt.png
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/mqtt.png' class='brand pull-right' />
+
 This MQTT sensor implementation uses the MQTT message payload as the sensor value. If messages in this state_topic are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
 
 To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:

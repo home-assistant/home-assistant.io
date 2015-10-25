@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: component
 title: "Scripts"
 description: "Instructions how to setup scripts within Home Assistant."
 date: 2015-03-23 19:59
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

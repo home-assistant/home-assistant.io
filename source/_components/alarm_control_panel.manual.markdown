@@ -1,16 +1,16 @@
 ---
-layout: page
-title: "Manual alarm support"
+layout: component
+title: "Manual Alarm Control Panel"
 description: "Instructions how to integrate manual alarms into Home Assistant."
 date: 2015-10-13 19:10
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Alarm Control Panel
 ---
 
-<img src='/images/supported_brands/preferences-system-privacy.png' class='brand pull-right' />
+
 This platform enables you to set manual alarms in Home Assistant.
 
 ```yaml

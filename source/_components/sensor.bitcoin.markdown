@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Bitcoin support"
+layout: component
+title: "Bitcoin"
 description: "Instructions how to integrate Bitcoin data within Home Assistant."
 date: 2015-05-08 17:15
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: bitcoin.png
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/bitcoin.png' class='brand pull-right' />
+
 The bitcoin platform displays various details about the [Bitcoin](https://bitcoin.org) network.
 
 If you have an online wallet from [Blockchain.info](https://blockchain.info/) the sensor is capable to show your current balance.

@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Z-Wave support"
+layout: component
+title: "Z-Wave"
 description: "Instructions how to integrate your existing Z-Wave within Home Assistant."
 date: 2015-03-23 19:59
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -16,7 +16,7 @@ Z-Wave support is currently broken as we're unable to compile
 <a href='https://github.com/OpenZWave/python-openzwave/tree/python3'>Python Open Z-Wave</a>.
 </p>
 
-<img src='/images/supported_brands/z-wave.png' class='brand pull-right' />
+
 
 [Z-Wave](http://www.z-wave.com/) support for Home Assistant is very new. We have started now by integrating only the sensors.
 

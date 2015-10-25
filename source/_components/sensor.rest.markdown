@@ -1,16 +1,16 @@
 ---
-layout: page
-title: "RESTful sensor support"
+layout: component
+title: "RESTful sensor"
 description: "Instructions how to integrate REST sensors into Home Assistant."
 date: 2015-09-14 19:10
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/rest.png' class='brand pull-right' />
+
 The rest sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:

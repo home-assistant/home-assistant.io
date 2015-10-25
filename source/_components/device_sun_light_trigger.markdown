@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: component
 title: "Automating your lights"
 description: "Instructions how to automate your lights with Home Assistant."
 date: 2015-01-20 22:36
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

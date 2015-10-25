@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Vera switches support"
+layout: component
+title: "Vera switches"
 description: "Instructions how to integrate Vera switches into Home Assistant."
 date: 2015-10-20 21:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: vera.png
 ha_category: Switch
 ---
 
-<img src='/images/supported_brands/vera.png' class='brand pull-right' />
+
 This vera switch platform allows you to control your [Vera](http://getvera.com/) switches.
 
 To use your Vera switches in your installation, add the following to your `configuration.yaml` file:

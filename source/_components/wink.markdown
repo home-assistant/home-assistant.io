@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Wink hub"
+layout: component
+title: "Wink"
 description: "Instructions how to setup the Wink hub within Home Assistant."
 date: 2015-01-20 22:36
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: wink.png
 ha_category: Hub
 ---
 
-<img src='/images/supported_brands/wink.png' class='brand pull-right' />
+
 [Wink](http://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:
 
 <blockquote>Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.</blockquote>

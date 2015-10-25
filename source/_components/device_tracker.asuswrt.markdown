@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "ASUSWRT support"
+layout: component
+title: "ASUSWRT"
 description: "Instructions how to integrate ASUSWRT based routers into Home Assistant."
 date: 2015-08-06 19:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: asus.png
 ha_category: Presence Detection
 ---
 
-<img src='/images/supported_brands/asus.png' class='brand pull-right' />
+
 This platform offers presence detection by looking at connected devices to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
 
 <p class='note warning'>

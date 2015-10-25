@@ -1,15 +1,15 @@
 ---
-layout: page
+layout: component
 title: "Conversation"
 description: "Instructions how to have conversations with your Home Assistant."
 date: 2015-03-15 00:39
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/system-users.png' class='brand pull-right' />
+
 The conversation component can process sentences into commands for Home Assistant. It is currently limited to parsing commands in the format `turn <Friendly Name> <on/off>`.
 
 To enable the conversion option in your installation, add the following to your `configuration.yaml` file:

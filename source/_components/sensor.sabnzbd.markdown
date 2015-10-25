@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "SABnzbd support"
+layout: component
+title: "SABnzbd"
 description: "Instructions how to integrate SABnzbd within Home Assistant."
 date: 2015-03-23 19:59
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: sabnzbd.png
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/sabnzbd.png' class='brand pull-right' />
+
 The sabnzbd platform will allow you to monitor your downloads with [SABnzbd](http://sabnzbd.org) from within Home Assistant and setup automation based on the information.
 
 To use sabnzbd with your installation, add the following to your `configuration.yaml` file:

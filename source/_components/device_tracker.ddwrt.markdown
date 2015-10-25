@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "DD-WRT support"
+layout: component
+title: "DD-WRT"
 description: "Instructions how to integrate DD-WRT based routers into Home Assistant."
 date: 2015-05-11 09:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: ddwrt.png
 ha_category: Presence Detection
 ---
 
-<img src='/images/supported_brands/ddwrt.png' class='brand pull-right' />
+
 This platform offers presence detection by looking at connected devices to a [DD-WRT](http://www.dd-wrt.com/site/index) based router.
 
 To use a DD-WRRT router in your installation, add the following to your `configuration.yaml` file:

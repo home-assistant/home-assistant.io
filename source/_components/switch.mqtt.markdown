@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "MQTT switch support"
+layout: component
+title: "MQTT switch"
 description: "Instructions how to integrate MQTT switches into Home Assistant."
 date: 2015-08-30 23:38
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: mqtt.png
 ha_category: Switch
 ---
 
-<img src='/images/supported_brands/mqtt.png' class='brand pull-right' />
+
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will
 start with correct state. Otherwise, the initial state of the switch will be false/off.
 

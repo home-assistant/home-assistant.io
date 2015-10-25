@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "OpenWeatherMap support"
+layout: component
+title: "OpenWeatherMap"
 description: "Instructions how to integrate OpenWeatherMap within Home Assistant."
 date: 2015-04-25 9:06
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: openweathermap.png
 ha_category: Weather
 ---
 
-<img src='/images/supported_brands/openweathermap.png' class='brand pull-right' />
+
 The openweathermap platform uses [OpenWeatherMap](http://openweathermap.org/) as an source for current meteorological data for your location. The `forecast` will show you the condition in 3 h. 
 
 You need an API key which is free but requires a [registration](http://home.openweathermap.org/users/sign_up).

@@ -1,7 +1,9 @@
 <div class="grid">
-
-  {% include asides/social.html %}
-
-  {% include_array default_asides %}
-
+  {% assign url_parts = page.url | split: '/' %}
+  {% if url_parts[1] == 'components' %}
+    {% include asides/component_navigation.html %}
+  {% else %}
+    {% include asides/social.html %}
+    {% include_array default_asides %}
+  {% endif %}
 </div>

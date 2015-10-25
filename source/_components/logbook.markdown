@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Logbook support"
+layout: component
+title: "Logbook"
 description: "Instructions how to enable the logbook component for Home Assistant."
 date: 2015-04-25 9:23
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

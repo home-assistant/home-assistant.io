@@ -1,16 +1,16 @@
 ---
-layout: page
+layout: component
 title: "Browser"
 description: "Instructions how to setup the browser component with Home Assistant."
 date: 2015-01-24 14:39
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Other
 ---
 
-<img src='/images/supported_brands/web-browser.png' class='brand pull-right' />
+
 The browser component provides a service to open urls in the default browser on the host machine.
 
 To load this component, add the following lines to your `configuration.yaml`:

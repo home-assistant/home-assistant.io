@@ -1,14 +1,16 @@
 ---
-layout: page
-title: "IFTTT - ManyThing Channel"
+layout: component
+title: "ManyThing"
 description: "Instructions how to setup ManyThing support with IFTTT."
 date: 2015-09-07 18:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: manything.png
+ha_category: Camera
 ---
-<img src='/images/supported_brands/manything.png' class='brand pull-right' />
+
 [Manything](https://manything.com) is a smart app that turns your iPhone, iPod, or iPad into a wifi 
 camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
 

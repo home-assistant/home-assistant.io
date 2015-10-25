@@ -308,17 +308,26 @@ p.note {
       border-radius: 2px;
       box-shadow: rgba(0, 0, 0, 0.098) 0px 2px 4px, rgba(0, 0, 0, 0.098) 0px 0px 3px;
       padding: 8px;
+      text-align: center;
 
       .img-container {
         height: 50px;
-        text-align: center;
         margin-bottom: 8px;
+        font: 0/0 a;
+
+        &:before {    /* create a full-height inline block pseudo=element */
+            content: ' ';
+            display: inline-block;
+            vertical-align: middle;  /* vertical alignment of the inline element */
+            height: 100%;
+        }
 
         img {
           max-width: 100%;
           max-height: 50px;
           box-shadow: none;
           border: none;
+          vertical-align: middle;
         }
       }
 
@@ -334,6 +343,21 @@ p.note {
         font-size: 14px;
         color: #AAA;
       }
+    }
+  }
+}
+
+.aside-module {
+  .section {
+    margin-bottom: 16px;
+  }
+
+  .brand-logo-container {
+    text-align: center;
+    height: 97px;
+
+    img {
+      max-height: 97px;
     }
   }
 }

@@ -1,16 +1,16 @@
 ---
-layout: page
-title: "Worldclock support"
+layout: component
+title: "Worldclock"
 description: "Instructions how to integrate a Worldclock within Home Assistant."
 date: 2015-10-02 11:15
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/clock.png' class='brand pull-right' />
+
 The worldclock platform simple displays the current time in a different time zone
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:

@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Denon Network Receivers support"
+layout: component
+title: "Denon Network Receivers"
 description: "Instructions how to integrate Denon Network Receivers into Home Assistant."
 date: 2015-09-08 09:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: denon.png
 ha_category: Media Player
 ---
 
-<img src='/images/supported_brands/denon.png' class='brand pull-right' />
+
 The denon platform allows you to control a [Denon Network Receivers](http://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo) from Home Assistant.
 
 Supported devices:

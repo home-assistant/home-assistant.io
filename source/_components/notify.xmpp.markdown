@@ -1,17 +1,17 @@
 ---
-layout: page
-title: "Jabber (XMPP) notification support"
+layout: component
+title: "Jabber (XMPP)"
 description: "Instructions how to add Jabber (XMPP) notifications to Home Assistant."
 date: 2015-05-08 18:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: xmpp.png
-ha_category: Notify
+ha_category: Notifications
 ---
 
-<img src='/images/supported_brands/xmpp.png' class='brand pull-right' />
+
 The xmpp platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](http://xmpp.org) account.
 
 ```yaml

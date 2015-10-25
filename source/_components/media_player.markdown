@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: component
 title: "Media Player"
 description: "Instructions how to setup your media players with Home Assistant."
 date: 2015-01-24 14:39
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

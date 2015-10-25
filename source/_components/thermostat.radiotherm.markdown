@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Radiotherm thermostat support"
+layout: component
+title: "Radiotherm thermostat"
 description: "Instructions how to integrate Radiotherm thermostats within Home Assistant."
 date: 2015-10-18 17:15
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: radiotherm.png
 ha_category: Thermostat
 ---
 
-<img src='/images/supported_brands/radiotherm.png' class='brand pull-right' />
+
 The nest thermostat platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
 
 The underlaying library supports:

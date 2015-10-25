@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: component
 title: "Switches"
 description: "Instructions how to setup your switches with Home Assistant."
 date: 2015-01-24 14:39
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

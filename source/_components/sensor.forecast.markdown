@@ -1,16 +1,16 @@
 ---
-layout: page
-title: "Forecast.io support"
+layout: component
+title: "Forecast.io"
 description: "Instructions how to integrate Forecast.io within Home Assistant."
 date: 2015-04-25 9:06
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Weather
 ---
 
-<img src='/images/supported_brands/weather-few-clouds.png' class='brand pull-right' />
+
 The forecast platform uses the [Forecast.io](https://forecast.io/) web service as a source for meteorological data for your location. The location is based on the Longitude and Latitude cooridinates configured in `configuration.yaml`.  The cooridinates are auto detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address.  GPS cooridinates can be found by using Google Maps and clicking on your home.
 
 You need an API key which is free but requires a [registration](https://developer.forecast.io/register). You can make 1000 requests per day. This means that you could create approximately every 1.4 minute one.

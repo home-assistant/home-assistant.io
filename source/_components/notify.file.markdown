@@ -1,16 +1,16 @@
 ---
-layout: page
-title: "File notification support"
+layout: component
+title: "File notification"
 description: "Instructions how to add file notifications to Home Assistant."
 date: 2015-06-22 10:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Notify
+ha_category: Notifications
 ---
 
-<img src='/images/supported_brands/text-x-generic.png' class='brand pull-right' />
+
 The file platform allows you to store notifications from Home Assistant as a file.
 
 To enable file notifications in your installation, add the following to your `configuration.yaml` file:

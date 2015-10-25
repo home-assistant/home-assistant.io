@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Generic SNMP support"
+layout: component
+title: "SNMP"
 description: "Instructions how to integrate SNMP into Home Assistant."
 date: 2015-10-08 12:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: network-snmp.png
 ha_category: Presence Detection
 ---
 
-<img src='/images/supported_brands/network-snmp.png' class='brand pull-right' />
+
 Most wifi-accesspoints (WAP) and wifi-routers (WRT) support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of insances and metrics, like network interfaces, disks, and wifi registrations.
 
 <p class='note warning'>

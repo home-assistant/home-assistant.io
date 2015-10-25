@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "TP-Link support"
+layout: component
+title: "TP-Link"
 description: "Instructions how to integrate TP-Link routers into Home Assistant."
 date: 2015-06-22 10:30
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: tp-link.png
 ha_category: Presence Detection
 ---
 
-<img src='/images/supported_brands/tp-link.png' class='brand pull-right' />
+
 This platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device. This includes the ArcherC9 line.
 
 ```yaml

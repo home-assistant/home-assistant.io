@@ -1,17 +1,17 @@
 ---
-layout: page
-title: "PushBullet notification support"
+layout: component
+title: "PushBullet"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-01-20 22:36
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: pushbullet.png
-ha_category: Notify
+ha_category: Notifications
 ---
 
-<img src='/images/supported_brands/pushbullet.png' class='brand pull-right' />
+
 Home Assistant currently supports the awesome [PushBullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers and friends.
 
 To add PushBullet to your installation, add the following to your `configuration.yaml` file:

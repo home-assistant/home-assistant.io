@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: component
 title: "Verisure"
 description: "Instructions how to setup Verisure devices within Home Assistant."
 date: 2015-08-17 20:28
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: verisure.png
 ha_category: Hub
 ---
 
-<img src='/images/supported_brands/verisure.png' class='brand pull-right' />
+
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
 

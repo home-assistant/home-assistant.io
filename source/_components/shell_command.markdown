@@ -1,16 +1,16 @@
 ---
-layout: page
-title: "Shell command component"
+layout: component
+title: "Shell command"
 description: "Instructions how to integrate Shell commands into Home Assistant."
 date: 2015-10-13 19:10
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Other
 ---
 
-<img src='/images/supported_brands/utilities-terminal.png' class='brand pull-right' />
+
 This component can expose regular shell commands as services.
 
 ```yaml

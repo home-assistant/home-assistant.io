@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Glances sensor support"
+layout: component
+title: "Glances sensor"
 description: "Instructions how to integrate Glances sensors into Home Assistant."
 date: 2015-09-14 19:10
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: glances.png
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/glances.png' class='brand pull-right' />
+
 The glances sensor platform is consuming the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
 
 This sensors needs a running isntance of `glances` on the host:

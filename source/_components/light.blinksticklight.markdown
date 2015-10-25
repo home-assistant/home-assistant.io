@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Blinkstick support"
+layout: component
+title: "Blinkstick"
 description: "Instructions how to setup Blinkstick lights within Home Assistant."
 date: 2015-10-08 10:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: blinkstick.png
 ha_category: Light
 ---
 
-<img src='/images/supported_brands/blinkstick.png' class='brand pull-right' />
+
 The blinkstick platform let you can control your [Blinkstick](https://www.blinkstick.com/) lights from within Home Assistant.
 
 To add blinkstick to your installation, add the following to your `configuration.yaml` file:

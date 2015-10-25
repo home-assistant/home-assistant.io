@@ -1,17 +1,17 @@
 ---
-layout: page
-title: "Arduino switch support"
+layout: component
+title: "Arduino switch"
 description: "Instructions how to integrate Arduino boards within Home Assistant."
 date: 2015-09-14 18:28
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: arduino.png
-ha_category: Switch
+ha_category: DIY
 ---
 
-<img src='/images/supported_brands/arduino.png' class='brand pull-right' />
+
 The arduino switch platform allows you to control the digital pins of your [Arduino](https://www.arduino.cc/) board. Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3,5,6,9,10, and 11 on an Arduino Uno) is not supported yet.
 
 To enable the Arduino pins with Home Assistant, add the following section to your `configuration.yaml` file:

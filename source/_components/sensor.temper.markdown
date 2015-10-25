@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "TEMPer sensors support"
+layout: component
+title: "TEMPer sensors"
 description: "Instructions how to integrate TEMPer sensors into Home Assistant."
 date: 2015-08-06 19:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

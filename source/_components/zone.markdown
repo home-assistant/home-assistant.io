@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: component
 title: "Zone"
 description: "Instructions how to setup zones within Home Assistant."
 date: 2015-10-04 09:23
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

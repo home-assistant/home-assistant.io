@@ -1,16 +1,16 @@
 ---
-layout: page
-title: "Syslog notification support"
+layout: component
+title: "Syslog"
 description: "Instructions how to add syslog notifications to Home Assistant."
 date: 2015-06-09 16:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Notify
+ha_category: Notifications
 ---
 
-<img src='/images/supported_brands/applications-system.png' class='brand pull-right' />
+
 The syslog platform allows you to deliver notifications from Home Assistant to the local syslog.
 
 To enable syslog notifications in your installation, add the following to your `configuration.yaml` file:

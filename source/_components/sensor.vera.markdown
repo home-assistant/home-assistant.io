@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Vera sensors support"
+layout: component
+title: "Vera sensors"
 description: "Instructions how to integrate Vera sensors into Home Assistant."
 date: 2015-10-20 21:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: vera.png
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/vera.png' class='brand pull-right' />
+
 This vera sensor platform allows you to get data from your [Vera](http://getvera.com/) sensors.
 
 To use your Vera sensor in your installation, add the following to your `configuration.yaml` file:

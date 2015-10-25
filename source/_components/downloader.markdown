@@ -1,16 +1,16 @@
 ---
-layout: page
+layout: component
 title: "Downloader"
 description: "Instructions how to setup the downloader component with Home Assistant."
 date: 2015-01-24 14:39
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Other
 ---
 
-<img src='/images/supported_brands/emblem-downloads.png' class='brand pull-right' />
+
 The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist.
 
 To enable it, add the following lines to your `configuration.yaml`:

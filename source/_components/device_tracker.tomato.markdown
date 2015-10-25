@@ -1,16 +1,16 @@
 ---
-layout: page
-title: "Tomato support"
+layout: component
+title: "Tomato"
 description: "Instructions how to integrate Tomato routers into Home Assistant."
 date: 2015-03-23 19:59
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Presence Detection
 ---
 
-<img src='/images/supported_brands/network-wired-disconnected.png' class='brand pull-right' />
+
 Tomato requires an extra config variable called `http_id`. The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code.
 
 ```yaml

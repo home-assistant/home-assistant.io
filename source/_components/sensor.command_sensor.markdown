@@ -1,16 +1,16 @@
 ---
-layout: page
-title: "Command line sensors support"
+layout: component
+title: "Command line sensors"
 description: "Instructions how to integrate commandline sensors into Home Assistant."
 date: 2015-09-13 10:10
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/utilities-terminal.png' class='brand pull-right' />
+
 A sensor platform that issues specific commands to get data. This might very well become our most powerful platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
 
 To enable it, add the following lines to your `configuration.yaml`:

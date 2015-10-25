@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Owntracks device tracker"
+layout: component
+title: "Owntracks"
 description: "Instructions how to use Owntracks to track devices in Home Assistant."
 date: 2015-09-22 07:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: owntracks.png
 ha_category: Presence Detection
 ---
 
-<img src='/images/supported_brands/owntracks.png' class='brand pull-right' />
+
 This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows
 users to track their location on Android and iOS phones and publish it to an MQTT broker. This platform
 will connect to the broker and monitor for new locations.

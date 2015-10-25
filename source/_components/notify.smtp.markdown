@@ -1,17 +1,17 @@
 ---
-layout: page
-title: "SMTP notification support"
+layout: component
+title: "SMTP"
 description: "Instructions how to add e-mail notifications to Home Assistant."
 date: 2015-06-03 18:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: smtp.png
-ha_category: Notify
+ha_category: Notifications
 ---
 
-<img src='/images/supported_brands/smtp.png' class='brand pull-right' />
+
 The smtp platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
 
 To enable notification by e-mail in your installation, add the following to your `configuration.yaml` file:

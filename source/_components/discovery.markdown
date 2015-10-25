@@ -1,15 +1,15 @@
 ---
-layout: page
+layout: component
 title: "Discovery"
 description: "Instructions how to setup Home Assistant to discover new devices."
 date: 2015-01-24 14:39
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
 
-<img src='/images/supported_brands/system-search.png' class='brand pull-right' />
+
 Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP devices on your network. Currently the `discovery` component can detect:
 
  * Google Chromecast

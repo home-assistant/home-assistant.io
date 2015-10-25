@@ -1,17 +1,17 @@
 ---
-layout: page
-title: "Notifications"
+layout: component
+title: "PushOver"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-01-20 22:36
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: pushover.png
-ha_category: Notify
+ha_category: Notifications
 ---
 
-<img src='/images/supported_brands/pushover.png' class='brand pull-right' />
+
 The [PushOver service](https://pushover.net/) is a platform for the notify component. This allows components to send messages to the user using PushOver.
 
 To use PushOver notifications, add the following to your `configuration.yaml` file:

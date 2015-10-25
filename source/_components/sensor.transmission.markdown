@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Transmission support"
+layout: component
+title: "Transmission"
 description: "Instructions how to integrate Transmission within Home Assistant."
 date: 2015-04-25 9:06
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: transmission.png
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/transmission.png' class='brand pull-right' />
+
 The [Transmission](http://www.transmissionbt.com/) platform allows you to monitor your downloads from within Home Assistant and setup automation based on the information.
 
 ```yaml

@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Kodi support"
+layout: component
+title: "Kodi"
 description: "Instructions how to integrate Kodi into Home Assistant."
 date: 2015-06-22 11:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: kodi.png
 ha_category: Media Player
 ---
 
-<img src='/images/supported_brands/kodi.png' class='brand pull-right' />
+
 The kodi platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
 
 To add Kodi to your installation, add the following to your `configuration.yaml` file:

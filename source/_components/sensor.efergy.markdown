@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Efergy support"
+layout: component
+title: "Efergy"
 description: "Instructions how to integrate Efergy devices within Home Assistant."
 date: 2015-07-11 0:15
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: efergy.png
 ha_category: Sensor
 ---
 
-<img src='/images/supported_brands/efergy.png' class='brand pull-right' />
+
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant. To get an app token, log in to your efergy account, go to the Settings page, click on App tokens, and click "Add token".
 
 ```yaml

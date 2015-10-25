@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Device tracking"
+layout: component
+title: "Device Tracker"
 description: "Instructions how to setup device tracking within Home Assistant."
 date: 2015-01-20 22:36
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

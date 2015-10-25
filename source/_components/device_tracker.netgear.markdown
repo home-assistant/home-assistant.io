@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Netgear support"
+layout: component
+title: "Netgear"
 description: "Instructions how to integrate Netgear routers into Home Assistant."
 date: 2015-03-23 19:59
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: netgear.png
 ha_category: Presence Detection
 ---
 
-<img src='/images/supported_brands/netgear.png' class='brand pull-right' />
+
 This platform allows you to detect presence by looking at connected devices to a [Netgear](http://www.netgear.com/) device.
 
 ```yaml

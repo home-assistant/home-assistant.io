@@ -1,17 +1,17 @@
 ---
-layout: page
-title: "Notify My Android (NMA) notification support"
+layout: component
+title: "Notify My Android"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-05-01 18:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: nma.png
-ha_category: Notify
+ha_category: Notifications
 ---
 
-<img src='/images/supported_brands/nma.png' class='brand pull-right' />
+
 The nma platform uses [Notify My Android (NMA)](http://www.notifymyandroid.com/) to delivery notifications from Home Assistant to your Android device.
 
 To add NMA to your installation, add the following to your `configuration.yaml` file:

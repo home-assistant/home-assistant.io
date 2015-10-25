@@ -1,9 +1,9 @@
 ---
-layout: page
-title: "Aruba support"
+layout: component
+title: "Aruba"
 description: "Instructions how to integrate Aruba routers into Home Assistant."
 date: 2015-08-31 08:45
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -11,7 +11,7 @@ logo: aruba.png
 ha_category: Presence Detection
 ---
 
-<img src='/images/supported_brands/aruba.png' class='brand pull-right' />
+
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](http://www.arubanetworks.com/products/networking/aruba-instant/) device.
 
 Supported devices (tested):

@@ -1,19 +1,15 @@
 ---
-layout: page
+layout: component
 title: "Arduino"
 description: "Instructions how to setup an Arduino boards within Home Assistant."
 date: 2015-06-27 10:28
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: arduino.png
 ha_category: DIY
-logo: arduino.png
-ha_category: Hub
 ---
-
-<img src='/images/supported_brands/arduino.png' class='brand pull-right' />
 
 The [Arduino](https://www.arduino.cc/) device family are microcontroller boards that are often based on the ATmega328 chip. They come with digital input/output pins (some can be used as PWM outputs), analog inputs, and a USB connection. The equipment depends on the [type](https://www.arduino.cc/en/Main/Products) of board. The most common ones are the Arduino Uno and the Arduino Leonardo with 14 digital input/output pins and 6 analog input pins.
 
