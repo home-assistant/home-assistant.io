@@ -11,13 +11,6 @@ logo: z-wave.png
 ha_category: Hub
 ---
 
-<p class='note warning'>
-Z-Wave support is currently broken as we're unable to compile
-<a href='https://github.com/OpenZWave/python-openzwave/tree/python3'>Python Open Z-Wave</a>.
-</p>
-
-
-
 [Z-Wave](http://www.z-wave.com/) support for Home Assistant is very new. We have started now by integrating only the sensors.
 
 Support for Z-Wave can be added by plugging a Z-Wave USB stick into your computer.
@@ -28,7 +21,7 @@ Please make sure you have the correct dependencies installed:
 
 ```
 apt-get install cython3 libudev-dev python-sphinx python3-setuptools
-pip3 install cython
+pip3 install "cython<0.23"
 ```
 
 As an alternative, the Home Assistant docker image has support for Z-Wave built-in.
