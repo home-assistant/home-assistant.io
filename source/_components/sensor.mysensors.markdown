@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "MySensors"
+title: "MySensors sensor"
 description: "Instructions how to integrate MySensors sensors into Home Assistant."
 date: 2015-05-14 21:57
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The [MySensors](https://www.mysensors.org) project combines Arduino boards with NRF24L01 radio boards to build sensor networks.
+The [MySensors](https://www.mysensors.org) project combines Arduino boards with NRF24L01 radio boards to build sensor networks. The mysensors platform support sensors connected to the MYSensors Gateway.
 
 Integrate your Serial MYSensors Gateway by adding the following to your `configuration.yaml` file:
 
