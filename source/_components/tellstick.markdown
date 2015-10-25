@@ -31,8 +31,3 @@ light:
 
 ```
 
-## {% linkable_title Building on top of TellStick %}
-
- - [TellStick Sensor](/components/sensor.tellstick.html)
- - [TellStick Switch](/components/switch.tellstick.html)
- - [TellStick Light](/components/light.tellstick.html)
