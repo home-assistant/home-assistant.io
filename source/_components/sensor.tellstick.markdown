@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "TellStick sensors"
+title: "TellStick sensor"
 description: "Instructions how to integrate TellStick sensors into Home Assistant."
 date: 2015-08-06 19:00
 sidebar: true
