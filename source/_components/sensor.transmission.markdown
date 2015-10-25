@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Transmission"
+title: "Transmission sensor"
 description: "Instructions how to integrate Transmission within Home Assistant."
 date: 2015-04-25 9:06
 sidebar: true
