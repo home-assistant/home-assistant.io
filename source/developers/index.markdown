@@ -56,5 +56,5 @@ requests.
 - [Creating a custom component](/developers/creating_components.html)
 - [Adding support for a new platform](/developers/add_new_platform.html)
 - [Rest API](/developers/api.html)
-- [Website]()/developers/website.html
+- [Website](/developers/website.html)
 
