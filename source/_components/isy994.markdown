@@ -7,16 +7,17 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: universal_devices.png
 ha_category: Hub
 ---
-
-### Basic Configuration ###
 
 The ISY994 is a home automation controller that is capable of controlling
 Insteon and X10 devices. The controller is also capable of controlling Z-Wave
 devices but that functionality has not yet been confirmed with Home Assistant.
 The ISY994 controller is manufactured by [Universal
 Devices](https://www.universal-devices.com/residential/isy994i-series/).
+
+### {% linkable_title Basic Configuration %}
 
 Home Assistant is capable of communicating with any switch, sensor, and light
 that is configured on the controller. Using the programs on the controller,
@@ -50,7 +51,7 @@ ISY994 Pro users may likely be using 1.2. When using HTTPS in the host entry, it
 
 Once the ISY controller is configured, it will automatically import any lights, switches, and sensors it can locate.
 
-### Creating Custom Switches ###
+### {% linkable_title Creating Custom Switches %}
 
 Using the Programs tab in the controller's Administrative Console, custom
 switches can be created that will appear natively inside of Home Assistant.
@@ -88,7 +89,7 @@ ELSE clause gives instructions for turning the switch off. Below is an example.
 The example program above shows how to control a legacy X10 device from Home
 Assistant using an ISY controller.
 
-### Creating Custom Sensors ###
+### {% linkable_title Creating Custom Sensors %}
 
 Custom sensors can also be created using the Programs tab in the ISY
 controller's Administrative Console. For programs, three different root level
