@@ -25,13 +25,29 @@ Configuration variables:
 - **device** (*Required*): The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
 - **debug** (*Optional*): If you want to receive debug output.
 
+### How to find the packet_id for your devices
 
-## {% linkable_title Building on top of RFXtrx %}
+Make sure you have enabled all RFXtrx related platforms. Push your remote and the device will be added
+automatically. After that you can see you device packetid in the state developer tools in the app.
 
- - [RFXtrx Sensor](/components/sensor.rfxtrx.html)
- - [RFXtrx Switch](/components/switch.rfxtrx.html)
- - [RFXtrx Light](/components/light.rfxtrx.html)
+Example for X10 and Chacon DI.O signals, if you see in state developer tools the following entities:
 
+```
+light.123efab1__1b2200000890efab1213f60
+light.a8__0123454041230170
+```
 
+You must add the following to your `configuration.yaml`:
 
-
+```YAML
+light:
+  platform: rfxtrx
+  automatic_add: True
+  devices:
+    123efab1:
+      name: My DI.0 light device
+      packetid: 1b2200000890efab1213f60
+    a8:
+      name: My X10 light device
+      packetid: 0123454041230170
+```

@@ -18,8 +18,9 @@ To enable RFXtrx lights in your installation, add the following to your `configu
 light:
   platform: rfxtrx
   devices:
-    ac09c4f1: Bedroom Door
-    ac09c4f2: Kitchen Door
+    living_room:
+      name: Living Room
+      packetid: XXXXX
   automatic_add: True
 ```
 
@@ -27,4 +28,3 @@ Configuration variables:
 
 - **devices** (*Required*): A list of devices with their name to use in the frontend.
 - **automatic_add** (*Optional*): To enable the automatic addition of new lights.
-

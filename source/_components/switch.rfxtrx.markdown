@@ -18,8 +18,9 @@ To enable RFXtrx switches in your installation, add the following to your `confi
 switch:
   platform: rfxtrx
   devices:
-    ac09c4f1: Bedroom Door
-    ac09c4f2: Kitchen Door
+    living_room:
+      name: Living Room
+      packetid: XXXXX
   automatic_add: True
 ```
 
