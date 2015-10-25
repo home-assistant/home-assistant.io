@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Other
 ---
 
 The introduction component is loaded by default on a new Home Assistant instance. 
