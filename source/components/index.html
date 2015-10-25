@@ -19,8 +19,8 @@ Support for these components is provided by the Home Assistant community.
 {% assign categories = components | sort: 'ha_category' | map: 'ha_category' %}
 
 <div class="filter-button-group">
-  <a href='#' class="btn" data-filter="*">All</a>
-  <a href='#' class="btn current" data-filter=".featured">Featured</a>
+  <a href='#all' class="btn">All</a>
+  <a href='#featured' class="btn">Featured</a>
 
   {% comment %} Jekyll 2.5.2 does not support the uniq filter :/ {% endcomment %}
   {% assign category_printed = '' %}
@@ -28,13 +28,13 @@ Support for these components is provided by the Home Assistant community.
   {% for category in categories %}
     {% if category and category != 'Other' %}
       {% unless category_printed contains category %}
-        <a href='#' class="btn" data-filter=".{{ category | slugify }}">{{ category }}</a>
+        <a href='#{{ category | slugify }}' class="btn">{{ category }}</a>
         {% assign category_printed = category_printed | append: ',' | append: category %}
       {% endunless %}
     {% endif %}
   {% endfor %}
 
-  <a href='#' class="btn" data-filter=".{{ 'Other' | slugify }}">Other</a>
+  <a href='#other' class="btn">Other</a>
 </div>
 
 <div id="componentContainer">
@@ -67,9 +67,31 @@ Support for these components is provided by the Home Assistant community.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.js"></script>
 <script type="text/javascript">
 $(window).load(function(){
-    var $container = $('#componentContainer');
+  var $container = $('#componentContainer');
+
+  function updateHash(newHash) {
+    if ('replaceState' in history) {
+      history.replaceState('', '', newHash);
+    } else {
+      location.hash = newHash;
+    }
+  }
+
+  function applyFilter() {
+    var filter = location.hash;
+
+    if (filter == '') {
+      filter = '.featured'
+    } else if (filter == 'all') {
+      filter = '*';
+    } else {
+      filter = '.' + filter.substr(1);
+    }
+
+    $('.filter-button-group a.current').removeClass('current');
+    $('.filter-button-group a[href='+location.hash+']').addClass('current');
     $container.isotope({
-        filter: '.featured',
+        filter: filter,
         animationOptions: {
             duration: 750,
             easing: 'linear',
@@ -78,23 +100,18 @@ $(window).load(function(){
         masonry: {
           columnWidth: 210
         }
-    });
+     });
+  }
 
-    $('.filter-button-group a').click(function() {
-        $('.filter-button-group .current').removeClass('current');
-        $(this).addClass('current');
+  jQuery('.filter-button-group a').click(function() {
+    updateHash(this.getAttribute('href'));
+    applyFilter();
 
-        var selector = $(this).attr('data-filter');
-        $container.isotope({
-            filter: selector,
-            animationOptions: {
-                duration: 750,
-                easing: 'linear',
-                queue: false
-            }
-         });
-         return false;
-    });
+    return false;
+  });
 
+  window.addEventListener('hashchange', applyFilter);
+
+  applyFilter();
 });
 </script>
