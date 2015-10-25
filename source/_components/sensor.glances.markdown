@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Glances sensor"
+title: "Glances"
 description: "Instructions how to integrate Glances sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
