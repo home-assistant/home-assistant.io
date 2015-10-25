@@ -11,17 +11,7 @@ footer: true
 
 One of the things most people want at some point in their home automation is to get notified when certain events occur. For this reason there is a `notify` component in Home Assistant.
 
-Home Assistant currently supports a wide range of services for notifications:
-
-- [E-Mail](/components/notify.smtp.html)
-- [File](/components/notify.file.html)
-- [Instapush](/components/notify.instapush.html)
-- [Jabber (XMPP)](/components/notify.xmpp.html)
-- [Notify My Android (NMA)](/components/notify.nma.html)
-- [PushBullet](/components/notify.pushbullet.html)
-- [PushOver](/components/notify.pushover.html)
-- [Slack](/components/notify.slack.html)
-- [Syslog](/components/notify.syslog.html)
+Home Assistant currently supports a wide range of services for notifications. Please check the sidebar for a full list of platforms.
 
 ### Automation example
 
