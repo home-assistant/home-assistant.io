@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: transmission.png
-ha_category: Sensor
+ha_category: Switch
 ---
 
 
