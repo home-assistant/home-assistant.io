@@ -256,3 +256,84 @@ p.note {
     margin-top: 30px;
   }
 }
+
+#components-page {
+  .isotope-item {
+      z-index: 2;
+  }
+  .isotope-hidden.isotope-item {
+      pointer-events: none;
+      z-index: 1;
+  }
+  .isotope,
+  .isotope .isotope-item {
+      -webkit-transition-duration: 0.8s;
+      -moz-transition-duration: 0.8s;
+      transition-duration: 0.8s;
+  }
+  .isotope {
+      -webkit-transition-property: height, width;
+      -moz-transition-property: height, width;
+      transition-property: height, width;
+  }
+  .isotope .isotope-item {
+      -webkit-transition-property: -webkit-transform, opacity;
+      -moz-transition-property: -moz-transform, opacity;
+      transition-property: transform, opacity;
+  }
+
+  .filter-button-group {
+    margin-bottom: 16px;
+
+    .btn {
+      margin-right: 8px;
+      margin-bottom: 8px;
+      text-decoration: none;
+
+      &.current {
+        background-color: #3A5561;
+        background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
+      }
+    }
+  }
+
+  #componentContainer {
+    a {
+      display: inline-block;
+      width: 200px;
+      height: 142px;
+      background-color: #fefefe;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      border-radius: 2px;
+      box-shadow: rgba(0, 0, 0, 0.098) 0px 2px 4px, rgba(0, 0, 0, 0.098) 0px 0px 3px;
+      padding: 8px;
+
+      .img-container {
+        height: 50px;
+        text-align: center;
+        margin-bottom: 8px;
+
+        img {
+          max-width: 100%;
+          max-height: 50px;
+          box-shadow: none;
+          border: none;
+        }
+      }
+
+      .title {
+        text-decoration: none;
+        font-size: 18px;
+        color: #000;
+        line-height: 1.3em;
+        height: 2.6em;
+      }
+
+      .category {
+        font-size: 14px;
+        color: #AAA;
+      }
+    }
+  }
+}

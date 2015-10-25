@@ -63,6 +63,10 @@ default_asides: [post/sharing.html, asides/recent_posts.html, asides/github.html
 # post_asides:
 # page_asides:
 
+collections:
+  components:
+    output: true
+
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
