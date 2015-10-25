@@ -10,18 +10,14 @@ footer: true
 ---
 
 This is a community currated list of `configuration.yaml` examples. New recipes can be added via
-the [home-assistant.io repository](https://github.com/balloob/home-assistant.io/tree/master/source/cookbook).
+the [home-assistant.io repository](https://github.com/balloob/home-assistant.io/tree/master/source/_cookbook).
 
-#### Recipes
-
-{% directory path:cookbook exclude:index %}
-  * [{{ file.slug | replace: '_',' ' | capitalize }}]({{ file.slug | prepend: '/cookbook/' | append: '.html' }})
-{% enddirectory %}
+{% for recipe in site.cookbook %}
+  * [{{recipe.title}}]({{recipe.url}})
+{% endfor %}
 
 #### Configuration.yaml Gists
 
-- [Carlo Costanzo](https://github.com/CCOSTAN) - [Configuration.yaml](https://gist.github.com/CCOSTAN/9934de973a293b809868) 
+Some users keep a public scrubbed copy of their `configuration.yaml` to learn from.
 
-<p class='note warning'>
-  Please be sure to properly scrub your configuration.yaml of usernames, passwords and other personal information you do not want public before sharing on this page.
-</p>
+- [Configuration.yaml by Carlo Costanzo](https://gist.github.com/CCOSTAN/9934de973a293b809868)

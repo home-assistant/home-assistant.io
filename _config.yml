@@ -66,6 +66,8 @@ default_asides: [post/sharing.html, asides/recent_posts.html, asides/github.html
 collections:
   components:
     output: true
+  cookbook:
+    output: true
 
 # ----------------------- #
 #   3rd Party Settings    #
