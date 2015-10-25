@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Music Player Daemon"
+title: "Music Player Daemon (MPD)"
 description: "Instructions how to integrate Music Player Daemon into Home Assistant."
 date: 2015-06-02 08:00
 sidebar: true
