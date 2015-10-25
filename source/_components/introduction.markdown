@@ -1,0 +1,19 @@
+---
+layout: component
+title: "Introduction"
+description: "Details about the introduction within Home Assistant."
+date: 2015-10-25 15:15
+sidebar: true
+comments: false
+sharing: true
+footer: true
+---
+
+The introduction component is loaded by default on a new Home Assistant instance. 
+
+```yaml
+# Example configuration.yaml entry
+introduction: 
+```
+
+To disable this component, just remove the `introduction:` entry from your `configuration.yaml` file. 
