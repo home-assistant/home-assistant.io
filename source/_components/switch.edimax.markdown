@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Edimax switches"
+title: "Edimax switch"
 description: "Instructions how to integrate Edimax switches into Home Assistant."
 date: 2015-06-10 22:54
 sidebar: true
