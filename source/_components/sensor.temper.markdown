@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "TEMPer sensors"
+title: "TEMPer sensor"
 description: "Instructions how to integrate TEMPer sensors into Home Assistant."
 date: 2015-08-06 19:00
 sidebar: true
