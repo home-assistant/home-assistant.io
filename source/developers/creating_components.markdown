@@ -9,8 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant offers [built-in components]({{site_root}}/components/) but it
-is easy to built your own. If you are the kind of person that likes to learn from code rather then guide then head over to the [`config/custom_components`](https://github.com/balloob/home-assistant/tree/master/config/custom_components) folder in the repository for two example components.
+Home Assistant offers [built-in components]({{site_root}}/components/) but it is easy to built your own. If you are the kind of person that likes to learn from code rather then guide then head over to the [`config/custom_components`](https://github.com/balloob/home-assistant/tree/master/config/custom_components) folder in the repository for two example components.
 
 The first is [hello_world.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/hello_world.py), which is the classic Hello World example for Home Assistant. The second one is [example.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py) which showcases various ways you can tap into Home Assistant to be notified when certain events occur.
 
@@ -44,18 +43,11 @@ Home Assistant will use the directory that contains your config file as the dire
 
 ## {% linkable_title Dependencies %}
 
-Home Assistant allows components and platforms to specify their dependencies and requirements using the variables
-`DEPENDENCIES` and `REQUIREMENTS`. Both are lists that contain strings.
+Home Assistant allows components and platforms to specify their dependencies and requirements using the variables `DEPENDENCIES` and `REQUIREMENTS`. Both are lists that contain strings.
 
-Dependencies are other Home Assistant components that should be setup before the platform is loaded.
-An example is the MQTT sensor component, which requires an active connection to an MQTT broker. If
-Home Assistant is unable to load and setup the MQTT component, it will not setup the MQTT sensor
-component.
+Dependencies are other Home Assistant components that should be setup before the platform is loaded. An example is the MQTT sensor component, which requires an active connection to an MQTT broker. If Home Assistant is unable to load and setup the MQTT component, it will not setup the MQTT sensor component.
 
-Requirements are Python libraries that you would normally install using `pip`. Each entry in a
-requirement list is a pip compatible string. For example, the media player Cast platform depends
-on the Python package PyChromecast thus `REQUIREMENTS = ['pychromecast==0.6.12']`. If Home
-Assistant is unable to install the package or verify it is installed, the component will fail to
+Requirements are Python libraries that you would normally install using `pip`. Each entry in a requirement list is a pip compatible string. For example, the media player Cast platform depends on the Python package PyChromecast thus `REQUIREMENTS = ['pychromecast==0.6.12']`. If Home Assistant is unable to install the package or verify it is installed, the component will fail to
 load.
 
 ## {% linkable_title Initializing components %}
@@ -84,4 +76,4 @@ example:
   host: paulusschoutsen.nl
 ```
 
-Then in the setup-method of your component you will be able to refer to `config['example']['host']` to get the value `paulusschoutsen.nl`.
+Then in the setup method of your component you will be able to refer to `config['example']['host']` to get the value `paulusschoutsen.nl`.
