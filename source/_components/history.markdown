@@ -30,7 +30,7 @@ history:
 Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transferred to anyone at any time.
 </p>
 
-### Implementation details
+#### {% linkable_title Implementation details %}
 
 The history is stored in a SQLite databse `home-assistant.db` within your config directory.
 
@@ -46,7 +46,7 @@ The history is stored in a SQLite databse `home-assistant.db` within your config
 
 When the history component queries the states table it only selects states where the state has changed: `WHERE last_changed=last_updated`
 
-#### On dates
+#### {% linkable_title On dates %} 
 
 SQLite databases do not support native dates. That's why all the dates are saved in seconds since the UNIX epoch. Convert them manually using this site or in Python:
 
