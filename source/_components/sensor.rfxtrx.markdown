@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "RFXtrx sensors"
+title: "RFXtrx sensor"
 description: "Instructions how to integrate RFXtrx sensors into Home Assistant."
 date: 2015-08-06 17:15
 sidebar: true
