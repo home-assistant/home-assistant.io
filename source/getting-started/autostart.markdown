@@ -61,7 +61,10 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=hass
+ExecStart=/usr/local/bin/hass
+# Next line is to run as a specific user
+# for Raspberry Pi users, keep it at 'pi'
+User=pi
 
 [Install]
 WantedBy=multi-user.target
@@ -71,7 +74,7 @@ EOF'
 You need to reload systemd to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.
 
 ```bash
-sudo systemctl --system daemon-reload
+sudo systemctl \-\-system daemon-reload
 sudo systemctl enable home-assistant
 sudo systemctl start home-assistant
 ```
