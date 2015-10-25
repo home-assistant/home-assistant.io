@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Alarm panel"
+title: "Alarm Control Panels"
 description: "Instructions how to integrate Alarm Control Panels into Home Assistant."
 date: 2015-10-13 19:10
 sidebar: true

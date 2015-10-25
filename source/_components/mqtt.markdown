@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
+ha_category: Hub
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.

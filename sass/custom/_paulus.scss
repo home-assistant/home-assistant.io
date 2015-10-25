@@ -300,7 +300,7 @@ p.note {
   #componentContainer {
     a {
       display: inline-block;
-      width: 200px;
+      width: 202px;
       height: 142px;
       background-color: #fefefe;
       margin-right: 8px;
@@ -312,7 +312,7 @@ p.note {
 
       .img-container {
         height: 50px;
-        margin-bottom: 8px;
+        margin: 8px 0;
         font: 0/0 a;
 
         &:before {    /* create a full-height inline block pseudo=element */

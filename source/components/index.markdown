@@ -11,15 +11,8 @@ is_homepage: true
 body_id: components-page
 ---
 
-Components add support for devices, automation, and much much more to Home Assistant. The following things are supported out-of-the-box.
-
-## {% linkable_title Entities %}
-
-Entities are things that you want to observe within Home Assistant. Support for these things are provided by the entity components [Light](/components/light.html), [Switch](/components/switch.html), [Thermostat](/components/thermostat.html), [Media player](/components/media_player.html), [Device tracker](/components/device_tracker.html), and [Sun](/components/sun.html).
-
-
 <p class='note'>
-Support for these services is provided by the Home Assistant community and not the service providers.
+Support for these components is provided by the Home Assistant community.
 </p>
 
 {% assign components = site.components | sort: 'title' %}
@@ -59,6 +52,7 @@ Support for these services is provided by the Home Assistant community and not t
   {% endfor %}
 </div>
 
+{% comment %}
 ## Not done yet
 
 {% for component in components %}
@@ -66,13 +60,14 @@ Support for these services is provided by the Home Assistant community and not t
 <p>{{ component.title }}</p>
   {% endunless %}
 {% endfor %}
-
+{% endcomment %}
 
 ## {% linkable_title Organization %}
 | Type | Description
 | ---- | -----------
 | [Group](/components/group.html) | Allows grouping of entities
 | [Scene](/components/scene.html) | Allow defining preferred state of a set of entities
+| [Zone](/components/zone.html) | Allow defining zones on the map
 
 ## {% linkable_title Automation %}
 
@@ -89,6 +84,7 @@ Support for these services is provided by the Home Assistant community and not t
 | Type | Description
 | ---- | -----------
 | [Configurator](/components/configurator.html) | Component used by other components to get configuration from the user.
+| [Discovery](/components/discovery.html) | Discover and configure new devices.
 
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
