@@ -86,7 +86,7 @@ To display the IP address, the entry for a sensor in the `configuration.yaml` fi
 
 ### {% linkable_title Single value from a local Glances instance %}
 
-The [glances](/components/sensor.glances.html) sensor is doing a similar thing
+The [glances](/components/sensor.glances.html) sensor is doing the exact same thing for all exposed values.
 
 Add something similar to the entry below to your `configuration.yaml` file:
 
