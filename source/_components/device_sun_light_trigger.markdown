@@ -1,12 +1,13 @@
 ---
 layout: component
-title: "Automating your lights"
+title: "Presence based lights"
 description: "Instructions how to automate your lights with Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation
 ---
 
 Home Assistant has a built-in component called `device_sun_light_trigger` to help you automate your lights. The component will:

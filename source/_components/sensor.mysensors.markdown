@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mysensors.png
 ha_category: Sensor
+featured: true
 ---
 
 

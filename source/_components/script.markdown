@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation
 ---
 
 The script component allows users to create a sequence of service calls and delays. Scripts can be

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: kodi.png
 ha_category: Media Player
+featured: true
 ---
 
 

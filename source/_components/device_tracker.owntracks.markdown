@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: owntracks.png
 ha_category: Presence Detection
+featured: true
 ---
 
 

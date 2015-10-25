@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation
 ---
 
 This page will go into more detail about the various options the `automation` component offers. If

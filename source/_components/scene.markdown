@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Organization
 ---
 
 A user can create scenes that capture the states you want certain entities to be. For example a scene

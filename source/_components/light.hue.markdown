@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: philips_hue.png
 ha_category: Light
+featured: true
 ---
 
 

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Organization
 ---
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device

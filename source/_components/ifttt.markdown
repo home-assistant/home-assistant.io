@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ifttt.png
-ha_category: Other
+ha_category: Automation
+featured: true
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional

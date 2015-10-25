@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: pushbullet.png
 ha_category: Notifications
+featured: true
 ---
 
 

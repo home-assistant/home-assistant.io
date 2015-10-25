@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Organization
 ---
 
 Groups allow the user to combine multiple entities into 1. If all entities are switches or lights they can be controlled as one.
@@ -15,7 +16,7 @@ Groups allow the user to combine multiple entities into 1. If all entities are s
 # Example configuration.yaml entry
 # A comma seperated list of states that have to be tracked as a single group
 # Grouped states should share the same type of states (ON/OFF or HOME/NOT_HOME)
-group: 
+group:
   living_room:
     - light.Bowl
     - light.Ceiling

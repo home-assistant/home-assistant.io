@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: wink.png
 ha_category: Hub
+featured: true
 ---
 
 
