@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: "Alarm Control Panel"
+ha_category: Alarm
 ---
 
 

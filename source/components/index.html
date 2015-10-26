@@ -78,18 +78,21 @@ $(window).load(function(){
   }
 
   function applyFilter() {
-    var filter = location.hash;
+    var hash = location.hash;
 
-    if (filter == '') {
+    var filter;
+    if (hash == '') {
       filter = '.featured'
-    } else if (filter == '#all') {
+      hash = '#featured'
+    } else if (hash == '#all') {
       filter = '*';
     } else {
-      filter = '.' + filter.substr(1);
+      filter = '.' + hash.substr(1);
     }
 
     $('.filter-button-group a.current').removeClass('current');
-    $('.filter-button-group a[href='+location.hash+']').addClass('current');
+    $('.filter-button-group a[href='+hash+']').addClass('current');
+
     $container.isotope({
         filter: filter,
         animationOptions: {

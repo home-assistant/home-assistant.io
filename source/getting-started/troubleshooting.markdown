@@ -26,19 +26,30 @@ by some distributions. If you are unable to run `python3 -m pip --version` you c
 [downloading the installer](https://bootstrap.pypa.io/get-pip.py) and run it with Python 3:
 `python3 get-pip.py`.
 
+**distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both**<br>
+This is a known issue if you're on a Mac using Homebrew to install Python. Please follow
+[these instructions](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Homebrew-and-Python.md#note-on-pip-install---user)
+to resolve it.
+
 **CentOS and Python 3**<br>
 To run Python 3.x on [CentOS](https://www.centos.org/) or RHEL, [Software Collections](https://www.softwarecollections.org/en/scls/rhscl/rh-python34/) needs to be activated.</p>
 
 **Run the development version**<br>
-If you want to stay on top of the development of Home Assistant then you can upgrade to the latest stuff what is available in the dev branch `pip3 install --upgrade git+git://github.com/balloob/home-assistant.git@dev`. Keep in mind, that stable releases of Home Assistant are published often.
+If you want to stay on top of the development of Home Assistant then you can upgrade to the dev branch using
+`pip3 install --upgrade git+git://github.com/balloob/home-assistant.git@dev`. Keep in mind, that stable releases
+of Home Assistant are published often.
 
 **No access to the frontend**<br>
 In newer Linux distributions (at least Fedora 22/CentOS 7) the access to a host is very limited.
-This means that you can't access the Home Assistant Frontend that is running on a host outside of the host machine. Windows and OSX machines may also have issues with this.
+This means that you can't access the Home Assistant Frontend that is running on a host outside of the
+host machine. Windows and OSX machines may also have issues with this.
 
-To fix this you will need to open your machine's firewall for TCP traffic over port 8123. The method for doing this will vary depending on your operating system and the firewall you have installed. Below are some suggestions to try. Google is your friend here.
+To fix this you will need to open your machine's firewall for TCP traffic over port 8123. The method
+for doing this will vary depending on your operating system and the firewall you have installed.
+Below are some suggestions to try. Google is your friend here.
 
-[Windows](http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7) and [Mac OSX](https://support.apple.com/en-us/HT201642) have good instructions posted.
+[Windows instructions](http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7)<br>
+[Mac OSX instructions](https://support.apple.com/en-us/HT201642)
 
 For firewalld systems (Fedora, RHEL, etc.):
 ```bash
@@ -56,4 +67,5 @@ For iptables systems (usually the default):
 iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
 iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhere
 ```
+
 ###[&laquo; Back to Getting Started](/getting-started/index.html)

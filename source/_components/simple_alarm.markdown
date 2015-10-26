@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Automation
+ha_category: Alarm
 ---
 
 

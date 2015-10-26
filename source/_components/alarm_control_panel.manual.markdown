@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Alarm Control Panel
+ha_category: Alarm
 ---
 
 
