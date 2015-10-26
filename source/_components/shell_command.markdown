@@ -11,15 +11,17 @@ ha_category: Automation
 ---
 
 
-This component can expose regular shell commands as services.
+This component can expose regular shell commands as services. Services can be called from a script
+or in automation.
 
 ```yaml
 # Example configuration.yaml entry
+# Exposes service shell_command.restart_pow
 shell_command:
   restart_pow: touch ~/.pow/restart.txt
 ```
 
 Configuration variables:
 
-- Alias for the command and the command itself.
-
+ - Alias for the command
+ - Command itself.
