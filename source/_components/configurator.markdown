@@ -14,8 +14,12 @@ ha_category: Other
 This component is intended for developers.
 </p>
 
-The configurator component allows components to request information from the user. It is currently implemented as the minimum viable product: it supports showing a text, image and button to the user. It will trigger a callback when the button is pressed.
+The configurator component allows components to request information from the user. It is currently implemented as the minimum viable product:
 
-The Hue component in [the demo](/demo) is implemented using the configurator. See [the source of the demo component](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/demo.py#L72) for a simple example.
+- It supports showing a text, image and button to the user
+- Input fields can be defined with a description, and optional type
+- It will trigger a callback when the button is pressed
+
+The Hue component in [the demo](/demo) and Plex are implemented using the configurator. See [the source of the demo component](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/demo.py#L72) for a simple example.
 
 See [the source](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/configurator.py#L39) for more details on how to use the configurator component.

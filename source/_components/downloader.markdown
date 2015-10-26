@@ -20,6 +20,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 downloader:
   download_dir: downloads
 ```
+If the path is not absolute, it's assumed to be relative to the HASS configuration directory.
 
 #### Service `downloader/download_file`
 

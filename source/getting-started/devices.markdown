@@ -44,6 +44,8 @@ By default, all of your devices will be visible and have a default icon determin
 You may find it desireable to customize the look and feel of your front page by altering some
 of these parameters. This can be done by adding the following config to the `homeassistant:` section.
 
+Entity_pictures, badges, device_tracker pictures, etc can either be a URL or `/local/file.jpg`, which points to directory `www` in the HASS configuration directory.
+
 ```yaml
 # Example configuration.yaml entry
 homeassistant:
