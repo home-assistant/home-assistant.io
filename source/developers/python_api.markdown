@@ -35,7 +35,7 @@ living_room = hass.states.get('group.living_room')
 
 ### {% linkable_title Get details about servies and events %}
 
-Similar to the output in the "Developer Tools" of the frontend 
+Similar to the output in the "Developer Tools" of the frontend.
 
 ```python
 import homeassistant.remote as remote
@@ -96,6 +96,7 @@ Of course, it's possible to set the state.
 import homeassistant.remote as remote
 from homeassistant.const import STATE_ON
 
+api = remote.API('host', 'password')
 remote.set_state(api, 'sensor.office_temperature', new_state=123)
 remote.set_state(api, 'switch.livingroom_pin_2', new_state=STATE_ON)
 ```
@@ -111,6 +112,7 @@ If you want to turn on all entities of a domain, just a service which was retrie
 import time
 import homeassistant.remote as remote
 
+api = remote.API('host', 'password')
 domain = 'switch'
 
 remote.call_service(api, domain, 'turn_on')
@@ -120,18 +122,33 @@ remote.call_service(api, domain, 'turn_off')
 
 ### {% linkable_title Control a single entity %}
 
-To turn on or off a single switch, the ID of the entity is needed as attribute.
+To turn on or off a single switch. The ID of the entity is needed as attribute.
 
 ```python
 import time
 import homeassistant.remote as remote
 
+api = remote.API('host', 'password')
 domain = 'switch'
 switch_name = 'switch.livingroom_pin_2'
 
 remote.call_service(api, domain, 'turn_on', {'entity_id': '{}'.format(switch_name)})
 time.sleep(5)
 remote.call_service(api, domain, 'turn_off', {'entity_id': '{}'.format(switch_name)})
+```
+
+### {% linkable_title Send a notification %}
+
+The example uses the jabber notification platform to send a single message to the given recipient in the `configuration.yaml` file. 
+
+```python
+import homeassistant.remote as remote
+
+api = remote.API('host', 'password')
+domain = 'notify'
+data = {"title":"Test", "message":"A simple test message from HA."}
+
+remote.call_service(api, domain, 'jabber', data)
 ```
 
 For more details please check the source of [homeassistant.remote](https://github.com/balloob/home-assistant/blob/master/homeassistant/remote.py).
