@@ -36,6 +36,7 @@ complete revamp.
  - Media Player: [Plex](/components/media_player.plex.html) can now be auto discovered and configure itself ([@tomduijf](https://github.com/tomduijf))
  - [Downloader](/components/downloader.html) will now treat relative paths based on config dir ([@tomduijf](https://github.com/tomduijf))
  - Line Charts will use interpolation for sensor data and show current and target temperature for thermostats ([@balloob](https://github.com/balloob))
+ - Device Tracker: [OpenWRT via ubus](/components/device_tracker.ubus.html) now supported ([@krzynio](https://github.com/krzynio))
 
 <!--more-->
 

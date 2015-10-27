@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "OpenWRT (luci)"
+title: "OpenWRT (ubus)"
 description: "Instructions how to integrate OpenWRT routers into Home Assistant."
 date: 2015-03-23 19:59
 sidebar: true
@@ -11,20 +11,39 @@ logo: openwrt.png
 ha_category: Presence Detection
 ---
 
-_This is one of the two ways we support OpenWRT. If you encounter problems, try [ubus](/components/device_tracker.ubus.html)._
+_This is one of the two ways we support OpenWRT. If you encounter problems, try [luci](/components/device_tracker.luci.html)._
 
-This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
+This is a presence detection scanner for OpenWRT using [ubus](http://wiki.openwrt.org/doc/techref/ubus).
 
-Before this scanner can be used you have to install the luci RPC package on OpenWRT:
+Before this scanner can be used you have to install the ubus RPC package on OpenWRT:
 
 ```bash
-opkg install luci-mod-rpc
+opkg install rpcd-mod-file
 ```
+
+And create a read-only user to be used by setting up the ACL file `/usr/share/rpcd/acl.d/user.json`.
+
+```json
+{
+  "user": {
+    "description": "Read only user access role",
+    "read": {
+      "ubus": {
+        "*": [ "*" ]
+      },
+      "uci": [ "*" ]
+    },
+    "write": {}
+  }
+}
+```
+
+After this is done, configure Home Assistant as follows:
 
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: luci
+  platform: ubus
   host: ROUTER_IP_ADDRESS
   username: YOUR_ADMIN_USERNAME
   password: YOUR_ADMIN_PASSWORD
