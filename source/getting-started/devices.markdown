@@ -11,7 +11,7 @@ footer: true
 
 Home Assistant will be able to automatically discover and configure any Google Chromecasts, Netgear
 routers, Belkin WeMo switches, Philips Hue bridges and Sonos speakers in your network if you have
-[the discovery component]({{site_root}}/components/discovery.html) enabled (which is by default).
+[the discovery component]({{site_root}}/components/discovery/) enabled (which is by default).
 
 See the [components overview page](/components/) to find installation instructions for your devices
 and services.  Many components use the `sensor` platform.  Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
@@ -20,7 +20,7 @@ Most components that support multiple entries within the <code>configuration.yam
 </p>
 
 If you can't find support for your favorite device or service,
-[consider adding support](/developers/add_new_platform.html)
+[consider adding support](/developers/add_new_platform/)
 
 ### {% linkable_title Grouping devices %}
 
@@ -60,4 +60,4 @@ homeassistant:
 ```
 
 
-###[Next step: Setting up presence detection &raquo;](/getting-started/presence-detection.html)
+###[Next step: Setting up presence detection &raquo;](/getting-started/presence-detection/)

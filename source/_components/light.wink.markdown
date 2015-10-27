@@ -14,4 +14,4 @@ ha_category: Light
 
 The wink sensor platform allows you to use your [Wink](http://www.wink.com/) lights.
 
-The requirement is that you have setup your [Wink hub](/components/light.wink.html).
+The requirement is that you have setup your [Wink hub](/components/light.wink/).

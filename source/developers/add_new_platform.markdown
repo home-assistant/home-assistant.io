@@ -28,7 +28,7 @@ devices but use a third-party Python 3 library to do so. This way Home Assistant
 code with the Python community and we can keep the project maintainable.
 
 Platforms can specify dependencies and requirements the same way as a component does. Please see
-[the component page](/developers/creating_components.html#dependencies) for more information.
+[the component page](/developers/creating_components/#dependencies) for more information.
 
 ### {% linkable_title Creating Entities %}
 

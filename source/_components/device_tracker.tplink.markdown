@@ -38,4 +38,4 @@ For Archer C9 models running firmware version 150811 or later please use the enc
 5. Type ```document.getElementById("login-password").value;```.
 6. Copy the returned value to your Home Assistant configuration as password.
 
-See the [device tracker component page](/components/device_tracker.html) for instructions how to configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

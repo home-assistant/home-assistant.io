@@ -31,4 +31,4 @@ Configuration variables:
 
 Details for the API : https://www.notifymyandroid.com/api.jsp
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation.html).
+To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).

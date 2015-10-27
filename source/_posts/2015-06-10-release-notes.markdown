@@ -145,7 +145,7 @@ notify:
 
 
 __Swiss Public transport sensor__<br>
-The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland. See the [component page](/components/sensor.swiss_public_transport.html) for more information how to set it up.
+The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland. See the [component page](/components/sensor.swiss_public_transport/) for more information how to set it up.
 
 
 __Transmission turtle mode switch__<br>

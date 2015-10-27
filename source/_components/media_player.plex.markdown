@@ -14,7 +14,7 @@ featured: true
 
 
 The Plex platform allows you to connect a [Plex Media Server](https://plex.tv) to Home Assistant. It will allow you to control media playback and see the current playing item.
-The preferred way to setup the Plex platform is by enabling the the [the discovery component]({{site_root}}/components/discovery.html) and requires GDM to be enabled.
+The preferred way to setup the Plex platform is by enabling the the [the discovery component]({{site_root}}/components/discovery/) and requires GDM to be enabled.
 
 If local authentication is enabled or multiple users are defined, HASS requires an authentication token to be entered in the webinterface. See <A TARGET="_new" HREF=https://support.plex.tv/hc/en-us/articles/204059436>Finding your account token / X-Plex-Token</A>.
 

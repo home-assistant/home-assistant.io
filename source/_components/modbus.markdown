@@ -57,6 +57,6 @@ Configuration variables:
 
 ## {% linkable_title Building on top of Modbus %}
 
- - [Modbus Sensor](/components/sensor.modbus.html)
- - [Modbus Switch](/components/switch.modbus.html)
+ - [Modbus Sensor](/components/sensor.modbus/)
+ - [Modbus Switch](/components/switch.modbus/)
 

@@ -12,7 +12,7 @@ footer: true
 
 Home Assistant can give you an interface with is similar to a classic alarm system. There are several panels supported:
 
-- [Manual](/components/alarm_control_panel.manual.html)
-- [MQTT](/components/alarm_control_panel.mqtt.html)
-- [Verisure](/components/verisure.html)
+- [Manual](/components/alarm_control_panel.manual/)
+- [MQTT](/components/alarm_control_panel.mqtt/)
+- [Verisure](/components/verisure/)
 

@@ -11,7 +11,7 @@ footer: true
 
 Home Assistant can get information from your wireless router to track which devices are connected. Please check the sidebar for a list of  brands of supported wireless routers.
 
-There are also trackers available which uses different technologies like [MQTT](/components/mqtt.html) or [nmap](/components/device_tracker.nmap_scanner.html) to scan the network for devices
+There are also trackers available which uses different technologies like [MQTT](/components/mqtt/) or [nmap](/components/device_tracker.nmap_scanner/) to scan the network for devices
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
 

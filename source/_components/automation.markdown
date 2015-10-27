@@ -11,7 +11,7 @@ ha_category: Automation
 ---
 
 This page will go into more detail about the various options the `automation` component offers. If
-you haven't yet, read the [getting started page on automation](/getting-started/automation.html).
+you haven't yet, read the [getting started page on automation](/getting-started/automation/).
 
 A configuration section of an automation requires a `trigger` and an `action` section. `condition` and
 `condition_type` are optional. To keep this page compact, all following sections will not show the
@@ -185,7 +185,7 @@ The above example will trigger on Saturday and Sunday every hour on the 5 (2:05,
 #### {% linkable_title Zone trigger %}
 Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work,
 you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently
-this is limited to the [OwnTracks platform](/components/device_tracker.owntracks.html).
+this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/).
 
 ```yaml
 automation:
@@ -273,7 +273,7 @@ Valid values for `weekday` are (sun, mon, tue, wed, thu, fri & sat)
 #### {% linkable_title Zone condition %}
 Zone conditions test if an entity is in a certain zone. For zone automation to work,
 you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently
-this is limited to the [OwnTracks platform](/components/device_tracker.owntracks.html).
+this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/).
 
 ```yaml
 automation:
@@ -311,8 +311,8 @@ automation:
 ```
 
 If you want to specify multiple services to be called or include a delay, have a look at the
-[script component](/components/script.html). If you want to describe how certain entities should look,
-check out the [scene component](/components/scene.html).
+[script component](/components/script/). If you want to describe how certain entities should look,
+check out the [scene component](/components/scene/).
 
 ## {% linkable_title Troubleshooting %}
 

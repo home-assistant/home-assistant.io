@@ -77,7 +77,7 @@ Running these commands will:
 
 ### {% linkable_title Troubleshooting %}
 
-If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting.html). It contains solutions to many of the more commonly encountered issues.
+If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
 
 For additional help, in addition to this site, there are three sources:
 
@@ -86,7 +86,7 @@ For additional help, in addition to this site, there are three sources:
  - [GitHub Page](https://github.com/balloob/home-assistant) for issue reporting.
 
 ### {% linkable_title What's next %}
-If you want to have Home Assistant start on boot, [autostart instructions](/getting-started/autostart.html) can be found here.
+If you want to have Home Assistant start on boot, [autostart instructions](/getting-started/autostart/) can be found here.
 
 To see what Home Assistant can do, launch demo mode:
 ```bash
@@ -98,4 +98,4 @@ To update Home Assistant to the latest release:
 pip3 install \-\-upgrade homeassistant
 ```
 
-###[Next step: Configuring Home Assistant &raquo;](/getting-started/configuration.html)
+###[Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)

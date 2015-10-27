@@ -73,8 +73,8 @@ __MQTT Sensors and Switches__<br>
 integration with MQTTT: [sensor][mqtt-sensor] and [switch][mqtt-switch]. Both platforms require the
 MQTT component to be connected to a broker.
 
-[mqtt-sensor]: /components/sensor.mqtt.html
-[mqtt-switch]: /components/switch.mqtt.html
+[mqtt-sensor]: /components/sensor.mqtt/
+[mqtt-switch]: /components/switch.mqtt/
 
 ```yaml
 # Example configuration.yml entr

@@ -51,10 +51,10 @@ requests.
 
 ### {% linkable_title Further reading %}
 
-- [Home Assistant Architecture](/developers/architecture.html)
-- [Frontend development](/developers/frontend.html)
-- [Creating a custom component](/developers/creating_components.html)
-- [Adding support for a new platform](/developers/add_new_platform.html)
-- [Rest API](/developers/api.html)
-- [Website](/developers/website.html)
+- [Home Assistant Architecture](/developers/architecture/)
+- [Frontend development](/developers/frontend/)
+- [Creating a custom component](/developers/creating_components/)
+- [Adding support for a new platform](/developers/add_new_platform/)
+- [Rest API](/developers/api/)
+- [Website](/developers/website/)
 

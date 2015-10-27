@@ -40,4 +40,4 @@ automation:
   service_data: {"message":"YAY"}
 ```
 
-For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation.html).
+For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation/).

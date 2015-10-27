@@ -82,7 +82,7 @@ mqtt:
 
 [CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free up to 10
 connected devices. This is enough to get started with for example
-[OwnTracks](/components/device_tracker.owntracks.html) and give you a taste of what is possible.
+[OwnTracks](/components/device_tracker.owntracks/) and give you a taste of what is possible.
 
 <p class='note'>
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
@@ -112,12 +112,12 @@ of CloudMQTT (port range 20 000 - 30 000).
 
 ## {% linkable_title Building on top of MQTT %}
 
- - [MQTT Sensor](/components/sensor.mqtt.html)
- - [MQTT Switch](/components/switch.mqtt.html)
- - [MQTT Device Tracker](/components/device_tracker.mqtt.html)
- - [OwnTracks Device Tracker](/components/device_tracker.owntracks.html)
- - [MQTT automation rule](/components/automation.html#mqtt-based-automation)
- - [MQTT alarm](/components/alarm_control_panel.mqtt.html)
+ - [MQTT Sensor](/components/sensor.mqtt/)
+ - [MQTT Switch](/components/switch.mqtt/)
+ - [MQTT Device Tracker](/components/device_tracker.mqtt/)
+ - [OwnTracks Device Tracker](/components/device_tracker.owntracks/)
+ - [MQTT automation rule](/components/automation/#mqtt-based-automation)
+ - [MQTT alarm](/components/alarm_control_panel.mqtt/)
  - Integrating it into a component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
 
 ## {% linkable_title Testing your setup %}

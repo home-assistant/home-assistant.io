@@ -48,4 +48,4 @@ The default value is `notify`. The notifier will bind to the service
 - **api_key** (*Required*): The API token of your bot.
 - **chat_id** (*Required*: The chat ID of your user.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation.html).
+To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).

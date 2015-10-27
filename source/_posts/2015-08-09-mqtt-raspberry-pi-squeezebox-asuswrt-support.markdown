@@ -15,8 +15,8 @@ __MQTT Support__<br>
 The big new addition in this release is the support for the MQTT protocol by [@fabaff](https://github.com/fabaff) with some help from [@balloob](https://github.com/balloob). It will now be possible to integrate any IoT device that talks via MQTT. For the initial release we support connecting Home Assistant to a broker (no TLS yet). Components can now subscribe and publish to MQTT topics ([see the example][mqtt-example]) and also support for the automation component [has been added][mqtt-automation]. For more information, see [the MQTT component page][mqtt-component].
 
 [mqtt-example]: https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py
-[mqtt-automation]: /components/automation.html#mqtt-based-automation
-[mqtt-component]: /components/mqtt.html
+[mqtt-automation]: /components/automation/#mqtt-based-automation
+[mqtt-component]: /components/mqtt/
 
 ```yaml
 # Example configuration.yaml entry

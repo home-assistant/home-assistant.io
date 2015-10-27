@@ -36,5 +36,5 @@ This is a quote from the pushover website regarding free/open source apps:
 
 When setting up the application you can use this [icon](https://home-assistant.io/images/favicon-192x192.png).
 
-For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation.html).
+For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation/).
 

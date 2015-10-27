@@ -39,5 +39,5 @@ Configuration variables:
 - **password** (*Required*): The password for your given admin account.
 - **home_interval** (*Optional*): If the home_interval is set then the component will not let a device be AWAY if it has been HOME in the last home_interval minutes. This is in addition to the 3 minute wait built into the device_tracker component.
 
-See the [device tracker component page](/components/device_tracker.html) for instructions how to configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 

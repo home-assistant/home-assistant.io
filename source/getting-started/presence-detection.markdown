@@ -39,7 +39,7 @@ idle, marking them as not home while they are not.
 Home Assistant currently supports one third party service for presence detection: [OwnTracks](http://www.owntracks.org).
 OwnTracks is an app that you install on your iPhone or Android phone that allows you to push the location
 of your device to Home Assistant using an MQTT broker. An MQTT broker is an Internet of Things communication
-platform that you can [freely host yourself][mqtt-self] or get [a private instance for free in the cloud](/components/mqtt.html#run-your-own).
+platform that you can [freely host yourself][mqtt-self] or get [a private instance for free in the cloud](/components/mqtt/#run-your-own).
 
 <p class='note'>
 OwnTracks communicates directly with your MQTT broker, no data will pass through their servers.
@@ -53,14 +53,14 @@ zones][zone] you will be able to add names to locations of your devices. This wa
 spot on the state page where the people in your house are and use it as [triggers][trigger] and
 [conditions][condition] for automation.
 
-###[Next step: Setting up automation &raquo;](/getting-started/automation.html)
+###[Next step: Setting up automation &raquo;](/getting-started/automation/)
 
 [routers]: /components/#presence
-[nmap]: /components/device_tracker.nmap_scanner.html
-[ha-owntracks]: /components/device_tracker.owntracks.html
-[mqtt-self]: /components/mqtt.html#run-your-own
-[mqtt-cloud]: /components/mqtt.html#cloudmqtt
-[zone]: /components/zone.html
-[trigger]: /components/automation.html#zone-trigger
-[condition]: /components/automation.html#zone-condition
+[nmap]: /components/device_tracker.nmap_scanner/
+[ha-owntracks]: /components/device_tracker.owntracks/
+[mqtt-self]: /components/mqtt/#run-your-own
+[mqtt-cloud]: /components/mqtt/#cloudmqtt
+[zone]: /components/zone/
+[trigger]: /components/automation/#zone-trigger
+[condition]: /components/automation/#zone-condition
 

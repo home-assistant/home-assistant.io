@@ -125,4 +125,4 @@ Home Assistant has been uninstalled.
 
 </div> <!-- OSX -->
 
-###[&laquo; Back to Getting Started](/getting-started/index.html)
+###[&laquo; Back to Getting Started](/getting-started/index/)

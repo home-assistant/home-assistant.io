@@ -46,6 +46,6 @@ A word of caution: The Arduino boards are not storing states. This means that wi
 
 ## Building on top of the Arduino component
 
- - [Arduino Sensor](/components/sensor.arduino.html)
- - [Arduino Switch](/components/switch.arduino.html)
+ - [Arduino Sensor](/components/sensor.arduino/)
+ - [Arduino Switch](/components/switch.arduino/)
 

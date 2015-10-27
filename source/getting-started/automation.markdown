@@ -11,7 +11,7 @@ footer: true
 
 When all your devices are set up it's time to put the cherry on the pie: automation. Home Assistant
 offers [a few built-in automations](/components/#automation) but mainly you'll be using
-[the automation component](/components/automation.html) to set up your own rules.
+[the automation component](/components/automation/) to set up your own rules.
 
 ### {% linkable_title The basics of automation %}
 
@@ -165,10 +165,10 @@ automation:
 We went over the basics of creating a home automation rule. From here no longer any hand holding,
 go automate!
 
- - Learn about the available [automation triggers](/components/automation.html#triggers)
- - Learn about the available [automation conditions](/components/automation.html#conditions)
- - Learn about [scripts](/components/script.html) to help you trigger multiple actions and delays
- - Learn about [scenes](/components/scene.html) to help you set many entities at once to your liking
+ - Learn about the available [automation triggers](/components/automation/#triggers)
+ - Learn about the available [automation conditions](/components/automation/#conditions)
+ - Learn about [scripts](/components/script/) to help you trigger multiple actions and delays
+ - Learn about [scenes](/components/scene/) to help you set many entities at once to your liking
  - Setup the [notification component](/components/#notify-service) to sent yourself messages
 
 <p class='note warning'>

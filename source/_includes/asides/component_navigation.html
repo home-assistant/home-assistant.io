@@ -11,7 +11,7 @@
     {% assign is_platform = true %}
     {% assign imp_name = file_parts[1] %}
     {% assign parent_name = file_parts[0] %}
-    {% assign parent_url = parent_name | prepend: '/components/' | append: '.html' %}
+    {% assign parent_url = parent_name | prepend: '/components/' | append: '/' %}
     {% assign parent_component = components | where: 'url', parent_url | first %}
   {% else %}
     {% assign is_platform = false %}

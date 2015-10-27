@@ -11,7 +11,7 @@ logo: openwrt.png
 ha_category: Presence Detection
 ---
 
-_This is one of the two ways we support OpenWRT. If you encounter problems, try [ubus](/components/device_tracker.ubus.html)._
+_This is one of the two ways we support OpenWRT. If you encounter problems, try [ubus](/components/device_tracker.ubus/)._
 
 This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
 
@@ -36,4 +36,4 @@ Configuration variables:
 - **username** (*Required*): The username of an user with administrative privileges, usually *admin*.
 - **password** (*Required*): The password for your given admin account.
 
-See the [device tracker component page](/components/device_tracker.html) for instructions how to configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

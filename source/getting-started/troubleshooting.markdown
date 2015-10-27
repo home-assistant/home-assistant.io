@@ -68,4 +68,4 @@ iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
 iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhere
 ```
 
-###[&laquo; Back to Getting Started](/getting-started/index.html)
+###[&laquo; Back to Getting Started](/getting-started/index/)

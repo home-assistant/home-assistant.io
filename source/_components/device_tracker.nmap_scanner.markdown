@@ -30,5 +30,5 @@ device_tracker:
 `home_interval` is an optional value set in minutes.  This will be the number of minutes nmap will not
 scan this device, assuming it is home, in order to preserve the device battery.
 
-See the [device tracker component page](/components/device_tracker.html) for instructions how to
+See the [device tracker component page](/components/device_tracker/) for instructions how to
 configure the people to be tracked.

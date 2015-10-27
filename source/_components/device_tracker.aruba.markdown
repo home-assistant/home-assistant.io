@@ -37,5 +37,5 @@ Configuration variables:
 - **username** *Required*: The username of an user with administrative privileges, usually *admin*.
 - **password** *Required*: The password for your given admin account.
 
-See the [device tracker component page](/components/device_tracker.html) for instructions how to configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 

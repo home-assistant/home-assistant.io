@@ -47,7 +47,7 @@ These components will track devices within a specific domain and exist of a core
 
 For example, one of the built-in components is the `switch` component. This component is responsible for interaction with different types of switches.
 
-If you are planning to add support for a new platform, please check out the [add new platform section]({{root_url}}/developers/add_new_platform.html).
+If you are planning to add support for a new platform, please check out the [add new platform section]({{root_url}}/developers/add_new_platform/).
 
 #### {% linkable_title Components that respond to events that happen within Home Assistant %}
 These components provide small pieces of home automation logic or services that do common tasks within your house.

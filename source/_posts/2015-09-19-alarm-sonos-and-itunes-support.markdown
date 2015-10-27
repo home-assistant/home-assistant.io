@@ -42,7 +42,7 @@ media_player:
 __Automation__<br>
 Automation has gotten a lot of love. It now supports conditions, multiple triggers and new types of
 triggers. The best to get started with it is to head over to the new
-[getting started with automation](/getting-started/automation.html) page.
+[getting started with automation](/getting-started/automation/) page.
 
 ```yaml
 # Example of entry in configuration.yaml

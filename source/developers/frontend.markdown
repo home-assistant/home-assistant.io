@@ -73,7 +73,7 @@ Building a new version of the frontend is as simple as running `script/build_fro
    * Vulcanize all Webcomponents to `frontend.vulcan.html`.
    * Minify `frontend.vulcan.html` and save it as `frontend.html`.
  * Copy the webcomponents polyfill `webcomponents-lite.min.js` from **home-assistant-polymer** to `components/frontend/www_static/webcomponents-lite.min.js`.
- * Copy the final frontend build `frontend.html` from **home-assistant-polymer** to `components/frontend/www_static/frontend.html`.
+ * Copy the final frontend build `frontend.html` from **home-assistant-polymer** to `components/frontend/www_static/frontend/`.
  * Generate MD5 hash of `frontend.html` to signal caches to redownload the UI.
 
 <p class='img'>

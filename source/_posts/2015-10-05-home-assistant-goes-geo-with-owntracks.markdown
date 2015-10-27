@@ -20,10 +20,10 @@ The geo support consists of three different parts:
 
 We have added a new [getting started section][start-presence] to get up and running.
 
-[platform-owntracks]: /components/device_tracker.owntracks.html
-[component-zone]: /components/zone.html
-[zone-automation]: /components/automation.html#zone-trigger
-[start-presence]: /getting-started/presence-detection.html
+[platform-owntracks]: /components/device_tracker.owntracks/
+[component-zone]: /components/zone/
+[zone-automation]: /components/automation/#zone-trigger
+[start-presence]: /getting-started/presence-detection/
 
 <p class='img'>
 <img src='/images/screenshots/map.png' />
@@ -33,15 +33,15 @@ Map in Home Assistant showing two people and three zones (home, school, work)
 Ofcourse more things happened in the last three weeks. I'm moving away from my usual long post to a
 short summary of highlights:
 
-<a href='/components/media_player.plex.html'>
+<a href='/components/media_player.plex/'>
 <img src='/images/supported_brands/plex.png' style='border:none; box-shadow: none; float: right;' height='50' />
 </a>
 
- - Sensor: [rest platform](/components/sensor.rest.html) added ([@fabaff](https://github.com/fabaff))
- - Alarm Control Panel: [MQTT platform](/components/alarm_control_panel.mqtt.html) added ([@sfam](https://github.com/sfam))
- - Media Player: [Plex platform](/components/media_player.plex.html) added ([@miniconfig](https://github.com/miniconfig, [@adrienbrault](https://github.com/adrienbrault))
+ - Sensor: [rest platform](/components/sensor.rest/) added ([@fabaff](https://github.com/fabaff))
+ - Alarm Control Panel: [MQTT platform](/components/alarm_control_panel.mqtt/) added ([@sfam](https://github.com/sfam))
+ - Media Player: [Plex platform](/components/media_player.plex/) added ([@miniconfig](https://github.com/miniconfig, [@adrienbrault](https://github.com/adrienbrault))
  - Dev Tools: services can now show description of fields ([@balloob](https://github.com/balloob))
  - MQTT: Support for certificates and improved error reporting ([@balloob](https://github.com/balloob))
- - Light: [limitlessled platform](/components/light.limitlessled.html) extended with white light support ([@auchter](https://github.com/auchter))
+ - Light: [limitlessled platform](/components/light.limitlessled/) extended with white light support ([@auchter](https://github.com/auchter))
  - Fuzzy matching for scenes ([@pavoni](https://github.com/pavoni))
  - Scene support for media player ([@maddox](https://github.com/maddox))

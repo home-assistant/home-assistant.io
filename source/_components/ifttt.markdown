@@ -76,4 +76,4 @@ Additional examples of using IFTTT channels can be found below.
 
 Channel | Description
 ----- | -----
-[Manything](/components/ifttt.manything.html) | Automates turning recording ON and OFF based on Home Assistant AWAY and HOME values.
+[Manything](/components/ifttt.manything/) | Automates turning recording ON and OFF based on Home Assistant AWAY and HOME values.

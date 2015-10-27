@@ -13,7 +13,7 @@ featured: true
 ---
 
 
-Google Cast devices will be automatically discovered if you enable [the discovery component]({{site_root}}/components/discovery.html). There is a issue where Chromecasts can only be discovered if your device is connected to the same subnet as your Chromecast.
+Google Cast devices will be automatically discovered if you enable [the discovery component]({{site_root}}/components/discovery/). There is a issue where Chromecasts can only be discovered if your device is connected to the same subnet as your Chromecast.
 
 Chromecast platform can also be forced to load by adding the following lines to your `configuration.yaml`:
 

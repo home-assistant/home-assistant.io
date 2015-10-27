@@ -51,4 +51,4 @@ Keep in mind that if the password contains a colon, it needs to be wrapped in ap
 For Google Mail (smtp.gmail.com) an additional step in the setup process is needed. Google has some extra layers of protection
 which need special attention. By default, the usage by external applications, especially scripts, is limited. Visit the [Less secure apps](https://www.google.com/settings/security/lesssecureapps) page and enable it.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation.html).
+To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
