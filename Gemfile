@@ -4,8 +4,6 @@ group :development do
   gem 'rake', '~> 10.0'
   gem 'jekyll', '~> 3.0'
   gem 'pygments.rb', '~> 0.6.3'
-  # gem 'octopress-hooks', '~> 2.2'
-  # gem 'octopress-date-format', '~> 2.0'
   gem 'rdiscount', '~> 2.0'
   gem 'RedCloth', '~> 4.2.9'
   gem 'haml', '~> 4.0'
@@ -19,10 +17,14 @@ group :development do
 end
 
 group :jekyll_plugins do
-  gem 'jekyll-sitemap'
   gem 'jekyll-paginate'
-  gem 'octopress', '~> 3.0'
+  gem 'jekyll-sitemap'
   gem 'jekyll-time-to-read'
+  gem 'octopress', '~> 3.0'
+  gem 'octopress-codefence'
+  gem 'octopress-filters'
+  gem 'octopress-include-tag'
+  # gem 'octopress-solarized'
 end
 
 gem 'sinatra', '~> 1.4.2'

@@ -169,7 +169,7 @@ go automate!
  - Learn about the available [automation conditions](/components/automation/#conditions)
  - Learn about [scripts](/components/script/) to help you trigger multiple actions and delays
  - Learn about [scenes](/components/scene/) to help you set many entities at once to your liking
- - Setup the [notification component](/components/#notify-service) to sent yourself messages
+ - Setup a [notification platform](/components/#notifications) to sent yourself messages
 
 <p class='note warning'>
   Whenever you write the value <code>on</code> or <code>off</code>, surround it with quotes to avoid

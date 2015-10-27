@@ -1,10 +1,10 @@
 ---
 layout: default
 sidebar: false
+regenerate: true
 ---
   {% assign index = true %}
   {% for post in paginator.posts %}
-  {% assign content = post.content %}
   <article class="listing">
     {% include blog/post/article.html %}
   </article>

@@ -22,13 +22,11 @@
   {% endunless %}
 </header>
 
-{% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
-
-{% if excerpted == 'true' and index %}
+{% if post.excerpted and index %}
 <div class="entry-content clearfix">
-  {{ content | excerpt }}
+  {{ post.excerpt }}
   <a class="btn pull-right" href="{{ root_url }}{{ post.url }}#read-more">{{ site.excerpt_link }}</a>
 </div>
 {% else %}
-  {{ content | replace: site.excerpt_separator, '<a name="read-more"></a>' }}
+  {{ post.content | replace: site.excerpt_separator, '<a name="read-more"></a>' }}
 {% endif %}
