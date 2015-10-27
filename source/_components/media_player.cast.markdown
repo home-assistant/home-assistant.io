@@ -27,8 +27,3 @@ media_player:
 Configuration variables:
 
 - **host** *Optional*: Use only if you don't want to scan for devices.
-
-<p class='note warning'>
-This platform is currently not working due to a changed Cast API.
-</p>
-

@@ -20,15 +20,19 @@ If local authentication is enabled or multiple users are defined, HASS requires 
 
 
 If you want to enable the plex platform directly, add the following lines to your `configuration.yaml`:
+
 ```yaml
 # Example configuration.yaml entry
 media_player:
   - platform: plex
 ```
+
 You may also need to create the file `plex.conf`. 
+
 ```
 {'IP_ADDRESS:PORT': {'token': 'TOKEN'}}
 ```
+
 - **IP_ADDRESS** *Required*: IP address of the Plex Media Server
 - **PORT** *required*: Default is 32400
 - **TOKEN** *Optional*: Only is authentication is required. Set to `None` (without quotes) otherwise.

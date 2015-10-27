@@ -4,7 +4,8 @@
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
 
-  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' }}{% endif %}{% endcapture %}
+
   {% if page.description %} {% capture fb_description %}{{ page.description }}{% endcapture %} {% else %} {% capture fb_description %}{{ content | raw_content }}{% endcapture %} {% endif %}
   <head>
     <meta charset="utf-8">
@@ -20,7 +21,7 @@
     <meta property="fb:app_id" content="{{ site.social.facebook.app_id }}">
     <meta property="og:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:url" content="{% if canonical %}{{ canonical }}{% else %}{{ site.url }}{% endif %}/">
+    <meta property="og:url" content="{% if canonical %}{{ canonical }}{% else %}{{ site.url }}/{% endif %}">
     <meta property="og:type" content="{% if page.categories %}article{% else %}website{% endif %}">
     <meta property="og:description" content="{{ fb_description | strip_html | condense_spaces | truncate:200 }}">
     <meta property="og:image" content="{% if page.og_image %}{{ page.og_image | prepend: site.url }}{% else %}https://home-assistant.io/images/home-assistant-logo-2164x2164.png{% endif %}">
