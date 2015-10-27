@@ -32,13 +32,8 @@ destination: public/
 plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: rdiscount
-rdiscount:
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-highlighter: pygments # default python pygments have been replaced by pygments.rb
+markdown: redcarpet
+highlighter: pygments
 
 gems:
   - jekyll-time-to-read
