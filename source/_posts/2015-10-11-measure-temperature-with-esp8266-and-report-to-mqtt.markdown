@@ -83,7 +83,6 @@ reported value. Reports to the MQTT broker are sent with retain set to `True`. T
 connecting to the MQTT topic will automatically be notified of the last reported value.
 
 ```cpp
-
 #include <ESP8266WiFi.h>
 #include <Wire.h>
 #include <PubSubClient.h>

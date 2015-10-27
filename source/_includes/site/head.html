@@ -4,7 +4,6 @@
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
 
-  {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' }}{% endif %}{% endcapture %}
   {% if page.description %} {% capture fb_description %}{{ page.description }}{% endcapture %} {% else %} {% capture fb_description %}{{ content | raw_content }}{% endcapture %} {% endif %}
   <head>
     <meta charset="utf-8">
@@ -15,7 +14,7 @@
     <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="{{ canonical }}">
+    <link rel="canonical" href="{{ page.url | canonical_url }}">
     {% if site.social.facebook.app_id %}
     <meta property="fb:app_id" content="{{ site.social.facebook.app_id }}">
     <meta property="og:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
