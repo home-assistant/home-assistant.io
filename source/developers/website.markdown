@@ -37,6 +37,5 @@ The images which are displayed on the pages are stored in various directories ac
 | screen shots | source/images/screenshots                     |
 | logos        | source/images/supported_brands                |
 
-No everything has a logo, to show something we are using the [Gnome Icon Theme](http://ftp.gnome.org/pub/GNOME/sources/gnome-icon-theme) from the [GNOME Project](http://www.gnome.org) as a source for the placeholders. Those icon are licensed under the GNU LGPL v.3 or Creative Commons BY-SA 3.0 license. 
-
+Not everything (product, component, etc.) has a logo, to show something we are using the [Gnome Icon Theme](http://ftp.gnome.org/pub/GNOME/sources/gnome-icon-theme) from the [GNOME Project](http://www.gnome.org) as a source for the placeholders. Those icons are licensed under the GNU LGPL v.3 or Creative Commons BY-SA 3.0 license. 
 
