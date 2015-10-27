@@ -24,7 +24,6 @@ group :jekyll_plugins do
   gem 'octopress-codefence'
   gem 'octopress-filters'
   gem 'octopress-include-tag'
-  # gem 'octopress-solarized'
 end
 
 gem 'sinatra', '~> 1.4.2'
