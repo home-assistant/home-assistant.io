@@ -7,6 +7,7 @@ sidebar: false
 comments: false
 sharing: true
 footer: true
+regenerate: true
 ---
 
 This is a community currated list of `configuration.yaml` examples. New recipes can be added via

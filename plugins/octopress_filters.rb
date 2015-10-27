@@ -1,8 +1,8 @@
 #custom filters for Octopress
 require './plugins/backtick_code_block'
-require 'octopress-hooks'
+# require 'octopress-hooks'
 require 'jekyll-sitemap'
-require 'octopress-date-format'
+# require 'octopress-date-format'
 require './plugins/raw'
 require 'rubypants'
 
@@ -23,25 +23,25 @@ module OctopressFilters
     page.output = RubyPants.new(page.output).to_html
   end
 
-  class PageFilters < Octopress::Hooks::Page
-    def pre_render(page)
-      OctopressFilters::pre_filter(page)
-    end
+  # class PageFilters < Octopress::Hooks::Page
+  #   def pre_render(page)
+  #     OctopressFilters::pre_filter(page)
+  #   end
 
-    def post_render(page)
-      OctopressFilters::post_filter(page)
-    end
-  end
+  #   def post_render(page)
+  #     OctopressFilters::post_filter(page)
+  #   end
+  # end
 
-  class PostFilters < Octopress::Hooks::Post
-    def pre_render(post)
-      OctopressFilters::pre_filter(post)
-    end
+  # class PostFilters < Octopress::Hooks::Post
+  #   def pre_render(post)
+  #     OctopressFilters::pre_filter(post)
+  #   end
 
-    def post_render(post)
-      OctopressFilters::post_filter(post)
-    end
-  end
+  #   def post_render(post)
+  #     OctopressFilters::post_filter(post)
+  #   end
+  # end
 end
 
 
