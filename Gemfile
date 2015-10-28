@@ -14,6 +14,7 @@ group :development do
   gem 'stringex', '~> 1.4.0'
   gem 'execjs'
   gem 'therubyracer', :platforms => :ruby
+  gem 'coderay'
 end
 
 group :jekyll_plugins do

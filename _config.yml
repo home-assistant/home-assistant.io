@@ -32,12 +32,26 @@ destination: public/
 plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: redcarpet
+markdown: kramdown
 
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+kramdown:
+  input: GFM
+  auto_ids:       false
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  enable_coderay: true
 
-highlighter: pygments
+  coderay:
+    coderay_wrap:              div
+    coderay_line_numbers:      nil
+    coderay_line_number_start: 1
+    coderay_tab_width:         4
+    coderay_bold_every:        10
+    coderay_css:               class
+
+highlighter: rouge
 
 gems:
   - jekyll-time-to-read
