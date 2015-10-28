@@ -10,11 +10,11 @@ categories: how-to mqtt esp8266
 og_image: /images/blog/2015-10-esp8266-temp/ha-sensor.png
 ---
 
-I recently learned about the ESP8266, a $5 chip that includes WiFi and is Arduino compatible. This means
-that all your DIY projects can now be done for a fraction of the price.
+{::options coderay_line_numbers="table" /}
 
-For this tutorial, I'll walk through how to get going with ESP8266, get the temperature and humidity and
-report it to MQTT where Home Asssistant can pick it up.
+I recently learned about the ESP8266, a $5 chip that includes WiFi and is Arduino compatible. This means that all your DIY projects can now be done for a fraction of the price.
+
+For this tutorial, I'll walk through how to get going with ESP8266, get the temperature and humidity and report it to MQTT where Home Asssistant can pick it up.
 
 <p class='img'>
 <img src='/images/blog/2015-10-esp8266-temp/setup.png' />
@@ -36,8 +36,7 @@ I've been using Adafruit for my shopping:
  - [Adafruit HDC1008 Temperature & Humidity Sensor Breakout Board](http://www.adafruit.com/product/2635) ([assembly instructions](https://learn.adafruit.com/adafruit-hdc1008-temperature-and-humidity-sensor-breakout/assembly))
  - [MQTT server](/components/mqtt/#picking-a-broker)
 
-_Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires,
-soldering iron + wire, Serial USB cable._
+_Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 
 ### Connections
 
@@ -54,11 +53,9 @@ _I picked `#2` and `14` myself, you can configure them in the sketch._
 
 ### Preparing your IDE
 
-Follow [these instructions](https://github.com/esp8266/Arduino#installing-with-boards-manager) on how
-to install and prepare the Arduino IDE for ESP8266 development.
+Follow [these instructions](https://github.com/esp8266/Arduino#installing-with-boards-manager) on how to install and prepare the Arduino IDE for ESP8266 development.
 
-After you're done installing, open the Arduino IDE, in the menu click on `sketch` -> `include library` ->
-`manage libraries` and install the following libraries:
+After you're done installing, open the Arduino IDE, in the menu click on `sketch` -> `include library` -> `manage libraries` and install the following libraries:
 
 - PubSubClient by Nick 'O Leary
 - Adafruit HDC1000
@@ -71,16 +68,11 @@ If you have followed the previous steps, you're all set.
  - Copy and paste the below sketch to the Arduino IDE
  - Adjust the values line 6 - 14 to match your setup
  - Optional: If you want to connect to an MQTT server without a username or password, adjust line 63.
- - To have the ESP8266 accept our new sketch, we have to put it in upload mode. On the ESP8266 device
-   keep the GPIO0 button pressed while pressing the reset button. The red led will glow half bright to
-   indicate it is in upload mode.
+ - To have the ESP8266 accept our new sketch, we have to put it in upload mode. On the ESP8266 device keep the GPIO0 button pressed while pressing the reset button. The red led will glow half bright to indicate it is in upload mode.
  - Press the upload button in Arduino IDE
  - Open the serial monitor (`Tools` -> `Serial Monitor`) to see the output from your device
 
-This sketch will connect to your WiFi network and MQTT broker. It will read the temperature and humidity
-from the sensor every second. It will report it to the MQTT server if the difference is > 1 since last
-reported value. Reports to the MQTT broker are sent with retain set to `True`. This means that anyone
-connecting to the MQTT topic will automatically be notified of the last reported value.
+This sketch will connect to your WiFi network and MQTT broker. It will read the temperature and humidity from the sensor every second. It will report it to the MQTT server if the difference is > 1 since last reported value. Reports to the MQTT broker are sent with retain set to `True`. This means that anyone connecting to the MQTT topic will automatically be notified of the last reported value.
 
 ```cpp
 #include <ESP8266WiFi.h>
@@ -196,8 +188,7 @@ void loop() {
 
 ### Configuring Home Assistant
 
-The last step is to integrate the sensor values into Home Assistant. This can be done by setting up
-Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.
+The last step is to integrate the sensor values into Home Assistant. This can be done by setting up Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.
 
 ```yaml
 mqtt:

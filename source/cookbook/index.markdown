@@ -10,8 +10,7 @@ footer: true
 regenerate: true
 ---
 
-This is a community currated list of `configuration.yaml` examples. New recipes can be added via
-the [home-assistant.io repository](https://github.com/balloob/home-assistant.io/tree/master/source/_cookbook).
+This is a community currated list of `configuration.yaml` examples. New recipes can be added via the [home-assistant.io repository](https://github.com/balloob/home-assistant.io/tree/master/source/_cookbook).
 
 {% for recipe in site.cookbook %}
   * [{{recipe.title}}]({{recipe.url}})

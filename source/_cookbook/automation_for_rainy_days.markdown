@@ -40,6 +40,7 @@ automation:
 And then of course turn off the lamp when it stops raining but only if it's within an hour before sunset.
 
 ```yaml
+automation 2:
   alias: 'Rain is over'
   trigger:
        - platform: state

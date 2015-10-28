@@ -9,20 +9,13 @@ sharing: true
 footer: true
 ---
 
-Home Assistant will create a configuration folder when it is run for the first time. Location depends
-on operating system: on OS X/Linux it is `~/.homeassistant` and on Windows it is `%APPDATA%/.homeassistant`.
-If you want to use a different folder for configuration, run `hass --config path/to/config`.
+Home Assistant will create a configuration folder when it is run for the first time. Location depends on operating system: on OS X/Linux it is `~/.homeassistant` and on Windows it is `%APPDATA%/.homeassistant`. If you want to use a different folder for configuration, run `hass --config path/to/config`.
 
-Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains
-which components will be loaded and what their configuration is. An example configuration file is
-located [here](https://github.com/balloob/home-assistant/blob/master/config/configuration.yaml.example).
+Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains which components will be loaded and what their configuration is. An example configuration file is located [here](https://github.com/balloob/home-assistant/blob/master/config/configuration.yaml.example).
 
-When launched for the first time, Home Assistant will write a default configuration enabling the web
-interface and device discovery. It can take up to a minute for your devices to be discovered and
-show up in the interface.
+When launched for the first time, Home Assistant will write a default configuration enabling the web interface and device discovery. It can take up to a minute for your devices to be discovered and show up in the interface.
 
-If you are running into troubles while configuring Home Assistant, have a look at
-[the configuration troubleshoot page](/getting-started/troubleshooting-configuration/).
+If you are running into troubles while configuring Home Assistant, have a look at [the configuration troubleshoot page](/getting-started/troubleshooting-configuration/).
 
 <p class='note'>
   You will have to restart Home Assistant for changes in <code>configuration.yaml</code> to take effect.
@@ -30,9 +23,7 @@ If you are running into troubles while configuring Home Assistant, have a look a
 
 ### {% linkable_title Setting up the basic info %}
 
-By default Home Assistant will try to detect your location and will automatically select a
-temperature unit and time zone based on your location. You can overwrite this by adding the
-following information to your `configuration.yaml`:
+By default Home Assistant will try to detect your location and will automatically select a temperature unit and time zone based on your location. You can overwrite this by adding the following information to your `configuration.yaml`:
 
 ```yaml
 homeassistant:
@@ -57,7 +48,7 @@ homeassistant:
 
 The first thing you want to add is a password for the web interface. Use your favourite text editor to open the file `/config/configuration.yaml` and add the following to the bottom:
 
-```
+```yaml
 http:
   api_password: YOUR_PASSWORD
 ```
@@ -68,12 +59,8 @@ Home Assistant runs as a self hosted web application. Home Assistant contains su
 
 ### {% linkable_title Remote access %}
 
-To make Home Assistant accessible while away from home, you will have to setup port forwarding from
-your router to port 8123 on the computer that is hosting Home Assistant. Instructions how to do this
-can be found by searching `<Router model> port forwarding instructions`.
+To make Home Assistant accessible while away from home, you will have to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions how to do this can be found by searching `<Router model> port forwarding instructions`.
 
-Some internet service providers will only offer dynamic IPs. This can cause you to be unable to
-access Home Assistant while being remote. You can solve this by using a free Dynamic DNS service
-like [DuckDNS](https://www.duckdns.org/).
+Some internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while being remote. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).
 
-###[Next step: Setting up devices &raquo;](/getting-started/devices/)
+### [Next step: Setting up devices &raquo;](/getting-started/devices/)
