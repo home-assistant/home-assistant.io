@@ -53,7 +53,7 @@ pre{
  * 4. Give the code form by forcing the `code` to honour white-space.
  */
 .line-numbers{
-    font-family:monospace, serif;           /* [1] */
+    font-family:monospace, sans-serif;           /* [1] */
     list-style:decimal-leading-zero inside; /* [2] */
     white-space:nowrap;                     /* [3] */
     overflow:auto;                          /* [3] */
