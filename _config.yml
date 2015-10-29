@@ -57,7 +57,6 @@ highlighter: rouge
 gems:
   - jekyll-time-to-read
   - octopress-filters
-  - octopress-codefence
   - octopress-include-tag
 
 paginate: 10          # Posts per page on the blog index

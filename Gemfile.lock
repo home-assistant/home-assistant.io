@@ -46,12 +46,6 @@ GEM
       octopress-hooks (~> 2.0)
       redcarpet (~> 3.0)
       titlecase
-    octopress-code-highlighter (4.2.6)
-      colorator (~> 0.1)
-      octopress-hooks
-    octopress-codefence (1.6.1)
-      octopress-code-highlighter (~> 4.2)
-      octopress-hooks (~> 2.1)
     octopress-deploy (1.3.0)
       colorator
     octopress-escape-code (2.0.6)
@@ -115,7 +109,6 @@ DEPENDENCIES
   jekyll-sitemap
   jekyll-time-to-read
   octopress (~> 3.0)
-  octopress-codefence
   octopress-filters
   octopress-include-tag
   pygments.rb (~> 0.6.3)
