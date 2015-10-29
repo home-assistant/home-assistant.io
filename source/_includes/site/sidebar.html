@@ -1,7 +1,7 @@
 <div class="grid">
   {% assign url_parts = page.url | split: '/' %}
   {% if url_parts[1] == 'components' %}
-    {% include asides/component_navigation.html %}
+    {% include asides/component_navigation.html | compact_newlines %}
   {% else %}
     {% include asides/social.html %}
     {% include_array default_asides %}
