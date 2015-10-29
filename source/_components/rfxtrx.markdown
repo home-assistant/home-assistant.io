@@ -27,8 +27,7 @@ Configuration variables:
 
 ### How to find the packet_id for your devices
 
-Make sure you have enabled all RFXtrx related platforms. Push your remote and the device will be added
-automatically. After that you can see you device packetid in the state developer tools in the app.
+Make sure you have enabled all RFXtrx related platforms. Push your remote and the device will be added automatically. After that you can see you device packetid in the state developer tools in the app.
 
 Example for X10 and Chacon DI.O signals, if you see in state developer tools the following entities:
 
