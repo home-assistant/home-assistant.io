@@ -35,6 +35,6 @@ Configuration variables:
 If you are using an original Arduino the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
 
 ```bash
-ls /dev/ttyACM*
+$ ls /dev/ttyACM*
 ```
 

@@ -14,5 +14,5 @@ ha_category: Sensor
 
 The wink sensor platform allows you to get data from your [Wink](http://www.wink.com/) sensors.
 
-The requirement is that you have setup your [Wink hub](/components/light.wink.html).
+The requirement is that you have setup your [Wink hub](/components/light.wink/).
 

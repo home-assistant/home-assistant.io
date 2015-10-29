@@ -16,6 +16,6 @@ The [Vera](http://getvera.com) ecosystem is using Z-Wave for communication betwe
 
 ## {% linkable_title Building on top of Vera %}
 
- - [Vera Sensor](/components/sensor.vera.html)
- - [Vera Switch](/components/switch.vera.html)
- - [Vera Light](/components/light.vera.html)
+ - [Vera Sensor](/components/sensor.vera/)
+ - [Vera Switch](/components/switch.vera/)
+ - [Vera Light](/components/light.vera/)

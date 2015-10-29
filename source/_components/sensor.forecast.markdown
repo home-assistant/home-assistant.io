@@ -14,7 +14,7 @@ featured: true
 
 The forecast platform uses the [Forecast.io](https://forecast.io/) web service as a source for meteorological data for your location. The location is based on the Longitude and Latitude cooridinates configured in `configuration.yaml`.  The cooridinates are auto detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address.  GPS cooridinates can be found by using Google Maps and clicking on your home.
 
-You need an API key which is free but requires a [registration](https://developer.forecast.io/register). You can make 1000 requests per day. This means that you could create approximately every 1.4 minute one.
+You need an API key which is free but requires a [registration](https://developer.forecast.io/register). You can make 1000 requests per day. This means that you could create one approximately every 1.4 minutes.
 
 To add Forecast.io to your installation, add the following to your `configuration.yaml` file:
 
@@ -45,7 +45,7 @@ sensor:
 
 Configuration variables:
 
-- **api_key** (*Required*): Your API key for http://forecast.io/. 
+- **api_key** (*Required*): Your API key for http://forecast.io/.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **summary**: A human-readable text summary.
   - **precip_type**: The type of precipitation occurring.
@@ -59,7 +59,7 @@ Configuration variables:
   - **pressure**: The sea-level air pressure in millibars.
   - **visibility**: The average visibility.
   - **ozone**: The columnar density of total atmospheric ozone in Dobson.
-- **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are auto, us, si, ca, and uk2.
+- **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let forecast.io decide the unit system based on location.
 
 Details about the API are available in the [Forecast.io documentation](https://developer.forecast.io/docs/v2).

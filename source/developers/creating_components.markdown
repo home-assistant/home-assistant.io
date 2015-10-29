@@ -26,10 +26,10 @@ example:
 
 ## {% linkable_title Loading components %}
 
-A component will be loaded on start if a section (ie. `[light]`) for it exists in the config file. A component can also be loaded if another component is loaded that depends on it. When loading a component Home Assistant will check the following paths:
+A component will be loaded on start if a section (ie. `light:`) for it exists in the config file. A component can also be loaded if another component is loaded that depends on it. When loading a component Home Assistant will check the following paths:
 
- * <code>&lt;config directory>/custom_components/&lt;component name></code>
- * <code>homeassistant/components/&lt;component name></code> (built-in components)
+ * `<config directory>/custom_components/<component name>`
+ * `homeassistant/components/<component name>` (built-in components)
 
 Once loaded, a component will only be setup if all dependencies can be loaded and are able to setup. Keep an eye on the logs to see if your component could be loaded and initialized.
 
@@ -47,28 +47,27 @@ Home Assistant allows components and platforms to specify their dependencies and
 
 Dependencies are other Home Assistant components that should be setup before the platform is loaded. An example is the MQTT sensor component, which requires an active connection to an MQTT broker. If Home Assistant is unable to load and setup the MQTT component, it will not setup the MQTT sensor component.
 
-Requirements are Python libraries that you would normally install using `pip`. Each entry in a requirement list is a pip compatible string. For example, the media player Cast platform depends on the Python package PyChromecast thus `REQUIREMENTS = ['pychromecast==0.6.12']`. If Home Assistant is unable to install the package or verify it is installed, the component will fail to
-load.
+Requirements are Python libraries that you would normally install using `pip`. Each entry in a requirement list is a pip compatible string. For example, the media player Cast platform depends on the Python package PyChromecast thus `REQUIREMENTS = ['pychromecast==0.6.12']`. If Home Assistant is unable to install the package or verify it is installed, the component will fail to load.
 
 ## {% linkable_title Initializing components %}
 
-After loading, the bootstrapper will call `setup(hass, config)` method on the component to initialize it. The following parameters are passed in:
+After loading, the bootstrapper will call `setup(hass, config)` method on the component to initialize it.
 
-| Parameter | Description |
-| --------- | ----------- |
-| <code>hass</code> | The Home Assistant object. Call its methods to track time, register services, listen for events or track states: [Overview of available methods.](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L55) |
-| <code>config</code> | A dict containing the configuration. The keys of the config-dict are component names and the value is another dict with the component configuration.: [Details](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L687) |
+### {% linkable_title `hass`: the Home Assistant instance %}
 
-### {% linkable_title Guidance on using the Home Assistant object %}
-The Home Assistant object contains three objects to help you interact with the system.
+The Home Assistant instace contains three objects to help you interact with the system.
 
 | Object | Description |
 | ------ | ----------- |
-| <code>hass.states</code> | This is the StateMachine. It allows you to set states and track when they are changed. [See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L434). |
-| <code>hass.bus</code> | This is the EventBus. It allows you to trigger and listen for events.<br>[See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L229). |
-| <code>hass.services</code> | This is the ServiceRegistry. It allows you to register services.<br>[See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L568). |
+| `hass.config` | This is the core configuration of Home Assistant exposing location, temperature preferences and config directory path. [Details](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L687)
+| `hass.states` | This is the StateMachine. It allows you to set states and track when they are changed. [See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L434). |
+| `hass.bus` | This is the EventBus. It allows you to trigger and listen for events.<br>[See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L229). |
+| `hass.services` | This is the ServiceRegistry. It allows you to register services.<br>[See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L568). |
 
-### {% linkable_title Example on using the configuration parameter %}
+### {% linkable_title `config`: User given configuration. %}
+
+The `config` paramter is a dictionary containing the user supplied configuration. The keys of the dictionary are the component names and the value is another dictionary with the component configuration.
+
 If your configuration file contains the following lines:
 
 ```yaml
@@ -77,3 +76,7 @@ example:
 ```
 
 Then in the setup method of your component you will be able to refer to `config['example']['host']` to get the value `paulusschoutsen.nl`.
+
+## {% linkable_title Responding to events %}
+
+Home Assistant has different ways of responding to events that occur in Home Assistant. These have been organized in [helper methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/helpers/event.py). Examples are `track_state_change`, `track_point_in_time`, `track_time_change`.

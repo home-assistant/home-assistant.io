@@ -12,7 +12,7 @@ Another month has passed and some great new features have landed in Home Assista
 
 This release includes some architectural changes by me. The first is that the frontend is now based on a [NuclearJS](http://optimizely.github.io/nuclear-js/) JavaScript backend. This has greatly helped to organize and optimize the frontend code. Another change is that Home Assistant will now install dependencies on-demand instead of installing dependencies for all supported devices.
 
-__IP Camera Support__<br>
+__IP Camera Support__
 James has worked very hard to add support for IP cameras to Home Assistant which is included in this release. The initial release focusses on providing generic IP camera support. This means that any webcam that can exposes a JPEG image via a url can be integrated.
 
 Home Assistant will route the requests to your camera via the server allowing you to expose IP camera's inside your network via the Home Assistant app.
@@ -33,9 +33,8 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
 
 <!--more-->
 
-__Arduino__<br>
-<img src='/images/supported_brands/arduino.png' style='border:none; box-shadow: none; float: right;' height='50' />
-Fabian has contributed support for interfacing with Arduinos. This makes it possible to connect your Arduino via USB and expose pins as sensor data and write to pins via switches. Have a look at [the docs](/components/arduino.html) for an extensive guide to get started.
+__Arduino__
+<img src='/images/supported_brands/arduino.png' style='border:none; box-shadow: none; float: right;' height='50' /> Fabian has contributed support for interfacing with Arduinos. This makes it possible to connect your Arduino via USB and expose pins as sensor data and write to pins via switches. Have a look at [the docs](/components/arduino/) for an extensive guide to get started.
 
 ```yaml
 # Example configuration.yaml entry
@@ -60,9 +59,8 @@ sensor:
       type: analog
 ```
 
-__Kodi (XBMC)__<br>
-<img src='/images/supported_brands/kodi.png' style='border:none; box-shadow: none; float: right;' height='50' />
-Ettisan has contributed a Kodi (XBMC) platform for the media player component. This allows you to track all the media that you are playing and allow you to control it.
+__Kodi (XBMC)__
+<img src='/images/supported_brands/kodi.png' style='border:none; box-shadow: none; float: right;' height='50' /> Ettisan has contributed a Kodi (XBMC) platform for the media player component. This allows you to track all the media that you are playing and allow you to control it.
 
 ```yaml
 # Example configuration.yaml entry
@@ -74,9 +72,8 @@ media_player:
   password: my_secure_password
 ```
 
-__TP-Link__<br>
-<img src='/images/supported_brands/tp-link.png' style='border:none; box-shadow: none; float: right;' width='150' />
-Michael has added TP-Link support to the device tracker. This allows you to now detect presence if you have a TP-Link router.
+__TP-Link__
+<img src='/images/supported_brands/tp-link.png' style='border:none; box-shadow: none; float: right;' width='150' /> Michael has added TP-Link support to the device tracker. This allows you to now detect presence if you have a TP-Link router.
 
 ```yaml
 # Example configuration.yaml entry
@@ -87,9 +84,8 @@ device_tracker:
   password: YOUR_ADMIN_PASSWORD
 ```
 
-__Efergy energy monitor__<br>
-<img src='/images/supported_brands/efergy.png' style='border:none; box-shadow: none; float: right;' height='50' />
-Miniconfig has contributed support for the [Efergy energy meters](https://efergy.com). To get an app token, log in to your efergy account, go to the Settings page, click on App tokens, and click "Add token".
+__Efergy energy monitor__
+<img src='/images/supported_brands/efergy.png' style='border:none; box-shadow: none; float: right;' height='50' /> Miniconfig has contributed support for the [Efergy energy meters](https://efergy.com). To get an app token, log in to your efergy account, go to the Settings page, click on App tokens, and click "Add token".
 
 ```yaml
 # Example configuration.yaml entry
@@ -105,7 +101,7 @@ sensor:
       currency: $
 ```
 
-__Forecast.io__<br>
+__Forecast.io__
 Fabian has added support for [Forecast.io](https://forecast.io/) to get weather forecasts for Home Assistant. You need an API key which is free but requires a [registration](https://developer.forecast.io/register). To add Forecast.io to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

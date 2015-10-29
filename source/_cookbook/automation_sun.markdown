@@ -27,7 +27,9 @@ automation:
 ```
 
 #### Natural wake up light
+
 _Note, Philips Hue is currently the only light platform that support transitions._
+
 ```yaml
 automation:
   trigger:

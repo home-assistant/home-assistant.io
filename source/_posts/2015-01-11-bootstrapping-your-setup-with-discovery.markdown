@@ -16,8 +16,8 @@ Most devices still require some sort of interaction from the user after being di
 
 To enable the discovery component, add the following to your `home-assistant.conf`:
 
-```
+```conf
 [discovery]
 ```
 
-A new [discovery section]({{site_root}}/developers/add_new_platform.html#discovery) has been added to the Adding a new platform page with instructions how to make your platform discoverable.
+A new [discovery section]({{site_root}}/developers/add_new_platform/#discovery) has been added to the Adding a new platform page with instructions how to make your platform discoverable.

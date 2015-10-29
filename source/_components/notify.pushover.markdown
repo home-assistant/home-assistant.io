@@ -32,9 +32,9 @@ Configuration variables:
 - **user_key** (*Required*): To retrieve this value log into your account at https://pushover.net
 
 This is a quote from the pushover website regarding free/open source apps:
-> "If you are creating a client-side library, application, or open source project that will be redistributed and installed by end-users, you may want to require each of your users to register their own application rather than including your own API token with the software."
+
+<blockquote>
+  If you are creating a client-side library, application, or open source project that will be redistributed and installed by end-users, you may want to require each of your users to register their own application rather than including your own API token with the software.
+</blockquote>
 
 When setting up the application you can use this [icon](https://home-assistant.io/images/favicon-192x192.png).
-
-For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation.html).
-

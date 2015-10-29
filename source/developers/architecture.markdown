@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Before we dive into the Home Assistant architecture, it is important to get a clear overview of the home automation landscape as a whole. This will allow us to show how the different parts of Home Assistant fit in the picture. For a more lengthy discussion about what each part in this overview is responsible for, <a href='{{ root_url }}/blog/2014/12/26/home-control-home-automation-and-the-smart-home/'>check out our blog</a>. A tl;dr version of the blog:
+Before we dive into the Home Assistant architecture, it is important to get a clear overview of the home automation landscape as a whole. This will allow us to show how the different parts of Home Assistant fit in the picture. For a more lengthy discussion about what each part in this overview is responsible for, <a href='/blog/2014/12/26/home-control-home-automation-and-the-smart-home/'>check out our blog</a>. A tl;dr version of the blog:
 
  * Home Control is responsible for collecting information on- and controlling devices.
  * Home Automation triggers commands based on user configurations.
@@ -31,54 +31,57 @@ The Home Assistant core is responsible for Home Control. It has four parts to ma
  * The **Timer** will send every 1 second a `time_changed` event on the event bus.
 
 <p class='img'>
-  <a href='{{ root_url }}/images/architecture/ha_architecture.png'>
-    <img src='{{ root_url }}/images/architecture/ha_architecture.png' />
+  <a href='/images/architecture/ha_architecture.png'>
+    <img src='/images/architecture/ha_architecture.png' />
   </a>
   Overview of the Home Assistant core architecture
 </p>
 
 Home Assistant can be extended by **components**. Each component is responsible for a specific domain within Home Assistant. Components can listen for- or trigger events, offer services and maintain states. Components are written in Python and can do all the goodness that Python has to offer. Out of the box, Home Assistant offers a bunch of [built-in components]({{site_root}}/components/).
 
-We can differentiate between two different types of
-components within Home Assistant.
+We can differentiate between two different types ofcomponents within Home Assistant.
 
 #### {% linkable_title Components that interact with an Internet of Things domain %}
+
 These components will track devices within a specific domain and exist of a core part and platform specific logic. These components make their information available via the State Machine and the Event Bus. The component will also register services in the Service Registry to expose control of the devices.
 
 For example, one of the built-in components is the `switch` component. This component is responsible for interaction with different types of switches.
 
-If you are planning to add support for a new platform, please check out the [add new platform section]({{root_url}}/developers/add_new_platform.html).
+If you are planning to add support for a new platform, please check out the [add new platform section]({{root_url}}/developers/add_new_platform/).
 
 #### {% linkable_title Components that respond to events that happen within Home Assistant %}
+
 These components provide small pieces of home automation logic or services that do common tasks within your house.
 
-For example the `device_sun_light_trigger` component tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and there are people home. The component uses logic along the following lines:
+For example the [`device_sun_light_trigger` component](/components/device_sun_light_trigger/) tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and there are people home. The component uses logic along the following lines:
 
+```plain
     In the event that device 'Paulus Nexus 5' changes to the 'Home' state:
       If the sun has set and the lights are not on:
         Turn on the lights
+```
 
-<!-- comment to separate markdown blockquotes -->
-
+```plain
     In the event that the combined state of all tracked devices changes to 'Not Home':
       If the lights are on:
         Turn off the lights
+```
 
-<!-- comment to separate markdown blockquotes -->
-
+```plain
     In the event of the sun setting:
       If the lights are off and the combined state of all tracked device equals 'Home':
         Turn on the lights
+```
 
-Another example of a home automation component can be found in [`/config/custom_components/example.py`](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py).
+An extended example of a home automation component can be found [here](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py).
 
 ### {% linkable_title The full picture %}
 
 When we put all the different pieces of Home Assistant together we see that we match pretty close to the initial sketched home automation overview. The smart home AI is not implemented yet and therefore omitted from the following picture.
 
 <p class='img'>
-  <a href='{{ root_url }}/images/architecture/ha_full_architecture.png'>
-    <img src='{{ root_url }}/images/architecture/ha_full_architecture.png' />
+  <a href='/images/architecture/ha_full_architecture.png'>
+    <img src='/images/architecture/ha_full_architecture.png' />
   </a>
   Overview of the full Home Assistant architecture with a couple of loaded components and platforms.
 </p>
@@ -90,8 +93,8 @@ Component's platform logic uses 3rd party Python libraries to communicate with t
 Home Assistant supports running multiple synchronized instances using a master-slave model. Whenever `events.fire` or `states.set` is called on the salve it will forward it to the master. The master will replicate all events and changed states to its slaves.
 
 <p class='img'>
-  <a href='{{ root_url }}/images/architecture/architecture-remote.png'>
-    <img src='{{ root_url }}/images/architecture/architecture-remote.png' />
+  <a href='/images/architecture/architecture-remote.png'>
+    <img src='/images/architecture/architecture-remote.png' />
   </a>
   Overview of the Home Assistant architecture for multiple devices.
 </p>

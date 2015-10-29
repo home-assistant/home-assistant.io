@@ -40,14 +40,11 @@ Configuration variables:
 
 ## {% linkable_title Picking a broker %}
 
-The MQTT component needs you to run an MQTT broker for Home Assistant to connect to.
-
-There are three options, each with various degrees of ease of setup and privacy.
+The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are three options, each with various degrees of ease of setup and privacy.
 
 #### {% linkable_title Run your own %}
 
-Most private option but requires a bit more work. There are two free and open-source brokers to pick
-from: [Mosquitto](http://mosquitto.org/) and [Mosca](http://www.mosca.io/).
+Most private option but requires a bit more work. There are two free and open-source brokers to pick from: [Mosquitto](http://mosquitto.org/) and [Mosca](http://www.mosca.io/).
 
 ```yaml
 # Example configuration.yaml entry
@@ -62,9 +59,7 @@ mqtt:
 
 #### {% linkable_title Public MQTT %}
 
-The Mosquitto project runs a [public broker](http://test.mosquitto.org). Easiest to setup but there
-is 0 privacy as all messages are public. Use this only for testing purposes and not for real tracking
-of your devices.
+The Mosquitto project runs a [public broker](http://test.mosquitto.org). Easiest to setup but there is 0 privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.
 
 ```yaml
 mqtt:
@@ -80,9 +75,7 @@ mqtt:
 
 #### {% linkable_title CloudMQTT %}
 
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free up to 10
-connected devices. This is enough to get started with for example
-[OwnTracks](/components/device_tracker.owntracks.html) and give you a taste of what is possible.
+[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free up to 10 connected devices. This is enough to get started with for example [OwnTracks](/components/device_tracker.owntracks/) and give you a taste of what is possible.
 
 <p class='note'>
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
@@ -97,35 +90,35 @@ Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
       a. Under manage users, fill in username, password and click add
       b. Under ACLs, select user, topic `#`, check 'read access' and 'write access'
  5. Copy the instance info to your configuration.yaml:
+
 ```yaml
-    mqtt:
-      broker: <Server>
-      port: <SSL Port>
-      username: <User>
-      password: <Password>
+mqtt:
+  broker: <Server>
+  port: <SSL Port>
+  username: <User>
+  password: <Password>
 ```
 
 <p class='note'>
-Home Assistant will automatically load the correct certificate if you connect to an encrypted channel
-of CloudMQTT (port range 20 000 - 30 000).
+Home Assistant will automatically load the correct certificate if you connect to an encrypted channel of CloudMQTT (port range 20 000 - 30 000).
 </p>
 
 ## {% linkable_title Building on top of MQTT %}
 
- - [MQTT Sensor](/components/sensor.mqtt.html)
- - [MQTT Switch](/components/switch.mqtt.html)
- - [MQTT Device Tracker](/components/device_tracker.mqtt.html)
- - [OwnTracks Device Tracker](/components/device_tracker.owntracks.html)
- - [MQTT automation rule](/components/automation.html#mqtt-based-automation)
- - [MQTT alarm](/components/alarm_control_panel.mqtt.html)
- - Integrating it into a component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
+ - [MQTT Sensor](/components/sensor.mqtt/)
+ - [MQTT Switch](/components/switch.mqtt/)
+ - [MQTT Device Tracker](/components/device_tracker.mqtt/)
+ - [OwnTracks Device Tracker](/components/device_tracker.owntracks/)
+ - [MQTT automation rule](/components/automation/#mqtt-based-automation)
+ - [MQTT alarm](/components/alarm_control_panel.mqtt/)
+ - Integrating it into own component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
 
 ## {% linkable_title Testing your setup %}
 
 For debugging purposes `mosquitto` is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
+$ mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
 ```
 
 Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose "Call Service" and then `mqtt/mqtt_send` under "Available Services". Enter something similar to the example below into the "Service Data" field.
@@ -146,5 +139,5 @@ The message should appear on the bus:
 For reading all messages sent on the topic `home-assistant` to a broker running on localhost:
 
 ```bash
-mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
+$ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 ```

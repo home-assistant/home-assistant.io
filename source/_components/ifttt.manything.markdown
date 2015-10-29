@@ -11,11 +11,9 @@ logo: manything.png
 ha_category: Camera
 ---
 
-[Manything](https://manything.com) is a smart app that turns your iPhone, iPod, or iPad into a wifi 
-camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
+[Manything](https://manything.com) is a smart app that turns your iPhone, iPod, or iPad into a wifi  camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
 
-To get manything support, HA will use IFTTT's [Maker Channel](https://ifttt.com/maker) and the [ManyThing Channel](https://ifttt.com/manything).
-Use the [IFTTT Setup instructions](/components/ifttt.html) to activate the IFTTT Platform.
+To get manything support, HA will use IFTTT's [Maker Channel](https://ifttt.com/maker) and the [ManyThing Channel](https://ifttt.com/manything). Use the [IFTTT Setup instructions](/components/ifttt/) to activate the IFTTT Platform.
 
 After setting up IFTTT, Maker Channel and ManyThing Channel, you can use the following examples to configure Home Assistant.
 
@@ -62,7 +60,7 @@ automation:
 <p class='img'>
 <img src='/images/components/ifttt/IFTTT_manything_trigger.png' />
 You need to setup a unique trigger for each event you sent to IFTTT.
-For ManyThing support, you need to set up an <code>on</code> and <code>off</code> event.
+For ManyThing support, you need to set up an `on` and `off` event.
 </p>
 
 ### {% linkable_title Testing your trigger %}

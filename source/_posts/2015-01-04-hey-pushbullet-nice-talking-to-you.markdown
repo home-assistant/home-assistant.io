@@ -25,7 +25,7 @@ Read on to learn how to enable the notify component and integrate it with other 
 
 To enable the new notify component, add the following to your `home-assistant.conf`:
 
-```
+```conf
 [notify]
 platform=pushbullet
 api_key=ABCDEFGHJKLMNOPQRSTUVXYZ

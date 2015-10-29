@@ -22,7 +22,7 @@ The `keyboard` component simulates key presses on the host machine. It currently
 
 To load this component, add the following lines to your `configuration.yaml`:
 
-```
+```yaml
 keyboard:
 ```
 
@@ -30,8 +30,8 @@ keyboard:
 
 You may need to install platform-specific [dependencies for PyUserInput](https://github.com/SavinaRoja/PyUserInput#dependencies) in order to use the keyboard component. In most cases this can be done by running:
 
-```
-pip3 install [package name]
+```bash
+$ pip3 install [package name]
 ```
 
 #### {% linkable_title Windows %}

@@ -12,10 +12,7 @@ ha_category: Automation
 featured: true
 ---
 
-[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional
-statements, so called "recipes". With the ifttt component you can trigger recipes through the "maker"
-channel. See the [announcement blog post](/blog/2015/09/13/home-assistant-meets-ifttt/) for examples
-how to use it.
+[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so called "recipes". With the IFTTT component you can trigger recipes through the "maker" channel. See the [announcement blog post](/blog/2015/09/13/home-assistant-meets-ifttt/) for examples how to use it.
 
 ```yaml
 # Example configuration.yaml entry
@@ -60,10 +57,7 @@ You need to setup a unique trigger for each event you sent to IFTTT.
 
 ### {% linkable_title Sending events from IFTTT to Home Assistant %}
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from
-the web. This can be achieved by forwarding port 8123 from your router to the device running Home
-Assistant. If your ISP is giving you a new IP address from time to time, consider using
-[DuckDNS][duck-dns].
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web. This can be achieved by forwarding port 8123 from your router to the device running Home Assistant. If your ISP is giving you a new IP address from time to time, consider using [DuckDNS][duck-dns].
 
 [duck-dns]: https://duckdns.org
 
@@ -72,8 +66,9 @@ Assistant. If your ISP is giving you a new IP address from time to time, conside
 </p>
 
 ### {% linkable_title Additional Channel Examples %}
+
 Additional examples of using IFTTT channels can be found below.
 
 Channel | Description
 ----- | -----
-[Manything](/components/ifttt.manything.html) | Automates turning recording ON and OFF based on Home Assistant AWAY and HOME values.
+[Manything](/components/ifttt.manything/) | Automates turning recording ON and OFF based on Home Assistant AWAY and HOME values.

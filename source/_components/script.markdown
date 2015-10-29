@@ -10,8 +10,7 @@ footer: true
 ha_category: Automation
 ---
 
-The script component allows users to create a sequence of service calls and delays. Scripts can be
-started using the service `script/turn_on` and interrupted using the service `script/turn_off`.
+The script component allows users to create a sequence of service calls and delays. Scripts can be started using the service `script/turn_on` and interrupted using the service `script/turn_off`.
 
 ```yaml
 # Example configuration.yaml entry

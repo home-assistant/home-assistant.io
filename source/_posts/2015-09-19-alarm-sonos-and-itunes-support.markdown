@@ -9,24 +9,17 @@ comments: true
 categories: release-notes
 ---
 
-It's like someone opened a can of rock solid developers and emptied it above our
-[chat channel](https://gitter.im/balloob/home-assistant) because it exploded with
-great conversations and solid contributions. Featured in release 0.7.3: Sonos, iTunes, Alarm component and Automation upgrade.
+It's like someone opened a can of rock solid developers and emptied it above our [chat channel](https://gitter.im/balloob/home-assistant) because it exploded with great conversations and solid contributions. Featured in release 0.7.3: Sonos, iTunes, Alarm component and Automation upgrade.
 
 See [GitHub](https://github.com/balloob/home-assistant/releases/tag/0.7.3) for more detailed release notes.
 
 _Migration note: the `scheduler` component has been removed in favor of the `automation` component._
 
-__Sonos__<br>
-<img src='/images/supported_brands/sonos.png' style='border:none; box-shadow: none; float: right;' height='50' />
-Sonos support has been added by [@rhooper](https://github.com/rhooper) and [@SEJeff](https://github.com/SEJeff). Home Assistant is now able to automatically
-detect Sonos devices in your network and set them up for you. It will allow you to control music
-playing on your Sonos and change the volume.
+__Sonos__
+<img src='/images/supported_brands/sonos.png' style='border:none; box-shadow: none; float: right;' height='50' /> Sonos support has been added by [@rhooper](https://github.com/rhooper) and [@SEJeff](https://github.com/SEJeff). Home Assistant is now able to automatically detect Sonos devices in your network and set them up for you. It will allow you to control music playing on your Sonos and change the volume.
 
-__iTunes and airplay speakers__<br>
-<img src='/images/supported_brands/itunes.png' style='border:none; box-shadow: none; float: right;' height='50' />
-[@maddox](https://github.com/maddox) has contributed support for controlling iTunes and airplay speakers. For this to work you will
-have to run [itunes-api](https://github.com/maddox/itunes-api) on your Mac as middleware.
+__iTunes and airplay speakers__
+<img src='/images/supported_brands/itunes.png' style='border:none; box-shadow: none; float: right;' height='50' /> [@maddox](https://github.com/maddox) has contributed support for controlling iTunes and airplay speakers. For this to work you will have to run [itunes-api](https://github.com/maddox/itunes-api) on your Mac as middleware.
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,10 +32,8 @@ media_player:
 
 <!--more-->
 
-__Automation__<br>
-Automation has gotten a lot of love. It now supports conditions, multiple triggers and new types of
-triggers. The best to get started with it is to head over to the new
-[getting started with automation](/getting-started/automation.html) page.
+__Automation__
+Automation has gotten a lot of love. It now supports conditions, multiple triggers and new types of triggers. The best to get started with it is to head over to the new [getting started with automation](/getting-started/automation/) page.
 
 ```yaml
 # Example of entry in configuration.yaml
@@ -67,7 +58,5 @@ automation:
     entity_id: group.living_room
 ```
 
-__Verisure Alarms__<br>
-<img src='/images/supported_brands/verisure.png' style='border:none; box-shadow: none; float: right;' height='50' />
-We now support arming and disarming your verisure alarm from within Home Assistant thanks to added
-support by [@persandstrom](https://github.com/persandstrom).
+__Verisure Alarms__
+<img src='/images/supported_brands/verisure.png' style='border:none; box-shadow: none; float: right;' height='50' /> We now support arming and disarming your verisure alarm from within Home Assistant thanks to added support by [@persandstrom](https://github.com/persandstrom).

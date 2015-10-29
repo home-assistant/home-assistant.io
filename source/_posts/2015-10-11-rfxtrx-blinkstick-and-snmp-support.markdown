@@ -16,15 +16,12 @@ We discovered two issues annoying enough to warrent the release of 0.7.5:
 
 This release also includes some new platforms (because they keep coming!):
 
-<img src='/images/supported_brands/blinkstick.png' style='border:none; box-shadow: none; float: right;' height='50' />
-<img src='/images/supported_brands/rfxtrx.png' style='border:none; box-shadow: none; float: right; clear: right;' height='50' />
-<img src='/images/supported_brands/telegram.png' style='border:none; box-shadow: none; float: right; clear: right;' height='50' />
+<img src='/images/supported_brands/blinkstick.png' style='border:none; box-shadow: none; float: right;' height='50' /><img src='/images/supported_brands/rfxtrx.png' style='border:none; box-shadow: none; float: right; clear: right;' height='50' /><img src='/images/supported_brands/telegram.png' style='border:none; box-shadow: none; float: right; clear: right;' height='50' />
 
- - Light: [blinkstick platform](/components/light.blinksticklight.html) added ([@alanbowman](https://github.com/alanbowman))
- - Device Tracker: [SNMP platform](/components/device_tracker.snmp.html) added ([@tomduijf](https://github.com/tomduijf))
- - Light: [rfxtrx platform](/components/light.rfxtrx.html) added ([@badele](https://github.com/badele))
- - Switch: [rfxtrx platform](/components/switch.rfxtrx.html) added ([@badele](https://github.com/badele))
- - Notify: [telegram platform](/components/notify.telegram.html) added ([@fabaff](https://github.com/fabaff))
+ - Light: [blinkstick platform](/components/light.blinksticklight/) added ([@alanbowman](https://github.com/alanbowman))
+ - Device Tracker: [SNMP platform](/components/device_tracker.snmp/) added ([@tomduijf](https://github.com/tomduijf))
+ - Light: [rfxtrx platform](/components/light.rfxtrx/) added ([@badele](https://github.com/badele))
+ - Switch: [rfxtrx platform](/components/switch.rfxtrx/) added ([@badele](https://github.com/badele))
+ - Notify: [telegram platform](/components/notify.telegram/) added ([@fabaff](https://github.com/fabaff))
 
-Also, the media player was extended by [@maddox](https://github.com/maddox) to support the play media command.
-This has been implemented for the [iTunes platform](/components/media_player.itunes.html).
+Also, the media player was extended by [@maddox](https://github.com/maddox) to support the play media command. This has been implemented for the [iTunes platform](/components/media_player.itunes/).

@@ -12,8 +12,7 @@ ha_category: Presence Detection
 ---
 
 
-This platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this
-platform, you specify a unique topic for each device.
+This platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.
 
 ```yaml
 # Example configuration.yaml entry

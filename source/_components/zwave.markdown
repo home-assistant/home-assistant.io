@@ -19,9 +19,9 @@ To allow Home Assistant to talk to your Z-Wave USB stick you will have to compil
 
 Please make sure you have the correct dependencies installed:
 
-```
-apt-get install cython3 libudev-dev python-sphinx python3-setuptools
-pip3 install "cython<0.23"
+```bash
+$ apt-get install cython3 libudev-dev python-sphinx python3-setuptools
+$ pip3 install "cython<0.23"
 ```
 
 As an alternative, the Home Assistant docker image has support for Z-Wave built-in.
@@ -36,6 +36,8 @@ Configuration variables:
 
 - **usb_path** (*Required*): The port where your device is connected to your Home Assistant host.
 
+To find the path of your Z-Wave stick, run:
+
 ```bash
-ls /dev/ttyUSB*
+$ ls /dev/ttyUSB*
 ```

@@ -9,7 +9,7 @@ categories: release-notes
 ---
 A new version of Home Assistant has just been pushed out. It contains bugfixes contributed by [jamespcole](https://github.com/jamespcole), [andythigpen](https://github.com/andythigpen), [trainman419](https://github.com/trainman419) and [me](https://github.com/balloob). It also adds a bunch of great new features:
 
-__Script__<br>
+__Script__
 Andythigpen has contributed a script component. This allows users to create a sequence of service calls and delays. Scripts can be started using the service `script/turn_on` and interrupted using the service `script/turn_off`. A separate page has been added to the frontend to see the status of your scripts.
 
 ```yaml
@@ -34,7 +34,7 @@ script:
 
 <!--more-->
 
-__Scene__<br>
+__Scene__
 I (Paulus) have contributed a scene component. A user can create scenes that capture the states you want certain entities to be. For example a scene can contain that light A should be turned on and light B should be bright red. Deactivating a scene will restore the previous state from before the scene was activated. Just like scripts, scenes have their own separate page to see which scenes are on.
 
 ```yaml
@@ -50,9 +50,8 @@ scene:
 ```
 
 <a name='sabnzbd'></a>
-__SABnzbd__<br>
-<img src='/images/supported_brands/sabnzbd.png' style='border:none; box-shadow: none; float: right;' height='50' />
-James Cole has contributed support to integrate SABnzbd. This will allow you to monitor your downloads from within Home Assistant and setup automation based on the information.
+__SABnzbd__
+<img src='/images/supported_brands/sabnzbd.png' style='border:none; box-shadow: none; float: right;' height='50' /> James Cole has contributed support to integrate SABnzbd. This will allow you to monitor your downloads from within Home Assistant and setup automation based on the information.
 
 ```yaml
 # Example configuration.yaml entry
@@ -72,9 +71,8 @@ sensor:
 ```
 
 <a name='pushover'></a>
-__PushOver__<br>
-<img src='/images/supported_brands/pushover.png' style='border:none; box-shadow: none; float: right;' height='50' />
-James Cole has also contributed support for <a href='https://pushover.net/'>the PushOver service</a> as a platform for the notify component. This allows components to send messages to the user using PushOver.
+__PushOver__
+<img src='/images/supported_brands/pushover.png' style='border:none; box-shadow: none; float: right;' height='50' /> James Cole has also contributed support for <a href='https://pushover.net/'>the PushOver service</a> as a platform for the notify component. This allows components to send messages to the user using PushOver.
 
 ```yaml
 # Example configuration.yaml entry

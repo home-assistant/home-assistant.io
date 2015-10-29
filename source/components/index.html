@@ -9,6 +9,7 @@ sharing: true
 footer: true
 is_homepage: true
 body_id: components-page
+regenerate: true
 ---
 
 <p class='note'>
@@ -16,21 +17,15 @@ Support for these components is provided by the Home Assistant community.
 </p>
 
 {% assign components = site.components | sort: 'title' %}
-{% assign categories = components | sort: 'ha_category' | map: 'ha_category' %}
+{% assign categories = components | sort: 'ha_category' | map: 'ha_category' | uniq %}
 
 <div class="filter-button-group">
   <a href='#all' class="btn">All</a>
   <a href='#featured' class="btn">Featured</a>
 
-  {% comment %} Jekyll 2.5.2 does not support the uniq filter :/ {% endcomment %}
-  {% assign category_printed = '' %}
-
   {% for category in categories %}
     {% if category and category != 'Other' %}
-      {% unless category_printed contains category %}
-        <a href='#{{ category | slugify }}' class="btn">{{ category }}</a>
-        {% assign category_printed = category_printed | append: ',' | append: category %}
-      {% endunless %}
+      <a href='#{{ category | slugify }}' class="btn">{{ category }}</a>
     {% endif %}
   {% endfor %}
 

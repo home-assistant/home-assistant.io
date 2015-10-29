@@ -9,25 +9,19 @@ sharing: true
 footer: true
 ---
 
-Home Assistant will be able to automatically discover and configure any Google Chromecasts, Netgear
-routers, Belkin WeMo switches, Philips Hue bridges and Sonos speakers in your network if you have
-[the discovery component]({{site_root}}/components/discovery.html) enabled (which is by default).
+Home Assistant will be able to automatically discover and configure any Google Chromecasts, Netgear routers, Belkin WeMo switches, Philips Hue bridges and Sonos speakers in your network if you have [the discovery component]({{site_root}}/components/discovery/) enabled (which is by default).
 
-See the [components overview page](/components/) to find installation instructions for your devices
-and services.  Many components use the `sensor` platform.  Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
+See the [components overview page](/components/) to find installation instructions for your devices and services.  Many components use the `sensor` platform.  Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
+
 <p class='note'>
 Most components that support multiple entries within the <code>configuration.yaml</code> follow the <code>component:</code>, <code>component 2:</code> format.
 </p>
 
-If you can't find support for your favorite device or service,
-[consider adding support](/developers/add_new_platform.html)
+If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/)
 
 ### {% linkable_title Grouping devices %}
 
-Once you get a bunch of devices set up, it is time to organize them. This can be done using groups.
-Each group exists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface
-by using the Set State page in the Developer Tools (icon in the middle).
-
+Once you get a bunch of devices set up, it is time to organize them. This can be done using groups. Each group exists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (icon in the middle).
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,9 +34,7 @@ group:
 
 ### {% linkable_title Customizing devices and services %}
 
-By default, all of your devices will be visible and have a default icon determined by their domain.
-You may find it desireable to customize the look and feel of your front page by altering some
-of these parameters. This can be done by adding the following config to the `homeassistant:` section.
+By default, all of your devices will be visible and have a default icon determined by their domain. You may find it desireable to customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following config to the `homeassistant:` section.
 
 Entity_pictures, badges, device_tracker pictures, etc can either be a URL or `/local/file.jpg`, which points to directory `www` in the HASS configuration directory.
 
@@ -59,5 +51,4 @@ homeassistant:
       friendly_name: My better name
 ```
 
-
-###[Next step: Setting up presence detection &raquo;](/getting-started/presence-detection.html)
+### [Next step: Setting up presence detection &raquo;](/getting-started/presence-detection/)

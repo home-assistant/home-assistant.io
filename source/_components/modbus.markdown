@@ -18,6 +18,7 @@ To add modbus to your installation, add the following to your `configuration.yam
 
 For a network connection:
 
+```yaml
 #Modbus TCP
 modbus:
   type: tcp
@@ -57,6 +58,6 @@ Configuration variables:
 
 ## {% linkable_title Building on top of Modbus %}
 
- - [Modbus Sensor](/components/sensor.modbus.html)
- - [Modbus Switch](/components/switch.modbus.html)
+ - [Modbus Sensor](/components/sensor.modbus/)
+ - [Modbus Switch](/components/switch.modbus/)
 

@@ -35,7 +35,7 @@ Configuration variables:
 - **port** (*Required*): The port where your board is connected to your Home Assistant host. If you are using an original Arduino the port will be named `ttyACM*`. The exact number can be determined with `ls /dev/ttyACM*`.
 
 ```bash
-ls /dev/ttyACM*
+$ ls /dev/ttyACM*
 ```
 
 If that is not working, check your `dmesg` or `journalctl -f` output. Keep in mind that Arduino clones are often using a different name for the port (e.g. `/dev/ttyUSB*`).
@@ -46,6 +46,6 @@ A word of caution: The Arduino boards are not storing states. This means that wi
 
 ## Building on top of the Arduino component
 
- - [Arduino Sensor](/components/sensor.arduino.html)
- - [Arduino Switch](/components/switch.arduino.html)
+ - [Arduino Sensor](/components/sensor.arduino/)
+ - [Arduino Switch](/components/switch.arduino/)
 

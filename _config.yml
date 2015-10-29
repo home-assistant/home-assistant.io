@@ -26,24 +26,38 @@ email:
 #    Jekyll & Plugins     #
 # ----------------------- #
 
-# If publishing to a subdirectory as in http://site.com/project set 'root: /project'
-root: /
 permalink: /blog/:year/:month/:day/:title/
 source: source
 destination: public/
-plugins: plugins
+plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: rdiscount
-rdiscount:
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-highlighter: pygments # default python pygments have been replaced by pygments.rb
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  auto_ids:       false
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  parse_block_html: true
+  enable_coderay: true
+
+  coderay:
+    coderay_wrap:              div
+    coderay_line_numbers:      nil
+    coderay_line_number_start: 1
+    coderay_tab_width:         4
+    coderay_bold_every:        10
+    coderay_css:               class
+
+highlighter: rouge
 
 gems:
   - jekyll-time-to-read
+  - octopress-filters
+  - octopress-include-tag
 
 paginate: 10          # Posts per page on the blog index
 paginate_path: "blog/posts/:num"  # Directory base for pagination URLs eg. /posts/2/

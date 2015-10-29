@@ -18,7 +18,7 @@ It supports the following platforms:
  * `hue` for Philips Hue
  * `wink` for Wink
 
-Preferred way to setup the Philips Hue platform is through the [the discovery component]({{site_root}}/components/discovery.html). For the Wink light platform enable [the wink component]({{site_root}}/components/wink.html).
+Preferred way to setup the Philips Hue platform is through the [the discovery component]({{site_root}}/components/discovery/). For the Wink light platform enable [the wink component]({{site_root}}/components/wink/).
 
 If you want to enable the light component directly, add the following lines to your `configuration.yaml`:
 
@@ -33,7 +33,7 @@ The light component supports multiple entries in <code>configuration.yaml</code>
 
 ### Service `light.turn_on`
 
-Turns one light on or multiple lights on using [groups]({{site_root}}/components/group.html).
+Turns one light on or multiple lights on using [groups]({{site_root}}/components/group/).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

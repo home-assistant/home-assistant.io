@@ -49,4 +49,4 @@ curl -X POST \
 ```
 For further details, please check the [API](https://instapush.im/developer/rest).
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation.html).
+To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).

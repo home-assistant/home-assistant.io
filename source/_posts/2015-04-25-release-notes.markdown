@@ -10,27 +10,25 @@ categories: release-notes
 
 It's been a month since the latest update and a lot has happened again. Here a quick overview of the new things.
 
-__Line Charts__<br>
+__Line Charts__
 [James](https://github.com/jamespcole) has upgraded the history in the frontend to support line graphs. Line graphs will be shown for any entity that has a unit of measurement. The line graphs will also be shown in the more info card of an entity. [See the demo for a live example.](/demo/)
 
 <p class='img'>
 <img src='/images/screenshots/history-line-graphs.png'>
 </p>
 
-__ISY994 hub support__<br>
-<img src='/images/supported_brands/universal_devices.png' style='border:none; box-shadow: none; float: right;' height='50' />
-[Ryan](https://github.com/rmkraus) has contributed support to integrate the ISY994 hub by Universal Devices. This allows you to integrate your X10/Insteon sensors, switches and lights.
+__ISY994 hub support__
+<img src='/images/supported_brands/universal_devices.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Ryan](https://github.com/rmkraus) has contributed support to integrate the ISY994 hub by Universal Devices. This allows you to integrate your X10/Insteon sensors, switches and lights.
 
-He has created an extensive getting started guide which can be found on [the ISY994 component page](/components/isy994.html).
+He has created an extensive getting started guide which can be found on [the ISY994 component page](/components/isy994/).
 
 ```yaml
 # Example configuration.yaml entry
 isy994:
 ```
 
-__Logbook__<br>
-<img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
-I (Paulus) have added a logbook component. The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in chronological order. [See the demo for a live example.](/demo/)
+__Logbook__
+<img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" /> I (Paulus) have added a logbook component. The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in chronological order. [See the demo for a live example.](/demo/)
 <span class='clearfix'></span>
 
 ```yaml
@@ -40,9 +38,8 @@ logbook:
 
 <!--more-->
 
-__Transmission support__<br>
-<img src='/images/supported_brands/transmission.png' style='border:none; box-shadow: none; float: right;' height='50' />
-James has also contributed support for integrating Transmission into Home Assistant.
+__Transmission support__
+<img src='/images/supported_brands/transmission.png' style='border:none; box-shadow: none; float: right;' height='50' /> James has also contributed support for integrating Transmission into Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,7 +56,7 @@ sensor:
     - type: 'upload_speed'
 ```
 
-__Modbus support__<br>
+__Modbus support__
 [Kixam](https://github.com/kixam) has contributed support for modbus, a serial communication protocol to control PLCs. It currently supports sensors and switches which can be controlled over serial, TCP and UDP connections.
 
 ```yaml

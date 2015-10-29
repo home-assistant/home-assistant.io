@@ -14,7 +14,7 @@ featured: true
 
 
 
-Philips Hue support is integrated into Home Assistant as a light platform. The preferred way to setup the Philips Hue platform is by enabling the [the discovery component]({{site_root}}/components/discovery.html).
+Philips Hue support is integrated into Home Assistant as a light platform. The preferred way to setup the Philips Hue platform is by enabling the [the discovery component]({{site_root}}/components/discovery/).
 
 If you want to enable the light component directly, add the following lines to your `configuration.yaml`:
 

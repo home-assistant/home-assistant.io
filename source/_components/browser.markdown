@@ -15,7 +15,8 @@ The browser component provides a service to open urls in the default browser on 
 
 To load this component, add the following lines to your `configuration.yaml`:
 
-```
+```yaml
+# Example configuration.yaml entry
 browser:
 ```
 

@@ -15,7 +15,8 @@ The conversation component can process sentences into commands for Home Assistan
 
 To enable the conversion option in your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
+# Example configuration.yaml entry
 conversation:
 ```
 

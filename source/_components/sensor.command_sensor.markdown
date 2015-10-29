@@ -43,7 +43,7 @@ In this section you find some real life examples of how to use this sensor.
 There are several ways to get the temperature of your hard drive. A simple solution is to use [hddtemp](https://savannah.nongnu.org/projects/hddtemp/).
 
 ```bash
-hddtemp -n /dev/sda
+$ hddtemp -n /dev/sda
 ```
 
 To use those information, the entry for a sensor in the `configuration.yaml` file will look like this.
@@ -59,8 +59,7 @@ sensor:
 
 ### {% linkable_title CPU temperature %}
 
-Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature 
-is of interest. Add something similar to your `configuration.yaml` file:
+Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,19 +74,18 @@ The `correction_factor` will make sure that the value is shown in a useful forma
 
 ### {% linkable_title Use an external script %}
 
-The example is doing the same as the [aREST sensor](/components/sensor.arest.html) but with an external Python script. It should give you an idea about interacting with devices which are exposing a RESTful API.
+The example is doing the same as the [aREST sensor](/components/sensor.arest/) but with an external Python script. It should give you an idea about interacting with devices which are exposing a RESTful API.
 
 The one-line script to retrieve a value is shown below. Of course would it be possible to use this directly in the `configuration.yaml` file but need extra care about the quotation marks.
 
-```python
-python3 -c "import requests; print(requests.get('http://10.0.0.48/analog/2').json()['return_value'])"
+```bash
+$ python3 -c "import requests; print(requests.get('http://10.0.0.48/analog/2').json()['return_value'])"
 ```
 
 The script (saved as `arest-value.py`) that is used looks like the example below.
 
 ```python
 #!/usr/bin/python3
-#
 from requests import get
 response = get('http://10.0.0.48/analog/2')
 print(response.json()['return_value'])
