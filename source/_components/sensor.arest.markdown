@@ -50,69 +50,8 @@ Configuration variables:
   - **correction_factor** (*Optional*): A float value to do some basic calculations.
   - **decimal_places** (*Optional*): Number of decimal places of the value. Default is 0.
 
-The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you find below a sketch for the Arduino device family. There are two variables (`temperature` and `humidity`) which will act as endpoints. 
+The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you could use the one of the example sketches (eg.  [Ethernet](https://raw.githubusercontent.com/marcoschwartz/aREST/master/examples/Ethernet/Ethernet.ino) for an Arduino with Ethernet shield). In those sketches are two variables (`temperature` and `humidity`) available which will act as endpoints. 
 
-```c
-/*
-  This modified sketch is based on the Ethernet example of the aREST 
-  (http://arest.io/) library.
-*/
-
-// Libraries
-#include <SPI.h>
-#include <Ethernet.h>
-#include <aREST.h>
-#include <avr/wdt.h>
-
-// Device settings
-char* deviceId = "sensor02";
-char* deviceName = "livingroom";
-byte deviceMac[] = { 0x20, 0xD5, 0xD3, 0x03, 0xFE, 0x31 };
-IPAddress deviceIp(192, 168, 1, 12);
-
-EthernetServer server(80);
-aREST rest = aREST();
-
-// Variables to be exposed to the API
-int temperature;
-int humidity;
-
-void setup(void) {
-  Serial.begin(57600);
-
-  // Init variables and expose them to REST API
-  temperature = 0;
-  humidity = 0;
-  
-  rest.variable("temperature", &temperature);
-  rest.variable("humidity", &humidity);
-
-  // Give name and ID to device
-  rest.set_id(deviceId);
-  rest.set_name(deviceName);
-
-  Ethernet.begin(deviceMac, deviceIp);
- 
-  server.begin();
-  Serial.print("Sensor is ready...");
-
-  // Start watchdog
-  wdt_enable(WDTO_4S);
-}
-
-void loop() {
-  EthernetClient client = server.available();
-  rest.handle(client);
-  wdt_reset();
-
-  // Replace this with your actual sensor readings, like
-  // temperature = (((analogRead(A0) * 5.0) / 1024) - 0.5) * 10;
-  temperature = random(400);
-  humidity = random(600);
-  delay(500);
-}
-
-```
 Accessing one of the endpoints (eg. http://192.168.1.10/temperature) will give you the value inside a JSON response.
 
 ```json
@@ -132,4 +71,11 @@ The root will give you a JSON response that contains all variables and their cur
    "connected" : true
 }
 ```
+
+`return_value` contains the sensor's data in a JSON response for a given pin (eg. http://192.168.1.10/analog/2/ or  http://192.168.1.10/digital/7/). 
+
+```json
+{"return_value": 34, "id": "sensor02", "name": "livingroom", "connected": true}
+```
+
 
