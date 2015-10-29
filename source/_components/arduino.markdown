@@ -16,8 +16,6 @@ The [Arduino](https://www.arduino.cc/) device family are microcontroller boards 
 
 There are a lot of extensions (so called [shields](https://www.arduino.cc/en/Main/ArduinoShields)) available. Those shields can be plugged-in into the existing connectors and stacked on top of each other. This makes it possible to expand the capabilities of the Arduino boards. 
 
-## Basic Configuration
-
 The arduino component is designed to let you use a directly attached board to your Home Assistant host over USB.
 
 You need to have the [Firmata firmware](https://github.com/firmata/) on your board. Please upload the `StandardFirmata` sketch to your board, please refer to the [Arduino documentation](https://www.arduino.cc/en/Main/Howto) for further information.
@@ -32,20 +30,17 @@ arduino:
 
 Configuration variables:
 
-- **port** (*Required*): The port where your board is connected to your Home Assistant host. If you are using an original Arduino the port will be named `ttyACM*`. The exact number can be determined with `ls /dev/ttyACM*`.
+- **port** (*Required*): The port where your board is connected to your Home Assistant host. If you are using an original Arduino the port will be named `ttyACM*` otherwise `ttyUSB*`.
+
+The exact number can be determined with the command shown below.
 
 ```bash
 $ ls /dev/ttyACM*
 ```
 
-If that is not working, check your `dmesg` or `journalctl -f` output. Keep in mind that Arduino clones are often using a different name for the port (e.g. `/dev/ttyUSB*`).
+If that's not working, check your `dmesg` or `journalctl -f` output. Keep in mind that Arduino clones are often using a different name for the port (eg. `/dev/ttyUSB*`).
 
 <p class='note warning'>
 A word of caution: The Arduino boards are not storing states. This means that with every initialization the pins are set to off/low.
 </p>
-
-## Building on top of the Arduino component
-
- - [Arduino Sensor](/components/sensor.arduino/)
- - [Arduino Switch](/components/switch.arduino/)
 
