@@ -14,7 +14,14 @@ Keeps track which switches are in your environment, their state and allows you t
  * Maintains a state per switch and a combined state `all_switches`.
  * Registers services `switch/turn_on` and `switch/turn_off` to control switches.
 
-Optional service data:
+### {% linkable_title Use the services %}
 
- - `entity_id` - only act on specific switch. Else targets all.
+Go the the **Developer Tools**, then to **Call Service** in the frontend, and choose `switch/turn_on` or `switch/turn_off` from the list of available services (**Available services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
+```json
+{"entity_id":"livingroom_pin2"}
+```
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      yes | Only act on specific switch. Else targets all.
