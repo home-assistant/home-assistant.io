@@ -20,7 +20,7 @@ Chromecast platform can also be forced to load by adding the following lines to 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: chromecast
+  platform: cast
   host: 192.168.1.9
 ```
 
