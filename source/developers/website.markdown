@@ -22,14 +22,20 @@ To work on the website the process is no different to working on Home Assistant 
 
 For a component page it would be the fastest way to make a copy of an existing page and edit it.
 
-## Code
-To take advantage of the build-in features of Octopress to display code snipplets, just use the default markdown syntax.
+### {% linkable_title Code %}
+To take advantage of the build-in features of Octopress to display code snipplets, just use the default markdown syntax. Please use `$` and `#` if it's a command and to differ from output.
 
 ```bash
 Here goes the code...
 ```
 
-## Images, icons, and logos
+If you want to display line numbers, add the following snipplets somewhere on your page. 
+
+```
+{::options coderay_line_numbers="table" /}
+```
+
+### {% linkable_title Images, icons, and logos %}
 The images which are displayed on the pages are stored in various directories according their purpose. 
 
 | Type         | Location                                      |
