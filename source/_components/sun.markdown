@@ -10,9 +10,7 @@ footer: true
 ha_category: Weather
 ---
 
-
-The `sun` component will use your current location to track if the sun is above or below the horizon.
-The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].
+The sun component will use your current location to track if the sun is above or below the horizon.The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].
 
 [automation-trigger]: /components/automation/#sun-trigger
 

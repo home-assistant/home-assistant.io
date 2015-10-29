@@ -17,9 +17,8 @@ As we didn't want to just push out bug fixes, this release includes a few additi
  - Support for modern TP-Link routers like the ArcherC9 line has been contributed by [@chrisvis](https://github.com/chrisvis).
  - Improved support for MQTT topic subscriptions has been contributed by [@qrtn](https://github.com/qrtn)
 
-__Verisure Support__<br>
-<img src='/images/supported_brands/verisure.png' style='border:none; box-shadow: none; float: right;' height='50' />
-Home Assistant support to integrate your [Verisure](https://www.verisure.com/) alarms, hygrometers, sensors and thermometers has been contributed by [@persandstrom](https://github.com/persandstrom).
+__Verisure Support__
+<img src='/images/supported_brands/verisure.png' style='border:none; box-shadow: none; float: right;' height='50' /> Home Assistant support to integrate your [Verisure](https://www.verisure.com/) alarms, hygrometers, sensors and thermometers has been contributed by [@persandstrom](https://github.com/persandstrom).
 
 ```yaml
 # Example configuration.yaml entry

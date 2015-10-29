@@ -54,7 +54,7 @@ Materials used:
 
 Home Assistant Configuration:
 
-```
+```yaml
 mqtt:
   broker: 192.168.1.100
   port: 1883

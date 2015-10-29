@@ -18,7 +18,7 @@ The new integration exists out of two parts: a generic thermostat component and 
 
 If you own a Nest thermostat, add the following lines to your `home-assistant.conf`:
 
-```
+```conf
 [thermostat]
 platform=nest
 username=YOUR_USERNAME

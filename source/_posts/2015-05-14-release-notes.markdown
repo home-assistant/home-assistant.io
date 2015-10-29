@@ -20,7 +20,7 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
 
 <!--more-->
 
-__Overwriting Entity Attributes__<br>
+__Overwriting Entity Attributes__
 Before diving into the newly supported devices and services, I want to highlight an awesome configuration enhancement by [rmkraus](https://github.com/rmkraus): overwriting entity attributes.
 
 These new configuration settings allow you to overwrite entity state attributes. The main usage for this is being able to overwrite attributes that influence how an entity is shown in the interface.
@@ -37,9 +37,8 @@ homeassistant:
       entity_picture: http://graph.facebook.com/schoutsen/picture
 ```
 
-__MySensors__<br>
-<img src='/images/supported_brands/mysensors.png' style='border:none; box-shadow: none; float: right;' height='50' />
-[Andythigpen](https://github.com/andythigpen) and [Theolind](https://github.com/theolind) have added support for the [MySensors platform](http://www.mysensors.org) to Home Assistant.
+__MySensors__
+<img src='/images/supported_brands/mysensors.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Andythigpen](https://github.com/andythigpen) and [Theolind](https://github.com/theolind) have added support for the [MySensors platform](http://www.mysensors.org) to Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,9 +47,8 @@ sensor:
   port: /dev/ttyACM0
 ```
 
-__OpenWeatherMap__<br>
-<img src='/images/supported_brands/openweathermap.png' style='border:none; box-shadow: none; float: right;' height='50' />
-[Fabaff](https://github.com/fabaff) has contributed support for [OpenWeatherMap](http://openweathermap.org). This will allow you to integrate local meteorological data into Home Assistant.
+__OpenWeatherMap__
+<img src='/images/supported_brands/openweathermap.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Fabaff](https://github.com/fabaff) has contributed support for [OpenWeatherMap](http://openweathermap.org). This will allow you to integrate local meteorological data into Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,9 +66,8 @@ sensor:
     - type: 'snow'
 ```
 
-__InstaPush__<br>
-<img src='/images/supported_brands/instapush.png' style='border:none; box-shadow: none; float: right;' height='50' />
-[Fabaff](https://github.com/fabaff) has contributed support for [InstaPush](https://instapush.im). This will allow you send messages from Home Assistant to your iOS and Android devices.
+__InstaPush__
+<img src='/images/supported_brands/instapush.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Fabaff](https://github.com/fabaff) has contributed support for [InstaPush](https://instapush.im). This will allow you send messages from Home Assistant to your iOS and Android devices.
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,9 +80,8 @@ notify:
     tracker: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
-__XMPP__<br>
-<img src='/images/supported_brands/xmpp.png' style='border:none; box-shadow: none; float: right;' height='50' />
-[Fabaff](https://github.com/fabaff) has contributed support for Jabber/XMPP. This will allow you send messages from Home Assistant to anyone on Jabber/XMPP. 
+__XMPP__
+<img src='/images/supported_brands/xmpp.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Fabaff](https://github.com/fabaff) has contributed support for Jabber/XMPP. This will allow you send messages from Home Assistant to anyone on Jabber/XMPP. 
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,9 +92,8 @@ notify:
     recipient: YOUR_RECIPIENT
 ```
 
-__Notify My Android__<br>
-<img src='/images/supported_brands/nma.png' style='border:none; box-shadow: none; float: right;' height='50' />
-[Fabaff](https://github.com/fabaff) has contributed support for [Notify My Android](http://www.notifymyandroid.com/). This will allow you to send messages from Home Assistant to your Android device.
+__Notify My Android__
+<img src='/images/supported_brands/nma.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Fabaff](https://github.com/fabaff) has contributed support for [Notify My Android](http://www.notifymyandroid.com/). This will allow you to send messages from Home Assistant to your Android device.
 
 ```yaml
 # Example configuration.yaml entry
@@ -108,7 +103,7 @@ notify:
     api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
-__Time & Date sensor__<br>
+__Time & Date sensor__
 [Fabaff](https://github.com/fabaff) has contributed a time & date sensor. This will allow you to show the current time/date on the dashboard.
 
 ```yaml

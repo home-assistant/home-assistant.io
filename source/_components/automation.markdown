@@ -10,12 +10,9 @@ footer: true
 ha_category: Automation
 ---
 
-This page will go into more detail about the various options the `automation` component offers. If
-you haven't yet, read the [getting started page on automation](/getting-started/automation/).
+This page will go into more detail about the various options the `automation` component offers. If you haven't yet, read the [getting started page on automation](/getting-started/automation/).
 
-A configuration section of an automation requires a `trigger` and an `action` section. `condition` and
-`condition_type` are optional. To keep this page compact, all following sections will not show the
-full configuration but only the relevant part.
+A configuration section of an automation requires a `trigger` and an `action` section. `condition` and `condition_type` are optional. To keep this page compact, all following sections will not show the full configuration but only the relevant part.
 
 ```yaml
 # Example of entry in configuration.yaml
@@ -77,13 +74,10 @@ automation:
 
 ## {% linkable_title Triggers %}
 
-Triggers are what starts the processing of an automation rule. It is possible to specify multiple
-triggers for the same rule. Once a trigger starts, Home Assistant will validate the conditions, if any,
-and call the action.
+Triggers are what starts the processing of an automation rule. It is possible to specify multiple triggers for the same rule. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.
 
 #### {% linkable_title Event trigger %}
-Triggers when an event is being processed. Events are the raw building blocks of Home Assistant.
-You can match events on just the event name or also require specific event data to be present.
+Triggers when an event is being processed. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.
 
 ```yaml
 automation:
@@ -96,8 +90,7 @@ automation:
 ```
 
 #### {% linkable_title MQTT trigger %}
-Triggers when a specific message is received on given topic. Optionally can match on the payload
-being sent over the topic.
+Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.
 
 ```yaml
 automation:
@@ -109,8 +102,7 @@ automation:
 ```
 
 #### {% linkable_title Numeric state trigger %}
-On state change of a specified entity, attempts to parse the state as a number and triggers if value
-is above and/or below a threshold.
+On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.
 
 ```yaml
 automation:
@@ -123,6 +115,7 @@ automation:
 ```
 
 #### {% linkable_title State trigger %}
+
 Triggers when the state of an entity changes. If only entity_id given will match all state changes.
 
 ```yaml
@@ -136,13 +129,11 @@ automation:
 ```
 
 <p class='note warning'>
-  Use quotes around your values for <code>from</code> and <code>to</code> to avoid the YAML parser
-  interpreting some values as booleans.
+  Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
 </p>
 
 #### {% linkable_title Sun trigger %}
-Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for
-example 45 minutes before sunset, when dusk is setting in.
+Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.
 
 ```yaml
 automation:
@@ -155,10 +146,8 @@ automation:
 ```
 
 #### {% linkable_title Time trigger %}
-Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific
-point in time each day. Alternatively, you can also match if the hour, minute or second of the current
-time has a specific value. For example, by only setting minutes in the config to 5 it will trigger every
-hour when it is 5 minutes past whole.  You cannot use `after` together with hour, minute or second.
+
+Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. For example, by only setting minutes in the config to 5 it will trigger every hour when it is 5 minutes past whole.  You cannot use `after` together with hour, minute or second.
 
 ```yaml
 automation:
@@ -176,16 +165,13 @@ automation:
       - sun
 ```
 
-You can use `weekday` to limit the trigger times to speific days as well (also available in conditions).
-Valid values for `weekday` are (`sun`, `mon`, `tue`, `wed`, `thu`, `fri` & `sat`)
+You can use `weekday` to limit the trigger times to speific days as well (also available in conditions). Valid values for `weekday` are (`sun`, `mon`, `tue`, `wed`, `thu`, `fri` & `sat`)
 
 The above example will trigger on Saturday and Sunday every hour on the 5 (2:05, 3:05, 4:05, etc).
 
-
 #### {% linkable_title Zone trigger %}
-Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work,
-you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently
-this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/).
+
+Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/).
 
 ```yaml
 automation:
@@ -199,15 +185,9 @@ automation:
 
 ## {% linkable_title Conditions %}
 
-Conditions are an optional part of an automation rule and be used to prevent an action from happening
-when triggered. Conditions look very familiar to triggers but are very different. A trigger will look
-at events happening at the system while a condition only looks at how the system looks right now.
-A trigger can observe that a switch is being turned on. A condition can only see if a switch is on
-or off.
+Conditions are an optional part of an automation rule and be used to prevent an action from happening when triggered. Conditions look very familiar to triggers but are very different. A trigger will look at events happening at the system while a condition only looks at how the system looks right now. A trigger can observe that a switch is being turned on. A condition can only see if a switch is on or off.
 
-An automation rule can have mulitiple triggers. By default the action will only fire if all conditions
-pass. An optional key `condition_type: 'or'` can be set on the automation rule to fire action if any
-condition matches.  In the example below, the automation would trigger if the time is before 05:00 _OR_ after 20:00.
+An automation rule can have mulitiple triggers. By default the action will only fire if all conditions pass. An optional key `condition_type: 'or'` can be set on the automation rule to fire action if any condition matches.  In the example below, the automation would trigger if the time is before 05:00 _OR_ after 20:00.
 
 ```yaml
 automation:
@@ -219,16 +199,16 @@ automation:
      after: '20:00'
 ```
 
-If your triggers and conditions are exactly the same, you can use a shortcut to specify conditions.
-In this case, triggers that are not valid conditions will be ignored.
+If your triggers and conditions are exactly the same, you can use a shortcut to specify conditions. In this case, triggers that are not valid conditions will be ignored.
+
 ```yaml
 automation:
   condition: use_trigger_values
 ```
 
 #### {% linkable_title Numeric state condition %}
-Attempts to parse the state of specified entity as a number and triggers if value is above and/or
-below a threshold.
+
+Attempts to parse the state of specified entity as a number and triggers if value is above and/or below a threshold.
 
 ```yaml
 automation:
@@ -241,6 +221,7 @@ automation:
 ```
 
 #### {% linkable_title State condition %}
+
 Tests if an entity is a specified state.
 
 ```yaml
@@ -252,8 +233,8 @@ automation:
 ```
 
 #### {% linkable_title Time condition %}
-The time condition can test if it is after a specified time, before a specified time or if it is a
-certain day of the week
+
+The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week
 
 ```yaml
 automation:
@@ -268,12 +249,11 @@ automation:
       - fri
 ```
 
-Valid values for `weekday` are (sun, mon, tue, wed, thu, fri & sat)
+Valid values for `weekday` are (`sun`, `mon`, `tue`, `wed`, `thu`, `fri` & `sat`)
 
 #### {% linkable_title Zone condition %}
-Zone conditions test if an entity is in a certain zone. For zone automation to work,
-you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently
-this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/).
+
+Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/).
 
 ```yaml
 automation:
@@ -285,8 +265,7 @@ automation:
 
 ## {% linkable_title Actions %}
 
-When an automation rule fires, it calls a service. For this service you can specify an entity id it
-should apply to and optional service parameters (to specify for example the brightness).
+When an automation rule fires, it calls a service. For this service you can specify an entity id it should apply to and optional service parameters (to specify for example the brightness).
 
 ```yaml
 automation:
@@ -310,23 +289,19 @@ automation:
       message: Something just happened, better take a look!
 ```
 
-If you want to specify multiple services to be called or include a delay, have a look at the
-[script component](/components/script/). If you want to describe how certain entities should look,
-check out the [scene component](/components/scene/).
+If you want to specify multiple services to be called or include a delay, have a look at the [script component](/components/script/). If you want to describe how certain entities should look, check out the [scene component](/components/scene/).
 
 ## {% linkable_title Troubleshooting %}
 
-You can verify that your automation rules are being initialized correctly by watching both the realtime
-logs and also the logbook.  The realtime logs will show the rules being initialized (once for each trigger):
+You can verify that your automation rules are being initialized correctly by watching both the realtime logs and also the logbook.  The realtime logs will show the rules being initialized (once for each trigger):
 
-```bash
+```plain
 INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rain is over
 ```
 
-The Logbook component will show a line entry when an automation is triggered.  You can look at the
-previous entry to determine which trigger in the rule triggered the event.
+The Logbook component will show a line entry when an automation is triggered.  You can look at the previous entry to determine which trigger in the rule triggered the event.
 
 ![Logbook example](/images/components/automation/logbook.png)

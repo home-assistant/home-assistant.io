@@ -10,10 +10,7 @@ footer: true
 ha_category: "History"
 ---
 
-<img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
-The logbook component provides a different perspective on the history of your house by showing all
-the changes that happened to your house in reverse chronological order.
-[See the demo for a live example](/demo/).
+<img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" /> The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. [See the demo for a live example](/demo/).
 
 To enable the logbook in your installation, add the following to your `configuration.yaml` file:
 

@@ -10,10 +10,7 @@ footer: true
 ha_category: Organization
 ---
 
-Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device
-to be within a zone, the state will take the name from the zone. Zones can also be used as a
-[trigger](/components/automation/#zone-trigger) or [condition](/components/automation/#zone-condition)
-inside automation setups.
+Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/components/automation/#zone-trigger) or [condition](/components/automation/#zone-condition) inside automation setups.
 
 Zones support the usual method to specify multiple zones, use keys `zone:`, `zone 2:` etc.
 
@@ -44,18 +41,12 @@ zone 3:
 
 #### {% linkable_title Home zone %}
 
-If no configuration is given, the zone component will create a zone for home. This zone will use
-location given in the `configuration.yaml` file and have a radius of 100 meters. To override this,
-create a zone configuration and name it 'Home'.
+If no configuration is given, the zone component will create a zone for home. This zone will use location given in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it 'Home'.
 
 #### {% linkable_title Icons %}
 
-It is preferred to pick an icon to use for your zone. By default, Home Assistant includes most of the
-[material icons](https://www.google.com/design/icons/). See [the source][icon-source] for a specific list which
-categories are included.
+It is preferred to pick an icon to use for your zone. By default, Home Assistant includes most of the [material icons](https://www.google.com/design/icons/). See [the source][icon-source] for a specific list which categories are included.
 
-For all but the action category you will need to prefix the icon name with its category. For example
-`social:people` or `av:radio`. For the action category, you will not need to do this, examples are
-`home`, `work,`, `group-work` and `shopping-cart`.
+For all but the action category you will need to prefix the icon name with its category. For example `social:people` or `av:radio`. For the action category, you will not need to do this, examples are `home`, `work,`, `group-work` and `shopping-cart`.
 
 [icon-source]: https://github.com/balloob/home-assistant-polymer/blob/master/src/resources/home-assistant-icons.html#L3

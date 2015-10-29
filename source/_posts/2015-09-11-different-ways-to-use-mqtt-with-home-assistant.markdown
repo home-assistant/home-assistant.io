@@ -10,14 +10,16 @@ categories: how-to mqtt
 og_image: /images/blog/2015-09-mqtt/arduino.png
 ---
 
-<img src='/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='80' />
-The [MQTT](https://en.wikipedia.org/wiki/MQTT) support was added to Home Assistant recently. The [MQTT component](https://home-assistant.io/components/mqtt/) will enable you to do all sort of things. Most likely you will use it to communicate with your devices. But Home Assistant doesn't care where the data is coming from or is limited to real hardware as long as there is MQTT support. This means that it doesn't matter if the data is coming from a human, a web service, or a device.
+{::options coderay_line_numbers="table" /}
+
+<img src='/images/supported_brands/mqtt.png' style='border:none; box-shadow: none; float: right;' height='80' /> [MQTT](https://en.wikipedia.org/wiki/MQTT) support was added to Home Assistant recently. The [MQTT component](https://home-assistant.io/components/mqtt/) will enable you to do all sort of things. Most likely you will use it to communicate with your devices. But Home Assistant doesn't care where the data is coming from or is limited to real hardware as long as there is MQTT support. This means that it doesn't matter if the data is coming from a human, a web service, or a device.
 
 A great example is shown in a [Laundry Automation](https://home-assistant.io/blog/2015/08/26/laundry-automation-with-moteino-mqtt-and-home-assistant/) post in this blog.
 
 This post will give you a small overview of some other possibilities on how to use MQTT with Home Assistant.
 
 <!--more-->
+
 ### {% linkable_title Manual usage %}
 
 The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let's create a "Mood" sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snipplets to add to the `configuration.yaml` file consists of two parts: one for the broker and one for the sensor.
@@ -37,7 +39,7 @@ After a restart of Home Assistant the "Mood" sensor will show up in the frontend
 Now we can set the mood. The commandline tool (`mosquitto_pub`) which is shipped with `mosquitto` is used to send an MQTT message.
 
 ```bash
-mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
+$ mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
 ```
 
 <p class='img'>
@@ -45,7 +47,7 @@ mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
   The Mood sensor
 </p>
 
-This is a really bad example. Don't do this in the real world because you won't be able to create diagrams of historical data. Better use a numerical value. 
+This is a really bad example. Don't do this in the real world because you won't be able to create diagrams of historical data. Better use a numerical value.
 
 ### {% linkable_title Python MQTT bindings %}
 

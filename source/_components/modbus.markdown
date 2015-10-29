@@ -18,6 +18,7 @@ To add modbus to your installation, add the following to your `configuration.yam
 
 For a network connection:
 
+```yaml
 #Modbus TCP
 modbus:
   type: tcp

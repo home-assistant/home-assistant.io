@@ -12,10 +12,7 @@ ha_category: Alarm
 ---
 
 
-This platform enables the possibility to control an MQTT alarm. The alarm will only change state after
-receiving the a new state from `state_topic`. If these messages are published with RETAIN flag, the MQTT
-alarm will receive an instant state update after subscription and will start with correct state. Otherwise,
-the initial state will be `unknown`.
+This platform enables the possibility to control an MQTT alarm. The alarm will only change state after receiving the a new state from `state_topic`. If these messages are published with RETAIN flag, the MQTT alarm will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state will be `unknown`.
 
 ```yaml
 # Example configuration.yaml entry

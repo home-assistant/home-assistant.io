@@ -15,8 +15,7 @@ This release sets a record for the amount of people involved: 8! [Andythigpen](h
 A big improvement has been brought this release by wind-rider. He took the time to revive the Chromecast support and started improving the media player integration. This triggered other people to join in resulting in a revamped media player experience and support for the Music Player Daemon.
 
 <p class='img'>
-  <img src='/images/screenshots/media_player-card.png' />
-  Example of the new media player cards
+  <img src='/images/screenshots/media_player-card.png' />   Example of the new media player cards
 </p>
 
 <p class='note'>
@@ -39,9 +38,8 @@ Before jumping into the newly supported platforms, here are the other improvemen
  * Fix the device tracker getting in a deadlock by @balloob
  * Update documentation by @fabaff
 
-__Music Player Daemon__<br>
-<img src='/images/supported_brands/mpd.png' style='border:none; box-shadow: none; float: right;' height='50' />
-Fabaff has contributed MusicPlayerDaemon support. The mpd platform allows you to control a [Music Player Daemon](http://www.musicpd.org/) from Home Assistant. Right now, only playback is supported and not playlist manipulation.
+__Music Player Daemon__
+<img src='/images/supported_brands/mpd.png' style='border:none; box-shadow: none; float: right;' height='50' /> Fabaff has contributed MusicPlayerDaemon support. The mpd platform allows you to control a [Music Player Daemon](http://www.musicpd.org/) from Home Assistant. Right now, only playback is supported and not playlist manipulation.
 
 ```yaml
 # Example configuration.yaml entry
@@ -52,7 +50,7 @@ media_player:
   location: bedroom
 ```
 
-__Command line switch__<br>
+__Command line switch__
 A switch platform that issues specific commands when it is turned on and off. This might very well become our most popular platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
 
 ```yaml
@@ -65,7 +63,7 @@ switch:
         offcmd: switch_command off kitchen
 ```
 
-__LimitlessLED__<br>
+__LimitlessLED__
 This new platform can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight or iLight.
 
 ```yaml
@@ -80,9 +78,8 @@ light:
 ```
 
 
-__Bitcoin sensor__<br>
-<img src='/images/supported_brands/bitcoin.png' style='border:none; box-shadow: none; float: right;' height='50' />
-The bitcoin platform displays various details about the [Bitcoin](https://bitcoin.org) network. If you have an online wallet from [Blockchain.info](https://blockchain.info/) the sensor is capable to show your current balance.
+__Bitcoin sensor__
+<img src='/images/supported_brands/bitcoin.png' style='border:none; box-shadow: none; float: right;' height='50' /> The bitcoin platform displays various details about the [Bitcoin](https://bitcoin.org) network. If you have an online wallet from [Blockchain.info](https://blockchain.info/) the sensor is capable to show your current balance.
 
 ```yaml
 # Example configuration.yaml entry
@@ -116,9 +113,8 @@ sensor:
 ```
 
 
-__SMTP notificatoin platform__<br>
-<img src='/images/supported_brands/smtp.png' style='border:none; box-shadow: none; float: right;' height='50' />
-The smtp platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
+__SMTP notificatoin platform__
+<img src='/images/supported_brands/smtp.png' style='border:none; box-shadow: none; float: right;' height='50' /> The smtp platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
 
 ```yaml
 # Example configuration.yaml entry
@@ -134,7 +130,7 @@ notify:
 ```
 
 
-__Syslog notification platform__<br>
+__Syslog notification platform__
 The syslog platform allows you to deliver notifications from Home Assistant to the local syslog.
 
 ```yaml
@@ -144,13 +140,12 @@ notify:
 ```
 
 
-__Swiss Public transport sensor__<br>
+__Swiss Public transport sensor__
 The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland. See the [component page](/components/sensor.swiss_public_transport/) for more information how to set it up.
 
 
-__Transmission turtle mode switch__<br>
-<img src='/images/supported_brands/transmission.png' style='border:none; box-shadow: none; float: right;' height='50' />
-The transmission platform allows you to control your [Transmission](http://www.transmissionbt.com/) client from within Home Assistant. The platform enables you switch to your 'Alternative Speed Limits' (aka 'Turtle mode') setting. 
+__Transmission turtle mode switch__
+<img src='/images/supported_brands/transmission.png' style='border:none; box-shadow: none; float: right;' height='50' /> The transmission platform allows you to control your [Transmission](http://www.transmissionbt.com/) client from within Home Assistant. The platform enables you switch to your 'Alternative Speed Limits' (aka 'Turtle mode') setting. 
 
 ```yaml
 # Example configuration.yaml entry
@@ -164,7 +159,7 @@ switch:
 ```
 
 
-__Hikvision camera motion detection support__<br>
+__Hikvision camera motion detection support__
 This switch platform allows you to control your motion detection setting on your Hikvision camera.
 
 ```yaml

@@ -7,7 +7,8 @@
   </div>
 
   {% assign file_parts = page.url | split: '/' | last | split: '.' %}
-  {% if file_parts.size == 3 %}
+
+  {% if file_parts.size == 2 %}
     {% assign is_platform = true %}
     {% assign imp_name = file_parts[1] %}
     {% assign parent_name = file_parts[0] %}
@@ -54,8 +55,8 @@
   {% for component in components %}
     {% if component.url != page.url %}
       {% assign comp_file_parts = component.url | split: '/' | last | split: '.' %}
-      {% if comp_file_parts.size == 3 %}
-        {% assign comp_imp_name = comp_file_parts[1] %}
+      {% if comp_file_parts.size == 2 %}
+        {% assign comp_imp_name = comp_file_parts | last %}
       {% else %}
         {% assign comp_imp_name = comp_file_parts | first %}
       {% endif %}

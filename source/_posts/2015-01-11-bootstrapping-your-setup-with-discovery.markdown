@@ -16,7 +16,7 @@ Most devices still require some sort of interaction from the user after being di
 
 To enable the discovery component, add the following to your `home-assistant.conf`:
 
-```
+```conf
 [discovery]
 ```
 

@@ -10,9 +10,7 @@ categories: release-notes
 og_image: /images/screenshots/map.png
 ---
 
-A few weeks have past and it is time again for another release: version 0.7.4. This time we're very
-glad to be able to introduce brand new integration with OwnTracks to allow tracking of people on a map.
-The geo support consists of three different parts:
+A few weeks have past and it is time again for another release: version 0.7.4. This time we're very glad to be able to introduce brand new integration with OwnTracks to allow tracking of people on a map. The geo support consists of three different parts:
 
  - [OwnTracks platform for the device tracker][platform-owntracks] to get locations for devices
  - Brand new [zone component][component-zone] to define zones to identify locations and [trigger automation][zone-automation]
@@ -30,8 +28,7 @@ We have added a new [getting started section][start-presence] to get up and runn
 Map in Home Assistant showing two people and three zones (home, school, work)
 </p>
 
-Ofcourse more things happened in the last three weeks. I'm moving away from my usual long post to a
-short summary of highlights:
+Ofcourse more things happened in the last three weeks. I'm moving away from my usual long post to a short summary of highlights:
 
 <a href='/components/media_player.plex/'>
 <img src='/images/supported_brands/plex.png' style='border:none; box-shadow: none; float: right;' height='50' />

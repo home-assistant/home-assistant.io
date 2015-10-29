@@ -23,21 +23,21 @@ In this post a default Fedora 22 Workstation installation is used on the host th
 
 First some extra packages are needed beside Glances, especially the [bottle](http://bottlepy.org/docs/dev/index.html) webserver. I guess that Glances is available for your distribution as well. Otherwise follow those [instructions](https://github.com/nicolargo/glances#installation).
 
-```
-sudo dnf -y install glances python-bottle
+```bash
+$ sudo dnf -y install glances python-bottle
 ```
 
 On Fedora the Firewall settings are strict. Let's open port 61208 to allow other hosts to connect to that port. This is not needed if you just want to observe your local machine. 
 
 ```bash
-sudo firewall-cmd --permanent --add-port=61208/tcp
-sudo firewall-cmd --reload
+$ sudo firewall-cmd --permanent --add-port=61208/tcp
+$ sudo firewall-cmd --reload
 ```
 
 Launch `glances` and keep an eye on the output.
 
 ```bash
-glances -w
+$ glances -w
 Glances web server started on http://0.0.0.0:61208/
 ```
 
@@ -51,7 +51,7 @@ Now browse to http://IP_ADRRESS:61208/. You should see the webified view of Glan
 Another check is to access the API located at http://IP_ADRRESS:61208/api/2/mem/used and to confirm that a detail about your memory usage is provided as a JSON response. If so, you are good to proceed.
 
 ```bash
-curl -X GET http://IP_ADDRESS:61208/api/2/mem/used
+$ curl -X GET http://IP_ADDRESS:61208/api/2/mem/used
 {"used": 203943936}
 ```
 

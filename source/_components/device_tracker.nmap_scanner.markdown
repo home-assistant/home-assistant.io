@@ -12,12 +12,9 @@ featured: true
 ---
 
 
-As an alternative to the router-based device tracking, it is possible to directly scan the network
-for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands,
-including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
+As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 
-If you're on Debian or Ubuntu, you might have to install the packages for arp and nmap. Do so by
-running `apt-get install net-tools nmap`.
+If you're on Debian or Ubuntu, you might have to install the packages for arp and nmap. Do so by running `apt-get install net-tools nmap`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,8 +24,6 @@ device_tracker:
   home_interval: 10
 ```
 
-`home_interval` is an optional value set in minutes.  This will be the number of minutes nmap will not
-scan this device, assuming it is home, in order to preserve the device battery.
+`home_interval` is an optional value set in minutes.  This will be the number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to
-configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

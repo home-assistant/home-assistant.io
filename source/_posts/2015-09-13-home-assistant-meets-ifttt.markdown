@@ -10,13 +10,9 @@ categories: how-to release-notes
 og_image: /images/blog/2015-09-ifttt/og_facebook.png
 ---
 
-Today we announce the release of Home Assistant v0.7.2 which includes brand new support by
-[@sfam][github-sfam] to integrate with [IFTTT][ifttt]. IFTTT stands for If This, Then That and is a
-webservice that integrates with almost every possible webservice out there. Adding Home
-Assistant to this mix means Home Assistant can connect with all via IFTTT.
+Today we announce the release of Home Assistant v0.7.2 which includes brand new support by [@sfam][github-sfam] to integrate with [IFTTT][ifttt]. IFTTT stands for If This, Then That and is a webservice that integrates with almost every possible webservice out there. Adding Home Assistant to this mix means Home Assistant can connect with all via IFTTT.
 
-It is now possible to disable your irregation system if it is going to be cloudy tomorrow or tweet
-if your smoke alarm goes off.
+It is now possible to disable your irregation system if it is going to be cloudy tomorrow or tweet if your smoke alarm goes off.
 
 [github-sfam]: https://github.com/sfam
 [ifttt]: https://ifttt.com
@@ -25,13 +21,11 @@ if your smoke alarm goes off.
   <img src='/images/blog/2015-09-ifttt/splash.png'>
 </p>
 
-Head over to the [setup instructions](/components/ifttt/) to get started with IFTTT. Click the
-read more button for some example recipes.
+Head over to the [setup instructions](/components/ifttt/) to get started with IFTTT. Click the read more button for some example recipes.
 
 <!--more-->
 
-In each of the following examples, make sure to replace the XXX in the url with your correct
-host address and api password.
+In each of the following examples, make sure to replace the XXX in the url with your correct host address and api password.
 
 ## {% linkable_title Turn off irregation system when not needed %}
 
@@ -54,9 +48,7 @@ Maker channel setup:
   <img src='/images/blog/2015-09-ifttt/recipe-twitter.png' />
 </p>
 
-This will tweet a message when an MQTT message is received that the smoke alarm has been triggered.
-Setup Maker channel with event name `HA_FIRE_ALARM` and Twitter channel to tweet the message in
-`value1`.
+This will tweet a message when an MQTT message is received that the smoke alarm has been triggered. Setup Maker channel with event name `HA_FIRE_ALARM` and Twitter channel to tweet the message in `value1`.
 
 ```yaml
 # Configuration.yaml entry
