@@ -16,14 +16,18 @@
   }
 
   .front-install {
+    border: none;
+    font-size: 1em;
     background-color: #333;
     margin-bottom: 16px;
     display: inline-block;
     padding: 8px;
     color: #DDD;
 
-    .sh {
+    div:before {
+      content: '$';
       color: #c82829;
+      margin-right: 6px;
     }
   }
 }
