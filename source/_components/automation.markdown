@@ -160,14 +160,9 @@ automation:
     hours: 0
     minutes: 5
     seconds: 0
-    weekday:
-      - sat
-      - sun
 ```
 
-You can use `weekday` to limit the trigger times to speific days as well (also available in conditions). Valid values for `weekday` are (`sun`, `mon`, `tue`, `wed`, `thu`, `fri` & `sat`)
-
-The above example will trigger on Saturday and Sunday every hour on the 5 (2:05, 3:05, 4:05, etc).
+The above example will trigger every hour on the 5 (2:05, 3:05, 4:05, etc).
 
 #### {% linkable_title Zone trigger %}
 
