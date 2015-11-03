@@ -16,11 +16,11 @@ home-assistant.io is using [Octopress](http://octopress.org/). To get more detai
 To work on the website the process is no different to working on Home Assistant itself.
 
 - Fork the home-assistant.io [git repository](https://github.com/balloob/home-assistant.io).
-- Create/edit/update a page.
+- Create/edit/update a page in the directory `source/_components/` for your platform/component. 
 - To test changes to home-assistant.io locally, run ``rake preview`` and navigate to http://127.0.0.1:4000.
 - Create a Pull Request against the **master** branch of home-assistant.io.
 
-For a component page it would be the fastest way to make a copy of an existing page and edit it.
+For a platform page it would be the fastest way to make a copy of an existing page and edit it. The [component overview](/components/) is generated automatically, so there is no need to add a link to that your page.
 
 ### {% linkable_title Code %}
 To take advantage of the build-in features of Octopress to display code snipplets, just use the default markdown syntax. Please use `$` and `#` if it's a command and to differ from output.
