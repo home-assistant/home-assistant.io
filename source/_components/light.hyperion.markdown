@@ -10,7 +10,7 @@ footer: true
 ha_category: Light
 ---
 
-This platform allows you to integrate your Hyperion into Home Assistant.
+This platform allows you to integrate your [Hyperion](https://github.com/tvdzwan/hyperion/wiki) into Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
