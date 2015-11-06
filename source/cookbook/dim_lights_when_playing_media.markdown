@@ -54,13 +54,13 @@ Adding in the sun condition as we only want this when it's dark.
 
 ```yaml
 automation:
-  - action: "Media player paused/stopped"
+  - alias: "Media player paused/stopped"
     trigger:
       - platform: state
         entity_id: media_player.htpc
         from: 'playing'
     condition:
-      - platform: sun
+      - platform: state
         entity_id: sun.sun
         state: 'below_horizon'
     action:
@@ -73,7 +73,7 @@ automation:
         entity_id: media_player.htpc
         to: 'playing'
     condition:
-      - platform: sun
+      - platform: state
         entity_id: sun.sun
         state: 'below_horizon'
     action:
