@@ -61,6 +61,32 @@ Returns message if API is up and running.
 }
 ```
 
+#### {% linkable_title GET /api/config %}
+Returns the current configuration as JSON.
+
+```json
+{
+    "components": [
+        "recorder",
+        "http",
+        "sensor.time_date",
+        "api",
+        "frontend",
+        "sun",
+        "logbook",
+        "history",
+        "group",
+        "automation"
+    ],
+    "latitude": 44.1234,
+    "location_name": "Home",
+    "longitude": 5.5678,
+    "temperature_unit": "\u00b0C",
+    "time_zone": "Europe/Zurich",
+    "version": "0.8.0.dev0"
+}
+```
+
 #### {% linkable_title GET /api/events %}
 Returns an array of event objects. Each event object contain event name and listener count.
 
