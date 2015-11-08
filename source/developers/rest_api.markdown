@@ -87,6 +87,18 @@ Returns the current configuration as JSON.
 }
 ```
 
+#### {% linkable_title GET /api/bootstrap %}
+Returns all data needed to bootstrap Home Assistant.
+
+```json
+{
+    "config": {...},
+    "events": [...],
+    "services": [...],
+    "states": [...]
+}
+```
+
 #### {% linkable_title GET /api/events %}
 Returns an array of event objects. Each event object contain event name and listener count.
 
