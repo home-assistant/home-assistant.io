@@ -72,6 +72,25 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 
 The `correction_factor` will make sure that the value is shown in a useful format in the frontend.
 
+
+### {% linkable_title Details about Home Assistant releases %}
+
+At the moment you can't see directly in the frontend what release of Home Assistant you are running. The ugly work-around is to use sensors for displaying the details about the release. One way to retrieve the vsion number for the running release is to ask `hass`. 
+
+```yaml
+  - platform: command_sensor
+    command: "hass --version"
+    name: HA running
+```
+
+The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
+
+```yaml
+  - platform: command_sensor
+    command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+    name: HA release
+```
+
 ### {% linkable_title Use an external script %}
 
 The example is doing the same as the [aREST sensor](/components/sensor.arest/) but with an external Python script. It should give you an idea about interacting with devices which are exposing a RESTful API.
@@ -101,4 +120,3 @@ sensor:
   command: "python3 /path/to/script/arest-value.py"
   unit_of_measurement: "°C"
 ```
-
