@@ -19,7 +19,7 @@ To enable this sensor in your installation, add the following to your `configura
 # Example configuration.yaml entry
 camera:
   platform: mjpeg
-  mjpeg_url: http://194.218.96.92/jpg/image.jpg
+  mjpeg_url: http://192.168.1.92/mjpeg
   name: my sample camera
   username: USERNAME
   password: PASSWORD
@@ -27,7 +27,7 @@ camera:
 
 Configuration variables:
 
-- **mjpeg_url** *Required*: The URL your camera serves the image on, eg. http://192.168.1.21:2112/
+- **mjpeg_url** *Required*: The URL your camera serves the video on, eg. http://192.168.1.21:2112/
 - **name** *Optional*: This parameter allows you to override the name of your camera.
 - **username** *Optional*: The username for accessing your camera.
 - **password** *Optional*: The password for accessing your camera.
