@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: radiotherm.png
+logo: honeywell.png
 ha_category: Thermostat
 ---
 
