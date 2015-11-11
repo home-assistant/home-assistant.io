@@ -21,6 +21,7 @@ This page contains a list of people who have contributed in one way or another t
 
 - [Adrien Brault](https://github.com/adrienbrault)
 - [andythigpen](https://github.com/andythigpen)
+- [Arthur Leonard Andersen](https://github.com/leoc)
 - [Austin](https://github.com/trainman419)
 - [Azelphur](https://github.com/Azelphur)
 - [Bruno Adele](https://github.com/badele)
