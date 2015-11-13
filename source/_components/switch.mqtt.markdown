@@ -18,6 +18,8 @@ When a state topic is not available, the switch will work in optimistic mode. In
 
 Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect switch operation.
 
+To enable this s in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yml entry
 switch:
