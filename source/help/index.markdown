@@ -28,7 +28,7 @@ Have you found an issue in your Home Assistant installation? Please report it in
 
 There is not explicit roadmap available but the public [tracker](https://www.pivotaltracker.com/n/projects/1250084) can give you some insight what is going on.
 
-### {% linkable_title Commerical vendors %}
+### {% linkable_title Commercial vendors %}
 
-If you are a commerical vendor and would like to get your product integrated in Home Assistant, please submit a [Pull request](https://github.com/balloob/home-assistant/pulls) or get in touch with us.
+If you are a commercial vendor and would like to get your product integrated in Home Assistant, please submit a [Pull request](https://github.com/balloob/home-assistant/pulls) or get in touch with us.
 
