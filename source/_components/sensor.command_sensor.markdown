@@ -73,17 +73,9 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 The `correction_factor` will make sure that the value is shown in a useful format in the frontend.
 
 
-### {% linkable_title Details about Home Assistant releases %}
+### {% linkable_title Details about the upstream Home Assistant release %}
 
-At the moment you can't see directly in the frontend what release of Home Assistant you are running. The ugly work-around is to use sensors for displaying the details about the release. One way to retrieve the vsion number for the running release is to ask `hass`. 
-
-```yaml
-  - platform: command_sensor
-    command: "hass --version"
-    name: HA running
-```
-
-The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
+You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
 ```yaml
   - platform: command_sensor
