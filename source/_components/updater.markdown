@@ -10,14 +10,12 @@ footer: true
 ha_category: Other
 ---
 
-The updater component will detect when the newest published version of Home
-Assistant does not match the currently installed version. When running,
-it will check for new releases at startup and everyday at noon and midnight.
+The updater component will check for new releases at startup and everyday at noon and midnight. It will show a badge in the frontend if a new version has been detected.
 
-For an added bonus, an automation component can be created to send a message
-with a notifier when that state of this component's entity changes.
+For an added bonus, an automation component can be created to send a message with a notifier when that state of this component's entity changes.
 
-``` yaml
+```yaml
+# Example configuration.yaml entry
 automation:
   alias: 'Update Available Notifications'
   trigger:
@@ -26,5 +24,5 @@ automation:
   action:
     service: notify.notify
     data:
-      message: 'Home Assistant update is available.'
+      message: 'Update for Home Assistant is available.'
 ```
