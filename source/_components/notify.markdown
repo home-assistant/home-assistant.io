@@ -9,22 +9,39 @@ sharing: true
 footer: true
 ---
 
-One of the things most people want at some point in their home automation is to get notified when certain events occur. For this reason there is a `notify` component in Home Assistant.
+The `notify` component makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.
 
-Home Assistant currently supports a wide range of services for notifications. Please check the sidebar for a full list of platforms.
+### Configuration
 
-If your are running into troubles with your notification platform, a simple way to test it is to use **Call Service** from the **Developer Tools**. Choose your service (*notify/xyz*) from the list of **Available services:** and enter something like the sample below into  the **Service Data** field and hit **CALL SERVICE**.
-
-```json
-{"message":"A simple test message from HA."}
+```yaml
+# Example configuration.yaml entry
+notify:
+  platform: pushbullet
+  # Optional name for the notify service
+  name: paulus
+  # api_key is a required config key by the pushbullet platform
+  api_key: ABCDEFG
 ```
 
-This will send a single message to your notification platform configured in your `configuration.yaml` file.
+The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify/<name>`. The name will default to `notify` if not supplied.
+
+### Service
+
+Once loaded, the `notify` platform will expose a service that can be called to send notifications.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `title`                |      yes | Can be used to set a title for the message. The default is `Home Assistant`.
-| `message`              |       no | Message to send to recipient.
+| `message`              |       no | Body of the notification.
+| `title`                |      yes | Title of the notification. Default is `Home Assistant`.
+| `target`               |      yes | Some platforms will allow specifying a recipient that will receive the notification. See your platform page if it is supported.
 
 
-For more automation examples, see the [getting started with automation page](/getting-started/automation/) or the [configuration cookbook](/cookbook).
+### Test if it works
+
+A simple way to test if you have set up your notify platform correctly is to use **Call Service** from the **Developer Tools** to call your notify service. Choose your service (*notify/xyz*) from the list of **Available services:** and enter something like the sample below into  the **Service Data** field and hit **CALL SERVICE**.
+
+```json
+{
+  "message": "A simple test message from HA."
+}
+```
