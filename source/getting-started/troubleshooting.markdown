@@ -69,4 +69,4 @@ If you want to stay on top of the development of Home Assistant then you can upg
 $ pip3 install --upgrade git+git://github.com/balloob/home-assistant.git@dev
 ```
 
-### [&laquo; Back to Getting Started](/getting-started/index/)
+### [&laquo; Back to Getting Started](/getting-started/)
