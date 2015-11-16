@@ -11,7 +11,4 @@ logo: z-wave.png
 ha_category: Light
 ---
 
-
-The zwave light platform allows you to use your [Z-Wave](http://www.z-wave.com/) lights with Home Assistant.
-
-
+To get your Z-Wave lights working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/).
