@@ -38,7 +38,7 @@ Type | Prefix | Suffix | Example
 ---- | ------ | ------ | -------
 All devices | `device` | -- | `device`
 Device | `device/` | Device nickname | `device/iphone`
-Contact | `contact/` | Contact e-mail | `contact/email@example.com`
+Contact | `contact/` | Contact e-mail (lowercase) | `contact/email@example.com`
 Channel | `channel/` | Channel tag | `channel/my_home`
 
 #### Example service payload
