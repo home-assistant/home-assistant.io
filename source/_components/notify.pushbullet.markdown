@@ -32,14 +32,15 @@ Configuration variables:
 
 ### Usage
 
-PushBullet is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). An optional **target** parameter can be given to PushBullet to specify one or many account's devices, contacts or channels to notify.
+PushBullet is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all devices registered in the PushBullet account.  An optional **target** parameter can be given to PushBullet to specify specific account's devices, contacts or channels.
 
 Type | Prefix | Suffix | Example
 ---- | ------ | ------ | -------
-All devices | `device` | -- | `device`
 Device | `device/` | Device nickname | `device/iphone`
-Contact | `contact/` | Contact e-mail (lowercase) | `contact/email@example.com`
 Channel | `channel/` | Channel tag | `channel/my_home`
+Email | `email/` | Contact's email address | `email/email@example.com`
+
+If using targets, your own account's email address functions as 'send to all devices'. All targets are verified (if exists) before sending, except email.
 
 #### Example service payload
 
@@ -47,7 +48,7 @@ Channel | `channel/` | Channel tag | `channel/my_home`
 {
   "message": "A message for many people",
   "target": [
-    "device",
+    "device/telephone",
     "contact/hello@example.com",
     "channel/my_home"
   ]
