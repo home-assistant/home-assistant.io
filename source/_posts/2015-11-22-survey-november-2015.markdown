@@ -5,11 +5,11 @@ date: 2015-11-22 15:51:18 +0100
 date_formatted: "November 22, 2015"
 author: Fabian Affolter
 comments: true
-categories: how-to
+categories: survey
 og_image: /images/blog/2015-11-survey/releases.png
 ---
 
-<img src='/images/blog/2015-11-survey/releases.png' style='float: right;' height='120'/>Around a week ago we started with the first survey. Now 30 people have participated. Thank you very much if you did. We think that's enough time to have some "only partially representative" data. It's hard to tell how many Home Assistant users are out there. Currently there are 215 members in our [Gitter chat room](https://gitter.im/balloob/home-assistant) and last week [PyPI](https://pypi.python.org/pypi/homeassistant/) counted 5063 downloads.
+<img src='/images/blog/2015-11-survey/releases.png' style='float: right; margin-left: 8px; margin-bottom: 8px;' height='120'/>Around a week ago we started with the first survey. Now 30 people have participated. Thank you very much if you did. We think that's enough time to have some "only partially representative" data. It's hard to tell how many Home Assistant users are out there. Currently there are 215 members in our [Gitter chat room](https://gitter.im/balloob/home-assistant) and last week [PyPI](https://pypi.python.org/pypi/homeassistant/) counted 5063 downloads.
 
 The idea was to anonymously collect some details about the usage of the different parts of Home Assistant and a little bit about the environment its running in.
 
