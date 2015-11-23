@@ -11,7 +11,7 @@ footer: true
 
 The `notify` component makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.
 
-### Configuration
+## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,7 +25,7 @@ notify:
 
 The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify/<name>`. The name will default to `notify` if not supplied.
 
-### Service
+### {% linkable_title Service %}
 
 Once loaded, the `notify` platform will expose a service that can be called to send notifications.
 
@@ -35,8 +35,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `title`                |      yes | Title of the notification. Default is `Home Assistant`.
 | `target`               |      yes | Some platforms will allow specifying a recipient that will receive the notification. See your platform page if it is supported.
 
-
-### Test if it works
+### {% linkable_title Test if it works %}
 
 A simple way to test if you have set up your notify platform correctly is to use **Call Service** from the **Developer Tools** to call your notify service. Choose your service (*notify/xyz*) from the list of **Available services:** and enter something like the sample below into  the **Service Data** field and hit **CALL SERVICE**.
 
