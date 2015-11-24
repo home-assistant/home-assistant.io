@@ -25,7 +25,7 @@ sensor:
     state_topic: "home/bedroom/temperature"
     name: "MQTT Sensor 1"
   - platform: mqtt
-    state_topic: "home/bedroom/temperature"
+    state_topic: "home/kitchen/temperature"
     name: "MQTT Sensor 2"
   - platform: rest
     resource: http://IP_ADDRESS/ENDPOINT
@@ -36,7 +36,7 @@ switch:
 
 #### {% linkable_title Style 2 %}
 
-If you prefer to place your entries somewhere in the `configuration.yaml` file then you just choose this style. There should not be gaps in the sequence when you use numbers or your entities might not load correctly. Instead of numbers you are free to use strings (like `media_player livingroom:` or `media_player kitchen:`) to differentiate the entries as long as the appended strings are unique.
+If you prefer to place your entries somewhere in the `configuration.yaml` file then you just choose this style. You need to append numbers (see example below) or strings (like `media_player livingroom:` or `media_player kitchen:`) to differentiate the entries. The appended number or string must be unique.
 
 ```yaml
 media_player 1:
@@ -52,6 +52,10 @@ camera:
 media_player 3:
   platform: sonos
 ```
+
+<p class='note note'>
+If your devices are not showing up in the frontend then check the entries in your <code>configuration.yaml</code> file for duplicates. 
+</p>
 
 ### {% linkable_title Grouping devices %}
 
