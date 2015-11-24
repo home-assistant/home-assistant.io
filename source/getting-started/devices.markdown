@@ -11,13 +11,51 @@ footer: true
 
 Home Assistant will be able to automatically discover and configure any Google Chromecasts, Netgear routers, Belkin WeMo switches, Philips Hue bridges and Sonos speakers in your network if you have [the discovery component]({{site_root}}/components/discovery/) enabled (which is by default).
 
-See the [components overview page](/components/) to find installation instructions for your devices and services.  Many components use the `sensor` platform.  Sensors need to be added into the `configuration.yaml` as `sensor:`, `sensor 2:`, `sensor 3:`, etc.  There should not be gaps in the sequence or your sensors might not load correctly.
+See the [components overview page](/components/) to find installation instructions for your devices and services. If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/).
 
-<p class='note'>
-Most components that support multiple entries within the <code>configuration.yaml</code> follow the <code>component:</code>, <code>component 2:</code> format.
+Usually every entity needs its own entry in the `configuration.yaml` file. There are two kind of styles for multiple entries:
+
+#### {% linkable_title Style 1 %}
+
+Collect every entity under the "parent". 
+
+```yaml
+sensor:
+  - platform: mqtt
+    state_topic: "home/bedroom/temperature"
+    name: "MQTT Sensor 1"
+  - platform: mqtt
+    state_topic: "home/kitchen/temperature"
+    name: "MQTT Sensor 2"
+  - platform: rest
+    resource: http://IP_ADDRESS/ENDPOINT
+
+switch:
+  - platform: vera
+```
+
+#### {% linkable_title Style 2 %}
+
+If you prefer to place your entries somewhere in the `configuration.yaml` file then you just choose this style. You need to append numbers (see example below) or strings (like `media_player livingroom:` or `media_player kitchen:`) to differentiate the entries. The appended number or string must be unique.
+
+```yaml
+media_player 1:
+  platform: mpd
+  server: IP_ADDRESS
+
+media_player 2:
+  platform: plex
+
+camera:
+  platform: generic
+
+media_player 3:
+  platform: sonos
+```
+
+<p class='note note'>
+If your devices are not showing up in the frontend then check the entries in your <code>configuration.yaml</code> file for duplicates. 
 </p>
-
-If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/)
 
 ### {% linkable_title Grouping devices %}
 
