@@ -22,17 +22,17 @@ If you want to enable the plex platform directly, add the following lines to you
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  - platform: plex
+  platform: plex
 ```
 
 You may also need to create the file `plex.conf`.
 
 ```json
-{"<IP_ADDRESS>:<PORT>": {"token": "<TOKEN>"}}
+{"IP_ADDRESS:PORT": {"token": "TOKEN"}}
 ```
 
-- `<IP_ADDRESS>` *Required*: IP address of the Plex Media Server
-- `<PORT>` *required*: Default is 32400
-- `<TOKEN>` *Optional*: Only if authentication is required. Set to `None` (without quotes) otherwise.
+- **IP_ADDRESS** (*Required*): IP address of the Plex Media Server
+- **PORT** (*Required*): Port where Plex is listening. Default is 32400
+- **TOKEN** (*Optional*): Only if authentication is required. Set to `None` (without quotes) otherwise.
 
 At this moment, the Plex platform only supports one Plex Media Server.
