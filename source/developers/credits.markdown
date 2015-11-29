@@ -11,11 +11,11 @@ footer: true
 
 This page contains a list of people who have contributed in one way or another to Home Assistant. 
 
-## Author
+### {% linkable_title Author %} 
 
 - [Paulus Schoutsen](https://github.com/balloob)
 
-## Contributors
+### {% linkable_title Contributors %} 
 
 (in alphabetical order)
 

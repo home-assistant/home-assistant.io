@@ -16,7 +16,7 @@ This is a community currated list of `configuration.yaml` examples. New recipes 
   * [{{recipe.title}}]({{recipe.url}})
 {% endfor %}
 
-#### Configuration.yaml Gists
+### {% linkable_title Configuration.yaml Gists %} 
 
 Some users keep a public scrubbed copy of their `configuration.yaml` to learn from.
 
