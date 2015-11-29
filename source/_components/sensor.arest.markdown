@@ -27,14 +27,14 @@ sensor:
       unit_of_measurement: '°C'
     - name: humidity
       unit_of_measurement: '%'
-    pins:
-      A0:
-        name: Pin 0 analog
-        unit_of_measurement: "ca"
-        correction_factor: 0.01
-        decimal_places: 1
-      3:
-        name: Pin 3 digital
+  pins:
+    A0:
+      name: Pin 0 analog
+      unit_of_measurement: "ca"
+      correction_factor: 0.01
+      decimal_places: 1
+    3:
+      name: Pin 3 digital
 ```
 
 Configuration variables:
