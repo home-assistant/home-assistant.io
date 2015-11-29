@@ -24,6 +24,7 @@ sensor:
   name: "MQTT Sensor"
   qos: 0
   unit_of_measurement: "°C"
+
 ```
 
 Configuration variables:

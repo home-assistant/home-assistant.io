@@ -31,6 +31,7 @@ switch:
   payload_on: "ON"
   payload_off: "OFF"
   optimistic: false
+  state_format: 
 ```
 
 Configuration variables:
@@ -42,6 +43,7 @@ Configuration variables:
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.
+- **state_format** (*Optional*): Value to parse.
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
