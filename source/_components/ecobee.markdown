@@ -23,7 +23,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 ecobee:
-  api_key: 
+  api_key: asdfghjklqwertyuiopzxcvbnm 
 ```
 
 Configuration variables:
