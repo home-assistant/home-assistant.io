@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ecobee.png
-ha_category: Sensor
+ha_category: Thermostat
 ---
 
 To get your Ecobee thermostats working with Home Assistant, follow the instructions for the general [Ecobee component](/components/ecobee/).
