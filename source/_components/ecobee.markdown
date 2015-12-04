@@ -21,11 +21,13 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 ecobee:
   api_key: asdfghjklqwertyuiopzxcvbnm 
+  hold_temp: True
 ```
 
 Configuration variables:
 
 - **api_key** (*Required*): Your Ecobee api key.
+- **hold_temp** (*Optional*): True/False whether or not to hold changes indefinitely (True) or until the next scheduled event (False, default).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/ecobee-sensor-badges.png' />
