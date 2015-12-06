@@ -7,7 +7,7 @@ date_formatted: "December 6, 2015"
 author: Paulus Schoutsen
 comments: true
 categories: release-notes
-og_image: /images/screenshots/lock-and-rollershutter-card.png
+og_image: /images/blog/2015-12-release-09/facebook-09.png
 ---
 
 It's been a few weeks but we managed to polish a nice new release of Home Assistant for y'all!
