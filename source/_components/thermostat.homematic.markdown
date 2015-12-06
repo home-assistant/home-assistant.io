@@ -22,7 +22,7 @@ thermostat:
   address: HOMEGEAR/CCU_ADDRESS
   devices:
     Livingroom 1:
-      id: DEVICE_SERIAL_NO 
+      id: DEVICE_SERIAL_NO
     Livingroom 2:
       id: DEVICE_SERIAL_NO
 ```
