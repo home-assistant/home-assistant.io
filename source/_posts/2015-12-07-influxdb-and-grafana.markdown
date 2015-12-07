@@ -17,7 +17,7 @@ The `influxdb` component makes it possible to transfer all state changes from Ho
 
 <!--more-->
 
-The first step is to install the InfluxDB packages. If your are not running Fedora, check the [installation](https://influxdb.com/docs/v0.9/introduction/installation.html) section for further details.
+The first step is to install the InfluxDB packages. If you are not running Fedora, check the [installation](https://influxdb.com/docs/v0.9/introduction/installation.html) section for further details.
 
 ```bash
 $ sudo dnf -y install http://influxdb.s3.amazonaws.com/influxdb-0.9.5.1-1.x86_64.rpm
@@ -29,7 +29,7 @@ Launch the InfluxDB service.
 $ sudo systemctl start influxdb
 ```
 
-If everything went well, then the web interface of the database is accessible at [http://localhost:8083/](http://localhost:8083/). Create a database `home_assistant` to use with Home Assistant either with the web interface or the commandline tool `influx`.
+If everything went well, then the web interface of the ddatabase should be accessible at [http://localhost:8083/](http://localhost:8083/). Create a database `home_assistant` to use with Home Assistant either with the web interface or the commandline tool `influx`.
 
 <p class='img'>
   <img src='/images/blog/2015-12-influxdb/influxdb-frontend.png' />
@@ -44,7 +44,7 @@ InfluxDB shell 0.9.5.1
 > CREATE DATABASE home_assistant
 ```
 
-An optional step is to create an user. Keep in mind to adjust the configuration (add `username` and `password`) in the next step if you prefer to go this way.
+An optional step is to create a user. Keep in mind to adjust the configuration (add `username` and `password`) in the next step if you prefer to go this way.
 
 ```bash
 > CREATE USER "home-assistant" WITH PASSWORD 'password'
