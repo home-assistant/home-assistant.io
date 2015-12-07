@@ -23,7 +23,7 @@ The first step is to install the InfluxDB packages. If your are not running Fedo
 $ sudo dnf -y install http://influxdb.s3.amazonaws.com/influxdb-0.9.5.1-1.x86_64.rpm
 ```
 
-Lauch the InfluxDB service.
+Launch the InfluxDB service.
 
 ```bash
 $ sudo systemctl start influxdb
@@ -99,7 +99,7 @@ Now you can stat to create dashboards and graphs. You have various options to ge
   Grafana settings
 </p>
 
-If the graph is not showing up in the dashbaord you need to adjust the time range in the right upper corner. The graph is created for all state changes recorded by Home Assistant.
+If the graph is not showing up in the dashboard you need to adjust the time range in the right upper corner. The graph is created for all state changes recorded by Home Assistant.
 
 <p class='img'>
   <img src='/images/blog/2015-12-influxdb/grafana-graph.png' />
