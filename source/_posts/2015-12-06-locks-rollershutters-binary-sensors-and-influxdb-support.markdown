@@ -23,7 +23,7 @@ It's been a few weeks but we managed to polish a nice new release of Home Assist
  - Support for [parsing JSON values] received over MQTT ([@mcdeck])
  - Bunch of bug fixes and optimizations
 
-To update, run `pip3 install --update homeassistant`.
+To update, run `pip3 install --upgrade homeassistant`.
 
 [lock component]: /components/lock/
 [lock.wink]: /components/lock.wink/
