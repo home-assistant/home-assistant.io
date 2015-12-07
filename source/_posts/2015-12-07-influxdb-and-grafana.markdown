@@ -76,7 +76,7 @@ time			domain		entity_id	value
 [...]
 ```
 
-[Grafana](http://grafana.org/) is a dashboard that can create graphs from different sources including InfluxDB. The installation is simple and described for a lot of different configurations on the [Grafana installation](http://docs.grafana.org/installation/) page. For a recent system that is running Fedora:
+[Grafana](http://grafana.org/) is a dashboard that can create graphs from different sources including InfluxDB. The installation is simple, and there are detailed steps for many different configurations on the [Grafana installation](http://docs.grafana.org/installation/) page. For a recent system that is running Fedora:
 
 ```bash
 $ sudo dnf -y install https://grafanarel.s3.amazonaws.com/builds/grafana-2.5.0-1.x86_64.rpm
@@ -92,7 +92,7 @@ $ sudo systemctl status grafana-server
 
 Login with the username `admin` and the password `admin` at [http://localhost:3000/login](http://localhost:3000/login). Now follow the [InfluxDB setup instructions](http://docs.grafana.org/datasources/influxdb/).
 
-Now you can stat to create dashboards and graphs. You have various options to get the data from the graph. The next image just show a screenshot of the setting for a temperature sensor.
+Now you can start to create dashboards and graphs. You have various options to get the data from the graph. The next image just shows a screenshot of the setting for a temperature sensor.
 
 <p class='img'>
   <img src='/images/blog/2015-12-influxdb/grafana-settings.png' />
