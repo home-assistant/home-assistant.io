@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-### Rainy Day Light ###
+### {% linkable_title Rainy Day Light %}
 
 This requires a [forecast.io](components/sensor.forecast/) sensor with the condition `weather_precip` that tells if it's raining or not.
 

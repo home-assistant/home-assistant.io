@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-### Basic example for use_trigger_values ###
+### {% linkable_title Basic example for use_trigger_values %}
 
 Turn on lights during daytime when it's dark enough < 200 lux.
 
