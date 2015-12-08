@@ -23,14 +23,15 @@ $ rake preview
 
 ## Steps for the deployment of the site 
 
-All developers with write access to the repositories are able to deploy the website-
+All developers with write access to the repositories are able to deploy the website.
 
 ```bash
+$ git submodule update --init
 $ cd _deploy
-$ git pull
+$ git fetch
+$ git pull origin gh-pages
 $ cd ..
 $ rake generate && rake deploy
-$ 
 ```
 
 ### Preparation on Fedora and CentOS
