@@ -50,7 +50,9 @@ $ git pull origin gh-pages
 $ cd ..
 $ rake generate && rake deploy
 ```
+```bash
 TZ=UTC rake generate && rake deploy
+```
 
 ### Setup on Fedora and CentOS
 On Fedora > 22 or CentOS 7.1.1503 Ruby is not available by default. Please take the notes here as a little guide for the Ruby installation process. 
