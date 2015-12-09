@@ -10,14 +10,29 @@ This is the source for the [Home Assistant](https://github.com/balloob/home-assi
 | `rake generate` | Generate new version of the site
 | `rake deploy` | Deploy a new version of the site
 
-## Setup local environment for the preview
+
+## Setup
 
 _You need to have Ruby installed._
+
+- [Ruby installation instructions](https://www.ruby-lang.org/en/documentation/installation/)
+- For Fedora and CentOS check the last section of this file.
 
 ```bash
 $ git clone --recursive https://github.com/balloob/home-assistant.io.git
 $ cd home-assistant.io
 $ bundle
+```
+
+## Create a new blog post
+
+```bash
+$ rake new_post["title"]
+```
+
+## Site preview
+
+```bash
 $ rake preview
 ```
 
@@ -35,6 +50,7 @@ $ git pull origin gh-pages
 $ cd ..
 $ rake generate && rake deploy
 ```
+TZ=UTC rake generate && rake deploy
 
 ### Setup on Fedora and CentOS
 On Fedora > 22 or CentOS 7.1.1503 Ruby is not available by default. Please take the notes here as a little guide for the Ruby installation process. 
@@ -55,4 +71,4 @@ The last command will give you something like this `ruby 2.2.3p173 (2015-08-18 r
 $ gem install bundler
 ```
 
-Now please follow the instructions above.
+Now please follow the Setup instructions above.
