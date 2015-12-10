@@ -33,8 +33,8 @@ automation:
   condition: use_trigger_values
 
   action:
-    execute_service: light.turn_on
-    service_entity_id: light.couch_lamp
+    service: light.turn_on
+    entity_id: light.couch_lamp
 ```
 
 And then of course turn off the lamp when it stops raining but only if it's within an hour before sunset.
@@ -52,7 +52,7 @@ automation 2:
 
   condition: use_trigger_values
   action:
-    execute_service: light.turn_off
-    service_entity_id: light.couch_lamp
+    service: light.turn_off
+    entity_id: light.couch_lamp
 ```
 
