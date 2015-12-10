@@ -63,6 +63,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Oliver van Porten](https://github.com/mcdeck))
 - [Pascal Bach](https://github.com/bachp)
 - [Per Sandström](https://github.com/persandstrom)
+- [Philip Lundrigan](https://github.com/philipbl)
 - [Piratonym](https://github.com/Piratonym)
 - [Rev Michael Greb](https://github.com/mikegrb)
 - [rhooper](https://github.com/rhooper)
