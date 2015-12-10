@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Activating Tasker tasks from Home Assistant using command line switches"
-date: 2015-12-10 18:39:41 +0000
+date: 2015-12-10 10:39:41 +0000
 date_formatted: "December 10, 2015"
 author: Rowan Hine
 comments: true
