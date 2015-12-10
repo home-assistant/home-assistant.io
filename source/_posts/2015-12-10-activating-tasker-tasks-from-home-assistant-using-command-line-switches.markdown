@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Activating Tasker tasks from Home Assistant using command line switches"
-date: 2015-12-09 09:39:41 +0000
-date_formatted: "December 09, 2015"
+date: 2015-12-10 18:39:41 +0000
+date_formatted: "December 10, 2015"
 author: Rowan Hine
 comments: true
 categories: how-to
@@ -11,6 +11,7 @@ og_image: /images/blog/2015-12-tasker/screenshot-2.png
 
 <img src='/images/blog/2015-12-tasker/tasker-logo.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
 In this tutorial I will explain how you can activate Tasker tasks from Home Assistant command line switches. We are going to set up a switch that when toggled will make your Android device say either "On" or "Off".
+
 You could also do this with the automation component instead so whenever you put your house to sleep mode for example your Android device will open up Google Play Books or the Kindle app ready for you to read as well as dimming your lights, but this tutorial is all about the switches.
 
 <!--more-->
