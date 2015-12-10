@@ -53,7 +53,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 - **correction_factor** (*Optional*): A float value to do some basic calculations.
-- **decimal_places** (*Optional*): Number of decimal places of the value. Default is 0.
+- **decimal_places** (*Optional*): Number of decimal places of the value.
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.
