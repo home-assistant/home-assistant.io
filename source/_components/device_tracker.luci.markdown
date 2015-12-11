@@ -21,6 +21,8 @@ Before this scanner can be used you have to install the luci RPC package on Open
 opkg install luci-mod-rpc
 ```
 
+To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 device_tracker:

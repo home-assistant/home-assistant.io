@@ -16,6 +16,8 @@ As an alternative to the router-based device tracking, it is possible to directl
 
 If you're on Debian or Ubuntu, you might have to install the packages for arp and nmap. Do so by running `apt-get install net-tools nmap`.
 
+To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
