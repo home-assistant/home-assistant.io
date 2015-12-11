@@ -68,6 +68,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Rev Michael Greb](https://github.com/mikegrb)
 - [rhooper](https://github.com/rhooper)
 - [rkabadi](https://github.com/rkabadi)
+- [Rowan Hine](https://github.com/GreenTurtwig)
 - [Ryan Kraus](https://github.com/rmkraus)
 - [Ryan Turner](https://github.com/ryanturner)
 - [sander76](https://github.com/sander76)
