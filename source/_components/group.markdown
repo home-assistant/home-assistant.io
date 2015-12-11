@@ -10,7 +10,7 @@ footer: true
 ha_category: Organization
 ---
 
-Groups allow the user to combine multiple entities into 1. If all entities are switches or lights they can be controlled as one.
+Groups allow the user to combine multiple entities into one. If all entities are switches or lights they can be controlled as one with a switch at the top of the card.
 
 ```yaml
 # Example configuration.yaml entry
