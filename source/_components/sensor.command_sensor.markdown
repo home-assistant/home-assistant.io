@@ -11,7 +11,7 @@ ha_category: Sensor
 ---
 
 
-A sensor platform that issues specific commands to get data. This might very well become our most powerful platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
+A sensor platform that issues specific commands to get data. This might become our most powerful platform as it allows anyone to integrate any type of sensor into Home Assistant that can get data from the command line.
 
 To enable it, add the following lines to your `configuration.yaml`:
 
