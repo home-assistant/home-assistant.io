@@ -21,6 +21,7 @@ This page contains a list of people who have contributed in one way or another t
 
 - [Adrien Brault](https://github.com/adrienbrault)
 - [Allan Glen](https://github.com/allanglen)
+- [Andy Loughran](https://github.com/andylockran)
 - [andythigpen](https://github.com/andythigpen)
 - [Arthur Leonard Andersen](https://github.com/leoc)
 - [Austin](https://github.com/trainman419)
