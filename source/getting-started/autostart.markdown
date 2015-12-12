@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Launch Home Assistant on boot"
-description: "Instructions how to setup Home Assistant to launch on boot on various platforms.."
+description: "Instructions how to setup Home Assistant to launch on boot on various platforms."
 date: 2015-9-1 22:57
 sidebar: false
 comments: false
