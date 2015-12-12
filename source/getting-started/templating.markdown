@@ -13,7 +13,18 @@ The template helper enables one to mathematically manipulate values and use vari
 
 For a complete overview, check the [Jinja2 Template documentation](http://jinja.pocoo.org/docs/dev/templates/).
 
-### {% linkable_title `states` variable %}
+### {% linkable_title Accessing variables %}
+
+The [variables](http://jinja.pocoo.org/docs/dev/templates/#variables) are handled the same way as in Python.
+
+| Method         | description |
+| -------------- | ---------- |
+| `{% raw %}{{ value.x }}{% endraw %}` or `{% raw %}{{ value.['x'] }}{% endraw %}` | Normal value |
+| `{% raw %}{{ value_json.x }}{% endraw %}` | JSON value |
+
+The evaluation leads to an empty string if it's unsuccessful and printed or iterated over.
+
+### {% linkable_title The `states` variable %}
 
 The template support has a special `states` variable:
 
@@ -25,27 +36,26 @@ Example templates and what they could result in:
 
 | Template | Output |
 | ------------ | ---------- |
-| `{{ states.device_tracker.paulus.state }}` | home |
-| `{% for state in states.sensor %}{{ state.entity_id }}={{ state.state }}, {% endfor %}` | senor.thermostat=24, sensor.humidity=40,  |
-
+| `{% raw %}{{ states.device_tracker.paulus.state }}{% endraw %}` | home |
+| `{% raw %}{% for state in states.sensor %}{{ state.entity_id }}={{ state.state }}, {% endfor %}{% endraw %}`| senor.thermostat=24, sensor.humidity=40,  |
 
 ### {% linkable_title Mathematical functions %}
 
-The mathematical methods convert strings to numbers automatically before they are doing their job. This could be useful if you recieve data in the wrong unit of measurement and want to convert it.
+The mathematical methods convert strings to numbers automatically before they are doing their job. This could be useful if you recieve data in the wrong unit of measurement and want to convert it. They are used like the standard [Jinja2 filters](http://jinja.pocoo.org/docs/dev/templates/#filters).
 
 | Method         | description |
 | -------------- | ---------- |
 | `multiply(x)`  | Multiplies the value with `x` |
-| `round(x)`     | Maximau number `x` of decimal places for the value |
+| `round(x)`     | Maximal number `x` of decimal places for the value |
 
-A sample entry in your `configuration.yaml` file for a sensor could look like this:
+A sample sensor entry for your `configuration.yaml` file could look like this:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   platform: dweet
   device: temp-sensor012
-  value_template: '{{ value_json.temperature | multiply(1.02) | round(2) }}'
+  value_template: '{% raw %}{{ value_json.temperature | multiply(1.02) | round(2) }}{% endraw %}'
   unit_of_measurement: "°C"
 ```
 
