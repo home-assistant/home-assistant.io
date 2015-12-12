@@ -2,6 +2,7 @@
 layout: post
 title: "InfluxDB and Grafana"
 date: 2015-12-07 15:15:13 +0100
+description: "A step by step guide to start recording data from Home Assistant in InfluxDB and visualizing it using Grafan."
 comments: true
 date_formatted: "December 07, 2015"
 author: Fabian Affolter

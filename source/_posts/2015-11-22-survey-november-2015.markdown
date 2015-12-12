@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Survey November 2015"
+description: "Results from our survey about usage of various parts of Home Assistant."
 date: 2015-11-22 15:51:18 +0100
 date_formatted: "November 22, 2015"
 author: Fabian Affolter
