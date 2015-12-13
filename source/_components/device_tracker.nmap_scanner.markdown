@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: nmap.png
 ha_category: Presence Detection
 featured: true
 ---

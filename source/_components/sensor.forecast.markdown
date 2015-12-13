@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: forecast.png
 ha_category: Weather
 featured: true
 ---
