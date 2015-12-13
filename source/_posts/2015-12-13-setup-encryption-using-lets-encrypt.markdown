@@ -91,6 +91,7 @@ The final step is to point Home Assistant at the generated certificates. Before 
 
 ```yaml
 http:
+  api_password: YOUR_SECRET_PASSWORD
   ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
 ```
