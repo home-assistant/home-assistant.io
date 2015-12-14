@@ -21,7 +21,7 @@ There are multiple ways to consume the Home Assistant Rest API. One is with `cur
 ```bash
 curl -X GET \
     -H "x-ha-access: YOUR_PASSWORD" \
-    http://localhost:8123/api/
+    http://localhost:8123/ENDPOINT
 ```
 
 Another option is to use Python and the [Requests](http://docs.python-requests.org/en/latest/) module. 
@@ -29,7 +29,7 @@ Another option is to use Python and the [Requests](http://docs.python-requests.o
 ```python
 from requests import get
 
-url = 'http://localhost:8123/api/'
+url = 'http://localhost:8123/ENDPOINT'
 headers = {'x-ha-access': 'YOUR_PASSWORD',
            'content-type': 'application/json'}
 
@@ -52,13 +52,19 @@ Successful calls will return status code 200 or 201. Other status codes that can
 
 The API supports the following actions:
 
-#### {% linkable_title GET /api %}
+#### {% linkable_title GET /api/ %}
 Returns message if API is up and running.
 
 ```json
 {
   "message": "API running."
 }
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/
 ```
 
 #### {% linkable_title GET /api/config %}
@@ -87,6 +93,12 @@ Returns the current configuration as JSON.
 }
 ```
 
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/config
+```
+
 #### {% linkable_title GET /api/bootstrap %}
 Returns all data needed to bootstrap Home Assistant.
 
@@ -97,6 +109,12 @@ Returns all data needed to bootstrap Home Assistant.
     "services": [...],
     "states": [...]
 }
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/bootstrap
 ```
 
 #### {% linkable_title GET /api/events %}
@@ -113,6 +131,12 @@ Returns an array of event objects. Each event object contain event name and list
       "listener_count": 2
     }
 ]
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/events
 ```
 
 #### {% linkable_title GET /api/services %}
@@ -134,6 +158,12 @@ Returns an array of service objects. Each object contains the domain and which s
       ]
     }
 ]
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/services
 ```
 
 #### {% linkable_title GET /api/states %}
@@ -159,6 +189,12 @@ Returns an array of state objects. Each state has the following attributes: enti
 ]
 ```
 
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/states
+```
+
 #### {% linkable_title GET /api/states/&lt;entity_id> %}
 Returns a state object for specified entity_id. Returns 404 if not found.
 
@@ -174,10 +210,16 @@ Returns a state object for specified entity_id. Returns 404 if not found.
 }
 ```
 
+Sample `curl` command:
+
+```$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+        http://IP_ADDRESS:8123/api/states/sensor.kitchen_temperature
+```
+
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
 Updates or creates the current state of an entity.
 
-Expects a JSON object that has atleast a state attribute:
+Expects a JSON object that has at least a state attribute:
 
 ```json
 {
@@ -201,6 +243,14 @@ Return code is 200 if the entity existed, 201 if the state of a new entity was s
     "last_changed": "23:24:33 28-10-2013",
     "state": "below_horizon"
 }
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+      -d '{"state": "25", "attributes": {"unit_of_measurement": "°C"}}' \
+      http://localhost:8123/api/states/sensor.kitchen_temperature
 ```
 
 #### {% linkable_title POST /api/events/&lt;event_type> %}
@@ -253,6 +303,14 @@ Returns a list of states that have changed while the service was being executed.
         "state": "on"
     }
 ]
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+      -d '{"entity_id": "switch.christmas_lights", "state": "on"}' \
+      http://localhost:8123/api/services/switch/turn_on
 ```
 
 <p class='note'>
