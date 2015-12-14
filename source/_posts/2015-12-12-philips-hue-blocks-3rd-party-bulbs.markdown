@@ -11,10 +11,11 @@ categories: public-service-announcement
 
 Philips Hue was one of the first to get smart lights accepted by the mainstream. Their Zigbee-based hub is rock solid, never crashes, great API and worked with other Zigbee light bulbs too. They are a bit expensive but the platform was worth every penny, till now.
 
-Yesterday a thread on [/r/homeautomation][reddit-hue] published that Philips Hue now blocks all but their own bulbs and those of "friends of Hue". I have been able to confirm this in the [Philips Hue FAQ][philips-hue-faq]:
+Yesterday a thread on [/r/homeautomation][reddit-hue] published that Philips Hue now blocks all but their own bulbs and those of "friends of Hue". I have been able to confirm this in the [Philips Hue FAQ][philips-hue-faq] (Update Dec 14: they have removed the entries - [mirror here][philips-hue-faq-mirror]):
 
 <p class='img'>
 <img src='/images/blog/2015-12-philips-hue-3rd-party/philips-hue-faq.png'>
+Philips Hue FAQ entries regarding 3rd party light bulbs.
 </p>
 
 This means that after you update your Hue bridge to the latest version:
@@ -32,3 +33,4 @@ I will no longer suggest people to buy into the Philips Hue ecosystem.
 
 [reddit-hue]: https://www.reddit.com/r/homeautomation/comments/3wet8h/fyi_the_hue_hub_is_now_blocking_third_party/
 [philips-hue-faq]: http://www2.meethue.com/en-us/support/search/?q=Another+brand
+[philips-hue-faq-mirror]: /images/blog/2015-12-philips-hue-3rd-party/mirror.png
