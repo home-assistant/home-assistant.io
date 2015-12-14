@@ -54,6 +54,7 @@ $ git clone https://github.com/letsencrypt/letsencrypt
 […]
 $ cd letsencrypt
 $ ./letsencrypt-auto certonly --email $ ./letsencrypt-auto certonly --email your@email.address -d hass-example.duckdns.org
+
 Updating letsencrypt and virtual environment dependencies.......
 Running with virtualenv: sudo /path/letsencrypt/bin/letsencrypt certonly --email your@e-mail.address -d hass-example.duckdns.org
 
