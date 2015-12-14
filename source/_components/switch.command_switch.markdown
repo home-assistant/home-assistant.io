@@ -55,7 +55,7 @@ switch:
 This switch will shutdown your system that is hosting Home Assistant.
 
 <p class='note warning'>
-This switch will shudown your host immediately, there will be no confirmation.
+This switch will shutdown your host immediately, there will be no confirmation.
 </p>
 
 
