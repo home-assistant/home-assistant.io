@@ -9,9 +9,13 @@ sharing: true
 footer: true
 ---
 
-The template helper enables one to mathematically manipulate values and use variables to extract values from JSON.
+The template helper enables one to mathematically manipulate values and use variables to extract values from JSON. If the entity has template support then the `value_template` key can be set in the `configuration.yaml` file.
 
-For a complete overview, check the [Jinja2 Template documentation](http://jinja.pocoo.org/docs/dev/templates/).
+```yaml
+value_template: '{% raw %}{{ value.x }}{% endraw %}'
+```
+
+For a complete overview, check the [Jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/).
 
 ### {% linkable_title Accessing variables %}
 
