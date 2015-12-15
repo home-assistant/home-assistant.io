@@ -21,6 +21,7 @@ This device tracker needs SNMP to be enabled on the router.
 OID examples:
 - Microtik: 1.3.6.1.4.1.14988.1.1.1.2.1.1 (confirmed)
 - Aruba: 1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2 (untested)
+- BiPAC 7800DXL: 1.3.6.1.2.1.17.7.1.2.2.1.1 (confirmed on firmware 2.32e)
 
 To use the snmp platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,7 +29,7 @@ To use the snmp platform in your installation, add the following to your `config
 # Example configuration.yaml entry
 device_tracker:
   platform: snmp
-  hosts: 192.168.1.1
+  host: 192.168.1.1
   community: public
   baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
