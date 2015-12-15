@@ -24,7 +24,7 @@ sensor:
   name: "MQTT Sensor"
   qos: 0
   unit_of_measurement: "°C"
-  value_template: '{{ value_json.value }}'
+  value_template: '{% raw %}{{ template }}{% endraw %}'
 ```
 
 Configuration variables:
@@ -33,7 +33,7 @@ Configuration variables:
 - **name** (*Optional*): The name of the sensor. Default is 'MQTT Sensor'. 
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a template to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 

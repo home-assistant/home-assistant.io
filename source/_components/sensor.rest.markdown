@@ -36,24 +36,20 @@ sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: POST
-  variable: 'temperature' or ['Temperatures', 0, 'CurrentReading']
+  value_template: '{% raw %}{{ template }}{% endraw %}'
   payload: '{ "device" : "heater" }'
   name: REST POST sensor
   unit_of_measurement: "°C"
-  correction_factor: 0.0001
-  decimal_places: 0
 ```
 
 Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
-- **variable** (*Optional*): Defines the variable or a list of element for complex responses to extract, if any.
+- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 - **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary-
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **correction_factor** (*Optional*): A float value to do some basic calculations.
-- **decimal_places** (*Optional*): Number of decimal places of the value.
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.

@@ -22,8 +22,7 @@ sensor:
   command: SENSOR_COMMAND
   name: Command sensor
   unit_of_measurement: "°C"
-  correction_factor: 0.4921
-  decimal_places: 0
+  value_template: '{% raw %}{{ template }}{% endraw %}'
 ```
 
 Configuration variables:
@@ -31,8 +30,7 @@ Configuration variables:
 - **command** (*Required*): The action to take to get the value.
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **correction_factor** (*Optional*): A float value to do some basic calculations.
-- **decimal_places** (*Optional*): Number of decimal places of the value.
+- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 
