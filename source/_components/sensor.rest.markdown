@@ -22,10 +22,8 @@ sensor:
   resource: http://IP_ADDRESS/ENDPOINT
   method: GET
   name: REST GET sensor
-  variable: 'return_value'
+  value_template: '{% raw %}{{ template }}{% endraw %}'
   unit_of_measurement: "°C"
-  correction_factor: 0.01
-  decimal_places: 0
 ```
 
 or for a POST request:
@@ -46,7 +44,7 @@ Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **value_template** (*Required*): Defines a [template](/getting-started/templating/) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary-
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
@@ -77,7 +75,7 @@ To display the IP address, the entry for a sensor in the `configuration.yaml` fi
   - platform: rest
     resource: http://ip.jsontest.com
     name: External IP
-    variable: 'ip'
+    value_template: '{% raw %}{{ value_json.ip }}{% endraw %}'
 ```
 
 ### {% linkable_title Single value from a local Glances instance %}
@@ -91,9 +89,7 @@ Add something similar to the entry below to your `configuration.yaml` file:
   - platform: rest
     resource: http://IP_ADRRESS:61208/api/2/mem/used
     name: Used mem
-    variable: 'used'
+    value_template: '{% raw %}{{ value_json.used| multiply(0.000000954) | round(0) }}{% endraw %}'
     unit_of_measurement: MB
-    correction_factor: 0.000000954
-    decimal_places: 0
 ```
 
