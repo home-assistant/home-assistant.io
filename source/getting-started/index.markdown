@@ -52,7 +52,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
 
 <div class='install-instructions raspberry' markdown='1'>
 
-Home Assistant requires the Raspberry Pi to run [Raspbian Jessie](https://www.raspberrypi.org/downloads/raspbian/). This version has been released on September 24, 2015 and comes by default with Python 3.4 which is required for Home Assistant.
+Home Assistant requires the Raspberry Pi to run [Raspbian Jessie](https://www.raspberrypi.org/downloads/raspbian/). This version was released on September 24, 2015 and comes by default with Python 3.4 which is required for Home Assistant.
 
 Execute the following code in a console:
 
