@@ -65,7 +65,7 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
     name: CPU Temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     unit_of_measurement: "°C"
-    correction_factor: 0.001
+    value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
 ```
 
 The `correction_factor` will make sure that the value is shown in a useful format in the frontend.
