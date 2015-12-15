@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: icloud.png
 ha_category: Presence Detection
 ---
 
