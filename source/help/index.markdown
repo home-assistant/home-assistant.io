@@ -13,9 +13,9 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 ### {% linkable_title Communication channels %} 
 
-- [Mailing list](https://groups.google.com/forum/#!forum/home-assistant-dev)
-- [Real-time messaging](https://gitter.im/balloob/home-assistant)
-- [Forum](https://automic.us/forum/)
+ - [Forum](https://automic.us/forum/)
+ - [Gitter Chatroom](https://gitter.im/balloob/home-assistant) for general Home Assistant discussions and questions.
+ - [Development Mailing List](https://groups.google.com/forum/#!forum/home-assistant-dev) for development related questions and discussing new features.
 
 ### {% linkable_title Bugs, Feature requests, and alike %}
 
