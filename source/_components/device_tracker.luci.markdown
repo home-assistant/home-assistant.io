@@ -39,3 +39,5 @@ Configuration variables:
 - **password** (*Required*): The password for your given admin account.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+
+Note for luci users; some installations have [a small bug](https://github.com/openwrt/luci/issues/576) in them, where the timeout for luci RPC calls is not set and makes the call fail. 
