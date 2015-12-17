@@ -40,4 +40,7 @@ Configuration variables:
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-Note for luci users; some installations have [a small bug](https://github.com/openwrt/luci/issues/576) in them, where the timeout for luci RPC calls is not set and makes the call fail. 
+<p class='note warning'>
+Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail. 
+</p>
+
