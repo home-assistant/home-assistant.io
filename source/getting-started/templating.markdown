@@ -9,11 +9,13 @@ sharing: true
 footer: true
 ---
 
-The template helper enables one to mathematically manipulate values and use variables to extract values from JSON. If the entity has template support then the `value_template` key can be set in the `configuration.yaml` file.
+The template helper enables one to mathematically manipulate values, use variables to extract values from JSON, and create customized messages to send with the [notification component](components/notify/). If the entity has template support then the `value_template` key can be set and used (eg. `message:` in `data:` of an automation rule) in the `configuration.yaml` file.
 
 ```yaml
 value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
+
+To check your templates on-the-fly checkout the **Template Editor** from the **Developer Tools**.
 
 For a complete overview, check the [Jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/).
 
