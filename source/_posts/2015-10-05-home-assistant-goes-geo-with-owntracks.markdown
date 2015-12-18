@@ -6,7 +6,7 @@ date: 2015-10-05 21:49:00 -0700
 date_formatted: "October 5, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: release-notes
+categories: Release-Notes
 og_image: /images/screenshots/map.png
 ---
 

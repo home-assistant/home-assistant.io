@@ -6,7 +6,7 @@ date: 2015-12-06 0:39:0 -0700
 date_formatted: "December 6, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: community
+categories: Community
 og_image: /images/blog/2015-12-community/hass-alexa.png
 ---
 

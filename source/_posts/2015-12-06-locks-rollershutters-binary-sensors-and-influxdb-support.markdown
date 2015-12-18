@@ -6,7 +6,7 @@ date: 2015-12-06 12:29:00 -0700
 date_formatted: "December 6, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: release-notes
+categories: Release-Notes
 og_image: /images/blog/2015-12-release-09/facebook-09.png
 ---
 

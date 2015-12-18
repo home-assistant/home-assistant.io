@@ -5,7 +5,7 @@ description: "Introducing support for line charts, a logbook, ISY994 hub, Transm
 date: 2015-04-25 6:57 -0700
 date_formatted: "April 25, 2015"
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 It's been a month since the latest update and a lot has happened again. Here a quick overview of the new things.

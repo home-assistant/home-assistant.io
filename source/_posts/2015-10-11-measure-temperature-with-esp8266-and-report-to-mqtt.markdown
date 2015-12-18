@@ -6,7 +6,7 @@ date: 2015-10-11 12:10:00 -0700
 date_formatted: "October 11, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: how-to mqtt esp8266
+categories: How-To MQTT ESP8266
 og_image: /images/blog/2015-10-esp8266-temp/ha-sensor.png
 ---
 

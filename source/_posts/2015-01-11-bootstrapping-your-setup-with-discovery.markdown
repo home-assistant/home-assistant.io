@@ -5,7 +5,7 @@ description: "Home Assistant can now auto detect and setup certain devices in yo
 date: 2015-01-11 21:49:08 -0800
 date_formatted: January 11, 2015
 comments: true
-categories: component
+categories: Release-Notes
 ---
 
 Most people do not like configuring things. Things just have to work, out of the box. Reaching this scenario is the goal of what we are about to introduce: our new discovery component.

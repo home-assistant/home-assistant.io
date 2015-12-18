@@ -5,7 +5,7 @@ description: "The frontend will now get the latest changes pushed while open."
 date: 2015-02-24 22:41:27 -0800
 date_formatted: February 24, 2015
 comments: true
-categories: frontend
+categories: Release-Notes
 ---
 
 Home Assistant has learned a new trick to get the latest information from the server: streaming updates. No longer will the frontend poll every 30 seconds for updates but instead it will keep a connection open and get the latest changes pushed as soon as they happen.

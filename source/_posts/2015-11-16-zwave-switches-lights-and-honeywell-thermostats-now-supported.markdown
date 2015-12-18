@@ -6,7 +6,7 @@ date: 2015-11-16 21:27:00 -0700
 date_formatted: "November 16, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 <img src='/images/screenshots/custom-icons.png' style='float: right;' />We have all been hard at work to get this latest release ready. One of the big highlights in this release is the introduction of an extended iconset to be used in the frontend (credits to [@happyleavesaoc] for idea and prototype). To get started with customizing, pick any icon from [MaterialDesignIcons.com], prefix the name with `mdi:` and stick it into your `customize` section in `configuration.yaml`:

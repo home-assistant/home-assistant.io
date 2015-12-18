@@ -6,7 +6,7 @@ date: 2015-10-26 18:10:00 -0700
 date_formatted: "October 26, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 After two weeks of hard work I'm proud to announce the release of Home Assistant v0.7.6. For this release the main focus was bugs, test coverage and documentation. And we exceeded expectations on all three fronts. Bugs have been squashed, [test coverage increased to 85%](https://coveralls.io/builds/3946399) and thanks to the hard work by [@fabaff](https://github.com/fabaff) and myself the [component section](/components/) on the website has gotten a complete revamp.

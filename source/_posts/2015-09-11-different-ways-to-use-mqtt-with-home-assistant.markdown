@@ -6,7 +6,7 @@ date: 2015-09-11 11:19:38 +0200
 date_formatted: "September 11, 2015"
 author: Fabian Affolter
 comments: true
-categories: how-to mqtt
+categories: How-To MQTT
 og_image: /images/blog/2015-09-mqtt/arduino.png
 ---
 

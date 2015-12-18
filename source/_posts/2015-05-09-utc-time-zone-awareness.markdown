@@ -5,7 +5,7 @@ description: "The Home Assistant core now uses UTC as the internal date time."
 date: 2015-05-09 23:08 -0700
 date_formatted: "May 9, 2015"
 comments: true
-categories: core
+categories: Release-Notes
 ---
 
 I have recently merged code to refactor Home Assistant to use only UTC times internally. A much needed refactor. I've added some extra test coverage to time sensitive parts to ensure stability. The code has been live in the dev branch for the last 9 days and will be soon released to the master branch.

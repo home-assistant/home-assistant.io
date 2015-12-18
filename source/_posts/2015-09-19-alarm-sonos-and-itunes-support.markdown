@@ -6,7 +6,7 @@ date: 2015-09-19 21:47:00 -0700
 date_formatted: "September 19, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 It's like someone opened a can of rock solid developers and emptied it above our [chat channel](https://gitter.im/balloob/home-assistant) because it exploded with great conversations and solid contributions. Featured in release 0.7.3: Sonos, iTunes, Alarm component and Automation upgrade.

@@ -5,7 +5,7 @@ description: "New support for IP Cameras, Arduinos, Kodi and Efergy monitors"
 date: 2015-07-11 01:37 -0700
 date_formatted: "July 11, 2015"
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 Another month has passed and some great new features have landed in Home Assistant. This month release has been made possible by [balloob](https://github.com/balloob), [ettisan](https://github.com/ettisan), [fabaff](https://github.com/fabaff), [gyran](https://github.com/gyran), [jamespcole](https://github.com/jamespcole), [michaelarnauts](https://github.com/michaelarnauts), [miniconfig](https://github.com/miniconfig) and [rmkraus](https://github.com/rmkraus).

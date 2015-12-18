@@ -5,7 +5,7 @@ description: "New support for Verisure switches, sensors and hygrometers and mod
 date: 2015-08-17 20:00 -0700
 date_formatted: "August 17, 2015"
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 A minor bug fix release to fix some issues that have come up since the last release. Please upgrade as soon as possible by running `git pull` from the Home Assistant directory.

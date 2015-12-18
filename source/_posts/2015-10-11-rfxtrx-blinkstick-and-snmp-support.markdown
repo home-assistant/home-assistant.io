@@ -6,7 +6,7 @@ date: 2015-10-11 10:10:00 -0700
 date_formatted: "October 11, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 We discovered two issues annoying enough to warrent the release of 0.7.5:

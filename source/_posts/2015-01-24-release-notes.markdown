@@ -5,7 +5,7 @@ description: "The release notes for January 24, 2015"
 date: 2015-01-24 18:36 -0800
 date_formatted: "January 24, 2015"
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 I have just merged the latest version of the development branch into master. Here are some of the highlights of this release:

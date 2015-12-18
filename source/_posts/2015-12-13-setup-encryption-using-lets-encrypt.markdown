@@ -6,7 +6,7 @@ date: 2015-12-13 10:05:00 -0800
 date_formatted: "December 13, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: how-to
+categories: How-To
 og_image: /images/blog/2015-12-lets-encrypt/letsencrypt-secured-fb.png
 ---
 

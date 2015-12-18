@@ -5,7 +5,7 @@ description: "Introducing the new notify component and PushBullet platform"
 date: 2015-01-04 13:29:07 -0800
 date_formatted: January 4, 2015
 comments: true
-categories: component
+categories: Release-Notes
 ---
 
 One of the things that was missing in Home Assistant for a while was a way to communicate with users. Wouldn't it be nice to get a message when important events happen like the lights being turned on while no one is home? Since the Home Assistant frontend runs as a web application on the phone, we have no way to bring ourselves to the front. This is where the new notify component comes in, powered by PushBullet.

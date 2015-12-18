@@ -6,7 +6,7 @@ date: 2015-09-13 09:28 -0700
 date_formatted: "September 13, 2015"
 author: Paulus Schoutsen
 comments: true
-categories: how-to release-notes
+categories: How-To Release-Notes
 og_image: /images/blog/2015-09-ifttt/og_facebook.png
 ---
 

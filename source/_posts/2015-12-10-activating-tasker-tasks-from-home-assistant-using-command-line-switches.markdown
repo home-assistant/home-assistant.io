@@ -6,7 +6,7 @@ date: 2015-12-10 10:39:41 +0000
 date_formatted: "December 10, 2015"
 author: Rowan Hine
 comments: true
-categories: how-to
+categories: How-To
 og_image: /images/blog/2015-12-tasker/screenshot-2.png
 ---
 
