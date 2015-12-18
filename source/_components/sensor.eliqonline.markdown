@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-Integrate your [Eliqonline](http://eliq.se) smart meter information into Home Assistant. To get an app token, log in to your [Eliqonline](https://my.eliq.se/user/settings/api) account.
+Integrate your [ELIQ Online](http://eliq.se) smart meter information into Home Assistant. To get an [acess token](https://my.eliq.se/user/settings/api) and the [Channel ID](https://my.eliq.se/user/settings/data), log in to your account.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,7 +28,7 @@ sensor:
 Configuration variables:
 
 - **access_token** (*Required*): The Access Token for your account.
-- **channel_id** (*Required*): Channel ID of your device.
+- **channel_id** (*Optional*): Channel ID of your device. Needed if you have more than one device.
 - **name** (*Optional*): The name of the sensor, eg. the city.
 
 For details please check the [API documentation](https://my.eliq.se/knowledge/sv-SE/49-eliq-online/299-eliq-online-api).
