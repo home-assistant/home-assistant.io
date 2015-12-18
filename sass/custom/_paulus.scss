@@ -186,6 +186,10 @@ p.note {
 
 }
 
+#site-search .search {
+  width: calc(100% - 36px);
+}
+
 .install-instructions-container {
   #normal-install, #raspberry-install, #docker-install, .install-instructions {
     display: none;
