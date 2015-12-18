@@ -11,6 +11,7 @@ logo: mqtt.png
 ha_category: Switch
 ---
 
+The `mqtt` switch platform let you control your MQTT enabled light.
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.
 
@@ -31,7 +32,7 @@ switch:
   payload_on: "ON"
   payload_off: "OFF"
   optimistic: false
-  state_format: 
+  value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
 Configuration variables:
@@ -43,7 +44,7 @@ Configuration variables:
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.
-- **state_format** (*Optional*): Value to parse.
+- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.

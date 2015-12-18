@@ -12,7 +12,7 @@ ha_category: Binary Sensor
 ---
 
 
-This MQTT binary sensor implementation uses the MQTT message payload as the sensor value. If messages in this state_topic are published with *RETAIN* flag, the sensor will receive an instant update with the last known value. Otherwise, the initial state will be off.
+This `mqtt` binary sensor implementation uses the MQTT message payload as the sensor value. If messages in this state_topic are published with *RETAIN* flag, the sensor will receive an instant update with the last known value. Otherwise, the initial state will be off.
 
 To use your MQTT binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -25,7 +25,7 @@ binary_sensor:
   qos: 0
   payload_on: "ON"
   payload_of: "OFF"
-  value_template: '{% raw %}{{ template }}{% endraw %}'
+  value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
 Configuration variables:

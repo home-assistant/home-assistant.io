@@ -109,6 +109,8 @@ automation:
   trigger:
     platform: numeric_state
     entity_id: sensor.temperature
+    # Optional
+    value_template: '{% raw %}{{ state.attributes.battery }}{% endraw %}'
     # At least one of the following required
     above: 17
     below: 25

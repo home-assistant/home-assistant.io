@@ -11,7 +11,7 @@ ha_category: Sensor
 ---
 
 
-The rest sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
+The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
@@ -22,7 +22,7 @@ sensor:
   resource: http://IP_ADDRESS/ENDPOINT
   method: GET
   name: REST GET sensor
-  value_template: '{% raw %}{{ template }}{% endraw %}'
+  value_template: '{% raw %}{{ value_json.x }}{% endraw %}'
   unit_of_measurement: "°C"
 ```
 

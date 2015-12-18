@@ -27,6 +27,7 @@ motor:
   payload_open: "OPEN"
   payload_close: "CLOSE"
   payload_stop: "STOP"
+  value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
 Configuration variables:
@@ -39,4 +40,4 @@ Configuration variables:
 - **payload_open** (*Optional*): The payload to open the rollershutter. Default is "OPEN".
 - **payload_close** (*Optional*): The payload to close the rollershutter. Default is "CLOSE".
 - **payload_stop** (*Optional*): The payload to stop the rollershutter. Default is "STOP".
-- **state_format** (*Optional*): The state format to parse. Default is None (no parser).
+- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.

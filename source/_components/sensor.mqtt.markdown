@@ -24,7 +24,7 @@ sensor:
   name: "MQTT Sensor"
   qos: 0
   unit_of_measurement: "°C"
-  value_template: '{% raw %}{{ template }}{% endraw %}'
+  value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
 Configuration variables:

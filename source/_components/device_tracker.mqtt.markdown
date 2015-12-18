@@ -12,7 +12,7 @@ ha_category: Presence Detection
 ---
 
 
-This platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.
+The `mqtt` device tracker platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
