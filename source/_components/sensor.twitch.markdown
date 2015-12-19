@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The `twitch` platform will allow you to monitor your downloads with [Twtich](http://www.twitch.tv/) from within Home Assistant and setup automation based on the information.
+The `twitch` platform will allow you to monitor [Twitch](http://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
 
 To use Twitch with your installation, add the following to your `configuration.yaml` file:
 
@@ -21,8 +21,8 @@ To use Twitch with your installation, add the following to your `configuration.y
 sensor:
   platform: twitch
   channels:
-    - channel1
-    - channel2
+  - channel1
+  - channel2
 ```
 
 Configuration variables:
