@@ -60,6 +60,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Michael Auchter](https://github.com/auchter)
 - [Michael Gilbert](https://github.com/Zyell)
 - [miniconfig](https://github.com/miniconfig)
+- [molobrakos](https://github.com/molobrakos)
 - [Nolan Gilley](https://github.com/nkgilley)
 - [Oliver van Porten](https://github.com/mcdeck))
 - [Pascal Bach](https://github.com/bachp)
