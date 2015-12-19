@@ -5,6 +5,7 @@ description: "Step by step tutorial to use ESP8266 and a HDC1008 to ."
 date: 2015-10-11 12:10:00 -0700
 date_formatted: "October 11, 2015"
 author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: How-To MQTT ESP8266
 og_image: /images/blog/2015-10-esp8266-temp/ha-sensor.png

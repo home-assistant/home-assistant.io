@@ -4,6 +4,8 @@ title: "Bootstrapping your setup with Discovery"
 description: "Home Assistant can now auto detect and setup certain devices in your network."
 date: 2015-01-11 21:49:08 -0800
 date_formatted: January 11, 2015
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

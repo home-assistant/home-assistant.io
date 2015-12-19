@@ -4,6 +4,8 @@ title: "Release notes for March 22, 2015"
 description: "New support added for SabNZBD, Pushover, scenes and scripts."
 date: 2015-03-22 0:21 -0800
 date_formatted: "March 22, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

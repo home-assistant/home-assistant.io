@@ -4,6 +4,8 @@ title: "Release notes for May 14, 2015"
 description: "Introducing support for MySensors, InstaPush, Notify My Android, OpenWeatherMap and Jabber."
 date: 2015-05-14 22:25 -0700
 date_formatted: "May 14, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

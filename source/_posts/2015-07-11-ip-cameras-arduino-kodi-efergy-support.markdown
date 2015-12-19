@@ -4,6 +4,8 @@ title: "IP Cameras, Arduinos, Kodi and Efergy Energy Monitors now supported"
 description: "New support for IP Cameras, Arduinos, Kodi and Efergy monitors"
 date: 2015-07-11 01:37 -0700
 date_formatted: "July 11, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

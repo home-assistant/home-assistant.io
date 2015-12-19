@@ -4,6 +4,8 @@ title: "Verisure devices and modern TP-Link routers now supported"
 description: "New support for Verisure switches, sensors and hygrometers and modern TP-Link routers"
 date: 2015-08-17 20:00 -0700
 date_formatted: "August 17, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

@@ -4,6 +4,8 @@ title: "0.7: Better UI and improved distribution"
 description: "Home Assistant gains a version number and a face lift."
 date: 2015-08-31 14:12 -0700
 date_formatted: "August 31, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 og_image: /images/screenshots/ui2015.png

@@ -5,6 +5,7 @@ description: "Tutorial how to encrypt your connection with Home Assistant."
 date: 2015-12-13 10:05:00 -0800
 date_formatted: "December 13, 2015"
 author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: How-To
 og_image: /images/blog/2015-12-lets-encrypt/letsencrypt-secured-fb.png

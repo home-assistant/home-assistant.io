@@ -5,6 +5,7 @@ description: "Home Assistant 0.7.4 has been released with support for OwnTracks 
 date: 2015-10-05 21:49:00 -0700
 date_formatted: "October 5, 2015"
 author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 og_image: /images/screenshots/map.png

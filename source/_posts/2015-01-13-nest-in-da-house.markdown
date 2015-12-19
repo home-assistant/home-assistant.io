@@ -4,6 +4,8 @@ title: "Nest in the house!"
 description: "Home Assistant has added Nest to its list of supported products."
 date: 2015-01-13 08:29:04 -0800
 date_formatted: January 13, 2015
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

@@ -5,6 +5,7 @@ description: "Home Assistant 0.7.3 has been released with support for Sonos, iTu
 date: 2015-09-19 21:47:00 -0700
 date_formatted: "September 19, 2015"
 author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

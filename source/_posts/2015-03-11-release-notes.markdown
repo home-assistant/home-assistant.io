@@ -4,6 +4,8 @@ title: "Release notes for March 11, 2015"
 description: "The release notes for March 11, 2015"
 date: 2015-03-11 18:36 -0800
 date_formatted: "March 11, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

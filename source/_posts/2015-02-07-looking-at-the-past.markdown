@@ -4,6 +4,8 @@ title: "Looking at the past"
 description: "Introducing history tracking for Home Assistant."
 date: 2015-02-08 9:01:23 -0800
 date_formatted: "February 8, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

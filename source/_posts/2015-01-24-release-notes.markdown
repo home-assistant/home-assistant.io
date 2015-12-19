@@ -4,6 +4,8 @@ title: "Release notes for January 24, 2015"
 description: "The release notes for January 24, 2015"
 date: 2015-01-24 18:36 -0800
 date_formatted: "January 24, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---

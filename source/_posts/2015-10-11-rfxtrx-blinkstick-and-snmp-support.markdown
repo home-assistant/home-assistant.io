@@ -5,6 +5,7 @@ description: "Home Assistant 0.7.5 has been released with support for RFXtrx, Bl
 date: 2015-10-11 10:10:00 -0700
 date_formatted: "October 11, 2015"
 author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---
