@@ -186,6 +186,20 @@ p.note {
 
 }
 
+.copyright {
+  text-align: center;
+
+  i {
+    font-size: 2.2em;
+    margin-right: 8px;
+  }
+  .credit {
+    text-align: left;
+    display: inline-block;
+    font-size: .8em;
+  }
+}
+
 #site-search .search {
   width: calc(100% - 36px);
 }

@@ -67,10 +67,6 @@ excerpt_separator: "<!--more-->"
 
 titlecase: true       # Converts page and post titles to titlecase
 
-# list each of the sidebar modules you want to include, in the order you want them to appear.
-# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: [post/sharing.html, asides/recent_posts.html]
-
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
 # blog_index_asides:
@@ -130,4 +126,4 @@ social:
     app_id: 338291289691179
 
   twitter:
-    account: balloob
+    account: home_assistant

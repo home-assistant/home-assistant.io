@@ -3,14 +3,15 @@
   {% if url_parts[1] == 'components' %}
     {% include asides/component_navigation.html | compact_newlines %}
   {% else %}
-    {% include asides/search.html %}
     {% include asides/about.html %}
 
     {% if page.blog_index %}
       {% include asides/categories.html %}
     {% else %}
-      {% include asides/social.html %}
-      {% include_array default_asides %}
+      {% include post/sharing.html %}
+      {% include asides/recent_posts.html %}
     {% endif %}
+
+    {% include asides/search.html %}
   {% endif %}
 </div>
