@@ -68,6 +68,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Philip Lundrigan](https://github.com/philipbl)
 - [Piratonym](https://github.com/Piratonym)
 - [Rev Michael Greb](https://github.com/mikegrb)
+- [Richard Arends](https://github.com/Mosibi)
 - [rhooper](https://github.com/rhooper)
 - [rkabadi](https://github.com/rkabadi)
 - [Rowan Hine](https://github.com/GreenTurtwig)
