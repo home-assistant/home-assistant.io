@@ -267,12 +267,14 @@ multitask :push do
 
     puts "\n## Pushing generated #{deploy_dir} website"
     if ENV["GH_TOKEN"].nil?
-      # Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
+      Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
     else
       puts "## Using GH_TOKEN"
       new_origin = `git remote -v | grep origin | grep push | awk '{print $2}'`.chomp.sub('//', "//#{ENV['GH_TOKEN']}@")
-      Bundler.with_clean_env { system "git remote add origin-auth #{new_origin} > /dev/null 2>&1" }
-      Bundler.with_clean_env { system "git push --quiet origin-auth #{deploy_branch} > /dev/null 2>&1" }
+      system 'git config user.name "Travis CI"'
+      system 'git config user.email "balloob+bot@gmail.com"'
+      system "git remote add origin-auth #{new_origin} > /dev/null 2>&1"
+      system "git push --quiet origin-auth #{deploy_branch} > /dev/null 2>&1"
     end
 
     puts "\n## Github Pages deploy complete"

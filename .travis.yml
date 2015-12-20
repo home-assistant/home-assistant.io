@@ -3,8 +3,6 @@ sudo: false
 cache: bundler
 script: rake generate
 after_success:
-- git config user.name "Travis CI"
-- git config user.email "balloob+bot@gmail.com"
 - '[ "${TRAVIS_BRANCH}" = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ] && rake deploy || false'
 env:
   global:
