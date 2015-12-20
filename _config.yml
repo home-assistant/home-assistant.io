@@ -33,6 +33,7 @@ plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
 markdown: kramdown
+timezone: UTC
 
 kramdown:
   input: GFM

@@ -2,8 +2,8 @@
 layout: post
 title: Community Highlights
 description: Interesting links from the Home Assistant community.
-date: 2015-12-06 0:39:0 -0700
-date_formatted: "December 6, 2015"
+date: 2015-12-05 23:39:00 0000
+date_formatted: "December 5, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true

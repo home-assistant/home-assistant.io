@@ -2,7 +2,7 @@
 layout: post
 title: "Streaming updates"
 description: "The frontend will now get the latest changes pushed while open."
-date: 2015-02-24 22:41:27 -0800
+date: 2015-02-24 22:41:27 0000
 date_formatted: February 24, 2015
 author: Paulus Schoutsen
 author_twitter: balloob

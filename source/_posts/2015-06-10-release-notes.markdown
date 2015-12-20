@@ -2,7 +2,7 @@
 layout: post
 title: "Release notes for June 10, 2015"
 description: "Polymer 1.0, reviving media player support and the command line switch."
-date: 2015-06-10 18:54 -0700
+date: 2015-06-10 18:54 0000
 date_formatted: "June 10, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob

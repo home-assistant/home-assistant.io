@@ -2,7 +2,7 @@
 layout: post
 title: "UTC & Time zone awareness"
 description: "The Home Assistant core now uses UTC as the internal date time."
-date: 2015-05-09 23:08 -0700
+date: 2015-05-09 23:08 0000
 date_formatted: "May 9, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
