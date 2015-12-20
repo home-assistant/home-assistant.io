@@ -9,59 +9,106 @@ sharing: true
 footer: true
 ---
 
-The template helper enables one to mathematically manipulate values, use variables to extract values from JSON, and create customized messages to send with the [notification component](components/notify/). If the entity has template support then the `value_template` key can be set and used (eg. `message:` in `data:` of an automation rule) in the `configuration.yaml` file.
+<p class='note'>
+This is an advanced feature of Home Assistant. You need a basic understanding of the [Home Assistant architecture], especially states.
+</p>
+
+[Home Assistant architecture]: /developers/architecture/
+
+Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:
+
+ - Formatting outgoing messages in, for example, the [notify] and [alexa] components.
+ - Process incoming data from sources that provide raw data, like [MQTT], [Rest sensor] or the [command line sensor].
+
+[notify]: /components/notify/
+[alexa]: /components/alexa/
+[MQTT]: /components/mqtt/
+[Rest sensor]: /components/sensor.rest/
+[command line sensor]: /components/sensor.command_line/
+
+## {% linkable_title Building templates %}
+
+Templating in Home Assistant is powered by the Jinja2 templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. We will not go over the basics of the syntax, as Jinja2 does a lot better job at this in their [Jinja2 documentation].
+
+[Jinja2 documentation]: http://jinja.pocoo.org/docs/dev/templates/
+
+<p class='note'>
+The frontend has a template editor developer tool to help develop and debug templates.
+</p>
+
+Templates can get pretty big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
 ```yaml
-value_template: '{% raw %}{{ value.x }}{% endraw %}'
+script:
+  msg_who_is_home:
+    sequence:
+      - service: notify.notify
+        data:
+          message: >
+            {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
+              Ha, Paulus is home!
+            {% else %}
+              Paulus is at {{ states('device_tracker.paulus')) }}.
+            {% endif %}{% endraw %}
 ```
 
-To check your templates on-the-fly checkout the **Template Editor** from the **Developer Tools**.
+### {% linkable_title Home Assistant template extensions %}
 
-For a complete overview, check the [Jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/).
-
-### {% linkable_title Accessing variables %}
-
-The [variables](http://jinja.pocoo.org/docs/dev/templates/#variables) are handled the same way as in Python.
-
-| Method         | description |
-| -------------- | ---------- |
-| `{% raw %}{{ value.x }}{% endraw %}` or `{% raw %}{{ value.['x'] }}{% endraw %}` | Normal value |
-| `{% raw %}{{ value_json.x }}{% endraw %}` | JSON value |
-
-The evaluation leads to an empty string if it's unsuccessful and printed or iterated over.
-
-### {% linkable_title The `states` variable %}
-
-The template support has a special `states` variable:
+Home Assistant adds extensions to allow templates to access all of the current states:
 
  - Iterating `states` will yield each state sorted alphabetically by entity id
  - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity id
  - `states.sensor.temperature` returns state object for `sensor.temperature`
+ - `states('device_tracker.paulus')` will return the state string (not the object) of given entity or `unknown` if it doesn't exist.
+ - `is_state('device_tracker.paulus', 'home')` will test if given entity is specified state.
+ - Filter `multiply(x)` will convert input to number and multiply it with `x`
+ - Filter `round(x)` will convert input to number and round it to `x` decimals.
 
-Example templates and what they could result in:
+#### {% linkable_title Examples %}
 
-| Template | Output |
-| ------------ | ---------- |
-| `{% raw %}{{ states.device_tracker.paulus.state }}{% endraw %}` | home |
-| `{% raw %}{% for state in states.sensor %}{{ state.entity_id }}={{ state.state }}, {% endfor %}{% endraw %}`| senor.thermostat=24, sensor.humidity=40,  |
+```jinja2
+{% raw %}
+# Next two statements result in same value if state exists
+# Second one will result in an error if state does not exist
+{{ states('device_tracker.paulus') }}
+{{ states.device_tracker.paulus.state }}
 
-### {% linkable_title Mathematical functions %}
+# Print an attribute if state is defined
+{% if states.device_tracker.paulus %}
+{{ states.device_tracker.paulus.attributes.battery }}
+{% else %}
+??
+{% endif %}
 
-The mathematical methods convert strings to numbers automatically before they are doing their job. This could be useful if you recieve data in the wrong unit of measurement and want to convert it. They are used like the standard [Jinja2 filters](http://jinja.pocoo.org/docs/dev/templates/#filters).
+# Print out a list of all the sensor states
+{% for state in states.sensor %}
+  {{ state.entity_id }}={{ state.state }},
+{% endfor %}
 
-| Method         | description |
-| -------------- | ---------- |
-| `multiply(x)`  | Multiplies the value with `x` |
-| `round(x)`     | Maximal number `x` of decimal places for the value |
+{% if is_state('device_tracker.paulus', 'home') %}
+  Ha, Paulus is home!
+{% else %}
+  Paulus is at {{ states('device_tracker.paulus')) }}.
+{% endif %}
 
-A sample sensor entry for your `configuration.yaml` file could look like this:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  platform: dweet
-  device: temp-sensor012
-  value_template: '{% raw %}{{ value_json.temperature | multiply(1.02) | round(2) }}{% endraw %}'
-  unit_of_measurement: "°C"
+{{ states.sensor.temperature | multiply(10) | round(2) }}{% endraw %}
 ```
 
+## {% linkable_title Processing incoming data %}
+
+The other part of templating is processing incoming data. It will allow you to modify incoming data and extract only the data that you care about. This will work only for platforms and components that mentioned support for this in their documentation.
+
+It depends per component or platform but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
+
+| Variable     | Description |
+| ------------ | ----------- |
+| `value`      | The incoming value.
+| `value_json` | The incoming value parsed as JSON.
+
+```jinja2
+# Incoming value:
+{"primes": [2, 3, 5, 7, 11, 13]}
+
+# Extract third prime number
+{% raw %}{{ value_json.primes[2] }}{% endraw %}
+```
