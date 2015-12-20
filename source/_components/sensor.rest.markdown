@@ -20,9 +20,9 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
+  value_template: '{% raw %}{{ value_json.thermostat }}{% endraw %}'
   method: GET
   name: REST GET sensor
-  value_template: '{% raw %}{{ value_json.x }}{% endraw %}'
   unit_of_measurement: "°C"
 ```
 
@@ -34,7 +34,7 @@ sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: POST
-  value_template: '{% raw %}{{ template }}{% endraw %}'
+  value_template: '{% raw %}{{ value_json.thermostat }}{% endraw %}'
   payload: '{ "device" : "heater" }'
   name: REST POST sensor
   unit_of_measurement: "°C"
@@ -44,7 +44,7 @@ Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
-- **value_template** (*Required*): Defines a [template](/getting-started/templating/) to extract the value.
+- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
