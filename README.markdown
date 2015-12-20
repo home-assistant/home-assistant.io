@@ -1,8 +1,8 @@
 # Home Assistant website
 
-This is the source for the [Home Assistant](https://github.com/balloob/home-assistant) website available at [Home-Assistant.io](https://home-assistant.io).
+This is the source for the [Home Assistant](https://github.com/balloob/home-assistant) website available at [Home-Assistant.io](https://home-assistant.io). All commits made to the master branch will be automatically pushed to production.
 
-## Jekyll project to generate and deploy 
+## Jekyll project to generate and deploy
 
 | Command | Action |
 |---|---|
@@ -10,6 +10,7 @@ This is the source for the [Home Assistant](https://github.com/balloob/home-assi
 | `rake generate` | Generate new version of the site
 | `rake deploy` | Deploy a new version of the site
 
+_Generating and deploying is no longer necessary as we now have auto-deply._
 
 ## Setup
 
@@ -38,7 +39,7 @@ $ rake preview
 
 The preview is now available on [http://127.0.0.1:4000](http://127.0.0.1:4000).
 
-## Steps for the deployment of the site 
+## Steps for the deployment of the site
 
 All developers with write access to the repositories are able to deploy the website. The deploy process is fully automated with `rake generate && rake deploy`.
 
