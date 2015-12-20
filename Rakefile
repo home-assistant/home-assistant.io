@@ -264,8 +264,17 @@ multitask :push do
     message = "Site updated at #{Time.now.utc}"
     puts "\n## Committing: #{message}"
     system "git commit -m \"#{message}\""
+
     puts "\n## Pushing generated #{deploy_dir} website"
-    Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
+    if ENV["GH_TOKEN"].nil?
+      # Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
+    else
+      puts "## Using GH_TOKEN"
+      new_origin = `git remote -v | grep origin | grep push | awk '{print $2}'`.chomp.sub('//', "//#{ENV['GH_TOKEN']}@")
+      Bundler.with_clean_env { system "git remote add origin-auth #{new_origin} > /dev/null 2>&1" }
+      Bundler.with_clean_env { system "git push --quiet origin-auth #{deploy_branch} > /dev/null 2>&1" }
+    end
+
     puts "\n## Github Pages deploy complete"
   end
 end
