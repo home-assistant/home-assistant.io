@@ -1,3 +1,4 @@
 language: ruby
+sudo: false
 cache: bundler
 script: rake generate
