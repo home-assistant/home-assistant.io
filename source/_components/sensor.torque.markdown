@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Torque sensor"
+title: "Torque (OBD2)"
 description: "Instructions how to integrate Torque sensors into Home Assistant."
 date: 2015-12-20 18:00
 sidebar: true
@@ -27,7 +27,7 @@ Under the **Logging Preferences** header:
 Under the **Realtime Web Upload** header:
 
 - Check **Upload to webserver**.
-- Enter `http://HOST:PORT/api/torque` as the **Webserver URL**, where `HOST` and `PORT` are your externally-accessible Home Assistant HTTP host and port.
+- Enter `http://HOST:PORT/api/torque?api_password=YOUR_PASSWORD` as the **Webserver URL**, where `HOST` and `PORT` are your externally-accessible Home Assistant HTTP host and port and YOUR_PASSWORD is your password.
 - Enter an email address in **User Email Address**.
 - Optionally set the **Web Logging Interval**. The 2-second default may quickly fill up the Home Assistant history database.
 
@@ -47,4 +47,3 @@ Configuration variables:
 
 - **name** (*Required*): Vehicle name (your choice).
 - **email**: Email address configured in Torque application.
-
