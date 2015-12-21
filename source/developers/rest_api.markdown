@@ -212,8 +212,18 @@ Returns a state object for specified entity_id. Returns 404 if not found.
 
 Sample `curl` command:
 
-```$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
         http://IP_ADDRESS:8123/api/states/sensor.kitchen_temperature
+```
+
+#### {% linkable_title GET /api/error_log %}
+Retrieve all errors logged during the current session of Home Assistant as a plaintext response.
+
+```text
+15-12-20 11:02:50 homeassistant.components.recorder: Found unfinished sessions
+15-12-20 11:03:03 netdisco.ssdp: Error fetching description at http://192.168.1.1:8200/rootDesc.xml
+15-12-20 11:04:36 homeassistant.components.alexa: Received unknown intent HelpIntent
 ```
 
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
@@ -249,8 +259,8 @@ Sample `curl` command:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
-      -d '{"state": "25", "attributes": {"unit_of_measurement": "°C"}}' \
-      http://localhost:8123/api/states/sensor.kitchen_temperature
+       -d '{"state": "25", "attributes": {"unit_of_measurement": "°C"}}' \
+       http://localhost:8123/api/states/sensor.kitchen_temperature
 ```
 
 #### {% linkable_title POST /api/events/&lt;event_type> %}
@@ -309,13 +319,28 @@ Sample `curl` command:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
-      -d '{"entity_id": "switch.christmas_lights", "state": "on"}' \
-      http://localhost:8123/api/services/switch/turn_on
+       -d '{"entity_id": "switch.christmas_lights", "state": "on"}' \
+       http://localhost:8123/api/services/switch/turn_on
 ```
 
 <p class='note'>
-The result will include any changed states that changed while the service was being executed, even if their change was the result of something else happening in the system. 
+The result will include any changed states that changed while the service was being executed, even if their change was the result of something else happening in the system.
 </p>
+
+#### {% linkable_title POST /api/template %}
+Render a Home Assistant template. [See template docs for more information.](/getting-started/templating/)
+
+```json
+{
+    "template": "Paulus is at {% raw %}{{ states('device_tracker.paulus') }}{% endraw %}!"
+}
+```
+
+Returns the rendered template in plain text.
+
+```text
+Paulus is at work!
+```
 
 #### {% linkable_title POST /api/event_forwarding %}
 Setup event forwarding to another Home Assistant instance.
