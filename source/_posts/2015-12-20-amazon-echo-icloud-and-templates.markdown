@@ -13,7 +13,9 @@ og_image: /images/blog/2015-12-release-10/alexa-fb.png
 
 Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed and sadly we also had to introduce a bunch of backwards incompatible changes. I would like to give a big shoutout to Philip Lundrigan ([@philipbl]) who put a lot in effort in helping the migration to move towards using templates for a wide variety of platforms.
 
-<center><iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe></center>
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe>
+</div>
 
 <img src='/images/supported_brands/icloud.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/heatmiser.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/dweet.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/amazon-echo.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/eliq.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
