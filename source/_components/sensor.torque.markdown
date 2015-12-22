@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: torque.png
 ha_category: Sensor
 ---
 
