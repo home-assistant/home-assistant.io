@@ -33,6 +33,9 @@ light:
   brightness_command_topic: "office/rgb1/brightness/set"
   rgb_state_topic: "office/rgb1/rgb/status"
   rgb_command_topic: "office/rgb1/rgb/set"
+  state_value_format: "{% raw %}{{ value_json.state }}{% endraw %}"
+  brightness_value_format: "{% raw %}{{ value_json.brightness }}{% endraw %}"
+  rgb_value_format: "{% raw %}{{ value_json.rgb | join(',') }}{% endraw %}"
   qos: 0
   payload_on: "ON"
   payload_off: "OFF"
@@ -63,6 +66,9 @@ Configuration variables:
 - **brightness_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's brightness.
 - **rgb_state_topic** (*Optional*): The MQTT topic subscribed to receive RGB state updates.
 - **rgb_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's RGB state.
+- **state_value_format** (*Optional*): Defines a [template](/getting-started/templating/) to extract the state value.
+- **brightness_value_format** (*Optional*): Defines a [template](/getting-started/templating/) to extract the brightness value.
+- **rgb_value_format** (*Optional*): Defines a [template](/getting-started/templating/) to extract the RGB value.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".

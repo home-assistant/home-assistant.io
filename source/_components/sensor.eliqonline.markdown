@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Eliqonline sensor"
+title: "Eliqonline"
 description: "Instructions how to integrate Eliqonline devices within Home Assistant."
 date: 2015-07-11 0:15
 sidebar: true
