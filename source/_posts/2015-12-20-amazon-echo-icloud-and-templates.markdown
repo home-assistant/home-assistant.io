@@ -8,7 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-# og_image:
+og_image: /images/blog/2015-12-release-10/alexa-fb.png
 ---
 
 Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed and sadly we also had to introduce a bunch of backwards incompatible changes. I would like to give a big shoutout to Philip Lundrigan ([@philipbl]) who put a lot in effort in helping the migration to move towards using templates for a wide variety of platforms.
