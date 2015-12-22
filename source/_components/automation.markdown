@@ -149,7 +149,7 @@ automation:
 
 #### {% linkable_title Template trigger %}
 
-Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render 'true'.
+Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).
 
 ```yaml
 automation:
@@ -244,14 +244,16 @@ automation:
 
 #### {% linkable_title Template condition %}
 
-The template condition will test if [given template][template] renders a value equal to true.
+The template condition will test if [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
 
 
 ```yaml
 automation:
   condition:
     platform: template
-    value_template: '{% raw %}{{ state.attributes.battery }}{% endraw %}'
+    value_template: '{% raw %}{{ state.attributes.battery > 50 }}{% endraw %}'
+    # Or value_template could be:
+    # {% raw %}{% if state.attributes.battery > 50 %}true{% else %}false{% endif %}{% endraw %}
 ```
 
 #### {% linkable_title Time condition %}

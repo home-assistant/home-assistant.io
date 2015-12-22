@@ -25,6 +25,7 @@ sensor:
   monitored_variables:
     - name: temperature
       unit_of_measurement: '°C'
+      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
     - name: humidity
       unit_of_measurement: '%'
   pins:
@@ -43,6 +44,7 @@ Configuration variables:
 - **monitored_variables** array (*Optional*): List of exposed variables.
   - **name** (*Required*): The name of the variable you wish to monitor.
   - **unit** (*Optional*): Defines the units of measurement of the sensor, if any.
+  - **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 - **pins** array (*Optional*): List of pins to monitor. Analog pins need a leading **A** for the pin number.
   - **name** (*Optional*): The name of the variable you wish to monitor.
   - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
