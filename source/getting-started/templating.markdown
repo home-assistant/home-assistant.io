@@ -91,7 +91,11 @@ Home Assistant adds extensions to allow templates to access all of the current s
   Paulus is at {{ states('device_tracker.paulus')) }}.
 {% endif %}
 
-{{ states.sensor.temperature | multiply(10) | round(2) }}{% endraw %}
+{{ states.sensor.temperature | multiply(10) | round(2) }}
+
+{% if states('sensor.temperature') | float > 20 %}
+  It is warm!
+{%endif %}{% endraw %}
 ```
 
 ## {% linkable_title Processing incoming data %}

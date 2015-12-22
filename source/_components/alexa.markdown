@@ -14,19 +14,27 @@ featured: false
 
 The Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself. This component does not yet allow the control of devices connected to Home Assistant.
 
+<p style='text-align: center;'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe>
+</p>
+
+
 ### Requirements before using
 Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. If you are unable to get https up and running, consider using [this AWS Lambda proxy for Alexa skills](https://forums.developer.amazon.com/forums/thread.jspa?messageID=18604).
 
 [blog-lets-encrypt]: https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/
 
 To get started with Alexa skills:
- - log in to [Amazon developer console](https://developer.amazon.com)
+
+ - Log in to [Amazon developer console](https://developer.amazon.com)
  - Go to Apps & Services => Alexa => Alexa Skill Kit - Get Started
  - Add a new skill
    - Name: Home Assistant
    - Invocation name: home assistant (or be creative, up to you)
    - Version: 1.0
-   - Endpoint: https / https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD
+   - Endpoint:
+     - https
+     - https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD
 
 ### Configuring your Amazon Alexa skill
 
@@ -69,9 +77,11 @@ This means that we can now ask Alexa things like:
 
 ### Configuring Home Assistant
 
-Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on a templates that you define. Each template will have access to the existing state as per the `states` variable but will also have access to all variables defined in the intent.
+Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on [templates] that you define. Each template will have access to the existing states via the `states` variable but will also have access to all variables defined in the intent.
 
-The values of `speech/text`, `card/title` and `card/content` will be parsed as a template.
+You can use [templates] for the values of `speech/text`, `card/title` and `card/content`.
+
+[templates]: /getting-started/templating/
 
 Configuring the Alexa component for the above intents would look like this:
 
@@ -88,8 +98,8 @@ alexa:
                  is_state('device_tracker.anne_therese', 'home') -%}
             You are both home, you silly
           {%- else -%}
-           Anne Therese is at {{ states("device_tracker.anne_therese") }} and
-           Paulus is at {{ states("device_tracker.paulus") }}
+            Anne Therese is at {{ states("device_tracker.anne_therese") }} and
+            Paulus is at {{ states("device_tracker.paulus") }}
           {% endif %}
 
     LocateIntent:
@@ -97,7 +107,7 @@ alexa:
         type: plaintext
         text: >
           {%- for state in states.device_tracker -%}
-            {%- if state.name[:4].lower() == User.lower() -%}
+            {%- if state.name.lower() == User.lower() -%}
               {{ state.name }} is at {{ state.state }}
             {%- endif -%}
           {%- else -%}
