@@ -21,8 +21,8 @@ To use Twitch with your installation, add the following to your `configuration.y
 sensor:
   platform: twitch
   channels:
-  - channel1
-  - channel2
+    - channel1
+    - channel2
 ```
 
 Configuration variables:
