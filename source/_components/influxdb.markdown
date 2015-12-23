@@ -11,7 +11,7 @@ logo: influxdb.png
 ha_category: "History"
 ---
 
-The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database.
+The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. For more details, [see the blog post on InfluxDB](/blog/2015/12/07/influxdb-and-grafana/).
 
 To use the `influxdb` component in your installation, add the following to your `configuration.yaml` file:
 
@@ -29,7 +29,7 @@ Configuration variables:
 
 - **host** (*Required*): IP address of your database host, eg. http://192.168.1.10.
 - **port** (*Optional*): Port to use. Defaults to 8086.
-- **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`
+- **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **username** (*Optional*): The username of the database user.
 - **password** (*Optional*): The password for the database user account.
 
