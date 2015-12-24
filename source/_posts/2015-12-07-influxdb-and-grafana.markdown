@@ -30,7 +30,7 @@ Launch the InfluxDB service.
 $ sudo systemctl start influxdb
 ```
 
-If everything went well, then the web interface of the ddatabase should be accessible at [http://localhost:8083/](http://localhost:8083/). Create a database `home_assistant` to use with Home Assistant either with the web interface or the commandline tool `influx`.
+If everything went well, then the web interface of the database should be accessible at [http://localhost:8083/](http://localhost:8083/). Create a database `home_assistant` to use with Home Assistant either with the web interface or the commandline tool `influx`.
 
 <p class='img'>
   <img src='/images/blog/2015-12-influxdb/influxdb-frontend.png' />
