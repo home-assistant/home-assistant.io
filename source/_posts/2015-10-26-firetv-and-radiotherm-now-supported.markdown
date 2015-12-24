@@ -14,13 +14,13 @@ After two weeks of hard work I'm proud to announce the release of Home Assistant
 
 #### Changes
 
-<img src='/images/supported_brands/radiotherm.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/firetv.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;' height='50' /><img src='/images/supported_brands/geofancy.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;' height='50' />
+<img src='/images/supported_brands/radiotherm.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/firetv.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;' height='50' /><img src='/images/supported_brands/locative.png' style='border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;' height='50' />
 
  - Device tracker: Newer [TP-Link routers](/components/device_tracker.tplink/) now supported ([@mKeRix](https://github.com/mKeRix))
  - Alarm Control Panel: [Manual alarm](/components/alarm_control_panel.manual/) added ([@sfam](https://github.com/sfam))
  - Thermostat: [Radiotherm](/components/thermostat.radiotherm/) now supported ([@toddeye](https://github.com/toddeye))
  - Media Player: [Amazon FireTV](/components/media_player.firetv/) now supported ([@happyleavesaoc](https://github.com/happyleavesaoc))
- - Device Tracker: [Geofancy](/components/device_tracker.geofancy/) now supported ([@wind-rider](https://github.com/wind-rider))
+ - Device Tracker: [Geofancy](/components/device_tracker.locative/) now supported ([@wind-rider](https://github.com/wind-rider))
  - New component [Shell Command](/components/shell_command/) can expose shell commands as services ([@balloob](https://github.com/balloob))
  - [Scripts](/components/script/) can now be customized using `customize` key in `configuration.yaml` ([@balloob](https://github.com/balloob))
  - Light: [Hyperion](/components/light.hyperion/) now supported ([@MakeMeASandwich](https://github.com/MakeMeASandwich))

@@ -29,7 +29,7 @@ The device tracker component offers presence detection for Home Assistant. It su
 
 Scanning for connected devices is easy to setup. See the instructions for our [supported routers][routers] or [scan the network using nmap][nmap]. This approach does have its limitations. It will only be able to detect if a device is home. It also struggles with iPhones because they disconnect from the WiFi if idle, marking them as not home while they are not.
 
-Home Assistant currently supports two third party services for presence detection: [OwnTracks][ha-owntracks] and [Geofancy][ha-geofancy]. OwnTracks is an app that you install on your iPhone or Android phone that allows you to push the location of your device to Home Assistant using an MQTT broker. An MQTT broker is an Internet of Things communication platform that you can [freely host yourself][mqtt-self] or get [a private instance for free in the cloud](/components/mqtt/#run-your-own).
+Home Assistant currently supports two third party services for presence detection: [OwnTracks][ha-owntracks] and [Locative][ha-locative]. OwnTracks is an app that you install on your iPhone or Android phone that allows you to push the location of your device to Home Assistant using an MQTT broker. An MQTT broker is an Internet of Things communication platform that you can [freely host yourself][mqtt-self] or get [a private instance for free in the cloud](/components/mqtt/#run-your-own).
 
 <p class='note'>
 OwnTracks communicates directly with your MQTT broker, no data will pass through their servers.
@@ -46,6 +46,7 @@ Home Assistant will know about the location for your device if you are using Own
 [routers]: /components/#presence-detection
 [nmap]: /components/device_tracker.nmap_scanner/
 [ha-owntracks]: /components/device_tracker.owntracks/
+[ha-locative]: /components/device_tracker.locative/
 [mqtt-self]: /components/mqtt/#run-your-own
 [mqtt-cloud]: /components/mqtt/#cloudmqtt
 [zone]: /components/zone/
