@@ -57,7 +57,7 @@ Home Assistant requires the Raspberry Pi to run [Raspbian Jessie](https://www.ra
 Execute the following code in a console:
 
 ```bash
-$ pip3 install homeassistant
+$ sudo pip3 install homeassistant
 $ hass --open-ui
 ```
 
