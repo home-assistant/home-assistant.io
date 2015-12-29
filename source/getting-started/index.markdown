@@ -58,7 +58,7 @@ Execute the following code in a console:
 
 ```bash
 $ sudo pip3 install homeassistant
-$ hass --open-ui
+$ hass
 ```
 
 Running these commands will:
