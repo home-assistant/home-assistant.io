@@ -16,7 +16,7 @@ The telegram platform uses [Telegram](https://web.telegram.org) to delivery noti
 
 The requirement are:
 
-- You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user. 
+- You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
 - The `chat_id` of an user.
 
 An easy way to get your chat ID is described below:

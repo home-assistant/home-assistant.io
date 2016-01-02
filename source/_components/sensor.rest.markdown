@@ -11,7 +11,7 @@ ha_category: Sensor
 ---
 
 
-The rest sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
+The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
@@ -20,12 +20,10 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
+  value_template: '{% raw %}{{ value_json.thermostat }}{% endraw %}'
   method: GET
   name: REST GET sensor
-  variable: 'return_value'
   unit_of_measurement: "°C"
-  correction_factor: 0.01
-  decimal_places: 0
 ```
 
 or for a POST request:
@@ -36,24 +34,20 @@ sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: POST
-  variable: 'temperature' or ['Temperatures', 0, 'CurrentReading']
+  value_template: '{% raw %}{{ value_json.thermostat }}{% endraw %}'
   payload: '{ "device" : "heater" }'
   name: REST POST sensor
   unit_of_measurement: "°C"
-  correction_factor: 0.0001
-  decimal_places: 0
 ```
 
 Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
-- **variable** (*Optional*): Defines the variable or a list of element for complex responses to extract, if any.
-- **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary-
+- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract the value.
+- **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **correction_factor** (*Optional*): A float value to do some basic calculations.
-- **decimal_places** (*Optional*): Number of decimal places of the value. Default is 0.
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.
@@ -81,7 +75,7 @@ To display the IP address, the entry for a sensor in the `configuration.yaml` fi
   - platform: rest
     resource: http://ip.jsontest.com
     name: External IP
-    variable: 'ip'
+    value_template: '{% raw %}{{ value_json.ip }}{% endraw %}'
 ```
 
 ### {% linkable_title Single value from a local Glances instance %}
@@ -95,9 +89,7 @@ Add something similar to the entry below to your `configuration.yaml` file:
   - platform: rest
     resource: http://IP_ADRRESS:61208/api/2/mem/used
     name: Used mem
-    variable: 'used'
+    value_template: '{% raw %}{{ value_json.used| multiply(0.000000954) | round(0) }}{% endraw %}'
     unit_of_measurement: MB
-    correction_factor: 0.000000954
-    decimal_places: 0
 ```
 

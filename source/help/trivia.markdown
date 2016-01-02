@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-This page contains only irrelevant and unhelpful information about Home Assistant. If you are going to prepare a talk about Home Assistant, perhaps some information mentioned here can be used for the intro. 
+This page contains only irrelevant and unhelpful information about Home Assistant. If you are going to prepare a talk about Home Assistant, perhaps some information mentioned here can be used for the intro.
 
 ### {% linkable_title Name %}
 
@@ -17,11 +17,11 @@ Unknown at the moment.
 
 ### {% linkable_title Website %}
 
-The website [https://home-assistant.io](https://home-assistant.io) was launched on December 18, 2014 and contains doumentation about the setup process, the platforms and components, and for the developers. 
+The website [https://home-assistant.io](https://home-assistant.io) was launched on December 18, 2014 and contains doumentation about the setup process, the platforms and components, and for the developers.
 
 ### {% linkable_title Logo %}
 
-The current logo was created by [Jeremy Geltman](http://jeremygeltman.com/). Further details can be found in the [announcement](http://127.0.0.1:4000/blog/2015/03/09/new-logo/).
+The current logo was created by [Jeremy Geltman](http://jeremygeltman.com/). Further details can be found in the [announcement](/blog/2015/03/08/new-logo/).
 
 ### {% linkable_title License %}
 

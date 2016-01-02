@@ -23,7 +23,7 @@ zone:
   # Optional radius in meters (default: 100)
   radius: 250
   # Optional icon to show instead of name
-  icon: group-work
+  icon: mdi:school
 
 zone 2:
   name: Work
@@ -36,7 +36,7 @@ zone 3:
   latitude: 32.8793367
   longitude: -117.2474053
   radius: 100
-  icon: social:people
+  icon: mdi:account-multiple
 ```
 
 #### {% linkable_title Home zone %}
@@ -45,8 +45,4 @@ If no configuration is given, the zone component will create a zone for home. Th
 
 #### {% linkable_title Icons %}
 
-It is preferred to pick an icon to use for your zone. By default, Home Assistant includes most of the [material icons](https://www.google.com/design/icons/). See [the source][icon-source] for a specific list which categories are included.
-
-For all but the action category you will need to prefix the icon name with its category. For example `social:people` or `av:radio`. For the action category, you will not need to do this, examples are `home`, `work,`, `group-work` and `shopping-cart`.
-
-[icon-source]: https://github.com/balloob/home-assistant-polymer/blob/master/src/resources/home-assistant-icons.html#L3
+It is preferred to pick an icon to use for your zone. Pick any zone that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:worker`, `mdi:home`, `mdi:cart`, `mdi:castle`.

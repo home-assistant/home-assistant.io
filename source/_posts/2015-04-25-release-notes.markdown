@@ -4,8 +4,10 @@ title: "Release notes for April 25, 2015"
 description: "Introducing support for line charts, a logbook, ISY994 hub, Transmission and modbus."
 date: 2015-04-25 6:57 -0700
 date_formatted: "April 25, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 It's been a month since the latest update and a lot has happened again. Here a quick overview of the new things.

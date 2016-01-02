@@ -21,6 +21,8 @@ Before this scanner can be used you have to install the luci RPC package on Open
 opkg install luci-mod-rpc
 ```
 
+To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
@@ -37,3 +39,8 @@ Configuration variables:
 - **password** (*Required*): The password for your given admin account.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+
+<p class='note warning'>
+Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail. 
+</p>
+

@@ -13,16 +13,11 @@ This component allows you to track and control various light bulbs.
 
 It has [4 built-in light profiles](https://github.com/balloob/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) which you're able to extend by putting a `light_profiles.csv` file in your config dir.
 
-It supports the following platforms:
-
- * `hue` for Philips Hue
- * `wink` for Wink
-
 Preferred way to setup the Philips Hue platform is through the [the discovery component]({{site_root}}/components/discovery/). For the Wink light platform enable [the wink component]({{site_root}}/components/wink/).
 
 If you want to enable the light component directly, add the following lines to your `configuration.yaml`:
 
-```
+```yaml
 light:
   platform: hue
 ```
@@ -31,24 +26,27 @@ light:
 The light component supports multiple entries in <code>configuration.yaml</code> by appending a sequential number to the section: <code>light 2:</code>, <code>light 3:</code> etc.
 </p>
 
-### Service `light.turn_on`
+### {% linkable_title Service `light.turn_on` %}
 
 Turns one light on or multiple lights on using [groups]({{site_root}}/components/group/).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Only act on specified lights. Else targets all.
-| `transition` | yes | Seconds to take to switch to new state. *not supported by Wink
-| `profile` | yes | Which light profile to use.
-| `xy_color` | yes | Two comma seperated floats that represent the color in XY
-| `rgb_color` | yes | Three comma seperated integers that represent the color in RGB
-| `brightness` | yes | Integer between 0 and 255 for how bright the color should be 
+| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `transition` | yes | Integer that represents the time the light should take to transition to the new state. *not supported by Wink
+| `profile` | yes | String with the name of one of the built-in profiles (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness or xy color then the profile values will be overwritten.
+| `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma seperated floats that represent the color in XY.
+| `rgb_color` | yes | A list containing three integers representing the xy color you want the light to be. Three comma seperated integers that represent the color in RGB
+| `color_temp` | yes | An INT in mireds represending the color temperature you want the light to be.
+| `brightness` | yes | Integer between 0 and 255 for how bright the color should be.
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`. *not supported by Wink
 
-### Service `light.turn_off`
+### {% linkable_title Service `light.turn_off` %}
 
 Turns one or multiple lights off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Only act on specified lights. Else targets all.
+| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `transition` | no | Integer that represents the time the light should take to transition to the new state.
+

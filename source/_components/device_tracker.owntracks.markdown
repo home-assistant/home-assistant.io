@@ -27,3 +27,4 @@ device_tracker:
 
 There is no further configuration needed for tracking Owntracks devices.
 
+Owntracks can also be used with other device trackers, such as [Nmap](/components/device_tracker.nmap_scanner/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the Owntracks entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last.

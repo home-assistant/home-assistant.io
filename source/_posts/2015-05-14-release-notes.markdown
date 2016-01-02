@@ -2,10 +2,12 @@
 layout: post
 title: "Release notes for May 14, 2015"
 description: "Introducing support for MySensors, InstaPush, Notify My Android, OpenWeatherMap and Jabber."
-date: 2015-05-14 22:25 -0700
+date: 2015-05-14 22:25 0000
 date_formatted: "May 14, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 Almost three busy weeks have past since the last release. We used this time to finally make the overhaul to use UTC as the internal date time format. We added a bunch of test coverage in the process to make sure the transition went smoothly. Pleas see [the blog post about the UTC refactor](/blog/2015/05/09/utc-time-zone-awareness/#backwards-incompatible-stuff) for backwards incompatible changes.

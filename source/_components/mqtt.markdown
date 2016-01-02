@@ -141,3 +141,25 @@ For reading all messages sent on the topic `home-assistant` to a broker running 
 ```bash
 $ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 ```
+
+## {% linkable_title Processing JSON %}
+
+The MQTT switch and sensor platforms support processing JSON over MQTT messages and parse them using JSONPath. JSONPath allows you to specify where in the JSON the value resides that you want to use. The following examples will always return the value `100`.
+
+| JSONPath query | JSON |
+| -------------- | ---- |
+| `somekey` | `{ 'somekey': 100 }`
+| `somekey[0]` | `{ 'somekey': [100] }`
+| `somekey[0].value` | `{ 'somekey': [ { value: 100 } ] }`
+
+To use this, add the following key to your `configuration.yaml`:
+
+```yaml
+switch:
+  platform: mqtt
+  state_format: 'json:somekey[0].value'
+```
+
+More information about the full JSONPath syntax can be found [here][JSONPath syntax].
+
+[JSONPath syntax]: https://github.com/kennknowles/python-jsonpath-rw#jsonpath-syntax

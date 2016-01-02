@@ -52,13 +52,13 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
 
 <div class='install-instructions raspberry' markdown='1'>
 
-Home Assistant requires the Raspberry Pi to run [Raspbian Jessie](https://www.raspberrypi.org/downloads/raspbian/). This version has been released on September 24, 2015 and comes by default with Python 3.4 which is required for Home Assistant.
+Home Assistant requires the Raspberry Pi to run [Raspbian Jessie](https://www.raspberrypi.org/downloads/raspbian/). This version was released on September 24, 2015 and comes by default with Python 3.4 which is required for Home Assistant.
 
 Execute the following code in a console:
 
 ```bash
-$ pip3 install homeassistant
-$ hass --open-ui
+$ sudo pip3 install homeassistant
+$ hass
 ```
 
 Running these commands will:
@@ -73,17 +73,18 @@ Running these commands will:
 
 If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
 
-For additional help, in addition to this site, there are three sources:
+For additional help, in addition to this site, there are four sources:
 
+ - [Forum](https://automic.us/forum/)
  - [Gitter Chatroom](https://gitter.im/balloob/home-assistant) for general Home Assistant discussions and questions.
  - [Development Mailing List](https://groups.google.com/forum/#!forum/home-assistant-dev) for development related questions and discussing new features.
  - [GitHub Page](https://github.com/balloob/home-assistant/issues) for issue reporting.
 
 ### What's next
-If you want to have Home Assistant start on boot, [autostart instructions](/getting-started/autostart/) can be found here.
+If you want to have Home Assistant start on boot, autostart instructions can be found [here](/getting-started/autostart/).
 
-To see what Home Assistant can do, launch demo mode: `hass --demo-mode`
+To see what Home Assistant can do, launch demo mode: `hass --demo-mode` or visit the [demo page](/demo).
 
-To update Home Assistant to the latest release: `pip3 install --upgrade homeassistant`
+To update Home Assistant to the latest release run: `pip3 install --upgrade homeassistant`
 
 ### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)

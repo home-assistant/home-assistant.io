@@ -44,10 +44,9 @@ requests.
  6. Commit the changes
     `git add .`
     `git commit -m "Added some-feature"`
- 7. Push your commited changes back to your fork on Github
+ 7. Push your commited changes back to your fork on GitHub
     `git push origin HEAD`
- 8. Follow [these steps](https://help.github.com/articles/creating-a-pull-request/) to create your
-    pull request.
+ 8. Follow [these steps](https://help.github.com/articles/creating-a-pull-request/) to create your pull request.
 
 ### {% linkable_title Further reading %}
 

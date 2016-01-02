@@ -2,10 +2,12 @@
 layout: post
 title: "Release notes for June 10, 2015"
 description: "Polymer 1.0, reviving media player support and the command line switch."
-date: 2015-06-10 18:54 -0700
+date: 2015-06-10 18:54 0000
 date_formatted: "June 10, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 Wow, almost a month has gone by since the last release and this release is *packed*. The biggest part of this release is probably one that you won't notice: the frontend has been upgraded from Polymer 0.5 to the brand new released Polymer 1.0. Polymer has been declared stable by the Google overlords which will allow us to expand functionality that was waiting for this moment to arrive.

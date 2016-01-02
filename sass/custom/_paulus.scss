@@ -81,6 +81,9 @@ h6:hover a.title-link {
 
   img {
     width: 40px;
+  }
+
+  a > * {
     vertical-align: middle;
   }
 }
@@ -184,6 +187,24 @@ p.note {
     }
   }
 
+}
+
+.copyright {
+  text-align: center;
+
+  i {
+    font-size: 2.2em;
+    margin-right: 8px;
+  }
+  .credit {
+    text-align: left;
+    display: inline-block;
+    font-size: .8em;
+  }
+}
+
+#site-search .search {
+  width: calc(100% - 36px);
 }
 
 .install-instructions-container {
@@ -310,7 +331,7 @@ p.note {
       margin-right: 4px;
       margin-bottom: 8px;
       border-radius: 2px;
-      box-shadow: rgba(0, 0, 0, 0.098) 0px 2px 4px, rgba(0, 0, 0, 0.098) 0px 0px 3px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
       padding: 8px;
       text-align: center;
 
@@ -363,5 +384,23 @@ p.note {
     img {
       max-height: 97px;
     }
+  }
+}
+
+// Responsive YouTube embeds.
+// https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin-bottom: 25px;
+  background: #000;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }

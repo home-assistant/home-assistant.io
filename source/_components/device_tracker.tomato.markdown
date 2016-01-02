@@ -13,6 +13,8 @@ ha_category: Presence Detection
 
 Tomato requires an extra config variable called `http_id`. The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code.
 
+To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 device_tracker:

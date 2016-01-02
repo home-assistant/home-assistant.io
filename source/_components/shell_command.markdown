@@ -10,7 +10,10 @@ footer: true
 ha_category: Automation
 ---
 
-This component can expose regular shell commands as services. Services can be called from a script or in automation.
+This component can expose regular shell commands as services. Services can be called from a [script] or in [automation].
+
+[script]: /components/script/
+[automation]: /getting-started/automation/
 
 ```yaml
 # Example configuration.yaml entry

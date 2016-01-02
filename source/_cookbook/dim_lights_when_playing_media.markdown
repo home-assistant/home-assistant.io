@@ -11,13 +11,10 @@ footer: true
 
 Like it how the lights dim up/down at the movies? Do it at home as well!
 
-This example uses the media player, Philips Hue (transitions) and the sun component.
-We'll use actions to detect media player state changes and scenes to control multiple
-lights, color settings and transition between scenes.
+This example uses the media player, Philips Hue (transitions) and the sun component. We'll use actions to detect media player state changes and scenes to control multiple lights, color settings and transition between scenes.
 
-#### Scenes
-One scene for normal light, one for when movies are on.
-A 2 second transition gives a nice 'feel' to the switch.
+#### {% linkable_title Scenes %}
+One scene for normal light, one for when movies are on. A 2 second transition gives a nice 'feel' to the switch.
 
 ```yaml
 scene:
@@ -48,19 +45,18 @@ scene:
 ```
 
 
-#### Automation
-The paused/stopped state is best matched using "from: 'playing'".
-Adding in the sun condition as we only want this when it's dark.
+#### {% linkable_title Automation  %}
+The paused/stopped state is best matched using "from: 'playing'". Adding in the sun condition as we only want this when it's dark.
 
 ```yaml
 automation:
-  - action: "Media player paused/stopped"
+  - alias: "Media player paused/stopped"
     trigger:
       - platform: state
         entity_id: media_player.htpc
         from: 'playing'
     condition:
-      - platform: sun
+      - platform: state
         entity_id: sun.sun
         state: 'below_horizon'
     action:
@@ -73,7 +69,7 @@ automation:
         entity_id: media_player.htpc
         to: 'playing'
     condition:
-      - platform: sun
+      - platform: state
         entity_id: sun.sun
         state: 'below_horizon'
     action:

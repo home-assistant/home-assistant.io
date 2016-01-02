@@ -4,8 +4,10 @@ title: "Home Control, Automation &amp; the Smart Home"
 description: "Overview of how the internet of things relates to home control, home automation and the smart home."
 date: 2014-12-26 10:23:13 -0800
 date_formatted: December 26, 2014
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
-categories: architecture
+categories: Architecture
 ---
 
 The internet has been buzzing over the last year about home automation. A lot of different terms fly around like the internet of things, home automation and the smart home.

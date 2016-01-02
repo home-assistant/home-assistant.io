@@ -13,7 +13,7 @@ ha_category: Presence Detection
 
 _This is one of the two ways we support OpenWRT. If you encounter problems, try [luci](/components/device_tracker.luci/)._
 
-This is a presence detection scanner for OpenWRT using [ubus](http://wiki.openwrt.org/doc/techref/ubus).
+This is a presence detection scanner for [OpenWRT](https://openwrt.org/) using [ubus](http://wiki.openwrt.org/doc/techref/ubus).
 
 Before this scanner can be used you have to install the ubus RPC package on OpenWRT:
 
@@ -38,7 +38,20 @@ And create a read-only user to be used by setting up the ACL file `/usr/share/rp
 }
 ```
 
-After this is done, configure Home Assistant as follows:
+Restart the services.
+
+```bash
+# /etc/init.d/rpcd restart && /etc/init.d/uhttpd restart
+```
+
+Check if the `file` namespaces is registered with the RPC server.
+
+```bash
+# ubus list | grep file
+file
+```
+
+After this is done, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -51,8 +64,8 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.1.1.
-- **username** (*Required*): The username of an user with administrative privileges, usually *admin*.
-- **password** (*Required*): The password for your given admin account.
+- **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
+- **username** (*Required*): The username of an user with administrative privileges, usually *root*.
+- **password** (*Required*): The password for your given account.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

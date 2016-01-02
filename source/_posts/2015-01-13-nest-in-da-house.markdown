@@ -4,8 +4,10 @@ title: "Nest in the house!"
 description: "Home Assistant has added Nest to its list of supported products."
 date: 2015-01-13 08:29:04 -0800
 date_formatted: January 13, 2015
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
-categories: component
+categories: Release-Notes
 ---
 
 For thet majority of its existence, Home Assistant primary focus was on presence detection, lights and switches. But not anymore as we're expanding the supported devices. Today, we're proud to introduce Nest Thermostat integration for Home Assistant contributed by [Stefano Fiorini](https://github.com/sfiorini)!

@@ -2,10 +2,12 @@
 layout: post
 title: "MQTT, Rasperry PI, Logitech Squeezebox and ASUSWRT routers now supported"
 description: "New support for MQTT, Rasperry PI GPIO, Logitech Squeezebox and ASUSWRT routers"
-date: 2015-08-09 18:01 -0700
+date: 2015-08-09 18:01 0000
 date_formatted: "August 9, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 It's time for the August release and there is some serious good stuff this time. The core of Home Assistant has gone some serious clean up and a bump in test coverage thanks to [@balloob](https://github.com/balloob). If you're a developer, make sure you read up on [the deprecation notices](https://github.com/balloob/home-assistant/pull/251). [@fabaff](https://github.com/fabaff) did another great round of documentating all the various components.
