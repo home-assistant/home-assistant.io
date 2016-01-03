@@ -17,7 +17,7 @@ First is the public beta of [Let's Encrypt](https://letsencrypt.org/). Let's Enc
 
 The next thing is a show-off of some of the cool stuff people do with Home Assistant. This is miniconfig talking to Home Assistant using the Amazon Echo!
 
-<div style='width: 560px; margin: 0 auto 16px;'>
+<div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9QQjklnSQKY" frameborder="0" allowfullscreen></iframe>
 </div>
 

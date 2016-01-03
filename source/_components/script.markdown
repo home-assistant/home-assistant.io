@@ -19,7 +19,7 @@ script:
   wakeup:
     alias: Wake Up
     sequence:
-      - event: logbook_entry
+      - event: LOGBOOK_ENTRY
         event_data:
           name: Paulus
           message: is waking up

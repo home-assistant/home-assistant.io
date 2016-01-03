@@ -14,12 +14,11 @@ featured: false
 
 The Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself. This component does not yet allow the control of devices connected to Home Assistant.
 
-<p style='text-align: center;'>
+<div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe>
-</p>
+</div>
 
-
-### Requirements before using
+### {% linkable_title Requirements before using %}
 Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. If you are unable to get https up and running, consider using [this AWS Lambda proxy for Alexa skills](https://forums.developer.amazon.com/forums/thread.jspa?messageID=18604).
 
 [blog-lets-encrypt]: https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/
@@ -36,7 +35,7 @@ To get started with Alexa skills:
      - https
      - https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD
 
-### Configuring your Amazon Alexa skill
+### {% linkable_title Configuring your Amazon Alexa skill %}
 
 Alexa works based on intents. Each intent has a name and variable slots. For example, a `LocateIntent` with a slot that contains a `User`. Example intent schema:
 
@@ -75,7 +74,7 @@ This means that we can now ask Alexa things like:
  - Alexa, ask Home Assistant where Paul is
  - Alexa, ask Home Assistant where we are
 
-### Configuring Home Assistant
+### {% linkable_title Configuring Home Assistant %}
 
 Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on [templates] that you define. Each template will have access to the existing states via the `states` variable but will also have access to all variables defined in the intent.
 
