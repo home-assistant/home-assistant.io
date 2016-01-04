@@ -18,7 +18,7 @@ To use your Vera switches in your installation, add the following to your `confi
 
 ```yaml
 # Example configuration.yaml entry
-light:
+switch:
   platform: vera
   vera_controller_url: http://YOUR_VERA_IP:3480/
   device_data:
