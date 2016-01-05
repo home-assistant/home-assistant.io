@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: configurator.png
 ha_category: Other
 ---
 
