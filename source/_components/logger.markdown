@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: logger.png
 ha_category: "Other"
 ---
 

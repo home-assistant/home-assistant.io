@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: downloader.png
 ha_category: Other
 ---
 
