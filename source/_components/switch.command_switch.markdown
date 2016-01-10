@@ -68,3 +68,17 @@ switch:
       offcmd: "/usr/sbin/poweroff"
 ```
 
+### {% linkable_title Control your VLC player %}
+
+This switch will control a local VLC media player ([Source](https://automic.us/forum/viewtopic.php?f=4&t=144)). 
+
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  platform: command_switch
+  switches:
+    VLC:
+      oncmd: "cvlc 1.mp3 vlc://quit &"
+      offcmd: "pkill vlc"
+```
