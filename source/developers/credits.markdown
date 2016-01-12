@@ -43,6 +43,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Gustav Ahlberg](https://github.com/Gyran)
 - [happyleavesaoc](https://github.com/happyleavesaoc)
 - [Heathbar](https://github.com/heathbar)
+- [Hydreliox](https://github.com/HydrelioxGitHub)
 - [Issac Kelly](https://github.com/issackelly)
 - [James Cole](https://github.com/jamespcole)
 - [Jeffrey Tang](https://github.com/Qrtn)
