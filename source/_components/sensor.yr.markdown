@@ -12,29 +12,46 @@ ha_category: Weather
 ---
 
 
-The `yr` platform uses [YR](http://www.yr.no/) as an source for current meteorological data for your location.
+The `yr` platform uses [YR.no](http://www.yr.no/) as an source for current meteorological data for your location. The 
+weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.
 
 To add YR to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+# Will show a symbol for the current weather as default:
+sensor:
+  platform: yr
+
+# Will show temperatue and wind direction:
 sensor:
   platform: yr
   monitored_conditions:
-    - weather
     - temperature
-    - wind_speed
-    - humidity
+    - windDirection
+
+# Will show all available sensors:
+sensor:
+  platform: yr
+  monitored_conditions:
+    - temperature
+    - symbol
+    - precipitation
+    - windSpeed
     - pressure
-    - clouds
-    - rain
-    - snow
+    - windDirection
+    - humidity
+    - fog
+    - cloudiness
+    - lowClouds
+    - mediumClouds
+    - highClouds
+    - dewpointTemperature
 ```
 
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **symbol**: A human-readable text summary.
+- **monitored_conditions** array (*Optional*): Conditions to display in the frontend.
+  - **symbol**: A symbol for the current weather.
   - **temperature**: The current temperature.
   - **humidity**: The relative humidity.
   - **fog**: Fog.
