@@ -7,10 +7,11 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category: "Other"
 ---
 
-The logger component let one define the level of logging activities in Home Assistant.
+The logger component lets one define the level of logging activities in Home Assistant.
 
 To enable the logger in your installation, add the following to your `configuration.yaml` file:
 

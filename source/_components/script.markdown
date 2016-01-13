@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category: Automation
 ---
 
@@ -19,7 +20,7 @@ script:
   wakeup:
     alias: Wake Up
     sequence:
-      - event: logbook_entry
+      - event: LOGBOOK_ENTRY
         event_data:
           name: Paulus
           message: is waking up

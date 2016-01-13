@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category: Other
 ---
 
@@ -27,6 +28,11 @@ To load this component, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 discovery:
 ```
+
+<p class='note'>
+The home-assistant server must be on the same network as the devices for uPnP discovery to work. 
+If running home-assistant in a docker container use switch `--net=host` to put it on the host's network.
+</p>
 
 If you are developing a new platform, please read [how to make your platform discoverable]({{site_root}}/developers/add_new_platform/#discovery).
 
