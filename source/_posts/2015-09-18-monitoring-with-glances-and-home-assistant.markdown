@@ -6,7 +6,7 @@ date: 2015-09-18 11:00:00 +0200
 date_formatted: "September 18, 2015"
 author: Fabian Affolter
 comments: true
-categories: how-to
+categories: How-To
 og_image: /images/supported_brands/glances.png
 ---
 

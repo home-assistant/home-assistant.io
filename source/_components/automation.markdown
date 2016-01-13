@@ -109,6 +109,8 @@ automation:
   trigger:
     platform: numeric_state
     entity_id: sensor.temperature
+    # Optional
+    value_template: '{% raw %}{{ state.attributes.battery }}{% endraw %}'
     # At least one of the following required
     above: 17
     below: 25
@@ -143,6 +145,17 @@ automation:
     event: sunset
     # Optional time offset. This example is 45 minutes.
     offset: '-00:45:00'
+```
+
+#### {% linkable_title Template trigger %}
+
+Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).
+
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: '{% raw %}{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}{% endraw %}'
 ```
 
 #### {% linkable_title Time trigger %}
@@ -213,6 +226,8 @@ automation:
     # At least one of the following required
     above: 17
     below: 25
+    # Optional
+    value_template: '{% raw %}{{ state.attributes.battery }}{% endraw %}'
 ```
 
 #### {% linkable_title State condition %}
@@ -225,6 +240,20 @@ automation:
     platform: state
     entity_id: device_tracker.paulus
     state: not_home
+```
+
+#### {% linkable_title Template condition %}
+
+The template condition will test if [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
+
+
+```yaml
+automation:
+  condition:
+    platform: template
+    value_template: '{% raw %}{{ state.attributes.battery > 50 }}{% endraw %}'
+    # Or value_template could be:
+    # {% raw %}{% if state.attributes.battery > 50 %}true{% else %}false{% endif %}{% endraw %}
 ```
 
 #### {% linkable_title Time condition %}
@@ -300,3 +329,5 @@ INFO [homeassistant.components.automation] Initialized rule Rain is over
 The Logbook component will show a line entry when an automation is triggered.  You can look at the previous entry to determine which trigger in the rule triggered the event.
 
 ![Logbook example](/images/components/automation/logbook.png)
+
+[template]: /getting-started/templating/

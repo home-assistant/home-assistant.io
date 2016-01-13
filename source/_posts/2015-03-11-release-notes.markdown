@@ -2,10 +2,12 @@
 layout: post
 title: "Release notes for March 11, 2015"
 description: "The release notes for March 11, 2015"
-date: 2015-03-11 18:36 -0800
+date: 2015-03-11 18:36 0000
 date_formatted: "March 11, 2015"
+author: Paulus Schoutsen
+author_twitter: balloob
 comments: true
-categories: release-notes
+categories: Release-Notes
 ---
 
 It has only been a little over a week since Theodor introduced YAML support for Home Assistant but so much has already happened that it is time for a summary of recent changes. Before mentioning the highlights I want to thank [andythigpen](https://github.com/andythigpen), [jamespcole](https://github.com/jamespcole) and [theolind](https://github.com/theolind) for numerous bug fixes, enhancements and new contributions. Thanks!

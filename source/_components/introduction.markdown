@@ -7,11 +7,11 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: introduction.png
 ha_category: Other
 ---
 
-The introduction component will show a card in the UI with steps on how to get started. It will also
-print the same message to the console when starting up.
+The introduction component will show a card in the UI with steps on how to get started. It will also print the same message to the console when starting up.
 
 The introduction component is loaded by default on a new Home Assistant instance.
 
@@ -20,4 +20,4 @@ The introduction component is loaded by default on a new Home Assistant instance
 introduction:
 ```
 
-To disable this component, just remove the `introduction:` entry from your `configuration.yaml` file.
+To disable this component, remove the `introduction:` entry from your `configuration.yaml` file.

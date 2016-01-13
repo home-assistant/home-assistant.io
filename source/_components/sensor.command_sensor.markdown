@@ -11,7 +11,7 @@ ha_category: Sensor
 ---
 
 
-A sensor platform that issues specific commands to get data. This might very well become our most powerful platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
+A sensor platform that issues specific commands to get data. This might become our most powerful platform as it allows anyone to integrate any type of sensor into Home Assistant that can get data from the command line.
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -22,8 +22,7 @@ sensor:
   command: SENSOR_COMMAND
   name: Command sensor
   unit_of_measurement: "°C"
-  correction_factor: 0.4921
-  decimal_places: 0
+  value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
 Configuration variables:
@@ -31,8 +30,7 @@ Configuration variables:
 - **command** (*Required*): The action to take to get the value.
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **correction_factor** (*Optional*): A float value to do some basic calculations.
-- **decimal_places** (*Optional*): Number of decimal places of the value. Default is 0.
+- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 
@@ -67,7 +65,7 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
     name: CPU Temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     unit_of_measurement: "°C"
-    correction_factor: 0.001
+    value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
 ```
 
 The `correction_factor` will make sure that the value is shown in a useful format in the frontend.

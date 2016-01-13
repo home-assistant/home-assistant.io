@@ -22,4 +22,5 @@ If you want to enable the light component directly, add the following lines to y
 # Example configuration.yaml entry
 light:
   platform: hue
+  host: DEVICE_IP_ADDRESS
 ```

@@ -12,22 +12,45 @@ ha_category: Notifications
 featured: true
 ---
 
+[PushBullet](https://www.pushbullet.com/) is a free service to send information between your phones, browsers and friends.
 
-Home Assistant currently supports the awesome [PushBullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers and friends.
-
-To add PushBullet to your installation, add the following to your `configuration.yaml` file:
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
   platform: pushbullet
   api_key: YOUR_API_KEY
+  # Optional
+  name: NOTIFIER_NAME
 ```
 
 Configuration variables:
 
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **api_key** (*Required*): Enter the API key for PushBullet. Go to https://www.pushbullet.com/ to retrieve your API key.
+- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
-For more automation examples, see the [getting started with automation page]({{site_root}}/components/automation/).
+### Usage
+
+PushBullet is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all devices registered in the PushBullet account.  An optional **target** parameter can be given to PushBullet to specify specific account's devices, contacts or channels.
+
+Type | Prefix | Suffix | Example
+---- | ------ | ------ | -------
+Device | `device/` | Device nickname | `device/iphone`
+Channel | `channel/` | Channel tag | `channel/my_home`
+Email | `email/` | Contact's email address | `email/email@example.com`
+
+If using targets, your own account's email address functions as 'send to all devices'. All targets are verified (if exists) before sending, except email.
+
+#### Example service payload
+
+```json
+{
+  "message": "A message for many people",
+  "target": [
+    "device/telephone",
+    "contact/hello@example.com",
+    "channel/my_home"
+  ]
+}
+```

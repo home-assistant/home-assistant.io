@@ -25,16 +25,16 @@ sensor:
   monitored_variables:
     - name: temperature
       unit_of_measurement: '°C'
+      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
     - name: humidity
       unit_of_measurement: '%'
-    pins:
-      A0:
-        name: Pin 0 analog
-        unit_of_measurement: "ca"
-        correction_factor: 0.01
-        decimal_places: 1
-      3:
-        name: Pin 3 digital
+  pins:
+    A0:
+      name: Pin 0 analog
+      unit_of_measurement: "ca"
+      value_template: '{% raw %}{{ value_json.light }}{% endraw %}'
+    3:
+      name: Pin 3 digital
 ```
 
 Configuration variables:
@@ -44,11 +44,11 @@ Configuration variables:
 - **monitored_variables** array (*Optional*): List of exposed variables.
   - **name** (*Required*): The name of the variable you wish to monitor.
   - **unit** (*Optional*): Defines the units of measurement of the sensor, if any.
+  - **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 - **pins** array (*Optional*): List of pins to monitor. Analog pins need a leading **A** for the pin number.
   - **name** (*Optional*): The name of the variable you wish to monitor.
   - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-  - **correction_factor** (*Optional*): A float value to do some basic calculations.
-  - **decimal_places** (*Optional*): Number of decimal places of the value. Default is 0.
+  - **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 
 The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you could use the one of the example sketches (eg.  [Ethernet](https://raw.githubusercontent.com/marcoschwartz/aREST/master/examples/Ethernet/Ethernet.ino) for an Arduino with Ethernet shield). In those sketches are two variables (`temperature` and `humidity`) available which will act as endpoints. 
 
@@ -77,5 +77,4 @@ The root will give you a JSON response that contains all variables and their cur
 ```json
 {"return_value": 34, "id": "sensor02", "name": "livingroom", "connected": true}
 ```
-
 

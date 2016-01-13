@@ -14,11 +14,18 @@ ha_category: Sensor
 
 The glances sensor platform is consuming the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
 
-This sensors needs a running isntance of `glances` on the host:
+This sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3:
 
 ```bash
 glances -w
 Glances web server started on http://0.0.0.0:61208/
+```
+
+Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/2`. The details about your memory usage is provided as a JSON response. If so, you are good to proceed.
+
+```bash
+$ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
+{"free": 203943936}
 ```
 
 To enable the glances sensor, add the following lines to your `configuration.yaml`:

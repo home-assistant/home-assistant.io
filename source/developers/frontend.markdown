@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant uses [Polymer](https://www.polymer-project.org/) for the UI and [NuclearJS](http://optimizely.github.io/nuclear-js/) for all data management. 
+Home Assistant uses [Polymer](https://www.polymer-project.org/) for the UI and [NuclearJS](http://optimizely.github.io/nuclear-js/) for maintaing the app state.
 
  * Polymer allows building encapsulated custom HTML elements.
    [Home-Assistant-Polymer source code on GitHub.](https://github.com/balloob/home-assistant-polymer)
@@ -20,37 +20,36 @@ Home Assistant uses [Polymer](https://www.polymer-project.org/) for the UI and [
 Do not use development mode in production. Home Assistant uses aggressive caching to improve the mobile experience. This is disabled during development so that you do not have to restart the server in between changes.
 </p>
 
-# {% linkable_title Turning on development mode %}
-Home Assistant will by default serve the compiled version of the frontend. To change it so that each component and JavaScript are served separately, update your `configuration.yaml` to have these lines:
+## {% linkable_title Setting up the environment %}
+
+Home Assistant will by default serve the compiled version of the frontend. To enable development mode for Home Assistant, update your `configuration.yaml` to have these lines:
 
 ```yaml
 http:
   development: 1
 ```
 
-Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You will have to do this by running from the command line:
+Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running:
 
 ```bash
-$ git submodule update --init
+$ script/setup
 ```
 
-After checking out the frontend code, you will have to install the frontend dependencies. Firing off a build of the frontend by running `script/build_frontend` will ensure they get installed.
+## {% linkable_title Development %}
 
-Once this is done, you can start editting the webcomponents in the folder `homeassistant/components/frontend/www_static/home-assistant-polymer/src`. To see the changes you've made, simply refresh your browser.
-
-## {% linkable_title Enabling JavaScript backend development %}
-
-Polymer is only providing a UI toolkit for Home Assistant. All data management and interaction with the server is done by `home-assistant-js` leveraging NuclearJS. To enable JavaScript development:
+While you are developing, you need to have webpack running to have your JavaScript changes be made available.
 
 ```bash
-$ cd homeassistant/components/frontend/www_static/home-assistant-polymer/
-$ npm run setup_js_dev
+$ cd homeassistant/components/frontend/www_static/home-assistant-polymer
 $ npm run js_dev
 ```
 
-`npm run js_dev` will start the process that will ensure that your latest changes to the JavaScript files will be loaded when you refresh the page. This command has to be always running while working on home-assistant-js.
+The source code for the frontend can be found in two different directories:
 
-After your changes have been accepted into the `home-assistant-js` repository, we'll have to update Home Assistant Polymer to use the latest version. This can be done by updating `package.json`. Look for the line that contains `home-assistant-js` and update the SHA to the SHA of your commit.
+ - UI: `homeassistant/components/frontend/www_static/home-assistant-polymer/src/`
+ - Core: `homeassistant/components/frontend/www_static/home-assistant-polymer/node_modules/home-assistant-js/src/`
+
+After your changes have been accepted into the home-assistant-js repository, you'll have to update Home Assistant Polymer to use the latest version of it. This can be done by updating `package.json`. Look for the line that contains home-assistant-js and update the SHA to the SHA of the last commit.
 
 # {% linkable_title Building the Polymer frontend %}
 

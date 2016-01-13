@@ -18,7 +18,7 @@ featured: true
   Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.
 </blockquote>
 
-Home Assistant integrates the Wink hub and allows you to get the status and control connected switches, lights and sensors.
+Home Assistant integrates the Wink hub and allows you to get the status and control connected switches, lights, locks, and sensors.
 
 To get started with the Wink API, you will first need to get yourself an API access token. Because it is very difficult right now to get access to their API, John McLaughlin has created the form below to get you one.
 

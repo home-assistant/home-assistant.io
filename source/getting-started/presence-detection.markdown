@@ -15,7 +15,7 @@ We care about privacy. Collected data is <b>only</b> stored in your instance of 
 
 Presence detection detects if people are home, an important input for automation. The most important piece of information is to know if anyone is home. But knowing who is home or where they are will open a whole range of other automation options:
 
- - Send me a notification when the kid arrives at school
+ - Send me a notification when my child arrives at school
  - Turn on AC when I leave work
 
 <p class='img'>
@@ -29,7 +29,7 @@ The device tracker component offers presence detection for Home Assistant. It su
 
 Scanning for connected devices is easy to setup. See the instructions for our [supported routers][routers] or [scan the network using nmap][nmap]. This approach does have its limitations. It will only be able to detect if a device is home. It also struggles with iPhones because they disconnect from the WiFi if idle, marking them as not home while they are not.
 
-Home Assistant currently supports one third party service for presence detection: [OwnTracks][ha-owntracks]. OwnTracks is an app that you install on your iPhone or Android phone that allows you to push the location of your device to Home Assistant using an MQTT broker. An MQTT broker is an Internet of Things communication platform that you can [freely host yourself][mqtt-self] or get [a private instance for free in the cloud](/components/mqtt/#run-your-own).
+Home Assistant currently supports two third party services for presence detection: [OwnTracks][ha-owntracks] and [Geofancy][ha-geofancy]. OwnTracks is an app that you install on your iPhone or Android phone that allows you to push the location of your device to Home Assistant using an MQTT broker. An MQTT broker is an Internet of Things communication platform that you can [freely host yourself][mqtt-self] or get [a private instance for free in the cloud](/components/mqtt/#run-your-own).
 
 <p class='note'>
 OwnTracks communicates directly with your MQTT broker, no data will pass through their servers.

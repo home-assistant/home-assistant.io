@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: logbook.png
 ha_category: "History"
 ---
 

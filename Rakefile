@@ -253,19 +253,33 @@ multitask :push do
   puts "## Deploying branch to Github Pages "
   puts "## Pulling any updates from Github Pages "
   cd "#{deploy_dir}" do
-    Bundler.with_clean_env { system "git pull" }
+    system "git checkout gh-pages"
   end
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
   Rake::Task[:copydot].invoke(public_dir, deploy_dir)
   puts "\n## Copying #{public_dir} to #{deploy_dir}"
   cp_r "#{public_dir}/.", deploy_dir
   cd "#{deploy_dir}" do
+    if ENV["TRAVIS"] == 'true'
+      system 'git config user.name "Travis CI"'
+      system 'git config user.email "balloob+bot@gmail.com"'
+    end
+
     system "git add -A"
     message = "Site updated at #{Time.now.utc}"
     puts "\n## Committing: #{message}"
     system "git commit -m \"#{message}\""
+
     puts "\n## Pushing generated #{deploy_dir} website"
-    Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
+    if ENV["GH_TOKEN"].nil?
+      Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
+    else
+      puts "## Using GH_TOKEN"
+      new_origin = `git remote -v | grep origin | grep push | awk '{print $2}'`.chomp.sub('//', "//#{ENV['GH_TOKEN']}@")
+      system "git remote add origin-auth #{new_origin} > /dev/null 2>&1"
+      system "git push --quiet origin-auth #{deploy_branch} > /dev/null 2>&1"
+    end
+
     puts "\n## Github Pages deploy complete"
   end
 end

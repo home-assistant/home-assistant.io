@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: sun.png
 ha_category: Weather
 ---
 

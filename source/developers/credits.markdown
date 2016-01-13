@@ -11,19 +11,22 @@ footer: true
 
 This page contains a list of people who have contributed in one way or another to Home Assistant. 
 
-## Author
+### {% linkable_title Author %} 
 
 - [Paulus Schoutsen](https://github.com/balloob)
 
-## Contributors
+### {% linkable_title Contributors %} 
 
 (in alphabetical order)
 
 - [Adrien Brault](https://github.com/adrienbrault)
+- [Allan Glen](https://github.com/allanglen)
+- [Andy Loughran](https://github.com/andylockran)
 - [andythigpen](https://github.com/andythigpen)
 - [Arthur Leonard Andersen](https://github.com/leoc)
 - [Austin](https://github.com/trainman419)
 - [Azelphur](https://github.com/Azelphur)
+- [Brad Buran](https://github.com/bburan)
 - [Bruno Adele](https://github.com/badele)
 - [Carlo Costanzo](https://github.com/CCOSTAN)
 - [Chris Mulder](https://github.com/chrisvis)
@@ -33,6 +36,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Fabian Affolter](https://github.com/fabaff)
 - [Finbarr Brady](https://github.com/fbradyirl)
 - [Geoff Norton](https://github.com/kangaroo)
+- [goir](https://github.com/goir)
 - [gottsman](https://github.com/gottsman)
 - [Greg Dowling](https://github.com/pavoni)
 - [Guillem Barba](https://github.com/gbarba)
@@ -56,13 +60,18 @@ This page contains a list of people who have contributed in one way or another t
 - [Michael Auchter](https://github.com/auchter)
 - [Michael Gilbert](https://github.com/Zyell)
 - [miniconfig](https://github.com/miniconfig)
+- [molobrakos](https://github.com/molobrakos)
 - [Nolan Gilley](https://github.com/nkgilley)
+- [Oliver van Porten](https://github.com/mcdeck))
 - [Pascal Bach](https://github.com/bachp)
 - [Per Sandström](https://github.com/persandstrom)
+- [Philip Lundrigan](https://github.com/philipbl)
 - [Piratonym](https://github.com/Piratonym)
 - [Rev Michael Greb](https://github.com/mikegrb)
+- [Richard Arends](https://github.com/Mosibi)
 - [rhooper](https://github.com/rhooper)
 - [rkabadi](https://github.com/rkabadi)
+- [Rowan Hine](https://github.com/GreenTurtwig)
 - [Ryan Kraus](https://github.com/rmkraus)
 - [Ryan Turner](https://github.com/ryanturner)
 - [sander76](https://github.com/sander76)

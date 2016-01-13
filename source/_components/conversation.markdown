@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logoL conversation.png
 ha_category: "Other"
 ---
 

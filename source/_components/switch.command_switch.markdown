@@ -11,7 +11,7 @@ ha_category: Switch
 ---
 
 
-The switch platform that issues specific commands when it is turned on and off. This might very well become our most platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
+A switch platform that issues specific commands when it is turned on and off. This might very well become our most powerful platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -55,7 +55,7 @@ switch:
 This switch will shutdown your system that is hosting Home Assistant.
 
 <p class='note warning'>
-This switch will shudown your host immediately, there will be no confirmation.
+This switch will shutdown your host immediately, there will be no confirmation.
 </p>
 
 

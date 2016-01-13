@@ -14,6 +14,8 @@ ha_category: Presence Detection
 
 This platform allows you to detect presence by looking at connected devices to a [Netgear](http://www.netgear.com/) device.
 
+To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 device_tracker:

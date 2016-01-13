@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: heat-control.png
 ha_category: Thermostat
 ---
 
