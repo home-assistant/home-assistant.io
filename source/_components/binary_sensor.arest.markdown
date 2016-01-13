@@ -18,7 +18,7 @@ To use your aREST binary sensor in your installation, add the following to your 
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   platform: arest
   resource: http://IP_ADDRESS
   name: Office Switch
