@@ -138,6 +138,7 @@ We went over the basics of creating a home automation rule. From here no longer 
  - Learn about [scripts](/components/script/) to help you trigger multiple actions and delays
  - Learn about [scenes](/components/scene/) to help you set many entities at once to your liking
  - Setup a [notification platform](/components/#notifications) to sent yourself messages
+ - For more advanced automation using Python, write your own [custom component](/developers/creating_components/).
 
 <p class='note warning'>
   Whenever you write the value <code>on</code> or <code>off</code>, surround it with quotes to avoid
