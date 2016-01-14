@@ -9,13 +9,10 @@ sharing: true
 footer: true
 logo: nest_thermostat.png
 ha_category: Sensor
-featured: true
 ---
 
 
-The nest thermostat platform let you control a thermostat from [Nest](https://nest.com).
-It also includes the ability to monitor things like the state of our HVAC system and the
-current humidity and temperature.
+The `nest` thermostat platform let you control a thermostat from [Nest](https://nest.com). It also includes the ability to monitor things like the state of our HVAC system and the current humidity and temperature.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
