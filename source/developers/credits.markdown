@@ -26,6 +26,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Arthur Leonard Andersen](https://github.com/leoc)
 - [Austin](https://github.com/trainman419)
 - [Azelphur](https://github.com/Azelphur)
+- [Bart274](https://github.com/Bart274)
 - [Brad Buran](https://github.com/bburan)
 - [Bruno Adele](https://github.com/badele)
 - [Carlo Costanzo](https://github.com/CCOSTAN)
