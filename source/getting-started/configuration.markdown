@@ -53,6 +53,8 @@ http:
   api_password: YOUR_PASSWORD
 ```
 
+There also are [other settings of HTTP component](https://home-assistant.io/components/http/) like HTTPS encryption.
+
 ### {% linkable_title Setting up your phone or tablet %}
 
 Home Assistant runs as a self hosted web application and contains support to be added to your homescreen. If you're on Android you can follow [the visual guide]({{site_root}}/getting-started/android/). For other devices, open Home Assistant on your mobile browser and tap on the add to homescreen option.
