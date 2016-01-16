@@ -243,6 +243,19 @@ automation:
     state: not_home
 ```
 
+#### {% linkable_title Sun condition %}
+
+The sun condition can test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger](#sun-trigger).
+
+```yaml
+automation:
+  condition:
+    platform: sun
+    after: sunset
+    # Optional offset value
+    after_offset: "-1:00:00"
+```
+
 #### {% linkable_title Template condition %}
 
 The template condition will test if [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.

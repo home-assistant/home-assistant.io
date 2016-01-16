@@ -32,6 +32,7 @@ verisure:
   hygrometers: 0
   smartplugs: 1
   thermometers: 0
+  code_digits: 4
 ```
 
 Configuration variables:
@@ -42,4 +43,5 @@ Configuration variables:
 - **hygrometers** (*Optional*): Set to 1 to show hygrometers, 0 to disable. Default 1.
 - **smartplugs** (*Optional*): Set to 1 to show smartplugs, 0 to disable. Default 1.
 - **thermometers** (*Optional*): Set to 1 to show thermometers, 0 to disable. Default 1.
+- **code_digits** (*Optional*): Number of digits in PIN code. Default 4.
 

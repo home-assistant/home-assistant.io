@@ -27,6 +27,20 @@ The current logo was created by [Jeremy Geltman](http://jeremygeltman.com/). Fur
 
 Home Assistant is open source software and available under the [MIT](https://opensource.org/licenses/MIT) license.
 
+### {% linkable_title Numbers %} 
+
+This sections just contains some random numbers of the Home Assistant eco-system.
+
+| Description  | 2015   |
+|---|---|
+| [Gitter.io](https://gitter.im/balloob/home-assistant)  | 334  |
+| [Forum posts](https://automic.us/forum/index.php) | 352 |
+| [Forum topics](https://automic.us/forum/index.php) | 83 |
+| [Forum members](https://automic.us/forum/index.php) | 92 |
+| [Github stars](https://github.com/balloob/home-assistant/stargazers)  | 2519  |
+| [Github forks](https://github.com/balloob/home-assistant/network) | 374 |
+| Pageviews [ha.io](https://home-assistant.io) | 190'271|
+
 ### {% linkable_title Commit per year %}
 
 The numbers below only covers the [main git repository](https://github.com/balloob/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/balloob/home-assistant.io), [home-assistant-polymer](https://github.com/balloob/home-assistant-polymer), and [home-assistant-js](https://github.com/balloob/home-assistant-js)) into account.
@@ -34,7 +48,7 @@ The numbers below only covers the [main git repository](https://github.com/ballo
 ```bash
 2013: 147
 2014: 328
-2015: 2266 (so far)
+2015: 2963
 ```
 
 More details and statistics can be found on [Github](https://github.com/balloob/home-assistant/graphs/contributors).
