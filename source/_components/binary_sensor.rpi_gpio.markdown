@@ -12,30 +12,29 @@ ha_category: DIY
 ---
 
 
-The rpi_gpio sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+The rpi_gpio binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   platform: rpi_gpio
   ports:
     11: PIR Office
     12: PIR Bedroom
   pull_mode: "UP"
-  value_high: "Active"
-  value_low: "Inactive"
+  bouncetime: 50
+  invert_logic: false
 ```
 
 Configuration variables:
 
 - **ports** array (*Required*): Array of used ports.
-  - **port: name** (*Required*): Your username for the Edimax switch.
+  - **port: name** (*Required*): Port numbers and corresponding names.
 - **pull_mode** (*Optional*): The internal pull to use (UP or DOWN). Default is UP.
-- **value_high** (*Optional*): The value of the sensor when the port is HIGH. Default is "HIGH".
-- **value_low** (*Optional*): The value of the sensor when the port is LOW. Default is "LOW".
 - **bouncetime** (*Optional*): The time in milliseconds for port debouncing. Default is 50ms.
+- **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
