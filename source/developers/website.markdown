@@ -18,7 +18,7 @@ To work on the website the process is no different to working on Home Assistant 
 - Fork the home-assistant.io [git repository](https://github.com/balloob/home-assistant.io).
 - Create/edit/update a page in the directory `source/_components/` for your platform/component. 
 - To test changes to home-assistant.io locally, run ``rake preview`` and navigate to http://127.0.0.1:4000.
-- Create a Pull Request against the **master** branch of home-assistant.io.
+- Create a Pull Request (PR) against the **next** branch of home-assistant.io.
 
 For a platform page it would be the fastest way to make a copy of an existing page and edit it. The [component overview](/components/) is generated automatically, so there is no need to add a link to that your page.
 
@@ -43,5 +43,5 @@ The images which are displayed on the pages are stored in various directories ac
 | screen shots | source/images/screenshots                     |
 | logos        | source/images/supported_brands                |
 
-Not everything (product, component, etc.) has a logo, to show something we are using the [Gnome Icon Theme](http://ftp.gnome.org/pub/GNOME/sources/gnome-icon-theme) from the [GNOME Project](http://www.gnome.org) as a source for the placeholders. Those icons are licensed under the GNU LGPL v.3 or Creative Commons BY-SA 3.0 license. 
+Not everything (product, component, etc.) has a logo, to show something for internal parts of Home Assistant we are using the [Material Design Icons](https://materialdesignicons.com/). 
 
