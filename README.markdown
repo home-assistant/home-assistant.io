@@ -1,6 +1,8 @@
 # Home Assistant website
 
-This is the source for the [Home Assistant](https://github.com/balloob/home-assistant) website available at [Home-Assistant.io](https://home-assistant.io). All commits made to the master branch will be automatically pushed to production.
+This is the source for the [Home Assistant](https://github.com/balloob/home-assistant) website available at [Home-Assistant.io](https://home-assistant.io). All commits made to the `master` branch will be automatically pushed to production.
+
+Please point your Pull Request (PR) at the `next` branch.
 
 ## Jekyll project to generate and deploy
 
