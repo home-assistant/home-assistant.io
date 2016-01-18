@@ -14,7 +14,7 @@ featured: true
 
 
 
-Philips Hue support is integrated into Home Assistant as a light platform. The preferred way to setup the Philips Hue platform is by enabling the [the discovery component]({{site_root}}/components/discovery/).
+Philips Hue support is integrated into Home Assistant as a light platform. The preferred way to setup the Philips Hue platform is by enabling the [the discovery component](/components/discovery/).
 
 If you want to enable the light component directly, add the following lines to your `configuration.yaml`:
 
@@ -23,4 +23,6 @@ If you want to enable the light component directly, add the following lines to y
 light:
   platform: hue
   host: DEVICE_IP_ADDRESS
+  # Optional, make this unique if specifying multiple Hue hubs
+  filename: my_hue_hub_token.conf
 ```

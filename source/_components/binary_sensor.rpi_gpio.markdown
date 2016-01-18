@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: DIY
+ha_category: Sensor
 ---
 
 

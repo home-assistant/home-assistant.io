@@ -2,7 +2,8 @@
 layout: component
 title: "Nest thermostat"
 description: "Instructions how to integrate Nest thermostats sensors within Home Assistant."
-date: 2016-01-13 19:59
+# Year set to 2017 to unpublish till 0.12 release
+date: 2017-01-13 19:59
 sidebar: true
 comments: false
 sharing: true

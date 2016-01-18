@@ -1,14 +1,14 @@
 ---
 layout: component
 title: "Raspberry PI GPIO switch"
-description: "Instructions how to integrate the GPIO of a Raspberry PI into Home Assistant."
+description: "Instructions how to integrate the GPIO of a Raspberry PI into Home Assistant as a switch."
 date: 2015-08-07 14:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: DIY
+ha_category: Switch
 ---
 
 

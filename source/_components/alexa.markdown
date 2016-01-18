@@ -12,7 +12,7 @@ ha_category: Voice
 featured: false
 ---
 
-The Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself. This component does not yet allow the control of devices connected to Home Assistant.
+The Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe>
@@ -102,6 +102,10 @@ alexa:
           {% endif %}
 
     LocateIntent:
+      action:
+        service: notify.notify
+        data:
+          message: Your location has been queried via Alexa.
       speech:
         type: plaintext
         text: >

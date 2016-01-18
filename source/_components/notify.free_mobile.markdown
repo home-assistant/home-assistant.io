@@ -39,11 +39,3 @@ Configuration variables:
 
 - **username** (*Required*): This is the id given by FreeMobile to access to your online account.
 - **access_token** (*Required*): You can get this token by activating the SMS API in your online account.
-
-#### Example service payload
-
-```json
-{
-  "message": "Hello World"
-}
-```

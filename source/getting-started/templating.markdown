@@ -61,6 +61,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
  - `states.sensor.temperature` returns state object for `sensor.temperature`
  - `states('device_tracker.paulus')` will return the state string (not the object) of given entity or `unknown` if it doesn't exist.
  - `is_state('device_tracker.paulus', 'home')` will test if given entity is specified state.
+ - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if given entity is specified state.
  - Filter `multiply(x)` will convert input to number and multiply it with `x`
  - Filter `round(x)` will convert input to number and round it to `x` decimals.
 
