@@ -47,7 +47,7 @@ Configuration variables:
 
 ### {% linkable_title Get API and Secret Key %}
 
-To get your API credentials, you have to declare a new application in the [NetAtmo Developer Page](https://dev.netatmo.com/) Sign in using your username and password from your regular NetAtmo account.
+To get your API credentials, you have to declare a new application in the [NetAtmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular NetAtmo account.
 Click on 'Create an App' at the top of the page.
 
 <p class='img'>
@@ -67,7 +67,7 @@ That's it. You can copy and paste your new API and secret keys in your Home Assi
 
 ### {% linkable_title Find your modules name %}
 
-You can find your modules name in your [online NetAtmo account] (https://my.netatmo.com/app/station) . These names can be found and changed in parameters (See screenshot)
+You can find your modules name in your [online NetAtmo account](https://my.netatmo.com/app/station). These names can be found and changed in parameters (See screenshot)
 You have to provide these name in your Home Assistant configuration file.
 
 <p class='img'>
