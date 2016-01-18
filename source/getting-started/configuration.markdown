@@ -53,7 +53,9 @@ http:
   api_password: YOUR_PASSWORD
 ```
 
-There also are [other settings of HTTP component](https://home-assistant.io/components/http/) like HTTPS encryption.
+_See the [documentation for the HTTP component][http] for more options like HTTPS encryption._
+
+[http]: /components/http/
 
 ### {% linkable_title Setting up your phone or tablet %}
 
