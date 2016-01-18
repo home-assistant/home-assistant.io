@@ -38,7 +38,7 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
 [Heatmiser]: /components/thermostat.heatmiser/
 [Dweet.io]: /components/sensor.dweet/
 [Alexa/Amazon echo]: /components/alexa/
-[FritzBox]: /components/device_tracker.fritzbox/
+[FritzBox]: /components/device_tracker.fritz/
 [Wink]: /components/sensor.wink/
 [ELIQ Online]: /components/sensor.eliqonline/
 [REST]: /components/binary_sensor.rest/
