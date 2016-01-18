@@ -53,7 +53,7 @@ http:
   api_password: YOUR_PASSWORD
 ```
 
-_See the [documentation for the HTTP component][http] for more options like HTTPS encryption._
+_See the [HTTP component documentation][http] for more options like HTTPS encryption._
 
 [http]: /components/http/
 
