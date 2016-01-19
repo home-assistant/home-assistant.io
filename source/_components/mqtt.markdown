@@ -26,6 +26,7 @@ mqtt:
   username: USERNAME
   password: PASSWORD
   certificate: /home/paulus/dev/addtrustexternalcaroot.crt
+  protocol: 3.1
 ```
 
 Configuration variables:
@@ -37,6 +38,7 @@ Configuration variables:
 - **username** (*Optional*): The username to use with your MQTT broker.
 - **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
 - **certificate** (*Optional*): Certificate to use to encrypt communication with the broker.
+- **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.
 
 ## {% linkable_title Picking a broker %}
 
@@ -57,6 +59,10 @@ mqtt:
   password: PASSWORD
 ```
 
+<p class='note warning'>
+There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
+</p>
+
 #### {% linkable_title Public MQTT %}
 
 The Mosquitto project runs a [public broker](http://test.mosquitto.org). Easiest to setup but there is 0 privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.
@@ -66,7 +72,7 @@ mqtt:
   broker: test.mosquitto.org
   port: 1883
 
-  # Optional, if you want encryption
+  # Optional, replace port 1883 with following if you want encryption
   # (doesn't really matter because broker is public)
   port: 8883
   # Download certificate from http://test.mosquitto.org/ssl/mosquitto.org.crt
