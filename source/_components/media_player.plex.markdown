@@ -25,7 +25,7 @@ media_player:
   platform: plex
 ```
 
-You may also need to create the file `plex.conf`.
+In case discovery does not work (GDM disabled or non-local plex server), you can create `~/.homeassistant/plex.conf` manually.
 
 ```json
 {"IP_ADDRESS:PORT": {"token": "TOKEN"}}
@@ -33,6 +33,6 @@ You may also need to create the file `plex.conf`.
 
 - **IP_ADDRESS** (*Required*): IP address of the Plex Media Server
 - **PORT** (*Required*): Port where Plex is listening. Default is 32400
-- **TOKEN** (*Optional*): Only if authentication is required. Set to `None` (without quotes) otherwise.
+- **TOKEN** (*Optional*): Only if authentication is required. Set to `null` (without quotes) otherwise.
 
 At this moment, the Plex platform only supports one Plex Media Server.
