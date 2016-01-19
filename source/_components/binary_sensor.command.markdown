@@ -46,10 +46,10 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 # Example configuration.yaml entry
 binary_sensor:
   platform: command_sensor
-  command: netstat -na | find "33322" | find /c "LISTENING" > nul && (Echo 1 ) || (Echo 0)
+  command: netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")
   name: 'sickragerunning'
-  payload_on: "1"
-  payload_of: "0"
+  payload_on: "Running"
+  payload_off: "Not running"
 ```
 
 ### {% linkable_title Check RasPlex %}
