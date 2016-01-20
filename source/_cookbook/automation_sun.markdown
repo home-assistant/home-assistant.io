@@ -68,3 +68,40 @@ automation:
       data:
         message: 'The sun is down.'
 ```
+
+#### {% linkable_title Automations for lights and blinds based on solar elevation %}
+
+Solar elevation automations can cope with offsets from sunset / sunrise as the seasons change better than using a time based offsets.
+
+```yaml
+- alias: 'Turn a few lights on when the sun gets dim'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ "{{ state.attributes.elevation ""}}}}'
+    below: 3.5
+  action:
+    service: scene.turn_on
+    entity_id: scene.background_lights
+
+- alias: 'Turn more lights on as the sun gets dimmer'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ "{{ state.attributes.elevation ""}}}}'
+    below: 1.5
+  action:
+    service: scene.turn_on
+    entity_id: scene.more_lights
+
+- alias: 'Close blind at dusk'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ "{{ state.attributes.elevation ""}}}}'
+    below: -2.5
+  action:
+    service: switch.turn_off
+    entity_id: switch.blind
+
+```
