@@ -3,7 +3,7 @@ layout: post
 title: "0.11: Extended support for DIY solutions"
 description: "Home Assistant 0.11 has been released with extended support for making your own home automation components using a Raspberry Pi and MySensors."
 date: 2016-01-17 15:20:00 -0800
-date_formatted: "January 17, 2015"
+date_formatted: "January 17, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
