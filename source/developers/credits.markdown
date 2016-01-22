@@ -33,6 +33,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Chris Mulder](https://github.com/chrisvis)
 - [Daniel Iversen](https://github.com/danielhiversen)
 - [Daren Lord](https://github.com/Xorso)
+- [Dean Galvin](https://github.com/FreekingDean)
 - [Edwin Smulders](https://github.com/Dutchy-)
 - [ettisan](https://github.com/ettisan)
 - [Fabian Affolter](https://github.com/fabaff)
