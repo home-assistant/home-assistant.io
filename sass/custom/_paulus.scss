@@ -203,10 +203,6 @@ p.note {
   }
 }
 
-#site-search .search {
-  width: calc(100% - 36px);
-}
-
 .install-instructions-container {
   #normal-install, #raspberry-install, #docker-install, .install-instructions {
     display: none;
@@ -403,4 +399,8 @@ p.note {
     width: 100%;
     height: 100%;
   }
+}
+
+.edit-github {
+  text-align: right;
 }
