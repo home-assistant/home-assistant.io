@@ -11,9 +11,9 @@ logo: mqtt.png
 ha_category: Alarm
 ---
 
-This platform enables the possibility to control an MQTT alarm panel. The Alarm Icon will change state after receiving a new state from `state_topic`. If these messages are published with RETAIN flag, the MQTT alarm will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state will be `unknown`.
+The `mqtt` alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from `state_topic`. If these messages are published with *RETAIN* flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be `unknown`.
 
-The component will accept the following states from your Alarm Panel (in lower case) :-
+The component will accept the following states from your Alarm Panel (in lower case):
 
 - 'armed'
 - 'armed_home'
@@ -21,7 +21,9 @@ The component will accept the following states from your Alarm Panel (in lower c
 - 'pending'
 - 'triggered'
 
-The component is able to control your Alarm Panel by publishing to the command_topic: when a user interacts with the screen icon on the frontend.
+The component is able to control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
+
+To enable this platform, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -41,7 +43,6 @@ Configuration variables:
 
 - **state_topic** (*Required*): The MQTT topic subscribed to receive state updates.
 - **command_topic** (*Required*): The MQTT topic to publish commands to change the alarm state.
-
 - **name** (*Optional*): The name of the alarm. Default is 'MQTT Alarm'.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0. This QoS will also be used to publishing messages.
 - **payload_disarm** (*Optional*): The payload do disarm your Alarm Panel. Default is "DISARM".
