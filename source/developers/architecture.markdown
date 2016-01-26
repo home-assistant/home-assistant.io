@@ -16,7 +16,7 @@ Before we dive into the Home Assistant architecture, it is important to get a cl
  * Smart Home triggers commands based on previous behavior.
 
 <p class='img'>
-  <a href='{{site_root}}/images/architecture/home_automation_landscape.png'>
+  <a href='{{site_root}}/images/architecture/home_automation_landscape.png' name='landscape'>
     <img alt='Home Automation landscape'
          src='{{site_root}}/images/architecture/home_automation_landscape.png' />
   </a>
@@ -31,7 +31,7 @@ The Home Assistant core is responsible for Home Control. It has four parts to ma
  * The **Timer** will send every 1 second a `time_changed` event on the event bus.
 
 <p class='img'>
-  <a href='/images/architecture/ha_architecture.png'>
+  <a href='/images/architecture/ha_architecture.png' name='architecture'>
     <img src='/images/architecture/ha_architecture.png' />
   </a>
   Overview of the Home Assistant core architecture
