@@ -49,7 +49,7 @@ If using targets, your own account's email address functions as 'send to all dev
   "message": "A message for many people",
   "target": [
     "device/telephone",
-    "contact/hello@example.com",
+    "email/hello@example.com",
     "channel/my_home"
   ]
 }
