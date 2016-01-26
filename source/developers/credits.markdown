@@ -87,6 +87,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Theodor Lindquist](https://github.com/theolind)
 - [toddeye](https://github.com/toddeye)
 - [Tom Duijf](https://github.com/tomduijf)
+- [trollkarlen](https://github.com/trollkarlen)
 - [vitorespindola](https://github.com/vitorespindola)
 - [wind-rider](https://github.com/wind-rider)
 
