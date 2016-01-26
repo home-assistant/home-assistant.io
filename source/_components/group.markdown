@@ -15,7 +15,6 @@ Groups allow the user to combine multiple entities into one.
 
 Check the **Set State** page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
 
-
 ```yaml
 # Example configuration.yaml entry
 group:
@@ -29,6 +28,34 @@ group:
     - sensor.oven_temperature
 ```
 
+With Home Assistant 0.12.0 a new feature **view** was introduced.
+
+```yaml
+# Example configuration.yaml entry
+group:
+  kitchen:
+    name: Kitchen
+    view: no
+    entities:
+      - switch.kitchen_pin_3
+  upstairs:
+    name: Kids
+    icon: mdi:account-multiple
+    view: yes
+    entities:
+      - input_boolean.notify_home
+      - camera.demo_camera
+      - device_tracker.demo_paulus
+      - group.garden
+```
+
+Configuration variables:
+
+- **name** (*Optional*): Name of the group.
+- **icon** (*Optional*): An optional icon to show in the Frontend.
+- **view** (*Optional*): If yes then the entry will be shown as a view.
+- **entities** array (*Required*): List of entites to group.
+
 If all entities are switches or lights they can be controlled as one with a switch at the top of the card. Grouped states should share the same type of states (ON/OFF or HOME/NOT_HOME).
 
 ```yaml
@@ -39,7 +66,7 @@ group:
     - light.ceiling
     - light.tv_back_light
   children:
-   - device_tracker.child_1
-   - device_tracker.child_2
+    - device_tracker.child_1
+    - device_tracker.child_2
 ```
 
