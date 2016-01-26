@@ -22,7 +22,7 @@ binary_sensor:
   command: cat /proc/sys/net/ipv4/ip_forward
   name: 'IP4 forwarding'
   payload_on: "1"
-  payload_of: "0"
+  payload_off: "0"
   value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 

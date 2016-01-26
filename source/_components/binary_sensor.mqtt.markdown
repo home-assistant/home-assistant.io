@@ -24,7 +24,7 @@ binary_sensor:
   name: "MQTT Sensor"
   qos: 0
   payload_on: "ON"
-  payload_of: "OFF"
+  payload_off: "OFF"
   value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
