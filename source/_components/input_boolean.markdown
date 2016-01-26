@@ -24,7 +24,8 @@ input_boolean:
 
 Configuration variables:
 
-- **name** (*Optional*): Friendly name of entry.
+- **[alias]** (*Required*): Alias for the input.
+- **name** (*Optional*): Friendly name of the input.
 - **initial** (*Optional*): Initial value when Home Assistant starts.
 - **icon** (*Optional*): Icon for entry.
 
