@@ -64,6 +64,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Michael Arnauts](https://github.com/michaelarnauts)
 - [Michael Auchter](https://github.com/auchter)
 - [Michael Gilbert](https://github.com/Zyell)
+- [Michael Kuty](https://github.com/michaelkuty)
 - [miniconfig](https://github.com/miniconfig)
 - [molobrakos](https://github.com/molobrakos)
 - [Moon Shot](https://github.com/moonshot)
