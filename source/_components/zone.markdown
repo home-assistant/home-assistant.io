@@ -21,9 +21,7 @@ zone:
   name: School
   latitude: 32.8773367
   longitude: -117.2494053
-  # Optional radius in meters (default: 100)
   radius: 250
-  # Optional icon to show instead of name
   icon: mdi:school
 
 zone 2:
@@ -40,10 +38,19 @@ zone 3:
   icon: mdi:account-multiple
 ```
 
+Configuration variables:
+
+- **name** (*Optional*): Friendly name of entry.
+- **latitude** (*Required*): Latitude of the center point of the zone.
+- **longitude** (*Required*): Longitude of the center point of the zone.
+- **radius** (*Optional*): Optional radius in meters. Defaults to 100 meters.
+- **icon** (*Optional*): Optional icon to show instead of name.
+
+
 #### {% linkable_title Home zone %}
 
-If no configuration is given, the zone component will create a zone for home. This zone will use location given in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it 'Home'.
+If no configuration is given, the `zone` component will create a zone for home. This zone will use location given in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**.
 
 #### {% linkable_title Icons %}
 
-It is preferred to pick an icon to use for your zone. Pick any zone that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:worker`, `mdi:home`, `mdi:cart`, `mdi:castle`.
+It is preferred to pick an icon to use for your zone. Pick any zone that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:worker`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
