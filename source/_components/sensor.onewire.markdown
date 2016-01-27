@@ -14,7 +14,7 @@ The `onewire` platform supports sensors which are using the One wire (1-wire) bu
 
 Supported devices:
 
-- [DS18B20}(https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)
+- [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)
 
 To enable One wire sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -22,4 +22,11 @@ To enable One wire sensors in your installation, add the following to your `conf
 # Example configuration.yaml entry
 sensor:
   platform: onewire
+  names:
+    some_id: your name
 ```
+
+Configuration variables:
+
+- **names** array (*Optional*): ID and friendly name of your sensors.
+
