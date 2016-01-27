@@ -18,12 +18,11 @@ To integrate your Insteon hub with Home Assistant, add the following section to 
 ```yaml
 # Example configuration.yaml entry
 insteon:
-  host: ISY_ADDRESS
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
 Configuration variables:
 
-- **username** (*Required*): The username that used to access the ISY interface.
-- **password** (*Required*): The password that used to access the ISY interface.
+- **username** (*Required*): The username that used to access the Insteon interface.
+- **password** (*Required*): The password that used to access the Insteon interface.
 
