@@ -21,6 +21,7 @@ insteon:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```
+
 Configuration variables:
 
 - **username** (*Required*): The username that used to access the Insteon interface.
