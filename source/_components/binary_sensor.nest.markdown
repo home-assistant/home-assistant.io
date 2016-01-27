@@ -30,9 +30,10 @@ sensor:
     - 'hvac_emer_heat_state',
     - 'online'
 ```
+
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): States to monitos.
+- **monitored_conditions** array (*Required*): States to monitor.
 
 You must have the [Nest Thermostat](https://home-assistant.io/components/thermostat.nest/) entity configured to use this sensor.
 
