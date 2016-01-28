@@ -46,7 +46,7 @@ sensor:
     state_topic: sensor2/topic
 ```
 
-Indentation is used to specify which objects are nested under one anohter. Getting the right indentation can be tricky if you're not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. 
+Indentation is used to specify which objects are nested under one another. Getting the right indentation can be tricky if you're not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. 
 
  - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack.
  - You can test your configuration using [this online YAML parser](http://yaml-online-parser.appspot.com/).
