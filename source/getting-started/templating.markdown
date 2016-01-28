@@ -10,7 +10,7 @@ footer: true
 ---
 
 <p class='note'>
-This is an advanced feature of Home Assistant. You need a basic understanding of the [Home Assistant architecture], especially states.
+This is an advanced feature of Home Assistant. You'll need a basic understanding of the [Home Assistant architecture], especially states.
 </p>
 
 [Home Assistant architecture]: /developers/architecture/
@@ -36,7 +36,7 @@ Templating in Home Assistant is powered by the Jinja2 templating engine. This me
 The frontend has a template editor developer tool to help develop and debug templates.
 </p>
 
-Templates can get pretty big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
+Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
 ```yaml
 script:
@@ -56,14 +56,14 @@ script:
 
 Home Assistant adds extensions to allow templates to access all of the current states:
 
- - Iterating `states` will yield each state sorted alphabetically by entity id
- - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity id
- - `states.sensor.temperature` returns state object for `sensor.temperature`
- - `states('device_tracker.paulus')` will return the state string (not the object) of given entity or `unknown` if it doesn't exist.
- - `is_state('device_tracker.paulus', 'home')` will test if given entity is specified state.
- - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if given entity is specified state.
- - Filter `multiply(x)` will convert input to number and multiply it with `x`
- - Filter `round(x)` will convert input to number and round it to `x` decimals.
+ - Iterating `states` will yield each state sorted alphabetically by entity ID
+ - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID
+ - `states.sensor.temperature` returns the state object for `sensor.temperature`
+ - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
+ - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
+ - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
+ - Filter `multiply(x)` will convert the input to a number and multiply it with `x`
+ - Filter `round(x)` will convert the input to a number and round it to `x` decimals.
 
 #### {% linkable_title Examples %}
 
@@ -101,7 +101,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 
 ## {% linkable_title Processing incoming data %}
 
-The other part of templating is processing incoming data. It will allow you to modify incoming data and extract only the data that you care about. This will work only for platforms and components that mentioned support for this in their documentation.
+The other part of templating is processing incoming data. It will allow you to modify incoming data and extract only the data you care about. This will work only for platforms and components that mentioned support for this in their documentation.
 
 It depends per component or platform but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
 
