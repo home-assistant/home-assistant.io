@@ -30,7 +30,7 @@ A `zigbee` section must be present in the `configuration.yaml` file and contain 
 
 - **baud**: The baud rate at which to communicate with the local ZigBee device. Default: `9600`
 
-### Example
+#### Example
 
 ```yaml
 zigbee:
