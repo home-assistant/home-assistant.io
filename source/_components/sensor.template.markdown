@@ -41,7 +41,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title Sun angle %}
 
-This example shows the sun angle in the forntend. 
+This example shows the sun angle in the frontend. 
 
 ```yaml
 sensor:
