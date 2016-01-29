@@ -15,10 +15,10 @@ ha_category: DIY
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor (digital input pins)
-- Sensor (analog input pins and temperature sensor)
-- Light (digital output pins)
-- Switch (digital output pins)
+- [Binary Sensor](../binary_sensor.zigbee) (digital input pins)
+- [Sensor](../sensor.zigbee) (analog input pins and temperature sensor)
+- [Light](../light.zigbee) (digital output pins)
+- [Switch](../switch.zigbee) (digital output pins)
 
 The local ZigBee device (assuming XBee) must have an up to date Router or Coordinator API firmware installed.
 
