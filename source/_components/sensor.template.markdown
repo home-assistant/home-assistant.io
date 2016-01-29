@@ -34,3 +34,24 @@ Configuration variables:
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 
+
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Sun angle %}
+
+This example shows the sun angle in the forntend. 
+
+```yaml
+sensor:
+  platform: template
+  sensors:
+      solar_angle:
+        value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
+        friendly_name: 'Sun Angle'
+        unit_of_measurement: '°'
+```
+
+
+
