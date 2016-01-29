@@ -26,6 +26,8 @@ The [iCloud](/components/device_tracker.icloud/) is gathering various details ab
             {%- endif %}{% endraw %}
 ```
 
+The `else` part is used to have the sensor keep it's last state if the newest [iCloud](/components/device_tracker.icloud/) update doesn't have any battery state in it (which happens sometimes). Otherwise the sensor will be blank.
+
 While running the [Owntracks](/components/device_tracker.owntracks/) device tracker you can retrieve the battery level with a MQTT sensor.
 
 ```yaml
