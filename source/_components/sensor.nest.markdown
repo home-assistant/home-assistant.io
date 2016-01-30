@@ -1,7 +1,7 @@
 ---
 layout: component
-title: "Nest thermostat sensor"
-description: "Instructions how to integrate Nest thermostats sensors within Home Assistant."
+title: "Nest sensor"
+description: "Instructions how to integrate Nest sensors within Home Assistant."
 date: 2016-01-13 19:59
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The `nest` sensor platform let you monitor a thermostat from [Nest](https://nest.com). It also includes the ability to monitor things like the state of our HVAC system and the current humidity and temperature.
+The Nest sensor platform let you monitor sensors connected to your [Nest](https://nest.com) thermostat.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -36,8 +36,4 @@ Configuration variables:
 
 - **monitored_conditions** array (*Required*): States to monitor.
 
-You must have the [Nest Thermostat](https://home-assistant.io/components/thermostat.nest/) entity configured to use this sensor.
-
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
-</p>
+<p class='note'>You must have the [Nest component](https://home-assistant.io/components/nest/) configured to use this sensor.</p>

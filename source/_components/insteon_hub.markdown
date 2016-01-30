@@ -26,4 +26,3 @@ Configuration variables:
 
 - **username** (*Required*): The username that used to access the Insteon interface.
 - **password** (*Required*): The password that used to access the Insteon interface.
-

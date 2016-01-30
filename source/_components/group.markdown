@@ -11,31 +11,15 @@ logo: home-assistant.png
 ha_category: Organization
 ---
 
-Groups allow the user to combine multiple entities into one.
+Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting the `view` option to `yes`. This will make the group available as a new tab in the frontend.
 
 Check the **Set State** page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
 
 ```yaml
 # Example configuration.yaml entry
 group:
-  information:
-    - sensor.time
-  living_room:
-    - binary_sensor.tv
-    - sensor.living_room_temperature
-  kitchen:
-    - switch.kitchen_pin_3
-    - sensor.oven_temperature
-```
-
-With Home Assistant 0.12.0 a new feature **view** was introduced.
-
-```yaml
-# Example configuration.yaml entry
-group:
   kitchen:
     name: Kitchen
-    view: no
     entities:
       - switch.kitchen_pin_3
   upstairs:
@@ -54,7 +38,12 @@ Configuration variables:
 - **name** (*Optional*): Name of the group.
 - **icon** (*Optional*): An optional icon to show in the Frontend.
 - **view** (*Optional*): If yes then the entry will be shown as a view.
-- **entities** array (*Required*): List of entites to group.
+- **entities** array or comma delimited string (*Required*): List of entites to group.
+
+<p class='img'>
+<img src='/images/blog/2016-01-release-12/views.png'>
+Example of groups shown as views in the frontend.
+</p>
 
 If all entities are switches or lights they can be controlled as one with a switch at the top of the card. Grouped states should share the same type of states (ON/OFF or HOME/NOT_HOME).
 
@@ -65,8 +54,5 @@ group:
     - light.bowl
     - light.ceiling
     - light.tv_back_light
-  children:
-    - device_tracker.child_1
-    - device_tracker.child_2
+  children: device_tracker.child_1, device_tracker.child_2
 ```
-

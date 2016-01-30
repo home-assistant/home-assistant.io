@@ -1,7 +1,7 @@
 ---
 layout: component
-title: "Nest thermostat sensor"
-description: "Instructions how to integrate Nest thermostats sensors within Home Assistant."
+title: "Nest binary sensor"
+description: "Instructions how to integrate Nest binary sensors within Home Assistant."
 date: 2016-01-26 08:00
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Binary Sensor
 ---
 
 
-The `nest` binary sensor platform let you monitor various states of a thermostat from [Nest](https://nest.com).
+The Nest binary sensor platform let you monitor various states of a thermostat from [Nest](https://nest.com).
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -35,5 +35,4 @@ Configuration variables:
 
 - **monitored_conditions** array (*Required*): States to monitor.
 
-You must have the [Nest Thermostat](https://home-assistant.io/components/thermostat.nest/) entity configured to use this sensor.
-
+<p class='note'>You must have the [Nest component](https://home-assistant.io/components/nest/) configured to use this sensor.</p>

@@ -161,22 +161,30 @@ automation:
 
 #### {% linkable_title Time trigger %}
 
-Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. For example, by only setting minutes in the config to 5 it will trigger every hour when it is 5 minutes past whole.  You cannot use `after` together with hour, minute or second.
+Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `after` together with hour, minute or second.
 
 ```yaml
 automation:
   trigger:
     platform: time
-    # All following are optional.
-    # When 'after' is used, you cannot also match on hour, minute, seconds.
-    # Military time format.
-    # after: '15:32:00'
-    hours: 0
+    # Matches every hour at 5 minutes past whole
     minutes: 5
     seconds: 0
-```
 
-The above example will trigger every hour on the 5 (2:05, 3:05, 4:05, etc).
+automation 2:
+  trigger:
+    platform: time
+    # When 'after' is used, you cannot also match on hour, minute, seconds.
+    # Military time format.
+    after: '15:32:00'
+
+automation 3:
+  trigger:
+    platform: time
+    # You can also match on interval. This will match every 5 minutes
+    minutes: '/5'
+    seconds: 0
+```
 
 #### {% linkable_title Zone trigger %}
 
