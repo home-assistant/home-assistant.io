@@ -93,7 +93,7 @@ Add something similar to the entry below to your `configuration.yaml` file:
 
 ### {% linkable_title Value for other Home Assistant instance %}
 
-The Home Assistant [API](developers/rest_api/) is exposing the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
+The Home Assistant [API](/developers/rest_api/) is exposing the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
 
 
 ```yaml
