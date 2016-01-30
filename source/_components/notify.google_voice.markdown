@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: google_voice.png
 ha_category: Notifications
-featured: true
 ---
 
 [Google Voice](https://www.google.com/voice) is a free service, that allows sending of SMS messages to mobile phones.

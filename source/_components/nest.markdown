@@ -9,16 +9,19 @@ sharing: true
 footer: true
 logo: nest_thermostat.png
 ha_category: Hub
-featured: false
+featured: true
 ---
 
-The Nest component is the main component to integrate all Nest related platforms. It will setup your thermostats and any connected sensors.
+The Nest component is the main component to integrate all Nest related platforms. Besides this component you will have to setup your thermostat and any connected sensors separately.
 
 ```yaml
 # Example configurayion.yaml entry
 nest:
   username: USERNAME
   password: PASSWORD
+
+thermostat:
+  platform: nest
 ```
 
 Configuration variables:

@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Command binary sensor"
+title: "Command line binary sensor"
 description: "Instructions how to integrate Command binary sensors within Home Assistant."
 date: 2016-01-13 12:15
 sidebar: true
