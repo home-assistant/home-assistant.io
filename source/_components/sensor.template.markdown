@@ -20,11 +20,11 @@ sensor:
   platform: template
   sensors:
     solar_angle:
-      value_template: '{{ states.sun.sun.attributes.elevation }}'
+      value_template: {% raw %}'{{ states.sun.sun.attributes.elevation }}'{% endraw %}
       friendly_name: 'Sun angle'
       unit_of_measurement: 'degrees'
     sunrise:
-      value_template: '{{ states.sun.sun.attributes.next_rising }}'
+      value_template: {% raw %}'{{ states.sun.sun.attributes.next_rising }}'{% endraw %}
 ```
 
 Configuration variables:
@@ -48,7 +48,7 @@ sensor:
   platform: template
   sensors:
       solar_angle:
-        value_template: '{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'
+        value_template: {% raw %}'{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'{% endraw %}
         friendly_name: 'Sun Angle'
         unit_of_measurement: '°'
 ```
