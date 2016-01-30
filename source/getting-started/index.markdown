@@ -28,7 +28,7 @@ $ hass --open-ui
 Running these commands will:
 
  - Install Home Assistant
- - Launch Home Assistant and serve web interface on [http://localhost:8123](http://localhost:8123)
+ - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
 
 </div> <!-- INSTALL-INSTRUCTIONS NORMAL -->
 
@@ -41,7 +41,7 @@ Installation with Docker is straightforward. Adjust the following command so tha
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host balloob/home-assistant
 ```
 
-This will launch Home Assistant and serve its web interface from port 8123 on your Docker host.
+This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.
 
 <p class='note'>
 When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace `-v /etc/localtime:/etc/localtime:ro` with `-e "TZ=America/Los_Angeles"` (replacing America/Los_Angeles with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones))
@@ -64,7 +64,7 @@ $ hass
 Running these commands will:
 
  - Install Home Assistant
- - Launch Home Assistant and serve web interface on [http://localhost:8123](http://localhost:8123)
+ - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
 
 </div> <!-- INSTALL-INSTRUCTIONS RASPBERRY -->
 </div>

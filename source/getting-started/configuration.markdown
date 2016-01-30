@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant will create a configuration folder when it is run for the first time. The location of the folder depends on operating system: on OS X/Linux it's `~/.homeassistant` and on Windows it's `%APPDATA%/.homeassistant`. If you want to use a different folder for configuration, run `hass --config path/to/config`.
+Home Assistant will create a configuration folder when it is run for the first time. The location of the folder differs between operating systems: on OS X/Linux it's `~/.homeassistant` and on Windows it's `%APPDATA%/.homeassistant`. If you want to use a different folder for configuration, run `hass --config path/to/config`.
 
 Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains which components will be loaded and what their configuration is. An example configuration file is located [here](https://github.com/balloob/home-assistant/blob/master/config/configuration.yaml.example).
 
@@ -53,6 +53,10 @@ http:
   api_password: YOUR_PASSWORD
 ```
 
+_See the [HTTP component documentation][http] for more options like HTTPS encryption._
+
+[http]: /components/http/
+
 ### {% linkable_title Setting up your phone or tablet %}
 
 Home Assistant runs as a self hosted web application and contains support to be added to your homescreen. If you're on Android you can follow [the visual guide]({{site_root}}/getting-started/android/). For other devices, open Home Assistant on your mobile browser and tap on the add to homescreen option.
@@ -61,6 +65,6 @@ Home Assistant runs as a self hosted web application and contains support to be 
 
 To make Home Assistant accessible while away from home, you will have to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching `<Router model> port forwarding instructions`.
 
-Some internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while being remote. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).
+Some internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while away. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).
 
 ### [Next step: Setting up devices &raquo;](/getting-started/devices/)

@@ -23,6 +23,8 @@ switch:
     kitchen_light:
       oncmd: switch_command on kitchen
       offcmd: switch_command off kitchen
+      statecmd: query_command kitchen
+      value_template: '{% raw %}{{ value == "online" }}{% endraw %}'
 ```
 
 Configuration variables:
@@ -31,6 +33,8 @@ Configuration variables:
   - **entry** (*Required*): Name of the command switch. Multiple entries are possible.
     - **oncmd** (*Required*): The action to take for on.
     - **offcmd** (*Required*): The action to take for off.
+    - **statecmd** (*Optional*): If given, this command will be run. Returning a result code `0` will indicate that the switch is on.
+    - **value_template** (*Optional*): If specified, statecmd will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on.
 
 ## {% linkable_title Examples %}
 

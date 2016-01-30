@@ -21,7 +21,7 @@ Actions will call services within Home Assistant. For example, turn a light on, 
 
 Conditions are used to prevent actions from firing unless certain conditions are met. For example, it is possible to only turn on the light if someone comes home and it is after a certain point in time.
 
-The difference between a condition and a trigger can be confusing. The difference is that the trigger looks at the event that is happening, ie a car engine turning on. Conditions looks at the current state of the system, ie is the car engine on.
+The difference between a condition and a trigger can be confusing. The difference is that the trigger looks at the event that is happening, i.e. a car engine turning on. Conditions looks at the current state of the system, i.e. is the car engine on.
 
 ### {% linkable_title Exploring the internal state %}
 
@@ -76,7 +76,7 @@ Now you're happy and all is good. You start to like this automation business and
 
 The first thing you do is to look at the entities in the developer tools (second icon) in the app. You see the names of your lights and you write them down: `light.table_lamp`, `light.bedroom`, `light.ceiling`.
 
-Instead of hard coding the entity ids of the lights in the automation rule, we will set up a group. This will allow us to see the living room separate in the app and be able to address it from automation rules.
+Instead of hard coding the entity IDs of the lights in the automation rule, we will set up a group. This will allow us to see the living room separate in the app and be able to address it from automation rules.
 
 So we tweak the config to add the group and have the automation rule only turn on the group.
 
@@ -102,9 +102,9 @@ automation:
     entity_id: group.living_room
 ```
 
-Christmas is coming along and you decide to buy a remote switch to control the christmas lights from Home Assistant. You can't claim to live in the house of the future if you're still manually turn on your christmas lights!
+Christmas is coming along and you decide to buy a remote switch to control the Christmas lights from Home Assistant. You can't claim to live in the house of the future if you're still manually turning on your Christmas lights!
 
-We hook the switch up to Home Assistant and grab the entity id from the developer tools: `switch.christmas_lights`. We will update the group to include the switch and will change our action. We are no longer able to call `light.turn_on` because we also want to turn on a switch. This is where `homeassistant.turn_on` comes to the rescue. This service is capable of turning any entity on.
+We hook the switch up to Home Assistant and grab the entity ID0 from the developer tools: `switch.christmas_lights`. We will update the group to include the switch and will change our action. We are no longer able to call `light.turn_on` because we also want to turn on a switch. This is where `homeassistant.turn_on` comes to the rescue. This service is capable of turning any entity on.
 
 ```yaml
 # Example configuration.yaml entry
@@ -131,7 +131,7 @@ automation:
 
 ### {% linkable_title Further reading %}
 
-We went over the basics of creating a home automation rule. From here no longer any hand holding, go automate!
+We went over the basics of creating a home automation rule. Now, go automate!
 
  - Learn about the available [automation triggers](/components/automation/#triggers)
  - Learn about the available [automation conditions](/components/automation/#conditions)

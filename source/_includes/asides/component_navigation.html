@@ -1,5 +1,7 @@
 {% assign components = site.components | sort: 'title' %}
 <section class="aside-module grid__item one-whole lap-one-half">
+  {% include edit_github.html %}
+
   <div class='brand-logo-container section'>
     {% if page.logo %}
       <img src='/images/supported_brands/{{ page.logo }}' />

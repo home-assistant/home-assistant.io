@@ -46,9 +46,10 @@ sensor:
     state_topic: sensor2/topic
 ```
 
-Indentation is used to specify which objects are nested under one anohter. Getting the right indentation can be tricky if you're not using an editor with a fixed width font. You can test your configuration using [online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
+Indentation is used to specify which objects are nested under one anohter. Getting the right indentation can be tricky if you're not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. You can test your configuration using [online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
 
-To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack.
+ - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack.
+ - You can test your configuration using [this online YAML parser](http://yaml-online-parser.appspot.com/).
 
 ### {% linkable_title My component does not show up %}
 
