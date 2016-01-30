@@ -29,13 +29,14 @@ script:
           domain: light
       - alias: Bedroom lights on
         service: light.turn_on
-        service_data:
+        data:
           entity_id: group.bedroom
+          brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours, etc.
           minutes: 1
       - alias: Living room lights on
         service: light.turn_on
-        service_data:
+        data:
           entity_id: group.living_room
 ```
