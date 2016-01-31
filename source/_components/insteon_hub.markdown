@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Insteon"
+title: "Insteon Hub"
 description: "Instructions how to setup the Insteon Hub within Home Assistant."
 date: 2016-01-27 08:00
 sidebar: true
@@ -11,18 +11,22 @@ logo: insteon.png
 ha_category: Hub
 ---
 
-The `insteon` component let you use your [Insteon](http://www.insteon.com/) Hub with Home Assistant.
+The `insteon` component lets you use your [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
 
-To integrate your Insteon hub with Home Assistant, add the following section to your `configuration.yaml` file:
+You will need to obtain an Insteon REST API key from the [Insteon Developer program](http://www.insteon.com/become-an-insteon-developer) to use this component.
+
+To integrate your Insteon Hub with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 insteon:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
+  api_key: YOUR_API_KEY
 ```
 
 Configuration variables:
 
-- **username** (*Required*): The username that used to access the Insteon interface.
-- **password** (*Required*): The password that used to access the Insteon interface.
+- **username** (*Required*): The username used to access the Insteon interface (e.g. the [connect.insteon.com](connect.insteon.com) site).
+- **password** (*Required*): The password used to access the Insteon interface.
+- **api_key** (*Required*): The Insteon REST API key emailed to you once you are approved in the Insteon Developer program.
