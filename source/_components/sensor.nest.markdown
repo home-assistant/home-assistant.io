@@ -20,15 +20,15 @@ To set it up, add the following information to your `configuration.yaml` file:
 sensor:
   platform: nest
   monitored_conditions:
-    - 'temperature',
-    - 'target',
-    - 'away_temperature[0]',
+    - 'temperature'
+    - 'target'
+    - 'away_temperature[0]'
     - 'away_temperature[1]'
-    - 'humidity',
-    - 'mode',
-    - 'last_ip',
-    - 'local_ip',
-    - 'last_connection',
+    - 'humidity'
+    - 'mode'
+    - 'last_ip'
+    - 'local_ip'
+    - 'last_connection'
     - 'battery_level'
 ```
 
