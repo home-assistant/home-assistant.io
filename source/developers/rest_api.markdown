@@ -226,6 +226,13 @@ Retrieve all errors logged during the current session of Home Assistant as a pla
 15-12-20 11:04:36 homeassistant.components.alexa: Received unknown intent HelpIntent
 ```
 
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       http://localhost:8123/api/error_log
+```
+
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
 Updates or creates the current state of an entity.
 
