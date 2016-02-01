@@ -19,6 +19,10 @@ The MQTT notification support is different than the other [notification](/compon
 {"payload": "Test message from HA", "topic": "home/notification", "qos": 0, "retain": 0}
 ```
 
+<p class='img'>
+<img src='/images/screenshots/mqtt-notify.png' />
+</p>
+
 Using the [REST API](/developers/rest_api/#post-apiservicesltdomainltservice) to send a message to a given topic.
 
 ```bash
