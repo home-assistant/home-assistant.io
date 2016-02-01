@@ -11,8 +11,8 @@ footer: true
 
 Home Assistant runs a web server accessible on port 8123.
 
-  * http://localhost:8123/ is an interface to control Home Assistant.
-  * http://localhost:8123/api/ is a Rest API.
+  * http://IP_ADDRESS:8123/ is an interface to control Home Assistant.
+  * http://IP_ADDRESS:8123/api/ is a Rest API.
 
 The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml` file).
 
@@ -21,7 +21,7 @@ There are multiple ways to consume the Home Assistant Rest API. One is with `cur
 ```bash
 curl -X GET \
     -H "x-ha-access: YOUR_PASSWORD" \
-    http://localhost:8123/ENDPOINT
+    http://IP_ADDRESS:8123/ENDPOINT
 ```
 
 Another option is to use Python and the [Requests](http://docs.python-requests.org/en/latest/) module. 
@@ -64,7 +64,7 @@ Returns message if API is up and running.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/
 ```
 
 #### {% linkable_title GET /api/config %}
@@ -96,7 +96,7 @@ Returns the current configuration as JSON.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/config
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/config
 ```
 
 #### {% linkable_title GET /api/bootstrap %}
@@ -114,7 +114,7 @@ Returns all data needed to bootstrap Home Assistant.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/bootstrap
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/bootstrap
 ```
 
 #### {% linkable_title GET /api/events %}
@@ -136,7 +136,7 @@ Returns an array of event objects. Each event object contain event name and list
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/events
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/events
 ```
 
 #### {% linkable_title GET /api/services %}
@@ -163,7 +163,7 @@ Returns an array of service objects. Each object contains the domain and which s
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/services
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/services
 ```
 
 #### {% linkable_title GET /api/states %}
@@ -192,7 +192,7 @@ Returns an array of state objects. Each state has the following attributes: enti
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://IP_ADDRESS:8123/api/states
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/states
 ```
 
 #### {% linkable_title GET /api/states/&lt;entity_id> %}
@@ -214,7 +214,7 @@ Sample `curl` command:
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
-        http://IP_ADDRESS:8123/api/states/sensor.kitchen_temperature
+        http://localhost:8123/api/states/sensor.kitchen_temperature
 ```
 
 #### {% linkable_title GET /api/error_log %}
