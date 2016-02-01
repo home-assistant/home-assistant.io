@@ -19,20 +19,22 @@ Home Assistant is open-source and MIT licensed. The source can be found here:
 
 ### {% linkable_title Starting development %}
 
-You will need to setup a development environment if you want to start developing a new feature or component for Home Assistant perform theses steps
+You will need to setup a development environment if you want to start developing a new feature or component for Home Assistant perform theses steps. Visit the [the Home Assistant repository](https://github.com/balloob/home-assistant) and click fork in the top right.
 
 ```bash
-$ git clone https://github.com/balloob/home-assistant.git
+$ git clone https://github.com/your_github_username/home-assistant.git
+$ git remote add upstream git@github.com:balloob/home-assistant.git
 $ cd home-assistant
 $ script/setup
 ```
+
+we suggest that you setup a [virtual environment](https://docs.python.org/3.4/library/venv.html) aka `venv` before running the setup script.
 
 After following these steps, running `hass` will invoke your local installation.
 
 ### {% linkable_title Submitting improvements %}
 
-Improvements to Home Assistant should be submitted one feature at a time using Github pull
-requests.
+Improvements to Home Assistant should be submitted one feature at a time using Github pull requests.
 
  1. Go to [the Home Assistant repository](https://github.com/balloob/home-assistant) and click fork in the top right.
  2. Follow steps in the previous section but with your forked repository.
