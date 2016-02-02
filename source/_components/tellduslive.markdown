@@ -14,7 +14,7 @@ featured: false
 
 The `tellduslive` component let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick connected gear at home.
 
-To get started using Telldus Live, you will have to obtain developer keys from [https://api.telldus.com/keys/index](developer keys).
+To get started using Telldus Live, you will have to obtain developer keys from the [developer page](https://api.telldus.com/keys/index).
 
 To integrate your Telldus Live with Home Assistant, add the following section to your `configuration.yaml` file:
 
