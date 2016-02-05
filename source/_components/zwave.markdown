@@ -33,15 +33,40 @@ $ pip3 install "cython<0.23"
 zwave:
   usb_path: /dev/ttyUSB0
   config_path: /usr/local/share/python-openzwave/config
+  polling_interval: 10000
+  customize:
+    sensor.greenwave_powernode_6_port_energy_10:
+        polling_intensity: 1
 ```
 
 Configuration variables:
 
 - **usb_path** (*Required*): The port where your device is connected to your Home Assistant host.
 - **config_path** (*Optional*): The path to the Python Open Z-Wave configuration files.
+- **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value.
+- **customize** (*Optional*): This attribute contains node-specific override values:
+  - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc)
 
 To find the path of your Z-Wave stick, run:
 
 ```bash
 $ ls /dev/ttyUSB*
 ```
+
+#### Events
+
+Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):
+
+```yaml
+# Example configuration.yaml automation entry
+automation:
+  - alias: Turn on Desk light
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data: 
+        entity_id: zwaveme_zme_wallcs_secure_wall_controller_8
+        scene_id: 11
+```
+
+The *entity_id* and *scene_id* of all triggered events can be seen in the console output.
