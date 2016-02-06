@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "BloomSky"
+title: "BloomSky Camera"
 description: "Instructions how to integrate the BloomSky camera within Home Assistant."
 date: 2016-02-03 20:00
 sidebar: true

@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "BloomSky"
+title: "BloomSky Sensor"
 description: "Instructions how to integrate the BloomSky sensors within Home Assistant."
 date: 2016-02-03 20:00
 sidebar: true
@@ -32,8 +32,7 @@ sensor:
 
 Configuration variables:
 
-- **api_key** *Required*: Your BloomSky API key, obtained from your [BloomSky dashboard](https://dashboard.bloomsky.com) (click `developers` in the bottom left of the screen)
-- **monitored_conditions** *Required*: The sensors that you wish to monitor on all of your devices. Select from these options:
+- **monitored_conditions** array *Required*: The sensors that you wish to monitor on all of your devices. Select from these options:
   - Humidity
   - Luminance
   - Night
