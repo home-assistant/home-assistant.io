@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Rest API"
-description: "Home Assistant Rest API documentation"
+title: "RESTful API"
+description: "Home Assistant RESTful API documentation"
 date: 2014-12-21 13:27
 sidebar: false
 comments: false
@@ -14,7 +14,7 @@ Home Assistant runs a web server accessible on port 8123.
   * http://IP_ADDRESS:8123/ is an interface to control Home Assistant.
   * http://IP_ADDRESS:8123/api/ is a Rest API.
 
-The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml` file).
+The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml` file in the [`http:` section](/components/http/)).
 
 There are multiple ways to consume the Home Assistant Rest API. One is with `curl`:
 
