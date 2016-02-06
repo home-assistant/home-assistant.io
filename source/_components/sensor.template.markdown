@@ -41,7 +41,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title Sun angle %}
 
-This example shows the sun angle in the frontend. 
+This example shows the sun angle in the frontend.
 
 ```yaml
 sensor:
@@ -53,5 +53,27 @@ sensor:
         unit_of_measurement: '°'
 ```
 
+### {% linkable_title Multi line example with an if test  %}
+
+This example shows a multiple line template with and is test. It looks at a sensing switch and shows on/off in the frontend.
+
+```yaml
+sensor:
+  platform: template
+  sensors:
+      kettle:
+        friendly_name: 'Kettle'
+        {% raw %}value_template: >-
+            {%- if is_state("switch.kettle", "standby") or
+                   is_state("switch.kettle", "off") %}
+                off
+            {% elif is_state("switch.kettle", "on") %}
+                on
+            {% else %}
+                failed
+            {%- endif %}{% endraw %}
+
+```
+(please note the blank line to close the multi-line template)
 
 
