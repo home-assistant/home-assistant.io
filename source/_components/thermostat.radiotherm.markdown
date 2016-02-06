@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Radiotherm thermostat"
+title: "Radiotherm Thermostat"
 description: "Instructions how to integrate Radiotherm thermostats within Home Assistant."
 date: 2015-10-18 17:15
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Thermostat
 ---
 
 
-The nest thermostat platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
+The `radiotherm` thermostat platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
 
 The underlaying library supports:
 - CT50 V1.09

@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Ecobee sensor"
+title: "Ecobee Sensor"
 description: "Instructions how to setup the Ecobee sensors within Home Assistant."
 date: 2015-11-30 18:00
 sidebar: true

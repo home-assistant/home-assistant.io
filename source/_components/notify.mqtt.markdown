@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "MQTT notifications"
+title: "MQTT Notifications"
 description: "Instructions how to add MQTT notifications to Home Assistant."
 date: 2016-02-01 08:00
 sidebar: true

@@ -11,7 +11,7 @@ ha_category: Sensor
 ---
 
 
-The time and date platform simple displays the time in various formats, the date, or both.
+The time and date (`time_date`) platform simple displays the time in various formats, the date, or both.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 

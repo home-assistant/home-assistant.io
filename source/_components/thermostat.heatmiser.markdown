@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Heatmiser thermostat"
+title: "Heatmiser Thermostat"
 description: "Instructions how to integrate Heatmiser thermostats within Home Assistant."
 date: 2015-12-11 12:35
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Thermostat
 ---
 
 
-The heatmiser thermostat platform let you control [Heatmiser DT/DT-E/PRT/PRT-E](http://www.heatmisershop.co.uk/heatmiser-slimline-programmable-room-thermostat/) thermostats from Heatmiser.  The module itself is currently setup to work over a RS232 -> RS485 converter, therefore it connects over IP.
+The `heatmiser` thermostat platform let you control [Heatmiser DT/DT-E/PRT/PRT-E](http://www.heatmisershop.co.uk/heatmiser-slimline-programmable-room-thermostat/) thermostats from Heatmiser.  The module itself is currently setup to work over a RS232 -> RS485 converter, therefore it connects over IP.
 
 To set it up, add the following information to your `configuration.yaml` file:
 

@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Vera switch"
+title: "Vera Switch"
 description: "Instructions how to integrate Vera switches into Home Assistant."
 date: 2015-10-20 21:00
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Switch
 ---
 
 
-This vera switch platform allows you to control your [Vera](http://getvera.com/) switches.
+This `vera` switch platform allows you to control your [Vera](http://getvera.com/) switches.
 
 To use your Vera switches in your installation, add the following to your `configuration.yaml` file:
 

@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Template sensor"
+title: "Template Sensor"
 description: "Instructions how to integrate Template sensors into Home Assistant."
 date: 2016-01-27 07:00
 sidebar: true

@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "TellStick light"
+title: "TellStick Light"
 description: "Instructions how to integrate TellStick lights into Home Assistant."
 date: 2015-08-06 19:00
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Light
 ---
 
 
-This tellstick light platform allows you to control your [TellStick](http://www.telldus.se/products/tellstick) dimmers.
+This `tellstick` light platform allows you to control your [TellStick](http://www.telldus.se/products/tellstick) dimmers.
 
 To use your TellStick device in your installation, add the following to your `configuration.yaml` file:
 

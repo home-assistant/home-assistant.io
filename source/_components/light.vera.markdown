@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Vera light"
+title: "Vera Light"
 description: "Instructions how to integrate Vera lights into Home Assistant."
 date: 2015-10-20 21:00
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Light
 ---
 
 
-This vera light platform allows you to control your [Vera](http://getvera.com/) lights.
+This `vera` light platform allows you to control your [Vera](http://getvera.com/) lights.
 
 This platform is useful if you wish for switches connected to your Vera controller to appear as lights in Home Assistant. All switches will be added as a light unless you exclude them in the configuration file.
 

@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Proliphix thermostat"
+title: "Proliphix Thermostat"
 description: "Instructions how to integrate Proliphix thermostats within Home Assistant."
 date: 2016-01-15 08:00
 sidebar: true

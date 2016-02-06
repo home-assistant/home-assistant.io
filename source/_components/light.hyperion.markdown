@@ -1,6 +1,6 @@
 ---
 layout: component
-title: Hyperion
+title: "Hyperion"
 description: "Instructions how to integrate Hyperion into Home Assistant."
 date: 2015-10-25 22:43
 sidebar: true

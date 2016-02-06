@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "RESTful sensor"
+title: "RESTful Sensor"
 description: "Instructions how to integrate REST sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true

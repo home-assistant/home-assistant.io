@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "myStrom switch"
+title: "myStrom Switch"
 description: "Instructions how to integrate myStrom switches into Home Assistant."
 date: 2015-11-25 22:00
 sidebar: true
