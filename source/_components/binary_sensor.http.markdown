@@ -11,18 +11,17 @@ logo: http.png
 ha_category: Binary Sensor
 ---
 
-
-The `http` binary sensor platform is not a real platform within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) is consuming and proceeding messages recieved over HTTP. 
-
-To use those kind of sensors in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themself. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
-
-All [requests](/developers/rest_api/#post-apistatesltentity_id) needs to be sent to the endpoint of the device and must be **POST**. The URL looks like the example below:
+The URL for a binary sensor looks like the example below:
 
 ```bash
 http://IP_ADDRESS:8123/api/states/binary_sensor.DEVICE_NAME
 ```
 
-It's suggested that you choose an unique device name to avoid clashes with other devices. The JSON payload must contain the new state and can have a friendly name. The friendly name is used in the frontend to name the sensor.
+<p class='note'>
+It's suggested that you choose an unique device name (DEVICE_NAME) to avoid clashes with other devices.
+</p>
+
+The JSON payload must contain the new state and can have a friendly name. The friendly name is used in the frontend to name the sensor.
 
 ```json
 {"state": "on", "attributes": {"friendly_name": "Radio"}}
