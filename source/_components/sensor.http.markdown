@@ -18,7 +18,7 @@ http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
 ```
 
 <p class='note'>
-It's suggested that you choose an unique device name (DEVICE_NAME) to avoid clashes with other devices.
+You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
 </p>
 
  The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.
