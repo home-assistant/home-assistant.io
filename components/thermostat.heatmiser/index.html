@@ -54,7 +54,7 @@
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
   <li>
-    <a href="/getting-started/">Getting started</a>
+    <a>Getting started <i class="icon icon-caret-down"></i></a>
     <ul>
       <li><a href='/getting-started/'>Installing Home Assistant</a></li>
       <li><a href='/getting-started/configuration/'>Configuration basics</a></li>
@@ -62,12 +62,12 @@
       <li><a href='/getting-started/presence-detection/'>Presence detection</a></li>
       <li><a href='/getting-started/automation/'>Automation</a></li>
       <li><a href='/getting-started/templating/'>Templating</a></li>
-      <li><a href='/cookbook'>Configuration cookbook</a></li>
     </ul>
   </li>
   <li><a href='/components/'>Components</a></li>
+  <li><a href='/cookbook'>Examples</a></li>
   <li>
-    <a href="/developers/">Developers</a>
+    <a>Developers <i class="icon icon-caret-down"></i></a>
     <ul>
       <li><a href="/developers/architecture/">Architecture</a></li>
       <li><a href="/developers/frontend/">Frontend development</a></li>
@@ -100,12 +100,17 @@
         
 
           <article class="page">
+  
+  
+
+  
   <header>
     <h1 class="title indent">
       Heatmiser Thermostat
     </h1>
   </header>
   <hr class="divider">
+  
 
   <p>The <code>heatmiser</code> thermostat platform let you control <a href="http://www.heatmisershop.co.uk/heatmiser-slimline-programmable-room-thermostat/">Heatmiser DT/DT-E/PRT/PRT-E</a> thermostats from Heatmiser.  The module itself is currently setup to work over a RS232 -&gt; RS485 converter, therefore it connects over IP.</p>
 
@@ -135,6 +140,7 @@
   <li><strong>id</strong> (<em>Required</em>): The id of the thermostat as configured on the device itself</li>
   <li><strong>name</strong> (<em>Required</em>): A friendly name for the themostat</li>
 </ul>
+
 
 </article>
 

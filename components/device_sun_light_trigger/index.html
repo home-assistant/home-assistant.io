@@ -54,7 +54,7 @@
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
   <li>
-    <a href="/getting-started/">Getting started</a>
+    <a>Getting started <i class="icon icon-caret-down"></i></a>
     <ul>
       <li><a href='/getting-started/'>Installing Home Assistant</a></li>
       <li><a href='/getting-started/configuration/'>Configuration basics</a></li>
@@ -62,12 +62,12 @@
       <li><a href='/getting-started/presence-detection/'>Presence detection</a></li>
       <li><a href='/getting-started/automation/'>Automation</a></li>
       <li><a href='/getting-started/templating/'>Templating</a></li>
-      <li><a href='/cookbook'>Configuration cookbook</a></li>
     </ul>
   </li>
   <li><a href='/components/'>Components</a></li>
+  <li><a href='/cookbook'>Examples</a></li>
   <li>
-    <a href="/developers/">Developers</a>
+    <a>Developers <i class="icon icon-caret-down"></i></a>
     <ul>
       <li><a href="/developers/architecture/">Architecture</a></li>
       <li><a href="/developers/frontend/">Frontend development</a></li>
@@ -100,12 +100,17 @@
         
 
           <article class="page">
+  
+  
+
+  
   <header>
     <h1 class="title indent">
-      Presence based lights
+      Presence Based Lights
     </h1>
   </header>
   <hr class="divider">
+  
 
   <p>Home Assistant has a built-in component called <code>device_sun_light_trigger</code> to help you automate your lights. The component will:</p>
 
@@ -138,6 +143,7 @@
   <li><strong>device_group</strong> (<em>Optional</em>): Specify which group of devices to track.</li>
   <li><strong>disable_turn_off</strong> (<em>Optional</em>): Disable lights being turned off when everybody leaves the house.</li>
 </ul>
+
 
 
 </article>

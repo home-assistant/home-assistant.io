@@ -54,7 +54,7 @@
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
   <li>
-    <a href="/getting-started/">Getting started</a>
+    <a>Getting started <i class="icon icon-caret-down"></i></a>
     <ul>
       <li><a href='/getting-started/'>Installing Home Assistant</a></li>
       <li><a href='/getting-started/configuration/'>Configuration basics</a></li>
@@ -62,12 +62,12 @@
       <li><a href='/getting-started/presence-detection/'>Presence detection</a></li>
       <li><a href='/getting-started/automation/'>Automation</a></li>
       <li><a href='/getting-started/templating/'>Templating</a></li>
-      <li><a href='/cookbook'>Configuration cookbook</a></li>
     </ul>
   </li>
   <li><a href='/components/'>Components</a></li>
+  <li><a href='/cookbook'>Examples</a></li>
   <li>
-    <a href="/developers/">Developers</a>
+    <a>Developers <i class="icon icon-caret-down"></i></a>
     <ul>
       <li><a href="/developers/architecture/">Architecture</a></li>
       <li><a href="/developers/frontend/">Frontend development</a></li>
@@ -100,12 +100,17 @@
         
 
           <article class="page">
+  
+  
+
+  
   <header>
     <h1 class="title indent">
       MQTT Alarm Control Panel
     </h1>
   </header>
   <hr class="divider">
+  
 
   <p>The <code>mqtt</code> alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from <code>state_topic</code>. If these messages are published with <em>RETAIN</em> flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be <code>unknown</code>.</p>
 
@@ -151,6 +156,7 @@
   <li><strong>payload_arm_away</strong> (<em>Optional</em>): The payload to set armed-away mode on your Alarm Panel. Default is “ARM_AWAY”.</li>
   <li><strong>code</strong> (<em>Optional</em>): If defined, specifies a code to enable or disable the alarm in the frontend.</li>
 </ul>
+
 
 
 </article>
