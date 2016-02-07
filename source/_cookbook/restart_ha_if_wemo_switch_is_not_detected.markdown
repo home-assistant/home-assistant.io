@@ -3,10 +3,11 @@ layout: page
 title: "Restart Home Assistant if Wemo Switch is not detected"
 description: "Restart Home Assistant if Wemo Switch is not detected."
 date: 2016-01-29 08:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation Examples
 ---
 
 ### {% linkable_title Restart Home Assistant %}

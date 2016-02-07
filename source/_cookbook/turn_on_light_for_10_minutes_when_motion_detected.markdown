@@ -3,10 +3,11 @@ layout: page
 title: "Motion detected light"
 description: "Turn on lights for 10 minutes when motion detected."
 date: 2015-10-08 19:05
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation Examples
 ---
 
 #### {% linkable_title Turn on lights with a resettable off timer %}
