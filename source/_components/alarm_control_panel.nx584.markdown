@@ -10,7 +10,7 @@ footer: true
 ha_category: Alarm
 ---
 
-The `nx584` platform is consuming the information provided by a [Alarm.com](https://www.alarm.com/).
+The `nx584` platform is consuming the information provided by a NetworX-based alarm panels and should work for any such panel equipped with a NX584 serial interface module like Caddx, GE, or Interlogix. This includes NX-4/6/8/8E, where the NX8E has this interface built-in.
 
 To enable this, add the following lines to your `configuration.yaml`:
 
