@@ -13,7 +13,7 @@ featured: true
 ---
 
 
-The sonos platform allows you to control your [Sonos](http://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant.
+The `sonos` platform allows you to control your [Sonos](http://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant.
 
 To add your Sonos components to your installation, add the following to your `configuration.yaml` file.  It will perform auto-discovery of your connected speakers.
 

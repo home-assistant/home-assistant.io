@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "RESTful binary sensor"
+title: "RESTful Binary Sensor"
 description: "Instructions how to integrate REST binary sensors into Home Assistant."
 date: 2015-12-17 19:10
 sidebar: true

@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Vera sensor"
+title: "Vera Sensor"
 description: "Instructions how to integrate Vera sensors into Home Assistant."
 date: 2015-10-20 21:00
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-This vera sensor platform allows you to get data from your [Vera](http://getvera.com/) sensors.
+This `vera` sensor platform allows you to get data from your [Vera](http://getvera.com/) sensors.
 
 To use your Vera sensor in your installation, add the following to your `configuration.yaml` file:
 

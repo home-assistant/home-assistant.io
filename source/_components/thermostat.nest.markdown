@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "Nest thermostat"
+title: "Nest Thermostat"
 description: "Instructions how to integrate Nest thermostats within Home Assistant."
 date: 2015-03-23 19:59
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Thermostat
 ---
 
 
-The Nest thermostat platform let you control a thermostat from [Nest](https://nest.com).
+The `nest` thermostat platform let you control a thermostat from [Nest](https://nest.com).
 
 To set it up, add the following information to your `configuration.yaml` file:
 

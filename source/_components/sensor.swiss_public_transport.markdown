@@ -11,7 +11,7 @@ ha_category: Sensor
 ---
 
 
-The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland.
+The `swiss_public_transport` sensor will give you the next two departure times from a given location to another one in Switzerland.
 
 The [Stationboard](http://transport.opendata.ch/examples/stationboard.html) website can help to determine the exact name of the start and the end station. With the station names it's necessary to search for the ID of those stations:
 

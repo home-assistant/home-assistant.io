@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "MQTT light"
+title: "MQTT Light"
 description: "Instructions how to setup MQTT lights within Home Assistant."
 date: 2015-11-13 08:30
 sidebar: true

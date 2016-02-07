@@ -13,7 +13,7 @@ featured: true
 ---
 
 
-The kodi platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
+The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
 
 To add Kodi to your installation, add the following to your `configuration.yaml` file:
 

@@ -11,7 +11,7 @@ ha_category: Notifications
 ---
 
 
-The file platform allows you to store notifications from Home Assistant as a file.
+The `file` platform allows you to store notifications from Home Assistant as a file.
 
 To enable file notifications in your installation, add the following to your `configuration.yaml` file:
 

@@ -11,7 +11,7 @@ ha_category: Sensor
 ---
 
 
-The cpuspeed sensor platform to allow you to monitor the current CPU speed.
+The `cpuspeed` sensor platform to allow you to monitor the current CPU speed.
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 

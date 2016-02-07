@@ -12,7 +12,7 @@ ha_category: Notifications
 ---
 
 
-The slack platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
+The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
 You need to obtain the [Slack API token](https://api.slack.com/web?sudo=1) to be able to send notifications.
 

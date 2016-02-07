@@ -12,7 +12,7 @@ ha_category: Notifications
 ---
 
 
-The xmpp platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](http://xmpp.org) account.
+The `xmpp` platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](http://xmpp.org) account.
 
 ```yaml
 # Example configuration.yaml entry

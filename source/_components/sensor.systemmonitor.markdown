@@ -10,7 +10,7 @@ footer: true
 ha_category: Sensor
 ---
 
-The system monitoring sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
+The `systemmonitor` sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 

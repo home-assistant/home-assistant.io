@@ -12,7 +12,7 @@ ha_category: Weather
 ---
 
 
-The openweathermap platform uses [OpenWeatherMap](http://openweathermap.org/) as an source for current meteorological data for your location. The `forecast` will show you the condition in 3 h. 
+The `openweathermap` platform uses [OpenWeatherMap](http://openweathermap.org/) as an source for current meteorological data for your location. The `forecast` will show you the condition in 3 h. 
 
 You need an API key which is free but requires a [registration](http://home.openweathermap.org/users/sign_up).
 

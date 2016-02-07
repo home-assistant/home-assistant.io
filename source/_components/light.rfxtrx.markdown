@@ -1,6 +1,6 @@
 ---
 layout: component
-title: "RFXtrx light"
+title: "RFXtrx Light"
 description: "Instructions how to integrate RFXtrx lights into Home Assistant."
 date: 2015-10-08 10:15
 sidebar: true
@@ -9,7 +9,8 @@ sharing: true
 footer: true
 ha_category: Light
 ---
-The rfxtrx platform support lights that communicate in the frequency range of 433.92 MHz.
+
+The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.
 
 To enable RFXtrx lights in your installation, add the following to your `configuration.yaml` file:
 

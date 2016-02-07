@@ -89,3 +89,4 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
 
 ### Backwards incompatible changes
  - Nest config has moved from thermostat to the [Nest component][Nest].
+ - Entity IDs for Z-Wave devices are now generated in a deterministic way causing all IDs to change starting this release. This is a one time change.

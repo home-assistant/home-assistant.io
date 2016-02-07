@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The sabnzbd platform will allow you to monitor your downloads with [SABnzbd](http://sabnzbd.org) from within Home Assistant and setup automation based on the information.
+The `sabnzbd` platform will allow you to monitor your downloads with [SABnzbd](http://sabnzbd.org) from within Home Assistant and setup automation based on the information.
 
 To use sabnzbd with your installation, add the following to your `configuration.yaml` file:
 
