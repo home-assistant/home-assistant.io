@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "mFi Switch"
 description: "Instructions how to integrate mFi switches within Home Assistant."
 date: 2016-02-07 10:00

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Template switch"
 description: "Instructions how to integrate Template switches into Home Assistant."
 date: 2016-02-07 07:00

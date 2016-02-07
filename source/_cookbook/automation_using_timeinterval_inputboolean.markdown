@@ -1,12 +1,13 @@
 ---
 layout: page
-title: "Automation example using time interval and input boolean"
-description: "Automation example using time interval and input boolean."
-date: 2016-02-07 22:35
-sidebar: false
+title: "Using time interval and input boolean"
+description: "Automation to get a random color every 2 minutes that can be turned on/off."
+date: 2016-02-07 22:35 +0800
+sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation Examples
 ---
 
 #### {% linkable_title Change Hue light on interval to random color based on state of a input boolean  %}

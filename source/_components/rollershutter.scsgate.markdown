@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "SCSGate Rollershutter"
 description: "Instructions how to integrate SCSGate motorized devices into Home Assistant."
 date: 2016-01-31 22:16

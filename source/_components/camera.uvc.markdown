@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "UniFi Video Camera"
 description: "Instructions how to integrate UVC cameras within Home Assistant."
 date: 2016-02-07 10:00

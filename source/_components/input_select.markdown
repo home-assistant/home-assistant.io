@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Input Select"
 description: "Instructions how to integrate the Input Select component into Home Assistant."
 date: 2016-02-02 17:00

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Samsung TV"
 description: "Instructions how to integrate a Samsung TV in Home Assistant."
 date: 2016-02-01 19:00

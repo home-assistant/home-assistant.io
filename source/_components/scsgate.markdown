@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "SCSGate"
 description: "Instructions how to integrate SCSGate into Home Assistant."
 date: 2016-01-31 19:20

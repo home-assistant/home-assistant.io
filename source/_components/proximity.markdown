@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Proximity"
 description: "Instructions how to setup Proximity monitoring within Home Assistant."
 date: 2016-02-07 10:00
