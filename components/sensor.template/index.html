@@ -158,6 +158,32 @@
 </div>
 </div>
 
+<h3><a class="title-link" name="multi-line-example-with-an-if-test" href="#multi-line-example-with-an-if-test"></a> Multi line example with an if test</h3>
+
+<p>This example shows a multiple line template with and is test. It looks at a sensing switch and shows on/off in the frontend.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">sensor</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
+  <span class="key">sensors</span>:
+      <span class="key">kettle</span>:
+        <span class="key">friendly_name</span>: <span class="string"><span class="content">'Kettle'</span></span>
+        <span class="key">value_template</span>: <span class="string"><span class="delimiter">&gt;-</span><span class="content">
+            {%- if is_state(&quot;switch.kettle&quot;, &quot;off&quot;) %}
+                off
+            {%  elif states.switch.kettle.attributes.kwh &lt; 1000 %}
+                standby
+            {% elif is_state(&quot;switch.kettle&quot;, &quot;on&quot;) %}
+                on
+            {% else %}
+                failed
+            {%- endif %}</span></span>
+
+</pre></div>
+</div>
+</div>
+<p>(please note the blank line to close the multi-line template)</p>
+
 
 </article>
 
