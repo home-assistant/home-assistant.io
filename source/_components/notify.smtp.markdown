@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "SMTP"
 description: "Instructions how to add e-mail notifications to Home Assistant."
 date: 2015-06-03 18:00

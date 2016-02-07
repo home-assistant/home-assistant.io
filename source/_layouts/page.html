@@ -3,8 +3,10 @@ layout: default
 ---
 
 <article class="page">
-
-  {% include edit_github.html %}
+  {% assign url_parts = page.url | split: '/' %}
+  {% if url_parts[1] != 'components' and url_parts[1] != 'cookbook' %}
+    {% include edit_github.html %}
+  {% endif %}
 
   {% if page.title and page.show_title != false %}
   <header>

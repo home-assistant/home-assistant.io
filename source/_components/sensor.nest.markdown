@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Nest sensor"
+layout: page
+title: "Nest Sensor"
 description: "Instructions how to integrate Nest sensors within Home Assistant."
 date: 2016-01-13 19:59
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The Nest sensor platform let you monitor sensors connected to your [Nest](https://nest.com) thermostat.
+The `nest` sensor platform let you monitor sensors connected to your [Nest](https://nest.com) thermostat.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -20,20 +20,30 @@ To set it up, add the following information to your `configuration.yaml` file:
 sensor:
   platform: nest
   monitored_conditions:
-    - 'temperature',
-    - 'target',
-    - 'away_temperature[0]',
+    - 'temperature'
+    - 'target'
+    - 'away_temperature[0]'
     - 'away_temperature[1]'
-    - 'humidity',
-    - 'mode',
-    - 'last_ip',
-    - 'local_ip',
-    - 'last_connection',
+    - 'humidity'
+    - 'mode'
+    - 'last_ip'
+    - 'local_ip'
+    - 'last_connection'
     - 'battery_level'
 ```
 
 Configuration variables:
 
 - **monitored_conditions** array (*Required*): States to monitor.
+  - 'temperature'
+  - 'target'
+  - 'away_temperature[0]'
+  - 'away_temperature[1]'
+  - 'humidity'
+  - 'mode'
+  - 'last_ip'
+  - 'local_ip'
+  - 'last_connection'
+  - 'battery_level'
 
-<p class='note'>You must have the [Nest component](https://home-assistant.io/components/nest/) configured to use this sensor.</p>
+<p class='note'>You must have the [Nest component](/components/nest/) configured to use this sensor.</p>

@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "RFXtrx switch"
+layout: page
+title: "RFXtrx Switch"
 description: "Instructions how to integrate RFXtrx switches into Home Assistant."
 date: 2015-10-08 10:15
 sidebar: true
@@ -9,7 +9,8 @@ sharing: true
 footer: true
 ha_category: Switch
 ---
-The rfxtrx platform support switches that communicate in the frequency range of 433.92 MHz.
+
+The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
 
 To enable RFXtrx switches in your installation, add the following to your `configuration.yaml` file:
 

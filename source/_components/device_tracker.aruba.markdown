@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Aruba"
 description: "Instructions how to integrate Aruba routers into Home Assistant."
 date: 2015-08-31 08:45

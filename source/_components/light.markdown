@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Lights"
 description: "Instructions how to setup your lights with Home Assistant."
 date: 2015-01-24 14:39

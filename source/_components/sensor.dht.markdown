@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "DHT sensor"
+layout: page
+title: "DHT Sensor"
 description: "Instructions how to integrate DHTxx sensors within Home Assistant."
 date: 2015-08-30 19:15
 sidebar: true
@@ -11,7 +11,7 @@ ha_category: DIY
 ---
 
 
-The dht sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
+The `dht` sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
 
 To use your DHTxx sensor in your installation, add the following to your `configuration.yaml` file:
 

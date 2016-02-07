@@ -1,7 +1,7 @@
 ---
-layout: component
-title: "Transmission sensor"
-description: "Instructions how to integrate Transmission within Home Assistant."
+layout: page
+title: "Transmission Sensor"
+description: "Instructions how to integrate Transmission sensors within Home Assistant."
 date: 2015-04-25 9:06
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The [Transmission](http://www.transmissionbt.com/) platform allows you to monitor your downloads from within Home Assistant and setup automation based on the information.
+The `trnasmission` platform allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
 ```yaml
 # Example configuration.yaml entry

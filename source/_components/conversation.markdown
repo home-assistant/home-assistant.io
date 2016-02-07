@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Conversation"
 description: "Instructions how to have conversations with your Home Assistant."
 date: 2015-03-15 00:39

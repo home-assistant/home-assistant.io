@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Ecobee"
 description: "Instructions for how to integrate Ecobee thermostats and sensors within Home Assistant."
 date: 2015-11-30 17:54

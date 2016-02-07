@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Z-Wave switch"
+layout: page
+title: "Z-Wave Switch"
 description: "Instructions how to setup the Z-Wave switches within Home Assistant."
 date: 2015-11-15 13:00
 sidebar: true

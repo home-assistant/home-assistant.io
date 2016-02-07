@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Instapush"
 description: "Instructions how to add Instapush notifications to Home Assistant."
 date: 2015-05-01 18:00
@@ -12,7 +12,7 @@ ha_category: Notifications
 ---
 
 
-The instapush platform uses [Instapush](https://instapush.im) to delivery notifications from Home Assistant to your Android or iOS device.
+The `instapush` platform uses [Instapush](https://instapush.im) to delivery notifications from Home Assistant to your Android or iOS device.
 
 The Instapush [Getting Started page](https://instapush.im/home/start/) will guide through the process of creating the required items.
 

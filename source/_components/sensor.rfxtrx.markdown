@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "RFXtrx sensor"
+layout: page
+title: "RFXtrx Sensor"
 description: "Instructions how to integrate RFXtrx sensors into Home Assistant."
 date: 2015-08-06 17:15
 sidebar: true
@@ -10,7 +10,7 @@ footer: true
 ha_category: Sensor
 ---
 
-The rfxtrx platform support sensors that communicate in the frequency range of 433.92 MHz.
+The `rfxtrx` platform support sensors that communicate in the frequency range of 433.92 MHz.
 
 To enable RFXtrx sensors in your installation, add the following to your `configuration.yaml` file:
 

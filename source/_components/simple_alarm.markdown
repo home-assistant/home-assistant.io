@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Intruder Alerts"
 description: "Instructions how to receive intruder alerts from Home Assistant."
 date: 2015-01-20 22:36

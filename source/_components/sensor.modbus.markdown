@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Modbus sensor"
+layout: page
+title: "Modbus Sensor"
 description: "Instructions how to integrate Modbus sensors into Home Assistant."
 date: 2015-08-30 23:38
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The modbus sensor platform allows you to gather data from your [Modbus](http://www.modbus.org/) sensors.
+The `modbus` sensor platform allows you to gather data from your [Modbus](http://www.modbus.org/) sensors.
 
 To use your Modbus sensors in your installation, add the following to your `configuration.yaml` file:
 

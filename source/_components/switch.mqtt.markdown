@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "MQTT switch"
+layout: page
+title: "MQTT Switch"
 description: "Instructions how to integrate MQTT switches into Home Assistant."
 date: 2015-08-30 23:38
 sidebar: true

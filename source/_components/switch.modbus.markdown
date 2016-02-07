@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Modbus switch"
+layout: page
+title: "Modbus Switch"
 description: "Instructions how to integrate Modbus switches into Home Assistant."
 date: 2015-08-30 23:38
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Switch
 ---
 
 
-The modbus switch platform allows you to control [Modbus](http://www.modbus.org/) switches.
+The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) switches.
 
 To use your Modbus switches in your installation, add the following to your `configuration.yaml` file:
 

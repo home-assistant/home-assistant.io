@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Verisure"
 description: "Instructions how to setup Verisure devices within Home Assistant."
 date: 2015-08-17 20:28

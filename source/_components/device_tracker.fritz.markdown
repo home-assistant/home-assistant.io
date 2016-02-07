@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "FRITZ!Box"
 description: "Instructions how to integrate AVM FRITZ!Box based routers into Home Assistant."
 date: 2015-12-13 19:00
@@ -23,7 +23,7 @@ To use an Fritz!Box router in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: asuswrt
+  platform: fritz
   host: YOUR_ROUTER_IP
   username: YOUR_ADMIN_USERNAME
   password: YOUR_ADMIN_PASSWORD

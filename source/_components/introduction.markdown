@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Introduction"
 description: "Details about the introduction within Home Assistant."
 date: 2015-10-25 15:15

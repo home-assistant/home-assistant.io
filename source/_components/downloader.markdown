@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Downloader"
 description: "Instructions how to setup the downloader component with Home Assistant."
 date: 2015-01-24 14:39

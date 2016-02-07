@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Twitter"
 description: "Instructions how to add Twitter notifications to Home Assistant."
 date: 2016-01-27 07:00

@@ -3,10 +3,11 @@ layout: page
 title: "Automation: use_trigger_values"
 description: "Basic example how to use use_trigger_values in automation"
 date: 2015-10-08 19:05
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation Examples
 ---
 
 ### {% linkable_title Basic example for use_trigger_values %}

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Universal"
 description: "Instructions how to create a universal media player in Home Assistant."
 date: 2016-01-12 22:00

@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Wink switch"
+layout: page
+title: "Wink Switch"
 description: "Instructions how to setup the Wink switches within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Switch
 ---
 
 
-The wink switch platform allows you to control your [Wink](http://www.wink.com/) switches.
+The Wink switch platform allows you to control your [Wink](http://www.wink.com/) switches.
 
 The requirement is that you have setup your [Wink hub](/components/light.wink/).
 

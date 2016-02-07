@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Blinkstick"
 description: "Instructions how to setup Blinkstick lights within Home Assistant."
 date: 2015-10-08 10:00
@@ -12,7 +12,7 @@ ha_category: Light
 ---
 
 
-The blinkstick platform let you can control your [Blinkstick](https://www.blinkstick.com/) lights from within Home Assistant.
+The `blinkstick` platform let you can control your [Blinkstick](https://www.blinkstick.com/) lights from within Home Assistant.
 
 To add blinkstick to your installation, add the following to your `configuration.yaml` file:
 

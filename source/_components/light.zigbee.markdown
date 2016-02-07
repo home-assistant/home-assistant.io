@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: ZigBee Light
 description: "Instructions on how to set up ZigBee lights within Home Assistant."
 date: 2016-01-28 12:38

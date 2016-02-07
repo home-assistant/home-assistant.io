@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "History"
 description: "Instructions how to enable history support for Home Assistant."
 date: 2015-03-23 19:59
@@ -28,22 +28,22 @@ history:
 </p>
 
 <p class='note'>
-Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transferred to anyone at any time.
+Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser. No data is transferred to anyone at any time.
 </p>
 
 #### {% linkable_title Implementation details %}
 
-The history is stored in a SQLite databse `home-assistant.db` within your config directory.
+The history is stored in a SQLite database `home-assistant.db` within your config directory.
 
- - events table is all events except time_changed that happened while recorder component was running.
- - states table contains all the new_state values of state_changed events.
+ - events table is all events except `time_changed` that happened while recorder component was running.
+ - states table contains all the `new_state` values of `state_changed` events.
  - Inside the states table you have:
-   - entity_id: the entity_id of the entity
-   - state: the state of the entity
-   - attributes: JSON of the state attributes
-   - last_changed: timestamp last time the state has changed. A state_changed event can happen when just attributes change.
-   - last_updated: timestamp anything has changed (state, attributes)
-   - created: timestamp this entry was inserted into the database
+   - `entity_id`: the entity_id of the entity
+   - `state`: the state of the entity
+   - `attributes`: JSON of the state attributes
+   - `last_changed`: timestamp last time the state has changed. A state_changed event can happen when just attributes change.
+   - `last_updated`: timestamp anything has changed (state, attributes)
+   - `created`: timestamp this entry was inserted into the database
 
 When the history component queries the states table it only selects states where the state has changed: `WHERE last_changed=last_updated`
 
@@ -55,3 +55,7 @@ SQLite databases do not support native dates. That's why all the dates are saved
 from datetime import datetime
 datetime.fromtimestamp(1422830502)
 ```
+
+#### {% linkable_title API %}
+
+The history information are also available through the [RESTful API](/developers/rest_api/#get-apihistory).

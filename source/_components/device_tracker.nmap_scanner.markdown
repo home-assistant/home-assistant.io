@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Nmap"
 description: "Instructions how to integrate Nmap into Home Assistant."
 date: 2015-03-23 19:59

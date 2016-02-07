@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Configurator"
 description: "Instructions how to integrate the configurator in your components."
 date: 2015-03-15 00:51

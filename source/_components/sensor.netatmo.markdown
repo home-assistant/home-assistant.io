@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Netatmo"
+layout: page
+title: "Netatmo Sensor"
 description: "Instructions how to integrate Netatmo sensors into Home Assistant."
 date: 2016-01-14 08:10
 sidebar: true

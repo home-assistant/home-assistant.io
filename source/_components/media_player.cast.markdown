@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Google Cast"
 description: "Instructions how to integrate Google Cast into Home Assistant."
 date: 2015-03-23 19:59

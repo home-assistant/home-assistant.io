@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "TellStick sensor"
+layout: page
+title: "TellStick Sensor"
 description: "Instructions how to integrate TellStick sensors into Home Assistant."
 date: 2015-08-06 19:00
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-This tellstick sensor platform allows you to get current meteorological data from a [TellStick](http://www.telldus.se/products/tellstick) device.
+The `tellstick` sensor platform allows you to get current meteorological data from a [TellStick](http://www.telldus.se/products/tellstick) device.
 
 To use your TellStick device in your installation, add the following to your `configuration.yaml` file:
 

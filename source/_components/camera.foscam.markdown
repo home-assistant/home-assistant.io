@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Foscam IP camera"
+layout: page
+title: "Foscam IP Camera"
 description: "Instructions how to integrate Foscam IP cameras within Home Assistant."
 date: 2015-09-17 08:01
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Camera
 ---
 
 
-The foscam platform allows you to watch the live stream of your [Foscam](http://www.foscam.com/) IP camera in Home Assistant.
+The `foscam` platform allows you to watch the live stream of your [Foscam](http://www.foscam.com/) IP camera in Home Assistant.
 
 To enable your Foscam IP camera in your installation, add the following to your `configuration.yaml` file:
 

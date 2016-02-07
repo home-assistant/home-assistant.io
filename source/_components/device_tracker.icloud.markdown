@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "iCloud"
 description: "Instructions how to use iCloud to track devices in Home Assistant."
 date: 2015-12-15 1000

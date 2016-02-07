@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Command line sensor"
+layout: page
+title: "Command line Sensor"
 description: "Instructions how to integrate command line sensors into Home Assistant."
 date: 2015-09-13 10:10
 sidebar: true

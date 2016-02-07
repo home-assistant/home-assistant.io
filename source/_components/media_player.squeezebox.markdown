@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Logitech Squeezebox"
 description: "Instructions on how to integrate a Logitech Squeezebox player into Home Assistant."
 date: 2015-08-09 11:00

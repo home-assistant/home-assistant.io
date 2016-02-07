@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "aREST sensor"
+layout: page
+title: "aREST Sensor"
 description: "Instructions how to integrate aREST sensors within Home Assistant."
 date: 2015-09-07 18:15
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The arest sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
 To use your aREST enabled device in your installation, add the following to your `configuration.yaml` file:
 
