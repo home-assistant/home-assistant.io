@@ -166,6 +166,46 @@ Sample `curl` command:
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/services
 ```
 
+#### {% linkable_title GET /api/history %}
+Returns an array of state changes in the past. Each object contains further detail for the entities.
+
+```json
+[
+    [
+        {
+            "attributes": {
+                "friendly_name": "Weather Temperature",
+                "unit_of_measurement": "\u00b0C"
+            },
+            "entity_id": "sensor.weather_temperature",
+            "last_changed": "23:30:00 05-02-2016",
+            "last_updated": "23:30:00 05-02-2016",
+            "state": "-3.9"
+        },
+        {
+            "attributes": {
+                "friendly_name": "Weather Temperature",
+                "unit_of_measurement": "\u00b0C"
+            },
+            "entity_id": "sensor.weather_temperature",
+            "last_changed": "07:03:30 06-02-2016",
+            "last_updated": "07:03:30 06-02-2016",
+            "state": "-1.9"
+        },
+    ]
+]
+```
+
+Sample `curl` commands:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/history/period/2016-02-06
+```
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
+```
+
 #### {% linkable_title GET /api/states %}
 Returns an array of state objects. Each state has the following attributes: entity_id, state, last_changed and attributes.
 
