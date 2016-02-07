@@ -53,5 +53,5 @@ Configuration variables:
 - **zone** (*Optional*): The zone to which this component is measuring the distance to. Default is the home zone.
 - **ignored_zones** array (*Optional*): Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g. work or school).
 - **devices** array (*Optional*):  A list of devices to compare location against to check closeness to the configured zone.
-- **tollerance** (*Optional*): The tolerance used to calculate the direction of travel in metres to filter out small GPS coordinate changes.
+- **tollerance** (*Optional*): The tolerance used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
 
