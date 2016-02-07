@@ -10,7 +10,11 @@ footer: true
 ha_category: Switch
 ---
 
-The `template` platform creates switches that combine other components.
+The `template` platform creates switches that combine components.
+
+For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a switch that knows whether the garage door is open or closed.
+
+This can simplify the gui, and make it easier to write automations. You can mark the components you have combined as `hidden` so they don't appear themselves.
 
 To enable Template switches in your installation, add the following to your `configuration.yaml` file:
 
@@ -40,7 +44,7 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real life examples of how to use this switch.
 
 ### {% linkable_title Copy switch %}
 
