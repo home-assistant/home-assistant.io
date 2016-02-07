@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "RFXtrx Switch"
 description: "Instructions how to integrate RFXtrx switches into Home Assistant."
 date: 2015-10-08 10:15

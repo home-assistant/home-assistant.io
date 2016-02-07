@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "OpenWeatherMap"
 description: "Instructions how to integrate OpenWeatherMap within Home Assistant."
 date: 2015-04-25 9:06

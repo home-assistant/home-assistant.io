@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Syslog"
 description: "Instructions how to add syslog notifications to Home Assistant."
 date: 2015-06-09 16:00

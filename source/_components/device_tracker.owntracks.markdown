@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Owntracks"
 description: "Instructions how to use Owntracks to track devices in Home Assistant."
 date: 2015-09-22 07:00

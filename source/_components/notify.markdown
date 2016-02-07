@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Notifications"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-01-20 22:36

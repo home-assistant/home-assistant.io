@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Command line Switch"
 description: "Instructions how to have switches call command line commands."
 date: 2015-06-10 22:41

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Nest Sensor"
 description: "Instructions how to integrate Nest sensors within Home Assistant."
 date: 2016-01-13 19:59

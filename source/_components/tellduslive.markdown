@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Telldus Live"
 description: "Instructions how to integrate Telldus Live into Home Assistant."
 date: 2016-01-17 16:00

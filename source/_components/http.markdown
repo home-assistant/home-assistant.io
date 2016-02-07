@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "HTTP"
 description: "Offers a web framework to serve files."
 date: 2015-12-06 21:35

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "TP-Link"
 description: "Instructions how to integrate TP-Link routers into Home Assistant."
 date: 2015-06-22 10:30

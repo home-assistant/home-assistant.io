@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "RESTful Sensor"
 description: "Instructions how to integrate REST sensors into Home Assistant."
 date: 2015-09-14 19:10

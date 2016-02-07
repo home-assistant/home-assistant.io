@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Honeywell Thermostat"
 description: "Instructions how to integrate Honeywell thermostats within Home Assistant."
 date: 2015-11-09 17:15

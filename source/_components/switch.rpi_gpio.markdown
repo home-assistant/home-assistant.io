@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Raspberry PI GPIO Switch"
 description: "Instructions how to integrate the GPIO of a Raspberry PI into Home Assistant as a switch."
 date: 2015-08-07 14:00

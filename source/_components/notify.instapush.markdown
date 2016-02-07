@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Instapush"
 description: "Instructions how to add Instapush notifications to Home Assistant."
 date: 2015-05-01 18:00

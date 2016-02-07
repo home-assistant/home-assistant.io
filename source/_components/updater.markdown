@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Updater"
 description: "Detecting when Home Assistant updates are available."
 date: 2015-11-15 20:40

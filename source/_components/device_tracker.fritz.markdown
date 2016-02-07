@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "FRITZ!Box"
 description: "Instructions how to integrate AVM FRITZ!Box based routers into Home Assistant."
 date: 2015-12-13 19:00

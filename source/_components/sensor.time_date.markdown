@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Time & Date"
 description: "Instructions how to integrate the time and the date within Home Assistant."
 date: 2015-05-08 17:15

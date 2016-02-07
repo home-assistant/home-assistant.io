@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Foscam IP Camera"
 description: "Instructions how to integrate Foscam IP cameras within Home Assistant."
 date: 2015-09-17 08:01

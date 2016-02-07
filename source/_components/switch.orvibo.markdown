@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Orvibo Switch"
 description: "Instructions how to integrate Orvibo switches within Home Assistant."
 date: 2015-11-15 18:15

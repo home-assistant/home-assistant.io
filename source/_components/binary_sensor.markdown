@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Binary Sensor"
 description: "Instructions how to setup your binary sensors with Home Assistant."
 date: 2015-11-20 14:00

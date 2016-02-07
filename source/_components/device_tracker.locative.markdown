@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Locative"
 description: "Instructions how to use Locative to track devices in Home Assistant."
 date: 2015-10-13 19:00

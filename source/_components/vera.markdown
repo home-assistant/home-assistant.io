@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Vera"
 description: "Instructions how to setup Vera hubs within Home Assistant."
 date: 2015-03-23 20:04

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "ASUSWRT"
 description: "Instructions how to integrate ASUSWRT based routers into Home Assistant."
 date: 2015-08-06 19:00

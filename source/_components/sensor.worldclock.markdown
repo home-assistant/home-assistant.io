@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Worldclock"
 description: "Instructions how to integrate a Worldclock within Home Assistant."
 date: 2015-10-02 11:15

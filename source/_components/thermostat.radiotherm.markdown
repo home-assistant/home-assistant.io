@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Radiotherm Thermostat"
 description: "Instructions how to integrate Radiotherm thermostats within Home Assistant."
 date: 2015-10-18 17:15

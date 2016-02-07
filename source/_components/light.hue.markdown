@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Philips Hue"
 description: "Instructions how to setup Philips Hue within Home Assistant."
 date: 2015-03-23 20:09

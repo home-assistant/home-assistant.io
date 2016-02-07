@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "HTTP Sensor"
 description: "Instructions how to integrate HTTP sensors within Home Assistant."
 date: 2016-02-05 12:15

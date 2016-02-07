@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "StatsD"
 description: "Record events in StatsD."
 date: 2016-01-25 08:00

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Kodi"
 description: "Instructions how to integrate Kodi into Home Assistant."
 date: 2015-06-22 11:00

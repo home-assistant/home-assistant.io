@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Wink Sensor"
 description: "Instructions how to setup the Wink sensors within Home Assistant."
 date: 2015-01-20 22:36

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "ZigBee Switch"
 description: "Instructions on how to set up ZigBee switches within Home Assistant."
 date: 2016-01-28 11:52

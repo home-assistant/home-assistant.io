@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Homematic Thermostat"
 description: "Instructions how to integrate Homematic thermostats within Home Assistant."
 date: 2015-11-25 08:00

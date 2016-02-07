@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Sonos"
 description: "Instructions how to integrateSonos devices into Home Assistant."
 date: 2015-09-12 13:00

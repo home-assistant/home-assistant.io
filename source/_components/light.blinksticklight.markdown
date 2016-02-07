@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Blinkstick"
 description: "Instructions how to setup Blinkstick lights within Home Assistant."
 date: 2015-10-08 10:00

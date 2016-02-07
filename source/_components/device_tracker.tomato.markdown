@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Tomato"
 description: "Instructions how to integrate Tomato routers into Home Assistant."
 date: 2015-03-23 19:59

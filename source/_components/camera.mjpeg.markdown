@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Generic MJPEG IP Camera"
 description: "Instructions how to integrate IP cameras within Home Assistant."
 date: 2015-11-09 08:36

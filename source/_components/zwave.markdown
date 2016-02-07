@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Z-Wave"
 description: "Instructions how to integrate your existing Z-Wave within Home Assistant."
 date: 2015-03-23 19:59

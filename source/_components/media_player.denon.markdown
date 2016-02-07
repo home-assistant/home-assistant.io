@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Denon Network Receivers"
 description: "Instructions how to integrate Denon Network Receivers into Home Assistant."
 date: 2015-09-08 09:00

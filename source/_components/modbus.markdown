@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Modbus"
 description: "Instructions how to integrate Modbus within Home Assistant."
 date: 2015-04-25 9:16

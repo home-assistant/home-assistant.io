@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Sun"
 description: "Instructions how to track the sun within Home Assistant."
 date: 2015-01-24 14:39

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "MySensors Switch"
 description: "Instructions how to integrate MySensors switches into Home Assistant."
 date: 2016-01-17 15:49

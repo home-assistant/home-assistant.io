@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "MQTT Rollershutter"
 description: "Instructions how to integrate MQTT motorized devices into Home Assistant."
 date: 2015-12-01 12:00

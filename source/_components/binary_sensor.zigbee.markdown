@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "ZigBee Binary Sensor"
 description: "Instructions on how to set up ZigBee binary sensors within Home Assistant."
 date: 2016-01-28 12:38

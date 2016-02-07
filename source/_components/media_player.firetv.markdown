@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "FireTV"
 description: "Instructions how to integrate Music Player Daemon into Home Assistant."
 date: 2015-10-23 18:00

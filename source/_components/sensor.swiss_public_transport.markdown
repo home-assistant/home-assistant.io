@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Swiss Public Transport"
 description: "Instructions how to integrate timetable data for travelling in Switzerland within Home Assistant."
 date: 2015-06-02 21:45

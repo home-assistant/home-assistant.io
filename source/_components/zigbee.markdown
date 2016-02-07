@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "ZigBee"
 description: "Instructions on how to integrate a ZigBee network with Home Assistant."
 date: 2016-01-27 17:10

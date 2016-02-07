@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "aREST Switch"
 description: "Instructions how to integrate aREST switches within Home Assistant."
 date: 2015-09-11 23:15

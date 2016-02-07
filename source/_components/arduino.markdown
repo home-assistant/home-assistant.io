@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Arduino"
 description: "Instructions how to setup an Arduino boards within Home Assistant."
 date: 2015-06-27 10:28

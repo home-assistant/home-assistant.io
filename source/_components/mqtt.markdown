@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "MQTT"
 description: "Instructions how to setup MQTT within Home Assistant."
 date: 2015-08-07 18:00

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Camera"
 description: "Instructions how to integrate cameras within Home Assistant."
 date: 2015-11-09 08:36

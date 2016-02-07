@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Notify My Android"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-05-01 18:00

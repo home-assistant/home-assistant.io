@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "MQTT Device Tracker"
 description: "Instructions how to use MQTT to track devices in Home Assistant."
 date: 2015-09-19 20:41

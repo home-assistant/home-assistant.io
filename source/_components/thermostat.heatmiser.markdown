@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Heatmiser Thermostat"
 description: "Instructions how to integrate Heatmiser thermostats within Home Assistant."
 date: 2015-12-11 12:35

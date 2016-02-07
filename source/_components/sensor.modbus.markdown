@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Modbus Sensor"
 description: "Instructions how to integrate Modbus sensors into Home Assistant."
 date: 2015-08-30 23:38

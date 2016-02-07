@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Vera Light"
 description: "Instructions how to integrate Vera lights into Home Assistant."
 date: 2015-10-20 21:00

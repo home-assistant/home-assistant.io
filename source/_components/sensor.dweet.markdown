@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Dweet.io"
 description: "Instructions how to integrate Dweet.io sensors within Home Assistant."
 date: 2015-12-10 10:15

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Arduino Switch"
 description: "Instructions how to integrate Arduino boards pins as switches within Home Assistant."
 date: 2015-09-14 18:28

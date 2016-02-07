@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Nest Thermostat"
 description: "Instructions how to integrate Nest thermostats within Home Assistant."
 date: 2015-03-23 19:59

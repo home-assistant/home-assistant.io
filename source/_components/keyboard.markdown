@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Keyboard"
 description: "Instructions how to simulate key presses with Home Assistant."
 date: 2015-01-24 14:39

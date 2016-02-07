@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "SABnzbd"
 description: "Instructions how to integrate SABnzbd within Home Assistant."
 date: 2015-03-23 19:59

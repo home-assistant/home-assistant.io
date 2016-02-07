@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "MySensors Sensor"
 description: "Instructions how to integrate MySensors sensors into Home Assistant."
 date: 2016-01-17 15:49

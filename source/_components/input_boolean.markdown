@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Input Boolean"
 description: "Instructions how to integrate the Input Boolean component into Home Assistant."
 date: 2016-01-17 16:58

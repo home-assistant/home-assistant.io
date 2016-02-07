@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Alarm.com Alarm Control Panel"
 description: "Instructions how to integrate Alarm.com into Home Assistant."
 date: 2016-01-14 22:00

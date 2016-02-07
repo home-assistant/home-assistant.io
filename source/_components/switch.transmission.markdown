@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Transmission Switch"
 description: "Instructions how to integrate Transmission within Home Assistant."
 date: 2015-06-02 09:00

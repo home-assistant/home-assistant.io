@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "InfluxDB"
 description: "Record events in InfluxDB."
 date: 2015-12-06 13:08

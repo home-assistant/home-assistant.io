@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Wink Lock"
 description: "Instructions how to setup the Wink locks within Home Assistant."
 date: 2015-11-20 12:00

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Forecast.io"
 description: "Instructions how to integrate Forecast.io within Home Assistant."
 date: 2015-04-25 9:06

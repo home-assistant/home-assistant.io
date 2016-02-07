@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Group"
 description: "Instructions how to setup groups within Home Assistant."
 date: 2015-03-23 19:59

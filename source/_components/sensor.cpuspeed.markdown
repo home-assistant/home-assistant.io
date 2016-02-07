@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "CPU speed"
 description: "Instructions how to integrate CPU speed within Home Assistant."
 date: 2015-10-15 11:00
