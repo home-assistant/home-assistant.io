@@ -66,7 +66,7 @@ switch:
 
 ### {% linkable_title Toggle switch %}
 
-This example shows a switch that takes it's state from a sensor, and toggles a switch.
+This example shows a switch that takes its state from a sensor, and toggles a switch.
 
 ```yaml
 switch:
@@ -85,7 +85,7 @@ switch:
 
 ### {% linkable_title Sensor and two switches %}
 
-This example shows a switch that takes it's state from a sensor, and uses two momentary switches to control a device.
+This example shows a switch that takes its state from a sensor, and uses two momentary switches to control a device.
 
 ```yaml
 switch:
