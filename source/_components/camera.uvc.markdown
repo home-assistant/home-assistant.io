@@ -1,0 +1,33 @@
+---
+layout: component
+title: "UniFi Video Camera"
+description: "Instructions how to integrate UVC cameras within Home Assistant."
+date: 2016-02-07 10:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: ubiquiti.png
+ha_category: Camera
+---
+
+
+The `uvc` component allows you to integrate [UniFi Video Camera (UVC)](https://www.ubnt.com/unifi-video/unifi-video-camera/) into Home Assistant.
+
+To enable a UVC camera in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  platform: uvc
+  nvr: IP_ADDRESS
+  port: PORT
+  key: APIKEY
+```
+
+Configuration variables:
+
+- **nvr** *Optional*: The IP or hostname of the NVR (Network Video Recorder) server.
+- **port** *Optional*: The port number to use for accessing the NVR.
+- **key** *Required*: The API key available from the NVR web interface.
+
