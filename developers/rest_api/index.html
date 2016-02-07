@@ -297,6 +297,52 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 </div>
 </div>
 
+<h4><a class="title-link" name="get-apihistory" href="#get-apihistory"></a> GET /api/history</h4>
+<p>Returns an array of state changes in the past. Each object contains further detail for the entities.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>[
+    [
+        {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">friendly_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Weather Temperature</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">unit_of_measurement</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="char">\u00b0</span><span class="content">C</span><span class="delimiter">&quot;</span></span>
+            },
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor.weather_temperature</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">last_changed</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">23:30:00 05-02-2016</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">last_updated</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">23:30:00 05-02-2016</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">-3.9</span><span class="delimiter">&quot;</span></span>
+        },
+        {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">friendly_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Weather Temperature</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">unit_of_measurement</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="char">\u00b0</span><span class="content">C</span><span class="delimiter">&quot;</span></span>
+            },
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor.weather_temperature</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">last_changed</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">07:03:30 06-02-2016</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">last_updated</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">07:03:30 06-02-2016</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">-1.9</span><span class="delimiter">&quot;</span></span>
+        },
+    ]
+]
+</pre></div>
+</div>
+</div>
+
+<p>Sample <code>curl</code> commands:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/history/period/2016-02-06
+</pre></div>
+</div>
+</div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
+</pre></div>
+</div>
+</div>
+
 <h4><a class="title-link" name="get-apistates" href="#get-apistates"></a> GET /api/states</h4>
 <p>Returns an array of state objects. Each state has the following attributes: entity_id, state, last_changed and attributes.</p>
 

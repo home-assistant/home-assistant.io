@@ -125,24 +125,24 @@
 </p>
 
 <p class="note">
-Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transferred to anyone at any time.
+Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser. No data is transferred to anyone at any time.
 </p>
 
 <h4><a class="title-link" name="implementation-details" href="#implementation-details"></a> Implementation details</h4>
 
-<p>The history is stored in a SQLite databse <code>home-assistant.db</code> within your config directory.</p>
+<p>The history is stored in a SQLite database <code>home-assistant.db</code> within your config directory.</p>
 
 <ul>
-  <li>events table is all events except time_changed that happened while recorder component was running.</li>
-  <li>states table contains all the new_state values of state_changed events.</li>
+  <li>events table is all events except <code>time_changed</code> that happened while recorder component was running.</li>
+  <li>states table contains all the <code>new_state</code> values of <code>state_changed</code> events.</li>
   <li>Inside the states table you have:
     <ul>
-      <li>entity_id: the entity_id of the entity</li>
-      <li>state: the state of the entity</li>
-      <li>attributes: JSON of the state attributes</li>
-      <li>last_changed: timestamp last time the state has changed. A state_changed event can happen when just attributes change.</li>
-      <li>last_updated: timestamp anything has changed (state, attributes)</li>
-      <li>created: timestamp this entry was inserted into the database</li>
+      <li><code>entity_id</code>: the entity_id of the entity</li>
+      <li><code>state</code>: the state of the entity</li>
+      <li><code>attributes</code>: JSON of the state attributes</li>
+      <li><code>last_changed</code>: timestamp last time the state has changed. A state_changed event can happen when just attributes change.</li>
+      <li><code>last_updated</code>: timestamp anything has changed (state, attributes)</li>
+      <li><code>created</code>: timestamp this entry was inserted into the database</li>
     </ul>
   </li>
 </ul>
@@ -159,6 +159,10 @@ datetime.fromtimestamp(<span class="integer">1422830502</span>)
 </pre></div>
 </div>
 </div>
+
+<h4><a class="title-link" name="api" href="#api"></a> API</h4>
+
+<p>The history information are also available through the <a href="/developers/rest_api/#get-apihistory">RESTful API</a>.</p>
 
 </article>
 
