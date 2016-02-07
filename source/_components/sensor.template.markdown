@@ -64,9 +64,10 @@ sensor:
       kettle:
         friendly_name: 'Kettle'
         {% raw %}value_template: >-
-            {%- if is_state("switch.kettle", "standby") or
-                   is_state("switch.kettle", "off") %}
+            {%- if is_state("switch.kettle", "off") %}
                 off
+            {%  elif states.switch.kettle.attributes.kwh < 1000 %}
+                standby
             {% elif is_state("switch.kettle", "on") %}
                 on
             {% else %}
