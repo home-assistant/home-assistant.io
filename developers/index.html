@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Developers - Home Assistant</title>
+    <title>Setup Development - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Home Assistant developer information. Everything to get you started">
+    <meta name="description" content="Everything to get you started developing for Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Developers">
+    <meta property="og:title" content="Setup Development">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/developers/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Home Assistant developer information. Everything to get you started">
+    <meta property="og:description" content="Everything to get you started developing for Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Developers">
-    <meta name="twitter:description" content="Home Assistant developer information. Everything to get you started">
+    <meta name="twitter:title" content="Setup Development">
+    <meta name="twitter:description" content="Everything to get you started developing for Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -69,6 +69,7 @@
   <li>
     <a>Developers <i class="icon icon-caret-down"></i></a>
     <ul>
+      <li><a href="/developers/">Setup Development</a></li>
       <li><a href="/developers/architecture/">Architecture</a></li>
       <li><a href="/developers/frontend/">Frontend development</a></li>
       <li><a href="/developers/creating_components/">
@@ -108,7 +109,7 @@
   
   <header>
     <h1 class="title indent">
-      Developers
+      Setup Development
     </h1>
   </header>
   <hr class="divider">
@@ -146,13 +147,11 @@ $ script/setup
 <p>Improvements to Home Assistant should be submitted one feature at a time using Github pull requests.</p>
 
 <ol>
-  <li>Go to <a href="https://github.com/balloob/home-assistant">the Home Assistant repository</a> and click fork in the top right.</li>
-  <li>Follow steps in the previous section but with your forked repository.</li>
-  <li>Create a new branch to hold your changes<br />
+  <li>From your fork, create a new branch to hold your changes<br />
 <code>git checkout -b some-feature</code></li>
   <li>Make the changes you want</li>
-  <li>Check your changes for style violations<br />
-<code>./script/lint</code></li>
+  <li>Test your changes and check for style violations<br />
+<code>./script/test</code></li>
   <li>Commit the changes<br />
 <code>git add .</code><br />
 <code>git commit -m "Added some-feature"</code></li>
