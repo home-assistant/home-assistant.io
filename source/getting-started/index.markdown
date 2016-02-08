@@ -18,7 +18,7 @@ footer: true
 <label class='menu-selector docker' for='docker-install'>Install using Docker</label>
 
 <div class='install-instructions normal' markdown='1'>
-Installing and running Home Assistant on your local machine is easy. Make sure you have [Python 3.4](https://www.python.org/downloads/) installed and execute the following code in a console:
+Installing and running Home Assistant on your local machine is easy. Make sure you have [Python 3.4 or higher](https://www.python.org/downloads/) installed and execute the following code in a console:
 
 ```bash
 $ pip3 install homeassistant
