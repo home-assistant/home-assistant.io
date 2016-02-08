@@ -134,6 +134,7 @@
   <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ON</span><span class="delimiter">&quot;</span></span>
   <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OFF</span><span class="delimiter">&quot;</span></span>
   <span class="key">optimistic</span>: <span class="string"><span class="content">false</span></span>
+  <span class="key">retain</span>: <span class="string"><span class="content">true</span></span>
   <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
 </pre></div>
 </div>
@@ -149,6 +150,7 @@
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.</li>
+  <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/getting-started/templating/">template</a> to extract a value from the payload.</li>
 </ul>
 
