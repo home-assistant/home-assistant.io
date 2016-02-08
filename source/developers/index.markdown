@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Developers"
-description: "Home Assistant developer information. Everything to get you started"
+title: "Setup Development"
+description: "Everything to get you started developing for Home Assistant."
 date: 2014-12-21 13:32
 sidebar: false
 comments: false
@@ -36,19 +36,17 @@ After following these steps, running `hass` will invoke your local installation.
 
 Improvements to Home Assistant should be submitted one feature at a time using Github pull requests.
 
- 1. Go to [the Home Assistant repository](https://github.com/balloob/home-assistant) and click fork in the top right.
- 2. Follow steps in the previous section but with your forked repository.
- 3. Create a new branch to hold your changes
+ 1. From your fork, create a new branch to hold your changes
     `git checkout -b some-feature`
- 4. Make the changes you want
- 5. Check your changes for style violations
-    `./script/lint`
- 6. Commit the changes
+ 2. Make the changes you want
+ 3. Test your changes and check for style violations
+    `./script/test`
+ 4. Commit the changes
     `git add .`
     `git commit -m "Added some-feature"`
- 7. Push your commited changes back to your fork on GitHub
+ 5. Push your commited changes back to your fork on GitHub
     `git push origin HEAD`
- 8. Follow [these steps](https://help.github.com/articles/creating-a-pull-request/) to create your pull request.
+ 6. Follow [these steps](https://help.github.com/articles/creating-a-pull-request/) to create your pull request.
 
 ### {% linkable_title Further reading %}
 
