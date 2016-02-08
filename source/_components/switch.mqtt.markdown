@@ -32,6 +32,7 @@ switch:
   payload_on: "ON"
   payload_off: "OFF"
   optimistic: false
+  retain: true
   value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
@@ -44,6 +45,7 @@ Configuration variables:
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.
+- **retain** (*Optional*): If the published message should have the retain flag on or not.
 - **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
 
 <p class='note warning'>
