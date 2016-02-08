@@ -22,7 +22,7 @@ input_boolean:
     icon: mdi:spotlight
 
 automation:
-# Changes Hue light to random color based on state of a input boolean
+# Changes Hue light every two minutes to random color if input boolean is set to on
 - alias: 'Set LivingColors to random color'
   trigger:
     platform: time
