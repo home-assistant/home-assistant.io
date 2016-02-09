@@ -65,7 +65,7 @@ The MQTT Bridge only needs to know where your MQTT broker lives. If you are usin
 ```yaml
 ---
 mqtt:
-    host: localhost
+    host: <IP of the host>
 ```
 
 Restart the bridge, and you are ready to go:
@@ -131,7 +131,7 @@ Start digging through the [MQTT Components][mqtt-ha] in Home Assistant to find w
 
 ### Configuring with Docker-Compose
 
-Our personal prefernce for starting the whole suite of software is to use a single Docker-Compose file.
+Our personal preference for starting the whole suite of software is to use a single Docker-Compose file.
 
 Just create a file called docker-compose.yml like this:
 
@@ -161,7 +161,7 @@ homeassistant:
         - mqtt
 ```
 
-This will start home-assistant, MQTT, and the Bridge, in dependency order. All config can reference the name of the docker container instead of localhost (e.g. mqtt for the broker host in Home Assistant).
+This will start home-assistant, MQTT, and the Bridge, in dependency order. All config can reference the name of the docker container instead of using IP addresses (e.g. mqtt for the broker host in Home Assistant).
 
 ### How it works
 
