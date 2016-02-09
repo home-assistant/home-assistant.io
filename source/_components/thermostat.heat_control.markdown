@@ -32,4 +32,4 @@ Configuration variables:
 - **target_sensor** (*Required*): `entity_id` for a temperature sensor, target_sensor.state must be temperature.
 - **min_temp** (*Optional*): Set minimum set point available (default: 7)
 - **max_temp** (*Optional*): Set maximum set point available (default: 35)
-- **target_temp** (*Required*): Set default target temperature. Failure to set this variable will result in null.
+- **target_temp** (*Required*): Set default target temperature. Failure to set this variable will result in target temperature being set to null on startup.
