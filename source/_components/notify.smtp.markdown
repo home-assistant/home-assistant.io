@@ -43,7 +43,7 @@ Configuration variables:
 
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 
-A combination that will work properly is port 587 and STARTTLS. It's recommanded to enable STARTTLS, if possible.
+A combination that will work properly is port 587 and STARTTLS. It's recommended to enable STARTTLS, if possible.
 
 Keep in mind that if the password contains a colon, it needs to be wrapped in apostrophes in the `configuration.yaml` file.
 
