@@ -113,20 +113,22 @@
   <hr class="divider">
   
 
-  <p>This platform enables the possibility to control an MQTT rollershutter. The device state will be updated only after receiving the a new state from <code>state_topic</code>. If these messages are published with RETAIN flag, the MQTT device will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state will be <code>unknown</code>.</p>
+  <p>The <code>mqtt</code> rollershutter platform enables the possibility to control an MQTT rollershutter. The device state will be updated only after receiving the a new state from <code>state_topic</code>. If these messages are published with RETAIN flag, the MQTT device will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state will be <code>unknown</code>.</p>
 
 <p>There is a state attribute that stores the relative position of the device, where 0% means the device is <code>closed</code> and all other intermediate positions means the device is <code>open</code>.</p>
 
+<p>To enable this platform, add the following lines to your <code>configuration.yaml</code>:</p>
+
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">motor</span>:
+<span class="key">rollershutter</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
   <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bedroom Rollershutter</span><span class="delimiter">&quot;</span></span>
   <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/rollershutter</span><span class="delimiter">&quot;</span></span>
   <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/rollershutter/set</span><span class="delimiter">&quot;</span></span>
   <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">payload_open</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OPEN</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_close</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CLOSE</span><span class="delimiter">&quot;</span></span>
+  <span class="key">payload_up</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OPEN</span><span class="delimiter">&quot;</span></span>
+  <span class="key">payload_down</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CLOSE</span><span class="delimiter">&quot;</span></span>
   <span class="key">payload_stop</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">STOP</span><span class="delimiter">&quot;</span></span>
   <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
 </pre></div>
@@ -142,8 +144,8 @@
   <li><strong>name</strong> (<em>Optional</em>): The name of the rollershutter. Default is ‘MQTT Rollershutter’.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates. If not defined, the rollershutter will be stateless, that is, no information about current position or open/closed. If defined, the received payload must be a integer between 0 and 100, that represents the percentage for fully closed and fully open, respectively.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0. This QoS will also be used to publishing messages.</li>
-  <li><strong>payload_open</strong> (<em>Optional</em>): The payload to open the rollershutter. Default is “OPEN”.</li>
-  <li><strong>payload_close</strong> (<em>Optional</em>): The payload to close the rollershutter. Default is “CLOSE”.</li>
+  <li><strong>payload_up</strong> (<em>Optional</em>): The payload to open the rollershutter. Default is “OPEN”.</li>
+  <li><strong>payload_down</strong> (<em>Optional</em>): The payload to close the rollershutter. Default is “CLOSE”.</li>
   <li><strong>payload_stop</strong> (<em>Optional</em>): The payload to stop the rollershutter. Default is “STOP”.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/getting-started/templating/">template</a> to extract a value from the payload.</li>
 </ul>
