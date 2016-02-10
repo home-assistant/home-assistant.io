@@ -21,6 +21,7 @@ sensor:
   platform: dht
   sensor: DHT22
   pin: 23
+  name: Living Room
   monitored_conditions:
     - temperature
     - humidity
@@ -30,6 +31,7 @@ Configuration variables:
 
 - **sensor** (*Required*): The sensor type, supported devices are DHT11, DHT22, and AM2302
 - **pin** (*Required*): The pin the sensor is connected to.
+- **name** (*Optional*): The name of the sensor
 - **monitored_conditions** array: Conditions to monitor.
 	- **temperature**:
 	- **humidity**: 
