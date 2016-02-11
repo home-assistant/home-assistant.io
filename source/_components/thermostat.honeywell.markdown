@@ -21,12 +21,7 @@ thermostat:
   platform: honeywell
   username: YOUR_USERNAME
   password:  YOUR_PASSWORD
-```
-
-If you are using a Honeywell thermostat in the US, you also need to provide the thermostat identifier:
-
-```yaml
-  id: IDENT
+  region: REGION
 ```
 
 Configuration variables:
@@ -34,12 +29,4 @@ Configuration variables:
 - **username** (*Required*: The username of an user with access.
 - **password** (*Required*): The password for your given admin account.
 - **away_temperature** (*optional*): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.
-- **id** (*optional*): Thermostat identifier
-
-To find your thermostat identifier, log into your account, choose a thermostat (if applicable) and then look at the URL. It should look something like this:
-
-```
-https://mytotalconnectcomfort.com/portal/Device/Control/1234567
-```
-
-In this case, the identifier is `1234567`.
+- **region** (*optional*): Region identifier (either 'eu' or 'us'). Defaults to 'eu' if not provided.
