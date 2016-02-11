@@ -22,7 +22,7 @@ Home Assistant is open-source and MIT licensed. The source can be found here:
 You will need to setup a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to perform it. Visit the [the Home Assistant repository](https://github.com/balloob/home-assistant) first and click fork in the top right.
 
 ```bash
-$ git clone git@github.com:your_github_username/home-assistant.git
+$ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
 $ cd home-assistant
 $ git remote add upstream https://github.com/balloob/home-assistant.git
 $ script/setup
