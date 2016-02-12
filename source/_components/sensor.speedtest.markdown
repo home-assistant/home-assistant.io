@@ -65,7 +65,6 @@ Configuration variables:
   - **ping**: A human-readable text summary.
   - **download**: The type of precipitation occurring.
   - **upload**: The average expected intensity of precipitation occurring.
-  - **ozone**: The columnar density of total atmospheric ozone in Dobson.
 - **minute** (*Optional*): Specify the minute(s) of the hour to schedule the speedtest. Use a list for multiple entries. Default is 0.
 - **hour** (*Optional*): Specify the hour(s) of the day to schedule the speedtest. Use a list for multiple entries. Default is None.
 - **day** (*Optional*): Specify the day(s) of the month to schedule the speedtest. Use a list for multiple entries. Default is None.
