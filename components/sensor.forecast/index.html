@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Forecast.io - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to integrate Forecast.io within Home Assistant.">
+    <meta name="description" content="How to integrate Forecast.io within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/sensor.forecast/">
@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/sensor.forecast/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Forecast.io within Home Assistant.">
+    <meta property="og:description" content="How to integrate Forecast.io within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="Forecast.io">
-    <meta name="twitter:description" content="Instructions how to integrate Forecast.io within Home Assistant.">
+    <meta name="twitter:description" content="How to integrate Forecast.io within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -113,9 +113,9 @@
   <hr class="divider">
   
 
-  <p>The <code>forecast</code> platform uses the <a href="https://forecast.io/">Forecast.io</a> web service as a source for meteorological data for your location. The location is based on the Longitude and Latitude cooridinates configured in <code>configuration.yaml</code>.  The cooridinates are auto detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address.  GPS cooridinates can be found by using Google Maps and clicking on your home.</p>
+  <p>The <code>forecast</code> platform uses the <a href="https://forecast.io/">Forecast.io</a> web service as a source of meteorological data for your location. The location is based on the <code>longitude</code> and <code>latitude</code> coordinates configured in <code>configuration.yaml</code>.  The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using Google Maps and clicking on your home.</p>
 
-<p>You need an API key which is free but requires a <a href="https://developer.forecast.io/register">registration</a>. You can make 1000 requests per day. This means that you could create one approximately every 1.4 minutes.</p>
+<p>You need an API key which is free but requires <a href="https://developer.forecast.io/register">registration</a>. You can make up to 1000 requests per day which means that you could make one approximately every 86 seconds.</p>
 
 <p>To add Forecast.io to your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
