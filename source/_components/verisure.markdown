@@ -17,9 +17,10 @@ Home Assistant has support to integrate your [Verisure](https://www.verisure.com
 
 We support:
 
-  * Smartplugs
-  * Reading from thermometers and hygrometers integrated in various devices
-  * Reading alarm status
+ * Smartplugs
+ * Reading from thermometers and hygrometers integrated in various devices
+ * Reading alarm status
+ * Locks 
 
 To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -32,6 +33,7 @@ verisure:
   hygrometers: 0
   smartplugs: 1
   thermometers: 0
+  locks: 0
   code_digits: 4
 ```
 
@@ -42,6 +44,7 @@ Configuration variables:
 - **alarm** (*Optional*): Set to 1 to show alarm, 0 to disable. Default 1.
 - **hygrometers** (*Optional*): Set to 1 to show hygrometers, 0 to disable. Default 1.
 - **smartplugs** (*Optional*): Set to 1 to show smartplugs, 0 to disable. Default 1.
+- **locls** (*Optional*): Set to 1 to show locks, 0 to disable. Default 1.
 - **thermometers** (*Optional*): Set to 1 to show thermometers, 0 to disable. Default 1.
 - **code_digits** (*Optional*): Number of digits in PIN code. Default 4.
 
