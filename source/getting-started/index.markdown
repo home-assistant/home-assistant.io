@@ -34,7 +34,7 @@ Running these commands will:
 If would prefer to watch a video tutorial however, [tktino](https://github.com/tktino) has made some great ones.
 
  - [Windows 10](https://www.youtube.com/watch?v=X27eVvuqwnY)
- - [Mac OS X](https://www.youtube.com/watch?v=TzTOu-SMWhM)
+ - [Mac OS X](https://www.youtube.com/watch?v=hej6ipN86ls)
  - [Ubuntu 14.04](https://www.youtube.com/watch?v=SXaAG1lGNH0)
 
 </div> <!-- INSTALL-INSTRUCTIONS NORMAL -->
