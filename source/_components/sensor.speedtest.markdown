@@ -61,10 +61,10 @@ sensor:
 
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **ping**: A human-readable text summary.
-  - **download**: The type of precipitation occurring.
-  - **upload**: The average expected intensity of precipitation occurring.
+- **monitored_conditions** array (*Required*): Sensors to display in the frontend.
+  - **ping**: Reaction time in ms of your connection–how fast you get a response after you've sent out a request.
+  - **download**: Download speed in Mbps.
+  - **upload**: Upload speed in Mbps.
 - **minute** (*Optional*): Specify the minute(s) of the hour to schedule the speedtest. Use a list for multiple entries. Default is 0.
 - **hour** (*Optional*): Specify the hour(s) of the day to schedule the speedtest. Use a list for multiple entries. Default is None.
 - **day** (*Optional*): Specify the day(s) of the month to schedule the speedtest. Use a list for multiple entries. Default is None.
