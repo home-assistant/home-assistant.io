@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Architecture | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/architecture/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-02-12T05:31:22+00:00</updated>
+  <updated>2016-02-12T07:34:02+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,191 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Classifying the Internet of Things]]></title>
+    <link href="https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/"/>
+    <updated>2016-02-12T06:31:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things</id>
+    <content type="html"><![CDATA[<p>The core of home automation is knowing what’s going on. The faster we know about a state change, the better we can serve the user. If you want to have your lights to turn on when you arrive at home, it doesn’t help if it only knows about it after you’ve already opened the door and manually (!!) turned on the light.</p>
+
+<p>Each smart device consists of the ‘normal’ device and the piece that makes it ‘smart’: the connectivity. The connectivity part of a device can consists of either control, state or both.</p>
+
+<p>State describes what a device is up to right now. For example, a light can be on with a red color and a medium brightness.</p>
+
+<p>Control is about controlling the smart device by sending commands via an API. These commands can vary from configuring how a device works till mimicking how a user would interact with a device. A media player can allow skipping to the next track and a sensor could allow to configure its sensitivity or polling interval.</p>
+
+<p>The Home Assistant APIs are setup to be as convenient as possible. However, a network is always as weak as it’s weakest link. In our case these are the integrations. Take for example controlling a light that does not report state. The only state Home Assistant can report on after sending a command is the assumed state: what do we expect the state of the light to be if the command worked.</p>
+
+<p>We want our users to get the best home automation experience out there and this starts with making sure they have devices that work well with Home Assistant. That’s why we will start applying the following classifiers to our integrations:</p>
+
+<p><a name="classifiers"></a></p>
+<table>
+  <tr>
+    <th colspan="2">Classifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><i class="icon-adjust"></i></td>
+    <td style="white-space: nowrap;">Assumed State</td>
+    <td>
+      We are unable to get the state of the device. Best we can do is to assume the state based on our last command.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-cloud-upload"></i></td>
+    <td>Cloud Polling</td>
+    <td>
+      Integration of this device happens via the cloud and requires an active internet connection. Polling the state means that an update might be noticed later.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-cloud-download"></i></td>
+    <td>Cloud Push</td>
+    <td>
+      Integration of this device happens via the cloud and requires an active internet connection. Home Assistant will be notified as soon as a new state is available.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-download-alt"></i></td>
+    <td>Local Polling</td>
+    <td>
+      Offers direct communication with device. Polling the state means that an update might be noticed later.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-upload-alt"></i></td>
+    <td>Local Push</td>
+    <td>
+      Offers direct communication with device. Home Assistant will be notified as soon as a new state is available.
+    </td>
+  </tr>
+</table>
+
+<p>The background to how we got to these classifiers can be read after the break.<br />
+<!--more--></p>
+
+<h2><a class='title-link' name='state' href='#state'></a> State </h2>
+
+<p>How state is communicated can be broken down into 5 categories. They are not mutually exclusive - a device state can be available both via the cloud and local connectivity.</p>
+
+<h3><a class='title-link' name='no-state-available' href='#no-state-available'></a> No state available </h3>
+<p>These are devices that do not have the capabilities to make their state available. They only allow to be controlled. For example, devices with infrared remote controls like TVs and ACs. You can press the turn on button on the remote but can only assume that your command was received and executed successfully. The device might not be powered or something is blocking the infrared receiver.</p>
+
+<p>Home automation will have to approach such devices based on the assumption that it’s commands are received correctly: using optimistic updates. This means that after sending a command it will update the state of the device as if the command was received successfully.</p>
+
+<p>Advantages:</p>
+
+<ul>
+  <li>None</li>
+</ul>
+
+<p>Disadvantages:</p>
+
+<ul>
+  <li>Home automation will assume the wrong state if the the command is not received correctly or if the device is controlled in any other way outside of the home automation system.</li>
+</ul>
+
+<h3><a class='title-link' name='polling-the-cloud' href='#polling-the-cloud'></a> Polling the cloud </h3>
+<p>These are devices that will only report their state to their own cloud backend. The cloud backend will allow reading the state but will not notify when a new state has arrived. This requires the home automation to check frequently if the state has been updated.</p>
+
+<p>Advantages:</p>
+
+<ul>
+  <li>Able to control devices while at home or away.</li>
+  <li>Cloud has access to more computing power to mine the device data to suggest optimizations to the user.</li>
+</ul>
+
+<p>Disadvantages:</p>
+
+<ul>
+  <li>It doesn’t work if the internet is down or the company stops support.</li>
+  <li>You are no longer in control about who has access to your data.</li>
+</ul>
+
+<h3><a class='title-link' name='cloud-pushing-new-state' href='#cloud-pushing-new-state'></a> Cloud pushing new state </h3>
+<p>All off the previous section applies to this one. On top of that the cloud will now notify the home automation when a new state has arrived. This means that as soon as the cloud knows, the home automation knows.</p>
+
+<p>Advantages:</p>
+
+<ul>
+  <li>New state known as soon as available in the cloud.</li>
+</ul>
+
+<h3><a class='title-link' name='polling-the-local-device' href='#polling-the-local-device'></a> Polling the local device </h3>
+<p>These devices will offer an API that is locally accessible. The home automation will have to frequently check if the state has been updated.</p>
+
+<p>Advantages:</p>
+
+<ul>
+  <li>Does not depend on the internet</li>
+</ul>
+
+<p>Disadvantages:</p>
+
+<ul>
+  <li>To be pollable, a device needs to be always online which requires the device to be connected to a power source.</li>
+</ul>
+
+<h3><a class='title-link' name='local-device-pushing-new-state' href='#local-device-pushing-new-state'></a> Local device pushing new state </h3>
+<p>The best of the best. These devices will send out a notice when they get to a new state. These devices usually use a home automation protocol to pass it’s message to a hub that will do the heavy lifting of managing and notifying subscribers</p>
+
+<p>Advantages:</p>
+
+<ul>
+  <li>Near instant delivery of new states.</li>
+  <li>Able to get a long battery life by going into deep sleep between state updates.</li>
+</ul>
+
+<p>Disadvantages:</p>
+
+<ul>
+  <li>If it does not also support polling, home automation will not be made aware of the state after booting up until it changes.</li>
+  <li>If using deep sleep and wifi, will suffer a delay when waking up because connecting to WiFi and receiving an IP takes time.</li>
+</ul>
+
+<h2><a class='title-link' name='control' href='#control'></a> Control </h2>
+
+<p>Controlling a device can, just like state, be done through cloud and/or local connectivity. But the more important part of control is knowing if your command was a success and the new state of the device.</p>
+
+<h3><a class='title-link' name='no-control-available' href='#no-control-available'></a> No control available </h3>
+<p>These devices are not able to be controlled. They will only offer state.</p>
+
+<h3><a class='title-link' name='poll-state-after-sending-command' href='#poll-state-after-sending-command'></a> Poll State after sending command </h3>
+<p>These devices will require the state to be polled after sending a command to see if a command was successfull.</p>
+
+<p>Advantages:</p>
+
+<ul>
+  <li>The state will be known right after the command was issued.</li>
+</ul>
+
+<p>Disadvantages:</p>
+
+<ul>
+  <li>It can take time before the state gets updated. How often do we poll and how long do we wait till we consider the command failed? Also, a state may change because of other factors. Difficult to determine if the updated state is because of our command.</li>
+</ul>
+
+<h3><a class='title-link' name='device-pushes-state-update' href='#device-pushes-state-update'></a> Device pushes state update </h3>
+<p>These devices will not return a new state as a result of the command but instead will push a new state right away. The downside of this approach is that we have to assume that a state update coming in within a certain period of time after a command is related to the command.</p>
+
+<h3><a class='title-link' name='command-returns-new-state' href='#command-returns-new-state'></a> Command returns new state </h3>
+<p>The very best. These devices will answer the command with the new state after executing the command.</p>
+
+<h2><a class='title-link' name='classifying-home-assistant' href='#classifying-home-assistant'></a> Classifying Home Assistant </h2>
+<p>Home Assistant tries to offer the best experience possible via its APIs. There are different ways of interacting with Home Assistant but all are local.</p>
+
+<ul>
+  <li>State polling is available via the REST API</li>
+  <li>There is a stream API that will push new states as soon as they arrive to subscribers. This is how the frontend is able to always stay in sync.</li>
+  <li>Calling a service on Home Assistant will return all states that changed while the service was executing. This sadly does not always include the new state of devices that push their new state, as they might arrive after the service has finished.</li>
+</ul>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Perfect Home Automation]]></title>
