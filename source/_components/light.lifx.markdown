@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: lifx.png
 ha_category: Light
+ha_iot_class: "Local Push"
 ---
 
 The `lifx` platform allows you to integrate your [LIFX](http://www.lifx.com) into Home Assistant.

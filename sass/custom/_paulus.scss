@@ -119,7 +119,7 @@ article.post, article.page, article.listing {
     box-shadow: none;
   }
 
-  & > table {
+  & > table, & > .entry-content > table {
     background-color: #F3FCF5;
   }
 
