@@ -19,6 +19,7 @@ By default, it will run every hour on the hour.  The user can change the update 
 To add speedtest.net sensors to your installation, add the following to your `configuration.yaml` file:
 
 Once per hour, on the hour (default):
+
 ```yaml
 sensor:
   platform: speedtest
@@ -31,6 +32,7 @@ sensor:
 More examples:
 
 Every half hour of every day:
+
 ```yaml
 sensor:
   platform: speedtest
@@ -44,6 +46,7 @@ sensor:
 ```
 
 Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
+
 ```yaml
 sensor:
   platform: speedtest
