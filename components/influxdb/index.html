@@ -125,6 +125,8 @@
   <span class="key">database</span>: <span class="string"><span class="content">DB_TO_STORE_EVENTS</span></span>
   <span class="key">username</span>: <span class="string"><span class="content">MY_USERNAME</span></span>
   <span class="key">password</span>: <span class="string"><span class="content">MY_PASSWORD</span></span>
+  <span class="key">ssl</span>: <span class="string"><span class="content">true</span></span>
+  <span class="key">verify_ssl</span>: <span class="string"><span class="content">true</span></span>
 </pre></div>
 </div>
 </div>
@@ -137,8 +139,9 @@
   <li><strong>database</strong> (<em>Optional</em>): Name of the database to use. Defaults to <code>home_assistant</code>. The database must already exist.</li>
   <li><strong>username</strong> (<em>Optional</em>): The username of the database user.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password for the database user account.</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>
+  <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
 </ul>
-
 
 
 </article>
@@ -167,6 +170,9 @@
         </li>
         <li>
             <a href='/components/logbook/'>Logbook</a>
+        </li>
+        <li>
+            <a href='/components/splunk/'>Splunk</a>
         </li>
         <li>
             <a href='/components/statsd/'>StatsD</a>

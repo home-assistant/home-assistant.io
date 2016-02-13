@@ -121,7 +121,8 @@
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">media_player</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">kodi</span></span>
-  <span class="key">url</span>: <span class="string"><span class="content">http://192.168.0.123/jsonrpc</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.0.123</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">8080</span></span>
   <span class="key">name</span>: <span class="string"><span class="content">Kodi</span></span>
   <span class="key">user</span>: <span class="string"><span class="content">USERNAME</span></span>
   <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
@@ -132,7 +133,8 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>url</strong> <em>Required</em>: The URL of the XBMC/Kodi JSON-RPC API, eg. http://192.168.0.123/jsonrpc</li>
+  <li><strong>host</strong> <em>Required</em>: The host name or address of the device that is running XBMC/Kodi</li>
+  <li><strong>port</strong> <em>Required</em>: The port number, default 8080</li>
   <li><strong>name</strong> <em>Optional</em>: The name of the device used in the frontend.</li>
   <li><strong>username</strong> <em>Optional</em>: The XBMC/Kodi HTTP username.</li>
   <li><strong>password</strong> <em>Optional</em>: The XBMC/Kodi HTTP password.</li>
@@ -181,6 +183,9 @@
         </li>
         <li>
             <a href='/components/media_player.plex/'>Plex</a>
+        </li>
+        <li>
+            <a href='/components/media_player.samsungtv/'>Samsung TV</a>
         </li>
         <li>
             <a href='/components/media_player.sonos/'>Sonos</a>

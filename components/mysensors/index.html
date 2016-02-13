@@ -125,8 +125,10 @@
   <span class="key">gateways</span>:
     - <span class="string"><span class="content">port: '/dev/ttyUSB0'</span></span>
       <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors.json'</span></span>
+      <span class="key">baud_rate</span>: <span class="string"><span class="content">38400</span></span>
     - <span class="string"><span class="content">port: '/dev/ttyACM1'</span></span>
       <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors2.json'</span></span>
+      <span class="key">baud_rate</span>: <span class="string"><span class="content">115200</span></span>
   <span class="key">debug</span>: <span class="string"><span class="content">true</span></span>
   <span class="key">persistence</span>: <span class="string"><span class="content">true</span></span>
   <span class="key">version</span>: <span class="string"><span class="content">'1.5'</span></span>
@@ -142,6 +144,7 @@
   <li><strong>persistence</strong> (<em>Optional</em>): Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts. Default is true.</li>
   <li><strong>persistence_file</strong> (<em>Optional</em>): Path to a file to save sensor information. The file extension determines the file type. Currently supported file types are ‘pickle’ and ‘json’.</li>
   <li><strong>version</strong> (<em>Optional</em>): Specifies the MySensors protocol version to use. Supports 1.4 and 1.5. Default is 1.4.</li>
+  <li><strong>baud_rate</strong> (<em>Optional</em>): Specifies baud rate of the connected gateway.</li>
 </ul>
 
 <p>If you are using an original Arduino the port will be named <code>ttyACM*</code>. The exact number can be determined with the command shown below.</p>
@@ -206,6 +209,12 @@
     <h1 class="title delta">Category Hub</h1>
     <ul class='divided'>
         <li>
+            <a href='/components/apcupsd/'>APCUPSd</a>
+        </li>
+        <li>
+            <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
             <a href='/components/ecobee/'>Ecobee</a>
         </li>
         <li>
@@ -228,6 +237,9 @@
         </li>
         <li>
             <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/scsgate/'>SCSGate</a>
         </li>
         <li>
             <a href='/components/tellstick/'>TellStick</a>
