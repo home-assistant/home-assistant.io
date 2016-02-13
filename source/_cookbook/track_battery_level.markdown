@@ -10,8 +10,6 @@ footer: true
 ha_category: Automation Examples
 ---
 
-### {% linkable_title Battery level %}
-
 The [iCloud](/components/device_tracker.icloud/) is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/components/sensor.template/).
 
 ```yaml

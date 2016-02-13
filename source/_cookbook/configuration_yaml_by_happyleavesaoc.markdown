@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Full configuration.yaml Examples
+ha_category: Example configuration.yaml
 ha_external_link: https://github.com/happyleavesaoc/my-home-automation/tree/master/homeassistant
 ---
 

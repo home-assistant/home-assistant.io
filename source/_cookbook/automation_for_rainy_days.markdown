@@ -10,8 +10,6 @@ footer: true
 ha_category: Automation Examples
 ---
 
-### {% linkable_title Rainy Day Light %}
-
 This requires a [forecast.io](components/sensor.forecast/) sensor with the condition `weather_precip` that tells if it's raining or not.
 
 Turn on a light in the living room when it starts raining, someone is home, and it's afternoon or later.

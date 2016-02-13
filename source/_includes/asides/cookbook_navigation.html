@@ -14,6 +14,8 @@
           <li>
             {% if recipe.url == page.url %}
               {{recipe.title}}
+            {% elsif recipe.ha_external_link %}
+              <a href='{{recipe.ha_external_link}}'>{{recipe.title}} <i class="icon-external-link"></i></a>
             {% else %}
               <a href='{{recipe.url}}'>{{recipe.title}}</a>
             {% endif %}

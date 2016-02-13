@@ -118,7 +118,25 @@ Home Assistant will automatically load the correct certificate if you connect to
  - [OwnTracks Device Tracker](/components/device_tracker.owntracks/)
  - [MQTT automation rule](/components/automation/#mqtt-based-automation)
  - [MQTT alarm](/components/alarm_control_panel.mqtt/)
- - Integrating it into own component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
+ - Integrating it into own component. See the [MQTT example component](/cookbook/python_component_mqtt_basic/) how to do this.
+
+### {% linkable_title Publish service %}
+
+The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifiying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/getting-started/templating/) that will be rendered to generate the payload.
+
+```json
+{
+  "topic": "home-assistant/light/1/command",
+  "payload": "on"
+}
+```
+
+```json
+{
+  "topic": "home-assistant/light/1/state",
+  "payload_template": "{% raw %}{{ states('device_tracker.paulus') }}{% endraw %}"
+}
+```
 
 ## {% linkable_title Testing your setup %}
 

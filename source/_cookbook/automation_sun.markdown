@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Automation examples using the sun"
+title: "Examples using the sun"
 description: "Automation examples that use the sun."
 date: 2015-10-08 19:05
 sidebar: true

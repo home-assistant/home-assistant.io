@@ -15,7 +15,7 @@ ha_category: Hub
 
 There is currently support for switches, lights and sensors. All will be picked up automatically after configuring this platform.
 
-### Installation
+### {% linkable_title Installation %}
 
 To allow Home Assistant to talk to your Z-Wave USB stick you will have to compile Python Open Z-Wave. This can be done using [this script](https://github.com/balloob/home-assistant/blob/dev/script/build_python_openzwave). _(The Home Assistant docker image has support for Z-Wave built-in)_
 
@@ -26,7 +26,7 @@ $ apt-get install cython3 libudev-dev python-sphinx python3-setuptools
 $ pip3 install "cython<0.23"
 ```
 
-### Configuration
+### {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -53,7 +53,7 @@ To find the path of your Z-Wave stick, run:
 $ ls /dev/ttyUSB*
 ```
 
-#### Events
+#### {% linkable_title Events %}
 
 Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):
 

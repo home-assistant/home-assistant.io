@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "SCSGate light"
+title: "SCSGate Light"
 description: "Instructions how to integrate SCSGate lights into Home Assistant."
 date: 2016-01-31 19:30
 sidebar: true

@@ -10,10 +10,9 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Send a reminder %}
 Always forget to eat lunch? Let Home Assistant send you a reminder.
 
-Add a [notify platform](/components/notify/) of your choice 
+Add a [notify platform](/components/notify/) of your choice.
 
 ```yaml
 notify:

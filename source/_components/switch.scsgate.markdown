@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "SCSGate switch"
+title: "SCSGate Switch"
 description: "Instructions how to integrate SCSGate switches into Home Assistant."
 date: 2016-01-31 22:15
 sidebar: true

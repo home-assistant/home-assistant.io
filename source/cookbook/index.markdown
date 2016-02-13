@@ -30,7 +30,7 @@ Some users keep a public scrubbed copy of their `configuration.yaml` to learn fr
   {% for recipe in site.cookbook %}
     {% if recipe.ha_category == category %}
       {% if recipe.ha_external_link %}
-  * [{{recipe.title}}]({{recipe.ha_external_link}})
+  * [{{recipe.title}} <i class="icon-external-link"></i>]({{recipe.ha_external_link}})
       {% else %}
   * [{{recipe.title}}]({{recipe.url}})
       {% endif %}

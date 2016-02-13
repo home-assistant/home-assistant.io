@@ -18,6 +18,13 @@ Check the **Set State** page from the **Developer Tools** and browse the **Curre
 ```yaml
 # Example configuration.yaml entry
 group:
+  # If you name an entry default_view it will REPLACE the contents of the "Home" tab
+  default_view:
+    view: yes
+    entities:
+      - group.awesome_people
+      - group.climate
+
   kitchen:
     name: Kitchen
     entities:
