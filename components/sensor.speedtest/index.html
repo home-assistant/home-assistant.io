@@ -119,46 +119,55 @@
 
 <p>To add speedtest.net sensors to your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
-<p>Once per hour, on the hour (default):<br />
-<code>yaml
-sensor:
-  platform: speedtest
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-</code></p>
+<p>Once per hour, on the hour (default):</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">sensor</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">speedtest</span></span>
+  <span class="key">monitored_conditions</span>:
+    - <span class="string"><span class="content">ping</span></span>
+    - <span class="string"><span class="content">download</span></span>
+    - <span class="string"><span class="content">upload</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>More examples:</p>
 
-<p>Every half hour of every day:<br />
-<code>yaml
-sensor:
-  platform: speedtest
-  minute:
-    - 0
-    - 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-</code></p>
+<p>Every half hour of every day:</p>
 
-<p>Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:<br />
-<code>yaml
-sensor:
-  platform: speedtest
-  minute: 30
-  hour:
-    - 0
-    - 6
-    - 12
-    - 18
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-</code></p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">sensor</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">speedtest</span></span>
+  <span class="key">minute</span>:
+    - <span class="string"><span class="content">0</span></span>
+    - <span class="string"><span class="content">30</span></span>
+  <span class="key">monitored_conditions</span>:
+    - <span class="string"><span class="content">ping</span></span>
+    - <span class="string"><span class="content">download</span></span>
+    - <span class="string"><span class="content">upload</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">sensor</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">speedtest</span></span>
+  <span class="key">minute</span>: <span class="string"><span class="content">30</span></span>
+  <span class="key">hour</span>:
+    - <span class="string"><span class="content">0</span></span>
+    - <span class="string"><span class="content">6</span></span>
+    - <span class="string"><span class="content">12</span></span>
+    - <span class="string"><span class="content">18</span></span>
+  <span class="key">monitored_conditions</span>:
+    - <span class="string"><span class="content">ping</span></span>
+    - <span class="string"><span class="content">download</span></span>
+    - <span class="string"><span class="content">upload</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>Configuration variables:</p>
 
