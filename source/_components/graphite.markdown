@@ -11,18 +11,21 @@ logo:
 ha_category: History
 ---
 
-Component that records all events and state changes and feeds the data to
-a graphite installation.
-Example configuration:
+The `graphite` component records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.
+
+To enable this component, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 graphite:
-  host: foobar
+  host: IP_ADDRESS
   port: 2003
   prefix: ha
 ```
 
-All config elements are optional, and assumed to be on localhost at the
-default port if not specified. Prefix is the metric prefix in graphite,
-and defaults to 'ha'.
+Configuration variables:
+
+- **host** (*Option*): IP address of your graphite host, eg. http://192.168.1.10. Defaults to `localhost`
+- **port** (*Optional*): Port to use. Defaults to 2003.
+- **prefix** (*Optional*):  Prefix is the metric prefix in graphite. Defaults to `ha`.
+
