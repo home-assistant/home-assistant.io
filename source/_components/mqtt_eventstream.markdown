@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Others
+ha_category: Other
 ---
 
 The `mqtt_eventstream` components two Home Assistant instances via MQTT.

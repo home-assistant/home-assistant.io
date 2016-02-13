@@ -24,8 +24,10 @@ mysensors:
   gateways:
     - port: '/dev/ttyUSB0'
       persistence_file: 'path/mysensors.json'
+      baud_rate: 38400
     - port: '/dev/ttyACM1'
       persistence_file: 'path/mysensors2.json'
+      baud_rate: 115200
   debug: true
   persistence: true
   version: '1.5'
@@ -38,6 +40,7 @@ Configuration variables:
 - **persistence** (*Optional*): Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts. Default is true.
 - **persistence_file** (*Optional*): Path to a file to save sensor information. The file extension determines the file type. Currently supported file types are 'pickle' and 'json'.
 - **version** (*Optional*): Specifies the MySensors protocol version to use. Supports 1.4 and 1.5. Default is 1.4.
+- **baud_rate** (*Optional*): Specifies baud rate of the connected gateway.
 
 If you are using an original Arduino the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
 
