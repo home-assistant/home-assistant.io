@@ -8,7 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2016-02-release-13/social.png
+og_image: /images/blog/2016-02-release-13/social-img.png
 ---
 
 The focus of 0.13 was on test coverage, big cheers to [@rmkraus] for his hard work on this. I'm proud to announce that we've hit the 90% test coverage of the core + important components. A big milestone for the project.
