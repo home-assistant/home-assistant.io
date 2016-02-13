@@ -120,6 +120,13 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">group</span>:
+  <span class="comment"># If you name an entry default_view it will REPLACE the contents of the &quot;Home&quot; tab</span>
+  <span class="key">default_view</span>:
+    <span class="key">view</span>: <span class="string"><span class="content">yes</span></span>
+    <span class="key">entities</span>:
+      - <span class="string"><span class="content">group.awesome_people</span></span>
+      - <span class="string"><span class="content">group.climate</span></span>
+
   <span class="key">kitchen</span>:
     <span class="key">name</span>: <span class="string"><span class="content">Kitchen</span></span>
     <span class="key">entities</span>:

@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Logitech Squeezebox - Home Assistant</title>
+    <title>Graphite - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.">
+    <meta name="description" content="Instructions on how to record Home Assistant history in Graphite.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/media_player.squeezebox/">
+    <link rel="canonical" href="https://home-assistant.io/components/graphite/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Logitech Squeezebox">
+    <meta property="og:title" content="Graphite">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/media_player.squeezebox/">
+    <meta property="og:url" content="https://home-assistant.io/components/graphite/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.">
+    <meta property="og:description" content="Instructions on how to record Home Assistant history in Graphite.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Logitech Squeezebox">
-    <meta name="twitter:description" content="Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.">
+    <meta name="twitter:title" content="Graphite">
+    <meta name="twitter:description" content="Instructions on how to record Home Assistant history in Graphite.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -107,37 +107,29 @@
   
   <header>
     <h1 class="title indent">
-      Logitech Squeezebox
+      Graphite
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The Squeezebox platform allows you to control a <a href="https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29">Logitech Squeezebox</a> music player from Home Assistant.<br />
-This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like <a href="http://softsqueeze.sourceforge.net/">SoftSqueeze</a>, <a href="https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer">SqueezePlayer</a> and <a href="http://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released">SqueezeSlave</a>.</p>
-
-<p>To add your Squeezebox player to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+  <p>Component that records all events and state changes and feeds the data to<br />
+a graphite installation.<br />
+Example configuration:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">squeezebox</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">9090</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
+<span class="key">graphite</span>:
+  <span class="key">host</span>: <span class="string"><span class="content">foobar</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">2003</span></span>
+  <span class="key">prefix</span>: <span class="string"><span class="content">ha</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>Configuration variables:</p>
-
-<ul>
-  <li><strong>host</strong> <em>Required</em>: The host name or address of the Logitech Media Server, eg. 192.168.1.21.</li>
-  <li><strong>port</strong> <em>Optional</em>: Telnet port to Logitech Media Server, default 9090.</li>
-  <li><strong>username</strong> <em>Optional</em>: The username, if password protection is enabled.</li>
-  <li><strong>password</strong> <em>Optional</em>: The password, if password protection is enabled.</li>
-</ul>
+<p>All config elements are optional, and assumed to be on localhost at the<br />
+default port if not specified. Prefix is the metric prefix in graphite,<br />
+and defaults to ‘ha’.</p>
 
 
 </article>
@@ -151,52 +143,29 @@ This lets you control Squeezebox hardware like the Classic, Transporter, Duet, B
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/media_player.squeezebox.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/graphite.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/logitech.png' />
   </div>
     <div class='section'>
-      This is a platform for
-      <a href='/components/media_player/'>the Media Player component</a>.
-    </div>
-    <div class='section'>
-    <h1 class="title delta">Category Media Player</h1>
+    <h1 class="title delta">Category History</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/media_player.denon/'>Denon Network Receivers</a>
+            Graphite
         </li>
         <li>
-            <a href='/components/media_player.firetv/'>FireTV</a>
+            <a href='/components/history/'>History</a>
         </li>
         <li>
-            <a href='/components/media_player.cast/'>Google Cast</a>
+            <a href='/components/influxdb/'>InfluxDB</a>
         </li>
         <li>
-            <a href='/components/media_player.kodi/'>Kodi</a>
+            <a href='/components/logbook/'>Logbook</a>
         </li>
         <li>
-            Logitech Squeezebox
+            <a href='/components/splunk/'>Splunk</a>
         </li>
         <li>
-            <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
-        </li>
-        <li>
-            <a href='/components/media_player.plex/'>Plex</a>
-        </li>
-        <li>
-            <a href='/components/media_player.samsungtv/'>Samsung TV</a>
-        </li>
-        <li>
-            <a href='/components/media_player.sonos/'>Sonos</a>
-        </li>
-        <li>
-            <a href='/components/media_player.universal/'>Universal</a>
-        </li>
-        <li>
-            <a href='/components/media_player.itunes/'>iTunes</a>
-        </li>
-        <li>
-            <a href='/components/media_player.snapcast/'>snapcast</a>
+            <a href='/components/statsd/'>StatsD</a>
         </li>
     </ul>
     </div>

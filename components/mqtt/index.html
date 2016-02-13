@@ -232,8 +232,30 @@ Home Assistant will automatically load the correct certificate if you connect to
   <li><a href="/components/device_tracker.owntracks/">OwnTracks Device Tracker</a></li>
   <li><a href="/components/automation/#mqtt-based-automation">MQTT automation rule</a></li>
   <li><a href="/components/alarm_control_panel.mqtt/">MQTT alarm</a></li>
-  <li>Integrating it into own component. See the <a href="https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py">MQTT example component</a> how to do this.</li>
+  <li>Integrating it into own component. See the <a href="/cookbook/python_component_mqtt_basic/">MQTT example component</a> how to do this.</li>
 </ul>
+
+<h3><a class="title-link" name="publish-service" href="#publish-service"></a> Publish service</h3>
+
+<p>The MQTT component will register the service <code>publish</code> which allows publishing messages to MQTT topics. There are two ways of specifiying your payload. You can either use <code>payload</code> to hard-code a payload or use <code>payload_template</code> to specify a <a href="/getting-started/templating/">template</a> that will be rendered to generate the payload.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">topic</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home-assistant/light/1/command</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">payload</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">on</span><span class="delimiter">&quot;</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">topic</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home-assistant/light/1/state</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">payload_template</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ states('device_tracker.paulus') }}</span><span class="delimiter">&quot;</span></span>
+}
+</pre></div>
+</div>
+</div>
 
 <h2><a class="title-link" name="testing-your-setup" href="#testing-your-setup"></a> Testing your setup</h2>
 
