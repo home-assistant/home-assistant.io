@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-02-13T12:36:58+00:00</updated>
+  <updated>2016-02-13T16:34:46+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors]]></title>
+    <link href="https://home-assistant.io/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors/"/>
+    <updated>2016-02-13T06:15:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors</id>
+    <content type="html"><![CDATA[<p>The focus of 0.13 was on test coverage, big cheers to <a href="https://github.com/rmkraus/">@rmkraus</a> for his hard work on this. I’m proud to announce that we’ve hit the 90% test coverage of the core + important components. A big milestone for the project.</p>
+
+<p class="img">
+  <img src="https://home-assistant.io/images/blog/2016-02-release-13/social.png" />
+  Examples of the new <a href="/components/input_select/">input_select</a> and <a href="/components/weblink/">weblink</a> components.
+</p>
+
+<p>Not only did we gain a lot of test coverage, we also attracted a lot of new developers that contributed a variety of components and platforms:</p>
+
+<p><img src="https://home-assistant.io/images/supported_brands/speedtest.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="70" /><img src="https://home-assistant.io/images/supported_brands/apcupsd.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/splunk.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/bloomsky.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/ubiquiti.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/networx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/samsung.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Core: Add service to restart Home Assistant (<a href="https://github.com/rmkraus/">@rmkraus</a>)</li>
+  <li>Core: Allow device to report as unavailable (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Core: Allow overriding polling interval in platforms and <a href="/cookbook/customize_polling_interval/">via config</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Frontend: support for a <a href="/components/group/">default view</a> have been added to replace the show all view (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Component: Added <a href="/components/apcupsd/">apcupsd</a> component (<a href="https://github.com/flyte/">@flyte</a>)</li>
+  <li>Component: Added component to log values to <a href="/components/splunk/">Splunk</a> (<a href="https://github.com/miniconfig/">@miniconfig</a>)</li>
+  <li>Component: Added <a href="/components/garage_door/">garage door</a> component including <a href="/components/garage_door.wink/">Wink</a> support (<a href="https://github.com/xrolfex/">@xrolfex</a>)</li>
+  <li>Component: Added <a href="/components/input_select/">input_select</a> component (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Component: Added <a href="/components/proximity/">proximity</a> component to track people closest to a location (<a href="https://github.com/nickwaring/">@nickwaring</a>, <a href="https://github.com/Bart274/">@Bart274</a> )</li>
+  <li>Component: Added support for <a href="/components/bloomsky/">Bloomsky Weather Station</a> (<a href="https://github.com/haraldnagel/">@haraldnagel</a>)</li>
+  <li>Component: Added support for pushing stats to <a href="/components/graphite/">graphite</a> (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Component: Added support for <a href="/components/scsgate/">SCSGate</a> devices (<a href="https://github.com/flavio/">@flavio</a>)</li>
+  <li>Component: Added <a href="/components/weblink/">weblink</a> component to link to other pages (<a href="https://github.com/MagnusKnutas/">@MagnusKnutas</a>)</li>
+  <li>Component: Support for Ubiquiti mFI <a href="/components/sensor.mfi/">sensors</a> and <a href="/components/switch.mfi/">switchable devices</a> added (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Alarm control panel: Added <a href="/components/alarm_control_panel.nx584/">Caddx/GE/Interlogix NetworX</a> support (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Camera: <a href="/components/camera.mjpeg/">MJPEG</a> camera’s will now show real stream instead of a 2fps stream (<a href="https://github.com/stjohnjohnson/">@stjohnjohnson</a>)</li>
+  <li>Camera: Added <a href="/components/camera.uvc/">Unifi video cameras</a> support (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.aruba/">Aruba</a> platform now uses SSH instead of telnet (<a href="https://github.com/carlosmgr/">@carlosmgr</a>)</li>
+  <li>History: Show correct graphs for thermostats (<a href="https://github.com/sdague/">@sdague</a>)</li>
+  <li>Light: Added <a href="/components/light.mysensors/">MySensors</a> support (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Lock: Added <a href="/components/lock.verisure/">Verisure</a> support (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>Media Player: Added <a href="/components/media_player.samsungtv/">Samsung TV</a> support (<a href="https://github.com/stefan-jonasson/">@stefan-jonasson</a>)</li>
+  <li>Media Player: Added <a href="/components/media_player.snapcast/">Snapcast</a> support (<a href="https://github.com/happyleavesaoc/">@happyleavesaoc</a>)</li>
+  <li>MQTT: Allow using templates in <a href="/components/mqtt/#publish-service">publish service</a> (<a href="https://github.com/flyte/">@flyte</a>)</li>
+  <li>Notify: Added <a href="/components/notify.rest/">REST</a> support (<a href="https://github.com/Theb-1/">@Theb-1</a>)</li>
+  <li>Sensor: Added <a href="/components/sensor.speedtest/">Speedtest.net</a> support (<a href="https://github.com/nkgilley/">@nkgilley</a>)</li>
+  <li>Switch: Added <a href="/components/switch.template/">template</a> platform (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
+  <li>Thermostat: Support for <a href="/components/thermostat.honeywell/">Honeywell</a> in the US added (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Z-Wave: Allow <a href="/components/zwave/#configuration">configuring polling</a> and <a href="/components/zwave/#events">support scenes</a> (<a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>)</li>
+  <li>Bug fixes and improvements by <a href="https://github.com/persandstrom/">@persandstrom</a>, <a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/pavoni/">@pavoni</a>, <a href="https://github.com/philipbl/">@philipbl</a>, <a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>, <a href="https://github.com/rmkraus/">@rmkraus</a>, <a href="https://github.com/molobrakos/">@molobrakos</a>, <a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>, <a href="https://github.com/TangoAlpha/">@TangoAlpha</a>, <a href="https://github.com/deisi/">@deisi</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>, <a href="https://github.com/roqeer/">@roqeer</a>, <a href="https://github.com/jaharkes/">@jaharkes</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.12: Insteon, LIFX, Twitter and ZigBee]]></title>
@@ -192,53 +244,6 @@ Example of the new views in the frontend. <a href="https://home-assistant.io/com
 <p class="img">
 <img src="https://home-assistant.io/images/screenshots/lock-and-rollershutter-card.png" />
 </p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.8: Honeywell Thermostats, Orvibo switches and Z-Wave switches and lights ]]></title>
-    <link href="https://home-assistant.io/blog/2015/11/16/zwave-switches-lights-and-honeywell-thermostats-now-supported/"/>
-    <updated>2015-11-16T21:27:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/11/16/zwave-switches-lights-and-honeywell-thermostats-now-supported</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/screenshots/custom-icons.png" style="float: right;" />We have all been hard at work to get this latest release ready. One of the big highlights in this release is the introduction of an extended iconset to be used in the frontend (credits to <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> for idea and prototype). To get started with customizing, pick any icon from <a href="https://MaterialDesignIcons.com">MaterialDesignIcons.com</a>, prefix the name with <code>mdi:</code> and stick it into your <code>customize</code> section in <code>configuration.yaml</code>:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">homeassistant</span>:
-  <span class="key">customize</span>:
-    <span class="key">switch.ac</span>:
-      <span class="key">icon</span>: <span class="string"><span class="content">'mdi:air-conditioner'</span></span>
-</pre></div>
-</div>
-</div>
-
-<h4>Breaking changes</h4>
-
-<ul>
-  <li>Any existing zone icon will have to be replaced with one from <a href="https://MaterialDesignIcons.com">MaterialDesignIcons.com</a>.</li>
-  <li>LimitlessLED light services require colors to be specified in RGB instead of XY.</li>
-</ul>
-
-<h4>Changes</h4>
-
-<p><img src="https://home-assistant.io/images/supported_brands/honeywell.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /><img src="https://home-assistant.io/images/supported_brands/orvibo.png" style="clear: right;  border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /><img src="https://home-assistant.io/images/supported_brands/pushetta.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /></p>
-
-<ul>
-  <li>Thermostat: <a href="/components/thermostat.honeywell/">Honeywell</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
-  <li>Switch: <a href="/components/switch.orvibo/">Orvibo</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li>Camera: <a href="/components/camera.mjpeg/">mjpeg camera’s</a> now supported (<a href="https://github.com/ryanturner">@ryanturner</a>)</li>
-  <li>Notify: <a href="/components/notify.pushetta/">Pushetta</a> now supported (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Light: <a href="/components/light.mqtt/">MQTT</a> now supported (<a href="https://github.com/hexxter">@hexxter</a>)</li>
-  <li>Light: <a href="/components/zwave/">Z-Wave</a> now supported (<a href="https://github.com/leoc">@leoc</a>)</li>
-  <li>Switch: <a href="/components/zwave/">Z-Wave</a> now supported (<a href="https://github.com/leoc">@leoc</a>)</li>
-  <li>New component <a href="/components/logger/">logger</a> allows filtering logged data (<a href="https://github.com/badele">@badele</a>)</li>
-  <li>New component <a href="/components/updater/">updater</a> will notify users if an update for Home Assistant is available (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
-  <li>Notify: <a href="/components/notify.pushbullet/">PushBullet</a> now allows targeting contacts/channels/specific devices (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Light: Allow controlling color temperature (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Frontend: about page added (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Switch RGB as the color unit used in light component (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Re-install platform and component dependencies after a Home Assistant version upgrade (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
 
 ]]></content>
   </entry>
