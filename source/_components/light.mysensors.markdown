@@ -13,3 +13,5 @@ featured: false
 ---
 
 Integrates MySensors lights into Home Assistant. See the [main component] for configuration instructions.
+
+[main component]: /components/mysensors/
