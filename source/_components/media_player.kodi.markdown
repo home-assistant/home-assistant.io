@@ -30,8 +30,7 @@ media_player:
 
 Configuration variables:
 
-- **url** *Required*: The URL of the XBMC/Kodi JSON-RPC API, eg. http://192.168.0.123/jsonrpc
-- **host** *Required*: The host name or address of the device
+- **host** *Required*: The host name or address of the device that is running XBMC/Kodi
 - **port** *Required*: The port number, default 8080
 - **name** *Optional*: The name of the device used in the frontend.
 - **username** *Optional*: The XBMC/Kodi HTTP username.
