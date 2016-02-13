@@ -2,7 +2,7 @@
 layout: page
 title: "Configuration.yaml by GreenTurtwig"
 description: ""
-date: 2016-02-013 13:51
+date: 2016-02-13 13:51 +0700
 sidebar: true
 comments: false
 sharing: true
