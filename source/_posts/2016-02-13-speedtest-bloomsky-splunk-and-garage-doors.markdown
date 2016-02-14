@@ -14,7 +14,7 @@ og_image: /images/blog/2016-02-release-13/social-img.png
 The focus of 0.13 was on test coverage, big cheers to [@rmkraus] for his hard work on this. I'm proud to announce that we've hit the 90% test coverage of the core + important components. A big milestone for the project.
 
 <p class='img'>
-  <img src='/images/blog/2016-02-release-13/social.png'>
+  <img src='/images/blog/2016-02-release-13/input_select__input_boolean__weblink.png'>
   Examples of the new [input_select] and [weblink] components.
 </p>
 
