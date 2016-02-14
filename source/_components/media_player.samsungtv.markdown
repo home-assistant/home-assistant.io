@@ -30,3 +30,12 @@ Configuration variables:
 
 - **host** *Required*: The IP of the Samsung Smart TV, e.g. 192.168.0.10
 - **name** *Optional*: The name you would like to give to the Samsung Smart TV.
+
+
+Currently known supported models:
+
+- 40ES5500
+
+If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/balloob/home-assistant.io).
+
+Models beginning with UE are European, UN is North America and UA is Asia & Australia.
