@@ -40,13 +40,19 @@ Improvements to Home Assistant should be submitted one feature at a time using G
     `git checkout -b some-feature`
  2. Make the changes you want
  3. Test your changes and check for style violations
-    `./script/test`
+    `tox`
  4. Commit the changes
     `git add .`
     `git commit -m "Added some-feature"`
  5. Push your commited changes back to your fork on GitHub
     `git push origin HEAD`
  6. Follow [these steps](https://help.github.com/articles/creating-a-pull-request/) to create your pull request.
+
+Note that the above requires `tox` to be installed. If you don't have it, do this:
+
+```bash
+$ pip3 install tox
+```
 
 ### {% linkable_title Further reading %}
 
