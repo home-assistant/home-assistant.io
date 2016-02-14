@@ -34,7 +34,8 @@ Configuration variables:
 
 Currently known supported models:
 
-- 40ES5500
+- ES5500
+- C7700
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/balloob/home-assistant.io).
 
