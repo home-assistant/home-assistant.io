@@ -151,7 +151,7 @@ $ script/setup
 <code>git checkout -b some-feature</code></li>
   <li>Make the changes you want</li>
   <li>Test your changes and check for style violations<br />
-<code>./script/test</code></li>
+<code>tox</code></li>
   <li>Commit the changes<br />
 <code>git add .</code><br />
 <code>git commit -m "Added some-feature"</code></li>
@@ -159,6 +159,14 @@ $ script/setup
 <code>git push origin HEAD</code></li>
   <li>Follow <a href="https://help.github.com/articles/creating-a-pull-request/">these steps</a> to create your pull request.</li>
 </ol>
+
+<p>Note that the above requires <code>tox</code> to be installed. If you don’t have it, do this:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ pip3 install tox
+</pre></div>
+</div>
+</div>
 
 <h3><a class="title-link" name="further-reading" href="#further-reading"></a> Further reading</h3>
 
