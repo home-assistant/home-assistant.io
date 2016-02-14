@@ -14,7 +14,7 @@ ha_category: Presence Detection
 
 The `icloud` platform allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices. 
 
-It does require that your device has beend registered with "Find My iPhone".
+It does require that your device is registered with "Find My iPhone".
 
 To integrate iCloud in Home Assistant, add the following section to your `configuration.yaml` file:
 
