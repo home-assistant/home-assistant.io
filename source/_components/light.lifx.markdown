@@ -24,5 +24,5 @@ light:
 Configuration variables:
 
 - **server** (*Optional*): Your server address. Only needed if using more than one network interface. Omit if you are unsure.
-- **consumer_secret** (*Optional*): The broadcast address, set to reach all LIFX bulbs.
+- **broadcast** (*Optional*): The broadcast address, set to reach all LIFX bulbs.
 
