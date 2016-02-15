@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>RFXtrx - Home Assistant</title>
+    <title>MySensors - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to integrate RFXtrx into Home Assistant.">
+    <meta name="description" content="Instructions how to integrate MySensors sensors into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/rfxtrx/">
+    <link rel="canonical" href="https://home-assistant.io/components/mysensors/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="RFXtrx">
+    <meta property="og:title" content="MySensors">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/rfxtrx/">
+    <meta property="og:url" content="https://home-assistant.io/components/mysensors/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate RFXtrx into Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate MySensors sensors into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="RFXtrx">
-    <meta name="twitter:description" content="Instructions how to integrate RFXtrx into Home Assistant.">
+    <meta name="twitter:title" content="MySensors">
+    <meta name="twitter:description" content="Instructions how to integrate MySensors sensors into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -107,21 +107,31 @@
   
   <header>
     <h1 class="title indent">
-      RFXtrx
+      MySensors
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The rfxtrx component supports RFXtrx devices by <a href="http://www.rfxcom.com">RFXCOM</a> which communicate in the frequency range of 433.92 MHz.</p>
+  <p>The <a href="https://www.mysensors.org">MySensors</a> project combines Arduino boards with NRF24L01 radio boards to build sensor networks. The component will automatically add all available devices to Home Assistant, after <a href="#presentation">presentation</a> is done.</p>
 
-<p>To enable RFXtrx in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+
+<p>Integrate your Serial MySensors Gateway by adding the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">rfxtrx</span>:
-  <span class="key">device</span>: <span class="string"><span class="content">PATH_TO_DEVICE</span></span>
-  <span class="key">debug</span>: <span class="string"><span class="content">True</span></span>
+<span class="key">mysensors</span>:
+  <span class="key">gateways</span>:
+    - <span class="string"><span class="content">port: '/dev/ttyUSB0'</span></span>
+      <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors.json'</span></span>
+      <span class="key">baud_rate</span>: <span class="string"><span class="content">38400</span></span>
+    - <span class="string"><span class="content">port: '/dev/ttyACM1'</span></span>
+      <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors2.json'</span></span>
+      <span class="key">baud_rate</span>: <span class="string"><span class="content">115200</span></span>
+  <span class="key">debug</span>: <span class="string"><span class="content">true</span></span>
+  <span class="key">persistence</span>: <span class="string"><span class="content">true</span></span>
+  <span class="key">version</span>: <span class="string"><span class="content">'1.5'</span></span>
 </pre></div>
 </div>
 </div>
@@ -129,36 +139,44 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>device</strong> (<em>Required</em>): The path to your device, e.g. <code>/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0</code></li>
-  <li><strong>debug</strong> (<em>Optional</em>): If you want to receive debug output.</li>
+  <li><strong>port</strong> (<em>Required</em>): The port where your board is connected to your Home Assistant host.</li>
+  <li><strong>debug</strong> (<em>Optional</em>): Enable or disable verbose debug logging. Default is false.</li>
+  <li><strong>persistence</strong> (<em>Optional</em>): Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts. Default is true.</li>
+  <li><strong>persistence_file</strong> (<em>Optional</em>): Path to a file to save sensor information. The file extension determines the file type. Currently supported file types are ‘pickle’ and ‘json’.</li>
+  <li><strong>version</strong> (<em>Optional</em>): Specifies the MySensors protocol version to use. Supports 1.4 and 1.5. Default is 1.4.</li>
+  <li><strong>baud_rate</strong> (<em>Optional</em>): Specifies baud rate of the connected gateway. Default is 115200.</li>
 </ul>
 
-<h3>How to find the packet_id for your devices</h3>
-
-<p>Make sure you have enabled all RFXtrx related platforms. Push your remote and the device will be added automatically. After that you can see you device packetid in the state developer tools in the app.</p>
-
-<p>Example for X10 and Chacon DI.O signals, if you see in state developer tools the following entities:</p>
-
-<pre><code>light.123efab1__1b2200000890efab1213f60
-light.a8__0123454041230170
-</code></pre>
-
-<p>You must add the following to your <code>configuration.yaml</code>:</p>
+<p>If you are using an original Arduino the port will be named <code>ttyACM*</code>. The exact number can be determined with the command shown below.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
-  <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
-  <span class="key">devices</span>:
-    <span class="key">123efab1</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My DI.0 light device</span></span>
-      <span class="key">packetid</span>: <span class="string"><span class="content">1b2200000890efab1213f60</span></span>
-    <span class="key">a8</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My X10 light device</span></span>
-      <span class="key">packetid</span>: <span class="string"><span class="content">0123454041230170</span></span>
+  <div class="code"><pre>$ ls /dev/ttyACM*
 </pre></div>
 </div>
 </div>
+
+<h3><a class="title-link" name="presentation" href="#presentation"></a> Presentation</h3>
+
+<p>Present a MySensors sensor or actuator, by following these steps:</p>
+
+<ol>
+  <li>Connect your gateway to your computer.</li>
+  <li>Configure the MySensors component in configuration.yaml.</li>
+  <li>Start hass.</li>
+  <li>Wait for “gateway started” in the log output.</li>
+  <li>Write and upload your MySensors sketch to the sensor. Make sure you:
+    <ul>
+      <li>Either use a manual node id, or AUTO for requesting a node id from the controller, in gw.begin().</li>
+      <li>Send sketch name.</li>
+      <li>Present the sensor’s S_TYPE.</li>
+      <li>Send at least one initial value per V_TYPE.</li>
+    </ul>
+  </li>
+  <li>Start the sensor.</li>
+</ol>
+
+<p>Visit the <a href="https://www.mysensors.org/download/sensor_api_15">library api</a> of MySensors for more information.</p>
+
 
 
 </article>
@@ -172,20 +190,21 @@ light.a8__0123454041230170
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/rfxtrx.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/mysensors.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/mysensors.png' />
   </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
-        <li><a href='/components/light.rfxtrx/'>
-          RFXtrx Light
+        <li><a href='/components/light.mysensors/'>
+          MySensors Light
         </a></li>
-        <li><a href='/components/sensor.rfxtrx/'>
-          RFXtrx Sensor
+        <li><a href='/components/sensor.mysensors/'>
+          MySensors Sensor
         </a></li>
-        <li><a href='/components/switch.rfxtrx/'>
-          RFXtrx Switch
+        <li><a href='/components/switch.mysensors/'>
+          MySensors Switch
         </a></li>
     </ul>
     </div>
@@ -214,13 +233,13 @@ light.a8__0123454041230170
             <a href='/components/modbus/'>Modbus</a>
         </li>
         <li>
-            <a href='/components/mysensors/'>MySensors</a>
+            MySensors
         </li>
         <li>
             <a href='/components/nest/'>Nest</a>
         </li>
         <li>
-            RFXtrx
+            <a href='/components/rfxtrx/'>RFXtrx</a>
         </li>
         <li>
             <a href='/components/scsgate/'>SCSGate</a>
