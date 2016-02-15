@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors Light"
 description: "Instructions how to integrate MySensors lights into Home Assistant."
-date: 2016-02-15 17:37
+date: 2016-02-15 17:37 +0100
 sidebar: true
 comments: false
 sharing: true
