@@ -14,5 +14,5 @@ ha_category: Garage Door
 
 The Wink garage door platform allows you to control your [Wink](http://www.wink.com/) enabled garage door.
 
-The requirement is that you have setup your [Wink hub](/components/light.wink/).
+The requirement is that you have setup your [Wink hub](/components/wink/).
 
