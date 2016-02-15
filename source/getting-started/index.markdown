@@ -82,7 +82,7 @@ The following configuration has been tested on a Synology 415+ running DSM 5.2-5
 Running these commands will:
 
  - Install Home Assistant
- - Ebable Home Assistant to be launched on [http://localhost:8123](http://localhost:8123)
+ - Enable Home Assistant to be launched on [http://localhost:8123](http://localhost:8123)
 
 Using the Synology webadmin:
  - Install python3 using the Synology package centre
@@ -240,14 +240,6 @@ $ sh hass-daemon restart
 - Upgrade Home Assistant::
 ```bash
 $ python3/pip3 install --upgrade homeassistant
-```
-
-	 
-Execute the following code in a console:
-
-```bash
-$ sudo pip3 install homeassistant
-$ hass
 ```
 </div> <!-- INSTALL-INSTRUCTIONS SYNOLOGY -->
 </div>
