@@ -140,7 +140,7 @@ SSH onto your synology & login as admin or root
 ```bash
 $ cd /volume1/homeassistant
 ```
-Create "homeassistnat.conf" file using the following code
+Create "homeassistant.conf" file using the following code
 ```bash
 # only start this service after the httpd user process has started
 start on started httpd-user
