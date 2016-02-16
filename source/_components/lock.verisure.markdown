@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: wink.png
+logo: verisure.png
 ha_category: Lock
 ---
 

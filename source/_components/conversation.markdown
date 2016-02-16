@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: conversation.png
+logo: home-assistant.png
 ha_category: "Voice"
 ---
 

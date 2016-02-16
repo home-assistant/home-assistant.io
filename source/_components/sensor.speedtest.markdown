@@ -14,9 +14,9 @@ featured: false
 
 The `speedtest` sensor component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-By default, it will run every hour on the hour.  The user can change the update frequency in the config by defining the minute, hour, and day for speedtest to run.
+By default, it will run every hour.  The user can change the update frequency in the config by defining the minute, hour, and day for a speedtest to run.
 
-To add speedtest.net sensors to your installation, add the following to your `configuration.yaml` file:
+To add a Speedtest.net sensor to your installation, add the following to your `configuration.yaml` file:
 
 Once per hour, on the hour (default):
 
@@ -65,11 +65,11 @@ sensor:
 Configuration variables:
 
 - **monitored_conditions** array (*Required*): Sensors to display in the frontend.
-  - **ping**: Reaction time in ms of your connection–how fast you get a response after you've sent out a request.
+  - **ping**: Reaction time in ms of your connection, (how fast you get a response after you've sent out a request).
   - **download**: Download speed in Mbps.
   - **upload**: Upload speed in Mbps.
 - **minute** (*Optional*): Specify the minute(s) of the hour to schedule the speedtest. Use a list for multiple entries. Default is 0.
 - **hour** (*Optional*): Specify the hour(s) of the day to schedule the speedtest. Use a list for multiple entries. Default is None.
 - **day** (*Optional*): Specify the day(s) of the month to schedule the speedtest. Use a list for multiple entries. Default is None.
 
-This component uses [speetest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from speedtest.net.  Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.
+This component uses [speetest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.  Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.

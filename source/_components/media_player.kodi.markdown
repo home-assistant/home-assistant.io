@@ -21,7 +21,7 @@ To add Kodi to your installation, add the following to your `configuration.yaml`
 # Example configuration.yaml entry
 media_player:
   platform: kodi
-  host: 192.168.0.123
+  host: http://192.168.0.123
   port: 8080
   name: Kodi
   user: USERNAME
