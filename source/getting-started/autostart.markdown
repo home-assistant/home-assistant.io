@@ -137,10 +137,13 @@ Home Assistant has been uninstalled.
 To get Home Assistant to automatically start when you boot your Synology NAS:
 
 SSH onto your synology & login as admin or root
+
 ```bash
 $ cd /volume1/homeassistant
 ```
+
 Create "homeassistant.conf" file using the following code
+
 ```bash
 # only start this service after the httpd user process has started
 start on started httpd-user
@@ -155,15 +158,20 @@ stop on runlevel [06]
 # the 'www' file is a node.js script which starts the foobar application.
 exec /bin/sh /volume1/homeassistant/hass-daemon start
 ```
+
 Register the autostart
+
 ```bash
 $ ln -s homeassistant-conf /etc/init/homeassistant-conf
 ```
+
 Make the relevant files executable:
+
 ```bash
 $ chmod -r 777 /etc/init/homeassistant-conf
 ```
-That's it - reboot your NAS and homeassistant should automatically start
+
+That's it - reboot your NAS and Home Assistant should automatically start
 </div> <!-- SYNOLOGY -->
 </div>
 

@@ -13,9 +13,11 @@ footer: true
 <input name='install-instructions' type='radio' id='normal-install' checked>
 <input name='install-instructions' type='radio' id='raspberry-install'>
 <input name='install-instructions' type='radio' id='docker-install'>
-<label class='menu-selector normal' for='normal-install'>Install on local machine</label>
-<label class='menu-selector raspberry' for='raspberry-install'>Install on a Raspberry Pi</label>
-<label class='menu-selector docker' for='docker-install'>Install using Docker</label>
+<input name='install-instructions' type='radio' id='synology-install'>
+<label class='menu-selector normal' for='normal-install'>Local machine</label>
+<label class='menu-selector raspberry' for='raspberry-install'>Raspberry Pi</label>
+<label class='menu-selector docker' for='docker-install'>Docker</label>
+<label class='menu-selector synology' for='synology-install'>Synology NAS</label>
 
 <div class='install-instructions normal' markdown='1'>
 Installing and running Home Assistant on your local machine is easy. Make sure you have [Python 3.4 or higher](https://www.python.org/downloads/) installed and execute the following code in a console:
@@ -29,8 +31,8 @@ Running these commands will:
 
  - Install Home Assistant
  - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
- 
- 
+
+
 If would prefer to watch a video tutorial however, [tktino](https://github.com/tktino) has made some great ones.
 
  - [Windows 10](https://www.youtube.com/watch?v=X27eVvuqwnY)
@@ -77,7 +79,7 @@ Running these commands will:
 
 <div class='install-instructions synology' markdown='1'>
 
-The following configuration has been tested on a Synology 415+ running DSM 5.2-5644 Update 3
+The following configuration has been tested on Synology 415+ running DSM 5.2-5644 Update 3.
 
 Running these commands will:
 
@@ -85,24 +87,33 @@ Running these commands will:
  - Enable Home Assistant to be launched on [http://localhost:8123](http://localhost:8123)
 
 Using the Synology webadmin:
+
  - Install python3 using the Synology package centre
  - Create homeassistant user and add to the "users" group
 
 SSH onto your synology & login as admin or root
+
 Check the path to python3 (assumed to be /usr/local/python3/bin)
+
 ```bash
 $ cd /usr/local/python3/bin
 ```
+
 Use PIP to install Homeassistant package
+
 ```bash
 $ pip3 install homeassistant
 ```
+
 Create homeassistant config directory & switch to it
+
 ```bash
 $ mkdir /volume1/homeassistant
 $ cd /volume1/homeassistant
 ```
+
 Create hass-daemon file using the following code (edit the variables in uppercase if necessary)
+
 ```bash
 #!/bin/sh
 
@@ -174,18 +185,18 @@ case $1 in
             exit 0
         fi
         ;;
-		restart)
+        restart)
         if daemon_status; then
             echo Stopping ${DNAME} ...
             stop_daemon
             echo Starting ${DNAME} ...
             start_daemon
-            exit $?	
+            exit $?
         else
             echo ${DNAME} is not running
             echo Starting ${DNAME} ...
             start_daemon
-            exit $?						
+            exit $?
         fi
         ;;
     status)
@@ -205,42 +216,58 @@ case $1 in
         exit 1
         ;;
 esac
+
 ```
+
 Create links to python folders to make things easier in the future:
+
 ```bash
 $ ln -s /usr/local/python3/bin python3
 $ ln -s /usr/local/python3/lib/python3.4/site-packages/homeassistant
 ```
+
 Set the owner and permissions on your config folder
 
 ```bash
 $ chown -r homeassistant:users /volume1/homeassistant
 $ chmod -r 660 /volume1/homeassistant
 ```
+
 Make the daemon file executable:
+
 ```bash
 $ chmod -r 777 /volume1/homeassistant/hass-daemon
 ```
+
 Copy your configuration.yaml file into the config folder
 That's it... you're all set to go
 
 Here are some useful commands:
+
 - Start Home Assistant:
+
 ```bash
 $ sh hass-daemon start
 ```
+
 - Stop Home Assistant:
+
 ```bash
 $ sh hass-daemon stop
 ```
+
 - Restart Home Assistant:
+
 ```bash
 $ sh hass-daemon restart
 ```
+
 - Upgrade Home Assistant::
+
 ```bash
 $ python3/pip3 install --upgrade homeassistant
 ```
+
 </div> <!-- INSTALL-INSTRUCTIONS SYNOLOGY -->
 </div>
 
@@ -252,7 +279,6 @@ For additional help, in addition to this site, there are four sources:
 
  - [Forum](https://automic.us/forum/)
  - [Gitter Chatroom](https://gitter.im/balloob/home-assistant) for general Home Assistant discussions and questions.
- - [Development Mailing List](https://groups.google.com/forum/#!forum/home-assistant-dev) for development related questions and discussing new features.
  - [GitHub Page](https://github.com/balloob/home-assistant/issues) for issue reporting.
 
 ### What's next
