@@ -18,6 +18,7 @@ To enable RFXtrx switches in your installation, add the following to your `confi
 # Example configuration.yaml entry
 switch:
   platform: rfxtrx
+  signal_repetitions: 3
   devices:
     living_room:
       name: Living Room
@@ -29,4 +30,4 @@ Configuration variables:
 
 - **devices** (*Required*): A list of devices with their name to use in the frontend.
 - **automatic_add** (*Optional*): To enable the automatic addition of new switches.
-
+- **signal_repetitions** *Optional*: Because the tellstick sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
