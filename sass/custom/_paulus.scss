@@ -205,7 +205,7 @@ p.note {
 }
 
 .install-instructions-container {
-  #normal-install, #raspberry-install, #docker-install, .install-instructions {
+  #normal-install, #raspberry-install, #docker-install, #synology-install, .install-instructions {
     display: none;
   }
 
@@ -224,14 +224,16 @@ p.note {
 
   #normal-install:checked ~ .menu-selector.normal,
   #raspberry-install:checked ~ .menu-selector.raspberry,
-  #docker-install:checked ~ .menu-selector.docker
+  #docker-install:checked ~ .menu-selector.docker,
+  #synology-install:checked ~ .menu-selector.synology
    {
     border-bottom-color: $blue;
   }
 
   #normal-install:checked ~ .install-instructions.normal,
   #raspberry-install:checked ~ .install-instructions.raspberry,
-  #docker-install:checked ~ .install-instructions.docker
+  #docker-install:checked ~ .install-instructions.docker,
+  #synology-install:checked ~ .install-instructions.synology
    {
     display: block;
   }
@@ -243,7 +245,7 @@ p.note {
 
 .advanced-installs-container {
 
-  #upstart-install, #systemd-install, #osx-install, .advanced-installs {
+  #upstart-install, #systemd-install, #osx-install, #synology-install, .advanced-installs {
     display: none;
   }
 
@@ -262,14 +264,16 @@ p.note {
 
   #upstart-install:checked ~ .menu-selector.upstart,
   #systemd-install:checked ~ .menu-selector.systemd,
-  #osx-install:checked ~ .menu-selector.osx
+  #osx-install:checked ~ .menu-selector.osx,
+  #synology-install:checked ~ .menu-selector.synology
    {
     border-bottom-color: $blue;
   }
 
   #upstart-install:checked ~ .advanced-installs.upstart,
   #systemd-install:checked ~ .advanced-installs.systemd,
-  #osx-install:checked ~ .advanced-installs.osx
+  #osx-install:checked ~ .advanced-installs.osx,
+  #synology-install:checked ~ .advanced-installs.synology
    {
     display: block;
   }
