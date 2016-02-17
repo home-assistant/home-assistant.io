@@ -5,7 +5,11 @@ date: 2016-02-15 17:10:56 -0500
 author: happyleavesaoc
 comments: true
 categories: How-To
+date_formatted: "February 15, 2016"
+og_image: /images/blog/2016-02-snapcast/diagram.png
 ---
+
+Would you like to listen to music in every room in your home, controlled from one source? Then multi-room audio is for you.
 
 Multi-room audio can be achieved by having a computer attached to speakers in every room. On each computer, services run to play and/or control the audio. With this DIY approach, the kind of computer and speakers is very much up to you. It could be your desktop computer with attached powered speakers, your HTPC hooked up to your TV and receiver, a Raspberry Pi with Amp or DAC, or even an Android device.
 
