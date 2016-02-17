@@ -30,4 +30,4 @@ Configuration variables:
 
 - **devices** (*Required*): A list of devices with their name to use in the frontend.
 - **automatic_add** (*Optional*): To enable the automatic addition of new switches.
-- **signal_repetitions** *Optional*: Because the tellstick sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
+- **signal_repetitions** *Optional*: Because the rxftrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
