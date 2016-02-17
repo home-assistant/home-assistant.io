@@ -119,9 +119,11 @@
 <input name="install-instructions" type="radio" id="normal-install" checked="" />
 <input name="install-instructions" type="radio" id="raspberry-install" />
 <input name="install-instructions" type="radio" id="docker-install" />
-<label class="menu-selector normal" for="normal-install">Install on local machine</label>
-<label class="menu-selector raspberry" for="raspberry-install">Install on a Raspberry Pi</label>
-<label class="menu-selector docker" for="docker-install">Install using Docker</label>
+<input name="install-instructions" type="radio" id="synology-install" />
+<label class="menu-selector normal" for="normal-install">Local machine</label>
+<label class="menu-selector raspberry" for="raspberry-install">Raspberry Pi</label>
+<label class="menu-selector docker" for="docker-install">Docker</label>
+<label class="menu-selector synology" for="synology-install">Synology NAS</label>
 
 <div class="install-instructions normal">
     <p>Installing and running Home Assistant on your local machine is easy. Make sure you have <a href="https://www.python.org/downloads/">Python 3.4 or higher</a> installed and execute the following code in a console:</p>
@@ -191,6 +193,233 @@ $ hass
     </ul>
 
   </div> <!-- INSTALL-INSTRUCTIONS RASPBERRY -->
+
+<div class="install-instructions synology">
+
+    <p>The following configuration has been tested on Synology 415+ running DSM 5.2-5644 Update 3.</p>
+
+    <p>Running these commands will:</p>
+
+    <ul>
+      <li>Install Home Assistant</li>
+      <li>Enable Home Assistant to be launched on <a href="http://localhost:8123">http://localhost:8123</a></li>
+    </ul>
+
+    <p>Using the Synology webadmin:</p>
+
+    <ul>
+      <li>Install python3 using the Synology package centre</li>
+      <li>Create homeassistant user and add to the “users” group</li>
+    </ul>
+
+    <p>SSH onto your synology &amp; login as admin or root</p>
+
+    <p>Check the path to python3 (assumed to be /usr/local/python3/bin)</p>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ cd /usr/local/python3/bin
+</pre></div>
+</div>
+    </div>
+
+    <p>Use PIP to install Homeassistant package</p>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ pip3 install homeassistant
+</pre></div>
+</div>
+    </div>
+
+    <p>Create homeassistant config directory &amp; switch to it</p>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ mkdir /volume1/homeassistant
+$ cd /volume1/homeassistant
+</pre></div>
+</div>
+    </div>
+
+    <p>Create hass-daemon file using the following code (edit the variables in uppercase if necessary)</p>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>#!/bin/sh
+
+# Package
+PACKAGE=&quot;homeassistant&quot;
+DNAME=&quot;Home Assistant&quot;
+
+# Others
+USER=&quot;homeassistant&quot;
+PYTHON_DIR=&quot;/usr/local/python3/bin&quot;
+PYTHON=&quot;$PYTHON_DIR/python3&quot;
+HASS=&quot;$PYTHON_DIR/hass&quot;
+INSTALL_DIR=&quot;/volume1/homeassistant&quot;
+PID_FILE=&quot;$INSTALL_DIR/home-assistant.pid&quot;
+FLAGS=&quot;-v --config $INSTALL_DIR --pid-file $PID_FILE --daemon&quot;
+REDIRECT=&quot;&gt; $INSTALL_DIR/home-assistant.log 2&gt;&amp;1&quot;
+
+start_daemon ()
+{
+    su ${USER} -s /bin/sh -c &quot;$PYTHON $HASS $FLAGS $REDIRECT;&quot;
+}
+
+stop_daemon ()
+{
+    kill `cat ${PID_FILE}`
+    wait_for_status 1 20 || kill -9 `cat ${PID_FILE}`
+    rm -f ${PID_FILE}
+}
+
+daemon_status ()
+{
+    if [ -f ${PID_FILE} ] &amp;&amp; kill -0 `cat ${PID_FILE}` &gt; /dev/null 2&gt;&amp;1; then
+        return
+    fi
+    rm -f ${PID_FILE}
+    return 1
+}
+
+wait_for_status ()
+{
+    counter=$2
+    while [ ${counter} -gt 0 ]; do
+        daemon_status
+        [ $? -eq $1 ] &amp;&amp; return
+        let counter=counter-1
+        sleep 1
+    done
+    return 1
+}
+
+case $1 in
+    start)
+        if daemon_status; then
+            echo ${DNAME} is already running
+            exit 0
+        else
+            echo Starting ${DNAME} ...
+            start_daemon
+            exit $?
+        fi
+        ;;
+    stop)
+        if daemon_status; then
+            echo Stopping ${DNAME} ...
+            stop_daemon
+            exit $?
+        else
+            echo ${DNAME} is not running
+            exit 0
+        fi
+        ;;
+        restart)
+        if daemon_status; then
+            echo Stopping ${DNAME} ...
+            stop_daemon
+            echo Starting ${DNAME} ...
+            start_daemon
+            exit $?
+        else
+            echo ${DNAME} is not running
+            echo Starting ${DNAME} ...
+            start_daemon
+            exit $?
+        fi
+        ;;
+    status)
+        if daemon_status; then
+            echo ${DNAME} is running
+            exit 0
+        else
+            echo ${DNAME} is not running
+            exit 1
+        fi
+        ;;
+    log)
+        echo ${LOG_FILE}
+        exit 0
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+</pre></div>
+</div>
+    </div>
+
+    <p>Create links to python folders to make things easier in the future:</p>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ ln -s /usr/local/python3/bin python3
+$ ln -s /usr/local/python3/lib/python3.4/site-packages/homeassistant
+</pre></div>
+</div>
+    </div>
+
+    <p>Set the owner and permissions on your config folder</p>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ chown -r homeassistant:users /volume1/homeassistant
+$ chmod -r 660 /volume1/homeassistant
+</pre></div>
+</div>
+    </div>
+
+    <p>Make the daemon file executable:</p>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ chmod -r 777 /volume1/homeassistant/hass-daemon
+</pre></div>
+</div>
+    </div>
+
+    <p>Copy your configuration.yaml file into the config folder
+That’s it… you’re all set to go</p>
+
+    <p>Here are some useful commands:</p>
+
+    <ul>
+      <li>Start Home Assistant:</li>
+    </ul>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sh hass-daemon start
+</pre></div>
+</div>
+    </div>
+
+    <ul>
+      <li>Stop Home Assistant:</li>
+    </ul>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sh hass-daemon stop
+</pre></div>
+</div>
+    </div>
+
+    <ul>
+      <li>Restart Home Assistant:</li>
+    </ul>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sh hass-daemon restart
+</pre></div>
+</div>
+    </div>
+
+    <ul>
+      <li>Upgrade Home Assistant::</li>
+    </ul>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ python3/pip3 install --upgrade homeassistant
+</pre></div>
+</div>
+    </div>
+
+  </div> <!-- INSTALL-INSTRUCTIONS SYNOLOGY -->
 </div>
 
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
@@ -202,7 +431,6 @@ $ hass
 <ul>
   <li><a href="https://automic.us/forum/">Forum</a></li>
   <li><a href="https://gitter.im/balloob/home-assistant">Gitter Chatroom</a> for general Home Assistant discussions and questions.</li>
-  <li><a href="https://groups.google.com/forum/#!forum/home-assistant-dev">Development Mailing List</a> for development related questions and discussing new features.</li>
   <li><a href="https://github.com/balloob/home-assistant/issues">GitHub Page</a> for issue reporting.</li>
 </ul>
 
