@@ -74,7 +74,7 @@ hostname = ::
 port = 6681
 
 [audio]
-output = audioconvert ! audioresample ! audio/x-raw, rate=48000 ! filesink location=/tmp/snapfifo
+output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioconvert ! wavenc ! filesink location=/tmp/snapfifo
 ```
 
 ## Run Mopidy
