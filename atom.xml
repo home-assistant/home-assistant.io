@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-02-17T08:14:43+00:00</updated>
+  <updated>2016-02-18T06:58:42+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,160 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Multi-room audio with Snapcast, Mopidy, and Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast/"/>
+    <updated>2016-02-18T05:10:56+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast</id>
+    <content type="html"><![CDATA[<p>Would you like to listen to music in every room in your home, controlled from one source? Then multi-room audio is for you.</p>
+
+<p>Multi-room audio can be achieved by having a computer attached to speakers in every room. On each computer, services run to play and/or control the audio. With this DIY approach, the kind of computer and speakers is very much up to you. It could be your desktop computer with attached powered speakers, your HTPC hooked up to your TV and receiver, a Raspberry Pi with Amp or DAC, or even an Android device.</p>
+
+<p>You’ll need two key software packages, besides Home Assistant. The first is <a href="https://www.mopidy.com/">Mopidy</a>, a music server that can play local files, or connect to streaming music services like Spotify. The second is <a href="https://github.com/badaix/snapcast/">Snapcast</a>, which enables synchronized audio streaming across your network. Both can be integrated into Home Assistant. Each room audio device will run an instance of the Snapcast client, and optionally a Mopidy instance. Your server will run a special instance of Mopidy and the Snapcast server.</p>
+
+<p>Finally, you also need a player to control Mopidy. Any MPD-compatible player will work, and there are several <a href="https://docs.mopidy.com/en/latest/ext/web/#ext-web">Mopidy-only web-based options</a> available. On Android, <a href="https://play.google.com/store/apps/details?id=se.anil.remotedy">Remotedy</a> is particularly nice since you can access multiple Mopidy instances in one place.</p>
+
+<p>Home Assistant will provide device status, and volume control for each room. If you want to play music in all your rooms (on all your clients), access the server instance of Mopidy. If you want to play music only in a specific room, access that specific Mopidy instance. If you’re using a web UI for Mopidy, you can add links to each instance in Home Assistant with the <a href="https://home-assistant.io/components/weblink/">weblink</a> component.</p>
+
+<p class="img">
+  <img src="https://home-assistant.io/images/blog/2016-02-snapcast/diagram.png" />
+</p>
+
+<!--more-->
+
+<h2>Staging</h2>
+
+<ul>
+  <li><a href="https://www.mopidy.com/">Install</a> Mopidy (2.0.0 or greater)</li>
+  <li><a href="https://github.com/badaix/snapcast/releases/">Download</a> and <a href="https://github.com/badaix/snapcast/tree/v0.5.0-beta-1#installation">Install</a> Snapcast (0.5.0 or greater)</li>
+</ul>
+
+<h2>Configure Mopidy</h2>
+
+<p>Mopidy can be run with multiple configuration files, each extending the previous file. This is helpful when we’re running multiple instances with varying functionality.</p>
+
+<h3>core.conf</h3>
+<p>The core configuration is shared between all instances:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>[mpd]
+hostname = ::
+
+[http]
+hostname = ::
+
+[audio]
+output = alsasink
+
+[spotify]
+username = &lt;redacted&gt;
+password = &lt;redacted&gt;
+</pre></div>
+</div>
+</div>
+
+<h3>local.conf</h3>
+<p>Add the local configuration on computers that have local media files:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>[local]
+media_dir = &lt;your/music/here&gt;
+</pre></div>
+</div>
+</div>
+
+<h3>snapcast.conf</h3>
+<p>Finally, the Mopidy instance that connects with Snapcast needs special configuration. Run on a different port to avoid conflicts if you have a second Mopidy instance running on your computer. The audio output is sent to a named pipe - Snapcast will read from there. Note that you may have to adjust the audio output attribute depending on your system and audio sources.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>[mpd]
+hostname = ::
+port = 6601
+
+[http]
+hostname = ::
+port = 6681
+
+[audio]
+output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioconvert ! wavenc ! filesink location=/tmp/snapfifo
+</pre></div>
+</div>
+</div>
+
+<h2>Run Mopidy</h2>
+
+<p>To run a room-specific instance:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf
+</pre></div>
+</div>
+</div>
+
+<p>To run a room-specific instance with local media:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf
+</pre></div>
+</div>
+</div>
+
+<p>To run the special Snapcast-connected instance (with local media):</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf:$CONF_DIR/snapcast.conf
+</pre></div>
+</div>
+</div>
+
+<h2>Run Snapcast</h2>
+
+<p>Start the <code>snapserver</code> on the same server running Mopidy with the snapcast configuration.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ snapserver   # or use systemd
+</pre></div>
+</div>
+</div>
+
+<p>Start the <code>snapclient</code> on computers that will be playing audio.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ snapclient   # or use systemd, add -h &lt;server host&gt; if necessary
+</pre></div>
+</div>
+</div>
+
+<h2>Configure Snapcast</h2>
+
+<p>There are a number of snapcast configuration options, but the one relevant to Home Assistant is the client names. You can set them in the snapserver configuration file, by default located at <code>~/.config/Snapcast/settings.json</code>. Only edit this file while the <code>snapserver</code> is not running. Modify the <code>name</code> JSON value to your liking - this is how the client will be named in Home Assistant.</p>
+
+<h2>Configure Home Assistant</h2>
+
+<p>Use the <a href="https://home-assistant.io/components/media_player.mpd/">mpd</a> and <a href="https://home-assistant.io/components/media_player.snapcast/">snapcast</a> components. Optionally, use <a href="https://home-assistant.io/components/weblink/">weblink</a> to provide easy access to a Mopidy web UI.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">media_player</span>:
+- <span class="string"><span class="content">platform: snapcast</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">xxxxx</span></span>
+- <span class="string"><span class="content">platform: mpd</span></span>
+  <span class="key">server</span>: <span class="string"><span class="content">xxxx</span></span>
+  <span class="key">location</span>: <span class="string"><span class="content">Multi-Room Controller</span></span>
+- <span class="string"><span class="content">platform: mpd</span></span>
+  <span class="key">server</span>: <span class="string"><span class="content">xxx</span></span>
+  <span class="key">location</span>: <span class="string"><span class="content">Room 1</span></span>
+
+<span class="key">weblink</span>:
+  <span class="key">entities</span>:
+  - <span class="string"><span class="content">name: Multi-Room Player</span></span>
+    <span class="key">url</span>: <span class="string"><span class="content">xxxx</span></span>
+</pre></div>
+</div>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors]]></title>
@@ -1683,69 +1837,6 @@ Map in Home Assistant showing two people and three zones (home, school, work)
   <li>Fuzzy matching for scenes (<a href="https://github.com/pavoni">@pavoni</a>)</li>
   <li>Scene support for media player (<a href="https://github.com/maddox">@maddox</a>)</li>
 </ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Alarms, Sonos and iTunes now supported]]></title>
-    <link href="https://home-assistant.io/blog/2015/09/19/alarm-sonos-and-itunes-support/"/>
-    <updated>2015-09-19T21:47:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/09/19/alarm-sonos-and-itunes-support</id>
-    <content type="html"><![CDATA[<p>It’s like someone opened a can of rock solid developers and emptied it above our <a href="https://gitter.im/balloob/home-assistant">chat channel</a> because it exploded with great conversations and solid contributions. Featured in release 0.7.3: Sonos, iTunes, Alarm component and Automation upgrade.</p>
-
-<p>See <a href="https://github.com/balloob/home-assistant/releases/tag/0.7.3">GitHub</a> for more detailed release notes.</p>
-
-<p><em>Migration note: the <code>scheduler</code> component has been removed in favor of the <code>automation</code> component.</em></p>
-
-<p><strong>Sonos</strong><br />
-<img src="https://home-assistant.io/images/supported_brands/sonos.png" style="border:none; box-shadow: none; float: right;" height="50" /> Sonos support has been added by <a href="https://github.com/rhooper">@rhooper</a> and <a href="https://github.com/SEJeff">@SEJeff</a>. Home Assistant is now able to automatically detect Sonos devices in your network and set them up for you. It will allow you to control music playing on your Sonos and change the volume.</p>
-
-<p><strong>iTunes and airplay speakers</strong><br />
-<img src="https://home-assistant.io/images/supported_brands/itunes.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/maddox">@maddox</a> has contributed support for controlling iTunes and airplay speakers. For this to work you will have to run <a href="https://github.com/maddox/itunes-api">itunes-api</a> on your Mac as middleware.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">itunes</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">iTunes</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">http://192.168.1.50</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">8181</span></span>
-</pre></div>
-</div>
-</div>
-
-<!--more-->
-
-<p><strong>Automation</strong><br />
-Automation has gotten a lot of love. It now supports conditions, multiple triggers and new types of triggers. The best to get started with it is to head over to the new <a href="https://home-assistant.io/getting-started/automation/">getting started with automation</a> page.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example of entry in configuration.yaml</span>
-<span class="key">automation</span>:
-  <span class="key">alias</span>: <span class="string"><span class="content">Light on in the evening</span></span>
-  <span class="key">trigger</span>:
-    - <span class="string"><span class="content">platform: sun</span></span>
-      <span class="key">event</span>: <span class="string"><span class="content">sunset</span></span>
-      <span class="key">offset</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">-01:00:00</span><span class="delimiter">&quot;</span></span>
-    - <span class="string"><span class="content">platform: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_devices</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">home</span></span>
-  <span class="key">condition</span>:
-    - <span class="string"><span class="content">platform: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_devices</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">home</span></span>
-    - <span class="string"><span class="content">platform: time</span></span>
-      <span class="key">after</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">16:00:00</span><span class="delimiter">&quot;</span></span>
-      <span class="key">before</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">23:00:00</span><span class="delimiter">&quot;</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">group.living_room</span></span>
-</pre></div>
-</div>
-</div>
-
-<p><strong>Verisure Alarms</strong><br />
-<img src="https://home-assistant.io/images/supported_brands/verisure.png" style="border:none; box-shadow: none; float: right;" height="50" /> We now support arming and disarming your verisure alarm from within Home Assistant thanks to added support by <a href="https://github.com/persandstrom">@persandstrom</a>.</p>
 ]]></content>
   </entry>
   
