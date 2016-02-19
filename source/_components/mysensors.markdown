@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors"
 description: "Instructions how to integrate MySensors sensors into Home Assistant."
-date: 2016-02-15 17:37 +0100
+date: 2016-02-18 20:13 +0100
 sidebar: true
 comments: false
 sharing: true
@@ -31,6 +31,7 @@ mysensors:
   debug: true
   persistence: true
   version: '1.5'
+  optimistic: 'true'
 ```
 
 Configuration variables:
@@ -41,6 +42,7 @@ Configuration variables:
 - **persistence_file** (*Optional*): Path to a file to save sensor information. The file extension determines the file type. Currently supported file types are 'pickle' and 'json'.
 - **version** (*Optional*): Specifies the MySensors protocol version to use. Supports 1.4 and 1.5. Default is 1.4.
 - **baud_rate** (*Optional*): Specifies baud rate of the connected gateway. Default is 115200.
+- **optimistic** (*Optional*): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
 
 If you are using an original Arduino the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
 
