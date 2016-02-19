@@ -259,6 +259,12 @@
   </tbody>
 </table>
 
+<h3><a class="title-link" name="custom-unit-of-measurement" href="#custom-unit-of-measurement"></a> Custom unit of measurement</h3>
+
+<p>Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, dust, sound, vibration etc.</p>
+
+<p>By using V_UNIT_PREFIX, it’s possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can’t be used as a standalone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.</p>
+
 <p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
 
 

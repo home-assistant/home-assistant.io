@@ -132,6 +132,7 @@
   <span class="key">debug</span>: <span class="string"><span class="content">true</span></span>
   <span class="key">persistence</span>: <span class="string"><span class="content">true</span></span>
   <span class="key">version</span>: <span class="string"><span class="content">'1.5'</span></span>
+  <span class="key">optimistic</span>: <span class="string"><span class="content">'true'</span></span>
 </pre></div>
 </div>
 </div>
@@ -145,6 +146,7 @@
   <li><strong>persistence_file</strong> (<em>Optional</em>): Path to a file to save sensor information. The file extension determines the file type. Currently supported file types are ‘pickle’ and ‘json’.</li>
   <li><strong>version</strong> (<em>Optional</em>): Specifies the MySensors protocol version to use. Supports 1.4 and 1.5. Default is 1.4.</li>
   <li><strong>baud_rate</strong> (<em>Optional</em>): Specifies baud rate of the connected gateway. Default is 115200.</li>
+  <li><strong>optimistic</strong> (<em>Optional</em>): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.</li>
 </ul>
 
 <p>If you are using an original Arduino the port will be named <code>ttyACM*</code>. The exact number can be determined with the command shown below.</p>
