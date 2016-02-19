@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: nest_thermostat.png
 ha_category: Weather
+ha_iot_class: "Cloud Poll"
 ---
 
 
