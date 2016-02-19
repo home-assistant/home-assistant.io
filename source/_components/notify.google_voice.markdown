@@ -37,14 +37,15 @@ Google Voice is a notify platform and thus can be controlled by calling the noti
 
 ```yaml
 # Example automation notification entry
-  - alias: Send a notification
+automation:
+  - alias: The sun has set
     trigger:
-      platform: event
-      event_type: 'some event'
+      platform: sun
+      event: sunset
     action:
       service: notify.googlevoice
       data:
-        message: 'Google Voice SMS test'
+        message: 'The sun has set'
         target:
           - 5555555555
           - 5555555556
