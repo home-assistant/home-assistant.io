@@ -34,3 +34,18 @@ Configuration variables:
 ### Usage
 
 Google Voice is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all devices listed in the notification **target**.
+
+```yaml
+# Example automation notification entry
+  - alias: Send a notification
+    trigger:
+      platform: event
+      event_type: 'some event'
+    action:
+      service: notify.googlevoice
+      data:
+        message: 'Google Voice SMS test'
+        target:
+          - 5555555555
+          - 5555555556
+```
