@@ -15,7 +15,7 @@ ha_category: Presence Detection
 The `fritz` platform offers presence detection by looking at connected devices to a [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) based router.
 
 <p class='note warning'>
-It might be necessary to install additional packages: <code>$ sudo apt-get install libxslt-dev libxml2-dev</code>
+It might be necessary to install additional packages: <code>$ sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
 </p>
 
 To use an Fritz!Box router in your installation, add the following to your `configuration.yaml` file:
