@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-02-20T09:26:53+00:00</updated>
+  <updated>2016-02-20T09:55:33+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Community Highlights]]></title>
+    <link href="https://home-assistant.io/blog/2016/02/20/community-highlights/"/>
+    <updated>2016-02-20T09:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/02/20/community-highlights</id>
+    <content type="html"><![CDATA[<p>Home Assistant land has been busy and a lot of people have been creating awesome stuff. We’ve added <a href="/cookbook/">a cookbook section</a> to the website full of examples how you can automate different things. Make sure you take a look and share your own recipes too!</p>
+
+<h3><a class='title-link' name='home-automation-demo-by-part-of-the-thing' href='#home-automation-demo-by-part-of-the-thing'></a> Home automation demo by Part of the Thing </h3>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Mc_29EC3aZw" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h3><a class='title-link' name='haaska---alexa-skill-adapter-for-home-assistant' href='#haaska---alexa-skill-adapter-for-home-assistant'></a> Haaska - Alexa Skill Adapter for Home Assistant </h3>
+
+<p>Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own <a href="/components/alexa/">Alexa</a> component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the ‘Ask Home Assistant’ part when giving commands:</p>
+
+<ul>
+  <li>“Alexa, set kitchen to twenty percent”</li>
+  <li>“Alexa, turn on evening scene”</li>
+  <li>“Alexa, turn off bedroom light”</li>
+</ul>
+
+<p><a href="https://github.com/auchter/haaska">Haaska on GitHub</a></p>
+
+<h3><a class='title-link' name='integrating-home-assistant-with-homekit' href='#integrating-home-assistant-with-homekit'></a> Integrating Home Assistant with HomeKit </h3>
+
+<p>Contributor Maddox has created a plugin for HomeBridge, an open-source HomeKit bridge. This will allow you to control your home using Siri on your Apple devices. HomeBridge has recently restructured so you’ll have to access the plugin in the legacy plugin package.</p>
+
+<p>Example config.json entry to load Home Assistant:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key"><span class="delimiter">&quot;</span><span class="content">platforms</span><span class="delimiter">&quot;</span></span>: [
+    {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">platform</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HomeAssistant</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HomeAssistant</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">host</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://192.168.1.50:8123</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">xxx</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">supported_types</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">light</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">switch</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">media_player</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">scene</span><span class="delimiter">&quot;</span></span>]
+    }
+]
+</pre></div>
+</div>
+</div>
+
+<p><a href="https://github.com/nfarina/homebridge">HomeBridge on GitHub</a><br />
+<a href="https://github.com/nfarina/homebridge-legacy-plugins">HomeBridge Legacy Plugins on GitHub</a><br />
+<a href="https://github.com/nfarina/homebridge-legacy-plugins/blob/master/platforms/HomeAssistant.js">Home Assistant on HomeBridge instructions</a></p>
+
+<h3><a class='title-link' name='custom-alarm-system-with-home-assistant' href='#custom-alarm-system-with-home-assistant'></a> Custom alarm system with Home Assistant </h3>
+
+<p>User thaijames <a href="https://automic.us/forum/viewtopic.php?f=4&amp;t=43&amp;hilit=nfc">describes in the Home Assistant forums</a> how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.</p>
+
+<p class="img">
+<img src="https://home-assistant.io/images/blog/2016-02-community-highlights/garfield-nfc.png" />
+Hold your NFC tag against the belly of Garfield to unlock the alarm.
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Community Highlights]]></title>

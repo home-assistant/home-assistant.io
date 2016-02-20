@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-02-20T09:26:53+00:00</updated>
+  <updated>2016-02-20T09:55:33+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Community Highlights]]></title>
+    <link href="https://home-assistant.io/blog/2016/02/20/community-highlights/"/>
+    <updated>2016-02-20T09:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/02/20/community-highlights</id>
+    <content type="html"><![CDATA[<p>Home Assistant land has been busy and a lot of people have been creating awesome stuff. We’ve added <a href="https://home-assistant.io/cookbook/">a cookbook section</a> to the website full of examples how you can automate different things. Make sure you take a look and share your own recipes too!</p>
+
+<h3><a class="title-link" name="home-automation-demo-by-part-of-the-thing" href="#home-automation-demo-by-part-of-the-thing"></a> Home automation demo by Part of the Thing</h3>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Mc_29EC3aZw" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h3><a class="title-link" name="haaska---alexa-skill-adapter-for-home-assistant" href="#haaska---alexa-skill-adapter-for-home-assistant"></a> Haaska - Alexa Skill Adapter for Home Assistant</h3>
+
+<p>Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own <a href="https://home-assistant.io/components/alexa/">Alexa</a> component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the ‘Ask Home Assistant’ part when giving commands:</p>
+
+<ul>
+  <li>“Alexa, set kitchen to twenty percent”</li>
+  <li>“Alexa, turn on evening scene”</li>
+  <li>“Alexa, turn off bedroom light”</li>
+</ul>
+
+<p><a href="https://github.com/auchter/haaska">Haaska on GitHub</a></p>
+
+<h3><a class="title-link" name="integrating-home-assistant-with-homekit" href="#integrating-home-assistant-with-homekit"></a> Integrating Home Assistant with HomeKit</h3>
+
+<p>Contributor Maddox has created a plugin for HomeBridge, an open-source HomeKit bridge. This will allow you to control your home using Siri on your Apple devices. HomeBridge has recently restructured so you’ll have to access the plugin in the legacy plugin package.</p>
+
+<p>Example config.json entry to load Home Assistant:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key"><span class="delimiter">&quot;</span><span class="content">platforms</span><span class="delimiter">&quot;</span></span>: [
+    {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">platform</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HomeAssistant</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HomeAssistant</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">host</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://192.168.1.50:8123</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">xxx</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">supported_types</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">light</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">switch</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">media_player</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">scene</span><span class="delimiter">&quot;</span></span>]
+    }
+]
+</pre></div>
+</div>
+</div>
+
+<p><a href="https://github.com/nfarina/homebridge">HomeBridge on GitHub</a><br />
+<a href="https://github.com/nfarina/homebridge-legacy-plugins">HomeBridge Legacy Plugins on GitHub</a><br />
+<a href="https://github.com/nfarina/homebridge-legacy-plugins/blob/master/platforms/HomeAssistant.js">Home Assistant on HomeBridge instructions</a></p>
+
+<h3><a class="title-link" name="custom-alarm-system-with-home-assistant" href="#custom-alarm-system-with-home-assistant"></a> Custom alarm system with Home Assistant</h3>
+
+<p>User thaijames <a href="https://automic.us/forum/viewtopic.php?f=4&amp;t=43&amp;hilit=nfc">describes in the Home Assistant forums</a> how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.</p>
+
+<p class="img">
+<img src="https://home-assistant.io/images/blog/2016-02-community-highlights/garfield-nfc.png" />
+Hold your NFC tag against the belly of Garfield to unlock the alarm.
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Multi-room audio with Snapcast, Mopidy, and Home Assistant]]></title>
@@ -1798,45 +1858,6 @@ Adafruit_HDC1000 hdc = Adafruit_HDC1000();
 </ul>
 
 <p>Also, the media player was extended by <a href="https://github.com/maddox">@maddox</a> to support the play media command. This has been implemented for the <a href="https://home-assistant.io/components/media_player.itunes/">iTunes platform</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant goes geo with OwnTracks]]></title>
-    <link href="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/"/>
-    <updated>2015-10-05T21:49:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks</id>
-    <content type="html"><![CDATA[<p>A few weeks have past and it is time again for another release: version 0.7.4. This time we’re very glad to be able to introduce brand new integration with OwnTracks to allow tracking of people on a map. The geo support consists of three different parts:</p>
-
-<ul>
-  <li><a href="https://home-assistant.io/components/device_tracker.owntracks/">OwnTracks platform for the device tracker</a> to get locations for devices</li>
-  <li>Brand new <a href="https://home-assistant.io/components/zone/">zone component</a> to define zones to identify locations and <a href="https://home-assistant.io/components/automation/#zone-trigger/">trigger automation</a></li>
-  <li>A map in the UI to see all this (<a href="https://home-assistant.io/demo/">see it in action in the demo</a>)</li>
-</ul>
-
-<p>We have added a new <a href="https://home-assistant.io/getting-started/presence-detection/">getting started section</a> to get up and running.</p>
-
-<p class="img">
-<img src="https://home-assistant.io/images/screenshots/map.png" />
-Map in Home Assistant showing two people and three zones (home, school, work)
-</p>
-
-<p>Ofcourse more things happened in the last three weeks. I’m moving away from my usual long post to a short summary of highlights:</p>
-
-<p><a href="https://home-assistant.io/components/media_player.plex/">
-<img src="https://home-assistant.io/images/supported_brands/plex.png" style="border:none; box-shadow: none; float: right;" height="50" />
-</a></p>
-
-<ul>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.rest/">rest platform</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Alarm Control Panel: <a href="https://home-assistant.io/components/alarm_control_panel.mqtt/">MQTT platform</a> added (<a href="https://github.com/sfam">@sfam</a>)</li>
-  <li>Media Player: <a href="https://home-assistant.io/components/media_player.plex/">Plex platform</a> added (<a href="https://github.com/miniconfig, [@adrienbrault](https://github.com/adrienbrault)">@miniconfig</a></li>
-  <li>Dev Tools: services can now show description of fields (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>MQTT: Support for certificates and improved error reporting (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/light.limitlessled/">limitlessled platform</a> extended with white light support (<a href="https://github.com/auchter">@auchter</a>)</li>
-  <li>Fuzzy matching for scenes (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Scene support for media player (<a href="https://github.com/maddox">@maddox</a>)</li>
-</ul>
 ]]></content>
   </entry>
   
