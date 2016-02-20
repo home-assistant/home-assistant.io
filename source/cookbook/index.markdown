@@ -14,7 +14,7 @@ hide_github_edit: true
 This is a community currated list of different ways to use Home Assistant. New recipes can be added via the [home-assistant.io repository](https://github.com/balloob/home-assistant.io/tree/master/source/_cookbook).
 
 {% assign cookbook = site.cookbook | sort: 'title' %}
-{% assign categories = cookbook | sort: 'ha_category' | map: 'ha_category' | uniq %}
+{% assign categories = cookbook | map: 'ha_category' | uniq | sort %}
 
 {% for category in categories %}
 ### {% linkable_title {{ category }} %}
@@ -27,7 +27,7 @@ Some users keep a public scrubbed copy of their `configuration.yaml` to learn fr
 
   {% endif %}
 
-  {% for recipe in site.cookbook %}
+  {% for recipe in cookbook %}
     {% if recipe.ha_category == category %}
       {% if recipe.ha_external_link %}
   * [{{recipe.title}} <i class="icon-external-link"></i>]({{recipe.ha_external_link}})
