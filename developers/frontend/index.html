@@ -193,13 +193,19 @@ Polymer build architecture diagram
 
 <h1><a class="title-link" name="adding-state-cards" href="#adding-state-cards"></a> Adding state cards</h1>
 
-<p>The main interface of Home Assistant is a list of the current entities and their states. For each entity in the system, a state card will be rendered. State cards will show a state badge, the name of the entity, when the state has last changed and the current state or a control to interact with it.</p>
+<p>The main interface of Home Assistant is a list of the current entities and their states. For each entity in the system, a state card will be rendered. State cards will show an icon, the name of the entity, when the state has last changed and the current state or a control to interact with it.</p>
 
-<p><img src="/images/frontend/frontend-cards.png" alt="Cards in the frontend" /></p>
+<p><img src="/images/frontend/frontend-cards1.png" alt="Cards in the frontend" /></p>
 
 <p>The different card types can be found <a href="https://github.com/balloob/home-assistant-polymer/tree/master/src/state-summary">here</a>.</p>
 
-<p>Adding a custom card type can be done with a few simple steps. For this example we will add a new state card for the domain <code>camera</code>: <em>(All files in this example link to their source-code)</em></p>
+<p>Sensors, when not <a href="/components/group/">grouped</a>, are shown as so-called badges on top of the state cards.</p>
+
+<p><img src="/images/frontend/frontend-badges.png" alt="Badges in the frontend" /></p>
+
+<p>The different badges are located in the file <a href="https://github.com/balloob/home-assistant-polymer/blob/master/src/components/entity/ha-state-label-badge.js"><code>/src/components/entity/ha-state-label-badge.js</code></a>.</p>
+
+<p>Adding a custom card type can be done with a few simple steps. For this example we will add a new state card for the domain <code>camera</code>: <em>(All files in this example link to their source code)</em></p>
 
 <ol>
   <li>Add <code>'camera'</code> to the array <code>DOMAINS_WITH_CARD</code> in the file <a href="https://github.com/balloob/home-assistant-polymer/blob/master/src/util/state-card-type.js#L3-L4"><code>/util/state-card-type.js</code></a>.</li>
