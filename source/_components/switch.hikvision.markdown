@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: hikvision.png
-ha_category: Camera
+ha_category: Switch
 ---
 
 
