@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Development tuorial"
+title: "Development tutorial"
 description: "Tutorial about the first steps on Home Assistant development"
 date: 2016-02-20 07:00
 sidebar: false
@@ -12,6 +12,9 @@ footer: true
 This is a simple tutorial on how to write a component for [Home Assistant](https://home-assistant.io/). We will work on a component called "information". The purpose of this component is to display a given text in the frontend. 
 
 The setup of a development environment is described in the [Developers section](/developers/#starting-development) of the documentation.
+
+## {% linkable_title Component %}
+
 
 As a start, create a file `information.py` in your Git checkout of Home Assistant in the folder `homeassistant/component/`.
 
@@ -66,13 +69,15 @@ If you replace `_LOGGER.info("The 'information' component is ready!")` with or a
 hass.states.set('information.Text', 'Info component')
 ```
 
-Then the component will not be different to the sample included in the `config/custom_components` folder or shown as an [example](/cookbook/python_component_basic_state/). After a start or a restart of Home Assistant the component will be visible in the frontend.
+then the component will not be different to the sample included in the `config/custom_components` folder or shown as an [example](/cookbook/python_component_basic_state/). After a start or a restart of Home Assistant the component will be visible in the frontend.
 
 <p class='img'>
 <img src='/images/screenshots/create-component01.png' />
 </p>
 
 The next step is the introduction of configuration options. Most configuration details are coming out of the `configuration.yaml` file. To do that we need to update the  `def setup()` method to accept configuration information and access the configuration variable in the `setup` method.
+
+More details about this topic can be found in the [User given configuration](/developers/creating_components/#config-user-given-configuration) section.
 
 ```python
 import logging
@@ -108,10 +113,28 @@ from homeassistant.helpers import validate_config
         return False
 ```
 
-So far our new component is rendered as a default compoment in the frontend. But we want our own view of the component in the frontend. We assume that you have setup the (frontend development)[/developers/frontend/] already
+## {% linkable_title Frontend %}
+
+So far our new component is rendered as a default compoment in the frontend. But we want our own view of the component in the frontend. We assume that you have setup the (frontend development)[/developers/frontend/] already.
 
 We need two new files in the folder `src/cards/`:
 
 - ha-information-card.html
 - ha-information-card.js
+
+
+TBD
+
+Rebuild the frontend.
+
+```bash
+$ script/build_frontend
+```
+
+Change the [http](/components/http/) component to load the `development` version of the frontend as also mentioned in the [ Setting up the environment](/developers/frontend/#setting-up-the-environment) section of the (frontend development)[/developers/frontend/] page.
+
+```yaml
+http:
+  development: 1
+```
 
