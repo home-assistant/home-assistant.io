@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Community Highlights
-description: Interesting links from the Home Assistant community.
+description: Another round-up of the amazing things from our community including Alexa Lightning skill and HomeKit integration.
 date: 2016-02-20 01:06:00 -0800
 date_formatted: "February 20, 2016"
 author: Paulus Schoutsen
