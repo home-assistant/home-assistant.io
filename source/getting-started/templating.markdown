@@ -64,6 +64,8 @@ Home Assistant adds extensions to allow templates to access all of the current s
  - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
  - Filter `multiply(x)` will convert the input to a number and multiply it with `x`
  - Filter `round(x)` will convert the input to a number and round it to `x` decimals.
+ - `now` will be rendered as current time in your time zone.
+ - `utcnow` will be rendered as UTC time.
 
 #### {% linkable_title Examples %}
 
