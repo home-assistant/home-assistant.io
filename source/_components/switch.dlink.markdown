@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "D-LINK Switch"
-description: "Instructions how to integrate myStrom switches into Home Assistant."
+title: "D-Link Switch"
+description: "Instructions how to integrate D-Link switches into Home Assistant."
 date: 2016-02-21 09:00
 sidebar: true
 comments: false
@@ -33,7 +33,7 @@ switch:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your myStrom switch, eg. http://192.168.1.32
+- **host** (*Required*): The IP address of your D-Link plug, eg. http://192.168.1.32
 - **name** (*Optional*): The name to use when displaying this switch.
 - **username** (*Required*): The username for your plug. Defaults to `admin`.
 - **password** (*Required*): The password for your plug.
