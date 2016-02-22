@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: glances.png
 ha_category: Sensor
+ha_iot_class: "Local Polling"
 ---
 
 

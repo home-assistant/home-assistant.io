@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: arest.png
 ha_category: Switch
+ha_iot_class: "Local Polling"
 ---
 
 The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with a ethernet/wifi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.

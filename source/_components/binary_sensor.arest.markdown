@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: arest.png
 ha_category: Binary Sensor
+ha_iot_class: "Local Polling"
 ---
 
 
