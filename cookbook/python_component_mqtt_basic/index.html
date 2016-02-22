@@ -124,10 +124,10 @@ This example requires you to have the <a href="/components/mqtt/">MQTT component
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.loader</span> <span class="keyword">as</span> loader
 
-<span class="comment"># The domain of your component. Should be equal to the name of your component</span>
+<span class="comment"># The domain of your component. Should be equal to the name of your component.</span>
 DOMAIN = <span class="string"><span class="delimiter">&quot;</span><span class="content">hello_mqtt</span><span class="delimiter">&quot;</span></span>
 
-<span class="comment"># List of component names (string) your component depends upon</span>
+<span class="comment"># List of component names (string) your component depends upon.</span>
 DEPENDENCIES = [<span class="string"><span class="delimiter">'</span><span class="content">mqtt</span><span class="delimiter">'</span></span>]
 
 
@@ -136,31 +136,31 @@ DEFAULT_TOPIC = <span class="string"><span class="delimiter">'</span><span class
 
 
 <span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Setup our hello_mqtt component. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
+    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Setup the Hello MQTT component.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
     mqtt = loader.get_component(<span class="string"><span class="delimiter">'</span><span class="content">mqtt</span><span class="delimiter">'</span></span>)
     topic = config[DOMAIN].get(<span class="string"><span class="delimiter">'</span><span class="content">topic</span><span class="delimiter">'</span></span>, DEFAULT_TOPIC)
     entity_id = <span class="string"><span class="delimiter">'</span><span class="content">hello_mqtt.last_message</span><span class="delimiter">'</span></span>
 
-    <span class="comment"># Listener to be called when we receive a message</span>
+    <span class="comment"># Listener to be called when we receive a message.</span>
     <span class="keyword">def</span> <span class="function">message_received</span>(topic, payload, qos):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> A new MQTT message has been received. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
+        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">A new MQTT message has been received.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
         hass.states.set(entity_id, payload)
 
-    <span class="comment"># Subscribe our listener to a topic</span>
+    <span class="comment"># Subscribe our listener to a topic.</span>
     mqtt.subscribe(hass, topic, message_received)
 
     <span class="comment"># Set the intial state</span>
     hass.states.set(entity_id, <span class="string"><span class="delimiter">'</span><span class="content">No messages</span><span class="delimiter">'</span></span>)
 
-    <span class="comment"># Service to publish a message on MQTT</span>
+    <span class="comment"># Service to publish a message on MQTT.</span>
     <span class="keyword">def</span> <span class="function">set_state_service</span>(call):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Service to send a message. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
+        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Service to send a message.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
         mqtt.publish(hass, topic, call.data.get(<span class="string"><span class="delimiter">'</span><span class="content">new_state</span><span class="delimiter">'</span></span>))
 
-    <span class="comment"># Register our service with Home Assistant</span>
+    <span class="comment"># Register our service with Home Assistant.</span>
     hass.services.register(DOMAIN, <span class="string"><span class="delimiter">'</span><span class="content">set_state</span><span class="delimiter">'</span></span>, set_state_service)
 
-    <span class="comment"># return boolean to indicate that initialization was successful</span>
+    <span class="comment"># Return boolean to indicate that initialization was successfully.</span>
     <span class="keyword">return</span> <span class="predefined-constant">True</span>
 </pre></div>
 </div>

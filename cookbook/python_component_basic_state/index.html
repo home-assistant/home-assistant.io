@@ -116,15 +116,15 @@
   <p>This is a simple hello world example to show the basics for setting a state. To use this example, create the file <code>&lt;config dir&gt;/custom_components/hello_state.py</code> and copy the below example code.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># The domain of your component. Should be equal to the name of your component</span>
-DOMAIN = <span class="string"><span class="delimiter">&quot;</span><span class="content">hello_state</span><span class="delimiter">&quot;</span></span>
+  <div class="code"><pre><span class="comment"># The domain of your component. Should be equal to the name of your component.</span>
+DOMAIN = <span class="string"><span class="delimiter">'</span><span class="content">hello_state</span><span class="delimiter">'</span></span>
 
 CONF_NAME = <span class="string"><span class="delimiter">'</span><span class="content">name</span><span class="delimiter">'</span></span>
 DEFAULT_NAME = <span class="string"><span class="delimiter">'</span><span class="content">World</span><span class="delimiter">'</span></span>
 
 
 <span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Setup is called when Home Assistant is loading our component. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
+    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Setup is called when Home Assistant is loading our component.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
 
     <span class="comment"># Get the name from the configuration. Use DEFAULT_NAME if no name provided.</span>
     name = config[DOMAIN].get(CONF_NAME, DEFAULT_NAME)
@@ -132,7 +132,7 @@ DEFAULT_NAME = <span class="string"><span class="delimiter">'</span><span class=
     <span class="comment"># States are in the format DOMAIN.OBJECT_ID</span>
     hass.states.set(<span class="string"><span class="delimiter">'</span><span class="content">hello_state.hello</span><span class="delimiter">'</span></span>, name)
 
-    <span class="comment"># return boolean to indicate that initialization was successful</span>
+    <span class="comment"># Return boolean to indicate that initialization was successfully.</span>
     <span class="keyword">return</span> <span class="predefined-constant">True</span>
 </pre></div>
 </div>
