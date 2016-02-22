@@ -17,7 +17,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: GET
@@ -29,7 +29,7 @@ or for a POST request:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: POST
