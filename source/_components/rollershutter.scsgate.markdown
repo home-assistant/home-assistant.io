@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: bus_scs.png
 ha_category: Rollershutter
 ---
 The SCSGate device can control motirized roller shutters connected to the BTicino MyHome system.
