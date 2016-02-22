@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: bus_scs.png
 ha_category: Hub
 ---
 
