@@ -45,7 +45,7 @@ Configuration variables:
 - **command_topic** (*Required*): The MQTT topic to publish commands to change the alarm state.
 - **name** (*Optional*): The name of the alarm. Default is 'MQTT Alarm'.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0. This QoS will also be used to publishing messages.
-- **payload_disarm** (*Optional*): The payload do disarm your Alarm Panel. Default is "DISARM".
+- **payload_disarm** (*Optional*): The payload to disarm your Alarm Panel. Default is "DISARM".
 - **payload_arm_home** (*Optional*): The payload to set armed-home mode on your Alarm Panel. Default is "ARM_HOME".
 - **payload_arm_away** (*Optional*): The payload to set armed-away mode on your Alarm Panel. Default is "ARM_AWAY".
 - **code** (*Optional*): If defined, specifies a code to enable or disable the alarm in the frontend.
