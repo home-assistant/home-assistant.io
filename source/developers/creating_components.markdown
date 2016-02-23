@@ -9,9 +9,9 @@ sharing: true
 footer: true
 ---
 
-Home Assistant offers [built-in components]({{site_root}}/components/) but it is easy to build your own. If you are the kind of person that likes to learn from code rather then guide then head over to the [`config/custom_components`](https://github.com/balloob/home-assistant/tree/master/config/custom_components) folder in the repository for two example components.
+Home Assistant offers [built-in components]({{site_root}}/components/) but it is easy to build your own. If you are the kind of person that likes to learn from code rather then guide then head over to the [`config/custom_components`](https://github.com/balloob/home-assistant/tree/master/config/custom_components) folder in the repository for two example components. Or visit the [Custom Python Component Examples]({{site_root}}/cookbook/#custom-python-component-examples).
 
-The first is [hello_world.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/hello_world.py), which is the classic Hello World example for Home Assistant. The second one is [example.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py) which showcases various ways you can tap into Home Assistant to be notified when certain events occur.
+The first is [hello_world.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/hello_world.py) (this is similar to the [Basic State Setting Example](https://home-assistant.io/cookbook/python_component_basic_state/)), which is the classic "Hello World" example for Home Assistant. The second one is [example.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py) which showcases various ways you can tap into Home Assistant to be notified when certain events occur.
 
 If you want to load these components in Home Assistant, add the following lines to your `configuration.yaml` file:
 
@@ -55,7 +55,7 @@ After loading, the bootstrapper will call `setup(hass, config)` method on the co
 
 ### {% linkable_title `hass`: the Home Assistant instance %}
 
-The Home Assistant instace contains three objects to help you interact with the system.
+The Home Assistant instance contains three objects to help you interact with the system.
 
 | Object | Description |
 | ------ | ----------- |
@@ -66,7 +66,7 @@ The Home Assistant instace contains three objects to help you interact with the 
 
 ### {% linkable_title `config`: User given configuration. %}
 
-The `config` paramter is a dictionary containing the user supplied configuration. The keys of the dictionary are the component names and the value is another dictionary with the component configuration.
+The `config` parameter is a dictionary containing the user supplied configuration. The keys of the dictionary are the component names and the value is another dictionary with the component configuration.
 
 If your configuration file contains the following lines:
 

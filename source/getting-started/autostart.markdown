@@ -13,9 +13,11 @@ footer: true
 <input name='advanced-installs' type='radio' id='upstart-install' checked>
 <input name='advanced-installs' type='radio' id='systemd-install'>
 <input name='advanced-installs' type='radio' id='osx-install'>
+<input name='advanced-installs' type='radio' id='synology-install'>
 <label class='menu-selector upstart' for='upstart-install'>Upstart Daemon</label>
 <label class='menu-selector systemd' for='systemd-install'>Systemd Daemon</label>
 <label class='menu-selector osx' for='osx-install'>OS X</label>
+<label class='menu-selector synology' for='synology-install'>Synology NAS</label>
 
 <div class='advanced-installs upstart' markdown='1'>
 Many linux distributions use the Upstart system (or similar) for managing daemons. Typically, systems based on Debian 7 or previous use Upstart. This includes Ubuntu releases before 15.04 and all current Raspian releases. If you are unsure if your system is using Upstart, you may check with the following command:
@@ -130,6 +132,47 @@ Home Assistant has been uninstalled.
 ```
 
 </div> <!-- OSX -->
+
+<div class='advanced-installs synology' markdown='1'>
+To get Home Assistant to automatically start when you boot your Synology NAS:
+
+SSH onto your synology & login as admin or root
+
+```bash
+$ cd /volume1/homeassistant
+```
+
+Create "homeassistant.conf" file using the following code
+
+```bash
+# only start this service after the httpd user process has started
+start on started httpd-user
+
+# stop the service gracefully if the runlevel changes to 'reboot'
+stop on runlevel [06]
+
+# run the scripts as the 'http' user. Running as root (the default) is a bad ide
+#setuid admin
+
+# exec the process. Use fully formed path names so that there is no reliance on
+# the 'www' file is a node.js script which starts the foobar application.
+exec /bin/sh /volume1/homeassistant/hass-daemon start
+```
+
+Register the autostart
+
+```bash
+$ ln -s homeassistant-conf /etc/init/homeassistant-conf
+```
+
+Make the relevant files executable:
+
+```bash
+$ chmod -r 777 /etc/init/homeassistant-conf
+```
+
+That's it - reboot your NAS and Home Assistant should automatically start
+</div> <!-- SYNOLOGY -->
 </div>
 
 ### [&laquo; Back to Getting Started](/getting-started/)

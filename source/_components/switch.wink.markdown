@@ -14,5 +14,5 @@ ha_category: Switch
 
 The Wink switch platform allows you to control your [Wink](http://www.wink.com/) switches.
 
-The requirement is that you have setup your [Wink hub](/components/light.wink/).
+The requirement is that you have setup your [Wink hub](/components/wink/).
 
