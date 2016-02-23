@@ -52,36 +52,54 @@ script:
             {% endif %}{% endraw %}
 ```
 
-### {% linkable_title Home Assistant template extensions %}
+## {% linkable_title Home Assistant template extensions %}
 
 Home Assistant adds extensions to allow templates to access all of the current states:
 
- - Iterating `states` will yield each state sorted alphabetically by entity ID
- - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID
- - `states.sensor.temperature` returns the state object for `sensor.temperature`
+ - Iterating `states` will yield each state sorted alphabetically by entity ID.
+ - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
+ - `states.sensor.temperature` returns the state object for `sensor.temperature`.
  - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
  - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
  - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
- - Filter `multiply(x)` will convert the input to a number and multiply it with `x`
+ - Filter `multiply(x)` will convert the input to a number and multiply it with `x`.
  - Filter `round(x)` will convert the input to a number and round it to `x` decimals.
+ - `now` will be rendered as current time in your time zone.
+ - `utcnow` will be rendered as UTC time.
+ - `distance()` will measure the distance in meters between home, entity, coordinates.
+ - `closest()` will find the closest entity.
 
-#### {% linkable_title Examples %}
+
+## {% linkable_title Examples %}
+
+### {% linkable_title States %}
+Next two statements result in same value if state exists. Second one will result in an error if state does not exist.
 
 ```jinja2
 {% raw %}
-# Next two statements result in same value if state exists
-# Second one will result in an error if state does not exist
 {{ states('device_tracker.paulus') }}
-{{ states.device_tracker.paulus.state }}
+{{ states.device_tracker.paulus.state }}{% endraw %}
+```
 
-# Print an attribute if state is defined
+### {% linkable_title Attributes %}
+
+Print an attribute if state is defined
+
+```jinja2
+{% raw %}
 {% if states.device_tracker.paulus %}
 {{ states.device_tracker.paulus.attributes.battery }}
 {% else %}
 ??
-{% endif %}
+{% endif %}{% endraw %}
+```
 
-# Print out a list of all the sensor states
+### {% linkable_title Sensor states %}
+
+Print out a list of all the sensor states.
+
+```jinja2
+{% raw %}
 {% for state in states.sensor %}
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
@@ -97,6 +115,50 @@ Home Assistant adds extensions to allow templates to access all of the current s
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!
 {%endif %}{% endraw %}
+```
+
+### {% linkable_title Distance examples %}
+
+If only 1 location is passed in will measure the distance from home.
+
+```jinja2
+{% raw %}
+Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
+
+Using State: {{ distance(device_tracker.paulus) }}
+
+These can also be combined in any combination:
+{{ distance(123.45, 123.45, device_tracker.paulus) }}
+{{ distance(device_tracker.anne_therese, device_tracker.paulus) }}{% endraw %}
+```
+
+### {% linkable_title Closest examples %}
+
+Find entities closest to the Home Assistant location:
+
+```jinja2
+{% raw %}
+Query all entities: {{ closest(states) }}
+Query all entities of a specific domain: {{ closest(states.device_tracker) }}
+Query all entities in group.children: {{ closest('group.children') }}
+Query all entities in group.children: {{ closest(states.group.children) }}{% endraw %}
+```
+
+Find entities closest to a coordinate or another entity. All previous arguments still apply for 2nd argument.
+
+```jinja2
+{% raw %}
+Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
+Closest to an entity: {{ closest('zone.school', 'group.children') }}
+Closest to an entity: {{ closest(states.zone.school, 'group.children') }}{% endraw %}
+```
+
+### {% linkable_title Combined %}
+Since closest returns a state, we can combine it with distance too
+
+```jinja2
+{% raw %}
+{{ closest(states).name }} is {{ distance(closest(states)) }} meters away.{% endraw %}
 ```
 
 ## {% linkable_title Processing incoming data %}
