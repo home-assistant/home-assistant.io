@@ -20,6 +20,7 @@ We support:
  * Alarm
  * Smartplugs
  * Reading from thermometers and hygrometers integrated in various devices
+ * Mouse Detector
  * Locks 
 
 To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
@@ -34,6 +35,7 @@ verisure:
   smartplugs: 1
   thermometers: 0
   locks: 0
+  mouse: 1
   code_digits: 4
 ```
 
@@ -46,5 +48,6 @@ Configuration variables:
 - **smartplugs** (*Optional*): Set to 1 to show smartplugs, 0 to disable. Default 1.
 - **locks** (*Optional*): Set to 1 to show locks, 0 to disable. Default 1.
 - **thermometers** (*Optional*): Set to 1 to show thermometers, 0 to disable. Default 1.
+- **mouse** (*Optional*): Set to 1 to show mouse detectors, 0 to disable. Default 1.
 - **code_digits** (*Optional*): Number of digits in PIN code. Default 4.
 
