@@ -121,6 +121,7 @@
   <li>Alarm</li>
   <li>Smartplugs</li>
   <li>Reading from thermometers and hygrometers integrated in various devices</li>
+  <li>Mouse Detector</li>
   <li>Locks</li>
 </ul>
 
@@ -136,6 +137,7 @@
   <span class="key">smartplugs</span>: <span class="string"><span class="content">1</span></span>
   <span class="key">thermometers</span>: <span class="string"><span class="content">0</span></span>
   <span class="key">locks</span>: <span class="string"><span class="content">0</span></span>
+  <span class="key">mouse</span>: <span class="string"><span class="content">1</span></span>
   <span class="key">code_digits</span>: <span class="string"><span class="content">4</span></span>
 </pre></div>
 </div>
@@ -151,6 +153,7 @@
   <li><strong>smartplugs</strong> (<em>Optional</em>): Set to 1 to show smartplugs, 0 to disable. Default 1.</li>
   <li><strong>locks</strong> (<em>Optional</em>): Set to 1 to show locks, 0 to disable. Default 1.</li>
   <li><strong>thermometers</strong> (<em>Optional</em>): Set to 1 to show thermometers, 0 to disable. Default 1.</li>
+  <li><strong>mouse</strong> (<em>Optional</em>): Set to 1 to show mouse detectors, 0 to disable. Default 1.</li>
   <li><strong>code_digits</strong> (<em>Optional</em>): Number of digits in PIN code. Default 4.</li>
 </ul>
 
@@ -174,8 +177,17 @@
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
+        <li><a href='/components/alarm_control_panel.verisure/'>
+          Verisure Alarm
+        </a></li>
         <li><a href='/components/lock.verisure/'>
           Verisure Lock
+        </a></li>
+        <li><a href='/components/sensor.verisure/'>
+          Verisure Sensor
+        </a></li>
+        <li><a href='/components/switch.verisure/'>
+          Verisure SmartPlug
         </a></li>
     </ul>
     </div>
