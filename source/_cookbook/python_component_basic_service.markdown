@@ -10,20 +10,20 @@ footer: true
 ha_category: Custom Python Component Examples
 ---
 
-This is a simple hello world example to show the basics of registering a service. To use this example, create the file `<config dir>/custom_components/hello_service.py` and copy the below example code.
+This is a simple "hello world" example to show the basics of registering a service. To use this example, create the file `<config dir>/custom_components/hello_service.py` and copy the below example code.
 
-Services can be called from automation and from the service developer tools in the frontend.
+Services can be called from automation and from the service "Developer tools" in the frontend.
 
 ```python
-# The domain of your component. Should be equal to the name of your component
-DOMAIN = "hello_service"
+# The domain of your component. Should be equal to the name of your component.
+DOMAIN = 'hello_service'
 
 ATTR_NAME = 'name'
 DEFAULT_NAME = 'World'
 
 
 def setup(hass, config):
-    """ Setup is called when Home Assistant is loading our component. """
+    """Setup is called when Home Assistant is loading our component."""
 
     def handle_hello(call):
         name = call.data.get(ATTR_NAME, DEFAULT_NAME)
@@ -32,7 +32,7 @@ def setup(hass, config):
 
     hass.services.register(DOMAIN, 'hello', handle_hello)
 
-    # return boolean to indicate that initialization was successful
+    # Return boolean to indicate that initialization was successfully.
     return True
 ```
 
