@@ -27,6 +27,6 @@ simple_alarm:
 
 Configuration variables:
 
-- **known_light** (*Required*): Which light/light group has to flash when a known device comes home.
-- **unknown_light** (*Required*): Which light/light group has to flash red when light turns on while no one home.
+- **known_light** (*Optional*): Which light/light group has to flash when a known device comes home.
+- **unknown_light** (*Optional*): Which light/light group has to flash red when light turns on while no one home.
 

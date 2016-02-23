@@ -21,6 +21,14 @@ weblink:
   entities:
     - name: Router
       url: http://192.168.1.1/
+      icon: mdi:router-wireless
     - name: Home Assistant
       url: https://home-assistant.io
 ```
+Configuration variables:
+
+- **name** (*Required*): Text for the link.
+- **url** (*Required*): The URL for the link.
+- **icon** (*Optional*): Icon for entry.
+
+Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.

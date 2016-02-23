@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors"
 description: "Instructions how to integrate MySensors sensors into Home Assistant."
-date: 2015-05-14 21:57
+date: 2016-02-18 20:13 +0100
 sidebar: true
 comments: false
 sharing: true
@@ -12,9 +12,9 @@ ha_category: Hub
 featured: true
 ---
 
-The [MySensors](https://www.mysensors.org) project combines Arduino boards with NRF24L01 radio boards to build sensor networks. The component will automatically add all available switches and sensors to Home Assistant.
+The [MySensors](https://www.mysensors.org) project combines Arduino boards with NRF24L01 radio boards to build sensor networks. The component will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done.
 
-### Configuration
+### {% linkable_title Configuration %}
 
 Integrate your Serial MySensors Gateway by adding the following to your `configuration.yaml` file:
 
@@ -31,6 +31,7 @@ mysensors:
   debug: true
   persistence: true
   version: '1.5'
+  optimistic: 'true'
 ```
 
 Configuration variables:
@@ -40,7 +41,8 @@ Configuration variables:
 - **persistence** (*Optional*): Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts. Default is true.
 - **persistence_file** (*Optional*): Path to a file to save sensor information. The file extension determines the file type. Currently supported file types are 'pickle' and 'json'.
 - **version** (*Optional*): Specifies the MySensors protocol version to use. Supports 1.4 and 1.5. Default is 1.4.
-- **baud_rate** (*Optional*): Specifies baud rate of the connected gateway.
+- **baud_rate** (*Optional*): Specifies baud rate of the connected gateway. Default is 115200.
+- **optimistic** (*Optional*): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
 
 If you are using an original Arduino the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
 
@@ -48,7 +50,7 @@ If you are using an original Arduino the port will be named `ttyACM*`. The exact
 $ ls /dev/ttyACM*
 ```
 
-### Presentation
+### {% linkable_title Presentation %}
 
 Present a MySensors sensor or actuator, by following these steps:
 
