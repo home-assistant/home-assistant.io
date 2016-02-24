@@ -54,3 +54,7 @@ If no configuration is given, the `zone` component will create a zone for home. 
 #### {% linkable_title Icons %}
 
 It is preferred to pick an icon to use for your zone. Pick any zone that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:worker`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
+
+#### State
+
+`zoning` is the state a `zone` has when it is configured. A `zone` doesn't have another state, all configured zones are `zoning` all the time
