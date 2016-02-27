@@ -389,6 +389,14 @@ Returns the rendered template in plain text.
 Paulus is at work!
 ```
 
+Sample `curl` command:
+
+```bash
+$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+      -d '{"template": "It is {{ now }}!"}' \
+      http://localhost:8123/api/template
+```
+
 #### {% linkable_title POST /api/event_forwarding %}
 Setup event forwarding to another Home Assistant instance.
 
