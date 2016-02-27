@@ -65,6 +65,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Joseph Hughes](https://github.com/joshughes)
 - [Joseph Piron](https://github.com/eagleamon)
 - [Julien Danjou](https://github.com/jd)
+- [Justin Moy](https://github.com/justincmoy)
 - [Karen Goode](https://github.com/kfgoode)
 - [kennedyshead](https://github.com/kennedyshead)
 - [kixam](https://github.com/kixam)
