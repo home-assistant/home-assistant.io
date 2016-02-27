@@ -17,7 +17,7 @@ The `nest` binary sensor platform let you monitor various states of a thermostat
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
-sensor:
+binary_sensor:
   platform: nest
   monitored_conditions:
     - 'fan'
