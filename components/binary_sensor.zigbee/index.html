@@ -113,9 +113,23 @@
   <hr class="divider">
   
 
-  <p>A ZigBee binary sensor in this context is a device connected to one of the digital input pins on a ZigBee module. The states reported by such a device are limited to ‘on’ or ‘off’. By default, a binary sensor is considered ‘on’ when the ZigBee device’s digital input pin is held ‘high’ and considered ‘off’ when it is held ‘low’. This behaviour can be inverted by setting the <code>on_state</code> configuration variable to <code>low</code>.</p>
+  <p>A <code>zigbee</code> binary sensor in this context is a device connected to one of the digital input pins on a <a href="http://www.zigbee.org/">ZigBee</a> module. The states reported by such a device are limited to ‘on’ or ‘off’. By default, a binary sensor is considered ‘on’ when the ZigBee device’s digital input pin is held ‘high’ and considered ‘off’ when it is held ‘low’. This behaviour can be inverted by setting the <code>on_state</code> configuration variable to <code>low</code>.</p>
 
-<p>To configure a digital input as a binary sensor, use the following variables:</p>
+<p>To enable the ZigBee binary sensors in your installation, add the following lines to your <code>configuration.yaml</code>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">binary_sensor</span>:
+  - <span class="string"><span class="content">platform: zigbee</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Hallway PIR Sensor</span></span>
+    <span class="key">pin</span>: <span class="string"><span class="content">0</span></span>
+    <span class="key">address</span>: <span class="string"><span class="content">0013A20040892FA2</span></span>
+    <span class="key">on_state</span>: <span class="string"><span class="content">low</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Configuration variables:</p>
 
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The name you’d like to give the binary sensor in Home Assistant.</li>
@@ -125,18 +139,6 @@
   <li><strong>on_state</strong>: Either <code>high</code> (default) or <code>low</code>, depicting whether the binary sensor is considered ‘on’ when the pin is ‘high’ or ‘low’.</li>
 </ul>
 
-<h4>Example</h4>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">binary_sensor</span>:
-  - <span class="string"><span class="content">name: Hallway PIR Sensor</span></span>
-    <span class="key">platform</span>: <span class="string"><span class="content">zigbee</span></span>
-    <span class="key">pin</span>: <span class="string"><span class="content">0</span></span>
-    <span class="key">address</span>: <span class="string"><span class="content">0013A20040892FA2</span></span>
-    <span class="key">on_state</span>: <span class="string"><span class="content">low</span></span>
-</pre></div>
-</div>
-</div>
 
 
 </article>
@@ -178,7 +180,10 @@
             <a href='/components/binary_sensor.apcupsd/'>APCUPSd Binary Sensor</a>
         </li>
         <li>
-            <a href='/components/binary_sensor.command/'>Command line Binary Sensor</a>
+            <a href='/components/binary_sensor.bloomsky/'>BloomSky Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.http/'>HTTP Binary Sensor</a>
@@ -187,10 +192,28 @@
             <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.mysensors/'>MySensors Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nx584/'>NX584 zones</a>
+        </li>
+        <li>
             <a href='/components/binary_sensor.nest/'>Nest Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.rest/'>RESTful Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tcp/'>TCP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.template/'>Template Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.wink/'>Wink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zwave/'>Z-Wave Binary Sensor</a>
         </li>
         <li>
             ZigBee Binary Sensor

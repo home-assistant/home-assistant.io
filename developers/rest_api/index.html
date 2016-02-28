@@ -561,6 +561,16 @@ The result will include any changed states that changed while the service was be
 </div>
 </div>
 
+<p>Sample <code>curl</code> command:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+      -d '{&quot;template&quot;: &quot;It is !&quot;}' \
+      http://localhost:8123/api/template
+</pre></div>
+</div>
+</div>
+
 <h4><a class="title-link" name="post-apievent_forwarding" href="#post-apievent_forwarding"></a> POST /api/event_forwarding</h4>
 <p>Setup event forwarding to another Home Assistant instance.</p>
 

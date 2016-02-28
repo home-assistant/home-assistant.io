@@ -113,17 +113,25 @@
   <hr class="divider">
   
 
-  <p>In addition to the <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> devices, you may also create a device which is simply <code>on</code> when the UPS status is <code>ONLINE</code> and <code>off</code> at all other times.</p>
+  <p>In addition to the <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> devices, you may also create a device which is simply “on” when the UPS status is online and “off” at all other times.</p>
 
-<h4>Example</h4>
+<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code> file for a GET request:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">binary_sensor</span>:
-  - <span class="string"><span class="content">name: UPS Online</span></span>
-    <span class="key">platform</span>: <span class="string"><span class="content">apcupsd</span></span>
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">binary_sensor</span>:
+  - <span class="string"><span class="content">platform: apcupsd</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">UPS Online</span></span>
 </pre></div>
 </div>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>resource</strong> (<em>Required</em>): The resource or endpoint that contains the value.</li>
+  <li><strong>method</strong> (<em>Optional</em>): The method of the request. Default is GET.</li>
+</ul>
 
 
 </article>
@@ -159,7 +167,10 @@
             APCUPSd Binary Sensor
         </li>
         <li>
-            <a href='/components/binary_sensor.command/'>Command line Binary Sensor</a>
+            <a href='/components/binary_sensor.bloomsky/'>BloomSky Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.http/'>HTTP Binary Sensor</a>
@@ -168,10 +179,28 @@
             <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.mysensors/'>MySensors Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nx584/'>NX584 zones</a>
+        </li>
+        <li>
             <a href='/components/binary_sensor.nest/'>Nest Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.rest/'>RESTful Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tcp/'>TCP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.template/'>Template Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.wink/'>Wink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zwave/'>Z-Wave Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.zigbee/'>ZigBee Binary Sensor</a>

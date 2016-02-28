@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Command line Sensor - Home Assistant</title>
+    <title>TCP Sensor - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to integrate command line sensors into Home Assistant.">
+    <meta name="description" content="Instructions on how to set up TCP sensors within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/sensor.command_sensor/">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.tcp/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Command line Sensor">
+    <meta property="og:title" content="TCP Sensor">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/sensor.command_sensor/">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.tcp/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate command line sensors into Home Assistant.">
+    <meta property="og:description" content="Instructions on how to set up TCP sensors within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Command line Sensor">
-    <meta name="twitter:description" content="Instructions how to integrate command line sensors into Home Assistant.">
+    <meta name="twitter:title" content="TCP Sensor">
+    <meta name="twitter:description" content="Instructions on how to set up TCP sensors within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -107,128 +107,76 @@
   
   <header>
     <h1 class="title indent">
-      Command Line Sensor
+      TCP Sensor
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>A sensor platform that issues specific commands to get data. This might become our most powerful platform as it allows anyone to integrate any type of sensor into Home Assistant that can get data from the command line.</p>
+  <p>The TCP component allows the integration of some services for which a specific Home Assistant component does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this component will allow integration with it.</p>
 
-<p>To enable it, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_sensor</span></span>
-  <span class="key">command</span>: <span class="string"><span class="content">SENSOR_COMMAND</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Command sensor</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
+  <div class="code"><pre><span class="key">sensor</span>:
+<span class="comment"># Example configuration.yaml entry</span>
+  - <span class="string"><span class="content">platform: tcp</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Central Heating Pressure</span></span>
+    <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
+    <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
+    <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
+    <span class="key">payload</span>: <span class="string"><span class="content">PAYLOAD</span></span>
+    <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
+    <span class="key">unit</span>: <span class="string"><span class="content">UNIT_OF_MEASUREMENT</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>Configuration variables:</p>
+<p>Configuration options for the a TCP Sensor:</p>
 
 <ul>
-  <li><strong>command</strong> (<em>Required</em>): The action to take to get the value.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the command sensor.</li>
-  <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
-  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/getting-started/templating/">template</a> to extract a value from the payload.</li>
+  <li><strong>name</strong> (<em>Required</em>): The name you’d like to give the sensor in Home Assistant.</li>
+  <li><strong>host</strong> (<em>Required</em>): The hostname/IP address to connect to.</li>
+  <li><strong>port</strong> (<em>Required</em>): The port to connect to the host on.</li>
+  <li><strong>payload</strong> (<em>Required</em>): What to send to the host in order to get the response we’re interested in.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to <code>10</code></li>
+  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/getting-started/templating/">template</a> to extract the value. By default it’s assumed that the entire response is the value.</li>
+  <li><strong>unit</strong> (<em>Optional</em>): The unit of measurement to use for the value.</li>
+  <li><strong>buffer_size</strong> (<em>Optional</em>): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to <code>1024</code>.</li>
 </ul>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
 <p>In this section you find some real life examples of how to use this sensor.</p>
 
-<h3><a class="title-link" name="hard-drive-temperature" href="#hard-drive-temperature"></a> Hard drive temperature</h3>
+<h3><a class="title-link" name="ebusd" href="#ebusd"></a> EBUSd</h3>
 
-<p>There are several ways to get the temperature of your hard drive. A simple solution is to use <a href="https://savannah.nongnu.org/projects/hddtemp/">hddtemp</a>.</p>
+<p>The <a href="https://github.com/john30/ebusd/wiki">EBUSd</a> service enables connection to an EBUS serial bus on some home heating/cooling systems. Using this service it is possible to extract various metrics which may be useful to have within Home Assistant. In order to use EBUSd, you connect to it using a TCP socket and send it a command. The service will respond with the value it has received from EBUS. On the command line, this would look something like:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ hddtemp -n /dev/sda
+  <div class="code"><pre>$ echo &quot;r WaterPressure&quot; | nc 10.0.0.127 8888
+0.903;ok
 </pre></div>
 </div>
 </div>
 
-<p>To use those information, the entry for a sensor in the <code>configuration.yaml</code> file will look like this.</p>
+<p>You will notice that the output from the service is not just a single value (it contains “;ok” as well). To grab the value we’re interested in, we can use a Jinja2 template. The response received is injected into the template as the <code>value</code> variable. To use this value within Home Assistant, use the following configuration:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_sensor</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">HD Temperature</span></span>
-  <span class="key">command</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">hddtemp -n /dev/sda</span><span class="delimiter">&quot;</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
+  <div class="code"><pre><span class="key">sensor</span>:
+<span class="comment"># Example configuration.yaml entry</span>
+  - <span class="string"><span class="content">platform: tcp</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Central Heating Pressure</span></span>
+    <span class="key">host</span>: <span class="string"><span class="content">10.0.0.127</span></span>
+    <span class="key">port</span>: <span class="string"><span class="content">8888</span></span>
+    <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
+    <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">r WaterPressure\n</span><span class="delimiter">&quot;</span></span>
+    <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+    <span class="key">unit</span>: <span class="string"><span class="content">Bar</span></span>
 </pre></div>
 </div>
 </div>
 
-<h3><a class="title-link" name="cpu-temperature" href="#cpu-temperature"></a> CPU temperature</h3>
-
-<p>Thanks to the <a href="https://en.wikipedia.org/wiki/Procfs"><code>proc</code></a> file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your <code>configuration.yaml</code> file:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-  - <span class="string"><span class="content">platform: command_sensor</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">CPU Temperature</span></span>
-    <span class="key">command</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cat /sys/class/thermal/thermal_zone0/temp</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value | multiply(0.001) }}'</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>The <code>correction_factor</code> will make sure that the value is shown in a useful format in the frontend.</p>
-
-<h3><a class="title-link" name="details-about-the-upstream-home-assistant-release" href="#details-about-the-upstream-home-assistant-release"></a> Details about the upstream Home Assistant release</h3>
-
-<p>You can see directly in the frontend (<strong>Developer tools</strong> -&gt; <strong>About</strong>) what release of Home Assistant you are running. The Home Assistant releases are available on the <a href="https://pypi.python.org/pypi">Python Package Index</a>. This makes it possible to get the current release.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>  - <span class="string"><span class="content">platform: command_sensor</span></span>
-    <span class="key">command</span>: <span class="string"><span class="content">python3 -c &quot;import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])&quot;</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">HA release</span></span>
-</pre></div>
-</div>
-</div>
-
-<h3><a class="title-link" name="use-an-external-script" href="#use-an-external-script"></a> Use an external script</h3>
-
-<p>The example is doing the same as the <a href="/components/sensor.arest/">aREST sensor</a> but with an external Python script. It should give you an idea about interacting with devices which are exposing a RESTful API.</p>
-
-<p>The one-line script to retrieve a value is shown below. Of course would it be possible to use this directly in the <code>configuration.yaml</code> file but need extra care about the quotation marks.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python3 -c &quot;import requests; print(requests.get('http://10.0.0.48/analog/2').json()['return_value'])&quot;
-</pre></div>
-</div>
-</div>
-
-<p>The script (saved as <code>arest-value.py</code>) that is used looks like the example below.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment">#!/usr/bin/python3</span>
-<span class="keyword">from</span> <span class="include">requests</span> <span class="keyword">import</span> <span class="include">get</span>
-response = get(<span class="string"><span class="delimiter">'</span><span class="content">http://10.0.0.48/analog/2</span><span class="delimiter">'</span></span>)
-print(response.json()[<span class="string"><span class="delimiter">'</span><span class="content">return_value</span><span class="delimiter">'</span></span>])
-</pre></div>
-</div>
-</div>
-
-<p>To use the script you need to add something like the following to your <code>configuration.yaml</code> file.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_sensor</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Brightness</span></span>
-  <span class="key">command</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">python3 /path/to/script/arest-value.py</span><span class="delimiter">&quot;</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
-</div>
 
 
 </article>
@@ -242,10 +190,17 @@ print(response.json()[<span class="string"><span class="delimiter">'</span><span
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/sensor.command_sensor.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/sensor.tcp.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/command_line.png' />
   </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/binary_sensor.tcp/'>
+          TCP Binary Sensor
+        </a></li>
+    </ul>
+    </div>
     <div class='section'>
     <h1 class="title delta">Category Sensor</h1>
     <ul class='divided'>
@@ -262,7 +217,7 @@ print(response.json()[<span class="string"><span class="delimiter">'</span><span
             <a href='/components/sensor.cpuspeed/'>CPU speed</a>
         </li>
         <li>
-            Command line Sensor
+            <a href='/components/sensor.command_line/'>Command line Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.dweet/'>Dweet.io</a>
@@ -298,6 +253,9 @@ print(response.json()[<span class="string"><span class="delimiter">'</span><span
             <a href='/components/sensor.netatmo/'>Netatmo Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.neurio_energy/'>Neurio</a>
+        </li>
+        <li>
             <a href='/components/sensor.onewire/'>One wire Sensor</a>
         </li>
         <li>
@@ -316,10 +274,16 @@ print(response.json()[<span class="string"><span class="delimiter">'</span><span
             <a href='/components/sensor.speedtest/'>Speedtest.net</a>
         </li>
         <li>
+            <a href='/components/sensor.steam_online/'>Steam</a>
+        </li>
+        <li>
             <a href='/components/sensor.swiss_public_transport/'>Swiss Public Transport</a>
         </li>
         <li>
             <a href='/components/sensor.systemmonitor/'>System Monitor</a>
+        </li>
+        <li>
+            TCP Sensor
         </li>
         <li>
             <a href='/components/sensor.temper/'>TEMPer Sensor</a>

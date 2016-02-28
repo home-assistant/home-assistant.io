@@ -113,34 +113,26 @@
   <hr class="divider">
   
 
-  <p><a href="http://www.apcupsd.org/">APCUPSd</a> status information can be integrated into Home Assistant when the Network Information Server (NIS) <a href="http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver">is configured</a>.</p>
+  <p><a href="http://www.apcupsd.org/">APCUPSd</a> status information can be integrated into Home Assistant when the Network Information Server (NIS) <a href="http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver">is configured</a> is enabled on the APC device.</p>
 
-<p>Create an <code>apcupsd</code> section in your configuration, optionally containing the following parameters:</p>
+<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">apcupsd</span>:
+  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong>: The hostname/IP address on which the APCUPSd NIS is being served. Default: <code>localhost</code></li>
-  <li><strong>port</strong>: The port on which the APCUPSd NIS is listening. Default: <code>3551</code></li>
+  <li><strong>host</strong> (<em>Optional</em>): The hostname/IP address on which the APCUPSd NIS is being served. Defaults to <code>localhost</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port on which the APCUPSd NIS is listening. Defaults to <code>3551</code>.</li>
 </ul>
 
-<h4>Example</h4>
-
-<p>Use defaults:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">apcupsd</span>:
-</pre></div>
-</div>
-</div>
-
-<p>Set parameters:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">apcupsd</span>:
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.10</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">1234</span></span>
-</pre></div>
-</div>
-</div>
 
 
 </article>
@@ -174,6 +166,9 @@
     <ul class='divided'>
         <li>
             APCUPSd
+        </li>
+        <li>
+            <a href='/components/wemo/'>Belkin WeMo devices</a>
         </li>
         <li>
             <a href='/components/bloomsky/'>BloomSky</a>

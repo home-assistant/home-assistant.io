@@ -241,6 +241,11 @@
     <span class="comment"># Optional</span>
     <span class="key">from</span>: <span class="string"><span class="content">'not_home'</span></span>
     <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
+    <span class="comment"># If given, will trigger when state has been the to state for X time.</span>
+    <span class="key">for</span>:
+      <span class="key">hours</span>: <span class="string"><span class="content">1</span></span>
+      <span class="key">minutes</span>: <span class="string"><span class="content">10</span></span>
+      <span class="key">seconds</span>: <span class="string"><span class="content">5</span></span>
 </pre></div>
 </div>
 </div>
@@ -377,6 +382,12 @@
     <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
     <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus</span></span>
     <span class="key">state</span>: <span class="string"><span class="content">not_home</span></span>
+    <span class="comment"># optional: trigger only if state was this for last X time.</span>
+    <span class="key">for</span>:
+      <span class="key">hours</span>: <span class="string"><span class="content">1</span></span>
+      <span class="key">minutes</span>: <span class="string"><span class="content">10</span></span>
+      <span class="key">seconds</span>: <span class="string"><span class="content">5</span></span>
+
 </pre></div>
 </div>
 </div>

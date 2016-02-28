@@ -117,29 +117,7 @@
 
 <p>They will be automatically discovered if the discovery component is enabled.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">wemo</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>Alternately, wemos that are not discoverable can be statically configured. If you have WeMo devices on subnets other than where Home Assistant is running, and/or devices in a remote location reachable over a VPN, you will need to manually configure them. This is also useful if you wish to disable discovery for some wemos, even if they are local. Example static configuration:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">wemo</span></span>
-  <span class="key">static</span>:
-    - <span class="string"><span class="content">192.168.1.23</span></span>
-    - <span class="string"><span class="content">192.168.52.172</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>Any WeMo devices that are not statically configured but reachable via discovery will still be added automatically.</p>
-
-<p>Note that if you use this, you may want to configure your router (or whatever runs your DHCP server) to force your WeMo devices to use a static IP address. Check the DHCP section of your router configuration for this ability.</p>
+<p>For more configuration information see the <a href="/components/wemo/">WeMo component</a> documentation.</p>
 
 
 </article>
@@ -158,8 +136,22 @@
       <img src='/images/supported_brands/belkin_wemo.png' />
   </div>
     <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
       This is a platform for
       <a href='/components/switch/'>the Switches component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/light.wemo/'>
+          Belkin WeMo Lights
+        </a></li>
+        <li><a href='/components/wemo/'>
+          Belkin WeMo devices
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Switch</h1>
@@ -168,7 +160,10 @@
             Belkin WeMo Switch
         </li>
         <li>
-            <a href='/components/switch.command_switch/'>Command line Switch</a>
+            <a href='/components/switch.command_line/'>Command line Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.dlink/'>D-Link Switch</a>
         </li>
         <li>
             <a href='/components/switch.edimax/'>Edimax Switch</a>

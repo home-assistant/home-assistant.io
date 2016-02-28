@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Command line Binary Sensor - Home Assistant</title>
+    <title>Wink Binary Sensor - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to integrate Command binary sensors within Home Assistant.">
+    <meta name="description" content="Instructions how to setup the Wink binary sensors within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.command/">
+    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.wink/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Command line Binary Sensor">
+    <meta property="og:title" content="Wink Binary Sensor">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.command/">
+    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.wink/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Command binary sensors within Home Assistant.">
+    <meta property="og:description" content="Instructions how to setup the Wink binary sensors within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Command line Binary Sensor">
-    <meta name="twitter:description" content="Instructions how to integrate Command binary sensors within Home Assistant.">
+    <meta name="twitter:title" content="Wink Binary Sensor">
+    <meta name="twitter:description" content="Instructions how to setup the Wink binary sensors within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -107,73 +107,15 @@
   
   <header>
     <h1 class="title indent">
-      Command Line Binary Sensor
+      Wink Binary Sensor
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The <code>command</code> binary sensor platform issues specific commands to get data.</p>
+  <p>The Wink binary sensor platform allows you to get data from your <a href="http://www.wink.com/">Wink</a> binary sensors.</p>
 
-<p>To use your Command binary sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_sensor</span></span>
-  <span class="key">command</span>: <span class="string"><span class="content">cat /proc/sys/net/ipv4/ip_forward</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">'IP4 forwarding'</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>Configuration variables:</p>
-
-<ul>
-  <li><strong>command</strong> (<em>Required</em>): The action to take to get the value.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Let you overwrite the the name of the device. By default <em>name</em> from the device is used.</li>
-  <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
-  <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
-  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/getting-started/templating/">template</a> to extract a value from the payload.</li>
-</ul>
-
-<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
-
-<p>In this section you find some real life examples of how to use this sensor.</p>
-
-<h3><a class="title-link" name="sickrage" href="#sickrage"></a> SickRage</h3>
-
-<p>Check the state of an <a href="https://github.com/sickragetv/sickrage">SickRage</a> instance.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_sensor</span></span>
-  <span class="key">command</span>: <span class="string"><span class="content">netstat -na | find &quot;33322&quot; | find /c &quot;LISTENING&quot; &gt; nul &amp;&amp; (echo &quot;Running&quot;) || (echo &quot;Not running&quot;)</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">'sickragerunning'</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Running</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Not running</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
-</div>
-
-<h3><a class="title-link" name="check-rasplex" href="#check-rasplex"></a> Check RasPlex</h3>
-
-<p>Check if <a href="http://www.rasplex.com/">RasPlex</a> is <code>online</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_sensor</span></span>
-  <span class="key">command</span>: <span class="string"><span class="content">'ping rasplex.local -c 1 | grep &quot;1 received&quot; | wc -l'</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">'is_rasplex_online'</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="content">0</span></span>
-</pre></div>
-</div>
-</div>
+<p>The requirement is that you have setup your <a href="/components/wink/">Wink hub</a>.</p>
 
 
 
@@ -188,10 +130,33 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/binary_sensor.command.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/binary_sensor.wink.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/command_line.png' />
+      <img src='/images/supported_brands/wink.png' />
   </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/wink/'>
+          Wink
+        </a></li>
+        <li><a href='/components/garage_door.wink/'>
+          Wink Garage door
+        </a></li>
+        <li><a href='/components/light.wink/'>
+          Wink Light
+        </a></li>
+        <li><a href='/components/lock.wink/'>
+          Wink Lock
+        </a></li>
+        <li><a href='/components/sensor.wink/'>
+          Wink Sensor
+        </a></li>
+        <li><a href='/components/switch.wink/'>
+          Wink Switch
+        </a></li>
+    </ul>
+    </div>
     <div class='section'>
     <h1 class="title delta">Category Binary Sensor</h1>
     <ul class='divided'>
@@ -199,7 +164,10 @@
             <a href='/components/binary_sensor.apcupsd/'>APCUPSd Binary Sensor</a>
         </li>
         <li>
-            Command line Binary Sensor
+            <a href='/components/binary_sensor.bloomsky/'>BloomSky Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.http/'>HTTP Binary Sensor</a>
@@ -208,10 +176,28 @@
             <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.mysensors/'>MySensors Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nx584/'>NX584 zones</a>
+        </li>
+        <li>
             <a href='/components/binary_sensor.nest/'>Nest Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.rest/'>RESTful Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tcp/'>TCP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.template/'>Template Binary Sensor</a>
+        </li>
+        <li>
+            Wink Binary Sensor
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zwave/'>Z-Wave Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.zigbee/'>ZigBee Binary Sensor</a>

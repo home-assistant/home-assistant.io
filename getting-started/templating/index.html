@@ -152,38 +152,59 @@ The frontend has a template editor developer tool to help develop and debug temp
 </div>
 </div>
 
-<h3><a class="title-link" name="home-assistant-template-extensions" href="#home-assistant-template-extensions"></a> Home Assistant template extensions</h3>
+<h2><a class="title-link" name="home-assistant-template-extensions" href="#home-assistant-template-extensions"></a> Home Assistant template extensions</h2>
 
 <p>Home Assistant adds extensions to allow templates to access all of the current states:</p>
 
 <ul>
-  <li>Iterating <code>states</code> will yield each state sorted alphabetically by entity ID</li>
-  <li>Iterating <code>states.domain</code> will yield each state of that domain sorted alphabetically by entity ID</li>
-  <li><code>states.sensor.temperature</code> returns the state object for <code>sensor.temperature</code></li>
+  <li>Iterating <code>states</code> will yield each state sorted alphabetically by entity ID.</li>
+  <li>Iterating <code>states.domain</code> will yield each state of that domain sorted alphabetically by entity ID.</li>
+  <li><code>states.sensor.temperature</code> returns the state object for <code>sensor.temperature</code>.</li>
   <li><code>states('device_tracker.paulus')</code> will return the state string (not the object) of the given entity or <code>unknown</code> if it doesn’t exist.</li>
   <li><code>is_state('device_tracker.paulus', 'home')</code> will test if the given entity is specified state.</li>
   <li><code>is_state_attr('device_tracker.paulus', 'battery', 40)</code> will test if the given entity is specified state.</li>
-  <li>Filter <code>multiply(x)</code> will convert the input to a number and multiply it with <code>x</code></li>
+  <li>Filter <code>multiply(x)</code> will convert the input to a number and multiply it with <code>x</code>.</li>
   <li>Filter <code>round(x)</code> will convert the input to a number and round it to <code>x</code> decimals.</li>
+  <li><code>now</code> will be rendered as current time in your time zone.</li>
+  <li><code>utcnow</code> will be rendered as UTC time.</li>
+  <li><code>distance()</code> will measure the distance in meters between home, entity, coordinates.</li>
+  <li><code>closest()</code> will find the closest entity.</li>
 </ul>
 
-<h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<h3><a class="title-link" name="states" href="#states"></a> States</h3>
+<p>Next two statements result in same value if state exists. Second one will result in an error if state does not exist.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>
-# Next two statements result in same value if state exists
-# Second one will result in an error if state does not exist
 {{ states('device_tracker.paulus') }}
 {{ states.device_tracker.paulus.state }}
+</pre></div>
+</div>
+</div>
 
-# Print an attribute if state is defined
+<h3><a class="title-link" name="attributes" href="#attributes"></a> Attributes</h3>
+
+<p>Print an attribute if state is defined</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
 {% if states.device_tracker.paulus %}
 {{ states.device_tracker.paulus.attributes.battery }}
 {% else %}
 ??
 {% endif %}
+</pre></div>
+</div>
+</div>
 
-# Print out a list of all the sensor states
+<h3><a class="title-link" name="sensor-states" href="#sensor-states"></a> Sensor states</h3>
+
+<p>Print out a list of all the sensor states.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
 {% for state in states.sensor %}
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
@@ -199,6 +220,58 @@ The frontend has a template editor developer tool to help develop and debug temp
 {% if states('sensor.temperature') | float &gt; 20 %}
   It is warm!
 {%endif %}
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="distance-examples" href="#distance-examples"></a> Distance examples</h3>
+
+<p>If only 1 location is passed in will measure the distance from home.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
+
+Using State: {{ distance(device_tracker.paulus) }}
+
+These can also be combined in any combination:
+{{ distance(123.45, 123.45, device_tracker.paulus) }}
+{{ distance(device_tracker.anne_therese, device_tracker.paulus) }}
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="closest-examples" href="#closest-examples"></a> Closest examples</h3>
+
+<p>Find entities closest to the Home Assistant location:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+Query all entities: {{ closest(states) }}
+Query all entities of a specific domain: {{ closest(states.device_tracker) }}
+Query all entities in group.children: {{ closest('group.children') }}
+Query all entities in group.children: {{ closest(states.group.children) }}
+</pre></div>
+</div>
+</div>
+
+<p>Find entities closest to a coordinate or another entity. All previous arguments still apply for 2nd argument.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
+Closest to an entity: {{ closest('zone.school', 'group.children') }}
+Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="combined" href="#combined"></a> Combined</h3>
+<p>Since closest returns a state, we can combine it with distance too</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+{{ closest(states).name }} is {{ distance(closest(states)) }} meters away.
 </pre></div>
 </div>
 </div>
