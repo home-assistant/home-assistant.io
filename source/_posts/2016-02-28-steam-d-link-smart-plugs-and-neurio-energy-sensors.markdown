@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.14: Placeholder"
+title: "0.14: Steam, D-Link smart plugs and Neurio Energy Sensors"
 description: "Home Assistant 0.14 has arrived."
 date: 2016-02-27 14:15:00 -0800
 date_formatted: "February 28, 2016"
