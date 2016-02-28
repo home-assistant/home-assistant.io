@@ -171,12 +171,51 @@
     <span class="key">port</span>: <span class="string"><span class="content">8888</span></span>
     <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
     <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">r WaterPressure\n</span><span class="delimiter">&quot;</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+    <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
     <span class="key">unit</span>: <span class="string"><span class="content">Bar</span></span>
 </pre></div>
 </div>
 </div>
 
+<h3><a class="title-link" name="hddtemp" href="#hddtemp"></a> hddtemp</h3>
+
+<p>The tool <code>hddtemp</code> collects the temperatur of your harddisks.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ hddtemp
+/dev/sda: SAMSUNG MZMTE256HMHP-000L1: 39°C
+</pre></div>
+</div>
+</div>
+
+<p>With <code>hddtemp -d</code> you can run the tool in TCP/IP daemon mode on port 7634 which enables you to get the data across the network.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ telnet localhost 7634
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+|/dev/sda|SAMSUNG MZMTE256HMHP-000L1|38|C|Connection closed by foreign host.
+</pre></div>
+</div>
+</div>
+
+<p>The entry for the <code>confgiuration.yaml</code> file for a <code>hddtemp</code> sensor could look like the example below.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">sensor</span>:
+<span class="comment"># Example configuration.yaml entry</span>
+  - <span class="string"><span class="content">platform: tcp</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">HDD temperature</span></span>
+    <span class="key">host</span>: <span class="string"><span class="content">127.0.0.1</span></span>
+    <span class="key">port</span>: <span class="string"><span class="content">7634</span></span>
+    <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
+    <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">\n</span><span class="delimiter">&quot;</span></span>
+    <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split('|')[3] }}</span><span class="delimiter">&quot;</span></span>
+    <span class="key">unit</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+</div>
 
 
 </article>
