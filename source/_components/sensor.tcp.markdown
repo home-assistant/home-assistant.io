@@ -85,7 +85,7 @@ Escape character is '^]'.
 |/dev/sda|SAMSUNG MZMTE256HMHP-000L1|38|C|Connection closed by foreign host.
 ```
 
-The entry for the `confgiuration.yaml` file for a `hddtemp` sensor could look like the example below.
+The entry for the `configuration.yaml` file for a `hddtemp` sensor could look like the example below.
 
 ```yaml
 sensor:
