@@ -11,7 +11,7 @@ logo: bloomsky.png
 ha_category: Binary Sensor
 ---
 
-The `bloomsky` binary sensor platform allows you to get data from your BoomSky device.
+The `bloomsky` binary sensor platform allows you to get data from your BloomSky device.
 
 To get your BloomSky binary sensors working with Home Assistant, follow the instructions for the [BloomSky component](/components/bloomsky/) first.
 
