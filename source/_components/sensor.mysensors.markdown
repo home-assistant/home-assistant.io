@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors Sensor"
 description: "Instructions how to integrate MySensors sensors into Home Assistant."
-date: 2016-02-18 20:13 +0100
+date: 2016-02-28 01:20 +0100
 sidebar: true
 comments: false
 sharing: true
@@ -20,9 +20,6 @@ The following sensor types are supported:
 
 S_TYPE             | V_TYPE
 -------------------|---------------------------------------
-S_DOOR             | V_TRIPPED
-S_MOTION           | V_TRIPPED
-S_SMOKE            | V_TRIPPED
 S_TEMP             | V_TEMP
 S_HUM              | V_HUM
 S_BARO             | V_PRESSURE, V_FORECAST
@@ -46,11 +43,9 @@ S_TYPE         | V_TYPE
 ---------------|----------------------------------
 S_COLOR_SENSOR | V_RGB
 S_MULTIMETER   | V_VOLTAGE, V_CURRENT, V_IMPEDANCE
-S_SPRINKLER    | V_TRIPPED
-S_WATER_LEAK   | V_TRIPPED
-S_SOUND        | V_TRIPPED, V_LEVEL
-S_VIBRATION    | V_TRIPPED, V_LEVEL
-S_MOISTURE     | V_TRIPPED, V_LEVEL
+S_SOUND        | V_LEVEL
+S_VIBRATION    | V_LEVEL
+S_MOISTURE     | V_LEVEL
 S_LIGHT_LEVEL  | V_LEVEL
 S_AIR_QUALITY  | V_LEVEL (replaces V_DUST_LEVEL)
 S_DUST         | V_LEVEL (replaces V_DUST_LEVEL)

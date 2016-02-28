@@ -20,14 +20,12 @@ The following actuator types are supported:
 
 S_TYPE   | V_TYPE
 ---------|--------------
-S_LIGHT  | V_LIGHT
 S_DIMMER | V_DIMMER
 
 ##### MySensors version 1.5 and higher
 
 S_TYPE      | V_TYPE
 ------------|-------------
-S_LIGHT     | V_STATUS
 S_DIMMER    | V_PERCENTAGE
 S_RGB_LIGHT | V_RGB
 
