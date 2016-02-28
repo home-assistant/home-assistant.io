@@ -119,11 +119,32 @@
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+<span class="key">sensor</span>: 
+ <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+ <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
+ <span class="key">devices</span>:
+   <span class="key">sensor_0502</span>:
+     <span class="key">name</span>: <span class="string"><span class="content">Lving</span></span>
+     <span class="key">packetid</span>: <span class="string"><span class="content">0a52080705020095220269</span></span>
+     <span class="key">data_type</span>: <span class="string"><span class="content">Temperature</span></span>
+   <span class="key">sensor_0601</span>:
+     <span class="key">name</span>: <span class="string"><span class="content">Bath_Humidity</span></span>
+     <span class="key">packetid</span>: <span class="string"><span class="content">0a520802060100ff0e0269</span></span>
+     <span class="key">data_type</span>: <span class="string"><span class="content">Humidity</span></span>
+   <span class="key">sensor_0601 2</span>:
+     <span class="key">name</span>: <span class="string"><span class="content">Bath</span></span>
+     <span class="key">packetid</span>: <span class="string"><span class="content">0a520802060100ff0e0269</span></span>
 </pre></div>
 </div>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>devices</strong>  (<em>Optional</em>): A list of devices with their name to use in the frontend.</li>
+  <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of new lights.</li>
+  <li><strong>data_type</strong>  (<em>Optional</em>): Which data type the sensor should show</li>
+</ul>
 
 
 </article>
