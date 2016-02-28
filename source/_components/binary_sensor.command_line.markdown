@@ -19,7 +19,7 @@ To use your Command binary sensor in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: command_sensor
+  platform: command_line
   command: cat /proc/sys/net/ipv4/ip_forward
   name: 'IP4 forwarding'
   payload_on: "1"
@@ -46,7 +46,7 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: command_sensor
+  platform: command_line
   command: netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")
   name: 'sickragerunning'
   payload_on: "Running"
@@ -59,7 +59,7 @@ Check if [RasPlex](http://www.rasplex.com/) is `online`.
 
 ```yaml
 binary_sensor:
-  platform: command_sensor
+  platform: command_line
   command: 'ping rasplex.local -c 1 | grep "1 received" | wc -l'
   name: 'is_rasplex_online'
   payload_on: 1

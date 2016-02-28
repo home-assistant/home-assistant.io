@@ -129,6 +129,11 @@ automation:
     # Optional
     from: 'not_home'
     to: 'home'
+    # If given, will trigger when state has been the to state for X time.
+    for:
+      hours: 1
+      minutes: 10
+      seconds: 5
 ```
 
 <p class='note warning'>
@@ -249,6 +254,12 @@ automation:
     platform: state
     entity_id: device_tracker.paulus
     state: not_home
+    # optional: trigger only if state was this for last X time.
+    for:
+      hours: 1
+      minutes: 10
+      seconds: 5
+
 ```
 
 #### {% linkable_title Sun condition %}
