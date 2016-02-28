@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Command line"
+title: "Command line Notify"
 description: "Instructions how to add command line notifications to Home Assistant."
 date: 2016-02-22 20:00
 sidebar: true
@@ -11,8 +11,7 @@ logo: command_line.png
 ha_category: Notifications
 ---
 
-
-The `command_line` platform allows you to use external tools for notifications from Home Assistant.
+The `command_line` platform allows you to use external tools for notifications from Home Assistant. The message will be passed in as STDIN.
 
 To enable those notifications in your installation, add the following to your `configuration.yaml` file:
 
@@ -30,4 +29,3 @@ Configuration variables:
 - **command** (*Required*): The action to take.
 
 To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
-    

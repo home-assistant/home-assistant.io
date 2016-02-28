@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: z-wave.png
-ha_category: Sensor
+ha_category: Binary Sensor
 ---
 
 To get your Z-Wave binary sensors working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/).

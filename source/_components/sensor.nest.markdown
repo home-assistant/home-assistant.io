@@ -30,6 +30,11 @@ sensor:
     - 'local_ip'
     - 'last_connection'
     - 'battery_level'
+    - 'weather_condition'
+    - 'weather_temperature'
+    - 'weather_humidity'
+    - 'wind_speed'
+    - 'wind_direction'
 ```
 
 Configuration variables:
@@ -45,5 +50,10 @@ Configuration variables:
   - 'local_ip'
   - 'last_connection'
   - 'battery_level'
+  - 'weather_condition'
+  - 'weather_temperature'
+  - 'weather_humidity'
+  - 'wind_speed'
+  - 'wind_direction'
 
 <p class='note'>You must have the [Nest component](/components/nest/) configured to use this sensor.</p>

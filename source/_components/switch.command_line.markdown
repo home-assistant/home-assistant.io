@@ -19,7 +19,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_switch
+  platform: command_line
   switches:
     kitchen_light:
       oncmd: switch_command on kitchen
@@ -48,7 +48,7 @@ The example below is doing the same as the [aREST switch](/components/switch.are
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_switch
+  platform: command_line
   switches:
     arest_pin4:
       oncmd: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
@@ -67,7 +67,7 @@ This switch will shutdown your host immediately, there will be no confirmation.
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_switch
+  platform: command_line
   switches:
     Home Assistant system shutdown:
       offcmd: "/usr/sbin/poweroff"
@@ -81,7 +81,7 @@ This switch will control a local VLC media player ([Source](https://automic.us/f
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_switch
+  platform: command_line
   switches:
     VLC:
       oncmd: "cvlc 1.mp3 vlc://quit &"
