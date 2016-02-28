@@ -121,7 +121,7 @@
 
 <p>Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect switch operation.</p>
 
-<p>To enable this s in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this switch in your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
@@ -130,10 +130,10 @@
   <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bedroom Switch</span><span class="delimiter">&quot;</span></span>
   <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/switch1</span><span class="delimiter">&quot;</span></span>
   <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/switch1/set</span><span class="delimiter">&quot;</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
   <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ON</span><span class="delimiter">&quot;</span></span>
   <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OFF</span><span class="delimiter">&quot;</span></span>
   <span class="key">optimistic</span>: <span class="string"><span class="content">false</span></span>
+  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
   <span class="key">retain</span>: <span class="string"><span class="content">true</span></span>
   <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
 </pre></div>
@@ -146,16 +146,16 @@
   <li><strong>name</strong> (<em>Optional</em>): The name of the switch. Default is ‘MQTT Switch’.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the switch state.</li>
-  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.</li>
+  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/getting-started/templating/">template</a> to extract a value from the payload.</li>
 </ul>
 
 <p class="note warning">
-  Make sure that your topics match exact. <code>some-topic/</code> and <code>some-topic</code> are different topics.
+Make sure that your topic match exact. <code>some-topic/</code> and <code>some-topic</code> are different topics.
 </p>
 
 
