@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-02-28T00:31:52+00:00</updated>
+  <updated>2016-02-28T00:41:16+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[0.14: Placeholder]]></title>
-    <link href="https://home-assistant.io/blog/2016/02/27/release-placeholder/"/>
+    <title type="html"><![CDATA[0.14: Steam, D-Link smart plugs and Neurio Energy Sensors]]></title>
+    <link href="https://home-assistant.io/blog/2016/02/27/steam-d-link-smart-plugs-and-neurio-energy-sensors/"/>
     <updated>2016-02-27T22:15:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/02/27/release-placeholder</id>
+    <id>https://home-assistant.io/blog/2016/02/27/steam-d-link-smart-plugs-and-neurio-energy-sensors</id>
     <content type="html"><![CDATA[<p>It’s been another two weeks which means it’s time for release: 0.14!</p>
 
 <p><img src="https://home-assistant.io/images/supported_brands/neurio.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/dlink.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/steam.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="90" /></p>
