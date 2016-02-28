@@ -2,7 +2,7 @@
 layout: page
 title: "Z-Wave"
 description: "Instructions how to integrate your existing Z-Wave within Home Assistant."
-date: 2015-03-23 19:59
+date: 2016-02-27 19:59
 sidebar: true
 comments: false
 sharing: true
@@ -17,14 +17,36 @@ There is currently support for switches, lights and sensors. All will be picked 
 
 ### {% linkable_title Installation %}
 
-To allow Home Assistant to talk to your Z-Wave USB stick you will have to compile Python Open Z-Wave. This can be done using [this script](https://github.com/balloob/home-assistant/blob/dev/script/build_python_openzwave). _(The Home Assistant docker image has support for Z-Wave built-in)_
+To allow Home Assistant to talk to your Z-Wave USB stick you will have to compile the OpenZWave library and install the related [python-OpenZWave package](https://github.com/OpenZWave/python-openzwave). This can be done as follows. _(Note: The Home Assistant docker image has support for Z-Wave built-in)_
 
 Make sure you have the correct dependencies installed before running the script:
 
 ```bash
 $ apt-get install cython3 libudev-dev python-sphinx python3-setuptools
-$ pip3 install "cython<0.23"
 ```
+
+Then get the OpenZWave files and switch to the `python3` branch:
+
+```bash
+$ git clone https://github.com/OpenZWave/python-openzwave.git
+$ cd python-openzwave
+$ git checkout python3
+$ $PYTHON_EXEC=`which python3` make build
+$ sudo $PYTHON_EXEC=`which python3` make install
+```
+<p class='note'>
+Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
+
+`$ sudo PYTHON_EXEC=`which python3` checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave`
+
+</p>
+
+With this installation, your `config_path` needed below will resemble:
+
+```bash
+/usr/local/lib/python3.4/dist-packages/libopenzwave-0.3.0b8-py3.4-linux-x86_64.egg/config
+```
+
 
 ### {% linkable_title Configuration %}
 
@@ -52,6 +74,16 @@ To find the path of your Z-Wave stick, run:
 ```bash
 $ ls /dev/ttyUSB*
 ```
+
+Or, on some other systems (such as Raspberry Pi), use:
+
+```bash
+$ ls /dev/ttyACM*
+```
+
+<p class='note'>
+Depending on what's plugged into your USB ports, the name found above may change. You an lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/). 
+</p>
 
 #### {% linkable_title Events %}
 
