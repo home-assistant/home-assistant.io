@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Modbus Sensor - Home Assistant</title>
+    <title>Swiss Public Transport - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to integrate Modbus sensors into Home Assistant.">
+    <meta name="description" content="Instructions how to integrate timetable data for travelling in Switzerland within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/sensor.modbus/">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.deutsche_bahn/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Modbus Sensor">
+    <meta property="og:title" content="Swiss Public Transport">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/sensor.modbus/">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.deutsche_bahn/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Modbus sensors into Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate timetable data for travelling in Switzerland within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Modbus Sensor">
-    <meta name="twitter:description" content="Instructions how to integrate Modbus sensors into Home Assistant.">
+    <meta name="twitter:title" content="Swiss Public Transport">
+    <meta name="twitter:description" content="Instructions how to integrate timetable data for travelling in Switzerland within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -107,34 +107,22 @@
   
   <header>
     <h1 class="title indent">
-      Modbus Sensor
+      Swiss Public Transport
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The <code>modbus</code> sensor platform allows you to gather data from your <a href="http://www.modbus.org/">Modbus</a> sensors.</p>
+  <p>The <code>deutsche_bahn</code> sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional <code>ATTRIBUTES</code> are used to inform about eg. the type of the train, price and if it is ontime. The data are coming from the <a href="http://www.bahn.de/p/view/index.shtml">bahn.de</a> website.</p>
 
-<p>To use your Modbus sensors in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">modbus</span></span>
-  <span class="key">slave</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">registers</span>:
-    <span class="key">16</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My integer sensor</span></span>
-      <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
-    <span class="key">24</span>:
-      <span class="key">bits</span>:
-        <span class="key">0</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My boolean sensor</span></span>
-        <span class="key">2</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My other boolean sensor</span></span>
-  <span class="key">coils</span>:
-    <span class="key">0</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My coil switch</span></span>
+  <span class="key">platform</span>: <span class="string"><span class="content">deutsche_bahn</span></span>
+  <span class="key">from</span>: <span class="string"><span class="content">NAME_OF_START_STATION</span></span>
+  <span class="key">to</span>: <span class="string"><span class="content">NAME_OF_FINAL_STATION</span></span>
 </pre></div>
 </div>
 </div>
@@ -142,35 +130,9 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>slave</strong> (<em>Required</em>): The number of the slave (ignored and can be omitted if not serial Modbus).</li>
-  <li><strong>registers</strong> array (<em>Required</em>): The array contains a list of relevant registers to read from.
-    <ul>
-      <li><strong>number of register</strong> (<em>Required</em>): Listing relevant bits. It must contain a <code>bits</code> section.
-        <ul>
-          <li><strong>bits</strong> array (<em>Required</em>): Listing relevant bits. It must contain a <code>bits</code> section.
-            <ul>
-              <li><strong>name</strong> (<em>Required</em>): Name of the sensor.</li>
-              <li><strong>unit</strong> (<em>Required</em>): Unit to attach to value (optional, ignored for boolean sensors).</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>coils</strong> (<em>Optional</em>): A list of relevant coils to read from/write to
-    <ul>
-      <li><strong>number of coil</strong> array (<em>Required</em>):
-        <ul>
-          <li><strong>name</strong> (<em>Required</em>): Name of the coil.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <li><strong>from</strong> (<em>Required</em>): The name of the start station.</li>
+  <li><strong>to</strong> (<em>Required</em>): The name of the end station.</li>
 </ul>
-
-<p class="note warning">
-Each named register will create an integer sensor and each named bit will create a boolean sensor.
-</p>
 
 
 
@@ -185,20 +147,11 @@ Each named register will create an integer sensor and each named bit will create
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/sensor.modbus.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/sensor.deutsche_bahn.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/modbus.png' />
   </div>
-          <div class='section'>
-          <h1 class='title delta'>Related components</h1>
-          <ul class='divided'>
-        <li><a href='/components/modbus/'>
-          Modbus
-        </a></li>
-        <li><a href='/components/switch.modbus/'>
-          Modbus Switch
-        </a></li>
-    </ul>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
     </div>
     <div class='section'>
     <h1 class="title delta">Category Sensor</h1>
@@ -240,7 +193,7 @@ Each named register will create an integer sensor and each named bit will create
             <a href='/components/sensor.mqtt/'>MQTT Sensor</a>
         </li>
         <li>
-            Modbus Sensor
+            <a href='/components/sensor.modbus/'>Modbus Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
@@ -276,7 +229,7 @@ Each named register will create an integer sensor and each named bit will create
             <a href='/components/sensor.steam_online/'>Steam</a>
         </li>
         <li>
-            <a href='/components/sensor.deutsche_bahn/'>Swiss Public Transport</a>
+            Swiss Public Transport
         </li>
         <li>
             <a href='/components/sensor.swiss_public_transport/'>Swiss Public Transport</a>
