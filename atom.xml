@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-02-28T21:19:16+00:00</updated>
+  <updated>2016-02-28T21:25:59+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -58,6 +58,7 @@
   <li>Script: Turning on a <a href="https://home-assistant.io/components/script/">script</a> that is already on is now a no-op instead of skipping current delay.</li>
   <li>Wemo switches now have to be set up via the main <a href="https://home-assistant.io/components/wemo/">Wemo component</a></li>
   <li>Command line platforms for <a href="https://home-assistant.io/components/switch.command_line/">switch</a>, <a href="https://home-assistant.io/components/sensor.command_line/">sensor</a> and <a href="https://home-assistant.io/components/binary_sensor.command_line/">binary_sensor</a> have been renamed to <code>command_line</code>.</li>
+  <li>The rfxtrx sensors entity ids will incur a one time change to move to a stable format. See <a href="https://home-assistant.io/components/sensor.rfxtrx/">the docs</a> for more details.</li>
 </ul>
 
 ]]></content>
