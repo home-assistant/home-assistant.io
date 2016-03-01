@@ -13,9 +13,7 @@ Binary sensors are gathering information about state of switches, contacts, pins
 
 Knowing that there are only two states allows Home Assistant to represent the sensor better in the frontend.
 
-For analog sensors please check the [component overview](https://home-assistant.io/components/#sensor).
-
-Most binary sensors supports the `SENSOR_CLASSES` which let you specify the type of your sensor. The following types are supoorted:
+Most binary sensors support the `SENSOR_CLASSES` which let you specify the type of your sensor. The following types are supported:
 
 - **None**: Generic on/off
 - **opening**: Door, window, etc
@@ -32,3 +30,4 @@ Most binary sensors supports the `SENSOR_CLASSES` which let you specify the type
 - **sound**: On means sound detected, Off means no sound
 - **vibration**: On means vibration detected, Off means no vibration
 
+For analog sensors please check the [component overview](https://home-assistant.io/components/#sensor).
