@@ -117,6 +117,25 @@
 
 <p>Knowing that there are only two states allows Home Assistant to represent the sensor better in the frontend.</p>
 
+<p>Most binary sensors support the <code>SENSOR_CLASSES</code> which let you specify the type of your sensor. The following types are supported:</p>
+
+<ul>
+  <li><strong>None</strong>: Generic on/off</li>
+  <li><strong>opening</strong>: Door, window, etc</li>
+  <li><strong>motion</strong>: Motion sensor</li>
+  <li><strong>gas’</strong>: CO, CO2, etc</li>
+  <li><strong>smoke’</strong>: Smoke detector</li>
+  <li><strong>moisture</strong>: Specifically a wetness sensor</li>
+  <li><strong>light</strong>: Lightness threshold</li>
+  <li><strong>power</strong>: Power, over-current, etc</li>
+  <li><strong>safety</strong>: Generic on=unsafe, off=safe</li>
+  <li><strong>heat</strong>: On means hot (or too hot)</li>
+  <li><strong>cold</strong>: On means cold (or too cold)</li>
+  <li><strong>moving</strong>: On means moving, Off means stopped</li>
+  <li><strong>sound</strong>: On means sound detected, Off means no sound</li>
+  <li><strong>vibration</strong>: On means vibration detected, Off means no vibration</li>
+</ul>
+
 <p>For analog sensors please check the <a href="https://home-assistant.io/components/#sensor">component overview</a>.</p>
 
 
