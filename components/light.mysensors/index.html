@@ -117,7 +117,7 @@
 
 <p>The following actuator types are supported:</p>
 
-<h5>MySensors version 1.4 and higher</h5>
+<h5>MySensors version 1.4</h5>
 
 <table>
   <thead>
@@ -129,7 +129,7 @@
   <tbody>
     <tr>
       <td>S_DIMMER</td>
-      <td>V_DIMMER</td>
+      <td>V_DIMMER*, V_LIGHT*</td>
     </tr>
   </tbody>
 </table>
@@ -146,14 +146,16 @@
   <tbody>
     <tr>
       <td>S_DIMMER</td>
-      <td>V_PERCENTAGE</td>
+      <td>[V_DIMMER* or V_PERCENTAGE*], [V_LIGHT* or V_STATUS*]</td>
     </tr>
     <tr>
       <td>S_RGB_LIGHT</td>
-      <td>V_RGB</td>
+      <td>V_RGB*, [V_LIGHT* or V_STATUS*], [V_DIMMER or V_PERCENTAGE]</td>
     </tr>
   </tbody>
 </table>
+
+<p>V_TYPES with a star (*) denotes required V_TYPES. Use either V_LIGHT or V_STATUS and either V_DIMMER or V_PERCENTAGE for an applicable actuator.</p>
 
 <p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
 
