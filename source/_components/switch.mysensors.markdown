@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors Switch"
 description: "Instructions how to integrate MySensors switches into Home Assistant."
-date: 2016-02-28 01:20 +0100
+date: 2016-03-02 18:20 +0100
 sidebar: true
 comments: false
 sharing: true
@@ -31,7 +31,7 @@ S_LOCK   | V_LOCK_STATUS
 S_TYPE       | V_TYPE
 -------------|------------------
 S_LIGHT      | V_STATUS
-S_BINARY     | V_STATUS, V_LIGHT
+S_BINARY     | [V_STATUS or V_LIGHT]
 S_SPRINKLER  | V_STATUS
 S_WATER_LEAK | V_ARMED
 S_SOUND      | V_ARMED
