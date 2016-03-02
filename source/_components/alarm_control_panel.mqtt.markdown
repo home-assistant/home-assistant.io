@@ -15,7 +15,7 @@ The `mqtt` alarm panel platform enables the possibility to control MQTT capable 
 
 The component will accept the following states from your Alarm Panel (in lower case):
 
-- 'armed'
+- 'disarmed'
 - 'armed_home'
 - 'armed_away'
 - 'pending'
