@@ -19,7 +19,8 @@ This device tracker needs SNMP to be enabled on the router.
 </p>
 
 OID examples:
-- Microtik: 1.3.6.1.4.1.14988.1.1.1.2.1.1 (confirmed)
+- Mikrotik: 1.3.6.1.4.1.14988.1.1.1.2.1.1 (confirmed, unknown RouterOS version/model)
+- Mikrotik: 1.3.6.1.2.1.4.22.1.2 (confirmed, RouterOS 6.x on RB2011)
 - Aruba: 1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2 (untested)
 - BiPAC 7800DXL: 1.3.6.1.2.1.17.7.1.2.2.1.1 (confirmed on firmware 2.32e)
 
