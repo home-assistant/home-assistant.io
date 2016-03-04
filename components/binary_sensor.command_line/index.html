@@ -167,7 +167,7 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">binary_sensor</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">command_line</span></span>
-  <span class="key">command</span>: <span class="string"><span class="content">'ping rasplex.local -c 1 | grep &quot;1 received&quot; | wc -l'</span></span>
+  <span class="key">command</span>: <span class="string"><span class="content">'ping -c 1 rasplex.local | grep &quot;1 received&quot; | wc -l'</span></span>
   <span class="key">name</span>: <span class="string"><span class="content">'is_rasplex_online'</span></span>
   <span class="key">payload_on</span>: <span class="string"><span class="content">1</span></span>
   <span class="key">payload_off</span>: <span class="string"><span class="content">0</span></span>
@@ -175,6 +175,18 @@
 </div>
 </div>
 
+<p>An alternative solution could look like this:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">binary_sensor</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">command_line</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Printer</span></span>
+  <span class="key">command</span>: <span class="string"><span class="content">ping -c 1 192.168.1.10 &amp;&gt; /dev/null &amp;&amp; echo success || echo fail</span></span>
+  <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">success</span><span class="delimiter">&quot;</span></span>
+  <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">fail</span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+</div>
 
 
 </article>
