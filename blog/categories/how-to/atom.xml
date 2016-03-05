@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-03-04T12:31:48+00:00</updated>
+  <updated>2016-03-05T08:55:40+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -451,7 +451,7 @@ Z-Wave light bulb    |
   <div class="code"><pre>$ git clone https://github.com/letsencrypt/letsencrypt
 […]
 $ cd letsencrypt
-$ ./letsencrypt-auto certonly --email $ ./letsencrypt-auto certonly --email your@email.address -d hass-example.duckdns.org
+$ ./letsencrypt-auto certonly --email your@email.address -d hass-example.duckdns.org
 
 Updating letsencrypt and virtual environment dependencies.......
 Running with virtualenv: sudo /path/letsencrypt/bin/letsencrypt certonly --email your@e-mail.address -d hass-example.duckdns.org
