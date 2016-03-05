@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant is build from the ground-up to be easily extensible by other developers using components. It uses [Python 3](https://www.python.org/) for the backend and [Polymer (Webcomponents)](https://www.polymer-project.org/) for the frontend.
+Home Assistant is built from the ground up to be easily-extensible by other developers using components. It uses [Python 3](https://www.python.org/) for the backend and [Polymer (Webcomponents)](https://www.polymer-project.org/) for the frontend.
 
 Home Assistant is open-source and MIT licensed. The source can be found here:
 
@@ -19,7 +19,7 @@ Home Assistant is open-source and MIT licensed. The source can be found here:
 
 ### {% linkable_title Starting development %}
 
-You will need to setup a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to perform it. Visit the [the Home Assistant repository](https://github.com/balloob/home-assistant) first and click fork in the top right.
+You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to perform it. Visit the [the Home Assistant repository](https://github.com/balloob/home-assistant) first and click fork in the top right.
 
 ```bash
 $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
