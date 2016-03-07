@@ -11,7 +11,13 @@ regenerate: true
 hide_github_edit: true
 ---
 
-This is a community currated list of different ways to use Home Assistant. New recipes can be added via the [home-assistant.io repository](https://github.com/balloob/home-assistant.io/tree/master/source/_cookbook).
+This is a community curated list of different ways to use Home Assistant. Most of these examples are using the [automation] component and other built-in [automation related][sec-automation] and [organization] components available.
+
+[automation]: /components/automation/
+[sec-automation]: /components/#automation
+[organization]: /components/#organization
+
+New recipes can be added via the [home-assistant.io repository](https://github.com/balloob/home-assistant.io/tree/master/source/_cookbook).
 
 {% assign cookbook = site.cookbook | sort: 'title' %}
 {% assign categories = cookbook | map: 'ha_category' | uniq | sort %}
