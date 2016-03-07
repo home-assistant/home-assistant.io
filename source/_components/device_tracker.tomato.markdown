@@ -33,3 +33,6 @@ Configuration variables:
 - **http_id** (*Required*): The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+
+A description of the API s available in this [Tomato API](http://paulusschoutsen.nl/blog/2013/10/tomato-api-documentation/) blog post.
+    
