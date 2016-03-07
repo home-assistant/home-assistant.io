@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Automation for rainy days - Home Assistant</title>
+    <title>Perform actions based on input select - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Basic example how to use weather conditions to set states">
+    <meta name="description" content="Example playing media to chromecast based on input select element">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/cookbook/automation_for_rainy_days/">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/perform_actions_based_on_input_select/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Automation for rainy days">
+    <meta property="og:title" content="Perform actions based on input select">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/cookbook/automation_for_rainy_days/">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/perform_actions_based_on_input_select/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Basic example how to use weather conditions to set states">
+    <meta property="og:description" content="Example playing media to chromecast based on input select element">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Automation for rainy days">
-    <meta name="twitter:description" content="Basic example how to use weather conditions to set states">
+    <meta name="twitter:title" content="Perform actions based on input select">
+    <meta name="twitter:description" content="Example playing media to chromecast based on input select element">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -107,61 +107,79 @@
   
   <header>
     <h1 class="title indent">
-      Automation for Rainy Days
+      Perform Actions Based on Input Select
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>This requires a <a href="/components/sensor.forecast/">forecast.io</a> sensor with the condition <code>weather_precip</code> that tells if it’s raining or not.</p>
-
-<p>Turn on a light in the living room when it starts raining, someone is home, and it’s afternoon or later.</p>
+  <p>This example uses an <a href="/components/input_select/"><code>input_select</code></a> element to pick which mp3 file to play on a <a href="components/media_player.cast/">Chromecast</a>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">alias</span>: <span class="string"><span class="content">'Rainy Day'</span></span>
+  <div class="code"><pre><span class="comment"># Define our dropdown list</span>
+<span class="key">input_select</span>:
+  <span class="key">lullaby</span>:
+    <span class="key">name</span>: <span class="string"><span class="content">Lullaby</span></span>
+    <span class="key">options</span>:
+      - <span class="string"><span class="content">Rain</span></span>
+      - <span class="string"><span class="content">Babbling Brook</span></span>
+      - <span class="string"><span class="content">None</span></span>
+    <span class="key">initial</span>: <span class="string"><span class="content">None</span></span>
+    <span class="key">icon</span>: <span class="string"><span class="content">mdi:weather-rainy</span></span>
 
-  <span class="key">trigger</span>:
-       - <span class="string"><span class="content">platform: state</span></span>
-         <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.weather_precip</span></span>
-         <span class="key">state</span>: <span class="string"><span class="content">'rain'</span></span>
-       - <span class="string"><span class="content">platform: state</span></span>
-         <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_devices</span></span>
-         <span class="key">state</span>: <span class="string"><span class="content">'home'</span></span>
-       - <span class="string"><span class="content">platform: time</span></span>
-         <span class="key">after</span>: <span class="string"><span class="content">'14:00'</span></span>
-         <span class="key">before</span>: <span class="string"><span class="content">'23:00'</span></span>
+<span class="comment"># Define our media player</span>
+<span class="key">media_player</span>:
+    - <span class="string"><span class="content">platform: cast</span></span>
+      <span class="key">host</span>: <span class="string"><span class="content">chromecast-nursery</span></span>
+      <span class="key">name</span>: <span class="string"><span class="content">Nursery</span></span>
 
-  <span class="key">condition</span>: <span class="string"><span class="content">use_trigger_values</span></span>
+<span class="key">automation</span>:
+  <span class="comment"># If you select &quot;Rain&quot;, play the &quot;rain.mp3&quot; file</span>
+  - <span class="string"><span class="content">alias: Play Rain Lullaby</span></span>
 
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">light.couch_lamp</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">input_select.lullaby</span></span>
+      <span class="key">to</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Rain</span><span class="delimiter">&quot;</span></span>
+
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">media_player.play_media</span></span>
+      <span class="key">data</span>:
+        <span class="key">entity_id</span>: <span class="string"><span class="content">media_player.nursery</span></span>
+        <span class="key">media_id</span>: <span class="string"><span class="content">http://fileserver/rain.mp3</span></span>
+        <span class="key">media_type</span>: <span class="string"><span class="content">audio/mp4</span></span>
+
+
+  <span class="comment"># If you select &quot;Babbling Brook&quot;, play the &quot;babbling_brook.mp3&quot; file</span>
+  - <span class="string"><span class="content">alias: Play Babbling Brook Lullaby</span></span>
+
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">input_select.lullaby</span></span>
+      <span class="key">to</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Babbling Brook</span><span class="delimiter">&quot;</span></span>
+
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">media_player.play_media</span></span>
+      <span class="key">data</span>:
+        <span class="key">entity_id</span>: <span class="string"><span class="content">media_player.nursery</span></span>
+        <span class="key">media_id</span>: <span class="string"><span class="content">http://fileserver/babbling_brook.mp3</span></span>
+        <span class="key">media_type</span>: <span class="string"><span class="content">audio/mp4</span></span>
+
+  <span class="comment"># If you select &quot;None, turn the Chromecast off</span>
+  - <span class="string"><span class="content">alias: Stop the Lullaby</span></span>
+
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">input_select.lullaby</span></span>
+      <span class="key">to</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">None</span><span class="delimiter">&quot;</span></span>
+
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">media_player.turn_off</span></span>
+      <span class="key">data</span>:
+        <span class="key">entity_id</span>: <span class="string"><span class="content">media_player.nursery</span></span>
 </pre></div>
 </div>
 </div>
-
-<p>And then of course turn off the lamp when it stops raining but only if it’s within an hour before sunset.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation 2</span>:
-  <span class="key">alias</span>: <span class="string"><span class="content">'Rain is over'</span></span>
-  <span class="key">trigger</span>:
-       - <span class="string"><span class="content">platform: state</span></span>
-         <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.weather_precip</span></span>
-         <span class="key">state</span>: <span class="string"><span class="content">'None'</span></span>
-       - <span class="string"><span class="content">platform: sun</span></span>
-         <span class="key">event</span>: <span class="string"><span class="content">'sunset'</span></span>
-         <span class="key">offset</span>: <span class="string"><span class="content">'-01:00:00'</span></span>
-
-  <span class="key">condition</span>: <span class="string"><span class="content">use_trigger_values</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">light.turn_off</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">light.couch_lamp</span></span>
-</pre></div>
-</div>
-</div>
-
 
 
 </article>
@@ -175,7 +193,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_cookbook/automation_for_rainy_days.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_cookbook/perform_actions_based_on_input_select.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <a href='/cookbook'>Back to the cookbook</a>
   </div>
@@ -183,7 +201,7 @@
     <h1 class="title delta">Automation Examples</h1>
     <ul class='divided'>
           <li>
-              Automation for rainy days
+              <a href='/cookbook/automation_for_rainy_days/'>Automation for rainy days</a>
           </li>
           <li>
               <a href='/cookbook/dim_lights_when_playing_media/'>Dim lights when playing media</a>
@@ -195,7 +213,7 @@
               <a href='/cookbook/automation_sun/'>Examples using the sun</a>
           </li>
           <li>
-              <a href='/cookbook/perform_actions_based_on_input_select/'>Perform actions based on input select</a>
+              Perform actions based on input select
           </li>
           <li>
               <a href='/cookbook/restart_ha_if_wemo_switch_is_not_detected/'>Restart Home Assistant if Wemo Switch is not detected</a>
