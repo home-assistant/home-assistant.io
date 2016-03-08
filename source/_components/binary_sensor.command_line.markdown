@@ -60,7 +60,7 @@ Check if [RasPlex](http://www.rasplex.com/) is `online`.
 ```yaml
 binary_sensor:
   platform: command_line
-  command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
+  command: 'ping -c 1 rasplex.local | grep "1 packets received" | wc -l'
   name: 'is_rasplex_online'
   payload_on: 1
   payload_off: 0
