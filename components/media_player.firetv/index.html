@@ -133,7 +133,11 @@
       <li>Select System &gt; About &gt; Network.</li>
     </ul>
   </li>
-  <li><code>pip install firetv[firetv-server]</code> into a Python 2.x environment</li>
+  <li><code>pip install firetv[firetv-server]</code> into a Python 2.x environment
+    <ul>
+      <li>If installed on Debian Jessie then the libssl-dev package is needed. Install it with <code>apt-get install libssl-dev</code></li>
+    </ul>
+  </li>
   <li><code>firetv-server -d &lt;fire tv device IP&gt;:5555</code>, background the process</li>
   <li>Configure Home Assistant as follows:</li>
 </ul>
