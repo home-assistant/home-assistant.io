@@ -50,3 +50,13 @@ Turns one or multiple lights off.
 | `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | no | Integer that represents the time the light should take to transition to the new state.
 
+### {% linkable_title Service `light.toggle` %}
+
+Toggles the state of one or multiple lights using [groups]({{site_root}}/components/group/). 
+
+*Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `transition` | no | Integer that represents the time the light should take to transition to the new state.
