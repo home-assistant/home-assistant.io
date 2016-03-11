@@ -193,7 +193,7 @@ automation 3:
 
 #### {% linkable_title Zone trigger %}
 
-Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/).
+Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) as well as the [iCloud platform](/components/device_tracker.icloud/).
 
 ```yaml
 automation:
