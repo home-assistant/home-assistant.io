@@ -115,24 +115,15 @@
 
   <p><code>limitlessled</code> can control your <a href="http://www.limitlessled.com/">LimitlessLED</a> lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight or iLight.</p>
 
-<h3>Setup</h3>
+<h3><a class="title-link" name="setup" href="#setup"></a> Setup</h3>
 
-<p>Before configuring Home Assistant, make sure you can control your bulbs with the Milight mobile application. Discover your bridge(s) IP. You can do this via your router, or a mobile application like Fing (<a href="https://play.google.com/store/apps/details?id=com.overlook.android.fing&amp;hl=en">android</a>, <a href="https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8">itunes</a>). Keep in mind that LimitlessLED bulbs are controlled via groups. You cannot control an individual bulb via the bridge, unless it is in a group by itself. Note that you can assign an <code>rgbw</code> and <code>white</code> group to the same group number, effectively allowing 8 groups (4 <code>rgbw</code> and 4 <code>white</code>) per bridge.</p>
+<p>Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing (<a href="https://play.google.com/store/apps/details?id=com.overlook.android.fing&amp;hl=en">android</a> or <a href="https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8">itunes</a>). Keep in mind that LimitlessLED bulbs are controlled via groups. You can not control an individual bulb via the bridge, unless it is in a group by itself. Note that you can assign an <code>rgbw</code> and <code>white</code> group to the same group number, effectively allowing 8 groups (4 <code>rgbw</code> and 4 <code>white</code>) per bridge.</p>
 
 <p>To add <code>limitlessled</code> to your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">limitlessled</span></span>
-  <span class="key">bridges</span>:
-</pre></div>
-</div>
-</div>
-
-<p>Next, list your bridges and groups. Here’s an example. See the next section for a full explanaton of each configuration variable.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">light</span>:
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">light</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">limitlessled</span></span>
   <span class="key">bridges</span>:
     - <span class="string"><span class="content">host: 192.168.1.10</span></span>
@@ -157,52 +148,53 @@
 </div>
 </div>
 
-<h3>Configuration variables</h3>
+<p>Configuration variables:</p>
 
 <ul>
-  <li><strong>bridges</strong> (<em>Required</em>): (list)
+  <li><strong>bridges</strong> array (<em>Required</em>):
     <ul>
       <li><strong>host</strong> (<em>Required</em>): IP address of the device, eg. <code>192.168.1.32</code></li>
-      <li><strong>version</strong>: Bridge version (default is <code>5</code>). Don’t use if you aren’t sure.</li>
-      <li><strong>port</strong>: Bridge port (default is <code>8899</code>). Normally not necessary to specify.</li>
-      <li><strong>groups</strong> (<em>Required</em>): (list)
+      <li><strong>version</strong> (<em>Optional</em>): Bridge version (default is <code>5</code>). Don’t use if you aren’t sure.</li>
+      <li><strong>port</strong> (<em>Optional</em>): Bridge port. Defaults to 8899.</li>
+      <li><strong>groups</strong> array (<em>Required</em>): The list of available groups.
         <ul>
           <li><strong>number</strong> (<em>Required</em>): Group number (<code>1</code>-<code>4</code>). Corresponds to the group number on the remote.</li>
           <li><strong>name</strong> (<em>Required</em>): Any name you’d like. Must be unique among all configured groups.</li>
-          <li><strong>type</strong>: Type of group. Choose either <code>rgbw</code> or <code>white</code>. <code>rgbw</code> is the default if you don’t specify.</li>
+          <li><strong>type</strong> (<em>Optional</em>): Type of group. Choose either <code>rgbw</code> or <code>white</code>. <code>rgbw</code> is the default if you don’t specify this entry.</li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
 
-<h3>Properties</h3>
-<p>Refer to the <a href="/components/light">light</a> documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.</p>
+<h3><a class="title-link" name="properties" href="#properties"></a> Properties</h3>
+
+<p>Refer to the <a href="/components/light/">light</a> documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.</p>
 
 <ul>
   <li><strong>RGBW</strong>
     <ul>
-      <li><em>Color</em>: There are 256 color possibilities along the LimitlessLED color spectrum. Color properties like saturation and lightness can’t be used - only hue. The only exception is white (which may be warm or cold depending on the type of RGBW bulb). If you select a color with saturation or lightness, Home Assistant will calculate the nearest valid LimitlessLED color.</li>
+      <li><em>Color</em>: There are 256 color possibilities along the LimitlessLED color spectrum. Color properties like saturation and lightness can not be used - only Hue can. The only exception is white (which may be warm or cold depending on the type of RGBW bulb). If you select a color with saturation or lightness, Home Assistant will calculate the nearest valid LimitlessLED color.</li>
       <li><em>Brightness</em>: There are 25 brightness steps.</li>
     </ul>
   </li>
   <li><strong>White</strong>
     <ul>
-      <li>As you can observe on the Milight mobile application, you cannot select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.</li>
+      <li>As you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.</li>
       <li><em>Temperature</em>: There are 10 temperature steps.</li>
       <li><em>Brightness</em>: There are 10 brightness steps.</li>
     </ul>
   </li>
   <li><strong>Transitions</strong>
     <ul>
-      <li>If a transition time is set, the group will transition between the current settings and the target settings for the duration specified. Transitions from or to white are not possible -  the color will change immediately.</li>
+      <li>If a transition time is set, the group will transition between the current settings and the target settings for the duration specified. Transitions from or to white are not possible - the color will change immediately.</li>
     </ul>
   </li>
 </ul>
 
-<h3>Initialization &amp; Synchronization</h3>
+<h3><a class="title-link" name="initialization--synchronization" href="#initialization--synchronization"></a> Initialization &amp; Synchronization</h3>
 
-<p>When starting Home Assistant, your LimitlessLED bulbs will be set to known default values. This ensures a consistent user interface and uninterrupted turning on/off. If you control your LimitlessLED lights via the Milight mobile application or other means while Home Assistant is running, Home Assistant can not track those changes and you may observe unexpected behavior. This is due to a LimitlessLED limitation.</p>
+<p>When starting Home Assistant, your LimitlessLED bulbs will be set to known default values. This ensures a consistent user interface and uninterrupted turning on/off. If you control your LimitlessLED lights via the MiLight mobile application or other means while Home Assistant is running, Home Assistant can not track those changes and you may observe unexpected behavior. This is due to a LimitlessLED limitation.</p>
 
 
 </article>
