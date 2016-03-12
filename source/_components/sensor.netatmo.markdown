@@ -31,6 +31,9 @@ sensor:
       - noise
       - pressure
       - co2
+      - rain
+      - sum_rain_1
+      - sum_rain_24
     module_name2:
       - temperature
     rainmeter_name3:
@@ -45,9 +48,16 @@ Configuration variables:
 - **secret_key** (*Required*): Your netatmo secret key
 - **username** (*Required*): Username for the netatmo account.
 - **password** (*Required*): Password for the netatmo account.
-- **modules** (*Required*): Modules to use. Multiple entries allowd.
+- **modules** (*Required*): Modules to use. Multiple entries allowed.
   - **module_name** array (*Required*): Name of the module.
-    - ** [conditions] **: Condition to monitor.
+    - **temperature**: Current temperature.
+    - **co2**: CO2 concentration in ppm.
+    - **pressure**: Pressure in mbar.
+    - **noise**: Noise level in dB.
+    - **humidity**: Humidity in %.
+    - **rain**: Estimated rainfall for today in mm.
+    - **sum_rain_1**: Rainfall in the last hour in mm.
+    - **sum_rain_24**: Rainfall in mm from 00:00am - 23:59pm.
 
 ### {% linkable_title Get API and Secret Key %}
 
