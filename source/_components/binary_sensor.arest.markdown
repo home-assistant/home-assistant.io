@@ -37,7 +37,6 @@ Accessing the URL http://IP_ADDRESS/digital/PIN_NUMBER should give you the state
 ```bash
 $ curl -X GET http://10.100.0.157/digital/9
 {"return_value": 0, "id": "office1", "name": "Office", "connected": true}
-
 ```
 
 <p class='note'>

@@ -69,6 +69,7 @@ Configuration variables:
 - **state_value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract the state value.
 - **brightness_value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract the brightness value.
 - **rgb_value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract the RGB value.
+- **brightness_scale** (*Optional*): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".

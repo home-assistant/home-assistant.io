@@ -62,7 +62,40 @@ sensor:
     port: 8888
     timeout: 5
     payload: "r WaterPressure\n"
-    value_template: "{{ value.split(';')[0] }}"
+    value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
     unit: Bar
 ```
 
+### {% linkable_title hddtemp %}
+
+The tool `hddtemp` collects the temperatur of your harddisks. 
+
+```bash
+$ hddtemp
+/dev/sda: SAMSUNG MZMTE256HMHP-000L1: 39°C
+```
+
+With `hddtemp -d` you can run the tool in TCP/IP daemon mode on port 7634 which enables you to get the data across the network.
+
+```bash
+$ telnet localhost 7634
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+|/dev/sda|SAMSUNG MZMTE256HMHP-000L1|38|C|Connection closed by foreign host.
+```
+
+The entry for the `configuration.yaml` file for a `hddtemp` sensor could look like the example below.
+
+```yaml
+sensor:
+# Example configuration.yaml entry
+  - platform: tcp
+    name: HDD temperature
+    host: 127.0.0.1
+    port: 7634
+    timeout: 5
+    payload: "\n"
+    value_template: "{% raw %}{{ value.split('|')[3] }}{% endraw %}"
+    unit: "°C"
+```

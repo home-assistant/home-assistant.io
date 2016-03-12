@@ -2,7 +2,11 @@
 layout: page
 title: "MySensors Binary Sensor"
 description: "Instructions how to integrate MySensors binary sensors into Home Assistant."
+<<<<<<< HEAD
 date: 2016-02-27 20:13 +0100
+=======
+date: 2016-02-28 01:20 +0100
+>>>>>>> master
 sidebar: true
 comments: false
 sharing: true
@@ -30,9 +34,9 @@ S_TYPE         | V_TYPE
 ---------------|----------------------------------
 S_SPRINKLER    | V_TRIPPED
 S_WATER_LEAK   | V_TRIPPED
-S_SOUND        | V_TRIPPED, V_LEVEL
-S_VIBRATION    | V_TRIPPED, V_LEVEL
-S_MOISTURE     | V_TRIPPED, V_LEVEL
+S_SOUND        | V_TRIPPED
+S_VIBRATION    | V_TRIPPED
+S_MOISTURE     | V_TRIPPED
 
 For more information, visit the [serial api] of MySensors.
 

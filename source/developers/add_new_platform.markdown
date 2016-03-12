@@ -11,7 +11,7 @@ footer: true
 
 Components that interact with devices are structured in core- and platform logic. This allows the same logic to be used for different platforms.
 
-For example, the built-in `switch` component consists of various platform in [`homeassistant/components/switch/`](https://github.com/balloob/home-assistant/tree/master/homeassistant/components/switch). The file `\_\_init\_\_.py` contains the core logic of all platform and the `vendor_name.py` files only the relevant platform code.
+For example, the built-in `switch` component consists of various platform in [`homeassistant/components/switch/`](https://github.com/balloob/home-assistant/tree/master/homeassistant/components/switch). The file `__init__.py` contains the core logic of all platform and the `vendor_name.py` files only the relevant platform code.
 
 If you are planning to add support for a new type of device to an existing component, you can get away with only writing platform logic. Have a look at how the component works with other platforms and create a similar file for the platform that you would like to add.
 
