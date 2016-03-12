@@ -57,4 +57,21 @@ script:
        entity_id: switch.foscam_motion
 ```
 
-I'm working on the `automation` component to be used to set when `home` and `not_home`
+To automate Foscam being set to "on" (facing the correct way with motion sensor on), I used the following simple automation:
+
+```yaml
+automation:
+  - alias: Set Foscam to Away Mode when I leave home
+    trigger:
+      platform: state
+      entity_id: group.family
+      from: 'home'
+    action:
+      service: script.foscam_on
+  - alias: Set Foscam to Home Mode when I arrive Home
+    trigger:
+      platform: state
+      entity_id: group.family
+      to: 'home'
+    action:
+      service: script.foscam_off
