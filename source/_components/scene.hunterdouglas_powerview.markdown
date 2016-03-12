@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: hunter-douglas-powerview.png
-ha_category: Organization
+ha_category: Rollershutter
 ---
 
 Implements the [Hunter Douglas PowerView](http://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.
