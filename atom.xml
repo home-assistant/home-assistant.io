@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-03-12T12:42:21+00:00</updated>
+  <updated>2016-03-12T19:37:57+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.]]></title>
+    <link href="https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls/"/>
+    <updated>2016-03-12T18:55:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls</id>
+    <content type="html"><![CDATA[<p>Two weeks has past so here is 0.15! We have been focussing a lot on quality. Making sure the system is more stable and reliable. I usually try to highlight one cool thing in the release notes but this release has 4 exciting announcements!</p>
+
+<ul>
+  <li><a href="https://github.com/fabaff">@fabaff</a> has upgraded the codebase to follow the PEP257 documentation standard.</li>
+  <li><a href="https://github.com/PartOfTheThing">@partofthething</a> has migrated us to use the main Python Open Z-Wave library instead of our forked version.</li>
+  <li>To make our automations more powerful, <a href="https://github.com/persandstrom">@persandstrom</a> added the option to use templates to dynamically create service calls. This works for automation, script, Alexa, universal media player, template switch.</li>
+  <li><a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> has upgraded our scene support to now support all built-in services and components.</li>
+</ul>
+
+<p>Besides bug fixes, this release also brings:</p>
+
+<p><img src="https://home-assistant.io/images/supported_brands/hunter-douglas-powerview.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Scene: Converted to a platform based component (<a href="https://github.com/sander76">@sander76</a>)</li>
+  <li>Scene: <a href="https://home-assistant.io/components/scene.hunterdouglas_powerview/">Hunter Douglas Powerview</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
+  <li>Lock: <a href="https://home-assistant.io/components/lock.mqtt/">MQTT</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Device Tracker: <a href="https://home-assistant.io/components/device_tracker.owntracks/">OwnTracks</a> will allow filtering inaccurate GPS locations (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>Binary Sensor: Wemo Motion now supported (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/ryanlaux">@ryanlaux</a>)</li>
+</ul>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example using templates for service and data in service call.</span>
+<span class="comment"># Works for automation, script, Alexa, universal media player, template switch.</span>
+<span class="key">automation</span>:
+  - <span class="string"><span class="content">trigger:</span><span class="content">
+      - platform: state
+        entity_id: switch.bathroom</span></span>
+    <span class="key">action</span>:
+      <span class="key">service_template</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
+        {% if is_state('switch.bathroom', 'on') %}
+          switch.turn_on
+        {% else %}
+          switch.turn_off
+        {% endif %}</span></span>
+      <span class="key">data_template</span>:
+        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.{{ states('input_select.is') }}</span></span>
+</pre></div>
+</div>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.14: Steam, D-Link smart plugs and Neurio Energy Sensors]]></title>
@@ -1515,372 +1564,6 @@ It is no longer possible to turn a scene off after it has been activated. The wa
 
 <p><strong>Downloader treats relative paths now relative to the config dir instead of the current working dir.</strong><br />
 This makes more sense as most people run Home Assistant as a daemon</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Report the temperature with ESP8266 to MQTT]]></title>
-    <link href="https://home-assistant.io/blog/2015/10/11/measure-temperature-with-esp8266-and-report-to-mqtt/"/>
-    <updated>2015-10-11T19:10:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/10/11/measure-temperature-with-esp8266-and-report-to-mqtt</id>
-    <content type="html"><![CDATA[
-<p>I recently learned about the ESP8266, a $5 chip that includes WiFi and is Arduino compatible. This means that all your DIY projects can now be done for a fraction of the price.</p>
-
-<p>For this tutorial, I’ll walk through how to get going with ESP8266, get the temperature and humidity and report it to MQTT where Home Asssistant can pick it up.</p>
-
-<p class="img">
-<img src="https://home-assistant.io/images/blog/2015-10-esp8266-temp/setup.png" />
-Picture of the final setup (+ 2 LED for decoration)
-</p>
-
-<p class="img">
-<img src="https://home-assistant.io/images/blog/2015-10-esp8266-temp/ha-sensor.png" />
-Home Assistant will keep track of historical values and allow you to integrate it into automation.
-</p>
-
-<!--more-->
-
-<h3>Components</h3>
-
-<p>I’ve been using Adafruit for my shopping:</p>
-
-<ul>
-  <li><a href="http://www.adafruit.com/product/2471">Adafruit HUZZAH ESP8266 Breakout</a> (<a href="https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/assembly">assembly instructions</a>)</li>
-  <li><a href="http://www.adafruit.com/product/2635">Adafruit HDC1008 Temperature &amp; Humidity Sensor Breakout Board</a> (<a href="https://learn.adafruit.com/adafruit-hdc1008-temperature-and-humidity-sensor-breakout/assembly">assembly instructions</a>)</li>
-  <li><a href="https://home-assistant.io/components/mqtt/#picking-a-broker/">MQTT server</a></li>
-</ul>
-
-<p><em>Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable.</em></p>
-
-<h3>Connections</h3>
-
-<p>On your breadboard, make the following connections from your ESP8266 to the HDC1008:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>ESP8266</th>
-      <th>HDC1008</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>GND</td>
-      <td>GND</td>
-    </tr>
-    <tr>
-      <td>3V</td>
-      <td>Vin</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>SCL</td>
-    </tr>
-    <tr>
-      <td>#2</td>
-      <td>SDA</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><em>I picked <code>#2</code> and <code>14</code> myself, you can configure them in the sketch.</em></p>
-
-<h3>Preparing your IDE</h3>
-
-<p>Follow <a href="https://github.com/esp8266/Arduino#installing-with-boards-manager">these instructions</a> on how to install and prepare the Arduino IDE for ESP8266 development.</p>
-
-<p>After you’re done installing, open the Arduino IDE, in the menu click on <code>sketch</code> -&gt; <code>include library</code> -&gt; <code>manage libraries</code> and install the following libraries:</p>
-
-<ul>
-  <li>PubSubClient by Nick ‘O Leary</li>
-  <li>Adafruit HDC1000</li>
-</ul>
-
-<h3>Sketch</h3>
-
-<p>If you have followed the previous steps, you’re all set.</p>
-
-<ul>
-  <li>Open Arduino IDE and create a new sketch (<code>File</code> -&gt; <code>New</code>)</li>
-  <li>Copy and paste the below sketch to the Arduino IDE</li>
-  <li>Adjust the values line 6 - 14 to match your setup</li>
-  <li>Optional: If you want to connect to an MQTT server without a username or password, adjust line 63.</li>
-  <li>To have the ESP8266 accept our new sketch, we have to put it in upload mode. On the ESP8266 device keep the GPIO0 button pressed while pressing the reset button. The red led will glow half bright to indicate it is in upload mode.</li>
-  <li>Press the upload button in Arduino IDE</li>
-  <li>Open the serial monitor (<code>Tools</code> -&gt; <code>Serial Monitor</code>) to see the output from your device</li>
-</ul>
-
-<p>This sketch will connect to your WiFi network and MQTT broker. It will read the temperature and humidity from the sensor every second. It will report it to the MQTT server if the difference is &gt; 1 since last reported value. Reports to the MQTT broker are sent with retain set to <code>True</code>. This means that anyone connecting to the MQTT topic will automatically be notified of the last reported value.</p>
-
-<div class="highlighter-coderay"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
-<a href="#n2" name="n2">2</a>
-<a href="#n3" name="n3">3</a>
-<a href="#n4" name="n4">4</a>
-<a href="#n5" name="n5">5</a>
-<a href="#n6" name="n6">6</a>
-<a href="#n7" name="n7">7</a>
-<a href="#n8" name="n8">8</a>
-<a href="#n9" name="n9">9</a>
-<strong><a href="#n10" name="n10">10</a></strong>
-<a href="#n11" name="n11">11</a>
-<a href="#n12" name="n12">12</a>
-<a href="#n13" name="n13">13</a>
-<a href="#n14" name="n14">14</a>
-<a href="#n15" name="n15">15</a>
-<a href="#n16" name="n16">16</a>
-<a href="#n17" name="n17">17</a>
-<a href="#n18" name="n18">18</a>
-<a href="#n19" name="n19">19</a>
-<strong><a href="#n20" name="n20">20</a></strong>
-<a href="#n21" name="n21">21</a>
-<a href="#n22" name="n22">22</a>
-<a href="#n23" name="n23">23</a>
-<a href="#n24" name="n24">24</a>
-<a href="#n25" name="n25">25</a>
-<a href="#n26" name="n26">26</a>
-<a href="#n27" name="n27">27</a>
-<a href="#n28" name="n28">28</a>
-<a href="#n29" name="n29">29</a>
-<strong><a href="#n30" name="n30">30</a></strong>
-<a href="#n31" name="n31">31</a>
-<a href="#n32" name="n32">32</a>
-<a href="#n33" name="n33">33</a>
-<a href="#n34" name="n34">34</a>
-<a href="#n35" name="n35">35</a>
-<a href="#n36" name="n36">36</a>
-<a href="#n37" name="n37">37</a>
-<a href="#n38" name="n38">38</a>
-<a href="#n39" name="n39">39</a>
-<strong><a href="#n40" name="n40">40</a></strong>
-<a href="#n41" name="n41">41</a>
-<a href="#n42" name="n42">42</a>
-<a href="#n43" name="n43">43</a>
-<a href="#n44" name="n44">44</a>
-<a href="#n45" name="n45">45</a>
-<a href="#n46" name="n46">46</a>
-<a href="#n47" name="n47">47</a>
-<a href="#n48" name="n48">48</a>
-<a href="#n49" name="n49">49</a>
-<strong><a href="#n50" name="n50">50</a></strong>
-<a href="#n51" name="n51">51</a>
-<a href="#n52" name="n52">52</a>
-<a href="#n53" name="n53">53</a>
-<a href="#n54" name="n54">54</a>
-<a href="#n55" name="n55">55</a>
-<a href="#n56" name="n56">56</a>
-<a href="#n57" name="n57">57</a>
-<a href="#n58" name="n58">58</a>
-<a href="#n59" name="n59">59</a>
-<strong><a href="#n60" name="n60">60</a></strong>
-<a href="#n61" name="n61">61</a>
-<a href="#n62" name="n62">62</a>
-<a href="#n63" name="n63">63</a>
-<a href="#n64" name="n64">64</a>
-<a href="#n65" name="n65">65</a>
-<a href="#n66" name="n66">66</a>
-<a href="#n67" name="n67">67</a>
-<a href="#n68" name="n68">68</a>
-<a href="#n69" name="n69">69</a>
-<strong><a href="#n70" name="n70">70</a></strong>
-<a href="#n71" name="n71">71</a>
-<a href="#n72" name="n72">72</a>
-<a href="#n73" name="n73">73</a>
-<a href="#n74" name="n74">74</a>
-<a href="#n75" name="n75">75</a>
-<a href="#n76" name="n76">76</a>
-<a href="#n77" name="n77">77</a>
-<a href="#n78" name="n78">78</a>
-<a href="#n79" name="n79">79</a>
-<strong><a href="#n80" name="n80">80</a></strong>
-<a href="#n81" name="n81">81</a>
-<a href="#n82" name="n82">82</a>
-<a href="#n83" name="n83">83</a>
-<a href="#n84" name="n84">84</a>
-<a href="#n85" name="n85">85</a>
-<a href="#n86" name="n86">86</a>
-<a href="#n87" name="n87">87</a>
-<a href="#n88" name="n88">88</a>
-<a href="#n89" name="n89">89</a>
-<strong><a href="#n90" name="n90">90</a></strong>
-<a href="#n91" name="n91">91</a>
-<a href="#n92" name="n92">92</a>
-<a href="#n93" name="n93">93</a>
-<a href="#n94" name="n94">94</a>
-<a href="#n95" name="n95">95</a>
-<a href="#n96" name="n96">96</a>
-<a href="#n97" name="n97">97</a>
-<a href="#n98" name="n98">98</a>
-<a href="#n99" name="n99">99</a>
-<strong><a href="#n100" name="n100">100</a></strong>
-<a href="#n101" name="n101">101</a>
-<a href="#n102" name="n102">102</a>
-<a href="#n103" name="n103">103</a>
-<a href="#n104" name="n104">104</a>
-<a href="#n105" name="n105">105</a>
-<a href="#n106" name="n106">106</a>
-<a href="#n107" name="n107">107</a>
-<a href="#n108" name="n108">108</a>
-<a href="#n109" name="n109">109</a>
-</pre></td>
-  <td class="code"><pre><span class="preprocessor">#include</span> <span class="include">&lt;ESP8266WiFi.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;Wire.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;PubSubClient.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;Adafruit_HDC1000.h&gt;</span>
-
-<span class="preprocessor">#define</span> wifi_ssid <span class="string"><span class="delimiter">&quot;</span><span class="content">YOUR WIFI SSID</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> wifi_password <span class="string"><span class="delimiter">&quot;</span><span class="content">WIFI PASSWORD</span><span class="delimiter">&quot;</span></span>
-
-<span class="preprocessor">#define</span> mqtt_server <span class="string"><span class="delimiter">&quot;</span><span class="content">YOUR_MQTT_SERVER_HOST</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> mqtt_user <span class="string"><span class="delimiter">&quot;</span><span class="content">your_username</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> mqtt_password <span class="string"><span class="delimiter">&quot;</span><span class="content">your_password</span><span class="delimiter">&quot;</span></span>
-
-<span class="preprocessor">#define</span> humidity_topic <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor/humidity</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> temperature_topic <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor/temperature</span><span class="delimiter">&quot;</span></span>
-
-WiFiClient espClient;
-PubSubClient client(espClient);
-Adafruit_HDC1000 hdc = Adafruit_HDC1000();
-
-<span class="directive">void</span> setup() {
-  Serial.begin(<span class="integer">115200</span>);
-  setup_wifi();
-  client.setServer(mqtt_server, <span class="integer">1883</span>);
-
-  <span class="comment">// Set SDA and SDL ports</span>
-  Wire.begin(<span class="integer">2</span>, <span class="integer">14</span>);
-
-  <span class="comment">// Start sensor</span>
-  <span class="keyword">if</span> (!hdc.begin()) {
-    Serial.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Couldn't find sensor!</span><span class="delimiter">&quot;</span></span>);
-    <span class="keyword">while</span> (<span class="integer">1</span>);
-  }}
-
-<span class="directive">void</span> setup_wifi() {
-  delay(<span class="integer">10</span>);
-  <span class="comment">// We start by connecting to a WiFi network</span>
-  Serial.println();
-  Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Connecting to </span><span class="delimiter">&quot;</span></span>);
-  Serial.println(wifi_ssid);
-
-  WiFi.begin(wifi_ssid, wifi_password);
-
-  <span class="keyword">while</span> (WiFi.status() != WL_CONNECTED) {
-    delay(<span class="integer">500</span>);
-    Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">.</span><span class="delimiter">&quot;</span></span>);
-  }
-
-  Serial.println(<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>);
-  Serial.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">WiFi connected</span><span class="delimiter">&quot;</span></span>);
-  Serial.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">IP address: </span><span class="delimiter">&quot;</span></span>);
-  Serial.println(WiFi.localIP());
-}
-
-<span class="directive">void</span> reconnect() {
-  <span class="comment">// Loop until we're reconnected</span>
-  <span class="keyword">while</span> (!client.connected()) {
-    Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Attempting MQTT connection...</span><span class="delimiter">&quot;</span></span>);
-    <span class="comment">// Attempt to connect</span>
-    <span class="comment">// If you do not want to use a username and password, change next line to</span>
-    <span class="comment">// if (client.connect(&quot;ESP8266Client&quot;)) {</span>
-    <span class="keyword">if</span> (client.connect(<span class="string"><span class="delimiter">&quot;</span><span class="content">ESP8266Client</span><span class="delimiter">&quot;</span></span>, mqtt_user, mqtt_password)) {
-      Serial.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">connected</span><span class="delimiter">&quot;</span></span>);
-    } <span class="keyword">else</span> {
-      Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">failed, rc=</span><span class="delimiter">&quot;</span></span>);
-      Serial.print(client.state());
-      Serial.println(<span class="string"><span class="delimiter">&quot;</span><span class="content"> try again in 5 seconds</span><span class="delimiter">&quot;</span></span>);
-      <span class="comment">// Wait 5 seconds before retrying</span>
-      delay(<span class="integer">5000</span>);
-    }
-  }
-}
-
-<span class="predefined-type">bool</span> checkBound(<span class="predefined-type">float</span> newValue, <span class="predefined-type">float</span> prevValue, <span class="predefined-type">float</span> maxDiff) {
-  <span class="keyword">return</span> newValue &lt; prevValue - maxDiff || newValue &gt; prevValue + maxDiff;
-}
-
-<span class="predefined-type">long</span> lastMsg = <span class="integer">0</span>;
-<span class="predefined-type">float</span> temp = <span class="float">0</span><span class="float">.0</span>;
-<span class="predefined-type">float</span> hum = <span class="float">0</span><span class="float">.0</span>;
-<span class="predefined-type">float</span> diff = <span class="float">1</span><span class="float">.0</span>;
-
-<span class="directive">void</span> loop() {
-  <span class="keyword">if</span> (!client.connected()) {
-    reconnect();
-  }
-  client.loop();
-
-  <span class="predefined-type">long</span> now = millis();
-  <span class="keyword">if</span> (now - lastMsg &gt; <span class="integer">1000</span>) {
-    lastMsg = now;
-
-    <span class="predefined-type">float</span> newTemp = hdc.readTemperature();
-    <span class="predefined-type">float</span> newHum = hdc.readHumidity();
-
-    <span class="keyword">if</span> (checkBound(newTemp, temp, diff)) {
-      temp = newTemp;
-      Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">New temperature:</span><span class="delimiter">&quot;</span></span>);
-      Serial.println(String(temp).c_str());
-      client.publish(temperature_topic, String(temp).c_str(), <span class="predefined-constant">true</span>);
-    }
-
-    <span class="keyword">if</span> (checkBound(newHum, hum, diff)) {
-      hum = newHum;
-      Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">New humidity:</span><span class="delimiter">&quot;</span></span>);
-      Serial.println(String(hum).c_str());
-      client.publish(humidity_topic, String(hum).c_str(), <span class="predefined-constant">true</span>);
-    }
-  }
-}
-</pre></td>
-</tr></table>
-</div>
-
-<h3>Configuring Home Assistant</h3>
-
-<p>The last step is to integrate the sensor values into Home Assistant. This can be done by setting up Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.</p>
-
-<div class="highlighter-coderay"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
-<a href="#n2" name="n2">2</a>
-<a href="#n3" name="n3">3</a>
-<a href="#n4" name="n4">4</a>
-<a href="#n5" name="n5">5</a>
-<a href="#n6" name="n6">6</a>
-<a href="#n7" name="n7">7</a>
-<a href="#n8" name="n8">8</a>
-<a href="#n9" name="n9">9</a>
-<strong><a href="#n10" name="n10">10</a></strong>
-<a href="#n11" name="n11">11</a>
-<a href="#n12" name="n12">12</a>
-<a href="#n13" name="n13">13</a>
-<a href="#n14" name="n14">14</a>
-<a href="#n15" name="n15">15</a>
-<a href="#n16" name="n16">16</a>
-<a href="#n17" name="n17">17</a>
-<a href="#n18" name="n18">18</a>
-</pre></td>
-  <td class="code"><pre><span class="key">mqtt</span>:
-  <span class="key">broker</span>: <span class="string"><span class="content">YOUR_MQTT_SERVER_HOST</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">your_username</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">your_password</span></span>
-
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Temperature</span><span class="delimiter">&quot;</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor/temperature</span><span class="delimiter">&quot;</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ºC</span><span class="delimiter">&quot;</span></span>
-
-<span class="key">sensor 2</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Humidity</span><span class="delimiter">&quot;</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor/humidity</span><span class="delimiter">&quot;</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">%</span><span class="delimiter">&quot;</span></span>
-</pre></td>
-</tr></table>
-</div>
 ]]></content>
   </entry>
   

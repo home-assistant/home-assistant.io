@@ -125,6 +125,8 @@
   <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
   <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
   <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
+  <span class="key">use_tls</span>: <span class="string"><span class="content">true</span></span>
+  <span class="key">verify_tls</span>: <span class="string"><span class="content">true</span></span>
 </pre></div>
 </div>
 </div>
@@ -133,9 +135,11 @@
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP address or hostname of your mFi controller.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port of your mFi controller. Defaults to 6443.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port of your mFi controller. Defaults to 6443 for TLS, otherwise 6080.</li>
   <li><strong>username</strong> (<em>Required</em>): The mFi admin username.</li>
   <li><strong>password</strong> (<em>Required</em>): The mFi admin user’s password.</li>
+  <li><strong>use_tls</strong> (<em>Optional</em>): If true, use TLS to contact the mFi controller. Defaults to true.</li>
+  <li><strong>verify_tls</strong> (<em>Optional</em>): Set this to false if your mFi controller has a self-signed certificate. Defaults to true.</li>
 </ul>
 
 

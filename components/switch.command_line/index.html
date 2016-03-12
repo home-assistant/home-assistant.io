@@ -203,6 +203,22 @@ This switch will shutdown your host immediately, there will be no confirmation.
 </div>
 </div>
 
+<h3><a class="title-link" name="control-foscam-motion-sensor" href="#control-foscam-motion-sensor"></a> Control Foscam Motion Sensor</h3>
+
+<p>This switch will control the motion sensor of Foscam Webcams which Support CGI Commands (<a href="http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf">Source</a>). This switch supports statecmd, which checks the current state of motion detection.<br />
+```yaml<br />
+# Example configuration.yaml entry<br />
+# Replace admin and password with an “Admin” priviledged Foscam user<br />
+# Replace ipaddress with the local IP address of your Foscam<br />
+switch:<br />
+  platform: command_line<br />
+  switches:<br />
+    foscam_motion:<br />
+      oncmd: ‘curl -k “https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=1&amp;usr=admin&amp;pwd=password”’<br />
+      offcmd: ‘curl -k “https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=0&amp;usr=admin&amp;pwd=password”’<br />
+      statecmd: ‘curl -k –silent “https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&amp;usr=admin&amp;pwd=password” | grep -oP “(?&lt;=isEnable&gt;).*?(?=&lt;/isEnable&gt;)”’<br />
+      value_template: ‘’</p>
+
 
 </article>
 

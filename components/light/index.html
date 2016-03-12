@@ -214,6 +214,33 @@ The light component supports multiple entries in <code>configuration.yaml</code>
   </tbody>
 </table>
 
+<h3><a class="title-link" name="service-lighttoggle" href="#service-lighttoggle"></a> Service <code>light.toggle</code></h3>
+
+<p>Toggles the state of one or multiple lights using <a href="/components/group/">groups</a>.</p>
+
+<p><em>Note</em>: If <code>light.toggle</code> is used for a group of lights, it will toggle the individual state of each light.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>entity_id</code></td>
+      <td>no</td>
+      <td>String or list of strings that point at <code>entity_id</code>s of lights. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code>transition</code></td>
+      <td>no</td>
+      <td>Integer that represents the time the light should take to transition to the new state.</td>
+    </tr>
+  </tbody>
+</table>
 
 
 </article>

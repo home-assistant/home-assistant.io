@@ -132,6 +132,9 @@
       - <span class="string"><span class="content">noise</span></span>
       - <span class="string"><span class="content">pressure</span></span>
       - <span class="string"><span class="content">co2</span></span>
+      - <span class="string"><span class="content">rain</span></span>
+      - <span class="string"><span class="content">sum_rain_1</span></span>
+      - <span class="string"><span class="content">sum_rain_24</span></span>
     <span class="key">module_name2</span>:
       - <span class="string"><span class="content">temperature</span></span>
     <span class="key">rainmeter_name3</span>:
@@ -149,11 +152,18 @@
   <li><strong>secret_key</strong> (<em>Required</em>): Your netatmo secret key</li>
   <li><strong>username</strong> (<em>Required</em>): Username for the netatmo account.</li>
   <li><strong>password</strong> (<em>Required</em>): Password for the netatmo account.</li>
-  <li><strong>modules</strong> (<em>Required</em>): Modules to use. Multiple entries allowd.
+  <li><strong>modules</strong> (<em>Required</em>): Modules to use. Multiple entries allowed.
     <ul>
       <li><strong>module_name</strong> array (<em>Required</em>): Name of the module.
         <ul>
-          <li>** [conditions] **: Condition to monitor.</li>
+          <li><strong>temperature</strong>: Current temperature.</li>
+          <li><strong>co2</strong>: CO2 concentration in ppm.</li>
+          <li><strong>pressure</strong>: Pressure in mbar.</li>
+          <li><strong>noise</strong>: Noise level in dB.</li>
+          <li><strong>humidity</strong>: Humidity in %.</li>
+          <li><strong>rain</strong>: Estimated rainfall for today in mm.</li>
+          <li><strong>sum_rain_1</strong>: Rainfall in the last hour in mm.</li>
+          <li><strong>sum_rain_24</strong>: Rainfall in mm from 00:00am - 23:59pm.</li>
         </ul>
       </li>
     </ul>

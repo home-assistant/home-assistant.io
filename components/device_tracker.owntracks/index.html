@@ -123,11 +123,16 @@
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">device_tracker</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">owntracks</span></span>
+  <span class="key">max_gps_accuracy</span>: <span class="string"><span class="content">200</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>There is no further configuration needed for tracking Owntracks devices.</p>
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>max_gps_accuracy</strong> (<em>Optional</em>): Sometimes Owntracks can report GPS location with a very low accuracy (few kilometers). That can trigger false zoning in your Home Assistant installation. With the parameter, you can filter these GPS reports. The number has to be in meter. For example, if you put 200 only GPS report with an accuracy under 200 will be take in account.</li>
+</ul>
 
 <h3><a class="title-link" name="using-owntracks-with-other-device-trackers" href="#using-owntracks-with-other-device-trackers"></a> Using Owntracks with other device trackers</h3>
 <p>Owntracks can also be used with other device trackers, such as <a href="/components/device_tracker.nmap_scanner/">Nmap</a> or <a href="/components/device_tracker.netgear/">Netgear</a>. To do this, fill in the <code>mac</code> field to the Owntracks entry in <code>known_devices.yaml</code> with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last.</p>
