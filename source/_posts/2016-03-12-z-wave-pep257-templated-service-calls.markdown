@@ -36,13 +36,13 @@ automation:
         entity_id: switch.bathroom
     action:
       service_template: >
-        {% if is_state('switch.bathroom', 'on') %}
+        {% raw %}{% if is_state('switch.bathroom', 'on') %}
           switch.turn_on
         {% else %}
           switch.turn_off
-        {% endif %}
+        {% endif %}{% endraw %}
       data_template:
-        entity_id: switch.{{ states('input_select.is') }}
+        entity_id: switch.{% raw %}{{ states('input_select.is') }}{% endraw %}
 ```
 
 [Hunter Douglas Powerview]: /components/scene.hunterdouglas_powerview/
