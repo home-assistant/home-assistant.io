@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Hunter Douglas Powerview Scenes"
-description: "Instructions how to setup Powerview scenes within Home Assistant."
+title: "PowerView Scenes"
+description: "Instructions how to setup Hunter Douglas PowerView scenes within Home Assistant."
 date: 2016-03-11 16:00
 sidebar: true
 comments: false
@@ -11,13 +11,17 @@ logo: hunter-douglas-powerview.png
 ha_category: Organization
 ---
 
-Implements the Hunter Douglas Powerview platform scene control.
-It queries the Powerview Hub and HASS displays them as scenes.
+Implements the [Hunter Douglas PowerView](http://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.
 
 Scenes can be activated using the service `scene.turn_on`.
 
 ```yaml
 # Example configuration.yaml entry
 scene:
-  - platform: hunterdouglas_powerview
-    address: <powerview hub ip address>
+  platform: hunterdouglas_powerview
+  address: IP_ADDRESS
+```
+
+Configuration variables:
+
+- **address** (*Required*): IP address of the PowerView Hub, eg. http://192.168.1.10.
