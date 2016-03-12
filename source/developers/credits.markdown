@@ -56,6 +56,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Issac Kelly](https://github.com/issackelly)
 - [James Cole](https://github.com/jamespcole)
 - [Jan Harkes](https://github.com/jaharkes)
+- [Joe McMonagle](https://github.com/joemcmonagle)
 - [Jeffrey Tang](https://github.com/Qrtn)
 - [Jeff Schroeder](https://github.com/SEJeff)
 - [John Arild Berentsen](https://github.com/turbokongen)
