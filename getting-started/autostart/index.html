@@ -181,7 +181,6 @@ User=pi
 [Install]
 WantedBy=multi-user.target
 EOF'
-
 </pre></div>
 </div>
     </div>
@@ -192,7 +191,6 @@ EOF'
   <div class="code"><pre>$ sudo systemctl --system daemon-reload
 $ sudo systemctl enable home-assistant
 $ sudo systemctl start home-assistant
-
 </pre></div>
 </div>
     </div>
@@ -208,7 +206,6 @@ $ sudo systemctl start home-assistant
    CGroup: /system.slice/home-assistant.service
            └─8557 /usr/bin/python3.4 -m homeassistant
 [...]
-
 </pre></div>
 </div>
     </div>
