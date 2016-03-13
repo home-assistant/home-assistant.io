@@ -113,7 +113,7 @@
   <hr class="divider">
   
 
-  <p>The browser component provides a service to open urls in the default browser on the host machine.</p>
+  <p>The <code>browser</code> component provides a service to open URLs in the default browser on the host machine.</p>
 
 <p>To load this component, add the following lines to your <code>configuration.yaml</code>:</p>
 
@@ -124,7 +124,7 @@
 </div>
 </div>
 
-<h4>Service <code>browser/browse_url</code></h4>
+<h4><a class="title-link" name="service-browserbrowse_url" href="#service-browserbrowse_url"></a> Service <code>browser/browse_url</code></h4>
 
 <table>
   <thead>
@@ -142,6 +142,18 @@
     </tr>
   </tbody>
 </table>
+
+<h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
+
+<p>To use this service, choose <strong>Call Service</strong> from the <strong>Developer Tools</strong>. Choose the service <em>browser/browse_url</em> from the list of <strong>Available services:</strong> and enter the URL into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.google.com</span><span class="delimiter">&quot;</span></span>}
+</pre></div>
+</div>
+</div>
+
+<p>This will open the given URL on the host machine.</p>
 
 
 </article>
