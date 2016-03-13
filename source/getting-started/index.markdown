@@ -284,11 +284,12 @@ For additional help, in addition to this site, there are four sources:
  - [Gitter Chatroom](https://gitter.im/balloob/home-assistant) for general Home Assistant discussions and questions.
  - [GitHub Page](https://github.com/balloob/home-assistant/issues) for issue reporting.
 
+### Updating
+To update Home Assistant to the latest release run: `pip3 install --upgrade homeassistant`
+
 ### What's next
 If you want to have Home Assistant start on boot, autostart instructions can be found [here](/getting-started/autostart/).
 
 To see what Home Assistant can do, launch demo mode: `hass --demo-mode` or visit the [demo page](/demo).
-
-To update Home Assistant to the latest release run: `pip3 install --upgrade homeassistant`
 
 ### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)
