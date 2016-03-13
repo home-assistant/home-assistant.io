@@ -285,7 +285,8 @@ For additional help, in addition to this site, there are four sources:
  - [GitHub Page](https://github.com/balloob/home-assistant/issues) for issue reporting.
 
 ### Updating
-To update Home Assistant to the latest release run: `pip3 install --upgrade homeassistant`
+To update Home Assistant to the latest release run: `pip3 install --upgrade homeassistant`  
+You then have to restart Home Assistant for the changes to take effect. If you have installed it as an autostarting daemon (see below), then run: `sudo service hass-daemon restart` 
 
 ### What's next
 If you want to have Home Assistant start on boot, autostart instructions can be found [here](/getting-started/autostart/).
