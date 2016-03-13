@@ -57,11 +57,11 @@
     <a>Getting started <i class="icon icon-caret-down"></i></a>
     <ul>
       <li><a href='/getting-started/'>Installing Home Assistant</a></li>
-      <li><a href='/getting-started/configuration/'>Configuration basics</a></li>
+      <li><a href='/getting-started/configuration/'>Configuration Basics</a></li>
       <li><a href='/getting-started/devices/'>Adding devices</a></li>
-      <li><a href='/getting-started/presence-detection/'>Presence detection</a></li>
+      <li><a href='/getting-started/presence-detection/'>Presence Detection</a></li>
       <li><a href='/getting-started/automation/'>Automation</a></li>
-      <li><a href='/getting-started/templating/'>Templating</a></li>
+      <li><a href='/topics/'>Advanced Topics</a></li>
     </ul>
   </li>
   <li><a href='/components/'>Components</a></li>
@@ -71,12 +71,12 @@
     <ul>
       <li><a href="/developers/">Setup Development</a></li>
       <li><a href="/developers/architecture/">Architecture</a></li>
-      <li><a href="/developers/frontend/">Frontend development</a></li>
+      <li><a href="/developers/frontend/">Frontend Development</a></li>
       <li><a href="/developers/creating_components/">
-        Creating components
+        Creating Components
       </a></li>
       <li><a href="/developers/add_new_platform/">
-        Adding platform support
+        Adding Platform Support
       </a></li>
       <li><a href="/developers/api/">API</a></li>
       <li><a href="/developers/credits/">Credits</a></li>
@@ -271,7 +271,7 @@
 
 <h4><a class="title-link" name="template-trigger" href="#template-trigger"></a> Template trigger</h4>
 
-<p>Template triggers work by evaluating a <a href="/getting-started/templating/">template</a> on each state change. The trigger will fire if the state change caused the template to render ‘true’. This is achieved by having the template result in a true boolean expression (<code>{{ is_state('device_tracker.paulus', 'home') }}</code>) or by having the template render ‘true’ (example below).</p>
+<p>Template triggers work by evaluating a <a href="/topics/templating/">template</a> on each state change. The trigger will fire if the state change caused the template to render ‘true’. This is achieved by having the template result in a true boolean expression (<code>{{ is_state('device_tracker.paulus', 'home') }}</code>) or by having the template render ‘true’ (example below).</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">automation</span>:
@@ -409,7 +409,7 @@
 
 <h4><a class="title-link" name="template-condition" href="#template-condition"></a> Template condition</h4>
 
-<p>The template condition will test if <a href="/getting-started/templating/">given template</a> renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render ‘true’.</p>
+<p>The template condition will test if <a href="/topics/templating/">given template</a> renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render ‘true’.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">automation</span>:

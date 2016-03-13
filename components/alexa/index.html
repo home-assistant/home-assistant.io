@@ -57,11 +57,11 @@
     <a>Getting started <i class="icon icon-caret-down"></i></a>
     <ul>
       <li><a href='/getting-started/'>Installing Home Assistant</a></li>
-      <li><a href='/getting-started/configuration/'>Configuration basics</a></li>
+      <li><a href='/getting-started/configuration/'>Configuration Basics</a></li>
       <li><a href='/getting-started/devices/'>Adding devices</a></li>
-      <li><a href='/getting-started/presence-detection/'>Presence detection</a></li>
+      <li><a href='/getting-started/presence-detection/'>Presence Detection</a></li>
       <li><a href='/getting-started/automation/'>Automation</a></li>
-      <li><a href='/getting-started/templating/'>Templating</a></li>
+      <li><a href='/topics/'>Advanced Topics</a></li>
     </ul>
   </li>
   <li><a href='/components/'>Components</a></li>
@@ -71,12 +71,12 @@
     <ul>
       <li><a href="/developers/">Setup Development</a></li>
       <li><a href="/developers/architecture/">Architecture</a></li>
-      <li><a href="/developers/frontend/">Frontend development</a></li>
+      <li><a href="/developers/frontend/">Frontend Development</a></li>
       <li><a href="/developers/creating_components/">
-        Creating components
+        Creating Components
       </a></li>
       <li><a href="/developers/add_new_platform/">
-        Adding platform support
+        Adding Platform Support
       </a></li>
       <li><a href="/developers/api/">API</a></li>
       <li><a href="/developers/credits/">Credits</a></li>
@@ -189,9 +189,9 @@ WhereAreWeIntent where we are
 
 <h3><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h3>
 
-<p>Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on <a href="/getting-started/templating/">templates</a> that you define. Each template will have access to the existing states via the <code>states</code> variable but will also have access to all variables defined in the intent.</p>
+<p>Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on <a href="/topics/templating/">templates</a> that you define. Each template will have access to the existing states via the <code>states</code> variable but will also have access to all variables defined in the intent.</p>
 
-<p>You can use <a href="/getting-started/templating/">templates</a> for the values of <code>speech/text</code>, <code>card/title</code> and <code>card/content</code>.</p>
+<p>You can use <a href="/topics/templating/">templates</a> for the values of <code>speech/text</code>, <code>card/title</code> and <code>card/content</code>.</p>
 
 <p>Configuring the Alexa component for the above intents would look like this:</p>
 

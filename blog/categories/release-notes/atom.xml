@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-03-12T19:39:34+00:00</updated>
+  <updated>2016-03-13T00:05:35+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -232,7 +232,7 @@ Example of the new views in the frontend. <a href="https://home-assistant.io/com
   <li>Switch: <a href="/components/switch.wemo/">wemo</a> now uses subscription to states instead of polling (<a href="https://github.com/pavoni">@pavoni</a>)</li>
   <li><a href="/components/tellduslive/">Telldus Live</a> support added (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
   <li><a href="/components/vera/">Vera</a> now uses subscription to states instead of polling (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>New <a href="/getting-started/templating/#home-assistant-template-extensions">template helper method</a> <code>is_state_attr(entity_id, name, value)</code> added (<a href="https://github.com/andythigpen">@andythigpen</a>)</li>
+  <li>New <a href="/topics/templating/#home-assistant-template-extensions">template helper method</a> <code>is_state_attr(entity_id, name, value)</code> added (<a href="https://github.com/andythigpen">@andythigpen</a>)</li>
   <li>Device tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> transition events now supported (<a href="https://github.com/xifle">@xifle</a>)</li>
   <li>Light: <a href="/components/light.hue/">Philips Hue</a> platform now supports multiple hubs (<a href="https://github.com/rhooper">@rhooper</a>)</li>
   <li>Notify: <a href="/components/notify.free_mobile/">Free Mobile</a> platform added (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
