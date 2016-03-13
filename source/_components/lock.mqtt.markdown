@@ -46,7 +46,7 @@ Configuration variables:
 - **optimistic** (*Optional*): Flag that defines if lock works in optimistic mode. Default is true if no state topic defined, else false.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 <p class='note warning'>
 Make sure that your topic match exact. `some-topic/` and `some-topic` are different topics.

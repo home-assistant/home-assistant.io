@@ -32,7 +32,7 @@ Configuration variables:
 - **sensors** array (*Required*): List of your sensors.
   - **friendly_name** (*Optional*): Name to use in the Frontend.
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-  - **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 
 ## {% linkable_title Examples %}

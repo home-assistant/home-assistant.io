@@ -375,7 +375,7 @@ The result will include any changed states that changed while the service was be
 </p>
 
 #### {% linkable_title POST /api/template %}
-Render a Home Assistant template. [See template docs for more information.](/getting-started/templating/)
+Render a Home Assistant template. [See template docs for more information.](/topics/templating/)
 
 ```json
 {

@@ -37,7 +37,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 
 The notification component supports specifying [templates] for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
 
-[templates]: /getting-started/templating/
+[templates]: /topics/templating/
 
 ### {% linkable_title Test if it works %}
 

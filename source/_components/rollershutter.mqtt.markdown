@@ -42,4 +42,4 @@ Configuration variables:
 - **payload_up** (*Optional*): The payload to open the rollershutter. Default is "OPEN".
 - **payload_down** (*Optional*): The payload to close the rollershutter. Default is "CLOSE".
 - **payload_stop** (*Optional*): The payload to stop the rollershutter. Default is "STOP".
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.

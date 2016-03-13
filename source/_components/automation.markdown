@@ -363,4 +363,4 @@ The Logbook component will show a line entry when an automation is triggered.  Y
 
 ![Logbook example](/images/components/automation/logbook.png)
 
-[template]: /getting-started/templating/
+[template]: /topics/templating/
