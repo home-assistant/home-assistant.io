@@ -24,4 +24,4 @@ scene:
 
 Configuration variables:
 
-- **address** (*Required*): IP address of the PowerView Hub, eg. http://192.168.1.10.
+- **address** (*Required*): IP address of the PowerView Hub, eg. 192.168.1.10.
