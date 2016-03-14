@@ -14,7 +14,7 @@ Two weeks has past so here is 0.15! We have been focussing a lot on quality. Mak
 
  - [@fabaff] has upgraded the codebase to follow the PEP257 documentation standard.
  - [@partofthething] has migrated us to use the main Python Open Z-Wave library instead of our forked version.
- - To make our automations more powerful, [@persandstrom] added the option to use templates to dynamically create service calls. This works for automation, script, Alexa, universal media player, template switch. [Learn more.][services]
+ - To make our automations more powerful, [@persandstrom] added the option to use templates to dynamically create service calls. This works for automation, Alexa, universal media player, template switch. [Learn more.][services]
  - [@MartinHjelmare] has upgraded our scene support to now support all built-in services and components.
 
 Besides bug fixes, this release also brings:
@@ -29,7 +29,7 @@ Besides bug fixes, this release also brings:
 
 ```yaml
 # Example using templates for service and data in service call.
-# Works for automation, script, Alexa, universal media player, template switch.
+# Works for automation, Alexa, universal media player, template switch.
 automation:
   - trigger:
       - platform: state
