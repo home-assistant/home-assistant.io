@@ -87,3 +87,19 @@ switch:
       oncmd: "cvlc 1.mp3 vlc://quit &"
       offcmd: "pkill vlc"
 ```
+
+### {% linkable_title Control Foscam Motion Sensor %}
+
+This switch will control the motion sensor of Foscam Webcams which Support CGI Commands ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)). This switch supports statecmd, which checks the current state of motion detection.
+```yaml
+# Example configuration.yaml entry
+# Replace admin and password with an "Admin" priviledged Foscam user
+# Replace ipaddress with the local IP address of your Foscam
+switch:
+  platform: command_line
+  switches:
+    foscam_motion:
+      oncmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
+      offcmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
+      statecmd: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
+      value_template: '{{ value == "1" }}'

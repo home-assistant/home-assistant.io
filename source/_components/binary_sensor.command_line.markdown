@@ -60,9 +60,19 @@ Check if [RasPlex](http://www.rasplex.com/) is `online`.
 ```yaml
 binary_sensor:
   platform: command_line
-  command: 'ping rasplex.local -c 1 | grep "1 received" | wc -l'
+  command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
   name: 'is_rasplex_online'
   payload_on: 1
   payload_off: 0
 ```
 
+An alternative solution could look like this:
+
+```yaml
+binary_sensor:
+  platform: command_line
+  name: Printer
+  command: ping -c 1 192.168.1.10 &> /dev/null && echo success || echo fail
+  payload_on: "success"
+  payload_off: "fail"
+```

@@ -33,7 +33,7 @@ Running these commands will:
  - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
 
 
-If would prefer to watch a video tutorial however, [tktino](https://github.com/tktino) has made some great ones.
+If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has made some great ones.
 
  - [Windows 10](https://www.youtube.com/watch?v=X27eVvuqwnY)
  - [Mac OS X](https://www.youtube.com/watch?v=hej6ipN86ls)
@@ -74,6 +74,9 @@ Running these commands will:
 
  - Install Home Assistant
  - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
+
+There is also a [video tutorial](https://www.youtube.com/watch?v=GjzOXkPb7XE) created by [brusc](https://github.com/brusc).
+
 
 </div> <!-- INSTALL-INSTRUCTIONS RASPBERRY -->
 

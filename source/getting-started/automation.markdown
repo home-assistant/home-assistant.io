@@ -21,7 +21,7 @@ Actions will call services within Home Assistant. For example, turn a light on, 
 
 Conditions are used to prevent actions from firing unless certain conditions are met. For example, it is possible to only turn on the light if someone comes home and it is after a certain point in time.
 
-The difference between a condition and a trigger can be confusing. The difference is that the trigger looks at the event that is happening, i.e. a car engine turning on. Conditions looks at the current state of the system, i.e. is the car engine on.
+The difference between a condition and a trigger can be confusing. The difference is that the trigger looks at the event that is happening, e.g., a car engine turning on. Conditions looks at the current state of the system, e.g., is the car engine on.
 
 ### {% linkable_title Exploring the internal state %}
 

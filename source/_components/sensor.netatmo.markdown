@@ -36,6 +36,10 @@ sensor:
       - sum_rain_24
     module_name2:
       - temperature
+    rainmeter_name3:
+      - rain
+      - sum_rain_1
+      - sum_rain_24
 ```
 
 Configuration variables:
@@ -85,5 +89,5 @@ You have to provide these name in your Home Assistant configuration file.
 </p>
 
 <p class='note'>
-The Home Assistant NetAtmo platform has only be tested with the classic indoor and outdoor module. There is no support for the rainmeter and windmeter module at this time because developers does not own these modules.
+The Home Assistant NetAtmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
 </p>

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: telldus_tellstick.png
 ha_category: Light
+ha_iot_class: "Assumed State"
 ---
 
 

@@ -17,7 +17,7 @@ To enable command_rollershutter in your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 rollershutter:
-- platform: command_rollershutter
+- platform: command_line
   rollershutters:
     Kitchen Rollershutter:
       upcmd: move_command up kitchen
