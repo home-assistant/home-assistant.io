@@ -31,7 +31,7 @@ Haaska allows you to control lights, switches, and scenes exposed by your Home A
 
 ### {% linkable_title Integrating Home Assistant with HomeKit %}
 
-Contributor Maddox has created a plugin for HomeBridge, an open-source HomeKit bridge. This will allow you to control your home using Siri on your Apple devices. HomeBridge has recently restructured so you'll have to access the plugin in the legacy plugin package.
+Contributor Maddox has created a plugin for HomeBridge, an open-source HomeKit bridge. This will allow you to control your home using Siri on your Apple devices. HomeBridge has recently restructured so you'll have to install the plugin separately with the homebridge-homeassistant npm package.
 
 Example config.json entry to load Home Assistant:
 
@@ -48,8 +48,7 @@ Example config.json entry to load Home Assistant:
 ```
 
 [HomeBridge on GitHub](https://github.com/nfarina/homebridge)
-[HomeBridge Legacy Plugins on GitHub](https://github.com/nfarina/homebridge-legacy-plugins)
-[Home Assistant on HomeBridge instructions](https://github.com/nfarina/homebridge-legacy-plugins/blob/master/platforms/HomeAssistant.js)
+[HomeBridge Home Assistant Plugin](https://github.com/maddox/homebridge-homeassistant)
 
 ### {% linkable_title Custom alarm system with Home Assistant %}
 
