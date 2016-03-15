@@ -22,6 +22,8 @@ If you want to enable the light component directly, add the following lines to y
 light:
   platform: hue
   host: DEVICE_IP_ADDRESS
+  # Optional, this will allow unreachable bulbs to report their state correctly
+  allow_unreachable: true
   # Optional, make this unique if specifying multiple Hue hubs
   filename: my_hue_hub_token.conf
 ```
