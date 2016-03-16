@@ -42,7 +42,21 @@ Configuration variables:
 
 ## {% linkable_title Picking a broker %}
 
-The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are three options, each with various degrees of ease of setup and privacy.
+The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
+
+#### {% linkable_title Use the embedded broker %}
+
+Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Asssistant connects to it. Home Assistant assumes that if you have MQTT platforms defined in your `configuration.yml` file that you want to use them and starts the broker as well.
+
+If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration).
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  embedded:
+    # Your HBMQTT config here. Example at:
+    # http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration
+```
 
 #### {% linkable_title Run your own %}
 
@@ -140,10 +154,22 @@ The MQTT component will register the service `publish` which allows publishing m
 
 ## {% linkable_title Testing your setup %}
 
-For debugging purposes `mosquitto` is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:
+The `mosquitto` broker package is shipping commandline tools to send and recieve MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:
 
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
+```
+
+If you are using the embeeded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.
+
+```bash
+$ mosquitto_pub -V mqttv311 -t hello -m world
+```
+
+or if you are using a API password.
+
+```bash
+$ mosquitto_pub -V mqttv311 -u homeassistant -P <your api password> -t "hello" -m world
 ```
 
 Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose "Call Service" and then `mqtt/mqtt_send` under "Available Services". Enter something similar to the example below into the "Service Data" field.
@@ -166,6 +192,14 @@ For reading all messages sent on the topic `home-assistant` to a broker running 
 ```bash
 $ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 ```
+
+For the embeeded MQTT broker the command looks like the sample below.
+
+```bash
+$ mosquitto_sub -V mqttv311 -t # -v
+```
+
+Add the username `homeassistant` and your API password if needed.
 
 ## {% linkable_title Processing JSON %}
 
