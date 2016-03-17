@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-03-16T08:15:18+00:00</updated>
+  <updated>2016-03-17T01:33:30+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -58,6 +58,14 @@
 </pre></div>
 </div>
 </div>
+
+<h3>Breaking Changes</h3>
+
+<ul>
+  <li>Media Player: Attributes to call service play_media has been renamed to<br />
+<code>media_content_type</code> and <code>media_content_id</code>, to match the corresponding media<br />
+player state attributes. This change affects automations, scripts and scenes.</li>
+</ul>
 
 ]]></content>
   </entry>
