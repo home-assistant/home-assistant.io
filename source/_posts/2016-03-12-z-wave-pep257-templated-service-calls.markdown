@@ -45,6 +45,12 @@ automation:
         entity_id: switch.{% raw %}{{ states('input_select.is') }}{% endraw %}
 ```
 
+### Breaking Changes
+
+ - Media Player: Attributes to call service play_media has been renamed to
+`media_content_type` and `media_content_id`, to match the corresponding media
+player state attributes. This change affects automations, scripts and scenes.
+
 [services]: /topics/service_calls/#use-templates-to-decide-which-service-to-call
 [Hunter Douglas Powerview]: /components/scene.hunterdouglas_powerview/
 [MQTT]: /components/lock.mqtt/
