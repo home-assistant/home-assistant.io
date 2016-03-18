@@ -19,19 +19,85 @@ If you are planning to add support for a new type of device to an existing compo
 
 One of the rules for Home Assistant is that platform logic should never interface directly with devices but use a third-party Python 3 library to do so. This way Home Assistant is able to share code with the Python community and we can keep the project maintainable.
 
-Platforms can specify dependencies and requirements the same way as a component does. Please see [the component page](/developers/creating_components/#dependencies) for more information.
-
-### {% linkable_title Creating Entities %}
-
-Home Assistant will call a function with the following signature to initialize your new platform. This function must exist in the platform module you create.
+Platforms can specify dependencies and requirements the same way as a component does.
 
 ```python
-def setup_platform(hass, config, add_devices, discovery_info=None)
+REQUIREMENTS = ['some-package==2.0.0', 'some-other-package==2.5.0']
+DEPENDENCIES = ['mqtt']
 ```
 
-In this function, your platform should create the appropriate entities and register them with the Home Assistant core. Entities are Home Assistant's representation of lights, switches, sensors, etc. and are derived from the [Entity Abstract Class](https://github.com/balloob/home-assistant/blob/master/homeassistant/helpers/entity.py). This abstract class contains logic for integrating most standard features into your entities, such as visibility, entity IDs, updates, and many more.
+### {% linkable_title Platform example %}
 
-A list of entities can be registered with Home Assistant using the *add_devices* function that is provided as an input to *setup_platform*. Once entities are registered with with Home Assistant their updates will be provided to the core and the core will have control over them. For more information on how Entities can be customized, take a look at the [Entity Abstract Class](https://github.com/balloob/home-assistant/blob/master/homeassistant/helpers/entity.py#L18).
+
+
+Entities are Home Assistant's representation of lights, switches, sensors, etc. and are derived from the [Entity Abstract Class](https://github.com/balloob/home-assistant/blob/master/homeassistant/helpers/entity.py). This abstract class contains logic for integrating most standard features into your entities, such as visibility, entity IDs, updates, and many more.
+
+This example is for adding support for the imaginary Awesome Lights.
+
+```python
+import logging
+
+# Import the device class from the component that you want to support
+from homeassistant.components.light import Light
+from homeassistant.const import CONF_HOST, CONF_USERNAME, CONF_PASSWORD
+
+# Home Assistant depends on 3rd party packages for API specific code.
+REQUIREMENTS = ['awesome_lights==1.2.3']
+
+_LOGGER = logging.getLogger(__name__)
+
+
+setup_platform(hass, config, add_devices, discovery_info=None):
+    """Initialize Awesome Light platform."""
+    import awesomelights
+
+    # Validate passed in config
+    host = config.get(CONF_HOST)
+    username = config.get(CONF_USERNAME)
+    password = config.get(CONF_PASSWORD)
+
+    if host is None or username is None or password is None:
+        _LOGGER.error('Invalid config. Expected %s, %s and %s',
+                      CONF_HOST, CONF_USERNAME, CONF_PASSWORD)
+        return False
+
+    # Setup connection with devices/cloud
+    hub = awesomelights.Hub(host, username, password)
+
+    # Verify that passed in config works
+    if not hub.is_valid_login():
+        _LOGGER.error('Could not connect to AwesomeLight hub')
+        return False
+
+    # Add devices
+    add_devices(AwesomeLight(light) for light in hub.lights())
+
+class AwesomeLight(Light):
+    """Represents an AwesomeLight in Home Assistant."""
+
+    def __init__(self, light):
+        """Initialize an AwesomeLight."""
+        self._light = light
+
+    def update(self):
+        """Fetch new state data for this light.
+
+        This is the only method that should fetch new data for Home Assitant.
+        """
+        self._light.update()
+
+    def brightness(self):
+        """Brightness of the light.
+
+        This method is optional. Removing it indicates to Home Assistant
+        that brightness is not supported for this light.
+        """
+        return self._light.brightness
+
+    def is_on(self):
+        """If light is on."""
+        return self._light.is_on()
+```
 
 ## {% linkable_title Allowing your platform to be discovered %}
 
