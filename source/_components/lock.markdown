@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Locks"
 description: "Instructions how to setup your locks with Home Assistant."
 date: 2015-11-21 08:10

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "ASUSWRT"
 description: "Instructions how to integrate ASUSWRT based routers into Home Assistant."
 date: 2015-08-06 19:00
@@ -12,7 +12,7 @@ ha_category: Presence Detection
 ---
 
 
-This platform offers presence detection by looking at connected devices to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
+The `asuswrt` platform offers presence detection by looking at connected devices to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
 
 <p class='note warning'>
 This device tracker needs telnet to be enabled on the router.

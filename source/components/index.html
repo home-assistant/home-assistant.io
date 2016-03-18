@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 is_homepage: true
+hide_github_edit: true
 body_id: components-page
 regenerate: true
 ---
@@ -35,7 +36,9 @@ Support for these components is provided by the Home Assistant community.
 <div id="componentContainer">
   {% for component in components %}
     {% if component.ha_category %}
-      <a href='{{ component.url }}' class='{{ component.ha_category | slugify }}{% if component.featured %} featured{% endif %}'>
+      <a href='{{ component.url }}'
+         class='{{ component.ha_category | slugify }}{% if component.featured %} featured{% endif %}'
+         {% unless component.featured %}style='display: none'{% endunless %}>
         <div class='img-container'>
           {% if component.logo %}
             <img src='/images/supported_brands/{{ component.logo }}'>
@@ -59,8 +62,19 @@ Support for these components is provided by the Home Assistant community.
 {% endcomment %}
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.js"></script>
-<script type="text/javascript">
+<script>
+// undo initial hiding of non-featured cards
+if (location.hash !== '') {
+  if (location.hash === '#all') {
+    jQuery('#componentContainer a').show();
+  } else {
+    jQuery('#componentContainer .featured').hide();
+    jQuery('#componentContainer .' + location.hash.substr(1)).show();
+  }
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script>
 $(window).load(function(){
   var $container = $('#componentContainer');
 

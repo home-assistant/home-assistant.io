@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Scripts"
 description: "Instructions how to setup scripts within Home Assistant."
 date: 2015-03-23 19:59
@@ -29,13 +29,14 @@ script:
           domain: light
       - alias: Bedroom lights on
         service: light.turn_on
-        service_data:
+        data:
           entity_id: group.bedroom
+          brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours, etc.
           minutes: 1
       - alias: Living room lights on
         service: light.turn_on
-        service_data:
+        data:
           entity_id: group.living_room
 ```

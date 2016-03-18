@@ -34,7 +34,7 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
 
 [iCloud]: /components/device_tracker.icloud/
 [Twitch]: /components/sensor.twitch/
-[Template]: /getting-started/templating/
+[Template]: /topics/templating/
 [Heatmiser]: /components/thermostat.heatmiser/
 [Dweet.io]: /components/sensor.dweet/
 [Alexa/Amazon echo]: /components/alexa/

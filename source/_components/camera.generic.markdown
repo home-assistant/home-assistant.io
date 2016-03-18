@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Generic IP Camera"
 description: "Instructions how to integrate IP cameras within Home Assistant."
 date: 2015-07-11 0:36

@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "aREST binary sensor"
+layout: page
+title: "aREST Binary Sensor"
 description: "Instructions how to integrate aREST binary sensors within Home Assistant."
 date: 2015-11-20 18:15
 sidebar: true
@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: arest.png
 ha_category: Binary Sensor
+ha_iot_class: "Local Polling"
 ---
 
 
-The arest binary sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+The `arest` binary sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
 To use your aREST binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -36,7 +37,6 @@ Accessing the URL http://IP_ADDRESS/digital/PIN_NUMBER should give you the state
 ```bash
 $ curl -X GET http://10.100.0.157/digital/9
 {"return_value": 0, "id": "office1", "name": "Office", "connected": true}
-
 ```
 
 <p class='note'>

@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "MQTT switch"
+layout: page
+title: "MQTT Switch"
 description: "Instructions how to integrate MQTT switches into Home Assistant."
 date: 2015-08-30 23:38
 sidebar: true
@@ -19,7 +19,7 @@ When a state topic is not available, the switch will work in optimistic mode. In
 
 Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect switch operation.
 
-To enable this s in your installation, add the following to your `configuration.yaml` file:
+To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yml entry
@@ -28,10 +28,11 @@ switch:
   name: "Bedroom Switch"
   state_topic: "home/bedroom/switch1"
   command_topic: "home/bedroom/switch1/set"
-  qos: 0
   payload_on: "ON"
   payload_off: "OFF"
   optimistic: false
+  qos: 0
+  retain: true
   value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
@@ -40,12 +41,13 @@ Configuration variables:
 - **name** (*Optional*): The name of the switch. Default is 'MQTT Switch'.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
 - **command_topic** (*Required*): The MQTT topic to publish commands to change the switch state.
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+- **retain** (*Optional*): If the published message should have the retain flag on or not.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 <p class='note warning'>
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+Make sure that your topic match exact. `some-topic/` and `some-topic` are different topics.
 </p>

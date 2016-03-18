@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "System Monitor"
 description: "Instructions how to monitor the Home Assistant host."
 date: 2015-03-23 19:59
@@ -10,7 +10,7 @@ footer: true
 ha_category: Sensor
 ---
 
-The system monitoring sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
+The `systemmonitor` sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 

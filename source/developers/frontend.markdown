@@ -72,18 +72,24 @@ Polymer build architecture diagram
 
 # {% linkable_title Adding state cards %}
 
-The main interface of Home Assistant is a list of the current entities and their states. For each entity in the system, a state card will be rendered. State cards will show a state badge, the name of the entity, when the state has last changed and the current state or a control to interact with it.
+The main interface of Home Assistant is a list of the current entities and their states. For each entity in the system, a state card will be rendered. State cards will show an icon, the name of the entity, when the state has last changed and the current state or a control to interact with it.
 
-![Cards in the frontend](/images/frontend/frontend-cards.png)
+![Cards in the frontend](/images/frontend/frontend-cards1.png)
 
 The different card types can be found [here](https://github.com/balloob/home-assistant-polymer/tree/master/src/state-summary).
 
-Adding a custom card type can be done with a few simple steps. For this example we will add a new state card for the domain `camera`: _(All files in this example link to their source-code)_
+Sensors, when not [grouped](/components/group/), are shown as so-called badges on top of the state cards.
 
- 1. Add `'camera'` to the array `DOMAINS_WITH_CARD` in the file [`/util/state-card-type.js`](https://github.com/balloob/home-assistant-polymer/blob/master/src/util/state-card-type.js#L3-L4).
- 2. Create the files `state-card-camera.html` and `state-card-camera.js` in the folder [`/state-summary/`](https://github.com/balloob/home-assistant-polymer/tree/master/src/state-summary).
- 3. Add `require('./state-card-camera')` to [`state-card-content.js`](https://github.com/balloob/home-assistant-polymer/blob/master/src/state-summary/state-card-content.js).
- 4. Add `<link rel="import" href="state-card-camera.html">` to [`state-card-content.html`](https://github.com/balloob/home-assistant-polymer/blob/master/src/state-summary/state-card-content.html).
+![Badges in the frontend](/images/frontend/frontend-badges.png)
+
+The different badges are located in the file [`/src/components/entity/ha-state-label-badge.js`](https://github.com/balloob/home-assistant-polymer/blob/master/src/components/entity/ha-state-label-badge.js).
+
+Adding a custom card type can be done with a few simple steps. For this example we will add a new state card for the domain `camera`:
+
+ 1. Add `'camera'` to the array `DOMAINS_WITH_CARD` in the file [/util/state-card-type.js](https://github.com/balloob/home-assistant-polymer/blob/master/src/util/state-card-type.js#L3-L4).
+ 2. Create the files `state-card-camera.html` and `state-card-camera.js` in the folder [/state-summary/](https://github.com/balloob/home-assistant-polymer/tree/master/src/state-summary).
+ 3. Add `require('./state-card-camera')` to [state-card-content.js](https://github.com/balloob/home-assistant-polymer/blob/master/src/state-summary/state-card-content.js).
+ 4. Add `<link rel="import" href="state-card-camera.html">` to [state-card-content.html](https://github.com/balloob/home-assistant-polymer/blob/master/src/state-summary/state-card-content.html).
 
 # {% linkable_title More info screens for custom types %}
 
@@ -95,9 +101,8 @@ Whenever the user taps or clicks on one of the cards, a more info dialog will sh
 </p>
 
 The instructions to add a more info dialog are very similar to adding a new card type. This example will add a new more info component for the domain `camera`:
-_(All files in this example link to their source-code)_
 
- 1. Add `'camera'` to the array `DOMAINS_WITH_MORE_INFO` in the file [`util/state-more-info-type.js`](https://github.com/balloob/home-assistant-polymer/blob/master/src/util/state-more-info-type.js#L1).
- 2. Create the files `more-info-camera.html` and `more-info-camera.js` in the folder [`/more-infos`](https://github.com/balloob/home-assistant-polymer/tree/master/src/more-infos).
- 3. Add `require('./more-info-camera')` to [`more-info-content.js`](https://github.com/balloob/home-assistant-polymer/blob/master/src/more-infos/more-info-content.js)
- 4. Add `<link rel="import" href="more-info-camera.html">` to [`more-info-content.html`](https://github.com/balloob/home-assistant-polymer/blob/master/src/more-infos/more-info-content.html)
+ 1. Add `'camera'` to the array `DOMAINS_WITH_MORE_INFO` in the file [util/state-more-info-type.js](https://github.com/balloob/home-assistant-polymer/blob/master/src/util/state-more-info-type.js#L1).
+ 2. Create the files `more-info-camera.html` and `more-info-camera.js` in the folder [/more-infos](https://github.com/balloob/home-assistant-polymer/tree/master/src/more-infos).
+ 3. Add `require('./more-info-camera')` to [more-info-content.js](https://github.com/balloob/home-assistant-polymer/blob/master/src/more-infos/more-info-content.js)
+ 4. Add `<link rel="import" href="more-info-camera.html">` to [more-info-content.html](https://github.com/balloob/home-assistant-polymer/blob/master/src/more-infos/more-info-content.html)

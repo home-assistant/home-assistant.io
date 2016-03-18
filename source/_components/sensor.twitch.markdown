@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Twitch"
 description: "Instructions how to integrate Twitch sensors into Home Assistant."
 date: 2015-12-19 09:00

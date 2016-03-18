@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "FireTV"
 description: "Instructions how to integrate Music Player Daemon into Home Assistant."
 date: 2015-10-23 18:00
@@ -12,7 +12,7 @@ ha_category: Media Player
 ---
 
 
-The firetv platform allows you to control a [Amazon Fire TV/stick](http://www.amazon.com/Amazon-DV83YW-Fire-TV/dp/B00U3FPN4U).
+The `firetv` platform allows you to control a [Amazon Fire TV/stick](http://www.amazon.com/Amazon-DV83YW-Fire-TV/dp/B00U3FPN4U).
 
 The python-firetv Python 2.x module with its helper script that exposes a HTTP server to fetch state and perform actions is used.
 
@@ -26,6 +26,7 @@ Steps to configure your Amazon Fire TV stick with Home Assistant:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
 - `pip install firetv[firetv-server]` into a Python 2.x environment
+  - If installed on Debian Jessie then the libssl-dev package is needed. Install it with `apt-get install libssl-dev`
 - `firetv-server -d <fire tv device IP>:5555`, background the process
 - Configure Home Assistant as follows:
 

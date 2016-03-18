@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Time & Date"
 description: "Instructions how to integrate the time and the date within Home Assistant."
 date: 2015-05-08 17:15
@@ -7,11 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category: Sensor
+ha_iot_class: "Local Push"
 ---
 
 
-The time and date platform simple displays the time in various formats, the date, or both.
+The time and date (`time_date`) platform simple displays the time in various formats, the date, or both.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 

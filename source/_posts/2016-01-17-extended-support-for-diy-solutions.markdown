@@ -47,7 +47,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [wemo]: /components/switch.wemo/
 [Telldus Live]: /components/tellduslive/
 [Vera]: /components/vera/
-[template helper method]: /getting-started/templating/#home-assistant-template-extensions
+[template helper method]: /topics/templating/#home-assistant-template-extensions
 [OwnTracks]: /components/device_tracker.owntracks/
 [Philips Hue]: /components/light.hue/
 [Free Mobile]: /components/notify.free_mobile/
@@ -63,7 +63,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [MySensors sensor platform]: /components/sensor.mysensors/
 [Amazon Echo]: /components/alexa/
 
-### Deprecations
+### Backwards incompatible changes
  - The [RPi.GPIO sensor platform][rpi-bs] has been moved to the `binary_sensor` component.
  - [MySensors sensor platform] now requires the [MySensors] component to be configured.
  - Geofancy platform has been renamed to [Locative].

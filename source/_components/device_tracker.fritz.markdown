@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "FRITZ!Box"
 description: "Instructions how to integrate AVM FRITZ!Box based routers into Home Assistant."
 date: 2015-12-13 19:00
@@ -15,7 +15,7 @@ ha_category: Presence Detection
 The `fritz` platform offers presence detection by looking at connected devices to a [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) based router.
 
 <p class='note warning'>
-It might be necessary to install additional packages: <code>$ sudo apt-get install libxslt-dev libxml2-dev</code>
+It might be necessary to install additional packages: <code>$ sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
 </p>
 
 To use an Fritz!Box router in your installation, add the following to your `configuration.yaml` file:
@@ -23,7 +23,7 @@ To use an Fritz!Box router in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: asuswrt
+  platform: fritz
   host: YOUR_ROUTER_IP
   username: YOUR_ADMIN_USERNAME
   password: YOUR_ADMIN_PASSWORD

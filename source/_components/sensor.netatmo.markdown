@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Netatmo"
+layout: page
+title: "Netatmo Sensor"
 description: "Instructions how to integrate Netatmo sensors into Home Assistant."
 date: 2016-01-14 08:10
 sidebar: true
@@ -31,8 +31,15 @@ sensor:
       - noise
       - pressure
       - co2
+      - rain
+      - sum_rain_1
+      - sum_rain_24
     module_name2:
       - temperature
+    rainmeter_name3:
+      - rain
+      - sum_rain_1
+      - sum_rain_24
 ```
 
 Configuration variables:
@@ -41,9 +48,16 @@ Configuration variables:
 - **secret_key** (*Required*): Your netatmo secret key
 - **username** (*Required*): Username for the netatmo account.
 - **password** (*Required*): Password for the netatmo account.
-- **modules** (*Required*): Modules to use. Multiple entries allowd.
+- **modules** (*Required*): Modules to use. Multiple entries allowed.
   - **module_name** array (*Required*): Name of the module.
-    - ** [conditions] **: Condition to monitor.
+    - **temperature**: Current temperature.
+    - **co2**: CO2 concentration in ppm.
+    - **pressure**: Pressure in mbar.
+    - **noise**: Noise level in dB.
+    - **humidity**: Humidity in %.
+    - **rain**: Estimated rainfall for today in mm.
+    - **sum_rain_1**: Rainfall in the last hour in mm.
+    - **sum_rain_24**: Rainfall in mm from 00:00am - 23:59pm.
 
 ### {% linkable_title Get API and Secret Key %}
 
@@ -75,5 +89,5 @@ You have to provide these name in your Home Assistant configuration file.
 </p>
 
 <p class='note'>
-The Home Assistant NetAtmo platform has only be tested with the classic indoor and outdoor module. There is no support for the rainmeter and windmeter module at this time because developers does not own these modules.
+The Home Assistant NetAtmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
 </p>

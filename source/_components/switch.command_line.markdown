@@ -1,12 +1,13 @@
 ---
-layout: component
-title: "Command line switch"
+layout: page
+title: "Command line Switch"
 description: "Instructions how to have switches call command line commands."
 date: 2015-06-10 22:41
 sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: command_line.png
 ha_category: Switch
 ---
 
@@ -18,7 +19,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_switch
+  platform: command_line
   switches:
     kitchen_light:
       oncmd: switch_command on kitchen
@@ -47,7 +48,7 @@ The example below is doing the same as the [aREST switch](/components/switch.are
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_switch
+  platform: command_line
   switches:
     arest_pin4:
       oncmd: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
@@ -66,7 +67,7 @@ This switch will shutdown your host immediately, there will be no confirmation.
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_switch
+  platform: command_line
   switches:
     Home Assistant system shutdown:
       offcmd: "/usr/sbin/poweroff"
@@ -80,9 +81,25 @@ This switch will control a local VLC media player ([Source](https://automic.us/f
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_switch
+  platform: command_line
   switches:
     VLC:
       oncmd: "cvlc 1.mp3 vlc://quit &"
       offcmd: "pkill vlc"
 ```
+
+### {% linkable_title Control Foscam Motion Sensor %}
+
+This switch will control the motion sensor of Foscam Webcams which Support CGI Commands ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)). This switch supports statecmd, which checks the current state of motion detection.
+```yaml
+# Example configuration.yaml entry
+# Replace admin and password with an "Admin" priviledged Foscam user
+# Replace ipaddress with the local IP address of your Foscam
+switch:
+  platform: command_line
+  switches:
+    foscam_motion:
+      oncmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
+      offcmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
+      statecmd: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
+      value_template: '{{ value == "1" }}'

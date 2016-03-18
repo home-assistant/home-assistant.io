@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Manual Alarm Control Panel"
 description: "Instructions how to integrate manual alarms into Home Assistant."
 date: 2015-10-13 19:10

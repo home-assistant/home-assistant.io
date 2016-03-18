@@ -3,10 +3,11 @@ layout: page
 title: "Dim lights when playing media"
 description: "Dim lights up or down when playing media"
 date: 2015-10-15 19:05
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation Examples
 ---
 
 Like it how the lights dim up/down at the movies? Do it at home as well!

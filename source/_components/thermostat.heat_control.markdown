@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Heat control"
 description: "Turn Home Assistant into a thermostat"
 date: 2015-03-23 19:59
@@ -20,6 +20,9 @@ thermostat:
   name: Study
   heater: switch.study_heater
   target_sensor: sensor.study_temperature
+  min_temp: 15
+  max_temp: 21
+  target_temp: 15
 ```
 
 Configuration variables:
@@ -27,3 +30,6 @@ Configuration variables:
 - **name** (*Required*): Name of thermostat
 - **heater** (*Required*: `entity_id` for heater switch, must be a toggle device.
 - **target_sensor** (*Required*): `entity_id` for a temperature sensor, target_sensor.state must be temperature.
+- **min_temp** (*Optional*): Set minimum set point available (default: 7)
+- **max_temp** (*Optional*): Set maximum set point available (default: 35)
+- **target_temp** (*Required*): Set default target temperature. Failure to set this variable will result in target temperature being set to null on startup.

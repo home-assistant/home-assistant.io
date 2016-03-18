@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Automation"
 description: "Instructions how to setup automation within Home Assistant."
 date: 2015-01-20 22:36
@@ -129,6 +129,11 @@ automation:
     # Optional
     from: 'not_home'
     to: 'home'
+    # If given, will trigger when state has been the to state for X time.
+    for:
+      hours: 1
+      minutes: 10
+      seconds: 5
 ```
 
 <p class='note warning'>
@@ -161,26 +166,34 @@ automation:
 
 #### {% linkable_title Time trigger %}
 
-Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. For example, by only setting minutes in the config to 5 it will trigger every hour when it is 5 minutes past whole.  You cannot use `after` together with hour, minute or second.
+Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `after` together with hour, minute or second.
 
 ```yaml
 automation:
   trigger:
     platform: time
-    # All following are optional.
+    # Matches every hour at 5 minutes past whole
+    minutes: 5
+    seconds: 0
+
+automation 2:
+  trigger:
+    platform: time
     # When 'after' is used, you cannot also match on hour, minute, seconds.
     # Military time format.
-    # after: '15:32:00'
-    hours: 0
-    minutes: 5
+    after: '15:32:00'
+
+automation 3:
+  trigger:
+    platform: time
+    # You can also match on interval. This will match every 5 minutes
+    minutes: '/5'
     seconds: 0
 ```
 
-The above example will trigger every hour on the 5 (2:05, 3:05, 4:05, etc).
-
 #### {% linkable_title Zone trigger %}
 
-Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/).
+Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) as well as the [iCloud platform](/components/device_tracker.icloud/).
 
 ```yaml
 automation:
@@ -241,6 +254,12 @@ automation:
     platform: state
     entity_id: device_tracker.paulus
     state: not_home
+    # optional: trigger only if state was this for last X time.
+    for:
+      hours: 1
+      minutes: 10
+      seconds: 5
+
 ```
 
 #### {% linkable_title Sun condition %}
@@ -291,7 +310,7 @@ Valid values for `weekday` are (`sun`, `mon`, `tue`, `wed`, `thu`, `fri` & `sat`
 
 #### {% linkable_title Zone condition %}
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/).
+Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) as well as the [iCloud platform](/components/device_tracker.icloud/).
 
 ```yaml
 automation:
@@ -344,4 +363,4 @@ The Logbook component will show a line entry when an automation is triggered.  Y
 
 ![Logbook example](/images/components/automation/logbook.png)
 
-[template]: /getting-started/templating/
+[template]: /topics/templating/

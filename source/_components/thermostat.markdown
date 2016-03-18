@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Thermostats"
 description: "Instructions how to setup thermostats tracking within Home Assistant."
 date: 2015-01-20 22:36

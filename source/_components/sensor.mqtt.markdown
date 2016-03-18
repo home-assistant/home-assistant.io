@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "MQTT sensor"
+layout: page
+title: "MQTT Sensor"
 description: "Instructions how to integrate MQTT sensors within Home Assistant."
 date: 2015-05-30 23:21
 sidebar: true
@@ -33,7 +33,7 @@ Configuration variables:
 - **name** (*Optional*): The name of the sensor. Default is 'MQTT Sensor'. 
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 

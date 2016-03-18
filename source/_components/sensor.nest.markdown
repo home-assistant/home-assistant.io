@@ -1,9 +1,8 @@
 ---
-layout: component
-title: "Nest thermostat"
-description: "Instructions how to integrate Nest thermostats sensors within Home Assistant."
-# Year set to 2017 to unpublish till 0.12 release
-date: 2017-01-13 19:59
+layout: page
+title: "Nest Sensor"
+description: "Instructions how to integrate Nest sensors within Home Assistant."
+date: 2016-01-13 19:59
 sidebar: true
 comments: false
 sharing: true
@@ -13,37 +12,48 @@ ha_category: Sensor
 ---
 
 
-The `nest` thermostat platform let you control a thermostat from [Nest](https://nest.com). It also includes the ability to monitor things like the state of our HVAC system and the current humidity and temperature.
+The `nest` sensor platform let you monitor sensors connected to your [Nest](https://nest.com) thermostat.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
-sensor 3:
+sensor:
   platform: nest
   monitored_conditions:
-    - 'fan'
-    - 'hvac_ac_state',
-    - 'hvac_aux_heater_state',
-    - 'hvac_heat_x2_state',
-    - 'hvac_heat_x3_state',
-    - 'hvac_alt_heat_state',
-    - 'hvac_alt_heat_x2_state',
-    - 'hvac_emer_heat_state',
-    - 'online'
-    - 'temperature',
-    - 'target',
-    - 'away_temperature[0]',
+    - 'temperature'
+    - 'target'
+    - 'away_temperature[0]'
     - 'away_temperature[1]'
-    - 'humidity',
-    - 'mode',
-    - 'last_ip',
-    - 'local_ip',
-    - 'last_connection',
+    - 'humidity'
+    - 'mode'
+    - 'last_ip'
+    - 'local_ip'
+    - 'last_connection'
     - 'battery_level'
+    - 'weather_condition'
+    - 'weather_temperature'
+    - 'weather_humidity'
+    - 'wind_speed'
+    - 'wind_direction'
 ```
 
-You must have the [Nest Thermostat](https://home-assistant.io/components/thermostat.nest/) entity configured to use this sensor.  
+Configuration variables:
 
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
-</p>
+- **monitored_conditions** array (*Required*): States to monitor.
+  - 'temperature'
+  - 'target'
+  - 'away_temperature[0]'
+  - 'away_temperature[1]'
+  - 'humidity'
+  - 'mode'
+  - 'last_ip'
+  - 'local_ip'
+  - 'last_connection'
+  - 'battery_level'
+  - 'weather_condition'
+  - 'weather_temperature'
+  - 'weather_humidity'
+  - 'wind_speed'
+  - 'wind_direction'
+
+<p class='note'>You must have the [Nest component](/components/nest/) configured to use this sensor.</p>

@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "RESTful sensor"
+layout: page
+title: "RESTful Sensor"
 description: "Instructions how to integrate REST sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
@@ -44,7 +44,7 @@ Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract the value.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
@@ -71,7 +71,6 @@ Always want to know your external IP address. [JSON Test](http://www.jsontest.co
 To display the IP address, the entry for a sensor in the `configuration.yaml` file will look like this.
 
 ```yaml
-# Example configuration.yaml entry
   - platform: rest
     resource: http://ip.jsontest.com
     name: External IP
@@ -85,11 +84,23 @@ The [glances](/components/sensor.glances/) sensor is doing the exact same thing 
 Add something similar to the entry below to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
   - platform: rest
     resource: http://IP_ADRRESS:61208/api/2/mem/used
     name: Used mem
     value_template: '{% raw %}{{ value_json.used| multiply(0.000000954) | round(0) }}{% endraw %}'
     unit_of_measurement: MB
+```
+
+### {% linkable_title Value for other Home Assistant instance %}
+
+The Home Assistant [API](/developers/rest_api/) is exposing the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
+
+
+```yaml
+  - platform: rest
+    resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature
+    name: Temperature
+    value_template: {% raw %}'{{ value_json.state }}'{% endraw %}
+    unit_of_measurement: "°C"
 ```
 

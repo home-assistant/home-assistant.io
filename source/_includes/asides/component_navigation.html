@@ -21,7 +21,13 @@
     {% assign imp_name = file_parts | first %}
   {% endif %}
 
-  {% if is_platform and parent_name != 'sensor' %}
+  {% if page.ha_iot_class %}
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: {{ page.ha_iot_class }}
+    </div>
+  {% endif %}
+
+  {% if is_platform and parent_name != 'sensor' and parent_name != 'binary_sensor' %}
     <div class='section'>
       This is a platform for
       <a href='{{parent_component.url}}'>the {{parent_component.title}} component</a>.

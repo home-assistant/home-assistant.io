@@ -53,6 +53,12 @@ The numbers below only covers the [main git repository](https://github.com/ballo
 
 More details and statistics can be found on [Github](https://github.com/balloob/home-assistant/graphs/contributors).
 
+[RocketGraph](https://rocketgraph.com) reports shows commit stats for the last 90 days and a neat visual calendar for the current calendar year.
+
+- [home-assistant](https://rocketgraph.com/s/O163F6yWdgR)
+- [home-assistant-polymer](https://rocketgraph.com/s/AfvsRKE_WfB)
+- [home-assistant.io](https://rocketgraph.com/s/PvCS9rv7ODL)
+
 ### {% linkable_title First commit %}
 
 The first commit in `git` was made on Sep 17, 2013 by [Paulus Schoutsen](https://github.com/balloob). 

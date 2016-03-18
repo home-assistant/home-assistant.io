@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Alexa / Amazon Echo"
 description: "Instructions how to connect Alexa/Amazon Echo to Home Assistant."
 date: 2015-12-13 13:02
@@ -80,7 +80,7 @@ Out of the box, the component will do nothing. You have to teach it about all in
 
 You can use [templates] for the values of `speech/text`, `card/title` and `card/content`.
 
-[templates]: /getting-started/templating/
+[templates]: /topics/templating/
 
 Configuring the Alexa component for the above intents would look like this:
 

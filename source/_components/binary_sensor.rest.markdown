@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "RESTful binary sensor"
+layout: page
+title: "RESTful Binary Sensor"
 description: "Instructions how to integrate REST binary sensors into Home Assistant."
 date: 2015-12-17 19:10
 sidebar: true
@@ -17,7 +17,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: GET
@@ -29,7 +29,7 @@ or for a POST request:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: POST
@@ -42,7 +42,7 @@ Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract the value.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
 - **name** (*Optional*): Name of the REST binary sensor.
 

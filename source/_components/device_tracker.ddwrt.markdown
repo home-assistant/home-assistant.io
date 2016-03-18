@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "DD-WRT"
 description: "Instructions how to integrate DD-WRT based routers into Home Assistant."
 date: 2015-05-11 09:00

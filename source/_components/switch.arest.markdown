@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "aREST switch"
+layout: page
+title: "aREST Switch"
 description: "Instructions how to integrate aREST switches within Home Assistant."
 date: 2015-09-11 23:15
 sidebar: true
@@ -9,9 +9,10 @@ sharing: true
 footer: true
 logo: arest.png
 ha_category: Switch
+ha_iot_class: "Local Polling"
 ---
 
-The arest switch platform allows you to toggle pins of your devices (like Arduino boards with a ethernet/wifi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with a ethernet/wifi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
 To use your aREST enabled device with pins in your installation, add the following to your `configuration.yaml` file:
 

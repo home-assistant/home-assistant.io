@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "SNMP"
 description: "Instructions how to integrate SNMP into Home Assistant."
 date: 2015-10-08 12:00
@@ -19,9 +19,11 @@ This device tracker needs SNMP to be enabled on the router.
 </p>
 
 OID examples:
-- Microtik: 1.3.6.1.4.1.14988.1.1.1.2.1.1 (confirmed)
+- Mikrotik: 1.3.6.1.4.1.14988.1.1.1.2.1.1 (confirmed, unknown RouterOS version/model)
+- Mikrotik: 1.3.6.1.2.1.4.22.1.2 (confirmed, RouterOS 6.x on RB2011)
 - Aruba: 1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2 (untested)
 - BiPAC 7800DXL: 1.3.6.1.2.1.17.7.1.2.2.1.1 (confirmed on firmware 2.32e)
+- OpenWrt: 1.3.6.1.2.1.4.22.1.2 (tested on Chaos Calmer 15.05 firmware, need to install snmpd package)
 
 To use the snmp platform in your installation, add the following to your `configuration.yaml` file:
 

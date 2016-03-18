@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Discovery"
 description: "Instructions how to setup Home Assistant to discover new devices."
 date: 2015-01-24 14:39
@@ -38,4 +38,8 @@ If you are developing a new platform, please read [how to make your platform dis
 
 <p class='note warning'>
 There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this playform on a 64-bit version of Python.
+</p>
+
+<p class='note'>
+If you are on Windows and you're using Python 3.5, download the Netifaces dependency <a href='http://www.lfd.uci.edu/~gohlke/pythonlibs/#netifaces'>here</a>.
 </p>

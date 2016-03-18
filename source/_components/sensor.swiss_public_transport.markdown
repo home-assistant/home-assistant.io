@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Swiss Public Transport"
 description: "Instructions how to integrate timetable data for travelling in Switzerland within Home Assistant."
 date: 2015-06-02 21:45
@@ -8,10 +8,11 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+ha_iot_class: "Local Polling"
 ---
 
 
-The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland.
+The `swiss_public_transport` sensor will give you the next two departure times from a given location to another one in Switzerland.
 
 The [Stationboard](http://transport.opendata.ch/examples/stationboard.html) website can help to determine the exact name of the start and the end station. With the station names it's necessary to search for the ID of those stations:
 

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "OpenWRT (ubus)"
 description: "Instructions how to integrate OpenWRT routers into Home Assistant."
 date: 2015-03-23 19:59

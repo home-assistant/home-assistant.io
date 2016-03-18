@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "InfluxDB"
 description: "Record events in InfluxDB."
 date: 2015-12-06 13:08
@@ -23,6 +23,8 @@ influxdb:
   database: DB_TO_STORE_EVENTS
   username: MY_USERNAME
   password: MY_PASSWORD
+  ssl: true
+  verify_ssl: true
 ```
 
 Configuration variables:
@@ -32,4 +34,5 @@ Configuration variables:
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **username** (*Optional*): The username of the database user.
 - **password** (*Optional*): The password for the database user account.
-
+- **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
+- **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.

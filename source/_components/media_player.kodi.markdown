@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Kodi"
 description: "Instructions how to integrate Kodi into Home Assistant."
 date: 2015-06-22 11:00
@@ -13,7 +13,7 @@ featured: true
 ---
 
 
-The kodi platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
+The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
 
 To add Kodi to your installation, add the following to your `configuration.yaml` file:
 
@@ -21,7 +21,8 @@ To add Kodi to your installation, add the following to your `configuration.yaml`
 # Example configuration.yaml entry
 media_player:
   platform: kodi
-  url: http://192.168.0.123/jsonrpc
+  host: http://192.168.0.123
+  port: 8080
   name: Kodi
   user: USERNAME
   password: PASSWORD
@@ -29,7 +30,8 @@ media_player:
 
 Configuration variables:
 
-- **url** *Required*: The URL of the XBMC/Kodi JSON-RPC API, eg. http://192.168.0.123/jsonrpc
+- **host** *Required*: The host name or address of the device that is running XBMC/Kodi
+- **port** *Required*: The port number, default 8080
 - **name** *Optional*: The name of the device used in the frontend.
 - **username** *Optional*: The XBMC/Kodi HTTP username.
 - **password** *Optional*: The XBMC/Kodi HTTP password.

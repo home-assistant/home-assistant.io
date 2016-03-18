@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Generic MJPEG IP Camera"
 description: "Instructions how to integrate IP cameras within Home Assistant."
 date: 2015-11-09 08:36
@@ -11,7 +11,7 @@ ha_category: Camera
 ---
 
 
-The mjpeg component allows you to integrate IP cameras which are capable to  stream their video with MJPEG into Home Assistant.
+The `mjpeg` component allows you to integrate IP cameras which are capable to  stream their video with MJPEG into Home Assistant.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 

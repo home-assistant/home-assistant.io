@@ -1,12 +1,13 @@
 ---
-layout: component
-title: "Command line sensor"
+layout: page
+title: "Command line Sensor"
 description: "Instructions how to integrate command line sensors into Home Assistant."
 date: 2015-09-13 10:10
 sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: command_line.png
 ha_category: Sensor
 ---
 
@@ -18,7 +19,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: command_sensor
+  platform: command_line
   command: SENSOR_COMMAND
   name: Command sensor
   unit_of_measurement: "°C"
@@ -30,7 +31,7 @@ Configuration variables:
 - **command** (*Required*): The action to take to get the value.
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 
@@ -49,7 +50,7 @@ To use those information, the entry for a sensor in the `configuration.yaml` fil
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: command_sensor
+  platform: command_line
   name: HD Temperature
   command: "hddtemp -n /dev/sda"
   unit_of_measurement: "°C"
@@ -61,7 +62,7 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 
 ```yaml
 # Example configuration.yaml entry
-  - platform: command_sensor
+  - platform: command_line
     name: CPU Temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     unit_of_measurement: "°C"
@@ -76,7 +77,7 @@ The `correction_factor` will make sure that the value is shown in a useful forma
 You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
 ```yaml
-  - platform: command_sensor
+  - platform: command_line
     command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
     name: HA release
 ```
@@ -105,7 +106,7 @@ To use the script you need to add something like the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: command_sensor
+  platform: command_line
   name: Brightness
   command: "python3 /path/to/script/arest-value.py"
   unit_of_measurement: "°C"
