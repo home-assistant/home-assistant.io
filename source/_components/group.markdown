@@ -45,8 +45,8 @@ Configuration variables:
 
 - **view** (*Optional*): If yes then the entry will be shown as a view (tab).
 - **name** (*Optional*): Name of the group.
-- **icon** (*Optional*): If you specify an icon it will show in the frontend instead of the name. This only applies to views; regular groups can't have icons.
-- **entities** array or comma delimited string (*Required*): List of entites to group.
+- **icon** (*Optional*): If the group is a view, this icon will show at the top in the frontend instead of the name. If it's not a view, then the icon shows when this group is used in another group.
+- **entities** (*Required*): array or comma delimited string, list of entities to group.
 
 <p class='img'>
 <img src='/images/blog/2016-01-release-12/views.png'>
@@ -64,9 +64,7 @@ Notice in the example below that in order to refer to the group "Living Room", y
     entities:
       - light.light_family_1
       - binary_sensor.motion_living
-  Bedroom:
-    entities:
-      - light.light_bedroom
+  Bedroom: light.light_bedroom, switch.sleeping
   Rooms:                                                                                                                                                       
     view: yes                                                                                                                                                  
     name: Rooms

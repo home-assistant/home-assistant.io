@@ -15,9 +15,8 @@ See the [components overview page](/components/) to find installation instructio
 
 Usually every entity needs its own entry in the `configuration.yaml` file. There are two styles for multiple entries:
 
-#### {% linkable_title Style 1 %}
-
-Collect every entity under the "parent". 
+#### {% linkable_title Style 1: Collect every entity under the "parent" %}
+ 
 
 ```yaml
 sensor:
@@ -34,9 +33,8 @@ switch:
   - platform: vera
 ```
 
-#### {% linkable_title Style 2 %}
+#### {% linkable_title Style 2: List each device separately %}
 
-List each device separately.  
 You need to append numbers or strings to differentiate the entries, as in the example below. The appended number or string must be unique.
 
 ```yaml
