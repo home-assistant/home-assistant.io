@@ -117,10 +117,11 @@
 
 <p>Check the <strong>Set State</strong> page from the <strong>Developer Tools</strong> and browse the <strong>Current entities:</strong> listing for all available entities.</p>
 
+<p>By default, every group appears in the HOME tab. If you name a group <code>default_view</code> it will REPLACE the contents of the HOME tab so you can customize it as you wish.</p>
+
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">group</span>:
-  <span class="comment"># If you name an entry default_view it will REPLACE the contents of the &quot;Home&quot; tab</span>
   <span class="key">default_view</span>:
     <span class="key">view</span>: <span class="string"><span class="content">yes</span></span>
     <span class="key">entities</span>:
@@ -147,10 +148,10 @@
 <p>Configuration variables:</p>
 
 <ul>
+  <li><strong>view</strong> (<em>Optional</em>): If yes then the entry will be shown as a view (tab).</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the group.</li>
-  <li><strong>icon</strong> (<em>Optional</em>): An optional icon to show in the Frontend.</li>
-  <li><strong>view</strong> (<em>Optional</em>): If yes then the entry will be shown as a view.</li>
-  <li><strong>entities</strong> array or comma delimited string (<em>Required</em>): List of entites to group.</li>
+  <li><strong>icon</strong> (<em>Optional</em>): If the group is a view, this icon will show at the top in the frontend instead of the name. If it’s not a view, then the icon shows when this group is used in another group.</li>
+  <li><strong>entities</strong> (<em>Required</em>): array or comma delimited string, list of entities to group.</li>
 </ul>
 
 <p class="img">
@@ -158,16 +159,24 @@
 Example of groups shown as views in the frontend.
 </p>
 
-<p>If all entities are switches or lights they can be controlled as one with a switch at the top of the card. Grouped states should share the same type of states (ON/OFF or HOME/NOT_HOME).</p>
+<p>If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once.</p>
+
+<p>You can create views (tabs) that contain other groups.  <br />
+Notice in the example below that in order to refer to the group “Living Room”, you use <code>group.living_room</code> (lowercase and spaces replaced with underscores).</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">group</span>:
-  <span class="key">living_room</span>:
-    - <span class="string"><span class="content">light.bowl</span></span>
-    - <span class="string"><span class="content">light.ceiling</span></span>
-    - <span class="string"><span class="content">light.tv_back_light</span></span>
-  <span class="key">children</span>: <span class="string"><span class="content">device_tracker.child_1, device_tracker.child_2</span></span>
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry that shows two groups, referred to in a view group (tab)</span>
+  <span class="key">Living Room</span>:
+    <span class="key">entities</span>:
+      - <span class="string"><span class="content">light.light_family_1</span></span>
+      - <span class="string"><span class="content">binary_sensor.motion_living</span></span>
+  <span class="key">Bedroom</span>: <span class="string"><span class="content">light.light_bedroom, switch.sleeping</span></span>
+  <span class="key">Rooms</span>:                                                                                                                                                       
+    <span class="key">view</span>: <span class="string"><span class="content">yes                                                                                                                                                  </span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Rooms</span></span>
+    <span class="key">entities</span>:                                                                                                                                                  
+      - <span class="string"><span class="content">group.living_room                                                                                                                                      </span></span>
+      - <span class="string"><span class="content">group.bedroom                                                                                                                                          </span></span>
 </pre></div>
 </div>
 </div>

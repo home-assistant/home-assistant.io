@@ -119,11 +119,9 @@
 
 <p>See the <a href="/components/">components overview page</a> to find installation instructions for your devices and services. If you can’t find support for your favorite device or service, <a href="/developers/add_new_platform/">consider adding support</a>.</p>
 
-<p>Usually every entity needs its own entry in the <code>configuration.yaml</code> file. There are two kinds of style for multiple entries:</p>
+<p>Usually every entity needs its own entry in the <code>configuration.yaml</code> file. There are two styles for multiple entries:</p>
 
-<h4><a class="title-link" name="style-1" href="#style-1"></a> Style 1</h4>
-
-<p>Collect every entity under the “parent”.</p>
+<h4><a class="title-link" name="style-1-collect-every-entity-under-the-parent" href="#style-1-collect-every-entity-under-the-parent"></a> Style 1: Collect every entity under the “parent”</h4>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">sensor</span>:
@@ -142,23 +140,23 @@
 </div>
 </div>
 
-<h4><a class="title-link" name="style-2" href="#style-2"></a> Style 2</h4>
+<h4><a class="title-link" name="style-2-list-each-device-separately" href="#style-2-list-each-device-separately"></a> Style 2: List each device separately</h4>
 
-<p>If you prefer to place your entries somewhere in the <code>configuration.yaml</code> file then you just choose this style. You need to append numbers (see example below) or strings (like <code>media_player livingroom:</code> or <code>media_player kitchen:</code>) to differentiate the entries. The appended number or string must be unique.</p>
+<p>You need to append numbers or strings to differentiate the entries, as in the example below. The appended number or string must be unique.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">media_player 1</span>:
+  <div class="code"><pre><span class="key">media_player livingroom</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">mpd</span></span>
   <span class="key">server</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
 
-<span class="key">media_player 2</span>:
+<span class="key">media_player kitchen</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">plex</span></span>
 
-<span class="key">camera</span>:
+<span class="key">camera 1</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">generic</span></span>
 
-<span class="key">media_player 3</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">sonos</span></span>
+<span class="key">camera 2</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">mjpeg</span></span>
 </pre></div>
 </div>
 </div>
@@ -169,10 +167,11 @@ If your devices are not showing up in the frontend then check the entries in you
 
 <h3><a class="title-link" name="grouping-devices" href="#grouping-devices"></a> Grouping devices</h3>
 
-<p>Once you have a bunch of devices set up, it is time to organize them. This can be done using groups. Each group exists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (icon in the middle).</p>
+<p>Once you have a bunch of devices set up, it is time to organize them into groups.  <br />
+Each group exists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (second icon).</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry showing two styles</span>
 <span class="key">group</span>:
   <span class="key">living_room</span>: <span class="string"><span class="content">light.table_lamp, switch.ac</span></span>
   <span class="key">bedroom</span>:
@@ -186,9 +185,11 @@ If your devices are not showing up in the frontend then check the entries in you
 
 <h3><a class="title-link" name="customizing-devices-and-services" href="#customizing-devices-and-services"></a> Customizing devices and services</h3>
 
-<p>By default, all of your devices will be visible and have a default icon determined by their domain. You may find it desireable to customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration to the <code>homeassistant:</code> section.</p>
+<p>By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration inside the <code>homeassistant:</code> section.</p>
 
-<p><code>entity_pictures</code>, badges, <code>device_tracker</code> pictures, etc. can either be a URL or <code>/local/file.jpg</code>, which points to directory <code>www</code> in the HASS configuration directory.</p>
+<p><code>entity_picture</code>s, badges, <code>device_tracker</code> pictures, etc. can either be external URLs or like <code>/local/filename.jpg</code>, where <code>/local</code> points to the directory <code>www</code> in the HASS configuration directory. You may have to create the <code>www</code> directory yourself as it is not made automatically.</p>
+
+<p>You can also use <code>icon</code> and refer to any icon from <a href="http://MaterialDesignIcons.com">MaterialDesignIcons.com</a>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
@@ -197,10 +198,13 @@ If your devices are not showing up in the frontend then check the entries in you
   <span class="comment"># Add this to your existing configuration</span>
   <span class="comment"># Only the `entity_id` is required.  All other options are optional.</span>
   <span class="key">customize</span>:
-    <span class="key">some.entity_id</span>:
+    <span class="key">thermostat.family_roomfamily_room</span>:
       <span class="key">hidden</span>: <span class="string"><span class="content">true</span></span>
-      <span class="key">entity_picture</span>: <span class="string"><span class="content">http://placehold.it/200x200</span></span>
-      <span class="key">friendly_name</span>: <span class="string"><span class="content">My better name</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">https://dl.dropboxusercontent.com/u/12345/images/nest.jpg</span></span>
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Nest</span></span>
+    <span class="key">switch.wemo_switch_1</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Kitchen kettle</span></span>
+      <span class="key">icon</span>: <span class="string"><span class="content">mdi:kettle</span></span>
 </pre></div>
 </div>
 </div>
