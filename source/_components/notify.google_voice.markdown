@@ -28,7 +28,7 @@ notify:
 Configuration variables:
 
 - **username** (*Required*): Enter your the Google email address you have signed up for Google Voice with. Go to https://www.google.com/voice to setup your Google Voice account.
-- **password** (*Required*): Enter the password associated with the above email. Go to https://www.pushbullet.com/ to retrieve your API key.
+- **password** (*Required*): Enter the password associated with the above email.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
 ### Usage
