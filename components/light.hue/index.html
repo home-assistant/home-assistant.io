@@ -122,13 +122,20 @@
 <span class="key">light</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">hue</span></span>
   <span class="key">host</span>: <span class="string"><span class="content">DEVICE_IP_ADDRESS</span></span>
-  <span class="comment"># Optional, this will allow unreachable bulbs to report their state correctly</span>
   <span class="key">allow_unreachable</span>: <span class="string"><span class="content">true</span></span>
-  <span class="comment"># Optional, make this unique if specifying multiple Hue hubs</span>
   <span class="key">filename</span>: <span class="string"><span class="content">my_hue_hub_token.conf</span></span>
 </pre></div>
 </div>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>host</strong> (<em>Required</em>): IP address aof the device, eg. 192.168.1.10.</li>
+  <li><strong>allow_unreachable</strong> (<em>Optional</em>):  This will allow unreachable bulbs to report their state correctly. By default <em>name</em> from the device is used.</li>
+  <li><strong>filename</strong> (<em>Optional</em>): Make this unique if specifying multiple Hue hubs.</li>
+</ul>
+
 
 
 </article>
