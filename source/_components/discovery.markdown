@@ -37,7 +37,7 @@ If running home-assistant in a docker container use switch `--net=host` to put i
 If you are developing a new platform, please read [how to make your platform discoverable]({{site_root}}/developers/add_new_platform/#discovery).
 
 <p class='note warning'>
-There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this playform on a 64-bit version of Python.
+There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this platform on a 64-bit version of Python.
 </p>
 
 <p class='note'>
