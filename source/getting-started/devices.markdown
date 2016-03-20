@@ -13,11 +13,10 @@ Home Assistant will be able to automatically discover and configure any Google C
 
 See the [components overview page](/components/) to find installation instructions for your devices and services. If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/).
 
-Usually every entity needs its own entry in the `configuration.yaml` file. There are two kinds of style for multiple entries:
+Usually every entity needs its own entry in the `configuration.yaml` file. There are two styles for multiple entries:
 
-#### {% linkable_title Style 1 %}
-
-Collect every entity under the "parent". 
+#### {% linkable_title Style 1: Collect every entity under the "parent" %}
+ 
 
 ```yaml
 sensor:
@@ -34,23 +33,23 @@ switch:
   - platform: vera
 ```
 
-#### {% linkable_title Style 2 %}
+#### {% linkable_title Style 2: List each device separately %}
 
-If you prefer to place your entries somewhere in the `configuration.yaml` file then you just choose this style. You need to append numbers (see example below) or strings (like `media_player livingroom:` or `media_player kitchen:`) to differentiate the entries. The appended number or string must be unique.
+You need to append numbers or strings to differentiate the entries, as in the example below. The appended number or string must be unique.
 
 ```yaml
-media_player 1:
+media_player livingroom:
   platform: mpd
   server: IP_ADDRESS
 
-media_player 2:
+media_player kitchen:
   platform: plex
 
-camera:
+camera 1:
   platform: generic
 
-media_player 3:
-  platform: sonos
+camera 2:
+  platform: mjpeg
 ```
 
 <p class='note note'>
@@ -59,10 +58,11 @@ If your devices are not showing up in the frontend then check the entries in you
 
 ### {% linkable_title Grouping devices %}
 
-Once you have a bunch of devices set up, it is time to organize them. This can be done using groups. Each group exists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (icon in the middle).
+Once you have a bunch of devices set up, it is time to organize them into groups.  
+Each group exists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (second icon).
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry showing two styles
 group:
   living_room: light.table_lamp, switch.ac
   bedroom:
@@ -74,9 +74,11 @@ For more details please check the [Group](https://home-assistant.io/components/g
 
 ### {% linkable_title Customizing devices and services %}
 
-By default, all of your devices will be visible and have a default icon determined by their domain. You may find it desireable to customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration to the `homeassistant:` section.
+By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration inside the `homeassistant:` section.
 
-`entity_pictures`, badges, `device_tracker` pictures, etc. can either be a URL or `/local/file.jpg`, which points to directory `www` in the HASS configuration directory.
+`entity_picture`s, badges, `device_tracker` pictures, etc. can either be external URLs or like `/local/filename.jpg`, where `/local` points to the directory `www` in the HASS configuration directory. You may have to create the `www` directory yourself as it is not made automatically.
+
+You can also use `icon` and refer to any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com).
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,10 +87,13 @@ homeassistant:
   # Add this to your existing configuration
   # Only the `entity_id` is required.  All other options are optional.
   customize:
-    some.entity_id:
+    thermostat.family_roomfamily_room:
       hidden: true
-      entity_picture: http://placehold.it/200x200
-      friendly_name: My better name
+      entity_picture: https://dl.dropboxusercontent.com/u/12345/images/nest.jpg
+      friendly_name: Nest
+    switch.wemo_switch_1:
+      friendly_name: Kitchen kettle
+      icon: mdi:kettle
 ```
 
 ### [Next step: Setting up presence detection &raquo;](/getting-started/presence-detection/)
