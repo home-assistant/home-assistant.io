@@ -111,14 +111,14 @@ mqtt:
   broker: localhost
 ```
 
-Replace `localhost` with the location of the running MQTT Broker. Devices from the MQTT Bridge are published to the path `/smartthings/<Device Name>/<Atribute>`
+Replace `localhost` with the location of the running MQTT Broker. Devices from the MQTT Bridge are published to the path `smartthings/<Device Name>/<Atribute>`
 
 For example, my Dimmer Z-Wave Lamp is called "Fireplace Lights" in SmartThings. The following topics are published:
 
 | Topic | Description
 | ----- | -----------
-| /smartthings/Fireplace Lights/level | Brightness (0-99)
-| /smartthings/Fireplace Lights/switch | Switch State (on/off)
+| smartthings/Fireplace Lights/level | Brightness (0-99)
+| smartthings/Fireplace Lights/switch | Switch State (on/off)
 
 Here is an example Home Assistant config:
 
@@ -126,10 +126,10 @@ Here is an example Home Assistant config:
 switch:
   platform: mqtt
   name: "Fireplace Lights"
-  state_topic: "/smartthings/Fireplace Lights/switch"
-  command_topic: "/smartthings/Fireplace Lights/switch"
-  brightness_state_topic: "/smartthings/Fireplace Lights/level"
-  brightness_command_topic: "/smartthings/Fireplace Lights/level"
+  state_topic: "smartthings/Fireplace Lights/switch"
+  command_topic: "smartthings/Fireplace Lights/switch"
+  brightness_state_topic: "smartthings/Fireplace Lights/level"
+  brightness_command_topic: "smartthings/Fireplace Lights/level"
   payload_on: "on"
   payload_off: "off"
   retain: true
