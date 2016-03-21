@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-03-21T15:35:58+00:00</updated>
+  <updated>2016-03-21T19:41:07+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -286,7 +286,7 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
 </div>
 </div>
 
-<p>Replace <code>localhost</code> with the location of the running MQTT Broker. Devices from the MQTT Bridge are published to the path <code>/smartthings/&lt;Device Name&gt;/&lt;Atribute&gt;</code></p>
+<p>Replace <code>localhost</code> with the location of the running MQTT Broker. Devices from the MQTT Bridge are published to the path <code>smartthings/&lt;Device Name&gt;/&lt;Atribute&gt;</code></p>
 
 <p>For example, my Dimmer Z-Wave Lamp is called “Fireplace Lights” in SmartThings. The following topics are published:</p>
 
@@ -299,11 +299,11 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
   </thead>
   <tbody>
     <tr>
-      <td>/smartthings/Fireplace Lights/level</td>
+      <td>smartthings/Fireplace Lights/level</td>
       <td>Brightness (0-99)</td>
     </tr>
     <tr>
-      <td>/smartthings/Fireplace Lights/switch</td>
+      <td>smartthings/Fireplace Lights/switch</td>
       <td>Switch State (on/off)</td>
     </tr>
   </tbody>
@@ -315,10 +315,10 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
   <div class="code"><pre><span class="key">switch</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
   <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Fireplace Lights</span><span class="delimiter">&quot;</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/smartthings/Fireplace Lights/switch</span><span class="delimiter">&quot;</span></span>
-  <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/smartthings/Fireplace Lights/switch</span><span class="delimiter">&quot;</span></span>
-  <span class="key">brightness_state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/smartthings/Fireplace Lights/level</span><span class="delimiter">&quot;</span></span>
-  <span class="key">brightness_command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/smartthings/Fireplace Lights/level</span><span class="delimiter">&quot;</span></span>
+  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">smartthings/Fireplace Lights/switch</span><span class="delimiter">&quot;</span></span>
+  <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">smartthings/Fireplace Lights/switch</span><span class="delimiter">&quot;</span></span>
+  <span class="key">brightness_state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">smartthings/Fireplace Lights/level</span><span class="delimiter">&quot;</span></span>
+  <span class="key">brightness_command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">smartthings/Fireplace Lights/level</span><span class="delimiter">&quot;</span></span>
   <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">on</span><span class="delimiter">&quot;</span></span>
   <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">off</span><span class="delimiter">&quot;</span></span>
   <span class="key">retain</span>: <span class="string"><span class="content">true</span></span>
