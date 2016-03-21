@@ -209,7 +209,7 @@ automation:
 
 Conditions are an optional part of an automation rule and be used to prevent an action from happening when triggered. Conditions look very familiar to triggers but are very different. A trigger will look at events happening at the system while a condition only looks at how the system looks right now. A trigger can observe that a switch is being turned on. A condition can only see if a switch is on or off.
 
-An automation rule can have mulitiple triggers. By default the action will only fire if all conditions pass. An optional key `condition_type: 'or'` can be set on the automation rule to fire action if any condition matches.  In the example below, the automation would trigger if the time is before 05:00 _OR_ after 20:00.
+An automation rule can have mulitiple conditions. By default the action will only fire if all conditions pass. An optional key `condition_type: 'or'` can be set on the automation rule to fire action if any condition matches.  In the example below, the automation would trigger if the time is before 05:00 _OR_ after 20:00.
 
 ```yaml
 automation:
