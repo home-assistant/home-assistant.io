@@ -121,7 +121,7 @@
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">camera</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">foscam</span></span>
-  <span class="key">ip</span>: <span class="string"><span class="content">192.168.0.123</span></span>
+  <span class="key">ip</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
   <span class="key">name</span>: <span class="string"><span class="content">Door Camera</span></span>
   <span class="key">port</span>: <span class="string"><span class="content">88</span></span>
   <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
@@ -133,16 +133,16 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>ip</strong> <em>Required</em>: The IP address your camera.</li>
-  <li><strong>port</strong> <em>Optional</em>: The port that the camera is running on. The default is 88.</li>
-  <li><strong>name</strong> <em>Optional</em>: This parameter allows you to override the name of your camera.</li>
-  <li><strong>username</strong> <em>Required</em>: The username for accessing your camera.</li>
-  <li><strong>password</strong> <em>Required</em>: The password for accessing your camera.
-    <ul>
-      <li><strong>Note</strong>: There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera’s documentation.</li>
-    </ul>
-  </li>
+  <li><strong>ip</strong> (<em>Required</em>): The IP address your camera.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port that the camera is running on. The default is 88.</li>
+  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
+  <li><strong>username</strong> (<em>Required</em>): The username for accessing your camera.</li>
+  <li><strong>password</strong> (<em>Required</em>): The password for accessing your camera.</li>
 </ul>
+
+<p class="note">
+There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera’s documentation.
+</p>
 
 <h3><a class="title-link" name="control-foscam-ptz-pantiltzoom---homeaway" href="#control-foscam-ptz-pantiltzoom---homeaway"></a> Control Foscam PTZ (Pan/Tilt/Zoom) - Home/Away</h3>
 <p>Foscam Webcams which support CGI Commands can be controlled by Home Assistant (<a href="http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf">Source</a>). For an example of how this can be done, see the <a href="/cookbook/foscam_away_mode_PTZ/">Foscam IP Camera Pan, Tilt, Zoom Control</a> Cookbook entry.</p>
