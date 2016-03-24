@@ -9,11 +9,14 @@ sharing: true
 footer: true
 ---
 
-<p class='note'>
-This is an advanced feature of Home Assistant. You'll need a basic understanding of the [Home Assistant architecture], especially states.
-</p>
+This is an advanced feature of Home Assistant. You'll need a basic understanding of the following things:
+
+  - [Home Assistant architecture], especially states.
+  - [State object]
+
 
 [Home Assistant architecture]: /developers/architecture/
+[State object]: /topics/state_object/
 
 Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:
 
