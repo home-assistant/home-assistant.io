@@ -1,0 +1,647 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Configuration.yaml by bassclarinetl2 - Home Assistant</title>
+    <meta name="author" content="Paulus Schoutsen">
+    <meta name="description" content="">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/configuration_yaml_from_bassclarinetl2/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Configuration.yaml by bassclarinetl2">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/configuration_yaml_from_bassclarinetl2/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Configuration.yaml by bassclarinetl2">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li>
+    <a>Getting started <i class="icon icon-caret-down"></i></a>
+    <ul>
+      <li><a href='/getting-started/'>Installing Home Assistant</a></li>
+      <li><a href='/getting-started/configuration/'>Configuration Basics</a></li>
+      <li><a href='/getting-started/devices/'>Adding devices</a></li>
+      <li><a href='/getting-started/presence-detection/'>Presence Detection</a></li>
+      <li><a href='/getting-started/automation/'>Automation</a></li>
+      <li><a href='/topics/'>Advanced Topics</a></li>
+    </ul>
+  </li>
+  <li><a href='/components/'>Components</a></li>
+  <li><a href='/cookbook'>Examples</a></li>
+  <li>
+    <a>Developers <i class="icon icon-caret-down"></i></a>
+    <ul>
+      <li><a href="/developers/">Setup Development</a></li>
+      <li><a href="/developers/architecture/">Architecture</a></li>
+      <li><a href="/developers/frontend/">Frontend Development</a></li>
+      <li><a href="/developers/creating_components/">
+        Creating Components
+      </a></li>
+      <li><a href="/developers/add_new_platform/">
+        Adding Platform Support
+      </a></li>
+      <li><a href="/developers/api/">API</a></li>
+      <li><a href="/developers/credits/">Credits</a></li>
+    </ul>
+  </li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Configuration.yaml by Bassclarinetl2
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">homeassistant</span>:
+  <span class="comment"># Name of the location where Home Assistant is running</span>
+  <span class="key">name</span>: <span class="string"><span class="content">example.com</span></span>
+  <span class="comment"># Location required to calculate the time the sun rises and sets</span>
+  <span class="key">latitude</span>: <span class="string"><span class="content">37</span></span>
+  <span class="key">longitude</span>: <span class="string"><span class="content">-121</span></span>
+  <span class="comment"># C for Celcius, F for Fahrenheit</span>
+  <span class="key">temperature_unit</span>: <span class="string"><span class="content">F</span></span>
+  <span class="comment"># Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones</span>
+  <span class="key">time_zone</span>: <span class="string"><span class="content">America/Los_Angeles</span></span>
+  <span class="key">customize</span>:
+    <span class="key">switch.aeon_labs_smart_energy_switch_switch_2</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Mac Switch-Meter</span></span>
+    <span class="key">switch.leviton_unknown_type1a02_id0334_switch_3</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">W Nightstand</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/zwvapl.jpg</span></span>
+    <span class="key">switch.hub_switch</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Wink Hub Switch</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/wemoswitch.jpg</span></span>
+    <span class="key">switch.leviton_unknown_type1a02_id0334_switch_4</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Christmas Tree</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/zwvapl.jpg</span></span>
+    <span class="key">switch.leviton_unknown_type1a02_id0334_switch_5</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Roof Lights</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/zwvapl.jpg</span></span>
+
+    <span class="key">light.w_bedroom_ceiling_</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Will's Bedroom Ceiling Lights (Wink)</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/casetta.jpg</span></span>
+    <span class="key">light.living_room_wall_</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Living Room Couch Lights (Wink)</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/casetta.jpg</span></span>
+
+    <span class="key">media_player.my_shield_android_tv</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Dalek (Cast)</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/shieldtv.jpg</span></span>
+    <span class="key">media_player.chromecast</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Jeff chromecast</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/chromecast.jpg</span></span>
+    <span class="key">media_player.kodi</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Tardis-Win7 (Kodi)</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/kodi.png</span></span>
+    <span class="key">media_player.kodi_2</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Dalek (Kodi)</span></span>
+    <span class="key">media_player.roku_2_xd__12a18n045363</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Parents Roku</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/roku2xd.jpg</span></span>
+
+    <span class="key">sensor.aeon_labs_smart_energy_switch_power_2</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Mac Usage (W)</span></span>
+    <span class="key">sensor.aeon_labs_smart_energy_switch_previous_reading_2</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Mac Usage Previous (W)</span></span>
+      <span class="key">hidden</span>: <span class="string"><span class="content">true</span></span>
+    <span class="key">sensor.aeon_labs_smart_energy_switch_energy_2</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Mac Usage (kWh)</span></span>
+      <span class="key">hidden</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment">#####################</span>
+<span class="comment">## GROUPS</span>
+<span class="comment">#####################</span>
+<span class="key">group</span>:
+  <span class="key">w_bedroom</span>:
+   - <span class="string"><span class="content">switch.leviton_unknown_type1a02_id0334_switch_3</span></span>
+   - <span class="string"><span class="content">light.w_bedroom_ceiling_</span></span>
+  <span class="key">christmas</span>:
+   - <span class="string"><span class="content">switch.leviton_unknown_type1a02_id0334_switch_4</span></span>
+   - <span class="string"><span class="content">switch.leviton_unknown_type1a02_id0334_switch_5</span></span>
+  <span class="key">almanac</span>:
+   - <span class="string"><span class="content">sensor.date</span></span>
+   - <span class="string"><span class="content">sensor.time</span></span>
+   - <span class="string"><span class="content">sensor.time_utc</span></span>
+   - <span class="string"><span class="content">sun.sun</span></span>
+  <span class="key">tracker</span>:
+   - <span class="string"><span class="content">device_tracker.will_wnexus</span></span>
+<span class="comment">#  OpenWeatherMap:</span>
+<span class="comment">#   - sensor.weather_temperature</span>
+<span class="comment">#   - sensor.weather_humidity</span>
+<span class="comment">#   - sensor.weather_pressure</span>
+<span class="comment">#   - sensor.weather_rain</span>
+<span class="comment">#   - sensor.weather_wind_speed</span>
+<span class="comment">#   - sensor.weather_cloud_coverage</span>
+<span class="comment">#   - sensor.weather_forecast</span>
+  <span class="key">Meteobridge</span>:
+   - <span class="string"><span class="content">sensor.outdoor_temp_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.outdoor_humidity_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.outdoor_dewpoint_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.precip_rate_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.wind_direction_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.wind_gust_meteohub</span></span>
+   - <span class="string"><span class="content">sensor.wind_chill_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.wind_speed_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.indoor_dewpoint_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.indoor_humidity_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.indoor_temp_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.precip_change_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.precip_total_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.sea_level_pressure_meteobridge</span></span>
+   - <span class="string"><span class="content">sensor.barometric_pressure_meteobridge</span></span>
+
+<span class="comment">####################</span>
+<span class="comment">## ZONES</span>
+<span class="comment">####################</span>
+<span class="key">zone</span>:
+  <span class="key">name</span>: <span class="string"><span class="content">Home</span></span>
+  <span class="key">latitude</span>: <span class="string"><span class="content">37</span></span>
+  <span class="key">longitude</span>: <span class="string"><span class="content">-121  </span></span>
+  <span class="key">radius</span>: <span class="string"><span class="content">200</span></span>
+  <span class="key">icon</span>: <span class="string"><span class="content">mdi:home</span></span>
+
+<span class="key">zone 2</span>:
+  <span class="key">name</span>: <span class="string"><span class="content">Barracuda_(SJ)</span></span>
+  <span class="key">latitude</span>: <span class="string"><span class="content">37</span></span>
+  <span class="key">longitude</span>: <span class="string"><span class="content">-121</span></span>
+  <span class="key">radius</span>: <span class="string"><span class="content">100</span></span>
+
+<span class="key">zone 3</span>:
+  <span class="key">name</span>: <span class="string"><span class="content">SFC</span></span>
+  <span class="key">latitude</span>: <span class="string"><span class="content">37</span></span>
+  <span class="key">longitude</span>: <span class="string"><span class="content">-122</span></span>
+  <span class="key">radius</span>: <span class="string"><span class="content">95</span></span>
+
+<span class="comment">####################</span>
+<span class="comment">## NOTIFICATIONS</span>
+<span class="comment">####################</span>
+
+
+<span class="comment">####################</span>
+<span class="comment">## AUTOMATION</span>
+<span class="comment">####################</span>
+<span class="key">automation</span>:
+<span class="comment">#- alias: 'W_at_work' </span>
+<span class="comment">#  trigger:</span>
+<span class="comment">#    - platform: zone</span>
+<span class="comment">#      entity_id: device_tracker.will_wnexus</span>
+<span class="comment">#      zone: zone.barracuda_sj</span>
+<span class="comment">#      event: enter</span>
+<span class="comment">#    - platform: time</span>
+<span class="comment">#      after: '07:15'</span>
+<span class="comment">#      before: '09:00'</span>
+<span class="comment">#  action:</span>
+<span class="comment">#    service: ifttt.trigger</span>
+<span class="comment">#    data: {&quot;event&quot;:&quot;hassnotification_dadsms&quot;, &quot;value1&quot;: &quot;Will's at Work&quot;}</span>
+- <span class="string"><span class="content">alias: &quot;Update_Update&quot;</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">updater.updater</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">ifttt.trigger</span></span>
+    <span class="key">data</span>: <span class="string"><span class="content">{&quot;event&quot;:&quot;hassnotification_willsms&quot;,&quot;value1&quot;:&quot;HASS has an update&quot;}</span></span>
+- <span class="string"><span class="content">alias: 'Christmas Roof ON'</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">sun</span></span>
+    <span class="key">event</span>: <span class="string"><span class="content">sunset</span></span>
+    <span class="key">offset</span>: <span class="string"><span class="content">'-01:00:00'</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">switch.leviton_unknown_type1a02_id0334_switch_5</span></span>
+- <span class="string"><span class="content">alias: 'Christmas Roof OFF'</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
+    <span class="key">hours</span>: <span class="string"><span class="content">1</span></span>
+    <span class="key">minutes</span>: <span class="string"><span class="content">0</span></span>
+    <span class="key">seconds</span>: <span class="string"><span class="content">0</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_off</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">switch.leviton_unknown_type1a02_id0334_switch_5</span></span>
+- <span class="string"><span class="content">alias: 'Christmas Tree ON'</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
+    <span class="key">hours</span>: <span class="string"><span class="content">8</span></span>
+    <span class="key">minutes</span>: <span class="string"><span class="content">0</span></span>
+    <span class="key">seconds</span>: <span class="string"><span class="content">0</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">switch.leviton_unknown_type1a02_id0334_switch_4</span></span>
+- <span class="string"><span class="content">alias: 'Christmas Tree (OFF)'</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
+    <span class="key">hours</span>: <span class="string"><span class="content">23</span></span>
+    <span class="key">minutes</span>: <span class="string"><span class="content">0</span></span>
+    <span class="key">seconds</span>: <span class="string"><span class="content">0</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_off</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">switch.leviton_unknown_type1a02_id0334_switch_4</span></span>
+<span class="comment">#- alias: test notify</span>
+<span class="comment">#  trigger:</span>
+<span class="comment">#    platform: time</span>
+<span class="comment">#    minutes: '/5' #every 5 min</span>
+<span class="comment">#  action:</span>
+<span class="comment">#    service: notify.pushEtta</span>
+<span class="comment">#    data: </span>
+<span class="comment">#      message: 5 Min Test</span>
+
+
+<span class="comment">#################################</span>
+<span class="comment">###       COMPONENTS          ###</span>
+<span class="comment">#################################</span>
+<span class="comment">#discovery:</span>
+<span class="key">sun</span>:
+<span class="comment">#updater:</span>
+<span class="key">history</span>:
+<span class="comment">#conversation:</span>
+<span class="key">frontend</span>:
+<span class="key">logbook</span>:
+
+<span class="key">http</span>:
+  <span class="key">api_password</span>: <span class="string"><span class="content">Austin12#</span></span>
+  <span class="key">server_port</span>: <span class="string"><span class="content">8123</span></span>
+  <span class="key">ssl_certificate</span>: <span class="string"><span class="content">/etc/letsencrypt/live/example.com/fullchain.pem</span></span>
+  <span class="key">ssl_key</span>: <span class="string"><span class="content">/etc/letsencrypt/live/example.com/privkey.pem</span></span>
+
+<span class="key">ifttt</span>:
+  <span class="key">key</span>: <span class="string"><span class="content">gm3dAtxwX8RpbA793mHWbK1bftO1wgScKt0ZHiT9GyC</span></span>
+
+<span class="key">media_player 1</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">plex</span></span>
+<span class="comment">#media_player 2:  </span>
+<span class="comment">#  platform: squeezebox</span>
+<span class="comment">#  host: 192.168.2.80</span>
+<span class="comment">#  port: 9000</span>
+<span class="key">media_player 3</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">cast</span></span>
+<span class="key">media_player 4</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">kodi</span></span>
+  <span class="key">url</span>: <span class="string"><span class="content">http://192.168.2.129:8080/jsonrpc</span></span>
+  <span class="key">user</span>: <span class="string"><span class="content">kodi</span></span>
+  <span class="key">password</span>: <span class="string"><span class="content">kodi</span></span>
+<span class="key">media_player 5</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">plex</span></span>
+<span class="key">media_player 6</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">kodi</span></span>
+  <span class="key">url</span>: <span class="string"><span class="content">http://192.168.2.165/jsonrpc</span></span>
+<span class="key">media_player 7</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">samsungtv</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.90</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Parents TV</span></span>
+
+<span class="key">wink</span>:
+  <span class="key">access_token</span>: <span class="string"><span class="content">cf83448f669cd3acd3b969b063028565</span></span>
+  <span class="key">refresh_token</span>: <span class="string"><span class="content">6213c8a1d519d864e08b7364c91eaf22</span></span>
+
+<span class="key">zwave</span>:
+  <span class="key">usb_path</span>: <span class="string"><span class="content">/dev/ttyUSB0</span></span>
+  <span class="key">config_path</span>: <span class="string"><span class="content">/usr/local/share/python-openzwave/config</span></span>
+  <span class="key">polling_interval</span>: <span class="string"><span class="content">10000</span></span>
+
+<span class="comment">#zigbee:</span>
+<span class="comment">#  device: /dev/ttyUSB1</span>
+<span class="comment">#  baud: 115200</span>
+
+<span class="key">mqtt</span>:
+  <span class="key">broker</span>: <span class="string"><span class="content">127.0.0.1</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">8883</span></span>
+  <span class="key">username</span>: <span class="string"><span class="content">hass</span></span>
+  <span class="key">password</span>: <span class="string"><span class="content">austin</span></span>
+
+<span class="key">device_tracker 1</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">owntracks</span></span>
+
+  <span class="key">track_new_devices</span>: <span class="string"><span class="content">yes</span></span>
+  <span class="key">interval_seconds</span>: <span class="string"><span class="content">40</span></span>
+  <span class="key">consider_home</span>: <span class="string"><span class="content">120 </span></span>
+
+<span class="key">device_tracker 2</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">nmap_tracker</span></span>
+  <span class="key">hosts</span>: <span class="string"><span class="content">192.168.2.0/24</span></span>
+  <span class="key">home_interval</span>: <span class="string"><span class="content">3</span></span>
+
+<span class="comment">#sensor:</span>
+<span class="comment">#  platform: openweathermap</span>
+<span class="comment">#  api_key: b693a8bb2f60dcedc7b4bf33649ed4f1</span>
+<span class="comment">#  forecast: 1</span>
+<span class="comment">#  monitored_conditions:</span>
+<span class="comment">#    - temperature</span>
+<span class="comment">#    - wind_speed</span>
+<span class="comment">#    - humidity</span>
+<span class="comment">#    - pressure</span>
+<span class="comment">#    - clouds</span>
+<span class="comment">#    - rain</span>
+
+<span class="key">sensor 2</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">time_date</span></span>
+  <span class="key">display_options</span>:
+    - <span class="string"><span class="content">'time'</span></span>
+    - <span class="string"><span class="content">'date'</span></span>
+    - <span class="string"><span class="content">'time_utc'</span></span>
+
+<span class="comment">### BEGIN METEO SENSORS ###</span>
+<span class="key">sensor 3</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Outdoor Temp (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>   
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+
+<span class="key">sensor 4</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Outdoor Humidity (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">Percent</span></span>
+
+<span class="key">sensor 5</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Outdoor Dewpoint (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+
+<span class="key">sensor 6</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Wind Direction (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">Degrees</span></span>
+
+<span class="key">sensor 7</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Wind Gust (Meteohub)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">m/s</span></span>
+
+<span class="key">sensor 8</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Wind Speed (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">m/s</span></span>
+
+<span class="key">sensor 9</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Wind Chill (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+
+<span class="key">sensor 10</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Precip Rate (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mm/hr</span></span>
+
+<span class="key">sensor 11</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Precip Total (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mm</span></span>
+
+<span class="key">sensor 12</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Precip Change (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mm</span></span>
+
+<span class="key">sensor 13</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Indoor Temp (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+
+<span class="key">sensor 14</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Indoor Humidity (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">percent</span></span>
+
+<span class="key">sensor 15</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Indoor Dewpoint (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+
+<span class="key">sensor 16</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Barometric Pressure (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mb</span></span>
+
+<span class="key">sensor 17</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Sea Level Pressure (Meteobridge)</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mb</span></span>
+
+<span class="key">sensor 18</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">steam_online</span></span>
+  <span class="key">api_key</span>: <span class="string"><span class="content">[Redact]</span></span>
+  <span class="key">accounts</span>:
+    - <span class="string"><span class="content">76561198012067051  </span></span>
+
+<span class="key">switch</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">wemo</span></span>
+</pre></div>
+</div>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_cookbook/configuration_yaml_from_bassclarinetl2.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <a href='/cookbook'>Back to the cookbook</a>
+  </div>
+  <div class='section'>
+    <h1 class="title delta">Example configuration.yaml</h1>
+    <ul class='divided'>
+          <li>
+              <a href='https://gist.github.com/CCOSTAN/9934de973a293b809868'>Configuration.yaml by Carlo Costanzo <i class="icon-external-link"></i></a>
+          </li>
+          <li>
+              <a href='https://github.com/danichispa/hass-config'>Configuration.yaml by Danichispa <i class="icon-external-link"></i></a>
+          </li>
+          <li>
+              <a href='https://github.com/GreenTurtwig/personal-home-automation/tree/master/Home%20Assistant'>Configuration.yaml by GreenTurtwig <i class="icon-external-link"></i></a>
+          </li>
+          <li>
+              Configuration.yaml by bassclarinetl2
+          </li>
+          <li>
+              <a href='https://github.com/brusc/Home-Assistant-Configuration'>Configuration.yaml by brusc <i class="icon-external-link"></i></a>
+          </li>
+          <li>
+              <a href='https://github.com/happyleavesaoc/my-home-automation/tree/master/homeassistant'>Configuration.yaml by happyleavesaoc <i class="icon-external-link"></i></a>
+          </li>
+          <li>
+              <a href='/cookbook/customize_polling_interval/'>Customize polling interval for any component</a>
+          </li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://github.com/balloob/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+  </body>
+</html>
