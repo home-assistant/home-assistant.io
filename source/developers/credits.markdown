@@ -88,7 +88,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Nick Touran](https://github.com/partofthething)
 - [Nick Waring](https://github.com/nickwaring)
 - [Nolan Gilley](https://github.com/nkgilley)
-- [Oliver van Porten](https://github.com/mcdeck))
+- [Oliver van Porten](https://github.com/mcdeck)
 - [Pascal Bach](https://github.com/bachp)
 - [Per Sandström](https://github.com/persandstrom)
 - [Philip Lundrigan](https://github.com/philipbl)
@@ -114,7 +114,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Tom Duijf](https://github.com/tomduijf)
 - [trollkarlen](https://github.com/trollkarlen)
 - [vitorespindola](https://github.com/vitorespindola)
-- [w1ll1am23](https://github.com/w1ll1am23)
+- [William Scanlon](https://github.com/w1ll1am23)
 - [wind-rider](https://github.com/wind-rider)
 - [Zac Mrowicki](https://github.com/zmrow)
 
