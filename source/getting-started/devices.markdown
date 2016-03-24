@@ -76,7 +76,7 @@ For more details please check the [Group](https://home-assistant.io/components/g
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration inside the `homeassistant:` section.
 
-`entity_picture`s, badges, `device_tracker` pictures, etc. can either be external URLs or like `/local/filename.jpg`, where `/local` points to the directory `www` in the HASS configuration directory. You may have to create the `www` directory yourself as it is not made automatically.
+`entity_picture`entries, badges, `device_tracker` pictures, etc. can either be external URLs (e.g. `http://example.com/example.jpg`) or of the form `/local/filename.jpg`, where `/local` represents the directory `www` in the HASS configuration directory. You may have to create the `www` directory yourself as it is not made automatically.
 
 You can also use `icon` and refer to any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com).
 
