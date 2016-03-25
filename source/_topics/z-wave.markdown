@@ -13,9 +13,15 @@ footer: true
 
 Z-Wave is a popular home automation protocol that is not always straightforward to setup. This page will try to help you make sense of it all.
 
+- Note: Upon first run, the z-wave component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may expidite this proccess.
+
 ## {% linkable_title Supported Z-Wave Sticks %}
 
 #### Aeotec Z-Stick Series 2
+
+Works fine on Linux.
+
+#### Aeotec Z-Stick Series 5
 
 Works fine on Linux.
 
