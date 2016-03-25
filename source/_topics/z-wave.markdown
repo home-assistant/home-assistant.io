@@ -17,13 +17,10 @@ Z-Wave is a popular home automation protocol that is not always straightforward 
 
 ## {% linkable_title Supported Z-Wave Sticks %}
 
-#### Aeotec Z-Stick Series 2
-
-Works fine on Linux.
-
-#### Aeotec Z-Stick Series 5
-
-Works fine on Linux.
+| Device                  | Works on Linux | Works on Windows | Works on OSX | Comments  |
+|-------------------------|----------------|------------------|--------------|-----------|
+| Aeotec Z-Stick Series 2 | X              |                  |              |           |
+| Aeotec Z-Stick Series 5 | X              |                  |              |           |
 
 
 ## {% linkable_title Stick Alternatives %}
