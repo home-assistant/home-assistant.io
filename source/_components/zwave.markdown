@@ -43,7 +43,7 @@ $ sudo PYTHON_EXEC=`which python3` make install
 <p class='note'>
 Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
 
-`$ sudo PYTHON_EXEC=`which python3` checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave`
+```$ sudo PYTHON_EXEC=`which python3` checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave````
 
 </p>
 
