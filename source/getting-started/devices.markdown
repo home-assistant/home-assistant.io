@@ -89,7 +89,7 @@ homeassistant:
   # Only the `entity_id` is required.  All other options are optional.
   customize:
     sensor.living_room_motion:
-     hidden: true
+      hidden: true
     thermostat.family_roomfamily_room:
       entity_picture: https://dl.dropboxusercontent.com/u/12345/images/nest.jpg
       friendly_name: Nest
