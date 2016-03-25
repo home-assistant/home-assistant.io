@@ -187,7 +187,8 @@ Each group exists of a name and a list of entity IDs. Entity IDs can be retrieve
 
 <p>By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration inside the <code>homeassistant:</code> section.</p>
 
-<p><code>entity_picture</code>entries, badges, <code>device_tracker</code> pictures, etc. can either be external URLs (e.g. <code>http://example.com/example.jpg</code>) or of the form <code>/local/filename.jpg</code>, where <code>/local</code> represents the directory <code>www</code> in the HASS configuration directory. You may have to create the <code>www</code> directory yourself as it is not made automatically.</p>
+<p>Devices that you dont want to have visible can be hidden with <code>hidden</code>.  <br />
+<code>entity_picture</code>entries, badges, <code>device_tracker</code> pictures, etc. can either be external URLs (e.g. <code>http://example.com/example.jpg</code>) or of the form <code>/local/filename.jpg</code>, where <code>/local</code> represents the directory <code>www</code> in the HASS configuration directory. You may have to create the <code>www</code> directory yourself as it is not made automatically.</p>
 
 <p>You can also use <code>icon</code> and refer to any icon from <a href="http://MaterialDesignIcons.com">MaterialDesignIcons.com</a>.</p>
 
@@ -198,11 +199,15 @@ Each group exists of a name and a list of entity IDs. Entity IDs can be retrieve
   <span class="comment"># Add this to your existing configuration</span>
   <span class="comment"># Only the `entity_id` is required.  All other options are optional.</span>
   <span class="key">customize</span>:
+    <span class="key">sensor.living_room_motion</span>:
+     <span class="key">hidden</span>: <span class="string"><span class="content">true</span></span>
     <span class="key">thermostat.family_roomfamily_room</span>:
-      <span class="key">hidden</span>: <span class="string"><span class="content">true</span></span>
       <span class="key">entity_picture</span>: <span class="string"><span class="content">https://dl.dropboxusercontent.com/u/12345/images/nest.jpg</span></span>
       <span class="key">friendly_name</span>: <span class="string"><span class="content">Nest</span></span>
     <span class="key">switch.wemo_switch_1</span>:
+      <span class="key">friendly_name</span>: <span class="string"><span class="content">Toaster</span></span>
+      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/toaster.jpg</span></span>
+    <span class="key">switch.wemo_switch_2</span>:
       <span class="key">friendly_name</span>: <span class="string"><span class="content">Kitchen kettle</span></span>
       <span class="key">icon</span>: <span class="string"><span class="content">mdi:kettle</span></span>
 </pre></div>
