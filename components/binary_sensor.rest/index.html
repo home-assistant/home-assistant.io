@@ -124,6 +124,7 @@
   <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
   <span class="key">method</span>: <span class="string"><span class="content">GET</span></span>
   <span class="key">name</span>: <span class="string"><span class="content">REST GET binary sensor</span></span>
+  <span class="key">sensor_class</span>: <span class="string"><span class="content">opening</span></span>
   <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.state }}'</span></span>
 </pre></div>
 </div>
@@ -137,9 +138,10 @@
   <span class="key">platform</span>: <span class="string"><span class="content">rest</span></span>
   <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
   <span class="key">method</span>: <span class="string"><span class="content">POST</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">REST POST binary sensor</span></span>
+  <span class="key">sensor_class</span>: <span class="string"><span class="content">opening</span></span>
   <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.state }}'</span></span>
   <span class="key">payload</span>: <span class="string"><span class="content">'{ &quot;device&quot; : &quot;door&quot; }'</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">REST POST binary sensor</span></span>
 </pre></div>
 </div>
 </div>
@@ -149,9 +151,10 @@
 <ul>
   <li><strong>resource</strong> (<em>Required</em>): The resource or endpoint that contains the value.</li>
   <li><strong>method</strong> (<em>Optional</em>): The method of the request. Default is GET.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the REST binary sensor.</li>
+  <li><strong>sensor_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the value.</li>
   <li><strong>payload</strong> (<em>Optional</em>): The payload to send with a POST request. Usualy formed as a dictionary.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the REST binary sensor.</li>
 </ul>
 
 <p class="note warning">
