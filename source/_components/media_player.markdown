@@ -25,7 +25,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.
-| `mute`                 |      no | True/false for mute/unmute
+| `mute`                 |       no | True/false for mute/unmute
 
 #### {% linkable_title Service `media_player/set_volume_level` %}
 
