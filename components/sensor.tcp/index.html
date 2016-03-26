@@ -120,14 +120,14 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">sensor</span>:
 <span class="comment"># Example configuration.yaml entry</span>
-  - <span class="string"><span class="content">platform: tcp</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Central Heating Pressure</span></span>
-    <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-    <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
-    <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
-    <span class="key">payload</span>: <span class="string"><span class="content">PAYLOAD</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit</span>: <span class="string"><span class="content">UNIT_OF_MEASUREMENT</span></span>
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Central Heating Pressure</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="content">PAYLOAD</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">UNIT_OF_MEASUREMENT</span></span>
 </pre></div>
 </div>
 </div>
@@ -165,14 +165,14 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">sensor</span>:
 <span class="comment"># Example configuration.yaml entry</span>
-  - <span class="string"><span class="content">platform: tcp</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Central Heating Pressure</span></span>
-    <span class="key">host</span>: <span class="string"><span class="content">10.0.0.127</span></span>
-    <span class="key">port</span>: <span class="string"><span class="content">8888</span></span>
-    <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
-    <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">r WaterPressure\n</span><span class="delimiter">&quot;</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit</span>: <span class="string"><span class="content">Bar</span></span>
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Central Heating Pressure</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">10.0.0.127</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">8888</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">r WaterPressure\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">Bar</span></span>
 </pre></div>
 </div>
 </div>
@@ -205,14 +205,14 @@ Escape character is '^]'.
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">sensor</span>:
 <span class="comment"># Example configuration.yaml entry</span>
-  - <span class="string"><span class="content">platform: tcp</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">HDD temperature</span></span>
-    <span class="key">host</span>: <span class="string"><span class="content">127.0.0.1</span></span>
-    <span class="key">port</span>: <span class="string"><span class="content">7634</span></span>
-    <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
-    <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">\n</span><span class="delimiter">&quot;</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split('|')[3] }}</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">HDD temperature</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">127.0.0.1</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">7634</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split('|')[3] }}</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
 </pre></div>
 </div>
 </div>

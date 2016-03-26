@@ -118,17 +118,17 @@
 <p>To enable this sensor, add the following lines to your <code>configuration.yaml</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
+  <div class="code"><pre><span class="key">binary_sensor</span>:
 <span class="comment"># Example configuration.yaml entry</span>
-  - <span class="string"><span class="content">platform: tcp</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">TCP Binary Sensor</span></span>
-    <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-    <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
-    <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">r State\n</span><span class="delimiter">&quot;</span></span>
-    <span class="key">value_on</span>: <span class="string"><span class="content">1</span></span>
-    <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit</span>: <span class="string"><span class="content">UNIT_OF_MEASUREMENT</span></span>
+  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">TCP Binary Sensor</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">r State\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_on</span>: <span class="string"><span class="content">1</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
+  <span class="key">buffer_size</span>: <span class="string"><span class="content">BUFFER_SIZE</span></span>
 </pre></div>
 </div>
 </div>
@@ -143,7 +143,6 @@
   <li><strong>value_on</strong> (<em>Required</em>): The value returned when the device is “on”.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to 10.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the value. By default it’s assumed that the entire response is the value.</li>
-  <li><strong>unit</strong> (<em>Optional</em>): The unit of measurement to use for the value.</li>
   <li><strong>buffer_size</strong> (<em>Optional</em>): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to 1024.</li>
 </ul>
 
