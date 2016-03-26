@@ -153,7 +153,7 @@ $ sudo service hass-daemon stop
   </div> <!-- UPSTART -->
 
 <div class="advanced-installs systemd">
-    <p>Newer linux distributions are trending towards using systemd for managing daemons. Typically, systems based on Fedora or Debian 8 or later use systemd. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using systemd, you may check with the following command:</p>
+    <p>Newer linux distributions are trending towards using systemd for managing daemons. Typically, systems based on Fedora or Debian 8 or later use systemd. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using <code>systemd</code>, you may check with the following command:</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ ps -p 1 -o comm=
@@ -161,22 +161,20 @@ $ sudo service hass-daemon stop
 </div>
     </div>
 
-    <p>If the preceding command returns the string <code>systemd</code>, you are likely using systemd.</p>
+    <p>If the preceding command returns the string <code>systemd</code>, you are likely using <code>systemd</code>.</p>
 
-    <p>If you want Home Assistant to be launched automatically, an extra step is needed to setup systemd. You need a service file to control Home Assistant with systemd.</p>
+    <p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code>systemd</code>. You need a service file to control Home Assistant with <code>systemd</code>. If you are using a Raspberry Pi then replace the <code>[your user]</code> with <code>pi</code> otherwise use your user you want to run Home Assistant.</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ su -c 'cat &lt;&lt;EOF &gt;&gt; /lib/systemd/system/home-assistant.service
+  <div class="code"><pre>$ su -c 'cat &lt;&lt;EOF &gt;&gt; /lib/systemd/system/home-assistant@[your user].service
 [Unit]
 Description=Home Assistant
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/hass
-# Next line is to run as a specific user
-# for Raspberry Pi users, keep it at 'pi'
-User=pi
+User=%i
+ExecStart=/usr/bin/hass
 
 [Install]
 WantedBy=multi-user.target
@@ -185,12 +183,20 @@ EOF'
 </div>
     </div>
 
-    <p>You need to reload systemd to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.</p>
+    <p>There is also another <a href="https://raw.githubusercontent.com/balloob/home-assistant/master/script/home-assistant%40.service">sample service file</a> available. To use this one, just download it.</p>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo wget https://raw.githubusercontent.com/balloob/home-assistant/master/script/home-assistant%40.service -O /lib/systemd/system/home-assistant@[your user].service
+</pre></div>
+</div>
+    </div>
+
+    <p>You need to reload <code>systemd</code> to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ sudo systemctl --system daemon-reload
-$ sudo systemctl enable home-assistant
-$ sudo systemctl start home-assistant
+$ sudo systemctl enable home-assistant@[your user]
+$ sudo systemctl start home-assistant@[your user]
 </pre></div>
 </div>
     </div>
@@ -198,13 +204,14 @@ $ sudo systemctl start home-assistant
     <p>If everything went well, <code>sudo systemctl start home-assistant</code> should give you a positive feedback.</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl status home-assistant -l
-● home-assistant.service - Home Assistant
-   Loaded: loaded (/usr/lib/systemd/system/home-assistant.service; disabled; vendor preset: disabled)
-   Active: active (running) since Thu 2015-06-25 23:38:37 CEST; 3min 13s ago
- Main PID: 8557 (python3.4)
-   CGroup: /system.slice/home-assistant.service
-           └─8557 /usr/bin/python3.4 -m homeassistant
+  <div class="code"><pre>$ sudo systemctl status home-assistant@[your user] -l
+● home-assistant@fab.service - Home Assistant for [your user]
+   Loaded: loaded (/usr/lib/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled)
+   Active: active (running) since Sat 2016-03-26 12:26:06 CET; 13min ago
+ Main PID: 30422 (hass)
+   CGroup: /system.slice/system-home\x2dassistant.slice/home-assistant@[your user].service
+           ├─30422 /usr/bin/python3 /usr/bin/hass
+           └─30426 /usr/bin/python3 /usr/bin/hass
 [...]
 </pre></div>
 </div>
@@ -213,7 +220,7 @@ $ sudo systemctl start home-assistant
     <p>To get Home Assistant’s logging output, simple use <code>journalctl</code>.</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo journalctl -f -u home-assistant
+  <div class="code"><pre>$ sudo journalctl -f -u home-assistant@[your user]
 </pre></div>
 </div>
     </div>
