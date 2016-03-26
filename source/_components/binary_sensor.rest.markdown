@@ -22,6 +22,7 @@ binary_sensor:
   resource: http://IP_ADDRESS/ENDPOINT
   method: GET
   name: REST GET binary sensor
+  sensor_class: opening
   value_template: '{% raw %}{{ value_json.state }}{% endraw %}'
 ```
 
@@ -33,18 +34,20 @@ binary_sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: POST
+  name: REST POST binary sensor
+  sensor_class: opening
   value_template: '{% raw %}{{ value_json.state }}{% endraw %}'
   payload: '{ "device" : "door" }'
-  name: REST POST binary sensor
 ```
 
 Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
+- **name** (*Optional*): Name of the REST binary sensor.
+- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
-- **name** (*Optional*): Name of the REST binary sensor.
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.
