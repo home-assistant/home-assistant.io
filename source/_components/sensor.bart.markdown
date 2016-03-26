@@ -21,17 +21,18 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: bart
-    origin: 19TH
-    lines:
-      - MLBR
-      - SFIA
+  platform: bart
+  origin: 19TH
+  lines:
+    - MLBR
+    - SFIA
 ```
 
 Configuration variables:
 
 - **origin** (*Required*): The abbreviation of the station to get departure times for.
 - **lines** (*Required*): The abbreviations for the lines you are trying to ride, e.g. setting SFIA means return trains with a destination of San Francisco Internationl Airport (SFIA).
+- **api_key** (*Optional*): An API key that can be generated [here](http://api.bart.gov/api/register.aspx). If not provided, the publicly known BART API key will be used (`MW9S-E7SL-26DU-VV8V`)
 
 You can find a list of all station names and abbreviations on [this page](http://api.bart.gov/docs/overview/abbrev.aspx).
 
