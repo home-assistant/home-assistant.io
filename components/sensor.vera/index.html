@@ -113,36 +113,10 @@
   <hr class="divider">
   
 
-  <p>This <code>vera</code> sensor platform allows you to get data from your <a href="http://getvera.com/">Vera</a> sensors.</p>
+  <p>The <code>vera</code> platform allows you to get data from your <a href="http://getvera.com/">Vera</a> sensors from within Home Assistant.</p>
 
-<p>To use your Vera sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>They will be automatically discovered if the vera component is loaded.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">vera</span></span>
-  <span class="key">vera_controller_url</span>: <span class="string"><span class="content">http://YOUR_VERA_IP:3480/</span></span>
-  <span class="key">device_data</span>:
-    <span class="key">12</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My awesome sensor</span></span>
-      <span class="key">exclude</span>: <span class="string"><span class="content">true</span></span>
-    <span class="key">13</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Another sensor</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>Configuration variables:</p>
-
-<ul>
-  <li><strong>vera_controller_url</strong> (<em>Required</em>): This is the base URL of your vera controller including the port number if not running on 80, eg. http://192.168.1.21:3480/</li>
-  <li><strong>device_data</strong> array (<em>Optional</em>):This contains an array additional device information for your Vera devices. It is not required and if not specified all sensors configured in your Vera controller will be added with default values. You should use the id of your Vera device as the key for the device within <code>device_data</code>.
-    <ul>
-      <li><strong>name</strong> (<em>Optional</em>):This parameter allows you to override the name of your Vera device in the frontend, if not specified the value configured for the device in your Vera will be used.</li>
-      <li><strong>exclude</strong> (<em>Optional</em>): This parameter allows you to exclude the specified device, it should be set to “True” if you want this device excluded.</li>
-    </ul>
-  </li>
-</ul>
 
 
 </article>
@@ -160,11 +134,17 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/vera.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
         <li><a href='/components/vera/'>
           Vera
+        </a></li>
+        <li><a href='/components/binary_sensor.vera/'>
+          Vera Binary Sensor
         </a></li>
         <li><a href='/components/light.vera/'>
           Vera Light
