@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-03-26T07:13:31+00:00</updated>
+  <updated>2016-03-26T08:09:04+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.16: Embedded MQTT broker, Uber, Yamaha receivers and Growl]]></title>
+    <link href="https://home-assistant.io/blog/2016/03/26/embedded-mqtt-broker-uber-yamaha-growl/"/>
+    <updated>2016-03-26T07:10:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/03/26/embedded-mqtt-broker-uber-yamaha-growl</id>
+    <content type="html"><![CDATA[<p>Party people, 0.16 is here! The big thing with this release is that we have completely removed the barrier to get started by MQTT by being able to launch an embedded MQTT server: <a href="https://github.com/beerfactory/hbmqtt">hbMQTT</a>. Just add <code>mqtt:</code> to your config and a broker is launched and connected with Home Assistant. See the <a href="https://home-assistant.io/components/mqtt/#use-the-embedded-broker/">documentation</a> for more info.</p>
+
+<p>Further in this release a bunch of cool new stuff, bug fixes and rewrites for the Vera and Tellstick component (see breaking changes section at bottom for this!).</p>
+
+<p>Rock on.</p>
+
+<p><img src="https://home-assistant.io/images/supported_brands/message_bird.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/pulseaudio.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/uber.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/gntp.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/yamaha.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Device Tracker - <a href="https://home-assistant.io/components/device_tracker.owntracks/">OwnTracks</a>: Allow entry into passive zones using iBeacons (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Tellstick: rewrite to <a href="https://home-assistant.io/components/tellstick/">component</a> to address concurrency issues (<a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)</li>
+  <li>Z-Wave: add <a href="https://home-assistant.io/components/zwave/#services/">services</a> to heal and soft reset network (<a href="https://github.com/srcLurker">@srcLurker</a>)</li>
+  <li>New component <a href="https://home-assistant.io/components/input_slider/">input_slider</a> added (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Light - <a href="https://home-assistant.io/components/light.hue/">Hue</a>: Option added to ignore unreachable property (<a href="https://github.com/maddox">@maddox</a>)</li>
+  <li>Notify: <a href="https://home-assistant.io/components/notify.message_bird/">MessageBird</a> support added (<a href="https://github.com/florianholzapfel">@florianholzapfel</a>)</li>
+  <li>HTTP: Failed login attempts are now logged (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Vera: rewrite to <a href="https://home-assistant.io/components/vera/">component</a> to simplify code and organize for reusability (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Discovery: support for Squeezebox (Logitech media) server added (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Discovery: fix uPNP discovery crashing some routers (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/switch.wake_on_lan/">Wake on LAN</a> platform added (<a href="https://github.com/joopert">@joopert</a>)</li>
+  <li>Services for thermostats, notify and media player will now validate passed in parameters (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Switch - <a href="https://home-assistant.io/components/switch.arduino/">Arduino</a>: support for default state and negate port functionality (<a href="https://github.com/tilutza">@tilutza</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/switch.pulseaudio_loopback/">PulseAudio loopback</a> now supported (<a href="https://github.com/Cinntax">@Cinntax</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.uber/">Uber</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Notify: <a href="https://home-assistant.io/components/notify.gntp/">Growl (GNTP)</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Media Player: <a href="https://home-assistant.io/components/media_player.yamaha/">Yamaha receivers</a> now supported (<a href="https://github.com/aoakeson">@aoakeson</a>)</li>
+</ul>
+
+<h3>Breaking changes</h3>
+<ul>
+  <li>
+    <p>Automation: support for old deprecated config has been removed</p>
+  </li>
+  <li>
+    <p>Tellstick configuration has changed</p>
+  </li>
+</ul>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">tellstick</span>:
+  <span class="key">signal_repetitions</span>: <span class="string"><span class="content">X</span></span>
+</pre></div>
+</div>
+</div>
+
+<ul>
+  <li>Vera configuration has changed</li>
+</ul>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">vera</span>:
+  <span class="key">vera_controller_url</span>: <span class="string"><span class="content">http://192.168.1.161:3480/</span></span>
+  <span class="comment"># Optional to exclude devices - this is a list of vera device ids</span>
+  <span class="key">exclude</span>: <span class="string"><span class="content">[ 13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]</span></span>
+  <span class="comment"># Optional to import switches as lights - this is a list of vera device ids</span>
+  <span class="key">lights</span>: <span class="string"><span class="content">[15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]</span></span>
+</pre></div>
+</div>
+</div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.]]></title>
@@ -1521,56 +1588,6 @@ $ sudo systemctl status grafana-server
   <li>Re-install platform and component dependencies after a Home Assistant version upgrade (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.7.6: Amazon FireTV, Radiotherm thermostats]]></title>
-    <link href="https://home-assistant.io/blog/2015/10/26/firetv-and-radiotherm-now-supported/"/>
-    <updated>2015-10-26T18:10:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/10/26/firetv-and-radiotherm-now-supported</id>
-    <content type="html"><![CDATA[<p>After two weeks of hard work I’m proud to announce the release of Home Assistant v0.7.6. For this release the main focus was bugs, test coverage and documentation. And we exceeded expectations on all three fronts. Bugs have been squashed, <a href="https://coveralls.io/builds/3946399">test coverage increased to 85%</a> and thanks to the hard work by <a href="https://github.com/fabaff">@fabaff</a> and myself the <a href="https://home-assistant.io/components/">component section</a> on the website has gotten a complete revamp.</p>
-
-<h4>Changes</h4>
-
-<p><img src="https://home-assistant.io/images/supported_brands/radiotherm.png" style="border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /><img src="https://home-assistant.io/images/supported_brands/firetv.png" style="border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;" height="50" /><img src="https://home-assistant.io/images/supported_brands/locative.png" style="border:none; box-shadow: none; float: right; margin-bottom: 16px; clear: right;" height="50" /></p>
-
-<ul>
-  <li>Device tracker: Newer <a href="https://home-assistant.io/components/device_tracker.tplink/">TP-Link routers</a> now supported (<a href="https://github.com/mKeRix">@mKeRix</a>)</li>
-  <li>Alarm Control Panel: <a href="https://home-assistant.io/components/alarm_control_panel.manual/">Manual alarm</a> added (<a href="https://github.com/sfam">@sfam</a>)</li>
-  <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.radiotherm/">Radiotherm</a> now supported (<a href="https://github.com/toddeye">@toddeye</a>)</li>
-  <li>Media Player: <a href="https://home-assistant.io/components/media_player.firetv/">Amazon FireTV</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li>Device Tracker: <a href="https://home-assistant.io/components/device_tracker.locative/">Geofancy</a> now supported (<a href="https://github.com/wind-rider">@wind-rider</a>)</li>
-  <li>New component <a href="https://home-assistant.io/components/shell_command/">Shell Command</a> can expose shell commands as services (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li><a href="https://home-assistant.io/components/script/">Scripts</a> can now be customized using <code>customize</code> key in <code>configuration.yaml</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/light.hyperion/">Hyperion</a> now supported (<a href="https://github.com/MakeMeASandwich">@MakeMeASandwich</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.arest/">aRest</a> can now also read out pins (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.forecast/">Forecast.io</a> now supports specifying units in <code>configuration.yaml</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.heat_control/">Heat Control</a> has been completely rewritten (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Switch: <a href="https://home-assistant.io/components/switch.rest/">Rest</a> now supported (<a href="https://github.com/bachp">@bachp</a>)</li>
-  <li>Media Player: <a href="https://home-assistant.io/components/media_player.plex/">Plex</a> can now be auto discovered and configure itself (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li><a href="https://home-assistant.io/components/downloader/">Downloader</a> will now treat relative paths based on config dir (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Line Charts will use interpolation for sensor data and show current and target temperature for thermostats (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Device Tracker: <a href="https://home-assistant.io/components/device_tracker.ubus/">OpenWRT via ubus</a> now supported (<a href="https://github.com/krzynio">@krzynio</a>)</li>
-</ul>
-
-<!--more-->
-
-<h4>Breaking changes</h4>
-
-<p>As part of this release we did some cleanup which introduced backwards incompatible changes:</p>
-
-<p><strong>Heat Control thermostat no longer includes scheduling features.</strong><br />
-This feature has been removed completely. Use the <a href="https://home-assistant.io/components/automation/">automation component</a> instead to control target temperature.</p>
-
-<p><strong>Config changed for calling a service from a script.</strong><br />
-<code>execute_service:</code> has been replaced with <code>service:</code>. See <a href="https://home-assistant.io/components/script/">component page</a> for example. The old method will continue working for some time.</p>
-
-<p><strong>Scenes can no longer be turned off.</strong><br />
-It is no longer possible to turn a scene off after it has been activated. The way it worked was unpredictable and causes a lot of confusion.</p>
-
-<p><strong>Downloader treats relative paths now relative to the config dir instead of the current working dir.</strong><br />
-This makes more sense as most people run Home Assistant as a daemon</p>
 ]]></content>
   </entry>
   

@@ -118,7 +118,7 @@
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 
 <h3><a class="title-link" name="media-control-services" href="#media-control-services"></a> Media control services</h3>
-<p>Available services: <code>turn_off</code>, <code>volume_up</code>, <code>volume_down</code>, <code>media_play_pause</code>, <code>media_play</code>, <code>media_pause</code>, <code>media_next_track</code></p>
+<p>Available services: <code>turn_on</code>, <code>turn_off</code>, <code>toggle</code>, <code>volume_up</code>, <code>volume_down</code>, <code>media_play_pause</code>, <code>media_play</code>, <code>media_pause</code>, <code>media_next_track</code>, <code>media_previous_track</code></p>
 
 <table>
   <thead>
@@ -137,13 +137,7 @@
   </tbody>
 </table>
 
-<h3><a class="title-link" name="media-play-services" href="#media-play-services"></a> Media play services</h3>
-
-<p>There are three services to start playing YouTube video’s on the media player.</p>
-
-<h4><a class="title-link" name="service-media_playerplay_youtube_video" href="#service-media_playerplay_youtube_video"></a> Service <code>media_player/play_youtube_video</code></h4>
-
-<p>Service to start playing a YouTube video on the media player.</p>
+<h4><a class="title-link" name="service-media_playermute_volume" href="#service-media_playermute_volume"></a> Service <code>media_player/mute_volume</code></h4>
 
 <table>
   <thead>
@@ -160,16 +154,14 @@
       <td>Target a specific media player. Defaults to all.</td>
     </tr>
     <tr>
-      <td><code>video</code></td>
+      <td><code>mute</code></td>
       <td>no</td>
-      <td>YouTube video to be played, ie. <code>L0MK7qz13bU</code></td>
+      <td>True/false for mute/unmute</td>
     </tr>
   </tbody>
 </table>
 
-<h4><a class="title-link" name="service-media_playerstart_fireplace-and-media_playerstart_epic_sax" href="#service-media_playerstart_fireplace-and-media_playerstart_epic_sax"></a> Service <code>media_player/start_fireplace</code> and <code>media_player/start_epic_sax</code></h4>
-
-<p>Will either start a fireplace or Epic Sax Guy 10h on the media player.</p>
+<h4><a class="title-link" name="service-media_playerset_volume_level" href="#service-media_playerset_volume_level"></a> Service <code>media_player/set_volume_level</code></h4>
 
 <table>
   <thead>
@@ -184,6 +176,64 @@
       <td><code>entity_id</code></td>
       <td>yes</td>
       <td>Target a specific media player. Defaults to all.</td>
+    </tr>
+    <tr>
+      <td><code>volume</code></td>
+      <td>no</td>
+      <td>Integer for volume level</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="service-media_playermedia_seek" href="#service-media_playermedia_seek"></a> Service <code>media_player/media_seek</code></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>entity_id</code></td>
+      <td>yes</td>
+      <td>Target a specific media player. Defaults to all.</td>
+    </tr>
+    <tr>
+      <td><code>position</code></td>
+      <td>no</td>
+      <td>Position to seek to. The format is platform dependent.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="service-media_playerplay_media" href="#service-media_playerplay_media"></a> Service <code>media_player/play_media</code></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>entity_id</code></td>
+      <td>yes</td>
+      <td>Target a specific media player. Defaults to all.</td>
+    </tr>
+    <tr>
+      <td><code>media_content_id</code></td>
+      <td>no</td>
+      <td>A media identifier. The format of this is component dependent. For example, you can provide URLs to Sonos and Cast but only a playlist ID to iTunes.</td>
+    </tr>
+    <tr>
+      <td><code>media_content_type</code></td>
+      <td>no</td>
+      <td>A media type. Must be one of <code>MUSIC</code>, <code>TVSHOW</code>, <code>VIDEO</code>, <code>EPISODE</code>, <code>CHANNEL</code> or <code>PLAYLIST</code>. For example, to play music you would set <code>media_content_type</code> to <code>MUSIC</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -237,6 +287,9 @@
           </a></li>
           <li><a href='/components/media_player.universal/'>
             Universal
+          </a></li>
+          <li><a href='/components/media_player.yamaha/'>
+            Yamaha Network Receivers
           </a></li>
           <li><a href='/components/media_player.itunes/'>
             iTunes

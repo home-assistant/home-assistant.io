@@ -113,11 +113,7 @@
   <hr class="divider">
   
 
-  <p>The <code>bitcoin</code> platform displays various details about the <a href="https://bitcoin.org">Bitcoin</a> network.</p>
-
-<p>If you have an online wallet from <a href="https://blockchain.info/">Blockchain.info</a> the sensor is capable to show your current balance.</p>
-
-<p>You need to enable the API access for your online wallet to get the balance. To do that log in and move to ‘Account Setting’, choose ‘IP Restrictions’, and check ‘Enable Api Access’. You will get an email message from blockchain.info where you must authorize the API access.</p>
+  <p>The <code>bitcoin</code> sensor platform displays various details about the <a href="https://bitcoin.org">Bitcoin</a> network.</p>
 
 <p>To add the Bitcoin sensor to your installation, add a selection of the available display options to your <code>configuration.yaml</code> file:</p>
 
@@ -125,8 +121,6 @@
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">sensor</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">bitcoin</span></span>
-  <span class="key">wallet</span>: <span class="string"><span class="content">'YOUR WALLET_ID'</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_ACCOUNT_PASSWORD</span></span>
   <span class="key">currency</span>: <span class="string"><span class="content">YOUR CURRENCY</span></span>
   <span class="key">display_options</span>:
     - <span class="string"><span class="content">exchangerate</span></span>
@@ -157,8 +151,6 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>wallet</strong> (<em>Optional</em>): This is your wallet identifier from https://blockchain.info to access the online wallet.</li>
-  <li><strong>password</strong> (<em>Optional</em>): Password for your online wallet.</li>
   <li><strong>currency</strong> (<em>Optional</em>): The currency to exchange to, eg. CHF, USD, EUR, etc. Default is USD.</li>
   <li><strong>display_options</strong> array (<em>Required</em>): Options to display in the frontend.
     <ul>
@@ -314,6 +306,9 @@
         </li>
         <li>
             <a href='/components/sensor.twitch/'>Twitch</a>
+        </li>
+        <li>
+            <a href='/components/sensor.uber/'>Uber</a>
         </li>
         <li>
             <a href='/components/sensor.vera/'>Vera Sensor</a>

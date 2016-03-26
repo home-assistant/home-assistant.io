@@ -147,7 +147,58 @@
 
 <h2><a class="title-link" name="picking-a-broker" href="#picking-a-broker"></a> Picking a broker</h2>
 
-<p>The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are three options, each with various degrees of ease of setup and privacy.</p>
+<p>The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.</p>
+
+<h4><a class="title-link" name="use-the-embedded-broker" href="#use-the-embedded-broker"></a> Use the embedded broker</h4>
+
+<p>Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT broker</a> is started and Home Asssistant connects to it. Default settings for the embedded broker:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Host</td>
+      <td>localhost</td>
+    </tr>
+    <tr>
+      <td>Port</td>
+      <td>1883</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td>homeassistant</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>Your API password</td>
+    </tr>
+    <tr>
+      <td>Websocket port</td>
+      <td>8080</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If you want to customize the settings of the embedded broker, use <code>embedded:</code> and the values shown in the <a href="http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration">HBMQTT Broker configuration</a>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">mqtt</span>:
+  <span class="key">embedded</span>:
+    <span class="comment"># Your HBMQTT config here. Example at:</span>
+    <span class="comment"># http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration</span>
+</pre></div>
+</div>
+</div>
 
 <h4><a class="title-link" name="run-your-own" href="#run-your-own"></a> Run your own</h4>
 
@@ -263,10 +314,26 @@ Home Assistant will automatically load the correct certificate if you connect to
 
 <h2><a class="title-link" name="testing-your-setup" href="#testing-your-setup"></a> Testing your setup</h2>
 
-<p>For debugging purposes <code>mosquitto</code> is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:</p>
+<p>The <code>mosquitto</code> broker package is shipping commandline tools to send and recieve MQTT messages. As an alternative have a look at <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html">hbmqtt_pub</a> and <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html">hbmqtt_sub</a> which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m &quot;Switch is ON&quot;
+</pre></div>
+</div>
+</div>
+
+<p>If you are using the embeeded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ mosquitto_pub -V mqttv311 -t hello -m world
+</pre></div>
+</div>
+</div>
+
+<p>or if you are using a API password.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ mosquitto_pub -V mqttv311 -u homeassistant -P &lt;your api password&gt; -t &quot;hello&quot; -m world
 </pre></div>
 </div>
 </div>
@@ -297,6 +364,16 @@ Home Assistant will automatically load the correct certificate if you connect to
 </pre></div>
 </div>
 </div>
+
+<p>For the embeeded MQTT broker the command looks like the sample below.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ mosquitto_sub -V mqttv311 -t # -v
+</pre></div>
+</div>
+</div>
+
+<p>Add the username <code>homeassistant</code> and your API password if needed.</p>
 
 <h2><a class="title-link" name="processing-json" href="#processing-json"></a> Processing JSON</h2>
 

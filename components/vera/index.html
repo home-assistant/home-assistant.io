@@ -115,13 +115,16 @@
 
   <p>The <a href="http://getvera.com">Vera</a> ecosystem is using Z-Wave for communication between the Vera controller and the devices.</p>
 
-<h2><a class="title-link" name="building-on-top-of-vera" href="#building-on-top-of-vera"></a> Building on top of Vera</h2>
-
-<ul>
-  <li><a href="/components/sensor.vera/">Vera Sensor</a></li>
-  <li><a href="/components/switch.vera/">Vera Switch</a></li>
-  <li><a href="/components/light.vera/">Vera Light</a></li>
-</ul>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">vera</span>:
+  <span class="key">vera_controller_url</span>: <span class="string"><span class="content">http://192.168.1.161:3480/</span></span>
+  <span class="comment"># Optional to exclude devices - this is a list of vera device ids</span>
+  <span class="key">exclude</span>: <span class="string"><span class="content">[ 13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]</span></span>
+  <span class="comment"># Optional to import switches as lights - this is a list of vera device ids</span>
+  <span class="key">lights</span>: <span class="string"><span class="content">[15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]</span></span>
+</pre></div>
+</div>
+</div>
 
 
 </article>
