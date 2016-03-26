@@ -115,15 +115,13 @@
   <hr class="divider">
   
 
-  <p><img src="https://i.imgur.com/WkBB4BV.gif" alt="Under Construction" /></p>
-
-<p>So you’ve been using Home Assistant (HA, hass, or any number of other abbreviations) for a while now and your configuration.yaml file brings people to tears (https://home-assistant.io/cookbook/configuration_yaml_from_bassclarinetl2/) or you simply want to start off with the distributed approach, here’s how to “split the configuration.yaml” into more manageable (read: husmanly readable) pieces.</p>
+  <p>So you’ve been using Home Assistant (HA, hass, or any number of other abbreviations) for a while now and your <a href="https://home-assistant.io/cookbook/configuration_yaml_from_bassclarinetl2/">configuration.yaml file brings people to tears</a> or you simply want to start off with the distributed approach, here’s how to “split the configuration.yaml” into more manageable (read: husmanly readable) pieces.</p>
 
 <p>First off, several community members have sanitized (read: without api keys/passwords etc) versions of their configurations available for viewing:</p>
 
 <ul>
-  <li>https://github.com/bassclarinetl2/HASS</li>
-  <li>https://github.com/happyleavesaoc/my-home-automation/tree/master/homeassistant</li>
+  <li><a href="https://github.com/bassclarinetl2/HASS">bassclarinetl2</a></li>
+  <li><a href="https://github.com/happyleavesaoc/my-home-automation/tree/master/homeassistant">happyleavesaoc</a></li>
 </ul>
 
 <p>As commenting code doesn’t always happen, please read on for the details.</p>
@@ -132,18 +130,21 @@
 
 <p>In this lighter version we will still need what could be called the core snippet:</p>
 
-<pre><code>homeassistant:
-  # Name of the location where Home Assistant is running
-  name: My Hass Instance
-  # Location required to calculate the time the sun rises and sets
-  latitude: 37
-  longitude: -121
-  # C for Celcius, F for Fahrenheit
-  temperature_unit: F
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: America/Los_Angeles
-  customize: !include customize.yaml
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">homeassistant</span>:
+  <span class="comment"># Name of the location where Home Assistant is running</span>
+  <span class="key">name</span>: <span class="string"><span class="content">My Hass Instance</span></span>
+  <span class="comment"># Location required to calculate the time the sun rises and sets</span>
+  <span class="key">latitude</span>: <span class="string"><span class="content">37</span></span>
+  <span class="key">longitude</span>: <span class="string"><span class="content">-121</span></span>
+  <span class="comment"># C for Celcius, F for Fahrenheit</span>
+  <span class="key">temperature_unit</span>: <span class="string"><span class="content">F</span></span>
+  <span class="comment"># Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones</span>
+  <span class="key">time_zone</span>: <span class="string"><span class="content">America/Los_Angeles</span></span>
+  <span class="key">customize</span>: <span class="type">!include</span> <span class="string"><span class="content">customize.yaml</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>Note that each line after <code>homeassistant:</code> is indented two (2) spaces.  Since the configuration files in Home Assistant are based on the YAML “language”, indentation and spacing are important. Also note that seemingly strange entry under <code>customize:</code>.</p>
 
@@ -151,48 +152,52 @@
 
 <p>Now before we start splitting out the different components, let’s look at the other components (in our example) that will stay in the base file:</p>
 
-<pre><code>#discovery:
-sun:
-#updater:
-history:
-#conversation:
-frontend:
-logbook:
-http:
-  api_password: ImNotTelling!
-  server_port: 8123
-  ssl_certificate: /etc/letsencrypt/live/example.com/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/example.com/privkey.pem
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment">#discovery:</span>
+<span class="key">sun</span>:
+<span class="comment">#updater:</span>
+<span class="key">history</span>:
+<span class="comment">#conversation:</span>
+<span class="key">frontend</span>:
+<span class="key">logbook</span>:
+<span class="key">http</span>:
+  <span class="key">api_password</span>: <span class="string"><span class="content">ImNotTelling!</span></span>
+  <span class="key">server_port</span>: <span class="string"><span class="content">8123</span></span>
+  <span class="key">ssl_certificate</span>: <span class="string"><span class="content">/etc/letsencrypt/live/example.com/fullchain.pem</span></span>
+  <span class="key">ssl_key</span>: <span class="string"><span class="content">/etc/letsencrypt/live/example.com/privkey.pem</span></span>
 
-ifttt:
-  key: [nope]
+<span class="key">ifttt</span>:
+  <span class="key">key</span>: <span class="string"><span class="content">[nope]</span></span>
 
-wink:
-  access_token: [wouldn't you]
-  refresh_token: [like to know]
+<span class="key">wink</span>:
+  <span class="key">access_token</span>: <span class="string"><span class="content">[wouldn't you]</span></span>
+  <span class="key">refresh_token</span>: <span class="string"><span class="content">[like to know]</span></span>
 
-zwave:
-  usb_path: /dev/ttyUSB0
-  config_path: /usr/local/share/python-openzwave/config
-  polling_interval: 10000
+<span class="key">zwave</span>:
+  <span class="key">usb_path</span>: <span class="string"><span class="content">/dev/ttyUSB0</span></span>
+  <span class="key">config_path</span>: <span class="string"><span class="content">/usr/local/share/python-openzwave/config</span></span>
+  <span class="key">polling_interval</span>: <span class="string"><span class="content">10000</span></span>
 
-#zigbee:
-#  device: /dev/ttyUSB1
-#  baud: 115200
+<span class="comment">#zigbee:</span>
+<span class="comment">#  device: /dev/ttyUSB1</span>
+<span class="comment">#  baud: 115200</span>
 
-mqtt:
-  broker: 127.0.0.1
-  port: 8883
-  username: user
-  password: password 
-</code></pre>
+<span class="key">mqtt</span>:
+  <span class="key">broker</span>: <span class="string"><span class="content">127.0.0.1</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">8883</span></span>
+  <span class="key">username</span>: <span class="string"><span class="content">user</span></span>
+  <span class="key">password</span>: <span class="string"><span class="content">password</span></span>
+</pre></div>
+</div>
+</div>
 <p>As with the core snippet, indentation makes a difference.  The component headers (<code>mqtt:</code>) should be fully left aligned (aka no indent), and the parameters (<code>port:</code>) should be indented two (2) spaces.</p>
 
 <p>While some of these components can technically be moved to a separate file they are so small or “one off’s” where splitting them off is superfluous.   Also, you’ll notice the # symbol (hash/pound).  This represents a “comment” as far as the commands are interpreted. Put another way, any line prefixed with a <code>#</code> will be ignored.  This makes breaking up files for human readability really convenient , not to mention turning off features while leaving the entry intact. (Look at the <code>zigbee:</code> entry above and the sensors entry further down)</p>
 
 <p>Now, lets assume that a blank file has been created in the hass configuration directory for each of the following:</p>
 
-<pre><code>groups.yaml
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>groups.yaml
 zones.yaml
 automation.yaml
 notifications.yaml
@@ -202,211 +207,214 @@ scripts.yaml
 media_player.yaml
 device_tracker.yaml
 customize.yaml
-</code></pre>
+</pre></div>
+</div>
+</div>
 
-<p><code>automation.yaml</code>will hold all the automation component details<br />
-<code>zones.yaml</code> will hold the zone component details <br />
-and so forth.  These files can be called anything but giving them names that match their function will make things easier to keep track of.</p>
+<p><code>automation.yaml</code> will hold all the automation component details<br />
+<code>zones.yaml</code> will hold the zone component details and so forth. These files can be called anything but giving them names that match their function will make things easier to keep track of.</p>
 
-<p>Inside the base configuration file add the following entries:<br />
-<code>
-group: !include groups.yaml
-zone: !include zones.yaml
-automation: !include automation.yaml
-notifications: !include notifications.yaml
-sensor: !include sensors.yaml
-switch: !include switches.yaml
-scripts: !include: scripts.yaml
-media_player: !include media_player.yaml
-device_tracker: !include device_tracker.yaml
-</code><br />
-Note that there can only be one <code>!include:</code> for each component so chaining them isn’t going to work.  If that sounds like greek, don’t worry about it.</p>
+<p>Inside the base configuration file add the following entries:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">group</span>: <span class="type">!include</span> <span class="string"><span class="content">groups.yaml</span></span>
+<span class="key">zone</span>: <span class="type">!include</span> <span class="string"><span class="content">zones.yaml</span></span>
+<span class="key">automation</span>: <span class="type">!include</span> <span class="string"><span class="content">automation.yaml</span></span>
+<span class="key">notifications</span>: <span class="type">!include</span> <span class="string"><span class="content">notifications.yaml</span></span>
+<span class="key">sensor</span>: <span class="type">!include</span> <span class="string"><span class="content">sensors.yaml</span></span>
+<span class="key">switch</span>: <span class="type">!include</span> <span class="string"><span class="content">switches.yaml</span></span>
+<span class="key">scripts</span>: <span class="type">!include</span><span class="string"><span class="content">: scripts.yaml</span></span>
+<span class="key">media_player</span>: <span class="type">!include</span> <span class="string"><span class="content">media_player.yaml</span></span>
+<span class="key">device_tracker</span>: <span class="type">!include</span> <span class="string"><span class="content">device_tracker.yaml</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Note that there can only be one <code>!include:</code> for each component so chaining them isn’t going to work.  If that sounds like greek, don’t worry about it.</p>
 
 <p>Alright, so we’ve got the single components and the include statements in the base file, what goes in those extra files?</p>
 
-<p>Let’s look at the <code>device_tracker</code> file from our example:</p>
+<p>Let’s look at the <code>device_tracker.yaml</code> file from our example:</p>
 
-<pre><code>### device_tracker.yaml
-###
-###
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>- <span class="string"><span class="content">platform: owntracks</span></span>
+- <span class="string"><span class="content">platform: nmap_tracker</span></span>
+  <span class="key">hosts</span>: <span class="string"><span class="content">192.168.2.0/24</span></span>
+  <span class="key">home_interval</span>: <span class="string"><span class="content">3</span></span>
 
-- platform: owntracks
-- platform: nmap_tracker
-  hosts: 192.168.2.0/24
-  home_interval: 3
+  <span class="key">track_new_devices</span>: <span class="string"><span class="content">yes</span></span>
+  <span class="key">interval_seconds</span>: <span class="string"><span class="content">40</span></span>
+  <span class="key">consider_home</span>: <span class="string"><span class="content">120</span></span>
+</pre></div>
+</div>
+</div>
 
-  track_new_devices: yes
-  interval_seconds: 40
-  consider_home: 120 
-</code></pre>
 <p>This small example illustrates how the “split” files work.  In this case, we start with a “comment block” identifying the file followed by two (2) device tracker entries (owntracks and nmap).   These files follow “style 2”  that is to say a fully left aligned leading entry (<code>- platform: owntracks</code>) followed by the parameter entries indented two (2) spaces.</p>
 
-<p>This (large) sensor configuration gives us another example:<br />
-```<br />
-### sensors.yaml<br />
-###<br />
-###<br />
-###<br />
-##############################################################<br />
-### METEOBRIDGE                                           ####<br />
-### http://meteobridge.com/wiki/index.php/Add-On_Services ####<br />
-### Live Data as Plain text                               ####<br />
-##############################################################</p>
+<p>This (large) sensor configuration gives us another example:</p>
 
-<ul>
-  <li>platform: tcp<br />
-name: ‘Outdoor Temp (Meteobridge)’<br />
-host: 192.168.2.82<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charset=UTF-8\n\n”   <br />
-value_template: “”<br />
-unit: C</li>
-  <li>platform: tcp<br />
-name: ‘Outdoor Humidity (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: Percent</li>
-  <li>platform: tcp<br />
-name: ‘Outdoor Dewpoint (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: C</li>
-  <li>platform: tcp<br />
-name: ‘Wind Direction (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: Degrees</li>
-  <li>platform: tcp<br />
-name: ‘Wind Gust (Meteohub)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: m/s</li>
-  <li>platform: tcp<br />
-name: ‘Wind Speed (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: m/s</li>
-  <li>platform: tcp<br />
-name: ‘Wind Chill (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: C</li>
-  <li>platform: tcp<br />
-name: ‘Precip Rate (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: mm/hr</li>
-  <li>platform: tcp<br />
-name: ‘Precip Total (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charaset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: mm</li>
-  <li>platform: tcp<br />
-name: ‘Precip Change (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charaset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: mm</li>
-  <li>platform: tcp<br />
-name: ‘Indoor Temp (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charaset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: C</li>
-  <li>platform: tcp<br />
-name: ‘Indoor Humidity (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charaset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: percent</li>
-  <li>platform: tcp<br />
-name: ‘Indoor Dewpoint (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charaset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: C</li>
-  <li>platform: tcp<br />
-name: ‘Barometric Pressure (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charaset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: mb</li>
-  <li>
-    <p>platform: tcp<br />
-name: ‘Sea Level Pressure (Meteobridge)’<br />
-host: 192.168.2.82<br />
-port: 5556<br />
-timeout: 6<br />
-payload: “Content-type: text/xml; charaset=UTF-8\n\n”<br />
-value_template: “”<br />
-unit: mb<br />
-###################################<br />
-#### STEAM FRIENDS            ####<br />
-##################################</p>
-  </li>
-  <li>platform: steam_online<br />
-api_key: [not telling]<br />
-accounts:<br />
-    - 76561198012067051</li>
-</ul>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment">### sensors.yaml</span>
+<span class="comment">###</span>
+<span class="comment">###</span>
+<span class="comment">###</span>
+<span class="comment">##############################################################</span>
+<span class="comment">### METEOBRIDGE                                           ####</span>
+<span class="comment">### http://meteobridge.com/wiki/index.php/Add-On_Services ####</span>
+<span class="comment">### Live Data as Plain text                               ####</span>
+<span class="comment">##############################################################</span>
 
-<p>##################################<br />
-####     TIME/DATE            ####<br />
-##################################</p>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Outdoor Temp (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>   
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Outdoor Humidity (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">Percent</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Outdoor Dewpoint (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Wind Direction (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">Degrees</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Wind Gust (Meteohub)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">m/s</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Wind Speed (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">m/s</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Wind Chill (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Precip Rate (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mm/hr</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Precip Total (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mm</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Precip Change (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mm</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Indoor Temp (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Indoor Humidity (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">percent</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Indoor Dewpoint (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Barometric Pressure (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mb</span></span>
+- <span class="string"><span class="content">platform: tcp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Sea Level Pressure (Meteobridge)'</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.2.82</span></span>
+  <span class="key">port</span>: <span class="string"><span class="content">5556</span></span>
+  <span class="key">timeout</span>: <span class="string"><span class="content">6</span></span>
+  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Content-type: text/xml; charaset=UTF-8\n\n</span><span class="delimiter">&quot;</span></span>
+  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="key">unit</span>: <span class="string"><span class="content">mb</span></span>
+<span class="comment">###################################</span>
+<span class="comment">#### STEAM FRIENDS            ####</span>
+<span class="comment">##################################</span>
 
-<ul>
-  <li>platform: time_date<br />
-display_options:<br />
-    - ‘time’<br />
-    - ‘date’</li>
-  <li>platform: worldclock<br />
-time_zone: Etc/UTC<br />
-name: ‘UTC’</li>
-  <li>platform: worldclock<br />
-time_zone: America/New_York<br />
-name: ‘Ann Arbor’</li>
-  <li>platform: worldclock<br />
-time_zone: Europe/Vienna<br />
-name: ‘Innsbruck’</li>
-  <li>platform: worldclock<br />
-time_zone: America/New_York<br />
-name: ‘Ann Arbor’<br />
-```</li>
-</ul>
+- <span class="string"><span class="content">platform: steam_online</span></span>
+  <span class="key">api_key</span>: <span class="string"><span class="content">[not telling]</span></span>
+  <span class="key">accounts</span>:
+      - <span class="string"><span class="content">76561198012067051</span></span>
+
+<span class="comment">##################################</span>
+<span class="comment">####     TIME/DATE            ####</span>
+<span class="comment">##################################</span>
+
+- <span class="string"><span class="content">platform: time_date</span></span>
+  <span class="key">display_options</span>:
+      - <span class="string"><span class="content">'time'</span></span>
+      - <span class="string"><span class="content">'date'</span></span>
+- <span class="string"><span class="content">platform: worldclock</span></span>
+  <span class="key">time_zone</span>: <span class="string"><span class="content">Etc/UTC</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'UTC'</span></span>
+- <span class="string"><span class="content">platform: worldclock</span></span>
+  <span class="key">time_zone</span>: <span class="string"><span class="content">America/New_York</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Ann Arbor'</span></span>
+- <span class="string"><span class="content">platform: worldclock</span></span>
+  <span class="key">time_zone</span>: <span class="string"><span class="content">Europe/Vienna</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Innsbruck'</span></span>
+- <span class="string"><span class="content">platform: worldclock</span></span>
+  <span class="key">time_zone</span>: <span class="string"><span class="content">America/New_York</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">'Ann Arbor'</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>You’ll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.</p>
 
