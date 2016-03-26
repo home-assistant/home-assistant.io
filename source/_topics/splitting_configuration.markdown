@@ -9,9 +9,6 @@ sharing: true
 footer: true
 ---
 
-![Under Construction](https://i.imgur.com/WkBB4BV.gif)
-
-
 So you've been using Home Assistant (HA, hass, or any number of other abbreviations) for a while now and your configuration.yaml file brings people to tears (https://home-assistant.io/cookbook/configuration_yaml_from_bassclarinetl2/) or you simply want to start off with the distributed approach, here's how to "split the configuration.yaml" into more manageable (read: husmanly readable) pieces.
 
 First off, several community members have sanitized (read: without api keys/passwords etc) versions of their configurations available for viewing:
