@@ -33,7 +33,7 @@ Configuration variables:
 - **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 

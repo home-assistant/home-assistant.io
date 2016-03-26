@@ -31,7 +31,7 @@ Configuration variables:
 - **command** (*Required*): The action to take to get the value.
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 

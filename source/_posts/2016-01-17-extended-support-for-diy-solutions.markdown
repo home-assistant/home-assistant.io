@@ -47,7 +47,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [wemo]: /components/switch.wemo/
 [Telldus Live]: /components/tellduslive/
 [Vera]: /components/vera/
-[template helper method]: /getting-started/templating/#home-assistant-template-extensions
+[template helper method]: /topics/templating/#home-assistant-template-extensions
 [OwnTracks]: /components/device_tracker.owntracks/
 [Philips Hue]: /components/light.hue/
 [Free Mobile]: /components/notify.free_mobile/

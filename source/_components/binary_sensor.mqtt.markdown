@@ -25,6 +25,7 @@ binary_sensor:
   qos: 0
   payload_on: "ON"
   payload_off: "OFF"
+  sensor_class: opening
   value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
@@ -35,7 +36,8 @@ Configuration variables:
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0.
 - **payload_on** (*Optional*): The payload that represents on state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents  state. Default is "OFF".
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 For a quick check you can use the commandline tools shipped with `mosquitto` to send MQTT messages. Set the state of your sensor manually:
 

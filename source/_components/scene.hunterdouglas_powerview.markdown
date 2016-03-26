@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: hunter-douglas-powerview.png
-ha_category: Organization
+ha_category: Rollershutter
 ---
 
 Implements the [Hunter Douglas PowerView](http://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.
@@ -24,4 +24,4 @@ scene:
 
 Configuration variables:
 
-- **address** (*Required*): IP address of the PowerView Hub, eg. http://192.168.1.10.
+- **address** (*Required*): IP address of the PowerView Hub, eg. 192.168.1.10.

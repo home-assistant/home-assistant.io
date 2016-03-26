@@ -22,7 +22,13 @@ To allow Home Assistant to talk to your Z-Wave USB stick you will have to compil
 Make sure you have the correct dependencies installed before running the script:
 
 ```bash
-$ apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
+$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
+```
+
+Make sure you have at least version 0.23 of cython. 
+
+```bash
+$ sudo pip3 install --upgrade cython
 ```
 
 Then get the OpenZWave files and switch to the `python3` branch:
@@ -37,7 +43,7 @@ $ sudo PYTHON_EXEC=`which python3` make install
 <p class='note'>
 Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
 
-`$ sudo PYTHON_EXEC=`which python3` checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave`
+```$ sudo PYTHON_EXEC=`which python3` checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave```
 
 </p>
 

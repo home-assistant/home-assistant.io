@@ -72,7 +72,6 @@ User=pi
 [Install]
 WantedBy=multi-user.target
 EOF'
-
 ```
 
 You need to reload systemd to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.
@@ -82,7 +81,6 @@ You need to reload systemd to make the daemon aware of the new configuration. En
 $ sudo systemctl --system daemon-reload
 $ sudo systemctl enable home-assistant
 $ sudo systemctl start home-assistant
-
 ```
 
 If everything went well, `sudo systemctl start home-assistant` should give you a positive feedback.
@@ -97,7 +95,6 @@ $ sudo systemctl status home-assistant -l
    CGroup: /system.slice/home-assistant.service
            └─8557 /usr/bin/python3.4 -m homeassistant
 [...]
-
 ```
 
 To get Home Assistant's logging output, simple use `journalctl`.

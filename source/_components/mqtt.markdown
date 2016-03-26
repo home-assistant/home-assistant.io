@@ -125,18 +125,21 @@ Home Assistant will automatically load the correct certificate if you connect to
 
 ## {% linkable_title Building on top of MQTT %}
 
+ - [MQTT Alarm control panel](/components/alarm_control_panel.mqtt/)
+ - [MQTT Binary sensor](/components/binary_sensor.mqtt/)
  - [MQTT Sensor](/components/sensor.mqtt/)
  - [MQTT Switch](/components/switch.mqtt/)
  - [MQTT Light](/components/light.mqtt/)
+ - [MQTT Lock](/components/lock.mqtt/)
  - [MQTT Device Tracker](/components/device_tracker.mqtt/)
  - [OwnTracks Device Tracker](/components/device_tracker.owntracks/)
  - [MQTT automation rule](/components/automation/#mqtt-based-automation)
- - [MQTT alarm](/components/alarm_control_panel.mqtt/)
+
  - Integrating it into own component. See the [MQTT example component](/cookbook/python_component_mqtt_basic/) how to do this.
 
 ### {% linkable_title Publish service %}
 
-The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifiying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/getting-started/templating/) that will be rendered to generate the payload.
+The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifiying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
 
 ```json
 {

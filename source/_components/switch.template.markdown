@@ -38,7 +38,7 @@ Configuration variables:
 
 - **switches** array (*Required*): List of your switches.
   - **friendly_name** (*Optional*): Name to use in the Frontend.
-  - **value_template** (*Required*): Defines a [template](/getting-started/templating/) to set the state of the switch.
+  - **value_template** (*Required*): Defines a [template](/topics/templating/) to set the state of the switch.
   - **turn_on** (*Required*): Defines an [action](/getting-started/automation/) to run when the switch is turned on.
   - **turn_off** (*Required*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
 
