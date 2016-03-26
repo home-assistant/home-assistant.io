@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: uber.png
 ha_category: Sensor
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Polling"
 ---
 
 

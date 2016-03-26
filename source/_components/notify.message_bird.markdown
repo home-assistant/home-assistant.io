@@ -7,9 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: message_bird.svg
+logo: message_bird.png
 ha_category: Notifications
-featured: true
 ---
 
 The `MessageBird` notification platform sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.

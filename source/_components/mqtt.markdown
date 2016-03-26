@@ -46,7 +46,16 @@ The MQTT component needs you to run an MQTT broker for Home Assistant to connect
 
 #### {% linkable_title Use the embedded broker %}
 
-Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Asssistant connects to it. Home Assistant assumes that if you have MQTT platforms defined in your `configuration.yml` file that you want to use them and starts the broker as well.
+Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Asssistant connects to it. Default settings for the embedded broker:
+
+| Setting | Value |
+| ------- | ----- |
+| Host | localhost
+| Port | 1883
+| Version | 3.1
+| User | homeassistant
+| Password | Your API password
+| Websocket port | 8080
 
 If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration).
 

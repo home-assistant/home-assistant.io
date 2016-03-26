@@ -24,6 +24,8 @@ switch:
     11:
       name: Fan Office
       type: digital
+      default: on
+      negate: true
     12:
       name: Light Desk
       type: digital
@@ -34,6 +36,8 @@ Configuration variables:
 - **pins** (*Required*): Array of pins to use. The number corresponds with the pin numbering schema of your board.
   - **name**: Name that will be used in the frontend for the pin.
   - **type**: The type of the pin. At the moment only 'digital' is supported.
+  - **default**: The initial value for this port.
+  - **negate**: If this pin should be inverted.
 
 The digital pins are numbered from 0 to 13. The available pins are 2 till 13. For testing purposes you can use pin 13 because with that pin you can control the internal LED.
 
