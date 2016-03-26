@@ -10,23 +10,22 @@ footer: true
 ha_category: Binary Sensor
 ---
 
-
 The TCP Binary Sensor is a type of [TCP Sensor](/components/sensor.tcp/) which is either "off" or "on". In order to use this sensor type, in addition to the configuration for the TCP Sensor, you must supply a `value_on` value to represent what is returned when the device is turned on.
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
-sensor:
+binary_sensor:
 # Example configuration.yaml entry
-  - platform: tcp
-    name: TCP Binary Sensor
-    host: IP_ADDRESS
-    port: PORT
-    payload: "r State\n"
-    value_on: 1
-    timeout: 5
-    value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
-    unit: UNIT_OF_MEASUREMENT
+  platform: tcp
+  name: TCP Binary Sensor
+  host: IP_ADDRESS
+  port: PORT
+  payload: "r State\n"
+  value_on: 1
+  timeout: 5
+  value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
+  buffer_size: BUFFER_SIZE
 ```
 
 Configuration options for the a TCP Sensor:
@@ -38,6 +37,5 @@ Configuration options for the a TCP Sensor:
 - **value_on** (*Required*): The value returned when the device is "on".
 - **timeout** (*Optional*): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to 10.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value. By default it's assumed that the entire response is the value.
-- **unit** (*Optional*): The unit of measurement to use for the value.
 - **buffer_size** (*Optional*): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to 1024.
 
