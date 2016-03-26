@@ -113,7 +113,24 @@
   <hr class="divider">
   
 
-  <p>The <a href="http://getvera.com">Vera</a> ecosystem is using Z-Wave for communication between the Vera controller and the devices.</p>
+  <p>The <a href="http://getvera.com">Vera</a> hub is a controller ainly connecting to Z-Wave devices.</p>
+
+<p>Switches, Lights (inc Dimmers), Sensors and Binary sensors are supported - and will be automaticaly added when HA connects to your Vera controller.</p>
+
+<p>To use  Vera devices in your installation, add the following to your configuration.yaml file using the IP and port number of your Vera controller:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">vera</span>:
+  <span class="key">vera_controller_url</span>: <span class="string"><span class="content">http://192.168.1.161:3480/</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>By default your switches will be added to HA as switches, however if some of them are light switches, you can tell HA this using the optional <code>lights</code> parameter as shown below.</p>
+
+<p>Vera imports detailed zwave devices into HA - this can include system devices and other devices that you don’t use, you can tell HA not to load these devices using the <code>exclude:</code> parameter as shown below.</p>
+
+<p>You can find the vera device id either by looking at your vera controller - or by checking the <code>Vera Device Id</code> attribute on each device imported into HA.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">vera</span>:
@@ -125,6 +142,7 @@
 </pre></div>
 </div>
 </div>
+
 
 
 </article>
