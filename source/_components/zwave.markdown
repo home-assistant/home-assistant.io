@@ -108,3 +108,14 @@ automation:
 ```
 
 The *entity_id* and *scene_id* of all triggered events can be seen in the console output.
+
+#### {% linkable_title Services %}
+
+The Z-Wave component exposes two services to help maintain the network.
+
+| Service | Description |
+| ------- | ----------- |
+| add_node | |
+| remove_node | |
+| heal_network | |
+| soft_reset | |

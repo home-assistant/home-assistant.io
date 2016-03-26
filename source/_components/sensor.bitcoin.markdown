@@ -12,11 +12,7 @@ ha_category: Sensor
 ---
 
 
-The `bitcoin` platform displays various details about the [Bitcoin](https://bitcoin.org) network.
-
-If you have an online wallet from [Blockchain.info](https://blockchain.info/) the sensor is capable to show your current balance.
-
-You need to enable the API access for your online wallet to get the balance. To do that log in and move to 'Account Setting', choose 'IP Restrictions', and check 'Enable Api Access'. You will get an email message from blockchain.info where you must authorize the API access.
+The `bitcoin` sensor platform displays various details about the [Bitcoin](https://bitcoin.org) network.
 
 To add the Bitcoin sensor to your installation, add a selection of the available display options to your `configuration.yaml` file:
 
@@ -24,8 +20,6 @@ To add the Bitcoin sensor to your installation, add a selection of the available
 # Example configuration.yaml entry
 sensor:
   platform: bitcoin
-  wallet: 'YOUR WALLET_ID'
-  password: YOUR_ACCOUNT_PASSWORD
   currency: YOUR CURRENCY
   display_options:
     - exchangerate
@@ -53,8 +47,6 @@ sensor:
 
 Configuration variables:
 
-- **wallet** (*Optional*): This is your wallet identifier from https://blockchain.info to access the online wallet.
-- **password** (*Optional*): Password for your online wallet.
 - **currency** (*Optional*): The currency to exchange to, eg. CHF, USD, EUR, etc. Default is USD.
 - **display_options** array (*Required*): Options to display in the frontend.
   - **exchangerate**: Exchange rate of 1 BTC

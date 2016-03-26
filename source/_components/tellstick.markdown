@@ -18,14 +18,6 @@ To get started, add the devices to your `configuration.yaml` file.
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  platform: tellstick
-
-sensor:
-  platform: tellstick
-
-# All dimmers will be picked up as lights.
-light:
-  platform: tellstick
+tellstick:
+  signal_repetitions: X
 ```
-
