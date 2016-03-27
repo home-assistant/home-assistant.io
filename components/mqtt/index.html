@@ -151,7 +151,7 @@
 
 <h4><a class="title-link" name="use-the-embedded-broker" href="#use-the-embedded-broker"></a> Use the embedded broker</h4>
 
-<p>Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT broker</a> is started and Home Asssistant connects to it. Default settings for the embedded broker:</p>
+<p>Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT broker</a> is started and Home Asssistant connects to it. Embedded broker default configuration:</p>
 
 <table>
   <thead>
@@ -188,7 +188,11 @@
   </tbody>
 </table>
 
-<p>If you want to customize the settings of the embedded broker, use <code>embedded:</code> and the values shown in the <a href="http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration">HBMQTT Broker configuration</a>.</p>
+<p class="note">
+This broker does not currently work with OwnTracks because of a protocol version  issue.
+</p>
+
+<p>If you want to customize the settings of the embedded broker, use <code>embedded:</code> and the values shown in the <a href="http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration">HBMQTT Broker configuration</a>. This will replace the default configuration.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
