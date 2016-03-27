@@ -52,7 +52,7 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 | ------- | ----- |
 | Host | localhost
 | Port | 1883
-| Version | 3.1
+| Protocol | 3.1.1
 | User | homeassistant
 | Password | Your API password
 | Websocket port | 8080
