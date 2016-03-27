@@ -156,11 +156,11 @@
     <span class="key">sequence</span>:
       - <span class="string"><span class="content">delay:</span><span class="content">
           minutes: 15</span></span>
-      - <span class="string"><span class="content">execute_service: notify.pushbullet</span></span>
-        <span class="key">service_data</span>:
+      - <span class="string"><span class="content">service: notify.pushbullet</span></span>
+        <span class="key">data</span>:
           <span class="key">message</span>: <span class="string"><span class="content">'WeMo not found, restarting HA'</span></span>
-      - <span class="string"><span class="content">execute_service: switch.turn_on</span></span>
-        <span class="key">service_data</span>:
+      - <span class="string"><span class="content">service: switch.turn_on</span></span>
+        <span class="key">data</span>:
           <span class="key">entity_id</span>: <span class="string"><span class="content">switch.killhass</span></span>
   
 <span class="key">automation</span>:

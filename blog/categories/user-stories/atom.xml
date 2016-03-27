@@ -4,7 +4,7 @@
   <title><![CDATA[Category: User-Stories | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/user-stories/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-03-27T00:41:02+00:00</updated>
+  <updated>2016-03-27T01:29:21+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -63,6 +63,10 @@
 <p><a href="https://codebender.cc/sketch:144743">Sketch for the Moteino is available here.</a></p>
 
 <p>Home Assistant Configuration:</p>
+
+<p class="note">
+The automation and script syntax here is using a deprecated and no longer supported format.
+</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">mqtt</span>:

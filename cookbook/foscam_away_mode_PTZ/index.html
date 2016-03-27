@@ -154,18 +154,18 @@ The following outlines examples of the switch, services, and scripts required to
   <div class="code"><pre><span class="key">script</span>:
  <span class="key">foscam_off</span>:
    <span class="key">sequence</span>:
-   - <span class="string"><span class="content">execute_service: switch.turn_off</span></span>
-     <span class="key">service_data</span>:
+   - <span class="string"><span class="content">service: switch.turn_off</span></span>
+     <span class="key">data</span>:
        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.foscam_motion</span></span>
    - <span class="string"><span class="content">service: shell_command.foscam_turn_off</span></span>
  <span class="key">foscam_on</span>:
    <span class="key">sequence</span>:
-   - <span class="string"><span class="content">execute_service: switch.turn_off</span></span>
-     <span class="key">service_data</span>:
+   - <span class="string"><span class="content">service: switch.turn_off</span></span>
+     <span class="key">data</span>:
        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.foscam_motion</span></span>
    - <span class="string"><span class="content">service: shell_command.foscam_turn_on</span></span>
-   - <span class="string"><span class="content">execute_service: switch.turn_on</span></span>
-     <span class="key">service_data</span>:
+   - <span class="string"><span class="content">service: switch.turn_on</span></span>
+     <span class="key">data</span>:
        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.foscam_motion</span></span>
 </pre></div>
 </div>

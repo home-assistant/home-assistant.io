@@ -133,15 +133,15 @@
     <span class="key">alias</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Turn on lamp and set timer</span><span class="delimiter">&quot;</span></span>
     <span class="key">sequence</span>:
       <span class="comment"># Cancel ev. old timers</span>
-      - <span class="string"><span class="content">execute_service: script.turn_off</span></span>
-        <span class="key">service_data</span>:
+      - <span class="string"><span class="content">service: script.turn_off</span></span>
+        <span class="key">data</span>:
            <span class="key">entity_id</span>: <span class="string"><span class="content">script.timer_off</span></span>
-      - <span class="string"><span class="content">execute_service: light.turn_on</span></span>
-        <span class="key">service_data</span>:
+      - <span class="string"><span class="content">service: light.turn_on</span></span>
+        <span class="key">data</span>:
           <span class="key">entity_id</span>: <span class="string"><span class="content">light.kitchen</span></span>
       <span class="comment"># Set new timer</span>
-      - <span class="string"><span class="content">execute_service: script.turn_on</span></span>
-        <span class="key">service_data</span>:
+      - <span class="string"><span class="content">service: script.turn_on</span></span>
+        <span class="key">data</span>:
           <span class="key">entity_id</span>: <span class="string"><span class="content">script.timer_off</span></span>
 
   <span class="key">timer_off</span>:
@@ -149,8 +149,8 @@
     <span class="key">sequence</span>:
       - <span class="string"><span class="content">delay:</span><span class="content">
           minutes: 10</span></span>
-      - <span class="string"><span class="content">execute_service: light.turn_off</span></span>
-        <span class="key">service_data</span>:
+      - <span class="string"><span class="content">service: light.turn_off</span></span>
+        <span class="key">data</span>:
           <span class="key">entity_id</span>: <span class="string"><span class="content">light.kitchen</span></span>
 </pre></div>
 </div>
