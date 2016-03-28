@@ -113,9 +113,7 @@
   <hr class="divider">
   
 
-  <p>A user can create scenes that capture the states you want certain entities to be. For example a scene can contain that light A should be turned on and light B should be bright red.</p>
-
-<p>Scenes can be activated using the service <code>scene.turn_on</code>.</p>
+  <p>You can create scenes that capture the states you want certain entities to be. For example a scene can specify that light A should be turned on and light B should be bright red.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
@@ -134,6 +132,24 @@
         <span class="key">state</span>: <span class="string"><span class="content">on</span></span>
         <span class="key">brightness</span>: <span class="string"><span class="content">100</span></span>
       <span class="key">light.ceiling</span>: <span class="string"><span class="content">off</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Scenes can be activated using the service <code>scene.turn_on</code> (there is no ‘scene.turn_off’ service).</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example automation</span>
+<span class="head"><span class="head">...</span></span>
+<span class="key">automation</span>:
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.sweetheart</span></span>
+    <span class="key">from</span>: <span class="string"><span class="content">'not_home'</span></span>
+    <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
+  <span class="key">action</span>:                                                                                                
+    <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on                                                                               </span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">scene.romantic  </span></span>
 </pre></div>
 </div>
 </div>

@@ -115,36 +115,37 @@
   <hr class="divider">
   
 
-  <p>It can happen that you run into trouble while configuring Home Assistant. A component is not showing up or is acting weird. This page will discuss a few of the most common problems.</p>
+  <p>It can happen that you run into trouble while configuring Home Assistant. Perhaps a component is not showing up or is acting strangely. This page will discuss a few of the most common problems.</p>
 
 <p>Before we dive into common issues, make sure you know where your configuration directory is. Home Assistant will print out the configuration directory it is using when starting up.</p>
 
-<p>Whenever a component or configuration option results in a warning, it will be stored in <code>home-assistant.log</code>. This file is reset on start of Home Assistant.</p>
+<p>Whenever a component or configuration option results in a warning, it will be stored in <code>home-assistant.log</code> in the configuration directory. This file is reset on start of Home Assistant.</p>
 
 <h3><a class="title-link" name="yaml" href="#yaml"></a> YAML</h3>
 
-<p>Home Assistant uses the YAML syntax for configuration. YAML can be confusing at start but it is really powerful in allowing you to express complex configurations.</p>
+<p>Home Assistant uses the <a href="http://yaml.org/">YAML</a> syntax for configuration. YAML can be confusing to start with but is really powerful in allowing you to express complex configurations.</p>
 
-<p>The basics of YAML are lists and lookup tables containing key-value pairs. Lists will have each item start with a <code>-</code> while lookup tables will have the format <code>key: value</code>. The last value for a key is used in case you specify a duplicate key.</p>
+<p>The basics of YAML are block collections and mappings containing key-value pairs. Collections will have each item start with a <code>-</code> while mappings will have the format <code>key: value</code>. The last value for a key is used in case you specify a duplicate key.  <br />
+Note that the indentation is an important part of specifying relationships using YAML.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># A list</span>
+  <div class="code"><pre><span class="comment"># A collection</span>
 - <span class="string"><span class="content">hello</span></span>
 - <span class="string"><span class="content">how</span></span>
 - <span class="string"><span class="content">are</span></span>
 - <span class="string"><span class="content">you</span></span>
 
-<span class="comment"># Lookup table</span>
+<span class="comment"># Lookup mapping</span>
 <span class="key">beer</span>: <span class="string"><span class="content">ice cold</span></span>  <span class="comment"># &lt;-- will be ignored because key specified twice</span>
 <span class="key">beer</span>: <span class="string"><span class="content">warm</span></span>
 <span class="key">wine</span>: <span class="string"><span class="content">room temperature</span></span>
 <span class="key">water</span>: <span class="string"><span class="content">cold</span></span>
 
-<span class="comment"># Nesting tables</span>
+<span class="comment"># Nesting mappings (note the indentation)</span>
 <span class="key">device_tracker</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
 
-<span class="comment"># Nesting a list of tables in a table</span>
+<span class="comment"># Nesting a collection of mappings in a mapping</span>
 <span class="key">sensor</span>:
   - <span class="string"><span class="content">platform: mqtt</span></span>
     <span class="key">state_topic</span>: <span class="string"><span class="content">sensor/topic</span></span>
@@ -154,11 +155,11 @@
 </div>
 </div>
 
-<p>Indentation is used to specify which objects are nested under one anohter. Getting the right indentation can be tricky if you’re not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. You can test your configuration using <a href="http://yaml-online-parser.appspot.com/">online YAML parser</a> or <a href="http://www.yamllint.com/">YAML Lint</a>.</p>
+<p>Indentation is used to specify which objects are nested under one another. Getting the right indentation can be tricky if you’re not using an editor with a fixed width font. Tabs are not allowed to be used for indentation.</p>
 
 <ul>
   <li>To learn more about the quirks of YAML, read <a href="https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html">YAML IDIOSYNCRASIES</a> by SaltStack.</li>
-  <li>You can test your configuration using <a href="http://yaml-online-parser.appspot.com/">this online YAML parser</a>.</li>
+  <li>You can test your configuration using <a href="http://yaml-online-parser.appspot.com/">this online YAML parser</a> or <a href="http://www.yamllint.com/">YAML Lint</a>.</li>
 </ul>
 
 <h3><a class="title-link" name="my-component-does-not-show-up" href="#my-component-does-not-show-up"></a> My component does not show up</h3>
@@ -167,21 +168,21 @@
 
 <h4><a class="title-link" name="problems-with-the-configuration" href="#problems-with-the-configuration"></a> Problems with the configuration</h4>
 
-<p><code>configuration.yaml</code> does not allow multiple sections to have the same name. If you want a specific platform to be loaded twice, append a <a href="/getting-started/devices/#style-2">number/string</a> to the name or use <a href="/getting-started/devices/#style-1">this style</a>.</p>
+<p><code>configuration.yaml</code> does not allow multiple sections to have the same name. If you want a specific platform to be loaded twice, append a <a href="/getting-started/devices/#style-2">number or string</a> to the name or nest them using <a href="/getting-started/devices/#style-1">this style</a>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">sensor</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">forecast</span></span>
-  [<span class="error">...]</span>
+  <span class="error">...</span>
 
 <span class="key">sensor 2</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">bitcoin</span></span>
-  [<span class="error">...]</span>
+  <span class="error">...</span>
 </pre></div>
 </div>
 </div>
 
-<p>Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to <code>home-assistant.log</code>. You can have a look at <a href="/components/">the component page</a> for instructions how to setup the components.</p>
+<p>Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to <code>home-assistant.log</code>. You can have a look at <a href="/components/">the component page</a> for instructions on how to setup the components.</p>
 
 <p>If you find any errors or want to expand the documentation, please <a href="https://github.com/balloob/home-assistant.io/issues">let us know</a>.</p>
 
@@ -189,7 +190,7 @@
 
 <p>Almost all components have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in <code>home-assistant.log</code>.</p>
 
-<p>First step is trying to restart Home Assistant and see if the problem persists. If it does, please <a href="https://github.com/balloob/home-assistant/issues">report it</a> so we can investigate what is going on.</p>
+<p>The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can’t figure it out, please <a href="https://github.com/balloob/home-assistant/issues">report it</a> so we can investigate what is going on.</p>
 
 <h4><a class="title-link" name="problems-with-components" href="#problems-with-components"></a> Problems with components</h4>
 
@@ -210,7 +211,7 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>- <span class="string"><span class="content">platform: hyperion</span></span>
   <span class="key">host</span>: <span class="string"><span class="content">192.168.1.98</span></span>
-  [<span class="error">...]</span>
+  <span class="error">...</span>
 </pre></div>
 </div>
 </div>
@@ -224,13 +225,13 @@
 - <span class="string"><span class="content">platform: mqtt</span></span>
   <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Door Motion</span><span class="delimiter">&quot;</span></span>
   <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">door/motion</span><span class="delimiter">&quot;</span></span>
-  [<span class="error">...]</span>
+  <span class="error">...</span>
 </pre></div>
 </div>
 </div>
 
 <p class="note">
-Whenever you report an issue, be aware that we are a group of volunteers that do not have access to every single device in the world nor unlimited time to fix every problem out there.
+Whenever you report an issue, be aware that we are volunteers who do not have access to every single device in the world nor unlimited time to fix every problem out there.
 </p>
 
 

@@ -117,6 +117,12 @@
 
 <p>A configuration section of an automation requires a <code>trigger</code> and an <code>action</code> section. <code>condition</code> and <code>condition_type</code> are optional. To keep this page compact, all following sections will not show the full configuration but only the relevant part.</p>
 
+<ul>
+  <li><a href="#conditions">Jump to conditions</a></li>
+  <li><a href="#actions">Jump to actions</a></li>
+  <li><a href="#troubleshooting">Jump to troubleshooting</a></li>
+</ul>
+
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example of entry in configuration.yaml</span>
 <span class="key">automation</span>:
@@ -172,12 +178,6 @@
 </pre></div>
 </div>
 </div>
-
-<ul>
-  <li><a href="#conditions">Jump to conditions</a></li>
-  <li><a href="#actions">Jump to actions</a></li>
-  <li><a href="#troubleshooting">Jump to troubleshooting</a></li>
-</ul>
 
 <h2><a class="title-link" name="triggers" href="#triggers"></a> Triggers</h2>
 
@@ -329,9 +329,9 @@
 
 <h2><a class="title-link" name="conditions" href="#conditions"></a> Conditions</h2>
 
-<p>Conditions are an optional part of an automation rule and be used to prevent an action from happening when triggered. Conditions look very familiar to triggers but are very different. A trigger will look at events happening at the system while a condition only looks at how the system looks right now. A trigger can observe that a switch is being turned on. A condition can only see if a switch is on or off.</p>
+<p>Conditions are an optional part of an automation rule and be used to prevent an action from happening when triggered. Conditions look very similar to triggers but are very different. A trigger will look at events happening in the system while a condition only looks at how the system looks right now. A trigger can observe that a switch is being turned on. A condition can only see if a switch is currently on or off.</p>
 
-<p>An automation rule can have mulitiple conditions. By default the action will only fire if all conditions pass. An optional key <code>condition_type: 'or'</code> can be set on the automation rule to fire action if any condition matches.  In the example below, the automation would trigger if the time is before 05:00 <em>OR</em> after 20:00.</p>
+<p>An automation rule can have multiple conditions. By default the action will only fire if all conditions pass. An optional key <code>condition_type: 'or'</code> can be set on the automation rule to fire action if any condition matches.  In the example below, the automation would trigger if the time is before 05:00 <em>OR</em> after 20:00.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">automation</span>:
@@ -356,18 +356,17 @@
 
 <h4><a class="title-link" name="numeric-state-condition" href="#numeric-state-condition"></a> Numeric state condition</h4>
 
-<p>Attempts to parse the state of specified entity as a number and triggers if value is above and/or below a threshold.</p>
+<p>This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches all of the above or below thresholds.  <br />
+Either <code>above</code> or <code>below</code>, or both need to be specified. If both are used, the condition is true when the value is &gt;= <code>before</code> *and** &lt; <code>after</code>.  <br />
+You can optionally use a <code>value_template</code> to make the value of the entity the same type of value as the condition.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">automation</span>:
   <span class="key">condition</span>:
     <span class="key">platform</span>: <span class="string"><span class="content">numeric_state</span></span>
     <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.temperature</span></span>
-    <span class="comment"># At least one of the following required</span>
     <span class="key">above</span>: <span class="string"><span class="content">17</span></span>
     <span class="key">below</span>: <span class="string"><span class="content">25</span></span>
-    <span class="comment"># Optional</span>
-    <span class="key">value_template</span>: <span class="string"><span class="content">'{{ state.attributes.battery }}'</span></span>
 </pre></div>
 </div>
 </div>
@@ -387,7 +386,6 @@
       <span class="key">hours</span>: <span class="string"><span class="content">1</span></span>
       <span class="key">minutes</span>: <span class="string"><span class="content">10</span></span>
       <span class="key">seconds</span>: <span class="string"><span class="content">5</span></span>
-
 </pre></div>
 </div>
 </div>
@@ -409,7 +407,7 @@
 
 <h4><a class="title-link" name="template-condition" href="#template-condition"></a> Template condition</h4>
 
-<p>The template condition will test if <a href="/topics/templating/">given template</a> renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render ‘true’.</p>
+<p>The template condition will test if the <a href="/topics/templating/">given template</a> renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render ‘true’.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">automation</span>:
@@ -459,7 +457,7 @@
 
 <h2><a class="title-link" name="actions" href="#actions"></a> Actions</h2>
 
-<p>When an automation rule fires, it calls a service. For this service you can specify an entity id it should apply to and optional service parameters (to specify for example the brightness).</p>
+<p>When an automation rule fires, it calls a service. For this service you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">automation</span>:
@@ -487,11 +485,11 @@
 </div>
 </div>
 
-<p>If you want to specify multiple services to be called or include a delay, have a look at the <a href="/components/script/">script component</a>. If you want to describe how certain entities should look, check out the <a href="/components/scene/">scene component</a>.</p>
+<p>If you want to specify multiple services to be called, or to include a delay, have a look at the <a href="/components/script/">script component</a>. If you want to describe the desired state of certain entities, check out the <a href="/components/scene/">scene component</a>.</p>
 
 <h2><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h2>
 
-<p>You can verify that your automation rules are being initialized correctly by watching both the realtime logs and also the logbook.  The realtime logs will show the rules being initialized (once for each trigger):</p>
+<p>You can verify that your automation rules are being initialized correctly by watching both the realtime logs (<code>homeassistant.log</code> in the configuration directory) and also the <a href="/components/logbook/">Logbook</a>. The realtime logs will show the rules being initialized (once for each trigger), example:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>INFO [homeassistant.components.automation] Initialized rule Rainy Day
@@ -502,7 +500,7 @@ INFO [homeassistant.components.automation] Initialized rule Rain is over
 </div>
 </div>
 
-<p>The Logbook component will show a line entry when an automation is triggered.  You can look at the previous entry to determine which trigger in the rule triggered the event.</p>
+<p>The Logbook component will show a line entry when an automation is triggered. You can look at the previous entry to determine which trigger in the rule triggered the event.</p>
 
 <p><img src="/images/components/automation/logbook.png" alt="Logbook example" /></p>
 

@@ -139,11 +139,11 @@
 
 <p>On top of the <code>http</code> component is a <a href="/developers/rest_api/">REST API</a> and a <a href="/developers/python_api/">Python API</a> available.</p>
 
-<p>The <code>http</code> platforms are not a real platform within the meaning of the terminology used around Home Assistant. Home Assistant’s <a href="/developers/rest_api/">REST API</a> is consuming and proceeding messages received over HTTP.</p>
+<p>The <code>http</code> platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant’s <a href="/developers/rest_api/">REST API</a> sends and receives messages over HTTP.</p>
 
 <p>To use those kind of sensors in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.</p>
 
-<p>All <a href="/developers/rest_api/#post-apistatesltentity_id">requests</a> needs to be sent to the endpoint of the device and must be <strong>POST</strong>.</p>
+<p>All <a href="/developers/rest_api/#post-apistatesltentity_id">requests</a> need to be sent to the endpoint of the device and must be <strong>POST</strong>.</p>
 
 
 </article>

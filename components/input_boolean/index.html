@@ -119,7 +119,7 @@
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">input_boolean</span>:
   <span class="key">notify_home</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Notify when someome arrives home</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Notify when someone arrives home</span></span>
     <span class="key">initial</span>: <span class="string"><span class="content">off</span></span>
     <span class="key">icon</span>: <span class="string"><span class="content">mdi:car</span></span>
 </pre></div>
@@ -137,6 +137,27 @@
 
 <p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code>mdi:</code>. For example <code>mdi:car</code>, <code>mdi:ambulance</code>, or  <code>mdi:motorbike</code>.</p>
 
+<p>Here’s an example of an automation using the above input_boolean. This action will only occur if the switch is on.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+  <span class="key">alias</span>: <span class="string"><span class="content">Arriving home</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">binary_sensor.motion_garage</span></span>
+    <span class="key">to</span>: <span class="string"><span class="content">'on'</span></span>
+  <span class="key">condition</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">input_boolean.notify_home</span></span>
+    <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">notify.pushbullet</span></span>
+    <span class="key">data</span>:
+      <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+      <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Honey, I'm home!</span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+</div>
 
 
 </article>
