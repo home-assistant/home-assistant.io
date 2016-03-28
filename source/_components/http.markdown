@@ -33,8 +33,8 @@ Configuration variables:
 
 On top of the `http` component is a [REST API](/developers/rest_api/) and a [Python API](/developers/python_api/) available.
 
-The `http` platforms are not a real platform within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) is consuming and proceeding messages received over HTTP. 
+The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP. 
 
 To use those kind of sensors in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
-All [requests](/developers/rest_api/#post-apistatesltentity_id) needs to be sent to the endpoint of the device and must be **POST**.
+All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
