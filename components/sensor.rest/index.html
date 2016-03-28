@@ -152,7 +152,7 @@
   <li><strong>resource</strong> (<em>Required</em>): The resource or endpoint that contains the value.</li>
   <li><strong>method</strong> (<em>Optional</em>): The method of the request. Default is GET.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the value.</li>
-  <li><strong>payload</strong> (<em>Optional</em>): The payload to send with a POST request. Usualy formed as a dictionary.</li>
+  <li><strong>payload</strong> (<em>Optional</em>): The payload to send with a POST request. Depends on the service, but usually formed as JSON.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the REST sensor.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
 </ul>
@@ -176,7 +176,7 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 <h3><a class="title-link" name="external-ip-address" href="#external-ip-address"></a> External IP address</h3>
 
-<p>Always want to know your external IP address. <a href="http://www.jsontest.com">JSON Test</a> will provide you this information at their http://ip.jsontest.com/ endpoint.</p>
+<p>You can find your external IP address using the service <a href="http://www.jsontest.com">JSON Test</a> at their http://ip.jsontest.com/ endpoint.</p>
 
 <p>To display the IP address, the entry for a sensor in the <code>configuration.yaml</code> file will look like this.</p>
 
@@ -207,7 +207,7 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 <h3><a class="title-link" name="value-for-other-home-assistant-instance" href="#value-for-other-home-assistant-instance"></a> Value for other Home Assistant instance</h3>
 
-<p>The Home Assistant <a href="/developers/rest_api/">API</a> is exposing the data from your attached sensors. If you are running multiple Home Assistant instances which are not <a href="/developers/architecture/#multiple-connected-instances">connected</a> you can still get information from them.</p>
+<p>The Home Assistant <a href="/developers/rest_api/">API</a> exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not <a href="/developers/architecture/#multiple-connected-instances">connected</a> you can still get information from them.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>  - <span class="string"><span class="content">platform: rest</span></span>
