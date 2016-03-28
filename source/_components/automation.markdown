@@ -15,6 +15,10 @@ This page will go into more detail about the various options the `automation` co
 
 A configuration section of an automation requires a `trigger` and an `action` section. `condition` and `condition_type` are optional. To keep this page compact, all following sections will not show the full configuration but only the relevant part.
 
+ - [Jump to conditions](#conditions)
+ - [Jump to actions](#actions)
+ - [Jump to troubleshooting](#troubleshooting)
+
 ```yaml
 # Example of entry in configuration.yaml
 automation:
@@ -68,10 +72,6 @@ automation:
     data:
       message: 'Paulus left the house'
 ```
-
- - [Jump to conditions](#conditions)
- - [Jump to actions](#actions)
- - [Jump to troubleshooting](#troubleshooting)
 
 ## {% linkable_title Triggers %}
 
@@ -207,9 +207,9 @@ automation:
 
 ## {% linkable_title Conditions %}
 
-Conditions are an optional part of an automation rule and be used to prevent an action from happening when triggered. Conditions look very familiar to triggers but are very different. A trigger will look at events happening at the system while a condition only looks at how the system looks right now. A trigger can observe that a switch is being turned on. A condition can only see if a switch is on or off.
+Conditions are an optional part of an automation rule and be used to prevent an action from happening when triggered. Conditions look very similar to triggers but are very different. A trigger will look at events happening in the system while a condition only looks at how the system looks right now. A trigger can observe that a switch is being turned on. A condition can only see if a switch is currently on or off.
 
-An automation rule can have mulitiple conditions. By default the action will only fire if all conditions pass. An optional key `condition_type: 'or'` can be set on the automation rule to fire action if any condition matches.  In the example below, the automation would trigger if the time is before 05:00 _OR_ after 20:00.
+An automation rule can have multiple conditions. By default the action will only fire if all conditions pass. An optional key `condition_type: 'or'` can be set on the automation rule to fire action if any condition matches.  In the example below, the automation would trigger if the time is before 05:00 _OR_ after 20:00.
 
 ```yaml
 automation:
@@ -230,18 +230,17 @@ automation:
 
 #### {% linkable_title Numeric state condition %}
 
-Attempts to parse the state of specified entity as a number and triggers if value is above and/or below a threshold.
+This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches all of the above or below thresholds.  
+Either `above` or `below`, or both need to be specified. If both are used, the condition is true when the value is >= `before` *and** < `after`.  
+You can optionally use a `value_template` to make the value of the entity the same type of value as the condition. 
 
 ```yaml
 automation:
   condition:
     platform: numeric_state
     entity_id: sensor.temperature
-    # At least one of the following required
     above: 17
     below: 25
-    # Optional
-    value_template: '{% raw %}{{ state.attributes.battery }}{% endraw %}'
 ```
 
 #### {% linkable_title State condition %}
@@ -259,7 +258,6 @@ automation:
       hours: 1
       minutes: 10
       seconds: 5
-
 ```
 
 #### {% linkable_title Sun condition %}
@@ -277,7 +275,7 @@ automation:
 
 #### {% linkable_title Template condition %}
 
-The template condition will test if [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
+The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
 
 
 ```yaml
@@ -322,7 +320,7 @@ automation:
 
 ## {% linkable_title Actions %}
 
-When an automation rule fires, it calls a service. For this service you can specify an entity id it should apply to and optional service parameters (to specify for example the brightness).
+When an automation rule fires, it calls a service. For this service you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).
 
 ```yaml
 automation:
@@ -346,11 +344,11 @@ automation:
       message: Something just happened, better take a look!
 ```
 
-If you want to specify multiple services to be called or include a delay, have a look at the [script component](/components/script/). If you want to describe how certain entities should look, check out the [scene component](/components/scene/).
+If you want to specify multiple services to be called, or to include a delay, have a look at the [script component](/components/script/). If you want to describe the desired state of certain entities, check out the [scene component](/components/scene/).
 
 ## {% linkable_title Troubleshooting %}
 
-You can verify that your automation rules are being initialized correctly by watching both the realtime logs and also the logbook.  The realtime logs will show the rules being initialized (once for each trigger):
+You can verify that your automation rules are being initialized correctly by watching both the realtime logs (`homeassistant.log` in the configuration directory) and also the [Logbook](/components/logbook/). The realtime logs will show the rules being initialized (once for each trigger), example:
 
 ```plain
 INFO [homeassistant.components.automation] Initialized rule Rainy Day
@@ -359,7 +357,7 @@ INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rain is over
 ```
 
-The Logbook component will show a line entry when an automation is triggered.  You can look at the previous entry to determine which trigger in the rule triggered the event.
+The Logbook component will show a line entry when an automation is triggered. You can look at the previous entry to determine which trigger in the rule triggered the event.
 
 ![Logbook example](/images/components/automation/logbook.png)
 

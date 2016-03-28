@@ -68,7 +68,7 @@ sensor:
 
 ### {% linkable_title hddtemp %}
 
-The tool `hddtemp` collects the temperatur of your harddisks. 
+The tool `hddtemp` collects the temperature of your harddisks. 
 
 ```bash
 $ hddtemp

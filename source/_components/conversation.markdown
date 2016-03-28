@@ -12,7 +12,8 @@ ha_category: "Voice"
 ---
 
 
-The conversation component can process sentences into commands for Home Assistant. It is currently limited to parsing commands in the format `turn <Friendly Name> <on/off>`.
+The conversation component can process sentences into commands for Home Assistant. It is currently limited to parsing commands in the format `turn <Friendly Name> <on/off>`.  
+
 
 To enable the conversion option in your installation, add the following to your `configuration.yaml` file:
 
@@ -25,4 +26,8 @@ When this component is active and you are using a supported browser voice comman
 
 <p class='img'>
   <img src="/images/screenshots/voice-commands.png" />
+</p>
+
+<p class='note note'>
+Apple iPhones do not support this feature in any browser. 
 </p>

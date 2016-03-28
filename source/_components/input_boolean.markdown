@@ -17,7 +17,7 @@ The `input_boolean` component allows the user to define boolean values that can 
 # Example configuration.yaml entry
 input_boolean:
   notify_home:
-    name: Notify when someome arrives home
+    name: Notify when someone arrives home
     initial: off
     icon: mdi:car
 ```
@@ -31,3 +31,22 @@ Configuration variables:
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 
+Here's an example of an automation using the above input_boolean. This action will only occur if the switch is on.
+
+```yaml
+automation:
+  alias: Arriving home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_garage
+    to: 'on'
+  condition:
+    platform: state
+    entity_id: input_boolean.notify_home
+    state: 'on'
+  action:
+    service: notify.pushbullet
+    data:
+      title: ""
+      message: "Honey, I'm home!"
+```
