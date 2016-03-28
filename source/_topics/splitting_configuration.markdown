@@ -109,7 +109,7 @@ Let's look at the `device_tracker.yaml` file from our example:
   consider_home: 120
 ```
 
-This small example illustrates how the "split" files work. In this case, we start with a "comment block" identifying the file followed by two (2) device tracker entries (`owntracks` and `nmap`). These files follow ["style 2"](/getting-started/devices/#style-2-list-each-device-separately) that is to say a fully left aligned leading entry (`- platform: owntracks`) followed by the parameter entries indented two (2) spaces. 
+This small example illustrates how the "split" files work. In this case, we start with a "comment block" identifying the file followed by two (2) device tracker entries (`owntracks` and `nmap`). These files follow ["style 1"](/getting-started/devices/#style-2-list-each-device-separately) that is to say a fully left aligned leading entry (`- platform: owntracks`) followed by the parameter entries indented two (2) spaces. 
 
 This (large) sensor configuration gives us another example:
 
