@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Public Transit (GTFS)"
-description: "Instructions how to use public transit open data inHome Assistant."
+description: "Instructions on how to use public transit open data in Home Assistant."
 date: 2016-03-28 10:19
 sidebar: true
 comments: false
@@ -21,7 +21,7 @@ Here are some examples:
 
 - [Bay Area Rapid Transit (BART)](http://www.bart.gov/schedules/developers/gtfs) - The light rail system for the San Francisco Bay Area.
 - [Metropolitan Transit Authority of New York City (MTA)](http://www.bart.gov/schedules/developers/gtfs) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
-- [GBRail.info](http://www.gbrail.info/) - Provides data feeds for most if not all rail companies in the Britain.
+- [GBRail.info](http://www.gbrail.info/) - Provides data feeds for most if not all rail companies in Britain.
 
 You need to download a GTFS ZIP file and put it into a folder named `gtfs` in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (i.e. `bart.zip` instead of `google_transit_20160328_v1.zip`). You can also unzip and place a folder in the `gtfs` folder.
 
@@ -35,7 +35,7 @@ The sensor attributes will contain all related information for the specific trip
 
 Your mileage may vary depending on the transit agency used. Most agencies respect the GTFS format but some will do weird things like adding extra columns or using different data formatting. If you have any data specific issues, please report them to the [PyGTFS](https://github.com/jarondl/pygtfs) project, which is what the GTFS sensor uses to parse data.
 
-**Please note**: This is a _static_ data source. Currently, there is no GTFS Realtime support in this sensor due to issues surrounding parsing the protocol buffer format in Python 3. Once those issues have been fixed Realtime support will be added. Once added, the sensor will check for any delays and advisories and report them in sensor as needed.
+**Please note**: This is a _static_ data source. Currently, there is no GTFS Realtime support in this sensor due to issues surrounding parsing the protocol buffer format in Python 3. Once those issues have been fixed Realtime support will be added. Once added, the sensor will check for any delays and advisories and report them in the sensor as needed.
 
 ```yaml
 # Example configuration.yaml entry
