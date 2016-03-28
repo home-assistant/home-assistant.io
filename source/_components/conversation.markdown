@@ -28,6 +28,6 @@ When this component is active and you are using a supported browser voice comman
   <img src="/images/screenshots/voice-commands.png" />
 </p>
 
-<p class='note note'>
+<p class='note'>
 Apple iPhones do not support this feature in any browser. 
 </p>
