@@ -27,12 +27,6 @@ $ cd home-assistant.io
 $ bundle
 ```
 
-## Create a new blog post
-
-```bash
-$ rake new_post["title"]
-```
-
 ## Site preview
 
 ```bash
