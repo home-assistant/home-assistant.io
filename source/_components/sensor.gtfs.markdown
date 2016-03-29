@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `gtfs` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.
 
-You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps.
+You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at either [TransitFeeds](http://transitfeeds.com/feeds) or [GTFS Data Exchange](http://www.gtfs-data-exchange.com/).
 
 Here are some examples:
 
