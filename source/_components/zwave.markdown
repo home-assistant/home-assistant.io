@@ -61,7 +61,7 @@ With this installation, your `config_path` needed below will resemble:
 zwave:
   usb_path: /dev/ttyUSB0
   config_path: /usr/local/share/python-openzwave/config
-  polling_interval: 10000
+  polling_interval: 60000
   customize:
     sensor.greenwave_powernode_6_port_energy_10:
         polling_intensity: 1
@@ -71,7 +71,7 @@ Configuration variables:
 
 - **usb_path** (*Required*): The port where your device is connected to your Home Assistant host.
 - **config_path** (*Optional*): The path to the Python Open Z-Wave configuration files.
-- **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value.
+- **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **customize** (*Optional*): This attribute contains node-specific override values:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc)
 
@@ -111,11 +111,32 @@ The *entity_id* and *scene_id* of all triggered events can be seen in the consol
 
 #### {% linkable_title Services %}
 
-The Z-Wave component exposes two services to help maintain the network.
+The Z-Wave component exposes four services to help maintain the network.
 
 | Service | Description |
 | ------- | ----------- |
-| add_node | |
-| remove_node | |
-| heal_network | |
-| soft_reset | |
+| add_node | Put the zwave controller in inclusion mode. Allows one to add a new device to the zwave network.|
+| remove_node | Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.|
+| heal_network | Tells the controller to "heal" the network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
+| soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
+
+The soft_reset and heal_network commands can be used as part of an automation script
+to help keep a zwave network running relliably. For example:
+
+```yaml
+# Example configuration.yaml automation entry
+automation:
+  - alias: soft reset at 2:30am
+    trigger:
+      platform: time
+      after: '2:30:00'
+    action:
+      service: zwave.soft_reset
+
+  - alias: heal at 2:31am
+    trigger:
+      platform: time
+      after: '2:31:00'
+    action:
+      service: zwave.heal_network
+```
