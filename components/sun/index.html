@@ -122,7 +122,7 @@
   <span class="key">longitude</span>: <span class="string"><span class="content">-117.22743</span></span>
 
 <span class="key">sun</span>:
-  <span class="key">elevation</span>: <span class="string"><span class="content">123</span></span>
+  <span class="key">elevation</span>: <span class="string"><span class="content">102</span></span>
 </pre></div>
 </div>
 </div>
@@ -130,7 +130,7 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>elevation</strong> (<em>Optional</em>): The solar elevation angle is the altitude of the sun. If ommitted will be retrieved from Google Maps.</li>
+  <li><strong>elevation</strong> (<em>Optional</em>): The (physical) elevation of your location, in metres above sea level. If ommitted will be retrieved from Google Maps.</li>
 </ul>
 
 <p class="img">
@@ -185,11 +185,15 @@
   <tbody>
     <tr>
       <td><code>next_rising</code></td>
-      <td>Date and time of the next sun rising</td>
+      <td>Date and time of the next sun rising (in UTC).</td>
     </tr>
     <tr>
       <td><code>next_setting</code></td>
-      <td>Date and time of the next sun setting</td>
+      <td>Date and time of the next sun setting (in UTC).</td>
+    </tr>
+    <tr>
+      <td><code>elevation</code></td>
+      <td>Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.</td>
     </tr>
   </tbody>
 </table>
