@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The `trnasmission` platform allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
+The `transmission` platform allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,13 +36,13 @@ Configuration variables:
 - **name** (*Optional*): The name to use when displaying this Transmission instance.
 - **username** (*Optional*): Your Transmission username, if you use authentication.
 - **password** (*Optional*): Your Transmission password, if you use authentication.
-- **display_variables** array: Conditions to display in the frontend.
+- **monitored_variables** array: Conditions to display in the frontend.
   - **current_status**: The status of your Transmission daemon.
   - **download_speed**: The current download speed.
   - **upload_speed**: The current upload speed.
 
 
-To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to **Edit** -> **Perferences** and choose the tab **Remote**. Check **Allow remote access**, enter your username and your password, and uncheck the network restriction as needed.
+To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to **Edit** -> **Preferences** and choose the tab **Remote**. Check **Allow remote access**, enter your username and your password, and uncheck the network restriction as needed.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/transmission_perf.png' />
