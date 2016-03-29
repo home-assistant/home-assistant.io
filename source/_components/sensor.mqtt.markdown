@@ -41,7 +41,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title Get battery level %}
 
-If you are using the [Owntracks](components/device_tracker.owntracks/) and enable the reporting of the battery level then you can use a MQTT sensor to keep track of your battery. A regular MQTT message from Owntracks looks like this: 
+If you are using the [Owntracks](/components/device_tracker.owntracks/) and enable the reporting of the battery level then you can use a MQTT sensor to keep track of your battery. A regular MQTT message from Owntracks looks like this: 
 
 ```bash
 owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":144995643,"tid":"ta","acc":27,"lat":46.12}
