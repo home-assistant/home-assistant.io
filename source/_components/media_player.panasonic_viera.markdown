@@ -12,14 +12,14 @@ ha_category: Media Player
 featured: false
 ---
 
-The `vieratv` platform allows you to control a Panasonic Viera TV.
+The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: vieratv
+  platform: panasonic_viera
   host: 192.168.0.10
   port: 55000
   name: Living Room TV
