@@ -56,6 +56,6 @@ sensor:
   state_topic: "owntracks/tablet/tablet"
   name: "Battery Tablet"
   unit_of_measurement: "%"
-  value_template: '{{ value_json.batt }}'
+  value_template: {% raw %}'{{ value_json.batt }}'{% endraw %}
 ```
 
