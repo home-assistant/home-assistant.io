@@ -127,6 +127,9 @@
   <span class="key">password</span>: <span class="string"><span class="content">MY_PASSWORD</span></span>
   <span class="key">ssl</span>: <span class="string"><span class="content">true</span></span>
   <span class="key">verify_ssl</span>: <span class="string"><span class="content">true</span></span>
+  <span class="key">blacklist</span>:
+     - <span class="string"><span class="content">entity.id1</span></span>
+     - <span class="string"><span class="content">entity.id2</span></span>
 </pre></div>
 </div>
 </div>
@@ -141,6 +144,7 @@
   <li><strong>password</strong> (<em>Optional</em>): The password for the database user account.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
+  <li><strong>blacklist</strong> (<em>Optional</em>): List of entities not logged to influxdb.</li>
 </ul>
 
 
