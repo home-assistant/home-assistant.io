@@ -140,3 +140,75 @@ automation:
     action:
       service: zwave.heal_network
 ```
+
+#### {% linkable_title Device Specific Notes & Configuration %}
+
+##### {% linkable_title Aeon Minimote %}
+
+Here's a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into `automation.yaml`.
+
+```yaml
+- alias: Minimote Button 1 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 1
+
+- alias: Minimote Button 1 Held
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 2
+
+- alias: Minimote Button 2 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 3
+
+- alias: Minimote Button 2 Held
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 4
+
+- alias: Minimote Button 3 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 5
+
+- alias: Minimote Button 3 Held
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 6
+
+- alias: Minimote Button 4 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 7
+
+- alias: Minimote Button 4 Held
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 8
+```
