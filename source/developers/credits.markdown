@@ -75,6 +75,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Karen Goode](https://github.com/kfgoode)
 - [kennedyshead](https://github.com/kennedyshead)
 - [kixam](https://github.com/kixam)
+- [Luca Soldi](https://github.com/LucaSoldi)
 - [Lukas Hetzenecker](https://github.com/lukas-hetzenecker)
 - [Magnus Knutas](https://github.com/MagnusKnutas)
 - [MakeMeASandwich](https://github.com/MakeMeASandwich)
