@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: amazon-echo.png
 ha_category: Voice
-featured: true
+featured: false
 ---
 
 There are two ways that you can use Amazon Echo and Home Assistant together.
