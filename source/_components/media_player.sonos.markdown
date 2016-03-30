@@ -23,3 +23,12 @@ media_player:
   platform: sonos
 ```
 
+You can also specify hosts to connect to if they cannot be found with auto-discovery.
+
+```yaml
+# Example configuration.yaml entry
+media_player:
+  platform: sonos
+  hosts: IP
+```
+
