@@ -52,7 +52,7 @@ Example config.json entry to load Home Assistant:
 
 ### {% linkable_title Custom alarm system with Home Assistant %}
 
-User thaijames [describes in the Home Assistant forums](https://automic.us/forum/viewtopic.php?f=4&t=43&hilit=nfc) how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.
+User thaijames [describes in the Home Assistant forums](https://community.home-assistant.io/t/controlling-house-alarm-from-ha/67) how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.
 
 <p class='img'>
 <img src='/images/blog/2016-02-community-highlights/garfield-nfc.png'>

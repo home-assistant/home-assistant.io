@@ -13,7 +13,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 ### {% linkable_title Communication channels %} 
 
- - [Forum](https://automic.us/forum/)
+ - [Forum](https://community.home-assistant.io/)
  - [Gitter Chatroom](https://gitter.im/balloob/home-assistant) for general Home Assistant discussions and questions.
 
 ### {% linkable_title Bugs, Feature requests, and alike %}

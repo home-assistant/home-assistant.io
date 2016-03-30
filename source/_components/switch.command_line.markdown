@@ -75,7 +75,7 @@ switch:
 
 ### {% linkable_title Control your VLC player %}
 
-This switch will control a local VLC media player ([Source](https://automic.us/forum/viewtopic.php?f=4&t=144)). 
+This switch will control a local VLC media player ([Source](https://community.home-assistant.io/t/vlc-player/106)). 
 
 
 ```yaml
