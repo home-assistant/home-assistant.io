@@ -23,6 +23,7 @@ switch:
     living_room:
       name: Living Room
       packetid: XXXXX
+      fire_event: True
   automatic_add: True
 ```
 
@@ -31,3 +32,4 @@ Configuration variables:
 - **devices** (*Required*): A list of devices with their name to use in the frontend.
 - **automatic_add** (*Optional*): To enable the automatic addition of new switches.
 - **signal_repetitions** *Optional*: Because the rxftrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
+- **fire_event** *Optional*: Fires an event even if the state is the same as before. Can be used for automations.
