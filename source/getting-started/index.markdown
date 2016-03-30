@@ -280,7 +280,7 @@ If you run into any issues, please see [the troubleshooting page](/getting-start
 
 For additional help, in addition to this site, there are four sources:
 
- - [Forum](https://automic.us/forum/)
+ - [Forum](https://community.home-assistant.io/)
  - [Gitter Chatroom](https://gitter.im/balloob/home-assistant) for general Home Assistant discussions and questions.
  - [GitHub Page](https://github.com/balloob/home-assistant/issues) for issue reporting.
 
