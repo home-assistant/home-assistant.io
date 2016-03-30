@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: amazon-echo.png
 ha_category: Voice
-featured: false
+featured: true
 ---
 
 The Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself.
