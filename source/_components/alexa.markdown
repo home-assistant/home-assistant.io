@@ -12,14 +12,47 @@ ha_category: Voice
 featured: false
 ---
 
-The Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself.
+There are two ways that you can use Amazon Echo and Home Assistant together.
+
+No matter which method(s) you decide to use, please remember that Amazon Echo requires an active Internet connection to function. If your Internet is down or experiencing issues (or Amazon's infrastructure is having issues), neither of these methods will work.
+
+### {% linkable_title I just want to turn devices on and off using Echo %}
+
+If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, check out Michael Auchter's [Haaska][haaska-github-link] which integrates the [Alexa Lighting API][alexa-lighting-api] into Home Assistant.
+
+[haaska-github-link]: https://github.com/auchter/haaska
+[alexa-lighting-api]: https://developer.amazon.com/public/binaries/content/assets/html/alexa-lighting-api.html
+
+Implementing Haaska means you can turn things on and off by simply saying
+
+> Alexa, turn the living room lights on.
+
+or
+
+> Alexa, set the living room lights to twenty percent.
+
+instead of
+
+> Alexa, tell Home Assistant to turn the living room lights on.
+
+or
+
+> Alexa, tell Home Assistant to set the living room lights to twenty percent.
+
+In addition, you would need to build custom intents for each device and on/off combination using the below method, whereas everything just works without any extra work by using Haaska.
+
+Please note that you can use Haaska and the built-in Alexa component side-by-side without issue if you wish.
+
+### {% linkable_title I want to build custom commands to use with Echo %}
+
+The built-in Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title Requirements before using %}
-Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. If you are unable to get https up and running, consider using [this AWS Lambda proxy for Alexa skills](https://forums.developer.amazon.com/forums/thread.jspa?messageID=18604).
+#### {% linkable_title Requirements before using %}
+Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://forums.developer.amazon.com/forums/thread.jspa?messageID=18604).
 
 [blog-lets-encrypt]: https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/
 
@@ -35,7 +68,7 @@ To get started with Alexa skills:
      - https
      - https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD
 
-### {% linkable_title Configuring your Amazon Alexa skill %}
+#### {% linkable_title Configuring your Amazon Alexa skill %}
 
 Alexa works based on intents. Each intent has a name and variable slots. For example, a `LocateIntent` with a slot that contains a `User`. Example intent schema:
 
