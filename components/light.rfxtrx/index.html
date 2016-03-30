@@ -126,6 +126,7 @@
     <span class="key">living_room</span>:
       <span class="key">name</span>: <span class="string"><span class="content">Living Room</span></span>
       <span class="key">packetid</span>: <span class="string"><span class="content">XXXXX</span></span>
+      <span class="key">fire_event</span>: <span class="string"><span class="content">True</span></span>
   <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
 </pre></div>
 </div>
@@ -137,6 +138,7 @@
   <li><strong>devices</strong> (<em>Required</em>): A list of devices with their name to use in the frontend.</li>
   <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of new lights.</li>
   <li><strong>signal_repetitions</strong> <em>Optional</em>: Because the rxftrx device sends its actions via radio and from most receivers it’s impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.</li>
+  <li><strong>fire_event</strong> <em>Optional</em>: Fires an event even if the state is the same as before. Can be used for automations.</li>
 </ul>
 
 
