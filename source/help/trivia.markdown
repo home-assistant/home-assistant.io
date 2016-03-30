@@ -31,13 +31,13 @@ Home Assistant is open source software and available under the [MIT](https://ope
 
 This sections just contains some random numbers of the Home Assistant eco-system.
 
-| Description  | 2015   |
+| Description | 2015 |
 |---|---|
-| [Gitter.io](https://gitter.im/balloob/home-assistant)  | 334  |
+| [Gitter.io](https://gitter.im/balloob/home-assistant)  | 334 |
 | [Forum posts](https://automic.us/forum/index.php) | 352 |
 | [Forum topics](https://automic.us/forum/index.php) | 83 |
 | [Forum members](https://automic.us/forum/index.php) | 92 |
-| [Github stars](https://github.com/balloob/home-assistant/stargazers)  | 2519  |
+| [Github stars](https://github.com/balloob/home-assistant/stargazers)  | 2519 |
 | [Github forks](https://github.com/balloob/home-assistant/network) | 374 |
 | Page views [ha.io](https://home-assistant.io) | 190'271|
 
