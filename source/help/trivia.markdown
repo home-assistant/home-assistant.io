@@ -17,7 +17,7 @@ Unknown at the moment.
 
 ### {% linkable_title Website %}
 
-The website [https://home-assistant.io](https://home-assistant.io) was launched on December 18, 2014 and contains doumentation about the setup process, the platforms and components, and for the developers.
+The website [https://home-assistant.io](https://home-assistant.io) was launched on December 18, 2014 and contains documentation about the setup process, the platforms and components, and for the developers.
 
 ### {% linkable_title Logo %}
 
@@ -39,7 +39,7 @@ This sections just contains some random numbers of the Home Assistant eco-system
 | [Forum members](https://automic.us/forum/index.php) | 92 |
 | [Github stars](https://github.com/balloob/home-assistant/stargazers)  | 2519  |
 | [Github forks](https://github.com/balloob/home-assistant/network) | 374 |
-| Pageviews [ha.io](https://home-assistant.io) | 190'271|
+| Page views [ha.io](https://home-assistant.io) | 190'271|
 
 ### {% linkable_title Commit per year %}
 
