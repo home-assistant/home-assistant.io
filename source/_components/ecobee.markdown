@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ecobee.png
 ha_category: Hub
+featured: true
 ---
 
 

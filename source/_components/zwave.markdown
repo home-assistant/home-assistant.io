@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: z-wave.png
 ha_category: Hub
+featured: true
 ---
 
 [Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a [supported Z-Wave USB stick](https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List) to be plugged into the host.
