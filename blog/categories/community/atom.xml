@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-03-30T17:02:38+00:00</updated>
+  <updated>2016-03-30T21:33:19+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -63,7 +63,7 @@
 
 <h3><a class='title-link' name='custom-alarm-system-with-home-assistant' href='#custom-alarm-system-with-home-assistant'></a> Custom alarm system with Home Assistant </h3>
 
-<p>User thaijames <a href="https://automic.us/forum/viewtopic.php?f=4&amp;t=43&amp;hilit=nfc">describes in the Home Assistant forums</a> how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.</p>
+<p>User thaijames <a href="https://community.home-assistant.io/t/controlling-house-alarm-from-ha/67">describes in the Home Assistant forums</a> how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.</p>
 
 <p class="img">
 <img src="https://home-assistant.io/images/blog/2016-02-community-highlights/garfield-nfc.png" />
@@ -79,7 +79,7 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
     <id>https://home-assistant.io/blog/2015/12/05/community-highlights</id>
     <content type="html"><![CDATA[<p>From time to time we come along things that are worth sharing with fellow Home Assisters. Here a list of some cool stuff from last week:</p>
 
-<p>First is the public beta of <a href="https://letsencrypt.org/">Let’s Encrypt</a>. Let’s Encrypt is a new certificate authority that is free, automated and open. This means that it will now be very easy to secure your connection to Home Assistant while you are away from home. W1ll1am23 has written up <a href="https://automic.us/forum/viewtopic.php?f=4&amp;t=29">a guide how to get started</a>.</p>
+<p>First is the public beta of <a href="https://letsencrypt.org/">Let’s Encrypt</a>. Let’s Encrypt is a new certificate authority that is free, automated and open. This means that it will now be very easy to secure your connection to Home Assistant while you are away from home. W1ll1am23 has written up <a href="https://community.home-assistant.io/t/homeassistant-nginx-ssl-proxy-setup/53">a guide how to get started</a>.</p>
 
 <p>The next thing is a show-off of some of the cool stuff people do with Home Assistant. This is miniconfig talking to Home Assistant using the Amazon Echo!</p>
 
