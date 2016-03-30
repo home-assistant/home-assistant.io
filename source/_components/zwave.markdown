@@ -112,7 +112,7 @@ The *entity_id* and *scene_id* of all triggered events can be seen in the consol
 
 #### {% linkable_title Services %}
 
-The Z-Wave component exposes four services to help maintain the network.
+The Z-Wave component exposes five services to help maintain the network.
 
 | Service | Description |
 | ------- | ----------- |
@@ -120,6 +120,7 @@ The Z-Wave component exposes four services to help maintain the network.
 | remove_node | Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.|
 | heal_network | Tells the controller to "heal" the network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
+| test_network | (in 0.17) Tells the controller send out a no-op command to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".|
 
 The soft_reset and heal_network commands can be used as part of an automation script
 to help keep a zwave network running relliably. For example:
