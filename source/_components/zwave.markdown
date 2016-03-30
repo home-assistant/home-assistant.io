@@ -119,3 +119,4 @@ The Z-Wave component exposes two services to help maintain the network.
 | remove_node | |
 | heal_network | |
 | soft_reset | |
+| test_network | Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".|
