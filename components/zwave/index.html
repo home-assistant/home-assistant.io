@@ -285,6 +285,80 @@ to help keep a zwave network running relliably. For example:</p>
 </div>
 </div>
 
+<h4><a class="title-link" name="device-specific-notes--configuration" href="#device-specific-notes--configuration"></a> Device Specific Notes &amp; Configuration</h4>
+
+<h5><a class="title-link" name="aeon-minimote" href="#aeon-minimote"></a> Aeon Minimote</h5>
+
+<p>Here’s a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into <code>automation.yaml</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>- <span class="string"><span class="content">alias: Minimote Button 1 Pressed</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+    <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
+    <span class="key">event_data</span>:
+      <span class="key">entity_id</span>: <span class="string"><span class="content">aeon_labs_minimote_1</span></span>
+      <span class="key">scene_id</span>: <span class="string"><span class="content">1</span></span>
+
+- <span class="string"><span class="content">alias: Minimote Button 1 Held</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+    <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
+    <span class="key">event_data</span>:
+      <span class="key">entity_id</span>: <span class="string"><span class="content">aeon_labs_minimote_1</span></span>
+      <span class="key">scene_id</span>: <span class="string"><span class="content">2</span></span>
+
+- <span class="string"><span class="content">alias: Minimote Button 2 Pressed</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+    <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
+    <span class="key">event_data</span>:
+      <span class="key">entity_id</span>: <span class="string"><span class="content">aeon_labs_minimote_1</span></span>
+      <span class="key">scene_id</span>: <span class="string"><span class="content">3</span></span>
+
+- <span class="string"><span class="content">alias: Minimote Button 2 Held</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+    <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
+    <span class="key">event_data</span>:
+      <span class="key">entity_id</span>: <span class="string"><span class="content">aeon_labs_minimote_1</span></span>
+      <span class="key">scene_id</span>: <span class="string"><span class="content">4</span></span>
+
+- <span class="string"><span class="content">alias: Minimote Button 3 Pressed</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+    <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
+    <span class="key">event_data</span>:
+      <span class="key">entity_id</span>: <span class="string"><span class="content">aeon_labs_minimote_1</span></span>
+      <span class="key">scene_id</span>: <span class="string"><span class="content">5</span></span>
+
+- <span class="string"><span class="content">alias: Minimote Button 3 Held</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+    <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
+    <span class="key">event_data</span>:
+      <span class="key">entity_id</span>: <span class="string"><span class="content">aeon_labs_minimote_1</span></span>
+      <span class="key">scene_id</span>: <span class="string"><span class="content">6</span></span>
+
+- <span class="string"><span class="content">alias: Minimote Button 4 Pressed</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+    <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
+    <span class="key">event_data</span>:
+      <span class="key">entity_id</span>: <span class="string"><span class="content">aeon_labs_minimote_1</span></span>
+      <span class="key">scene_id</span>: <span class="string"><span class="content">7</span></span>
+
+- <span class="string"><span class="content">alias: Minimote Button 4 Held</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+    <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
+    <span class="key">event_data</span>:
+      <span class="key">entity_id</span>: <span class="string"><span class="content">aeon_labs_minimote_1</span></span>
+      <span class="key">scene_id</span>: <span class="string"><span class="content">8</span></span>
+</pre></div>
+</div>
+</div>
+
 
 </article>
 
