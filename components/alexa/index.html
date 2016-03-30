@@ -113,14 +113,52 @@
   <hr class="divider">
   
 
-  <p>The Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself.</p>
+  <p>There are two ways that you can use Amazon Echo and Home Assistant together.</p>
+
+<p>No matter which method(s) you decide to use, please remember that Amazon Echo requires an active Internet connection to function. If your Internet is down or experiencing issues (or Amazon’s infrastructure is having issues), neither of these methods will work.</p>
+
+<h3><a class="title-link" name="i-just-want-to-turn-devices-on-and-off-using-echo" href="#i-just-want-to-turn-devices-on-and-off-using-echo"></a> I just want to turn devices on and off using Echo</h3>
+
+<p>If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, check out Michael Auchter’s <a href="https://github.com/auchter/haaska">Haaska</a> which integrates the <a href="https://developer.amazon.com/public/binaries/content/assets/html/alexa-lighting-api.html">Alexa Lighting API</a> into Home Assistant.</p>
+
+<p>Implementing Haaska means you can turn things on and off by simply saying</p>
+
+<blockquote>
+  <p>Alexa, turn the living room lights on.</p>
+</blockquote>
+
+<p>or</p>
+
+<blockquote>
+  <p>Alexa, set the living room lights to twenty percent.</p>
+</blockquote>
+
+<p>instead of</p>
+
+<blockquote>
+  <p>Alexa, tell Home Assistant to turn the living room lights on.</p>
+</blockquote>
+
+<p>or</p>
+
+<blockquote>
+  <p>Alexa, tell Home Assistant to set the living room lights to twenty percent.</p>
+</blockquote>
+
+<p>In addition, you would need to build custom intents for each device and on/off combination using the below method, whereas everything just works without any extra work by using Haaska.</p>
+
+<p>Please note that you can use Haaska and the built-in Alexa component side-by-side without issue if you wish.</p>
+
+<h3><a class="title-link" name="i-want-to-build-custom-commands-to-use-with-echo" href="#i-want-to-build-custom-commands-to-use-with-echo"></a> I want to build custom commands to use with Echo</h3>
+
+<p>The built-in Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself.</p>
 
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
-<h3><a class="title-link" name="requirements-before-using" href="#requirements-before-using"></a> Requirements before using</h3>
-<p>Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">our blog</a> about how to set up encryption for Home Assistant. If you are unable to get https up and running, consider using <a href="https://forums.developer.amazon.com/forums/thread.jspa?messageID=18604">this AWS Lambda proxy for Alexa skills</a>.</p>
+<h4><a class="title-link" name="requirements-before-using" href="#requirements-before-using"></a> Requirements before using</h4>
+<p>Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">our blog</a> about how to set up encryption for Home Assistant. If you are unable to get HTTPS up and running, consider using <a href="https://forums.developer.amazon.com/forums/thread.jspa?messageID=18604">this AWS Lambda proxy for Alexa skills</a>.</p>
 
 <p>To get started with Alexa skills:</p>
 
@@ -142,7 +180,7 @@
   </li>
 </ul>
 
-<h3><a class="title-link" name="configuring-your-amazon-alexa-skill" href="#configuring-your-amazon-alexa-skill"></a> Configuring your Amazon Alexa skill</h3>
+<h4><a class="title-link" name="configuring-your-amazon-alexa-skill" href="#configuring-your-amazon-alexa-skill"></a> Configuring your Amazon Alexa skill</h4>
 
 <p>Alexa works based on intents. Each intent has a name and variable slots. For example, a <code>LocateIntent</code> with a slot that contains a <code>User</code>. Example intent schema:</p>
 
