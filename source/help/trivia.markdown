@@ -49,6 +49,7 @@ The numbers below only covers the [main git repository](https://github.com/ballo
 2013: 147
 2014: 328
 2015: 2963
+2016: 1439 (so far)
 ```
 
 More details and statistics can be found on [Github](https://github.com/balloob/home-assistant/graphs/contributors).
