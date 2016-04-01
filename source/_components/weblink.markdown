@@ -11,9 +11,9 @@ logo:
 ha_category: Other
 ---
 
-The `weblinks` component allows you to display links in the Home Assistant frontend.
+The `weblink` component allows you to display links in the Home Assistant frontend.
 
-To use this component in your installation, add the following to your `configuration.yaml` file:
+To use this component in your installation, add something like the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

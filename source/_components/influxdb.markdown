@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: influxdb.png
 ha_category: "History"
+featured: true
 ---
 
 The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. For more details, [see the blog post on InfluxDB](/blog/2015/12/07/influxdb-and-grafana/).
@@ -25,6 +26,9 @@ influxdb:
   password: MY_PASSWORD
   ssl: true
   verify_ssl: true
+  blacklist:
+     - entity.id1
+     - entity.id2
 ```
 
 Configuration variables:
@@ -36,3 +40,4 @@ Configuration variables:
 - **password** (*Optional*): The password for the database user account.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
+- **blacklist** (*Optional*): List of entities not logged to influxdb.

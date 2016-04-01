@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: z-wave.png
 ha_category: Hub
+featured: true
 ---
 
 [Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a [supported Z-Wave USB stick](https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List) to be plugged into the host.
@@ -25,7 +26,7 @@ Make sure you have the correct dependencies installed before running the script:
 $ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
 ```
 
-Make sure you have at least version 0.23 of cython. 
+Make sure you have at least version 0.23 of cython.
 
 ```bash
 $ sudo pip3 install --upgrade cython
@@ -61,7 +62,7 @@ With this installation, your `config_path` needed below will resemble:
 zwave:
   usb_path: /dev/ttyUSB0
   config_path: /usr/local/share/python-openzwave/config
-  polling_interval: 10000
+  polling_interval: 60000
   customize:
     sensor.greenwave_powernode_6_port_energy_10:
         polling_intensity: 1
@@ -71,7 +72,7 @@ Configuration variables:
 
 - **usb_path** (*Required*): The port where your device is connected to your Home Assistant host.
 - **config_path** (*Optional*): The path to the Python Open Z-Wave configuration files.
-- **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value.
+- **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **customize** (*Optional*): This attribute contains node-specific override values:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc)
 
@@ -102,7 +103,7 @@ automation:
     trigger:
       platform: event
       event_type: zwave.scene_activated
-      event_data: 
+      event_data:
         entity_id: zwaveme_zme_wallcs_secure_wall_controller_8
         scene_id: 11
 ```
@@ -111,12 +112,105 @@ The *entity_id* and *scene_id* of all triggered events can be seen in the consol
 
 #### {% linkable_title Services %}
 
-The Z-Wave component exposes two services to help maintain the network.
+The Z-Wave component exposes four services to help maintain the network.
 
 | Service | Description |
 | ------- | ----------- |
-| add_node | |
-| remove_node | |
-| heal_network | |
-| soft_reset | |
+| add_node | Put the zwave controller in inclusion mode. Allows one to add a new device to the zwave network.|
+| remove_node | Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.|
+| heal_network | Tells the controller to "heal" the network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
+| soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | test_network | Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".|
+
+The soft_reset and heal_network commands can be used as part of an automation script
+to help keep a zwave network running relliably. For example:
+
+```yaml
+# Example configuration.yaml automation entry
+automation:
+  - alias: soft reset at 2:30am
+    trigger:
+      platform: time
+      after: '2:30:00'
+    action:
+      service: zwave.soft_reset
+
+  - alias: heal at 2:31am
+    trigger:
+      platform: time
+      after: '2:31:00'
+    action:
+      service: zwave.heal_network
+```
+
+#### {% linkable_title Device Specific Notes & Configuration %}
+
+##### {% linkable_title Aeon Minimote %}
+
+Here's a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into `automation.yaml`.
+
+```yaml
+- alias: Minimote Button 1 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 1
+
+- alias: Minimote Button 1 Held
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 2
+
+- alias: Minimote Button 2 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 3
+
+- alias: Minimote Button 2 Held
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 4
+
+- alias: Minimote Button 3 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 5
+
+- alias: Minimote Button 3 Held
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 6
+
+- alias: Minimote Button 4 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 7
+
+- alias: Minimote Button 4 Held
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 8
+```

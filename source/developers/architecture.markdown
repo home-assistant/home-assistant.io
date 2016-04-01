@@ -28,7 +28,7 @@ The Home Assistant core is responsible for Home Control. It has four parts to ma
  * The **Event Bus** facilitates the firing and listening of events. This is the beating heart of Home Assistant.
  * The **State Machine** keeps track of the states of things. Fires a `state_changed` event when a state has been changed.
  * The **Service Registry** listens on the event bus for `call_service` events and allows other code to register services.
- * The **Timer** will send every 1 second a `time_changed` event on the event bus.
+ * The **Timer** will send a `time_changed` event every 1 second on the event bus.
 
 <p class='img'>
   <a href='/images/architecture/ha_architecture.png' name='architecture'>
@@ -37,15 +37,17 @@ The Home Assistant core is responsible for Home Control. It has four parts to ma
   Overview of the Home Assistant core architecture
 </p>
 
-Home Assistant can be extended by **components**. Each component is responsible for a specific domain within Home Assistant. Components can listen for- or trigger events, offer services and maintain states. Components are written in Python and can do all the goodness that Python has to offer. Out of the box, Home Assistant offers a bunch of [built-in components]({{site_root}}/components/).
+Home Assistant can be extended by **components**. Each component is responsible for a specific domain within Home Assistant. Components can listen for or trigger events, offer services and maintain states. Components are written in Python and can do all the goodness that Python has to offer. Out of the box, Home Assistant offers a bunch of [built-in components]({{site_root}}/components/).
 
-We can differentiate between two different types ofcomponents within Home Assistant.
+We can differentiate between two different types of components within Home Assistant.
 
 #### {% linkable_title Components that interact with an Internet of Things domain %}
 
-These components will track devices within a specific domain and exist of a core part and platform specific logic. These components make their information available via the State Machine and the Event Bus. The component will also register services in the Service Registry to expose control of the devices.
+These components will track devices within a specific domain and consist of a core part and platform-specific logic. These components make their information available via the State Machine and the Event Bus. The component will also register services in the Service Registry to expose control of the devices.
 
 For example, one of the built-in components is the `switch` component. This component is responsible for interaction with different types of switches.
+
+A platform provides support for a particular kind/brand of device. For example, a switch could use a WeMo or Orvibo platform, and a light component might interact with the Hue or LiFX platform.  
 
 If you are planning to add support for a new platform, please check out the [add new platform section]({{root_url}}/developers/add_new_platform/).
 
@@ -86,7 +88,7 @@ When we put all the different pieces of Home Assistant together we see that we m
   Overview of the full Home Assistant architecture with a couple of loaded components and platforms.
 </p>
 
-Component's platform logic uses 3rd party Python libraries to communicate with the devices. This is done so that we can leverage great device libraries that are out there in the Python community.
+The platform logic for components uses 3rd party Python libraries to communicate with the devices. This is done so that we can leverage great device libraries that are out there in the Python community.
 
 ## {% linkable_title Multiple connected instances %}
 
@@ -99,7 +101,7 @@ Home Assistant supports running multiple synchronized instances using a master-s
   Overview of the Home Assistant architecture for multiple devices.
 </p>
 
-A slave instance can be started with the following code and has the same support for components as a master-instance.
+A slave instance can be started with the following code and has the same support for components as a master instance.
 
 ```python
 import homeassistant.remote as remote
@@ -120,5 +122,5 @@ hass.block_till_stopped()
 ```
 
 <p class='note'>
-Because each slave maintains its own ServiceRegistry it is possible to have multiple slaves respond to one service call.
+Because each slave maintains its own Service Registry it is possible to have multiple slaves respond to one service call.
 </p>

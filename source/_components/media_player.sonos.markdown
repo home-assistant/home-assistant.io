@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Sonos"
-description: "Instructions how to integrateSonos devices into Home Assistant."
+description: "Instructions how to integrate Sonos devices into Home Assistant."
 date: 2015-09-12 13:00
 sidebar: true
 comments: false
@@ -21,5 +21,14 @@ To add your Sonos components to your installation, add the following to your `co
 # Example configuration.yaml entry
 media_player:
   platform: sonos
+```
+
+You can also specify hosts to connect to if they cannot be found with auto-discovery.
+
+```yaml
+# Example configuration.yaml entry
+media_player:
+  platform: sonos
+  hosts: IP
 ```
 

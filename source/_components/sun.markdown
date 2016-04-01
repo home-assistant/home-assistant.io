@@ -22,12 +22,12 @@ homeassistant:
   longitude: -117.22743
 
 sun:
-  elevation: 123
+  elevation: 102
 ```
 
 Configuration variables:
 
-- **elevation** (*Optional*): The solar elevation angle is the altitude of the sun. If ommitted will be retrieved from Google Maps.
+- **elevation** (*Optional*): The (physical) elevation of your location, in metres above sea level. If ommitted will be retrieved from Google Maps.
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sun.png' />
@@ -59,5 +59,6 @@ The sun event need to have the type 'sun', which service to call, which event (s
 
 | State Attributes | Description |
 | --------- | ----------- |
-| `next_rising` | Date and time of the next sun rising
-| `next_setting` | Date and time of the next sun setting
+| `next_rising` | Date and time of the next sun rising (in UTC).
+| `next_setting` | Date and time of the next sun setting (in UTC).
+| `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.

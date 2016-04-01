@@ -30,15 +30,15 @@ script:
     alias: "Turn on lamp and set timer"
     sequence:
       # Cancel ev. old timers
-      - execute_service: script.turn_off
-        service_data:
+      - service: script.turn_off
+        data:
            entity_id: script.timer_off
-      - execute_service: light.turn_on
-        service_data:
+      - service: light.turn_on
+        data:
           entity_id: light.kitchen
       # Set new timer
-      - execute_service: script.turn_on
-        service_data:
+      - service: script.turn_on
+        data:
           entity_id: script.timer_off
 
   timer_off:
@@ -46,7 +46,7 @@ script:
     sequence:
       - delay:
           minutes: 10
-      - execute_service: light.turn_off
-        service_data:
+      - service: light.turn_off
+        data:
           entity_id: light.kitchen
 ```

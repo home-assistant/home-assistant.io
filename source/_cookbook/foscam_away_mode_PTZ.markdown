@@ -47,18 +47,18 @@ The `script.foscam_off` and `script.foscam_on` can be used to set the motion det
 script:
  foscam_off:
    sequence:
-   - execute_service: switch.turn_off
-     service_data:
+   - service: switch.turn_off
+     data:
        entity_id: switch.foscam_motion
    - service: shell_command.foscam_turn_off
  foscam_on:
    sequence:
-   - execute_service: switch.turn_off
-     service_data:
+   - service: switch.turn_off
+     data:
        entity_id: switch.foscam_motion
    - service: shell_command.foscam_turn_on
-   - execute_service: switch.turn_on
-     service_data:
+   - service: switch.turn_on
+     data:
        entity_id: switch.foscam_motion
 ```
 

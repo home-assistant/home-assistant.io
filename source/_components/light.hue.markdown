@@ -28,7 +28,7 @@ light:
 
 Configuration variables:
 
-- **host** (*Required*): IP address aof the device, eg. 192.168.1.10.
+- **host** (*Required*): IP address of the device, eg. 192.168.1.10.
 - **allow_unreachable** (*Optional*):  This will allow unreachable bulbs to report their state correctly. By default *name* from the device is used.
 - **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
 

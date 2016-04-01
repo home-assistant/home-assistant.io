@@ -53,11 +53,11 @@ script:
     sequence:
       - delay:
           minutes: 15
-      - execute_service: notify.pushbullet
-        service_data:
+      - service: notify.pushbullet
+        data:
           message: 'WeMo not found, restarting HA'
-      - execute_service: switch.turn_on
-        service_data:
+      - service: switch.turn_on
+        data:
           entity_id: switch.killhass
   
 automation:

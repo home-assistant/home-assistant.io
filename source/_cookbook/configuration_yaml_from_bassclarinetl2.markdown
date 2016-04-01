@@ -223,7 +223,7 @@ http:
   ssl_key: /etc/letsencrypt/live/example.com/privkey.pem
 
 ifttt:
-  key: gm3dAtxwX8RpbA793mHWbK1bftO1wgScKt0ZHiT9GyC
+  key: [redacted]
 
 media_player 1:
   platform: plex
@@ -249,8 +249,8 @@ media_player 7:
   name: Parents TV
 
 wink:
-  access_token: cf83448f669cd3acd3b969b063028565
-  refresh_token: 6213c8a1d519d864e08b7364c91eaf22
+  access_token: [redacted]
+  refresh_token: [redacted]
 
 zwave:
   usb_path: /dev/ttyUSB0
@@ -264,8 +264,8 @@ zwave:
 mqtt:
   broker: 127.0.0.1
   port: 8883
-  username: hass
-  password: austin
+  username: [redacted]
+  password: [redacted]
 
 device_tracker 1:
   platform: owntracks
@@ -281,7 +281,7 @@ device_tracker 2:
 
 #sensor:
 #  platform: openweathermap
-#  api_key: b693a8bb2f60dcedc7b4bf33649ed4f1
+#  api_key: [redacted]
 #  forecast: 1
 #  monitored_conditions:
 #    - temperature

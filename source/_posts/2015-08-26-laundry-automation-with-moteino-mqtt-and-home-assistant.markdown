@@ -55,6 +55,10 @@ Materials used:
 
 Home Assistant Configuration:
 
+<p class='note'>
+The automation and script syntax here is using a deprecated and no longer supported format.
+</p>
+
 ```yaml
 mqtt:
   broker: 192.168.1.100

@@ -11,9 +11,7 @@ logo: home-assistant.png
 ha_category: Organization
 ---
 
-A user can create scenes that capture the states you want certain entities to be. For example a scene can contain that light A should be turned on and light B should be bright red.
-
-Scenes can be activated using the service `scene.turn_on`.
+You can create scenes that capture the states you want certain entities to be. For example a scene can specify that light A should be turned on and light B should be bright red.
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,4 +30,20 @@ scene:
         state: on
         brightness: 100
       light.ceiling: off
+```
+
+Scenes can be activated using the service `scene.turn_on` (there is no 'scene.turn_off' service).
+
+```yaml
+# Example automation
+...
+automation:
+  trigger:
+    platform: state
+    entity_id: device_tracker.sweetheart
+    from: 'not_home'
+    to: 'home'
+  action:                                                                                                
+    service: scene.turn_on                                                                               
+    entity_id: scene.romantic  
 ```

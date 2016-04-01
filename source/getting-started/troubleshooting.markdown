@@ -9,20 +9,20 @@ sharing: true
 footer: true
 ---
 
-It can happen that you run into trouble while installing Home Assistant. This page is here to help you figure out the most common problems.
+It can happen that you run into trouble while installing Home Assistant. This page is here to help you solve the most common problems.
 
 
 #### {% linkable_title pip3: command not found %}
 This utility should have been installed as part of the Python 3.4 installation. Check if Python 3.4 is installed by running `python3 --version`. If it is not installed, [download it here](https://www.python.org/getit/).
 
-If you are able to successfully run `python3 --version` but not `pip3`, run the following command instead to install Home Assistant:
+If you are able to successfully run `python3 --version` but not `pip3`, install Home Assistant by running the following command instead:
 
 ```bash
 $ python3 -m pip install homeassistant
 ```
 
 #### {% linkable_title No module named pip %}
-[Pip](https://pip.pypa.io/en/stable/) should come bundled with the latest Python 3 but is ommitted by some distributions. If you are unable to run `python3 -m pip --version` you can install `pip` by [downloading the installer](https://bootstrap.pypa.io/get-pip.py) and run it with Python 3:
+[Pip](https://pip.pypa.io/en/stable/) should come bundled with the latest Python 3 but is omitted by some distributions. If you are unable to run `python3 -m pip --version` you can install `pip` by [downloading the installer](https://bootstrap.pypa.io/get-pip.py) and running it with Python 3:
 
 ```bash
 $ python3 get-pip.py
@@ -63,7 +63,7 @@ $ iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhe
 ```
 
 #### {% linkable_title Run the development version %}
-If you want to stay on top of the development of Home Assistant then you can upgrade to the `dev` branch. This can result in an unstable system, loss of data, etc, etc.
+If you want to stay on top of the development of Home Assistant then you can upgrade to the `dev` branch. This can result in an unstable system, loss of data, etc. etc.
 
 ```bash
 $ pip3 install --upgrade git+git://github.com/balloob/home-assistant.git@dev
