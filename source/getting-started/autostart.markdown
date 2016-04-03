@@ -20,7 +20,7 @@ footer: true
 <label class='menu-selector synology' for='synology-install'>Synology NAS</label>
 
 <div class='advanced-installs upstart' markdown='1'>
-Many linux distributions use the Upstart system (or similar) for managing daemons. Typically, systems based on Debian 7 or previous use Upstart. This includes Ubuntu releases before 15.04 and all current Raspian releases. If you are unsure if your system is using Upstart, you may check with the following command:
+Many linux distributions use the Upstart system (or similar) for managing daemons. Typically, systems based on Debian 7 or previous use Upstart. This includes Ubuntu releases before 15.04. If you are unsure if your system is using Upstart, you may check with the following command:
 
 ```bash
 $ ps -p 1 -o comm=
