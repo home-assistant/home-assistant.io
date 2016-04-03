@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The `trnasmission` platform allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
+The `transmission` platform allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,7 +48,7 @@ To use the monitoring, your transmission client needs to allow remote access. If
   <img src='{{site_root}}/images/screenshots/transmission_perf.png' />
 </p>
 
-If everthing is setup correctly, the details will show up in the frontend.
+If everything is setup correctly, the details will show up in the frontend.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/transmission.png' />
