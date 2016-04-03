@@ -48,7 +48,7 @@ To use the monitoring, your transmission client needs to allow remote access. If
   <img src='{{site_root}}/images/screenshots/transmission_perf.png' />
 </p>
 
-If everthing is setup correctly, the details will show up in the frontend.
+If everything is setup correctly, the details will show up in the frontend.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/transmission.png' />
