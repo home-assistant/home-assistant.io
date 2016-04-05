@@ -7,7 +7,7 @@ date_formatted: December 26, 2014
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Architecture
+categories: Internet-of-Things
 ---
 
 The internet has been buzzing over the last year about home automation. A lot of different terms fly around like the internet of things, home automation and the smart home.
