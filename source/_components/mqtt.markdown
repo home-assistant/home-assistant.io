@@ -54,11 +54,11 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 | Port | 1883
 | Protocol | 3.1.1
 | User | homeassistant
-| Password | Your API password
+| Password | Your API (password)[/components/http/]
 | Websocket port | 8080
 
 <p class='note'>
-This broker does not currently work with OwnTracks because of a protocol version  issue.
+This broker does not currently work with OwnTracks because of a protocol version issue.
 </p>
 
 If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
@@ -179,7 +179,7 @@ $ mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
 If you are using the embeeded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.
 
 ```bash
-$ mosquitto_pub -V mqttv311 -t hello -m world
+$ mosquitto_pub -V mqttv311 -t "hello" -m world
 ```
 
 or if you are using a API password.
@@ -212,7 +212,7 @@ $ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 For the embeeded MQTT broker the command looks like the sample below.
 
 ```bash
-$ mosquitto_sub -V mqttv311 -t # -v
+$ mosquitto_sub -v -V mqttv311 -t "#" 
 ```
 
 Add the username `homeassistant` and your API password if needed.
