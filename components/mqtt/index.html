@@ -179,7 +179,7 @@
     </tr>
     <tr>
       <td>Password</td>
-      <td>Your API password</td>
+      <td>Your API (password)[/components/http/]</td>
     </tr>
     <tr>
       <td>Websocket port</td>
@@ -189,7 +189,7 @@
 </table>
 
 <p class="note">
-This broker does not currently work with OwnTracks because of a protocol version  issue.
+This broker does not currently work with OwnTracks because of a protocol version issue.
 </p>
 
 <p>If you want to customize the settings of the embedded broker, use <code>embedded:</code> and the values shown in the <a href="http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration">HBMQTT Broker configuration</a>. This will replace the default configuration.</p>
@@ -329,7 +329,7 @@ Home Assistant will automatically load the correct certificate if you connect to
 <p>If you are using the embeeded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mosquitto_pub -V mqttv311 -t hello -m world
+  <div class="code"><pre>$ mosquitto_pub -V mqttv311 -t &quot;hello&quot; -m world
 </pre></div>
 </div>
 </div>
@@ -372,7 +372,7 @@ Home Assistant will automatically load the correct certificate if you connect to
 <p>For the embeeded MQTT broker the command looks like the sample below.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mosquitto_sub -V mqttv311 -t # -v
+  <div class="code"><pre>$ mosquitto_sub -v -V mqttv311 -t &quot;#&quot; 
 </pre></div>
 </div>
 </div>
