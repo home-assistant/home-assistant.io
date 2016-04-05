@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-05T07:22:51+00:00</updated>
+  <updated>2016-04-05T07:29:04+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Your hub should be local and open]]></title>
+    <link href="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/"/>
+    <updated>2016-04-05T04:11:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open</id>
+    <content type="html"><![CDATA[<p>Today the news spread that Google will be <a href="https://medium.com/@arlogilbert/the-time-that-tony-fadell-sold-me-a-container-of-hummus-cb0941c762c1#.rmppks86a">shutting down the Revolv hubs</a>. And shutting down here doesn’t mean they stop selling or supporting them - no, they are sending an update to each hub to turn your perfectly fine home automation hub into a useless piece of plastic. The fact that this seemed like a good idea by Google astonishes me. If anything, they should have gone the same route as <a href="https://discuss.ninjablocks.com/t/ninja-blocks-whats-been-happening-whats-happening-next/3608">ninjasphere</a>: open it all up and let people decide on the fate of their <em>own</em> hub.</p>
+
+<p>I’ve said it <a href="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud/">before</a> but I’ll repeat it again:</p>
+
+<blockquote>
+  <p>The cloud should be treated as an extension to your smart home instead of running it.</p>
+</blockquote>
+
+<p>Your hub should not be affected when your internet breaks down or the company that sold you your hub goes out of business. It should work locally so that it can continue to work even long after the vendor goes out of business or decides to kill it. Preferably, your hub should also be open so that the community can take over development after the vendor stops caring.</p>
+
+<p>Unless you can afford losing a product here and there, be cautious when buying IoT products that depend on the cloud from companies that are not well established. The chances are high that they go bankrupt or get acquired and closed. This however is easier said than done as <a href="http://www.gartner.com/newsroom/id/2869521">Gartner</a> predicts that by 2017, 50 percent of IoT solutions will originate in startups that are less than three years old.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.16: Embedded MQTT broker, Uber, Yamaha receivers and Growl]]></title>
@@ -1541,53 +1561,6 @@ $ sudo systemctl status grafana-server
 <p>The conclusion is that <a href="http://mqtt.org/">MQTT</a> is popular in almost every section from Alarm Control Panel, presence detection with <a href="http://owntracks.org/">owntracks</a>, sensors and switches, and now even for lights.</p>
 
 <p>The interpretation of the data is up to you. Again, thanks for participating in this survey.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.8: Honeywell Thermostats, Orvibo switches and Z-Wave switches and lights ]]></title>
-    <link href="https://home-assistant.io/blog/2015/11/16/zwave-switches-lights-and-honeywell-thermostats-now-supported/"/>
-    <updated>2015-11-16T21:27:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/11/16/zwave-switches-lights-and-honeywell-thermostats-now-supported</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/screenshots/custom-icons.png" style="float: right;" />We have all been hard at work to get this latest release ready. One of the big highlights in this release is the introduction of an extended iconset to be used in the frontend (credits to <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> for idea and prototype). To get started with customizing, pick any icon from <a href="https://MaterialDesignIcons.com">MaterialDesignIcons.com</a>, prefix the name with <code>mdi:</code> and stick it into your <code>customize</code> section in <code>configuration.yaml</code>:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">homeassistant</span>:
-  <span class="key">customize</span>:
-    <span class="key">switch.ac</span>:
-      <span class="key">icon</span>: <span class="string"><span class="content">'mdi:air-conditioner'</span></span>
-</pre></div>
-</div>
-</div>
-
-<h4>Breaking changes</h4>
-
-<ul>
-  <li>Any existing zone icon will have to be replaced with one from <a href="https://MaterialDesignIcons.com">MaterialDesignIcons.com</a>.</li>
-  <li>LimitlessLED light services require colors to be specified in RGB instead of XY.</li>
-</ul>
-
-<h4>Changes</h4>
-
-<p><img src="https://home-assistant.io/images/supported_brands/honeywell.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /><img src="https://home-assistant.io/images/supported_brands/orvibo.png" style="clear: right;  border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /><img src="https://home-assistant.io/images/supported_brands/pushetta.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" height="50" /></p>
-
-<ul>
-  <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.honeywell/">Honeywell</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
-  <li>Switch: <a href="https://home-assistant.io/components/switch.orvibo/">Orvibo</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li>Camera: <a href="https://home-assistant.io/components/camera.mjpeg/">mjpeg camera’s</a> now supported (<a href="https://github.com/ryanturner">@ryanturner</a>)</li>
-  <li>Notify: <a href="https://home-assistant.io/components/notify.pushetta/">Pushetta</a> now supported (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/light.mqtt/">MQTT</a> now supported (<a href="https://github.com/hexxter">@hexxter</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/zwave/">Z-Wave</a> now supported (<a href="https://github.com/leoc">@leoc</a>)</li>
-  <li>Switch: <a href="https://home-assistant.io/components/zwave/">Z-Wave</a> now supported (<a href="https://github.com/leoc">@leoc</a>)</li>
-  <li>New component <a href="https://home-assistant.io/components/logger/">logger</a> allows filtering logged data (<a href="https://github.com/badele">@badele</a>)</li>
-  <li>New component <a href="https://home-assistant.io/components/updater/">updater</a> will notify users if an update for Home Assistant is available (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
-  <li>Notify: <a href="https://home-assistant.io/components/notify.pushbullet/">PushBullet</a> now allows targeting contacts/channels/specific devices (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Light: Allow controlling color temperature (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Frontend: about page added (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Switch RGB as the color unit used in light component (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Re-install platform and component dependencies after a Home Assistant version upgrade (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
 ]]></content>
   </entry>
   

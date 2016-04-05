@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>[Update: decision reversed!] Philips Hue blocks 3rd party lights - Home Assistant</title>
+    <title>Your hub should be local and open - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Philips has published a firmware update that blocks pairing of any 3rd party light.">
+    <meta name="description" content="Running a hub that depends on the cloud is a risk that can cost you your home automation.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="[Update: decision reversed!] Philips Hue blocks 3rd party lights">
+    <meta property="og:title" content="Your hub should be local and open">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Philips has published a firmware update that blocks pairing of any 3rd party light.">
+    <meta property="og:description" content="Running a hub that depends on the cloud is a risk that can cost you your home automation.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@balloob">
-    <meta name="twitter:title" content="[Update: decision reversed!] Philips Hue blocks 3rd party lights">
-    <meta name="twitter:description" content="Philips has published a firmware update that blocks pairing of any 3rd party light.">
+    <meta name="twitter:title" content="Your hub should be local and open">
+    <meta name="twitter:description" content="Running a hub that depends on the cloud is a risk that can cost you your home automation.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -104,12 +104,12 @@
   
   <header>
   
-  <h1 class="title indent">[Update: decision reversed!] Philips Hue blocks 3rd party lights</h1>
+  <h1 class="title indent">Your hub should be local and open</h1>
   
 
   
   <div class="meta clearfix">
-    <time datetime="2015-12-12T18:44:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 12, 2015</time>
+    <time datetime="2016-04-05T04:11:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 5, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
     <span><i class='icon-time'></i> 1 minute reading time</span>
     <span>
@@ -117,7 +117,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/public-service-announcement/'>Public-Service-Announcement</a></li>
+        <li><a class='category' href='/blog/categories/internet-of-things/'>Internet-of-Things</a></li>
       
     
     </ul>
@@ -132,39 +132,17 @@
 </header>
 
 
-  <p><strong>Update Dec 16</strong>: Great news! Philips has decided to <a href="http://www.developers.meethue.com/documentation/friends-hue-update">reverse their decision</a> and is working on a software update to allow 3rd party light bulbs again.</p>
+  <p>Today the news spread that Google will be <a href="https://medium.com/@arlogilbert/the-time-that-tony-fadell-sold-me-a-container-of-hummus-cb0941c762c1#.rmppks86a">shutting down the Revolv hubs</a>. And shutting down here doesn’t mean they stop selling or supporting them - no, they are sending an update to each hub to turn your perfectly fine home automation hub into a useless piece of plastic. The fact that this seemed like a good idea by Google astonishes me. If anything, they should have gone the same route as <a href="https://discuss.ninjablocks.com/t/ninja-blocks-whats-been-happening-whats-happening-next/3608">ninjasphere</a>: open it all up and let people decide on the fate of their <em>own</em> hub.</p>
 
-<p class="img">
-<img src="/images/blog/2015-12-philips-hue-3rd-party/philips-hue-reversed-faq.png" />
-Philips Hue FAQ entries regarding reversing the decision.
-</p>
+<p>I’ve said it <a href="/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud">before</a> but I’ll repeat it again:</p>
 
-<p><em>Original post:</em></p>
+<blockquote>
+  <p>The cloud should be treated as an extension to your smart home instead of running it.</p>
+</blockquote>
 
-<a name="read-more"></a>
-<p>Philips Hue was one of the first to get smart lights accepted by the mainstream. Their Zigbee-based hub is rock solid, never crashes, great API and worked with other Zigbee light bulbs too. They are a bit expensive but the platform was worth every penny, till now.</p>
+<p>Your hub should not be affected when your internet breaks down or the company that sold you your hub goes out of business. It should work locally so that it can continue to work even long after the vendor goes out of business or decides to kill it. Preferably, your hub should also be open so that the community can take over development after the vendor stops caring.</p>
 
-<p>Yesterday a thread on <a href="https://www.reddit.com/r/homeautomation/comments/3wet8h/fyi_the_hue_hub_is_now_blocking_third_party/">/r/homeautomation</a> published that Philips Hue now blocks all but their own bulbs and those of “friends of Hue”. I have been able to confirm this in the <a href="http://www2.meethue.com/en-us/support/search/?q=Another+brand">Philips Hue FAQ</a> (Update Dec 14: they have removed the entries - <a href="/images/blog/2015-12-philips-hue-3rd-party/mirror.png">mirror here</a>):</p>
-
-<p class="img">
-<img src="/images/blog/2015-12-philips-hue-3rd-party/philips-hue-faq.png" />
-Philips Hue FAQ entries regarding 3rd party light bulbs.
-</p>
-
-<p>This means that after you update your Hue bridge to the latest version:</p>
-
-<ul>
-  <li>As of now, you can still use your existing paired 3rd party light bulbs</li>
-  <li>You cannot pair new 3rd party light bulbs</li>
-  <li>You’re out of luck if for some reason you have to pair existing 3rd party light bulbs again</li>
-  <li>Resetting your hub will force pairing of all your bulbs again</li>
-</ul>
-
-<p>If you own a Philips Hue hub and are using 3rd party light bulbs, make sure you do not upgrade your hub if you want to be able to pair new 3rd party lightbulbs. But do realize that you are sitting on a ticking time bomb.</p>
-
-<p>I have read, but have been unable to confirm it, that resetting your hub will force a software upgrade. So beware of that too.</p>
-
-<p>I will no longer suggest people to buy into the Philips Hue ecosystem.</p>
+<p>Unless you can afford losing a product here and there, be cautious when buying IoT products that depend on the cloud from companies that are not well established. The chances are high that they go bankrupt or get acquired and closed. This however is easier said than done as <a href="http://www.gartner.com/newsroom/id/2869521">Gartner</a> predicts that by 2017, 50 percent of IoT solutions will originate in startups that are less than three years old.</p>
 </article>
 
 
@@ -202,12 +180,12 @@ Philips Hue FAQ entries regarding 3rd party light bulbs.
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/"
-     data-counturl="https://home-assistant.io/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/"
+     data-counturl="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/" >Tweet</a>
   
   
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/"
+         data-href="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/"
          data-layout="button_count">
     </div>
   
@@ -234,10 +212,6 @@ Philips Hue FAQ entries regarding 3rd party light bulbs.
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
     
-      
-        <li class="post">
-          <a href="/blog/2016/04/05/your-hub-should-be-local-and-open/">Your hub should be local and open</a>
-        </li>
       
     
       
@@ -307,8 +281,8 @@ Philips Hue FAQ entries regarding 3rd party light bulbs.
   
     
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/';
-    var disqus_url = 'https://home-assistant.io/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/';
     var disqus_script = 'embed.js';
   
   (function () {
