@@ -7,12 +7,18 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: Panasonic.png
+logo: panasonic.png
 ha_category: Media Player
 featured: false
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
+
+Currently known supported models:
+
+- TX-P42STW50
+
+If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/balloob/home-assistant.io).
 
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 
@@ -31,8 +37,3 @@ Configuration variables:
 - **port** *Optional*: The port of your Panasonic Viera TV. Defaults to `55000`
 - **name** *Optional*: The name you would like to give to the Panasonic Viera TV.
 
-Currently known supported models:
-
-- TX-P42STW50
-
-If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/balloob/home-assistant.io).
