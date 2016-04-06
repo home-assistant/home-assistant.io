@@ -117,7 +117,7 @@
 
   <p>Home Assistant will create a configuration folder when it is run for the first time. The location of the folder differs between operating systems: on OS X/Linux it’s <code>~/.homeassistant</code> and on Windows it’s <code>%APPDATA%/.homeassistant</code>. If you want to use a different folder for configuration, run <code>hass --config path/to/config</code>.</p>
 
-<p>Inside your configuration folder is the file <code>configuration.yaml</code>. This is the main file that contains which components will be loaded and what their configuration is.  <br />
+<p>Inside your configuration folder is the file <code>configuration.yaml</code>. This is the main file that contains which components will be loaded and what their configuration is.<br />
 This file contains YAML code, which is explained briefly in <a href="/getting-started/troubleshooting-configuration/">the configuration troubleshooting page</a>. An example configuration file is located <a href="https://github.com/balloob/home-assistant/blob/master/config/configuration.yaml.example">here</a>.</p>
 
 <p>When launched for the first time, Home Assistant will write a default configuration enabling the web interface and device discovery. It can take up to a minute for your devices to be discovered and show up in the interface.</p>
@@ -125,7 +125,7 @@ This file contains YAML code, which is explained briefly in <a href="/getting-st
 <p>If you run into trouble while configuring Home Assistant, have a look at <a href="/getting-started/troubleshooting-configuration/">the configuration troubleshooting page</a>.</p>
 
 <p class="note">
-  You will have to restart Home Assistant for changes in <code>configuration.yaml</code> to take effect.
+You will have to restart Home Assistant for changes in <code>configuration.yaml</code> to take effect.
 </p>
 
 <h3><a class="title-link" name="setting-up-the-basic-info" href="#setting-up-the-basic-info"></a> Setting up the basic info</h3>
@@ -134,7 +134,7 @@ This file contains YAML code, which is explained briefly in <a href="/getting-st
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">homeassistant</span>:
-  <span class="comment"># Omitted values in this section will be auto detected using freegeoip.net</span>
+  <span class="comment"># Omitted values in this section will be auto detected using freegeoip.io</span>
 
   <span class="comment"># Location required to calculate the time the sun rises and sets</span>
   <span class="key">latitude</span>: <span class="string"><span class="content">32.87336</span></span>
@@ -155,7 +155,7 @@ This file contains YAML code, which is explained briefly in <a href="/getting-st
 
 <h3><a class="title-link" name="password-protecting-the-web-interface" href="#password-protecting-the-web-interface"></a> Password protecting the web interface</h3>
 
-<p>The first thing you want to add is a password for the web interface. Use your favourite text editor to open the file <code>/config/configuration.yaml</code> and add the following to the <code>http</code> section:</p>
+<p>The first thing you want to add is a password for the web interface. Use your favourite text editor to open the file <code>configuration.yaml</code> and add the following to the <code>http</code> section:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">http</span>:
@@ -175,6 +175,8 @@ This file contains YAML code, which is explained briefly in <a href="/getting-st
 <p>To make Home Assistant accessible while away from home, you will have to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching <code>&lt;Router model&gt; port forwarding instructions</code>.</p>
 
 <p>Some Internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while away. You can solve this by using a free Dynamic DNS service like <a href="https://www.duckdns.org/">DuckDNS</a>.</p>
+
+<p>You should definitely consider to encrypt your traffic if you are accessing your Home Assistant installation from abroad. For details please check the <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Set up encryption using Let’s Encrypt</a> blog post.</p>
 
 <h3><a href="/getting-started/devices/">Next step: Setting up devices »</a></h3>
 
