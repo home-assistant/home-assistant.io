@@ -20,9 +20,11 @@ To use your Orvibo switch in your installation, add the following to your `confi
 switch:
   platform: orvibo
   host: IP_ADDRESS
+  mac: MA:CA:DD:RE:SS:00
 ```
 
 Configuration variables:
 
 - **host** (*Required*): IP address of your switch, eg. 192.168.1.10.
+- **mac** (*Optional*): MAC address of the switch, eg "AA:BB:CC:DD:EE:FF". This is required if the switch is connected to a different subnet to the machine running Home Assistant
 
