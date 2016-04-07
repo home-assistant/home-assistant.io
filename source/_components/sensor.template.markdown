@@ -53,7 +53,7 @@ sensor:
         unit_of_measurement: '°'
 ```
 
-### {% linkable_title Multi line example with an if test  %}
+### {% linkable_title Multi line example with an if test %}
 
 This example shows a multiple line template with and is test. It looks at a sensing switch and shows on/off in the frontend.
 
@@ -77,4 +77,20 @@ sensor:
 ```
 (please note the blank line to close the multi-line template)
 
+### {% linkable_title Change the unit of measurment %}
 
+With a template sensor it's easy to convert given values into others if the unit of measurement don't fit your needs.
+
+```yaml
+sensor:
+  platform: template
+  sensors:
+    transmission_down_speed_kbps:
+        value_template: {% raw %}'{{ states.sensor.transmission_down_speed.state | multiply(1024) }}'{% endraw %}
+        friendly_name: 'Transmission Down Speed'
+        unit_of_measurement: 'kB/s'
+    transmission_up_speed_kbps:
+        value_template: {% raw %}'{{ states.sensor.transmission_up_speed.state | multiply(1024) }}'{% endraw %}
+        friendly_name: 'Transmission Up Speed'
+        unit_of_measurement: 'kB/s'
+```
