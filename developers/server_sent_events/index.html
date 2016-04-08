@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Ecobee Thermostat - Home Assistant</title>
+    <title>Server-sent events - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to setup the Ecobee thermostats within Home Assistant.">
+    <meta name="description" content="Home Assistant Server-sent events documentation">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/thermostat.ecobee/">
+    <link rel="canonical" href="https://home-assistant.io/developers/server_sent_events/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Ecobee Thermostat">
+    <meta property="og:title" content="Server-sent events">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/thermostat.ecobee/">
-    <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to setup the Ecobee thermostats within Home Assistant.">
+    <meta property="og:url" content="https://home-assistant.io/developers/server_sent_events/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Home Assistant Server-sent events documentation">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Ecobee Thermostat">
-    <meta name="twitter:description" content="Instructions how to setup the Ecobee thermostats within Home Assistant.">
+    <meta name="twitter:title" content="Server-sent events">
+    <meta name="twitter:description" content="Home Assistant Server-sent events documentation">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -103,17 +103,58 @@
           <article class="page">
   
   
+    <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/developers/server_sent_events.markdown'>Edit this page on GitHub</a></div>
+  
 
   
   <header>
     <h1 class="title indent">
-      Ecobee Thermostat
+      Server-sent Events
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>To get your Ecobee thermostats working with Home Assistant, follow the instructions for the general <a href="/components/ecobee/">Ecobee component</a>.</p>
+  <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events">server-sent events</a> feature is a one-way channel from your Home Assistant server to a client which is acting as a consumer. For bi-directional communication check the <a href="/developers/rest_api/">RESTful API</a> and <a href="/developers/python_api/">Python API</a>.</p>
+
+<p>The URI that is generating the data is <code>/api/stream</code>.</p>
+
+<p>A requirement on the client-side is existing support for the <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventSource">EventSource</a> interface.</p>
+
+<p>There are various ways to access the stream. One is <code>curl</code>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/stream
+</pre></div>
+</div>
+</div>
+
+<p>For more comfort put the HTML snippet below in a file <code>sse.html</code> in your <code>www</code> folder of your Home Assistant configuration directory (<code>.homeassistant</code>)</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Getting Home Assistant server events<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">events</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="inline">        <span class="keyword">var</span> source = <span class="keyword">new</span> EventSource(<span class="string"><span class="delimiter">&quot;</span><span class="content">/api/stream</span><span class="delimiter">&quot;</span></span>);
+        source.<span class="function">onmessage</span> = <span class="keyword">function</span>(event) {
+            document.getElementById(<span class="string"><span class="delimiter">&quot;</span><span class="content">events</span><span class="delimiter">&quot;</span></span>).innerHTML += event.data + <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;br&gt;</span><span class="delimiter">&quot;</span></span>;
+        };</span>
+    <span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+
+<p>Visit <a href="https://localhost:8123/local/sse.html">https://localhost:8123/local/sse.html</a> to see the stream of events.</p>
+
+<h3><a class="title-link" name="example" href="#example"></a> Example</h3>
+
+<p>The <a href="https://github.com/fabaff/home-assistant-sse">home-assistant-sse</a> repository contains an more advanced example.</p>
+
 
 
 </article>
@@ -121,64 +162,6 @@
 
         </div>
 
-        
-        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
-          <div class="grid">
-  
-  
-    <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/_components/thermostat.ecobee.markdown'>Edit this page on GitHub</a></div>
-  <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/ecobee.png' />
-  </div>
-    <div class='section'>
-      This is a platform for
-      <a href='/components/thermostat/'>the Thermostats component</a>.
-    </div>
-          <div class='section'>
-          <h1 class='title delta'>Related components</h1>
-          <ul class='divided'>
-        <li><a href='/components/ecobee/'>
-          Ecobee
-        </a></li>
-        <li><a href='/components/sensor.ecobee/'>
-          Ecobee Sensor
-        </a></li>
-    </ul>
-    </div>
-    <div class='section'>
-    <h1 class="title delta">Category Thermostat</h1>
-    <ul class='divided'>
-        <li>
-            Ecobee Thermostat
-        </li>
-        <li>
-            <a href='/components/thermostat.heat_control/'>Heat control</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.heatmiser/'>Heatmiser Thermostat</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.homematic/'>Homematic Thermostat</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.honeywell/'>Honeywell Thermostat</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.nest/'>Nest Thermostat</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.proliphix/'>Proliphix Thermostat</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.radiotherm/'>Radiotherm Thermostat</a>
-        </li>
-    </ul>
-    </div>
-</section>
-  
-</div>
-        </aside>
         
       </div>
     </div>
