@@ -61,5 +61,6 @@ $ pip3 install tox
 - [Creating a custom component](/developers/creating_components/)
 - [Adding support for a new platform](/developers/add_new_platform/)
 - [Rest API](/developers/api/)
+- [Server-sent events](/developers/server_sent_events/)
 - [Website](/developers/website/)
 
