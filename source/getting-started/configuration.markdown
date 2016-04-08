@@ -19,6 +19,7 @@ When launched for the first time, Home Assistant will write a default configurat
 
 If you run into trouble while configuring Home Assistant, have a look at [the configuration troubleshooting page](/getting-started/troubleshooting-configuration/).
 
+
 <p class='note'>
   You will have to restart Home Assistant each time you make changes in <code>configuration.yaml</code> in order for these to take effect.
 </p>
