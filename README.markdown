@@ -1,27 +1,25 @@
 # Home Assistant website
 
-This is the source for the [Home Assistant](https://github.com/balloob/home-assistant) website available at [Home-Assistant.io](https://home-assistant.io). All commits made to the `master` branch will be automatically pushed to production.
-
-Please point your Pull Request (PR) at the `next` branch.
-
-## Preview Jekyll website locally
-
-| Command | Action |
-|---|---|
-| `rake preview` | Preview site on [http://127.0.0.1:4000](http://127.0.0.1:4000)
+This is the source for the [Home-Assistant.io website](https://home-assistant.io) for the [Home Assistant project](https://github.com/balloob/home-assistant)
 
 ## Setup
 
-_You need to have Ruby installed._
+Setting up to contribute to documentation and the process for submitting pull requests is [explained here](https://home-assistant.io/developers/website/).  
 
-- [Ruby installation instructions](https://www.ruby-lang.org/en/documentation/installation/)
-- For Fedora and CentOS check the last section of this file.
+## Create a new blog post
 
 ```bash
-$ git clone --recursive https://github.com/balloob/home-assistant.io.git
-$ cd home-assistant.io
-$ bundle
+$ rake new_post["title"]
 ```
+
+## Site preview
+
+```bash
+$ rake preview
+```
+
+This makes the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000).
+
 
 ### Setup on Fedora and CentOS
 On Fedora > 22 or CentOS 7.1.1503 Ruby is not available by default. Please take the notes here as a little guide for the Ruby installation process. 
@@ -42,4 +40,4 @@ The last command will give you something like this `ruby 2.2.3p173 (2015-08-18 r
 $ gem install bundler
 ```
 
-Now please follow the Setup instructions above.
+Now you can follow the [setup instructions](https://home-assistant.io/developers/website/).
