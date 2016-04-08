@@ -278,21 +278,22 @@ $ python3/pip3 install --upgrade homeassistant
 
 If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
 
-For additional help, in addition to this site, there are four sources:
+In addition to this site, check out these sources for additional help:
 
- - [Forum](https://automic.us/forum/)
- - [Gitter Chatroom](https://gitter.im/balloob/home-assistant) for general Home Assistant discussions and questions.
+ - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
+ - [Gitter Chat Room](https://gitter.im/balloob/home-assistant) for real-time chat about Home Assistant.
  - [GitHub Page](https://github.com/balloob/home-assistant/issues) for issue reporting.
 
 ### {% linkable_title Updating %}
 
-To update Home Assistant to the latest release run: `pip3 install --upgrade homeassistant`
+To update Home Assistant to the latest release run:  
+`pip3 install --upgrade homeassistant`
 
 You have to restart Home Assistant (`hass` itself or with the help of the autostarting daemon if you use any) for the changes to take effect.
 
 ### {% linkable_title What's next %}
 
-If you want to have Home Assistant start on boot, autostart instructions can be found [here](/getting-started/autostart/).
+If you want to have Home Assistant start on boot, [autostart instructions can be found here](/getting-started/autostart/).
 
 To see what Home Assistant can do, launch demo mode: `hass --demo-mode` or visit the [demo page](/demo).
 

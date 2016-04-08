@@ -13,12 +13,12 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 ### {% linkable_title Communication channels %} 
 
- - [Forum](https://automic.us/forum/)
- - [Gitter Chatroom](https://gitter.im/balloob/home-assistant) for general Home Assistant discussions and questions.
+ - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
+ - [Gitter Chat Room](https://gitter.im/balloob/home-assistant) for real-time chat about Home Assistant.
 
 ### {% linkable_title Bugs, Feature requests, and alike %}
 
-Have you found an issue in your Home Assistant installation? Please report it in one of the issue trackers. Reporting it there makes it easier to track than in the Mailing list and ensures that it gets fixed.
+Have you found an issue in your Home Assistant installation? Please report it in one of the issue trackers. Reporting it there makes it easy to track and ensures that it gets fixed.
 
 - [Issue tracker Home Assistant](https://github.com/balloob/home-assistant/issues)
 - [Issue tracker home-assistant.io](https://github.com/balloob/home-assistant.io/issues) (Website and documentation)
