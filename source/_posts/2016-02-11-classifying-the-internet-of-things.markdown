@@ -7,7 +7,7 @@ date_formatted: "February 12, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Architecture
+categories: Internet-of-Things
 og_image: /images/blog/2016-02-classifying-internet-of-things/social.png
 ---
 

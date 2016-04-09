@@ -24,7 +24,6 @@ script:
         event_data:
           name: Paulus
           message: is waking up
-          # Optional
           entity_id: device_tracker.paulus
           domain: light
       - alias: Bedroom lights on
