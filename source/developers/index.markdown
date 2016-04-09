@@ -19,7 +19,7 @@ Home Assistant is open-source and MIT licensed. The source can be found here:
 
 ### {% linkable_title Starting development %}
 
-You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.  
+You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.
 Visit the [the Home Assistant repository](https://github.com/balloob/home-assistant) first and click fork in the top right.
 
 We suggest that you setup a [virtual environment](https://docs.python.org/3.4/library/venv.html) aka `venv` before running the setup script.
