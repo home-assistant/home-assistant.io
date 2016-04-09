@@ -163,7 +163,7 @@ $ sudo service hass-daemon stop
 
     <p>If the preceding command returns the string <code>systemd</code>, you are likely using <code>systemd</code>.</p>
 
-    <p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code>systemd</code>. You need a service file to control Home Assistant with <code>systemd</code>. If you are using a Raspberry Pi then replace the <code>[your user]</code> with <code>pi</code> otherwise use your user you want to run Home Assistant.</p>
+    <p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code>systemd</code>. You need a service file to control Home Assistant with <code>systemd</code>. If you are using a Raspberry Pi with Raspbian then replace the <code>[your user]</code> with <code>pi</code> otherwise use your user you want to run Home Assistant. <code>ExecStart</code> contains the path to <code>hass</code> and this may vary. Check with <code>whereis hass</code> for the location.</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ su -c 'cat &lt;&lt;EOF &gt;&gt; /lib/systemd/system/home-assistant@[your user].service
