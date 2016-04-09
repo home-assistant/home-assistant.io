@@ -169,7 +169,7 @@ Upon first run, the z-wave component will take time to initialize entities and e
 </ul>
 
 <h2><a class="title-link" name="modifying-zwave-device-settings" href="#modifying-zwave-device-settings"></a> Modifying Zwave Device Settings</h2>
-<p>You may wish to modify the zwave settings ozw*.xml file in your .homeassistant root folder, or certain situations/devices may require it (i.e. Aeon Multisensor 6). To do this, utilize (Open-Zwave Control Panel)[https://github.com/OpenZWave/open-zwave-control-panel]. Alternatively, use (Domoticz)[https://www.domoticz.com/], which incorporates the Open-Zwave Control Panel project into an easy to use Raspberry Pi image.</p>
+<p>You may wish to modify the zwave settings ozw*.xml file in your .homeassistant root folder, or certain situations/devices may require it (i.e. Aeon Multisensor 6). To do this, utilize <a href="https://github.com/OpenZWave/open-zwave-control-panel">Open-Zwave Control Panel</a>. Alternatively, use <a href="https://www.domoticz.com/">Domoticz</a>, which incorporates the Open-Zwave Control Panel project into an easy to use Raspberry Pi image.</p>
 
 <p>The reasoning for using these tools is that your Zwave controller stores the values and data that are used to control the network. The XML file in the .homeassistant folder acts as a settings/values cache for the zwave network, so modifying it directly won’t change the network values. The Open-Zwave Control Panel writes values directly to the network, and will provide you with an updated .xml file to overwrite in your .homeassistant folder. This is the most foolproof way to make modifications to your zwave devices.</p>
 
