@@ -137,11 +137,13 @@
   <li><strong>ssl_key</strong> (<em>Optional</em>): Path to your TLS/SSL key to serve Home Assistant over a secure connection.</li>
 </ul>
 
-<p>On top of the <code>http</code> component is a <a href="/developers/rest_api/">REST API</a> and a <a href="/developers/python_api/">Python API</a> available.</p>
+<p>The <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Set up encryption using Let’s Encrypt</a> blog post gives you details about the encryption of your traffic using free certificates from <a href="https://letsencrypt.org/">Let’s Encrypt</a>.</p>
+
+<p>On top of the <code>http</code> component is a <a href="/developers/rest_api/">REST API</a> and a <a href="/developers/python_api/">Python API</a> available. There is also support for <a href="/developers/server_sent_events/">Server-sent events</a> available.</p>
 
 <p>The <code>http</code> platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant’s <a href="/developers/rest_api/">REST API</a> sends and receives messages over HTTP.</p>
 
-<p>To use those kind of sensors in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.</p>
+<p>To use those kind of <a href="/components/sensor.http/">sensors</a> or <a href="components/binary_sensor.http/">binary sensors</a> in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.</p>
 
 <p>All <a href="/developers/rest_api/#post-apistatesltentity_id">requests</a> need to be sent to the endpoint of the device and must be <strong>POST</strong>.</p>
 
