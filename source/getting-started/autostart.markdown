@@ -51,7 +51,7 @@ $ ps -p 1 -o comm=
 
 If the preceding command returns the string `systemd`, you are likely using `systemd`.
 
-If you want Home Assistant to be launched automatically, an extra step is needed to setup `systemd`. You need a service file to control Home Assistant with `systemd`. If you are using a Raspberry Pi then replace the `[your user]` with `pi` otherwise use your user you want to run Home Assistant.
+If you want Home Assistant to be launched automatically, an extra step is needed to setup `systemd`. You need a service file to control Home Assistant with `systemd`. If you are using a Raspberry Pi with Raspbian then replace the `[your user]` with `pi` otherwise use your user you want to run Home Assistant. `ExecStart` contains the path to `hass` and this may vary. Check with `whereis hass` for the location.
 
 ```bash
 $ su -c 'cat <<EOF >> /lib/systemd/system/home-assistant@[your user].service
