@@ -23,7 +23,7 @@ footer: true
 Installing and running Home Assistant on your local machine is easy. Make sure you have [Python 3.4 or higher](https://www.python.org/downloads/) installed and execute the following code in a console:
 
 <p class='note'>
-It's highly recommended to use a [virtual environment](https://docs.python.org/3.4/library/venv.html) aka `venv` to keep things separated. A virtual environment can be created by exceuting the following command: `pyvenv /path/where/you/home-assistant/` (or on some systems `pyvenv-3.4`). Then change to that the created directory and go the next step.
+It's highly recommended to use a [virtual environment](https://docs.python.org/3.4/library/venv.html) to keep things separated. A virtual environment can be created by exceuting the following command: `python3 -m venv /path/where/you/home-assistant/`. Then change to the created directory and go the next step.
 </p>
 
 ```bash
