@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-09T06:06:23+00:00</updated>
+  <updated>2016-04-09T06:47:59+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.17: Onkyo, Panasonic, GTFS and config validation]]></title>
+    <link href="https://home-assistant.io/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/"/>
+    <updated>2016-04-09T06:10:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation</id>
+    <content type="html"><![CDATA[<p>Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we’ve been hard at work to introduce config validation! Especially huge thanks to @jaharkes for his hard work on this. Config validation is still in it’s early stages. More common platforms and components have been added but we didn’t do everything yet.</p>
+
+<p>When we encounter an invalid config we will now write a warning to your logs. You can see those in the frontend by clicking on the last developer tool. We’re looking into options to make it more clear - it is a work in progress.</p>
+
+<p>Another big thing is the addition of GTFS support. You probably don’t know it, but GTFS is the standard that public transit companies all over the world use to distribute their schedule. This means that you can now have the time of the next bus/train/etc right in your frontend.</p>
+
+<p><img src="https://home-assistant.io/images/supported_brands/onkyo.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/loop.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/panasonic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Config validation (<a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/jaharkes/">@jaharkes</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.gtfs/">GTFS</a> support (public transit open standard) (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Camera: <a href="https://home-assistant.io/components/camera.rpi_camera/">Raspberry PI</a> support added (<a href="https://github.com/LucaSoldi/">@LucaSoldi</a>)</li>
+  <li>Z-Wave: improved startup reliability (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
+  <li>Media Player: <a href="https://home-assistant.io/components/media_player.onkyo/">Onkyo receiver</a> now supported (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.loop_energy/">Loop Energy</a> now supported (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
+  <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.zwave/">Z-Wave</a> now supported (<a href="https://github.com/coteyr/">@coteyr</a>, <a href="https://github.com/turbokongen/">@turbokongen</a>, <a href="https://github.com/luxus/">@luxus</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.nzbget/">NZBGet</a> now supported (<a href="https://github.com/justyns/">@justyns</a>)</li>
+  <li>Media Player: <a href="https://home-assistant.io/components/media_player.panasonic_viera/">Panasonic Viera TV</a> now supported (<a href="https://github.com/florianholzapfel/">@florianholzapfel</a>)</li>
+  <li>Thermostats: Use whole degrees if user uses Fahrenheit (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
+  <li>Frontend: more material love (<a href="https://github.com/balloob/">@balloob</a>)</li>
+</ul>
+
+<h3>Breaking changes</h3>
+
+<p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code>execute_service</code> in their script configs. This should be <code>service</code>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Static website]]></title>
@@ -1482,25 +1515,6 @@ $ sudo systemctl status grafana-server
 <img src="https://home-assistant.io/images/screenshots/lock-and-rollershutter-card.png" />
 </p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Community Highlights]]></title>
-    <link href="https://home-assistant.io/blog/2015/12/05/community-highlights/"/>
-    <updated>2015-12-05T23:39:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/12/05/community-highlights</id>
-    <content type="html"><![CDATA[<p>From time to time we come along things that are worth sharing with fellow Home Assisters. Here a list of some cool stuff from last week:</p>
-
-<p>First is the public beta of <a href="https://letsencrypt.org/">Let’s Encrypt</a>. Let’s Encrypt is a new certificate authority that is free, automated and open. This means that it will now be very easy to secure your connection to Home Assistant while you are away from home. W1ll1am23 has written up <a href="https://community.home-assistant.io/t/homeassistant-nginx-ssl-proxy-setup/53">a guide how to get started</a>.</p>
-
-<p>The next thing is a show-off of some of the cool stuff people do with Home Assistant. This is miniconfig talking to Home Assistant using the Amazon Echo!</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/9QQjklnSQKY" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-<p>And last but not least, Midwestern Mac did a <a href="http://www.midwesternmac.com/blogs/jeff-geerling/raspberry-pi-microsd-card">microSD card performance comparison</a> for the Raspberry Pi. If you’re using a Pi, make sure to check it out!</p>
 ]]></content>
   </entry>
   

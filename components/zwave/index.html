@@ -259,6 +259,10 @@ Depending on what’s plugged into your USB ports, the name found above may chan
       <td>soft_reset</td>
       <td>Tells the controller to do a “soft reset”. This is not supposed to lose any data, but different controllers can behave differently to a “soft reset” command.</td>
     </tr>
+    <tr>
+      <td>test_network</td>
+      <td>Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead”.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -389,6 +393,9 @@ to help keep a zwave network running relliably. For example:</p>
         </a></li>
         <li><a href='/components/switch.zwave/'>
           Z-Wave Switch
+        </a></li>
+        <li><a href='/components/thermostat.zwave/'>
+          Z-Wave Thermostat
         </a></li>
     </ul>
     </div>

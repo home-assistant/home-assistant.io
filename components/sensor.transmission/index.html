@@ -140,7 +140,7 @@
   <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this Transmission instance.</li>
   <li><strong>username</strong> (<em>Optional</em>): Your Transmission username, if you use authentication.</li>
   <li><strong>password</strong> (<em>Optional</em>): Your Transmission password, if you use authentication.</li>
-  <li><strong>display_variables</strong> array: Conditions to display in the frontend.
+  <li><strong>monitored_variables</strong> array: Conditions to display in the frontend.
     <ul>
       <li><strong>current_status</strong>: The status of your Transmission daemon.</li>
       <li><strong>download_speed</strong>: The current download speed.</li>
@@ -149,7 +149,7 @@
   </li>
 </ul>
 
-<p>To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to <strong>Edit</strong> -&gt; <strong>Perferences</strong> and choose the tab <strong>Remote</strong>. Check <strong>Allow remote access</strong>, enter your username and your password, and uncheck the network restriction as needed.</p>
+<p>To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to <strong>Edit</strong> -&gt; <strong>Preferences</strong> and choose the tab <strong>Remote</strong>. Check <strong>Allow remote access</strong>, enter your username and your password, and uncheck the network restriction as needed.</p>
 
 <p class="img">
   <img src="/images/screenshots/transmission_perf.png" />
@@ -226,6 +226,9 @@
             <a href='/components/sensor.http/'>HTTP Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.loop_energy/'>Loop Energy</a>
+        </li>
+        <li>
             <a href='/components/sensor.mqtt/'>MQTT Sensor</a>
         </li>
         <li>
@@ -233,6 +236,9 @@
         </li>
         <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.nzbget/'>NZBGet</a>
         </li>
         <li>
             <a href='/components/sensor.nest/'>Nest Sensor</a>
@@ -245,6 +251,9 @@
         </li>
         <li>
             <a href='/components/sensor.onewire/'>One wire Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.gtfs/'>Public Transit (GTFS)</a>
         </li>
         <li>
             <a href='/components/sensor.rest/'>RESTful Sensor</a>
