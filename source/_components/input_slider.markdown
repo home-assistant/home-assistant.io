@@ -21,6 +21,7 @@ input_slider:
     initial: 30
     min: -20
     max: 35
+    step: 1
 ```
 
 Configuration variables:
@@ -30,4 +31,5 @@ Configuration variables:
 - **initial** (*Optional*): Initial value when Home Assistant starts.
 - **min** (*Optional*): Minimum value for the slider.
 - **max** (*Optional*): Maximum value for the slider.
+- **step** (*Optional*): Step value for the slider.
 
