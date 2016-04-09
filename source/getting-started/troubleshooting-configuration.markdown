@@ -15,48 +15,16 @@ Before we dive into common issues, make sure you know where your configuration d
 
 Whenever a component or configuration option results in a warning, it will be stored in `home-assistant.log` in the configuration directory. This file is reset on start of Home Assistant.
 
-### {% linkable_title YAML %}
-
-Home Assistant uses the [YAML](http://yaml.org/) syntax for configuration. YAML can be confusing to start with but is really powerful in allowing you to express complex configurations.
-
-The basics of YAML are block collections and mappings containing key-value pairs. Collections will have each item start with a `-` while mappings will have the format `key: value`. The last value for a key is used in case you specify a duplicate key.  
-Note that the indentation is an important part of specifying relationships using YAML. 
-
-```yaml
-# A collection
-- hello
-- how
-- are
-- you
-
-# Lookup mapping
-beer: ice cold  # <-- will be ignored because key specified twice
-beer: warm
-wine: room temperature
-water: cold
-
-# Nesting mappings (note the indentation)
-device_tracker:
-  platform: mqtt
-
-# Nesting a collection of mappings in a mapping
-sensor:
-  - platform: mqtt
-    state_topic: sensor/topic
-  - platform: mqtt
-    state_topic: sensor2/topic
-```
-
-Indentation is used to specify which objects are nested under one another. Getting the right indentation can be tricky if you're not using an editor with a fixed width font. Tabs are not allowed to be used for indentation.  
-
- - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack.
- - You can test your configuration using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
-
 ### {% linkable_title My component does not show up %}
 
 When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your component you are trying to set up.
 
 #### {% linkable_title Problems with the configuration %}
+
+One of the most common problems with Home Assistant is an invalid `configuration.yaml` file. 
+
+ - You can test your configuration using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
+ - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
 `configuration.yaml` does not allow multiple sections to have the same name. If you want a specific platform to be loaded twice, append a [number or string](/getting-started/devices/#style-2) to the name or nest them using [this style](/getting-started/devices/#style-1).
 
@@ -92,7 +60,7 @@ If you are using multiple files for your setup, make sure that the pointers are 
 light: !include devices/lights.yaml
 sensor: !include devices/sensors.yaml
 ```
-Contents of `lights.yaml`:
+Contents of `lights.yaml` (notice it does not contain `light: `):
 
 ```yaml
 - platform: hyperion
