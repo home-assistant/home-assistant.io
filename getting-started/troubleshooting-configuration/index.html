@@ -121,52 +121,18 @@
 
 <p>Whenever a component or configuration option results in a warning, it will be stored in <code>home-assistant.log</code> in the configuration directory. This file is reset on start of Home Assistant.</p>
 
-<h3><a class="title-link" name="yaml" href="#yaml"></a> YAML</h3>
-
-<p>Home Assistant uses the <a href="http://yaml.org/">YAML</a> syntax for configuration. YAML can be confusing to start with but is really powerful in allowing you to express complex configurations.</p>
-
-<p>The basics of YAML are block collections and mappings containing key-value pairs. Collections will have each item start with a <code>-</code> while mappings will have the format <code>key: value</code>. The last value for a key is used in case you specify a duplicate key.  <br />
-Note that the indentation is an important part of specifying relationships using YAML.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># A collection</span>
-- <span class="string"><span class="content">hello</span></span>
-- <span class="string"><span class="content">how</span></span>
-- <span class="string"><span class="content">are</span></span>
-- <span class="string"><span class="content">you</span></span>
-
-<span class="comment"># Lookup mapping</span>
-<span class="key">beer</span>: <span class="string"><span class="content">ice cold</span></span>  <span class="comment"># &lt;-- will be ignored because key specified twice</span>
-<span class="key">beer</span>: <span class="string"><span class="content">warm</span></span>
-<span class="key">wine</span>: <span class="string"><span class="content">room temperature</span></span>
-<span class="key">water</span>: <span class="string"><span class="content">cold</span></span>
-
-<span class="comment"># Nesting mappings (note the indentation)</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-
-<span class="comment"># Nesting a collection of mappings in a mapping</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="content">sensor/topic</span></span>
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="content">sensor2/topic</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>Indentation is used to specify which objects are nested under one another. Getting the right indentation can be tricky if you’re not using an editor with a fixed width font. Tabs are not allowed to be used for indentation.</p>
-
-<ul>
-  <li>To learn more about the quirks of YAML, read <a href="https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html">YAML IDIOSYNCRASIES</a> by SaltStack.</li>
-  <li>You can test your configuration using <a href="http://yaml-online-parser.appspot.com/">this online YAML parser</a> or <a href="http://www.yamllint.com/">YAML Lint</a>.</li>
-</ul>
-
 <h3><a class="title-link" name="my-component-does-not-show-up" href="#my-component-does-not-show-up"></a> My component does not show up</h3>
 
 <p>When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the <code>home-assistant.log</code> file and see if there are any errors related to your component you are trying to set up.</p>
 
 <h4><a class="title-link" name="problems-with-the-configuration" href="#problems-with-the-configuration"></a> Problems with the configuration</h4>
+
+<p>One of the most common problems with Home Assistant is an invalid <code>configuration.yaml</code> file.</p>
+
+<ul>
+  <li>You can test your configuration using <a href="http://yaml-online-parser.appspot.com/">this online YAML parser</a> or <a href="http://www.yamllint.com/">YAML Lint</a>.</li>
+  <li>To learn more about the quirks of YAML, read <a href="https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html">YAML IDIOSYNCRASIES</a> by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).</li>
+</ul>
 
 <p><code>configuration.yaml</code> does not allow multiple sections to have the same name. If you want a specific platform to be loaded twice, append a <a href="/getting-started/devices/#style-2">number or string</a> to the name or nest them using <a href="/getting-started/devices/#style-1">this style</a>.</p>
 
@@ -206,7 +172,7 @@ Note that the indentation is an important part of specifying relationships using
 </pre></div>
 </div>
 </div>
-<p>Contents of <code>lights.yaml</code>:</p>
+<p>Contents of <code>lights.yaml</code> (notice it does not contain <code>light: </code>):</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>- <span class="string"><span class="content">platform: hyperion</span></span>

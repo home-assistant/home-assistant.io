@@ -115,19 +115,22 @@
   <hr class="divider">
   
 
-  <p>Home Assistant is built from the ground up to be easily-extensible by other developers using components. It uses <a href="https://www.python.org/">Python 3</a> for the backend and <a href="https://www.polymer-project.org/">Polymer (Webcomponents)</a> for the frontend.</p>
+  <p>Home Assistant is built from the ground up to be easily-extensible by other developers using components. It uses <a href="https://www.python.org/">Python 3</a> for the backend and <a href="https://www.polymer-project.org/">Polymer (Web components)</a> for the frontend.</p>
 
 <p>Home Assistant is open-source and MIT licensed. The source can be found here:</p>
 
 <ul>
-  <li><a href="https://github.com/balloob/home-assistant">home-assistant</a> - Python server-backend</li>
-  <li><a href="https://github.com/balloob/home-assistant-js">home-assistant-js</a> - javascript-backend powering the client</li>
+  <li><a href="https://github.com/balloob/home-assistant">home-assistant</a> - Python server backend</li>
+  <li><a href="https://github.com/balloob/home-assistant-js">home-assistant-js</a> - JavaScript backend powering the client</li>
   <li><a href="https://github.com/balloob/home-assistant-polymer">home-assistant-polymer</a> - Polymer UI</li>
 </ul>
 
 <h3><a class="title-link" name="starting-development" href="#starting-development"></a> Starting development</h3>
 
-<p>You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to perform it. Visit the <a href="https://github.com/balloob/home-assistant">the Home Assistant repository</a> first and click fork in the top right.</p>
+<p>You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.  <br />
+Visit the <a href="https://github.com/balloob/home-assistant">the Home Assistant repository</a> first and click fork in the top right.</p>
+
+<p>We suggest that you setup a <a href="https://docs.python.org/3.4/library/venv.html">virtual environment</a> aka <code>venv</code> before running the setup script.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
@@ -138,13 +141,19 @@ $ script/setup
 </div>
 </div>
 
-<p>We suggest that you setup a <a href="https://docs.python.org/3.4/library/venv.html">virtual environment</a> aka <code>venv</code> before running the setup script.</p>
+<p>Testing your work requires <code>tox</code> to be installed:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ pip3 install tox
+</pre></div>
+</div>
+</div>
 
 <p>After following these steps, running <code>hass</code> will invoke your local installation.</p>
 
 <h3><a class="title-link" name="submitting-improvements" href="#submitting-improvements"></a> Submitting improvements</h3>
 
-<p>Improvements to Home Assistant should be submitted one feature at a time using Github pull requests.</p>
+<p>Improvements to Home Assistant should be submitted one feature at a time using GitHub <a href="https://help.github.com/articles/using-pull-requests">pull requests</a>.</p>
 
 <ol>
   <li>From your fork, create a new branch to hold your changes<br />
@@ -155,18 +164,10 @@ $ script/setup
   <li>Commit the changes<br />
 <code>git add .</code><br />
 <code>git commit -m "Added some-feature"</code></li>
-  <li>Push your commited changes back to your fork on GitHub<br />
+  <li>Push your committed changes back to your fork on GitHub<br />
 <code>git push origin HEAD</code></li>
   <li>Follow <a href="https://help.github.com/articles/creating-a-pull-request/">these steps</a> to create your pull request.</li>
 </ol>
-
-<p>Note that the above requires <code>tox</code> to be installed. If you don’t have it, do this:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install tox
-</pre></div>
-</div>
-</div>
 
 <h3><a class="title-link" name="further-reading" href="#further-reading"></a> Further reading</h3>
 

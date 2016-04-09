@@ -115,21 +115,32 @@
   <hr class="divider">
   
 
-  <p>The home of Home Assistant is <a href="https://home-assistant.io">https://home-assistant.io</a>. This is the place where we provide documentation and additional details about Home Assistant for end users and developers.</p>
+  <p>The website you’re reading now is the home of Home Assistant: <a href="https://home-assistant.io">https://home-assistant.io</a>. This is the place where we provide documentation and additional details about Home Assistant for end users and developers.</p>
 
-<p>home-assistant.io is using the <a href="http://octopress.org/">Octopress</a> framework for <a href="http://github.com/mojombo/jekyll">Jekyll</a>. To get more details, please checkout the <a href="http://octopress.org/docs/">documentation</a>. That means that creating a new page is simple. The pages are written in <a href="http://daringfireball.net/projects/markdown/">markdown</a>, you don’t need to care about HTML or alike.</p>
+<p>home-assistant.io uses the <a href="http://octopress.org/">Octopress</a> framework for <a href="http://github.com/mojombo/jekyll">Jekyll</a>. To get more details, please checkout the <a href="http://octopress.org/docs/">Octopress documentation</a>.  <br />
+That means that creating a new page is simple. The pages are written in <a href="http://daringfireball.net/projects/markdown/">markdown</a>; you don’t need to care about HTML or the like.</p>
 
-<p>To work on the website the process is no different to working on Home Assistant itself.</p>
+<p>The process for working on the website is no different from working on Home Assistant itself.</p>
+
+<p>To test your changes locally, you need to install the <strong>Ruby</strong> dependencies (gems):</p>
 
 <ul>
-  <li>Fork the home-assistant.io <a href="https://github.com/balloob/home-assistant.io">git repository</a>.</li>
+  <li><a href="https://www.ruby-lang.org/en/documentation/installation/">Install Ruby</a> if you don’t have it already.</li>
+  <li>Install <code>bundler</code>, which is a dependency manager for Ruby: <code>gem install bundler</code></li>
+  <li>In your home-assistant.io root directory, run <code>bundle</code> to install the gems you need.</li>
+</ul>
+
+<p>Then you can work on the documentation:</p>
+
+<ul>
+  <li>Fork home-assistant.io <a href="https://github.com/balloob/home-assistant.io">git repository</a>.</li>
   <li>Create/edit/update a page in the directory <code>source/_components/</code> for your platform/component.</li>
-  <li>To test changes to home-assistant.io locally, run <code>rake preview</code> and navigate to http://127.0.0.1:4000.</li>
+  <li>Test your changes to home-assistant.io locally: run <code>rake preview</code> and navigate to <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a></li>
   <li>Create a Pull Request (PR) against the <strong>next</strong> branch of home-assistant.io if your documentation is for a new feature, platform, or component.</li>
   <li>Create a Pull Request (PR) against the <strong>master</strong> branch of home-assistant.io if you fix stuff, create Cookbook entries, or expand existing documentation.</li>
 </ul>
 
-<p>For a platform page it would be the fastest way to make a copy of an existing page and edit it. The <a href="/components/">component overview</a> is generated automatically, so there is no need to add a link to that your page.</p>
+<p>For a platform page, the fastest way is to make a copy of an existing page and edit it. The <a href="/components/">component overview</a> is generated automatically, so there is no need to add a link to your page.</p>
 
 <h3><a class="title-link" name="code" href="#code"></a> Code</h3>
 <p>To take advantage of the built-in features of Octopress to display code snippets, just use the default markdown syntax. Please use <code>$</code> and <code>#</code> if it’s a command and to differ from output.</p>
@@ -146,7 +157,7 @@
 </code></pre>
 
 <h3><a class="title-link" name="images-icons-and-logos" href="#images-icons-and-logos"></a> Images, icons, and logos</h3>
-<p>The images which are displayed on the pages are stored in various directories according their purpose.</p>
+<p>The images which are displayed on the pages are stored in various directories according to their purpose.</p>
 
 <table>
   <thead>
