@@ -115,14 +115,37 @@
 
   <p>Integrate your <a href="https://www.your-loop.com/">Loop Energy</a> meter information into Home Assistant.</p>
 
-<p>To enable the Loop Energy sensor, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To use this sensor you need the the client serial number and secret keys for your devices.</p>
+
+<p>The library used to get the data isn’t officially supported and the only way to get the keys is to log into loop energy’s website and type a command into your browser console.</p>
+
+<p>To do this log into <a href="https://www.your-loop.com/">Loop Energy</a>. Once you’re logged in you should be able see see your live readings on the webpage.</p>
+
+<p>You can then open your browser’s console window, how you do this varies by browser but in Chrome you click on `More Tools / Developer Tools’ and click on the console window. You then type:-</p>
+
+<p><code>Drupal.settings.navetas_realtime.</code></p>
+
+<p>This should show something like<br />
+<code>
+client_ip: "127.0.0.1"
+gas_secret: "GAS_SECRET"
+gas_serial: "GAS_SERIAL"
+host: "www.your-loop.com"
+...
+secret: "ELECTRICAL_SECRET"
+serial: "ELECTRICAL_SERIAL"
+</code></p>
+
+<p>The serial and secret tokens are the ones you need. If you just have an electricity  monitor - then you won’t see the gas keys.</p>
+
+<p>Now you have the keys, add the following lines to your <code>configuration.yaml</code>, replacing the <code>SERIAL</code> and <code>SECRET</code> keys with the ones you found in the console:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">sensor</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">loopenergy</span></span>
-  <span class="key">electricity_serial</span>: <span class="string"><span class="content">ELECRITCAL_SERIAL</span></span>
-  <span class="key">electricity_secret</span>: <span class="string"><span class="content">ELECTRICAL_OFFSET</span></span>
+  <span class="key">electricity_serial</span>: <span class="string"><span class="content">ELECTRICAL_SERIAL</span></span>
+  <span class="key">electricity_secret</span>: <span class="string"><span class="content">ELECTRICAL_SECRET</span></span>
   <span class="key">gas_serial</span>: <span class="string"><span class="content">GAS_SERIAL</span></span>
   <span class="key">gas_secret</span>: <span class="string"><span class="content">GAS_SECRET</span></span>
 </pre></div>
@@ -132,12 +155,15 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>electricity_serial</strong> (<em>Required</em>): Serial of your electricity sensor</li>
-  <li><strong>electricity_secret</strong> (<em>Required</em>): Secret for your electricity Sensor</li>
-  <li><strong>gas_serial</strong> (<em>Required</em>): Serial for your gas sensor.</li>
-  <li><strong>gas_secret</strong> (<em>Required</em>): Secret for your gas sensor.</li>
+  <li><strong>electricity_serial</strong> (<em>Required</em>): Serial number of your electricity sensor</li>
+  <li><strong>electricity_secret</strong> (<em>Required</em>): Secret key for your electricity sensor</li>
+  <li><strong>gas_serial</strong> (<em>Required</em>): Serial number for your gas sensor.</li>
+  <li><strong>gas_secret</strong> (<em>Required</em>): Secret key for your gas sensor.</li>
 </ul>
 
+<p>The electricity readings are updated every 10 seconds and the gas readings every 15 minutes.</p>
+
+<p>The gas readings are experimental and not all gas meters are properly supported - so if the data you see doesn’t agree with the readings you see via loop energy please report an issue.</p>
 
 
 </article>
