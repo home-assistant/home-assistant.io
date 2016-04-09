@@ -106,9 +106,7 @@ http:
   api_password: YOUR_PASSWORD
 ```
 
-_See the [HTTP component documentation][http] for more options like HTTPS encryption._
-
-[http]: /components/http/
+See the [HTTP component documentation](/components/http/) for more options like HTTPS encryption.
 
 ### {% linkable_title Setting up your phone or tablet %}
 
