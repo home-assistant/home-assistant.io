@@ -18,6 +18,7 @@ Supported devices:
 
 - Denon DRA-N5
 - Denon RCD-N8 (untested)
+- Denon RCD-N9 (partial support)
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
