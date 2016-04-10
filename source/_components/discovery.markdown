@@ -43,3 +43,7 @@ There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17
 <p class='note'>
 If you are on Windows and you're using Python 3.5, download the Netifaces dependency <a href='http://www.lfd.uci.edu/~gohlke/pythonlibs/#netifaces'>here</a>.
 </p>
+
+<p class='note'>
+If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` package on your system manually (ex: `sudo apt-get install python3-dev`). On the next restart of home-assistant, discovery should work.
+</p>
