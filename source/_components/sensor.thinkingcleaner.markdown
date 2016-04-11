@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: thinkingcleaner.png
 ha_category: Sensor
-ha_iot_class: "Local Push"
----
+ha_iot_class: "Local Poll"
+--------------------------
 
 
 The `ThinkingCleaner` sensor platform simple displays information about your [ThinkingCleaner](http://www.thinkingcleaner.com) addon.
