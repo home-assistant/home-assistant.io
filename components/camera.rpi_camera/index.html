@@ -118,7 +118,7 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">camera</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">raspberry_camera</span></span>
+  <span class="key">platform</span>: <span class="string"><span class="content">rpi_camera</span></span>
   <span class="key">name</span>: <span class="string"><span class="content">Raspberry Pi Camera</span></span>
   <span class="key">image_width</span>: <span class="string"><span class="content">640</span></span>
   <span class="key">image_height</span>: <span class="string"><span class="content">480</span></span>
@@ -145,6 +145,8 @@
   <li><strong>timelapse</strong> (optional): Takes a picture every <t>ms (default: 1000)</t></li>
   <li><strong>file_path</strong> (optional): Save the picture in a custom file path (default: camera components folder)</li>
 </ul>
+
+<p>The given <strong>file_path</strong> must be an existing file because the camera platform setup make a writeable check on it.</p>
 
 
 </article>
