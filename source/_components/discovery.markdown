@@ -37,7 +37,7 @@ If running home-assistant in a docker container use switch `--net=host` to put i
 If you are developing a new platform, please read [how to make your platform discoverable]({{site_root}}/developers/add_new_platform/#discovery).
 
 <p class='note warning'>
-There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this platform on a 64-bit version of Python.
+There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this platform on a 64-bit version of Python and Windows.
 </p>
 
 <p class='note'>
@@ -45,5 +45,5 @@ If you are on Windows and you're using Python 3.5, download the Netifaces depend
 </p>
 
 <p class='note'>
-If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` package on your system manually (ex: `sudo apt-get install python3-dev`). On the next restart of home-assistant, discovery should work.
+If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of home-assistant, discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
 </p>
