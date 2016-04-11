@@ -164,6 +164,18 @@
 
 <p>The notification component supports specifying <a href="/topics/templating/">templates</a> for both the <code>message</code> and the <code>title</code>. This will allow you to use the current state of Home Assistant in your notifications.</p>
 
+<p>In an <a href="https://home-assistant.io/components/automation/#actions">action</a> of your <a href="/components/automation/">automation setup</a> it could look like this with a customized subject.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">action</span>:
+  <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
+  <span class="key">data</span>:
+    <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Your message goes here</span><span class="delimiter">&quot;</span></span>
+    <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Custom subject</span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+</div>
+
 <h3><a class="title-link" name="test-if-it-works" href="#test-if-it-works"></a> Test if it works</h3>
 
 <p>A simple way to test if you have set up your notify platform correctly is to use <strong>Call Service</strong> from the <strong>Developer Tools</strong> to call your notify service. Choose your service (<em>notify/xyz</em>) from the list of <strong>Available services:</strong> and enter something like the sample below into  the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
