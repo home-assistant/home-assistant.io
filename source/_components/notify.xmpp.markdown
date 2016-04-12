@@ -22,6 +22,7 @@ notify:
   sender: YOUR_JID
   password: YOUR_JABBER_ACCOUNT_PASSWORD
   recipient: YOUR_RECIPIENT
+  tls: False
 ```
 
 Configuration variables:
@@ -30,6 +31,7 @@ Configuration variables:
 - **sender** (*Required*): The Jabber ID (JID) that will act as origin of the messages. Add your JID including the domain, eg. your_name@jabber.org.
 - **password** (*Required*): The password for your given Jabber account.
 - **priority** (*Required*): The Jabber ID (JID) that will receive the messages.
+- **tls** (*Optional*): Allow to disable TLS. Defaults to true.
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
 
