@@ -11,7 +11,7 @@ og_image: /images/supported_brands/glances.png
 ---
 
 <img src='/images/supported_brands/glances.png' style='border:none; box-shadow: none; float: right;' height='80' />
-Inspried by a [feature requests](https://github.com/balloob/home-assistant/issues/310) I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the [systemmonitor](/components/sensor.systemmonitor/) sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present. 
+Inspried by a [feature requests](https://github.com/home-assistant/home-assistant/issues/310) I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the [systemmonitor](/components/sensor.systemmonitor/) sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present. 
 
 <!--more-->
 
@@ -75,4 +75,4 @@ If there are no error in the log file then you should see your new sensors.
   The Glances sensors
 </p>
 
-[Glances](https://github.com/nicolargo/glances) has a couple of optional dependencies which are extenting the range of provided information. This means that it would be possible to get details about the RAID system, HDD temperature, IP addresses, sensors, etc., please create a [Pull request](https://github.com/balloob/home-assistant/pulls) with your additions or a [Feature request](https://github.com/balloob/home-assistant/issues/new) if you want see more details in your Home Assistant frontend.
+[Glances](https://github.com/nicolargo/glances) has a couple of optional dependencies which are extenting the range of provided information. This means that it would be possible to get details about the RAID system, HDD temperature, IP addresses, sensors, etc., please create a [Pull request](https://github.com/home-assistant/home-assistant/pulls) with your additions or a [Feature request](https://github.com/home-assistant/home-assistant/issues/new) if you want see more details in your Home Assistant frontend.

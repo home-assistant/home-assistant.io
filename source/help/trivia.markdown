@@ -37,13 +37,13 @@ This sections just contains some random numbers of the Home Assistant eco-system
 | [Forum posts](https://community.home-assistant.io/) | 352 |
 | [Forum topics](https://community.home-assistant.io/) | 83 |
 | [Forum members](https://community.home-assistant.io/) | 92 |
-| [Github stars](https://github.com/balloob/home-assistant/stargazers)  | 2519 |
-| [Github forks](https://github.com/balloob/home-assistant/network) | 374 |
+| [Github stars](https://github.com/home-assistant/home-assistant/stargazers)  | 2519 |
+| [Github forks](https://github.com/home-assistant/home-assistant/network) | 374 |
 | Page views [ha.io](https://home-assistant.io) | 190'271|
 
 ### {% linkable_title Commit per year %}
 
-The numbers below only covers the [main git repository](https://github.com/balloob/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/balloob/home-assistant.io), [home-assistant-polymer](https://github.com/balloob/home-assistant-polymer), and [home-assistant-js](https://github.com/balloob/home-assistant-js)) into account.
+The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer), and [home-assistant-js](https://github.com/home-assistant/home-assistant-js)) into account.
 
 ```bash
 2013: 147
@@ -52,7 +52,7 @@ The numbers below only covers the [main git repository](https://github.com/ballo
 2016: 1439 (so far)
 ```
 
-More details and statistics can be found on [Github](https://github.com/balloob/home-assistant/graphs/contributors).
+More details and statistics can be found on [Github](https://github.com/home-assistant/home-assistant/graphs/contributors).
 
 [RocketGraph](https://rocketgraph.com) reports shows commit stats for the last 90 days and a neat visual calendar for the current calendar year.
 
