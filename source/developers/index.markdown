@@ -13,21 +13,21 @@ Home Assistant is built from the ground up to be easily-extensible by other deve
 
 Home Assistant is open-source and MIT licensed. The source can be found here:
 
- - [home-assistant](https://github.com/balloob/home-assistant) - Python server backend
- - [home-assistant-js](https://github.com/balloob/home-assistant-js) - JavaScript backend powering the client
- - [home-assistant-polymer](https://github.com/balloob/home-assistant-polymer) - Polymer UI
+ - [home-assistant](https://github.com/home-assistant/home-assistant) - Python server backend
+ - [home-assistant-js](https://github.com/home-assistant/home-assistant-js) - JavaScript backend powering the client
+ - [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer) - Polymer UI
 
 ### {% linkable_title Starting development %}
 
 You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.
-Visit the [the Home Assistant repository](https://github.com/balloob/home-assistant) first and click fork in the top right.
+Visit the [the Home Assistant repository](https://github.com/home-assistant/home-assistant) first and click fork in the top right.
 
 We suggest that you setup a [virtual environment](https://docs.python.org/3.4/library/venv.html) aka `venv` before running the setup script.
 
 ```bash
 $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
 $ cd home-assistant
-$ git remote add upstream https://github.com/balloob/home-assistant.git
+$ git remote add upstream https://github.com/home-assistant/home-assistant.git
 $ script/setup
 ```
 

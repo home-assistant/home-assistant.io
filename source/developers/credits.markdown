@@ -127,4 +127,4 @@ This page contains a list of people who have contributed in one way or another t
 - [wind-rider](https://github.com/wind-rider)
 - [Zac Mrowicki](https://github.com/zmrow)
 
-This page is irregularly updated. As a base we use the Github [contributors overview](https://github.com/balloob/home-assistant/graphs/contributors) of the Home Assistant git repository and the [overview](https://github.com/balloob/home-assistant.io/graphs/contributors) for [home-assistant.io](https://home-assistant.io). If you think that you are missing, please let us know or add yourself.
+This page is irregularly updated. As a base we use the Github [contributors overview](https://github.com/home-assistant/home-assistant/graphs/contributors) of the Home Assistant git repository and the [overview](https://github.com/home-assistant/home-assistant.io/graphs/contributors) for [home-assistant.io](https://home-assistant.io). If you think that you are missing, please let us know or add yourself.

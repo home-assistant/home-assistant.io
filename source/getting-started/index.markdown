@@ -297,7 +297,7 @@ In addition to this site, check out these sources for additional help:
 
  - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
  - [Gitter Chat Room](https://gitter.im/balloob/home-assistant) for real-time chat about Home Assistant.
- - [GitHub Page](https://github.com/balloob/home-assistant/issues) for issue reporting.
+ - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
 
 ### {% linkable_title What's next %}
 

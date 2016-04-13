@@ -18,7 +18,7 @@ Currently known supported models:
 
 - TX-P42STW50
 
-If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/balloob/home-assistant.io).
+If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io).
 
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 

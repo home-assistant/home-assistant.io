@@ -9,9 +9,9 @@ sharing: true
 footer: true
 ---
 
-Home Assistant offers [built-in components]({{site_root}}/components/) but it is easy to build your own. If you are the kind of person that likes to learn from code rather then guide then head over to the [`config/custom_components`](https://github.com/balloob/home-assistant/tree/master/config/custom_components) folder in the repository for two example components. Or visit the [Custom Python Component Examples]({{site_root}}/cookbook/#custom-python-component-examples).
+Home Assistant offers [built-in components]({{site_root}}/components/) but it is easy to build your own. If you are the kind of person that likes to learn from code rather then guide then head over to the [`config/custom_components`](https://github.com/home-assistant/home-assistant/tree/master/config/custom_components) folder in the repository for two example components. Or visit the [Custom Python Component Examples]({{site_root}}/cookbook/#custom-python-component-examples).
 
-The first is [hello_world.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/hello_world.py) (this is similar to the [Basic State Setting Example](https://home-assistant.io/cookbook/python_component_basic_state/)), which is the classic "Hello World" example for Home Assistant. The second one is [example.py](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py) which showcases various ways you can tap into Home Assistant to be notified when certain events occur.
+The first is [hello_world.py](https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/hello_world.py) (this is similar to the [Basic State Setting Example](https://home-assistant.io/cookbook/python_component_basic_state/)), which is the classic "Hello World" example for Home Assistant. The second one is [example.py](https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py) which showcases various ways you can tap into Home Assistant to be notified when certain events occur.
 
 If you want to load these components in Home Assistant, add the following lines to your `configuration.yaml` file:
 
@@ -59,10 +59,10 @@ The Home Assistant instance contains three objects to help you interact with the
 
 | Object | Description |
 | ------ | ----------- |
-| `hass.config` | This is the core configuration of Home Assistant exposing location, temperature preferences and config directory path. [Details](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L687)
-| `hass.states` | This is the StateMachine. It allows you to set states and track when they are changed. [See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L434). |
-| `hass.bus` | This is the EventBus. It allows you to trigger and listen for events.<br>[See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L229). |
-| `hass.services` | This is the ServiceRegistry. It allows you to register services.<br>[See available methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L568). |
+| `hass.config` | This is the core configuration of Home Assistant exposing location, temperature preferences and config directory path. [Details](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L687)
+| `hass.states` | This is the StateMachine. It allows you to set states and track when they are changed. [See available methods](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L434). |
+| `hass.bus` | This is the EventBus. It allows you to trigger and listen for events.<br>[See available methods](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L229). |
+| `hass.services` | This is the ServiceRegistry. It allows you to register services.<br>[See available methods](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L568). |
 
 ### {% linkable_title `config`: User given configuration. %}
 
@@ -79,4 +79,4 @@ Then in the setup method of your component you will be able to refer to `config[
 
 ## {% linkable_title Responding to events %}
 
-Home Assistant has different ways of responding to events that occur in Home Assistant. These have been organized in [helper methods](https://github.com/balloob/home-assistant/blob/dev/homeassistant/helpers/event.py). Examples are `track_state_change`, `track_point_in_time`, `track_time_change`.
+Home Assistant has different ways of responding to events that occur in Home Assistant. These have been organized in [helper methods](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/event.py). Examples are `track_state_change`, `track_point_in_time`, `track_time_change`.

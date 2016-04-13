@@ -75,7 +75,7 @@ For example the [`device_sun_light_trigger` component](/components/device_sun_li
         Turn on the lights
 ```
 
-An extended example of a home automation component can be found [here](https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py).
+An extended example of a home automation component can be found [here](https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py).
 
 ### {% linkable_title The full picture %}
 

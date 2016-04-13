@@ -40,17 +40,17 @@ sensor 2:
 
 Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to `home-assistant.log`. You can have a look at [the component page](/components/) for instructions on how to setup the components.
 
-If you find any errors or want to expand the documentation, please [let us know](https://github.com/balloob/home-assistant.io/issues).
+If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
 
 #### {% linkable_title Problems with dependencies %}
 
 Almost all components have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in `home-assistant.log`.
 
-The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can't figure it out, please [report it](https://github.com/balloob/home-assistant/issues) so we can investigate what is going on.
+The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can't figure it out, please [report it](https://github.com/home-assistant/home-assistant/issues) so we can investigate what is going on.
 
 #### {% linkable_title Problems with components %}
 
-It can happen that some components either do not work right away or stop working after Home Assistant has been running for a while. If this happens to you, please [report it](https://github.com/balloob/home-assistant/issues) so that we can have a look.
+It can happen that some components either do not work right away or stop working after Home Assistant has been running for a while. If this happens to you, please [report it](https://github.com/home-assistant/home-assistant/issues) so that we can have a look.
 
 #### {% linkable_title Multiple files %}
 
