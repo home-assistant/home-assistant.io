@@ -103,7 +103,7 @@
           <article class="page">
   
   
-    <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/developers/creating_components.markdown'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/creating_components.markdown'>Edit this page on GitHub</a></div>
   
 
   
@@ -115,9 +115,9 @@
   <hr class="divider">
   
 
-  <p>Home Assistant offers <a href="/components/">built-in components</a> but it is easy to build your own. If you are the kind of person that likes to learn from code rather then guide then head over to the <a href="https://github.com/balloob/home-assistant/tree/master/config/custom_components"><code>config/custom_components</code></a> folder in the repository for two example components. Or visit the <a href="/cookbook/#custom-python-component-examples">Custom Python Component Examples</a>.</p>
+  <p>Home Assistant offers <a href="/components/">built-in components</a> but it is easy to build your own. If you are the kind of person that likes to learn from code rather then guide then head over to the <a href="https://github.com/home-assistant/home-assistant/tree/master/config/custom_components"><code>config/custom_components</code></a> folder in the repository for two example components. Or visit the <a href="/cookbook/#custom-python-component-examples">Custom Python Component Examples</a>.</p>
 
-<p>The first is <a href="https://github.com/balloob/home-assistant/blob/master/config/custom_components/hello_world.py">hello_world.py</a> (this is similar to the <a href="https://home-assistant.io/cookbook/python_component_basic_state/">Basic State Setting Example</a>), which is the classic “Hello World” example for Home Assistant. The second one is <a href="https://github.com/balloob/home-assistant/blob/master/config/custom_components/example.py">example.py</a> which showcases various ways you can tap into Home Assistant to be notified when certain events occur.</p>
+<p>The first is <a href="https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/hello_world.py">hello_world.py</a> (this is similar to the <a href="https://home-assistant.io/cookbook/python_component_basic_state/">Basic State Setting Example</a>), which is the classic “Hello World” example for Home Assistant. The second one is <a href="https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py">example.py</a> which showcases various ways you can tap into Home Assistant to be notified when certain events occur.</p>
 
 <p>If you want to load these components in Home Assistant, add the following lines to your <code>configuration.yaml</code> file:</p>
 
@@ -177,19 +177,19 @@ Home Assistant will use the directory that contains your config file as the dire
   <tbody>
     <tr>
       <td><code>hass.config</code></td>
-      <td>This is the core configuration of Home Assistant exposing location, temperature preferences and config directory path. <a href="https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L687">Details</a></td>
+      <td>This is the core configuration of Home Assistant exposing location, temperature preferences and config directory path. <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L687">Details</a></td>
     </tr>
     <tr>
       <td><code>hass.states</code></td>
-      <td>This is the StateMachine. It allows you to set states and track when they are changed. <a href="https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L434">See available methods</a>.</td>
+      <td>This is the StateMachine. It allows you to set states and track when they are changed. <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L434">See available methods</a>.</td>
     </tr>
     <tr>
       <td><code>hass.bus</code></td>
-      <td>This is the EventBus. It allows you to trigger and listen for events.<br /><a href="https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L229">See available methods</a>.</td>
+      <td>This is the EventBus. It allows you to trigger and listen for events.<br /><a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L229">See available methods</a>.</td>
     </tr>
     <tr>
       <td><code>hass.services</code></td>
-      <td>This is the ServiceRegistry. It allows you to register services.<br /><a href="https://github.com/balloob/home-assistant/blob/dev/homeassistant/core.py#L568">See available methods</a>.</td>
+      <td>This is the ServiceRegistry. It allows you to register services.<br /><a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L568">See available methods</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -211,7 +211,7 @@ Home Assistant will use the directory that contains your config file as the dire
 
 <h2><a class="title-link" name="responding-to-events" href="#responding-to-events"></a> Responding to events</h2>
 
-<p>Home Assistant has different ways of responding to events that occur in Home Assistant. These have been organized in <a href="https://github.com/balloob/home-assistant/blob/dev/homeassistant/helpers/event.py">helper methods</a>. Examples are <code>track_state_change</code>, <code>track_point_in_time</code>, <code>track_time_change</code>.</p>
+<p>Home Assistant has different ways of responding to events that occur in Home Assistant. These have been organized in <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/event.py">helper methods</a>. Examples are <code>track_state_change</code>, <code>track_point_in_time</code>, <code>track_time_change</code>.</p>
 
 
 </article>
@@ -229,7 +229,7 @@ Home Assistant will use the directory that contains your config file as the dire
     <div class="grid__item">
       <div class="copyright">
   <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
-  <a rel="me" href='https://github.com/balloob/home-assistant'><i class="icon-github"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
 
   <div class="credit">
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />

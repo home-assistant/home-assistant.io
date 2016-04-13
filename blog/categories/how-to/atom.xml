@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-12T20:25:53+00:00</updated>
+  <updated>2016-04-13T04:25:15+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -28,7 +28,7 @@
 
 <!--more-->
 
-<p>In the past the buzz word “Smart mirror” was used a couple of times in our <a href="https://gitter.im/balloob/home-assistant">chatroom</a> and even made it into the <a href="https://github.com/balloob/home-assistant/issues/1392">issue tracker</a>. The existing solutions (<a href="http://docs.smart-mirror.io/">Smart mirror</a>, <a href="http://michaelteeuw.nl/tagged/magicmirror">MagicMirror</a>, and <a href="https://github.com/HannahMitt/HomeMirror">HomeMirror</a>) seems to be overkill if you already have Home Assistant running somewhere in your house or apartment. Why not simple display a web page served by Home Assistant on the tablet? No app and no Raspberry Pi running in the background.</p>
+<p>In the past the buzz word “Smart mirror” was used a couple of times in our <a href="https://gitter.im/balloob/home-assistant">chatroom</a> and even made it into the <a href="https://github.com/home-assistant/home-assistant/issues/1392">issue tracker</a>. The existing solutions (<a href="http://docs.smart-mirror.io/">Smart mirror</a>, <a href="http://michaelteeuw.nl/tagged/magicmirror">MagicMirror</a>, and <a href="https://github.com/HannahMitt/HomeMirror">HomeMirror</a>) seems to be overkill if you already have Home Assistant running somewhere in your house or apartment. Why not simple display a web page served by Home Assistant on the tablet? No app and no Raspberry Pi running in the background.</p>
 
 <p>There are plenty of ways to achieve this…<a href="/developers/rest_api/">RESTful API</a>, <a href="/developers/python_api/">Python API</a>, or one of the <a href="/components/#history">history components</a>. If it is to be a web page I’m using the <a href="/components/mqtt_eventstream/">MQTT Eventstream component</a> and <a href="http://git.eclipse.org/c/paho/org.eclipse.paho.mqtt.javascript.git/tree/src">mqttws31.js</a>.</p>
 

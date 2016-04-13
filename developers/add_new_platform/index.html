@@ -103,7 +103,7 @@
           <article class="page">
   
   
-    <div class='edit-github'><a href='https://github.com/balloob/home-assistant.io/tree/master/source/developers/add_new_platform.markdown'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/add_new_platform.markdown'>Edit this page on GitHub</a></div>
   
 
   
@@ -117,7 +117,7 @@
 
   <p>Components that interact with devices are structured in core- and platform logic. This allows the same logic to be used for different platforms.</p>
 
-<p>For example, the built-in <code>switch</code> component consists of various platform in <a href="https://github.com/balloob/home-assistant/tree/master/homeassistant/components/switch"><code>homeassistant/components/switch/</code></a>. The file <code>__init__.py</code> contains the core logic of all platform and the <code>vendor_name.py</code> files only the relevant platform code.</p>
+<p>For example, the built-in <code>switch</code> component consists of various platform in <a href="https://github.com/home-assistant/home-assistant/tree/master/homeassistant/components/switch"><code>homeassistant/components/switch/</code></a>. The file <code>__init__.py</code> contains the core logic of all platform and the <code>vendor_name.py</code> files only the relevant platform code.</p>
 
 <p>If you are planning to add support for a new type of device to an existing component, you can get away with only writing platform logic. Have a look at how the component works with other platforms and create a similar file for the platform that you would like to add.</p>
 
@@ -136,7 +136,7 @@ DEPENDENCIES = [<span class="string"><span class="delimiter">'</span><span class
 
 <h3><a class="title-link" name="platform-example" href="#platform-example"></a> Platform example</h3>
 
-<p>Entities are Home Assistant’s representation of lights, switches, sensors, etc. and are derived from the <a href="https://github.com/balloob/home-assistant/blob/master/homeassistant/helpers/entity.py">Entity Abstract Class</a>. This abstract class contains logic for integrating most standard features into your entities, such as visibility, entity IDs, updates, and many more.</p>
+<p>Entities are Home Assistant’s representation of lights, switches, sensors, etc. and are derived from the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/entity.py">Entity Abstract Class</a>. This abstract class contains logic for integrating most standard features into your entities, such as visibility, entity IDs, updates, and many more.</p>
 
 <p>This example is for adding support for the imaginary Awesome Lights.</p>
 
@@ -213,7 +213,7 @@ setup_platform(hass, config, add_devices, discovery_info=<span class="predefined
 
 <h3><a class="title-link" name="add-discovery-instructions" href="#add-discovery-instructions"></a> Add discovery instructions</h3>
 
-<p>Device discovery  for Home Assistant has been extracted into an external library called <a href="https://github.com/balloob/netdisco">NetDisco</a>. This library is integrated using <a href="https://github.com/balloob/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a> and scans the network in intervals for uPnP and zeroconf/mDNS services.</p>
+<p>Device discovery  for Home Assistant has been extracted into an external library called <a href="https://github.com/balloob/netdisco">NetDisco</a>. This library is integrated using <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a> and scans the network in intervals for uPnP and zeroconf/mDNS services.</p>
 
 <p>To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. <a href="https://github.com/balloob/netdisco/tree/master/netdisco/discoverables">See the repository for examples of existing discoverables.</a></p>
 
@@ -239,7 +239,7 @@ setup_platform(hass, config, add_devices, discovery_info=<span class="predefined
 
 <h3><a class="title-link" name="auto-loading-your-component-upon-discovery" href="#auto-loading-your-component-upon-discovery"></a> Auto-loading your component upon discovery</h3>
 
-<p>The Discovery component is capable of setting up your components before firing the <code>SERVICE_DISCOVERD</code> event. To do this you will have to update the <a href="https://github.com/balloob/home-assistant/blob/dev/homeassistant/components/discovery.py#L29"><code>SERVICE_HANDLERS</code></a> constant in <a href="https://github.com/balloob/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a>.</p>
+<p>The Discovery component is capable of setting up your components before firing the <code>SERVICE_DISCOVERD</code> event. To do this you will have to update the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L29"><code>SERVICE_HANDLERS</code></a> constant in <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a>.</p>
 
 <p class="note warning">
 This option is currently limited to built-in components.
@@ -261,7 +261,7 @@ This option is currently limited to built-in components.
     <div class="grid__item">
       <div class="copyright">
   <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
-  <a rel="me" href='https://github.com/balloob/home-assistant'><i class="icon-github"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
 
   <div class="credit">
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />

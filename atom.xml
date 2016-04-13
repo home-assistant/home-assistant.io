@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-12T20:25:53+00:00</updated>
+  <updated>2016-04-13T04:25:15+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -61,7 +61,7 @@
 
 <!--more-->
 
-<p>In the past the buzz word “Smart mirror” was used a couple of times in our <a href="https://gitter.im/balloob/home-assistant">chatroom</a> and even made it into the <a href="https://github.com/balloob/home-assistant/issues/1392">issue tracker</a>. The existing solutions (<a href="http://docs.smart-mirror.io/">Smart mirror</a>, <a href="http://michaelteeuw.nl/tagged/magicmirror">MagicMirror</a>, and <a href="https://github.com/HannahMitt/HomeMirror">HomeMirror</a>) seems to be overkill if you already have Home Assistant running somewhere in your house or apartment. Why not simple display a web page served by Home Assistant on the tablet? No app and no Raspberry Pi running in the background.</p>
+<p>In the past the buzz word “Smart mirror” was used a couple of times in our <a href="https://gitter.im/balloob/home-assistant">chatroom</a> and even made it into the <a href="https://github.com/home-assistant/home-assistant/issues/1392">issue tracker</a>. The existing solutions (<a href="http://docs.smart-mirror.io/">Smart mirror</a>, <a href="http://michaelteeuw.nl/tagged/magicmirror">MagicMirror</a>, and <a href="https://github.com/HannahMitt/HomeMirror">HomeMirror</a>) seems to be overkill if you already have Home Assistant running somewhere in your house or apartment. Why not simple display a web page served by Home Assistant on the tablet? No app and no Raspberry Pi running in the background.</p>
 
 <p>There are plenty of ways to achieve this…<a href="https://home-assistant.io/developers/rest_api/">RESTful API</a>, <a href="https://home-assistant.io/developers/python_api/">Python API</a>, or one of the <a href="https://home-assistant.io/components/#history/">history components</a>. If it is to be a web page I’m using the <a href="https://home-assistant.io/components/mqtt_eventstream/">MQTT Eventstream component</a> and <a href="http://git.eclipse.org/c/paho/org.eclipse.paho.mqtt.javascript.git/tree/src">mqttws31.js</a>.</p>
 
@@ -1050,7 +1050,7 @@ Example of the new views in the frontend. <a href="https://home-assistant.io/com
     <link href="https://home-assistant.io/blog/2016/01/17/extended-support-for-diy-solutions/"/>
     <updated>2016-01-17T23:20:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/01/17/extended-support-for-diy-solutions</id>
-    <content type="html"><![CDATA[<p>First release of 2016 and we are on 🔥! The <a href="https://github.com/balloob/home-assistant/">main repository</a> has passed 2500 ⭐ on GitHub (2596 ⭐ as of now). This release also has a <a href="https://github.com/balloob/home-assistant/pull/883#partial-users-participants">record number</a> of 20 contributors all working on improving and extending Home Assistant. With the continued growth, I am very excited to see what 2016 will bring us 🤘.</p>
+    <content type="html"><![CDATA[<p>First release of 2016 and we are on 🔥! The <a href="https://github.com/home-assistant/home-assistant/">main repository</a> has passed 2500 ⭐ on GitHub (2596 ⭐ as of now). This release also has a <a href="https://github.com/home-assistant/home-assistant/pull/883#partial-users-participants">record number</a> of 20 contributors all working on improving and extending Home Assistant. With the continued growth, I am very excited to see what 2016 will bring us 🤘.</p>
 
 <p><img src="https://home-assistant.io/images/supported_brands/mysensors.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/raspberry-pi.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="50" /><img src="https://home-assistant.io/images/supported_brands/yr.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/telldus.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/free_mobile.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/netatmo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/alarmdotcom.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/proliphix.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
 
