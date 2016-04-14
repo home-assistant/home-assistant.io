@@ -249,51 +249,53 @@
 
 <h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
 
-<p>```c++<br />
-/**<br />
- * Documentation: http://www.mysensors.org<br />
- * Support Forum: http://forum.mysensors.org<br />
- *<br />
- * http://www.mysensors.org/build/light<br />
- */</p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment">/**
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/light
+ */</span>
 
-<p>#include <spi.h>
-#include <mysensor.h>  
-#include <bh1750.h>
-#include <wire.h></wire.h></bh1750.h></mysensor.h></spi.h></p>
+<span class="preprocessor">#include</span> <span class="include">&lt;SPI.h&gt;</span>
+<span class="preprocessor">#include</span> <span class="include">&lt;MySensor.h&gt;</span>  
+<span class="preprocessor">#include</span> <span class="include">&lt;BH1750.h&gt;</span>
+<span class="preprocessor">#include</span> <span class="include">&lt;Wire.h&gt;</span>
 
-<p>#define SN “LightLuxSensor”<br />
-#define SV “1.0”<br />
-#define CHILD_ID 1<br />
-unsigned long SLEEP_TIME = 30000; // Sleep time between reads (in milliseconds)</p>
+<span class="preprocessor">#define</span> SN <span class="string"><span class="delimiter">&quot;</span><span class="content">LightLuxSensor</span><span class="delimiter">&quot;</span></span>
+<span class="preprocessor">#define</span> SV <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>
+<span class="preprocessor">#define</span> CHILD_ID <span class="integer">1</span>
+<span class="predefined-type">unsigned</span> <span class="predefined-type">long</span> SLEEP_TIME = <span class="integer">30000</span>; <span class="comment">// Sleep time between reads (in milliseconds)</span>
 
-<p>BH1750 lightSensor;<br />
-MySensor gw;<br />
-MyMessage msg(CHILD_ID, V_LEVEL);<br />
-MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  // Custom unit message.<br />
-uint16_t lastlux = 0;</p>
+BH1750 lightSensor;
+MySensor gw;
+MyMessage msg(CHILD_ID, V_LEVEL);
+MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  <span class="comment">// Custom unit message.</span>
+uint16_t lastlux = <span class="integer">0</span>;
 
-<p>void setup()  <br />
-{<br />
-  gw.begin();<br />
-  gw.sendSketchInfo(SN, SV);<br />
-  gw.present(CHILD_ID, S_LIGHT_LEVEL);<br />
-  lightSensor.begin();<br />
-  gw.send(msg.set(lastlux));<br />
-  gw.send(msgPrefix.set(“lux”));  // Set custom unit.<br />
-}</p>
+<span class="directive">void</span> setup()  
+{
+  gw.begin();
+  gw.sendSketchInfo(SN, SV);
+  gw.present(CHILD_ID, S_LIGHT_LEVEL);
+  lightSensor.begin();
+  gw.send(msg.set(lastlux));
+  gw.send(msgPrefix.set(<span class="string"><span class="delimiter">&quot;</span><span class="content">lux</span><span class="delimiter">&quot;</span></span>));  <span class="comment">// Set custom unit.</span>
+}
 
-<p>void loop()      <br />
-{     <br />
-  uint16_t lux = lightSensor.readLightLevel();  // Get Lux value<br />
-  if (lux != lastlux) {<br />
-      gw.send(msg.set(lux));<br />
-      lastlux = lux;<br />
-  }</p>
+<span class="directive">void</span> loop()      
+{     
+  uint16_t lux = lightSensor.readLightLevel();  <span class="comment">// Get Lux value</span>
+  <span class="keyword">if</span> (lux != lastlux) {
+      gw.send(msg.set(lux));
+      lastlux = lux;
+  }
 
-<p>gw.sleep(SLEEP_TIME);<br />
-}<br />
-```</p>
+  gw.sleep(SLEEP_TIME);
+}
+</pre></div>
+</div>
+</div>
 
 
 

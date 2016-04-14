@@ -179,50 +179,53 @@
 
 <h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
 
-<p>```c++<br />
-/**<br />
- * Documentation: http://www.mysensors.org<br />
- * Support Forum: http://forum.mysensors.org<br />
- *<br />
- * http://www.mysensors.org/build/binary<br />
- */</p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment">/**
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/binary
+ */</span>
 
-<p>#include <mysensor.h>
-#include <spi.h>
-#include <bounce2.h></bounce2.h></spi.h></mysensor.h></p>
 
-<p>#define SN “BinarySensor”<br />
-#define SV “1.0”<br />
-#define CHILD_ID 1<br />
-#define BUTTON_PIN 3  // Arduino Digital I/O pin for button/reed switch.</p>
+<span class="preprocessor">#include</span> <span class="include">&lt;MySensor.h&gt;</span>
+<span class="preprocessor">#include</span> <span class="include">&lt;SPI.h&gt;</span>
+<span class="preprocessor">#include</span> <span class="include">&lt;Bounce2.h&gt;</span>
 
-<p>MySensor gw;<br />
-Bounce debouncer = Bounce();<br />
-MyMessage msg(CHILD_ID, V_TRIPPED);</p>
+<span class="preprocessor">#define</span> SN <span class="string"><span class="delimiter">&quot;</span><span class="content">BinarySensor</span><span class="delimiter">&quot;</span></span>
+<span class="preprocessor">#define</span> SV <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>
+<span class="preprocessor">#define</span> CHILD_ID <span class="integer">1</span>
+<span class="preprocessor">#define</span> BUTTON_PIN <span class="integer">3</span>  <span class="comment">// Arduino Digital I/O pin for button/reed switch.</span>
 
-<p>void setup()<br />
-{<br />
-  gw.begin();<br />
-  gw.sendSketchInfo(SN, SV);<br />
-  // Setup the button.<br />
-  pinMode(BUTTON_PIN, INPUT_PULLUP);<br />
-  // After setting up the button, setup debouncer.<br />
-  debouncer.attach(BUTTON_PIN);<br />
-  debouncer.interval(5);<br />
-  gw.present(CHILD_ID, S_DOOR);<br />
-  gw.send(msg.set(0));<br />
-}</p>
+MySensor gw;
+Bounce debouncer = Bounce();
+MyMessage msg(CHILD_ID, V_TRIPPED);
 
-<p>void loop()<br />
-{<br />
-  if (debouncer.update()) {<br />
-    // Get the update value.<br />
-    int value = debouncer.read();<br />
-    // Send in the new value.<br />
-    gw.send(msg.set(value == LOW ? 1 : 0));<br />
-  }<br />
-}<br />
-```</p>
+<span class="directive">void</span> setup()
+{
+  gw.begin();
+  gw.sendSketchInfo(SN, SV);
+  <span class="comment">// Setup the button.</span>
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  <span class="comment">// After setting up the button, setup debouncer.</span>
+  debouncer.attach(BUTTON_PIN);
+  debouncer.interval(<span class="integer">5</span>);
+  gw.present(CHILD_ID, S_DOOR);
+  gw.send(msg.set(<span class="integer">0</span>));
+}
+
+<span class="directive">void</span> loop()
+{
+  <span class="keyword">if</span> (debouncer.update()) {
+    <span class="comment">// Get the update value.</span>
+    <span class="predefined-type">int</span> value = debouncer.read();
+    <span class="comment">// Send in the new value.</span>
+    gw.send(msg.set(value == LOW ? <span class="integer">1</span> : <span class="integer">0</span>));
+  }
+}
+</pre></div>
+</div>
+</div>
 
 
 

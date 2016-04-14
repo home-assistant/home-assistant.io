@@ -161,77 +161,80 @@
 
 <h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
 
-<p>```c++<br />
-/*<br />
- * Documentation: http://www.mysensors.org<br />
- * Support Forum: http://forum.mysensors.org<br />
- *<br />
- * http://www.mysensors.org/build/dimmer<br />
- */</p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment">/*
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/dimmer
+ */</span>
 
-<p>#include <mysensor.h>
-#include <spi.h></spi.h></mysensor.h></p>
+<span class="preprocessor">#include</span> <span class="include">&lt;MySensor.h&gt;</span>
+<span class="preprocessor">#include</span> <span class="include">&lt;SPI.h&gt;</span>
 
-<p>#define SN “DimmableRGBLED”<br />
-#define SV “1.0”<br />
-#define CHILD_ID 1<br />
-#define LED_PIN 5</p>
+<span class="preprocessor">#define</span> SN <span class="string"><span class="delimiter">&quot;</span><span class="content">DimmableRGBLED</span><span class="delimiter">&quot;</span></span>
+<span class="preprocessor">#define</span> SV <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>
+<span class="preprocessor">#define</span> CHILD_ID <span class="integer">1</span>
+<span class="preprocessor">#define</span> LED_PIN <span class="integer">5</span>
 
-<p>MySensor gw;</p>
+MySensor gw;
 
-<p>char rgb[7] = “ffffff”; // RGB value.<br />
-int currentLevel = 0;  // Current dimmer level.<br />
-MyMessage dimmerMsg(CHILD_ID, V_PERCENTAGE);<br />
-MyMessage lightMsg(CHILD_ID, V_STATUS);<br />
-MyMessage rgbMsg(CHILD_ID, V_RGB);</p>
+<span class="predefined-type">char</span> rgb[<span class="integer">7</span>] = <span class="string"><span class="delimiter">&quot;</span><span class="content">ffffff</span><span class="delimiter">&quot;</span></span>; <span class="comment">// RGB value.</span>
+<span class="predefined-type">int</span> currentLevel = <span class="integer">0</span>;  <span class="comment">// Current dimmer level.</span>
+MyMessage dimmerMsg(CHILD_ID, V_PERCENTAGE);
+MyMessage lightMsg(CHILD_ID, V_STATUS);
+MyMessage rgbMsg(CHILD_ID, V_RGB);
 
-<p>void setup()<br />
-{<br />
-  gw.begin(incomingMessage);<br />
-  gw.sendSketchInfo(SN, SV);<br />
-  gw.present(CHILD_ID, S_RGB_LIGHT);<br />
-  // Send initial values.<br />
-  gw.send(lightMsg.set(currentLevel &gt; 0 ? 1 : 0));<br />
-  gw.send(dimmerMsg.set(currentLevel));<br />
-  gw.send(rgbMsg.set(rgb));<br />
-}</p>
+<span class="directive">void</span> setup()
+{
+  gw.begin(incomingMessage);
+  gw.sendSketchInfo(SN, SV);
+  gw.present(CHILD_ID, S_RGB_LIGHT);
+  <span class="comment">// Send initial values.</span>
+  gw.send(lightMsg.set(currentLevel &gt; <span class="integer">0</span> ? <span class="integer">1</span> : <span class="integer">0</span>));
+  gw.send(dimmerMsg.set(currentLevel));
+  gw.send(rgbMsg.set(rgb));
+}
 
-<p>void loop()<br />
-{<br />
-  gw.process();<br />
-}</p>
+<span class="directive">void</span> loop()
+{
+  gw.process();
+}
 
-<p>void incomingMessage(const MyMessage &amp;message) {<br />
-  if (message.type == V_RGB) {<br />
-    // Retrieve the RGB value from the incoming message.<br />
-    // RGB LED not implemented, just a dummy print.<br />
-    String hexstring = message.getString();<br />
-    hexstring.toCharArray(rgb, sizeof(rgb));<br />
-    Serial.print(“Changing color to “);<br />
-    Serial.println(rgb);<br />
-    gw.send(rgbMsg.set(rgb));<br />
-  }</p>
+<span class="directive">void</span> incomingMessage(<span class="directive">const</span> MyMessage &amp;message) {
+  <span class="keyword">if</span> (message.type == V_RGB) {
+    <span class="comment">// Retrieve the RGB value from the incoming message.</span>
+    <span class="comment">// RGB LED not implemented, just a dummy print.</span>
+    String hexstring = message.getString();
+    hexstring.toCharArray(rgb, <span class="keyword">sizeof</span>(rgb));
+    Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Changing color to </span><span class="delimiter">&quot;</span></span>);
+    Serial.println(rgb);
+    gw.send(rgbMsg.set(rgb));
+  }
 
-<p>if (message.type == V_STATUS || message.type == V_PERCENTAGE) {<br />
-    // Retrieve the light status or dimmer level from the incoming message.<br />
-    int requestedLevel = atoi(message.data);</p>
+  <span class="keyword">if</span> (message.type == V_STATUS || message.type == V_PERCENTAGE) {
+    <span class="comment">// Retrieve the light status or dimmer level from the incoming message.</span>
+    <span class="predefined-type">int</span> requestedLevel = atoi(message.data);
 
-<pre><code>// Adjust incoming level if this is a V_LIGHT update [0 == off, 1 == on].
-requestedLevel *= (message.type == V_STATUS ? 100 : 1);
+    <span class="comment">// Adjust incoming level if this is a V_LIGHT update [0 == off, 1 == on].</span>
+    requestedLevel *= (message.type == V_STATUS ? <span class="integer">100</span> : <span class="integer">1</span>);
 
-// Clip incoming level to valid range of 0 to 100
-requestedLevel = requestedLevel &gt; 100 ? 100 : requestedLevel;
-requestedLevel = requestedLevel &lt; 0   ? 0   : requestedLevel;
+    <span class="comment">// Clip incoming level to valid range of 0 to 100</span>
+    requestedLevel = requestedLevel &gt; <span class="integer">100</span> ? <span class="integer">100</span> : requestedLevel;
+    requestedLevel = requestedLevel &lt; <span class="integer">0</span>   ? <span class="integer">0</span>   : requestedLevel;
 
-// Change level value of LED pin.
-analogWrite(LED_PIN, (int)(requestedLevel / 100. * 255));
-currentLevel = requestedLevel;
+    <span class="comment">// Change level value of LED pin.</span>
+    analogWrite(LED_PIN, (<span class="predefined-type">int</span>)(requestedLevel / <span class="integer">10</span><span class="float">0</span>. * <span class="integer">255</span>));
+    currentLevel = requestedLevel;
 
-// Update the gateway with the current V_STATUS and V_PERCENTAGE.
-gw.send(lightMsg.set(currentLevel &gt; 0 ? 1 : 0));
-gw.send(dimmerMsg.set(currentLevel));
-} } ```
-</code></pre>
+    <span class="comment">// Update the gateway with the current V_STATUS and V_PERCENTAGE.</span>
+    gw.send(lightMsg.set(currentLevel &gt; <span class="integer">0</span> ? <span class="integer">1</span> : <span class="integer">0</span>));
+    gw.send(dimmerMsg.set(currentLevel));
+    }
+}
+</pre></div>
+</div>
+</div>
 
 
 
