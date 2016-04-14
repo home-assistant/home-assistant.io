@@ -82,7 +82,7 @@ There is also a [video tutorial](https://www.youtube.com/watch?v=GjzOXkPb7XE) cr
 
 <div class='install-instructions synology' markdown='1'>
 
-The following configuration has been tested on Synology 415+ running DSM 5.2-5644 Update 3.
+The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.
 
 Running these commands will:
 
@@ -96,10 +96,16 @@ Using the Synology webadmin:
 
 SSH onto your synology & login as admin or root
 
-Check the path to python3 (assumed to be /usr/local/python3/bin)
+Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)
 
 ```bash
-$ cd /usr/local/python3/bin
+$ cd /volume1/@appstore/py3k/usr/local/bin
+```
+
+Install PIP (Python's package management system)
+
+```bash
+$ python -m ensurepip
 ```
 
 Use PIP to install Homeassistant package
@@ -126,7 +132,7 @@ DNAME="Home Assistant"
 
 # Others
 USER="homeassistant"
-PYTHON_DIR="/usr/local/python3/bin"
+PYTHON_DIR="/volume1/@appstore/py3k/usr/local/bin"
 PYTHON="$PYTHON_DIR/python3"
 HASS="$PYTHON_DIR/hass"
 INSTALL_DIR="/volume1/homeassistant"
@@ -225,21 +231,21 @@ esac
 Create links to python folders to make things easier in the future:
 
 ```bash
-$ ln -s /usr/local/python3/bin python3
-$ ln -s /usr/local/python3/lib/python3.4/site-packages/homeassistant
+$ ln -s /volume1/@appstore/py3k/usr/local/bin python3
+$ ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant
 ```
 
 Set the owner and permissions on your config folder
 
 ```bash
-$ chown -r homeassistant:users /volume1/homeassistant
-$ chmod -r 660 /volume1/homeassistant
+$ chown -R homeassistant:users /volume1/homeassistant
+$ chmod -R 664 /volume1/homeassistant
 ```
 
 Make the daemon file executable:
 
 ```bash
-$ chmod -r 777 /volume1/homeassistant/hass-daemon
+$ chmod 777 /volume1/homeassistant/hass-daemon
 ```
 
 Copy your configuration.yaml file into the config folder
@@ -268,7 +274,7 @@ $ sh hass-daemon restart
 - Upgrade Home Assistant::
 
 ```bash
-$ python3/pip3 install --upgrade homeassistant
+$ python3 -m pip install --upgrade homeassistant
 ```
 
 </div> <!-- INSTALL-INSTRUCTIONS SYNOLOGY -->
