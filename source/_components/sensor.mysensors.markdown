@@ -60,7 +60,7 @@ For more information, visit the [serial api] of MySensors.
 
 ### {% linkable_title Example sketch %}
 
-```c++
+```cpp
 /**
  * Documentation: http://www.mysensors.org
  * Support Forum: http://forum.mysensors.org
