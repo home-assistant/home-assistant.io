@@ -193,6 +193,51 @@
 
 <p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
 
+<h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
+
+<p>```c++<br />
+/*<br />
+ * Documentation: http://www.mysensors.org<br />
+ * Support Forum: http://forum.mysensors.org<br />
+ *<br />
+ * http://www.mysensors.org/build/relay<br />
+ */</p>
+
+<p>#include <mysensor.h>
+#include <spi.h></spi.h></mysensor.h></p>
+
+<p>#define SN “Relay”<br />
+#define SV “1.0”<br />
+#define CHILD_ID 1<br />
+#define RELAY_PIN 3</p>
+
+<p>MySensor gw;<br />
+MyMessage msgRelay(CHILD_ID, V_STATUS);</p>
+
+<p>void setup()<br />
+{<br />
+  gw.begin(incomingMessage);<br />
+  gw.sendSketchInfo(SN, SV);<br />
+  // Initialize the digital pin as an output.<br />
+  pinMode(RELAY_PIN, OUTPUT);<br />
+  gw.present(CHILD_ID, S_BINARY);<br />
+  gw.send(msgRelay.set(0));<br />
+}</p>
+
+<p>void loop()<br />
+{<br />
+  gw.process();<br />
+}</p>
+
+<p>void incomingMessage(const MyMessage &amp;message)<br />
+{<br />
+  if (message.type == V_STATUS) {<br />
+     // Change relay state.<br />
+     digitalWrite(RELAY_PIN, message.getBool() ? 1 : 0);<br />
+  }<br />
+}<br />
+```</p>
+
 
 
 </article>

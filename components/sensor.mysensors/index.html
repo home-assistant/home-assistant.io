@@ -247,6 +247,54 @@
 
 <p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
 
+<h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
+
+<p>```c++<br />
+/**<br />
+ * Documentation: http://www.mysensors.org<br />
+ * Support Forum: http://forum.mysensors.org<br />
+ *<br />
+ * http://www.mysensors.org/build/light<br />
+ */</p>
+
+<p>#include <spi.h>
+#include <mysensor.h>  
+#include <bh1750.h>
+#include <wire.h></wire.h></bh1750.h></mysensor.h></spi.h></p>
+
+<p>#define SN “LightLuxSensor”<br />
+#define SV “1.0”<br />
+#define CHILD_ID 1<br />
+unsigned long SLEEP_TIME = 30000; // Sleep time between reads (in milliseconds)</p>
+
+<p>BH1750 lightSensor;<br />
+MySensor gw;<br />
+MyMessage msg(CHILD_ID, V_LEVEL);<br />
+MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  // Custom unit message.<br />
+uint16_t lastlux = 0;</p>
+
+<p>void setup()  <br />
+{<br />
+  gw.begin();<br />
+  gw.sendSketchInfo(SN, SV);<br />
+  gw.present(CHILD_ID, S_LIGHT_LEVEL);<br />
+  lightSensor.begin();<br />
+  gw.send(msg.set(lastlux));<br />
+  gw.send(msgPrefix.set(“lux”));  // Set custom unit.<br />
+}</p>
+
+<p>void loop()      <br />
+{     <br />
+  uint16_t lux = lightSensor.readLightLevel();  // Get Lux value<br />
+  if (lux != lastlux) {<br />
+      gw.send(msg.set(lux));<br />
+      lastlux = lux;<br />
+  }</p>
+
+<p>gw.sleep(SLEEP_TIME);<br />
+}<br />
+```</p>
+
 
 
 </article>

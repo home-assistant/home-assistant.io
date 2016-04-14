@@ -177,6 +177,53 @@
 
 <p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
 
+<h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
+
+<p>```c++<br />
+/**<br />
+ * Documentation: http://www.mysensors.org<br />
+ * Support Forum: http://forum.mysensors.org<br />
+ *<br />
+ * http://www.mysensors.org/build/binary<br />
+ */</p>
+
+<p>#include <mysensor.h>
+#include <spi.h>
+#include <bounce2.h></bounce2.h></spi.h></mysensor.h></p>
+
+<p>#define SN “BinarySensor”<br />
+#define SV “1.0”<br />
+#define CHILD_ID 1<br />
+#define BUTTON_PIN 3  // Arduino Digital I/O pin for button/reed switch.</p>
+
+<p>MySensor gw;<br />
+Bounce debouncer = Bounce();<br />
+MyMessage msg(CHILD_ID, V_TRIPPED);</p>
+
+<p>void setup()<br />
+{<br />
+  gw.begin();<br />
+  gw.sendSketchInfo(SN, SV);<br />
+  // Setup the button.<br />
+  pinMode(BUTTON_PIN, INPUT_PULLUP);<br />
+  // After setting up the button, setup debouncer.<br />
+  debouncer.attach(BUTTON_PIN);<br />
+  debouncer.interval(5);<br />
+  gw.present(CHILD_ID, S_DOOR);<br />
+  gw.send(msg.set(0));<br />
+}</p>
+
+<p>void loop()<br />
+{<br />
+  if (debouncer.update()) {<br />
+    // Get the update value.<br />
+    int value = debouncer.read();<br />
+    // Send in the new value.<br />
+    gw.send(msg.set(value == LOW ? 1 : 0));<br />
+  }<br />
+}<br />
+```</p>
+
 
 
 </article>
