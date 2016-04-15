@@ -214,7 +214,7 @@ $ hass
 
 <div class="install-instructions synology">
 
-    <p>The following configuration has been tested on Synology 415+ running DSM 5.2-5644 Update 3.</p>
+    <p>The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.</p>
 
     <p>Running these commands will:</p>
 
@@ -232,10 +232,18 @@ $ hass
 
     <p>SSH onto your synology &amp; login as admin or root</p>
 
-    <p>Check the path to python3 (assumed to be /usr/local/python3/bin)</p>
+    <p>Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ cd /usr/local/python3/bin
+  <div class="code"><pre>$ cd /volume1/@appstore/py3k/usr/local/bin
+</pre></div>
+</div>
+    </div>
+
+    <p>Install PIP (Python’s package management system)</p>
+
+    <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ python -m ensurepip
 </pre></div>
 </div>
     </div>
@@ -268,7 +276,7 @@ DNAME=&quot;Home Assistant&quot;
 
 # Others
 USER=&quot;homeassistant&quot;
-PYTHON_DIR=&quot;/usr/local/python3/bin&quot;
+PYTHON_DIR=&quot;/volume1/@appstore/py3k/usr/local/bin&quot;
 PYTHON=&quot;$PYTHON_DIR/python3&quot;
 HASS=&quot;$PYTHON_DIR/hass&quot;
 INSTALL_DIR=&quot;/volume1/homeassistant&quot;
@@ -369,8 +377,8 @@ esac
     <p>Create links to python folders to make things easier in the future:</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ln -s /usr/local/python3/bin python3
-$ ln -s /usr/local/python3/lib/python3.4/site-packages/homeassistant
+  <div class="code"><pre>$ ln -s /volume1/@appstore/py3k/usr/local/bin python3
+$ ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant
 </pre></div>
 </div>
     </div>
@@ -378,8 +386,8 @@ $ ln -s /usr/local/python3/lib/python3.4/site-packages/homeassistant
     <p>Set the owner and permissions on your config folder</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ chown -r homeassistant:users /volume1/homeassistant
-$ chmod -r 660 /volume1/homeassistant
+  <div class="code"><pre>$ chown -R homeassistant:users /volume1/homeassistant
+$ chmod -R 664 /volume1/homeassistant
 </pre></div>
 </div>
     </div>
@@ -387,7 +395,7 @@ $ chmod -r 660 /volume1/homeassistant
     <p>Make the daemon file executable:</p>
 
     <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ chmod -r 777 /volume1/homeassistant/hass-daemon
+  <div class="code"><pre>$ chmod 777 /volume1/homeassistant/hass-daemon
 </pre></div>
 </div>
     </div>
@@ -432,7 +440,7 @@ That’s it… you’re all set to go</p>
     </ul>
 
     <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python3/pip3 install --upgrade homeassistant
+  <div class="code"><pre>$ python3 -m pip install --upgrade homeassistant
 </pre></div>
 </div>
     </div>
