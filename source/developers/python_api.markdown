@@ -3,7 +3,7 @@ layout: page
 title: "Python API"
 description: "Home Assistant Python API documentation"
 date: 2015-05-11 12:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

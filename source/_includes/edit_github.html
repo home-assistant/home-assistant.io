@@ -1,3 +1,7 @@
-{% if page.hide_github_edit != true %}
+{% assign url_parts = page.url | split: '/' %}
+{% if page.hide_github_edit != true and
+      url_parts[1] != 'components' and
+      url_parts[1] != 'cookbook' and
+      url_parts[1] != 'developers' %}
 <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/{{ page.path }}'>Edit this page on GitHub</a></div>
 {% endif %}

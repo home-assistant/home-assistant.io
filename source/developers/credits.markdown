@@ -3,7 +3,7 @@ layout: page
 title: "Credits"
 description: "Credits for the developers who contributed to Home Assistant."
 date: 2015-06-19 09:30
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

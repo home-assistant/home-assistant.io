@@ -3,7 +3,7 @@ layout: page
 title: "Website home-assistant.io"
 description: "home-assistant.io web presence"
 date: 2015-06-17 08:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

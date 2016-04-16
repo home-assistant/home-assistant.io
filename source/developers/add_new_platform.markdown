@@ -3,7 +3,7 @@ layout: page
 title: "Adding support for a new platform"
 description: "Hints and tips for when you're adding a new platform to Home Assistant."
 date: 2014-12-21 13:27
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -98,39 +98,3 @@ class AwesomeLight(Light):
         """If light is on."""
         return self._light.is_on()
 ```
-
-## {% linkable_title Allowing your platform to be discovered %}
-
-Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an `SERVICE_DISCOVERED` event will be fired with the found service and the information. The `discovery` component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the `SERVICE_DISCOVERED` event.
-
-### {% linkable_title Add discovery instructions %}
-
-Device discovery  for Home Assistant has been extracted into an external library called [NetDisco](https://github.com/balloob/netdisco). This library is integrated using [the `discovery` component](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py) and scans the network in intervals for uPnP and zeroconf/mDNS services.
-
-To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. [See the repository for examples of existing discoverables.](https://github.com/balloob/netdisco/tree/master/netdisco/discoverables)
-
-### {% linkable_title Listening to `SERVICE_DISCOVERED` events %}
-
-From your component, you will have to set up the listening for specific services. Below an example how one would listen for discovered Chromecasts:
-
-```python
-from homeassistant.loader import get_component
-
-def setup(hass, config):
-    discovery = get_component('discovery')
-
-    def chromecast_discovered(service, info):
-        """ Called when a Chromecast has been discovered. """
-        print("Discovered a new Chromecast: {}".format(info))
-
-    discovery.listen(
-        hass, discovery.services.GOOGLE_CAST, chromecast_discovered)
-```
-
-### {% linkable_title Auto-loading your component upon discovery %}
-
-The Discovery component is capable of setting up your components before firing the `SERVICE_DISCOVERD` event. To do this you will have to update the [`SERVICE_HANDLERS`](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L29) constant in [the `discovery` component](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py).
-
-<p class='note warning'>
-This option is currently limited to built-in components.
-</p>
