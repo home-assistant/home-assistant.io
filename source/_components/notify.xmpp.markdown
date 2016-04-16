@@ -30,7 +30,7 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **sender** (*Required*): The Jabber ID (JID) that will act as origin of the messages. Add your JID including the domain, eg. your_name@jabber.org.
 - **password** (*Required*): The password for your given Jabber account.
-- **priority** (*Required*): The Jabber ID (JID) that will receive the messages.
+- **recipient** (*Required*): The Jabber ID (JID) that will receive the messages.
 - **tls** (*Optional*): Allow to disable TLS. Defaults to true.
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
