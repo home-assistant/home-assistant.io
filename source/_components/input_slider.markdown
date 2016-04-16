@@ -11,7 +11,7 @@ logo: home-assistant.png
 ha_category: Automation
 ---
 
-The `input_slider` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation.
+The `input_slider` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the slider generate state events. These state events can be utilized as `automation` triggers as well. 
 
 ```yaml
 # Example configuration.yaml entry
