@@ -65,23 +65,8 @@
     </ul>
   </li>
   <li><a href='/components/'>Components</a></li>
-  <li><a href='/cookbook'>Examples</a></li>
-  <li>
-    <a>Developers <i class="icon icon-caret-down"></i></a>
-    <ul>
-      <li><a href="/developers/">Setup Development</a></li>
-      <li><a href="/developers/architecture/">Architecture</a></li>
-      <li><a href="/developers/frontend/">Frontend Development</a></li>
-      <li><a href="/developers/creating_components/">
-        Creating Components
-      </a></li>
-      <li><a href="/developers/add_new_platform/">
-        Adding Platform Support
-      </a></li>
-      <li><a href="/developers/api/">API and SSE</a></li>
-      <li><a href="/developers/credits/">Credits</a></li>
-    </ul>
-  </li>
+  <li><a href='/cookbook/'>Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
   <li><a href="/blog/">Blog</a></li>
   <li><a href="/help/">Need help?</a></li>
 </ul>
@@ -101,9 +86,6 @@
         
 
           <article class="page">
-  
-  
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/add_new_platform.markdown'>Edit this page on GitHub</a></div>
   
 
   
@@ -207,50 +189,62 @@ setup_platform(hass, config, add_devices, discovery_info=<span class="predefined
 </div>
 </div>
 
-<h2><a class="title-link" name="allowing-your-platform-to-be-discovered" href="#allowing-your-platform-to-be-discovered"></a> Allowing your platform to be discovered</h2>
-
-<p>Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an <code>SERVICE_DISCOVERED</code> event will be fired with the found service and the information. The <code>discovery</code> component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the <code>SERVICE_DISCOVERED</code> event.</p>
-
-<h3><a class="title-link" name="add-discovery-instructions" href="#add-discovery-instructions"></a> Add discovery instructions</h3>
-
-<p>Device discovery  for Home Assistant has been extracted into an external library called <a href="https://github.com/balloob/netdisco">NetDisco</a>. This library is integrated using <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a> and scans the network in intervals for uPnP and zeroconf/mDNS services.</p>
-
-<p>To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. <a href="https://github.com/balloob/netdisco/tree/master/netdisco/discoverables">See the repository for examples of existing discoverables.</a></p>
-
-<h3><a class="title-link" name="listening-to-service_discovered-events" href="#listening-to-service_discovered-events"></a> Listening to <code>SERVICE_DISCOVERED</code> events</h3>
-
-<p>From your component, you will have to set up the listening for specific services. Below an example how one would listen for discovered Chromecasts:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">homeassistant.loader</span> <span class="keyword">import</span> <span class="include">get_component</span>
-
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    discovery = get_component(<span class="string"><span class="delimiter">'</span><span class="content">discovery</span><span class="delimiter">'</span></span>)
-
-    <span class="keyword">def</span> <span class="function">chromecast_discovered</span>(service, info):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Called when a Chromecast has been discovered. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Discovered a new Chromecast: {}</span><span class="delimiter">&quot;</span></span>.format(info))
-
-    discovery.listen(
-        hass, discovery.services.GOOGLE_CAST, chromecast_discovered)
-</pre></div>
-</div>
-</div>
-
-<h3><a class="title-link" name="auto-loading-your-component-upon-discovery" href="#auto-loading-your-component-upon-discovery"></a> Auto-loading your component upon discovery</h3>
-
-<p>The Discovery component is capable of setting up your components before firing the <code>SERVICE_DISCOVERD</code> event. To do this you will have to update the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L29"><code>SERVICE_HANDLERS</code></a> constant in <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a>.</p>
-
-<p class="note warning">
-This option is currently limited to built-in components.
-</p>
-
 
 </article>
 
 
         </div>
 
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Development Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/developers/'>Introduction </a>
+        <ul>
+          <li><a  href='/developers/architecture/'>Architecture </a></li>
+          <li><a  href='/developers/architecture_components/'>Components </a></li>
+          <li><a  href='/developers/development_environment/'>Setup Dev Environment </a></li>
+        </ul>
+      </li>
+      <li>
+        Frontend Development
+        <ul>
+          <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
+          <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+        </ul>
+      </li>
+      <li>
+        Extending Home Assistant
+        <ul>
+          <li><a  href='/developers/creating_components/'>Creating Components </a></li>
+          <li><a class='active' href='/developers/add_new_platform/'>Adding Platform Support </a></li>
+          <li><a  href='/developers/platform_discovery/'>Platform Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        API
+        <ul>
+          <li><a  href='/developers/rest_api/'>RESTful API </a></li>
+          <li><a  href='/developers/python_api/'>Python API </a></li>
+          <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
+        </ul>
+      </li>
+      <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
+      <li><a  href='/developers/website/'>Home-Assitant.io </a></li>
+      <li><a  href='/developers/credits/'>Credits </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
         
       </div>
     </div>
@@ -273,16 +267,11 @@ This option is currently limited to built-in components.
 </div>
     </footer>
 
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
   g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
   s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
-
   </body>
 </html>

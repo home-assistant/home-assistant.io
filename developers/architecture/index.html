@@ -65,23 +65,8 @@
     </ul>
   </li>
   <li><a href='/components/'>Components</a></li>
-  <li><a href='/cookbook'>Examples</a></li>
-  <li>
-    <a>Developers <i class="icon icon-caret-down"></i></a>
-    <ul>
-      <li><a href="/developers/">Setup Development</a></li>
-      <li><a href="/developers/architecture/">Architecture</a></li>
-      <li><a href="/developers/frontend/">Frontend Development</a></li>
-      <li><a href="/developers/creating_components/">
-        Creating Components
-      </a></li>
-      <li><a href="/developers/add_new_platform/">
-        Adding Platform Support
-      </a></li>
-      <li><a href="/developers/api/">API and SSE</a></li>
-      <li><a href="/developers/credits/">Credits</a></li>
-    </ul>
-  </li>
+  <li><a href='/cookbook/'>Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
   <li><a href="/blog/">Blog</a></li>
   <li><a href="/help/">Need help?</a></li>
 </ul>
@@ -101,9 +86,6 @@
         
 
           <article class="page">
-  
-  
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/architecture.markdown'>Edit this page on GitHub</a></div>
   
 
   
@@ -146,108 +128,62 @@
   Overview of the Home Assistant core architecture
 </p>
 
-<p>Home Assistant can be extended by <strong>components</strong>. Each component is responsible for a specific domain within Home Assistant. Components can listen for or trigger events, offer services and maintain states. Components are written in Python and can do all the goodness that Python has to offer. Out of the box, Home Assistant offers a bunch of <a href="/components/">built-in components</a>.</p>
-
-<p>We can differentiate between two different types of components within Home Assistant.</p>
-
-<h4><a class="title-link" name="components-that-interact-with-an-internet-of-things-domain" href="#components-that-interact-with-an-internet-of-things-domain"></a> Components that interact with an Internet of Things domain</h4>
-
-<p>These components will track devices within a specific domain and consist of a core part and platform-specific logic. These components make their information available via the State Machine and the Event Bus. The component will also register services in the Service Registry to expose control of the devices.</p>
-
-<p>For example, one of the built-in components is the <code>switch</code> component. This component is responsible for interaction with different types of switches.</p>
-
-<p>A platform provides support for a particular kind/brand of device. For example, a switch could use a WeMo or Orvibo platform, and a light component might interact with the Hue or LiFX platform.</p>
-
-<p>If you are planning to add support for a new platform, please check out the <a href="/developers/add_new_platform/">add new platform section</a>.</p>
-
-<h4><a class="title-link" name="components-that-respond-to-events-that-happen-within-home-assistant" href="#components-that-respond-to-events-that-happen-within-home-assistant"></a> Components that respond to events that happen within Home Assistant</h4>
-
-<p>These components provide small pieces of home automation logic or services that do common tasks within your house.</p>
-
-<p>For example the <a href="/components/device_sun_light_trigger/"><code>device_sun_light_trigger</code> component</a> tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and there are people home. The component uses logic along the following lines:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>    In the event that device 'Paulus Nexus 5' changes to the 'Home' state:
-      If the sun has set and the lights are not on:
-        Turn on the lights
-</pre></div>
-</div>
-</div>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>    In the event that the combined state of all tracked devices changes to 'Not Home':
-      If the lights are on:
-        Turn off the lights
-</pre></div>
-</div>
-</div>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>    In the event of the sun setting:
-      If the lights are off and the combined state of all tracked device equals 'Home':
-        Turn on the lights
-</pre></div>
-</div>
-</div>
-
-<p>An extended example of a home automation component can be found <a href="https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py">here</a>.</p>
-
-<h3><a class="title-link" name="the-full-picture" href="#the-full-picture"></a> The full picture</h3>
-
-<p>When we put all the different pieces of Home Assistant together we see that we match pretty close to the initial sketched home automation overview. The smart home AI is not implemented yet and therefore omitted from the following picture.</p>
-
-<p class="img">
-  <a href="/images/architecture/ha_full_architecture.png">
-    <img src="/images/architecture/ha_full_architecture.png" />
-  </a>
-  Overview of the full Home Assistant architecture with a couple of loaded components and platforms.
-</p>
-
-<p>The platform logic for components uses 3rd party Python libraries to communicate with the devices. This is done so that we can leverage great device libraries that are out there in the Python community.</p>
-
-<h2><a class="title-link" name="multiple-connected-instances" href="#multiple-connected-instances"></a> Multiple connected instances</h2>
-
-<p>Home Assistant supports running multiple synchronized instances using a master-slave model. Whenever <code>events.fire</code> or <code>states.set</code> is called on the salve it will forward it to the master. The master will replicate all events and changed states to its slaves.</p>
-
-<p class="img">
-  <a href="/images/architecture/architecture-remote.png">
-    <img src="/images/architecture/architecture-remote.png" />
-  </a>
-  Overview of the Home Assistant architecture for multiple devices.
-</p>
-
-<p>A slave instance can be started with the following code and has the same support for components as a master instance.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
-<span class="keyword">import</span> <span class="include">homeassistant.bootstrap</span> <span class="keyword">as</span> bootstrap
-
-<span class="comment"># Location of the Master API: host, password, port.</span>
-<span class="comment"># Password and port are optional.</span>
-remote_api = remote.API(<span class="string"><span class="delimiter">&quot;</span><span class="content">127.0.0.1</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>, <span class="integer">8124</span>)
-
-<span class="comment"># Initialize slave</span>
-hass = remote.HomeAssistant(remote_api)
-
-<span class="comment"># To add an interface to the slave on localhost:8123</span>
-bootstrap.setup_component(hass, <span class="string"><span class="delimiter">'</span><span class="content">frontend</span><span class="delimiter">'</span></span>)
-
-hass.start()
-hass.block_till_stopped()
-</pre></div>
-</div>
-</div>
-
-<p class="note">
-Because each slave maintains its own Service Registry it is possible to have multiple slaves respond to one service call.
-</p>
-
 
 </article>
 
 
         </div>
 
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Development Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/developers/'>Introduction </a>
+        <ul>
+          <li><a class='active' href='/developers/architecture/'>Architecture </a></li>
+          <li><a  href='/developers/architecture_components/'>Components </a></li>
+          <li><a  href='/developers/development_environment/'>Setup Dev Environment </a></li>
+        </ul>
+      </li>
+      <li>
+        Frontend Development
+        <ul>
+          <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
+          <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+        </ul>
+      </li>
+      <li>
+        Extending Home Assistant
+        <ul>
+          <li><a  href='/developers/creating_components/'>Creating Components </a></li>
+          <li><a  href='/developers/add_new_platform/'>Adding Platform Support </a></li>
+          <li><a  href='/developers/platform_discovery/'>Platform Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        API
+        <ul>
+          <li><a  href='/developers/rest_api/'>RESTful API </a></li>
+          <li><a  href='/developers/python_api/'>Python API </a></li>
+          <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
+        </ul>
+      </li>
+      <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
+      <li><a  href='/developers/website/'>Home-Assitant.io </a></li>
+      <li><a  href='/developers/credits/'>Credits </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
         
       </div>
     </div>
@@ -270,16 +206,11 @@ Because each slave maintains its own Service Registry it is possible to have mul
 </div>
     </footer>
 
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
   g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
   s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
-
   </body>
 </html>

@@ -1,0 +1,252 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Setup Development - Home Assistant</title>
+    <meta name="author" content="Paulus Schoutsen">
+    <meta name="description" content="Everything to get you started developing for Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/developers/development_environment/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Setup Development">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/developers/development_environment/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Everything to get you started developing for Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Setup Development">
+    <meta name="twitter:description" content="Everything to get you started developing for Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li>
+    <a>Getting started <i class="icon icon-caret-down"></i></a>
+    <ul>
+      <li><a href='/getting-started/'>Installing Home Assistant</a></li>
+      <li><a href='/getting-started/configuration/'>Configuration Basics</a></li>
+      <li><a href='/getting-started/devices/'>Adding devices</a></li>
+      <li><a href='/getting-started/presence-detection/'>Presence Detection</a></li>
+      <li><a href='/getting-started/automation/'>Automation</a></li>
+      <li><a href='/topics/'>Advanced Topics</a></li>
+    </ul>
+  </li>
+  <li><a href='/components/'>Components</a></li>
+  <li><a href='/cookbook/'>Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Setup Development
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Home Assistant is built from the ground up to be easily-extensible by other developers using components. It uses <a href="https://www.python.org/">Python 3</a> for the backend and <a href="https://www.polymer-project.org/">Polymer (Web components)</a> for the frontend.</p>
+
+<p>Home Assistant is open-source and MIT licensed. The source can be found here:</p>
+
+<ul>
+  <li><a href="https://github.com/home-assistant/home-assistant">home-assistant</a> - Python server backend</li>
+  <li><a href="https://github.com/home-assistant/home-assistant-js">home-assistant-js</a> - JavaScript backend powering the client</li>
+  <li><a href="https://github.com/home-assistant/home-assistant-polymer">home-assistant-polymer</a> - Polymer UI</li>
+</ul>
+
+<h3><a class="title-link" name="starting-development" href="#starting-development"></a> Starting development</h3>
+
+<p>You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.<br />
+Visit the <a href="https://github.com/home-assistant/home-assistant">the Home Assistant repository</a> first and click fork in the top right.</p>
+
+<p>We suggest that you setup a <a href="https://docs.python.org/3.4/library/venv.html">virtual environment</a> aka <code>venv</code> before running the setup script.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
+$ cd home-assistant
+$ git remote add upstream https://github.com/home-assistant/home-assistant.git
+$ script/setup
+</pre></div>
+</div>
+</div>
+
+<p>Testing your work requires <code>tox</code> to be installed:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ pip3 install tox
+</pre></div>
+</div>
+</div>
+
+<p>After following these steps, running <code>hass</code> will invoke your local installation.</p>
+
+<h3><a class="title-link" name="submitting-improvements" href="#submitting-improvements"></a> Submitting improvements</h3>
+
+<p>Improvements to Home Assistant should be submitted one feature at a time using GitHub <a href="https://help.github.com/articles/using-pull-requests">pull requests</a>.</p>
+
+<ol>
+  <li>From your fork, create a new branch to hold your changes<br />
+<code>git checkout -b some-feature</code></li>
+  <li>Make the changes you want</li>
+  <li>Test your changes and check for style violations<br />
+<code>tox</code></li>
+  <li>Commit the changes<br />
+<code>git add .</code><br />
+<code>git commit -m "Added some-feature"</code></li>
+  <li>Push your committed changes back to your fork on GitHub<br />
+<code>git push origin HEAD</code></li>
+  <li>Follow <a href="https://help.github.com/articles/creating-a-pull-request/">these steps</a> to create your pull request.</li>
+</ol>
+
+<h3><a class="title-link" name="further-reading" href="#further-reading"></a> Further reading</h3>
+
+<ul>
+  <li><a href="/developers/architecture/">Home Assistant Architecture</a></li>
+  <li><a href="/developers/frontend/">Frontend development</a></li>
+  <li><a href="/developers/creating_components/">Creating a custom component</a></li>
+  <li><a href="/developers/add_new_platform/">Adding support for a new platform</a></li>
+  <li><a href="/developers/api/">Rest API</a></li>
+  <li><a href="/developers/server_sent_events/">Server-sent events</a></li>
+  <li><a href="/developers/website/">Website</a></li>
+</ul>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Development Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/developers/'>Introduction </a>
+        <ul>
+          <li><a  href='/developers/architecture/'>Architecture </a></li>
+          <li><a  href='/developers/architecture_components/'>Components </a></li>
+          <li><a class='active' href='/developers/development_environment/'>Setup Dev Environment </a></li>
+        </ul>
+      </li>
+      <li>
+        Frontend Development
+        <ul>
+          <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
+          <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+        </ul>
+      </li>
+      <li>
+        Extending Home Assistant
+        <ul>
+          <li><a  href='/developers/creating_components/'>Creating Components </a></li>
+          <li><a  href='/developers/add_new_platform/'>Adding Platform Support </a></li>
+          <li><a  href='/developers/platform_discovery/'>Platform Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        API
+        <ul>
+          <li><a  href='/developers/rest_api/'>RESTful API </a></li>
+          <li><a  href='/developers/python_api/'>Python API </a></li>
+          <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
+        </ul>
+      </li>
+      <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
+      <li><a  href='/developers/website/'>Home-Assitant.io </a></li>
+      <li><a  href='/developers/credits/'>Credits </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
