@@ -1,0 +1,312 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Installation in virtualenv - Home Assistant</title>
+    <meta name="author" content="Paulus Schoutsen">
+    <meta name="description" content="Instructions how to install Home Assistant in a virtual environment.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/installation-virtualenv/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Installation in virtualenv">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/installation-virtualenv/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Instructions how to install Home Assistant in a virtual environment.">
+    <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Installation in virtualenv">
+    <meta name="twitter:description" content="Instructions how to install Home Assistant in a virtual environment.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href='/getting-started/'>Getting started</a></li>
+  <li><a href='/components/'>Components</a></li>
+  <li><a href='/cookbook/'>Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Installation in Virtualenv
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>There are several reasons why it makes sense to run Home Assistant in a virtualenv. A virtualenv encapsulates all aspect of a Python environment within a single directory tree. That means the Python packages you install for Home Assistant won’t interact with the rest of your system and vice-versa. It means a random upgrade for some other program on your computer won’t break HA, and it means you don’t need to install a bunch of Python packages as root.</p>
+
+<p>Virtualenvs are pretty easy to setup. This example will walk through one method of setting one up (there are certainly others). We’ll be using Debian in this example (as many HA users are running Raspbian on a Raspberry Pi), but all of the Python related steps should be the same on just about any platform.</p>
+
+<h2>Step 0: Install some dependencies</h2>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python-pip
+sudo pip install --upgrade virtualenv
+</pre></div>
+</div>
+</div>
+
+<h2>Step 1: Create a Home Assistant user</h2>
+
+<p>This step is optional, but it’s a good idea to give services like Home Assistant their own user. It gives you more granular control over permissions, and reduces the exposure to the rest of your system in the event there is a security related bug in HA. This is a reasonably Linux oriented step, and will look different on other OS’s (or even other Linux distros).</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>sudo adduser --system hass
+</pre></div>
+</div>
+</div>
+
+<p>Home Assistant stores its config in <code>$HOME/.homeassistant</code> by default, so in this case, it would be in <code>/home/hass/.homeassistant</code></p>
+
+<h2>Step 2: Create a directory for Home Assistant</h2>
+
+<p>This can be anywhere you want, but I generally put stuff related to servers in /srv. You also need to change the ownership of the directory to the user you created above (if you created one)</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>sudo mkdir /srv/hass
+sudo chown hass /srv/hass
+</pre></div>
+</div>
+</div>
+
+<h2>Step 3: Become the new user</h2>
+
+<p>This is obviously only necessary if you created a ‘hass’ user, but if you did, be sure to switch to that user whenever you install things in your virtualenv, otherwise you’ll end up with mucked up permissions.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>sudo su -s /bin/bash hass
+</pre></div>
+</div>
+</div>
+
+<p>The ‘su’ command means ‘switch’ user. We use the ‘-s’ flag because the hass user is a system user and doesn’t have a default shell by default (to prevent attackers from being able to log in as that user).</p>
+
+<h2>Step 4: Set up the virtualenv</h2>
+
+<p>All this step does is stick a Python environment in the directory we’re using. That’s it. It’s just a directory. There’s nothing ‘special’ about it, and it is entirely self-contained.</p>
+
+<p>It will include a ‘bin’ directory, which will contain all the executables used in the virtualenv (including hass itself). It also includes a script called ‘activate’ which we will use to activate the virtualenv.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>virtualenv -p python3 /srv/hass
+</pre></div>
+</div>
+</div>
+
+<h2>Step 5: Activate the virtualenv</h2>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>source /srv/hass/bin/activate
+</pre></div>
+</div>
+</div>
+
+<p>After that, your prompt should include ‘(hass)’.</p>
+
+<h2>Step 6: Install Home Assistant</h2>
+
+<p>Once your virtualenv has been activated, you don’t need to ‘sudo’ any of your pip commands. Pip will be installing things in the virtualenv, which our ‘hass’ user has permission to modify.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>(hass)pip3 install --upgrade homeassistant
+</pre></div>
+</div>
+</div>
+
+<p>And that’s it… you now have Home Assistant installed, and you can be sure that every bit of it is contained in /srv/hass</p>
+
+<h2>Finally… Run Home Assistant</h2>
+
+<p>There are two ways to launch Home Assistant. If you are ‘in’ the virtualenv, you can just run <code>hass</code> and it will work as normal. If the virtualenv is not activated, you just use the ‘hass’ executable in that bin directory I mentioned earlier. There is one caveat… Because Home Assistant stores it’s config in the user’s home directory, we need to be the hass user.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>sudo -u hass -H /srv/hass/bin/hass
+</pre></div>
+</div>
+</div>
+
+<p>The ‘-H’ flag is important. It sets the <code>$HOME</code> environment variable to <code>/home/hass</code> so hass can find its configs.</p>
+
+<h2>Upgrading Home Assistant</h2>
+
+<p>Upgrading HA is simple, just repeat steps 3, 5 and 6.</p>
+
+<h2>Starting Home Assistant on boot</h2>
+
+<p>The autostart instructions on home-assistant.io will work just fine, just be sure to replace <code>/usr/bin/hass</code> with <code>/srv/hass/bin/hass</code> and specify the ‘hass’ user where appropriate.</p>
+
+<h2>Installing python-openzwave</h2>
+
+<p>If you want to use Z Wave devices, you’ll need to install python-openzwave in your virtualenv. This requires a small tweak to the instructions on home-assistant.io</p>
+
+<p>Install the dependencies as normal (note: you’ll need to do this as your normal user, since ‘hass’ isn’t a sudoer).</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
+</pre></div>
+</div>
+</div>
+
+<p>Then, activate your virtualenv (steps 3 and 5 above) and upgrade cython.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>(hass)$ pip3 install --upgrade cython
+</pre></div>
+</div>
+</div>
+
+<p>Finally, get and install python-openzwave</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>(hass)$ mkdir /srv/hass/src
+(hass)$ cd /srv/hass/src
+(hass)$ git clone https://github.com/OpenZWave/python-openzwave.git
+(hass)$ cd python-openzwave
+(hass)$ git checkout python3
+(hass)$ PYTHON_EXEC=`which python3` make build
+(hass)$ PYTHON_EXEC=`which python3` make install
+</pre></div>
+</div>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/installation-virtualenv.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a class='active' href='/getting-started/installation-virtualenv/'>Virtual Environment </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        Configuration
+        <ul>
+          <li><a  href='/getting-started/configuration/'>Configuration.yaml  </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/automation/'>Automation </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting configuration.yaml </a></li>
+        </ul>
+      </li>
+      <li>
+        Auto-start Home Assistant
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - SystemD </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a href='/topics/'>Advanced Topics</a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

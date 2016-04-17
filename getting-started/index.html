@@ -53,17 +53,8 @@
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  <li>
-    <a>Getting started <i class="icon icon-caret-down"></i></a>
-    <ul>
-      <li><a href='/getting-started/'>Installing Home Assistant</a></li>
-      <li><a href='/getting-started/configuration/'>Configuration Basics</a></li>
-      <li><a href='/getting-started/devices/'>Adding devices</a></li>
-      <li><a href='/getting-started/presence-detection/'>Presence Detection</a></li>
-      <li><a href='/getting-started/automation/'>Automation</a></li>
-      <li><a href='/topics/'>Advanced Topics</a></li>
-    </ul>
-  </li>
+  
+  <li><a href='/getting-started/'>Getting started</a></li>
   <li><a href='/components/'>Components</a></li>
   <li><a href='/cookbook/'>Examples</a></li>
   <li><a href="/developers/">Developers</a></li>
@@ -86,7 +77,8 @@
         
 
           <article class="page">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/index.markdown'>Edit this page on GitHub</a></div>
+  
+  
 
   
   <header>
@@ -97,342 +89,49 @@
   <hr class="divider">
   
 
-  <div class="install-instructions-container">
-<input name="install-instructions" type="radio" id="normal-install" checked="" />
-<input name="install-instructions" type="radio" id="raspberry-install" />
-<input name="install-instructions" type="radio" id="docker-install" />
-<input name="install-instructions" type="radio" id="synology-install" />
-<label class="menu-selector normal" for="normal-install">Local machine</label>
-<label class="menu-selector raspberry" for="raspberry-install">Raspberry Pi</label>
-<label class="menu-selector docker" for="docker-install">Docker</label>
-<label class="menu-selector synology" for="synology-install">Synology NAS</label>
+  <p>Installing and running Home Assistant on your local machine is easy. Make sure you have <a href="https://www.python.org/downloads/">Python 3.4 or higher</a> installed and execute the following code in a console:</p>
 
-<div class="install-instructions normal">
-    <p>Installing and running Home Assistant on your local machine is easy. Make sure you have <a href="https://www.python.org/downloads/">Python 3.4 or higher</a> installed and execute the following code in a console:</p>
-
-    <p class="note">
+<p class="note">
 It’s highly recommended to use a <a href="https://docs.python.org/3.4/library/venv.html">virtual environment</a> to keep things separated. A virtual environment can be created by exceuting the following command: <code>python3 -m venv /path/where/you/home-assistant/</code>. Then change to the created directory and go the next step.
 </p>
 
-    <div class="highlighter-coderay"><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ pip3 install homeassistant
 $ hass --open-ui
 </pre></div>
 </div>
-    </div>
+</div>
 
-    <p>Running these commands will:</p>
+<p>Running these commands will:</p>
 
-    <ul>
-      <li>Install Home Assistant</li>
-      <li>Launch Home Assistant and serve the web interface on <a href="http://localhost:8123">http://localhost:8123</a></li>
-    </ul>
+<ul>
+  <li>Install Home Assistant</li>
+  <li>Launch Home Assistant and serve the web interface on <a href="http://localhost:8123">http://localhost:8123</a></li>
+</ul>
 
-    <p>If you prefer to watch a video tutorial, <a href="https://github.com/tktino">tktino</a> has made some great ones.</p>
+<p>If you prefer to watch a video tutorial, <a href="https://github.com/tktino">tktino</a> has made some great ones.</p>
 
-    <ul>
-      <li><a href="https://www.youtube.com/watch?v=X27eVvuqwnY">Windows 10</a></li>
-      <li><a href="https://www.youtube.com/watch?v=hej6ipN86ls">Mac OS X</a></li>
-      <li><a href="https://www.youtube.com/watch?v=SXaAG1lGNH0">Ubuntu 14.04</a></li>
-    </ul>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=X27eVvuqwnY">Windows 10</a></li>
+  <li><a href="https://www.youtube.com/watch?v=hej6ipN86ls">Mac OS X</a></li>
+  <li><a href="https://www.youtube.com/watch?v=SXaAG1lGNH0">Ubuntu 14.04</a></li>
+</ul>
 
-    <h3><a class="title-link" name="updating" href="#updating"></a> Updating</h3>
+<h3><a class="title-link" name="updating" href="#updating"></a> Updating</h3>
 
-    <p>To update Home Assistant to the latest release when available, run: <code>pip3 install --upgrade homeassistant</code></p>
+<p>To update Home Assistant to the latest release when available, run:</p>
 
-    <p>You have to restart Home Assistant (<code>hass</code> itself or with the help of the autostarting daemon if you use any) for the changes to take effect.</p>
-
-  </div> <!-- INSTALL-INSTRUCTIONS NORMAL -->
-
-
-<div class="install-instructions docker">
-
-    <p>Installation with Docker is straightforward. Adjust the following command so that <code>/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ docker run -d --name=&quot;home-assistant&quot; -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host balloob/home-assistant
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>pip3 install --upgrade homeassistant
 </pre></div>
 </div>
-    </div>
-
-    <p>This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.</p>
-
-    <p class="note">
-When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">your timezone</a>)
-</p>
-
-  </div> <!-- INSTALL-INSTRUCTIONS DOCKER -->
-
-
-<div class="install-instructions raspberry">
-
-    <p>Home Assistant requires the Raspberry Pi to run <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Jessie</a>. This version was released on September 24, 2015 and comes by default with Python 3.4 which is required for Home Assistant.</p>
-
-    <p>Execute the following code in a console:</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo pip3 install homeassistant
-$ hass
-</pre></div>
 </div>
-    </div>
 
-    <p>Running these commands will:</p>
-
-    <ul>
-      <li>Install Home Assistant</li>
-      <li>Launch Home Assistant and serve the web interface on <a href="http://localhost:8123">http://localhost:8123</a></li>
-    </ul>
-
-    <p>There is also a <a href="https://www.youtube.com/watch?v=GjzOXkPb7XE">video tutorial</a> created by <a href="https://github.com/brusc">brusc</a>.</p>
-
-    <h3><a class="title-link" name="updating" href="#updating"></a> Updating</h3>
-
-    <p>To update Home Assistant to the latest release when available, run: <code>pip3 install --upgrade homeassistant</code></p>
-
-    <p>You have to restart Home Assistant (<code>hass</code> itself or with the help of the autostarting daemon if you use any) for the changes to take effect.</p>
-
-  </div> <!-- INSTALL-INSTRUCTIONS RASPBERRY -->
-
-<div class="install-instructions synology">
-
-    <p>The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.</p>
-
-    <p>Running these commands will:</p>
-
-    <ul>
-      <li>Install Home Assistant</li>
-      <li>Enable Home Assistant to be launched on <a href="http://localhost:8123">http://localhost:8123</a></li>
-    </ul>
-
-    <p>Using the Synology webadmin:</p>
-
-    <ul>
-      <li>Install python3 using the Synology package centre</li>
-      <li>Create homeassistant user and add to the “users” group</li>
-    </ul>
-
-    <p>SSH onto your synology &amp; login as admin or root</p>
-
-    <p>Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ cd /volume1/@appstore/py3k/usr/local/bin
-</pre></div>
-</div>
-    </div>
-
-    <p>Install PIP (Python’s package management system)</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python -m ensurepip
-</pre></div>
-</div>
-    </div>
-
-    <p>Use PIP to install Homeassistant package</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install homeassistant
-</pre></div>
-</div>
-    </div>
-
-    <p>Create homeassistant config directory &amp; switch to it</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mkdir /volume1/homeassistant
-$ cd /volume1/homeassistant
-</pre></div>
-</div>
-    </div>
-
-    <p>Create hass-daemon file using the following code (edit the variables in uppercase if necessary)</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>#!/bin/sh
-
-# Package
-PACKAGE=&quot;homeassistant&quot;
-DNAME=&quot;Home Assistant&quot;
-
-# Others
-USER=&quot;homeassistant&quot;
-PYTHON_DIR=&quot;/volume1/@appstore/py3k/usr/local/bin&quot;
-PYTHON=&quot;$PYTHON_DIR/python3&quot;
-HASS=&quot;$PYTHON_DIR/hass&quot;
-INSTALL_DIR=&quot;/volume1/homeassistant&quot;
-PID_FILE=&quot;$INSTALL_DIR/home-assistant.pid&quot;
-FLAGS=&quot;-v --config $INSTALL_DIR --pid-file $PID_FILE --daemon&quot;
-REDIRECT=&quot;&gt; $INSTALL_DIR/home-assistant.log 2&gt;&amp;1&quot;
-
-start_daemon ()
-{
-    su ${USER} -s /bin/sh -c &quot;$PYTHON $HASS $FLAGS $REDIRECT;&quot;
-}
-
-stop_daemon ()
-{
-    kill `cat ${PID_FILE}`
-    wait_for_status 1 20 || kill -9 `cat ${PID_FILE}`
-    rm -f ${PID_FILE}
-}
-
-daemon_status ()
-{
-    if [ -f ${PID_FILE} ] &amp;&amp; kill -0 `cat ${PID_FILE}` &gt; /dev/null 2&gt;&amp;1; then
-        return
-    fi
-    rm -f ${PID_FILE}
-    return 1
-}
-
-wait_for_status ()
-{
-    counter=$2
-    while [ ${counter} -gt 0 ]; do
-        daemon_status
-        [ $? -eq $1 ] &amp;&amp; return
-        let counter=counter-1
-        sleep 1
-    done
-    return 1
-}
-
-case $1 in
-    start)
-        if daemon_status; then
-            echo ${DNAME} is already running
-            exit 0
-        else
-            echo Starting ${DNAME} ...
-            start_daemon
-            exit $?
-        fi
-        ;;
-    stop)
-        if daemon_status; then
-            echo Stopping ${DNAME} ...
-            stop_daemon
-            exit $?
-        else
-            echo ${DNAME} is not running
-            exit 0
-        fi
-        ;;
-        restart)
-        if daemon_status; then
-            echo Stopping ${DNAME} ...
-            stop_daemon
-            echo Starting ${DNAME} ...
-            start_daemon
-            exit $?
-        else
-            echo ${DNAME} is not running
-            echo Starting ${DNAME} ...
-            start_daemon
-            exit $?
-        fi
-        ;;
-    status)
-        if daemon_status; then
-            echo ${DNAME} is running
-            exit 0
-        else
-            echo ${DNAME} is not running
-            exit 1
-        fi
-        ;;
-    log)
-        echo ${LOG_FILE}
-        exit 0
-        ;;
-    *)
-        exit 1
-        ;;
-esac
-
-</pre></div>
-</div>
-    </div>
-
-    <p>Create links to python folders to make things easier in the future:</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ln -s /volume1/@appstore/py3k/usr/local/bin python3
-$ ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant
-</pre></div>
-</div>
-    </div>
-
-    <p>Set the owner and permissions on your config folder</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ chown -R homeassistant:users /volume1/homeassistant
-$ chmod -R 664 /volume1/homeassistant
-</pre></div>
-</div>
-    </div>
-
-    <p>Make the daemon file executable:</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ chmod 777 /volume1/homeassistant/hass-daemon
-</pre></div>
-</div>
-    </div>
-
-    <p>Copy your configuration.yaml file into the config folder
-That’s it… you’re all set to go</p>
-
-    <p>Here are some useful commands:</p>
-
-    <ul>
-      <li>Start Home Assistant:</li>
-    </ul>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sh hass-daemon start
-</pre></div>
-</div>
-    </div>
-
-    <ul>
-      <li>Stop Home Assistant:</li>
-    </ul>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sh hass-daemon stop
-</pre></div>
-</div>
-    </div>
-
-    <ul>
-      <li>Restart Home Assistant:</li>
-    </ul>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sh hass-daemon restart
-</pre></div>
-</div>
-    </div>
-
-    <ul>
-      <li>Upgrade Home Assistant::</li>
-    </ul>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python3 -m pip install --upgrade homeassistant
-</pre></div>
-</div>
-    </div>
-
-  </div> <!-- INSTALL-INSTRUCTIONS SYNOLOGY -->
-</div>
+<p>After updating, restart Home Assistant for the changes to take effect.</p>
 
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
 
-<p>If you run into any issues, please see <a href="/getting-started/troubleshooting/">the troubleshooting page</a>. It contains solutions to many of the more commonly encountered issues.</p>
+<p>If you run into any issues, please see <a href="/getting-started/troubleshooting/">the troubleshooting page</a>. It contains solutions to many of the common encountered issues.</p>
 
 <p>In addition to this site, check out these sources for additional help:</p>
 
@@ -444,8 +143,6 @@ That’s it… you’re all set to go</p>
 
 <h3><a class="title-link" name="whats-next" href="#whats-next"></a> What’s next</h3>
 
-<p>If you want to have Home Assistant start on boot, <a href="/getting-started/autostart/">autostart instructions can be found here</a>.</p>
-
 <p>To see what Home Assistant can do, launch demo mode: <code>hass --demo-mode</code> or visit the <a href="/demo">demo page</a>.</p>
 
 <h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
@@ -456,6 +153,53 @@ That’s it… you’re all set to go</p>
 
         </div>
 
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/index.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a class='active' href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtual Environment </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        Configuration
+        <ul>
+          <li><a  href='/getting-started/configuration/'>Configuration.yaml  </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/automation/'>Automation </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting configuration.yaml </a></li>
+        </ul>
+      </li>
+      <li>
+        Auto-start Home Assistant
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - SystemD </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a href='/topics/'>Advanced Topics</a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
         
       </div>
     </div>
