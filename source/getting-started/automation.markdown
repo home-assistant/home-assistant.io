@@ -3,7 +3,7 @@ layout: page
 title: "Automating Home Assistant"
 description: "Steps to help you get automation setup in Home Assistant."
 date: 2015-09-19 09:40
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

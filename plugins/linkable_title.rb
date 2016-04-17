@@ -6,7 +6,7 @@ module Jekyll
     end
 
     def render(context)
-      title = Liquid::Template.parse(@markup).render context
+      title = Liquid::Template.parse(@title).render context
       slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
       "<a class='title-link' name='#{slug}' href='\##{slug}'></a> #{title}"
     end

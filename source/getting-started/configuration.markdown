@@ -3,7 +3,7 @@ layout: page
 title: "Configuring Home Assistant"
 description: "Configuring Home Assistant."
 date: 2015-03-23 12:50
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

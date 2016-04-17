@@ -3,7 +3,7 @@ layout: page
 title: "Getting started on Android"
 description: "Android instructions to add Home Assistant to your homescreen."
 date: 2015-03-08 21:36
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

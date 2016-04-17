@@ -3,7 +3,7 @@ layout: page
 title: "Setting up presence detection"
 description: "Instructions how to setup presence detection within Home Assistant."
 date: 2015-10-4 12:08
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

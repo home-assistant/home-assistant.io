@@ -3,7 +3,7 @@ layout: page
 title: "Troubleshooting your configuration"
 description: "Common problems with tweaking your configuration and their solutions."
 date: 2015-01-20 22:36
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
