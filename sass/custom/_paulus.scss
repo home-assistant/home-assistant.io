@@ -333,9 +333,15 @@ p.note {
   font-size: .8em;
 }
 
-ul.sidebar-menu a.active {
-  color: #000;
-  font-weight: bold;
+ul.sidebar-menu {
+  a.active {
+    color: #000;
+    font-weight: bold;
+  }
+
+  ul {
+    margin-left: 30px;
+  }
 }
 
 a code {

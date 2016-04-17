@@ -9,11 +9,11 @@ sharing: true
 footer: true
 ---
 
-Installing and running Home Assistant on your local machine is easy. Make sure you have [Python 3.4 or higher](https://www.python.org/downloads/) installed and execute the following code in a console:
+Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you're running a Linux based platform, we suggest to follow the [VirtualEnv Linux instructions] to avoid having to use root.
 
-<p class='note'>
-It's highly recommended to use a [virtual environment](https://docs.python.org/3.4/library/venv.html) to keep things separated. A virtual environment can be created by exceuting the following command: `python3 -m venv /path/where/you/home-assistant/`. Then change to the created directory and go the next step.
-</p>
+[VirtualEnv Linux instructions]: /getting-started/installation-virtualenv/
+
+Installing and running Home Assistant on your local machine is easy. Make sure you have [Python 3.4 or higher](https://www.python.org/downloads/) installed and execute the following code in a console:
 
 ```bash
 $ pip3 install homeassistant
@@ -24,7 +24,6 @@ Running these commands will:
 
  - Install Home Assistant
  - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
-
 
 If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has made some great ones.
 
@@ -49,7 +48,7 @@ If you run into any issues, please see [the troubleshooting page](/getting-start
 In addition to this site, check out these sources for additional help:
 
  - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
- - [Gitter Chat Room](https://gitter.im/balloob/home-assistant) for real-time chat about Home Assistant.
+ - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant.
  - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
 
 ### {% linkable_title What's next %}
