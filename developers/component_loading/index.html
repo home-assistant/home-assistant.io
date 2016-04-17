@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Adding more info dialogs - Home Assistant</title>
+    <title>Loading your components - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Adding a more info dialog to the frontend">
+    <meta name="description" content="Instructions how to get your component loaded by Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/frontend_add_more_info/">
+    <link rel="canonical" href="https://home-assistant.io/developers/component_loading/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Adding more info dialogs">
+    <meta property="og:title" content="Loading your components">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/frontend_add_more_info/">
+    <meta property="og:url" content="https://home-assistant.io/developers/component_loading/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Adding a more info dialog to the frontend">
+    <meta property="og:description" content="Instructions how to get your component loaded by Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Adding more info dialogs">
-    <meta name="twitter:description" content="Adding a more info dialog to the frontend">
+    <meta name="twitter:title" content="Loading your components">
+    <meta name="twitter:description" content="Instructions how to get your component loaded by Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,27 +83,28 @@
   
   <header>
     <h1 class="title indent">
-      Adding More Info Dialogs
+      Loading Your Components
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Whenever the user taps or clicks on one of the cards, a more info dialog will show. The header of this dialog will be the state card, followed by the history of this entity for the last 24 hours. Below this the more info component is rendered for that entity. The more info component can show more information or allow more ways of control.</p>
+  <p>A component will be loaded on start if a section (ie. <code>light:</code>) for it exists in the config file. A component can also be loaded if another component is loaded that depends on it. When loading a component Home Assistant will check the following paths:</p>
 
-<p class="img" style="max-width: 400px; margin-left: auto; margin-right: auto;">
-  <img src="/images/frontend/frontend-more-info-light.png" />
-  The more info dialog for a light allows the user to control the color and the brightness.
+<ul>
+  <li><code>&lt;config directory&gt;/custom_components/&lt;component name&gt;</code></li>
+  <li><code>homeassistant/components/&lt;component name&gt;</code> (built-in components)</li>
+</ul>
+
+<p>Once loaded, a component will only be setup if all dependencies can be loaded and are able to setup. Keep an eye on the logs to see if your component could be loaded and initialized.</p>
+
+<p class="note warning">
+You can override a built-in component by having a component with the same name in your <code>config/custom_components</code> folder. This is not recommended and will probably break things!
 </p>
 
-<p>The instructions to add a more info dialog are very similar to adding a new card type. This example will add a new more info component for the domain <code>camera</code>:</p>
-
-<ol>
-  <li>Add <code>'camera'</code> to the array <code>DOMAINS_WITH_MORE_INFO</code> in the file <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/util/state-more-info-type.js#L1">util/state-more-info-type.js</a>.</li>
-  <li>Create the files <code>more-info-camera.html</code> and <code>more-info-camera.js</code> in the folder <a href="https://github.com/home-assistant/home-assistant-polymer/tree/master/src/more-infos">/more-infos</a>.</li>
-  <li>Add <code>require('./more-info-camera')</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/more-infos/more-info-content.js">more-info-content.js</a></li>
-  <li>Add <code>&lt;link rel="import" href="more-info-camera.html"&gt;</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/more-infos/more-info-content.html">more-info-content.html</a></li>
-</ol>
+<p class="note">
+Home Assistant will use the directory that contains your config file as the directory that holds your customizations. By default this is the <code>config</code> folder in your current work directory. You can use a different folder by running Home Assistant with the –config argument: <code>python3 homeassistant --config /YOUR/CONFIG/PATH/</code>.
+</p>
 
 
 </article>
@@ -117,7 +118,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/frontend_add_more_info.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/component_loading.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -139,7 +140,7 @@
       <li>
         <a  href='/developers/creating_components/'>Adding a new component </a>
         <ul>
-          <li><a  href='/developers/component_loading/'>Loading components </a></li>
+          <li><a class='active' href='/developers/component_loading/'>Loading components </a></li>
           <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
           <li><a  href='/developers/component_initialization/'>Initialization </a></li>
           <li><a  href='/developers/component_events/'>Handling events </a></li>
@@ -151,7 +152,7 @@
         <ul>
           <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
-          <li><a class='active' href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
         </ul>
       </li>
       <li>

@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Platform Discovery - Home Assistant</title>
+    <title>Requirements & Dependencies - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="How to make platform discovery work.">
+    <meta name="description" content="Instructions how to define requirements and dependencies.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/platform_discovery/">
+    <link rel="canonical" href="https://home-assistant.io/developers/component_deps_and_reqs/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Platform Discovery">
+    <meta property="og:title" content="Requirements & Dependencies">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/platform_discovery/">
+    <meta property="og:url" content="https://home-assistant.io/developers/component_deps_and_reqs/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="How to make platform discovery work.">
+    <meta property="og:description" content="Instructions how to define requirements and dependencies.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Platform Discovery">
-    <meta name="twitter:description" content="How to make platform discovery work.">
+    <meta name="twitter:title" content="Requirements & Dependencies">
+    <meta name="twitter:description" content="Instructions how to define requirements and dependencies.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,47 +83,31 @@
   
   <header>
     <h1 class="title indent">
-      Platform Discovery
+      Requirements & Dependencies
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p class="note warning">
-This option is only available to built-in components.
-</p>
+  <p>Home Assistant allows components and platforms to specify their dependencies and requirements using the variables <code>DEPENDENCIES</code> and <code>REQUIREMENTS</code>. Both are lists that contain strings.</p>
 
-<p>Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an <code>SERVICE_DISCOVERED</code> event will be fired with the found service and the information. The <code>discovery</code> component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the <code>SERVICE_DISCOVERED</code> event.</p>
-
-<h3><a class="title-link" name="add-discovery-instructions" href="#add-discovery-instructions"></a> Add discovery instructions</h3>
-
-<p>Device discovery  for Home Assistant has been extracted into an external library called <a href="https://github.com/home-assistant/netdisco">NetDisco</a>. This library is integrated using <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a> and scans the network in intervals for uPnP and zeroconf/mDNS services.</p>
-
-<p>To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. <a href="https://github.com/home-assistant/netdisco/tree/master/netdisco/discoverables">See the repository for examples of existing discoverables.</a></p>
-
-<h3><a class="title-link" name="listening-to-service_discovered-events" href="#listening-to-service_discovered-events"></a> Listening to <code>SERVICE_DISCOVERED</code> events</h3>
-
-<p>From your component, you will have to set up the listening for specific services. Below an example how one would listen for discovered Chromecasts:</p>
+<p>Dependencies are other Home Assistant components that should be setup before the platform is loaded. An example is the MQTT sensor component, which requires an active connection to an MQTT broker. If Home Assistant is unable to load and setup the MQTT component, it will not setup the MQTT sensor component.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">homeassistant.loader</span> <span class="keyword">import</span> <span class="include">get_component</span>
-
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    discovery = get_component(<span class="string"><span class="delimiter">'</span><span class="content">discovery</span><span class="delimiter">'</span></span>)
-
-    <span class="keyword">def</span> <span class="function">chromecast_discovered</span>(service, info):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Called when a Chromecast has been discovered. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Discovered a new Chromecast: {}</span><span class="delimiter">&quot;</span></span>.format(info))
-
-    discovery.listen(
-        hass, discovery.services.GOOGLE_CAST, chromecast_discovered)
+  <div class="code"><pre>DEPENDENCIES = [<span class="string"><span class="delimiter">'</span><span class="content">mqtt</span><span class="delimiter">'</span></span>]
 </pre></div>
 </div>
 </div>
 
-<h3><a class="title-link" name="auto-loading-your-component-upon-discovery" href="#auto-loading-your-component-upon-discovery"></a> Auto-loading your component upon discovery</h3>
+<p>Requirements are Python libraries that you would normally install using <code>pip</code>. If Home Assistant is unable to install the requirements or verify it is installed, the component will fail to load.</p>
 
-<p>The Discovery component is capable of setting up your components before firing the <code>SERVICE_DISCOVERD</code> event. To do this you will have to update the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L29"><code>SERVICE_HANDLERS</code></a> constant in <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a>.</p>
+<p>Requirements is a list of strings. Each entry is a pip compatible string. For example, the media player Cast platform depends on the Python package PyChromecast v0.6.12:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>REQUIREMENTS = [<span class="string"><span class="delimiter">'</span><span class="content">pychromecast==0.6.12</span><span class="delimiter">'</span></span>]
+</pre></div>
+</div>
+</div>
 
 
 </article>
@@ -137,7 +121,7 @@ This option is only available to built-in components.
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/platform_discovery.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/component_deps_and_reqs.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -150,19 +134,28 @@ This option is only available to built-in components.
         </ul>
       </li>
       <li>
+        <a  href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
+        <ul>
+          <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
+          <li><a  href='/developers/platform_example_light/'>Example light platform </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/creating_components/'>Adding a new component </a>
+        <ul>
+          <li><a  href='/developers/component_loading/'>Loading components </a></li>
+          <li><a class='active' href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
+          <li><a  href='/developers/component_initialization/'>Initialization </a></li>
+          <li><a  href='/developers/component_events/'>Handling events </a></li>
+          <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
         Frontend Development
         <ul>
           <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
           <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
-        </ul>
-      </li>
-      <li>
-        Extending Home Assistant
-        <ul>
-          <li><a  href='/developers/creating_components/'>Creating Components </a></li>
-          <li><a  href='/developers/add_new_platform/'>Adding Platform Support </a></li>
-          <li><a class='active' href='/developers/platform_discovery/'>Platform Discovery </a></li>
         </ul>
       </li>
       <li>

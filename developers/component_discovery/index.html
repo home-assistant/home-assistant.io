@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Adding more info dialogs - Home Assistant</title>
+    <title>Component Discovery - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Adding a more info dialog to the frontend">
+    <meta name="description" content="How to make component discovery work.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/frontend_add_more_info/">
+    <link rel="canonical" href="https://home-assistant.io/developers/component_discovery/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Adding more info dialogs">
+    <meta property="og:title" content="Component Discovery">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/frontend_add_more_info/">
+    <meta property="og:url" content="https://home-assistant.io/developers/component_discovery/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Adding a more info dialog to the frontend">
+    <meta property="og:description" content="How to make component discovery work.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Adding more info dialogs">
-    <meta name="twitter:description" content="Adding a more info dialog to the frontend">
+    <meta name="twitter:title" content="Component Discovery">
+    <meta name="twitter:description" content="How to make component discovery work.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,27 +83,47 @@
   
   <header>
     <h1 class="title indent">
-      Adding More Info Dialogs
+      Component Discovery
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Whenever the user taps or clicks on one of the cards, a more info dialog will show. The header of this dialog will be the state card, followed by the history of this entity for the last 24 hours. Below this the more info component is rendered for that entity. The more info component can show more information or allow more ways of control.</p>
-
-<p class="img" style="max-width: 400px; margin-left: auto; margin-right: auto;">
-  <img src="/images/frontend/frontend-more-info-light.png" />
-  The more info dialog for a light allows the user to control the color and the brightness.
+  <p class="note warning">
+This option is only available to built-in components.
 </p>
 
-<p>The instructions to add a more info dialog are very similar to adding a new card type. This example will add a new more info component for the domain <code>camera</code>:</p>
+<p>Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an <code>SERVICE_DISCOVERED</code> event will be fired with the found service and the information. The <code>discovery</code> component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the <code>SERVICE_DISCOVERED</code> event.</p>
 
-<ol>
-  <li>Add <code>'camera'</code> to the array <code>DOMAINS_WITH_MORE_INFO</code> in the file <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/util/state-more-info-type.js#L1">util/state-more-info-type.js</a>.</li>
-  <li>Create the files <code>more-info-camera.html</code> and <code>more-info-camera.js</code> in the folder <a href="https://github.com/home-assistant/home-assistant-polymer/tree/master/src/more-infos">/more-infos</a>.</li>
-  <li>Add <code>require('./more-info-camera')</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/more-infos/more-info-content.js">more-info-content.js</a></li>
-  <li>Add <code>&lt;link rel="import" href="more-info-camera.html"&gt;</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/more-infos/more-info-content.html">more-info-content.html</a></li>
-</ol>
+<h3><a class="title-link" name="add-discovery-instructions" href="#add-discovery-instructions"></a> Add discovery instructions</h3>
+
+<p>Device discovery  for Home Assistant has been extracted into an external library called <a href="https://github.com/home-assistant/netdisco">NetDisco</a>. This library is integrated using <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a> and scans the network in intervals for uPnP and zeroconf/mDNS services.</p>
+
+<p>To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. <a href="https://github.com/home-assistant/netdisco/tree/master/netdisco/discoverables">See the repository for examples of existing discoverables.</a></p>
+
+<h3><a class="title-link" name="listening-to-service_discovered-events" href="#listening-to-service_discovered-events"></a> Listening to <code>SERVICE_DISCOVERED</code> events</h3>
+
+<p>From your component, you will have to set up the listening for specific services. Below an example how one would listen for discovered Chromecasts:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">from</span> <span class="include">homeassistant.loader</span> <span class="keyword">import</span> <span class="include">get_component</span>
+
+<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
+    discovery = get_component(<span class="string"><span class="delimiter">'</span><span class="content">discovery</span><span class="delimiter">'</span></span>)
+
+    <span class="keyword">def</span> <span class="function">chromecast_discovered</span>(service, info):
+        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Called when a Chromecast has been discovered. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
+        print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Discovered a new Chromecast: {}</span><span class="delimiter">&quot;</span></span>.format(info))
+
+    discovery.listen(
+        hass, discovery.services.GOOGLE_CAST, chromecast_discovered)
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="auto-loading-your-component-upon-discovery" href="#auto-loading-your-component-upon-discovery"></a> Auto-loading your component upon discovery</h3>
+
+<p>The Discovery component is capable of setting up your components before firing the <code>SERVICE_DISCOVERD</code> event. To do this you will have to update the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L29"><code>SERVICE_HANDLERS</code></a> constant in <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a>.</p>
 
 
 </article>
@@ -117,7 +137,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/frontend_add_more_info.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/component_discovery.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -143,7 +163,7 @@
           <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
           <li><a  href='/developers/component_initialization/'>Initialization </a></li>
           <li><a  href='/developers/component_events/'>Handling events </a></li>
-          <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+          <li><a class='active' href='/developers/component_discovery/'>Component Discovery </a></li>
         </ul>
       </li>
       <li>
@@ -151,7 +171,7 @@
         <ul>
           <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
-          <li><a class='active' href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
         </ul>
       </li>
       <li>

@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Adding more info dialogs - Home Assistant</title>
+    <title>Example sensor platform - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Adding a more info dialog to the frontend">
+    <meta name="description" content="Minimum implementation of a Home Assistant platform.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/frontend_add_more_info/">
+    <link rel="canonical" href="https://home-assistant.io/developers/platform_example_sensor/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Adding more info dialogs">
+    <meta property="og:title" content="Example sensor platform">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/frontend_add_more_info/">
+    <meta property="og:url" content="https://home-assistant.io/developers/platform_example_sensor/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Adding a more info dialog to the frontend">
+    <meta property="og:description" content="Minimum implementation of a Home Assistant platform.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Adding more info dialogs">
-    <meta name="twitter:description" content="Adding a more info dialog to the frontend">
+    <meta name="twitter:title" content="Example sensor platform">
+    <meta name="twitter:description" content="Minimum implementation of a Home Assistant platform.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,27 +83,54 @@
   
   <header>
     <h1 class="title indent">
-      Adding More Info Dialogs
+      Example Sensor Platform
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Whenever the user taps or clicks on one of the cards, a more info dialog will show. The header of this dialog will be the state card, followed by the history of this entity for the last 24 hours. Below this the more info component is rendered for that entity. The more info component can show more information or allow more ways of control.</p>
+  <p>This is a minimum implementation of a platform for the sensor component.</p>
 
-<p class="img" style="max-width: 400px; margin-left: auto; margin-right: auto;">
-  <img src="/images/frontend/frontend-more-info-light.png" />
-  The more info dialog for a light allows the user to control the color and the brightness.
-</p>
+<h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
 
-<p>The instructions to add a more info dialog are very similar to adding a new card type. This example will add a new more info component for the domain <code>camera</code>:</p>
+<p>Copy the code below and create it as a file in <code>&lt;config_dir&gt;/sensor/example.py</code>.</p>
 
-<ol>
-  <li>Add <code>'camera'</code> to the array <code>DOMAINS_WITH_MORE_INFO</code> in the file <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/util/state-more-info-type.js#L1">util/state-more-info-type.js</a>.</li>
-  <li>Create the files <code>more-info-camera.html</code> and <code>more-info-camera.js</code> in the folder <a href="https://github.com/home-assistant/home-assistant-polymer/tree/master/src/more-infos">/more-infos</a>.</li>
-  <li>Add <code>require('./more-info-camera')</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/more-infos/more-info-content.js">more-info-content.js</a></li>
-  <li>Add <code>&lt;link rel="import" href="more-info-camera.html"&gt;</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/more-infos/more-info-content.html">more-info-content.html</a></li>
-</ol>
+<p>Add the following to your configuration.yaml:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">sensor</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">example</span></span>
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="code" href="#code"></a> Code</h3>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">from</span> <span class="include">homeassistant.const</span> <span class="keyword">import</span> <span class="include">TEMP_CELCIUS</span>
+<span class="keyword">from</span> <span class="include">homeassistant.helpers.entity</span> <span class="keyword">import</span> <span class="include">Entity</span>
+
+
+<span class="keyword">def</span> <span class="function">setup_platform</span>(hass, config, add_devices, discovery_info=<span class="predefined-constant">None</span>):
+    add_devices([ExampleSensor()])
+
+
+<span class="keyword">class</span> <span class="class">ExampleSensor</span>(Entity):
+    <span class="decorator">@property</span>
+    <span class="keyword">def</span> <span class="function">name</span>(<span class="predefined-constant">self</span>):
+        <span class="keyword">return</span> <span class="string"><span class="delimiter">'</span><span class="content">Temperature</span><span class="delimiter">'</span></span>
+
+    <span class="decorator">@property</span>
+    <span class="keyword">def</span> <span class="function">state</span>(<span class="predefined-constant">self</span>):
+        <span class="keyword">return</span> <span class="integer">23</span>
+
+    <span class="decorator">@property</span>
+    <span class="keyword">def</span> <span class="function">unit_of_measurement</span>(<span class="predefined-constant">self</span>):
+        <span class="keyword">return</span> TEMP_CELCIUS
+</pre></div>
+</div>
+</div>
 
 
 </article>
@@ -117,7 +144,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/frontend_add_more_info.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/platform_example_sensor.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -132,7 +159,7 @@
       <li>
         <a  href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
         <ul>
-          <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
+          <li><a class='active' href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
           <li><a  href='/developers/platform_example_light/'>Example light platform </a></li>
         </ul>
       </li>
@@ -151,7 +178,7 @@
         <ul>
           <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
-          <li><a class='active' href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
         </ul>
       </li>
       <li>

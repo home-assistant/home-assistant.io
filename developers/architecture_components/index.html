@@ -91,6 +91,11 @@
 
   <p>Home Assistant can be extended by <strong>components</strong>. Each component is responsible for a specific domain within Home Assistant. Components can listen for or trigger events, offer services and maintain states. Components are written in Python and can do all the goodness that Python has to offer. Out of the box, Home Assistant offers a bunch of <a href="/components/">built-in components</a>.</p>
 
+<p class="img">
+<img src="/images/architecture/component_interaction.png" alt="Diagram showing interaction between components and the Home Assistant core." />
+Diagram showing interaction between components and the Home Assistant core.
+</p>
+
 <p>We can differentiate between two different types of components within Home Assistant.</p>
 
 <h4><a class="title-link" name="components-that-interact-with-an-internet-of-things-domain" href="#components-that-interact-with-an-internet-of-things-domain"></a> Components that interact with an Internet of Things domain</h4>
@@ -173,19 +178,28 @@
         </ul>
       </li>
       <li>
+        <a  href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
+        <ul>
+          <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
+          <li><a  href='/developers/platform_example_light/'>Example light platform </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/creating_components/'>Adding a new component </a>
+        <ul>
+          <li><a  href='/developers/component_loading/'>Loading components </a></li>
+          <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
+          <li><a  href='/developers/component_initialization/'>Initialization </a></li>
+          <li><a  href='/developers/component_events/'>Handling events </a></li>
+          <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
         Frontend Development
         <ul>
           <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
           <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
-        </ul>
-      </li>
-      <li>
-        Extending Home Assistant
-        <ul>
-          <li><a  href='/developers/creating_components/'>Creating Components </a></li>
-          <li><a  href='/developers/add_new_platform/'>Adding Platform Support </a></li>
-          <li><a  href='/developers/platform_discovery/'>Platform Discovery </a></li>
         </ul>
       </li>
       <li>

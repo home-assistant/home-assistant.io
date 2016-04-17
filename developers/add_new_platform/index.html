@@ -89,15 +89,24 @@
   <hr class="divider">
   
 
-  <p>Components that interact with devices are structured in core- and platform logic. This allows the same logic to be used for different platforms.</p>
+  <p>Components that interact with devices are called Entity Components. They are structured in core- and platform logic. This allows the same logic to handle a light to be used by different brands.</p>
 
 <p>For example, the built-in <code>switch</code> component consists of various platform in <a href="https://github.com/home-assistant/home-assistant/tree/master/homeassistant/components/switch"><code>homeassistant/components/switch/</code></a>. The file <code>__init__.py</code> contains the core logic of all platform and the <code>vendor_name.py</code> files only the relevant platform code.</p>
 
-<p>If you are planning to add support for a new type of device to an existing component, you can get away with only writing platform logic. Have a look at how the component works with other platforms and create a similar file for the platform that you would like to add.</p>
+<p>If you are planning to add support for a new type of device to an existing component, you can get away with only writing platform logic. Have a look at how the component works with other platforms and create a similar file for the platform that you would like to add:</p>
+
+<ul>
+  <li><a href="/developers/platform_example_sensor">Example sensor platform</a>: hello world of platforms.</li>
+  <li><a href="/developers/platform_example_light">Example light platform</a>: showing best practices.</li>
+</ul>
 
 <h3><a class="title-link" name="interfacing-with-devices" href="#interfacing-with-devices"></a> Interfacing with devices</h3>
 
 <p>One of the rules for Home Assistant is that platform logic should never interface directly with devices but use a third-party Python 3 library to do so. This way Home Assistant is able to share code with the Python community and we can keep the project maintainable.</p>
+
+<p>To integrate the third-party library you create an Entity class for your device. Entities are Home Assistant’s representation of lights, switches, sensors, etc. and are derived from the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/entity.py">Entity Abstract Class</a>. This abstract class contains logic for integrating most standard features into your entities, such as visibility, entity IDs, updates, and much more.</p>
+
+<h3><a class="title-link" name="requirements-and-dependencies" href="#requirements-and-dependencies"></a> Requirements and dependencies</h3>
 
 <p>Platforms can specify dependencies and requirements the same way as a component does.</p>
 
@@ -108,78 +117,6 @@ DEPENDENCIES = [<span class="string"><span class="delimiter">'</span><span class
 </div>
 </div>
 
-<h3><a class="title-link" name="platform-example" href="#platform-example"></a> Platform example</h3>
-
-<p>Entities are Home Assistant’s representation of lights, switches, sensors, etc. and are derived from the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/entity.py">Entity Abstract Class</a>. This abstract class contains logic for integrating most standard features into your entities, such as visibility, entity IDs, updates, and many more.</p>
-
-<p>This example is for adding support for the imaginary Awesome Lights.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">logging</span>
-
-<span class="comment"># Import the device class from the component that you want to support</span>
-<span class="keyword">from</span> <span class="include">homeassistant.components.light</span> <span class="keyword">import</span> <span class="include">Light</span>
-<span class="keyword">from</span> <span class="include">homeassistant.const</span> <span class="keyword">import</span> <span class="include">CONF_HOST</span>, <span class="include">CONF_USERNAME</span>, <span class="include">CONF_PASSWORD</span>
-
-<span class="comment"># Home Assistant depends on 3rd party packages for API specific code.</span>
-REQUIREMENTS = [<span class="string"><span class="delimiter">'</span><span class="content">awesome_lights==1.2.3</span><span class="delimiter">'</span></span>]
-
-_LOGGER = logging.getLogger(__name__)
-
-
-setup_platform(hass, config, add_devices, discovery_info=<span class="predefined-constant">None</span>):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Initialize Awesome Light platform.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-    <span class="keyword">import</span> <span class="include">awesomelights</span>
-
-    <span class="comment"># Validate passed in config</span>
-    host = config.get(CONF_HOST)
-    username = config.get(CONF_USERNAME)
-    password = config.get(CONF_PASSWORD)
-
-    <span class="keyword">if</span> host <span class="keyword">is</span> <span class="predefined-constant">None</span> <span class="keyword">or</span> username <span class="keyword">is</span> <span class="predefined-constant">None</span> <span class="keyword">or</span> password <span class="keyword">is</span> <span class="predefined-constant">None</span>:
-        _LOGGER.error(<span class="string"><span class="delimiter">'</span><span class="content">Invalid config. Expected %s, %s and %s</span><span class="delimiter">'</span></span>,
-                      CONF_HOST, CONF_USERNAME, CONF_PASSWORD)
-        <span class="keyword">return</span> <span class="predefined-constant">False</span>
-
-    <span class="comment"># Setup connection with devices/cloud</span>
-    hub = awesomelights.Hub(host, username, password)
-
-    <span class="comment"># Verify that passed in config works</span>
-    <span class="keyword">if</span> <span class="keyword">not</span> hub.is_valid_login():
-        _LOGGER.error(<span class="string"><span class="delimiter">'</span><span class="content">Could not connect to AwesomeLight hub</span><span class="delimiter">'</span></span>)
-        <span class="keyword">return</span> <span class="predefined-constant">False</span>
-
-    <span class="comment"># Add devices</span>
-    add_devices(AwesomeLight(light) <span class="keyword">for</span> light <span class="keyword">in</span> hub.lights())
-
-<span class="keyword">class</span> <span class="class">AwesomeLight</span>(Light):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Represents an AwesomeLight in Home Assistant.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="predefined-constant">self</span>, light):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Initialize an AwesomeLight.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        <span class="predefined-constant">self</span>._light = light
-
-    <span class="keyword">def</span> <span class="function">update</span>(<span class="predefined-constant">self</span>):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Fetch new state data for this light.</span><span class="content">
-</span><span class="content">
-</span><span class="content">        This is the only method that should fetch new data for Home Assitant.</span><span class="content">
-</span><span class="content">        </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        <span class="predefined-constant">self</span>._light.update()
-
-    <span class="keyword">def</span> <span class="function">brightness</span>(<span class="predefined-constant">self</span>):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Brightness of the light.</span><span class="content">
-</span><span class="content">
-</span><span class="content">        This method is optional. Removing it indicates to Home Assistant</span><span class="content">
-</span><span class="content">        that brightness is not supported for this light.</span><span class="content">
-</span><span class="content">        </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        <span class="keyword">return</span> <span class="predefined-constant">self</span>._light.brightness
-
-    <span class="keyword">def</span> <span class="function">is_on</span>(<span class="predefined-constant">self</span>):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">If light is on.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        <span class="keyword">return</span> <span class="predefined-constant">self</span>._light.is_on()
-</pre></div>
-</div>
-</div>
 
 
 </article>
@@ -206,19 +143,28 @@ setup_platform(hass, config, add_devices, discovery_info=<span class="predefined
         </ul>
       </li>
       <li>
+        <a class='active' href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
+        <ul>
+          <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
+          <li><a  href='/developers/platform_example_light/'>Example light platform </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/creating_components/'>Adding a new component </a>
+        <ul>
+          <li><a  href='/developers/component_loading/'>Loading components </a></li>
+          <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
+          <li><a  href='/developers/component_initialization/'>Initialization </a></li>
+          <li><a  href='/developers/component_events/'>Handling events </a></li>
+          <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
         Frontend Development
         <ul>
           <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
           <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
-        </ul>
-      </li>
-      <li>
-        Extending Home Assistant
-        <ul>
-          <li><a  href='/developers/creating_components/'>Creating Components </a></li>
-          <li><a class='active' href='/developers/add_new_platform/'>Adding Platform Support </a></li>
-          <li><a  href='/developers/platform_discovery/'>Platform Discovery </a></li>
         </ul>
       </li>
       <li>

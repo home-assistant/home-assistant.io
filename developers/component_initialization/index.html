@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Adding more info dialogs - Home Assistant</title>
+    <title>Initializing your components - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Adding a more info dialog to the frontend">
+    <meta name="description" content="Instructions how to handle initialization of your component.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/frontend_add_more_info/">
+    <link rel="canonical" href="https://home-assistant.io/developers/component_initialization/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Adding more info dialogs">
+    <meta property="og:title" content="Initializing your components">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/frontend_add_more_info/">
+    <meta property="og:url" content="https://home-assistant.io/developers/component_initialization/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Adding a more info dialog to the frontend">
+    <meta property="og:description" content="Instructions how to handle initialization of your component.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Adding more info dialogs">
-    <meta name="twitter:description" content="Adding a more info dialog to the frontend">
+    <meta name="twitter:title" content="Initializing your components">
+    <meta name="twitter:description" content="Instructions how to handle initialization of your component.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,27 +83,59 @@
   
   <header>
     <h1 class="title indent">
-      Adding More Info Dialogs
+      Initializing Your Components
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Whenever the user taps or clicks on one of the cards, a more info dialog will show. The header of this dialog will be the state card, followed by the history of this entity for the last 24 hours. Below this the more info component is rendered for that entity. The more info component can show more information or allow more ways of control.</p>
+  <p>After loading, the bootstrapper will call <code>setup(hass, config)</code> method on the component to initialize it.</p>
 
-<p class="img" style="max-width: 400px; margin-left: auto; margin-right: auto;">
-  <img src="/images/frontend/frontend-more-info-light.png" />
-  The more info dialog for a light allows the user to control the color and the brightness.
-</p>
+<h3><a class="title-link" name="hass-the-home-assistant-instance" href="#hass-the-home-assistant-instance"></a> hass: the Home Assistant instance</h3>
 
-<p>The instructions to add a more info dialog are very similar to adding a new card type. This example will add a new more info component for the domain <code>camera</code>:</p>
+<p>The Home Assistant instance contains three objects to help you interact with the system.</p>
 
-<ol>
-  <li>Add <code>'camera'</code> to the array <code>DOMAINS_WITH_MORE_INFO</code> in the file <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/util/state-more-info-type.js#L1">util/state-more-info-type.js</a>.</li>
-  <li>Create the files <code>more-info-camera.html</code> and <code>more-info-camera.js</code> in the folder <a href="https://github.com/home-assistant/home-assistant-polymer/tree/master/src/more-infos">/more-infos</a>.</li>
-  <li>Add <code>require('./more-info-camera')</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/more-infos/more-info-content.js">more-info-content.js</a></li>
-  <li>Add <code>&lt;link rel="import" href="more-info-camera.html"&gt;</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/more-infos/more-info-content.html">more-info-content.html</a></li>
-</ol>
+<table>
+  <thead>
+    <tr>
+      <th>Object</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>hass.config</code></td>
+      <td>This is the core configuration of Home Assistant exposing location, temperature preferences and config directory path. <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L687">Details</a></td>
+    </tr>
+    <tr>
+      <td><code>hass.states</code></td>
+      <td>This is the StateMachine. It allows you to set states and track when they are changed. <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L434">See available methods</a>.</td>
+    </tr>
+    <tr>
+      <td><code>hass.bus</code></td>
+      <td>This is the EventBus. It allows you to trigger and listen for events.<br /><a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L229">See available methods</a>.</td>
+    </tr>
+    <tr>
+      <td><code>hass.services</code></td>
+      <td>This is the ServiceRegistry. It allows you to register services.<br /><a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/core.py#L568">See available methods</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="config-user-given-configuration" href="#config-user-given-configuration"></a> config: User given configuration.</h3>
+
+<p>The <code>config</code> parameter is a dictionary containing the user supplied configuration. The keys of the dictionary are the component names and the value is another dictionary with the component configuration.</p>
+
+<p>If your configuration file contains the following lines:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">example</span>:
+  <span class="key">host</span>: <span class="string"><span class="content">paulusschoutsen.nl</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Then in the setup method of your component you will be able to refer to <code>config['example']['host']</code> to get the value <code>paulusschoutsen.nl</code>.</p>
 
 
 </article>
@@ -117,7 +149,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/frontend_add_more_info.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/component_initialization.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -141,7 +173,7 @@
         <ul>
           <li><a  href='/developers/component_loading/'>Loading components </a></li>
           <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
-          <li><a  href='/developers/component_initialization/'>Initialization </a></li>
+          <li><a class='active' href='/developers/component_initialization/'>Initialization </a></li>
           <li><a  href='/developers/component_events/'>Handling events </a></li>
           <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
         </ul>
@@ -151,7 +183,7 @@
         <ul>
           <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
-          <li><a class='active' href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
         </ul>
       </li>
       <li>
