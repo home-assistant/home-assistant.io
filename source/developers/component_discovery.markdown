@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Platform Discovery"
-description: "How to make platform discovery work."
+title: "Component Discovery"
+description: "How to make component discovery work."
 date: 2016-04-16 14:24 -07:00
 sidebar: true
 comments: false

@@ -11,6 +11,11 @@ footer: true
 
 Home Assistant can be extended by **components**. Each component is responsible for a specific domain within Home Assistant. Components can listen for or trigger events, offer services and maintain states. Components are written in Python and can do all the goodness that Python has to offer. Out of the box, Home Assistant offers a bunch of [built-in components]({{site_root}}/components/).
 
+<p class='img'>
+<img src='/images/architecture/component_interaction.png' alt='Diagram showing interaction between components and the Home Assistant core.'>
+Diagram showing interaction between components and the Home Assistant core.
+</p>
+
 We can differentiate between two different types of components within Home Assistant.
 
 #### {% linkable_title Components that interact with an Internet of Things domain %}
