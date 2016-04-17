@@ -34,7 +34,7 @@ Configuration variables:
 
  - **name** (optional): name of the camera
  - **image_width** (optional): set the image width (default: 640)
- - **image_height** (optional): set the image width (default: 480)
+ - **image_height** (optional): set the image height (default: 480)
  - **image_quality** (optional): set the image quality (from 0 to 100, default: 7)
  - **image_rotation** (optional): Set image rotation (0-359, default: 0)
  - **horizontal_flip** (optional): Set horizontal flip (0 to disable, 1 to enable, default: 0)
