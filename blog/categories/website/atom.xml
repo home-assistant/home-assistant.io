@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Website | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/website/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-17T07:08:56+00:00</updated>
+  <updated>2016-04-17T07:19:26+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -24,7 +24,7 @@
 
 <p>As Home Assistant grew, so did our documentation. <a href="https://github.com/fabaff">Fabian Affolter</a> does an amazing job in making sure there is at least a documentation stub for each new feature that lands. And that’s quite a feat given our <a href="https://home-assistant.io/blog/categories/release-notes/">frequent releases</a>! But despite all the efforts, the documentation outgrew our existing documentation organisation.</p>
 
-<p>Today it has been almost 1.5 years since we started the website. We now have <a href="/components/">264 components and platforms</a> under our belt and have been honored with 1.5 million pageviews ✨. And hopefully we now also have documentation that our community deserves.</p>
+<p>Today it has been almost 1.5 years since we started the website. We now have <a href="/components/">264 components and platforms</a> under our belt and have been honored with 1.5 million page views ✨. And hopefully we now also have documentation that our community deserves.</p>
 
 <p>Finally, if you see some content that could use more clarifcation or is outdated, don’t hesitate to use the ‘Edit in GitHub’ link that is present on each page.</p>
 ]]></content>
