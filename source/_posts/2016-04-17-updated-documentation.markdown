@@ -16,7 +16,7 @@ Our documentation has been going through various phases. Initially it was just t
 
 As Home Assistant grew, so did our documentation. [Fabian Affolter](https://github.com/fabaff) does an amazing job in making sure there is at least a documentation stub for each new feature that lands. And that's quite a feat given our [frequent releases](https://home-assistant.io/blog/categories/release-notes/)! But despite all the efforts, the documentation outgrew our existing documentation organisation.
 
-Today it has been almost 1.5 years since we started the website. We now have [264 components and platforms] under our belt and have been honored with 1.5 million pageviews ✨. And hopefully we now also have documentation that our community deserves.
+Today it has been almost 1.5 years since we started the website. We now have [264 components and platforms] under our belt and have been honored with 1.5 million page views ✨. And hopefully we now also have documentation that our community deserves.
 
 [getting started]: /getting-started/
 [developers]: /developers/
