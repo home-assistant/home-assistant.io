@@ -240,6 +240,9 @@
     <loc>https://home-assistant.io/getting-started/autostart-upstart/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/getting-started/autostart/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/developers/component_deps_and_reqs/</loc>
   </url>
   <url>
@@ -1438,18 +1441,18 @@
     </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-04-17T09:45:48+00:00</lastmod>
+    <lastmod>2016-04-18T06:35:46+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-04-17T09:45:48+00:00</lastmod>
+    <lastmod>2016-04-18T06:35:46+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-04-17T09:45:48+00:00</lastmod>
+    <lastmod>2016-04-18T06:35:46+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-04-17T09:45:48+00:00</lastmod>
+    <lastmod>2016-04-18T06:35:46+00:00</lastmod>
   </url>
 </urlset>

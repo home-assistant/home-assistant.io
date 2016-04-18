@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Autostart using SystemD - Home Assistant</title>
+    <title>Autostart Home Assistant - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to setup Home Assistant to launch on boot using SystemD.">
+    <meta name="description" content="Instructions how to setup Home Assistant to launch on start.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/autostart-systemd/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/autostart/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Autostart using SystemD">
+    <meta property="og:title" content="Autostart Home Assistant">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/autostart-systemd/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/autostart/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Instructions how to setup Home Assistant to launch on boot using SystemD.">
+    <meta property="og:description" content="Instructions how to setup Home Assistant to launch on start.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Autostart using SystemD">
-    <meta name="twitter:description" content="Instructions how to setup Home Assistant to launch on boot using SystemD.">
+    <meta name="twitter:title" content="Autostart Home Assistant">
+    <meta name="twitter:description" content="Instructions how to setup Home Assistant to launch on start.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,83 +83,20 @@
   
   <header>
     <h1 class="title indent">
-      Autostart Using SystemD
+      Autostart Home Assistant
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Newer linux distributions are trending towards using systemd for managing daemons. Typically, systems based on Fedora or Debian 8 or later use systemd. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using <code>systemd</code>, you may check with the following command:</p>
+  <p>Once you get started with Home Assistant you want it to start automatically when you launch your machine. To help you get started we’ve compiled a few guides for different systems.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ps -p 1 -o comm=
-</pre></div>
-</div>
-</div>
-
-<p>If the preceding command returns the string <code>systemd</code>, you are likely using <code>systemd</code>.</p>
-
-<p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code>systemd</code>. You need a service file to control Home Assistant with <code>systemd</code>. If you are using a Raspberry Pi with Raspbian then replace the <code>[your user]</code> with <code>pi</code> otherwise use your user you want to run Home Assistant. <code>ExecStart</code> contains the path to <code>hass</code> and this may vary. Check with <code>whereis hass</code> for the location.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ su -c 'cat &lt;&lt;EOF &gt;&gt; /lib/systemd/system/home-assistant@[your user].service
-[Unit]
-Description=Home Assistant
-After=network.target
-
-[Service]
-Type=simple
-User=%i
-ExecStart=/usr/bin/hass
-
-[Install]
-WantedBy=multi-user.target
-EOF'
-</pre></div>
-</div>
-</div>
-
-<p>There is also another <a href="https://raw.githubusercontent.com/balloob/home-assistant/master/script/home-assistant%40.service">sample service file</a> available. To use this one, just download it.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo wget https://raw.githubusercontent.com/balloob/home-assistant/master/script/home-assistant%40.service -O /lib/systemd/system/home-assistant@[your user].service
-</pre></div>
-</div>
-</div>
-
-<p>You need to reload <code>systemd</code> to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl --system daemon-reload
-$ sudo systemctl enable home-assistant@[your user]
-$ sudo systemctl start home-assistant@[your user]
-</pre></div>
-</div>
-</div>
-
-<p>If everything went well, <code>sudo systemctl start home-assistant</code> should give you a positive feedback.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl status home-assistant@[your user] -l
-● home-assistant@fab.service - Home Assistant for [your user]
-   Loaded: loaded (/usr/lib/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled)
-   Active: active (running) since Sat 2016-03-26 12:26:06 CET; 13min ago
- Main PID: 30422 (hass)
-   CGroup: /system.slice/system-home\x2dassistant.slice/home-assistant@[your user].service
-           ├─30422 /usr/bin/python3 /usr/bin/hass
-           └─30426 /usr/bin/python3 /usr/bin/hass
-[...]
-</pre></div>
-</div>
-</div>
-
-<p>To get Home Assistant’s logging output, simple use <code>journalctl</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo journalctl -f -u home-assistant@[your user]
-</pre></div>
-</div>
-</div>
+<ul>
+  <li><a href="/getting-started/autostart-systemd/">Linux - SystemD</a></li>
+  <li><a href="/getting-started/autostart-upstart/">Linux - Upstart</a></li>
+  <li><a href="/getting-started/autostart-macos/">macOS</a></li>
+  <li><a href="/getting-started/autostart-synology/">Synology NAS</a></li>
+</ul>
 
 
 </article>
@@ -173,7 +110,7 @@ $ sudo systemctl start home-assistant@[your user]
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/autostart-systemd.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/autostart.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -198,9 +135,9 @@ $ sudo systemctl start home-assistant@[your user]
         </ul>
       </li>
       <li>
-        <a  href='/getting-started/autostart/'>Auto-start Home Assistant </a>
+        <a class='active' href='/getting-started/autostart/'>Auto-start Home Assistant </a>
         <ul>
-          <li><a class='active' href='/getting-started/autostart-systemd/'>Linux - SystemD </a></li>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - SystemD </a></li>
           <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
           <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
           <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
