@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond/</loc>
+    <lastmod>2016-04-19T05:44:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/04/17/updated-documentation/</loc>
     <lastmod>2016-04-17T06:09:00+00:00</lastmod>
   </url>
@@ -363,7 +367,7 @@
     <loc>https://home-assistant.io/blog/categories/release-notes/</loc>
   </url>
   <url>
-    <loc>https://home-assistant.io/blog/categories/branding/</loc>
+    <loc>https://home-assistant.io/blog/categories/organisation/</loc>
   </url>
   <url>
     <loc>https://home-assistant.io/blog/categories/user-stories/</loc>
@@ -1439,20 +1443,23 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/04/17/updated-documentation/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-04-18T06:35:46+00:00</lastmod>
+    <lastmod>2016-04-19T06:17:33+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-04-18T06:35:46+00:00</lastmod>
+    <lastmod>2016-04-19T06:17:33+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-04-18T06:35:46+00:00</lastmod>
+    <lastmod>2016-04-19T06:17:33+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-04-18T06:35:46+00:00</lastmod>
+    <lastmod>2016-04-19T06:17:33+00:00</lastmod>
   </url>
 </urlset>

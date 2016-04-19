@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-18T06:36:27+00:00</updated>
+  <updated>2016-04-19T06:18:12+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[To Infinity and Beyond 🚀]]></title>
+    <link href="https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond/"/>
+    <updated>2016-04-19T05:44:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond</id>
+    <content type="html"><![CDATA[<p>After 2.5 years I think we can proudly say: Home Assistant is a success. I write <em>we</em> because Home Assistant is no longer a one-person side project. It has become the side project of many people who spend countless hours on making Home Assistant the best home automation software out there. To acknowledge this we migrated the repositories from being under my name to be under our own <a href="https://github.com/home-assistant/">organisation on GitHub</a>.</p>
+
+<p>On our journey we’ve reached many noteworthy milestones:</p>
+
+<ul>
+  <li>#1 on HackerNews</li>
+  <li>Featured on ProductHunt</li>
+  <li>Trending repository on GitHub</li>
+  <li>3000 stars on GitHub</li>
+  <li>1.5 million page views on our website</li>
+  <li>Speaker at OpenIoT Summit 2016</li>
+</ul>
+
+<p>All these accomplishments are a nice pat on the back but our journey is far from over. There are a lot of challenges ahead if we want to become the go to solution for home automation <em>for everyone</em>.</p>
+
+<p>Until now the focus has been on making a platform that developers love to use. A platform that is simple but customizable. A platform that is both powerful and reliable. But most important: a platform that is local and open. Home Assistant does a great job at all these things.</p>
+
+<p>There will be some major challenges ahead of us to target groups other than developers. Easy installation and easy configuration being the #1. I’m sure that we’ll be able to eventually achieve these goals. I can’t say yet how or when. As with everything Home Assistant, we’ll take tiny steps, gathering feedback along the way to make sure we’re solving the right problems.</p>
+
+<p>I am confident that we will get there because we are set up for success: we have a robust architecture, high test coverage and an active community of world class developers and users. On top of that, we use Python which allows us to move fast and tackle complex problems in elegant ways. It is so easy to learn that it allows any programmer, experienced or not, to contribute support for devices and services. It’s as simple as <a href="http://localhost:4000/developers/platform_example_sensor/#code">filling in the blanks</a>.</p>
+
+<p>I would like to put out a big thank you to all our contributors who make Home Assistant what it is today. It doesn’t matter if it is form of code, documentation or giving support in our <a href="https://gitter.im/home-assistant/home-assistant">chat room</a> or <a href="https://community.home-assistant.io/">forums</a>. You. all. rock.</p>
+
+<p>Cheers to the future!</p>
+
+<p>Paulus</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Updated documentation]]></title>
@@ -1383,126 +1418,6 @@ requests.get(<span class="string"><span class="delimiter">'</span><span class="c
 </div>
 
 <p>Now load up Home Assistant and whenever you toggle the switch you created your Android device will respond with either “On” or “Off”. :-)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[InfluxDB and Grafana]]></title>
-    <link href="https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana/"/>
-    <updated>2015-12-07T14:15:13+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/supported_brands/influxdb.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><img src="https://home-assistant.io/images/supported_brands/grafana.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
-The <a href="https://influxdb.com/">InfluxDB</a> database is a so-called time series database primarly designed to store sensor data and real-time analytics.</p>
-
-<p>The <code>influxdb</code> component makes it possible to transfer all state changes from Home Assistant to an external <a href="https://influxdb.com/">InfluxDB</a> database.</p>
-
-<!--more-->
-
-<p>The first step is to install the InfluxDB packages. If you are not running Fedora, check the <a href="https://influxdb.com/docs/v0.9/introduction/installation.html">installation</a> section for further details.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo dnf -y install http://influxdb.s3.amazonaws.com/influxdb-0.9.5.1-1.x86_64.rpm
-</pre></div>
-</div>
-</div>
-
-<p>Launch the InfluxDB service.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl start influxdb
-</pre></div>
-</div>
-</div>
-
-<p>If everything went well, then the web interface of the database should be accessible at <a href="http://localhost:8083/">http://localhost:8083/</a>. Create a database <code>home_assistant</code> to use with Home Assistant either with the web interface or the commandline tool <code>influx</code>.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2015-12-influxdb/influxdb-frontend.png" />
-  InfluxDB web frontend
-</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ influx
-Visit https://enterprise.influxdata.com to register for updates, InfluxDB server management, and monitoring.
-Connected to http://localhost:8086 version 0.9.5.1
-InfluxDB shell 0.9.5.1
-&gt; CREATE DATABASE home_assistant
-</pre></div>
-</div>
-</div>
-
-<p>An optional step is to create a user. Keep in mind to adjust the configuration (add <code>username</code> and <code>password</code>) in the next step if you prefer to go this way.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&gt; CREATE USER &quot;home-assistant&quot; WITH PASSWORD 'password'
-</pre></div>
-</div>
-</div>
-
-<p>To use the <code>influxdb</code> component in your installation, add the following to your <code>configuration.yaml</code> file:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">influxdb</span>:
-  <span class="key">host</span>: <span class="string"><span class="content">127.0.0.1</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>After you restart Home Assistant you should see that the InfluxDB database gets filled. The <a href="https://influxdb.com/docs/v0.9/query_language/index.html">language</a> to query the database is similar to SQL.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ influx
-[...]
-&gt; USE home_assistant
-Using database home_assistant
-&gt; SELECT * FROM binary_sensor
-name: binary_sensor
--------------------
-time            domain        entity_id    value
-1449496577000000000    binary_sensor    bathroom_door    0
-1449496577000000000    binary_sensor    bathroom_window    0
-1449496577000000000    binary_sensor    basement_door    0
-1449496577000000000    binary_sensor    basement_window    0
-1449496684000000000    binary_sensor    bathroom_window    1
-[...]
-</pre></div>
-</div>
-</div>
-
-<p><a href="http://grafana.org/">Grafana</a> is a dashboard that can create graphs from different sources including InfluxDB. The installation is simple, and there are detailed steps for many different configurations on the <a href="http://docs.grafana.org/installation/">Grafana installation</a> page. For a recent system that is running Fedora:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo dnf -y install https://grafanarel.s3.amazonaws.com/builds/grafana-2.5.0-1.x86_64.rpm
-</pre></div>
-</div>
-</div>
-
-<p>Start the grafana server.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl daemon-reload
-$ sudo systemctl start grafana-server
-$ sudo systemctl status grafana-server
-</pre></div>
-</div>
-</div>
-
-<p>Login with the username <code>admin</code> and the password <code>admin</code> at <a href="http://localhost:3000/login">http://localhost:3000/login</a>. Now follow the <a href="http://docs.grafana.org/datasources/influxdb/">InfluxDB setup instructions</a>.</p>
-
-<p>Now you can start to create dashboards and graphs. You have various options to get the data from the graph. The next image just shows a screenshot of the setting for a temperature sensor.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2015-12-influxdb/grafana-settings.png" />
-  Grafana settings
-</p>
-
-<p>If the graph is not showing up in the dashboard you need to adjust the time range in the right upper corner. The graph is created for all state changes recorded by Home Assistant.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2015-12-influxdb/grafana-graph.png" />
-  Grafana Temperature graph
-</p>
-
 ]]></content>
   </entry>
   
