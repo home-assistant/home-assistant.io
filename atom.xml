@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-19T06:18:12+00:00</updated>
+  <updated>2016-04-19T06:34:35+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -37,7 +37,7 @@
 
 <p>There will be some major challenges ahead of us to target groups other than developers. Easy installation and easy configuration being the #1. I’m sure that we’ll be able to eventually achieve these goals. I can’t say yet how or when. As with everything Home Assistant, we’ll take tiny steps, gathering feedback along the way to make sure we’re solving the right problems.</p>
 
-<p>I am confident that we will get there because we are set up for success: we have a robust architecture, high test coverage and an active community of world class developers and users. On top of that, we use Python which allows us to move fast and tackle complex problems in elegant ways. It is so easy to learn that it allows any programmer, experienced or not, to contribute support for devices and services. It’s as simple as <a href="http://localhost:4000/developers/platform_example_sensor/#code">filling in the blanks</a>.</p>
+<p>I am confident that we will get there because we are set up for success: we have a robust architecture, high test coverage and an active community of world class developers and users. On top of that, we use Python which allows us to move fast and tackle complex problems in elegant ways. It is so easy to learn that it allows any programmer, experienced or not, to contribute support for devices and services. It’s as simple as <a href="https://home-assistant.io/developers/platform_example_sensor/#code/">filling in the blanks</a>.</p>
 
 <p>I would like to put out a big thank you to all our contributors who make Home Assistant what it is today. It doesn’t matter if it is form of code, documentation or giving support in our <a href="https://gitter.im/home-assistant/home-assistant">chat room</a> or <a href="https://community.home-assistant.io/">forums</a>. You. all. rock.</p>
 
