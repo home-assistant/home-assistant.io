@@ -21,3 +21,8 @@ To get started, add the devices to your `configuration.yaml` file.
 tellstick:
   signal_repetitions: X
 ```
+
+Configuration variables:
+
+- **signal_repetitions** *Optional*: Because the tellstick sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch and light to try to send each signal repeatedly.
+
