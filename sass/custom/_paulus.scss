@@ -150,6 +150,14 @@ article.post, article.page, article.listing {
       margin-bottom: 0;
     }
   }
+
+  a {
+    text-decoration: underline;
+
+    &.btn {
+      text-decoration: none;
+    }
+  }
 }
 
 p.note {
