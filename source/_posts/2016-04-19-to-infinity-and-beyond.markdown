@@ -36,6 +36,6 @@ Cheers to the future!
 Paulus
 
 [gh-ha]: https://github.com/home-assistant/
-[filling in the blanks]: http://localhost:4000/developers/platform_example_sensor/#code
+[filling in the blanks]: /developers/platform_example_sensor/#code
 [chat room]: https://gitter.im/home-assistant/home-assistant
 [forums]: https://community.home-assistant.io/
