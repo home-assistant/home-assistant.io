@@ -125,6 +125,17 @@ $ script/setup
 
 <p>After following these steps, running <code>hass</code> will invoke your local installation.</p>
 
+<h3><a class="title-link" name="prevent-linter-errors" href="#prevent-linter-errors"></a> Prevent Linter Errors</h3>
+
+<p>Home Assistant enforces strict <a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style</a> compliance on all code submitted. You can save yourself the hassle of extra commits just to fix style errors by enabling the flake8 git commit hook. It will check your code when you attempt to commit to the repo. It will block the commit if there are any style issues, giving you a chance to fix it.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ pip install flake8
+$ flake8 --install-hook
+</pre></div>
+</div>
+</div>
+
 <h3><a class="title-link" name="submitting-improvements" href="#submitting-improvements"></a> Submitting improvements</h3>
 
 <p>Improvements to Home Assistant should be submitted one feature at a time using GitHub <a href="https://help.github.com/articles/using-pull-requests">pull requests</a>.</p>
