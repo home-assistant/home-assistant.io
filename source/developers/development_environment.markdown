@@ -39,6 +39,15 @@ $ pip3 install tox
 
 After following these steps, running `hass` will invoke your local installation.
 
+### {% linkable_title Prevent Linter Errors %}
+
+Home Assistant enforces strict [PEP8 style](https://www.python.org/dev/peps/pep-0008/) compliance on all code submitted. You can save yourself the hassle of extra commits just to fix style errors by enabling the flake8 git commit hook. It will check your code when you attempt to commit to the repo. It will block the commit if there are any style issues, giving you a chance to fix it.
+
+```bash
+$ pip install flake8
+$ flake8 --install-hook
+```
+
 ### {% linkable_title Submitting improvements %}
 
 Improvements to Home Assistant should be submitted one feature at a time using GitHub [pull requests](https://help.github.com/articles/using-pull-requests).
