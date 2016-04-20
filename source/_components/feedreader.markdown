@@ -11,7 +11,9 @@ logo: rss.gif
 ha_category: Thermostat
 ---
 
-Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus
+Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.
+
+To use RSS feeds in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -20,3 +22,7 @@ feedreader:
    - https://home-assistant.io/atom.xml
    - https://github.com/blog.atom
 ```
+
+Configuration variables:
+
+- **urls** (*Required*): List of URLS for your feeds.
