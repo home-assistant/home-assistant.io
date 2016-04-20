@@ -14,12 +14,15 @@ ha_iot_class: "Local Poll"
 
 This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. Devices discovered are stored with 'bt_' as the prefix for device mac in `known_devices.yaml`.
 
+<p class='note'>
 Requires PyBluez
+</p>
+
+To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 device_tracker:
   platform: bluetooth_tracker
-  track_new_devices: true
-  interval_seconds: 60
-  consider_home: 180
 ```
+
+For additional configuration variables check the [Device tracker page](/components/device_tracker/).
