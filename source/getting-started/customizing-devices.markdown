@@ -2,7 +2,7 @@
 layout: page
 title: "Customizing devices and services"
 description: "Simple customization for devices and services in the frontend."
-date: 2016-04-20 07:41
+date: 2016-04-20 06:00
 sidebar: true
 comments: false
 sharing: true
