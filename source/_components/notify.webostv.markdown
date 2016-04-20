@@ -1,17 +1,16 @@
 ---
 layout: page
-title: "LG WebOS TV"
+title: "LG WebOS TV notifications"
 description: "Instructions how to integrate a LG WebOS TV within Home Assistant."
 date: 2016-04-18 23:24
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: webostv.png
+logo: webos.png
 ha_category: Notifications
 ha_iot_class: "Local Poll"
---------------------------
-
+---
 
 The `webostv` platform allows you to send notifications to a LG WebOS Smart TV.
 
@@ -33,7 +32,7 @@ Configuration variables:
 - **name** *Required*: The name you would like to give to the LG WebOS Smart TV.
 
 A possible automation could be:
- 
+
 ```yaml
 # Example configuration.yaml entry
 automation:

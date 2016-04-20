@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "ThinkingCleaner"
+title: "Thinking Cleaner sensors"
 description: "Instructions how to integrate a ThinkingCleaner within Home Assistant."
 date: 2016-04-10 17:24
 sidebar: true
@@ -10,8 +10,7 @@ footer: true
 logo: thinkingcleaner.png
 ha_category: Sensor
 ha_iot_class: "Local Poll"
---------------------------
-
+---
 
 The `ThinkingCleaner` sensor platform simple displays information about your [ThinkingCleaner](http://www.thinkingcleaner.com) addon.
 
