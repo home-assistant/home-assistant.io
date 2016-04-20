@@ -3,7 +3,7 @@ layout: page
 title: "Server-sent events"
 description: "Home Assistant Server-sent events documentation"
 date: 2016-04-08 07:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

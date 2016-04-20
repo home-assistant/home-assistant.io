@@ -21,7 +21,7 @@ sensor:
   platform: dweet
   name: Dweet.io Temperature
   device: THING_NAME
-  value_template: '{{ value_json.VARIABLE }}'
+  value_template: '{% raw %}{{ value_json.VARIABLE }}{% endraw %}'
   unit_of_measurement: "°C"
 ```
 

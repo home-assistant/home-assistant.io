@@ -45,7 +45,7 @@ Configuration variables:
 - **longitude** (*Required*): Longitude of the center point of the zone.
 - **radius** (*Optional*): Optional radius in meters. Defaults to 100 meters.
 - **icon** (*Optional*): Optional icon to show instead of name.
-
+- **passive** (*Optional*): Optional boolean to only use the zone for automation and hide it from the UI and not use the zone for device tracker name.  Defaults to false. 
 
 #### {% linkable_title Home zone %}
 

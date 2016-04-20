@@ -11,7 +11,7 @@ logo: vera.png
 ha_category: Hub
 ---
 
-The [Vera](http://getvera.com) hub is a controller ainly connecting to Z-Wave devices.
+The [Vera](http://getvera.com) hub is a controller mainly connecting to Z-Wave devices.
 
 Switches, Lights (inc Dimmers), Sensors and Binary sensors are supported - and will be automaticaly added when HA connects to your Vera controller.
 

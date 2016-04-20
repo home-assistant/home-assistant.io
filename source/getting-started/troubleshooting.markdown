@@ -3,7 +3,7 @@ layout: page
 title: "Troubleshooting installation problems"
 description: "Common installation problems and their solutions."
 date: 2015-01-20 22:36
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

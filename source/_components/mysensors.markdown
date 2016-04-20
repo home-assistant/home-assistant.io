@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors"
 description: "Instructions how to integrate MySensors sensors into Home Assistant."
-date: 2016-02-18 20:13 +0100
+date: 2016-04-13 14:20 +0100
 sidebar: true
 comments: false
 sharing: true
@@ -31,7 +31,7 @@ mysensors:
   debug: true
   persistence: true
   version: '1.5'
-  optimistic: 'true'
+  optimistic: false
 ```
 
 Configuration variables:

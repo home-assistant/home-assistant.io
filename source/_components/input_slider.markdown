@@ -11,7 +11,7 @@ logo: home-assistant.png
 ha_category: Automation
 ---
 
-The `input_slider` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation.
+The `input_slider` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the slider generate state events. These state events can be utilized as `automation` triggers as well. 
 
 ```yaml
 # Example configuration.yaml entry
@@ -21,6 +21,7 @@ input_slider:
     initial: 30
     min: -20
     max: 35
+    step: 1
 ```
 
 Configuration variables:
@@ -30,4 +31,5 @@ Configuration variables:
 - **initial** (*Optional*): Initial value when Home Assistant starts.
 - **min** (*Optional*): Minimum value for the slider.
 - **max** (*Optional*): Maximum value for the slider.
+- **step** (*Optional*): Step value for the slider.
 

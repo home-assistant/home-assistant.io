@@ -18,7 +18,7 @@ The `rpi` platform allows you to integrate the Raspberry Pi camera into Home Ass
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: raspberry_camera
+  platform: rpi_camera
   name: Raspberry Pi Camera
   image_width: 640
   image_height: 480
@@ -34,10 +34,12 @@ Configuration variables:
 
  - **name** (optional): name of the camera
  - **image_width** (optional): set the image width (default: 640)
- - **image_height** (optional): set the image width (default: 480)
+ - **image_height** (optional): set the image height (default: 480)
  - **image_quality** (optional): set the image quality (from 0 to 100, default: 7)
  - **image_rotation** (optional): Set image rotation (0-359, default: 0)
  - **horizontal_flip** (optional): Set horizontal flip (0 to disable, 1 to enable, default: 0)
  - **vertical_flip** (optional): Set vertical flip (0 to disable, 1 to enable, default: 0)
  - **timelapse** (optional): Takes a picture every <t>ms (default: 1000)
  - **file_path** (optional): Save the picture in a custom file path (default: camera components folder)
+ 
+The given **file_path** must be an existing file because the camera platform setup make a writeable check on it.

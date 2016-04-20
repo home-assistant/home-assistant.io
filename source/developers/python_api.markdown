@@ -3,13 +3,13 @@ layout: page
 title: "Python API"
 description: "Home Assistant Python API documentation"
 date: 2015-05-11 12:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
 
-In the package [`homeassistant.remote`](https://github.com/balloob/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found.
+In the package [`homeassistant.remote`](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found.
 
 This page is not a full documentation it's more a collection of some example. A simple way to get all current entities is to visit the "Set State" page in the "Developer Tools". For the examples below just choose one from the available entries. Here the sensor `sensor.office_temperature` and the switch `switch.livingroom_pin_2` are used. 
 
@@ -151,4 +151,4 @@ data = {"title":"Test", "message":"A simple test message from HA."}
 remote.call_service(api, domain, 'jabber', data)
 ```
 
-For more details please check the source of [homeassistant.remote](https://github.com/balloob/home-assistant/blob/master/homeassistant/remote.py).
+For more details please check the source of [homeassistant.remote](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py).

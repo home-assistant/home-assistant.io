@@ -80,13 +80,13 @@ automation:
         
 input_select:
   receiver_source:
-  name: Source
-  options:
-    - HTPC
-    - Chromecast
-    - Wii U
-    - Bluray
-    - Raspberry Pi
-  initial: None
+    name: Source
+    options:
+      - HTPC
+      - Chromecast
+      - Wii U
+      - Bluray
+      - Raspberry Pi
+    initial: None
 ```
 

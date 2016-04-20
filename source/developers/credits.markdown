@@ -3,7 +3,7 @@ layout: page
 title: "Credits"
 description: "Credits for the developers who contributed to Home Assistant."
 date: 2015-06-19 09:30
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -35,8 +35,10 @@ This page contains a list of people who have contributed in one way or another t
 - [Charles Spirakis](https://github.com/srcLurker)
 - [Chris Mulder](https://github.com/chrisvis)
 - [Christian Braedstrup](https://github.com/LinuxChristian)
+- [coteyr](https://github.com/coteyr/)
 - [Dan Cinnamon](https://github.com/Cinntax)
 - [Daniel Iversen](https://github.com/danielhiversen)
+- [Daniel J. Kemp](https://github.com/danieljkemp/)
 - [Dan Smith](https://github.com/kk7ds)
 - [Daren Lord](https://github.com/Xorso)
 - [Dean Galvin](https://github.com/FreekingDean)
@@ -70,8 +72,10 @@ This page contains a list of people who have contributed in one way or another t
 - [joopert](https://github.com/joopert)
 - [Joseph Hughes](https://github.com/joshughes)
 - [Joseph Piron](https://github.com/eagleamon)
+- [Josh Wright](https://github.com/JshWright/)
 - [Julien Danjou](https://github.com/jd)
 - [Justin Moy](https://github.com/justincmoy)
+- [Justyn Shull](https://github.com/justyns/)
 - [Karen Goode](https://github.com/kfgoode)
 - [kennedyshead](https://github.com/kennedyshead)
 - [kixam](https://github.com/kixam)
@@ -123,4 +127,4 @@ This page contains a list of people who have contributed in one way or another t
 - [wind-rider](https://github.com/wind-rider)
 - [Zac Mrowicki](https://github.com/zmrow)
 
-This page is irregularly updated. As a base we use the Github [contributors overview](https://github.com/balloob/home-assistant/graphs/contributors) of the Home Assistant git repository and the [overview](https://github.com/balloob/home-assistant.io/graphs/contributors) for [home-assistant.io](https://home-assistant.io). If you think that you are missing, please let us know or add yourself.
+This page is irregularly updated. As a base we use the Github [contributors overview](https://github.com/home-assistant/home-assistant/graphs/contributors) of the Home Assistant git repository and the [overview](https://github.com/home-assistant/home-assistant.io/graphs/contributors) for [home-assistant.io](https://home-assistant.io). If you think that you are missing, please let us know or add yourself.

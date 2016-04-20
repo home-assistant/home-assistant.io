@@ -26,7 +26,7 @@ You can then open your browser's console window, how you do this varies by brows
 
 This should show something like
 
-```javascript
+```yaml
 client_ip: "127.0.0.1"
 gas_secret: "GAS_SECRET"
 gas_serial: "GAS_SERIAL"
@@ -44,8 +44,8 @@ Now you have the keys, add the following lines to your `configuration.yaml`, rep
 # Example configuration.yaml entry
 sensor:
   platform: loopenergy
-  electricity_serial: ELECRITCAL_SERIAL
-  electricity_secret: ELECTRICAL_OFFSET
+  electricity_serial: ELECTRICAL_SERIAL
+  electricity_secret: ELECTRICAL_SECRET
   gas_serial: GAS_SERIAL
   gas_secret: GAS_SECRET
   gas_type: metric
@@ -63,3 +63,4 @@ Configuration variables:
 
 The electricity readings are updated every 10 seconds and the gas readings every 15 minutes.
 
+The gas readings are experimental and not all gas meters are properly supported - so if the data you see doesn't agree with the readings you see via loop energy please report an issue.

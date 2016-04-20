@@ -1,10 +1,10 @@
 # Home Assistant website
 
-This is the source for the [Home-Assistant.io website](https://home-assistant.io) for the [Home Assistant project](https://github.com/balloob/home-assistant)
+This is the source for the [Home-Assistant.io website](https://home-assistant.io) for the [Home Assistant project](https://github.com/home-assistant/home-assistant)
 
 ## Setup
 
-Setting up to contribute to documentation and the process for submitting pull requests is [explained here](https://home-assistant.io/developers/website/).  
+Setting up to contribute to documentation and the process for submitting pull requests is [explained here](https://home-assistant.io/developers/website/).
 
 ## Create a new blog post
 
