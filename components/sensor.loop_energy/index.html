@@ -101,16 +101,19 @@
 
 <p><code>Drupal.settings.navetas_realtime.</code></p>
 
-<p>This should show something like<br />
-<code>
-client_ip: "127.0.0.1"
-gas_secret: "GAS_SECRET"
-gas_serial: "GAS_SERIAL"
-host: "www.your-loop.com"
-...
-secret: "ELECTRICAL_SECRET"
-serial: "ELECTRICAL_SERIAL"
-</code></p>
+<p>This should show something like</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">client_ip</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">127.0.0.1</span><span class="delimiter">&quot;</span></span>
+<span class="key">gas_secret</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GAS_SECRET</span><span class="delimiter">&quot;</span></span>
+<span class="key">gas_serial</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GAS_SERIAL</span><span class="delimiter">&quot;</span></span>
+<span class="key">host</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">www.your-loop.com</span><span class="delimiter">&quot;</span></span>
+<span class="head"><span class="head">...</span></span>
+<span class="key">secret</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ELECTRICAL_SECRET</span><span class="delimiter">&quot;</span></span>
+<span class="key">serial</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ELECTRICAL_SERIAL</span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>The serial and secret tokens are the ones you need. If you just have an electricity  monitor - then you won’t see the gas keys.</p>
 
@@ -124,6 +127,8 @@ serial: "ELECTRICAL_SERIAL"
   <span class="key">electricity_secret</span>: <span class="string"><span class="content">ELECTRICAL_SECRET</span></span>
   <span class="key">gas_serial</span>: <span class="string"><span class="content">GAS_SERIAL</span></span>
   <span class="key">gas_secret</span>: <span class="string"><span class="content">GAS_SECRET</span></span>
+  <span class="key">gas_type</span>: <span class="string"><span class="content">metric</span></span>
+  <span class="key">gas_calorific</span>: <span class="string"><span class="content">39.11</span></span>
 </pre></div>
 </div>
 </div>
@@ -133,8 +138,10 @@ serial: "ELECTRICAL_SERIAL"
 <ul>
   <li><strong>electricity_serial</strong> (<em>Required</em>): Serial number of your electricity sensor</li>
   <li><strong>electricity_secret</strong> (<em>Required</em>): Secret key for your electricity sensor</li>
-  <li><strong>gas_serial</strong> (<em>Required</em>): Serial number for your gas sensor.</li>
-  <li><strong>gas_secret</strong> (<em>Required</em>): Secret key for your gas sensor.</li>
+  <li><strong>gas_serial</strong> (<em>Optional</em>): Serial number for your gas sensor.</li>
+  <li><strong>gas_secret</strong> (<em>Optional</em>): Secret key for your gas sensor.</li>
+  <li><strong>gas_type</strong> (<em>Optional</em>): Type of meter <code>imperial</code> or <code>metric</code>, defaults to metric.</li>
+  <li><strong>gas_calorific</strong> (<em>Optional</em>): Calorific value of your gas supply (usually on your gas bill) - defaults to 39.11.</li>
 </ul>
 
 <p>The electricity readings are updated every 10 seconds and the gas readings every 15 minutes.</p>
@@ -264,6 +271,9 @@ serial: "ELECTRICAL_SERIAL"
         </li>
         <li>
             <a href='/components/sensor.template/'>Template Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensors</a>
         </li>
         <li>
             <a href='/components/sensor.time_date/'>Time & Date</a>

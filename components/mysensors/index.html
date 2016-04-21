@@ -99,12 +99,15 @@
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">mysensors</span>:
   <span class="key">gateways</span>:
-    - <span class="string"><span class="content">port: '/dev/ttyUSB0'</span></span>
+    - <span class="string"><span class="content">device: '/dev/ttyUSB0'</span></span>
       <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors.json'</span></span>
       <span class="key">baud_rate</span>: <span class="string"><span class="content">38400</span></span>
-    - <span class="string"><span class="content">port: '/dev/ttyACM1'</span></span>
+    - <span class="string"><span class="content">device: '/dev/ttyACM0'</span></span>
       <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors2.json'</span></span>
       <span class="key">baud_rate</span>: <span class="string"><span class="content">115200</span></span>
+    - <span class="string"><span class="content">device: '192.168.1.18'</span></span>
+      <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors3.json'</span></span>
+      <span class="key">tcp_port</span>: <span class="string"><span class="content">5003</span></span>
   <span class="key">debug</span>: <span class="string"><span class="content">true</span></span>
   <span class="key">persistence</span>: <span class="string"><span class="content">true</span></span>
   <span class="key">version</span>: <span class="string"><span class="content">'1.5'</span></span>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/</loc>
+    <lastmod>2016-04-20T06:10:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond/</loc>
     <lastmod>2016-04-19T05:44:00+00:00</lastmod>
   </url>
@@ -1183,6 +1187,24 @@
       <loc>https://home-assistant.io/components/sensor.nzbget/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/garage_door.mqtt/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/device_tracker.bluetooth_tracker/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.thinkingcleaner/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/switch.thinkingcleaner/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/zeroconf/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/upnp/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/binary_sensor.mysensors/</loc>
     </url>
     <url>
@@ -1196,6 +1218,18 @@
     </url>
     <url>
       <loc>https://home-assistant.io/components/switch.mysensors/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/feedreader/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/thermostat.eq3btsmart/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/media_player.webostv/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/notify.webostv/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/cookbook/automation_for_rainy_days/</loc>
@@ -1449,20 +1483,23 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-04-20T11:25:49+00:00</lastmod>
+    <lastmod>2016-04-21T01:51:50+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-04-20T11:25:49+00:00</lastmod>
+    <lastmod>2016-04-21T01:51:50+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-04-20T11:25:49+00:00</lastmod>
+    <lastmod>2016-04-21T01:51:50+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-04-20T11:25:49+00:00</lastmod>
+    <lastmod>2016-04-21T01:51:50+00:00</lastmod>
   </url>
 </urlset>
