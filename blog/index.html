@@ -147,6 +147,7 @@
 <h3>Breaking changes</h3>
 <ul>
   <li>We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.</li>
+  <li>The constant <code>TEMP_CELCIUS</code> is now correctly called <code>TEMP_CELSIUS</code>. Old one is deprecated and will eventually be removed.</li>
   <li>The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run <code>homeassistant/home-assistant:latest</code> for the latest release and <code>homeassistant/home-assistant:dev</code> for the latest dev version.</li>
   <li>MySensors received two big changes that will cause you to update your configs. See <a href="/components/mysensors/">component page</a> for new example config.
     <ol>
