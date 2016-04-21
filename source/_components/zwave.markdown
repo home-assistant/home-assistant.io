@@ -26,7 +26,7 @@ Make sure you have the correct dependencies installed before running the script:
 $ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
 ```
 
-Make sure you have at least version 0.23 of cython. 
+Make sure you have at least version 0.23 of cython.
 
 ```bash
 $ sudo pip3 install --upgrade cython
@@ -103,7 +103,7 @@ automation:
     trigger:
       platform: event
       event_type: zwave.scene_activated
-      event_data: 
+      event_data:
         entity_id: zwaveme_zme_wallcs_secure_wall_controller_8
         scene_id: 11
 ```

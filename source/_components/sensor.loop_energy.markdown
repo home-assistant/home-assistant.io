@@ -14,18 +14,19 @@ ha_category: Sensor
 
 Integrate your [Loop Energy](https://www.your-loop.com/) meter information into Home Assistant.
 
-To use this sensor you need the the client serial number and secret keys for your devices. 
+To use this sensor you need the the client serial number and secret keys for your devices.
 
 The library used to get the data isn't officially supported and the only way to get the keys is to log into loop energy's website and type a command into your browser console.
 
-To do this log into [Loop Energy](https://www.your-loop.com/). Once you're logged in you should be able see see your live readings on the webpage. 
+To do this log into [Loop Energy](https://www.your-loop.com/). Once you're logged in you should be able see see your live readings on the webpage.
 
 You can then open your browser's console window, how you do this varies by browser but in Chrome you click on `More Tools / Developer Tools' and click on the console window. You then type:-
 
 `Drupal.settings.navetas_realtime.`
 
 This should show something like
-````
+
+```yaml
 client_ip: "127.0.0.1"
 gas_secret: "GAS_SECRET"
 gas_serial: "GAS_SERIAL"
@@ -33,7 +34,7 @@ host: "www.your-loop.com"
 ...
 secret: "ELECTRICAL_SECRET"
 serial: "ELECTRICAL_SERIAL"
-````
+```
 
 The serial and secret tokens are the ones you need. If you just have an electricity  monitor - then you won't see the gas keys.
 
@@ -47,14 +48,18 @@ sensor:
   electricity_secret: ELECTRICAL_SECRET
   gas_serial: GAS_SERIAL
   gas_secret: GAS_SECRET
+  gas_type: metric
+  gas_calorific: 39.11
 ```
 
 Configuration variables:
 
 - **electricity_serial** (*Required*): Serial number of your electricity sensor
-- **electricity_secret** (*Required*): Secret key for your electricity sensor 
-- **gas_serial** (*Required*): Serial number for your gas sensor.
-- **gas_secret** (*Required*): Secret key for your gas sensor.
+- **electricity_secret** (*Required*): Secret key for your electricity sensor
+- **gas_serial** (*Optional*): Serial number for your gas sensor.
+- **gas_secret** (*Optional*): Secret key for your gas sensor.
+- **gas_type** (*Optional*): Type of meter `imperial` or `metric`, defaults to metric.
+- **gas_calorific** (*Optional*): Calorific value of your gas supply (usually on your gas bill) - defaults to 39.11.
 
 The electricity readings are updated every 10 seconds and the gas readings every 15 minutes.
 

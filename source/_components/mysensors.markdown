@@ -22,12 +22,15 @@ Integrate your Serial MySensors Gateway by adding the following to your `configu
 # Example configuration.yaml entry
 mysensors:
   gateways:
-    - port: '/dev/ttyUSB0'
+    - device: '/dev/ttyUSB0'
       persistence_file: 'path/mysensors.json'
       baud_rate: 38400
-    - port: '/dev/ttyACM1'
+    - device: '/dev/ttyACM0'
       persistence_file: 'path/mysensors2.json'
       baud_rate: 115200
+    - device: '192.168.1.18'
+      persistence_file: 'path/mysensors3.json'
+      tcp_port: 5003
   debug: true
   persistence: true
   version: '1.5'
