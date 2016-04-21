@@ -78,6 +78,7 @@ Since the last release we have moved all Home Assistant source code etc into it'
 
 ### Breaking changes
 - We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.
+- The constant `TEMP_CELCIUS` is now correctly called `TEMP_CELSIUS`. Old one is deprecated and will eventually be removed.
 - The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run `homeassistant/home-assistant:latest` for the latest release and `homeassistant/home-assistant:dev` for the latest dev version.
 - MySensors received two big changes that will cause you to update your configs. See [component page][mysensors] for new example config.
   1. All MySensors entity IDs are different! There was an error in the naming that caused MySensors to append node ID and child ID instead of separating them with an underscore. This has been fixed but will cause all your MySensors entity IDs to change. This is a one time breaking change.
