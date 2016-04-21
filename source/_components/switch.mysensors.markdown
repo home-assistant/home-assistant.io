@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors Switch"
 description: "Instructions how to integrate MySensors switches into Home Assistant."
-date: 2016-04-13 14:20 +0100
+date: 2016-04-21 13:30 +0100
 sidebar: true
 comments: false
 sharing: true
@@ -81,6 +81,7 @@ void incomingMessage(const MyMessage &message)
   if (message.type == V_STATUS) {
      // Change relay state.
      digitalWrite(RELAY_PIN, message.getBool() ? 1 : 0);
+     gw.send(msgRelay.set(message.getBool() ? 1 : 0));
   }
 }
 ```
