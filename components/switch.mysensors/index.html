@@ -210,6 +210,7 @@ MyMessage msgRelay(CHILD_ID, V_STATUS);
   <span class="keyword">if</span> (message.type == V_STATUS) {
      <span class="comment">// Change relay state.</span>
      digitalWrite(RELAY_PIN, message.getBool() ? <span class="integer">1</span> : <span class="integer">0</span>);
+     gw.send(msgRelay.set(message.getBool() ? <span class="integer">1</span> : <span class="integer">0</span>));
   }
 }
 </pre></div>

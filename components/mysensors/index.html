@@ -93,7 +93,7 @@
 
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 
-<p>Integrate your Serial MySensors Gateway by adding the following to your <code>configuration.yaml</code> file:</p>
+<p>Integrate your Serial or Ethernet MySensors Gateway by adding the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
@@ -119,16 +119,17 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>port</strong> (<em>Required</em>): The port where your board is connected to your Home Assistant host.</li>
+  <li><strong>device</strong> (<em>Required</em>): The path to the serial gateway where it is connected to your Home Assistant host, or the address of the tcp ethernet gateway. Resolving DNS addresses is theoretically supported but not tested.</li>
+  <li><strong>baud_rate</strong> (<em>Optional</em>): Specifies the baud rate of the connected serial gateway. Default is 115200.</li>
+  <li><strong>tcp_port</strong> (<em>Optional</em>): Specifies the port of the connected tcp ethernet gateway. Default is 5003.</li>
   <li><strong>debug</strong> (<em>Optional</em>): Enable or disable verbose debug logging. Default is false.</li>
   <li><strong>persistence</strong> (<em>Optional</em>): Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts. Default is true.</li>
-  <li><strong>persistence_file</strong> (<em>Optional</em>): Path to a file to save sensor information. The file extension determines the file type. Currently supported file types are ‘pickle’ and ‘json’.</li>
+  <li><strong>persistence_file</strong> (<em>Optional</em>): The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are ‘pickle’ and ‘json’.</li>
   <li><strong>version</strong> (<em>Optional</em>): Specifies the MySensors protocol version to use. Supports 1.4 and 1.5. Default is 1.4.</li>
-  <li><strong>baud_rate</strong> (<em>Optional</em>): Specifies baud rate of the connected gateway. Default is 115200.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.</li>
 </ul>
 
-<p>If you are using an original Arduino the port will be named <code>ttyACM*</code>. The exact number can be determined with the command shown below.</p>
+<p>If you are using an original Arduino as a serial gateway, the port will be named <code>ttyACM*</code>. The exact number can be determined with the command shown below.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ ls /dev/ttyACM*
@@ -141,13 +142,13 @@
 <p>Present a MySensors sensor or actuator, by following these steps:</p>
 
 <ol>
-  <li>Connect your gateway to your computer.</li>
+  <li>Connect the serial gateway to your computer or the ethernet gateway to your network.</li>
   <li>Configure the MySensors component in configuration.yaml.</li>
   <li>Start hass.</li>
-  <li>Wait for “gateway started” in the log output.</li>
+  <li>Wait for “Connected to [device]” in the log output.</li>
   <li>Write and upload your MySensors sketch to the sensor. Make sure you:
     <ul>
-      <li>Either use a manual node id, or AUTO for requesting a node id from the controller, in gw.begin().</li>
+      <li>Either use a manual node id, or AUTO for requesting a node id from the controller, in the begin method for initialization of the MySensors library.</li>
       <li>Send sketch name.</li>
       <li>Present the sensor’s S_TYPE.</li>
       <li>Send at least one initial value per V_TYPE.</li>
