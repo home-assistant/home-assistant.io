@@ -33,7 +33,7 @@ $ sudo pip3 install --upgrade cython
 ```
 
 Then get the OpenZWave files and switch to the `python3` branch:
-
+<p class='note warning'>Do not use root to build python-openzwave as it will surely fail.</p>
 ```bash
 $ git clone https://github.com/OpenZWave/python-openzwave.git
 $ cd python-openzwave
