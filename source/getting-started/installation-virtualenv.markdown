@@ -32,6 +32,12 @@ sudo adduser --system hass
 
 Home Assistant stores its config in `$HOME/.homeassistant` by default, so in this case, it would be in `/home/hass/.homeassistant`
 
+If you plan to use a Z-Wave controller, you will need to add this user to the `dialout` group
+
+```bash
+sudo usermod -G dialout -a hass
+```
+
 ## Step 2: Create a directory for Home Assistant
 
 This can be anywhere you want, but I generally put stuff related to servers in /srv. You also need to change the ownership of the directory to the user you created above (if you created one)
