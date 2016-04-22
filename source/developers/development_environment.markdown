@@ -31,6 +31,18 @@ $ git remote add upstream https://github.com/home-assistant/home-assistant.git
 $ script/setup
 ```
 
+### {% linkable_title Catching up with Reality %}
+
+If you're taking a while developing your feature request and would like to catch up with what's in the current Home Assistant dev branch, you can use git rebase to do so. This will pull the latest Home Assistant changes locally, rewind your commits, bring in the latest changes from Home Assistant and then replay all of your commits on top.
+
+```bash
+# Run this from your feature branch
+$ git fetch upstream dev # to pull the latest changes into a local dev branch
+$ git rebase upstream/dev # to put those changes into your feature branch before your changes
+```
+
+### {% linkable_title Testing your work %}
+
 Testing your work requires `tox` to be installed:
 
 ```bash
@@ -74,4 +86,3 @@ Improvements to Home Assistant should be submitted one feature at a time using G
 - [Rest API](/developers/api/)
 - [Server-sent events](/developers/server_sent_events/)
 - [Website](/developers/website/)
-
