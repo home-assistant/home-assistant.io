@@ -50,7 +50,9 @@ Configuration variables:
   - **summary**: A human-readable text summary.
   - **precip_type**: The type of precipitation occurring.
   - **precip_intensity**: The average expected intensity of precipitation occurring.
+  - **precip_probability**: A value between 0 and 1 which is representing the probability of precipitation.
   - **temperature**: The current temperature.
+  - **apparent_temperature**: A numerical value representing the apparent (or "feels like") temperature.
   - **dew_point**: The dew point.
   - **wind_speed**: The wind speed.
   - **wind_bearing**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
