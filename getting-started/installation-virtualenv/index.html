@@ -116,6 +116,14 @@ sudo pip install --upgrade virtualenv
 
 <p>Home Assistant stores its config in <code>$HOME/.homeassistant</code> by default, so in this case, it would be in <code>/home/hass/.homeassistant</code></p>
 
+<p>If you plan to use a Z-Wave controller, you will need to add this user to the <code>dialout</code> group</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>sudo usermod -G dialout -a hass
+</pre></div>
+</div>
+</div>
+
 <h2>Step 2: Create a directory for Home Assistant</h2>
 
 <p>This can be anywhere you want, but I generally put stuff related to servers in /srv. You also need to change the ownership of the directory to the user you created above (if you created one)</p>
