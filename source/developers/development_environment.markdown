@@ -31,16 +31,6 @@ $ git remote add upstream https://github.com/home-assistant/home-assistant.git
 $ script/setup
 ```
 
-### {% linkable_title Catching up with Reality %}
-
-If you're taking a while developing your feature request and would like to catch up with what's in the current Home Assistant dev branch, you can use git rebase to do so. This will pull the latest Home Assistant changes locally, rewind your commits, bring in the latest changes from Home Assistant and then replay all of your commits on top.
-
-```bash
-# Run this from your feature branch
-$ git fetch upstream dev # to pull the latest changes into a local dev branch
-$ git rebase upstream/dev # to put those changes into your feature branch before your changes
-```
-
 ### {% linkable_title Testing your work %}
 
 Testing your work requires `tox` to be installed:
@@ -75,6 +65,20 @@ Improvements to Home Assistant should be submitted one feature at a time using G
  5. Push your committed changes back to your fork on GitHub
     `git push origin HEAD`
  6. Follow [these steps](https://help.github.com/articles/creating-a-pull-request/) to create your pull request.
+
+### {% linkable_title Catching up with Reality %}
+
+If you're taking a while developing your feature request and would like to catch up with what's in the current Home Assistant dev branch, you can use git rebase to do so. This will pull the latest Home Assistant changes locally, rewind your commits, bring in the latest changes from Home Assistant and then replay all of your commits on top.
+
+```bash
+# Run this from your feature branch
+$ git fetch upstream dev # to pull the latest changes into a local dev branch
+$ git rebase upstream/dev # to put those changes into your feature branch before your changes
+```
+
+### {% linkable_title Squashing your commits %}
+
+Your feature is done, it looks great and the tests are all passing. What now? Squash your commits, and create a pull request. Squashing your commits makes for a more readable git commit history. It's an interactive process that is best explained by Matt Stauffer in [this video](https://www.youtube.com/watch?v=7IfkL8swmFw).
 
 
 ### {% linkable_title Further reading %}
