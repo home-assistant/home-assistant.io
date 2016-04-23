@@ -24,7 +24,7 @@ To use your MQTT binary sensor in your installation, add the following to your `
 
 ```yaml
 # Example configuration.yml entry
-binary_sensor:
+garage_door:
   platform: mqtt
   state_topic: "home-assistant/garage-door"
   command_topic: "home-assistant/garage-door/set"
