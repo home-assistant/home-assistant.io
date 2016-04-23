@@ -120,6 +120,16 @@
 
 <p>Multiple device trackers can be used in parallel, such as <a href="/components/device_tracker.owntracks/">Owntracks</a> and <a href="/components/device_tracker.nmap_scanner/">Nmap</a>. The state of the device will be determined by the source that reported last. Device tracker will look for global settings (track_new_devices, consider_home and home_interval) under the configuration of the first platform.</p>
 
+<p>To add Nmap tracking just add the mac address to the OwnTracks or iCloud device <code>mac:</code> configuration.  To use both OwnTracks and Nmap you could use the following example:</p>
+
+<pre><code>owntracksdevicename:
+  name: Friendly Name!
+  mac: EA:AA:55:E7:C6:94
+  picture:
+  track: yes
+  hide_if_away: no
+</code></pre>
+
 
 </article>
 
