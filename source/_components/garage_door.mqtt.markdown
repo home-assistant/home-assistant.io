@@ -36,7 +36,7 @@ garage_door:
   state_closed: "STATE_CLOSED"
   service_open: "SERVICE_OPEN"
   service_close: "SERVICE_CLOSE"
-  value_template: '{% raw %}{{ value.x }}{% endraw %}'
+  value_template: '{% raw %}{{ value }}{% endraw %}'
 ```
 
 Configuration variables:
