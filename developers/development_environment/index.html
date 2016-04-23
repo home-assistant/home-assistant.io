@@ -115,6 +115,8 @@ $ script/setup
 </div>
 </div>
 
+<h3><a class="title-link" name="testing-your-work" href="#testing-your-work"></a> Testing your work</h3>
+
 <p>Testing your work requires <code>tox</code> to be installed:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -154,6 +156,22 @@ $ flake8 --install-hook
   <li>Follow <a href="https://help.github.com/articles/creating-a-pull-request/">these steps</a> to create your pull request.</li>
 </ol>
 
+<h3><a class="title-link" name="catching-up-with-reality" href="#catching-up-with-reality"></a> Catching up with Reality</h3>
+
+<p>If you’re taking a while developing your feature request and would like to catch up with what’s in the current Home Assistant dev branch, you can use git rebase to do so. This will pull the latest Home Assistant changes locally, rewind your commits, bring in the latest changes from Home Assistant and then replay all of your commits on top.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre># Run this from your feature branch
+$ git fetch upstream dev # to pull the latest changes into a local dev branch
+$ git rebase upstream/dev # to put those changes into your feature branch before your changes
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="squashing-your-commits" href="#squashing-your-commits"></a> Squashing your commits</h3>
+
+<p>Your feature is done, it looks great and the tests are all passing. What now? Squash your commits, and create a pull request. Squashing your commits makes for a more readable git commit history. It’s an interactive process that is best explained by Matt Stauffer in <a href="https://www.youtube.com/watch?v=7IfkL8swmFw">this video</a>.</p>
+
 <h3><a class="title-link" name="further-reading" href="#further-reading"></a> Further reading</h3>
 
 <ul>
@@ -165,7 +183,6 @@ $ flake8 --install-hook
   <li><a href="/developers/server_sent_events/">Server-sent events</a></li>
   <li><a href="/developers/website/">Website</a></li>
 </ul>
-
 
 
 </article>
