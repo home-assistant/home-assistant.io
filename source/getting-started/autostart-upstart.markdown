@@ -17,7 +17,7 @@ $ ps -p 1 -o comm=
 
 If the preceding command returns the string `init`, you are likely using Upstart.
 
-Upstart will launch init scripts that are located in the directory `/etc/init.d/`. A sample init script for systems using Upstart is <a href="https://raw.githubusercontent.com/balloob/home-assistant/dev/script/hass-daemon">maintained by this project</a>.
+Upstart will launch init scripts that are located in the directory `/etc/init.d/`. A sample init script for systems using Upstart is <a href="https://raw.githubusercontent.com/home-assistant/home-assistant/dev/script/hass-daemon">maintained by this project</a>.
 
 To install this script, download it, tweak it to you liking, and install it by following the directions in the header. This script will setup Home Assistant to run when the system boots. To start/stop Home Assistant manually, issue the following commands:
 
