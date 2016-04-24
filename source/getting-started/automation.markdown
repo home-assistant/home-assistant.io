@@ -41,8 +41,7 @@ A service can be called to have Home Assistant perform an action. Turn on a ligh
 
 ### {% linkable_title Further reading %}
 
-We went over the basics of creating a home automation rule. Now, go automate!
-
+ - Learn how to make your [first automation rule](/getting-started/automation-create-first/)
  - Learn about the available [automation triggers](/getting-started/automation-trigger/)
  - Learn about the available [automation conditions](/getting-started/automation-condition/)
  - Learn about [scripts](/components/script/) to help you trigger multiple actions and delays
