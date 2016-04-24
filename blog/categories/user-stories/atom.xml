@@ -4,7 +4,7 @@
   <title><![CDATA[Category: User-Stories | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/user-stories/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-23T18:30:58+00:00</updated>
+  <updated>2016-04-24T07:01:43+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -42,7 +42,7 @@
   Status of the dryer and washer in Home Assistant
 </p>
 
-<p>Next I wrote <a href="/components/script/">scripts</a> that are run whenever the washer or dryer completes a load.  This is triggered by the <a href="/components/automation/">automation component</a>.  When the laundry is complete I have the lights in the house turn red and <a href="/components/notify.pushbullet/">notify me via PushBullet</a>.  Once the laundry is taken care of another script runs that sets the lights back to normal.  So far it has been very helpful and very reliable.</p>
+<p>Next I wrote <a href="/components/script/">scripts</a> that are run whenever the washer or dryer completes a load.  This is triggered by the <a href="/getting-started/automation/">automation component</a>.  When the laundry is complete I have the lights in the house turn red and <a href="/components/notify.pushbullet/">notify me via PushBullet</a>.  Once the laundry is taken care of another script runs that sets the lights back to normal.  So far it has been very helpful and very reliable.</p>
 
 <p class="img">
   <a href="https://home-assistant.io/images/blog/2015-08-laundry-automation/moteino-and-sensors.jpg">

@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Getting started on Android - Home Assistant</title>
+    <title>Automation Actions - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Android instructions to add Home Assistant to your homescreen.">
+    <meta name="description" content="Automations result in action.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/android/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/automation-action/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Getting started on Android">
+    <meta property="og:title" content="Automation Actions">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/android/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/automation-action/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Android instructions to add Home Assistant to your homescreen.">
+    <meta property="og:description" content="Automations result in action.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Getting started on Android">
-    <meta name="twitter:description" content="Android instructions to add Home Assistant to your homescreen.">
+    <meta name="twitter:title" content="Automation Actions">
+    <meta name="twitter:description" content="Automations result in action.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,25 +83,41 @@
   
   <header>
     <h1 class="title indent">
-      Getting Started on Android
+      Automation Actions
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Home Assistant is not available on the Play Store. Instead, Home Assistant leverages the new <a href="https://w3c.github.io/manifest/">manifest.json support</a> to allow Android devices to add the web application to your homescreen as if it was a native application.</p>
+  <p>When an automation rule fires, it calls a service. For this service you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).</p>
 
-<ol>
-  <li>Open Chrome</li>
-  <li>Navigate to your Home Assistant instance</li>
-  <li>Click on the menu icon (three vertical dots)</li>
-  <li>Click on Add to Homescreen</li>
-  <li>A dialog will popup, click on Add</li>
-</ol>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+  <span class="comment"># Change the light in the kitchen and living room to 150 brightness and color red.</span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
+    <span class="key">entity_id</span>:
+      - <span class="string"><span class="content">light.kitchen</span></span>
+      - <span class="string"><span class="content">light.living_room</span></span>
+    <span class="key">data</span>:
+      <span class="key">brightness</span>: <span class="string"><span class="content">150</span></span>
+      <span class="key">rgb_color</span>: <span class="string"><span class="content">[255, 0, 0]</span></span>
+</pre></div>
+</div>
+</div>
 
-<p class="img" style="width:500px; margin-left: auto; margin-right: auto;">
-<img src="/images/screenshots/android-homescreen-guide.gif" />
-</p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+  <span class="comment"># Notify me on my mobile phone of an event</span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
+    <span class="key">data</span>:
+      <span class="key">message</span>: <span class="string"><span class="content">Something just happened, better take a look!</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>If you want to specify multiple services to be called, or to include a delay, have a look at the <a href="/components/script/">script component</a>. If you want to describe the desired state of certain entities, check out the <a href="/components/scene/">scene component</a>.</p>
 
 
 </article>
@@ -115,7 +131,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/android.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/automation-action.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -145,7 +161,7 @@
           <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
           <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
           <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
-          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a class='active' href='/getting-started/automation-action/'>Actions </a></li>
         </ul>
       </li>
       <li>
@@ -158,7 +174,7 @@
         </ul>
       </li>
       <li><a href='/topics/'>Advanced Topics</a></li>
-      <li><a class='active' href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
     </ul>
   </div>
 </section>

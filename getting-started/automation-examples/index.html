@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Getting started on Android - Home Assistant</title>
+    <title>Automation Examples - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Android instructions to add Home Assistant to your homescreen.">
+    <meta name="description" content="Some automation examples to get you started.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/android/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/automation-examples/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Getting started on Android">
+    <meta property="og:title" content="Automation Examples">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/android/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/automation-examples/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Android instructions to add Home Assistant to your homescreen.">
+    <meta property="og:description" content="Some automation examples to get you started.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Getting started on Android">
-    <meta name="twitter:description" content="Android instructions to add Home Assistant to your homescreen.">
+    <meta name="twitter:title" content="Automation Examples">
+    <meta name="twitter:description" content="Some automation examples to get you started.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,25 +83,67 @@
   
   <header>
     <h1 class="title indent">
-      Getting Started on Android
+      Automation Examples
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Home Assistant is not available on the Play Store. Instead, Home Assistant leverages the new <a href="https://w3c.github.io/manifest/">manifest.json support</a> to allow Android devices to add the web application to your homescreen as if it was a native application.</p>
+  <div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example of entry in configuration.yaml</span>
+<span class="key">automation</span>:
+<span class="comment"># Turns on lights 1 hour before sunset if people are home</span>
+<span class="comment"># and if people get home between 16:00-23:00</span>
+- <span class="string"><span class="content">alias: 'Rule 1 Light on in the evening'</span></span>
+  <span class="key">trigger</span>:
+    <span class="comment"># Prefix the first line of each trigger configuration</span>
+    <span class="comment"># with a '-' to enter multiple</span>
+    - <span class="string"><span class="content">platform: sun</span></span>
+      <span class="key">event</span>: <span class="string"><span class="content">sunset</span></span>
+      <span class="key">offset</span>: <span class="string"><span class="content">'-01:00:00'</span></span>
+    - <span class="string"><span class="content">platform: state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_devices</span></span>
+      <span class="key">state</span>: <span class="string"><span class="content">'home'</span></span>
+  <span class="key">condition</span>:
+    <span class="comment"># Prefix the first line of each condition configuration</span>
+    <span class="comment"># with a '-'' to enter multiple</span>
+    - <span class="string"><span class="content">platform: state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_devices</span></span>
+      <span class="key">state</span>: <span class="string"><span class="content">'home'</span></span>
+    - <span class="string"><span class="content">platform: time</span></span>
+      <span class="key">after</span>: <span class="string"><span class="content">'16:00:00'</span></span>
+      <span class="key">before</span>: <span class="string"><span class="content">'23:00:00'</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">group.living_room</span></span>
 
-<ol>
-  <li>Open Chrome</li>
-  <li>Navigate to your Home Assistant instance</li>
-  <li>Click on the menu icon (three vertical dots)</li>
-  <li>Click on Add to Homescreen</li>
-  <li>A dialog will popup, click on Add</li>
-</ol>
+<span class="comment"># Turn off lights when everybody leaves the house</span>
+- <span class="string"><span class="content">alias: 'Rule 2 - Away Mode'</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_devices</span></span>
+    <span class="key">state</span>: <span class="string"><span class="content">'not_home'</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">light.turn_off</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_lights</span></span>
 
-<p class="img" style="width:500px; margin-left: auto; margin-right: auto;">
-<img src="/images/screenshots/android-homescreen-guide.gif" />
-</p>
+<span class="comment"># Notify when Paulus leaves the house in the evening</span>
+- <span class="string"><span class="content">alias: 'Leave Home notification'</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">zone</span></span>
+    <span class="key">event</span>: <span class="string"><span class="content">leave</span></span>
+    <span class="key">zone</span>: <span class="string"><span class="content">zone.home</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus</span></span>
+  <span class="key">condition</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
+    <span class="key">after</span>: <span class="string"><span class="content">'20:00'</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
+    <span class="key">data</span>:
+      <span class="key">message</span>: <span class="string"><span class="content">'Paulus left the house'</span></span>
+</pre></div>
+</div>
+</div>
 
 
 </article>
@@ -115,7 +157,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/android.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/automation-examples.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -158,7 +200,7 @@
         </ul>
       </li>
       <li><a href='/topics/'>Advanced Topics</a></li>
-      <li><a class='active' href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
     </ul>
   </div>
 </section>

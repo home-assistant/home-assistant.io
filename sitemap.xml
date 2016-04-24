@@ -233,6 +233,24 @@
     <loc>https://home-assistant.io/developers/architecture_components/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/getting-started/automation-action/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/getting-started/automation-condition/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/getting-started/automation-create-first/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/getting-started/automation-examples/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/getting-started/automation-trigger/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/getting-started/automation-troubleshooting/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/getting-started/automation/</loc>
   </url>
   <url>
@@ -1491,18 +1509,18 @@
     </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-04-23T18:30:05+00:00</lastmod>
+    <lastmod>2016-04-24T07:00:59+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-04-23T18:30:05+00:00</lastmod>
+    <lastmod>2016-04-24T07:00:59+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-04-23T18:30:05+00:00</lastmod>
+    <lastmod>2016-04-24T07:00:59+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-04-23T18:30:05+00:00</lastmod>
+    <lastmod>2016-04-24T07:00:59+00:00</lastmod>
   </url>
 </urlset>
