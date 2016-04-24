@@ -35,10 +35,10 @@ WantedBy=multi-user.target
 EOF'
 ```
 
-There is also another [sample service file](https://raw.githubusercontent.com/balloob/home-assistant/master/script/home-assistant%40.service) available. To use this one, just download it.
+There is also another [sample service file](https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service) available. To use this one, just download it.
 
 ```bash
-$ sudo wget https://raw.githubusercontent.com/balloob/home-assistant/master/script/home-assistant%40.service -O /lib/systemd/system/home-assistant@[your user].service
+$ sudo wget https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service -O /lib/systemd/system/home-assistant@[your user].service
 ```
 
 You need to reload `systemd` to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.
