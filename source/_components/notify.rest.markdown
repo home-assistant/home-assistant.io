@@ -36,5 +36,5 @@ Configuration variables:
 - **title_param_name** (*Optional*): Parameter name for the title. Defaults to none.
 - **target_param_name** (*Optional*): Parameter name for the target. Defaults to none.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 

@@ -45,4 +45,4 @@ curl -X POST \
 
 For further details, please check the [API](http://pushetta.com/pushetta-api/).
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

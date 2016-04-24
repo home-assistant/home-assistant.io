@@ -146,7 +146,7 @@ Home Assistant will automatically load the correct certificate if you connect to
  - [MQTT Lock](/components/lock.mqtt/)
  - [MQTT Device Tracker](/components/device_tracker.mqtt/)
  - [OwnTracks Device Tracker](/components/device_tracker.owntracks/)
- - [MQTT automation rule](/components/automation/#mqtt-based-automation)
+ - [MQTT automation rule](/getting-started/automation-trigger/#mqtt-trigger)
 
  - Integrating it into own component. See the [MQTT example component](/cookbook/python_component_mqtt_basic/) how to do this.
 

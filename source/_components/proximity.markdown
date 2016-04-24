@@ -13,7 +13,7 @@ ha_category: Organization
 
 The `proximity` component allows you to monitor the proximity of devices to a particular [zone](/components/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
 
-This component is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/components/automation/#zone-trigger) and [state](/components/automation/#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
+This component is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/getting-started/automation-trigger/#zone-trigger) and [state](/getting-started/automation-trigger/#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
 
 Some examples of its use include:
 

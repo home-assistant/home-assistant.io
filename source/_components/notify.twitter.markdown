@@ -35,4 +35,4 @@ Configuration variables:
 - **consumer_secret** (*Required*): Your "Consumer Secret" (API Secret) for the application.
 - **access_token_secret** (*Required*): Your "Access Token Secret" for the application.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

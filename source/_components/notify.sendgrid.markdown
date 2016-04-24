@@ -32,4 +32,4 @@ Configuration variables:
 - **sender** (*Required*): E-mail address of the sender.
 - **recipient** (*Required*): Recipient of the notification.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

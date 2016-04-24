@@ -11,7 +11,7 @@ logo: home-assistant.png
 ha_category: Organization
 ---
 
-Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/components/automation/#zone-trigger) or [condition](/components/automation/#zone-condition) inside automation setups.
+Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/getting-started/automation-trigger/#zone-trigger) or [condition](/getting-started/automation-condition/#zone-condition) inside automation setups.
 
 Zones support the usual method to specify multiple zones, use keys `zone:`, `zone 2:` etc.
 

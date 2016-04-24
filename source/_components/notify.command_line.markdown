@@ -28,4 +28,4 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **command** (*Required*): The action to take.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

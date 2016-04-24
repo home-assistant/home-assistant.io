@@ -17,7 +17,7 @@ The idea was to anonymously collect some details about the usage of the differen
 <!--more-->
 Thanks to Python, users are running Home Assistant on the most popular Linux distributions and other operating systems including OS X and Microsoft Windows. One quarter of the operating systems are unknown which leads to the assumption that it is possible to run Home Assistant on most of the available operation systems today. We hope that *BSD users have fun too. The Hardware platform of choice seems to be x86_64 and ARM.
 
-Of course most users are running with the [automation](/components/automation/) component otherwise it would make much sense to use Home Assistant. The [sun](/components/sun/) component is used a lot too. We hope that this is not because this component is enabled by default.
+Of course most users are running with the [automation](/getting-started/automation/) component otherwise it would make much sense to use Home Assistant. The [sun](/components/sun/) component is used a lot too. We hope that this is not because this component is enabled by default.
 
 The [Alarm control panels](/components/alarm_control_panel/) and the [camera component](/components/camera/) are both used by around one third of the participants of the survey. It's safe to say that they cover a niche, but they will gain momentum when people discover how they can build alarm systems with Home Assistant.
 

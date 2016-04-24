@@ -35,7 +35,7 @@ Next it was just a matter of integrating everything with Home Assistant.  I was 
   Status of the dryer and washer in Home Assistant
 </p>
 
-Next I wrote [scripts](/components/script/) that are run whenever the washer or dryer completes a load.  This is triggered by the [automation component](/components/automation/).  When the laundry is complete I have the lights in the house turn red and [notify me via PushBullet](/components/notify.pushbullet/).  Once the laundry is taken care of another script runs that sets the lights back to normal.  So far it has been very helpful and very reliable.
+Next I wrote [scripts](/components/script/) that are run whenever the washer or dryer completes a load.  This is triggered by the [automation component](/getting-started/automation/).  When the laundry is complete I have the lights in the house turn red and [notify me via PushBullet](/components/notify.pushbullet/).  Once the laundry is taken care of another script runs that sets the lights back to normal.  So far it has been very helpful and very reliable.
 
 <p class='img'>
   <a href='/images/blog/2015-08-laundry-automation/moteino-and-sensors.jpg'>

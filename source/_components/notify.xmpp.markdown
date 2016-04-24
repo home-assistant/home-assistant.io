@@ -36,4 +36,4 @@ Configuration variables:
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
 
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

@@ -57,8 +57,8 @@ It's been another two weeks which means it's time for release: 0.14!
 [sensor.tcp]: /components/sensor.tcp/
 [Neurio energy sensor]: /components/sensor.neurio_energy/
 [nx584]: /components/binary_sensor.nx584/
-[triggers]: /components/automation/#state-trigger
-[conditions]: /components/automation/#state-condition
+[triggers]: /getting-started/automation-trigger/#state-trigger
+[conditions]: /getting-started/automation-condition/#state-condition
 [Nest]: /components/sensor.nest/
 [Ubiquiti Unifi]: /components/device_tracker.unifi/
 [MySensors]: /components/binary_sensor.mysensors/

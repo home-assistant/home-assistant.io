@@ -37,7 +37,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 
 The notification component supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
 
-In an [action](https://home-assistant.io/components/automation/#actions) of your [automation setup](/components/automation/) it could look like this with a customized subject.
+In an [action](https://home-assistant.io/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
 ```yaml
 action:

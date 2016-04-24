@@ -91,4 +91,4 @@ Affected components and platforms:
 [rollershutter.mqtt]: /components/rollershutter.mqtt/
 [light.mqtt]: /components/light.mqtt/
 [binary_sensor.mqtt]: /components/binary_sensor.mqtt/
-[automation-numeric-state]: /components/automation/#numeric-state-trigger
+[automation-numeric-state]: /getting-started/automation-trigger/#numeric-state-trigger

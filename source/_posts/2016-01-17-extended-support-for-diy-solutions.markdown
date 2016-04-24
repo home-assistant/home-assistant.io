@@ -42,7 +42,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [MySensors]: /components/mysensors/
 [YR]: /components/sensor.yr/
 [Locative]: /components/device_tracker.locative/
-[sun condition]: /components/automation/#sun-condition
+[sun condition]: /getting-started/automation-condition/#sun-condition
 [command_switch]: /components/switch.command_switch/
 [wemo]: /components/switch.wemo/
 [Telldus Live]: /components/tellduslive/

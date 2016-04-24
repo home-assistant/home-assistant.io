@@ -21,7 +21,7 @@ We have added a new [getting started section][start-presence] to get up and runn
 
 [platform-owntracks]: /components/device_tracker.owntracks/
 [component-zone]: /components/zone/
-[zone-automation]: /components/automation/#zone-trigger
+[zone-automation]: /getting-started/automation-trigger/#zone-trigger
 [start-presence]: /getting-started/presence-detection/
 
 <p class='img'>
