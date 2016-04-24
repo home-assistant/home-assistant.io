@@ -26,7 +26,7 @@ sensor:
 ### {% linkable_title Code %}
 
 ```python
-from homeassistant.const import TEMP_CELCIUS
+from homeassistant.const import TEMP_CELSIUS
 from homeassistant.helpers.entity import Entity
 
 
@@ -45,5 +45,5 @@ class ExampleSensor(Entity):
 
     @property
     def unit_of_measurement(self):
-        return TEMP_CELCIUS
+        return TEMP_CELSIUS
 ```
