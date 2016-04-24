@@ -33,7 +33,7 @@ This sections just contains some random numbers of the Home Assistant eco-system
 
 | Description | 2015 |
 |---|---|
-| [Gitter.io](https://gitter.im/balloob/home-assistant)  | 334 |
+| [Gitter.io](https://gitter.im/home-assistant/home-assistant)  | 334 |
 | [Forum posts](https://community.home-assistant.io/) | 352 |
 | [Forum topics](https://community.home-assistant.io/) | 83 |
 | [Forum members](https://community.home-assistant.io/) | 92 |
