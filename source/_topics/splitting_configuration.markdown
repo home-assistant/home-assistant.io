@@ -26,7 +26,7 @@ homeassistant:
   # Location required to calculate the time the sun rises and sets
   latitude: 37
   longitude: -121
-  # C for Celcius, F for Fahrenheit
+  # C for Celsius, F for Fahrenheit
   temperature_unit: F
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
