@@ -28,7 +28,7 @@ If you run into any issues, please see [the troubleshooting page](/getting-start
 In addition to this site, check out these sources for additional help:
 
  - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
- - [Gitter Chat Room](https://gitter.im/balloob/home-assistant) for real-time chat about Home Assistant.
+ - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant.
  - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
 
 ### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)
