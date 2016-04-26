@@ -12,19 +12,42 @@ ha_category: Light
 
 The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.
 
-To enable RFXtrx lights in your installation, add the following to your `configuration.yaml` file:
+First you have to set up your [rfxtrx hub.](/components/rfxtrx/)
+The easiest way to find your lights is to add this to your `configuration.yaml`:
 
+```yaml
+light:
+ platform: rfxtrx
+ automatic_add: True
+```
+
+Launch your homeassistant and go the website.
+Push your remote and your device should be added:
+
+<p class='img'>
+<img src='/images/components/rfxtrx/switch.png' />
+</p>
+
+Here the name is 0b11000102ef9f210010f70 and you can verify that it works from the frontend. 
+Then you should update your configuration to:
+```yaml
+light:
+ platform: rfxtrx
+ devices:
+    0b11000102ef9f210010f70: 
+        name: device_name
+```
+
+Example configuration:
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: rfxtrx
-  signal_repetitions: 3
-  devices:
-    living_room:
-      name: Living Room
-      packetid: XXXXX
-      fire_event: True
-  automatic_add: True
+ platform: rfxtrx
+ devices:
+   0b11000f10e9e5660b010f70:
+     name: Light1
+   0b1100100f29e5660c010f70:
+     name: Light_TV
 ```
 
 Configuration variables:
