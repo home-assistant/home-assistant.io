@@ -109,6 +109,32 @@
   <li><strong>urls</strong> (<em>Required</em>): List of URLS for your feeds.</li>
 </ul>
 
+<p>Feedreader events can be used out of the box to trigger automation actions, e.g.:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+  - <span class="string"><span class="content">alias: Trigger action when new element(s) in RSS feed</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+      <span class="key">event_type</span>: <span class="string"><span class="content">feedreader</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">script.my_action</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>For more advanced use cases, a custom component registering to the <code>feedreader</code> event type could be used instead:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>EVENT_FEEDREADER = <span class="string"><span class="delimiter">&quot;</span><span class="content">feedreader</span><span class="delimiter">&quot;</span></span>
+hass.bus.listen(EVENT_FEEDREADER, event_listener)
+</pre></div>
+</div>
+</div>
+
+<p>To get started developing custom components, please refer to the <a href="/developers">developers</a> documentation</p>
+
 
 </article>
 
