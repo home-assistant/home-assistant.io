@@ -19,6 +19,9 @@ You may have to create the `www` directory yourself as it is not made automatica
 
 You can also use `icon` and refer to any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com).
 
+For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
+
+
 ```yaml
 # Example configuration.yaml entry
 homeassistant:
@@ -37,6 +40,8 @@ homeassistant:
     switch.wemo_switch_2:
       friendly_name: Kitchen kettle
       icon: mdi:kettle
+    switch.rfxtrx_switch:
+      assumed_state: false
 ```
 
 ### [Next step: Setting up presence detection &raquo;](/getting-started/presence-detection/)
