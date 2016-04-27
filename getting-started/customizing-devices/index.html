@@ -99,6 +99,8 @@ You may have to create the <code>www</code> directory yourself as it is not made
 
 <p>You can also use <code>icon</code> and refer to any icon from <a href="http://MaterialDesignIcons.com">MaterialDesignIcons.com</a>.</p>
 
+<p>For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting <code>assumed_state</code> to <code>false</code> you will get the default switch icon.</p>
+
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">homeassistant</span>:
@@ -117,6 +119,8 @@ You may have to create the <code>www</code> directory yourself as it is not made
     <span class="key">switch.wemo_switch_2</span>:
       <span class="key">friendly_name</span>: <span class="string"><span class="content">Kitchen kettle</span></span>
       <span class="key">icon</span>: <span class="string"><span class="content">mdi:kettle</span></span>
+    <span class="key">switch.rfxtrx_switch</span>:
+      <span class="key">assumed_state</span>: <span class="string"><span class="content">false</span></span>
 </pre></div>
 </div>
 </div>
