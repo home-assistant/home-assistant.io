@@ -28,7 +28,7 @@ keyboard:
 
 ## {% linkable_title Dependencies %}
 
-You may need to install platform-specific [dependencies for PyUserInput](https://github.com/SavinaRoja/PyUserInput#dependencies) in order to use the keyboard component. In most cases this can be done by running:
+You may need to install platform-specific [dependencies for PyUserInput](https://github.com/PyUserInput/PyUserInput#dependencies) in order to use the keyboard component. In most cases this can be done by running:
 
 ```bash
 $ pip3 install [package name]
