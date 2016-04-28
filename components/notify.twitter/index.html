@@ -91,7 +91,7 @@
 
   <p>The <code>twitter</code> platform uses <a href="https://twitter.com">Twitter</a> to delivery notifications from Home Assistant.</p>
 
-<p>Go to <a href="https://apps.twitter.com/app/new">Twitter Apps</a> and create an application. Visit “Keys and Access Tokens” of the application to get the details (“Consumer Key”, “Consumer Secret”, and “Access Token Secret” which needs to be generated).</p>
+<p>Go to <a href="https://apps.twitter.com/app/new">Twitter Apps</a> and create an application. Visit “Keys and Access Tokens” of the application to get the details (“Consumer Key”, “Consumer Secret”, “Access Token” and “Access Token Secret” which needs to be generated).</p>
 
 <p>To add Twitter to your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
@@ -102,6 +102,7 @@
   <span class="key">platform</span>: <span class="string"><span class="content">twitter</span></span>
   <span class="key">consumer_key</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
   <span class="key">consumer_secret</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
+  <span class="key">access_token</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
   <span class="key">access_token_secret</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
 </pre></div>
 </div>
@@ -113,6 +114,7 @@
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
   <li><strong>consumer_key</strong> (<em>Required</em>): Your “Consumer Key” (API Key) for the application.</li>
   <li><strong>consumer_secret</strong> (<em>Required</em>): Your “Consumer Secret” (API Secret) for the application.</li>
+  <li><strong>access_token</strong> (<em>Required</em>): Your “Access Token” for the application.</li>
   <li><strong>access_token_secret</strong> (<em>Required</em>): Your “Access Token Secret” for the application.</li>
 </ul>
 
