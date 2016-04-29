@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "iBeacons Part 1: Making presence detection work better"
-date: 2016-04-17 19:23:09 +0100
-date_formatted: "April 17, 2016"
+date: 2016-04-29 16:50:09 +0100
+date_formatted: "April 30, 2016"
 author: Greg Dowling
 author_twitter: pavoni240
 comments: true
