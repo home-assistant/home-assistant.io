@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: yr.png
 ha_category: Weather
+ha_release: 0.11
 ---
 
 

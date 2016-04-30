@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Light
+ha_release: 0.7.6
 ---
 
 This platform allows you to integrate your [Hyperion](https://github.com/tvdzwan/hyperion/wiki) into Home Assistant.

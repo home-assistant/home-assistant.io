@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: firetv.png
 ha_category: Media Player
+ha_release: 0.7.6
 ---
 
 

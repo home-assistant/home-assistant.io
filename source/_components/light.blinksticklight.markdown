@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: blinkstick.png
 ha_category: Light
+ha_release: 0.7.5
 ---
 
 

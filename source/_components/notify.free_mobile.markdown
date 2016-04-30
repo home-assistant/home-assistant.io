@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: free_mobile.png
 ha_category: Notifications
+ha_release: 0.11
 ---
 
 The `free_mobile` platform is using the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone. 

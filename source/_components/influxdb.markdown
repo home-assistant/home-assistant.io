@@ -10,6 +10,7 @@ footer: true
 logo: influxdb.png
 ha_category: "History"
 featured: true
+ha_release: 0.9
 ---
 
 The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. For more details, [see the blog post on InfluxDB](/blog/2015/12/07/influxdb-and-grafana/).

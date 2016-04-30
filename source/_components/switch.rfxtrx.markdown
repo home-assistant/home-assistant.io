@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Switch
+ha_release: 0.7.5
 ---
 
 The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
