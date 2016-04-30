@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Presence-Detection | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/presence-detection/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-30T11:34:54+00:00</updated>
+  <updated>2016-04-30T12:21:17+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -18,7 +18,7 @@
     <link href="https://home-assistant.io/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/"/>
     <updated>2016-04-30T06:50:09+00:00</updated>
     <id>https://home-assistant.io/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better</id>
-    <content type="html"><![CDATA[<p><em>This is a guest post by Home Assistant contributor <a href="https://github.com/pavoni">Greg Dowling</a>.</em></p>
+    <content type="html"><![CDATA[<p><em>This post is by Home Assistant contributor <a href="https://github.com/pavoni">Greg Dowling</a>.</em></p>
 
 <p>In 2013 Apple introduced iBeacons: a class of Bluetooth low energy (LE) devices that broadcast their identifier to nearby devices, including most smartphones. At first glance it’s hard to imagine why they might be useful. In this two part blog I’ll try and explain why they are useful and how you can use them with Home Assistant.</p>
 
