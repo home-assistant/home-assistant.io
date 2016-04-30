@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iBeacons | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/ibeacons/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-04-30T13:21:43+00:00</updated>
+  <updated>2016-04-30T14:06:35+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -40,7 +40,7 @@
 
 <h4><a class='title-link' name='a-tell-home-assistant-where-your-beacon-is-located' href='#a-tell-home-assistant-where-your-beacon-is-located'></a> A. Tell Home Assistant where your beacon is located </h4>
 
-<p>You tell HomeAssistant about fixed locations by creating a Zone with the longitude and latitude of your beacon. You should also give the zone a name which you will also use when you set up OwnTracks. An an example this zone specifies the location of my where my drive way.</p>
+<p>You tell HomeAssistant about fixed locations by creating a Zone with the longitude and latitude of your beacon. You should also give the zone a name which you will also use when you set up OwnTracks. An an example this zone specifies the location of my drive way.</p>
 
 <p><strong>Example <code>configuration.yaml</code> entry</strong></p>
 
