@@ -10,7 +10,7 @@ comments: true
 categories: iBeacons Presence-Detection OwnTracks
 ---
 
-_This is a guest post by Home Assistant contributor [Greg Dowling](https://github.com/pavoni)._
+_This post is by Home Assistant contributor [Greg Dowling](https://github.com/pavoni)._
 
 In 2013 Apple introduced iBeacons: a class of Bluetooth low energy (LE) devices that broadcast their identifier to nearby devices, including most smartphones. At first glance it’s hard to imagine why they might be useful. In this two part blog I’ll try and explain why they are useful and how you can use them with Home Assistant.
 
