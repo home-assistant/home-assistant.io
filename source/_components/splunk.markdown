@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: splunk.png
 ha_category: "History"
+ha_release: 0.13
 ---
 
 The `splunk` component makes it possible to log all state changes to an external [Splunk](http://splunk.com/) database using Splunk's HTTP Event Collector feature. You can either use this alone, or with the HomeAssistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.

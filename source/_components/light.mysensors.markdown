@@ -10,6 +10,7 @@ footer: true
 logo: mysensors.png
 ha_category: Light
 featured: false
+ha_release: 0.13
 ---
 
 Integrates MySensors lights into Home Assistant. See the [main component] for configuration instructions.

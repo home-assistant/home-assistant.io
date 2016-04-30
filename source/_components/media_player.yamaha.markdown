@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: yamaha.png
 ha_category: Media Player
+ha_release: 0.16
 ---
 
 The `yamaha` platform allows you to control [Yamaha Network Receivers](http://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.

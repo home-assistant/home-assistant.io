@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: verisure.png
 ha_category: Lock
+ha_release: 0.13
 ---
 
 

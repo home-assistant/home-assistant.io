@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+ha_release: 0.12
 ---
 
 The `template` platform supports sensors which breaks out `state_attributes` from other entities.

@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+ha_release: 0.12
 ---
 
 The `onewire` platform supports sensors which are using the One wire (1-wire) bus for communication.

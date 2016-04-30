@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Switch
+ha_release: 0.13
 ---
 
 The `template` platform creates switches that combine components.

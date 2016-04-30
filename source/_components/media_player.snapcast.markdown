@@ -10,6 +10,7 @@ footer: true
 logo:
 ha_category: Media Player
 featured: false
+ha_release: 0.13
 ---
 
 The `snapcast` platform allows you to control [SnapCast](https://github.com/badaix/snapcast) from Home Assistant.

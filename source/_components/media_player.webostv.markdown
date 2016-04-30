@@ -10,6 +10,7 @@ footer: true
 logo: webos.png
 ha_category: Media Player
 ha_iot_class: "Local Poll"
+ha_release: 0.18
 ---
 
 The `webostv` platform allows you to control a LG WebOS Smart TV.

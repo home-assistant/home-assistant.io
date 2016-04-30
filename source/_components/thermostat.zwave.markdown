@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: z-wave.png
 ha_category: Thermostat
+ha_release: 0.17
 ---
 
 To get your Z-Wave thermostat working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/).

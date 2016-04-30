@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: pulseaudio.png
 ha_category: Switch
+ha_release: 0.16
 ---
 
 

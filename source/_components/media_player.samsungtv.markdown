@@ -10,6 +10,7 @@ footer: true
 logo: samsung.png
 ha_category: Media Player
 featured: false
+ha_release: 0.13
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](http://www.samsung.com/uk/consumer/tv-audio-video/televisions/).

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: command_line.png
 ha_category: Notifications
+ha_release: 0.14
 ---
 
 The `command_line` platform allows you to use external tools for notifications from Home Assistant. The message will be passed in as STDIN.

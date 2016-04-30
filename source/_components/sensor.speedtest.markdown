@@ -10,6 +10,7 @@ footer: true
 logo: speedtest.png
 ha_category: Sensor
 featured: false
+ha_release: 0.13
 ---
 
 The `speedtest` sensor component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
