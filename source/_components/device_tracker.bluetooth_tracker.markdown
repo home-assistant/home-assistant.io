@@ -26,3 +26,5 @@ device_tracker:
 ```
 
 For additional configuration variables check the [Device tracker page](/components/device_tracker/).
+
+Supported on versions 0.18+
