@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/</loc>
+    <lastmod>2016-04-30T06:50:09+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/</loc>
     <lastmod>2016-04-20T06:10:00+00:00</lastmod>
   </url>
@@ -414,6 +418,15 @@
   </url>
   <url>
     <loc>https://home-assistant.io/blog/categories/public-service-announcement/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/blog/categories/ibeacons/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/blog/categories/presence-detection/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/blog/categories/owntracks/</loc>
   </url>
   <url>
     <loc>https://home-assistant.io/blog/posts/2/</loc>
@@ -1507,20 +1520,23 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-04-30T11:03:46+00:00</lastmod>
+    <lastmod>2016-04-30T11:26:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-04-30T11:03:46+00:00</lastmod>
+    <lastmod>2016-04-30T11:26:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-04-30T11:03:46+00:00</lastmod>
+    <lastmod>2016-04-30T11:26:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-04-30T11:03:46+00:00</lastmod>
+    <lastmod>2016-04-30T11:26:12+00:00</lastmod>
   </url>
 </urlset>

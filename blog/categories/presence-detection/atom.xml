@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Presence-Detection | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/presence-detection/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2016-04-30T11:26:57+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Paulus Schoutsen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[iBeacons: Making presence detection work better (part I)]]></title>
+    <link href="https://home-assistant.io/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/"/>
+    <updated>2016-04-30T06:50:09+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better</id>
+    <content type="html"><![CDATA[<p><em>This is a guest post by Home Assistant contributor <a href="https://github.com/pavoni">Greg Dowling</a>.</em></p>
+
+<p>In 2013 Apple introduced iBeacons: a class of Bluetooth low energy (LE) devices that broadcast their identifier to nearby devices, including most smartphones. At first glance it’s hard to imagine why they might be useful. In this two part blog I’ll try and explain why they are useful and how you can use them with Home Assistant.</p>
+
+<p>The reason I started using iBeacons was to improve presence detection (and I think that’s the case with most people) so that’s what I’ll discuss in <em>part 1</em>. In <em>part 2</em> I’ll talk about using iBeacons to track devices that can’t track themselves.</p>
+
+<h3><a class='title-link' name='using-beacons-to-improve-owntracks-location-data' href='#using-beacons-to-improve-owntracks-location-data'></a> Using beacons to improve OwnTracks location data </h3>
+
+<p>When you use OwnTracks in standard <em>major move</em> mode (which is kind to your phone battery) it sometimes fails to update when you’d like it to. In my case I found that it would often send a location update as I was on my way home, but then not update when I got home. The result would be that Home Assistant would think I was 500M away from home, and take quite a while to notice I was home. It would also mean that the automation that should turn on my lights when I got home didn’t work very well! There were a few times when my phone location updated at 2am and turned the lights on for me. Fortunately my wife is very patient!</p>
+
+<p>Luckily, OwnTracks supports iBeacons so I could use them to make presence detection more reliable. When OwnTracks sees a beacon it recognises, it will send an update. This means that if you put a beacon at your front door - OwnTracks will see it within a few seconds of you arriving home - and send an update saying it has seen this iBeacon.</p>
+
+<!--more-->
+
+<h3><a class='title-link' name='getting-started' href='#getting-started'></a> Getting Started </h3>
+
+<p>To do this you first need to set up <a href="/components/mqtt/#picking-a-broker">MQTT</a> and <a href="/components/device_tracker.owntracks/">OwnTracks</a> in Home assistant - and make sure that HA can track your phone.</p>
+
+<p>You then have to (A) tell Home Assistant where the beacon is located and (B) tell OwnTracks to recognise the beacon.</p>
+
+<h4><a class='title-link' name='a-tell-home-assistant-where-your-beacon-is-located' href='#a-tell-home-assistant-where-your-beacon-is-located'></a> A. Tell Home Assistant where your beacon is located </h4>
+
+<p>You tell HomeAssistant about fixed locations by creating a Zone with the longitude and latitude of your beacon. You should also give the zone a name which you will also use when you set up OwnTracks. An an example this zone specifies the location of my where my drive way.</p>
+
+<p><strong>Example <code>configuration.yaml</code> entry</strong></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+<span class="key">zone</span>:
+    - <span class="string"><span class="content">name: 'Drive'</span></span>
+      <span class="key">latitude</span>: <span class="string"><span class="content">XXX</span></span>
+      <span class="key">longitude</span>: <span class="string"><span class="content">YYY</span></span>
+      <span class="key">radius</span>: <span class="string"><span class="content">100</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>The radius isn’t used by the beacon code, but it is used by the GPS location sensing code. I’ll come back to this a little later. For now just use 50 or 100.</p>
+
+<p>Once you’ve created the zone - you need to restart HA. The next step is:-</p>
+
+<h4><a class='title-link' name='b-tell-owntracks-to-track--your-beacon' href='#b-tell-owntracks-to-track--your-beacon'></a> B. Tell OwnTracks to track  your beacon </h4>
+
+<ol>
+  <li>Go to the OwnTracks app on your phone</li>
+  <li>Touch the <code>Regions</code> menu at the bottom of the screen</li>
+  <li>Touch the <code>+</code> symbol at the top right of the screen</li>
+  <li>Give the beacon a name e.g. <code>-drive</code> ’(start the name with a <code>-</code> see below for the reason)</li>
+  <li>Turn Share to <code>On</code></li>
+  <li>Skip the <code>Circular Region</code> section</li>
+  <li>Enter the <code>UUID</code> of your beacon - this may be written on your beacon - or you can copy it from the management app that came with your iBeacon device. It’s a long number – so it’s easier to copy if you can!</li>
+  <li>Enter the <code>Minor</code> and <code>Major</code> numbers for your iBeacon - or leave them at 0 which will match all beacons with that <code>UUID</code></li>
+</ol>
+
+<p class="img">
+  <img width="200" border="2" src="https://home-assistant.io/images/blog/2016-04-ibeacons/owntracks_beacon_setup.png" />
+</p>
+
+<p>Once you’ve added the iBeacon - you should be able to see it on the OwnTracks region screen. If your phone can see the packets from that beacon, OwnTracks will turn the relevant Region red.</p>
+
+<p class="img">
+  <img width="200" src="https://home-assistant.io/images/blog/2016-04-ibeacons/owntracks_red_beacon.png" />
+</p>
+
+<p>When OwnTracks sees the beacon (and turns the region red), it also sends an MQTT packet to HA to say that you have entered that region.</p>
+
+<p>The result of the configuration above would be to set the location of device.phone to <code>Drive</code> , (and the GPS location to XXX,YYY) when your phone sees the beacon.</p>
+
+<p>So with the steps above you should be able to improve the reliability of tracking your phone - and send timely updates to HA. I did this for my home - and the lights now turn on before I reach the house on foot. If I arrive by car they turn on within a few seconds of arriving, before I can get to the front door.</p>
+
+<p>I’m also pleased to say I no longer get an <em>arrive home</em> event at 2am that turns the lights on. I hope I’ve convinced you that iBeacons are worth trying!</p>
+
+<h3><a class='title-link' name='mixing-beacons-and-gps-locations' href='#mixing-beacons-and-gps-locations'></a> Mixing Beacons and GPS locations </h3>
+
+<p>You will probably use beacons to make entry into your existing GPS zones more reliable. By default either a beacon or a GPS location can cause you to enter a zone - and HA has some logic that should make them two work well together (it ignores GPS updates when you’re in an iBeacon Zone).</p>
+
+<p>However you can also use beacons for situations where GPS doesn’t work well.</p>
+
+<p>This might be because the zones are too close together - or even on top of each other!<br />
+For example, my wife works next door - and I couldn’t detect whether she’s at home or in the office via GPS because the accuracy wasn’t high enough. However I can do this by using two beacons.</p>
+
+<p>To make this type of presence detection work you need to turn GPS off for a zone in Home Assistant by making them <code>passive</code>. This is important because otherwise HA will try to decide between two close together zones without enough data. This doesn’t work well.</p>
+
+<p>A passive zone can only be entered via an iBeacon, so a GPS location update will always pick the other zone.</p>
+
+<p>I set up my Home zone to be a standard region, and my office zone to be passive, so the home zone can be entered in the normal way via either GPS or a Beacon.</p>
+
+<p><strong>Example <code>configuration.yaml</code> entry</strong></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+<span class="key">zone</span>:
+    - <span class="string"><span class="content">name: 'Office'</span></span>
+      <span class="key">latitude</span>: <span class="string"><span class="content">XXX</span></span>
+      <span class="key">longitude</span>: <span class="string"><span class="content">YYY</span></span>
+      <span class="key">radius</span>: <span class="string"><span class="content">3</span></span>
+      <span class="key">passive</span>: <span class="string"><span class="content">true</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>You could use this technique to try to detect which room someone is in. This might allow you to notice whether someone is in the living room or the bedroom - even though one is above the other (although beacon packets do pass through walls and floors).</p>
+
+<p>To get this to work you’ll probably need to experiment with the beacon signal strength to try to match the beacon reception area to the location you want to track. Let me know if you get this to work (it doesn’t make sense in my open plan house)</p>
+
+<h3><a class='title-link' name='conclusion' href='#conclusion'></a> Conclusion </h3>
+
+<p>Presence tracking sounds easy - and it’s an important part of Home Automation. Trying it shows how difficult it is to get presence detection right.  I’ve found that iBeacons have improved the reliability and timeliness of knowing where I am, and I hope I encouraged you to try them too.</p>
+
+<h3><a class='title-link' name='tips' href='#tips'></a> Tips </h3>
+
+<p>You can find out more about configuring the OwnTracks application and beacons <a href="http://owntracks.org/booklet/features/beacons/">here</a></p>
+
+<p>There is information about configuring Homeassistant to use beacons <a href="https://home-assistant.io/components/device_tracker.owntracks/">here</a></p>
+
+<h4><a class='title-link' name='connections-and-disconnecting' href='#connections-and-disconnecting'></a> Connections and disconnecting </h4>
+
+<p>Owntracks treats a region name with a leading <code>-</code> as a hint that it shouldn’t disconnect after a single missed packet. This improves the ability to keep a connection to a beacon.</p>
+
+<p>However, even when using this feature I’ve noticed that you can still lose connections (although it seems to vary by beacon manufacturer and type - I’ll talk more about this in <em>part 2</em>). This means that it’s best to take into account that you may see false enter/leave events in HA. You may be able to improve this by changing how often the beacons send packets - and by increasing the signal strength (both will drain your beacon batteries more quickly). You can usually change these parameters in the app supplied by the iBeacon maker. You can also find some high power beacons (which have worked well for me).</p>
+
+<p>In automations you can use a <code>for:</code> to avoid triggering during a brief disconnect, or use a script with a delay. Stay tuned for <em>part 2</em> for an example of this.</p>
+
+<h4><a class='title-link' name='using-multiple-beacons-for-the-same-zone' href='#using-multiple-beacons-for-the-same-zone'></a> Using Multiple beacons for the same Zone </h4>
+<p>iBeacons have a <code>UUID</code> (usually set to the same value for beacons from the same manufacturer), as well as a <code>minor</code> and <code>major</code> number. If you set two beacons to have exactly same details then OwnTracks will think multiple beacons are at the same location.</p>
+
+<p>This means you can have more than one beacon around your home - and a connection to any of them will count as <code>home</code> to OwnTracks and HA. This reduces disconnections.</p>
+
+<p>You can achieve the same effect by using the same the same <code>UUID</code> but different <code>major</code> / <code>minor</code> numbers - and tell OwnTracks not to worry about the <code>minor</code> / <code>major</code> numbers for a particular region by setting them to 0).</p>
+
+<p><em>Stay tuned for part II where I’ll talk about how to use iBeacons to track any object.</em></p>
+]]></content>
+  </entry>
+  
+</feed>
