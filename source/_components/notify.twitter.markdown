@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: twitter.png
 ha_category: Notifications
+ha_release: 0.16
 ---
 
 

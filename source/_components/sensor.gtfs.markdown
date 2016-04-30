@@ -10,6 +10,7 @@ footer: true
 logo: 'gtfs.png'
 ha_category: Sensor
 ha_iot_class: "Local Polling"
+ha_release: 0.17
 ---
 
 
