@@ -10,6 +10,7 @@ footer: true
 logo: thinkingcleaner.png
 ha_category: Sensor
 ha_iot_class: "Local Poll"
+ha_release: 0.18
 ---
 
 The `ThinkingCleaner` sensor platform simple displays information about your [ThinkingCleaner](http://www.thinkingcleaner.com) addon.

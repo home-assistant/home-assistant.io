@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: "Other"
+ha_release: 0.18
 ---
 
 The `upnp` component automatically creates port forwarding mappings on your router for Home Assistant. UPnP or NAT-PMP needs to be enabled on your router for this component to work.
