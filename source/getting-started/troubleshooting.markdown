@@ -62,6 +62,13 @@ $ iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
 $ iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhere
 ```
 
+#### {% linkable_title After upgrading, your browser login gets stuck at the "loading data" step %}
+After upgrading to a new version, you may notice your browser gets stuck at the "loading data" login screen. Close the window/tab and go into your browser settings and delete all the cookies for your URL. You can then log back in and it should work. 
+
+Android Chrome 
+chrome -> settings -> site settings -> storage -> search for your URL for home assistant-> "clear & reset"
+
+
 #### {% linkable_title Run the development version %}
 If you want to stay on top of the development of Home Assistant then you can upgrade to the `dev` branch. This can result in an unstable system, loss of data, etc. etc.
 
