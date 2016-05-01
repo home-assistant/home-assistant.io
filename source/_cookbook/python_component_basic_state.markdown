@@ -10,7 +10,7 @@ footer: true
 ha_category: Custom Python Component Examples
 ---
 
-This is a simple tutorial/example on how to write a component for [Home Assistant](https://home-assistant.io/). We will work on a component called "hello_state" to beginn with. The purpose of this component is to display a given text in the frontend. 
+This is a simple tutorial/example on how to write a component for [Home Assistant](https://home-assistant.io/). We will work on a component called "hello_state" to begin with. The purpose of this component is to display a given text in the frontend. 
 
 The setup of a development environment is described in the [Developers section](/developers/#starting-development) of the documentation.
 
