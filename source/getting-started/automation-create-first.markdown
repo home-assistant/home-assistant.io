@@ -74,7 +74,7 @@ automation:
 
 Christmas is coming along and you decide to buy a remote switch to control the Christmas lights from Home Assistant. You can't claim to live in the house of the future if you're still manually turning on your Christmas lights!
 
-We hook the switch up to Home Assistant and grab the entity ID0 from the developer tools: `switch.christmas_lights`. We will update the group to include the switch and will change our action. We are no longer able to call `light.turn_on` because we also want to turn on a switch. This is where `homeassistant.turn_on` comes to the rescue. This service is capable of turning any entity on.
+We hook the switch up to Home Assistant and grab the entity ID from the developer tools: `switch.christmas_lights`. We will update the group to include the switch and will change our action. We are no longer able to call `light.turn_on` because we also want to turn on a switch. This is where `homeassistant.turn_on` comes to the rescue. This service is capable of turning any entity on.
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,3 +98,15 @@ automation:
     service: homeassistant.turn_on
     entity_id: group.living_room
 ```
+
+### {% linkable_title Learn more %}
+
+ - [Triggers]
+ - [Conditions]
+ - [Actions]
+ - [Templating] (advanced)
+
+[Triggers]: /getting-started/automation-trigger/
+[Conditions]: /getting-started/automation-condition/
+[Actions]: /getting-started/automation-action/
+[Templating]: /getting-started/automation-templating/

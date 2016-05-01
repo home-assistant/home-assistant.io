@@ -45,7 +45,7 @@ Please note that you can use Haaska and the built-in Alexa component side-by-sid
 
 ### {% linkable_title I want to build custom commands to use with Echo %}
 
-The built-in Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself.
+The built-in Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe>
@@ -113,7 +113,10 @@ Out of the box, the component will do nothing. You have to teach it about all in
 
 You can use [templates] for the values of `speech/text`, `card/title` and `card/content`.
 
+Actions are using the [Home Assistant Script Syntax] and also have access to the variables from the intent.
+
 [templates]: /topics/templating/
+[Home Assistant Script Syntax]: /getting-started/scripts/
 
 Configuring the Alexa component for the above intents would look like this:
 
@@ -137,8 +140,8 @@ alexa:
     LocateIntent:
       action:
         service: notify.notify
-        data:
-          message: Your location has been queried via Alexa.
+        data_template:
+          message: The location of {{ User }} has been queried via Alexa.
       speech:
         type: plaintext
         text: >

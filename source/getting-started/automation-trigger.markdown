@@ -53,13 +53,13 @@ automation:
 
 #### {% linkable_title State trigger %}
 
-Triggers when the state of an entity changes. If only entity_id given will match all state changes.
+Triggers when the state of tracked entities change. If only entity_id given will match all state changes.
 
 ```yaml
 automation:
   trigger:
     platform: state
-    entity_id: device_tracker.paulus
+    entity_id: device_tracker.paulus, device_tracker.anne_therese
     # Optional
     from: 'not_home'
     to: 'home'
