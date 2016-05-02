@@ -181,20 +181,26 @@ This switch will shutdown your host immediately, there will be no confirmation.
 
 <h3><a class="title-link" name="control-foscam-motion-sensor" href="#control-foscam-motion-sensor"></a> Control Foscam Motion Sensor</h3>
 
-<p>This switch will control the motion sensor of Foscam Webcams which Support CGI Commands (<a href="http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf">Source</a>). This switch supports statecmd, which checks the current state of motion detection.<br />
-<code>yaml
-# Example configuration.yaml entry
-# Replace admin and password with an "Admin" priviledged Foscam user
-# Replace ipaddress with the local IP address of your Foscam
-switch:
-  platform: command_line
-  switches:
-    foscam_motion:
-      oncmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=1&amp;usr=admin&amp;pwd=password"'
-      offcmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=0&amp;usr=admin&amp;pwd=password"'
-      statecmd: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&amp;usr=admin&amp;pwd=password" | grep -oP "(?&lt;=isEnable&gt;).*?(?=&lt;/isEnable&gt;)"'
-      value_template: ''
-</code></p>
+<p>This switch will control the motion sensor of Foscam Webcams which Support CGI Commands (<a href="http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf">Source</a>). This switch supports statecmd, which checks the current state of motion detection.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">switch</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">command_line</span></span>
+  <span class="key">switches</span>:
+    <span class="key">foscam_motion</span>:
+      <span class="key">oncmd</span>: <span class="string"><span class="content">'curl -k &quot;https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=1&amp;usr=admin&amp;pwd=password&quot;'</span></span>
+      <span class="key">offcmd</span>: <span class="string"><span class="content">'curl -k &quot;https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=0&amp;usr=admin&amp;pwd=password&quot;'</span></span>
+      <span class="key">statecmd</span>: <span class="string"><span class="content">'curl -k --silent &quot;https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&amp;usr=admin&amp;pwd=password&quot; | grep -oP &quot;(?&lt;=isEnable&gt;).*?(?=&lt;/isEnable&gt;)&quot;'</span></span>
+      <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value == &quot;1&quot; }}'</span></span>
+</pre></div>
+</div>
+</div>
+
+<ul>
+  <li>Replace admin and password with an “Admin” priviledged Foscam user</li>
+  <li>Replace ipaddress with the local IP address of your Foscam</li>
+</ul>
 
 
 </article>
