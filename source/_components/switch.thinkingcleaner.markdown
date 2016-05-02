@@ -10,6 +10,7 @@ footer: true
 logo: thinkingcleaner.png
 ha_category: Switch
 ha_iot_class: "Local Poll"
+ha_release: 0.18
 ---
 
 The `ThinkingCleaner` switch platform allows you to control your [ThinkingCleaner](http://www.thinkingcleaner.com) addon.

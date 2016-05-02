@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: rss.gif
 ha_category: Other
+ha_release: 0.18
 ---
 
 Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.
@@ -26,3 +27,25 @@ feedreader:
 Configuration variables:
 
 - **urls** (*Required*): List of URLS for your feeds.
+
+Feedreader events can be used out of the box to trigger automation actions, e.g.:
+
+```yaml
+automation:
+  - alias: Trigger action when new element(s) in RSS feed
+    trigger:
+      platform: event
+      event_type: feedreader
+    action:
+      service: script.turn_on
+      entity_id: script.my_action
+```
+
+For more advanced use cases, a custom component registering to the `feedreader` event type could be used instead:
+
+```python
+EVENT_FEEDREADER = "feedreader"
+hass.bus.listen(EVENT_FEEDREADER, event_listener)
+```
+
+To get started developing custom components, please refer to the [developers](/developers) documentation

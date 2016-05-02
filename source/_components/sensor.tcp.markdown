@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+ha_release: 0.14
 ---
 
 The TCP component allows the integration of some services for which a specific Home Assistant component does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this component will allow integration with it.

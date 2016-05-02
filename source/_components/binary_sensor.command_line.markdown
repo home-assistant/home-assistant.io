@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: command_line.png
 ha_category: Binary Sensor
+ha_release: 0.12
 ---
 
 

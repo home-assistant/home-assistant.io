@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: mysensors.png
 ha_category: Binary Sensor
-featured: false
+ha_release: 0.14
 ---
 
 Integrates MySensors binary sensors into Home Assistant. See the [main component] for configuration instructions.

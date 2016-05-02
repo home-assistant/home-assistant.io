@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ubiquiti.png
 ha_category: Camera
+ha_release: 0.13
 ---
 
 

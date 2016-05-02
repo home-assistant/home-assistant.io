@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Rollershutter
+ha_release: 0.9
 ---
 
 

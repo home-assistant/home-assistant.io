@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: 
 ha_category: Other
+ha_release: 0.13
 ---
 
 The `weblink` component allows you to display links in the Home Assistant frontend.

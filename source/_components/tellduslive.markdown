@@ -10,6 +10,7 @@ footer: true
 logo: telldus.png
 ha_category: Hub
 featured: false
+ha_release: 0.11
 ---
 
 The `tellduslive` component let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick connected gear at home.

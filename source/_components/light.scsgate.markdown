@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: bus_scs.png
 ha_category: Light
+ha_release: 0.13
 ---
 
 The SCSGate device can control lights of the BTicino MyHome system.

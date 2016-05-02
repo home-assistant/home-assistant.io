@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: command_line.png
 ha_category: Rollershutter
+ha_release: 0.14
 ---
 A rollershutter platform that issues specific commands when it is moved up, down and stopped. This might very well become our most powerful platform as it allows anyone to integrate any type of rollershutter into Home Assistant that can be controlled from the command line, including calling other scripts!
 

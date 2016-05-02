@@ -10,6 +10,7 @@ footer: true
 logo: panasonic.png
 ha_category: Media Player
 featured: false
+ha_release: 0.17
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.

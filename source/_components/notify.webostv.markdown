@@ -10,6 +10,7 @@ footer: true
 logo: webos.png
 ha_category: Notifications
 ha_iot_class: "Local Poll"
+ha_release: 0.18
 ---
 
 The `webostv` platform allows you to send notifications to a LG WebOS Smart TV.

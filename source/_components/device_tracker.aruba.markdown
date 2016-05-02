@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: aruba.png
 ha_category: Presence Detection
+ha_release: 0.7
 ---
 
 

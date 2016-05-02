@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
+ha_release: 0.13
 ---
 
 The `input_select` component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selectes a new item, a state transition event is generated. This state event can be used in an `automation` trigger. 

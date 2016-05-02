@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: proliphix.png
 ha_category: Thermostat
+ha_release: 0.11
 ---
 
 

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: 
 ha_category: History
+ha_release: 0.13
 ---
 
 The `graphite` component records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.

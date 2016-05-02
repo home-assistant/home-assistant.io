@@ -10,6 +10,7 @@ footer: true
 logo: samsung.png
 ha_category: Media Player
 featured: false
+ha_release: 0.13
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](http://www.samsung.com/uk/consumer/tv-audio-video/televisions/).
@@ -35,6 +36,7 @@ Configuration variables:
 Currently known supported models:
 
 - C7700
+- D7000
 - D8000
 - ES5500
 - ES6800

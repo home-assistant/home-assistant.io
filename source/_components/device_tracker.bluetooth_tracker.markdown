@@ -10,6 +10,7 @@ footer: true
 logo: bluetooth.png
 ha_category: Presence Detection
 ha_iot_class: "Local Poll"
+ha_release: 0.18
 ---
 
 This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. Devices discovered are stored with 'bt_' as the prefix for device mac in `known_devices.yaml`.

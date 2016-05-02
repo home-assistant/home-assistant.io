@@ -27,6 +27,12 @@
     </div>
   {% endif %}
 
+  {% if page.ha_release %}
+    <div class='section'>
+    Introduced in release: {{ page.ha_release }}
+    </div>
+  {% endif %}
+
   {% if is_platform and parent_name != 'sensor' and parent_name != 'binary_sensor' %}
     <div class='section'>
       This is a platform for

@@ -10,6 +10,7 @@ footer: true
 logo: neurio.png
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
+ha_release: 0.14
 ---
 
 

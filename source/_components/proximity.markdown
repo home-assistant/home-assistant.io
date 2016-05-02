@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Organization
+ha_release: 0.13
 ---
 
 The `proximity` component allows you to monitor the proximity of devices to a particular [zone](/components/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.

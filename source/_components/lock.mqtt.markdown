@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Lock
+ha_release: 0.15
 ---
 
 The `mqtt` lock platform let you control your MQTT enabled locks.

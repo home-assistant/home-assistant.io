@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: bloomsky.png
 ha_category: Binary Sensor
+ha_release: 0.14
 ---
 
 The `bloomsky` binary sensor platform allows you to get data from your BloomSky device.

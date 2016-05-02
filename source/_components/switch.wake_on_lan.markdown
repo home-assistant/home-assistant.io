@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ethernet.png
 ha_category: Switch
+ha_release: 0.16
 ---
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.

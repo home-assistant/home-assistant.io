@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Binary Sensor
+ha_release: 0.9
 ---
 
 

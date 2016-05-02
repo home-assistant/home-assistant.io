@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: avm.png
 ha_category: Presence Detection
+ha_release: 0.10
 ---
 
 
