@@ -131,7 +131,7 @@
   <li><strong>api_key</strong> (<em>Required</em>): Your API key for http://forecast.io/.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend.
     <ul>
-      <li><strong>summary</strong>: A human-readable text summary.</li>
+      <li><strong>summary</strong>: A human-readable text summary of the current conditions.</li>
       <li><strong>precip_type</strong>: The type of precipitation occurring.</li>
       <li><strong>precip_intensity</strong>: The average expected intensity of precipitation occurring.</li>
       <li><strong>precip_probability</strong>: A value between 0 and 1 which is representing the probability of precipitation.</li>
@@ -145,9 +145,9 @@
       <li><strong>pressure</strong>: The sea-level air pressure in millibars.</li>
       <li><strong>visibility</strong>: The average visibility.</li>
       <li><strong>ozone</strong>: The columnar density of total atmospheric ozone in Dobson.</li>
-      <li><strong>minutely_summary</strong>: Weather forecast information</li>
-      <li><strong>hourly_summary</strong>: Weather forecast information</li>
-      <li><strong>daily_summary</strong>: Weather forecast information</li>
+      <li><strong>minutely_summary</strong>: A human-readable text summary for the next hour.</li>
+      <li><strong>hourly_summary</strong>: A human-readable text summary for the next 24 hours.</li>
+      <li><strong>daily_summary</strong>: A human-readable text summary for the next 7 days.</li>
     </ul>
   </li>
   <li><strong>units</strong> (<em>Optional</em>): Specify the unit system. Default to <code>si</code> or <code>us</code> based on the temperature preference in Home Assistant. Other options are <code>auto</code>, <code>us</code>, <code>si</code>, <code>ca</code>, and <code>uk2</code>.<br />
