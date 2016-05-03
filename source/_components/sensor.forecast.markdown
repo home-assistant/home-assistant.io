@@ -41,6 +41,9 @@ sensor:
     - pressure
     - visibility
     - ozone
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
 ```
 
 Configuration variables:
@@ -61,6 +64,9 @@ Configuration variables:
   - **pressure**: The sea-level air pressure in millibars.
   - **visibility**: The average visibility.
   - **ozone**: The columnar density of total atmospheric ozone in Dobson.
+  - **minutely_summary**: Weather forecast information
+  - **hourly_summary**: Weather forecast information
+  - **daily_summary**: Weather forecast information
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let forecast.io decide the unit system based on location.
 
