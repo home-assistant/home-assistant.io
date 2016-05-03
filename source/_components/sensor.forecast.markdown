@@ -50,7 +50,7 @@ Configuration variables:
 
 - **api_key** (*Required*): Your API key for http://forecast.io/.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **summary**: A human-readable text summary.
+  - **summary**: A human-readable text summary of the current conditions.
   - **precip_type**: The type of precipitation occurring.
   - **precip_intensity**: The average expected intensity of precipitation occurring.
   - **precip_probability**: A value between 0 and 1 which is representing the probability of precipitation.
@@ -64,9 +64,9 @@ Configuration variables:
   - **pressure**: The sea-level air pressure in millibars.
   - **visibility**: The average visibility.
   - **ozone**: The columnar density of total atmospheric ozone in Dobson.
-  - **minutely_summary**: Weather forecast information
-  - **hourly_summary**: Weather forecast information
-  - **daily_summary**: Weather forecast information
+  - **minutely_summary**: A human-readable text summary for the next hour.
+  - **hourly_summary**: A human-readable text summary for the next 24 hours.
+  - **daily_summary**: A human-readable text summary for the next 7 days.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let forecast.io decide the unit system based on location.
 
