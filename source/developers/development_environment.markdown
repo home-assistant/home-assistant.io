@@ -46,9 +46,11 @@ After following these steps, running `hass` will invoke your local installation.
 Home Assistant enforces strict [PEP8 style](https://www.python.org/dev/peps/pep-0008/) compliance on all code submitted. You can save yourself the hassle of extra commits just to fix style errors by enabling the flake8 git commit hook. It will check your code when you attempt to commit to the repo. It will block the commit if there are any style issues, giving you a chance to fix it.
 
 ```bash
-$ pip install flake8
+$ pip install flake8 flake8-docstrings
 $ flake8 --install-hook
 ```
+
+The flake8-docstrings extension will check docstrings according to [PEP257](https://www.python.org/dev/peps/pep-0257/) when running flake8.
 
 ### {% linkable_title Submitting improvements %}
 
