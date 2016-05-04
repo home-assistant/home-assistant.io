@@ -31,6 +31,22 @@ Configuration variables:
   - **sensor_class** (*Optional*): Defines the class of the sensor (motion, heat, moisture, etc)
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
+Valid sensor_class:
+ - None: Generic on/off
+ - cold: On means cold (or too cold)
+ - connectivity: On means connection present, Off = no connection
+ - gas: CO, CO2, etc.
+ - heat: On means hot (or too hot)
+ - light: Lightness threshold
+ - moisture: Specifically a wetness sensor
+ - motion: Motion sensor
+ - moving: On means moving, Off means stopped
+ - opening: Door, window, etc.
+ - power: Power, over-current, etc
+ - safety: Generic on=unsafe, off=safe
+ - smoke: Smoke detector
+ - sound: On means sound detected, Off means no sound
+ - vibration: On means vibration detected, Off means no vibration
 
 ## {% linkable_title Examples %}
 
