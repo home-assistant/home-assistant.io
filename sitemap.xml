@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/05/06/open-iot-summit-talk/</loc>
+    <lastmod>2016-05-06T14:09:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/</loc>
     <lastmod>2016-04-30T06:50:09+00:00</lastmod>
   </url>
@@ -427,6 +431,9 @@
   </url>
   <url>
     <loc>https://home-assistant.io/blog/categories/owntracks/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/blog/categories/talks/</loc>
   </url>
   <url>
     <loc>https://home-assistant.io/blog/posts/2/</loc>
@@ -1523,20 +1530,23 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/05/06/open-iot-summit-talk/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-05-05T08:01:32+00:00</lastmod>
+    <lastmod>2016-05-06T16:56:17+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-05-05T08:01:32+00:00</lastmod>
+    <lastmod>2016-05-06T16:56:17+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-05-05T08:01:32+00:00</lastmod>
+    <lastmod>2016-05-06T16:56:17+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-05-05T08:01:32+00:00</lastmod>
+    <lastmod>2016-05-06T16:56:17+00:00</lastmod>
   </url>
 </urlset>
