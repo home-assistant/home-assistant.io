@@ -127,7 +127,7 @@
 
 <h3><a class="title-link" name="i-want-to-build-custom-commands-to-use-with-echo" href="#i-want-to-build-custom-commands-to-use-with-echo"></a> I want to build custom commands to use with Echo</h3>
 
-<p>The built-in Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. There are no supported sentences out of the box as of now, you will have to define them all yourself.</p>
+<p>The built-in Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.</p>
 
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen=""></iframe>
@@ -207,6 +207,8 @@ WhereAreWeIntent where we are
 
 <p>You can use <a href="/topics/templating/">templates</a> for the values of <code>speech/text</code>, <code>card/title</code> and <code>card/content</code>.</p>
 
+<p>Actions are using the <a href="/getting-started/scripts/">Home Assistant Script Syntax</a> and also have access to the variables from the intent.</p>
+
 <p>Configuring the Alexa component for the above intents would look like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -229,8 +231,8 @@ WhereAreWeIntent where we are
     <span class="key">LocateIntent</span>:
       <span class="key">action</span>:
         <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
-        <span class="key">data</span>:
-          <span class="key">message</span>: <span class="string"><span class="content">Your location has been queried via Alexa.</span></span>
+        <span class="key">data_template</span>:
+          <span class="key">message</span>: <span class="string"><span class="content">The location of {{ User }} has been queried via Alexa.</span></span>
       <span class="key">speech</span>:
         <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
         <span class="key">text</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">

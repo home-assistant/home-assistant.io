@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-07T15:11:50+00:00</updated>
+  <updated>2016-05-07T20:04:17+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.19: Empowering scripts and Alexa]]></title>
+    <link href="https://home-assistant.io/blog/2016/05/07/empowering-scripts-and-alexa/"/>
+    <updated>2016-05-07T18:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/05/07/empowering-scripts-and-alexa</id>
+    <content type="html"><![CDATA[<p>This release is big. Until now, our automations and scripts have been very static. Starting today it should all be a bit more dynamic.</p>
+
+<p><strong>Scripts</strong> are now available in automations and when responding to Alexa/Amazon Echo. Both of these components will now expose data to be used in script templates (including <code>from_state</code> !). Passing data to script entities is available by passing the data to the script services.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
+    <span class="key">topic</span>: <span class="string"><span class="content">some/notify/topic</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
+    <span class="key">data_template</span>:
+      <span class="key">message</span>: 
+
+<span class="key">automation 2</span>:
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">light.hue</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
+    <span class="key">data_template</span>:
+      <span class="key">message</span>:  <span class="string"><span class="content">is now </span></span>
+</pre></div>
+</div>
+</div>
+
+<p><strong>Entity Namespaces</strong> allow you to influence the entity ids for a specific platform. For example you can turn <code>light.living_room</code> into <code>light.holiday_home_living_room</code> with the following config:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">light</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">hue</span></span>
+  <span class="key">entity_namespace</span>: <span class="string"><span class="content">holiday_home</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><img src="https://home-assistant.io/images/supported_brands/bluetooth.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Automation: allow <a href="https://home-assistant.io/getting-started/scripts/">script syntax</a> for action (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Automation: expose <a href="https://home-assistant.io/getting-started/automation-templating/#available-trigger-data/"><code>trigger</code> variable</a> to script templates (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Script: allow passing variables for script templates in the <a href="https://home-assistant.io/components/script/#passing-parameters-in-service-calls/">script service calls</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Alexa/Amazon Echo: allow <a href="https://home-assistant.io/getting-started/scripts/">script syntax</a> for action (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Alexa/Amazon Echo: <a href="https://home-assistant.io/components/alexa/#configuring-home-assistant/">expose intent variables</a> to script templates (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Script syntax: <a href="https://home-assistant.io/getting-started/scripts-conditions/">conditions now supported</a> to interrupt execution (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Automation: use <a href="https://home-assistant.io/getting-started/scripts-conditions/">new condition syntax</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Script syntax: two new conditions <a href="https://home-assistant.io/getting-started/scripts-conditions/#and-condition/"><code>and</code></a> and <a href="https://home-assistant.io/getting-started/scripts-conditions/#or-condition/"><code>or</code></a> to combine conditions (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Any platform: Allow setting <a href="https://home-assistant.io/topics/platform_options/#entity-namespace/">entity namespace</a> to prefix entity_ids. (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/switch.rpi_rf/">Raspberry Pi generic 433 Mhz GPIO adapters</a> now supported (<a href="https://github.com/milaq/">@milaq</a>)</li>
+  <li>Z-Wave: use more sane defaults (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
+  <li>Media Player: <a href="https://home-assistant.io/components/media_player.snapcast/">Snapcast</a> now supports picking a source (<a href="https://github.com/happyleavesaoc/">@happyleavesaoc</a>)</li>
+  <li>MySensors: major cleanup (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Binary Sensor: <a href="https://home-assistant.io/components/sensor.command_line/">Command line sensor</a> now supports classes (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
+  <li>MQTT: <a href="https://home-assistant.io/components/mqtt/">allow client key authentication</a> (<a href="https://github.com/timharton/">@timharton</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.forecast/">Forecast.io</a> now supports minutely, hourly and daily summaries (<a href="https://github.com/aceat64/">@aceat64</a>)</li>
+  <li>Media Player: <a href="https://home-assistant.io/components/media_player.pioneer/">Pioneer AVR</a> now supported (<a href="https://github.com/kylehendricks/">@kylehendricks</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/switch.acer_projector/">Acer Projectors</a> now supported (<a href="https://github.com/deisi/">@deisi</a>)</li>
+  <li>New <a href="https://home-assistant.io/components/hvac/">HVAC component</a> added with Z-Wave support (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>Support added for <a href="https://home-assistant.io/components/octoprint/">OctoPrint</a> (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
+  <li>Configuration.yaml can now refer to environment variables using <code>!envvar</code> (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
+  <li>Lock: <a href="https://home-assistant.io/components/lock.zwave/">Z-Wave</a> now supported (<a href="https://github.com/devdelay/">@devdelay</a>)</li>
+  <li>New <a href="https://home-assistant.io/components/dweet/">Dweet component</a> to export data (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
+  <li>Media Player now supports stop command + initial kodi support (<a href="https://github.com/hmronline/">@hmronline</a>)</li>
+  <li>Zigbee: push updates now supported (<a href="https://github.com/flyte/">@flyte</a>)</li>
+  <li>Wink devices with battery level will now show these (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
+  <li>Templates: new <a href="https://home-assistant.io/topics/templating/#home-assistant-template-extensions/"><code>as_timestamp</code></a> method now available (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
+  <li>API: Add [<code>/api/discovery_info</code>] with basic instance info (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.google_travel_time/">Google Maps travel time</a> added (<a href="https://github.com/Danielhiversen/">@Danielhiversen</a>)</li>
+  <li>HTTP: Allow adding <a href="https://home-assistant.io/components/http/">CORS headers</a> (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.fitbit/">Fitbit</a> support added (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Bug fixes and tweaks by <a href="https://github.com/turbokongen/">@turbokongen</a>, <a href="https://github.com/danieljkemp/">@danieljkemp</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>, <a href="https://github.com/TheRealLink/">@TheRealLink</a>, <a href="https://github.com/persandstrom/">@persandstrom</a>, <a href="https://github.com/sander76/">@sander76</a>, <a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/ishults/">@ishults</a>, <a href="https://github.com/Bart274/">@Bart274</a>, <a href="https://github.com/robbiet480/">@robbiet480</a>, <a href="https://github.com/Cinntax/">@Cinntax</a>, <a href="https://github.com/blackdog70/">@blackdog70</a>, <a href="https://github.com/gwendalg/">@gwendalg</a>, <a href="https://github.com/JshWright/">@JshWright</a>, <a href="https://github.com/kylehendricks/">@kylehendricks</a>, <a href="https://github.com/bradsk88/">@bradsk88</a>, <a href="https://github.com/shaftoe/">@shaftoe</a>, <a href="https://github.com/molobrakos/">@molobrakos</a>, <a href="https://github.com/bah2830/">@bah2830</a>, <a href="https://github.com/nkgilley/">@nkgilley</a></li>
+</ul>
+
+<h3>Deprecations</h3>
+<ul>
+  <li>Conditions in automations should now specify which condition to use with <code>condition:</code> instead of <code>platform:</code>. For example <code>condition: state</code>.</li>
+  <li>RFXtrx has a new config format.</li>
+</ul>
+
+<p>Old RFXtrx config format:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>  <span class="key">devices</span>:
+    <span class="key">123efab1</span>:
+      <span class="key">name</span>: <span class="string"><span class="content">My DI.0 light device</span></span>
+      <span class="key">packetid</span>: <span class="string"><span class="content">1b2200000890efab1213f60</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>New RFXtrx config format:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>  <span class="key">devices</span>:
+    <span class="key">1b2200000890efab1213f60</span>:
+      <span class="key">name</span>: <span class="string"><span class="content">My DI.0 light device</span></span>
+</pre></div>
+</div>
+</div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Talk: Automating your home with Home Assistant (OpenIoT Summit)]]></title>
@@ -1340,69 +1447,6 @@ Example of the new views in the frontend. <a href="https://home-assistant.io/com
   <li>The <a href="https://home-assistant.io/components/binary_sensor.rpi_gpio/">RPi.GPIO sensor platform</a> has been moved to the <code>binary_sensor</code> component.</li>
   <li><a href="https://home-assistant.io/components/sensor.mysensors/">MySensors sensor platform</a> now requires the <a href="https://home-assistant.io/components/mysensors/">MySensors</a> component to be configured.</li>
   <li>Geofancy platform has been renamed to <a href="https://home-assistant.io/components/device_tracker.locative/">Locative</a>.</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.10: Amazon Echo, iCloud, Dweet.io, Twitch and templating support!]]></title>
-    <link href="https://home-assistant.io/blog/2015/12/22/amazon-echo-icloud-and-templates/"/>
-    <updated>2015-12-22T09:30:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/12/22/amazon-echo-icloud-and-templates</id>
-    <content type="html"><![CDATA[<p>Alrighty, it’s time for Home Assistant 0.10. A lot amazing things have changed and sadly we also had to introduce a bunch of backwards incompatible changes. I would like to give a big shoutout to Philip Lundrigan (<a href="https://github.com/philipbl">@philipbl</a>) who put a lot in effort in helping the migration to move towards using templates for a wide variety of platforms.</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-<p><img src="https://home-assistant.io/images/supported_brands/icloud.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/heatmiser.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/dweet.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/amazon-echo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/eliq.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Device tracker: <a href="https://home-assistant.io/components/device_tracker.icloud/">iCloud</a> platform added (<a href="https://github.com/xorso">@xorso</a>, <a href="https://github.com/kevinpanaro">@kevinpanaro</a>)</li>
-  <li>Frontend: Improved caching using service workers if served over SSL (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.twitch/">Twitch</a> platform added (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li><a href="https://home-assistant.io/topics/templating/">Template</a> support (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/philipbl">@philipbl</a>, <a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.heatmiser/">Heatmiser</a> platform added (<a href="https://github.com/andylockran">@andylockran</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.dweet/">Dweet.io</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li><a href="https://home-assistant.io/components/alexa/">Alexa/Amazon echo</a> component added (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Device Tracker: <a href="https://home-assistant.io/components/device_tracker.fritz/">FritzBox</a> platform added (<a href="https://github.com/deisi">@deisi</a>, <a href="https://github.com/caiuspb">@caiuspb</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.wink/">Wink</a> now supports the Egg minders (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.eliqonline/">ELIQ Online</a> platform added (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
-  <li>Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.rest/">REST</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.torque/">Torque (OBD2)</a> platform added (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-</ul>
-
-<!--more-->
-
-<h3>Templates</h3>
-
-<p>This release introduces templates. This will allow you to parse data before it gets processed or create messages for notifications on the fly based on data within Home Assistant. The notification component and the new Alexa/Amazon Echo component are both using the new template functionality to render responses. A template editor has been added to the developer tool section in the app so you can get instant feedback if your templates are working or not.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>The temperature at home is {{ states('sensor.temperature') }}.
-</pre></div>
-</div>
-</div>
-
-<p>More information and examples can be found in the <a href="https://home-assistant.io/topics/templating/">template documentation</a>.</p>
-
-<h3>Breaking changes</h3>
-
-<p>Templates will now be the only way to extract data from ‘raw’ sources like REST, CommandSensor or MQTT. This will replace any specific option that used to do this before. This means that <code>precision</code>, <code>factor</code>, <code>attribute</code> or <code>json_path</code> etc will no longer work.</p>
-
-<p>Affected components and platforms:</p>
-
-<ul>
-  <li>sensor: <a href="https://home-assistant.io/components/sensor.arest/">arest</a></li>
-  <li>sensor: <a href="https://home-assistant.io/components/sensor.command_sensor/">command_sensor</a></li>
-  <li>sensor: <a href="https://home-assistant.io/components/sensor.rest/">rest</a></li>
-  <li>sensor: <a href="https://home-assistant.io/components/sensor.mqtt/">MQTT</a></li>
-  <li>switch: <a href="https://home-assistant.io/components/switch.mqtt/">MQTT</a></li>
-  <li>rollershutter: <a href="https://home-assistant.io/components/rollershutter.mqtt/">MQTT</a></li>
-  <li>light: <a href="https://home-assistant.io/components/light.mqtt/">MQTT</a></li>
-  <li>binary_sensor: <a href="https://home-assistant.io/components/binary_sensor.mqtt/">MQTT</a></li>
-  <li>automation: <a href="https://home-assistant.io/getting-started/automation-trigger/#numeric-state-trigger/">numeric_state</a></li>
 </ul>
 
 ]]></content>

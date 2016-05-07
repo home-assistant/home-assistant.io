@@ -89,15 +89,25 @@
   <hr class="divider">
   
 
-  <p>The script component allows users to create a sequence of service calls and delays. Scripts can be started using the service <code>script/turn_on</code> and interrupted using the service <code>script/turn_off</code>.</p>
+  <p>The script component allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script component will create an entity for each script and allow them to be controlled via services.</p>
+
+<p>The sequence of actions is specified using the <a href="/getting-started/scripts/">Home Assistant Script Syntax</a>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">script</span>:
+  <span class="key">message_temperature</span>:
+    <span class="key">sequence</span>:
+      <span class="comment"># This is Home Assistant Script Syntax</span>
+      - <span class="string"><span class="content">service: notify.notify</span></span>
+        <span class="key">data_template</span>:
+          <span class="key">message</span>: <span class="string"><span class="content">Current temperature is {{ states.sensor.temperature.state }}</span></span>
+
   <span class="comment"># Turns on the bedroom lights and then the living room lights 1 minute later</span>
   <span class="key">wakeup</span>:
     <span class="key">alias</span>: <span class="string"><span class="content">Wake Up</span></span>
     <span class="key">sequence</span>:
+      <span class="comment"># This is Home Assistant Script Syntax</span>
       - <span class="string"><span class="content">event: LOGBOOK_ENTRY</span></span>
         <span class="key">event_data</span>:
           <span class="key">name</span>: <span class="string"><span class="content">Paulus</span></span>
@@ -110,7 +120,7 @@
           <span class="key">entity_id</span>: <span class="string"><span class="content">group.bedroom</span></span>
           <span class="key">brightness</span>: <span class="string"><span class="content">100</span></span>
       - <span class="string"><span class="content">delay:</span><span class="content">
-          # supports seconds, milliseconds, minutes, hours, etc.
+          # supports seconds, milliseconds, minutes, hours
           minutes: 1</span></span>
       - <span class="string"><span class="content">alias: Living room lights on</span></span>
         <span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
@@ -119,6 +129,26 @@
 </pre></div>
 </div>
 </div>
+
+<h3><a class="title-link" name="passing-parameters-in-service-calls" href="#passing-parameters-in-service-calls"></a> Passing parameters in service calls</h3>
+
+<p>As part of the service, parameters can be passed in that will be made available to the script as variables within templates.</p>
+
+<p>There are two ways to activate scripts. One is using the generic <code>script.turn_on</code> service. To pass variables to the script with this service, call it using the following parameters:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">script.wakeup</span><span class="delimiter">&quot;</span></span><span class="string"><span class="content">,</span></span>
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">variables</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="content">{</span><span class="content">
+    &quot;hello&quot;: &quot;world&quot;,
+    &quot;name&quot;: &quot;Paulus&quot;</span></span>
+  }
+}
+</pre></div>
+</div>
+</div>
+
+<p>If you are calling the script service directly, for example <code>script.wakeup</code>. All service data will be made available as variables.</p>
 
 
 </article>

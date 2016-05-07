@@ -118,6 +118,8 @@
   <li><strong>username</strong> (<em>Optional</em>): The username to use with your MQTT broker.</li>
   <li><strong>password</strong> (<em>Optional</em>): The corresponding password for the username to use with your MQTT broker.</li>
   <li><strong>certificate</strong> (<em>Optional</em>): Certificate to use to encrypt communication with the broker.</li>
+  <li><strong>client_key</strong> (<em>Optional</em>): Client key (example: <code>/home/user/owntracks/cookie.key</code>)</li>
+  <li><strong>client_cert</strong> (<em>Optional</em>): Client certificate (example: <code>/home/user/owntracks/cookie.crt</code>)</li>
   <li><strong>protocol</strong> (<em>Optional</em>): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.</li>
 </ul>
 
@@ -481,6 +483,9 @@ Home Assistant will automatically load the correct certificate if you connect to
         </li>
         <li>
             <a href='/components/nest/'>Nest</a>
+        </li>
+        <li>
+            <a href='/components/octoprint/'>OctoPrint</a>
         </li>
         <li>
             <a href='/components/rfxtrx/'>RFXtrx</a>

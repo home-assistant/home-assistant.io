@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/05/07/empowering-scripts-and-alexa/</loc>
+    <lastmod>2016-05-07T18:06:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/05/06/open-iot-summit-talk/</loc>
     <lastmod>2016-05-06T14:09:00+00:00</lastmod>
   </url>
@@ -253,6 +257,9 @@
     <loc>https://home-assistant.io/getting-started/automation-examples/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/getting-started/automation-templating/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/getting-started/automation-trigger/</loc>
   </url>
   <url>
@@ -376,6 +383,15 @@
     <loc>https://home-assistant.io/developers/rest_api/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/getting-started/scripts-conditions/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/getting-started/scripts-service-calls/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/getting-started/scripts/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/developers/server_sent_events/</loc>
   </url>
   <url>
@@ -476,6 +492,9 @@
     </url>
     <url>
       <loc>https://home-assistant.io/components/notify.pushover/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/octoprint/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/components/sensor.wink/</loc>
@@ -662,6 +681,9 @@
     </url>
     <url>
       <loc>https://home-assistant.io/components/sensor.eliqonline/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.fitbit/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/components/camera.generic/</loc>
@@ -1204,6 +1226,9 @@
       <loc>https://home-assistant.io/components/binary_sensor.vera/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/sensor.google_travel_time/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/sensor.gtfs/</loc>
     </url>
     <url>
@@ -1270,6 +1295,33 @@
       <loc>https://home-assistant.io/components/sensor.steam_online/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/binary_sensor.octoprint/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.octoprint/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/switch.acer_projector/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/dweet/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/locks.zwave/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/media_player.pioneer/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/hvac/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/hvac.zwave/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/switch.rpi_rf/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/cookbook/automation_for_rainy_days/</loc>
     </url>
     <url>
@@ -1315,9 +1367,6 @@
       <loc>https://home-assistant.io/cookbook/configuration_yaml_by_greenturtwig/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/cookbook/customize_polling_interval/</loc>
-    </url>
-    <url>
       <loc>https://home-assistant.io/cookbook/python_component_simple_alarm/</loc>
     </url>
     <url>
@@ -1348,10 +1397,10 @@
       <loc>https://home-assistant.io/topics/templating/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/topics/events/</loc>
+      <loc>https://home-assistant.io/topics/platform_options/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/topics/service_calls/</loc>
+      <loc>https://home-assistant.io/topics/events/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/topics/state_object/</loc>
@@ -1533,28 +1582,31 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/05/06/open-iot-summit-talk/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/05/07/empowering-scripts-and-alexa/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-05-07T15:11:07+00:00</lastmod>
+    <lastmod>2016-05-07T20:03:34+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-05-07T15:11:07+00:00</lastmod>
+    <lastmod>2016-05-07T20:03:34+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-05-07T15:11:07+00:00</lastmod>
+    <lastmod>2016-05-07T20:03:34+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-05-07T15:11:07+00:00</lastmod>
+    <lastmod>2016-05-07T20:03:34+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-05-07T15:11:07+00:00</lastmod>
+    <lastmod>2016-05-07T20:03:34+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-05-07T15:11:07+00:00</lastmod>
+    <lastmod>2016-05-07T20:03:34+00:00</lastmod>
   </url>
 </urlset>

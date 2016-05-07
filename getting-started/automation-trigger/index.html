@@ -139,13 +139,13 @@
 
 <h4><a class="title-link" name="state-trigger" href="#state-trigger"></a> State trigger</h4>
 
-<p>Triggers when the state of an entity changes. If only entity_id given will match all state changes.</p>
+<p>Triggers when the state of tracked entities change. If only entity_id given will match all state changes.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">automation</span>:
   <span class="key">trigger</span>:
     <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus, device_tracker.anne_therese</span></span>
     <span class="comment"># Optional</span>
     <span class="key">from</span>: <span class="string"><span class="content">'not_home'</span></span>
     <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
@@ -268,7 +268,7 @@
           <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
           <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
           <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
-          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting configuration.yaml </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
         </ul>
       </li>
       <li>
@@ -278,6 +278,14 @@
           <li><a class='active' href='/getting-started/automation-trigger/'>Triggers </a></li>
           <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
           <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
         </ul>
       </li>
       <li>

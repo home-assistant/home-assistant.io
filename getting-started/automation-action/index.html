@@ -89,11 +89,16 @@
   <hr class="divider">
   
 
-  <p>When an automation rule fires, it calls a service. For this service you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).</p>
+  <p>The action of an automation rule is what is being executed when a rule fires. The action part follows the <a href="/getting-started/scripts/">script syntax</a> which can be used to interact with anything via services or events. For services you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).</p>
+
+<p>You can also call the service to activate <a href="/components/scene/">a scene</a> which will allow you to define how you want your devices to be and have Home Assistant call the right services.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">automation</span>:
   <span class="comment"># Change the light in the kitchen and living room to 150 brightness and color red.</span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">sun</span></span>
+    <span class="key">event</span>: <span class="string"><span class="content">sunset</span></span>
   <span class="key">action</span>:
     <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
     <span class="key">entity_id</span>:
@@ -102,22 +107,25 @@
     <span class="key">data</span>:
       <span class="key">brightness</span>: <span class="string"><span class="content">150</span></span>
       <span class="key">rgb_color</span>: <span class="string"><span class="content">[255, 0, 0]</span></span>
-</pre></div>
-</div>
-</div>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
+<span class="key">automation 2</span>:
   <span class="comment"># Notify me on my mobile phone of an event</span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">sun</span></span>
+    <span class="key">event</span>: <span class="string"><span class="content">sunset</span></span>
+    <span class="key">offset</span>: <span class="string"><span class="content">-00:30</span></span>
   <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
-    <span class="key">data</span>:
-      <span class="key">message</span>: <span class="string"><span class="content">Something just happened, better take a look!</span></span>
+    <span class="comment"># Actions are scripts so can also be a list of actions</span>
+    - <span class="string"><span class="content">service: notify.notify</span></span>
+      <span class="key">data</span>:
+        <span class="key">message</span>: <span class="string"><span class="content">Beautiful sunset!</span></span>
+    - <span class="string"><span class="content">delay: 0:35</span></span>
+    - <span class="string"><span class="content">service: notify.notify</span></span>
+      <span class="key">data</span>:
+        <span class="key">message</span>: <span class="string"><span class="content">Oh wow you really missed something great.</span></span>
 </pre></div>
 </div>
 </div>
-
-<p>If you want to specify multiple services to be called, or to include a delay, have a look at the <a href="/components/script/">script component</a>. If you want to describe the desired state of certain entities, check out the <a href="/components/scene/">scene component</a>.</p>
 
 
 </article>
@@ -152,7 +160,7 @@
           <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
           <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
           <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
-          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting configuration.yaml </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
         </ul>
       </li>
       <li>
@@ -162,6 +170,14 @@
           <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
           <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
           <li><a class='active' href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
         </ul>
       </li>
       <li>

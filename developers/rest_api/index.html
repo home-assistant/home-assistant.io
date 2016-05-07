@@ -399,6 +399,29 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 </div>
 </div>
 
+<h4><a class="title-link" name="get-apidiscovery_info" href="#get-apidiscovery_info"></a> GET /api/discovery_info</h4>
+<p>Retrieve about the discovery feature.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">base_url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://192.168.1.2:8123</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">location_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">My home</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">requires_api_password</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0.19.0</span><span class="delimiter">&quot;</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<p>Sample <code>curl</code> command:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: mypass&quot; \
+       http://localhost:8123/api/discovery_info
+</pre></div>
+</div>
+</div>
+
 <h4><a class="title-link" name="post-apistatesltentity_id" href="#post-apistatesltentity_id"></a> POST /api/states/&lt;entity_id&gt;</h4>
 <p>Updates or creates the current state of an entity.</p>
 

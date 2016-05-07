@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Customize polling interval for any component - Home Assistant</title>
+    <title>Z-Wave Lock - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Shows how to customize polling interval for any component via configuration.yaml.">
+    <meta name="description" content="Instructions how to setup the Z-Wave Locks within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/cookbook/customize_polling_interval/">
+    <link rel="canonical" href="https://home-assistant.io/components/locks.zwave/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Customize polling interval for any component">
+    <meta property="og:title" content="Z-Wave Lock">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/cookbook/customize_polling_interval/">
+    <meta property="og:url" content="https://home-assistant.io/components/locks.zwave/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Shows how to customize polling interval for any component via configuration.yaml.">
+    <meta property="og:description" content="Instructions how to setup the Z-Wave Locks within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Customize polling interval for any component">
-    <meta name="twitter:description" content="Shows how to customize polling interval for any component via configuration.yaml.">
+    <meta name="twitter:title" content="Z-Wave Lock">
+    <meta name="twitter:description" content="Instructions how to setup the Z-Wave Locks within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,22 +83,13 @@
   
   <header>
     <h1 class="title indent">
-      Customize Polling Interval for Any Component
+      Z-Wave Lock
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Platforms that require polling will be polled in an interval specified by the main component. For example a light will check every 30 seconds for a changed state. It is possible to overwrite this scan interval for any platform that is being polled by specifying a <code>scan_interval</code> config key. In the example below we setup the Philips Hue lights but tell Home Assistant to poll the devices every 10 seconds instead of the default 30 seconds.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry to poll Hue lights every 10 seconds.</span>
-<span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">hue</span></span>
-  <span class="key">scan_interval</span>: <span class="string"><span class="content">10</span></span>
-</pre></div>
-</div>
-</div>
+  <p>To get your Z-Wave locks working with Home Assistant, follow the instructions for the general <a href="/components/zwave/">Z-Wave component</a>.</p>
 
 
 </article>
@@ -112,18 +103,51 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_cookbook/customize_polling_interval.markdown'>Edit this page on GitHub</a></div>
-  <div class='section'>
-    <a href='/cookbook'>Back to the cookbook</a>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_components/locks.zwave.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/z-wave.png' />
   </div>
-  <div class='section'>
-    <h1 class="title delta">Customize Defaults</h1>
-    <ul class='divided'>
-          <li>
-              Customize polling interval for any component
-          </li>
+    <div class='section'>
+    Introduced in release: 0.19
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href=''>the  component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/zwave/'>
+          Z-Wave
+        </a></li>
+        <li><a href='/components/binary_sensor.zwave/'>
+          Z-Wave Binary Sensor
+        </a></li>
+        <li><a href='/components/hvac.zwave/'>
+          Z-Wave HVAC
+        </a></li>
+        <li><a href='/components/light.zwave/'>
+          Z-Wave Light
+        </a></li>
+        <li><a href='/components/sensor.zwave/'>
+          Z-Wave Sensor
+        </a></li>
+        <li><a href='/components/switch.zwave/'>
+          Z-Wave Switch
+        </a></li>
+        <li><a href='/components/thermostat.zwave/'>
+          Z-Wave Thermostat
+        </a></li>
     </ul>
-  </div>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Locks</h1>
+    <ul class='divided'>
+        <li>
+            Z-Wave Lock
+        </li>
+    </ul>
+    </div>
 </section>
   
 </div>
