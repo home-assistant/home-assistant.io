@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: z-wave.png
 ha_category: Locks
+ha_release: 0.19
 ---
 
 To get your Z-Wave locks working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/).

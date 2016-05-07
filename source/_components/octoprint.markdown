@@ -10,6 +10,7 @@ footer: true
 logo: octoprint.png
 ha_category: Hub
 featured: true
+ha_release: 0.19
 ---
 
 [OctoPrint](http://octoprint.org/) is a web interface for your 3D printer. This is the main component to integrate OctoPrint sensors, you will have to setup sensors and binary sensors separately.
