@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MQTT | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/mqtt/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-06T16:56:53+00:00</updated>
+  <updated>2016-05-07T06:01:08+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -196,7 +196,7 @@
         - <span class="string"><span class="content">mqtt</span></span>
 
 <span class="key">homeassistant</span>:
-    <span class="key">image</span>: <span class="string"><span class="content">balloob/home-assistant</span></span>
+    <span class="key">image</span>: <span class="string"><span class="content">homeassistant/home-assistant:latest</span></span>
     <span class="key">ports</span>:
         - <span class="string"><span class="content">80:80</span></span>
     <span class="key">volumes</span>:
