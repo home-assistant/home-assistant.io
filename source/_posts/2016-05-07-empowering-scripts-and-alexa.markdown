@@ -75,7 +75,7 @@ light:
  - API: Add [`/api/discovery_info`] with basic instance info ([@robbiet480])
  - Sensor: [Google Maps travel time] added ([@Danielhiversen])
  - HTTP: Allow adding [CORS headers] ([@robbiet480])
- - Sensor: Fitbit support added (@robbiet480)
+ - Sensor: [Fitbit] support added ([@robbiet480])
  - Bug fixes and tweaks by [@turbokongen], [@danieljkemp], [@Danielhiversen], [@TheRealLink], [@persandstrom], [@sander76], [@fabaff], [@ishults], [@Bart274], [@robbiet480], [@Cinntax], [@blackdog70], [@gwendalg], [@JshWright], [@kylehendricks], [@bradsk88], [@shaftoe], [@molobrakos], [@bah2830], [@nkgilley]
 
 [script syntax]: /getting-started/scripts/
@@ -103,6 +103,7 @@ light:
 [`as_timestamp`]: /topics/templating/#home-assistant-template-extensions
 [Google Maps travel time]: /components/sensor.google_travel_time/
 [CORS headers]: /components/http/
+[Fitbit]: /components/sensor.fitbit/
 [@balloob]: https://github.com/balloob/
 [@milaq]: https://github.com/milaq/
 [@danieljkemp]: https://github.com/danieljkemp/
