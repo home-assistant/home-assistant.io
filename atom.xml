@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-07T20:04:17+00:00</updated>
+  <updated>2016-05-07T20:08:36+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -53,8 +53,6 @@
 </pre></div>
 </div>
 </div>
-
-<p><img src="https://home-assistant.io/images/supported_brands/bluetooth.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
 
 <ul>
   <li>Automation: allow <a href="https://home-assistant.io/getting-started/scripts/">script syntax</a> for action (<a href="https://github.com/balloob/">@balloob</a>)</li>
