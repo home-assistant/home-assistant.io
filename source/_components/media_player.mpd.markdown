@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mpd.png
 ha_category: Media Player
+ha_release: pre 0.7
 ---
 
 

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: tp-link.png
 ha_category: Presence Detection
+ha_release: pre 0.7
 ---
 
 

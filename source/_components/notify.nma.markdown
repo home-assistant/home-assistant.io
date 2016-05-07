@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: nma.png
 ha_category: Notifications
+ha_release: pre 0.7
 ---
 
 

@@ -10,6 +10,7 @@ footer: true
 logo: forecast.png
 ha_category: Weather
 featured: true
+ha_release: pre 0.7
 ---
 
 The `forecast` platform uses the [Forecast.io](https://forecast.io/) web service as a source of meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in `configuration.yaml`.  The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using Google Maps and clicking on your home.
@@ -41,13 +42,16 @@ sensor:
     - pressure
     - visibility
     - ozone
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
 ```
 
 Configuration variables:
 
 - **api_key** (*Required*): Your API key for http://forecast.io/.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **summary**: A human-readable text summary.
+  - **summary**: A human-readable text summary of the current conditions.
   - **precip_type**: The type of precipitation occurring.
   - **precip_intensity**: The average expected intensity of precipitation occurring.
   - **precip_probability**: A value between 0 and 1 which is representing the probability of precipitation.
@@ -61,6 +65,9 @@ Configuration variables:
   - **pressure**: The sea-level air pressure in millibars.
   - **visibility**: The average visibility.
   - **ozone**: The columnar density of total atmospheric ozone in Dobson.
+  - **minutely_summary**: A human-readable text summary for the next hour.
+  - **hourly_summary**: A human-readable text summary for the next 24 hours.
+  - **daily_summary**: A human-readable text summary for the next 7 days.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let forecast.io decide the unit system based on location.
 

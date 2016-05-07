@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: raspberry-pi.png
 ha_category: Sensor
+ha_release: pre 0.7
 ---
 
 

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: pushover.png
 ha_category: Notifications
+ha_release: pre 0.7
 ---
 
 

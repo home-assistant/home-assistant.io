@@ -23,6 +23,7 @@ binary_sensor:
   platform: command_line
   command: cat /proc/sys/net/ipv4/ip_forward
   name: 'IP4 forwarding'
+  sensor_class: opening
   payload_on: "1"
   payload_off: "0"
   value_template: '{% raw %}{{ value.x }}{% endraw %}'
@@ -32,6 +33,7 @@ Configuration variables:
 
 - **command** (*Required*): The action to take to get the value.
 - **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
+- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.

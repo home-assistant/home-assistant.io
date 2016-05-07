@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: arduino.png
 ha_category: DIY
+ha_release: pre 0.7
 ---
 
 

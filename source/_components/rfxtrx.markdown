@@ -8,8 +8,10 @@ comments: false
 sharing: true
 footer: true
 ha_category: Hub
+ha_release: pre 0.7
 ---
-The rfxtrx component supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com) which communicate in the frequency range of 433.92 MHz.
+
+The `rfxtrx` component supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com) which communicate in the frequency range of 433.92 MHz.
 
 To enable RFXtrx in your installation, add the following to your `configuration.yaml` file:
 

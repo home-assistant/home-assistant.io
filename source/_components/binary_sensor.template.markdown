@@ -28,9 +28,8 @@ Configuration variables:
 
 - **sensors** array (*Required*): List of your sensors.
   - **friendly_name** (*Optional*): Name to use in the Frontend.
-  - **sensor_class** (*Optional*): Defines the class of the sensor (motion, heat, moisture, etc)
+  - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
-
 
 ## {% linkable_title Examples %}
 

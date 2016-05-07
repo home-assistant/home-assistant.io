@@ -159,7 +159,7 @@ mqttbridge:
         - mqtt
 
 homeassistant:
-    image: balloob/home-assistant
+    image: homeassistant/home-assistant:latest
     ports:
         - 80:80
     volumes:

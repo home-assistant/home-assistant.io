@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: http.png
 ha_category: Sensor
+ha_release: pre 0.7
 ---
 
 The URL for a sensor looks like the example below:

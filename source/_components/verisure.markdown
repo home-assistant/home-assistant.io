@@ -9,19 +9,18 @@ sharing: true
 footer: true
 logo: verisure.png
 ha_category: Hub
+ha_release: pre 0.7
 ---
-
-
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
 
 We support:
 
- * Alarm
- * Smartplugs
- * Reading from thermometers and hygrometers integrated in various devices
+ * [Alarm](/components/alarm_control_panel.verisure/)
+ * [Smartplugs](/components/switch.verisure/)
+ * Reading from thermometers and hygrometers integrated in various [devices](/components/sensor.verisure/)
  * Mouse Detector
- * Locks 
+ * [Locks](/components/lock.verisure/)
 
 To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
 

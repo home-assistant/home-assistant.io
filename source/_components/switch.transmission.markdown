@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: transmission.png
 ha_category: Switch
+ha_release: pre 0.7
 ---
 
 

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: modbus.png
 ha_category: Hub
+ha_release: pre 0.7
 ---
 
 
