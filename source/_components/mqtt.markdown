@@ -39,6 +39,8 @@ Configuration variables:
 - **username** (*Optional*): The username to use with your MQTT broker.
 - **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
 - **certificate** (*Optional*): Certificate to use to encrypt communication with the broker.
+- **client_key** (*Optional*): Client key (example: `/home/user/owntracks/cookie.key`)
+- **client_cert** (*Optional*): Client certificate (example: `/home/user/owntracks/cookie.crt`)
 - **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.
 
 ## {% linkable_title Picking a broker %}
