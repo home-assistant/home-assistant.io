@@ -12,10 +12,11 @@ ha_release: 0.19
 
 The `hvac` component is built for the controlling and monitoring of HVAC (heating, ventilating, and air conditioning) devices.
  
-To enable this component, add the following lines to your `configuration.yaml`:
+To enable this component, pick one of the platforms and add it to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 hvac:
+  platform: demo
 ```
 
