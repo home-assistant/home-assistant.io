@@ -43,8 +43,6 @@ light:
   entity_namespace: holiday_home
 ```
 
-<img src='/images/supported_brands/bluetooth.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
-
  - Automation: allow [script syntax] for action ([@balloob])
  - Automation: expose [`trigger` variable][trigger-variable] to script templates ([@balloob])
  - Script: allow passing variables for script templates in the [script service calls] ([@balloob])
