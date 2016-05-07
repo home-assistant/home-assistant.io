@@ -7,8 +7,7 @@ date_formatted: "May 7, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Talks
-og_image: /images/blog/2016-05-openiot/preview-video.png
+categories: Release-Notes
 ---
 
 This release is big. Until now, our automations and scripts have been very static. Starting today it should all be a bit more dynamic.
