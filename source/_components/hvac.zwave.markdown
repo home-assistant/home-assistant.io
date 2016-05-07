@@ -12,4 +12,4 @@ ha_category: HVAC
 ha_release: 0.19
 ---
  
-To get your Z-Wave `hvac` devices working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/) and the (HVAC component](/components/hvac/).
+To get your Z-Wave `hvac` devices working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/) and the [HVAC component](/components/hvac/).
