@@ -89,9 +89,11 @@
   <hr class="divider">
   
 
-  <p>The <code>mjpeg</code> component allows you to integrate IP cameras which are capable to  stream their video with MJPEG into Home Assistant.</p>
+  <p>The <code>mjpeg</code> camera platform allows you to integrate IP cameras which are capable to stream their video with MJPEG into Home Assistant.</p>
 
-<p>To enable this sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>Home Assistant will serve the images via its server, making it possible to view your IP camera’s while outside of your network. The endpoint is <code>/api/camera_proxy/camera.[name]?time=[timestamp]</code>.</p>
+
+<p>To enable this camera in your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>

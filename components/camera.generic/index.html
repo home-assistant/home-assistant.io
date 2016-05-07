@@ -89,19 +89,11 @@
   <hr class="divider">
   
 
-  <p>This component allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.</p>
+  <p>The <code>generic</code> camera platform allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.</p>
 
-<p>Home Assistant will serve the images via its server, making it possible to view your IP camera’s while outside of your network.</p>
+<p>Home Assistant will serve the images via its server, making it possible to view your IP camera’s while outside of your network. The endpoint is <code>/api/camera_proxy/camera.[name]?time=[timestamp]</code>.</p>
 
-<p>As part of the basic support the following features will be provided:</p>
-
-<ul>
-  <li>MJPEG video streaming</li>
-  <li>Saving a snapshot</li>
-  <li>Recording(JPEG frame capture)</li>
-</ul>
-
-<p>To enable this sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this camery in your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
