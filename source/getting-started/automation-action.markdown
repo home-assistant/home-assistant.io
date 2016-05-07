@@ -9,11 +9,19 @@ sharing: true
 footer: true
 ---
 
-When an automation rule fires, it calls a service. For this service you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).
+The action of an automation rule is what is being executed when a rule fires. The action part follows the [script syntax] which can be used to interact with anything via services or events. For services you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).
+
+You can also call the service to activate [a scene] which will allow you to define how you want your devices to be and have Home Assistant call the right services.
+
+[script syntax]: /getting-started/scripts/
+[a scene]: /components/scene/
 
 ```yaml
 automation:
   # Change the light in the kitchen and living room to 150 brightness and color red.
+  trigger:
+    platform: sun
+    event: sunset
   action:
     service: homeassistant.turn_on
     entity_id:
@@ -22,15 +30,20 @@ automation:
     data:
       brightness: 150
       rgb_color: [255, 0, 0]
-```
 
-```yaml
-automation:
+automation 2:
   # Notify me on my mobile phone of an event
+  trigger:
+    platform: sun
+    event: sunset
+    offset: -00:30
   action:
-    service: notify.notify
-    data:
-      message: Something just happened, better take a look!
+    # Actions are scripts so can also be a list of actions
+    - service: notify.notify
+      data:
+        message: Beautiful sunset!
+    - delay: 0:35
+    - service: notify.notify
+      data:
+        message: Oh wow you really missed something great.
 ```
-
-If you want to specify multiple services to be called, or to include a delay, have a look at the [script component](/components/script/). If you want to describe the desired state of certain entities, check out the [scene component](/components/scene/).
