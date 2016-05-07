@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: arduino.png
 ha_category: DIY
+ha_release: pre 0.7
 ---
 
 
-The `arduino` switch platform allows you to control the digital pins of your [Arduino](https://www.arduino.cc/) board. Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3,5,6,9,10, and 11 on an Arduino Uno) is not supported yet.
+The `arduino` switch platform allows you to control the digital pins of your [Arduino](https://www.arduino.cc/) board. Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3, 5, 6, 9, 10, and 11 on an Arduino Uno) is not supported yet.
 
 To enable the Arduino pins with Home Assistant, add the following section to your `configuration.yaml` file:
 

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: itunes.png
 ha_category: Media Player
+ha_release: 0.7.3
 ---
 
 

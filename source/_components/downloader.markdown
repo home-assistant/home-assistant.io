@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Other
+ha_release: pre 0.7
 ---
 
 The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist.

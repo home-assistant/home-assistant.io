@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: http.png
 ha_category: Binary Sensor
+ha_release: pre 0.7
 ---
 
 The URL for a binary sensor looks like the example below:

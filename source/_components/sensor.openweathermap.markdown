@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: openweathermap.png
 ha_category: Weather
+ha_release: pre 0.7
 ---
 
 

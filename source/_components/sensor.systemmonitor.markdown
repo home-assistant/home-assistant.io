@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+ha_release: pre 0.7
 ---
 
 The `systemmonitor` sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
