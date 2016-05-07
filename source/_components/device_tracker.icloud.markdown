@@ -40,3 +40,7 @@ This may cause battery drainage as it wakes up your device to get the current lo
 You may receive an email from Apple stating that someone has logged into your account.
 </p>
 
+<p class='note warning'>
+If you have two-factor authentication enabled on your iCloud account you will not be able to use this presence detection in HA, even with an app-specific password.
+</p>
+
