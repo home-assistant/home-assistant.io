@@ -273,6 +273,16 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        http://localhost:8123/api/error_log
 ```
 
+#### {% linkable_title GET /api/camera_proxy/camera.&lt;entity_id> %}
+Returns the data (image) from the specified camera entity_id.
+
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD"\
+   http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
+```
+
 #### {% linkable_title GET /api/discovery_info %}
 Retrieve about the discovery feature.
 
@@ -288,9 +298,8 @@ Retrieve about the discovery feature.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: mypass" \
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        http://localhost:8123/api/discovery_info
-```
 
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
 Updates or creates the current state of an entity.
