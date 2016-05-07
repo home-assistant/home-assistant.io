@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: HVAC
 ha_release: 0.19
 ---
 
