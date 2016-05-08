@@ -89,27 +89,36 @@
   <hr class="divider">
   
 
-  <p>The <code>NZBGet</code> platform will allow you to monitor your downloads with <a href="http://NZBGet.net">NZBGet</a> from within Home Assistant and setup automation based on the information.</p>
+  <p>The <code>nzbget</code> platform will allow you to monitor your downloads with <a href="http://NZBGet.net">NZBGet</a> from within Home Assistant and setup automation based on the information.</p>
 
 <p>To use NZBGet with your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: nzbget</span></span>
-    <span class="key">base_url</span>: <span class="string"><span class="content">http://192.168.1.18:6789</span></span>
-    <span class="key">username</span>: <span class="string"><span class="content">apiuser</span></span>
-    <span class="key">password</span>: <span class="string"><span class="content">apipass</span></span>
-    <span class="key">monitored_variables</span>:
-      - <span class="string"><span class="content">ArticleCacheMB</span></span>
-      - <span class="string"><span class="content">DownloadRate</span></span>
-      - <span class="string"><span class="content">DownloadPaused</span></span>
-      - <span class="string"><span class="content">FreeDiskSpaceMB</span></span>
-      - <span class="string"><span class="content">PostPaused</span></span>
-      - <span class="string"><span class="content">RemainingSizeMB</span></span>
+  <span class="key">platform</span>: <span class="string"><span class="content">nzbget</span></span>
+  <span class="key">base_url</span>: <span class="string"><span class="content">http://192.168.1.18:6789</span></span>
+  <span class="key">username</span>: <span class="string"><span class="content">apiuser</span></span>
+  <span class="key">password</span>: <span class="string"><span class="content">apipass</span></span>
+  <span class="key">monitored_variables</span>:
+    - <span class="string"><span class="content">ArticleCacheMB</span></span>
+    - <span class="string"><span class="content">DownloadRate</span></span>
+    - <span class="string"><span class="content">DownloadPaused</span></span>
+    - <span class="string"><span class="content">FreeDiskSpaceMB</span></span>
+    - <span class="string"><span class="content">PostPaused</span></span>
+    - <span class="string"><span class="content">RemainingSizeMB</span></span>
 </pre></div>
 </div>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>base_url</strong> (<em>Required</em>): The URL to your NZBGet installation.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username to access your NZBGet installation.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The password to access your NZBGet installation.</li>
+  <li><strong>monitored_variables</strong> (<em>Required</em>): Array of monitored details.</li>
+</ul>
 
 
 </article>
