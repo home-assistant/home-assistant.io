@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Camera
+logo: camcorder.png
 ha_release: pre 0.7
 ---
 

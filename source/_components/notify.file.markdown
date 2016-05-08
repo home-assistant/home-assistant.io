@@ -7,7 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: file.png
 ha_category: Notifications
+ha_release: pre 0.7
 ---
 
 

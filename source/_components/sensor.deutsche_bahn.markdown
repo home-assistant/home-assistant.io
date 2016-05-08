@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+logo: db.png
 ha_iot_class: "Local Polling"
 ---
 

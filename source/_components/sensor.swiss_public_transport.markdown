@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: train.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
 ha_release: pre 0.7
