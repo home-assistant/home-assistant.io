@@ -35,7 +35,7 @@ automation:
     event: sunset
     offset: "-01:00:00"
   condition:
-    platform: state
+    condition: state
     entity_id: group.all_devices
     state: home
   action:
@@ -64,7 +64,7 @@ automation:
     event: sunset
     offset: "-01:00:00"
   condition:
-    platform: state
+    condition: state
     entity_id: group.all_devices
     state: home
   action:
@@ -91,7 +91,7 @@ automation:
     event: sunset
     offset: "-01:00:00"
   condition:
-    platform: state
+    condition: state
     entity_id: group.all_devices
     state: home
   action:
