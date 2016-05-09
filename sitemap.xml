@@ -683,9 +683,6 @@
       <loc>https://home-assistant.io/components/sensor.eliqonline/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/components/sensor.fitbit/</loc>
-    </url>
-    <url>
       <loc>https://home-assistant.io/components/camera.generic/</loc>
     </url>
     <url>
@@ -1322,6 +1319,9 @@
       <loc>https://home-assistant.io/components/switch.rpi_rf/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/sensor.fitbit/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/cookbook/automation_for_rainy_days/</loc>
     </url>
     <url>
@@ -1587,26 +1587,26 @@
     </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-05-09T22:00:32+00:00</lastmod>
+    <lastmod>2016-05-09T23:19:19+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-05-09T22:00:32+00:00</lastmod>
+    <lastmod>2016-05-09T23:19:19+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-05-09T22:00:32+00:00</lastmod>
+    <lastmod>2016-05-09T23:19:19+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-05-09T22:00:32+00:00</lastmod>
+    <lastmod>2016-05-09T23:19:19+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-05-09T22:00:32+00:00</lastmod>
+    <lastmod>2016-05-09T23:19:19+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-05-09T22:00:32+00:00</lastmod>
+    <lastmod>2016-05-09T23:19:19+00:00</lastmod>
   </url>
 </urlset>
