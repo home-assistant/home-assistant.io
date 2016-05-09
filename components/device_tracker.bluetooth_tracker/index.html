@@ -92,7 +92,7 @@
   <p>This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. Devices discovered are stored with ‘bt_’ as the prefix for device mac in <code>known_devices.yaml</code>.</p>
 
 <p class="note">
-Requires PyBluez
+Requires PyBluez. If you are on raspbian, make sure you first install <code>bluetooth</code> and <code>libbluetooth-dev</code> by running <code>sudo apt install bluetooth libbluetooth-dev</code>
 </p>
 
 <p>To use the Bluetooth tracker in your installation, add the following to your <code>configuration.yaml</code> file:</p>
