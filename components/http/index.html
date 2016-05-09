@@ -99,6 +99,9 @@
   <span class="key">development</span>: <span class="string"><span class="content">1</span></span>
   <span class="key">ssl_certificate</span>: <span class="string"><span class="content">/etc/letsencrypt/live/hass.example.com/fullchain.pem</span></span>
   <span class="key">ssl_key</span>: <span class="string"><span class="content">/etc/letsencrypt/live/hass.example.com/privkey.pem</span></span>
+  <span class="key">cors_allowed_origins</span>:
+    - <span class="string"><span class="content">google.com</span></span>
+    - <span class="string"><span class="content">home-assistant.io</span></span>
 </pre></div>
 </div>
 </div>
@@ -111,6 +114,7 @@
   <li><strong>development</strong> (<em>Optional</em>): Disable caching and load unvulcanized assets. Useful for Frontend development.</li>
   <li><strong>ssl_certificate</strong> (<em>Optional</em>): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.</li>
   <li><strong>ssl_key</strong> (<em>Optional</em>): Path to your TLS/SSL key to serve Home Assistant over a secure connection.</li>
+  <li><strong>cors_allowed_origins</strong> (<em>Optional</em>): A list of origin domain names to allow <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> requests from. Enabling this will set the <code>Access-Control-Allow-Origin</code> header to the Origin header if it is found in the list, and the <code>Access-Control-Allow-Headers</code> to <code>Origin, Accept, X-Requested-With, Content-type, X-HA-access</code>.</li>
 </ul>
 
 <p>The <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Set up encryption using Let’s Encrypt</a> blog post gives you details about the encryption of your traffic using free certificates from <a href="https://letsencrypt.org/">Let’s Encrypt</a>.</p>
