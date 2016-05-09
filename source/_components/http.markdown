@@ -21,6 +21,9 @@ http:
   development: 1
   ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
+  cors_allowed_origins:
+    - google.com
+    - home-assistant.io
 ```
 
 Configuration variables:
@@ -30,6 +33,8 @@ Configuration variables:
 - **development** (*Optional*): Disable caching and load unvulcanized assets. Useful for Frontend development.
 - **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
 - **ssl_key** (*Optional*): Path to your TLS/SSL key to serve Home Assistant over a secure connection.
+- **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`.
+
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
 
