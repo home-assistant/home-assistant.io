@@ -301,24 +301,6 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD"\
    http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
 ```
 
-#### {% linkable_title GET /api/discovery_info %}
-Retrieve about the discovery feature.
-
-```json
-{
-    "base_url": "http://192.168.1.2:8123",
-    "location_name": "My home",
-    "requires_api_password": true,
-    "version": "0.19.0"
-}
-```
-
-Sample `curl` command:
-
-```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
-       http://localhost:8123/api/discovery_info
-
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
 Updates or creates the current state of an entity.
 
