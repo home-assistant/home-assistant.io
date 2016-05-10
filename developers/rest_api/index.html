@@ -433,37 +433,17 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 </div>
 </div>
 
-<h4><a class="title-link" name="get-apidiscovery_info" href="#get-apidiscovery_info"></a> GET /api/discovery_info</h4>
-<p>Retrieve about the discovery feature.</p>
+<h4><a class="title-link" name="post-apistatesltentity_id" href="#post-apistatesltentity_id"></a> POST /api/states/&lt;entity_id&gt;</h4>
+<p>Updates or creates the current state of an entity.</p>
+
+<p>Expects a JSON object that has at least a state attribute:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">base_url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://192.168.1.2:8123</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">location_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">My home</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">requires_api_password</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0.19.0</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
-</div>
-
-<p>Sample <code>curl</code> command:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       http://localhost:8123/api/discovery_info
-
-#### &lt;a class='title-link' name='post-apistatesltentity_id' href='#post-apistatesltentity_id'&gt;&lt;/a&gt; POST /api/states/&amp;lt;entity_id&gt; 
-Updates or creates the current state of an entity.
-
-Expects a JSON object that has at least a state attribute:
-
-```json
-{
-    &quot;state&quot;: &quot;below_horizon&quot;,
-    &quot;attributes&quot;: {
-        &quot;next_rising&quot;: &quot;07:04:15 29-10-2013&quot;,
-        &quot;next_setting&quot;: &quot;18:00:31 29-10-2013&quot;
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">below_horizon</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">next_rising</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">07:04:15 29-10-2013</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">next_setting</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">18:00:31 29-10-2013</span><span class="delimiter">&quot;</span></span>
     }
 }
 </pre></div>
