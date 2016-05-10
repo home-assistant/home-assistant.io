@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Raspberry PI GPIO Switch - Home Assistant</title>
+    <title>Raspberry Pi RF Switch - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to integrate the GPIO of a Raspberry PI into Home Assistant as a switch.">
+    <meta name="description" content="Instructions how to integrate devices controlled via codes sent with low-cost GPIO RF modules on a Raspberry Pi into Home Assistant as a switch.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/switch.rpi_rf/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Raspberry PI GPIO Switch">
+    <meta property="og:title" content="Raspberry Pi RF Switch">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/switch.rpi_rf/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate the GPIO of a Raspberry PI into Home Assistant as a switch.">
+    <meta property="og:description" content="Instructions how to integrate devices controlled via codes sent with low-cost GPIO RF modules on a Raspberry Pi into Home Assistant as a switch.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Raspberry PI GPIO Switch">
-    <meta name="twitter:description" content="Instructions how to integrate the GPIO of a Raspberry PI into Home Assistant as a switch.">
+    <meta name="twitter:title" content="Raspberry Pi RF Switch">
+    <meta name="twitter:description" content="Instructions how to integrate devices controlled via codes sent with low-cost GPIO RF modules on a Raspberry Pi into Home Assistant as a switch.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,7 +83,7 @@
   
   <header>
     <h1 class="title indent">
-      Raspberry PI GPIO Switch
+      Raspberry Pi RF Switch
     </h1>
   </header>
   <hr class="divider">
@@ -91,7 +91,10 @@
 
   <p>The <code>rpi_rf</code> switch platform allows you to control devices over 433/315MHz LPD/SRD signals with generic low-cost GPIO RF modules on a <a href="https://www.raspberrypi.org/">Raspberry Pi</a>.</p>
 
-<p>To use your Raspberry Pi with a 433MHz adaptor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>Interoperable with codes sniffed via <a href="https://pypi.python.org/pypi/rpi-rf">the rpi-rf module</a> or <a href="https://github.com/sui77/rc-switch">rc-switch</a>.<br />
+For more info see the PyPi module description: <a href="https://pypi.python.org/pypi/rpi-rf">rpi-rf</a>.</p>
+
+<p>To enable, add the following to your <code>configuration.yaml</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
@@ -106,6 +109,10 @@
       <span class="key">pulselength</span>: <span class="string"><span class="content">200</span></span>
       <span class="key">code_on</span>: <span class="string"><span class="content">987654</span></span>
       <span class="key">code_off</span>: <span class="string"><span class="content">133742</span></span>
+    <span class="key">living_room_light</span>:
+      <span class="key">protocol</span>: <span class="string"><span class="content">5</span></span>
+      <span class="key">code_on</span>: <span class="string"><span class="content">654321</span></span>
+      <span class="key">code_off</span>: <span class="string"><span class="content">654320</span></span>
 </pre></div>
 </div>
 </div>
@@ -113,14 +120,15 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>gpio</strong> array (<em>Required</em>): Array of used ports.</li>
-  <li><strong>switches:</strong> (<em>Required</em>): Array of switches.
+  <li><strong>gpio</strong> (<em>Required</em>): GPIO to which the data line of the TX module is connected.</li>
+  <li><strong>switches:</strong> (<em>Required</em>): The array that contains all switches.
     <ul>
-      <li><strong>[name]</strong> (<em>Requireld</em>): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
+      <li><strong>[entry]</strong> (<em>Required</em>): Name of the switch. Multiple entries are possible.
         <ul>
-          <li><strong>code_on</strong> (<em>Requireld</em>): Code to switch the device on, eg. <code>987654</code>.</li>
-          <li><strong>code_off</strong> (<em>Requireld</em>):  Code to switch the device off, eg. <code>133742</code>.</li>
-          <li><strong>pulselength</strong> (<em>Optional</em>):  Length of the pulse</li>
+          <li><strong>code_on</strong> (<em>Required</em>): Decimal code to switch the device on.</li>
+          <li><strong>code_off</strong> (<em>Required</em>): Decimal code to switch the device off.</li>
+          <li><strong>protocol</strong> (<em>Optional</em>): RF Protocol (Default is <code>1</code>).</li>
+          <li><strong>pulselength</strong> (<em>Optional</em>): Pulselength (Default is the protocol default).</li>
         </ul>
       </li>
     </ul>
@@ -197,7 +205,7 @@
             <a href='/components/switch.rpi_gpio/'>Raspberry PI GPIO Switch</a>
         </li>
         <li>
-            Raspberry PI GPIO Switch
+            Raspberry Pi RF Switch
         </li>
         <li>
             <a href='/components/switch.scsgate/'>SCSGate Switch</a>

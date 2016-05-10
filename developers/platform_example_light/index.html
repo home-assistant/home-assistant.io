@@ -155,7 +155,7 @@ _LOGGER = logging.getLogger(__name__)
         <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">If light is on.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
         <span class="keyword">return</span> <span class="predefined-constant">self</span>._light.is_on()
 
-    <span class="keyword">def</span> <span class="function">turn_on</span>(<span class="predefined-constant">self</span>, kwargs):
+    <span class="keyword">def</span> <span class="function">turn_on</span>(<span class="predefined-constant">self</span>, **kwargs):
         <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Instruct the light to turn on.</span><span class="content">
 </span><span class="content">
 </span><span class="content">        You can skip the brightness part if your light does not support</span><span class="content">
@@ -164,7 +164,7 @@ _LOGGER = logging.getLogger(__name__)
         <span class="predefined-constant">self</span>._light.brightness = kwargs.get(ATTR_BRIGHTNESS, <span class="integer">255</span>)
         <span class="predefined-constant">self</span>._light.turn_on()
 
-    <span class="keyword">def</span> <span class="function">turn_off</span>(<span class="predefined-constant">self</span>, kwargs):
+    <span class="keyword">def</span> <span class="function">turn_off</span>(<span class="predefined-constant">self</span>, **kwargs):
         <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Instruct the light to turn off.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
         <span class="predefined-constant">self</span>._light.turn_off()
 
