@@ -75,7 +75,7 @@ class AwesomeLight(Light):
         """If light is on."""
         return self._light.is_on()
 
-    def turn_on(self, kwargs):
+    def turn_on(self, **kwargs):
         """Instruct the light to turn on.
 
         You can skip the brightness part if your light does not support
@@ -84,7 +84,7 @@ class AwesomeLight(Light):
         self._light.brightness = kwargs.get(ATTR_BRIGHTNESS, 255)
         self._light.turn_on()
 
-    def turn_off(self, kwargs):
+    def turn_off(self, **kwargs):
         """Instruct the light to turn off."""
         self._light.turn_off()
 
