@@ -74,7 +74,7 @@ Configuration variables:
 - **config_path** (*Optional*): The path to the Python Open Z-Wave configuration files.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **customize** (*Optional*): This attribute contains node-specific override values:
-  - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc)
+  - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc). If not specified then your device will not be polled.
 
 To find the path of your Z-Wave stick, run:
 
