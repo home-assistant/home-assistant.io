@@ -17,6 +17,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
  - [Gitter Chatroom](https://gitter.im/home-assistant/home-assistant) for general Home Assistant discussions and questions.
  - Follow us on [Twitter](https://twitter.com/home_assistant), use @home_assistant
  - Join the [Google+ community](https://plus.google.com/u/0/b/110560654828510104551/communities/106562234893511202708)
+ - Join the [Reddit subreddit](https://reddit.com/r/homeassistant) in [/r/homeassistant](https://reddit.com/r/homeassistant)
 
 ### {% linkable_title Bugs, Feature requests, and alike %}
 
