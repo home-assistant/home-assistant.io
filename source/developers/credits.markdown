@@ -96,6 +96,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Lukas Hetzenecker](https://github.com/lukas-hetzenecker)
 - [Magnus Knutas](https://github.com/MagnusKnutas)
 - [MakeMeASandwich](https://github.com/MakeMeASandwich)
+- [Malte Deiseroth](https://github.com/deisi)
 - [Manoj](https://github.com/vmulpuru)
 - [Markus Peter](https://github.com/bimbar)
 - [Markus Stenberg](https://github.com/fingon)
