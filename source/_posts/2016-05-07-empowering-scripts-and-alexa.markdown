@@ -62,7 +62,7 @@ light:
  - Switch: [Acer Projectors] now supported ([@deisi])
  - New [HVAC component] added with Z-Wave support ([@turbokongen])
  - Support added for [OctoPrint] ([@w1ll1am23])
- - Configuration.yaml can now refer to environment variables using `!envvar` ([@bah2830])
+ - Configuration.yaml can now refer to environment variables using `!env_var` ([@bah2830])
  - Lock: [Z-Wave][lock.zwave] now supported ([@devdelay])
  - New [Dweet component] to export data ([@fabaff])
  - Media Player now supports stop command + initial kodi support ([@hmronline])
