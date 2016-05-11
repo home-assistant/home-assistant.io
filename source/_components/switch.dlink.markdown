@@ -19,6 +19,7 @@ The `dlink` switch platform allows you to control the state of your [D-Link Wi-F
 Supported devices (tested):
 
 - DSP-W215
+- DSP-W110
 
 To use your D-Link smart plugs in your installation, add the following to your `configuration.yaml` file:
 
@@ -37,5 +38,5 @@ Configuration variables:
 - **host** (*Required*): The IP address of your D-Link plug, eg. http://192.168.1.32
 - **name** (*Optional*): The name to use when displaying this switch.
 - **username** (*Required*): The username for your plug. Defaults to `admin`.
-- **password** (*Required*): The password for your plug.
+- **password** (*Required*): The password for your plug. Default password is the `PIN` inlcuded on the configuration card.
 
