@@ -183,7 +183,7 @@ Automation:
 alias: Freelancer Alarm
 trigger:
   platform: template
-  value_template: '{{ states.google_calendar.freelancer_alarm.attributes.offset_reached }}'
+  value_template: {% raw %}'{{ states.google_calendar.freelancer_alarm.attributes.offset_reached }}'{% endraw %}
 action:
   service: script.alarm_routine
 ```
