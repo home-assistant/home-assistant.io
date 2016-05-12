@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Generic IP Camera"
 description: "Instructions how to integrate IP cameras within Home Assistant."
 date: 2015-07-11 0:36
@@ -8,20 +8,16 @@ comments: false
 sharing: true
 footer: true
 ha_category: Camera
+logo: camcorder.png
+ha_release: pre 0.7
 ---
 
 
-This component allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.
+The `generic` camera platform allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.
 
-Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network.
+Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]?time=[timestamp]`.
 
-As part of the basic support the following features will be provided:
-
-- MJPEG video streaming
-- Saving a snapshot
-- Recording(JPEG frame capture)
-
-To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+To enable this camery in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

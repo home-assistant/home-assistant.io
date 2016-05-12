@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Ecobee thermostat"
+layout: page
+title: "Ecobee Thermostat"
 description: "Instructions how to setup the Ecobee thermostats within Home Assistant."
 date: 2015-11-30 18:00
 sidebar: true
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ecobee.png
 ha_category: Thermostat
+ha_release: 0.9
 ---
 
 To get your Ecobee thermostats working with Home Assistant, follow the instructions for the general [Ecobee component](/components/ecobee/).

@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "One wire sensor"
+layout: page
+title: "One wire Sensor"
 description: "Instructions how to integrate One wire (1-wire) sensors into Home Assistant."
 date: 2016-01-17 07:15
 sidebar: true
@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+ha_release: 0.12
 ---
 
 The `onewire` platform supports sensors which are using the One wire (1-wire) bus for communication.

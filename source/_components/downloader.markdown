@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Downloader"
 description: "Instructions how to setup the downloader component with Home Assistant."
 date: 2015-01-24 14:39
@@ -7,8 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: downloader.png
+logo: home-assistant.png
 ha_category: Other
+ha_release: pre 0.7
 ---
 
 The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist.

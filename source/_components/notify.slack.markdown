@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Slack"
 description: "Instructions how to add Slack notifications to Home Assistant."
 date: 2015-08-06 18:00
@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: slack.png
 ha_category: Notifications
+ha_release: pre 0.7
 ---
 
 
-The slack platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
+The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
 You need to obtain the [Slack API token](https://api.slack.com/web?sudo=1) to be able to send notifications.
 
@@ -33,5 +34,5 @@ Configuration variables:
 - **api_key** (*Required*): The slack API token to use for sending slack messages. You can get your slack API token here https://api.slack.com/web?sudo=1 
 - **default_channel** (*Required*): The default channel to post to if no channel is explicitly specified when sending the notification message.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 

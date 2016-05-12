@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "aREST sensor"
+layout: page
+title: "aREST Sensor"
 description: "Instructions how to integrate aREST sensors within Home Assistant."
 date: 2015-09-07 18:15
 sidebar: true
@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: arest.png
 ha_category: Sensor
+ha_iot_class: "Local Polling"
 ---
 
 
-The arest sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
 To use your aREST enabled device in your installation, add the following to your `configuration.yaml` file:
 
@@ -44,11 +45,11 @@ Configuration variables:
 - **monitored_variables** array (*Optional*): List of exposed variables.
   - **name** (*Required*): The name of the variable you wish to monitor.
   - **unit** (*Optional*): Defines the units of measurement of the sensor, if any.
-  - **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 - **pins** array (*Optional*): List of pins to monitor. Analog pins need a leading **A** for the pin number.
   - **name** (*Optional*): The name of the variable you wish to monitor.
   - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-  - **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you could use the one of the example sketches (eg.  [Ethernet](https://raw.githubusercontent.com/marcoschwartz/aREST/master/examples/Ethernet/Ethernet.ino) for an Arduino with Ethernet shield). In those sketches are two variables (`temperature` and `humidity`) available which will act as endpoints. 
 

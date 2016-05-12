@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Dweet.io"
 description: "Instructions how to integrate Dweet.io sensors within Home Assistant."
 date: 2015-12-10 10:15
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: dweet.png
 ha_category: Sensor
+ha_release: 0.10
 ---
 
 The `dweet` sensor platform allows you to get details from your devices which are publishing their values to [Dweet.io](https://dweet.io/).
@@ -21,7 +22,7 @@ sensor:
   platform: dweet
   name: Dweet.io Temperature
   device: THING_NAME
-  value_template: '{{ value_json.VARIABLE }}'
+  value_template: '{% raw %}{{ value_json.VARIABLE }}{% endraw %}'
   unit_of_measurement: "°C"
 ```
 

@@ -56,7 +56,7 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
 [Statsd]: /components/statsd/
 [Template]: /components/sensor.template/
 [Thermostat]: /components/thermostat/
-[time automation]: /components/automation/#time-trigger
+[time automation]: /getting-started/automation-trigger/#time-trigger
 [Twitter]: /components/notify.twitter/
 [Wink]: /components/wink/
 [Zigbee]: /components/zigbee/

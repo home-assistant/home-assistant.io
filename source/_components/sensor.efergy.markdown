@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Efergy"
 description: "Instructions how to integrate Efergy devices within Home Assistant."
 date: 2015-07-11 0:15
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: efergy.png
 ha_category: Sensor
+ha_release: pre 0.7
 ---
 
 

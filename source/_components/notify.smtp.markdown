@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "SMTP"
 description: "Instructions how to add e-mail notifications to Home Assistant."
 date: 2015-06-03 18:00
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: smtp.png
 ha_category: Notifications
+ha_release: pre 0.7
 ---
 
 
@@ -43,11 +44,11 @@ Configuration variables:
 
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 
-A combination that will work properly is port 587 and STARTTLS. It's recommanded to enable STARTTLS, if possible.
+A combination that will work properly is port 587 and STARTTLS. It's recommended to enable STARTTLS, if possible.
 
 Keep in mind that if the password contains a colon, it needs to be wrapped in apostrophes in the `configuration.yaml` file.
 
 For Google Mail (smtp.gmail.com) an additional step in the setup process is needed. Google has some extra layers of protection
 which need special attention. By default, the usage by external applications, especially scripts, is limited. Visit the [Less secure apps](https://www.google.com/settings/security/lesssecureapps) page and enable it.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

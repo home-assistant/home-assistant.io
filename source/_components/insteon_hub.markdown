@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Insteon Hub"
 description: "Instructions how to setup the Insteon Hub within Home Assistant."
 date: 2016-01-27 08:00
@@ -19,7 +19,7 @@ To integrate your Insteon Hub with Home Assistant, add the following section to 
 
 ```yaml
 # Example configuration.yaml entry
-insteon:
+insteon_hub:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
   api_key: YOUR_API_KEY

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Intruder Alerts"
 description: "Instructions how to receive intruder alerts from Home Assistant."
 date: 2015-01-20 22:36
@@ -27,6 +27,6 @@ simple_alarm:
 
 Configuration variables:
 
-- **known_light** (*Required*): Which light/light group has to flash when a known device comes home.
-- **unknown_light** (*Required*): Which light/light group has to flash red when light turns on while no one home.
+- **known_light** (*Optional*): Which light/light group has to flash when a known device comes home.
+- **unknown_light** (*Optional*): Which light/light group has to flash red when light turns on while no one home.
 

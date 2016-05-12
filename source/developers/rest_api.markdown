@@ -1,9 +1,9 @@
 ---
 layout: page
-title: "Rest API"
-description: "Home Assistant Rest API documentation"
+title: "RESTful API"
+description: "Home Assistant RESTful API documentation"
 date: 2014-12-21 13:27
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -14,7 +14,7 @@ Home Assistant runs a web server accessible on port 8123.
   * http://IP_ADDRESS:8123/ is an interface to control Home Assistant.
   * http://IP_ADDRESS:8123/api/ is a Rest API.
 
-The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml` file).
+The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header `X-HA-Access: YOUR_PASSWORD` (YOUR_PASSWORD as specified in your `configuration.yaml` file in the [`http:` section](/components/http/)).
 
 There are multiple ways to consume the Home Assistant Rest API. One is with `curl`:
 
@@ -99,6 +99,24 @@ Sample `curl` command:
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/config
 ```
 
+#### {% linkable_title GET /api/discovery_info %}
+Returns basic information about the Home Assistant instance as JSON.
+
+```json
+{
+    "base_url": "http://127.0.0.1:8123",
+    "location_name": "Home",
+    "requires_api_password": true,
+    "version": "0.20.0.dev0"
+}
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/discovery_info
+```
+
 #### {% linkable_title GET /api/bootstrap %}
 Returns all data needed to bootstrap Home Assistant.
 
@@ -166,6 +184,46 @@ Sample `curl` command:
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/services
 ```
 
+#### {% linkable_title GET /api/history %}
+Returns an array of state changes in the past. Each object contains further detail for the entities.
+
+```json
+[
+    [
+        {
+            "attributes": {
+                "friendly_name": "Weather Temperature",
+                "unit_of_measurement": "\u00b0C"
+            },
+            "entity_id": "sensor.weather_temperature",
+            "last_changed": "23:30:00 05-02-2016",
+            "last_updated": "23:30:00 05-02-2016",
+            "state": "-3.9"
+        },
+        {
+            "attributes": {
+                "friendly_name": "Weather Temperature",
+                "unit_of_measurement": "\u00b0C"
+            },
+            "entity_id": "sensor.weather_temperature",
+            "last_changed": "07:03:30 06-02-2016",
+            "last_updated": "07:03:30 06-02-2016",
+            "state": "-1.9"
+        },
+    ]
+]
+```
+
+Sample `curl` commands:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/history/period/2016-02-06
+```
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
+```
+
 #### {% linkable_title GET /api/states %}
 Returns an array of state objects. Each state has the following attributes: entity_id, state, last_changed and attributes.
 
@@ -231,6 +289,16 @@ Sample `curl` command:
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        http://localhost:8123/api/error_log
+```
+
+#### {% linkable_title GET /api/camera_proxy/camera.&lt;entity_id> %}
+Returns the data (image) from the specified camera entity_id.
+
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD"\
+   http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
 ```
 
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
@@ -335,7 +403,7 @@ The result will include any changed states that changed while the service was be
 </p>
 
 #### {% linkable_title POST /api/template %}
-Render a Home Assistant template. [See template docs for more information.](/getting-started/templating/)
+Render a Home Assistant template. [See template docs for more information.](/topics/templating/)
 
 ```json
 {
@@ -347,6 +415,14 @@ Returns the rendered template in plain text.
 
 ```text
 Paulus is at work!
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+      -d '{"template": "It is {{ now }}!"}' \
+      http://localhost:8123/api/template
 ```
 
 #### {% linkable_title POST /api/event_forwarding %}

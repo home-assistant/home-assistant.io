@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "YR"
 description: "Instructions how to integrate Yr.no within Home Assistant."
 date: 2016-01-04 14:00
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: yr.png
 ha_category: Weather
+ha_release: 0.11
 ---
 
 

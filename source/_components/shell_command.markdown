@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Shell command"
 description: "Instructions how to integrate Shell commands into Home Assistant."
 date: 2015-10-13 19:10

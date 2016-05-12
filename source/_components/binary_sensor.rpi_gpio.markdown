@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Raspberry PI GPIO sensor"
+layout: page
+title: "Raspberry PI GPIO Binary Sensor"
 description: "Instructions how to integrate the GPIO sensor capability of a Raspberry PI into Home Assistant."
 date: 2015-08-30 19:00
 sidebar: true
@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: raspberry-pi.png
 ha_category: Sensor
+ha_release: pre 0.7
 ---
 
 
-The rpi_gpio binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 

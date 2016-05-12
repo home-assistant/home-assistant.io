@@ -1,8 +1,8 @@
 ---
-layout: component
-title: "MySensors switches"
+layout: page
+title: "MySensors Switch"
 description: "Instructions how to integrate MySensors switches into Home Assistant."
-date: 2016-01-17 15:49
+date: 2016-04-21 13:30 +0100
 sidebar: true
 comments: false
 sharing: true
@@ -31,7 +31,7 @@ S_LOCK   | V_LOCK_STATUS
 S_TYPE       | V_TYPE
 -------------|------------------
 S_LIGHT      | V_STATUS
-S_BINARY     | V_STATUS, V_LIGHT
+S_BINARY     | [V_STATUS or V_LIGHT]
 S_SPRINKLER  | V_STATUS
 S_WATER_LEAK | V_ARMED
 S_SOUND      | V_ARMED
@@ -39,6 +39,52 @@ S_VIBRATION  | V_ARMED
 S_MOISTURE   | V_ARMED
 
 For more information, visit the [serial api] of MySensors.
+
+### {% linkable_title Example sketch %}
+
+```cpp
+/*
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/relay
+ */
+
+#include <MySensor.h>
+#include <SPI.h>
+
+#define SN "Relay"
+#define SV "1.0"
+#define CHILD_ID 1
+#define RELAY_PIN 3
+
+MySensor gw;
+MyMessage msgRelay(CHILD_ID, V_STATUS);
+
+void setup()
+{
+  gw.begin(incomingMessage);
+  gw.sendSketchInfo(SN, SV);
+  // Initialize the digital pin as an output.
+  pinMode(RELAY_PIN, OUTPUT);
+  gw.present(CHILD_ID, S_BINARY);
+  gw.send(msgRelay.set(0));
+}
+
+void loop()
+{
+  gw.process();
+}
+
+void incomingMessage(const MyMessage &message)
+{
+  if (message.type == V_STATUS) {
+     // Change relay state.
+     digitalWrite(RELAY_PIN, message.getBool() ? 1 : 0);
+     gw.send(msgRelay.set(message.getBool() ? 1 : 0));
+  }
+}
+```
 
 [main component]: /components/mysensors/
 [serial api]: https://www.mysensors.org/download/serial_api_15

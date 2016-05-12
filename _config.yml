@@ -79,6 +79,8 @@ collections:
     output: true
   cookbook:
     output: true
+  topics:
+    output: true
 
 # ----------------------- #
 #   3rd Party Settings    #

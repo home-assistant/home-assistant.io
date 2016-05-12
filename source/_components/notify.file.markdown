@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "File"
 description: "Instructions how to add file notifications to Home Assistant."
 date: 2015-06-22 10:00
@@ -7,11 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: file.png
 ha_category: Notifications
+ha_release: pre 0.7
 ---
 
 
-The file platform allows you to store notifications from Home Assistant as a file.
+The `file` platform allows you to store notifications from Home Assistant as a file.
 
 To enable file notifications in your installation, add the following to your `configuration.yaml` file:
 
@@ -30,4 +32,4 @@ Configuration variables:
 - **filename** (*Required*): Name of the file to use. The file will be created if it doesn't exist and saved in your `config/` folder.
 - **timestamp** (*Optional*): Setting `timestamp` to 1 adds a timestamp to every entry.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

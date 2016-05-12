@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Homematic thermostat"
+layout: page
+title: "Homematic Thermostat"
 description: "Instructions how to integrate Homematic thermostats within Home Assistant."
 date: 2015-11-25 08:00
 sidebar: true
@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: homematic.png
 ha_category: Thermostat
+ha_release: 0.9
 ---
 
 
-The homematic thermostat platform let you control [Homematic](http://www.homematic.com/) thermostat from Home Assistant. Currently there is support for Homematic (HM-TC-IT-WM-W-EU, HM-CC-RT-DN) thermostats using Homegear or Homematic central (CCU1/CCU2).
+The `homematic` thermostat platform let you control [Homematic](http://www.homematic.com/) thermostat from Home Assistant. Currently there is support for Homematic (HM-TC-IT-WM-W-EU, HM-CC-RT-DN) thermostats using Homegear or Homematic central (CCU1/CCU2).
 
 To set it up, add the following information to your `configuration.yaml` file:
 

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "iCloud"
 description: "Instructions how to use iCloud to track devices in Home Assistant."
 date: 2015-12-15 1000
@@ -9,12 +9,13 @@ sharing: true
 footer: true
 logo: icloud.png
 ha_category: Presence Detection
+ha_release: 0.10
 ---
 
 
 The `icloud` platform allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices. 
 
-It does require that your device has beend registered with "Find My iPhone".
+It does require that your device is registered with "Find My iPhone".
 
 To integrate iCloud in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -37,5 +38,9 @@ This may cause battery drainage as it wakes up your device to get the current lo
 
 <p class='note warning'>
 You may receive an email from Apple stating that someone has logged into your account.
+</p>
+
+<p class='note warning'>
+If you have two-factor authentication enabled on your iCloud account you will not be able to use this presence detection in HA, even with an app-specific password.
 </p>
 

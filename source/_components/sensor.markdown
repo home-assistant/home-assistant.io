@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Sensor"
 description: "Instructions how to setup your sensors with Home Assistant."
 date: 2015-01-24 14:39

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Arduino"
 description: "Instructions how to setup an Arduino boards within Home Assistant."
 date: 2015-06-27 10:28
@@ -10,13 +10,14 @@ footer: true
 logo: arduino.png
 ha_category: DIY
 featured: true
+ha_release: pre 0.7
 ---
 
 The [Arduino](https://www.arduino.cc/) device family are microcontroller boards that are often based on the ATmega328 chip. They come with digital input/output pins (some can be used as PWM outputs), analog inputs, and a USB connection. The equipment depends on the [type](https://www.arduino.cc/en/Main/Products) of board. The most common ones are the Arduino Uno and the Arduino Leonardo with 14 digital input/output pins and 6 analog input pins.
 
 There are a lot of extensions (so called [shields](https://www.arduino.cc/en/Main/ArduinoShields)) available. Those shields can be plugged-in into the existing connectors and stacked on top of each other. This makes it possible to expand the capabilities of the Arduino boards. 
 
-The arduino component is designed to let you use a directly attached board to your Home Assistant host over USB.
+The `arduino` component is designed to let you use a directly attached board to your Home Assistant host over USB.
 
 You need to have the [Firmata firmware](https://github.com/firmata/) on your board. Please upload the `StandardFirmata` sketch to your board, please refer to the [Arduino documentation](https://www.arduino.cc/en/Main/Howto) for further information.
 

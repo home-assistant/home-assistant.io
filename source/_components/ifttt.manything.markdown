@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "ManyThing"
 description: "Instructions how to setup ManyThing support with IFTTT."
 date: 2015-09-07 18:00

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "OpenWRT (ubus)"
 description: "Instructions how to integrate OpenWRT routers into Home Assistant."
 date: 2015-03-23 19:59
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: openwrt.png
 ha_category: Presence Detection
+ha_release: 0.7.6
 ---
 
 _This is one of the two ways we support OpenWRT. If you encounter problems, try [luci](/components/device_tracker.luci/)._

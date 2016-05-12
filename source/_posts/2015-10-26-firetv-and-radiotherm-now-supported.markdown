@@ -40,7 +40,7 @@ After two weeks of hard work I'm proud to announce the release of Home Assistant
 As part of this release we did some cleanup which introduced backwards incompatible changes:
 
 **Heat Control thermostat no longer includes scheduling features.**
-This feature has been removed completely. Use the [automation component](/components/automation/) instead to control target temperature.
+This feature has been removed completely. Use the [automation component](/getting-started/automation/) instead to control target temperature.
 
 **Config changed for calling a service from a script.**
 `execute_service:` has been replaced with `service:`. See [component page](/components/script/) for example. The old method will continue working for some time.

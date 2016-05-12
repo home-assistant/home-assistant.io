@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Raspberry PI GPIO switch"
+layout: page
+title: "Raspberry PI GPIO Switch"
 description: "Instructions how to integrate the GPIO of a Raspberry PI into Home Assistant as a switch."
 date: 2015-08-07 14:00
 sidebar: true
@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: raspberry-pi.png
 ha_category: Switch
+ha_release: pre 0.7
 ---
 
 
-The rpi_gpio switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 

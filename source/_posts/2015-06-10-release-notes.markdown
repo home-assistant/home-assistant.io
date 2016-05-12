@@ -21,7 +21,7 @@ A big improvement has been brought this release by wind-rider. He took the time 
 </p>
 
 <p class='note'>
-To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/balloob/home-assistant/issues'>GitHub</a>.
+To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
 </p>
 
 <!--more-->

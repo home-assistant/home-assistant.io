@@ -13,6 +13,7 @@
     text-transform: uppercase;
     white-space: nowrap;
     display: inline-block;
+    font-weight: bold;
   }
 
   .front-install {
@@ -112,6 +113,7 @@ article.post, article.page, article.listing {
   img, table {
     border-radius: 3px;
     box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+    vertical-align: middle;
   }
 
   img.no-shadow {
@@ -119,7 +121,7 @@ article.post, article.page, article.listing {
     box-shadow: none;
   }
 
-  & > table {
+  & > table, & > .entry-content > table {
     background-color: #F3FCF5;
   }
 
@@ -148,6 +150,18 @@ article.post, article.page, article.listing {
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  a {
+    text-decoration: underline;
+
+    &.btn {
+      text-decoration: none;
+    }
+  }
+
+  .frontpage a {
+    text-decoration: none;
   }
 }
 
@@ -203,81 +217,6 @@ p.note {
   }
 }
 
-.install-instructions-container {
-  #normal-install, #raspberry-install, #docker-install, .install-instructions {
-    display: none;
-  }
-
-  label.menu-selector {
-    display: inline-block;
-    text-align: center;
-    padding: 20px;
-    white-space: nowrap;
-    border-bottom: 5px solid $grayLight;
-    transition: border-bottom-color .5s;
-  }
-
-  label.menu-selector + label.menu-selector {
-    margin-left: 10px;
-  }
-
-  #normal-install:checked ~ .menu-selector.normal,
-  #raspberry-install:checked ~ .menu-selector.raspberry,
-  #docker-install:checked ~ .menu-selector.docker
-   {
-    border-bottom-color: $blue;
-  }
-
-  #normal-install:checked ~ .install-instructions.normal,
-  #raspberry-install:checked ~ .install-instructions.raspberry,
-  #docker-install:checked ~ .install-instructions.docker
-   {
-    display: block;
-  }
-
-  .install-instructions {
-    margin-top: 30px;
-  }
-}
-
-.advanced-installs-container {
-
-  #upstart-install, #systemd-install, #osx-install, .advanced-installs {
-    display: none;
-  }
-
-  label.menu-selector {
-    display: inline-block;
-    text-align: center;
-    padding: 20px;
-    white-space: nowrap;
-    border-bottom: 5px solid $grayLight;
-    transition: border-bottom-color .5s;
-  }
-
-  label.menu-selector + label.menu-selector {
-    margin-left: 10px;
-  }
-
-  #upstart-install:checked ~ .menu-selector.upstart,
-  #systemd-install:checked ~ .menu-selector.systemd,
-  #osx-install:checked ~ .menu-selector.osx
-   {
-    border-bottom-color: $blue;
-  }
-
-  #upstart-install:checked ~ .advanced-installs.upstart,
-  #systemd-install:checked ~ .advanced-installs.systemd,
-  #osx-install:checked ~ .advanced-installs.osx
-   {
-    display: block;
-  }
-
-  .advanced-installs {
-    margin-top: 30px;
-  }
-}
-
 #components-page {
   .isotope-item {
       z-index: 2;
@@ -330,6 +269,7 @@ p.note {
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
       padding: 8px;
       text-align: center;
+      text-decoration: none;
 
       .img-container {
         height: 50px;
@@ -405,4 +345,19 @@ p.note {
   text-align: right;
   margin-bottom: 8px;
   font-size: .8em;
+}
+
+ul.sidebar-menu {
+  a.active {
+    color: #000;
+    font-weight: bold;
+  }
+
+  ul {
+    margin-left: 30px;
+  }
+}
+
+a code {
+  color: #049cdb;
 }

@@ -34,7 +34,7 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
 
 [iCloud]: /components/device_tracker.icloud/
 [Twitch]: /components/sensor.twitch/
-[Template]: /getting-started/templating/
+[Template]: /topics/templating/
 [Heatmiser]: /components/thermostat.heatmiser/
 [Dweet.io]: /components/sensor.dweet/
 [Alexa/Amazon echo]: /components/alexa/
@@ -91,4 +91,4 @@ Affected components and platforms:
 [rollershutter.mqtt]: /components/rollershutter.mqtt/
 [light.mqtt]: /components/light.mqtt/
 [binary_sensor.mqtt]: /components/binary_sensor.mqtt/
-[automation-numeric-state]: /components/automation/#numeric-state-trigger
+[automation-numeric-state]: /getting-started/automation-trigger/#numeric-state-trigger

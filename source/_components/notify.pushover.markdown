@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "PushOver"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-01-20 22:36
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: pushover.png
 ha_category: Notifications
+ha_release: pre 0.7
 ---
 
 

@@ -3,10 +3,11 @@ layout: page
 title: "Restart Home Assistant if Wemo Switch is not detected"
 description: "Restart Home Assistant if Wemo Switch is not detected."
 date: 2016-01-29 08:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation Examples
 ---
 
 ### {% linkable_title Restart Home Assistant %}
@@ -52,11 +53,11 @@ script:
     sequence:
       - delay:
           minutes: 15
-      - execute_service: notify.pushbullet
-        service_data:
+      - service: notify.pushbullet
+        data:
           message: 'WeMo not found, restarting HA'
-      - execute_service: switch.turn_on
-        service_data:
+      - service: switch.turn_on
+        data:
           entity_id: switch.killhass
   
 automation:

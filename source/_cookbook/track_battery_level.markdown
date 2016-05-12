@@ -3,13 +3,12 @@ layout: page
 title: "Track your battery level"
 description: "Basic example how to track the battery level of your mobile devices."
 date: 2016-01-29 09:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Automation Examples
 ---
-
-### {% linkable_title Battery level %}
 
 The [iCloud](/components/device_tracker.icloud/) is gathering various details about your device including the battery level. To display it in the Frontend use a [template sensor](/components/sensor.template/).
 

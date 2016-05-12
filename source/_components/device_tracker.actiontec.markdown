@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Actiontec"
 description: "Instructions how to integrate Actiontec routers into Home Assistant."
 date: 2015-08-30 19:00

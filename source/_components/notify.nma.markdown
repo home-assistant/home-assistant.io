@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Notify My Android"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-05-01 18:00
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: nma.png
 ha_category: Notifications
+ha_release: pre 0.7
 ---
 
 
@@ -31,4 +32,4 @@ Configuration variables:
 
 Details for the API : https://www.notifymyandroid.com/api.jsp
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

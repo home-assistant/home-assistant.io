@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Torque (OBD2)"
 description: "Instructions how to integrate Torque sensors into Home Assistant."
 date: 2015-12-20 18:00
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: torque.png
 ha_category: Sensor
+ha_release: 0.10
 ---
 
 The `torque` platform will allow you to monitor [Torque](http://torque-bhp.com/) data relayed from a bluetooth OBD2 stick via the Torque mobile application.

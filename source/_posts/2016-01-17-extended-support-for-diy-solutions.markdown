@@ -12,8 +12,8 @@ categories: Release-Notes
 
 First release of 2016 and we are on 🔥! The [main repository][github-ha] has passed 2500 ⭐ on GitHub (2596 ⭐ as of now). This release also has a [record number][release-pr] of 20 contributors all working on improving and extending Home Assistant. With the continued growth, I am very excited to see what 2016 will bring us 🤘.
 
-[github-ha]: https://github.com/balloob/home-assistant/
-[release-pr]: https://github.com/balloob/home-assistant/pull/883#partial-users-participants
+[github-ha]: https://github.com/home-assistant/home-assistant/
+[release-pr]: https://github.com/home-assistant/home-assistant/pull/883#partial-users-participants
 
 <img src='/images/supported_brands/mysensors.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/raspberry-pi.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='50' /><img src='/images/supported_brands/yr.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/telldus.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/free_mobile.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/netatmo.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/alarmdotcom.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/proliphix.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
@@ -42,12 +42,12 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [MySensors]: /components/mysensors/
 [YR]: /components/sensor.yr/
 [Locative]: /components/device_tracker.locative/
-[sun condition]: /components/automation/#sun-condition
+[sun condition]: /getting-started/automation-condition/#sun-condition
 [command_switch]: /components/switch.command_switch/
 [wemo]: /components/switch.wemo/
 [Telldus Live]: /components/tellduslive/
 [Vera]: /components/vera/
-[template helper method]: /getting-started/templating/#home-assistant-template-extensions
+[template helper method]: /topics/templating/#home-assistant-template-extensions
 [OwnTracks]: /components/device_tracker.owntracks/
 [Philips Hue]: /components/light.hue/
 [Free Mobile]: /components/notify.free_mobile/

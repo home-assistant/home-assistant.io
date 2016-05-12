@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "StatsD"
 description: "Record events in StatsD."
 date: 2016-01-25 08:00
@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: "History"
+ha_release: 0.12
 ---
 
 The `statsd` component makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.

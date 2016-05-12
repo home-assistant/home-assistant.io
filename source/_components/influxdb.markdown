@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "InfluxDB"
 description: "Record events in InfluxDB."
 date: 2015-12-06 13:08
@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: influxdb.png
 ha_category: "History"
+featured: true
+ha_release: 0.9
 ---
 
 The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. For more details, [see the blog post on InfluxDB](/blog/2015/12/07/influxdb-and-grafana/).
@@ -23,6 +25,11 @@ influxdb:
   database: DB_TO_STORE_EVENTS
   username: MY_USERNAME
   password: MY_PASSWORD
+  ssl: true
+  verify_ssl: true
+  blacklist:
+     - entity.id1
+     - entity.id2
 ```
 
 Configuration variables:
@@ -32,4 +39,6 @@ Configuration variables:
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **username** (*Optional*): The username of the database user.
 - **password** (*Optional*): The password for the database user account.
-
+- **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
+- **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
+- **blacklist** (*Optional*): List of entities not logged to influxdb.

@@ -1,23 +1,20 @@
 ---
-layout: component
-title: "Belkin WeMo switch"
+layout: page
+title: "Belkin WeMo Switch"
 description: "Instructions how to integrate Belkin WeMo switches into Home Assistant."
-date: 2015-03-23 19:59
+date: 2016-02-20 00:47
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: belkin_wemo.png
 ha_category: Switch
+ha_iot_class: "Local Push"
 ---
 
 
-The wemo platform allows you to control your [Belkin WeMo](http://www.belkin.com/us/p/P-F7C027/) switches from within Home Assistant.
+The `wemo` platform allows you to control your [Belkin WeMo](http://www.belkin.com/us/p/P-F7C027/) switches from within Home Assistant.
 
 They will be automatically discovered if the discovery component is enabled.
 
-```yaml
-# Example configuration.yaml entry
-switch:
-  platform: wemo
-```
+For more configuration information see the [WeMo component](/components/wemo/) documentation.

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "TP-Link"
 description: "Instructions how to integrate TP-Link routers into Home Assistant."
 date: 2015-06-22 10:30
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: tp-link.png
 ha_category: Presence Detection
+ha_release: pre 0.7
 ---
 
 

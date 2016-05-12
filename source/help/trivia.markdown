@@ -17,7 +17,7 @@ Unknown at the moment.
 
 ### {% linkable_title Website %}
 
-The website [https://home-assistant.io](https://home-assistant.io) was launched on December 18, 2014 and contains doumentation about the setup process, the platforms and components, and for the developers.
+The website [https://home-assistant.io](https://home-assistant.io) was launched on December 18, 2014 and contains documentation about the setup process, the platforms and components, and for the developers.
 
 ### {% linkable_title Logo %}
 
@@ -31,27 +31,28 @@ Home Assistant is open source software and available under the [MIT](https://ope
 
 This sections just contains some random numbers of the Home Assistant eco-system.
 
-| Description  | 2015   |
+| Description | 2015 |
 |---|---|
-| [Gitter.io](https://gitter.im/balloob/home-assistant)  | 334  |
-| [Forum posts](https://automic.us/forum/index.php) | 352 |
-| [Forum topics](https://automic.us/forum/index.php) | 83 |
-| [Forum members](https://automic.us/forum/index.php) | 92 |
-| [Github stars](https://github.com/balloob/home-assistant/stargazers)  | 2519  |
-| [Github forks](https://github.com/balloob/home-assistant/network) | 374 |
-| Pageviews [ha.io](https://home-assistant.io) | 190'271|
+| [Gitter.io](https://gitter.im/home-assistant/home-assistant)  | 334 |
+| [Forum posts](https://community.home-assistant.io/) | 352 |
+| [Forum topics](https://community.home-assistant.io/) | 83 |
+| [Forum members](https://community.home-assistant.io/) | 92 |
+| [Github stars](https://github.com/home-assistant/home-assistant/stargazers)  | 2519 |
+| [Github forks](https://github.com/home-assistant/home-assistant/network) | 374 |
+| Page views [ha.io](https://home-assistant.io) | 190'271|
 
 ### {% linkable_title Commit per year %}
 
-The numbers below only covers the [main git repository](https://github.com/balloob/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/balloob/home-assistant.io), [home-assistant-polymer](https://github.com/balloob/home-assistant-polymer), and [home-assistant-js](https://github.com/balloob/home-assistant-js)) into account.
+The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer), and [home-assistant-js](https://github.com/home-assistant/home-assistant-js)) into account.
 
 ```bash
 2013: 147
 2014: 328
 2015: 2963
+2016: 1439 (so far)
 ```
 
-More details and statistics can be found on [Github](https://github.com/balloob/home-assistant/graphs/contributors).
+More details and statistics can be found on [Github](https://github.com/home-assistant/home-assistant/graphs/contributors).
 
 [RocketGraph](https://rocketgraph.com) reports shows commit stats for the last 90 days and a neat visual calendar for the current calendar year.
 

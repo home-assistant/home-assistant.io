@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Alarm.com Alarm Control Panel"
 description: "Instructions how to integrate Alarm.com into Home Assistant."
 date: 2016-01-14 22:00
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: alarmdotcom.png
 ha_category: Alarm
+ha_release: 0.11
 ---
 
 The `alarmdotcom` platform is consuming the information provided by a [Alarm.com](https://www.alarm.com/).

@@ -1,8 +1,8 @@
 ---
-layout: component
-title: "MySensors sensors"
+layout: page
+title: "MySensors Sensor"
 description: "Instructions how to integrate MySensors sensors into Home Assistant."
-date: 2016-01-17 15:49
+date: 2016-04-13 14:20 +0100
 sidebar: true
 comments: false
 sharing: true
@@ -20,9 +20,6 @@ The following sensor types are supported:
 
 S_TYPE             | V_TYPE
 -------------------|---------------------------------------
-S_DOOR             | V_TRIPPED
-S_MOTION           | V_TRIPPED
-S_SMOKE            | V_TRIPPED
 S_TEMP             | V_TEMP
 S_HUM              | V_HUM
 S_BARO             | V_PRESSURE, V_FORECAST
@@ -46,16 +43,68 @@ S_TYPE         | V_TYPE
 ---------------|----------------------------------
 S_COLOR_SENSOR | V_RGB
 S_MULTIMETER   | V_VOLTAGE, V_CURRENT, V_IMPEDANCE
-S_SPRINKLER    | V_TRIPPED
-S_WATER_LEAK   | V_TRIPPED
-S_SOUND        | V_TRIPPED, V_LEVEL
-S_VIBRATION    | V_TRIPPED, V_LEVEL
-S_MOISTURE     | V_TRIPPED, V_LEVEL
+S_SOUND        | V_LEVEL
+S_VIBRATION    | V_LEVEL
+S_MOISTURE     | V_LEVEL
 S_LIGHT_LEVEL  | V_LEVEL
 S_AIR_QUALITY  | V_LEVEL (replaces V_DUST_LEVEL)
 S_DUST         | V_LEVEL (replaces V_DUST_LEVEL)
 
+### {% linkable_title Custom unit of measurement %}
+
+Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, dust, sound, vibration etc.
+
+By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can't be used as a standalone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.
+
 For more information, visit the [serial api] of MySensors.
+
+### {% linkable_title Example sketch %}
+
+```cpp
+/**
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/light
+ */
+
+#include <SPI.h>
+#include <MySensor.h>  
+#include <BH1750.h>
+#include <Wire.h>
+
+#define SN "LightLuxSensor"
+#define SV "1.0"
+#define CHILD_ID 1
+unsigned long SLEEP_TIME = 30000; // Sleep time between reads (in milliseconds)
+
+BH1750 lightSensor;
+MySensor gw;
+MyMessage msg(CHILD_ID, V_LEVEL);
+MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  // Custom unit message.
+uint16_t lastlux = 0;
+
+void setup()  
+{
+  gw.begin();
+  gw.sendSketchInfo(SN, SV);
+  gw.present(CHILD_ID, S_LIGHT_LEVEL);
+  lightSensor.begin();
+  gw.send(msg.set(lastlux));
+  gw.send(msgPrefix.set("lux"));  // Set custom unit.
+}
+
+void loop()      
+{     
+  uint16_t lux = lightSensor.readLightLevel();  // Get Lux value
+  if (lux != lastlux) {
+      gw.send(msg.set(lux));
+      lastlux = lux;
+  }
+
+  gw.sleep(SLEEP_TIME);
+}
+```
 
 [main component]: /components/mysensors/
 [serial api]: https://www.mysensors.org/download/serial_api_15

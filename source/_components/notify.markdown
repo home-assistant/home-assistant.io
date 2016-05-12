@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Notifications"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-01-20 22:36
@@ -35,9 +35,17 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `title`                |      yes | Title of the notification. Default is `Home Assistant`.
 | `target`               |      yes | Some platforms will allow specifying a recipient that will receive the notification. See your platform page if it is supported.
 
-The notification component supports specifying [templates] for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
+The notification component supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
 
-[templates]: /getting-started/templating/
+In an [action](https://home-assistant.io/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
+
+```yaml
+action:
+  service: notify.notify
+  data:
+    message: "Your message goes here"
+    title: "Custom subject"
+```
 
 ### {% linkable_title Test if it works %}
 

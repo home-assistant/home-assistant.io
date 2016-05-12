@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Telegram"
 description: "Instructions how to add Telegram notifications to Home Assistant."
 date: 2015-10-09 18:00
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: telegram.png
 ha_category: Notifications
+ha_release: 0.7.5
 ---
 
 
@@ -64,4 +65,4 @@ Configuration variables:
 - **api_key** (*Required*): The API token of your bot.
 - **chat_id** (*Required*: The chat ID of your user.
 
-To use notifications, please see the [getting started with automation page]({{site_root}}/components/automation/).
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "RESTful sensor"
+layout: page
+title: "RESTful Sensor"
 description: "Instructions how to integrate REST sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+ha_release: 0.7.4
 ---
 
 
@@ -44,8 +45,8 @@ Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract the value.
-- **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
+- **payload** (*Optional*): The payload to send with a POST request. Depends on the service, but usually formed as JSON.
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 
@@ -66,7 +67,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title External IP address %}
 
-Always want to know your external IP address. [JSON Test](http://www.jsontest.com) will provide you this information at their http://ip.jsontest.com/ endpoint.
+You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their http://ip.jsontest.com/ endpoint.
 
 To display the IP address, the entry for a sensor in the `configuration.yaml` file will look like this.
 
@@ -93,7 +94,7 @@ Add something similar to the entry below to your `configuration.yaml` file:
 
 ### {% linkable_title Value for other Home Assistant instance %}
 
-The Home Assistant [API](/developers/rest_api/) is exposing the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
+The Home Assistant [API](/developers/rest_api/) exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
 
 
 ```yaml

@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "MQTT"
 description: "Instructions how to setup MQTT within Home Assistant."
 date: 2015-08-07 18:00
@@ -10,6 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Hub
 featured: true
+ha_release: pre 0.7
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -38,11 +39,40 @@ Configuration variables:
 - **username** (*Optional*): The username to use with your MQTT broker.
 - **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
 - **certificate** (*Optional*): Certificate to use to encrypt communication with the broker.
+- **client_key** (*Optional*): Client key (example: `/home/user/owntracks/cookie.key`)
+- **client_cert** (*Optional*): Client certificate (example: `/home/user/owntracks/cookie.crt`)
 - **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.
 
 ## {% linkable_title Picking a broker %}
 
-The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are three options, each with various degrees of ease of setup and privacy.
+The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
+
+#### {% linkable_title Use the embedded broker %}
+
+Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Asssistant connects to it. Embedded broker default configuration:
+
+| Setting | Value |
+| ------- | ----- |
+| Host | localhost
+| Port | 1883
+| Protocol | 3.1.1
+| User | homeassistant
+| Password | Your API [password](/components/http/)
+| Websocket port | 8080
+
+<p class='note'>
+This broker does not currently work with OwnTracks because of a protocol version issue.
+</p>
+
+If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  embedded:
+    # Your HBMQTT config here. Example at:
+    # http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration
+```
 
 #### {% linkable_title Run your own %}
 
@@ -111,20 +141,54 @@ Home Assistant will automatically load the correct certificate if you connect to
 
 ## {% linkable_title Building on top of MQTT %}
 
+ - [MQTT Alarm control panel](/components/alarm_control_panel.mqtt/)
+ - [MQTT Binary sensor](/components/binary_sensor.mqtt/)
  - [MQTT Sensor](/components/sensor.mqtt/)
  - [MQTT Switch](/components/switch.mqtt/)
+ - [MQTT Light](/components/light.mqtt/)
+ - [MQTT Lock](/components/lock.mqtt/)
  - [MQTT Device Tracker](/components/device_tracker.mqtt/)
  - [OwnTracks Device Tracker](/components/device_tracker.owntracks/)
- - [MQTT automation rule](/components/automation/#mqtt-based-automation)
- - [MQTT alarm](/components/alarm_control_panel.mqtt/)
- - Integrating it into own component. See the [MQTT example component](https://github.com/balloob/home-assistant/blob/dev/config/custom_components/mqtt_example.py) how to do this.
+ - [MQTT automation rule](/getting-started/automation-trigger/#mqtt-trigger)
+
+ - Integrating it into own component. See the [MQTT example component](/cookbook/python_component_mqtt_basic/) how to do this.
+
+### {% linkable_title Publish service %}
+
+The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifiying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
+
+```json
+{
+  "topic": "home-assistant/light/1/command",
+  "payload": "on"
+}
+```
+
+```json
+{
+  "topic": "home-assistant/light/1/state",
+  "payload_template": "{% raw %}{{ states('device_tracker.paulus') }}{% endraw %}"
+}
+```
 
 ## {% linkable_title Testing your setup %}
 
-For debugging purposes `mosquitto` is shipping commandline tools to send and recieve MQTT messages. For sending test messages to a broker running on localhost:
+The `mosquitto` broker package is shipping commandline tools to send and recieve MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:
 
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
+```
+
+If you are using the embeeded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.
+
+```bash
+$ mosquitto_pub -V mqttv311 -t "hello" -m world
+```
+
+or if you are using a API password.
+
+```bash
+$ mosquitto_pub -V mqttv311 -u homeassistant -P <your api password> -t "hello" -m world
 ```
 
 Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose "Call Service" and then `mqtt/mqtt_send` under "Available Services". Enter something similar to the example below into the "Service Data" field.
@@ -147,6 +211,14 @@ For reading all messages sent on the topic `home-assistant` to a broker running 
 ```bash
 $ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 ```
+
+For the embeeded MQTT broker the command looks like the sample below.
+
+```bash
+$ mosquitto_sub -v -V mqttv311 -t "#" 
+```
+
+Add the username `homeassistant` and your API password if needed.
 
 ## {% linkable_title Processing JSON %}
 

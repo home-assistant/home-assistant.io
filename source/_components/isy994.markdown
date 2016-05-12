@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "ISY994 Controller"
 description: "Instructions how to setup the ISY994 controller within Home Assistant."
 date: 2015-01-20 22:36
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: universal_devices.png
 ha_category: Hub
+ha_release: pre 0.7
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. The controller is also capable of controlling Z-Wave devices but that functionality has not yet been confirmed with Home Assistant.

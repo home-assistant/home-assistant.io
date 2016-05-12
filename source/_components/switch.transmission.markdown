@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "Transmission switch"
+layout: page
+title: "Transmission Switch"
 description: "Instructions how to integrate Transmission within Home Assistant."
 date: 2015-06-02 09:00
 sidebar: true
@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: transmission.png
 ha_category: Switch
+ha_release: pre 0.7
 ---
 
 
-The transmission platform allows you to control your [Transmission](http://www.transmissionbt.com/) client from within Home Assistant. The platform enables you switch to your 'Alternative Speed Limits' (aka 'Turtle mode') setting.
+The `transmission` switch platform allows you to control your [Transmission](http://www.transmissionbt.com/) client from within Home Assistant. The platform enables you switch to your 'Alternative Speed Limits' (aka 'Turtle mode') setting.
 
 To add Transmission to your installation, add the following to your `configuration.yaml` file:
 

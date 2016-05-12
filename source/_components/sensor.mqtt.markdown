@@ -1,6 +1,6 @@
 ---
-layout: component
-title: "MQTT sensor"
+layout: page
+title: "MQTT Sensor"
 description: "Instructions how to integrate MQTT sensors within Home Assistant."
 date: 2015-05-30 23:21
 sidebar: true
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Sensor
+ha_release: 0.7
 ---
 
 
@@ -33,7 +34,7 @@ Configuration variables:
 - **name** (*Optional*): The name of the sensor. Default is 'MQTT Sensor'. 
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/getting-started/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 
@@ -41,7 +42,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title Get battery level %}
 
-If you are using the [Owntracks](components/device_tracker.owntracks/) and enable the reporting of the battery level then you can use a MQTT sensor to keep track of your battery. A regular MQTT message from Owntracks looks like this: 
+If you are using the [Owntracks](/components/device_tracker.owntracks/) and enable the reporting of the battery level then you can use a MQTT sensor to keep track of your battery. A regular MQTT message from Owntracks looks like this: 
 
 ```bash
 owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":144995643,"tid":"ta","acc":27,"lat":46.12}
@@ -56,6 +57,6 @@ sensor:
   state_topic: "owntracks/tablet/tablet"
   name: "Battery Tablet"
   unit_of_measurement: "%"
-  value_template: '{{ value_json.batt }}'
+  value_template: {% raw %}'{{ value_json.batt }}'{% endraw %}
 ```
 

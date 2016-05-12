@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Eliqonline"
 description: "Instructions how to integrate Eliqonline devices within Home Assistant."
 date: 2015-07-11 0:15
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: eliq.png
 ha_category: Sensor
+ha_release: 0.10
 ---
 
 

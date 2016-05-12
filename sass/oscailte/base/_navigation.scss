@@ -14,13 +14,14 @@ body{ -webkit-animation: bugfix infinite 1s; }
 #toggle, .toggle { display: none; }
 .menu li { list-style: none; float:left;  }
 
-$menu-collapse: 955px;
+$menu-collapse: 944px;
 
 // @media only screen and (max-width: $lap-end){
 @media only screen and (max-width: $menu-collapse){
   .menu { display: none; opacity: 0; width: 100%; position: absolute; right: 0; }
   .menu li { display: block; width: 100%; margin: 0; }
   .menu li a { display: block; width: 100%; text-decoration: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+  .menu li a .icon { display: none; }
   .toggle { display: block; position: relative; cursor: pointer; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
   #toggle:checked ~ .menu { display: block; opacity: 1; z-index: 999; }
 }
@@ -75,10 +76,10 @@ header .grid {
   @include box-sizing(border-box);
   @include transition(all 0.25s linear);
   display: block;
-  padding: 32px 20px;
+  padding: 32px 12px;
   text-decoration: none;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1;
 }
 
@@ -86,7 +87,7 @@ header .grid {
   background: $site-background;
   box-shadow: inset 0px 5px $navigation-color;
   color: $navigation-color;
-  padding: 40px 20px 24px;
+  padding: 40px 12px 24px;
 }
 
 .toggle{ 

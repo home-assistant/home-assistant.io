@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Keyboard"
 description: "Instructions how to simulate key presses with Home Assistant."
 date: 2015-01-24 14:39
@@ -7,7 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: keyboard.png
 ha_category: Automation
+ha_release: pre 0.7
 ---
 
 
@@ -28,7 +30,7 @@ keyboard:
 
 ## {% linkable_title Dependencies %}
 
-You may need to install platform-specific [dependencies for PyUserInput](https://github.com/SavinaRoja/PyUserInput#dependencies) in order to use the keyboard component. In most cases this can be done by running:
+You may need to install platform-specific [dependencies for PyUserInput](https://github.com/PyUserInput/PyUserInput#dependencies) in order to use the keyboard component. In most cases this can be done by running:
 
 ```bash
 $ pip3 install [package name]

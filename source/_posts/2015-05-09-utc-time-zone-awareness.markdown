@@ -12,7 +12,7 @@ categories: Release-Notes
 
 I have recently merged code to refactor Home Assistant to use only UTC times internally. A much needed refactor. I've added some extra test coverage to time sensitive parts to ensure stability. The code has been live in the dev branch for the last 9 days and will be soon released to the master branch.
 
-From now on all internal communication will be done in UTC: time changed events, datetime attributes of states, etc. To get the current time in UTC you can call `homeassistant.util.dt.utcnow()`. This is a timezone aware UTC datetime object. [`homeassistant.util.dt`](https://github.com/balloob/home-assistant/blob/dev/homeassistant/util/dt.py) is a new util package with date helpers.
+From now on all internal communication will be done in UTC: time changed events, datetime attributes of states, etc. To get the current time in UTC you can call `homeassistant.util.dt.utcnow()`. This is a timezone aware UTC datetime object. [`homeassistant.util.dt`](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/util/dt.py) is a new util package with date helpers.
 
 There is also such a thing as local time. Local time is based on the time zone that you have setup in your `configuration.yaml`. Local times should only be used for user facing information: logs, frontend and automation settings in `configuration.yaml`.
 
