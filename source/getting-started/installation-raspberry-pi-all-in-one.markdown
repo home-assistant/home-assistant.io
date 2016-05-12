@@ -55,8 +55,7 @@ footer: true
    
 <hr>
  Fabric allows any of the underlying functions to be ran individually as well. Run ``` fab -l ``` to see a list of all callable jobs. 
- 
- Future support for non-virtualenv based servers will be added, along with the ability to auto upload existing or backup .yaml Home-Assistant configs. I'm also working on a turn-key devlopment script to make testing and development environments one click setups.. More to come!
+
  
  
  
