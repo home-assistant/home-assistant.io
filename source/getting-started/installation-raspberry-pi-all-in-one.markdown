@@ -8,7 +8,7 @@ footer: true
 ---
 Easily deploy a complete Home Assistant server, with Websocket MQTT and Z-Wave support out of the box using Fabric!
 
-**Steps to run:**
+{% linkable_title Steps to run: %}
 *Start with a fresh Raspbian Jessie/Jessie-Lite or Debian 8 install*
  1. install fabric locally: ```pip3 install fabric3```
  2. Ensure you can SSH into Target Host
