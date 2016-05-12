@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Google Calendar Binary Sensor"
+title: "Google Calendar Event Sensor"
 description: "Instructions how to use Google Calendars in Home Assistant."
 date: 2016-05-04 16:00
 sidebar: true
@@ -8,14 +8,35 @@ comments: false
 sharing: true
 footer: true
 logo: google_calendar.png
-ha_category: Binary Sensor
+ha_category: Web Services
 featured: true
 ---
 
 
 This platform allows you to connect to your [Google Calendars](https://calendar.google.com)  and generate binary sensors. The sensors created can trigger based on any event on the calendar or only for matching events.
 
-This component requires that you access your Home-Assistant installation with a fully qualified domain name. This is a condition of the Google OAuth API that they check you have a full domain name. It does not require your installation to be publically accessible, just have a full domain.
+### {% linkable_title Prerequisites %}
+
+This component requires that you can access your Home-Assistant installation with a fully qualified domain name. This is a condition of the Google OAuth API that they check you have a full domain name. It does not require your installation to be publically accessible, just have a full domain. The easy way to do this is:
+
+1. Modify you local hosts file:
+    Windows: C:\Windows\System32\Drivers\etc\hosts
+    Linux: /etc/hosts
+    OSX: /private/etc/hosts
+
+2. Create an entry if one does not exist for your local system IP and a fake fully qualified domain name
+    eg. `192.168.0.100 ha.localnetwork.com`
+
+3. Modify your Home-Assistant config file
+
+4. You will need the `http` section with the following
+
+```yaml
+http:
+  server_host: ha.localnetwork.com
+```
+
+### {% linkable_title Basic Setup %}
 
 To integrate Google Calendar in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -23,53 +44,52 @@ To integrate Google Calendar in Home Assistant, add the following section to you
 # Example configuration.yaml entry
 google_calendar:
   track_new_calendar: no 
-  fqdn: homeassistant.mnestor.dynamicdns.org
-  scan_interval: 0
 ```
 
 Configuration variables:
 
-- **track_new_calendar** (*Optional*): Will automatically generate a binary sensor when a new calendar is detected. The system scans for new calendars on startup and every **scan_interval** By default this is set to `True`.
-
-- **fqdn** (*Sometimes Optional*): *Sometimes* this is not required. If you have DNS setup properly on your router or system and can resolve you local network IP address to your fully qualified domain then this will not be required. Give it a try without it and it will let you know if you need to put it in there.
-
-- **scan_interval** (*Optional*): How often in minutes do we look for new calendars. By default the system won't look for new calendars, except at startup, if this isn't set or is `null` or `0`. Recommendation is to leave this unset or set it to a really high number. There really is no need to contiually look for new calendars.
+- **track_new_calendar** (*Optional*): Will automatically generate a binary sensor when a new calendar is detected. The system scans for new calendars on startup. By default this is set to `True`.
 
 ### {% linkable_title Installation Process %}
 Installation of this component requires a bit of prep work. In order to get the most API requests per day you'll want to create a Project at the Google Developers Console
 Steps:
 
-1. Visit the [Google Developers Project Page](https://console.developers.google.com/iam-admin/projects) and click `Create Project`
+1. Complete [Step 1](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name) to turn on Google Calendar API
+    - _Where will you be calling the API from?_: 
+      - Web server (e.g. node.js, Tomcat)
 
-2. In the popup give your Project a name so you'll know what it is at some future date. Such as `Home Assistant Calendar` and click Create
+    - _What data will you be accessing?_: 
+      - User data
 
-3. On the next page you will be taken to search for `Google Calendar API` and select it when it shows up.
+    - _Authorized redirect URIs_: 
+      - http`s`://`<domain from Prerequisites>`:`<port>`/auth/google_calendar/callback
 
-4. Next `Enable` the api.
+    - For Step (g.) rename it to `google_calendar.conf` and put it in your `<config_dir>`
 
-5. After a few seconds Google will give you a message that you need to create credentials. Go ahead and click `Go to Credentials`
+2. If you haven't started Home-Assistant skip this step
+    Click `I have created the JSON file` in the Configurator for `Google Calendar OAuth Setup`
 
-6. Leave the first dropdown set to `Google Calendar API` and set the second one to `Web server (e.g. node.js, Tomcat)` then click `What credentials do I need?`
+3. Now you will have a Configurator entry for `Google Calendar Authentication` go ahead and configure it and `Login to Google`
 
-7. On the next screen you can change the name if you wish, it doesn't matter, but you will need to set the `Authorized redirect URIs`
-
-8. This is the fully qualified domain name of your setup with `/auth/google_calendar` appended. So if you had the fqdn set above you would put `https://homeassistant.mnestor.dnamicdns.org:10540/auth/google_calendar/callback`
-
-9. Click `Create client ID` and enter a name on the next screen. This is what you will see when you actually authenticate your Home-Assistant setup to Google.
-
-10. You should now be at a stop it's asking you to `Download` a JSON file for your setup. Click `Download` and save this file to your `<config_dir>` as `google_calendar.conf`
-
-11. Then click `Done` you're all set for that part.
-
-12. If you waited till now to start Home-Assistant then skip this step. You should have the *Configurator* as a card asking you to configure `Google Calendar` go ahead and click that and the button in the popup to register that you have the JSON file in place.
-
-13. You now have a *Link* card with a link to Authenticate to Google. Go click on it and allow your setup to read your Google Calendar
-
-14. Your new browser tab should come back with Success and tell you to restart Home Assistatant. 
-
-15. You're all setup!
+4. You're all setup!
 
 Once you're setup and running the system will automically generate the file `<config_dir>/google_calendar_devices.yaml` and update it every **scan_interval** or at restarts. There are many more things you can have this component do by editing this file as you will see in the next section.
+
+### {% linkable_title Sensor attributes %}
+
+ - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important #-10` would trigger this attribute to be `on` 10 minutes before the event starts.
+
+ - **all_day**: `True`/`False` if this is an all day event. Will be `False` if there is no event found.
+
+ - **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting`
+
+ - **description**: The event description.
+
+ - **location**: The event Location.
+
+ - **start_time**: Start time of event.
+
+ - **end_time**: End time of event.
 
 ### {% linkable_title Calendar Configuration %}
 Editing `google_calendar_devices.yaml`
@@ -106,17 +126,6 @@ From this we will end up with the binary sensor `google_calendar.maggie` which w
 
 But what if you only wanted it to toggle based on events that had the keyword `Vacation` or even better the tag `#Vacation`? Just set a value for `search`.
 **Note**: If you use a `#` sign for search then wrap it up. It's better to be safe!
-
-### {% linkable_title Sensor attributes %}
-
- - **time_till**: Number of minutes until the event state switches to `on`. Will be 0 all the rest of the time.
-
- - **offset**: If set in the event title and parsed out will be `on`/`off` once **time_till** is <= the number parsed from the event title. So the title `Very important meeting #Important #-10` would trigger this attribute to be `on` when **time_till** hit 10 minutes.
-
- - **all_day**: `True`/`False` if this is an all day event. Will be `False` if there is no event found.
-
- - **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset** the **message** would be set to `Very important meeting`
-
 
 ### {% linkable_title Examples %}
 
@@ -174,7 +183,7 @@ Automation:
 alias: Freelancer Alarm
 trigger:
   platform: template
-  value_template: '{{ states.google_calendar.freelancer_alarm.attributes.offset }}'
+  value_template: '{{ states.google_calendar.freelancer_alarm.attributes.offset_reached }}'
 action:
   service: script.alarm_routine
 ```
@@ -193,13 +202,23 @@ Next the automation should change to
 ```yaml
 alias: Freelancer Alarm
 trigger:
-  platform: numeric_state
+  platform: calendar
   entity_id: google_calendar.freelancer_alarm
-  value_template: '{{ states.google_calendar.freelancer_alarm.attributes.time_till }}'
-  below: 10
-  above: 9
+  offset: '-00:10'
 action:
   service: script.alarm_routine
 ```
 
+### {% linkable_title Scanning for new Calendars %}
+This shouldn't really be needed but if you do. Just create an automation to periodically search for them:
 
+```yaml
+alias: "Search for new Calendars every 4 hours"
+trigger:
+  platform: time
+  hours: /4
+  minutes: 0
+  seconds: 0
+action:
+  service: zwave.heal_network
+``` 
