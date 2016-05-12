@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Talks | Home Assistant]]></title>
-  <link href="https://home-assistant.io/blog/categories/talks/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Video | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/video/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
   <updated>2016-05-12T03:59:16+00:00</updated>
   <id>https://home-assistant.io/</id>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Video: How To Configure Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2016/05/12/video-configuring-home-assistant/"/>
+    <updated>2016-05-12T00:09:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/05/12/video-configuring-home-assistant</id>
+    <content type="html"><![CDATA[<p>Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a> authors a lot of great video’s about how he is using Home Assistant and how you can get started with it too. The video below will walk you through how to configure Home Assistant. Enjoy!</p>
+
+<p>Make sure to subscribe to <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">his YouTube channel</a> for more Home Assistant video’s.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/hFDVB2H6TNo" frameborder="0" allowfullscreen=""></iframe>
+</div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Talk: Automating your home with Home Assistant (OpenIoT Summit)]]></title>
