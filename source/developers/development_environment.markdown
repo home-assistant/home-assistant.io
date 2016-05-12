@@ -22,7 +22,7 @@ Home Assistant is open-source and MIT licensed. The source can be found here:
 You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.
 Visit the [the Home Assistant repository](https://github.com/home-assistant/home-assistant) first and click fork in the top right.
 
-We suggest that you setup a [virtual environment](https://docs.python.org/3.4/library/venv.html) aka `venv` before running the setup script.
+We suggest that you setup a [virtual environment](https://home-assistant.io/getting-started/installation-virtualenv/) aka [`venv`](https://docs.python.org/3.4/library/venv.html) before running the setup script.
 
 ```bash
 $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
@@ -30,6 +30,9 @@ $ cd home-assistant
 $ git remote add upstream https://github.com/home-assistant/home-assistant.git
 $ script/setup
 ```
+On Windows you can use `python setup.py develop` instead of the setup script
+
+After following these steps, running `hass` will invoke your local installation.
 
 ### {% linkable_title Testing your work %}
 
@@ -38,8 +41,6 @@ Testing your work requires `tox` to be installed:
 ```bash
 $ pip3 install tox
 ```
-
-After following these steps, running `hass` will invoke your local installation.
 
 ### {% linkable_title Prevent Linter Errors %}
 
@@ -74,14 +75,17 @@ If you're taking a while developing your feature request and would like to catch
 
 ```bash
 # Run this from your feature branch
-$ git fetch upstream dev # to pull the latest changes into a local dev branch
+$ git fetch upstream dev  # to pull the latest changes into a local dev branch
 $ git rebase upstream/dev # to put those changes into your feature branch before your changes
 ```
 
-### {% linkable_title Squashing your commits %}
+If rebase detects conflicts, you can repeat the following process until all changes have been resolved:
 
-Your feature is done, it looks great and the tests are all passing. What now? Squash your commits, and create a pull request. Squashing your commits makes for a more readable git commit history. It's an interactive process that is best explained by Matt Stauffer in [this video](https://www.youtube.com/watch?v=7IfkL8swmFw).
-
+1. `git status` will show you the file with the conflict.
+2. Edit the file and resolving the lines between `<<<< | >>>>`
+3. Add the modified file `git add <file>` or `git add .`
+4. Continue rebase `git rebase --continue`
+5. Repeat until you've resolved all conflicts.
 
 ### {% linkable_title Further reading %}
 
@@ -92,3 +96,4 @@ Your feature is done, it looks great and the tests are all passing. What now? Sq
 - [Rest API](/developers/api/)
 - [Server-sent events](/developers/server_sent_events/)
 - [Website](/developers/website/)
+- [Home Assitant on Github - CONTRIBUTING.md](https://github.com/home-assistant/home-assistant/blob/dev/CONTRIBUTING.md)
