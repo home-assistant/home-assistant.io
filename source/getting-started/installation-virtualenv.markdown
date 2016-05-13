@@ -9,11 +9,11 @@ sharing: true
 footer: true
 ---
 
-There are several reasons why it makes sense to run Home Assistant in a virtualenv. A virtualenv encapsulates all aspect of a Python environment within a single directory tree. That means the Python packages you install for Home Assistant won't interact with the rest of your system and vice-versa. It means a random upgrade for some other program on your computer won't break HA, and it means you don't need to install a bunch of Python packages as root.
+There are several reasons why it makes sense to run Home Assistant in a virtual environment. A virtualenv encapsulates all aspect of a Python environment within a single directory tree. That means the Python packages you install for Home Assistant won't interact with the rest of your system and vice-versa. It means a random upgrade for some other program on your computer won't break Home Assitant, and it means you don't need to install Python packages as root.
 
-Virtualenvs are pretty easy to setup. This example will walk through one method of setting one up (there are certainly others). We'll be using Debian in this example (as many HA users are running Raspbian on a Raspberry Pi), but all of the Python related steps should be the same on just about any platform.
+Virtualenvs are pretty easy to setup. This example will walk through one method of setting one up (there are certainly others). We'll be using Debian in this example (as many Home Assistant users are running Raspbian on a Raspberry Pi), but all of the Python related steps should be the same on just about any platform.
 
-## Step 0: Install some dependencies
+## {% linkable_title Step 0: Install some dependencies %}
 
 ```bash
 sudo apt-get update
@@ -22,15 +22,15 @@ sudo apt-get install python-pip
 sudo pip install --upgrade virtualenv
 ```
 
-## Step 1: Create a Home Assistant user
+## {% linkable_title Step 1: Create a Home Assistant user %}
 
-This step is optional, but it's a good idea to give services like Home Assistant their own user. It gives you more granular control over permissions, and reduces the exposure to the rest of your system in the event there is a security related bug in HA. This is a reasonably Linux oriented step, and will look different on other OS's (or even other Linux distros).
+This step is optional, but it's a good idea to give services like Home Assistant their own user. It gives you more granular control over permissions, and reduces the exposure to the rest of your system in the event there is a security related bug in Home Assistant. This is a reasonably Linux oriented step, and will look different on other operating systems (or even other Linux distributions).
 
 ```bash
 sudo adduser --system hass
 ```
 
-Home Assistant stores its config in `$HOME/.homeassistant` by default, so in this case, it would be in `/home/hass/.homeassistant`
+Home Assistant stores its configuration in `$HOME/.homeassistant` by default, so in this case, it would be in `/home/hass/.homeassistant`
 
 If you plan to use a Z-Wave controller, you will need to add this user to the `dialout` group
 
@@ -38,16 +38,15 @@ If you plan to use a Z-Wave controller, you will need to add this user to the `d
 sudo usermod -G dialout -a hass
 ```
 
-## Step 2: Create a directory for Home Assistant
+## {% linkable_title Step 2: Create a directory for Home Assistant %}
 
-This can be anywhere you want, but I generally put stuff related to servers in /srv. You also need to change the ownership of the directory to the user you created above (if you created one)
+This can be anywhere you want, but I generally put stuff related to servers in `/srv`. You also need to change the ownership of the directory to the user you created above (if you created one)
 
 ```bash
 sudo mkdir /srv/hass
 sudo chown hass /srv/hass
 ```
-
-## Step 3: Become the new user
+## {% linkable_title Step 3: Become the new user %}
 
 This is obviously only necessary if you created a 'hass' user, but if you did, be sure to switch to that user whenever you install things in your virtualenv, otherwise you'll end up with mucked up permissions.
 
@@ -57,7 +56,7 @@ sudo su -s /bin/bash hass
 
 The 'su' command means 'switch' user. We use the '-s' flag because the hass user is a system user and doesn't have a default shell by default (to prevent attackers from being able to log in as that user).
 
-## Step 4: Set up the virtualenv
+## {% linkable_title Step 4: Set up the virtualenv %}
 
 All this step does is stick a Python environment in the directory we're using. That's it. It's just a directory. There's nothing 'special' about it, and it is entirely self-contained.
 
@@ -67,7 +66,7 @@ It will include a 'bin' directory, which will contain all the executables used i
 virtualenv -p python3 /srv/hass
 ```
 
-## Step 5: Activate the virtualenv
+## {% linkable_title Step 5: Activate the virtualenv %}
 
 ```bash
 source /srv/hass/bin/activate
@@ -75,9 +74,9 @@ source /srv/hass/bin/activate
 
 After that, your prompt should include '(hass)'.
 
-## Step 6: Install Home Assistant
+## {% linkable_title Step 6: Install Home Assistant %}
 
-Once your virtualenv has been activated, you don't need to 'sudo' any of your pip commands. Pip will be installing things in the virtualenv, which our 'hass' user has permission to modify.
+Once your virtualenv has been activated, you don't need to `sudo` any of your pip commands. Pip will be installing things in the virtualenv, which our 'hass' user has permission to modify.
 
 ```bash
 (hass)pip3 install --upgrade homeassistant
@@ -85,29 +84,29 @@ Once your virtualenv has been activated, you don't need to 'sudo' any of your pi
 
 And that's it... you now have Home Assistant installed, and you can be sure that every bit of it is contained in /srv/hass
 
-## Finally... Run Home Assistant
+## {% linkable_title Finally... Run Home Assistant %}
 
-There are two ways to launch Home Assistant. If you are 'in' the virtualenv, you can just run `hass` and it will work as normal. If the virtualenv is not activated, you just use the 'hass' executable in that bin directory I mentioned earlier. There is one caveat... Because Home Assistant stores it's config in the user's home directory, we need to be the hass user.
+There are two ways to launch Home Assistant. If you are 'in' the virtualenv, you can just run `hass` and it will work as normal. If the virtualenv is not activated, you just use the `hass` executable in the `bin` directory mentioned earlier. There is one caveat... Because Home Assistant stores it's configuration in the user's home directory, we need to be the user `hass` user or specify the configuration with `-c`.
 
 ```bash
 sudo -u hass -H /srv/hass/bin/hass
 ```
 
-The '-H' flag is important. It sets the `$HOME` environment variable to `/home/hass` so hass can find its configs.
+The '-H' flag is important. It sets the `$HOME` environment variable to `/home/hass` so `hass` can find its configuration.
 
-## Upgrading Home Assistant
+## {% linkable_title Upgrading Home Assistant %}
 
-Upgrading HA is simple, just repeat steps 3, 5 and 6.
+Upgrading Home Assistant is simple, just repeat steps 3, 5 and 6.
 
-## Starting Home Assistant on boot
+## {% linkable_title Starting Home Assistant on boot %}
 
-The autostart instructions on home-assistant.io will work just fine, just be sure to replace `/usr/bin/hass` with `/srv/hass/bin/hass` and specify the 'hass' user where appropriate.
+The [autostart instructions](/getting-started/autostart/) will work just fine, just be sure to replace `/usr/bin/hass` with `/srv/hass/bin/hass` and specify the `hass` user where appropriate.
 
-## Installing python-openzwave
+## {% linkable_title Installing python-openzwave %}
 
-If you want to use Z Wave devices, you'll need to install python-openzwave in your virtualenv. This requires a small tweak to the instructions on home-assistant.io
+If you want to use Z-Wave devices, you will need to install `python-openzwave` in your virtualenv. This requires a small tweak to the instructions on home-assistant.io
 
-Install the dependencies as normal (note: you'll need to do this as your normal user, since 'hass' isn't a sudoer).
+Install the dependencies as normal (Note: you'll need to do this as your normal user, since 'hass' isn't a sudoer).
 
 ```bash
 $ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
