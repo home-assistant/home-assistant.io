@@ -110,30 +110,36 @@ Push your remote and your device should be added:</p>
 </p>
 
 <p>Here the name is 0b11000102ef9f210010f70 and you can verify that it works from the frontend. <br />
-Then you should update your configuration to:<br />
-<code>yaml
-switch:
- platform: rfxtrx
- devices:
-    0b11000102ef9f210010f70: 
-        name: device_name
-</code></p>
+Then you should update your configuration to:</p>
 
-<p>Example configuration:<br />
-<code>yaml
-# Example configuration.yaml entry
-switch: 
- platform: rfxtrx
- automatic_add: False
- signal_repetitions: 2
- devices:
-   0b1100ce3213c7f210010f70:
-     name: Movment1
-   0b11000a02ef2gf210010f50:
-     name: Movment2
-   0b1111e003af16aa10000060:
-     name: Door
-</code></p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">switch</span>:
+ <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+ <span class="key">devices</span>:
+    <span class="key">0b11000102ef9f210010f70</span>: 
+        <span class="key">name</span>: <span class="string"><span class="content">device_name</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Example configuration:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">switch</span>: 
+ <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+ <span class="key">automatic_add</span>: <span class="string"><span class="content">False</span></span>
+ <span class="key">signal_repetitions</span>: <span class="string"><span class="content">2</span></span>
+ <span class="key">devices</span>:
+   <span class="key">0b1100ce3213c7f210010f70</span>:
+     <span class="key">name</span>: <span class="string"><span class="content">Movment1</span></span>
+   <span class="key">0b11000a02ef2gf210010f50</span>:
+     <span class="key">name</span>: <span class="string"><span class="content">Movment2</span></span>
+   <span class="key">0b1111e003af16aa10000060</span>:
+     <span class="key">name</span>: <span class="string"><span class="content">Door</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>Configuration variables:</p>
 

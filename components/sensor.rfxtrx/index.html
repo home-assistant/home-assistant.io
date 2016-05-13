@@ -92,12 +92,15 @@
   <p>The <code>rfxtrx</code> platform support sensors that communicate in the frequency range of 433.92 MHz.</p>
 
 <p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub.</a><br />
-The easiest way to find your sensors is to add this to your <code>configuration.yaml</code>:<br />
-<code>yaml
-sensor: 
- platform: rfxtrx
- automatic_add: True
-</code></p>
+The easiest way to find your sensors is to add this to your <code>configuration.yaml</code>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">sensor</span>: 
+ <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+ <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>Then when the sensor emits a signal it will be automatically added:</p>
 
@@ -106,14 +109,17 @@ sensor:
 </p>
 
 <p>Here the name is 0a52080000301004d240259 and you can verify that it works from the frontend. <br />
-Then you should update your configuration to:<br />
-<code>yaml
-sensor:
- platform: rfxtrx
- devices:
-    0a52080000301004d240259: 
-        name: device_name
-</code></p>
+Then you should update your configuration to:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">sensor</span>:
+ <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+ <span class="key">devices</span>:
+    <span class="key">0a52080000301004d240259</span>: 
+        <span class="key">name</span>: <span class="string"><span class="content">device_name</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>If you want to display several data types from one sensor:</p>
 
@@ -130,21 +136,24 @@ sensor:
 </div>
 </div>
 
-<p>Example configuration:<br />
-<code>yaml
-# Example configuration.yaml entry
-sensor: 
- platform: rfxtrx
- automatic_add: True
- devices:
-   0a52080705020095220269:
-     name: Lving
-   0a520802060100ff0e0269:
-        name: Bath
-        data_type: 
-         - Humidity
-         - Temperature
-</code></p>
+<p>Example configuration:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">sensor</span>: 
+ <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+ <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
+ <span class="key">devices</span>:
+   <span class="key">0a52080705020095220269</span>:
+     <span class="key">name</span>: <span class="string"><span class="content">Lving</span></span>
+   <span class="key">0a520802060100ff0e0269</span>:
+        <span class="key">name</span>: <span class="string"><span class="content">Bath</span></span>
+        <span class="key">data_type</span>: 
+         - <span class="string"><span class="content">Humidity</span></span>
+         - <span class="string"><span class="content">Temperature</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>Configuration variables:</p>
 
