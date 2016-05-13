@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Adding devices to Home Assistant - Home Assistant</title>
+    <title>Raspberry Pi All-In-One Installer - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Steps to help you get your devices in Home Assistant.">
+    <meta name="description" content="Home Assistant is an open-source home automation platform running on Python 3.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/devices/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Adding devices to Home Assistant">
+    <meta property="og:title" content="Raspberry Pi All-In-One Installer">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/devices/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Steps to help you get your devices in Home Assistant.">
+    <meta property="og:description" content="">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Adding devices to Home Assistant">
-    <meta name="twitter:description" content="Steps to help you get your devices in Home Assistant.">
+    <meta name="twitter:title" content="Raspberry Pi All-In-One Installer">
+    <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,81 +83,60 @@
   
   <header>
     <h1 class="title indent">
-      Adding Devices to Home Assistant
+      Raspberry Pi All-In-One Installer
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Home Assistant will be able to automatically discover and configure any Google Chromecasts, Netgear routers, Belkin WeMo switches, Philips Hue bridges and Sonos speakers on your network if you have <a href="/components/discovery/">the discovery component</a> enabled (which is by default).</p>
+  <p>Easily deploy a complete Home Assistant server, with Websocket MQTT and Z-Wave driver support using Fabric!</p>
 
-<p>See the <a href="/components/">components overview page</a> to find installation instructions for your devices and services. If you can’t find support for your favorite device or service, <a href="/developers/add_new_platform/">consider adding support</a>.</p>
+<p>Requirements before installation:</p>
 
-<p>Usually every entity needs its own entry in the <code>configuration.yaml</code> file. There are two styles for multiple entries:</p>
+<ul>
+  <li>You have a Raspberry Pi with a fresh install of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Jessie/Jessie-Lite</a>.</li>
+  <li>You are able to SSH into your Raspberry Pi</li>
+  <li>You have a computer running Python 3</li>
+</ul>
 
-<h4><a class="title-link" name="style-1-collect-every-entity-under-the-parent" href="#style-1-collect-every-entity-under-the-parent"></a> Style 1: Collect every entity under the “parent”</h4>
+<p>Installation instructions (all from your PC):</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/temperature</span><span class="delimiter">&quot;</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MQTT Sensor 1</span><span class="delimiter">&quot;</span></span>
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/kitchen/temperature</span><span class="delimiter">&quot;</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MQTT Sensor 2</span><span class="delimiter">&quot;</span></span>
-  - <span class="string"><span class="content">platform: rest</span></span>
-    <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
+<ol>
+  <li>Install fabric: <code>pip3 install fabric3</code></li>
+  <li>Clone the script: <code>git clone https://github.com/jbags81/fabric-home-assistant.git</code></li>
+  <li>Change directory: <code>cd fabric-home-assistant</code></li>
+  <li>Edit <code>fabfile.py</code> and add the host info of your Raspberry Pi.</li>
+  <li>Build your new Home Assistant server: <code>fab deploy</code></li>
+  <li>Reboot your Raspberry Pi</li>
+</ol>
 
-<span class="key">switch</span>:
-  - <span class="string"><span class="content">platform: vera</span></span>
-</pre></div>
-</div>
-</div>
+<p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it from <strong>http://your_raspberry_pi_ip:8123</strong>.</p>
 
-<h4><a class="title-link" name="style-2-list-each-device-separately" href="#style-2-list-each-device-separately"></a> Style 2: List each device separately</h4>
+<p>The Home Assistant config is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>.</p>
 
-<p>You need to append numbers or strings to differentiate the entries, as in the example below. The appended number or string must be unique.</p>
+<p>The All-In-One Fabric script will do the following automatically:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">media_player livingroom</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
+<ul>
+  <li>Create all needed directories</li>
+  <li>Create needed service accounts</li>
+  <li>Install OS and Python dependencies</li>
+  <li>Setup a virtualenv to run Home Assistant and components inside.</li>
+  <li>Run as a service account</li>
+  <li>Install Home Assistant in a virtualenv</li>
+  <li>Build and install Mosquitto from source with websocket support</li>
+  <li>Build and Install Python-openzwave in the Home Assistant virtualenv</li>
+  <li>Add both Home Assistant and Mosquitto to systemd services to start at boot</li>
+</ul>
 
-<span class="key">media_player kitchen</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">plex</span></span>
+<p>Fabric allows any of the underlying functions to be ran individually as well. Run <code>fab -l</code> to see a list of all callable jobs.</p>
 
-<span class="key">camera 1</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">generic</span></span>
+<p>Tested with:</p>
 
-<span class="key">camera 2</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mjpeg</span></span>
-</pre></div>
-</div>
-</div>
-
-<p class="note note">
-If your devices are not showing up in the frontend then check the entries in your <code>configuration.yaml</code> file for duplicates. 
-</p>
-
-<h3><a class="title-link" name="grouping-devices" href="#grouping-devices"></a> Grouping devices</h3>
-
-<p>Once you have a bunch of devices set up, it is time to organize them into groups.  <br />
-Each group exists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (second icon).</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry showing two styles</span>
-<span class="key">group</span>:
-  <span class="key">living_room</span>: <span class="string"><span class="content">light.table_lamp, switch.ac</span></span>
-  <span class="key">bedroom</span>:
-    - <span class="string"><span class="content">light.bedroom</span></span>
-    - <span class="string"><span class="content">media_player.nexus_player</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>For more details please check the <a href="https://home-assistant.io/components/group/">Group</a> page.</p>
-
-<h3><a href="/getting-started/customizing-devices/">Next step: Customizing devices and services »</a></h3>
+<ul>
+  <li>Raspbian Jessie</li>
+  <li>Raspbian Jessie-Lite</li>
+  <li>Debian 8 (Replace username “pi” in fabfile.py with debian user)</li>
+</ul>
 
 
 </article>
@@ -171,7 +150,7 @@ Each group exists of a name and a list of entity IDs. Entity IDs can be retrieve
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/devices.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/installation-raspberry-pi-all-in-one.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -179,7 +158,7 @@ Each group exists of a name and a list of entity IDs. Entity IDs can be retrieve
         <a  href='/getting-started/'>Installation </a>
         <ul>
           <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
-          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a class='active' href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
           <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
           <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
           <li><a  href='/getting-started/installation-virtualenv/'>VirtualEnv Linux Instructions </a></li>
@@ -190,7 +169,7 @@ Each group exists of a name and a list of entity IDs. Entity IDs can be retrieve
         Configuration
         <ul>
           <li><a  href='/getting-started/configuration/'>Configuration.yaml  </a></li>
-          <li><a class='active' href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
           <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
           <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
           <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
@@ -257,6 +236,21 @@ Each group exists of a name and a list of entity IDs. Entity IDs can be retrieve
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
   g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
   s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/';
+    var disqus_url = 'https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/';
+    var disqus_script = 'embed.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
 </script>
   </body>
 </html>
