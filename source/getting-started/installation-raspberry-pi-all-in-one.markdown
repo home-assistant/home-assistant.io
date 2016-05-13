@@ -6,24 +6,30 @@ comments: true
 sharing: true
 footer: true
 ---
-Easily deploy a complete Home Assistant server, with Websocket MQTT and Z-Wave support out of the box using Fabric!
 
-{% linkable_title Steps to run: %}
-*Start with a fresh Raspbian Jessie/Jessie-Lite or Debian 8 install*
- 1. install fabric locally: ```pip3 install fabric3```
- 2. Ensure you can SSH into Target Host
- 3. Clone the repo : ``` git clone https://github.com/jbags81/fabric-home-assistant.git ``` (or simply download the zip) to your local host. The repo contains a pre-configured default mosquitto.conf file. The only addition is an added listener for websockets listening on 9001. It also contains preconfigured systemd service profiles. For the fabric script to run successfully, it has to be ran from the root of the cloned repo or zip archive.
- 4. Edit ```fabfile.py``` and add the host info for the target host.
- 5. Run the "deploy" job to build your new Home Assistant server: ``` fab deploy ```
- 6. Reboot
+Easily deploy a complete Home Assistant server, with Websocket MQTT and Z-Wave driver support using Fabric!
 
+Requirements before installation:
 
- Everything will start at boot, and Home Assistant is accessible now from **http://your_server_ip:8123**
+* You have a Raspberry Pi with a fresh install of [Raspbian Jessie/Jessie-Lite](https://www.raspberrypi.org/downloads/raspbian/).
+* You are able to SSH into your Raspberry Pi
+* You have a computer running Python 3
 
- The Home Assistant configs are located in: ```/home/hass``` The virtualenv path, along with where all python packages will install is located at: ```/srv/hass/hass_venv```
+Installation instructions (all from your PC):
 
+ 1. Install fabric: `pip3 install fabric3`
+ 2. Clone the script: `git clone https://github.com/jbags81/fabric-home-assistant.git`
+ 3. Change directory: `cd fabric-home-assistant`
+ 4. Edit `fabfile.py` and add the host info of your Raspberry Pi.
+ 5. Build your new Home Assistant server: `fab deploy`
+ 6. Reboot your Raspberry Pi
 
-**The All-In-One Fabric script will do the following automatically:**
+Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it from **http://your_raspberry_pi_ip:8123**.
+
+The Home Assistant config is located at `/home/hass`. The virtualenv with the Home Assistant installation is located at `/srv/hass/hass_venv`.
+
+The All-In-One Fabric script will do the following automatically:
+
 *  Create all needed directories
 *  Create needed service accounts
 *  Install OS and Python dependencies
@@ -34,13 +40,10 @@ Easily deploy a complete Home Assistant server, with Websocket MQTT and Z-Wave s
 *  Build and Install Python-openzwave in the Home Assistant virtualenv
 *  Add both Home Assistant and Mosquitto to systemd services to start at boot
 
+Fabric allows any of the underlying functions to be ran individually as well. Run `fab -l` to see a list of all callable jobs.
 
+Tested with:
 
-
- Fabric allows any of the underlying functions to be ran individually as well. Run ``` fab -l ``` to see a list of all callable jobs.
-
-
-**Tested with:**
   * Raspbian Jessie
   * Raspbian Jessie-Lite
   * Debian 8 (Replace username "pi" in fabfile.py with debian user)
