@@ -171,6 +171,18 @@ The MQTT component will register the service `publish` which allows publishing m
 }
 ```
 
+### {% linkable_title Logging %}
+
+The [logger](/components/logger/) component allow the logging of received MQTT messages. 
+
+```yaml
+# Example configuration.yaml entry
+logger:
+  default: warning
+  logs:
+    homeassistant.components.device_tracker.mqtt: debug
+```
+
 ## {% linkable_title Testing your setup %}
 
 The `mosquitto` broker package is shipping commandline tools to send and recieve MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:
