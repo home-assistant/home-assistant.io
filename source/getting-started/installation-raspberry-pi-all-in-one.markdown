@@ -7,26 +7,26 @@ sharing: true
 footer: true
 ---
 
-Easily deploy a complete Home Assistant server, with Websocket MQTT and Z-Wave driver support using Fabric!
+The "[Raspberry Pi All-In-One Installer](https://github.com/jbags81/fabric-home-assistant)" deploy a complete Home Assistant server including support for MQTT with websocket support and Z-Wave using [Fabric](http://www.fabfile.org/).
 
 Requirements before installation:
 
-* You have a Raspberry Pi with a fresh install of [Raspbian Jessie/Jessie-Lite](https://www.raspberrypi.org/downloads/raspbian/).
-* You are able to SSH into your Raspberry Pi
-* You have a computer running Python 3
+* You have a Raspberry Pi with a fresh installation of [Raspbian Jessie/Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) or Debian 8 connected to your network.
+* You are able to SSH into your Raspberry Pi.
+* You have a computer with Python 3 and `git` installed.
 
 Installation instructions (all from your PC):
 
  1. Install fabric: `pip3 install fabric3`
- 2. Clone the script: `git clone https://github.com/jbags81/fabric-home-assistant.git`
- 3. Change directory: `cd fabric-home-assistant`
- 4. Edit `fabfile.py` and add the host info of your Raspberry Pi.
+ 2. Clone the repository: `git clone https://github.com/jbags81/fabric-home-assistant.git`
+ 3. Change the directory: `cd fabric-home-assistant`
+ 4. Edit the `fabfile.py` file and add the hostname or the IP address of your Raspberry Pi to `env.hosts`. If you are using Debian 8 then replace the username `pi` in the `fabfile.py` file with your Debian user as well.
  5. Build your new Home Assistant server: `fab deploy`
- 6. Reboot your Raspberry Pi
+ 6. Reboot your Raspberry Pi.
 
-Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it from **http://your_raspberry_pi_ip:8123**.
+Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at **http://your_raspberry_pi_ip:8123**.
 
-The Home Assistant config is located at `/home/hass`. The virtualenv with the Home Assistant installation is located at `/srv/hass/hass_venv`.
+The Home Assistant configuration is located at `/home/hass`. The virtualenv with the Home Assistant installation is located at `/srv/hass/hass_venv`.
 
 The All-In-One Fabric script will do the following automatically:
 
@@ -42,8 +42,3 @@ The All-In-One Fabric script will do the following automatically:
 
 Fabric allows any of the underlying functions to be ran individually as well. Run `fab -l` to see a list of all callable jobs.
 
-Tested with:
-
-  * Raspbian Jessie
-  * Raspbian Jessie-Lite
-  * Debian 8 (Replace username "pi" in fabfile.py with debian user)
