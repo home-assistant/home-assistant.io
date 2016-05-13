@@ -28,7 +28,7 @@ def setup(hass, config):
     def handle_hello(call):
         name = call.data.get(ATTR_NAME, DEFAULT_NAME)
 
-        hass.states.set('hello.service.hello', name)
+        hass.states.set('hello_service.hello', name)
 
     hass.services.register(DOMAIN, 'hello', handle_hello)
 
