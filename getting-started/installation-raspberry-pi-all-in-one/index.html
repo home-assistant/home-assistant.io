@@ -89,30 +89,30 @@
   <hr class="divider">
   
 
-  <p>Easily deploy a complete Home Assistant server, with Websocket MQTT and Z-Wave driver support using Fabric!</p>
+  <p>The “<a href="https://github.com/jbags81/fabric-home-assistant">Raspberry Pi All-In-One Installer</a>” deploy a complete Home Assistant server including support for MQTT with websocket support and Z-Wave using <a href="http://www.fabfile.org/">Fabric</a>.</p>
 
 <p>Requirements before installation:</p>
 
 <ul>
-  <li>You have a Raspberry Pi with a fresh install of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Jessie/Jessie-Lite</a>.</li>
-  <li>You are able to SSH into your Raspberry Pi</li>
-  <li>You have a computer running Python 3</li>
+  <li>You have a Raspberry Pi with a fresh installation of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Jessie/Jessie Lite</a> or Debian 8 connected to your network.</li>
+  <li>You are able to SSH into your Raspberry Pi.</li>
+  <li>You have a computer with Python 3 and <code>git</code> installed.</li>
 </ul>
 
 <p>Installation instructions (all from your PC):</p>
 
 <ol>
   <li>Install fabric: <code>pip3 install fabric3</code></li>
-  <li>Clone the script: <code>git clone https://github.com/jbags81/fabric-home-assistant.git</code></li>
-  <li>Change directory: <code>cd fabric-home-assistant</code></li>
-  <li>Edit <code>fabfile.py</code> and add the host info of your Raspberry Pi.</li>
+  <li>Clone the repository: <code>git clone https://github.com/jbags81/fabric-home-assistant.git</code></li>
+  <li>Change the directory: <code>cd fabric-home-assistant</code></li>
+  <li>Edit the <code>fabfile.py</code> file and add the hostname or the IP address of your Raspberry Pi to <code>env.hosts</code>. If you are using Debian 8 then replace the username <code>pi</code> in the <code>fabfile.py</code> file with your Debian user as well.</li>
   <li>Build your new Home Assistant server: <code>fab deploy</code></li>
-  <li>Reboot your Raspberry Pi</li>
+  <li>Reboot your Raspberry Pi.</li>
 </ol>
 
-<p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it from <strong>http://your_raspberry_pi_ip:8123</strong>.</p>
+<p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at <strong>http://your_raspberry_pi_ip:8123</strong>.</p>
 
-<p>The Home Assistant config is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>.</p>
+<p>The Home Assistant configuration is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>.</p>
 
 <p>The All-In-One Fabric script will do the following automatically:</p>
 
@@ -130,13 +130,6 @@
 
 <p>Fabric allows any of the underlying functions to be ran individually as well. Run <code>fab -l</code> to see a list of all callable jobs.</p>
 
-<p>Tested with:</p>
-
-<ul>
-  <li>Raspbian Jessie</li>
-  <li>Raspbian Jessie-Lite</li>
-  <li>Debian 8 (Replace username “pi” in fabfile.py with debian user)</li>
-</ul>
 
 
 </article>
