@@ -7,7 +7,7 @@ date_formatted: "May 6, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Talks
+categories: Talks Video
 og_image: /images/blog/2016-05-openiot/preview-video.png
 ---
 

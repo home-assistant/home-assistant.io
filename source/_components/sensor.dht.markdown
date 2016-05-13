@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ha_category: DIY
 ha_release: 0.7
+logo: dht.png
 ---
 
 

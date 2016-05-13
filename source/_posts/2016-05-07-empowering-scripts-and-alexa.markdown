@@ -7,8 +7,7 @@ date_formatted: "May 7, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Talks
-og_image: /images/blog/2016-05-openiot/preview-video.png
+categories: Release-Notes
 ---
 
 This release is big. Until now, our automations and scripts have been very static. Starting today it should all be a bit more dynamic.
@@ -43,8 +42,6 @@ light:
   entity_namespace: holiday_home
 ```
 
-<img src='/images/supported_brands/bluetooth.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
-
  - Automation: allow [script syntax] for action ([@balloob])
  - Automation: expose [`trigger` variable][trigger-variable] to script templates ([@balloob])
  - Script: allow passing variables for script templates in the [script service calls] ([@balloob])
@@ -65,7 +62,7 @@ light:
  - Switch: [Acer Projectors] now supported ([@deisi])
  - New [HVAC component] added with Z-Wave support ([@turbokongen])
  - Support added for [OctoPrint] ([@w1ll1am23])
- - Configuration.yaml can now refer to environment variables using `!envvar` ([@bah2830])
+ - Configuration.yaml can now refer to environment variables using `!env_var` ([@bah2830])
  - Lock: [Z-Wave][lock.zwave] now supported ([@devdelay])
  - New [Dweet component] to export data ([@fabaff])
  - Media Player now supports stop command + initial kodi support ([@hmronline])

@@ -15,7 +15,7 @@ This example is for adding support for the imaginary Awesome Lights. It shows th
 import logging
 
 # Import the device class from the component that you want to support
-from homeassistant.components.light import Light
+from homeassistant.components.light import ATTR_BRIGHTNESS, Light
 from homeassistant.const import CONF_HOST, CONF_USERNAME, CONF_PASSWORD
 
 # Home Assistant depends on 3rd party packages for API specific code.
@@ -24,7 +24,7 @@ REQUIREMENTS = ['awesome_lights==1.2.3']
 _LOGGER = logging.getLogger(__name__)
 
 
-setup_platform(hass, config, add_devices, discovery_info=None):
+def setup_platform(hass, config, add_devices, discovery_info=None):
     """Initialize Awesome Light platform."""
     import awesomelights
 
@@ -56,22 +56,42 @@ class AwesomeLight(Light):
         """Initialize an AwesomeLight."""
         self._light = light
 
-    def update(self):
-        """Fetch new state data for this light.
+    @property
+    def name(self):
+        """Return the display name of this light"""
+        return self._light.name
 
-        This is the only method that should fetch new data for Home Assitant.
-        """
-        self._light.update()
-
+    @property
     def brightness(self):
-        """Brightness of the light.
+        """Brightness of the light (an integer in the range 1-255).
 
         This method is optional. Removing it indicates to Home Assistant
         that brightness is not supported for this light.
         """
         return self._light.brightness
 
+    @property
     def is_on(self):
         """If light is on."""
         return self._light.is_on()
+
+    def turn_on(self, **kwargs):
+        """Instruct the light to turn on.
+
+        You can skip the brightness part if your light does not support
+        brightness control.
+        """
+        self._light.brightness = kwargs.get(ATTR_BRIGHTNESS, 255)
+        self._light.turn_on()
+
+    def turn_off(self, **kwargs):
+        """Instruct the light to turn off."""
+        self._light.turn_off()
+
+    def update(self):
+        """Fetch new state data for this light.
+
+        This is the only method that should fetch new data for Home Assitant.
+        """
+        self._light.update()
 ```

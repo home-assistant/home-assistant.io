@@ -99,6 +99,24 @@ Sample `curl` command:
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/config
 ```
 
+#### {% linkable_title GET /api/discovery_info %}
+Returns basic information about the Home Assistant instance as JSON.
+
+```json
+{
+    "base_url": "http://127.0.0.1:8123",
+    "location_name": "Home",
+    "requires_api_password": true,
+    "version": "0.20.0.dev0"
+}
+```
+
+Sample `curl` command:
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/discovery_info
+```
+
 #### {% linkable_title GET /api/bootstrap %}
 Returns all data needed to bootstrap Home Assistant.
 
@@ -273,23 +291,14 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        http://localhost:8123/api/error_log
 ```
 
-#### {% linkable_title GET /api/discovery_info %}
-Retrieve about the discovery feature.
-
-```json
-{
-    "base_url": "http://192.168.1.2:8123",
-    "location_name": "My home",
-    "requires_api_password": true,
-    "version": "0.19.0"
-}
-```
+#### {% linkable_title GET /api/camera_proxy/camera.&lt;entity_id> %}
+Returns the data (image) from the specified camera entity_id.
 
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: mypass" \
-       http://localhost:8123/api/discovery_info
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD"\
+   http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
 ```
 
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
