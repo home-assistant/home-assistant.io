@@ -110,26 +110,32 @@ Push your remote and your device should be added:</p>
 </p>
 
 <p>Here the name is 0b11000102ef9f210010f70 and you can verify that it works from the frontend. <br />
-Then you should update your configuration to:<br />
-<code>yaml
-light:
- platform: rfxtrx
- devices:
-    0b11000102ef9f210010f70: 
-        name: device_name
-</code></p>
+Then you should update your configuration to:</p>
 
-<p>Example configuration:<br />
-<code>yaml
-# Example configuration.yaml entry
-light:
- platform: rfxtrx
- devices:
-   0b11000f10e9e5660b010f70:
-     name: Light1
-   0b1100100f29e5660c010f70:
-     name: Light_TV
-</code></p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">light</span>:
+ <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+ <span class="key">devices</span>:
+    <span class="key">0b11000102ef9f210010f70</span>: 
+        <span class="key">name</span>: <span class="string"><span class="content">device_name</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Example configuration:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">light</span>:
+ <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+ <span class="key">devices</span>:
+   <span class="key">0b11000f10e9e5660b010f70</span>:
+     <span class="key">name</span>: <span class="string"><span class="content">Light1</span></span>
+   <span class="key">0b1100100f29e5660c010f70</span>:
+     <span class="key">name</span>: <span class="string"><span class="content">Light_TV</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>Configuration variables:</p>
 
