@@ -107,7 +107,7 @@ DEFAULT_NAME = <span class="string"><span class="delimiter">'</span><span class=
     <span class="keyword">def</span> <span class="function">handle_hello</span>(call):
         name = call.data.get(ATTR_NAME, DEFAULT_NAME)
 
-        hass.states.set(<span class="string"><span class="delimiter">'</span><span class="content">hello.service.hello</span><span class="delimiter">'</span></span>, name)
+        hass.states.set(<span class="string"><span class="delimiter">'</span><span class="content">hello_service.hello</span><span class="delimiter">'</span></span>, name)
 
     hass.services.register(DOMAIN, <span class="string"><span class="delimiter">'</span><span class="content">hello</span><span class="delimiter">'</span></span>, handle_hello)
 
