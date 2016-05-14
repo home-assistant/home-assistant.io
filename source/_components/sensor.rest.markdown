@@ -99,7 +99,7 @@ The Home Assistant [API](/developers/rest_api/) exposes the data from your attac
 
 ```yaml
   - platform: rest
-    resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature
+    resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature?api_password[PASSWORD]
     name: Temperature
     value_template: {% raw %}'{{ value_json.state }}'{% endraw %}
     unit_of_measurement: "°C"
