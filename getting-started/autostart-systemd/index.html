@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Autostart using SystemD - Home Assistant</title>
+    <title>Autostart using systemd - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to setup Home Assistant to launch on boot using SystemD.">
+    <meta name="description" content="Instructions how to setup Home Assistant to launch on boot using systemd.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/getting-started/autostart-systemd/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Autostart using SystemD">
+    <meta property="og:title" content="Autostart using systemd">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/getting-started/autostart-systemd/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Instructions how to setup Home Assistant to launch on boot using SystemD.">
+    <meta property="og:description" content="Instructions how to setup Home Assistant to launch on boot using systemd.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Autostart using SystemD">
-    <meta name="twitter:description" content="Instructions how to setup Home Assistant to launch on boot using SystemD.">
+    <meta name="twitter:title" content="Autostart using systemd">
+    <meta name="twitter:description" content="Instructions how to setup Home Assistant to launch on boot using systemd.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,13 +83,13 @@
   
   <header>
     <h1 class="title indent">
-      Autostart Using SystemD
+      Autostart Using Systemd
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Newer linux distributions are trending towards using systemd for managing daemons. Typically, systems based on Fedora or Debian 8 or later use systemd. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using <code>systemd</code>, you may check with the following command:</p>
+  <p>Newer linux distributions are trending towards using <code>systemd</code> for managing daemons. Typically, systems based on Fedora, ArchLinux, or Debian (8 or later) use <code>systemd</code>. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using <code>systemd</code>, you may check with the following command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ ps -p 1 -o comm=
@@ -184,7 +184,7 @@ $ sudo systemctl start home-assistant@[your user]
           <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
           <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
           <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
-          <li><a  href='/getting-started/installation-virtualenv/'>VirtualEnv Linux Instructions </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>VirtualEnv Linux </a></li>
           <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
         </ul>
       </li>
@@ -218,9 +218,9 @@ $ sudo systemctl start home-assistant@[your user]
       <li>
         <a  href='/getting-started/autostart/'>Auto-start Home Assistant </a>
         <ul>
-          <li><a class='active' href='/getting-started/autostart-systemd/'>Linux - SystemD </a></li>
+          <li><a class='active' href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
           <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
-          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>OS X </a></li>
           <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
         </ul>
       </li>
