@@ -2,13 +2,14 @@
 layout: page
 title: "Twilio SMS"
 description: "Instructions how to add user notifications to Home Assistant."
-date: 2016-01-29
+date: 2016-05-14 14:14
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: twilio.png
 ha_category: Notifications
+ha_release: 0.20
 ---
 
 The Twilio notify platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
