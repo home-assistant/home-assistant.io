@@ -12,7 +12,7 @@ ha_category: Sensor
 ---
 
 
-The `nest` sensor platform let you monitor sensors connected to your [Nest](https://nest.com) thermostat.
+The `nest` sensor platform let you monitor sensors connected to your [Nest](https://nest.com) thermostat and/or your Nest Protect Smoke Alarm.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -35,6 +35,8 @@ sensor:
     - 'weather_humidity'
     - 'wind_speed'
     - 'wind_direction'
+    - 'co_status'
+    - 'smoke_status'
 ```
 
 Configuration variables:
@@ -55,5 +57,6 @@ Configuration variables:
   - 'weather_humidity'
   - 'wind_speed'
   - 'wind_direction'
-
+  - 'co_status' # Nest Protect only
+  - 'smoke_status' # Nest Protect only
 <p class='note'>You must have the [Nest component](/components/nest/) configured to use this sensor.</p>
