@@ -104,7 +104,7 @@
 <p>You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.<br />
 Visit the <a href="https://github.com/home-assistant/home-assistant">the Home Assistant repository</a> first and click fork in the top right.</p>
 
-<p>We suggest that you setup a <a href="https://docs.python.org/3.4/library/venv.html">virtual environment</a> aka <code>venv</code> before running the setup script.</p>
+<p>We suggest that you setup a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code>venv</code></a> before running the setup script.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
@@ -114,6 +114,9 @@ $ script/setup
 </pre></div>
 </div>
 </div>
+<p>On Windows you can use <code>python setup.py develop</code> instead of the setup script.</p>
+
+<p>After following these steps, running <code>hass</code> will invoke your local installation.</p>
 
 <h3><a class="title-link" name="testing-your-work" href="#testing-your-work"></a> Testing your work</h3>
 
@@ -124,8 +127,6 @@ $ script/setup
 </pre></div>
 </div>
 </div>
-
-<p>After following these steps, running <code>hass</code> will invoke your local installation.</p>
 
 <h3><a class="title-link" name="prevent-linter-errors" href="#prevent-linter-errors"></a> Prevent Linter Errors</h3>
 
@@ -164,15 +165,21 @@ $ flake8 --install-hook
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre># Run this from your feature branch
-$ git fetch upstream dev # to pull the latest changes into a local dev branch
+$ git fetch upstream dev  # to pull the latest changes into a local dev branch
 $ git rebase upstream/dev # to put those changes into your feature branch before your changes
 </pre></div>
 </div>
 </div>
 
-<h3><a class="title-link" name="squashing-your-commits" href="#squashing-your-commits"></a> Squashing your commits</h3>
+<p>If rebase detects conflicts, you can repeat the following process until all changes have been resolved:</p>
 
-<p>Your feature is done, it looks great and the tests are all passing. What now? Squash your commits, and create a pull request. Squashing your commits makes for a more readable git commit history. It’s an interactive process that is best explained by Matt Stauffer in <a href="https://www.youtube.com/watch?v=7IfkL8swmFw">this video</a>.</p>
+<ol>
+  <li><code>git status</code> will show you the file with the conflict.</li>
+  <li>Edit the file and resolving the lines between <code>&lt;&lt;&lt;&lt; | &gt;&gt;&gt;&gt;</code></li>
+  <li>Add the modified file <code>git add &lt;file&gt;</code> or <code>git add .</code></li>
+  <li>Continue rebase <code>git rebase --continue</code></li>
+  <li>Repeat until you’ve resolved all conflicts.</li>
+</ol>
 
 <h3><a class="title-link" name="further-reading" href="#further-reading"></a> Further reading</h3>
 
@@ -184,6 +191,7 @@ $ git rebase upstream/dev # to put those changes into your feature branch before
   <li><a href="/developers/api/">Rest API</a></li>
   <li><a href="/developers/server_sent_events/">Server-sent events</a></li>
   <li><a href="/developers/website/">Website</a></li>
+  <li><a href="https://github.com/home-assistant/home-assistant/blob/dev/CONTRIBUTING.md">Home Assitant on Github - CONTRIBUTING.md</a></li>
 </ul>
 
 
