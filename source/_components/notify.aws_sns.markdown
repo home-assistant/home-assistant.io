@@ -39,15 +39,4 @@ Configuration variables:
 
 AWS SNS is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)). For more information, please see the [boto3 docs](http://boto3.readthedocs.io/en/latest/reference/services/sns.html#SNS.Client.publish).
 
-The SNS event payload will contain everything passed in the service call payload. SNS payloads will be published as stringified JSON. All attributes from the payload except message will also be sent as stringified message attributes. Here is an example payload that would be sent to SNS:
-
-```json
-{
-  "title": "Test message!",
-  "target": "arn:aws:sns:us-east-1:123456789012:my_corporate_topic:02034b43-fefa-4e07-a5eb-3be56f8c54ce",
-  "data": {
-    "test": "okay"
-  },
-  "message": "Hello world!"
-}
-```
+If one exists, the SNS Subject will be set to the title. All attributes from the payload except message will be sent as stringified message attributes.
