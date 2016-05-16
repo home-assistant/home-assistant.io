@@ -65,6 +65,13 @@ To be able to receive events from IFTTT, your Home Assistant instance needs to b
 <img src='/images/components/ifttt/IFTTT_to_HA.png' />
 </p>
 
+To modify `input_boolean`, use the following URL with the body `{"entity_id": "input_boolean.BooleanName"}`:
+`http://Yourhome.DuckDNS.com:8123/api/services/input_boolean/turn_on?api_password=xxxxx`
+
+<p class='img'>
+<img src='/images/components/ifttt/HA_input_Boolean_IFTTT_update.png' />
+</p>
+
 ### {% linkable_title Additional Channel Examples %}
 
 Additional examples of using IFTTT channels can be found below.
