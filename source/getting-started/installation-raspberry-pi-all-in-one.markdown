@@ -7,38 +7,41 @@ sharing: true
 footer: true
 ---
 
-The "[Raspberry Pi All-In-One Installer](https://github.com/jbags81/fabric-home-assistant)" deploy a complete Home Assistant server including support for MQTT with websocket support and Z-Wave using [Fabric](http://www.fabfile.org/).
+The "[Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric-home-assistant)" deploys a complete Home Assistant server including support for MQTT with websocket support, Z-Wave, and the Open-Zwave-Control-Panel.
 
 Requirements before installation:
 
-* You have a Raspberry Pi with a fresh installation of [Raspbian Jessie/Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) or Debian 8 connected to your network.
+* You have a Raspberry Pi with a fresh installation of [Raspbian Jessie/Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) connected to your network.
 * You are able to SSH into your Raspberry Pi.
-* You have a computer with Python 3 and `git` installed.
 
-Installation instructions (all from your PC):
 
- 1. Install fabric: `pip3 install fabric3`
- 2. Clone the repository: `git clone https://github.com/jbags81/fabric-home-assistant.git`
- 3. Change the directory: `cd fabric-home-assistant`
- 4. Edit the `fabfile.py` file and add the hostname or the IP address of your Raspberry Pi to `env.hosts`. If you are using Debian 8 then replace the username `pi` in the `fabfile.py` file with your Debian user as well.
- 5. Build your new Home Assistant server: `fab deploy`
- 6. Reboot your Raspberry Pi.
+Installation instructions:
+
+ 1. SSH into your Raspberry Pi
+ 2. Run `wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && bash hass_rpi_installer.sh;`
+ 3. Installation will take approx 1-2 hour's depending on the model of Raspberry Pi the installer is being run against.
+
 
 Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at **http://your_raspberry_pi_ip:8123**.
 
-The Home Assistant configuration is located at `/home/hass`. The virtualenv with the Home Assistant installation is located at `/srv/hass/hass_venv`.
+The Home Assistant configuration is located at `/home/hass`. The virtualenv with the Home Assistant installation is located at `/srv/hass/hass_venv`. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, "hass". This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands as "Sudo" or switching users. Setting up WinSCP to allow this seemlessly is detailed below.
 
-The All-In-One Fabric script will do the following automatically:
+By default, installation makes use of a Python Virtualenv. If you wish to not follow this recommendation, you may add the flag `-n` to the end of the install command specified above. 
+
+The All-In-One installer script will do the following automatically:
 
 *  Create all needed directories
 *  Create needed service accounts
 *  Install OS and Python dependencies
-*  Setup a virtualenv to run Home Assistant and components inside.
-*  Run as a service account
+*  Setup a python virtualenv to run Home Assistant and components inside.
+*  Run as `hass` service account
 *  Install Home Assistant in a virtualenv
-*  Build and install Mosquitto from source with websocket support
+*  Build and install Mosquitto from source with websocket support running on ports 1883 and 9001
 *  Build and Install Python-openzwave in the Home Assistant virtualenv
+*  Build openzwave-control-panel in `/srv/hass/src/open-zwave-control-panel`
 *  Add both Home Assistant and Mosquitto to systemd services to start at boot
 
-Fabric allows any of the underlying functions to be ran individually as well. Run `fab -l` to see a list of all callable jobs.
+
+
+Windows Users - Please note that after running the installer, you will need to modify a couple settings allowing you to "switch users" to edit your configuration files. The needed change within WinSCP can be seen here: [Imgur](http://i.imgur.com/tlOljo6.jpg)
 
