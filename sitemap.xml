@@ -330,6 +330,9 @@
     <loc>https://home-assistant.io/developers/frontend_add_more_info/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/developers/helpers/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/archives/</loc>
   </url>
   <url>
@@ -1600,26 +1603,26 @@
     </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-05-17T04:53:26+00:00</lastmod>
+    <lastmod>2016-05-17T18:05:31+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-05-17T04:53:26+00:00</lastmod>
+    <lastmod>2016-05-17T18:05:31+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-05-17T04:53:26+00:00</lastmod>
+    <lastmod>2016-05-17T18:05:31+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-05-17T04:53:26+00:00</lastmod>
+    <lastmod>2016-05-17T18:05:31+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-05-17T04:53:26+00:00</lastmod>
+    <lastmod>2016-05-17T18:05:31+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-05-17T04:53:26+00:00</lastmod>
+    <lastmod>2016-05-17T18:05:31+00:00</lastmod>
   </url>
 </urlset>
