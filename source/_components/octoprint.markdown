@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: octoprint.png
 ha_category: Hub
-featured: true
+featured: false
 ha_release: 0.19
 ---
 

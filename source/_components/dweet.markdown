@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: dweet.png
 ha_category: "History"
-featured: true
+featured: false
 ha_release: 0.19
 ---
 

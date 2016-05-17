@@ -31,6 +31,7 @@ Push your remote and your device should be added:
 
 Here the name is 0b11000102ef9f210010f70 and you can verify that it works from the frontend. 
 Then you should update your configuration to:
+
 ```yaml
 switch:
  platform: rfxtrx
@@ -40,6 +41,7 @@ switch:
 ```
 
 Example configuration:
+
 ```yaml
 # Example configuration.yaml entry
 switch: 
