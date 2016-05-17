@@ -18,7 +18,7 @@ Virtualenvs are pretty easy to setup. This example will walk through one method 
 ```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get install python-pip
+$ sudo apt-get install python-pip python3-dev
 $ sudo pip install --upgrade virtualenv
 ```
 
