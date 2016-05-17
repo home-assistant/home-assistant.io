@@ -89,46 +89,45 @@
   <hr class="divider">
   
 
-  <p>The “<a href="https://github.com/jbags81/fabric-home-assistant">Raspberry Pi All-In-One Installer</a>” deploy a complete Home Assistant server including support for MQTT with websocket support and Z-Wave using <a href="http://www.fabfile.org/">Fabric</a>.</p>
+  <p>The “<a href="https://github.com/home-assistant/fabric-home-assistant">Raspberry Pi All-In-One Installer</a>” deploys a complete Home Assistant server including support for MQTT with websocket support, Z-Wave, and the Open-Zwave-Control-Panel.</p>
 
 <p>Requirements before installation:</p>
 
 <ul>
-  <li>You have a Raspberry Pi with a fresh installation of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Jessie/Jessie Lite</a> or Debian 8 connected to your network.</li>
+  <li>You have a Raspberry Pi with a fresh installation of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Jessie/Jessie Lite</a> connected to your network.</li>
   <li>You are able to SSH into your Raspberry Pi.</li>
-  <li>You have a computer with Python 3 and <code>git</code> installed.</li>
 </ul>
 
-<p>Installation instructions (all from your PC):</p>
+<p>Installation instructions:</p>
 
 <ol>
-  <li>Install fabric: <code>pip3 install fabric3</code></li>
-  <li>Clone the repository: <code>git clone https://github.com/jbags81/fabric-home-assistant.git</code></li>
-  <li>Change the directory: <code>cd fabric-home-assistant</code></li>
-  <li>Edit the <code>fabfile.py</code> file and add the hostname or the IP address of your Raspberry Pi to <code>env.hosts</code>. If you are using Debian 8 then replace the username <code>pi</code> in the <code>fabfile.py</code> file with your Debian user as well.</li>
-  <li>Build your new Home Assistant server: <code>fab deploy</code></li>
-  <li>Reboot your Raspberry Pi.</li>
+  <li>SSH into your Raspberry Pi</li>
+  <li>Run <code>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh &amp;&amp; bash hass_rpi_installer.sh;</code></li>
+  <li>Installation will take approx 1-2 hour’s depending on the model of Raspberry Pi the installer is being run against.</li>
 </ol>
 
 <p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at <strong>http://your_raspberry_pi_ip:8123</strong>.</p>
 
-<p>The Home Assistant configuration is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>.</p>
+<p>The Home Assistant configuration is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, “hass”. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands as “Sudo” or switching users. Setting up WinSCP to allow this seemlessly is detailed below.</p>
 
-<p>The All-In-One Fabric script will do the following automatically:</p>
+<p>By default, installation makes use of a Python Virtualenv. If you wish to not follow this recommendation, you may add the flag <code>-n</code> to the end of the install command specified above.</p>
+
+<p>The All-In-One installer script will do the following automatically:</p>
 
 <ul>
   <li>Create all needed directories</li>
   <li>Create needed service accounts</li>
   <li>Install OS and Python dependencies</li>
-  <li>Setup a virtualenv to run Home Assistant and components inside.</li>
-  <li>Run as a service account</li>
+  <li>Setup a python virtualenv to run Home Assistant and components inside.</li>
+  <li>Run as <code>hass</code> service account</li>
   <li>Install Home Assistant in a virtualenv</li>
-  <li>Build and install Mosquitto from source with websocket support</li>
+  <li>Build and install Mosquitto from source with websocket support running on ports 1883 and 9001</li>
   <li>Build and Install Python-openzwave in the Home Assistant virtualenv</li>
+  <li>Build openzwave-control-panel in <code>/srv/hass/src/open-zwave-control-panel</code></li>
   <li>Add both Home Assistant and Mosquitto to systemd services to start at boot</li>
 </ul>
 
-<p>Fabric allows any of the underlying functions to be ran individually as well. Run <code>fab -l</code> to see a list of all callable jobs.</p>
+<p>Windows Users - Please note that after running the installer, you will need to modify a couple settings allowing you to “switch users” to edit your configuration files. The needed change within WinSCP can be seen here: <a href="http://i.imgur.com/tlOljo6.jpg">Imgur</a></p>
 
 
 
