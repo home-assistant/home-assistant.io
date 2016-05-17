@@ -63,6 +63,13 @@ $ sudo systemctl status home-assistant@[your user] -l
 [...]
 ```
 
+If you get an error complaining that `systemctl` command is not found, try the following to install `systemd`
+```bash
+sudo apt-get update
+sudo apt-get install systemd
+```
+Once you do that, try running the commands above again.
+
 To get Home Assistant's logging output, simple use `journalctl`.
 
 ```bash
