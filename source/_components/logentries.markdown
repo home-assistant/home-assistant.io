@@ -18,7 +18,6 @@ To use the `logentries` component in your installation, add the following to you
 # Example configuration.yaml entry
 logentries:
   token: your-log-token-here
-  SSL: True
 ```
 
 Configuration variables:
