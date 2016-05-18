@@ -7,27 +7,27 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Home Assistant goes geo with OwnTracks - Home Assistant</title>
+    <title>Why we use web components and Polymer - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing.">
+    <meta name="description" content="In this blog post I talk about the reasoning to use web components and Polymer.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2016/05/18/why-we-use-polymer/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Home Assistant goes geo with OwnTracks">
+    <meta property="og:title" content="Why we use web components and Polymer">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2016/05/18/why-we-use-polymer/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing.">
-    <meta property="og:image" content="https://home-assistant.io/images/screenshots/map.png">
+    <meta property="og:description" content="In this blog post I talk about the reasoning to use web components and Polymer.">
+    <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@balloob">
-    <meta name="twitter:title" content="Home Assistant goes geo with OwnTracks">
-    <meta name="twitter:description" content="Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing.">
-    <meta name="twitter:image" content="https://home-assistant.io/images/screenshots/map.png">
+    <meta name="twitter:title" content="Why we use web components and Polymer">
+    <meta name="twitter:description" content="In this blog post I talk about the reasoning to use web components and Polymer.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -80,20 +80,20 @@
   
   <header>
   
-  <h1 class="title indent">Home Assistant goes geo with OwnTracks</h1>
+  <h1 class="title indent">Why we use web components and Polymer</h1>
   
 
   
   <div class="meta clearfix">
-    <time datetime="2015-10-05T21:49:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 5, 2015</time>
+    <time datetime="2016-05-18T00:09:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 18, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li><a class='category' href='/blog/categories/technology/'>Technology</a></li>
       
     
     </ul>
@@ -108,37 +108,27 @@
 </header>
 
 
-  <p>A few weeks have past and it is time again for another release: version 0.7.4. This time we’re very glad to be able to introduce brand new integration with OwnTracks to allow tracking of people on a map. The geo support consists of three different parts:</p>
+  <p>I’ve been planning to write this post for a while now as we get questions like this a lot: <em>“Why does Home Assistant use Polymer? Why not React, Redux and what not?”</em></p>
 
-<ul>
-  <li><a href="/components/device_tracker.owntracks/">OwnTracks platform for the device tracker</a> to get locations for devices</li>
-  <li>Brand new <a href="/components/zone/">zone component</a> to define zones to identify locations and <a href="/getting-started/automation-trigger/#zone-trigger">trigger automation</a></li>
-  <li>A map in the UI to see all this (<a href="/demo/">see it in action in the demo</a>)</li>
-</ul>
+<p>It’s understandable, Polymer is quite the underdog in the world of web frameworks. A corporate backer does not guarantee popularity or an active community and this shows in the number of projects using Polymer.</p>
 
-<p>We have added a new <a href="/getting-started/presence-detection/">getting started section</a> to get up and running.</p>
+<p>Still, <a href="https://home-assistant.io/demo">we use Polymer and it’s awesome</a>. To explain why, I’ll be referencing the React workflow quite a bit, as they do a lot of things right, and show how it is done in Polymer.</p>
 
-<p class="img">
-<img src="/images/screenshots/map.png" />
-Map in Home Assistant showing two people and three zones (home, school, work)
-</p>
+<p>Polymer gives us components for the web, just like React, but based on web standards: <a href="https://www.w3.org/standards/techs/components#w3c_all">web components</a>, <a href="https://www.w3.org/TR/css-variables/">CSS variables</a>. These standards don’t have wide browser support yet but it’s being implemented by every major browser: It’s the future. For now they are being polyfilled and that works just fine but in the future the Home Assistant web app will be able to run native in the browsers == fast.</p>
 
-<p>Ofcourse more things happened in the last three weeks. I’m moving away from my usual long post to a short summary of highlights:</p>
+<a name="read-more"></a>
 
-<p><a href="/components/media_player.plex/">
-<img src="/images/supported_brands/plex.png" style="border:none; box-shadow: none; float: right;" height="50" />
-</a></p>
+<p>Polymer does not have the nice developer experience that one can have with React and the <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en">React Dev Tools</a> but that’s a matter of time. The developer tools in every browser have seen a lot of improvements recently and each improvement helps support for web components.</p>
 
-<ul>
-  <li>Sensor: <a href="/components/sensor.rest/">rest platform</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Alarm Control Panel: <a href="/components/alarm_control_panel.mqtt/">MQTT platform</a> added (<a href="https://github.com/sfam">@sfam</a>)</li>
-  <li>Media Player: <a href="/components/media_player.plex/">Plex platform</a> added (<a href="https://github.com/miniconfig, [@adrienbrault](https://github.com/adrienbrault)">@miniconfig</a></li>
-  <li>Dev Tools: services can now show description of fields (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>MQTT: Support for certificates and improved error reporting (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="/components/light.limitlessled/">limitlessled platform</a> extended with white light support (<a href="https://github.com/auchter">@auchter</a>)</li>
-  <li>Fuzzy matching for scenes (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Scene support for media player (<a href="https://github.com/maddox">@maddox</a>)</li>
-</ul>
+<p>Another major benefit of Polymer for Home Assistant is that we get <a href="https://elements.polymer-project.org/browse?package=paper-elements">material design for free</a>. The material design components that come with Polymer have a very high quality. Google is using these components themselves and make sure that performance and accessibility using screen readers/keyboards are great. As an open source project, the more we can outsource, the better - so our contributors can focus on the core product: home automation.</p>
+
+<p>What about Flux, data management and interaction between components? It’s actually pretty similar to React or any other component based framework. Flux-like architectures work with Polymer just like with React: whenever data changes it will update the attributes of a component which will propagate to the children. For Home Assistant we use <a href="https://optimizely.github.io/nuclear-js/">NuclearJS</a> with our <a href="http://paulusschoutsen.nl/blog/2015/07/using-polymer-with-flux-and-a-global-app-state/">own Polymer bindings</a>. For data moving from child to parent the Polymer pattern is using DOM events instead of callbacks but the end result is the same. It is so similar in fact, that it took me only two hours to make a <a href="https://github.com/balloob/home-assistant-react-native-ios">React Native frontend for on top of our core</a>.</p>
+
+<p>So what about Babel and ES2015? Also this is covered. Each web component exists of a HTML template and a JavaScript class to back it. Think of the HTML template as the render method in React. In Home Assistant we have the HTML templates import one another and have a separate chain for the JavaScript classes backing each component. This allows us to use Babel and NPM modules for the JavaScript part (<a href="https://github.com/home-assistant/home-assistant-polymer#building-the-app">more info here</a>). This does however come with the downside of other JS based frameworks: the browser blocks any painting while the JavaScript is being parsed instead of upgrading the website incrementally. This, however, is something we take for granted right now and hope that module bundlers will be able to solve this for us eventually. Tree shaking is a very promising improvement in this space.</p>
+
+<p>Most of this blog post has been comparing Polymer to React. In many ways Polymer is similar to React but it is not as far evolved yet. I like React but I do not see it as a technology that will be around forever. Given the trend of previous popular JS frameworks, React will probably get replaced by another framework that works even better. Web components however will be here forever as they are part of the HTML standard. And this gives us peace of mind at the virtual Home Assistant headquarters: we do not have to be afraid of having to rewrite our frontend just to stay relevant or because people don’t want to include another dependency just to run this legacy piece.</p>
+
+<p>So there it is, the reason why we use Polymer.</p>
 </article>
 
 
@@ -176,12 +166,12 @@ Map in Home Assistant showing two people and three zones (home, school, work)
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/"
-     data-counturl="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2016/05/18/why-we-use-polymer/"
+     data-counturl="https://home-assistant.io/blog/2016/05/18/why-we-use-polymer/" >Tweet</a>
   
   
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/"
+         data-href="https://home-assistant.io/blog/2016/05/18/why-we-use-polymer/"
          data-layout="button_count">
     </div>
   
@@ -208,10 +198,6 @@ Map in Home Assistant showing two people and three zones (home, school, work)
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
     
-      
-        <li class="post">
-          <a href="/blog/2016/05/18/why-we-use-polymer/">Why we use web components and Polymer</a>
-        </li>
       
     
       
@@ -277,8 +263,8 @@ Map in Home Assistant showing two people and three zones (home, school, work)
   
     
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/';
-    var disqus_url = 'https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/05/18/why-we-use-polymer/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/05/18/why-we-use-polymer/';
     var disqus_script = 'embed.js';
   
   (function () {
