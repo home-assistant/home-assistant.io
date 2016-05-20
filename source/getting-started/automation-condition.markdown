@@ -20,4 +20,24 @@ automation:
 
 The available conditions for an automation are the same as for the script syntax. So see that page for a [full list of available conditions][script-condition].
 
+Example of using condition:
+
+```yaml
+- alias: 'Enciende Despacho'
+  trigger:
+    platform: state
+    entity_id: sensor.mini_despacho
+    to: 'ON'
+  condition:
+      condition: or
+      conditions:
+      - condition: template
+        value_template: '{{ states.sun.sun.attributes.elevation < 4 }}'
+      - condition: template
+        value_template: '{{ states.sensor.sensorluz_7_0.state < 10 }}'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.DespiertaDespacho
+```
+
 [script-condition]: /getting-started/scripts-conditions/
