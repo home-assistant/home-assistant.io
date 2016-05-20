@@ -63,7 +63,7 @@ automation:
           from: 'not_home'
           to: 'home'
       condition:
-        - platform: state
+        - condition: state
           entity_id: switch.gate
           state: 'off'
       action:
@@ -80,7 +80,7 @@ automation:
       platform: template
       value_template: {% raw %}'{{states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'{% endraw %}
     condition:
-      platform: template
+      condition: template
       value_template: {% raw %}'{{ states.device_tracker.greg_gregphone.state != "home" }}'{% endraw %}
     action:
       service: script.turn_on
@@ -91,7 +91,7 @@ automation:
       platform: template
       value_template: {% raw %}'{{states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state}}'{% endraw %}
     condition:
-      - platform: state
+      - condition: state
         entity_id: script.send_key_alert
         state: 'on'
     action:
