@@ -26,6 +26,42 @@ conditions:
     below: '20'
 ```
 
+#### {% linkable_title OR condition %}
+
+Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.
+
+```yaml
+condition: or
+conditions:
+  - condition: state
+    entity_id: 'device_tracker.paulus'
+    state: 'home'
+  - condition: numeric_state
+    entity_id: 'sensor.temperature'
+    below: '20'
+```
+
+#### {% linkable_title MIXED  AND and OR conditions %}
+
+Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.
+This allows you to mix several AND and OR conditions together.
+
+```yaml
+condition: and
+conditions:
+  - condition: state
+    entity_id: 'device_tracker.paulus'
+    state: 'home'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.weather_precip
+      state: 'rain'
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      below: '20'
+```
+
 #### {% linkable_title Numeric state condition %}
 
 This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches all of the above or below thresholds.
@@ -41,21 +77,6 @@ above: 17
 below: 25
 # If your sensor value needs to be adjusted
 value_template: {{ float(state.state) + 2 }}
-```
-
-#### {% linkable_title OR condition %}
-
-Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.
-
-```yaml
-condition: or
-conditions:
-  - condition: state
-    entity_id: 'device_tracker.paulus'
-    state: 'home'
-  - condition: numeric_state
-    entity_id: 'sensor.temperature'
-    below: '20'
 ```
 
 #### {% linkable_title State condition %}
