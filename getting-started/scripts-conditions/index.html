@@ -108,6 +108,46 @@
 </div>
 </div>
 
+<h4><a class="title-link" name="or-condition" href="#or-condition"></a> OR condition</h4>
+
+<p>Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">condition</span>: <span class="string"><span class="content">or</span></span>
+<span class="key">conditions</span>:
+  - <span class="string"><span class="content">condition: state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">'device_tracker.paulus'</span></span>
+    <span class="key">state</span>: <span class="string"><span class="content">'home'</span></span>
+  - <span class="string"><span class="content">condition: numeric_state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">'sensor.temperature'</span></span>
+    <span class="key">below</span>: <span class="string"><span class="content">'20'</span></span>
+</pre></div>
+</div>
+</div>
+
+<h4><a class="title-link" name="mixed--and-and-or-conditions" href="#mixed--and-and-or-conditions"></a> MIXED  AND and OR conditions</h4>
+
+<p>Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.<br />
+This allows you to mix several AND and OR conditions together.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">condition</span>: <span class="string"><span class="content">and</span></span>
+<span class="key">conditions</span>:
+  - <span class="string"><span class="content">condition: state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">'device_tracker.paulus'</span></span>
+    <span class="key">state</span>: <span class="string"><span class="content">'home'</span></span>
+  - <span class="string"><span class="content">condition: or</span></span>
+    <span class="key">conditions</span>:
+    - <span class="string"><span class="content">condition: state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.weather_precip</span></span>
+      <span class="key">state</span>: <span class="string"><span class="content">'rain'</span></span>
+    - <span class="string"><span class="content">condition: numeric_state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">'sensor.temperature'</span></span>
+      <span class="key">below</span>: <span class="string"><span class="content">'20'</span></span>
+</pre></div>
+</div>
+</div>
+
 <h4><a class="title-link" name="numeric-state-condition" href="#numeric-state-condition"></a> Numeric state condition</h4>
 
 <p>This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches all of the above or below thresholds.</p>
@@ -123,23 +163,6 @@
 <span class="key">below</span>: <span class="string"><span class="content">25</span></span>
 <span class="comment"># If your sensor value needs to be adjusted</span>
 <span class="key">value_template</span>: 
-</pre></div>
-</div>
-</div>
-
-<h4><a class="title-link" name="or-condition" href="#or-condition"></a> OR condition</h4>
-
-<p>Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">condition</span>: <span class="string"><span class="content">or</span></span>
-<span class="key">conditions</span>:
-  - <span class="string"><span class="content">condition: state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">'device_tracker.paulus'</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">'home'</span></span>
-  - <span class="string"><span class="content">condition: numeric_state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">'sensor.temperature'</span></span>
-    <span class="key">below</span>: <span class="string"><span class="content">'20'</span></span>
 </pre></div>
 </div>
 </div>
