@@ -102,6 +102,28 @@
 
 <p>The available conditions for an automation are the same as for the script syntax. So see that page for a <a href="/getting-started/scripts-conditions/">full list of available conditions</a>.</p>
 
+<p>Example of using condition:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>- <span class="string"><span class="content">alias: 'Enciende Despacho'</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.mini_despacho</span></span>
+    <span class="key">to</span>: <span class="string"><span class="content">'ON'</span></span>
+  <span class="key">condition</span>:
+      <span class="key">condition</span>: <span class="string"><span class="content">or</span></span>
+      <span class="key">conditions</span>:
+      - <span class="string"><span class="content">condition: template</span></span>
+        <span class="key">value_template</span>: <span class="string"><span class="content">''</span></span>
+      - <span class="string"><span class="content">condition: template</span></span>
+        <span class="key">value_template</span>: <span class="string"><span class="content">''</span></span>
+  <span class="key">action</span>:
+    - <span class="string"><span class="content">service: scene.turn_on</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">scene.DespiertaDespacho</span></span>
+</pre></div>
+</div>
+</div>
+
 
 
 </article>
