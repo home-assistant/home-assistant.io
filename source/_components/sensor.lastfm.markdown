@@ -14,9 +14,9 @@ ha_release: 0.20
 ---
 
 
-The Last.fm platform will allow you to see whenever a user starts scrobbling, their play count, last song played and top song played.
+The `lastfm` sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on [Last.fm](http://www.last.fm).
 
-To get an API key you need to create an ["API account"](http://www.last.fm/api/account/create).
+To get an API key you need to create an [API account](http://www.last.fm/api/account/create).
 
 To use Last.fm with your installation, add the following to your `configuration.yaml` file:
 
