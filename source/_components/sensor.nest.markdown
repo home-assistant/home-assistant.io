@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: nest_thermostat.png
 ha_category: Sensor
+ha_release: pre 0.7
 ---
 
 
@@ -59,4 +60,7 @@ Configuration variables:
   - 'wind_direction'
   - 'co_status' # Nest Protect only
   - 'smoke_status' # Nest Protect only
-<p class='note'>You must have the [Nest component](/components/nest/) configured to use this sensor.</p>
+
+<p class='note'>
+You must have the [Nest component](/components/nest/) configured to use this sensor.
+</p>

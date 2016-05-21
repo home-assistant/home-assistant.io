@@ -15,10 +15,6 @@ ha_release: pre 0.7
 
 The `asuswrt` platform offers presence detection by looking at connected devices to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
 
-<p class='note warning'>
-This device tracker needs telnet to be enabled on the router.
-</p>
-
 To use an ASUSWRT router in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,14 +22,20 @@ To use an ASUSWRT router in your installation, add the following to your `config
 device_tracker:
   platform: asuswrt
   host: YOUR_ROUTER_IP
+  protocol: telnet
   username: YOUR_ADMIN_USERNAME
   password: YOUR_ADMIN_PASSWORD
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.1.1.
+- **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
+- **protocol** (*Optional*): The protocol (`ssh` or `telnet`) to use. Defaults to `ssh`.
 - **username** (*Required*: The username of an user with administrative privileges, usually *admin*.
 - **password** (*Required*): The password for your given admin account.
+
+<p class='note warning'>
+You need to enable telnet on your router if you choose to use `protocol: telnet`. 
+</p>
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
