@@ -12,10 +12,9 @@ ha_category: Media Player
 ha_release: 0.20
 ---
 
+The [Roku](http://www.roku.com/) media players will be automatically discovered if you enable the [discovery component](/components/discovery/).
 
-[Roku](http://www.roku.com/) media players will be automatically discovered if you enable [the discovery component]({{site_root}}/components/discovery/).
-
-Roku platform can also be forced to load by adding the following lines to your `configuration.yaml`:
+The `roku` media player platform can also be forced to load by adding the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
