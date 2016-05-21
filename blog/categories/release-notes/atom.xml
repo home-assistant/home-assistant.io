@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-21T22:10:20+00:00</updated>
+  <updated>2016-05-21T22:22:24+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -42,7 +42,7 @@
   <li>Media Player: <a href="/components/media_player.lg_netcast/">LG Netcast TVs</a> now supported (<a href="https://github.com/wokar">@wokar</a>)</li>
   <li>Media Player: Allow enqueuing media on Sonos (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
   <li>Notify: <a href="/components/notify.ecobee/">Ecobee thermostats</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>Sensor: <a href="/components/sensor.moldindicator/">mold indicator</a> added (<a href="https://github.com/xifle">@xifle</a>)</li>
+  <li>Sensor: <a href="/components/sensor.moldindicator/">Mold indicator</a> added (<a href="https://github.com/xifle">@xifle</a>)</li>
   <li>Export to <a href="/components/logentries/">Logentries</a> support added (<a href="https://github.com/omgapuppy">@omgapuppy</a>)</li>
   <li>Group more info dialog allows control of group domain if available (<a href="https://github.com/fignuts">@fignuts</a>)</li>
 </ul>
@@ -50,13 +50,16 @@
 <h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
 
 <ul>
-  <li>Asus WRT will now default to SSH with Telnet being an option<br />
-<code>yaml
-device_tracker:
-platform: asuswrt
-protocol: telnet
-</code></li>
+  <li>Asus WRT will now default to SSH with Telnet being an option</li>
 </ul>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">device_tracker</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">asuswrt</span></span>
+  <span class="key">protocol</span>: <span class="string"><span class="content">telnet</span></span>
+</pre></div>
+</div>
+</div>
 
 ]]></content>
   </entry>
