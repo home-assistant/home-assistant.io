@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: roku.png
 ha_category: Media Player
-ha_release: 0.20
+ha_release: "0.20"
 ---
 
 The [Roku](http://www.roku.com/) media players will be automatically discovered if you enable the [discovery component](/components/discovery/).

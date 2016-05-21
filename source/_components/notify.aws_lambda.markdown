@@ -9,10 +9,12 @@ sharing: true
 footer: true
 logo: aws_lambda.png
 ha_category: Notifications
-ha_release: 0.20
+ha_release: "0.20"
 ---
 
-The AWS Lambda notify platform enables invoking [AWS Lambda](https://aws.amazon.com/lambda/) functions.
+The `aws_lambda` notification platform enables invoking [AWS Lambda](https://aws.amazon.com/lambda/) functions.
+
+To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
 ### Configuration
 
@@ -25,7 +27,6 @@ notify:
   aws_secret_access_key: AWS_SECRET_ACCESS_KEY
   profile_name: AWS_PROFILE
   region_name: 'us-east-1'
-  # Optional
   context:
     ...
 ```
@@ -39,7 +40,7 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **context** (*Optional*): An optional dictionary you can provide to pass custom context through to the Lambda function. The `context` dictionary (if any) is combined with the same data available at the `/api/config` HTTP API route.
 
-### Usage
+### {% linkable_title Usage %}
 
 AWS Lambda is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)) or a partial ARN. For more information, please see the [boto3 docs](http://boto3.readthedocs.io/en/latest/reference/services/lambda.html#Lambda.Client.invoke).
 

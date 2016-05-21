@@ -10,7 +10,7 @@ footer: true
 logo: gpmdp.png
 ha_category: Media Player
 ha_iot_class: "Local Polling"
-ha_release: 0.20
+ha_release: "0.20"
 
 ---
 

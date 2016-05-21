@@ -9,12 +9,12 @@ sharing: true
 footer: true
 logo: aws_sns.png
 ha_category: Notifications
-ha_release: 0.20
+ha_release: "0.20"
 ---
 
-The AWS SNS notify platform enables publishing to an [AWS SNS](https://aws.amazon.com/sns/) topic or application.
+The `aws_sns` notification platform enables publishing to an [AWS SNS](https://aws.amazon.com/sns/) topic or application.
 
-### Configuration
+To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,7 +35,7 @@ Configuration variables:
 - **region_name** (*Required*): The region identifier to connect to. The default is `us-east-1`.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
-### Usage
+### {% linkable_title Usage %}
 
 AWS SNS is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)). For more information, please see the [boto3 docs](http://boto3.readthedocs.io/en/latest/reference/services/sns.html#SNS.Client.publish).
 

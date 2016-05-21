@@ -9,12 +9,12 @@ sharing: true
 footer: true
 logo: twilio.png
 ha_category: Notifications
-ha_release: 0.20
+ha_release: "0.20"
 ---
 
-The `twilio` notify platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
+The `twilio` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
 
-To use this nofification in your installation, add the following to your `configuration.yaml` file:
+To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

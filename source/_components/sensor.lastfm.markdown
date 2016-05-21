@@ -10,7 +10,7 @@ footer: true
 logo: lastfm.png
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: 0.20
+ha_release: "0.20"
 ---
 
 
