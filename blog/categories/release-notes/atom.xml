@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-21T13:48:19+00:00</updated>
+  <updated>2016-05-21T21:59:59+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,54 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.20: Roku, Last.FM, AWS, Twilio]]></title>
+    <link href="https://home-assistant.io/blog/2016/05/21/release-020/"/>
+    <updated>2016-05-21T18:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/05/21/release-020</id>
+    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/supported_brands/roku.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/lastfm.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/gpmdp.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/twilio.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/aws_lambda.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/aws_sns.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/aws_sqs.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+
+<p>Tons of new supported things in 0.20.</p>
+
+<ul>
+  <li>Restarting now supported without forking (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Add <a href="/components/recorder/">purge days option</a> to recorder component (<a href="https://github.com/justyns">@justyns</a>, <a href="https://github.com/infamy">@infamy</a>)</li>
+  <li>Generic load_platform mechanism for entity components (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Template: new <a href="/topics/templating/#home-assistant-template-extensions"><code>relative_time</code></a> function to render ie. <code>7 seconds ago</code> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Sensor: <a href="/components/sensor.supervisord/">supervisord</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>Docker: we should no longer get SSL errors with requests (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Media Player: <a href="/components/media_player.gpmdp/">Google Play Music Desktop Player</a> now supported (<a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
+  <li>Notify: <a href="/components/notify.twilio_sms/">Twilio SMS</a> platform added (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">Asus WRT</a> will now default to SSH (but telnet is still an option) (<a href="https://github.com/froz">@froz</a>)</li>
+  <li>Support <a href="/components/sensor.nest/">Nest Protect</a> smoke alarms (<a href="https://github.com/khabi">@khabi</a>)</li>
+  <li>Configurator: allow supplying a link to the user (<a href="https://github.com/mnestor">@mnestor</a>)</li>
+  <li>Media Player: <a href="/components/media_player.roku/">Roku</a> now supported (<a href="https://github.com/bah2830">@bah2830</a>)</li>
+  <li>Sensor: <a href="/components/sensor.lastfm/">Last.FM</a> now supported (<a href="https://github.com/darookee">@darookee</a>, <a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
+  <li>Notify: Amazon <a href="/components/notify.aws_lambda/">Lambda</a>, <a href="/components/notify.aws_sns/">SNS</a>, <a href="/components/notify.aws_sqs/">SQS</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Light: allow human readable colors in turn_on command (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>YAML: new include dir options <a href="/topics/splitting_configuration/#advanced-usage"><code>!include_dir_merge_list</code></a> and <a href="/topics/splitting_configuration/#advanced-usage"><code>!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>Media Player: <a href="/components/media_player.lg_netcast/">LG Netcast TVs</a> now supported (<a href="https://github.com/wokar">@wokar</a>)</li>
+  <li>Media Player: Allow enqueuing media on Sonos (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
+  <li>Notify: <a href="/components/notify.ecobee/">Ecobee thermostats</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>Sensor: <a href="/components/sensor.moldindicator/">mold indicator</a> added (<a href="https://github.com/xifle">@xifle</a>)</li>
+  <li>Export to <a href="/components/logentries/">Logentries</a> support added (<a href="https://github.com/omgapuppy">@omgapuppy</a>)</li>
+  <li>Group more info dialog allows control of group domain if available (<a href="https://github.com/fignuts">@fignuts</a>)</li>
+</ul>
+
+<h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
+
+<ul>
+  <li>Asus WRT will now default to SSH with Telnet being an option<br />
+<code>yaml
+device_tracker:
+platform: asuswrt
+protocol: telnet
+</code></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.19: Empowering scripts and Alexa]]></title>
@@ -267,63 +315,6 @@
 </pre></div>
 </div>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.]]></title>
-    <link href="https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls/"/>
-    <updated>2016-03-12T18:55:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls</id>
-    <content type="html"><![CDATA[<p>Two weeks has past so here is 0.15! We have been focussing a lot on quality. Making sure the system is more stable and reliable. I usually try to highlight one cool thing in the release notes but this release has 4 exciting announcements!</p>
-
-<ul>
-  <li><a href="https://github.com/fabaff">@fabaff</a> has upgraded the codebase to follow the PEP257 documentation standard.</li>
-  <li><a href="https://github.com/PartOfTheThing">@partofthething</a> has migrated us to use the main Python Open Z-Wave library instead of our forked version.</li>
-  <li>To make our automations more powerful, <a href="https://github.com/persandstrom">@persandstrom</a> added the option to use templates to dynamically create service calls. This works for automation, Alexa, universal media player, template switch. <a href="/topics/service_calls/#use-templates-to-decide-which-service-to-call">Learn more.</a></li>
-  <li><a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> has upgraded our scene support to now support all built-in services and components.</li>
-</ul>
-
-<p>Besides bug fixes, this release also brings:</p>
-
-<p><img src="https://home-assistant.io/images/supported_brands/hunter-douglas-powerview.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Scene: Converted to a platform based component (<a href="https://github.com/sander76">@sander76</a>)</li>
-  <li>Scene: <a href="/components/scene.hunterdouglas_powerview/">Hunter Douglas Powerview</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
-  <li>Lock: <a href="/components/lock.mqtt/">MQTT</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> will allow filtering inaccurate GPS locations (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
-  <li>Binary Sensor: Wemo Motion now supported (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/ryanlaux">@ryanlaux</a>)</li>
-</ul>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example using templates for service and data in service call.</span>
-<span class="comment"># Works for automation, Alexa, universal media player, template switch.</span>
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">trigger:</span><span class="content">
-      - platform: state
-        entity_id: switch.bathroom</span></span>
-    <span class="key">action</span>:
-      <span class="key">service_template</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-        {% if is_state('switch.bathroom', 'on') %}
-          switch.turn_on
-        {% else %}
-          switch.turn_off
-        {% endif %}</span></span>
-      <span class="key">data_template</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.{{ states('input_select.is') }}</span></span>
-</pre></div>
-</div>
-</div>
-
-<h3>Breaking Changes</h3>
-
-<ul>
-  <li>Media Player: Attributes to call service play_media has been renamed to<br />
-<code>media_content_type</code> and <code>media_content_id</code>, to match the corresponding media<br />
-player state attributes. This change affects automations, scripts and scenes.</li>
-</ul>
-
 ]]></content>
   </entry>
   

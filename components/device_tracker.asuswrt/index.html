@@ -91,10 +91,6 @@
 
   <p>The <code>asuswrt</code> platform offers presence detection by looking at connected devices to a <a href="http://event.asus.com/2013/nw/ASUSWRT/">ASUSWRT</a> based router.</p>
 
-<p class="note warning">
-This device tracker needs telnet to be enabled on the router.
-</p>
-
 <p>To use an ASUSWRT router in your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -102,6 +98,7 @@ This device tracker needs telnet to be enabled on the router.
 <span class="key">device_tracker</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">asuswrt</span></span>
   <span class="key">host</span>: <span class="string"><span class="content">YOUR_ROUTER_IP</span></span>
+  <span class="key">protocol</span>: <span class="string"><span class="content">telnet</span></span>
   <span class="key">username</span>: <span class="string"><span class="content">YOUR_ADMIN_USERNAME</span></span>
   <span class="key">password</span>: <span class="string"><span class="content">YOUR_ADMIN_PASSWORD</span></span>
 </pre></div>
@@ -111,10 +108,15 @@ This device tracker needs telnet to be enabled on the router.
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your router, e.g. 192.168.1.1.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of your router, eg. 192.168.1.1.</li>
+  <li><strong>protocol</strong> (<em>Optional</em>): The protocol (<code>ssh</code> or <code>telnet</code>) to use. Defaults to <code>ssh</code>.</li>
   <li><strong>username</strong> (<em>Required</em>: The username of an user with administrative privileges, usually <em>admin</em>.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
 </ul>
+
+<p class="note warning">
+You need to enable telnet on your router if you choose to use <code>protocol: telnet</code>. 
+</p>
 
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
 

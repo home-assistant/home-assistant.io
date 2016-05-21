@@ -273,6 +273,17 @@ customize.yaml
 
 <p>If you have issues checkout <code>home-assistant.log</code> in the configuration directory as well as your indentations. If all else fails, head over to the <a href="https://gitter.im/balloob/home-assistant">Gitter Chatroom</a> and ask away.</p>
 
+<h3><a class="title-link" name="advanced-usage" href="#advanced-usage"></a> Advanced usage</h3>
+
+<p>We offer four advanced options to include whole directories at once.</p>
+
+<p><code>!include_dir_list</code> will return content of a directory as a list with each file content being an entry in the list.</p>
+
+<p><code>!include_dir_named</code> will return content of a directory as a dictionary which maps filename =&gt; content of file.</p>
+
+<p><code>!include_dir_merge_list</code> will return content of a directory as a list by merging all files (which should contain a list) into 1 big list.</p>
+
+<p><code>!include_dir_merge_named</code> will return content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.</p>
 
 
 </article>

@@ -294,6 +294,20 @@ Home Assistant will automatically load the correct certificate if you connect to
 </div>
 </div>
 
+<h3><a class="title-link" name="logging" href="#logging"></a> Logging</h3>
+
+<p>The <a href="/components/logger/">logger</a> component allow the logging of received MQTT messages.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">logger</span>:
+  <span class="key">default</span>: <span class="string"><span class="content">warning</span></span>
+  <span class="key">logs</span>:
+    <span class="key">homeassistant.components.device_tracker.mqtt</span>: <span class="string"><span class="content">debug</span></span>
+</pre></div>
+</div>
+</div>
+
 <h2><a class="title-link" name="testing-your-setup" href="#testing-your-setup"></a> Testing your setup</h2>
 
 <p>The <code>mosquitto</code> broker package is shipping commandline tools to send and recieve MQTT messages. As an alternative have a look at <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html">hbmqtt_pub</a> and <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html">hbmqtt_sub</a> which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:</p>
@@ -486,6 +500,9 @@ Home Assistant will automatically load the correct certificate if you connect to
         </li>
         <li>
             <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
         </li>
         <li>
             <a href='/components/rfxtrx/'>RFXtrx</a>

@@ -89,21 +89,40 @@
   <hr class="divider">
   
 
-  <p>Sensor to provide travel time from Google maps api.</p>
+  <p>Sensor to provide travel time from the <a href="https://developers.google.com/maps/documentation/distance-matrix/">Google Distance Matrix API</a>.</p>
 
-<p>Get an api key <a href="https://github.com/googlemaps/google-maps-services-python#api-keys">here</a>.</p>
+<p>You need to register for an API key by following the instructions <a href="https://github.com/googlemaps/google-maps-services-python#api-keys">here</a>. You only need to turn on the Distance Matrix API.</p>
+
+<p>A free API Key allows 2500 requests per day. The sensor will update the travel time every 5 minutes.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example entry for configuration.yaml</span>
 <span class="key">sensor</span>:
     <span class="key">platform</span>: <span class="string"><span class="content">google_travel_time</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Google Travel Time</span></span>
     <span class="key">api_key</span>: <span class="string"><span class="content">XXXX_XXXXX_XXXXX</span></span>
     <span class="key">origin</span>: <span class="string"><span class="content">Trondheim, Norway</span></span>
     <span class="key">destination</span>: <span class="string"><span class="content">Paris, France</span></span>
-    <span class="key">travel_mode</span>: <span class="string"><span class="content">bicycling</span></span> <span class="comment"># can be [&quot;driving&quot;, &quot;walking&quot;, &quot;bicycling&quot;, &quot;transit&quot;]</span>
+    <span class="key">options</span>:
+      <span class="error">...</span>
 </pre></div>
 </div>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>api_key</strong> (<em>Required</em>): Your application’s API key (get one by following the instructions above). This key identifies your application for purposes of quota management.</li>
+  <li><strong>origin</strong> (<em>Required</em>): The starting point for calculating travel distance and time. You can supply one or more locations separated by the pipe character, in the form of an address, latitude/longitude coordinates, or a Google place ID.</li>
+  <li><strong>destination</strong> (<em>Required</em>): One or more locations to use as the finishing point for calculating travel distance and time. The options for the destinations parameter are the same as for the origins parameter, described above.</li>
+  <li><strong>name</strong> (<em>Optional</em>): A name to display on the sensor. The default is “Google Travel Time - <transit mode="">" where transit mode is the mode set in options for the sensor (if no mode is set, the default is driving).</transit></li>
+  <li><strong>options</strong> (<em>Optional</em>): A dictionary containing parameters to add to all requests to the Distance Matrix API. A full listing of available options can be found <a href="https://developers.google.com/maps/documentation/distance-matrix/intro#RequestParameters">here</a>.
+    <ul>
+      <li><strong>departure_time</strong> (<em>Optional</em>): Can be <code>now</code>, a Unix timestamp, or a 24 hour time string like <code>08:00:00</code>. If you provide a time string, it will be combined with the current date to get travel time for that moment.</li>
+      <li><strong>arrival_time</strong> (<em>Optional</em>): See notes above for <code>departure_time</code>. <code>arrival_time</code> can not be <code>now</code>, only a Unix timestamp or time string. You can not provide both <code>departure_time</code> and <code>arrival_time</code>. If you do provide both, <code>arrival_time</code> will be removed from the request.</li>
+    </ul>
+  </li>
+</ul>
 
 
 </article>
@@ -119,6 +138,7 @@
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_components/sensor.google_travel_time.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/google_maps.png' />
   </div>
     <div class='section'>
     IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
@@ -172,6 +192,9 @@
             <a href='/components/sensor.http/'>HTTP Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.lastfm/'>Last.fm</a>
+        </li>
+        <li>
             <a href='/components/sensor.loop_energy/'>Loop Energy</a>
         </li>
         <li>
@@ -179,6 +202,9 @@
         </li>
         <li>
             <a href='/components/sensor.modbus/'>Modbus Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.moldindicator/'>Mold Indicator</a>
         </li>
         <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
@@ -221,6 +247,9 @@
         </li>
         <li>
             <a href='/components/sensor.steam_online/'>Steam</a>
+        </li>
+        <li>
+            <a href='/components/sensor.supervisord/'>Supervisord</a>
         </li>
         <li>
             <a href='/components/sensor.swiss_public_transport/'>Swiss Public Transport</a>

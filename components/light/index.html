@@ -149,7 +149,12 @@ The light component supports multiple entries in <code>configuration.yaml</code>
     <tr>
       <td><code>color_temp</code></td>
       <td>yes</td>
-      <td>An INT in mireds represending the color temperature you want the light to be.</td>
+      <td>An INT in mireds representing the color temperature you want the light to be.</td>
+    </tr>
+    <tr>
+      <td><code>color_name</code></td>
+      <td>yes</td>
+      <td>A human readable string of a color name, such as <code>blue</code> or <code>goldenrod</code> or <a href="http://stackoverflow.com/questions/8318911/why-does-html-think-chucknorris-is-a-color"><code>chucknorris</code></a>. If your browser can display it, so can Home Assistant.</td>
     </tr>
     <tr>
       <td><code>brightness</code></td>
@@ -258,6 +263,9 @@ The light component supports multiple entries in <code>configuration.yaml</code>
           </a></li>
           <li><a href='/components/light.hue/'>
             Philips Hue
+          </a></li>
+          <li><a href='/components/light.qwikswitch/'>
+            QwikSwitch Light
           </a></li>
           <li><a href='/components/light.rfxtrx/'>
             RFXtrx Light

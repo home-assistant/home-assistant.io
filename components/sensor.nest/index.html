@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>nest</code> sensor platform let you monitor sensors connected to your <a href="https://nest.com">Nest</a> thermostat.</p>
+  <p>The <code>nest</code> sensor platform let you monitor sensors connected to your <a href="https://nest.com">Nest</a> thermostat and/or your Nest Protect Smoke Alarm.</p>
 
 <p>To set it up, add the following information to your <code>configuration.yaml</code> file:</p>
 
@@ -112,6 +112,8 @@
     - <span class="string"><span class="content">'weather_humidity'</span></span>
     - <span class="string"><span class="content">'wind_speed'</span></span>
     - <span class="string"><span class="content">'wind_direction'</span></span>
+    - <span class="string"><span class="content">'co_status'</span></span>
+    - <span class="string"><span class="content">'smoke_status'</span></span>
 </pre></div>
 </div>
 </div>
@@ -136,11 +138,15 @@
       <li>‘weather_humidity’</li>
       <li>‘wind_speed’</li>
       <li>‘wind_direction’</li>
+      <li>‘co_status’ # Nest Protect only</li>
+      <li>‘smoke_status’ # Nest Protect only</li>
     </ul>
   </li>
 </ul>
 
-<p class="note">You must have the <a href="/components/nest/">Nest component</a> configured to use this sensor.</p>
+<p class="note">
+You must have the <a href="/components/nest/">Nest component</a> configured to use this sensor.
+</p>
 
 
 </article>
@@ -158,6 +164,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/nest_thermostat.png' />
   </div>
+    <div class='section'>
+    Introduced in release: pre 0.7
+    </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
@@ -218,6 +227,9 @@
             <a href='/components/sensor.http/'>HTTP Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.lastfm/'>Last.fm</a>
+        </li>
+        <li>
             <a href='/components/sensor.loop_energy/'>Loop Energy</a>
         </li>
         <li>
@@ -225,6 +237,9 @@
         </li>
         <li>
             <a href='/components/sensor.modbus/'>Modbus Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.moldindicator/'>Mold Indicator</a>
         </li>
         <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
@@ -267,6 +282,9 @@
         </li>
         <li>
             <a href='/components/sensor.steam_online/'>Steam</a>
+        </li>
+        <li>
+            <a href='/components/sensor.supervisord/'>Supervisord</a>
         </li>
         <li>
             <a href='/components/sensor.swiss_public_transport/'>Swiss Public Transport</a>
