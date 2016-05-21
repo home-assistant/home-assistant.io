@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-21T21:59:59+00:00</updated>
+  <updated>2016-05-21T22:10:20+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[0.20: Roku, Last.FM, AWS, Twilio]]></title>
+    <title type="html"><![CDATA[0.20: Roku, Last.fm, AWS, Twilio]]></title>
     <link href="https://home-assistant.io/blog/2016/05/21/release-020/"/>
     <updated>2016-05-21T18:06:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/05/21/release-020</id>
@@ -35,7 +35,7 @@
   <li>Support <a href="https://home-assistant.io/components/sensor.nest/">Nest Protect</a> smoke alarms (<a href="https://github.com/khabi">@khabi</a>)</li>
   <li>Configurator: allow supplying a link to the user (<a href="https://github.com/mnestor">@mnestor</a>)</li>
   <li>Media Player: <a href="https://home-assistant.io/components/media_player.roku/">Roku</a> now supported (<a href="https://github.com/bah2830">@bah2830</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.lastfm/">Last.FM</a> now supported (<a href="https://github.com/darookee">@darookee</a>, <a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.lastfm/">Last.fm</a> now supported (<a href="https://github.com/darookee">@darookee</a>, <a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
   <li>Notify: Amazon <a href="https://home-assistant.io/components/notify.aws_lambda/">Lambda</a>, <a href="https://home-assistant.io/components/notify.aws_sns/">SNS</a>, <a href="https://home-assistant.io/components/notify.aws_sqs/">SQS</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>Light: allow human readable colors in turn_on command (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>YAML: new include dir options <a href="https://home-assistant.io/topics/splitting_configuration/#advanced-usage/"><code>!include_dir_merge_list</code></a> and <a href="https://home-assistant.io/topics/splitting_configuration/#advanced-usage/"><code>!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
