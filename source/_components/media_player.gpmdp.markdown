@@ -14,9 +14,7 @@ ha_release: 0.20
 
 ---
 
-
-The `GPMDP` platform allows you to control a [GPMDP](http://www.googleplaymusicdesktopplayer.com/) instance running on a computer from Home Assistant.
-
+The `gpmdp` media player platform allows you to control a [GPMDP](http://www.googleplaymusicdesktopplayer.com/) instance running on a computer from Home Assistant.
 
 You will have first have to check "Enable playback API" in GPMDP's settings and then add an inbound rule to the firewall to allow access to port 5672 on the computer running GPMDP.
 
@@ -32,6 +30,6 @@ media_player:
 
 Configuration variables:
 
-- **address** *Required*: IP address of the computer running GPMDP
-- **name** *Optional*: Name of the player
+- **address** (*Required*): IP address of the computer running GPMDP
+- **name** (*Optional*): Name of the player
 
