@@ -9,15 +9,16 @@ sharing: true
 footer: true
 logo: qwikswitch.png
 ha_category: Hub
-featured: true
+featured: false
+ha_release: "0.20"
 ---
 
 
 The `qwikswitch` component is the main component to integrate various [QwikSwitch](http://www.qwikswitch.co.za/) devices with Home Assistant.
 
-Loading the `qwikswitch` component will automatically add all devices from the QS Mobile application. QS Mobile controls the QSUSB Modem device.
+Loading the `qwikswitch` component will automatically adds all devices from the QS Mobile application. QS Mobile controls the QSUSB Modem device.
 
-Currently QwikSwitch Relays and LED Dimmers are supported (tested). QwikSwitch Relay devices can be Switches or [Lights](/components/qwikswitch/lights/) in Home-Assistant. If the device name in the QSUSB app ends with ` Switch` it will be created as a Switch, otherwise a Light.
+Currently QwikSwitch relays and LED dimmers are supported (tested). QwikSwitch relay devices can be [switches](/components/switch.qwikswitch/) or [lights](/components/light.qwikswitch/) in Home-Assistant. If the device name in the QSUSB app ends with ` Switch` it will be created as a switch, otherwise as a light.
 
 Example configuration:
 
@@ -27,9 +28,13 @@ qwikswitch:
    url: 'http://127.0.0.1:2020'
 ```
 
-{% linkable_title QwikSwitch Buttons %}
+Configuration variables:
 
-QwikSwitch devices (i.e. Tranmitter Buttons) will fire events on the Home Assistant bus. These events can then be used as triggers for any `automation` action, as follows:
+- **url** (*Required*): The URL including the port of your QwikSwitch hub.
+
+### {% linkable_title QwikSwitch Buttons %}
+
+QwikSwitch devices (i.e. transmitter buttons) will fire events on the Home Assistant bus. These events can then be used as triggers for any `automation` action, as follows:
 
 ```yaml
 automation:
@@ -44,6 +49,6 @@ automation:
 Currently Event will be created for the following commands (cmd) value in the Listen packet:
 - `TOGGLE` - Normal QwikSwitch Transmitter button
 - `SCENE EXE` - QwikSwitch Scene Transmitter buttons
-- `LEVEL` - QwikSwitch OFF Tranmitter buttons
+- `LEVEL` - QwikSwitch OFF Transmitter buttons
 
-Technically this could work for Keyfobs, Door Sensors and PIR Tranmitters as well.
+Technically this could work for Keyfobs, door sensors, and PIR transmitters as well.
