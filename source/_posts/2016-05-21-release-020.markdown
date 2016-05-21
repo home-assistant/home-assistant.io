@@ -9,6 +9,7 @@ author_twitter: balloob
 comments: true
 categories: Release-Notes
 ---
+
 <img src='/images/supported_brands/roku.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/lastfm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/gpmdp.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/twilio.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_lambda.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_sns.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_sqs.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
 Tons of new supported things in 0.20.
@@ -32,13 +33,14 @@ Tons of new supported things in 0.20.
 - Media Player: [LG Netcast TVs] now supported ([@wokar])
 - Media Player: Allow enqueuing media on Sonos ([@shaftoe])
 - Notify: [Ecobee thermostats] now supported ([@nkgilley])
-- Sensor: [mold indicator] added ([@xifle])
+- Sensor: [Mold indicator] added ([@xifle])
 - Export to [Logentries] support added ([@omgapuppy])
 - Group more info dialog allows control of group domain if available ([@fignuts])
 
 ### {% linkable_title Breaking changes %}
 
 - Asus WRT will now default to SSH with Telnet being an option
+
 ```yaml
 device_tracker:
   platform: asuswrt
