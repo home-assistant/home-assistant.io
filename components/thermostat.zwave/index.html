@@ -91,6 +91,12 @@
 
   <p>To get your Z-Wave thermostat working with Home Assistant, follow the instructions for the general <a href="/components/zwave/">Z-Wave component</a>.</p>
 
+<h2>NOTE</h2>
+<p>If your thermostat support fan modes or different operating modes, it should be considered a hvac component, and will also be detected as one. Thermostat component does not support setting fan or operation mode. This is controlled via the hvac component.</p>
+
+<p>If the thermostat support different operationg modes, you will get one thermostat entity for each mode.<br />
+These can be hidden with settings using the customize setting in the config file.</p>
+
 
 </article>
 
