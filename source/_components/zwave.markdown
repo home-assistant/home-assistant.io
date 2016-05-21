@@ -38,13 +38,13 @@ Then get the OpenZWave files and switch to the `python3` branch:
 $ git clone https://github.com/OpenZWave/python-openzwave.git
 $ cd python-openzwave
 $ git checkout python3
-$ PYTHON_EXEC=`which python3` make build
-$ sudo PYTHON_EXEC=`which python3` make install
+$ PYTHON_EXEC=$(which python3) make build
+$ sudo PYTHON_EXEC=$(which python3) make install
 ```
 <p class='note'>
 Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
 
-```$ sudo PYTHON_EXEC=`which python3` checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave```
+```$ sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave```
 
 </p>
 
@@ -89,7 +89,7 @@ $ ls /dev/ttyACM*
 ```
 
 <p class='note'>
-Depending on what's plugged into your USB ports, the name found above may change. You an lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/). 
+Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/). 
 </p>
 
 #### {% linkable_title Events %}

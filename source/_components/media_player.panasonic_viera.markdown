@@ -34,7 +34,7 @@ media_player:
 
 Configuration variables:
 
-- **host** *Required*: The IP of the Panasonic Viera TV, e.g. `192.168.0.10`
-- **port** *Optional*: The port of your Panasonic Viera TV. Defaults to `55000`
-- **name** *Optional*: The name you would like to give to the Panasonic Viera TV.
+- **host** (*Required*): The IP of the Panasonic Viera TV, e.g. `192.168.0.10`
+- **port** (*Optional*): The port of your Panasonic Viera TV. Defaults to `55000`
+- **name** (*Optional*): The name you would like to give to the Panasonic Viera TV.
 

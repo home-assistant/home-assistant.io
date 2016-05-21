@@ -14,6 +14,7 @@ The `rfxtrx` platform support sensors that communicate in the frequency range of
 
 First you have to set up your [rfxtrx hub.](/components/rfxtrx/)
 The easiest way to find your sensors is to add this to your `configuration.yaml`:
+
 ```yaml
 sensor: 
  platform: rfxtrx
@@ -28,6 +29,7 @@ Then when the sensor emits a signal it will be automatically added:
 
 Here the name is 0a52080000301004d240259 and you can verify that it works from the frontend. 
 Then you should update your configuration to:
+
 ```yaml
 sensor:
  platform: rfxtrx
@@ -52,6 +54,7 @@ sensor:
 
 
 Example configuration:
+
 ```yaml
 # Example configuration.yaml entry
 sensor: 

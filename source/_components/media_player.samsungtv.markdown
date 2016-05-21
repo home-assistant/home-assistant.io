@@ -29,8 +29,8 @@ media_player:
 
 Configuration variables:
 
-- **host** *Required*: The IP of the Samsung Smart TV, e.g. 192.168.0.10
-- **name** *Optional*: The name you would like to give to the Samsung Smart TV.
+- **host** (*Required*): The IP of the Samsung Smart TV, eg. 192.168.0.10
+- **name** (*Optional*): The name you would like to give to the Samsung Smart TV.
 
 
 Currently known supported models:
@@ -44,3 +44,5 @@ Currently known supported models:
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io).
 The two letters at the beginning of the model number represent the region, UE is Europe, UN is North America and UA is Asia & Australia. The two numbers following that represent the screen size. If you add your model remember to remove these before adding them to the list.
+
+There's currently a [known issue](https://github.com/home-assistant/home-assistant/issues/2098) with some TV's receiving a *Key press UP* that can interrupt certain applications. 

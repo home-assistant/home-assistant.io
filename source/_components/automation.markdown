@@ -11,6 +11,6 @@ logo: home-assistant.png
 ha_category: Automation
 ---
 
-Please see the [getting started section] for in-depth documentation on how to use the automation compnoent.
+Please see the [getting started section] for in-depth documentation on how to use the automation component.
 
 [getting started section]: /getting-started/automation/
