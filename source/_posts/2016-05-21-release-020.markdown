@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.20: Roku, Last.FM, AWS, Twilio"
+title: "0.20: Roku, Last.fm, AWS, Twilio"
 description: "New release of Home Assistant is bringing a lot of great goodies for everyone. New media players, template optoins and a lot more."
 date: 2016-05-21 11:06:00 -0700
 date_formatted: "May 21, 2016"
@@ -25,7 +25,7 @@ Tons of new supported things in 0.20.
 - Support [Nest Protect] smoke alarms ([@khabi])
 - Configurator: allow supplying a link to the user ([@mnestor])
 - Media Player: [Roku] now supported ([@bah2830])
-- Sensor: [Last.FM] now supported ([@darookee], [@GreenTurtwig])
+- Sensor: [Last.fm] now supported ([@darookee], [@GreenTurtwig])
 - Notify: Amazon [Lambda], [SNS], [SQS] now supported ([@robbiet480])
 - Light: allow human readable colors in turn_on command ([@robbiet480])
 - YAML: new include dir options [`!include_dir_merge_list`] and [`!include_dir_merge_named`] ([@happyleavesaoc])
@@ -81,4 +81,4 @@ device_tracker:
 [SQS]: /components/notify.aws_sqs/
 [supervisord]: /components/sensor.supervisord/
 [Twilio SMS]: /components/notify.twilio_sms/
-[Last.FM]: /components/sensor.lastfm/
+[Last.fm]: /components/sensor.lastfm/
