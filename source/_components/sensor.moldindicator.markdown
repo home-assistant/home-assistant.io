@@ -1,5 +1,5 @@
 ---
-layout: component
+layout: page
 title: "Mold Indicator"
 description: "How to use the mold growth indication component in Home Assistant"
 date: 2016-02-11 22:00
@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+ha_release: '0.20'
 ---
 
 The Mold Indicator sensor component consumes information of two temperature sensors and a humidity sensor to give an indication for possible mold growth in your home. In case of bad ventilation and insulation, the indoor humidity may lead to condensation on cold surfaces as the windows or even walls. Condensation or a high relative humidity near those cold surfaces leads to a higher risk for mold growth. This sensor component estimates the temperature at a pre-calibrated critical point in the room (the coldest surface) and calculates the relative humidity of the air at that point. If the sensor value rises above approximately 70 percent, mold growth might occur and the room should be ventilated. At 100%, the air humidity condensates at the critical point.
@@ -30,4 +31,6 @@ In this case, the weather forecast temperature sensor is used for the outside te
 The Mold Indicator sensor component needs to be calibrated in order to estimate the temperature at the critical point from the outdoor and indoor temperature. First find the coldest surface in the room (critical point), which is typically near the window frames, but depends on the insulation of your home. For calibration you need to measure the temperature at this critical point and simultaneously write down the values for the indoor- and outdoor temperature sensors used for the Mold Indicator. Be sure that there is a significant indoor to outdoor temperature difference to get the best calibration results.
 With the three measured temperatures (in Celsius or Fahrenheit), the calibration_factor for your configuration file is given by:
 
+```text
 calibration_factor = (temp_indoor - temp_outdoor) / (temp_criticalpoint - temp_outdoor)
+```

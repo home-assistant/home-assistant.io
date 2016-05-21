@@ -20,7 +20,7 @@ To setup the `recorder` component in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 recorder:
-  purge_days: DAYS
+  purge_days: 14
 ```
 
 Configuration variables:

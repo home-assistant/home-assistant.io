@@ -179,3 +179,14 @@ That about wraps it up.
 
 If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to the [Gitter Chatroom](https://gitter.im/balloob/home-assistant) and ask away.
 
+### {% linkable_title Advanced usage %}
+
+We offer four advanced options to include whole directories at once.
+
+`!include_dir_list` will return content of a directory as a list with each file content being an entry in the list.
+
+`!include_dir_named` will return content of a directory as a dictionary which maps filename => content of file.
+
+`!include_dir_merge_list` will return content of a directory as a list by merging all files (which should contain a list) into 1 big list.
+
+`!include_dir_merge_named` will return content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.

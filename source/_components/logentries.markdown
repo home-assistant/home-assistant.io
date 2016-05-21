@@ -23,4 +23,3 @@ logentries:
 Configuration variables:
 
 - **token** (*Required*): Your Logentries log token
-- **SSL** (*Optional*)
