@@ -31,8 +31,8 @@ media_player:
 
 Configuration variables:
 
-- **host** *Required*: The host name or address of the device that is running XBMC/Kodi
-- **port** *Required*: The port number, default 8080
-- **name** *Optional*: The name of the device used in the frontend.
-- **username** *Optional*: The XBMC/Kodi HTTP username.
-- **password** *Optional*: The XBMC/Kodi HTTP password.
+- **host** (*Required*): The host name or address of the device that is running XBMC/Kodi
+- **port** (*Required*): The port number, default 8080
+- **name** (*Optional*): The name of the device used in the frontend.
+- **username** (*Optional*): The XBMC/Kodi HTTP username.
+- **password** (*Optional*): The XBMC/Kodi HTTP password.

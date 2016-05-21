@@ -29,8 +29,8 @@ media_player:
 
 Configuration variables:
 
-- **host** *Required*: The IP of the Samsung Smart TV, e.g. 192.168.0.10
-- **name** *Optional*: The name you would like to give to the Samsung Smart TV.
+- **host** (*Required*): The IP of the Samsung Smart TV, eg. 192.168.0.10
+- **name** (*Optional*): The name you would like to give to the Samsung Smart TV.
 
 
 Currently known supported models:
