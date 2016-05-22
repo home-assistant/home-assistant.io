@@ -20,6 +20,7 @@ To enable RFXtrx in your installation, add the following to your `configuration.
 rfxtrx:
   device: PATH_TO_DEVICE
   debug: True
+  dummy: False
 ```
 
 
@@ -27,5 +28,4 @@ Configuration variables:
 
 - **device** (*Required*): The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
 - **debug** (*Optional*): If you want to receive debug output.
-
-
+- **dummy** (*Optional*): Then you have need a connected drive to test your settings. Can be usefull for debugging and testing.
