@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Video | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/video/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-22T13:08:21+00:00</updated>
+  <updated>2016-05-22T16:56:45+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Raspberry Pi all-in-one installer]]></title>
+    <link href="https://home-assistant.io/blog/2016/05/22/get-started-with-all-in-one-installer/"/>
+    <updated>2016-05-22T16:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/05/22/get-started-with-all-in-one-installer</id>
+    <content type="html"><![CDATA[<p>We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That’s why <a href="https://github.com/jbags81">@jbags81</a> recently introduced the <a href="/getting-started/installation-raspberry-pi-all-in-one/">all-in-one installer</a>. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh &amp;&amp; bash hass_rpi_installer.sh;
+</pre></div>
+</div>
+</div>
+
+<p>This feature wouldn’t be complete if it wasn’t accompanied by a new video by Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a>. The video shows how to install Raspbian Jessie on your Raspberry Pi and use the new installation script to get a full Home Assistant system up and running.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/VGl3KTrYo6s" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Video: How To Configure Home Assistant]]></title>
