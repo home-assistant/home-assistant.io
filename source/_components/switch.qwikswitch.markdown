@@ -16,8 +16,6 @@ ha_release: "0.20"
 
 The `qwikswitch` platform allows you to control your [QwikSwitch](http://www.qwikswitch.co.za/) relays as switches from within Home Assistant.
 
-If the device name in the QSUSB app ends with `Switch` it will be created as a switch, otherwise as a [light](/components/light.qwikswitch/).
+If the device name in the QS Mobile application ends with `Switch` it will be created as a switch, otherwise as a [light](/components/light.qwikswitch/).
 
-They will be automatically discovered from the QSUSB API if the discovery component is enabled.
-
-For more configuration information see the [QwikSwitch component](/components/qwikswitch/) documentation.
+The platform is configured through the [QwikSwitch component](/components/qwikswitch/).
