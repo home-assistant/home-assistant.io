@@ -144,3 +144,23 @@ condition: zone
 entity_id: device_tracker.paulus
 zone: zone.home
 ```
+
+
+#### {% linkable_title Examples %}
+
+```yaml
+    condition:
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: '{{ state.attributes.elevation }}'
+        below: 1
+      - condition: state
+        entity_id: light.living_room
+        state: 'off'
+      - condition: time
+        before: '23:00:00'
+        after: '14:00:00'
+      - condition: state
+        entity_id: script.light_turned_off_5min
+        state: 'off'
+```
