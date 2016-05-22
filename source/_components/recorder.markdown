@@ -13,7 +13,7 @@ featured: false
 ha_release: "0.20"
 ---
 
-The `recorder` component is storing details in the local database which then are handled by the [`history` component](/component/history/).
+The `recorder` component is storing details in the local database which then are handled by the [`history` component](/components/history/).
 
 To setup the `recorder` component in your installation, add the following to your `configuration.yaml` file:
 
