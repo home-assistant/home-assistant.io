@@ -23,8 +23,6 @@ sensor:
   monitored_conditions:
     - 'temperature'
     - 'target'
-    - 'away_temperature[0]'
-    - 'away_temperature[1]'
     - 'humidity'
     - 'mode'
     - 'last_ip'
@@ -45,8 +43,6 @@ Configuration variables:
 - **monitored_conditions** array (*Required*): States to monitor.
   - 'temperature'
   - 'target'
-  - 'away_temperature[0]'
-  - 'away_temperature[1]'
   - 'humidity'
   - 'mode'
   - 'last_ip'
