@@ -45,3 +45,8 @@ The All-In-One installer script will do the following automatically:
 
 Windows Users - Please note that after running the installer, you will need to modify a couple settings allowing you to "switch users" to edit your configuration files. The needed change within WinSCP can be seen here: [Imgur](http://i.imgur.com/tlOljo6.jpg)
 
+To upgrade the All-In-One:
+* Login to rPi ssh pi@IPADRESS
+* Change to hass user `sudo su -s /bin/bash hass`
+* Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
+* Update HA `sudo pip3 install --upgrade homeassistant`
