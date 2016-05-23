@@ -21,6 +21,7 @@ This page contains a list of people who have contributed in one way or another t
 
 - [Adrien Brault](https://github.com/adrienbrault)
 - [Alex Harvey](https://github.com/infamy)
+- [Alexander Fortin](https://github.com/shaftoe)
 - [Allan Glen](https://github.com/allanglen)
 - [Andrew](https://github.com/aoakeson)
 - [Andrew LeCody](https://github.com/aceat64)
