@@ -7,28 +7,30 @@ sharing: true
 footer: true
 ---
 
-The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric-home-assistant) deploys a complete Home Assistant server including support for MQTT with websocket support, Z-Wave, and the Open-Zwave Control Panel.
+The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric-home-assistant) deploys a complete Home Assistant server including support for MQTT with websockets, Z-Wave, and the Open-Zwave Control Panel.
 
 The only requirement is that you have a Raspberry Pi with a fresh installation of [Raspbian Jessie/Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) connected to your network.
 
-*  Login to Raspberry Pi. For example with ```ssh pi@your_raspberry_pi_ip```
+*  Login to Raspberry Pi. For example with `ssh pi@your_raspberry_pi_ip`
 *  Run the following command
+
 ```bash
-wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && bash hass_rpi_installer.sh;
+$ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh
+$ hass_rpi_installer.sh
 ```
 
-Installation will take approx 1-2 hour's depending on the model of Raspberry Pi the installer is being run against.
+Installation will take approx. 1-2 hours depending on the Raspberry Pi model the installer is being run against.
 
-[BRUH automation](http://www.bruhautomation.com) has created [a tutorial video](https://www.youtube.com/watch?v=VGl3KTrYo6s) explaining how to install Raspbian on your Raspberry Pi and install Home Assistant using the all-in-one installer.
+[BRUH automation](http://www.bruhautomation.com) has created [a tutorial video](https://www.youtube.com/watch?v=VGl3KTrYo6s) explaining how to install Raspbian on your Raspberry Pi and install Home Assistant using the All-In-One Installer.
 
 Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at [http://your_raspberry_pi_ip:8123](http://your_raspberry_pi_ip:8123).
 
-The Home Assistant configuration is located at `/home/hass`. The virtualenv with the Home Assistant installation is located at `/srv/hass/hass_venv`. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, **hass**. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands with "sudo" or by switching user.  
+The Home Assistant configuration is located at `/home/hass`. The virtualenv with the Home Assistant installation is located at `/srv/hass/hass_venv`. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, **hass**. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands with "sudo" or by switching user.
 *Windows users* - Setting up WinSCP to allow this seemlessly is detailed below.
 
 By default, installation makes use of a Python Virtualenv. If you wish to not follow this recommendation, you may add the flag `-n` to the end of the install command specified above.
 
-The All-In-One installer script will do the following automatically:
+The All-In-One Installer script will do the following automatically:
 
 *  Create all needed directories
 *  Create needed service accounts
@@ -42,7 +44,7 @@ The All-In-One installer script will do the following automatically:
 *  Add both Home Assistant and Mosquitto to systemd services to start at boot
 
 
-To upgrade the All-In-One:
+To upgrade the All-In-One setup:
 
 *  Login to Raspberry Pi ```ssh pi@your_raspberry_pi_ip```
 *  Change to hass user `sudo su -s /bin/bash hass`
