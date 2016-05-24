@@ -49,4 +49,4 @@ To upgrade the All-In-One:
 * Login to rPi ssh pi@IPADRESS
 * Change to hass user `sudo su -s /bin/bash hass`
 * Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
-* Update HA `sudo pip3 install --upgrade homeassistant`
+* Update HA `pip3 install --upgrade homeassistant`
