@@ -8,13 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: lirc.gif
-ha_category: Sensor
+ha_category: Automation
 featured: false
 ---
 
-[LIRC](http://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other action. 
+[LIRC](http://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](https://home-assistant.io/components/automation/). 
 
-Sending IR commands is not supported in this component, but can be accomplished using the [shell_command component](https://home-assistant.io/components/shell_command/) in conjunction with the `irsend` command. 
+Sending IR commands is not supported in this component (yet), but can be accomplished using the [shell_command component](https://home-assistant.io/components/shell_command/) in conjunction with the `irsend` command. 
 
 ### {% linkable_title Installation %}
 
@@ -63,36 +63,34 @@ $ ircat home-assistant
 and pressing some buttons on the remote. 
 
 
-
 ### {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: lirc
+lirc:
 ```
 
 
 #### {% linkable_title Events %}
 
-You can activate a scene on a key press with automation scripts like this:
+The LIRC component fires `button_pressed` events on the bus. You can capture the events and respond to them in automation scripts like this:
 
 ```yaml
 # Example configuration.yaml automation entry
 automation:
- - alias: Bright on Remote
-   trigger:
-     platform: state
-     entity_id: sensor.lirc
-     to: KEY_1
-   action:
-     service: scene.turn_on
-     entity_id: scene.Bright
+- alias: Off on Remote
+  trigger:
+    platform: event
+    event_type: button_pressed
+    event_data:
+      button_name: KEY_0
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.a_lights
 
 ```
 
-The value *KEY_1* was set by you in the `.lircrc` file. 
+The `button_name` data values (e.g. `KEY_0`) are set by you in the `.lircrc` file. 
 
-The state of this sensor is only set to a non-zero value in the moment that a button is pressed on the remote. 
 
 
