@@ -89,30 +89,34 @@
   <hr class="divider">
   
 
-  <p>The <a href="https://github.com/home-assistant/fabric-home-assistant">Raspberry Pi All-In-One Installer</a> deploys a complete Home Assistant server including support for MQTT with websocket support, Z-Wave, and the Open-Zwave Control Panel.</p>
+  <p>The <a href="https://github.com/home-assistant/fabric-home-assistant">Raspberry Pi All-In-One Installer</a> deploys a complete Home Assistant server including support for MQTT with websockets, Z-Wave, and the Open-Zwave Control Panel.</p>
 
 <p>The only requirement is that you have a Raspberry Pi with a fresh installation of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Jessie/Jessie Lite</a> connected to your network.</p>
 
 <ul>
   <li>Login to Raspberry Pi. For example with <code>ssh pi@your_raspberry_pi_ip</code></li>
-  <li>Run the following command<br />
-<code>bash
-wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh &amp;&amp; bash hass_rpi_installer.sh;
-</code></li>
+  <li>Run the following commands</li>
 </ul>
 
-<p>Installation will take approx 1-2 hour’s depending on the model of Raspberry Pi the installer is being run against.</p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh
+$ hass_rpi_installer.sh
+</pre></div>
+</div>
+</div>
 
-<p><a href="http://www.bruhautomation.com">BRUH automation</a> has created <a href="https://www.youtube.com/watch?v=VGl3KTrYo6s">a tutorial video</a> explaining how to install Raspbian on your Raspberry Pi and install Home Assistant using the all-in-one installer.</p>
+<p>Installation will take approx. 1-2 hours depending on the Raspberry Pi model the installer is being run against.</p>
+
+<p><a href="http://www.bruhautomation.com">BRUH automation</a> has created <a href="https://www.youtube.com/watch?v=VGl3KTrYo6s">a tutorial video</a> explaining how to install Raspbian on your Raspberry Pi and install Home Assistant using the All-In-One Installer.</p>
 
 <p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at <a href="http://your_raspberry_pi_ip:8123">http://your_raspberry_pi_ip:8123</a>.</p>
 
-<p>The Home Assistant configuration is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, <strong>hass</strong>. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands with “sudo” or by switching user.  <br />
+<p>The Home Assistant configuration is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, <strong>hass</strong>. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands with “sudo” or by switching user.<br />
 <em>Windows users</em> - Setting up WinSCP to allow this seemlessly is detailed below.</p>
 
 <p>By default, installation makes use of a Python Virtualenv. If you wish to not follow this recommendation, you may add the flag <code>-n</code> to the end of the install command specified above.</p>
 
-<p>The All-In-One installer script will do the following automatically:</p>
+<p>The All-In-One Installer script will do the following automatically:</p>
 
 <ul>
   <li>Create all needed directories</li>
@@ -127,7 +131,7 @@ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant
   <li>Add both Home Assistant and Mosquitto to systemd services to start at boot</li>
 </ul>
 
-<p>To upgrade the All-In-One:</p>
+<p>To upgrade the All-In-One setup:</p>
 
 <ul>
   <li>Login to Raspberry Pi <code>ssh pi@your_raspberry_pi_ip</code></li>
