@@ -29,6 +29,7 @@ The Home Assistant configuration is located at `/home/hass`. The virtualenv with
 By default, installation makes use of a Python Virtualenv. If you wish to not follow this recommendation, you may add the flag `-n` to the end of the install command specified above.
 
 The All-In-One installer script will do the following automatically:
+
 *  Create all needed directories
 *  Create needed service accounts
 *  Install OS and Python dependencies
@@ -42,6 +43,7 @@ The All-In-One installer script will do the following automatically:
 
 
 To upgrade the All-In-One:
+
 *  Login to Raspberry Pi ```ssh pi@your_raspberry_pi_ip```
 *  Change to hass user `sudo su -s /bin/bash hass`
 *  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
