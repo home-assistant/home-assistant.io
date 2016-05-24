@@ -93,49 +93,44 @@
 
 <p>The only requirement is that you have a Raspberry Pi with a fresh installation of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Jessie/Jessie Lite</a> connected to your network.</p>
 
-<ol>
-  <li>Login into your Raspberry Pi</li>
-  <li>Run</li>
-</ol>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh &amp;&amp; bash hass_rpi_installer.sh;
-</pre></div>
-</div>
-</div>
+<ul>
+  <li>Login to Raspberry Pi. For example with <code>ssh pi@your_raspberry_pi_ip</code></li>
+  <li>Run the following command<br />
+<code>bash
+wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh &amp;&amp; bash hass_rpi_installer.sh;
+</code></li>
+</ul>
 
 <p>Installation will take approx 1-2 hour’s depending on the model of Raspberry Pi the installer is being run against.</p>
 
 <p><a href="http://www.bruhautomation.com">BRUH automation</a> has created <a href="https://www.youtube.com/watch?v=VGl3KTrYo6s">a tutorial video</a> explaining how to install Raspbian on your Raspberry Pi and install Home Assistant using the all-in-one installer.</p>
 
-<p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at <strong>http://your_raspberry_pi_ip:8123</strong>.</p>
+<p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at <a href="http://your_raspberry_pi_ip:8123">http://your_raspberry_pi_ip:8123</a>.</p>
 
-<p>The Home Assistant configuration is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, “hass”. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands as “Sudo” or switching users. Setting up WinSCP to allow this seemlessly is detailed below.</p>
+<p>The Home Assistant configuration is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, <strong>hass</strong>. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands with “sudo” or by switching user.  <br />
+<em>Windows users</em> - Setting up WinSCP to allow this seemlessly is detailed below.</p>
 
 <p>By default, installation makes use of a Python Virtualenv. If you wish to not follow this recommendation, you may add the flag <code>-n</code> to the end of the install command specified above.</p>
 
-<p>The All-In-One installer script will do the following automatically:</p>
-
-<ul>
-  <li>Create all needed directories</li>
-  <li>Create needed service accounts</li>
-  <li>Install OS and Python dependencies</li>
-  <li>Setup a python virtualenv to run Home Assistant and components inside.</li>
-  <li>Run as <code>hass</code> service account</li>
-  <li>Install Home Assistant in a virtualenv</li>
-  <li>Build and install Mosquitto from source with websocket support running on ports 1883 and 9001</li>
-  <li>Build and Install Python-openzwave in the Home Assistant virtualenv</li>
-  <li>Build openzwave-control-panel in <code>/srv/hass/src/open-zwave-control-panel</code></li>
-  <li>Add both Home Assistant and Mosquitto to systemd services to start at boot</li>
-</ul>
-
-<p>Windows Users - Please note that after running the installer, you will need to modify a couple settings allowing you to “switch users” to edit your configuration files. The needed change within WinSCP can be seen here: <a href="http://i.imgur.com/tlOljo6.jpg">Imgur</a></p>
+<p>The All-In-One installer script will do the following automatically:<br />
+*  Create all needed directories<br />
+*  Create needed service accounts<br />
+*  Install OS and Python dependencies<br />
+*  Setup a python virtualenv to run Home Assistant and components inside.<br />
+*  Run as <code>hass</code> service account<br />
+*  Install Home Assistant in a virtualenv<br />
+*  Build and install Mosquitto from source with websocket support running on ports 1883 and 9001<br />
+*  Build and Install Python-openzwave in the Home Assistant virtualenv<br />
+*  Build openzwave-control-panel in <code>/srv/hass/src/open-zwave-control-panel</code><br />
+*  Add both Home Assistant and Mosquitto to systemd services to start at boot</p>
 
 <p>To upgrade the All-In-One:<br />
-* Login to rPi ssh pi@IPADRESS<br />
-* Change to hass user <code>sudo su -s /bin/bash hass</code><br />
-* Change to virtual enviroment <code>source /srv/hass/hass_venv/bin/activate</code><br />
-* Update HA <code>sudo pip3 install --upgrade homeassistant</code></p>
+*  Login to Raspberry Pi <code>ssh pi@your_raspberry_pi_ip</code><br />
+*  Change to hass user <code>sudo su -s /bin/bash hass</code><br />
+*  Change to virtual enviroment <code>source /srv/hass/hass_venv/bin/activate</code><br />
+*  Update HA <code>pip3 install --upgrade homeassistant</code></p>
+
+<p><em>Windows Users</em> - Please note that after running the installer, you will need to modify a couple settings allowing you to “switch users” to edit your configuration files. The needed change within WinSCP can be seen here: <a href="http://i.imgur.com/tlOljo6.jpg">Imgur</a></p>
 
 
 </article>
