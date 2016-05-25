@@ -137,6 +137,24 @@
 </div>
 </div>
 
+<h3><a class="title-link" name="switch-as-sensor" href="#switch-as-sensor"></a> Switch as sensor</h3>
+
+<p>Some movement sensors and door/window sensors will apear as a switch. By using a template binary sensor, the switch can be displayed as a binary sensors. The original switch can then be hidden by <a href="/getting-started/customizing-devices/">customizing.</a></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">binary_sensor</span>: 
+  <span class="key">platform</span>: <span class="string"><span class="content">template </span></span>
+  <span class="key">sensors</span>:
+    <span class="key">movement</span>:
+      <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span> 
+      <span class="key">sensor_class</span>: <span class="string"><span class="content">motion</span></span>
+    <span class="key">door</span>:
+      <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span> 
+      <span class="key">sensor_class</span>: <span class="string"><span class="content">opening</span></span>
+</pre></div>
+</div>
+</div>
+
 
 </article>
 
