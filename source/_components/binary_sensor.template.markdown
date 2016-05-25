@@ -48,3 +48,20 @@ sensor:
         friendly_name: 'Furnace Running
         sensor_class: heat
 ```
+
+
+### {% linkable_title Switch as sensor %}
+
+Some movement sensors and door/window sensors will apear as a switch. By using a template binary sensor, the switch can be displayed as a binary sensors. The original switch can then be hidden by [customizing.](/getting-started/customizing-devices/)
+
+```yaml
+binary_sensor: 
+  platform: template 
+  sensors:
+    movement:
+      value_template: "{{ states.switch.movement.state == 'on' }}" 
+      sensor_class: motion
+    door:
+      value_template: "{{ states.switch.door.state == 'on' }}" 
+      sensor_class: opening
+```
