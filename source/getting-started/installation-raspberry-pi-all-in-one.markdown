@@ -51,6 +51,15 @@ To upgrade the All-In-One setup:
 *  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
 *  Update HA `pip3 install --upgrade homeassistant`
 
+To launch the OZWCP webapp:
+
+*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+*  Change to the ozwcp directory `cd /srv/hass/src/open-zwave-control-panel/`
+*  Launch the control panel `sudo ./ozwcp -p 8888`
+*  Open a web browser to `http://your_pi_ip:8888`
+*  Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
+  
+*don't check the USB box regardless of using a USB based device*
 
 
 *Windows Users* - Please note that after running the installer, you will need to modify settings allowing you to "switch users" to edit your configuration files. The needed change within WinSCP is: Environment -> SCP/Shell -> Shell and set it to `sudo su -`.
