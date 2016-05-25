@@ -12,12 +12,12 @@ The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric
 The only requirement is that you have a Raspberry Pi with a fresh installation of [Raspbian Jessie/Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) connected to your network.
 
 *  Login to Raspberry Pi. For example with `ssh pi@your_raspberry_pi_ip`
-*  Run the following commands
+*  Run the following command
 
 ```bash
-$ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh
-$ hass_rpi_installer.sh
+$ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && hass_rpi_installer.sh
 ```
+*Note this command is one line and not run as sudo*
 
 Installation will take approx. 1-2 hours depending on the Raspberry Pi model the installer is being run against.
 
