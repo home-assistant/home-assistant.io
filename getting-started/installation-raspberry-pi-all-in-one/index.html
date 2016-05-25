@@ -140,6 +140,18 @@
   <li>Update HA <code>pip3 install --upgrade homeassistant</code></li>
 </ul>
 
+<p>To launch the OZWCP webapp:</p>
+
+<ul>
+  <li>Login to Raspberry Pi <code>ssh pi@your_raspberry_pi_ip</code></li>
+  <li>Change to the ozwcp directory <code>cd /srv/hass/src/open-zwave-control-panel/</code></li>
+  <li>Launch the control panel <code>sudo ./ozwcp -p 8888</code></li>
+  <li>Open a web browser to <code>http://your_pi_ip:8888</code></li>
+  <li>Specify your zwave controller, for example <code>/dev/ttyACM0</code> and hit initialize</li>
+</ul>
+
+<p><em>don’t check the USB box regardless of using a USB based device</em></p>
+
 <p><em>Windows Users</em> - Please note that after running the installer, you will need to modify settings allowing you to “switch users” to edit your configuration files. The needed change within WinSCP is: Environment -&gt; SCP/Shell -&gt; Shell and set it to <code>sudo su -</code>.</p>
 
 
