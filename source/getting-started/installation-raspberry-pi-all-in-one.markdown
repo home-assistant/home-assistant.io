@@ -53,4 +53,4 @@ To upgrade the All-In-One setup:
 
 
 
-*Windows Users* - Please note that after running the installer, you will need to modify a couple settings allowing you to "switch users" to edit your configuration files. The needed change within WinSCP can be seen here: [Imgur](http://i.imgur.com/tlOljo6.jpg)
+*Windows Users* - Please note that after running the installer, you will need to modify settings allowing you to "switch users" to edit your configuration files. The needed change within WinSCP is: Environment -> SCP/Shell -> Shell and set it to `sudo su -`.
