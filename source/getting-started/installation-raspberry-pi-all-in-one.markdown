@@ -52,9 +52,10 @@ To upgrade the All-In-One setup:
 *  Update HA `pip3 install --upgrade homeassistant`
 
 Open Zwave Controller Panel:
+
 There is currently a bug where running ./ozwcp will complain about a missing config file. Below is how to fix it.
-*  Remove config from ```rm /srv/hass/src/open-zwave-control-panel/config```
-*  Symlink the config file ```sudo ln -s /srv/hass/hass_venv/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config /srv/hass/src/open-zwave-control-panel/config```
-*  Launch by running ```./ozwcp -p 8000 ``` HA will need to be stopped
+*  Remove config from `rm /srv/hass/src/open-zwave-control-panel/config`
+*  Symlink the config file `sudo ln -s /srv/hass/hass_venv/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config /srv/hass/src/open-zwave-control-panel/config`
+*  Launch by running `./ozwcp -p 8000 ` HA will need to be stopped
 
 *Windows Users* - Please note that after running the installer, you will need to modify settings allowing you to "switch users" to edit your configuration files. The needed change within WinSCP is: Environment -> SCP/Shell -> Shell and set it to `sudo su -`.
