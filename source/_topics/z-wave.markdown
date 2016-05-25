@@ -9,8 +9,6 @@ sharing: true
 footer: true
 ---
 
-![Under Construction](https://i.imgur.com/WkBB4BV.gif)
-
 Z-Wave is a popular home automation protocol that is not always straightforward to setup. This page will try to help you make sense of it all.
 
 <p class='note'>
