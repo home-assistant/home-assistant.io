@@ -54,6 +54,7 @@ To upgrade the All-In-One setup:
 Open Zwave Controller Panel:
 
 There is currently a bug where running ./ozwcp will complain about a missing config file. Below is how to fix it.
+
 *  Remove config from `rm /srv/hass/src/open-zwave-control-panel/config`
 *  Symlink the config file `sudo ln -s /srv/hass/hass_venv/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config /srv/hass/src/open-zwave-control-panel/config`
 *  Launch by running `./ozwcp -p 8000 ` HA will need to be stopped
