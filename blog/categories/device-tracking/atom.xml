@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Device-Tracking | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/device-tracking/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-26T13:46:41+00:00</updated>
+  <updated>2016-05-26T13:59:30+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -41,6 +41,8 @@
 <!--more-->
 
 <p>It’s easier to set up OwnTracks and HA to track a mobile beacon than the fixed beacon I discussed in Part 1, because you only need to tell OwnTracks about your iBeacon. You don’t need to configure HA at all.</p>
+
+<p class="note warning">OwnTracks currently only supports mobile beacons on iOS.</p>
 
 <p>You set up the beacon the same way as we discussed in part 1. The only difference is that instead of calling the region the name of a location (eg -drive) you call it the name of the device you want to track (eg -keys). Remember the leading ‘-’ that makes the connection more reliable.</p>
 
