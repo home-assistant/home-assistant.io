@@ -162,7 +162,7 @@ Instead of <code>make install</code>, you can alternatively build your own pytho
   <li><strong>polling_interval</strong> (<em>Optional</em>): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.</li>
   <li><strong>customize</strong> (<em>Optional</em>): This attribute contains node-specific override values:
     <ul>
-      <li><strong>polling_intensity</strong> (<em>Optional</em>): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc)</li>
+      <li><strong>polling_intensity</strong> (<em>Optional</em>): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc). If not specified then your device will not be polled.</li>
     </ul>
   </li>
 </ul>
