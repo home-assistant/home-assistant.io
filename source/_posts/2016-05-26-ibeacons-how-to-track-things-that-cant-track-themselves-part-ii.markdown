@@ -2,8 +2,8 @@
 layout: post
 title: "iBeacons: How to track things that can’t track themselves (part II)"
 description: A step by step guide how to tracking dumb devices by using iBeacons.
-date: 2016-05-19 12:06:12 +0100
-date_formatted: "May 19, 2016"
+date: 2016-05-26 12:06:12 +0100
+date_formatted: "May 26, 2016"
 author: Greg Dowling
 author_twitter: pavoni240
 comments: true
@@ -26,18 +26,19 @@ If your phone can remember (or tell a server) where it was when it last saw the 
 
 So if you put an iBeacon on your keys or in your car - then you can track them.
 
-Here are my keys - with a Estimote Nearable iBeacon stuck to them. Ugly but effective!
-
 <p class='img'>
-  <img  width='200' border='2' src='/images/blog/2016-05-ibeacons/keys_with_beacon.jpg'>
+  <img  width='200' src='/images/blog/2016-05-ibeacons/keys_with_beacon.jpg'>
+  Here are my keys - with a Estimote Nearable iBeacon stuck to them. Ugly but effective!
 </p>
+
+<!--more-->
 
 It’s easier to set up OwnTracks and HA to track a mobile beacon than the fixed beacon I discussed in Part 1, because you only need to tell OwnTracks about your iBeacon. You don’t need to configure HA at all.
 
 You set up the beacon the same way as we discussed in part 1. The only difference is that instead of calling the region the name of a location (eg -drive) you call it the name of the device you want to track (eg -keys). Remember the leading ‘-’ that makes the connection more reliable.
 
 <p class='img'>
-  <img  width='200' border='2' src='/images/blog/2016-04-ibeacons/owntracks_beacon_setup.png'>
+  <img  width='200' src='/images/blog/2016-04-ibeacons/owntracks_beacon_setup.png'>
 </p>
 
 Once you’ve added the iBeacon - you should be able to see it on the OwnTracks region screen. If your phone can see the packets from that beacon, OwnTracks will turn the relevant Region red.
@@ -45,7 +46,7 @@ Once you’ve added the iBeacon - you should be able to see it on the OwnTracks 
 Because you turned *Share* on for the region, when OwnTracks sees the beacon it will send HA a message. HA will use this message to add the beacon as a tracked device if it hasn’t seen it before. So you should see a new device appear in HA called device_tracker.beacon_[name] - and its location will be where your phone thought it was when it last saw the beacon.
 
 <p class='img'>
-  <img  width='200' border='2' src='/images/blog/2016-05-ibeacons/keys_device.png'>
+  <img  width='200' src='/images/blog/2016-05-ibeacons/keys_device.png'>
 </p>
 
 If your phone moves and sends HA a new location while it is still in range of the beacon - HA will update the location of the beacon. So if go for a drive in your car - you will see both your phone and the *device_tracker.beacon_car* move together.
@@ -121,12 +122,12 @@ script:
 Of course you can use both fixed and mobile beacons at the same time. I want my gates to open when I arrive home in the car - so I use an iBeacon in the car so that I can track the car, and a iBeacon on my drive so that a location update is triggered when I arrive. I've been experimenting with a high power beacon in a waterproof box on my drive which seems to work well to notice when I get home.
 
 <p class='img'>
-  <img  width='300' border='2' src='http://bluesensenetworks.com/wp-content/uploads/2015/02/BlueBar-Beacon-Long-Range.jpg'>
+  <img  width='300' src='http://bluesensenetworks.com/wp-content/uploads/2015/02/BlueBar-Beacon-Long-Range.jpg'>
 </p>
 Long range / High power beacon
 
 <p class='img'>
-  <img  width='400' border='2' src='http://bluesensenetworks.com/wp-content/uploads/2015/02/BlueBar-Beacon-Weatherproof.jpg'>
+  <img  width='400' src='http://bluesensenetworks.com/wp-content/uploads/2015/02/BlueBar-Beacon-Weatherproof.jpg'>
 </p>
 Waterproof beacon
 
