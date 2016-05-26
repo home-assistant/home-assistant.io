@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iBeacons | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/ibeacons/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-26T08:07:59+00:00</updated>
+  <updated>2016-05-26T13:42:32+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,160 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iBeacons: How to track things that can’t track themselves (part II)]]></title>
+    <link href="https://home-assistant.io/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/"/>
+    <updated>2016-05-26T11:06:12+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii</id>
+    <content type="html"><![CDATA[<p><em>This post is by Home Assistant contributor <a href="https://github.com/pavoni">Greg Dowling</a>.</em></p>
+
+<p>In <a href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better">Part 1</a> I talked about using iBeacons to improve presence tracking. In part 2 I’ll talk about how to track things like keys that can’t track themselves by using iBeacons.</p>
+
+<h3><a class='title-link' name='tracking-things-using-ibeacons' href='#tracking-things-using-ibeacons'></a> Tracking things using iBeacons </h3>
+<p>In the first part I mentioned that iBeacons just send out <em>I’m here</em> packets, and we used this to trigger an update when your phone came close to a fixed beacon.</p>
+
+<p>But beacons don’t have to be fixed.</p>
+
+<p>Your phone knows roughly where it is located (based on mobile phone masts, Wi-Fi networks or GPS). If your phone sees an <em>I’m here</em> message then it knows the beacon is close.</p>
+
+<p>If your phone can remember (or tell a server) where it was when it last saw the iBeacon - then it knows where the beacon was. So the result of this is that you can track where an iBeacon was - even though the iBeacon doesn’t have any tracking technology itself.</p>
+
+<p>So if you put an iBeacon on your keys or in your car - then you can track them.</p>
+
+<p class="img">
+  <img width="200" src="https://home-assistant.io/images/blog/2016-05-ibeacons/keys_with_beacon.jpg" />
+  Here are my keys - with a Estimote Nearable iBeacon stuck to them. Ugly but effective!
+</p>
+
+<!--more-->
+
+<p>It’s easier to set up OwnTracks and HA to track a mobile beacon than the fixed beacon I discussed in Part 1, because you only need to tell OwnTracks about your iBeacon. You don’t need to configure HA at all.</p>
+
+<p>You set up the beacon the same way as we discussed in part 1. The only difference is that instead of calling the region the name of a location (eg -drive) you call it the name of the device you want to track (eg -keys). Remember the leading ‘-’ that makes the connection more reliable.</p>
+
+<p class="img">
+  <img width="200" src="https://home-assistant.io/images/blog/2016-04-ibeacons/owntracks_beacon_setup.png" />
+</p>
+
+<p>Once you’ve added the iBeacon - you should be able to see it on the OwnTracks region screen. If your phone can see the packets from that beacon, OwnTracks will turn the relevant Region red.</p>
+
+<p>Because you turned <em>Share</em> on for the region, when OwnTracks sees the beacon it will send HA a message. HA will use this message to add the beacon as a tracked device if it hasn’t seen it before. So you should see a new device appear in HA called device_tracker.beacon_[name] - and its location will be where your phone thought it was when it last saw the beacon.</p>
+
+<p class="img">
+  <img width="200" src="https://home-assistant.io/images/blog/2016-05-ibeacons/keys_device.png" />
+</p>
+
+<p>If your phone moves and sends HA a new location while it is still in range of the beacon - HA will update the location of the beacon. So if go for a drive in your car - you will see both your phone and the <em>device_tracker.beacon_car</em> move together.</p>
+
+<p>If you park your car and go shopping - <em>device_tracker.beacon_car</em> will stop moving.</p>
+
+<p>With the basic tracking working - you can use automation to do things like open your gates if your car comes home</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+    - <span class="string"><span class="content">alias: 'Open gate'</span></span>
+      <span class="key">trigger</span>:
+        - <span class="string"><span class="content">platform: state</span></span>
+          <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.beacon_car</span></span>
+          <span class="key">from</span>: <span class="string"><span class="content">'not_home'</span></span>
+          <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
+      <span class="key">condition</span>:
+        - <span class="string"><span class="content">condition: state</span></span>
+          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.gate</span></span>
+          <span class="key">state</span>: <span class="string"><span class="content">'off'</span></span>
+      <span class="key">action</span>:
+          <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
+          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.gate</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Or warn you if you leave your keys behind</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+  - <span class="string"><span class="content">alias: 'Forgotten keys'</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
+      <span class="key">value_template</span>: <span class="string"><span class="content">'{{states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'</span></span>
+    <span class="key">condition</span>:
+      <span class="key">condition</span>: <span class="string"><span class="content">template</span></span>
+      <span class="key">value_template</span>: <span class="string"><span class="content">'{{ states.device_tracker.greg_gregphone.state != &quot;home&quot; }}'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">script.send_key_alert</span></span>
+
+  - <span class="string"><span class="content">alias: 'Forgotten keys - cancel'</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
+      <span class="key">value_template</span>: <span class="string"><span class="content">'{{states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state}}'</span></span>
+    <span class="key">condition</span>:
+      - <span class="string"><span class="content">condition: state</span></span>
+        <span class="key">entity_id</span>: <span class="string"><span class="content">script.send_key_alert</span></span>
+        <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">script.turn_off</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">script.send_key_alert</span></span>
+</pre></div>
+</div>
+</div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">script</span>:
+  <span class="key">send_key_alert</span>:
+    <span class="key">sequence</span>:
+      - <span class="string"><span class="content">delay:</span><span class="content">
+          minutes: 2</span></span>
+      - <span class="string"><span class="content">service: notify.notify</span></span>
+        <span class="key">data</span>:
+            <span class="key">message</span>: <span class="string"><span class="content">'You forgot your keys'</span></span>
+            <span class="key">target</span>: <span class="string"><span class="content">'device/gregs_iphone'</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>(The delay is needed for two reasons: -<br />
+1. HA updates the beacon and phone locations at slightly different times - so you don’t want the automation to trigger in the gap between the updates<br />
+2. I’ve found that beacons (especially the low power Estimote Nearables) can get disconnected for a few seconds so it’s best to wait a minute or so before deciding that you’ve left your keys behind)</p>
+
+<h3><a class='title-link' name='using-both-types-of-ibeacons-at-the-same-time' href='#using-both-types-of-ibeacons-at-the-same-time'></a> Using both types of iBeacons at the same time </h3>
+<p>Of course you can use both fixed and mobile beacons at the same time. I want my gates to open when I arrive home in the car - so I use an iBeacon in the car so that I can track the car, and a iBeacon on my drive so that a location update is triggered when I arrive. I’ve been experimenting with a high power beacon in a waterproof box on my drive which seems to work well to notice when I get home.</p>
+
+<p class="img">
+  <img width="300" src="http://bluesensenetworks.com/wp-content/uploads/2015/02/BlueBar-Beacon-Long-Range.jpg" />
+</p>
+<p>Long range / High power beacon</p>
+
+<p class="img">
+  <img width="400" src="http://bluesensenetworks.com/wp-content/uploads/2015/02/BlueBar-Beacon-Weatherproof.jpg" />
+</p>
+<p>Waterproof beacon</p>
+
+<h3><a class='title-link' name='buying-beacons' href='#buying-beacons'></a> Buying Beacons </h3>
+<p>This isn’t a buyer’s guide, but I just wanted to mention the iBeacons I’ve been using. I think you should be able to use any iBeacon with HA and OwnTracks. You generally can’t buy beacons in your local electronics shop - so I just wanted to briefly mention the two suppliers I’ve used so far.</p>
+
+<p>I’ve bought quite a few iBeacons from a company called <a href="http://bluesensenetworks.com/">Blue Sense Networks</a>. I work in the tech startup sector in the UK so I partly chose them because they are a local start-up who seemed worth supporting. The products, support and software all seem good. I use a number of their beacons - from a simple USB dongle, to a long range beacon. All their products have batteries that can be changed (or no batteries in the case of the externally powered USB device) - and you can configure all the parameters you’d want to using their software. I had one software issue, support got back to me at a weekend(!) - and the issue was resolved with a software release two days later.</p>
+
+<p>All the beacons seem fine - and the long range unit does work over a longer range than my other beacons.</p>
+
+<p>I bought some other beacons from a US/Polish startup called <a href="http://estimote.com/">Estimote</a>, who I think are better known. I bought a developer pack of 10 of their <em>nearables</em> which as well as being iBeacons also send out other data (orientation and motion) using their own protocol. This is interesting if you’re developing your own application, but for OwnTracks and HA they are just regular beacons. They are small and self adhesive - so you can stick them to things (like your keys). You can’t change all the parameters on these devices (UUID/Major/Minor are fixed) - and the batteries can’t be replaced. I also killed one of the estimote beacons (I assume the battery died) after I carried it around for a few months and dropped it many times! On the other hand they are well priced, small and waterproof!</p>
+
+<p>I’ve mainly used these as <em>devices to track</em> rather that <em>location</em> beacons. Estimote also sell some slightly larger iBeacons with replaceable batteries. Estimote support responded quickly and were helpful when I couldn’t work out how to edit their beacon’s parameters (although the answer was <em>you can’t yet</em>).</p>
+
+<p>The larger Blue Sense Network beacons seem to be better at maintaining a connection that the Estimotes - although that might be because I’m reluctant to turn the power to maximum and reduce the gap between sending packets on the Estimotes where I can’t replace the batteries!</p>
+
+<h3><a class='title-link' name='conclusion' href='#conclusion'></a> Conclusion </h3>
+<p>As I said in <a href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better">part 1</a>, I’ve found iBeacons to be a good way of improving presence detection. I also used them to track devices like my car and my keys that can’t track themselves.</p>
+
+<p>I’m still experimenting, so I hope I can do more with iBeacons. I hope I’ve encouraged you do so the same. If you do please share your experiences.</p>
+
+<h3><a class='title-link' name='notes' href='#notes'></a> Notes </h3>
+
+<p>Please see the <a href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/#tips">notes at the end of Part 1</a> for documentation information.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[iBeacons: Making presence detection work better (part I)]]></title>
