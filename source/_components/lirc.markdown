@@ -57,7 +57,7 @@ end
 Test your LIRC installation before proceeding by running:
 
 ```bash
-$ ircat home-assistant
+$ irexec -n home-assistant
 ```
 
 and pressing some buttons on the remote. 
@@ -73,7 +73,7 @@ lirc:
 
 #### {% linkable_title Events %}
 
-The LIRC component fires `button_pressed` events on the bus. You can capture the events and respond to them in automation scripts like this:
+The LIRC component fires `ir_command_received` events on the bus. You can capture the events and respond to them in automation scripts like this:
 
 ```yaml
 # Example configuration.yaml automation entry
@@ -81,7 +81,7 @@ automation:
 - alias: Off on Remote
   trigger:
     platform: event
-    event_type: button_pressed
+    event_type: ir_command_received
     event_data:
       button_name: KEY_0
   action:
