@@ -8,6 +8,7 @@ author: Greg Dowling
 author_twitter: pavoni240
 comments: true
 categories: iBeacons Device-Tracking OwnTracks
+og_image: /images/blog/2016-05-ibeacons/keys_device.png
 ---
 
 _This post is by Home Assistant contributor [Greg Dowling](https://github.com/pavoni)._
