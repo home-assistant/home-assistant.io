@@ -137,4 +137,4 @@ This means you can have more than one beacon around your home - and a connection
 
 You can achieve the same effect by using the same the same `UUID` but different `major` / `minor` numbers - and tell OwnTracks not to worry about the `minor` / `major` numbers for a particular region by setting them to 0).
 
-_Stay tuned for part II where I’ll talk about how to use iBeacons to track any object._
+_Make sure to also check out [part II](/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/) where I talk about how to use iBeacons to track any object._
