@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OwnTracks | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/owntracks/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-05-26T13:59:30+00:00</updated>
+  <updated>2016-05-27T02:11:31+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -304,7 +304,7 @@ For example, my wife works next door - and I couldn’t detect whether she’s a
 
 <p>You can achieve the same effect by using the same the same <code>UUID</code> but different <code>major</code> / <code>minor</code> numbers - and tell OwnTracks not to worry about the <code>minor</code> / <code>major</code> numbers for a particular region by setting them to 0).</p>
 
-<p><em>Stay tuned for part II where I’ll talk about how to use iBeacons to track any object.</em></p>
+<p><em>Make sure to also check out <a href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/">part II</a> where I talk about how to use iBeacons to track any object.</em></p>
 ]]></content>
   </entry>
   
