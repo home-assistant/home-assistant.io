@@ -37,11 +37,14 @@ We would appriciate if you help to keep this page up-to-date and add feedback.
 | :------------------ |:---------------|:-----------|:-------------------------|
 | Firefox             | 46.0.1         | works      |                          |
 | Midori              | 0.5.11         | works      |                          |
-| Chromium            |                | unknown    |                          |
+| Chromium            | 50.0.2661.102  | works      |                          |
+| Conkeror            | 1.0.2          | works      |                          |
 | Konqueror           |                | unknown    |                          |
-| Uzbl                |                | unknown    |                          |
+| Uzbl                | 0.9.0          | works      |                          |
 | Opera               |                | unknown    |                          |
-| Lynx                |                | unknown    |                          |
+| Lynx                | 2.12           | fails      | loads empty page         |
+| elinks              |                | fails      | page with manifest and import |
+| w3m                 | 0.5.3          | fails      | display the icon shown while loading HA |
 
 
 ## {% linkable_title Android %}
@@ -49,7 +52,7 @@ We would appriciate if you help to keep this page up-to-date and add feedback.
 | Browser             | Release        | State      | Comments                 |
 | :------------------ |:---------------|:-----------|:-------------------------|
 | Chrome              | 50.0.2661.89   | works      |                          |
-|                     |                |            |                          |
+| Firefox             | 46.0.1         | works      |                          |
 
 ## {% linkable_title iOS %}
 
