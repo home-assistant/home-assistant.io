@@ -33,7 +33,7 @@ hass.start()
 living_room = hass.states.get('group.living_room')
 ```
 
-### {% linkable_title Get details about servies and events %}
+### {% linkable_title Get details about services, events, and entitites %}
 
 Similar to the output in the "Developer Tools" of the frontend.
 
@@ -51,6 +51,11 @@ print('\n-- Available event')
 events = remote.get_event_listeners(api)
 for event in events:
     print(event)
+
+print('\n-- Available entities')
+entities = remote.get_states(api)
+for entity in entities:
+    print(entity)
 ```
 
 ### {% linkable_title Get the state of an entity %}
