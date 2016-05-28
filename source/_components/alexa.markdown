@@ -16,6 +16,10 @@ There are two ways that you can use Amazon Echo and Home Assistant together.
 
 No matter which method(s) you decide to use, please remember that Amazon Echo requires an active Internet connection to function. If your Internet is down or experiencing issues (or Amazon's infrastructure is having issues), neither of these methods will work.
 
+Amazon has released [Echosim], a website that simulates the Alexa service in your browser. That way it is easy to test your skills without having access to a physical Amazon Echo.
+
+[Echosim]: https://echosim.io/
+
 ### {% linkable_title I just want to turn devices on and off using Echo %}
 
 If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, check out Michael Auchter's [Haaska][haaska-github-link] which integrates the [Alexa Lighting API][alexa-lighting-api] into Home Assistant.
