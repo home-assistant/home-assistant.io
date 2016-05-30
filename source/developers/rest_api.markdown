@@ -196,8 +196,8 @@ Returns an array of state changes in the past. Each object contains further deta
                 "unit_of_measurement": "\u00b0C"
             },
             "entity_id": "sensor.weather_temperature",
-            "last_changed": "23:30:00 05-02-2016",
-            "last_updated": "23:30:00 05-02-2016",
+            "last_changed": "2016-02-06T22:15:00+00:00",
+            "last_updated": "2016-02-06T22:15:00+00:00"",
             "state": "-3.9"
         },
         {
@@ -206,8 +206,8 @@ Returns an array of state changes in the past. Each object contains further deta
                 "unit_of_measurement": "\u00b0C"
             },
             "entity_id": "sensor.weather_temperature",
-            "last_changed": "07:03:30 06-02-2016",
-            "last_updated": "07:03:30 06-02-2016",
+            "last_changed": "2016-02-06T22:15:00+00:00"",
+            "last_updated": "2016-02-06T22:15:00+00:00"",
             "state": "-1.9"
         },
     ]
@@ -230,18 +230,15 @@ Returns an array of state objects. Each state has the following attributes: enti
 ```json
 [
     {
-        "attributes": {
-            "next_rising": "07:04:15 29-10-2013",
-            "next_setting": "18:00:31 29-10-2013"
-        },
+        "attributes": {},
         "entity_id": "sun.sun",
-        "last_changed": "23:24:33 28-10-2013",
+        "last_changed": "2016-05-30T21:43:32.418320+00:00",
         "state": "below_horizon"
     },
     {
         "attributes": {},
         "entity_id": "process.Dropbox",
-        "last_changed": "23:24:33 28-10-2013",
+        "last_changed": "22016-05-30T21:43:32.418320+00:00",
         "state": "on"
     }
 ]
@@ -258,13 +255,17 @@ Returns a state object for specified entity_id. Returns 404 if not found.
 
 ```json
 {
-    "attributes": {
-        "next_rising": "07:04:15 29-10-2013",
-        "next_setting": "18:00:31 29-10-2013"
-    },
-    "entity_id": "sun.sun",
-    "last_changed": "23:24:33 28-10-2013",
-    "state": "below_horizon"
+   "attributes":{
+      "azimuth":336.34,
+      "elevation":-17.67,
+      "friendly_name":"Sun",
+      "next_rising":"2016-05-31T03:39:14+00:00",
+      "next_setting":"2016-05-31T19:16:42+00:00"
+   },
+   "entity_id":"sun.sun",
+   "last_changed":"2016-05-30T21:43:29.204838+00:00",
+   "last_updated":"2016-05-30T21:50:30.529465+00:00",
+   "state":"below_horizon"
 }
 ```
 
@@ -310,8 +311,8 @@ Expects a JSON object that has at least a state attribute:
 {
     "state": "below_horizon",
     "attributes": {
-        "next_rising": "07:04:15 29-10-2013",
-        "next_setting": "18:00:31 29-10-2013"
+        "next_rising":"2016-05-31T03:39:14+00:00",
+        "next_setting":"2016-05-31T19:16:42+00:00"
     }
 }
 ```
@@ -321,11 +322,12 @@ Return code is 200 if the entity existed, 201 if the state of a new entity was s
 ```json
 {
     "attributes": {
-        "next_rising": "07:04:15 29-10-2013",
-        "next_setting": "18:00:31 29-10-2013"
+        "next_rising":"2016-05-31T03:39:14+00:00",
+        "next_setting":"2016-05-31T19:16:42+00:00"
     },
-    "entity_id": "weather.sun",
-    "last_changed": "23:24:33 28-10-2013",
+    "entity_id": "sun.sun",
+    "last_changed": "2016-05-30T21:43:29.204838+00:00",
+    "last_updated": "2016-05-30T21:47:30.533530+00:00"
     "state": "below_horizon"
 }
 ```
@@ -345,7 +347,7 @@ You can pass an optional JSON object to be used as `event_data`.
 
 ```json
 {
-    "next_rising": "18:00:31 29-10-2013"
+    next_rising":"2016-05-31T03:39:14+00:00",
 }
 ```
 
@@ -373,18 +375,15 @@ Returns a list of states that have changed while the service was being executed.
 ```json
 [
     {
-        "attributes": {
-            "next_rising": "07:04:15 29-10-2013",
-            "next_setting": "18:00:31 29-10-2013"
-        },
+        "attributes": {},
         "entity_id": "sun.sun",
-        "last_changed": "23:24:33 28-10-2013",
+        "last_changed": "2016-05-30T21:43:32.418320+00:00",
         "state": "below_horizon"
     },
     {
         "attributes": {},
         "entity_id": "process.Dropbox",
-        "last_changed": "23:24:33 28-10-2013",
+        "last_changed": "22016-05-30T21:43:32.418320+00:00",
         "state": "on"
     }
 ]
