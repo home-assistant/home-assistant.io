@@ -39,7 +39,7 @@ For more comfort put the HTML snippet below in a file `sse.html` in your `www` f
 </html>
 ```
 
-Visit [https://localhost:8123/local/sse.html](https://localhost:8123/local/sse.html) to see the stream of events.
+Visit [http://localhost:8123/local/sse.html](http://localhost:8123/local/sse.html) to see the stream of events.
 
 ### {% linkable_title Example %}
 
