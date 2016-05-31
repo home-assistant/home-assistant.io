@@ -11,7 +11,7 @@ logo: enocean.png
 ha_category: Binary Sensor
 ---
 
-This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55.
+This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55. Other devices will most likely not work without changing the Home-Asisstant code.
 
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](../enocean) and then add the following to your `configuration.yaml` file:
