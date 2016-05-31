@@ -207,8 +207,10 @@ p.note {
   text-align: center;
 
   i {
-    font-size: 2.2em;
+    font-size: 3em;
     margin-right: 8px;
+    position: relative;
+    top: -5px;
   }
   .credit {
     text-align: left;
