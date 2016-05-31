@@ -37,8 +37,8 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | Type (`- type:`)    | Argument (`arg:`)        |
 | :------------------ |:-------------------------|
 | disk_use_percent    | Path, eg. `/`            |
-| disk_use            |                          |
-| disk_free           |                          |
+| disk_use            | Path, eg. `/`            |
+| disk_free           | Path, eg. `/`            |
 | memory_use_percent  |                          |
 | memory_use          |                          |
 | memory_free         |                          |
