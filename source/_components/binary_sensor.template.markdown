@@ -44,7 +44,7 @@ sensor:
   platform: template
   sensors:
       furnace_on:
-        value_template: {{ states.sensor.furnace.state > 2.5 }}
+        value_template: {% raw %}{{ states.sensor.furnace.state > 2.5 }}{% endraw %}
         friendly_name: 'Furnace Running
         sensor_class: heat
 ```
@@ -59,9 +59,9 @@ binary_sensor:
   platform: template 
   sensors:
     movement:
-      value_template: "{{ states.switch.movement.state == 'on' }}" 
+      value_template: {% raw %}"{{ states.switch.movement.state == 'on' }}"{% endraw %}
       sensor_class: motion
     door:
-      value_template: "{{ states.switch.door.state == 'on' }}" 
+      value_template: {% raw %}"{{ states.switch.door.state == 'on' }}"{% endraw %} 
       sensor_class: opening
 ```
