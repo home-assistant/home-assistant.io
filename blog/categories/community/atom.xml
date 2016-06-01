@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-01T19:17:11+00:00</updated>
+  <updated>2016-06-01T20:36:44+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -32,10 +32,16 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/6I_Lfpda0hc" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
-<p>Ben from <a href="http://www.bruhautomation.com/">BRUH Automation</a> has put out another great video how to get started tracking your location in Home Assistant using OwnTracks.</p>
+<p>Ben from <a href="http://www.bruhautomation.com/">BRUH Automation</a> has put out another great video how to get started tracking your location in Home Assistant using MQTT and OwnTracks.</p>
 
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/VaWdvVVYU3A" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<p>Muhammed Kilic has created a video how to make your Home Assistant instance accessible from the internet using the free dynamic DNS service DuckDNS.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/UM15pRk56h8" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
 ]]></content>
