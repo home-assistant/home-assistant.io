@@ -36,7 +36,7 @@ switch:
   lights:
     - light.desk
     - light.lamp
-  name: Fluxer		  # optional, default Flux
+  name: Fluxer		      # optional, default Flux
   start_time: 7:00        # optional, default sunrise
   stop_time: 23:00        # optional, default 22:00
   start_colortemp: 4000   # optional, default 4000
