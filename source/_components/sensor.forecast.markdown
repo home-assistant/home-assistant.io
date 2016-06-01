@@ -15,10 +15,10 @@ ha_release: pre 0.7
 
 The `forecast` platform uses the [Forecast.io](https://forecast.io/) web service as a source of meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in `configuration.yaml`.  The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using Google Maps and clicking on your home.
 
-You need an API key which is free but requires [registration](https://developer.forecast.io/register). You can make up to 1000 requests per day which means that you could make one approximately every 86 seconds.
+You need an API key which is free but requires [registration](https://developer.forecast.io/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
 <p class='note warning'>
-[Forecast.io](https://forecast.io/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 call per day.
+[Forecast.io](https://forecast.io/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
 </p>
 
 To add Forecast.io to your installation, add the following to your `configuration.yaml` file:
