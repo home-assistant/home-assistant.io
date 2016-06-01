@@ -17,6 +17,10 @@ The `forecast` platform uses the [Forecast.io](https://forecast.io/) web service
 
 You need an API key which is free but requires [registration](https://developer.forecast.io/register). You can make up to 1000 requests per day which means that you could make one approximately every 86 seconds.
 
+<p class='note warning'>
+[Forecast.io](https://forecast.io/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 call per day.
+</p>
+
 To add Forecast.io to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
