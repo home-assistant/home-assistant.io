@@ -25,10 +25,16 @@ Our community is amazingly helpful and creative. If you haven't been there yet, 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6I_Lfpda0hc" frameborder="0" allowfullscreen></iframe>
 </div>
 
-Ben from [BRUH Automation] has put out another great video how to get started tracking your location in Home Assistant using OwnTracks.
+Ben from [BRUH Automation] has put out another great video how to get started tracking your location in Home Assistant using MQTT and OwnTracks.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VaWdvVVYU3A" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Muhammed Kilic has created a video how to make your Home Assistant instance accessible from the internet using the free dynamic DNS service DuckDNS.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UM15pRk56h8" frameborder="0" allowfullscreen></iframe>
 </div>
 
 [chat room]: https://gitter.im/home-assistant/home-assistant
