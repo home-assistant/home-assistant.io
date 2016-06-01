@@ -7,27 +7,27 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Home Assistant moving to YAML - Home Assistant</title>
+    <title>Community Highlights - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Configuration will now be more flexible">
+    <meta name="description" content="Showcasing some of the cool projects and videos our community has come up with.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2015/03/01/home-assistant-migrating-to-yaml/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2016/06/01/community-highlights/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Home Assistant moving to YAML">
+    <meta property="og:title" content="Community Highlights">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2015/03/01/home-assistant-migrating-to-yaml/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2016/06/01/community-highlights/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Configuration will now be more flexible">
-    <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+    <meta property="og:description" content="Showcasing some of the cool projects and videos our community has come up with.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2016-06-community-highlights/video_preview.png">
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
-    <meta name="twitter:title" content="Home Assistant moving to YAML">
-    <meta name="twitter:description" content="Configuration will now be more flexible">
-    <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+    <meta name="twitter:creator" content="@balloob">
+    <meta name="twitter:title" content="Community Highlights">
+    <meta name="twitter:description" content="Showcasing some of the cool projects and videos our community has come up with.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-06-community-highlights/video_preview.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -80,20 +80,22 @@
   
   <header>
   
-  <h1 class="title indent">Home Assistant moving to YAML</h1>
+  <h1 class="title indent">Community Highlights</h1>
   
 
   
   <div class="meta clearfix">
-    <time datetime="2015-03-01T19:38:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 1, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Theodor Lindquist</span>
-    <span><i class='icon-time'></i> less than one minute reading time</span>
+    <time datetime="2016-06-01T18:34:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 1, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li><a class='category' href='/blog/categories/community/'>Community</a></li>
+      
+        <li><a class='category' href='/blog/categories/video/'>Video</a></li>
       
     
     </ul>
@@ -108,13 +110,25 @@
 </header>
 
 
-  <p>Home Assistant is now using <a href="http://yaml.org/">YAML</a> for it’s configuration file. YAML allows the use of lists, which should make the configuration file a bit more flexible and useful. The new configuration file format is backwards compatible with existing components. Because of this, there is no need for component developers to update their components.</p>
+  <p>Our community is amazingly helpful and creative. If you haven’t been there yet, make sure to stop by our <a href="https://gitter.im/home-assistant/home-assistant">chat room</a> and come hang out with us. In this blog post I want to highlight a few recent awesome projects and videos from the community.</p>
 
-<p>The new file is named configuration.yaml and if it can’t be found in your config directory, Home Assistant will instead try to find the old configuration file, home-assistant.conf.</p>
+<h3><a class="title-link" name="scenegen---cli-for-making-scenes" href="#scenegen---cli-for-making-scenes"></a> SceneGen - cli for making scenes</h3>
 
-<p>The home-assistant.conf.example has been replaced with an updated <a href="https://github.com/home-assistant/home-assistant/blob/dev/config/configuration.yaml.example">configuration.yaml.example</a>.</p>
+<p><a href="https://github.com/acockburn/scenegen">SceneGen</a> is a new command line utility developed by <a href="https://github.com/acockburn">Andrew Cockburn</a> that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.</p>
 
-<p>Users of Home Assistant should migrate as the old configuration format is deprecated.</p>
+<h3><a class="title-link" name="videos" href="#videos"></a> Videos</h3>
+
+<p><a href="https://partofthething.com">Nick Touran</a> has been working on integrating IR remotes with Home Assistant. He made it into a component which should be available in the next release which should arrive in a couple of days. In the meanwhile, he wrote up <a href="https://partofthething.com/thoughts/?p=1010">a blog post</a> and has put out a video showing the new integration, very cool!</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/6I_Lfpda0hc" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<p>Ben from <a href="http://www.bruhautomation.com/">BRUH Automation</a> has put out another great video how to get started tracking your location in Home Assistant using OwnTracks.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/VaWdvVVYU3A" frameborder="0" allowfullscreen=""></iframe>
+</div>
 </article>
 
 
@@ -152,12 +166,12 @@
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2015/03/01/home-assistant-migrating-to-yaml/"
-     data-counturl="https://home-assistant.io/blog/2015/03/01/home-assistant-migrating-to-yaml/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2016/06/01/community-highlights/"
+     data-counturl="https://home-assistant.io/blog/2016/06/01/community-highlights/" >Tweet</a>
   
   
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2015/03/01/home-assistant-migrating-to-yaml/"
+         data-href="https://home-assistant.io/blog/2016/06/01/community-highlights/"
          data-layout="button_count">
     </div>
   
@@ -184,10 +198,6 @@
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
     
-      
-        <li class="post">
-          <a href="/blog/2016/06/01/community-highlights/">Community Highlights</a>
-        </li>
       
     
       
@@ -254,8 +264,8 @@
   
     
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2015/03/01/home-assistant-migrating-to-yaml/';
-    var disqus_url = 'https://home-assistant.io/blog/2015/03/01/home-assistant-migrating-to-yaml/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/06/01/community-highlights/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/06/01/community-highlights/';
     var disqus_script = 'embed.js';
   
   (function () {

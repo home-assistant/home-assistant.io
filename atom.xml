@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-01T19:01:20+00:00</updated>
+  <updated>2016-06-01T19:08:02+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Community Highlights]]></title>
+    <link href="https://home-assistant.io/blog/2016/06/01/community-highlights/"/>
+    <updated>2016-06-01T18:34:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/06/01/community-highlights</id>
+    <content type="html"><![CDATA[<p>Our community is amazingly helpful and creative. If you haven’t been there yet, make sure to stop by our <a href="https://gitter.im/home-assistant/home-assistant">chat room</a> and come hang out with us. In this blog post I want to highlight a few recent awesome projects and videos from the community.</p>
+
+<h3><a class="title-link" name="scenegen---cli-for-making-scenes" href="#scenegen---cli-for-making-scenes"></a> SceneGen - cli for making scenes</h3>
+
+<p><a href="https://github.com/acockburn/scenegen">SceneGen</a> is a new command line utility developed by <a href="https://github.com/acockburn">Andrew Cockburn</a> that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.</p>
+
+<h3><a class="title-link" name="videos" href="#videos"></a> Videos</h3>
+
+<p><a href="https://partofthething.com">Nick Touran</a> has been working on integrating IR remotes with Home Assistant. He made it into a component which should be available in the next release which should arrive in a couple of days. In the meanwhile, he wrote up <a href="https://partofthething.com/thoughts/?p=1010">a blog post</a> and has put out a video showing the new integration, very cool!</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/6I_Lfpda0hc" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<p>Ben from <a href="http://www.bruhautomation.com/">BRUH Automation</a> has put out another great video how to get started tracking your location in Home Assistant using OwnTracks.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/VaWdvVVYU3A" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[iBeacons: How to track things that can’t track themselves (part II)]]></title>
@@ -1112,58 +1140,6 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
 </pre></div>
 </div>
 </div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors]]></title>
-    <link href="https://home-assistant.io/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors/"/>
-    <updated>2016-02-13T06:15:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors</id>
-    <content type="html"><![CDATA[<p>The focus of 0.13 was on test coverage, big cheers to <a href="https://github.com/rmkraus/">@rmkraus</a> for his hard work on this. I’m proud to announce that we’ve hit the 90% test coverage of the core + important components. A big milestone for the project.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-02-release-13/input_select__input_boolean__weblink.png" />
-  Examples of the new <a href="https://home-assistant.io/components/input_select/">input_select</a> and <a href="https://home-assistant.io/components/weblink/">weblink</a> components.
-</p>
-
-<p>Not only did we gain a lot of test coverage, we also attracted a lot of new developers that contributed a variety of components and platforms:</p>
-
-<p><img src="https://home-assistant.io/images/supported_brands/speedtest.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="70" /><img src="https://home-assistant.io/images/supported_brands/apcupsd.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/splunk.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/bloomsky.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/ubiquiti.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/networx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/samsung.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Core: Add service to restart Home Assistant (<a href="https://github.com/rmkraus/">@rmkraus</a>)</li>
-  <li>Core: Allow device to report as unavailable (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
-  <li>Core: Allow overriding polling interval in platforms and <a href="https://home-assistant.io/cookbook/customize_polling_interval/">via config</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Frontend: support for a <a href="https://home-assistant.io/components/group/">default view</a> have been added to replace the show all view (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Component: Added <a href="https://home-assistant.io/components/apcupsd/">apcupsd</a> component (<a href="https://github.com/flyte/">@flyte</a>)</li>
-  <li>Component: Added component to log values to <a href="https://home-assistant.io/components/splunk/">Splunk</a> (<a href="https://github.com/miniconfig/">@miniconfig</a>)</li>
-  <li>Component: Added <a href="https://home-assistant.io/components/garage_door/">garage door</a> component including <a href="https://home-assistant.io/components/garage_door.wink/">Wink</a> support (<a href="https://github.com/xrolfex/">@xrolfex</a>)</li>
-  <li>Component: Added <a href="https://home-assistant.io/components/input_select/">input_select</a> component (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Component: Added <a href="https://home-assistant.io/components/proximity/">proximity</a> component to track people closest to a location (<a href="https://github.com/nickwaring/">@nickwaring</a>, <a href="https://github.com/Bart274/">@Bart274</a> )</li>
-  <li>Component: Added support for <a href="https://home-assistant.io/components/bloomsky/">Bloomsky Weather Station</a> (<a href="https://github.com/haraldnagel/">@haraldnagel</a>)</li>
-  <li>Component: Added support for pushing stats to <a href="https://home-assistant.io/components/graphite/">graphite</a> (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
-  <li>Component: Added support for <a href="https://home-assistant.io/components/scsgate/">SCSGate</a> devices (<a href="https://github.com/flavio/">@flavio</a>)</li>
-  <li>Component: Added <a href="https://home-assistant.io/components/weblink/">weblink</a> component to link to other pages (<a href="https://github.com/MagnusKnutas/">@MagnusKnutas</a>)</li>
-  <li>Component: Support for Ubiquiti mFI <a href="https://home-assistant.io/components/sensor.mfi/">sensors</a> and <a href="https://home-assistant.io/components/switch.mfi/">switchable devices</a> added (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
-  <li>Alarm control panel: Added <a href="https://home-assistant.io/components/alarm_control_panel.nx584/">Caddx/GE/Interlogix NetworX</a> support (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
-  <li>Camera: <a href="https://home-assistant.io/components/camera.mjpeg/">MJPEG</a> camera’s will now show real stream instead of a 2fps stream (<a href="https://github.com/stjohnjohnson/">@stjohnjohnson</a>)</li>
-  <li>Camera: Added <a href="https://home-assistant.io/components/camera.uvc/">Unifi video cameras</a> support (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
-  <li>Device Tracker: <a href="https://home-assistant.io/components/device_tracker.aruba/">Aruba</a> platform now uses SSH instead of telnet (<a href="https://github.com/carlosmgr/">@carlosmgr</a>)</li>
-  <li>History: Show correct graphs for thermostats (<a href="https://github.com/sdague/">@sdague</a>)</li>
-  <li>Light: Added <a href="https://home-assistant.io/components/light.mysensors/">MySensors</a> support (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
-  <li>Lock: Added <a href="https://home-assistant.io/components/lock.verisure/">Verisure</a> support (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li>Media Player: Added <a href="https://home-assistant.io/components/media_player.samsungtv/">Samsung TV</a> support (<a href="https://github.com/stefan-jonasson/">@stefan-jonasson</a>)</li>
-  <li>Media Player: Added <a href="https://home-assistant.io/components/media_player.snapcast/">Snapcast</a> support (<a href="https://github.com/happyleavesaoc/">@happyleavesaoc</a>)</li>
-  <li>MQTT: Allow using templates in <a href="https://home-assistant.io/components/mqtt/#publish-service/">publish service</a> (<a href="https://github.com/flyte/">@flyte</a>)</li>
-  <li>Notify: Added <a href="https://home-assistant.io/components/notify.rest/">REST</a> support (<a href="https://github.com/Theb-1/">@Theb-1</a>)</li>
-  <li>Sensor: Added <a href="https://home-assistant.io/components/sensor.speedtest/">Speedtest.net</a> support (<a href="https://github.com/nkgilley/">@nkgilley</a>)</li>
-  <li>Switch: Added <a href="https://home-assistant.io/components/switch.template/">template</a> platform (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
-  <li>Thermostat: Support for <a href="https://home-assistant.io/components/thermostat.honeywell/">Honeywell</a> in the US added (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
-  <li>Z-Wave: Allow <a href="https://home-assistant.io/components/zwave/#configuration/">configuring polling</a> and <a href="https://home-assistant.io/components/zwave/#events/">support scenes</a> (<a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>)</li>
-  <li>Bug fixes and improvements by <a href="https://github.com/persandstrom/">@persandstrom</a>, <a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/pavoni/">@pavoni</a>, <a href="https://github.com/philipbl/">@philipbl</a>, <a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>, <a href="https://github.com/rmkraus/">@rmkraus</a>, <a href="https://github.com/molobrakos/">@molobrakos</a>, <a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>, <a href="https://github.com/TangoAlpha/">@TangoAlpha</a>, <a href="https://github.com/deisi/">@deisi</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>, <a href="https://github.com/roqeer/">@roqeer</a>, <a href="https://github.com/jaharkes/">@jaharkes</a></li>
-</ul>
 
 ]]></content>
   </entry>

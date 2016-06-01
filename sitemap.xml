@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/06/01/community-highlights/</loc>
+    <lastmod>2016-06-01T18:34:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/</loc>
     <lastmod>2016-05-26T11:06:12+00:00</lastmod>
   </url>
@@ -469,6 +473,9 @@
     <loc>https://home-assistant.io/blog/categories/community/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/blog/categories/video/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/categories/public-service-announcement/</loc>
   </url>
   <url>
@@ -482,9 +489,6 @@
   </url>
   <url>
     <loc>https://home-assistant.io/blog/categories/talks/</loc>
-  </url>
-  <url>
-    <loc>https://home-assistant.io/blog/categories/video/</loc>
   </url>
   <url>
     <loc>https://home-assistant.io/blog/categories/technology/</loc>
@@ -1692,28 +1696,31 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/06/01/community-highlights/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-06-01T19:00:33+00:00</lastmod>
+    <lastmod>2016-06-01T19:07:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-06-01T19:00:33+00:00</lastmod>
+    <lastmod>2016-06-01T19:07:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-06-01T19:00:33+00:00</lastmod>
+    <lastmod>2016-06-01T19:07:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-01T19:00:33+00:00</lastmod>
+    <lastmod>2016-06-01T19:07:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-01T19:00:33+00:00</lastmod>
+    <lastmod>2016-06-01T19:07:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-06-01T19:00:33+00:00</lastmod>
+    <lastmod>2016-06-01T19:07:16+00:00</lastmod>
   </url>
 </urlset>
