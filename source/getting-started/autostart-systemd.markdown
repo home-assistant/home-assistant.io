@@ -49,7 +49,7 @@ $ sudo systemctl enable home-assistant@[your user]
 $ sudo systemctl start home-assistant@[your user]
 ```
 
-If everything went well, `sudo systemctl start home-assistant` should give you a positive feedback.
+If everything went well, `sudo systemctl start home-assistant@[your user]` should give you a positive feedback.
 
 ```bash
 $ sudo systemctl status home-assistant@[your user] -l
