@@ -2,13 +2,13 @@
 layout: page
 title: "RFXtrx Rollershutter"
 description: "Instructions how to integrate RFXtrx roller shutters into Home Assistant."
-date: 2015-10-08 10:15
+date: 2016-06-02 14:20
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Rollershutter
-ha_release: 0.7.5
+ha_release: 0.21
 ---
 
 The `rfxtrx` platform support Siemens/LightwaveRF roller shutters that communicate in the frequency range of 433.92 MHz.
