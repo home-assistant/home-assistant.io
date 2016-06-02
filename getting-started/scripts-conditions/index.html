@@ -241,6 +241,27 @@ This allows you to mix several AND and OR conditions together.</p>
 </div>
 </div>
 
+<h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>    <span class="key">condition</span>:
+      - <span class="string"><span class="content">condition: numeric_state</span></span>
+        <span class="key">entity_id</span>: <span class="string"><span class="content">sun.sun</span></span>
+        <span class="key">value_template</span>: <span class="string"><span class="content">''</span></span>
+        <span class="key">below</span>: <span class="string"><span class="content">1</span></span>
+      - <span class="string"><span class="content">condition: state</span></span>
+        <span class="key">entity_id</span>: <span class="string"><span class="content">light.living_room</span></span>
+        <span class="key">state</span>: <span class="string"><span class="content">'off'</span></span>
+      - <span class="string"><span class="content">condition: time</span></span>
+        <span class="key">before</span>: <span class="string"><span class="content">'23:00:00'</span></span>
+        <span class="key">after</span>: <span class="string"><span class="content">'14:00:00'</span></span>
+      - <span class="string"><span class="content">condition: state</span></span>
+        <span class="key">entity_id</span>: <span class="string"><span class="content">script.light_turned_off_5min</span></span>
+        <span class="key">state</span>: <span class="string"><span class="content">'off'</span></span>
+</pre></div>
+</div>
+</div>
+
 
 </article>
 
