@@ -31,7 +31,8 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 For a quick test `curl` can be useful to "simulate" a device.
 
 ```bash
-$ curl -XPOST -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
        -d '{"state": "20", "attributes": {"unit_of_measurement": "°C", "friendly_name": "Bathroom Temp"}}' \
        http://localhost:8123/api/states/sensor.bathroom_temperature
 ```
@@ -40,7 +41,8 @@ Use again `curl` to retrieve the [current state](/developers/rest_api/#get-apist
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
-        http://localhost:8123/api/states/sensor.bathroom_temperature
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/states/sensor.bathroom_temperature
 {
     "attributes": {
         "friendly_name": "Bathroom Temp",
