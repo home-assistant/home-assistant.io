@@ -20,3 +20,17 @@ To enable the Netatmo camera, add the following lines to your `configuration.yam
 # Example configuration.yaml entry
 camera:
   platform: netatmo
+  home: home_name
+  cameras:
+    - camera_name1
+    - camera_name2
+```
+
+Configuration variables:
+
+- **home** (*Optionnal*): Will display the cameras of this home only.
+- **cameras** array (*Optionnal*): Cameras to use. Multiple enties allowed.
+    - **camera_name**: Name of the camera to display.
+
+If **home** and **cameras** is not provided, all cameras will be displayed.
+
