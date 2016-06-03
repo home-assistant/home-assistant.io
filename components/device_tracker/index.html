@@ -120,9 +120,9 @@
 
 <p>Multiple device trackers can be used in parallel, such as <a href="/components/device_tracker.owntracks/">Owntracks</a> and <a href="/components/device_tracker.nmap_scanner/">Nmap</a>. The state of the device will be determined by the source that reported last. Device tracker will look for global settings (track_new_devices, consider_home and home_interval) under the configuration of the first platform.</p>
 
-<p>The optional consider_home entry is useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life.  iPhones will occasionally drop off the network and then re-appear.  <code>consider_home</code> helps prevent false alarms in presence detection when using IP scanners such as nmap.</p>
+<p>The optional <code>consider_home</code> entry is useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. <code>consider_home</code> helps prevent false alarms in presence detection when using IP scanners such as nmap.</p>
 
-<p>To add Nmap tracking just add the mac address to the OwnTracks or iCloud device <code>mac:</code> configuration.  To use both OwnTracks and Nmap you could use the following example:</p>
+<p>To add Nmap tracking just add the MAC address to the OwnTracks or iCloud device <code>mac:</code> configuration. To use both OwnTracks and Nmap you could use the following example:</p>
 
 <pre><code>owntracksdevicename:
   name: Friendly Name!
