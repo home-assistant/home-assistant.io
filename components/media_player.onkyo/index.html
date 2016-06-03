@@ -97,82 +97,48 @@
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">media_player</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">onkyo</span></span>
+  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.2</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">receiver</span></span>
+  <span class="key">sources</span>:
+    <span class="key">pc</span>: <span class="string"><span class="content">'HTPC'</span></span>
+    <span class="key">aux1</span>: <span class="string"><span class="content">'Chromecast'</span></span>
+    <span class="key">bd</span>: <span class="string"><span class="content">'Bluray'</span></span>
+    <span class="key">game</span>: <span class="string"><span class="content">'Wii U'</span></span>
 </pre></div>
 </div>
 </div>
+<p>Configuration variables:<br />
+- <strong>host</strong> (<em>Optional</em>): IP address of the device. Example:<code>192.168.1.2</code> If not specified, the platform will load any discovered receivers.<br />
+- <strong>name</strong> (<em>Optional, required if host is specified</em>): Name of the device<br />
+- <strong>sources</strong> (<em>Optional</em>): A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.</p>
 
-<p>A few notes:</p>
-
-<p>Source selection has no front-end UI, but can be controlled by way of service calls. Select the source string from the following list:</p>
-
-<ul>
-  <li>video1</li>
-  <li>video2</li>
-  <li>video3</li>
-  <li>video4</li>
-  <li>video5</li>
-  <li>video6</li>
-  <li>video7</li>
-  <li>dvd</li>
-  <li>bd-dvd</li>
-  <li>tape1</li>
-  <li>tv-tape</li>
-  <li>tape2</li>
-  <li>phono</li>
-  <li>cd</li>
-  <li>tv-cd</li>
-  <li>fm</li>
-  <li>am</li>
-  <li>tuner</li>
-  <li>dlna</li>
-  <li>internet-radio</li>
-  <li>usb</li>
-  <li>network</li>
-  <li>universal-port</li>
-  <li>multi-ch</li>
-  <li>xm</li>
-  <li>sirius</li>
-</ul>
-
-<p>Sample automation and input select</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">alias</span>: <span class="string"><span class="content">Receiver Source</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">input_select.receiver_source</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">media_player.select_source</span></span>
-    <span class="key">data_template</span>:
-      <span class="key">entity_id</span>: <span class="string"><span class="content">media_player.txnr535_000000000000</span></span>
-      <span class="key">source</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-        {% if is_state('input_select.receiver_source', 'HTPC') %}
-          pc
-        {% elif is_state('input_select.receiver_source', 'Chromecast') %}
-          aux1
-        {% elif is_state('input_select.receiver_source', 'Wii U') %}
-          game
-        {% elif is_state('input_select.receiver_source', 'Bluray') %}
-          bd
-        {% elif is_state('input_select.receiver_source', 'Raspberry Pi') %}
-          tv
-        {% endif %}
-        </span></span>
-<span class="key">input_select</span>:
-  <span class="key">receiver_source</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Source</span></span>
-    <span class="key">options</span>:
-      - <span class="string"><span class="content">HTPC</span></span>
-      - <span class="string"><span class="content">Chromecast</span></span>
-      - <span class="string"><span class="content">Wii U</span></span>
-      - <span class="string"><span class="content">Bluray</span></span>
-      - <span class="string"><span class="content">Raspberry Pi</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">None</span></span>
-</pre></div>
-</div>
-</div>
-
+<p>List of source names:<br />
+- video1<br />
+- video2<br />
+- video3<br />
+- video4<br />
+- video5<br />
+- video6<br />
+- video7<br />
+- dvd<br />
+- bd-dvd<br />
+- tape1<br />
+- tv-tape<br />
+- tape2<br />
+- phono<br />
+- cd<br />
+- tv-cd<br />
+- fm<br />
+- am<br />
+- tuner<br />
+- dlna<br />
+- internet-radio<br />
+- usb<br />
+- network<br />
+- universal-port<br />
+- multi-ch<br />
+- xm<br />
+- sirius</p>
 
 
 </article>
