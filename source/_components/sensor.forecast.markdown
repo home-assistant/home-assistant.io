@@ -13,7 +13,7 @@ featured: true
 ha_release: pre 0.7
 ---
 
-The `forecast` platform uses the [Forecast.io](https://forecast.io/) web service as a source of meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in `configuration.yaml`.  The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using Google Maps and clicking on your home.
+The `forecast` platform uses the [Forecast.io](https://forecast.io/) web service as a source of meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps]() and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
 
 You need an API key which is free but requires [registration](https://developer.forecast.io/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
