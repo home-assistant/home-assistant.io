@@ -107,6 +107,7 @@
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; \
        -d '{&quot;payload&quot;: &quot;Test message from HA&quot;, &quot;topic&quot;: &quot;home/notification&quot;}' \
        http://IP_ADDRESS:8123/api/services/mqtt/publish
 </pre></div>

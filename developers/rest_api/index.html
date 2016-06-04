@@ -103,6 +103,7 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>curl -X GET \
     -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+    -H &quot;Content-Type: application/json&quot; \
     http://IP_ADDRESS:8123/ENDPOINT
 </pre></div>
 </div>
@@ -154,7 +155,8 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 <p>Sample <code>curl</code> command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/
 </pre></div>
 </div>
 </div>
@@ -190,7 +192,8 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 <p>Sample <code>curl</code> command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/config
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/config
 </pre></div>
 </div>
 </div>
@@ -212,7 +215,8 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 <p>Sample <code>curl</code> command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/discovery_info
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/discovery_info
 </pre></div>
 </div>
 </div>
@@ -234,7 +238,8 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 <p>Sample <code>curl</code> command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/bootstrap
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/bootstrap
 </pre></div>
 </div>
 </div>
@@ -260,7 +265,8 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 <p>Sample <code>curl</code> command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/events
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/events
 </pre></div>
 </div>
 </div>
@@ -291,7 +297,8 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 <p>Sample <code>curl</code> command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/services
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/services
 </pre></div>
 </div>
 </div>
@@ -331,13 +338,17 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 <p>Sample <code>curl</code> commands:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/history/period/2016-02-06
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; \
+       http://localhost:8123/api/history/period/2016-02-06
 </pre></div>
 </div>
 </div>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; \
+       http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
 </pre></div>
 </div>
 </div>
@@ -367,7 +378,8 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 <p>Sample <code>curl</code> command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/states
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/states
 </pre></div>
 </div>
 </div>
@@ -397,7 +409,8 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-        http://localhost:8123/api/states/sensor.kitchen_temperature
+       -H &quot;Content-Type: application/json&quot; \
+       http://localhost:8123/api/states/sensor.kitchen_temperature
 </pre></div>
 </div>
 </div>
@@ -417,6 +430,7 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; \
        http://localhost:8123/api/error_log
 </pre></div>
 </div>
@@ -428,8 +442,9 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 <p>Sample <code>curl</code> command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot;\
-   http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; \
+       http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
 </pre></div>
 </div>
 </div>
@@ -472,6 +487,7 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; \
        -d '{&quot;state&quot;: &quot;25&quot;, &quot;attributes&quot;: {&quot;unit_of_measurement&quot;: &quot;°C&quot;}}' \
        http://localhost:8123/api/states/sensor.kitchen_temperature
 </pre></div>
@@ -539,6 +555,7 @@ You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in aut
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; \
        -d '{&quot;entity_id&quot;: &quot;switch.christmas_lights&quot;, &quot;state&quot;: &quot;on&quot;}' \
        http://localhost:8123/api/services/switch/turn_on
 </pre></div>
@@ -572,8 +589,8 @@ The result will include any changed states that changed while the service was be
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-      -d '{&quot;template&quot;: &quot;It is !&quot;}' \
-      http://localhost:8123/api/template
+       -H &quot;Content-Type: application/json&quot; \
+       -d '{&quot;template&quot;: &quot;It is !&quot;}' http://localhost:8123/api/template
 </pre></div>
 </div>
 </div>

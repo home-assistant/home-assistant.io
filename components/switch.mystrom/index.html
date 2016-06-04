@@ -113,7 +113,7 @@
 <p>Check if you are able to access the device located at <code>http://IP_ADRRESS</code>. The details about your switch is provided as a JSON response.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET http://IP_ADDRESS/report
+  <div class="code"><pre>$ curl -X GET -H &quot;Content-Type: application/json&quot; http://IP_ADDRESS/report
 {
     &quot;power&quot;:    0,
     &quot;relay&quot;:    false

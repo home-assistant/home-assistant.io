@@ -112,7 +112,8 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 <p>For a quick test <code>curl</code> can be useful to “simulate” a device.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -XPOST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+  <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; \
        -d '{&quot;state&quot;: &quot;20&quot;, &quot;attributes&quot;: {&quot;unit_of_measurement&quot;: &quot;°C&quot;, &quot;friendly_name&quot;: &quot;Bathroom Temp&quot;}}' \
        http://localhost:8123/api/states/sensor.bathroom_temperature
 </pre></div>
@@ -123,7 +124,8 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-        http://localhost:8123/api/states/sensor.bathroom_temperature
+       -H &quot;Content-Type: application/json&quot; \
+       http://localhost:8123/api/states/sensor.bathroom_temperature
 {
     &quot;attributes&quot;: {
         &quot;friendly_name&quot;: &quot;Bathroom Temp&quot;,

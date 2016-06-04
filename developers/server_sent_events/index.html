@@ -98,7 +98,8 @@
 <p>There are various ways to access the stream. One is <code>curl</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; http://localhost:8123/api/stream
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/stream
 </pre></div>
 </div>
 </div>
