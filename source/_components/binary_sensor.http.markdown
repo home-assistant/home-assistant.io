@@ -40,7 +40,8 @@ To check if the sensor is working, use again `curl` to retrieve the [current sta
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
-        http://localhost:8123/api/states/binary_sensor.radio
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/states/binary_sensor.radio
 {
     "attributes": {
         "friendly_name": "Radio"
@@ -74,6 +75,6 @@ print(response.text)
 
 ```bash
 $ http -v POST http://localhost:8123/api/states/binary_sensor.radio \
-      x-ha-access:YOUR_PASSWORD state=off \
+      x-ha-access:YOUR_PASSWORD content-type:application/json state=off \
       attributes:='{"friendly_name": "Radio"}'
 ```

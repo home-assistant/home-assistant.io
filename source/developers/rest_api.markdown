@@ -21,6 +21,7 @@ There are multiple ways to consume the Home Assistant Rest API. One is with `cur
 ```bash
 curl -X GET \
     -H "x-ha-access: YOUR_PASSWORD" \
+    -H "Content-Type: application/json" \
     http://IP_ADDRESS:8123/ENDPOINT
 ```
 
@@ -64,7 +65,8 @@ Returns message if API is up and running.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/
 ```
 
 #### {% linkable_title GET /api/config %}
@@ -96,7 +98,8 @@ Returns the current configuration as JSON.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/config
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/config
 ```
 
 #### {% linkable_title GET /api/discovery_info %}
@@ -114,7 +117,8 @@ Returns basic information about the Home Assistant instance as JSON.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/discovery_info
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/discovery_info
 ```
 
 #### {% linkable_title GET /api/bootstrap %}
@@ -132,7 +136,8 @@ Returns all data needed to bootstrap Home Assistant.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/bootstrap
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/bootstrap
 ```
 
 #### {% linkable_title GET /api/events %}
@@ -154,7 +159,8 @@ Returns an array of event objects. Each event object contain event name and list
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/events
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/events
 ```
 
 #### {% linkable_title GET /api/services %}
@@ -181,7 +187,8 @@ Returns an array of service objects. Each object contains the domain and which s
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/services
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/services
 ```
 
 #### {% linkable_title GET /api/history %}
@@ -217,11 +224,15 @@ Returns an array of state changes in the past. Each object contains further deta
 Sample `curl` commands:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/history/period/2016-02-06
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/history/period/2016-02-06
 ```
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
 ```
 
 #### {% linkable_title GET /api/states %}
@@ -247,7 +258,8 @@ Returns an array of state objects. Each state has the following attributes: enti
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/states
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/states
 ```
 
 #### {% linkable_title GET /api/states/&lt;entity_id> %}
@@ -273,7 +285,8 @@ Sample `curl` command:
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
-        http://localhost:8123/api/states/sensor.kitchen_temperature
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/states/sensor.kitchen_temperature
 ```
 
 #### {% linkable_title GET /api/error_log %}
@@ -289,6 +302,7 @@ Sample `curl` command:
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
        http://localhost:8123/api/error_log
 ```
 
@@ -298,8 +312,9 @@ Returns the data (image) from the specified camera entity_id.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD"\
-   http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
 ```
 
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
@@ -336,6 +351,7 @@ Sample `curl` command:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
        -d '{"state": "25", "attributes": {"unit_of_measurement": "°C"}}' \
        http://localhost:8123/api/states/sensor.kitchen_temperature
 ```
@@ -393,6 +409,7 @@ Sample `curl` command:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
        -d '{"entity_id": "switch.christmas_lights", "state": "on"}' \
        http://localhost:8123/api/services/switch/turn_on
 ```
@@ -420,8 +437,8 @@ Sample `curl` command:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
-      -d '{"template": "It is {{ now }}!"}' \
-      http://localhost:8123/api/template
+       -H "Content-Type: application/json" \
+       -d '{"template": "It is {{ now }}!"}' http://localhost:8123/api/template
 ```
 
 #### {% linkable_title POST /api/event_forwarding %}

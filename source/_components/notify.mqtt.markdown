@@ -27,6 +27,7 @@ Using the [REST API](/developers/rest_api/#post-apiservicesltdomainltservice) to
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
        -d '{"payload": "Test message from HA", "topic": "home/notification"}' \
        http://IP_ADDRESS:8123/api/services/mqtt/publish
 ```
