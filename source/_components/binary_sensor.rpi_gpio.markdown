@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Sensor
+ha_category: Binary Sensor
 ha_release: pre 0.7
 ---
 
