@@ -89,21 +89,21 @@
   <hr class="divider">
   
 
-  <p>Most wifi-accesspoints (WAP) and wifi-routers (WRT) support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of insances and metrics, like network interfaces, disks, and wifi registrations.</p>
+  <p>A lot WiFi access points and WiFi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of insances and metrics, like network interfaces, disks, and wifi registrations.</p>
 
 <p class="note warning">
 This device tracker needs SNMP to be enabled on the router.
 </p>
 
 <p>OID examples:<br />
-- Mikrotik: 1.3.6.1.4.1.14988.1.1.1.2.1.1 (confirmed, unknown RouterOS version/model)<br />
-- Mikrotik: 1.3.6.1.2.1.4.22.1.2 (confirmed, RouterOS 6.x on RB2011)<br />
-- Aruba: 1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2 (untested)<br />
-- BiPAC 7800DXL: 1.3.6.1.2.1.17.7.1.2.2.1.1 (confirmed on firmware 2.32e)<br />
-- OpenWrt: 1.3.6.1.2.1.4.22.1.2 (tested on Chaos Calmer 15.05 firmware, need to install snmpd package)<br />
-- pfSense: 1.3.6.1.2.1.4.22.1.2 (tested on 2.2.4-RELEASE, need to enable SNMP service)</p>
+- Mikrotik: <code>1.3.6.1.4.1.14988.1.1.1.2.1.1</code> (confirmed, unknown RouterOS version/model)<br />
+- Mikrotik: <code>1.3.6.1.2.1.4.22.1.2</code> (confirmed, RouterOS 6.x on RB2011)<br />
+- Aruba: <code>1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2</code> (untested)<br />
+- BiPAC 7800DXL: <code>1.3.6.1.2.1.17.7.1.2.2.1.1</code> (confirmed on firmware 2.32e)<br />
+- OpenWrt: <code>1.3.6.1.2.1.4.22.1.2</code> (tested on Chaos Calmer 15.05 firmware, need to install snmpd package)<br />
+- pfSense: <code>1.3.6.1.2.1.4.22.1.2</code> (tested on 2.2.4-RELEASE, need to enable SNMP service)</p>
 
-<p>To use the snmp platform in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use the SNMP platform in your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
@@ -119,9 +119,7 @@ This device tracker needs SNMP to be enabled on the router.
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP address of the router, eg. 192.168.1.1.</li>
-  <li>
-    <p><strong>community</strong> (<em>Required</em>): The SNMP community which is configured in the WAP/WRT. Most devices have a default community set to to <code>public</code> with read-only permission (which is sufficient).</p>
-  </li>
+  <li><strong>community</strong> (<em>Required</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code>public</code> with read-only permission (which is sufficient).</li>
   <li><strong>baseoid</strong> (<em>Required</em>): The OID prefix where wireless client registrations can be found, usually vendor specific. It’s advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.</li>
 </ul>
 
