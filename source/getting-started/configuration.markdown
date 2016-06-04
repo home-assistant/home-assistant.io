@@ -16,10 +16,13 @@ Inside your configuration folder is the file `configuration.yaml`. This is the m
 When launched for the first time, Home Assistant will write a default configuration file enabling the web interface and device discovery. It can take up to a minute for your devices to be discovered and show up in the user interface.
 
 If you run into trouble while configuring Home Assistant, have a look at [the configuration troubleshooting page](/getting-started/troubleshooting-configuration/).
-Tips: Install colorlog (pip install colorlog) to make the console output easier to read, hence also easier to catch errors and warnings,
+
+<p class='note tip'>
+  Install colorlog (`$ pip install colorlog`) to make the console output easier to read, hence also easier to catch errors and warnings.
+</p>
 
 <p class='note'>
-  You will have to restart Home Assistant each time you make changes in <code>configuration.yaml</code> in order for these to take effect.
+  You will have to restart Home Assistant each time you make changes in `configuration.yaml` in order for these to take effect.
 </p>
 
 ### {% linkable_title YAML %}
