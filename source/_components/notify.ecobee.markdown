@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ecobee.png
-ha_category: Notify
+ha_category: Notifications
 ha_release: "0.20"
 ---
 
