@@ -67,7 +67,7 @@ It will include a `bin` directory, which will contain all the executables used i
 $ virtualenv -p python3 /srv/hass
 ```
 
-## {% linkable_title Step 5: Activate the virtualenv %}
+### {% linkable_title Step 5: Activate the virtualenv %}
 
 ```bash
 $ source /srv/hass/bin/activate
