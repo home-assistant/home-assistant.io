@@ -39,8 +39,8 @@ In newer Linux distributions (at least Fedora 22/CentOS 7) the access to a host 
 
 To fix this you will need to open your machine's firewall for TCP traffic over port 8123. The method for doing this will vary depending on your operating system and the firewall you have installed. Below are some suggestions to try. Google is your friend here.
 
-[Windows instructions](http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7)
-[Mac OSX instructions](https://support.apple.com/en-us/HT201642)
+- [Windows instructions](http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7)
+- [Mac OSX instructions](https://support.apple.com/en-us/HT201642)
 
 For systems with **firewalld** (Fedora, CentOS/RHEL, etc.):
 
