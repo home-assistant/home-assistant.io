@@ -31,16 +31,6 @@ If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has
  - [Mac OS X](https://www.youtube.com/watch?v=hej6ipN86ls)
  - [Ubuntu 14.04](https://www.youtube.com/watch?v=SXaAG1lGNH0)
 
-### {% linkable_title Updating %}
-
-To update Home Assistant to the latest release when available, run:
-
-```bash
-$ pip3 install --upgrade homeassistant
-```
-
-After updating, restart Home Assistant for the changes to take effect.
-
 ### {% linkable_title Troubleshooting %}
 
 If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the common encountered issues.

@@ -25,12 +25,6 @@ Running these commands will:
 
 There is also a [video tutorial](https://www.youtube.com/watch?v=GjzOXkPb7XE) created by [brusc](https://github.com/brusc).
 
-### {% linkable_title Updating %}
-
-To update Home Assistant to the latest release when available, run: `pip3 install --upgrade homeassistant`
-
-You have to restart Home Assistant (`hass` itself or with the help of the autostarting daemon if you use any) for the changes to take effect.
-
 ### {% linkable_title Troubleshooting %}
 
 If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
