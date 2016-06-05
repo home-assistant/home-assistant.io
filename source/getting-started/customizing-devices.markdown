@@ -9,13 +9,11 @@ sharing: true
 footer: true
 ---
  
-By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front 
-page by altering some of these parameters. This can be done by adding the following configuration inside the `homeassistant:` section.
+By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration inside the `homeassistant:` section.
 
-Devices that you don't want to have visible can be hidden with `hidden`.  
-`entity_picture`entries, badges, `device_tracker` pictures, etc. can either be external URLs (e.g. `http://example.com/example.jpg`) or 
-of the form `/local/filename.jpg`, where `/local` represents the directory `www` in the HASS configuration directory. 
-You may have to create the `www` directory yourself as it is not made automatically.
+Devices that you don't want to have visible can be hidden with `hidden`.
+
+`entity_picture`entries, badges, `device_tracker` pictures, etc. can either be external URLs (e.g. `http://example.com/example.jpg`) or of the form `/local/filename.jpg`, where `/local` represents the directory `www` in the HASS configuration directory. You may have to create the `www` directory yourself as it is not made automatically.
 
 You can also use `icon` and refer to any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com).
 
