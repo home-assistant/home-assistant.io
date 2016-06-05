@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Installation on Docker - Home Assistant</title>
+    <title>YAML - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions to install Home Assistant on a Docker.">
+    <meta name="description" content="Details about YAML to configure Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/installation-docker/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/yaml/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Installation on Docker">
+    <meta property="og:title" content="YAML">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/installation-docker/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/yaml/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Instructions to install Home Assistant on a Docker.">
+    <meta property="og:description" content="Details about YAML to configure Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Installation on Docker">
-    <meta name="twitter:description" content="Instructions to install Home Assistant on a Docker.">
+    <meta name="twitter:title" content="YAML">
+    <meta name="twitter:description" content="Details about YAML to configure Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,39 +83,69 @@
   
   <header>
     <h1 class="title indent">
-      Installation on Docker
+      YAML
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Installation with Docker is straightforward. Adjust the following command so that <code>/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
+  <p>Home Assistant uses the <a href="http://yaml.org/">YAML</a> syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.</p>
+
+<p>For each component that you want to use in Home Assistant, you add code in your <code>configuraton.yaml</code> file to specify its settings.<br />
+The following example entry specifies that you want to use the <a href="/components/notify">notify component</a> with the <a href="/components/notify.pushbullet">pushbullet platform</a>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ docker run -d --name=&quot;home-assistant&quot; -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+  <div class="code"><pre><span class="key">notify</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">pushbullet</span></span>
+  <span class="key">api_key</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">o.1234abcd</span><span class="delimiter">&quot;</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">pushbullet</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.</p>
-
-<p class="note">
-When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">your timezone</a>)
-</p>
-
-<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
-
-<p>If you run into any issues, please see <a href="/getting-started/troubleshooting/">the troubleshooting page</a>. It contains solutions to many of the more commonly encountered issues.</p>
-
-<p>In addition to this site, check out these sources for additional help:</p>
-
 <ul>
-  <li><a href="https://community.home-assistant.io">Forum</a> for Home Assistant discussions and questions.</li>
-  <li><a href="https://gitter.im/home-assistant/home-assistant">Gitter Chat Room</a> for real-time chat about Home Assistant.</li>
-  <li><a href="https://github.com/home-assistant/home-assistant/issues">GitHub Page</a> for issue reporting.</li>
+  <li>A <strong>component</strong> provides the core logic for some functionality (like <code>notify</code> provides sending notifications).</li>
+  <li>A <strong>platform</strong> makes the connection to a specific software or hardware platform (like <code>pushbullet</code> works with the service from pushbullet.com).</li>
 </ul>
 
-<h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
+<p>The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a <code>-</code> while mappings have the format <code>key: value</code>. If you specify duplicate keys, the last value for a key is used.</p>
+
+<p>Note that indentation is an important part of specifying relationships using YAML. Things that are indented are nested “inside” things that are one level higher. So in the above example, <code>platform: pushbullet</code> is a property of (nested inside) the <code>notify</code> component.<br />
+Getting the right indentation can be tricky if you’re not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. Convention is to use 2 spaces for each level of indentation.</p>
+
+<p>Lines that start with <strong>#</strong> are comments and are ignored by the system.</p>
+
+<p>The next example shows an <a href="/components/input_select">input_select</a> component that uses a block collection for the options values.<br />
+The other properties (like name) are specified using mappings. Note that the second line just has <code>threat:</code> with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">input_select</span>:
+  <span class="key">threat</span>:
+    <span class="key">name</span>: <span class="string"><span class="content">Threat level</span></span>
+<span class="comment"># A collection is used for options</span>
+    <span class="key">options</span>:
+     - <span class="string"><span class="content">0</span></span>
+     - <span class="string"><span class="content">1</span></span>
+     - <span class="string"><span class="content">2</span></span>
+     - <span class="string"><span class="content">3</span></span>
+    <span class="key">initial</span>: <span class="string"><span class="content">0</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>The following example shows nesting a collection of mappings in a mapping. In Home Assistant, this would create two sensors that each use the MQTT platform but have different values for their <code>state_topic</code> (one of the properties used for MQTT sensors).</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">sensor</span>:
+  - <span class="string"><span class="content">platform: mqtt</span></span>
+    <span class="key">state_topic</span>: <span class="string"><span class="content">sensor/topic</span></span>
+  - <span class="string"><span class="content">platform: mqtt</span></span>
+    <span class="key">state_topic</span>: <span class="string"><span class="content">sensor2/topic</span></span>
+</pre></div>
+</div>
+</div>
+
+<h3><a href="/getting-started/basic/">Next step: Setting up the basics »</a></h3>
 
 
 </article>
@@ -129,7 +159,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/installation-docker.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/yaml.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -138,7 +168,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
         <ul>
           <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
           <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
-          <li><a class='active' href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
           <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
           <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
           <li><a  href='/getting-started/updating/'>Updating </a></li>
@@ -148,7 +178,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
       <li>
         <a  href='/getting-started/configuration/'>Configuration  </a>
         <ul>
-          <li><a  href='/getting-started/yaml/'>YAML </a></li>
+          <li><a class='active' href='/getting-started/yaml/'>YAML </a></li>
           <li><a  href='/getting-started/basic/'>Basic information </a></li>
           <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
           <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>

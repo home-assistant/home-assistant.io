@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Installation on Docker - Home Assistant</title>
+    <title>Setup basic information - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions to install Home Assistant on a Docker.">
+    <meta name="description" content="Setting up the basic info of Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/installation-docker/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/basic/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Installation on Docker">
+    <meta property="og:title" content="Setup basic information">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/installation-docker/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/basic/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Instructions to install Home Assistant on a Docker.">
+    <meta property="og:description" content="Setting up the basic info of Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Installation on Docker">
-    <meta name="twitter:description" content="Instructions to install Home Assistant on a Docker.">
+    <meta name="twitter:title" content="Setup basic information">
+    <meta name="twitter:description" content="Setting up the basic info of Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,39 +83,62 @@
   
   <header>
     <h1 class="title indent">
-      Installation on Docker
+      Setup Basic Information
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Installation with Docker is straightforward. Adjust the following command so that <code>/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
+  <p>By default Home Assistant will try to detect your location and will automatically select a temperature unit and time zone based on your location. You can overwrite this by adding the following information to your <code>configuration.yaml</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ docker run -d --name=&quot;home-assistant&quot; -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+  <div class="code"><pre><span class="key">homeassistant</span>:
+  <span class="comment"># Omitted values in this section will be auto detected using freegeoip.io</span>
+
+  <span class="comment"># Location required to calculate the time the sun rises and sets</span>
+  <span class="key">latitude</span>: <span class="string"><span class="content">32.87336</span></span>
+  <span class="key">longitude</span>: <span class="string"><span class="content">117.22743</span></span>
+
+  <span class="comment"># C for Celsius, F for Fahrenheit</span>
+  <span class="key">temperature_unit</span>: <span class="string"><span class="content">C</span></span>
+
+  <span class="comment"># Pick yours from here:</span>
+  <span class="comment"># http://en.wikipedia.org/wiki/List_of_tz_database_time_zones</span>
+  <span class="key">time_zone</span>: <span class="string"><span class="content">America/Los_Angeles</span></span>
+
+  <span class="comment"># Name of the location where Home Assistant is running</span>
+  <span class="key">name</span>: <span class="string"><span class="content">Home</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.</p>
+<h3><a class="title-link" name="password-protecting-the-web-interface" href="#password-protecting-the-web-interface"></a> Password protecting the web interface</h3>
 
-<p class="note">
-When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">your timezone</a>)
-</p>
+<p>The first thing you will want to add is a password for the web interface. Use your favourite text editor to open <code>configuration.yaml</code> and edit the <code>http</code> section:</p>
 
-<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">http</span>:
+  <span class="key">api_password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
+</pre></div>
+</div>
+</div>
 
-<p>If you run into any issues, please see <a href="/getting-started/troubleshooting/">the troubleshooting page</a>. It contains solutions to many of the more commonly encountered issues.</p>
+<p>See the <a href="/components/http/">HTTP component documentation</a> for more options like HTTPS encryption.</p>
 
-<p>In addition to this site, check out these sources for additional help:</p>
+<h3><a class="title-link" name="setting-up-your-phone-or-tablet" href="#setting-up-your-phone-or-tablet"></a> Setting up your phone or tablet</h3>
 
-<ul>
-  <li><a href="https://community.home-assistant.io">Forum</a> for Home Assistant discussions and questions.</li>
-  <li><a href="https://gitter.im/home-assistant/home-assistant">Gitter Chat Room</a> for real-time chat about Home Assistant.</li>
-  <li><a href="https://github.com/home-assistant/home-assistant/issues">GitHub Page</a> for issue reporting.</li>
-</ul>
+<p>Home Assistant runs as a self-hosted web application and contains support to be added to your home screen. If you’re on Android you can follow <a href="/getting-started/android/">the visual guide</a>. For other devices, open Home Assistant on your mobile browser and tap the add to home screen option.</p>
 
-<h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
+<h3><a class="title-link" name="remote-access" href="#remote-access"></a> Remote access</h3>
+
+<p>To make Home Assistant accessible while away from home, you will have to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching <code>&lt;Router model&gt; port forwarding instructions</code>.</p>
+
+<p>Some Internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while away. You can solve this by using a free Dynamic DNS service like <a href="https://www.duckdns.org/">DuckDNS</a>.</p>
+
+<p>You should definitely consider to encrypt your traffic if you are accessing your Home Assistant installation from abroad. For details please check the <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Set up encryption using Let’s Encrypt</a> blog post.</p>
+
+<h3><a href="/getting-started/devices/">Next step: Setting up devices »</a></h3>
+
 
 
 </article>
@@ -129,7 +152,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/installation-docker.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/basic.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -138,7 +161,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
         <ul>
           <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
           <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
-          <li><a class='active' href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
           <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
           <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
           <li><a  href='/getting-started/updating/'>Updating </a></li>
@@ -149,7 +172,7 @@ When using boot2docker on OS X you are unable to map the local time to your Dock
         <a  href='/getting-started/configuration/'>Configuration  </a>
         <ul>
           <li><a  href='/getting-started/yaml/'>YAML </a></li>
-          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a class='active' href='/getting-started/basic/'>Basic information </a></li>
           <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
           <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
           <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
