@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Autostart on macOS boot"
-description: "Instructions how to setup Home Assistant to launch on macOS boot."
+title: "Autostart on OS X"
+description: "Instructions how to setup Home Assistant to launch on OS X."
 date: 2015-9-1 22:57
 sidebar: true
 comments: false

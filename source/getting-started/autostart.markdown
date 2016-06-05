@@ -13,5 +13,5 @@ Once you get started with Home Assistant you want it to start automatically when
 
  - [Linux - systemd](/getting-started/autostart-systemd/)
  - [Linux - Upstart](/getting-started/autostart-upstart/)
- - [MacOS](/getting-started/autostart-macos/)
+ - [OS X](/getting-started/autostart-macos/)
  - [Synology NAS](/getting-started/autostart-synology/)
