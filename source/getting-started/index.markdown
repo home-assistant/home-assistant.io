@@ -36,7 +36,7 @@ If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has
 To update Home Assistant to the latest release when available, run:
 
 ```bash
-pip3 install --upgrade homeassistant
+$ pip3 install --upgrade homeassistant
 ```
 
 After updating, restart Home Assistant for the changes to take effect.
