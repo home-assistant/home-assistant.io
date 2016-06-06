@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Thinking Cleaner sensors"
-description: "Instructions how to integrate a ThinkingCleaner within Home Assistant."
+title: "Thinking Cleaner sensor"
+description: "Instructions how to integrate a ThinkingCleaner senosrs within Home Assistant."
 date: 2016-04-10 17:24
 sidebar: true
 comments: false
@@ -13,14 +13,14 @@ ha_iot_class: "Local Poll"
 ha_release: 0.18
 ---
 
-The `ThinkingCleaner` sensor platform simple displays information about your [ThinkingCleaner](http://www.thinkingcleaner.com) addon.
+The `thinkingcleaner` sensor platform simple displays information about your [Thinking Cleaner](http://www.thinkingcleaner.com) addon.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: thinkingcleaner
+  platform: thinkingcleaner
 ```
 
 This will automatically add sensors for each Thinking Cleaner in your network.
