@@ -34,6 +34,7 @@ Configuration variables:
   - **friendly_name** (*Optional*): Name to use in the Frontend.
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+  - **warnings** (*Optional*): Turn off warnings (useful if the sensor is loaded before devices it depends on).
 
 
 ## {% linkable_title Examples %}
@@ -54,9 +55,9 @@ sensor:
         unit_of_measurement: '°'
 ```
 
-### {% linkable_title Multi line example with an if test %}
+### {% linkable_title Multi line example with an if test (and warnings disabled)%}
 
-This example shows a multiple line template with and is test. It looks at a sensing switch and shows on/off in the frontend.
+This example shows a multiple line template with and if test. It looks at a sensing switch and shows on/off in the frontend. It disables warnings to avoid log messages where the switch it depends on isn't loaded yet.
 
 ```yaml
 sensor:
@@ -75,6 +76,7 @@ sensor:
                 failed
             {%- endif %}{% endraw %}
 
+       warnings: Off
 ```
 (please note the blank line to close the multi-line template)
 

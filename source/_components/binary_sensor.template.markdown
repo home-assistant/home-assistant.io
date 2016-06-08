@@ -30,6 +30,7 @@ Configuration variables:
   - **friendly_name** (*Optional*): Name to use in the Frontend.
   - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+  - **warnings** (*Optional*): Turn off warnings (useful if the sensor is loaded before devices it depends on).
 
 ## {% linkable_title Examples %}
 
