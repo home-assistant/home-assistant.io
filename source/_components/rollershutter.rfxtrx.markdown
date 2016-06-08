@@ -2,7 +2,7 @@
 layout: page
 title: "RFXtrx Rollershutter"
 description: "Instructions how to integrate RFXtrx roller shutters into Home Assistant."
-date: 2016-06-02 14:20
+date: 2016-06-02 22:10
 sidebar: true
 comments: false
 sharing: true
@@ -11,9 +11,12 @@ ha_category: Rollershutter
 ha_release: 0.21
 ---
 
-The `rfxtrx` platform support Siemens/LightwaveRF roller shutters that communicate in the frequency range of 433.92 MHz.
+The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
 
 First you have to set up your [rfxtrx hub.](/components/rfxtrx/)
+
+### {% linkable_title Configuration %}
+#####Siemens/LightwaveRF
 The easiest way to find your roller shutters is to add this to your `configuration.yaml`:
 
 ```yaml
@@ -35,7 +38,13 @@ rollershutter:
       name: device_name
 ```
 
+#####RFY
+The RFXtrx433e is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. Eg, if the id was `a` (`0a`) `00` `01`, and the unit code was `1` (`01`) then the fully qualified id would be `071a00000a000101`.
+
+
+#####Common
 Example configuration:
+
 ```yaml
 # Example configuration.yaml entry
 rollershutter:
@@ -43,17 +52,16 @@ rollershutter:
   automatic_add: False
   signal_repetitions: 2
   devices:
-    0b1100ce3213c7f210010f70:
+    0b1100ce3213c7f210010f70: # Siemens/LightwaveRF
       name: Bedroom Shutter
-    0b11000a02ef2gf210010f50:
+    070a00000a000101: # RFY
       name: Bathroom Shutter
-    0b1111e003af16aa10000060:
-      name: Lounge Shutter
 ```
 
 Configuration variables:
 
 - **devices** (*Required*): A list of devices with their name to use in the frontend.
-- **automatic_add** (*Optional*): To enable the automatic addition of new roller shutters.
+- **automatic_add** (*Optional*): To enable the automatic addition of new roller shutters (Siemens/LightwaveRF only).
 - **signal_repetitions** *Optional*: Because the rxftrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the roller shutter to try to send each signal repeatedly.
 - **fire_event** *Optional*: Fires an event even if the state is the same as before. Can be used for automations.
+
