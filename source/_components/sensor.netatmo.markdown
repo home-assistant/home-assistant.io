@@ -24,6 +24,7 @@ sensor:
   secret_key: YOUR_SECRET_KEY
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
+  station: STATION_NAME
   modules:
     module_name1:
       - temperature
@@ -48,6 +49,7 @@ Configuration variables:
 - **secret_key** (*Required*): Your netatmo secret key
 - **username** (*Required*): Username for the netatmo account.
 - **password** (*Required*): Password for the netatmo account.
+- **station**: The name of the weather station. Needed if several stations are associated with the account.
 - **modules** (*Required*): Modules to use. Multiple entries allowed.
   - **module_name** array (*Required*): Name of the module.
     - **temperature**: Current temperature.
