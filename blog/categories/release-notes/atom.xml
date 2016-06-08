@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-08T06:15:35+00:00</updated>
+  <updated>2016-06-08T06:35:03+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -34,7 +34,7 @@
   <li>Light: <a href="/components/insteon_hub/">Insteon Hub</a> now supports brightness (<a href="https://github.com/wkonkel">@wkonkel</a>)</li>
   <li>Add support for adding HA as Windows 10 tile (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Condition: <a href="/getting-started/scripts-conditions/#time-condition">time condition</a> can now cross midnight (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
-  <li>Template based sensors should now throw less warnings (<a href="https://github.com/Bart247">@Bart247</a>)</li>
+  <li>Template based sensors should now throw less warnings (<a href="https://github.com/Bart274">@Bart274</a>)</li>
   <li>New <a href="/components/lirc/">LIRC component</a> allows receiving IR commands (<a href="https://github.com/partofthething">@partofthething</a>)</li>
   <li>The <a href="/components/feedreader/">Feedreader</a> component will now persist data to disk to prevent duplicate events (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
   <li>Sun: azimuth attribute added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
