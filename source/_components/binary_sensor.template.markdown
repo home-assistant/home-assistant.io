@@ -31,6 +31,7 @@ Configuration variables:
   - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
   - **warnings** (*Optional*): Turn off warnings (useful if the sensor is loaded before devices it depends on).
+  - **entity_id** (*Optional*): Add a list of entity_ids so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
 
 ## {% linkable_title Examples %}
 
