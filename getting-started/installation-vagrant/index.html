@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>YAML - Home Assistant</title>
+    <title>Installation on Vagrant - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Details about YAML to configure Home Assistant.">
+    <meta name="description" content="Instructions to run Home Assistant on a Vagrant VM.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/yaml/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/installation-vagrant/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="YAML">
+    <meta property="og:title" content="Installation on Vagrant">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/yaml/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/installation-vagrant/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Details about YAML to configure Home Assistant.">
+    <meta property="og:description" content="Instructions to run Home Assistant on a Vagrant VM.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="YAML">
-    <meta name="twitter:description" content="Details about YAML to configure Home Assistant.">
+    <meta name="twitter:title" content="Installation on Vagrant">
+    <meta name="twitter:description" content="Instructions to run Home Assistant on a Vagrant VM.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,69 +83,106 @@
   
   <header>
     <h1 class="title indent">
-      YAML
+      Installation on Vagrant
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Home Assistant uses the <a href="http://yaml.org/">YAML</a> syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.</p>
+  <p>A <code>Vagrantfile</code> is avalable into <code>virtualization/vagrant</code> folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them.</p>
 
-<p>For each component that you want to use in Home Assistant, you add code in your <code>configuraton.yaml</code> file to specify its settings.<br />
-The following example entry specifies that you want to use the <a href="/components/notify">notify component</a> with the <a href="/components/notify.pushbullet">pushbullet platform</a>.</p>
+<p class="note">
+Vagrant is intended for testing/development only. It is NOT recommended for permanent installations.
+</p>
+
+<h2>Install Vagrant</h2>
+
+<p>You must have <a href="https://www.vagrantup.com/downloads.html">Vagrant</a> and <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a> installed on your workstation.</p>
+
+<h2>Get Home Assistant source code</h2>
+
+<p>Download the home-assistant source code by either downloading the .zip file from <a href="https://github.com/home-assistant/home-assistant/releases">GitHub releases page</a>, or by using <a href="https://git-scm.com/">Git</a></p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">pushbullet</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">o.1234abcd</span><span class="delimiter">&quot;</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">pushbullet</span></span>
+  <div class="code"><pre>git clone https://github.com/home-assistant/home-assistant.git
+cd home-assistant/virtualization/vagrant
 </pre></div>
 </div>
 </div>
+
+<p class="note">
+The following instructions will assume you changed your working directory to be home-assistant/virtualization/vagrant. This is mandatory because Vagrant will look for informations about the running VM inside that folder and won’t work otherwise
+</p>
+
+<h2>Create the Vagrant VM and start Home Assistant</h2>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>vagrant up
+</pre></div>
+</div>
+</div>
+
+<p>This will download + start a virtual machine using Virtualbox, which will internally setup the development environment necessary to start Home Assistant process and run test suite as well. After the VM has started succesfully, Home Assistant frontend will be accessible locally from your browser at <a href="http://localhost:8123">http://localhost:8123</a></p>
+
+<h2>Stopping Vagrant</h2>
+
+<p>To shutdown the Vagrant host:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>vagrant halt
+</pre></div>
+</div>
+</div>
+
+<p>To start it again, just run <code>vagrant up</code></p>
+
+<h2>Restarting Home Assistant process to test changes</h2>
+
+<p>The root <code>home-assistant</code> directory on your workstation will be mirrored with <code>/home-assistant</code> inside the VM. In <code>virtualization/vagrant</code> there’s also a <code>config</code> folder that you can use to drop configuration files (<a href="https://home-assistant.io/getting-started/configuration/">here</a> you can find more information on how to configure HASS).</p>
+
+<p>Any changes made to the local directory on your workstation will be available from the Vagrant host, so to apply your changes to the HASS process, just restart it:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>touch restart ; vagrant provision
+</pre></div>
+</div>
+</div>
+
+<h2>Run test suite (Tox)</h2>
+
+<p>To run tests against your changes:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>touch run_tests ; vagrant provision
+</pre></div>
+</div>
+</div>
+
+<h2>Cleanup</h2>
+
+<p>To completely remove the VM:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>rm setup_done ; vagrant destroy -f
+</pre></div>
+</div>
+</div>
+
+<p>You can now recreate a completely new Vagrant host with <code>vagrant up</code></p>
+
+<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
+
+<p>If you run into any issues, please see <a href="/getting-started/troubleshooting/">the troubleshooting page</a>. It contains solutions to many of the more commonly encountered issues.</p>
+
+<p>In addition to this site, check out these sources for additional help:</p>
 
 <ul>
-  <li>A <strong>component</strong> provides the core logic for some functionality (like <code>notify</code> provides sending notifications).</li>
-  <li>A <strong>platform</strong> makes the connection to a specific software or hardware platform (like <code>pushbullet</code> works with the service from pushbullet.com).</li>
+  <li><a href="https://community.home-assistant.io">Forum</a> for Home Assistant discussions and questions.</li>
+  <li><a href="https://gitter.im/home-assistant/home-assistant">Gitter Chat Room</a> for real-time chat about Home Assistant.</li>
+  <li><a href="https://github.com/home-assistant/home-assistant/issues">GitHub Page</a> for issue reporting.</li>
 </ul>
 
-<p>The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a <code>-</code> while mappings have the format <code>key: value</code>. If you specify duplicate keys, the last value for a key is used.</p>
-
-<p>Note that indentation is an important part of specifying relationships using YAML. Things that are indented are nested “inside” things that are one level higher. So in the above example, <code>platform: pushbullet</code> is a property of (nested inside) the <code>notify</code> component.<br />
-Getting the right indentation can be tricky if you’re not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. Convention is to use 2 spaces for each level of indentation.</p>
-
-<p>Lines that start with <strong>#</strong> are comments and are ignored by the system.</p>
-
-<p>The next example shows an <a href="/components/input_select">input_select</a> component that uses a block collection for the options values.<br />
-The other properties (like name) are specified using mappings. Note that the second line just has <code>threat:</code> with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">input_select</span>:
-  <span class="key">threat</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Threat level</span></span>
-<span class="comment"># A collection is used for options</span>
-    <span class="key">options</span>:
-     - <span class="string"><span class="content">0</span></span>
-     - <span class="string"><span class="content">1</span></span>
-     - <span class="string"><span class="content">2</span></span>
-     - <span class="string"><span class="content">3</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">0</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>The following example shows nesting a collection of mappings in a mapping. In Home Assistant, this would create two sensors that each use the MQTT platform but have different values for their <code>state_topic</code> (one of the properties used for MQTT sensors).</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="content">sensor/topic</span></span>
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="content">sensor2/topic</span></span>
-</pre></div>
-</div>
-</div>
-
-<h3><a href="/getting-started/basic/">Next step: Setting up the basics »</a></h3>
+<h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
 
 
 </article>
@@ -159,7 +196,7 @@ The other properties (like name) are specified using mappings. Note that the sec
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/yaml.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/installation-vagrant.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -169,7 +206,7 @@ The other properties (like name) are specified using mappings. Note that the sec
           <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
           <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
           <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
-          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a class='active' href='/getting-started/installation-vagrant/'>Vagrant </a></li>
           <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
           <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
           <li><a  href='/getting-started/updating/'>Updating </a></li>
@@ -179,7 +216,7 @@ The other properties (like name) are specified using mappings. Note that the sec
       <li>
         <a  href='/getting-started/configuration/'>Configuration  </a>
         <ul>
-          <li><a class='active' href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/yaml/'>YAML </a></li>
           <li><a  href='/getting-started/basic/'>Basic information </a></li>
           <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
           <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>

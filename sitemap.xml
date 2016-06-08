@@ -401,6 +401,9 @@
     <loc>https://home-assistant.io/getting-started/installation-synology/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/getting-started/installation-vagrant/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/getting-started/installation-virtualenv/</loc>
   </url>
   <url>
@@ -1734,26 +1737,26 @@
     </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
+    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
+    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
+    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
+    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
+    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
+    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
   </url>
 </urlset>
