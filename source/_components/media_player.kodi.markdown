@@ -27,6 +27,7 @@ media_player:
   name: Kodi
   user: USERNAME
   password: PASSWORD
+  turn_off_action: shutdown
 ```
 
 Configuration variables:
@@ -36,3 +37,4 @@ Configuration variables:
 - **name** (*Optional*): The name of the device used in the frontend.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
+- **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `quit`, `hibernate`, `suspend`, `reboot`, or `poweroff`. Default `none`.
