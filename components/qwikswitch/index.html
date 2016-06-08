@@ -91,7 +91,7 @@
 
   <p>The <code>qwikswitch</code> component is the main component to integrate various <a href="http://www.qwikswitch.co.za/">QwikSwitch</a> devices with Home Assistant.</p>
 
-<p>Loading the <code>qwikswitch</code> component will automatically adds all devices from the QS Mobile application. QS Mobile controls the QSUSB Modem device.</p>
+<p>Loading the <code>qwikswitch</code> component automatically adds all devices from the QS Mobile application. QS Mobile controls the QSUSB Modem device.</p>
 
 <p>Currently QwikSwitch relays and LED dimmers are supported (tested). QwikSwitch relay devices can be <a href="/components/switch.qwikswitch/">switches</a> or <a href="/components/light.qwikswitch/">lights</a> in Home-Assistant. If the device name in the QSUSB app ends with ` Switch` it will be created as a switch, otherwise as a light.</p>
 
@@ -109,6 +109,8 @@
 
 <ul>
   <li><strong>url</strong> (<em>Required</em>): The URL including the port of your QwikSwitch hub.</li>
+  <li><strong>dimmer_adjust</strong> (<em>Optional</em>): A decimal value to adjust the brightness of the dimmer exponentially. Increasing this value allows dimmers that reaches full brightness with low values in QS Mobile to appear more linear in Home Assistant. Recommended values between 1 and 2 and the default is 1.</li>
+  <li><strong>button_events</strong> (<em>Optional</em>): A comma separated list of button types that will generate events. Details below.</li>
 </ul>
 
 <h3><a class="title-link" name="qwikswitch-buttons" href="#qwikswitch-buttons"></a> QwikSwitch Buttons</h3>
@@ -125,14 +127,16 @@
 </div>
 </div>
 
-<p><code>event_type</code> names should be in the format <strong>qwikswitch.button.@__ID__</strong>. where <strong>@__ID__</strong> will be captured in the Home Assistant log when pressing the button. Alternatively, you can also access the listen API call by going to ‘http://127.0.0.1:2020/&amp;listen’ and then pressing the button.</p>
+<p><code>event_type</code> names should be in the format <strong>qwikswitch.button.@__ID__</strong>. where <strong>@__ID__</strong> will be captured in the Home Assistant log when pressing the button. Alternatively, you can also get the device ID from the QS Mobile application or using the listen API call by browsing to <code>http://127.0.0.1:2020/&amp;listen</code> and then pressing the button.</p>
 
-<p>Currently Event will be created for the following commands (cmd) value in the Listen packet:<br />
+<p>By default events will be fired if the value in the command (cmd) field of the listen packet equals:<br />
 - <code>TOGGLE</code> - Normal QwikSwitch Transmitter button<br />
 - <code>SCENE EXE</code> - QwikSwitch Scene Transmitter buttons<br />
 - <code>LEVEL</code> - QwikSwitch OFF Transmitter buttons</p>
 
-<p>Technically this could work for Keyfobs, door sensors, and PIR transmitters as well.</p>
+<p>The list of recognized commands can be extended for Keyfobs, door sensors, and PIR transmitters with the <strong>button_events</strong> configuration option. <strong>button_events</strong> contain a comma separated list of commands that will fire Home Assistant events. By default it is: TOGGLE,SCENE EXE,LEVEL.</p>
+
+<p>On some QS Mobile servers button events are only generated for switches added to the QS Mobile application, so it might be best to test button presses through the <code>/&amp;listen</code> API</p>
 
 
 </article>
@@ -178,6 +182,9 @@
         </li>
         <li>
             <a href='/components/ecobee/'>Ecobee</a>
+        </li>
+        <li>
+            <a href='/components/enocean/'>EnOcean</a>
         </li>
         <li>
             <a href='/components/isy994/'>ISY994 Controller</a>

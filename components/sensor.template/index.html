@@ -116,6 +116,7 @@
       <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
       <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
       <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
+      <li><strong>warnings</strong> (<em>Optional</em>): Turn off warnings (useful if the sensor is loaded before devices it depends on).</li>
     </ul>
   </li>
 </ul>
@@ -140,9 +141,9 @@
 </div>
 </div>
 
-<h3><a class="title-link" name="multi-line-example-with-an-if-test" href="#multi-line-example-with-an-if-test"></a> Multi line example with an if test</h3>
+<h3><a class="title-link" name="multi-line-example-with-an-if-test-and-warnings-disabled" href="#multi-line-example-with-an-if-test-and-warnings-disabled"></a> Multi line example with an if test (and warnings disabled)</h3>
 
-<p>This example shows a multiple line template with and is test. It looks at a sensing switch and shows on/off in the frontend.</p>
+<p>This example shows a multiple line template with and if test. It looks at a sensing switch and shows on/off in the frontend. It disables warnings to avoid log messages where the switch it depends on isn’t loaded yet.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">sensor</span>:
@@ -161,6 +162,7 @@
                 failed
             {%- endif %}</span></span>
 
+       <span class="key">warnings</span>: <span class="string"><span class="content">Off</span></span>
 </pre></div>
 </div>
 </div>
@@ -247,6 +249,9 @@
         </li>
         <li>
             <a href='/components/sensor.eliqonline/'>Eliqonline</a>
+        </li>
+        <li>
+            <a href='/components/sensor.enocean/'>EnOcean Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.fitbit/'>Fitbit</a>

@@ -1427,6 +1427,30 @@
       <loc>https://home-assistant.io/components/recorder/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/enocean/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/binary_sensor.enocean/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/light.enocean/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/switch.enocean/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.enocean/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/light.osramlightify/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/switch.flux/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/rollershutter.rfxtrx/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/cookbook/automation_for_rainy_days/</loc>
     </url>
     <url>
@@ -1710,26 +1734,26 @@
     </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-06-06T20:17:37+00:00</lastmod>
+    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-06-06T20:17:37+00:00</lastmod>
+    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-06-06T20:17:37+00:00</lastmod>
+    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-06T20:17:37+00:00</lastmod>
+    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-06T20:17:37+00:00</lastmod>
+    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-06-06T20:17:37+00:00</lastmod>
+    <lastmod>2016-06-08T02:37:27+00:00</lastmod>
   </url>
 </urlset>
