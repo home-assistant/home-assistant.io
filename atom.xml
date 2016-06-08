@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-08T05:40:02+00:00</updated>
+  <updated>2016-06-08T05:54:30+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.21: Improved Web and support for EnOcean, LIRC and Osram Lightify]]></title>
+    <link href="https://home-assistant.io/blog/2016/06/08/super-fast-web-enocean-lirc/"/>
+    <updated>2016-06-08T01:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/06/08/super-fast-web-enocean-lirc</id>
+    <content type="html"><![CDATA[<p>It’s time for release 0.21 and it contains massive core improvements: replacement of our home grown HTTP stack with a standardized WSGI stack. This will improve performance, speed, security and make future development of advanced HTTP features a breeze.</p>
+
+<p>This work was driven by the amazing Josh Wright. His knowledge, high standards and drive for security has helped improve Home Assistant a lot ever since he started helping out. Hip hip hurray for Josh!</p>
+
+<p>Alright, time for the changes:</p>
+
+<p><img src="https://home-assistant.io/images/supported_brands/enocean.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/osramlightify.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/lirc.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>New HTTP stack based on WSGI (<a href="https://github.com/JshWright">@JshWright</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Frontend: lots of performance improvements (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Initial support for EnOcean <a href="https://home-assistant.io/components/light.enocean/">lights</a>, <a href="https://home-assistant.io/components/sensor.enocean/">sensors</a> and <a href="https://home-assistant.io/components/switch.enocean/">switches</a> added (<a href="https://github.com/rubund">@rubund</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/light.osramlightify/">Osram Lightify</a> is now supported (<a href="https://github.com/olimpiurob">@olimpiurob</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/insteon_hub/">Insteon Hub</a> now supports brightness (<a href="https://github.com/wkonkel">@wkonkel</a>)</li>
+  <li>Add support for adding HA as Windows 10 tile (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Condition: <a href="https://home-assistant.io/getting-started/scripts-conditions/#time-condition/">time condition</a> can now cross midnight (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Template based sensors should now throw less warnings (<a href="https://github.com/Bart247">@Bart247</a>)</li>
+  <li>New <a href="https://home-assistant.io/components/lirc/">LIRC component</a> allows receiving IR commands (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>The <a href="https://home-assistant.io/components/feedreader/">Feedreader</a> component will now persist data to disk to prevent duplicate events (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
+  <li>Sun: azimuth attribute added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>New <a href="https://home-assistant.io/components/switch.flux/">Flux like switch platform</a> to change light intensity in the evening (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>We no longer crash if you live in a part of the world where the sun never sets (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Rollershutter: <a href="https://home-assistant.io/components/rfxtrx/">RFXTRX</a> now supported (<a href="https://github.com/jacobtomlinson">@jacobtomlinson</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/switch.template/">Template switches</a> can now execute scripts (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Z-Wave: automatically heal the network at midnight (<a href="https://github.com/infamy">@infamy</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.dte_energy_bridge/">DTE Energy Bridge</a> now supported (<a href="https://github.com/kylehendricks">@kylehendricks</a>)</li>
+  <li>Media Player: <a href="https://home-assistant.io/components/media_player.kodi/">Kodi</a> now supports different turn off commands (<a href="https://github.com/armills">@armills</a>)</li>
+</ul>
+
+<h3>Breaking Changes</h3>
+
+<ul>
+  <li>Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error</li>
+  <li>The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have <a href="https://home-assistant.io/developers/rest_api/">been updated</a>.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Community Highlights]]></title>
@@ -993,160 +1037,6 @@ player state attributes. This change affects automations, scripts and scenes.</l
 <img src="https://home-assistant.io/images/blog/2016-02-community-highlights/garfield-nfc.png" />
 Hold your NFC tag against the belly of Garfield to unlock the alarm.
 </p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Multi-room audio with Snapcast, Mopidy, and Home Assistant]]></title>
-    <link href="https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast/"/>
-    <updated>2016-02-18T05:10:56+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast</id>
-    <content type="html"><![CDATA[<p>Would you like to listen to music in every room in your home, controlled from one source? Then multi-room audio is for you.</p>
-
-<p>Multi-room audio can be achieved by having a computer attached to speakers in every room. On each computer, services run to play and/or control the audio. With this DIY approach, the kind of computer and speakers is very much up to you. It could be your desktop computer with attached powered speakers, your HTPC hooked up to your TV and receiver, a Raspberry Pi with Amp or DAC, or even an Android device.</p>
-
-<p>You’ll need two key software packages, besides Home Assistant. The first is <a href="https://www.mopidy.com/">Mopidy</a>, a music server that can play local files, or connect to streaming music services like Spotify. The second is <a href="https://github.com/badaix/snapcast/">Snapcast</a>, which enables synchronized audio streaming across your network. Both can be integrated into Home Assistant. Each room audio device will run an instance of the Snapcast client, and optionally a Mopidy instance. Your server will run a special instance of Mopidy and the Snapcast server.</p>
-
-<p>Finally, you also need a player to control Mopidy. Any MPD-compatible player will work, and there are several <a href="https://docs.mopidy.com/en/latest/ext/web/#ext-web">Mopidy-only web-based options</a> available. On Android, <a href="https://play.google.com/store/apps/details?id=se.anil.remotedy">Remotedy</a> is particularly nice since you can access multiple Mopidy instances in one place.</p>
-
-<p>Home Assistant will provide device status, and volume control for each room. If you want to play music in all your rooms (on all your clients), access the server instance of Mopidy. If you want to play music only in a specific room, access that specific Mopidy instance. If you’re using a web UI for Mopidy, you can add links to each instance in Home Assistant with the <a href="https://home-assistant.io/components/weblink/">weblink</a> component.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-02-snapcast/diagram.png" />
-</p>
-
-<!--more-->
-
-<h2>Staging</h2>
-
-<ul>
-  <li><a href="https://www.mopidy.com/">Install</a> Mopidy (2.0.0 or greater)</li>
-  <li><a href="https://github.com/badaix/snapcast/releases/">Download</a> and <a href="https://github.com/badaix/snapcast/tree/v0.5.0-beta-1#installation">Install</a> Snapcast (0.5.0 or greater)</li>
-</ul>
-
-<h2>Configure Mopidy</h2>
-
-<p>Mopidy can be run with multiple configuration files, each extending the previous file. This is helpful when we’re running multiple instances with varying functionality.</p>
-
-<h3>core.conf</h3>
-<p>The core configuration is shared between all instances:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[mpd]
-hostname = ::
-
-[http]
-hostname = ::
-
-[audio]
-output = alsasink
-
-[spotify]
-username = &lt;redacted&gt;
-password = &lt;redacted&gt;
-</pre></div>
-</div>
-</div>
-
-<h3>local.conf</h3>
-<p>Add the local configuration on computers that have local media files:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[local]
-media_dir = &lt;your/music/here&gt;
-</pre></div>
-</div>
-</div>
-
-<h3>snapcast.conf</h3>
-<p>Finally, the Mopidy instance that connects with Snapcast needs special configuration. Run on a different port to avoid conflicts if you have a second Mopidy instance running on your computer. The audio output is sent to a named pipe - Snapcast will read from there. Note that you may have to adjust the audio output attribute depending on your system and audio sources.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[mpd]
-hostname = ::
-port = 6601
-
-[http]
-hostname = ::
-port = 6681
-
-[audio]
-output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioconvert ! wavenc ! filesink location=/tmp/snapfifo
-</pre></div>
-</div>
-</div>
-
-<h2>Run Mopidy</h2>
-
-<p>To run a room-specific instance:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf
-</pre></div>
-</div>
-</div>
-
-<p>To run a room-specific instance with local media:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf
-</pre></div>
-</div>
-</div>
-
-<p>To run the special Snapcast-connected instance (with local media):</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf:$CONF_DIR/snapcast.conf
-</pre></div>
-</div>
-</div>
-
-<h2>Run Snapcast</h2>
-
-<p>Start the <code>snapserver</code> on the same server running Mopidy with the snapcast configuration.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ snapserver   # or use systemd
-</pre></div>
-</div>
-</div>
-
-<p>Start the <code>snapclient</code> on computers that will be playing audio.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ snapclient   # or use systemd, add -h &lt;server host&gt; if necessary
-</pre></div>
-</div>
-</div>
-
-<h2>Configure Snapcast</h2>
-
-<p>There are a number of snapcast configuration options, but the one relevant to Home Assistant is the client names. You can set them in the snapserver configuration file, by default located at <code>~/.config/Snapcast/settings.json</code>. Only edit this file while the <code>snapserver</code> is not running. Modify the <code>name</code> JSON value to your liking - this is how the client will be named in Home Assistant.</p>
-
-<h2>Configure Home Assistant</h2>
-
-<p>Use the <a href="https://home-assistant.io/components/media_player.mpd/">mpd</a> and <a href="https://home-assistant.io/components/media_player.snapcast/">snapcast</a> components. Optionally, use <a href="https://home-assistant.io/components/weblink/">weblink</a> to provide easy access to a Mopidy web UI.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">media_player</span>:
-- <span class="string"><span class="content">platform: snapcast</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">xxxxx</span></span>
-- <span class="string"><span class="content">platform: mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">xxxx</span></span>
-  <span class="key">location</span>: <span class="string"><span class="content">Multi-Room Controller</span></span>
-- <span class="string"><span class="content">platform: mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">xxx</span></span>
-  <span class="key">location</span>: <span class="string"><span class="content">Room 1</span></span>
-
-<span class="key">weblink</span>:
-  <span class="key">entities</span>:
-  - <span class="string"><span class="content">name: Multi-Room Player</span></span>
-    <span class="key">url</span>: <span class="string"><span class="content">xxxx</span></span>
-</pre></div>
-</div>
-</div>
-
 ]]></content>
   </entry>
   

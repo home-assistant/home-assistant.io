@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/06/08/super-fast-web-enocean-lirc/</loc>
+    <lastmod>2016-06-08T01:06:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/06/01/community-highlights/</loc>
     <lastmod>2016-06-01T18:34:00+00:00</lastmod>
   </url>
@@ -1430,6 +1434,9 @@
       <loc>https://home-assistant.io/components/recorder/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/lirc/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/enocean/</loc>
     </url>
     <url>
@@ -1452,6 +1459,9 @@
     </url>
     <url>
       <loc>https://home-assistant.io/components/rollershutter.rfxtrx/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.dte_energy_bridge/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/cookbook/automation_for_rainy_days/</loc>
@@ -1735,28 +1745,31 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/06/01/community-highlights/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/06/08/super-fast-web-enocean-lirc/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
+    <lastmod>2016-06-08T05:53:49+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
+    <lastmod>2016-06-08T05:53:49+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
+    <lastmod>2016-06-08T05:53:49+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
+    <lastmod>2016-06-08T05:53:50+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
+    <lastmod>2016-06-08T05:53:50+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-06-08T05:39:24+00:00</lastmod>
+    <lastmod>2016-06-08T05:53:50+00:00</lastmod>
   </url>
 </urlset>

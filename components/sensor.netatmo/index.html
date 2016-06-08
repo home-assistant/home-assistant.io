@@ -101,6 +101,7 @@
   <span class="key">secret_key</span>: <span class="string"><span class="content">YOUR_SECRET_KEY</span></span>
   <span class="key">username</span>: <span class="string"><span class="content">YOUR_USERNAME</span></span>
   <span class="key">password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
+  <span class="key">station</span>: <span class="string"><span class="content">STATION_NAME</span></span>
   <span class="key">modules</span>:
     <span class="key">module_name1</span>:
       - <span class="string"><span class="content">temperature</span></span>
@@ -128,6 +129,7 @@
   <li><strong>secret_key</strong> (<em>Required</em>): Your netatmo secret key</li>
   <li><strong>username</strong> (<em>Required</em>): Username for the netatmo account.</li>
   <li><strong>password</strong> (<em>Required</em>): Password for the netatmo account.</li>
+  <li><strong>station</strong>: The name of the weather station. Needed if several stations are associated with the account.</li>
   <li><strong>modules</strong> (<em>Required</em>): Modules to use. Multiple entries allowed.
     <ul>
       <li><strong>module_name</strong> array (<em>Required</em>): Name of the module.
@@ -212,6 +214,9 @@ The Home Assistant NetAtmo platform has only be tested with the classic indoor, 
         </li>
         <li>
             <a href='/components/sensor.command_line/'>Command line Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.dte_energy_bridge/'>DTE Energy Bridge</a>
         </li>
         <li>
             <a href='/components/sensor.deutsche_bahn/'>Deutsche Bahn</a>

@@ -107,21 +107,23 @@ effect is created by updating the lights every 30 seconds with a 30 second trans
 switch turned off and use automation rules that call the service <code>switch.flux_update</code><br />
 whenever you want the lights updated.</p>
 
-<p>Example <code>configuration.yaml</code>:<br />
-<code>yaml
-switch:
-  platform: flux
-  lights:
-    - light.desk
-    - light.lamp
-  name: Fluxer		      # optional, default Flux
-  start_time: 7:00        # optional, default sunrise
-  stop_time: 23:00        # optional, default 22:00
-  start_colortemp: 4000   # optional, default 4000
-  sunset_colortemp: 3000  # optional, default 3000
-  stop_colortemp: 1900    # optional, default 1900
-  brightness: 200         # optional, default calculated by RGB_to_xy
-</code></p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">switch</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">flux</span></span>
+  <span class="key">lights</span>:
+    - <span class="string"><span class="content">light.desk</span></span>
+    - <span class="string"><span class="content">light.lamp</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">Fluxer</span></span>            <span class="comment"># optional, default Flux</span>
+  <span class="key">start_time</span>: <span class="string"><span class="content">7:00</span></span>        <span class="comment"># optional, default sunrise</span>
+  <span class="key">stop_time</span>: <span class="string"><span class="content">23:00</span></span>        <span class="comment"># optional, default 22:00</span>
+  <span class="key">start_colortemp</span>: <span class="string"><span class="content">4000</span></span>   <span class="comment"># optional, default 4000</span>
+  <span class="key">sunset_colortemp</span>: <span class="string"><span class="content">3000</span></span>  <span class="comment"># optional, default 3000</span>
+  <span class="key">stop_colortemp</span>: <span class="string"><span class="content">1900</span></span>    <span class="comment"># optional, default 1900</span>
+  <span class="key">brightness</span>: <span class="string"><span class="content">200</span></span>         <span class="comment"># optional, default calculated by RGB_to_xy</span>
+</pre></div>
+</div>
+</div>
 
 
 

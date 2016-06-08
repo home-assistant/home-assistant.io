@@ -89,9 +89,12 @@
   <hr class="divider">
   
 
-  <p>The <code>rfxtrx</code> platform support Siemens/LightwaveRF roller shutters that communicate in the frequency range of 433.92 MHz.</p>
+  <p>The <code>rfxtrx</code> platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.</p>
 
-<p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub.</a><br />
+<p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub.</a></p>
+
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+<p>#####Siemens/LightwaveRF<br />
 The easiest way to find your roller shutters is to add this to your <code>configuration.yaml</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -115,30 +118,36 @@ rollershutter:
       name: device_name
 </code></p>
 
-<p>Example configuration:<br />
-<code>yaml
-# Example configuration.yaml entry
-rollershutter:
-  platform: rfxtrx
-  automatic_add: False
-  signal_repetitions: 2
-  devices:
-    0b1100ce3213c7f210010f70:
-      name: Bedroom Shutter
-    0b11000a02ef2gf210010f50:
-      name: Bathroom Shutter
-    0b1111e003af16aa10000060:
-      name: Lounge Shutter
-</code></p>
+<p>#####RFY<br />
+The RFXtrx433e is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the <a href="http://www.rfxcom.com/downloads.htm">rfxmngr</a> tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id <code>071a0000[id][unit_code]</code>. Eg, if the id was <code>a</code> (<code>0a</code>) <code>00</code> <code>01</code>, and the unit code was <code>1</code> (<code>01</code>) then the fully qualified id would be <code>071a00000a000101</code>.</p>
+
+<p>#####Common<br />
+Example configuration:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">rollershutter</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+  <span class="key">automatic_add</span>: <span class="string"><span class="content">False</span></span>
+  <span class="key">signal_repetitions</span>: <span class="string"><span class="content">2</span></span>
+  <span class="key">devices</span>:
+    <span class="key">0b1100ce3213c7f210010f70</span>: <span class="comment"># Siemens/LightwaveRF</span>
+      <span class="key">name</span>: <span class="string"><span class="content">Bedroom Shutter</span></span>
+    <span class="key">070a00000a000101</span>: <span class="comment"># RFY</span>
+      <span class="key">name</span>: <span class="string"><span class="content">Bathroom Shutter</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>devices</strong> (<em>Required</em>): A list of devices with their name to use in the frontend.</li>
-  <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of new roller shutters.</li>
+  <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of new roller shutters (Siemens/LightwaveRF only).</li>
   <li><strong>signal_repetitions</strong> <em>Optional</em>: Because the rxftrx device sends its actions via radio and from most receivers it’s impossible to know if the signal was received or not. Therefore you can configure the roller shutter to try to send each signal repeatedly.</li>
   <li><strong>fire_event</strong> <em>Optional</em>: Fires an event even if the state is the same as before. Can be used for automations.</li>
 </ul>
+
 
 
 </article>

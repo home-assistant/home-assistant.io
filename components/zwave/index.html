@@ -159,6 +159,7 @@ Instead of <code>make install</code>, you can alternatively build your own pytho
 <ul>
   <li><strong>usb_path</strong> (<em>Required</em>): The port where your device is connected to your Home Assistant host.</li>
   <li><strong>config_path</strong> (<em>Optional</em>): The path to the Python Open Z-Wave configuration files.</li>
+  <li><strong>autoheal</strong> (<em>Optional</em>): Allows disabling auto ZWave heal at midnight. Defaults to True.</li>
   <li><strong>polling_interval</strong> (<em>Optional</em>): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.</li>
   <li><strong>customize</strong> (<em>Optional</em>): This attribute contains node-specific override values:
     <ul>
