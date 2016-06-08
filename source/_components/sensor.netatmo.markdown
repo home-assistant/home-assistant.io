@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: netatmo.png
-ha_category: Sensor
+ha_category: Weather
 ---
 
 
