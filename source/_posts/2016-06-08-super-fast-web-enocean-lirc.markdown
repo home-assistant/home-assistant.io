@@ -25,7 +25,7 @@ Alright, time for the changes:
  - Light: [Insteon Hub] now supports brightness ([@wkonkel])
  - Add support for adding HA as Windows 10 tile ([@fabaff])
  - Condition: [time condition] can now cross midnight ([@jaharkes])
- - Template based sensors should now throw less warnings ([@Bart247])
+ - Template based sensors should now throw less warnings ([@Bart274])
  - New [LIRC component] allows receiving IR commands ([@partofthething])
  - The [Feedreader] component will now persist data to disk to prevent duplicate events ([@shaftoe])
  - Sun: azimuth attribute added ([@fabaff])
@@ -44,7 +44,7 @@ Alright, time for the changes:
 
 [@armills]: https://github.com/armills
 [@balloob]: https://github.com/balloob
-[@Bart247]: https://github.com/Bart247
+[@Bart274]: https://github.com/Bart274
 [@fabaff]: https://github.com/fabaff
 [@infamy]: https://github.com/infamy
 [@jacobtomlinson]: https://github.com/jacobtomlinson
