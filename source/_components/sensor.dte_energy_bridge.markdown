@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_release: 0.21
-ha_iot_class: "Cloud Polling"
+ha_iot_class: "Local Polling"
 ---
 
 A sensor for the DTE Energy Bridge
