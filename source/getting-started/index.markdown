@@ -33,7 +33,7 @@ If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has
 
 ### {% linkable_title Updating %}
 
-To update Home Assistant to the latest release check the [Updating section](/getting-started/updating/) section.
+To update Home Assistant to the latest release check the [Updating section](/getting-started/updating/).
 
 ### {% linkable_title Troubleshooting %}
 
