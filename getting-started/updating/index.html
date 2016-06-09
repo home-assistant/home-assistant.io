@@ -99,6 +99,22 @@
 
 <p>After updating, restart Home Assistant for the changes to take effect. This means that you have to restart <code>hass</code> itself or the <a href="/getting-started/autostart/">autostarting</a> daemon if you use any.</p>
 
+<p class="note note">
+  The upgrade needs to be run as the same user as the installation was done to avoid permission errors.
+</p>
+
+<h4><a class="title-link" name="run-the-development-version" href="#run-the-development-version"></a> Run the development version</h4>
+<p>If you want to stay on top of the development of Home Assistant then you can upgrade to the <code>dev</code> branch.</p>
+
+<p class="note warning">
+  This can result in an unstable system, loss of data, etc. etc.
+</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
+</pre></div>
+</div>
+</div>
 
 
 </article>
