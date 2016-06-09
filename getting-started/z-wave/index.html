@@ -1,0 +1,381 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Z-Wave - Home Assistant</title>
+    <meta name="author" content="Paulus Schoutsen">
+    <meta name="description" content="Instructions how to integrate your existing Z-Wave within Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/z-wave/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Z-Wave">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/z-wave/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Instructions how to integrate your existing Z-Wave within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Z-Wave">
+    <meta name="twitter:description" content="Instructions how to integrate your existing Z-Wave within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href='/getting-started/'>Getting started</a></li>
+  <li><a href='/components/'>Components</a></li>
+  <li><a href='/cookbook/'>Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Z-Wave
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p><a href="http://www.z-wave.com/">Z-Wave</a> integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a <a href="https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List">supported Z-Wave USB stick</a> to be plugged into the host.</p>
+
+<p>There is currently support for switches, lights and sensors. All will be picked up automatically after configuring this platform.</p>
+
+<h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
+
+<p>To allow Home Assistant to talk to your Z-Wave USB stick you will have to compile the OpenZWave library and install the related <a href="https://github.com/OpenZWave/python-openzwave">python-OpenZWave package</a>. This can be done as follows. <em>(Note: The Home Assistant docker image has support for Z-Wave built-in)</em></p>
+
+<p>Make sure you have the correct dependencies installed before running the script:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
+</pre></div>
+</div>
+</div>
+
+<p>Make sure you have at least version 0.23 of cython.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo pip3 install --upgrade cython
+</pre></div>
+</div>
+</div>
+
+<p>Then get the OpenZWave files and switch to the <code>python3</code> branch:</p>
+<p class="note warning">Do not use root to build python-openzwave as it will surely fail.</p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ git clone https://github.com/OpenZWave/python-openzwave.git
+$ cd python-openzwave
+$ git checkout python3
+$ PYTHON_EXEC=$(which python3) make build
+$ sudo PYTHON_EXEC=$(which python3) make install
+</pre></div>
+</div>
+</div>
+<p class="note">
+Instead of <code>make install</code>, you can alternatively build your own python-openzwave package which can be easily uninstalled:
+
+<code>$ sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave</code>
+
+</p>
+
+<p>With this installation, your <code>config_path</code> needed below will resemble:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>/usr/local/lib/python3.4/dist-packages/libopenzwave-0.3.0b8-py3.4-linux-x86_64.egg/config
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">zwave</span>:
+  <span class="key">usb_path</span>: <span class="string"><span class="content">/dev/ttyUSB0</span></span>
+  <span class="key">config_path</span>: <span class="string"><span class="content">/usr/local/share/python-openzwave/config</span></span>
+  <span class="key">polling_interval</span>: <span class="string"><span class="content">60000</span></span>
+  <span class="key">customize</span>:
+    <span class="key">sensor.greenwave_powernode_6_port_energy_10</span>:
+        <span class="key">polling_intensity</span>: <span class="string"><span class="content">1</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>usb_path</strong> (<em>Required</em>): The port where your device is connected to your Home Assistant host.</li>
+  <li><strong>config_path</strong> (<em>Optional</em>): The path to the Python Open Z-Wave configuration files.</li>
+  <li><strong>autoheal</strong> (<em>Optional</em>): Allows disabling auto ZWave heal at midnight. Defaults to True.</li>
+  <li><strong>polling_interval</strong> (<em>Optional</em>): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.</li>
+  <li><strong>customize</strong> (<em>Optional</em>): This attribute contains node-specific override values:
+    <ul>
+      <li><strong>polling_intensity</strong> (<em>Optional</em>): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc). If not specified then your device will not be polled.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>To find the path of your Z-Wave stick, run:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ ls /dev/ttyUSB*
+</pre></div>
+</div>
+</div>
+
+<p>Or, on some other systems (such as Raspberry Pi), use:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ ls /dev/ttyACM*
+</pre></div>
+</div>
+</div>
+
+<p class="note">
+Depending on what’s plugged into your USB ports, the name found above may change. You can lock in a name, such as <code>/dev/zwave</code>, by following <a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">these instructions</a>. 
+</p>
+
+<h4><a class="title-link" name="events" href="#events"></a> Events</h4>
+
+<p>Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml automation entry</span>
+<span class="key">automation</span>:
+  - <span class="string"><span class="content">alias: Turn on Desk light</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+      <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
+      <span class="key">event_data</span>:
+        <span class="key">entity_id</span>: <span class="string"><span class="content">zwaveme_zme_wallcs_secure_wall_controller_8</span></span>
+        <span class="key">scene_id</span>: <span class="string"><span class="content">11</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>The <em>entity_id</em> and <em>scene_id</em> of all triggered events can be seen in the console output.</p>
+
+<h4><a class="title-link" name="services" href="#services"></a> Services</h4>
+
+<p>The Z-Wave component exposes four services to help maintain the network.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>add_node</td>
+      <td>Put the zwave controller in inclusion mode. Allows one to add a new device to the zwave network.</td>
+    </tr>
+    <tr>
+      <td>remove_node</td>
+      <td>Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.</td>
+    </tr>
+    <tr>
+      <td>heal_network</td>
+      <td>Tells the controller to “heal” the network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.</td>
+    </tr>
+    <tr>
+      <td>soft_reset</td>
+      <td>Tells the controller to do a “soft reset”. This is not supposed to lose any data, but different controllers can behave differently to a “soft reset” command.</td>
+    </tr>
+    <tr>
+      <td>test_network</td>
+      <td>Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The soft_reset and heal_network commands can be used as part of an automation script<br />
+to help keep a zwave network running relliably. For example:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml automation entry</span>
+<span class="key">automation</span>:
+  - <span class="string"><span class="content">alias: soft reset at 2:30am</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
+      <span class="key">after</span>: <span class="string"><span class="content">'2:30:00'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">zwave.soft_reset</span></span>
+
+  - <span class="string"><span class="content">alias: heal at 2:31am</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
+      <span class="key">after</span>: <span class="string"><span class="content">'2:31:00'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">zwave.heal_network</span></span>
+</pre></div>
+</div>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/z-wave.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/updating/'>Updating </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
+          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a class='active' href='/getting-started/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/getting-started/z-wave-controllers/'>USB Controllers </a></li>
+          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/autostart/'>Autostart </a>
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>OS X </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a  href='/topics/'>Advanced Topics </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Getting Started - Home Assistant</title>
+    <title>Z-Wave Settings - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Step by step guide to get started with Home Assistant.">
+    <meta name="description" content="Extended instructions how to setup Z-Wave.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/z-wave-settings/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Getting Started">
+    <meta property="og:title" content="Z-Wave Settings">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/z-wave-settings/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Step by step guide to get started with Home Assistant.">
+    <meta property="og:description" content="Extended instructions how to setup Z-Wave.">
     <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Getting Started">
-    <meta name="twitter:description" content="Step by step guide to get started with Home Assistant.">
+    <meta name="twitter:title" content="Z-Wave Settings">
+    <meta name="twitter:description" content="Extended instructions how to setup Z-Wave.">
     <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,55 +83,15 @@
   
   <header>
     <h1 class="title indent">
-      Getting Started
+      Z-Wave Settings
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you’re running a Linux based platform, we suggest to follow the <a href="/getting-started/installation-virtualenv/">VirtualEnv Linux instructions</a> to avoid having to use root.</p>
+  <p>You may wish to modify the zwave settings ozw*.xml file in your .homeassistant root folder, or certain situations/devices may require it (i.e. Aeon Multisensor 6). To do this, utilize <a href="https://github.com/OpenZWave/open-zwave-control-panel">Open-Zwave Control Panel</a>. Alternatively, use <a href="https://www.domoticz.com/">Domoticz</a>, which incorporates the Open-Zwave Control Panel project into an easy to use Raspberry Pi image.</p>
 
-<p>Installing and running Home Assistant on your local machine is easy. Make sure you have <a href="https://www.python.org/downloads/">Python 3.4 or higher</a> installed and execute the following code in a console:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install homeassistant
-$ hass --open-ui
-</pre></div>
-</div>
-</div>
-
-<p>Running these commands will:</p>
-
-<ul>
-  <li>Install Home Assistant</li>
-  <li>Launch Home Assistant and serve the web interface on <a href="http://localhost:8123">http://localhost:8123</a></li>
-</ul>
-
-<p>If you prefer to watch a video tutorial, <a href="https://github.com/tktino">tktino</a> has made some great ones.</p>
-
-<ul>
-  <li><a href="https://www.youtube.com/watch?v=X27eVvuqwnY">Windows 10</a></li>
-  <li><a href="https://www.youtube.com/watch?v=hej6ipN86ls">Mac OS X</a></li>
-  <li><a href="https://www.youtube.com/watch?v=SXaAG1lGNH0">Ubuntu 14.04</a></li>
-</ul>
-
-<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
-
-<p>If you run into any issues, please see <a href="/getting-started/troubleshooting/">the troubleshooting page</a>. It contains solutions to many of the common encountered issues.</p>
-
-<p>In addition to this site, check out these sources for additional help:</p>
-
-<ul>
-  <li><a href="https://community.home-assistant.io">Forum</a> for Home Assistant discussions and questions.</li>
-  <li><a href="https://gitter.im/home-assistant/home-assistant">Gitter Chat Room</a> for real-time chat about Home Assistant.</li>
-  <li><a href="https://github.com/home-assistant/home-assistant/issues">GitHub Page</a> for issue reporting.</li>
-</ul>
-
-<h3><a class="title-link" name="whats-next" href="#whats-next"></a> What’s next?</h3>
-
-<p>To see what Home Assistant can do, launch demo mode: <code>hass --demo-mode</code> or visit the <a href="/demo">demo page</a>.</p>
-
-<h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
+<p>The reasoning for using these tools is that your Zwave controller stores the values and data that are used to control the network. The XML file in the .homeassistant folder acts as a settings/values cache for the zwave network, so modifying it directly won’t change the network values. The Open-Zwave Control Panel writes values directly to the network, and will provide you with an updated .xml file to overwrite in your .homeassistant folder. This is the most foolproof way to make modifications to your zwave devices.</p>
 
 
 </article>
@@ -145,12 +105,12 @@ $ hass --open-ui
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/index.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/getting-started/z-wave-settings.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
       <li>
-        <a class='active' href='/getting-started/'>Installation </a>
+        <a  href='/getting-started/'>Installation </a>
         <ul>
           <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
           <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
@@ -194,7 +154,7 @@ $ hass --open-ui
         <a  href='/getting-started/z-wave/'>Z-Wave </a>
         <ul>
           <li><a  href='/getting-started/z-wave-controllers/'>USB Controllers </a></li>
-          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a class='active' href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
           <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
         </ul>
       </li>
