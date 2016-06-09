@@ -12,10 +12,18 @@ ha_release: 0.21
 ha_iot_class: "Local Polling"
 ---
 
-A sensor for the DTE Energy Bridge
+A sensor platform for the [DTE](https://www.dteenergy.com/) Energy Bridge.
+
+To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
-    platform: dte_energy_bridge
-    ip: 192.168.1.11
+  platform: dte_energy_bridge
+  ip: 192.168.1.11
 ```
+
+Configuration variables:
+
+- **ip** (*Required*): The IP address of your bridge.
+
