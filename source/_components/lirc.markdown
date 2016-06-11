@@ -30,6 +30,7 @@ $ sudo apt-get install lirc
 If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations [here](http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/). Consider following these.
 </p>
 
+### {% linkable_title Configuring LIRC %}
 
 Now teach LIRC about your particular remote control by preparing a lircd configuration file (`/etc/lirc/lircd.conf`). Search the [LIRC remote database](http://lirc.sourceforge.net/remotes/) for your model. If you can't find it, then you can always use the `irrecord` program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If `irrecord` doesn't work (e.g. for some air conditioner remotes), then the `mode2` program is capable of reading the codes in raw mode, followed by `irrecord -a` to extract hex codes.
 
@@ -65,13 +66,16 @@ $ irexec -n home-assistant
 and pressing some buttons on the remote.
 
 
-### {% linkable_title Configuration %}
+### {% linkable_title Configuration Home Assistant %}
 
 ```yaml
 # Example configuration.yaml entry
 lirc:
 ```
 
+<p class='note'>
+If you are on a Debian based system (like Raspberry Pi) and are having issues loading the component due to it being unable to install python-lirc, install it manually using `apt-get install python3-lirc`.
+</p>
 
 #### {% linkable_title Events %}
 
