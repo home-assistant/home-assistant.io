@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: rfxtrx.png
 ha_category: Switch
 ha_release: 0.7.5
 ---
@@ -29,14 +30,14 @@ Push your remote and your device should be added:
 <img src='/images/components/rfxtrx/switch.png' />
 </p>
 
-Here the name is 0b11000102ef9f210010f70 and you can verify that it works from the frontend. 
+Here the name is 0b11000102ef9f210010f70 and you can verify that it works from the frontend.
 Then you should update your configuration to:
 
 ```yaml
 switch:
  platform: rfxtrx
  devices:
-    0b11000102ef9f210010f70: 
+    0b11000102ef9f210010f70:
         name: device_name
 ```
 
@@ -44,7 +45,7 @@ Example configuration:
 
 ```yaml
 # Example configuration.yaml entry
-switch: 
+switch:
  platform: rfxtrx
  automatic_add: False
  signal_repetitions: 2
