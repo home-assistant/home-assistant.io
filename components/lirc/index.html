@@ -107,6 +107,8 @@
 If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations <a href="http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/">here</a>. Consider following these.
 </p>
 
+<h3><a class="title-link" name="configuring-lirc" href="#configuring-lirc"></a> Configuring LIRC</h3>
+
 <p>Now teach LIRC about your particular remote control by preparing a lircd configuration file (<code>/etc/lirc/lircd.conf</code>). Search the <a href="http://lirc.sourceforge.net/remotes/">LIRC remote database</a> for your model. If you can’t find it, then you can always use the <code>irrecord</code> program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If <code>irrecord</code> doesn’t work (e.g. for some air conditioner remotes), then the <code>mode2</code> program is capable of reading the codes in raw mode, followed by <code>irrecord -a</code> to extract hex codes.</p>
 
 <p>Next, you have to make a <code>~/.lircrc</code> file that maps keypresses to system actions. <a href="http://www.lirc.org/html/configure.html">The configuration</a> is a bit tedious but it must be done. Use the <code>prog = home-assistant</code> for all keys you want to be recognized by Home Assistant. The values you set for <code>button</code> must be the same as in the <code>lircd.conf</code> file and the values you put for <code>config</code> entry will be the sensor value in Home Assistant when you press the button. An example may look like this:</p>
@@ -144,7 +146,7 @@ end
 
 <p>and pressing some buttons on the remote.</p>
 
-<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+<h3><a class="title-link" name="configuration-home-assistant" href="#configuration-home-assistant"></a> Configuration Home Assistant</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
@@ -152,6 +154,10 @@ end
 </pre></div>
 </div>
 </div>
+
+<p class="note">
+If you are on a Debian based system (like Raspberry Pi) and are having issues loading the component due to it being unable to install python-lirc, install it manually using <code>apt-get install python3-lirc</code>.
+</p>
 
 <h4><a class="title-link" name="events" href="#events"></a> Events</h4>
 
