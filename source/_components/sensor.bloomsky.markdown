@@ -28,6 +28,7 @@ sensor:
     - UVIndex
     - Luminance
     - Night
+    - Voltage
 ```
 
 Configuration variables:
@@ -40,3 +41,4 @@ Configuration variables:
   - Rain
   - Temperature
   - UVIndex
+  - Voltage
