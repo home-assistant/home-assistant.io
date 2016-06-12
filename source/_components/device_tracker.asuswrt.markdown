@@ -23,6 +23,7 @@ device_tracker:
   platform: asuswrt
   host: YOUR_ROUTER_IP
   protocol: telnet
+  mode: router
   username: YOUR_ADMIN_USERNAME
   password: YOUR_ADMIN_PASSWORD
 ```
@@ -31,6 +32,7 @@ Configuration variables:
 
 - **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
 - **protocol** (*Optional*): The protocol (`ssh` or `telnet`) to use. Defaults to `ssh`.
+- **mode** (*Optional*): The operating mode of the router (`router` or `ap`). Defaults to `router`.
 - **username** (*Required*: The username of an user with administrative privileges, usually *admin*.
 - **password** (*Required*): The password for your given admin account.
 
