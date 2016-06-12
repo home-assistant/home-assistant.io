@@ -2,7 +2,7 @@
 layout: page
 title: "RFXtrx Rollershutter"
 description: "Instructions how to integrate RFXtrx roller shutters into Home Assistant."
-date: 2016-06-11 22:40
+date: 2016-06-12 12:40
 sidebar: true
 comments: false
 sharing: true
@@ -14,22 +14,22 @@ ha_release: 0.21
 
 The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
 
-First you have to set up your [rfxtrx hub.](/components/rfxtrx/)
+First you have to set up your [rfxtrx hub](/components/rfxtrx/).
 
 ### {% linkable_title Configuration %}
-#####Siemens/LightwaveRF
+##### Siemens/LightwaveRF
 The easiest way to find your roller shutters is to add this to your `configuration.yaml`:
 
 ```yaml
 rollershutter:
- platform: rfxtrx
- automatic_add: True
+  platform: rfxtrx
+  automatic_add: True
 ```
 
-Launch your homeassistant and go the website.
+Launch your homeassistant and go the website (e.g http://localhost:8123).
 Push your remote and your device should be added.
 
-Once added it will show an id (e.g `0b11000102ef9f210010f70`) and you can verify that it works from the frontend.
+Once added it will show an ID (e.g `0b11000102ef9f210010f70`) and you can verify that it works from the frontend.
 Then you should update your configuration to:
 
 ```yaml
@@ -41,10 +41,9 @@ rollershutter:
 ```
 
 ##### RFY
-The RFXtrx433e is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. Eg, if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`.
+The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. Eg, if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`.
 
-
-#####Common
+##### Common
 Example configuration:
 
 ```yaml
