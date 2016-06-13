@@ -13,6 +13,28 @@ hide_github_edit: true
 
 <div class="grid-wrapper frontpage">
   <div class="grid">
+    <div class="grid__item one-third lap-one-third palm-one-whole">
+      <div class='current-version material-card text'>
+        <h1>Current: 0.21.1</h1>
+        Released: <span class='release-date'>June 12, 2016</span><br>
+        <a href='/blog/2016/06/08/super-fast-web-enocean-lirc/'>Release notes</a>
+      </div>
+    </div>
+    <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
+      <div class='material-card text'>
+        <h1>Latest blog items</h1>
+
+        {% for post in site.posts limit: 3 %}
+          <li class="post">
+            <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
+            <small class='blog-date'>{{ post.date_formatted }}</small>
+          </li>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
     <div class="grid__item one-third lap-one-whole palm-one-whole usp">
       <div class="grid">
         <div class="grid__item one-whole lap-one-third">
