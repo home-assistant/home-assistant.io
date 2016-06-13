@@ -3,7 +3,7 @@ layout: post
 title: "Home Assistant at PyCon 2016"
 description: "PyCon 2016 happened beginning of June in Portland. A wrap up of what our developers were up to."
 date: 2016-06-13 01:06:00 +0000
-date_formatted: "June 8, 2016"
+date_formatted: "June 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
