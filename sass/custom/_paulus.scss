@@ -74,31 +74,24 @@
   .blog-date {
     white-space: nowrap;
   }
-}
 
-.supported-brands {
-  text-align: center;
-  img {
-    border: none !important;
-    box-shadow: none !important;
-    max-height: 50px;
-    max-width: 140px;
-    margin: 10px;
-    vertical-align: middle;
+  .supported-brands {
+    text-align: center;
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      border: none !important;
+      box-shadow: none !important;
+      max-height: 50px;
+      max-width: 140px;
+      margin: 10px;
+      vertical-align: middle;
+    }
   }
-}
 
-.brand {
-  border: none !important;
-  box-shadow: none !important;
-  max-height: 50px;
-  max-width: 200px;
-  margin: 10px;
-
-  &.overview {
-    max-width: 100px;
-    vertical-align: middle;
-  }
 }
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
@@ -201,10 +194,6 @@ article.post, article.page, article.listing {
     &.btn {
       text-decoration: none;
     }
-  }
-
-  .frontpage a {
-    text-decoration: none;
   }
 }
 
