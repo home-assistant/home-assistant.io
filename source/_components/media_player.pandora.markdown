@@ -10,6 +10,7 @@ footer: true
 logo: pandora.png
 ha_category: Media Player
 featured: false
+ha_release: 0.22
 ---
 
 If you have a Pandora account, you can control it from Home Assistant with this media player. 
