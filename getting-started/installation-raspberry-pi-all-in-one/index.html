@@ -105,13 +105,13 @@
 </div>
 <p><em>Note this command is one line and not run as sudo</em></p>
 
-<p>Installation will take approx. 1-2 hours depending on the Raspberry Pi model the installer is being run against.</p>
+<p>Installation will take approx. 1-2 hours depending on the Raspberry Pi model the installer is being run against. The installer will identitfy what Raspberry PI hardware revision you are using and adjust commands accordingly. A complete log of the install is located at: <code>/home/pi/fabric-home-assistant/installation_report.txt</code> The installer has been updated to simply log any errors encountered, but resume installing. Please consult the “installation report” if your install encountered issues.</p>
 
 <p><a href="http://www.bruhautomation.com">BRUH automation</a> has created <a href="https://www.youtube.com/watch?v=VGl3KTrYo6s">a tutorial video</a> explaining how to install Raspbian on your Raspberry Pi and install Home Assistant using the All-In-One Installer.</p>
 
 <p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at <a href="http://your_raspberry_pi_ip:8123">http://your_raspberry_pi_ip:8123</a>.</p>
 
-<p>The Home Assistant configuration is located at <code>/home/hass</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, <strong>hass</strong>. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands with “sudo” or by switching user.<br />
+<p>The Home Assistant configuration is located at <code>/home/hass/.homeassistant</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, <strong>hass</strong>. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands with “sudo” or by switching user.<br />
 <em>Windows users</em> - Setting up WinSCP to allow this seemlessly is detailed below.</p>
 
 <p>By default, installation makes use of a Python Virtualenv. If you wish to not follow this recommendation, you may add the flag <code>-n</code> to the end of the install command specified above.</p>
@@ -125,19 +125,27 @@
   <li>Setup a python virtualenv to run Home Assistant and components inside.</li>
   <li>Run as <code>hass</code> service account</li>
   <li>Install Home Assistant in a virtualenv</li>
-  <li>Build and install Mosquitto from source with websocket support running on ports 1883 and 9001</li>
+  <li>Build and install Mosquitto v1.4.9 from source with websocket support running on ports 1883 and 9001</li>
   <li>Build and Install Python-openzwave in the Home Assistant virtualenv</li>
   <li>Build openzwave-control-panel in <code>/srv/hass/src/open-zwave-control-panel</code></li>
   <li>Add both Home Assistant and Mosquitto to systemd services to start at boot</li>
 </ul>
 
-<p>To upgrade the All-In-One setup:</p>
+<p>To upgrade the All-In-One setup manually:</p>
 
 <ul>
   <li>Login to Raspberry Pi <code>ssh pi@your_raspberry_pi_ip</code></li>
   <li>Change to hass user <code>sudo su -s /bin/bash hass</code></li>
   <li>Change to virtual enviroment <code>source /srv/hass/hass_venv/bin/activate</code></li>
   <li>Update HA <code>pip3 install --upgrade homeassistant</code></li>
+</ul>
+
+<p>To upgrade with fabric:</p>
+
+<ul>
+  <li>Login to Raspberry Pi <code>ssh pi@your_raspberry_pi_ip</code></li>
+  <li>Change to <code>cd ~/fabric-home-assistant</code></li>
+  <li>Run <code>fab upgrade_homeassistant</code></li>
 </ul>
 
 <p>To launch the OZWCP webapp:</p>
