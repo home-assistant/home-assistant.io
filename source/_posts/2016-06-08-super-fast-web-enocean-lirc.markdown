@@ -41,6 +41,7 @@ Alright, time for the changes:
 
  - Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error
  - The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have [been updated].
+ - Make sure your configuration.yaml file contains `frontend:` to serve the frontend
 
 [@armills]: https://github.com/armills
 [@balloob]: https://github.com/balloob
