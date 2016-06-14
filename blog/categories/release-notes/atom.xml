@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-14T00:50:01+00:00</updated>
+  <updated>2016-06-14T01:52:02+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -52,6 +52,7 @@
 <ul>
   <li>Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error</li>
   <li>The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have <a href="/developers/rest_api/">been updated</a>.</li>
+  <li>Make sure your configuration.yaml file contains <code>frontend:</code> to serve the frontend</li>
 </ul>
 
 ]]></content>
