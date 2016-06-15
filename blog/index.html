@@ -206,6 +206,31 @@
   <li>Make sure your configuration.yaml file contains <code>frontend:</code> to serve the frontend</li>
 </ul>
 
+<h3>Hotfixes 0.21.1 and 0.21.2</h3>
+
+<p>We released two hotfixes to address some issues that couldn’t wait till the next release.</p>
+
+<h5>0.21.1 - June 12</h5>
+
+<ul>
+  <li>Add eventlet to base requirements to resolve some installation issues (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>GTFS will filter out routes in the wrong direction (<a href="https://github.com/imrehg">@imrehg</a>)</li>
+  <li>Recover from rare error condition from LIRC (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>Z-Wave autoheal will no longer raise exception (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Alexa will now execute the script before making reply (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix MJPEG camera streaming (<a href="https://github.com/stjohnjohnson">@stjohnjohnson</a>)</li>
+  <li>Fix frontend in older browsers (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix history in more info dialog being cut off (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h5>0.21.2 - June 15</h5>
+
+<ul>
+  <li>Fix input_select calling the set_option service again when changed (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Fix more info dialog not being able to open on Safari (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Add support for OPTIONS HTTP command to get CORS working (<a href="https://github.com/JshWright">@JshWright</a>)</li>
+</ul>
+
 
     
   </div>
