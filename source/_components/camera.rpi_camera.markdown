@@ -16,7 +16,7 @@ ha_release: 0.17
 
 The `rpi` platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
 
-To enable this camery in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
