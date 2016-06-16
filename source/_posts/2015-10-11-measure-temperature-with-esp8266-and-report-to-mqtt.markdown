@@ -39,6 +39,10 @@ I've been using Adafruit for my shopping:
 
 _Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 
+<p class='note'>
+Adafruit has stopped selling the HDC1008. One possible replacement is the [BME280](https://www.adafruit.com/product/2652). Adjusted sketch to work with the BME280 can be found [here](https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419).
+</p>
+
 ### Connections
 
 On your breadboard, make the following connections from your ESP8266 to the HDC1008:
