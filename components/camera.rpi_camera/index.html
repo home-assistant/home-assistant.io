@@ -89,7 +89,9 @@
   <hr class="divider">
   
 
-  <p>The <code>rpi</code> platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application “raspistill” to store the image from camera.</p>
+  <p>The <code>rpi</code> platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application <a href="https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md"><code>raspistill</code></a> to store the image from camera.</p>
+
+<p>To enable this camery in your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
@@ -111,15 +113,15 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (optional): name of the camera</li>
-  <li><strong>image_width</strong> (optional): set the image width (default: 640)</li>
-  <li><strong>image_height</strong> (optional): set the image height (default: 480)</li>
-  <li><strong>image_quality</strong> (optional): set the image quality (from 0 to 100, default: 7)</li>
-  <li><strong>image_rotation</strong> (optional): Set image rotation (0-359, default: 0)</li>
-  <li><strong>horizontal_flip</strong> (optional): Set horizontal flip (0 to disable, 1 to enable, default: 0)</li>
-  <li><strong>vertical_flip</strong> (optional): Set vertical flip (0 to disable, 1 to enable, default: 0)</li>
-  <li><strong>timelapse</strong> (optional): Takes a picture every <t>ms (default: 1000)</t></li>
-  <li><strong>file_path</strong> (optional): Save the picture in a custom file path (default: camera components folder)</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the camera</li>
+  <li><strong>image_width</strong> (<em>Optional</em>): Set the image width (default: 640)</li>
+  <li><strong>image_height</strong> (<em>Optional</em>): Set the image height (default: 480)</li>
+  <li><strong>image_quality</strong> (<em>Optional</em>): Set the image quality (from 0 to 100, default: 7)</li>
+  <li><strong>image_rotation</strong> (<em>Optional</em>): Set image rotation (0-359, default: 0)</li>
+  <li><strong>horizontal_flip</strong> (<em>Optional</em>): Set horizontal flip (0 to disable, 1 to enable, default: 0)</li>
+  <li><strong>vertical_flip</strong> (<em>Optional</em>): Set vertical flip (0 to disable, 1 to enable, default: 0)</li>
+  <li><strong>timelapse</strong> (<em>Optional</em>): Takes a picture every ms (default: 1000)</li>
+  <li><strong>file_path</strong> (<em>Optional</em>): Save the picture in a custom file path (default: camera components folder)</li>
 </ul>
 
 <p>The given <strong>file_path</strong> must be an existing file because the camera platform setup make a writeable check on it.</p>
