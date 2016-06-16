@@ -31,7 +31,7 @@ camera:
 
 Configuration variables:
 
-- **still_image_url** *Required*: The URL your camera serves the image on, eg. http://192.168.1.21:2112/
-- **name** *Optional*: This parameter allows you to override the name of your camera.
-- **username** *Optional*: The username for accessing your camera.
-- **password** *Optional*: The password for accessing your camera.
+- **still_image_url** (*Required*): The URL your camera serves the image on, eg. http://192.168.1.21:2112/
+- **name** (*Optional*): This parameter allows you to override the name of your camera.
+- **username** (*Optional*): The username for accessing your camera.
+- **password** (*Optional*): The password for accessing your camera.

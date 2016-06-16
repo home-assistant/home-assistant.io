@@ -31,10 +31,10 @@ camera:
 
 Configuration variables:
 
-- **mjpeg_url** *Required*: The URL your camera serves the video on, eg. http://192.168.1.21:2112/
-- **name** *Optional*: This parameter allows you to override the name of your camera.
-- **username** *Optional*: The username for accessing your camera.
-- **password** *Optional*: The password for accessing your camera.
+- **mjpeg_url** (*Required*): The URL your camera serves the video on, eg. http://192.168.1.21:2112/
+- **name** (*Optional*): This parameter allows you to override the name of your camera.
+- **username** (*Optional*): The username for accessing your camera.
+- **password** (*Optional*): The password for accessing your camera.
 
 <p class='note'>
 There is a <a href="https://github.com/shazow/urllib3/issues/800" target="_blank">known issue in urllib3</a> that you will get error messages in your logs like <code>[StartBoundaryNotFoundDefect(), MultipartInvariantViolationDefect()], unparsed data: ''</code> but the component still works fine. You can ignore the messages. 
