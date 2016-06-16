@@ -87,7 +87,7 @@
   <div class="meta clearfix">
     <time datetime="2015-10-11T19:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 11, 2015</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> seven minutes reading time</span>
+    <span><i class='icon-time'></i> eight minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -129,7 +129,7 @@ Home Assistant will keep track of historical values and allow you to integrate i
 
 <a name="read-more"></a>
 
-<h3>Components</h3>
+<h3><a class="title-link" name="components" href="#components"></a> Components</h3>
 
 <p>I’ve been using Adafruit for my shopping:</p>
 
@@ -145,7 +145,7 @@ Home Assistant will keep track of historical values and allow you to integrate i
 Adafruit has stopped selling the HDC1008. One possible replacement is the <a href="https://www.adafruit.com/product/2652">BME280</a>. Adjusted sketch to work with the BME280 can be found <a href="https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419">here</a>.
 </p>
 
-<h3>Connections</h3>
+<h3><a class="title-link" name="connections" href="#connections"></a> Connections</h3>
 
 <p>On your breadboard, make the following connections from your ESP8266 to the HDC1008:</p>
 
@@ -178,7 +178,7 @@ Adafruit has stopped selling the HDC1008. One possible replacement is the <a hre
 
 <p><em>I picked <code>#2</code> and <code>14</code> myself, you can configure them in the sketch.</em></p>
 
-<h3>Preparing your IDE</h3>
+<h3><a class="title-link" name="preparing-your-ide" href="#preparing-your-ide"></a> Preparing your IDE</h3>
 
 <p>Follow <a href="https://github.com/esp8266/Arduino#installing-with-boards-manager">these instructions</a> on how to install and prepare the Arduino IDE for ESP8266 development.</p>
 
@@ -189,7 +189,7 @@ Adafruit has stopped selling the HDC1008. One possible replacement is the <a hre
   <li>Adafruit HDC1000</li>
 </ul>
 
-<h3>Sketch</h3>
+<h3><a class="title-link" name="sketch" href="#sketch"></a> Sketch</h3>
 
 <p>If you have followed the previous steps, you’re all set.</p>
 
@@ -429,7 +429,7 @@ Adafruit_HDC1000 hdc = Adafruit_HDC1000();
 </tr></table>
 </div>
 
-<h3>Configuring Home Assistant</h3>
+<h3><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h3>
 
 <p>The last step is to integrate the sensor values into Home Assistant. This can be done by setting up Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.</p>
 
