@@ -95,7 +95,7 @@ def setup(hass, config):
 To add the latest feature of our component, update the entry in your `configuration.yaml` file.
 
 ```yaml
-information:
+hello_state:
   text: 'Hello, World!'
 ```
 
