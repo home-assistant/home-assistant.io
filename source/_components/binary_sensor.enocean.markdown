@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: enocean.png
 ha_category: Binary Sensor
+ha_release: 0.21
 ---
 
 This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55. Other devices will most likely not work without changing the Home-Asisstant code.

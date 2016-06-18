@@ -41,7 +41,32 @@ Alright, time for the changes:
 
  - Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error
  - The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have [been updated].
+ - Make sure your configuration.yaml file contains `frontend:` to serve the frontend
 
+### Hotfixes 0.21.1 and 0.21.2
+
+We released two hotfixes to address some issues that couldn't wait till the next release.
+
+##### 0.21.1 - June 12
+
+ - Add eventlet to base requirements to resolve some installation issues ([@balloob])
+ - GTFS will filter out routes in the wrong direction ([@imrehg])
+ - Recover from rare error condition from LIRC ([@partofthething])
+ - Z-Wave autoheal will no longer raise exception ([@balloob])
+ - Alexa will now execute the script before making reply ([@balloob])
+ - Fix MJPEG camera streaming ([@stjohnjohnson])
+ - Fix frontend in older browsers ([@balloob])
+ - Fix history in more info dialog being cut off ([@balloob])
+
+##### 0.21.2 - June 15
+
+ - Fix input_select calling the set_option service again when changed ([@persandstrom])
+ - Fix more info dialog not being able to open on Safari ([@balloob])
+ - Add support for OPTIONS HTTP command to get CORS working ([@JshWright])
+
+[@stjohnjohnson]: https://github.com/stjohnjohnson
+[@imrehg]: https://github.com/imrehg
+[@persandstrom]: https://github.com/persandstrom
 [@armills]: https://github.com/armills
 [@balloob]: https://github.com/balloob
 [@Bart274]: https://github.com/Bart274

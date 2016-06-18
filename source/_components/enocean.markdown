@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: enocean.png
 ha_category: Hub
+ha_release: 0.21
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are unnecessary.

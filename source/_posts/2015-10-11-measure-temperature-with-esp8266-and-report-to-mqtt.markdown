@@ -29,7 +29,7 @@ Home Assistant will keep track of historical values and allow you to integrate i
 
 <!--more-->
 
-### Components
+### {% linkable_title Components %}
 
 I've been using Adafruit for my shopping:
 
@@ -39,7 +39,11 @@ I've been using Adafruit for my shopping:
 
 _Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 
-### Connections
+<p class='note'>
+Adafruit has stopped selling the HDC1008. One possible replacement is the [BME280](https://www.adafruit.com/product/2652). Adjusted sketch to work with the BME280 can be found [here](https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419).
+</p>
+
+### {% linkable_title Connections %}
 
 On your breadboard, make the following connections from your ESP8266 to the HDC1008:
 
@@ -52,7 +56,7 @@ On your breadboard, make the following connections from your ESP8266 to the HDC1
 
 _I picked `#2` and `14` myself, you can configure them in the sketch._
 
-### Preparing your IDE
+### {% linkable_title Preparing your IDE %}
 
 Follow [these instructions](https://github.com/esp8266/Arduino#installing-with-boards-manager) on how to install and prepare the Arduino IDE for ESP8266 development.
 
@@ -61,7 +65,7 @@ After you're done installing, open the Arduino IDE, in the menu click on `sketch
 - PubSubClient by Nick 'O Leary
 - Adafruit HDC1000
 
-### Sketch
+### {% linkable_title Sketch %}
 
 If you have followed the previous steps, you're all set.
 
@@ -187,7 +191,7 @@ void loop() {
 }
 ```
 
-### Configuring Home Assistant
+### {% linkable_title Configuring Home Assistant %}
 
 The last step is to integrate the sensor values into Home Assistant. This can be done by setting up Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.
 
