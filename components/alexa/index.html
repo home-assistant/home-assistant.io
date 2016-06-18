@@ -253,6 +253,159 @@ WhereAreWeIntent where we are
 </div>
 </div>
 
+<h3><a class="title-link" name="working-with-scenes" href="#working-with-scenes"></a> Working With Scenes</h3>
+
+<p>One of the more useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.</p>
+
+<p>First we will configure Alexa. In the Amazon Interaction module add this to the intent schema:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">intent</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ActivateSceneIntent</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">slots</span><span class="delimiter">&quot;</span></span>:
+  [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Scene</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Scenes</span><span class="delimiter">&quot;</span></span>
+    }
+  ]
+}
+</pre></div>
+</div>
+</div>
+
+<p>Then create a custom slot type called <code>Scenes</code> listing every scene you want to control:</p>
+
+<p class="img">
+<img src="/images/components/alexa/scene_slot.png" />
+Custom slot type for scene support.
+</p>
+<p>The names must exactly match the scene names (minus underscores - amazon discards them anyway and we later map them back in with the template).</p>
+
+<p>Add a sample utterance:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ActivateSceneIntent activate {Scene}
+</pre></div>
+</div>
+</div>
+
+<p>Then add the intent to your Alexa Section in your HA config file:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+    <span class="key">ActivateSceneIntent</span>:
+      <span class="key">action</span>:
+        <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on</span></span>
+        <span class="key">data_template</span>:
+          <span class="key">entity_id</span>: <span class="string"><span class="content">scene.{{ Scene | replace(&quot; &quot;, &quot;_&quot;) }}</span></span>
+      <span class="key">speech</span>:
+        <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
+        <span class="key">text</span>: <span class="string"><span class="content">OK</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Here we are using <a href="/topics/templating/">templates</a> to take the name we gave to Alexa e.g. <code>downstairs on</code> and replace the space with an underscore so it becomes <code>downstairs_on</code> as Home Assistant expects.</p>
+
+<p>Now say <code>Alexa ask homeassistant to activate &lt;some scene&gt;</code> and Alexa will activate that scene for you.</p>
+
+<h3><a class="title-link" name="adding-scripts" href="#adding-scripts"></a> Adding Scripts</h3>
+
+<p>We can easily extend the above idea to work with scripts as well. As before, add an intent for scripts:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">intent</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">RunScriptIntent</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">slots</span><span class="delimiter">&quot;</span></span>:
+  [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Script</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Scripts</span><span class="delimiter">&quot;</span></span>
+    }
+  ]
+}
+</pre></div>
+</div>
+</div>
+
+<p>Create a custom slot type called <code>Scripts</code> listing every script you want to run:</p>
+
+<p class="img">
+<img src="/images/components/alexa/script_slot.png" />
+Custom slot type for script support.
+</p>
+
+<p>Add a sample utterance:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>RunScriptIntent run {Scene}
+</pre></div>
+</div>
+</div>
+
+<p>Then add the intent to your Alexa Section in your HA config file:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+    <span class="key">RunScriptIntent</span>:
+      <span class="key">action</span>:
+        <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
+        <span class="key">data_template</span>:
+          <span class="key">entity_id</span>: <span class="string"><span class="content">script.{{ Script | replace(&quot; &quot;, &quot;_&quot;) }}</span></span>
+      <span class="key">speech</span>:
+        <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
+        <span class="key">text</span>: <span class="string"><span class="content">OK</span></span>
+
+</pre></div>
+</div>
+</div>
+
+<p>Now say <code>Alexa ask homeassistant to run &lt;some script&gt;</code> and Alexa will run that script for you.</p>
+
+<h3><a class="title-link" name="giving-alexa-some-personality" href="#giving-alexa-some-personality"></a> Giving Alexa Some Personality</h3>
+
+<p>In the examples above, we told Alexa to say <code>OK</code> when she succesfully completed the task. This is effective but a little dull! We can again use <a href="/topics/templating/">templates</a> to spice things up a little.</p>
+
+<p>First create a file called <code>alexa_confirm.yaml</code> with something like the following in it (go on, be creative!):</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+          &gt;
+          {{ [
+          &quot;OK&quot;, 
+          &quot;Sure&quot;, 
+          &quot;If you insist&quot;,
+          &quot;Done&quot;,
+          &quot;No worries&quot;,
+          &quot;I can do that&quot;,
+          &quot;Leave it to me&quot;,
+          &quot;Consider it done&quot;,
+          &quot;As you wish&quot;,
+          &quot;By your command&quot;,
+          &quot;Affirmative&quot;,
+          &quot;Yes oh revered one&quot;,
+          &quot;I will&quot;,
+          &quot;As you decree, so shall it be&quot;,
+          &quot;No Problem&quot;
+          ] | random }} 
+</pre></div>
+</div>
+</div>
+
+<p>Then, wherever you would but some simple text for a response like<code>OK</code>, replace it with a reference to the file so that:</p>
+
+<pre><code>text: OK
+</code></pre>
+
+<p>becomes:</p>
+
+<pre><code>text: !include alexa_confirm.yaml
+</code></pre>
+
+<p>Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.</p>
+
+
 
 </article>
 
