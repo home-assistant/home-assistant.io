@@ -161,3 +161,145 @@ alexa:
         title: Sample title
         content: Some more content{% endraw %}
 ```
+
+### {% linkable_title Working With Scenes %}
+
+One of the more useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.
+
+First we will configure Alexa. In the Amazon Interaction module add this to the intent schema:
+
+```json
+{
+  "intent": "ActivateSceneIntent",
+  "slots":
+  [
+    {
+      "name" : "Scene",
+      "type" : "Scenes"
+    }
+  ]
+}
+```
+
+Then create a custom slot type called `Scenes` listing every scene you want to control:
+
+<p class='img'>
+<img src='/images/components/alexa/scene_slot.png' />
+Custom slot type for scene support.
+</p>
+The names must exactly match the scene names (minus underscores - amazon discards them anyway and we later map them back in with the template).
+
+Add a sample utterance:
+
+```text
+ActivateSceneIntent activate {Scene}
+```
+
+Then add the intent to your Alexa Section in your HA config file:
+
+```yaml
+{% raw %}
+    ActivateSceneIntent:
+      action:
+        service: scene.turn_on
+        data_template:
+          entity_id: scene.{{ Scene | replace(" ", "_") }}
+      speech:
+        type: plaintext
+        text: OK{% endraw %}
+```
+
+Here we are using [templates] to take the name we gave to Alexa e.g. `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
+
+Now say `Alexa ask homeassistant to activate <some scene>` and Alexa will activate that scene for you.
+
+### {% linkable_title Adding Scripts %}
+
+We can easily extend the above idea to work with scripts as well. As before, add an intent for scripts:
+
+```json
+{
+  "intent": "RunScriptIntent",
+  "slots":
+  [
+    {
+      "name" : "Script",
+      "type" : "Scripts"
+    }
+  ]
+}
+```
+
+Create a custom slot type called `Scripts` listing every script you want to run:
+
+<p class='img'>
+<img src='/images/components/alexa/script_slot.png' />
+Custom slot type for script support.
+</p>
+
+Add a sample utterance:
+
+```text
+RunScriptIntent run {Scene}
+```
+
+Then add the intent to your Alexa Section in your HA config file:
+
+```yaml
+{% raw %}
+    RunScriptIntent:
+      action:
+        service: script.turn_on
+        data_template:
+          entity_id: script.{{ Script | replace(" ", "_") }}
+      speech:
+        type: plaintext
+        text: OK{% endraw %}
+
+```
+
+Now say `Alexa ask homeassistant to run <some script>` and Alexa will run that script for you.
+
+### {% linkable_title Giving Alexa Some Personality%}
+
+In the examples above, we told Alexa to say `OK` when she succesfully completed the task. This is effective but a little dull! We can again use [templates] to spice things up a little.
+
+First create a file called `alexa_confirm.yaml` with something like the following in it (go on, be creative!):
+
+```text
+{% raw %}
+          >
+          {{ [
+          "OK", 
+          "Sure", 
+          "If you insist",
+          "Done",
+          "No worries",
+          "I can do that",
+          "Leave it to me",
+          "Consider it done",
+          "As you wish",
+          "By your command",
+          "Affirmative",
+          "Yes oh revered one",
+          "I will",
+          "As you decree, so shall it be",
+          "No Problem"
+          ] | random }} {% endraw %}
+```
+
+Then, wherever you would but some simple text for a response like`OK`, replace it with a reference to the file so that:
+
+```
+text: OK
+```
+
+becomes:
+
+```
+text: !include alexa_confirm.yaml
+```
+
+Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.
+
+
