@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: netatmo.png
 ha_category: Camera
-ha_release: "0.2x"
+ha_release: "0.22"
 ---
 
 
