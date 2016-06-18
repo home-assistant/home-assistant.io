@@ -10,7 +10,7 @@ footer: true
 logo: network-snmp.png
 ha_category: Sensor 
 ha_iot_class: "Local Polling"
-ha_release: "0.21"
+ha_release: "0.22"
 ---
 
 
