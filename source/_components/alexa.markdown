@@ -270,8 +270,8 @@ First create a file called `alexa_confirm.yaml` with something like the followin
 {% raw %}
           >
           {{ [
-          "OK", 
-          "Sure", 
+          "OK",
+          "Sure",
           "If you insist",
           "Done",
           "No worries",

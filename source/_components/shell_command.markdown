@@ -27,7 +27,9 @@ Configuration variables:
  - Alias for the command
  - Command itself.
 
-The commands can be dynamic, using templates to insert values of other entities. For example
+The commands can be dynamic, using templates to insert values of other entities. When using templates you are limited to only template the arguments. You are also no longer allowed to use pipe symbols when using templates.
+
+Any service data passed into the service call to activate the shell command will be available as a variable within the template.
 
 ```yaml
 # Apply value of a GUI slider to the shell_command
