@@ -40,6 +40,8 @@ Another cool addition is the local file camera. This seems very basic at first b
 - Component [shell command] can now use templates to render arguments ([@partofthething])
 - Rollershutter: [Wink] is now supported ([@philk])
 - Alexa: Updated [documentation][alexa] to show how to call scripts and scenes (@acockburn)
+- Sensor: [SNMP] is now supported ([@fabaff])
+- Sensor: Support for Swiss hydrological data ([@fabaff])
 
 [@acockburn]: https://github.com/acockburn/
 [@arsaboo]: https://github.com/arsaboo/
@@ -56,6 +58,7 @@ Another cool addition is the local file camera. This seems very basic at first b
 [@persandstrom]: https://github.com/persandstrom/
 [@philk]: https://github.com/philk/
 [@wind-rider]: https://github.com/wind/
+[@fabaff]: https://github.com/fabaff/
 [AsusWRT]: /components/device_tracker.asuswrt/
 [BT Home Hub 5]: /components/device_tracker.bt_home_hub_5/
 [Cast]: /components/media_player.cast/
@@ -72,3 +75,4 @@ Another cool addition is the local file camera. This seems very basic at first b
 [All-in-One installer]: /getting-started/installation-raspberry-pi-all-in-one/
 [standalone Raspberry Pi installation guide]: /getting-started/installation-raspberry-pi/
 [Voltage sensor]: /components/sensor.bloomsky/
+[SNMP]: /components/sensor.snmp/
