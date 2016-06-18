@@ -13,7 +13,6 @@ featured: true
 ha_release: 0.7.3
 ---
 
-
 The `sonos` platform allows you to control your [Sonos](http://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant.
 
 To add your Sonos components to your installation, add the following to your `configuration.yaml` file.  It will perform auto-discovery of your connected speakers.
@@ -33,3 +32,8 @@ media_player:
   hosts: IP
 ```
 
+### {% linkable_title Service %}
+
+There are two extra services exposed that will allow you to take a snapshot of what is currently playing and restore it afterwards. This is useful if you want to play a doorbell or notification sound and resume playback afterwards.
+
+The services are called `sonos_snapshot` and `snapshot_restore`.

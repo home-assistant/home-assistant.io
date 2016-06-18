@@ -14,7 +14,7 @@ ha_release: pre 0.7
 
 This platform offers presence detection by looking at connected devices to a [DD-WRT](http://www.dd-wrt.com/site/index) based router.
 
-To use a DD-WRRT router in your installation, add the following to your `configuration.yaml` file:
+To use a DD-WRT router in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

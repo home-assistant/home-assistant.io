@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: rfxtrx.png
 ha_category: Hub
 ha_release: pre 0.7
 ---
@@ -22,7 +23,6 @@ rfxtrx:
   debug: True
   dummy: False
 ```
-
 
 Configuration variables:
 
