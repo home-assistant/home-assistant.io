@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-18T23:18:02+00:00</updated>
+  <updated>2016-06-18T23:38:46+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -49,6 +49,8 @@
   <li>Component <a href="https://home-assistant.io/components/shell_command/">shell command</a> can now use templates to render arguments (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
   <li>Rollershutter: <a href="https://home-assistant.io/components/rollershutter.wink/">Wink</a> is now supported (<a href="https://github.com/philk/">@philk</a>)</li>
   <li>Alexa: Updated <a href="https://home-assistant.io/components/alexa/#working-with-scenes/">documentation</a> to show how to call scripts and scenes (@acockburn)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.snmp/">SNMP</a> is now supported (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
+  <li>Sensor: Support for Swiss hydrological data (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
 </ul>
 
 ]]></content>
