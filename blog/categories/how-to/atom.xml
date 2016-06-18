@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-17T07:08:45+00:00</updated>
+  <updated>2016-06-18T18:50:09+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -442,13 +442,16 @@ Z-Wave light bulb    |
 
 <!--more-->
 
+<p><strong>Updated 2016-06-18</strong></p>
+
 <h3><a class='title-link' name='requirements' href='#requirements'></a> Requirements </h3>
 
 <p>The DuckDNS part of this tutorial has no requirements but there are a few requirements as of now to run the Let’s Encrypt client.</p>
 
 <ul>
-  <li>Direct connection to the internet or admin access to your router to set up port forwarding</li>
-  <li>A machine running a Unix-ish OS that include Python 2.6 or 2.7 (Docker can be used)</li>
+  <li>Direct connection to the internet or admin access to your router to set up port forwarding.</li>
+  <li>A machine running a Unix-ish OS that include Python 2.6 or 2.7 (Docker can be used).</li>
+  <li>Root access, to write to default config, log and library directories and bind port 80.</li>
 </ul>
 
 <p><img src="https://home-assistant.io/images/supported_brands/duckdns.png" style="clear: right; border:none; box-shadow: none; float: right; margin-left: 8px; margin-bottom: 8px;" width="60" /></p>
@@ -467,30 +470,21 @@ Z-Wave light bulb    |
 
 <p><a href="https://letsencrypt.org">Let’s Encrypt</a> is a free, automated, and open certificate authority (CA). We will use this to acquire a certificate that can be used to encrypted our connection with Home Assistant.</p>
 
-<p>Let’s Encrypt will give you a free 90-day certificate if you pass their domain validation challenge. Domains are validated by having certain data be accessible on your domain for Let’s Encrypt (<a href="https://letsencrypt.org/howitworks/technology/">they describe it better themselves</a>).</p>
+<p>Let’s Encrypt will give you a free 90-day certificate if you pass their domain validation challenge. Domains are validated by having certain data be accessible on your domain for Let’s Encrypt (<a href="https://letsencrypt.org/how-it-works/">they describe it better themselves</a>).</p>
 
-<p>Assuming that your home is behind a router, the first thing to do is to set up port forwarding from your router to your computer that will run Let’s Encrypt. For the Let’s Encrypt set up we need to temporary forward ports <code>80</code> (http connections) and <code>443</code> (https connections). This can be set up by accessing your router admin interface (<a href="http://portforward.com">Site with port forwarding instructions per router</a>).</p>
+<p>Assuming that your home is behind a router, the first thing to do is to set up port forwarding from your router to your computer that will run Let’s Encrypt. For the Let’s Encrypt set up we need to forward external port <code>80</code> to internal port <code>80</code> (http connections). This can be set up by accessing your router admin interface (<a href="http://portforward.com">Site with port forwarding instructions per router</a>). This port forward must be active whenever you want to request a new certificate from Let’s Encrypt, typically every three months. If you normally don’t use or have an app that listens to port <code>80</code>, it should be safe to leave the port open. This will make renewing certificates easier.</p>
 
-<p>Now you’re ready to run Let’s Encrypt:</p>
+<p>Now you’re ready to install and run the client that requests certificates from Let’s Encrypt. The following example will use the platform independent script to install and run the <a href="https://certbot.eff.org/">certbot</a> client from Let’s Encrypt. If there is a certbot package for your OS, it’s recommended to install the package instead of the platform independent script. Read the <a href="https://certbot.eff.org/">docs</a> for more information. There are also other clients that might offer more customization and options. See the <a href="https://letsencrypt.org/docs/client-options/">client options page</a> at Let’s Encrypt.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ git clone https://github.com/letsencrypt/letsencrypt
-[…]
-$ cd letsencrypt
-$ ./letsencrypt-auto certonly --email your@email.address -d hass-example.duckdns.org
-
-Updating letsencrypt and virtual environment dependencies.......
-Running with virtualenv: sudo /path/letsencrypt/bin/letsencrypt certonly --email your@e-mail.address -d hass-example.duckdns.org
-
-IMPORTANT NOTES:
- - Congratulations! Your certificate and chain have been saved at
-   /etc/letsencrypt/live/hass-example.duckdns.org/fullchain.pem. Your cert
-   will expire on 2016-03-12. To obtain a new version of the
-   certificate in the future, simply run Let's Encrypt again.
- - If like Let's Encrypt, please consider supporting our work by:
-
-   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
-   Donating to EFF:                    https://eff.org/donate-le
+  <div class="code"><pre>$ mkdir certbot
+$ cd certbot/
+$ wget https://dl.eff.org/certbot-auto
+$ chmod a+x certbot-auto
+$ ./certbot-auto certonly --standalone \
+                          --standalone-supported-challenges http-01 \
+                          --email your@email.address \
+                          -d hass-example.duckdns.org
 </pre></div>
 </div>
 </div>
@@ -499,22 +493,30 @@ IMPORTANT NOTES:
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>sudo mkdir /etc/letsencrypt /var/lib/letsencrypt
-sudo docker run -it --rm -p 443:443 -p 80:80 --name letsencrypt \
+sudo docker run -it --rm -p 80:80 --name certbot \
                 -v &quot;/etc/letsencrypt:/etc/letsencrypt&quot; \
                 -v &quot;/var/lib/letsencrypt:/var/lib/letsencrypt&quot; \
                 quay.io/letsencrypt/letsencrypt:latest certonly \
-                --email your@e-mail.address -d hass-example.duckdns.org
+                --standalone --standalone-supported-challenges http-01 \
+                --email your@email.address -d hass-example.duckdns.org
 </pre></div>
 </div>
 </div>
 
-<p>With either method your certificate will be generated and put in the directory <code>/etc/letsencrypt/live/hass-example.duckdns.org</code>. As the lifetime is only 90 days, you will have to repeat this every 90 days.</p>
+<p>With either method your certificate will be generated and put in the directory <code>/etc/letsencrypt/live/hass-example.duckdns.org</code>. As the lifetime is only 90 days, you will have to repeat this every 90 days. There’s a special command to simplify renewing certificates:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>./certbot-auto renew --quiet --no-self-upgrade --standalone \
+                     --standalone-supported-challenges http-01
+</pre></div>
+</div>
+</div>
 
 <p><img width="60" src="https://home-assistant.io/images/favicon-192x192.png" style="float: right; border:none; box-shadow: none;" /></p>
 
 <h3><a class='title-link' name='home-assistant' href='#home-assistant'></a> Home Assistant </h3>
 
-<p>Before updating the Home Assistant configuration, we have to update the port forwarding at your router config. We can drop the port forwarding for port <code>80</code> as we no longer care about unecrypted messages. Update port <code>443</code> to forward to port <code>8123</code> on the computer that will run Home Assistant.</p>
+<p>Before updating the Home Assistant configuration, we have to forward port <code>443</code> (https connections) to port <code>8123</code> on the computer that will run Home Assistant. Do this in your router configuration as previously done for port <code>80</code>.</p>
 
 <p>The final step is to point Home Assistant at the generated certificates. Before you do this, make sure that the user running Home Assistant has read access to the folder that holds the certificates.</p>
 
