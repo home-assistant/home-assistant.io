@@ -24,8 +24,8 @@
     <meta property="og:type" content="{% if page.categories %}article{% else %}website{% endif %}">
     <meta property="og:description" content="{{ fb_description | truncate:200 }}">
     <meta property="og:image" content="{{ social_image }}">
-
-    <meta name="twitter:card" content="{% if page.og_image %}summary_large_image{% else %}summary{% endif %}">
+    {% comment %}{% if page.og_image %}summary_large_image{% else %}summary{% endif %}{% endcomment %}
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@{{ site.social.twitter.account }}">
     {% if page.author_twitter %}<meta name="twitter:creator" content="@{{ page.author_twitter }}">{% endif %}
     <meta name="twitter:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
