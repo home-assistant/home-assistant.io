@@ -20,14 +20,14 @@
     <meta property="og:url" content="https://home-assistant.io/components/rollershutter.rfxtrx/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate RFXtrx roller shutters into Home Assistant.">
-    <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="RFXtrx Rollershutter">
     <meta name="twitter:description" content="Instructions how to integrate RFXtrx roller shutters into Home Assistant.">
-    <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -91,38 +91,41 @@
 
   <p>The <code>rfxtrx</code> platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.</p>
 
-<p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub.</a></p>
+<p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub</a>.</p>
 
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
-<p>#####Siemens/LightwaveRF<br />
+<p>##### Siemens/LightwaveRF<br />
 The easiest way to find your roller shutters is to add this to your <code>configuration.yaml</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">rollershutter</span>:
- <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
- <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
+  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+  <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>Launch your homeassistant and go the website.<br />
+<p>Launch your homeassistant and go the website (e.g http://localhost:8123).<br />
 Push your remote and your device should be added.</p>
 
-<p>Once added it will show an id (e.g <code>0b11000102ef9f210010f70</code>) and you can verify that it works from the frontend.<br />
-Then you should update your configuration to:<br />
-<code>yaml
-rollershutter:
-  platform: rfxtrx
-  devices:
-    0b11000102ef9f210010f70:
-      name: device_name
-</code></p>
+<p>Once added it will show an ID (e.g <code>0b11000102ef9f210010f70</code>) and you can verify that it works from the frontend.<br />
+Then you should update your configuration to:</p>
 
-<p>#####RFY<br />
-The RFXtrx433e is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the <a href="http://www.rfxcom.com/downloads.htm">rfxmngr</a> tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id <code>071a0000[id][unit_code]</code>. Eg, if the id was <code>a</code> (<code>0a</code>) <code>00</code> <code>01</code>, and the unit code was <code>1</code> (<code>01</code>) then the fully qualified id would be <code>071a00000a000101</code>.</p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">rollershutter</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
+  <span class="key">devices</span>:
+    <span class="key">0b11000102ef9f210010f70</span>:
+      <span class="key">name</span>: <span class="string"><span class="content">device_name</span></span>
+</pre></div>
+</div>
+</div>
 
-<p>#####Common<br />
-Example configuration:</p>
+<h5>RFY</h5>
+<p>The <a href="http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en">RFXtrx433e</a> is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the <a href="http://www.rfxcom.com/downloads.htm">rfxmngr</a> tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id <code>071a0000[id][unit_code]</code>. Eg, if the id was <code>0a</code> <code>00</code> <code>01</code>, and the unit code was <code>01</code> then the fully qualified id would be <code>071a00000a000101</code>.</p>
+
+<h5>Common</h5>
+<p>Example configuration:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
@@ -149,7 +152,6 @@ Example configuration:</p>
 </ul>
 
 
-
 </article>
 
 
@@ -163,6 +165,7 @@ Example configuration:</p>
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_components/rollershutter.rfxtrx.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/rfxtrx.png' />
   </div>
     <div class='section'>
     Introduced in release: 0.21
@@ -205,6 +208,9 @@ Example configuration:</p>
         </li>
         <li>
             <a href='/components/rollershutter.scsgate/'>SCSGate Rollershutter</a>
+        </li>
+        <li>
+            <a href='/components/rollershutter.wink/'>Wink Rollershutter</a>
         </li>
     </ul>
     </div>

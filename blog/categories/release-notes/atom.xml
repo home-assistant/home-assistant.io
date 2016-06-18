@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-18T19:20:28+00:00</updated>
+  <updated>2016-06-18T20:32:56+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.22: Pandora, BT Home Hub 5 and local file camera.]]></title>
+    <link href="https://home-assistant.io/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/"/>
+    <updated>2016-06-18T18:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera</id>
+    <content type="html"><![CDATA[<p>It’s time for the 0.22 release. This was a pretty rough release cycle and we had to issue two hot fixes for our core improvements. But it seems now that all is good and a lot of people have reported that their installs are faster than ever and the occasional quirks no longer occur.</p>
+
+<p>We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We’re working on getting to a better solution. For Raspberry Pi, the <a href="/getting-started/installation-raspberry-pi-all-in-one/">All-in-One installer</a> will take care of everything for you. We’re working on updating our <a href="/getting-started/installation-raspberry-pi/">standalone Raspberry Pi installation guide</a>.</p>
+
+<p>There are two cool things that I want to highlight in this release. The first is Pandora support. This is based on the CLI player called pianobar. This means that your machine running Home Assistant can be connected to the speakers and provide your house with tunes.</p>
+
+<p class="img">
+<img src="https://home-assistant.io/images/screenshots/pandora_player.png" />
+</p>
+
+<p>Another cool addition is the local file camera. This seems very basic at first but will allow you to generate a graph with your favorite 3rd party graphing tool and display it on your Home Assistant dashboard. We’re looking forward to see what you can do with this!</p>
+
+<p><img src="https://home-assistant.io/images/supported_brands/pandora.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/bt.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Media Player: <a href="/components/media_player.pandora/">Pandora</a> media player now supported (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.bt_home_hub_5/">BT Home Hub 5</a> now supported (<a href="https://github.com/lwis/">@lwis</a>)</li>
+  <li>Camera: New <a href="/components/camera.local_file/">local file</a> platform shows any image as camera (<a href="https://github.com/Landrash/">@Landrash</a>)</li>
+  <li>Add <a href="/components/media_player.sonos/">Sonos</a> snapshot and restore services (<a href="https://github.com/dansullivan86/">@dansullivan86</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> in Access Point mode now supported (<a href="https://github.com/linjef/">@linjef</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> login using public key now supported (<a href="https://github.com/mtreinish/">@mtreinish</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> protocol to use is now auto detected (<a href="https://github.com/persandstrom/">@persandstrom</a>)</li>
+  <li>Camera: <a href="/components/netatmo/">Netatmo</a> now supported (<a href="https://github.com/jabesq/">@jabesq</a>)</li>
+  <li>API documentation added  in <a href="https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml">Swagger.yaml format</a> (<a href="https://github.com/wind/">@wind-rider</a>)</li>
+  <li>Media Player: <a href="/components/media_player.cast/">Cast</a> devices can now be stopped (<a href="https://github.com/michaelarnauts/">@michaelarnauts</a>)</li>
+  <li>MySensors: <a href="/components/mysensors/">IR switch device</a> and service now supported (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Bloomsky: <a href="/components/sensor.bloomsky/">Voltage sensor</a> now supported (<a href="https://github.com/arsaboo/">@arsaboo</a>)</li>
+  <li>Sensor: New <a href="/components/sensor.plex/">Plex sensor</a> monitors friends streaming from your Plex server (<a href="https://github.com/nkgilley/">@nkgilley</a>)</li>
+  <li>Component <a href="/components/shell_command/">shell command</a> can now use templates to render arguments (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
+  <li>Rollershutter: <a href="/components/rollershutter.wink/">Wink</a> is now supported (<a href="https://github.com/philk/">@philk</a>)</li>
+  <li>Alexa: Updated <a href="/components/alexa/#working-with-scenes">documentation</a> to show how to call scripts and scenes (@acockburn)</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.21: Improved Web and support for EnOcean, LIRC and Osram Lightify]]></title>
@@ -288,39 +329,6 @@
     </ol>
   </li>
 </ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.17: Onkyo, Panasonic, GTFS and config validation]]></title>
-    <link href="https://home-assistant.io/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/"/>
-    <updated>2016-04-09T06:10:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation</id>
-    <content type="html"><![CDATA[<p>Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we’ve been hard at work to introduce config validation! Especially huge thanks to <a href="https://github.com/jaharkes/">@jaharkes</a> for his hard work on this. Config validation is still in it’s early stages. More common platforms and components have been added but we didn’t do everything yet.</p>
-
-<p>When we encounter an invalid config we will now write a warning to your logs. You can see those in the frontend by clicking on the last developer tool. We’re looking into options to make it more clear - it is a work in progress.</p>
-
-<p>Another big thing is the addition of GTFS support. You probably don’t know it, but GTFS is the standard that public transit companies all over the world use to distribute their schedule. This means that you can now have the time of the next bus/train/etc right in your frontend.</p>
-
-<p><img src="https://home-assistant.io/images/supported_brands/onkyo.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/loop.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/panasonic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Config validation (<a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/jaharkes/">@jaharkes</a>)</li>
-  <li>Sensor: <a href="/components/sensor.gtfs/">GTFS</a> support (public transit open standard) (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
-  <li>Camera: <a href="/components/camera.rpi_camera/">Raspberry PI</a> support added (<a href="https://github.com/LucaSoldi/">@LucaSoldi</a>)</li>
-  <li>Z-Wave: improved startup reliability (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
-  <li>Media Player: <a href="/components/media_player.onkyo/">Onkyo receiver</a> now supported (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
-  <li>Sensor: <a href="/components/sensor.loop_energy/">Loop Energy</a> now supported (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.zwave/">Z-Wave</a> now supported (<a href="https://github.com/coteyr/">@coteyr</a>, <a href="https://github.com/turbokongen/">@turbokongen</a>, <a href="https://github.com/luxus/">@luxus</a>)</li>
-  <li>Sensor: <a href="/components/sensor.nzbget/">NZBGet</a> now supported (<a href="https://github.com/justyns/">@justyns</a>)</li>
-  <li>Media Player: <a href="/components/media_player.panasonic_viera/">Panasonic Viera TV</a> now supported (<a href="https://github.com/florianholzapfel/">@florianholzapfel</a>)</li>
-  <li>Thermostats: Use whole degrees if user uses Fahrenheit (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
-  <li>Frontend: more material love (<a href="https://github.com/balloob/">@balloob</a>)</li>
-</ul>
-
-<h3>Breaking changes</h3>
-
-<p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code>execute_service</code> in their script configs. This should be <code>service</code>.</p>
 ]]></content>
   </entry>
   

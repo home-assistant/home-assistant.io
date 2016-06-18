@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/</loc>
+    <lastmod>2016-06-18T18:06:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/06/13/home-assistant-at-pycon-2016/</loc>
     <lastmod>2016-06-13T01:06:00+00:00</lastmod>
   </url>
@@ -1051,9 +1055,6 @@
       <loc>https://home-assistant.io/components/sensor.nest_weather/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/components/sensor.netatmo/</loc>
-    </url>
-    <url>
       <loc>https://home-assistant.io/components/alarm_control_panel.alarmdotcom/</loc>
     </url>
     <url>
@@ -1204,6 +1205,9 @@
       <loc>https://home-assistant.io/components/notify.rest/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/rollershutter.wink/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/sensor.speedtest/</loc>
     </url>
     <url>
@@ -1351,9 +1355,6 @@
       <loc>https://home-assistant.io/components/light.mysensors/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/components/sensor.mysensors/</loc>
-    </url>
-    <url>
       <loc>https://home-assistant.io/components/feedreader/</loc>
     </url>
     <url>
@@ -1367,9 +1368,6 @@
     </url>
     <url>
       <loc>https://home-assistant.io/components/mysensors/</loc>
-    </url>
-    <url>
-      <loc>https://home-assistant.io/components/switch.mysensors/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/components/logentries/</loc>
@@ -1474,10 +1472,40 @@
       <loc>https://home-assistant.io/components/switch.flux/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/components/rollershutter.rfxtrx/</loc>
+      <loc>https://home-assistant.io/components/camera.netatmo/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/netatmo/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.netatmo/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.plex/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.snmp/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/components/sensor.dte_energy_bridge/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/media_player.pandora/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/rollershutter.rfxtrx/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.mysensors/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/switch.mysensors/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/camera.local_file/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/device_tracker.bt_home_hub_5/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/cookbook/automation_for_rainy_days/</loc>
@@ -1764,28 +1792,31 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/06/13/home-assistant-at-pycon-2016/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-06-18T19:19:45+00:00</lastmod>
+    <lastmod>2016-06-18T20:32:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-06-18T19:19:45+00:00</lastmod>
+    <lastmod>2016-06-18T20:32:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-06-18T19:19:45+00:00</lastmod>
+    <lastmod>2016-06-18T20:32:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-18T19:19:45+00:00</lastmod>
+    <lastmod>2016-06-18T20:32:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-06-18T19:19:45+00:00</lastmod>
+    <lastmod>2016-06-18T20:32:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-06-18T19:19:45+00:00</lastmod>
+    <lastmod>2016-06-18T20:32:20+00:00</lastmod>
   </url>
 </urlset>

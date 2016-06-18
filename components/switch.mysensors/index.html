@@ -20,14 +20,14 @@
     <meta property="og:url" content="https://home-assistant.io/components/switch.mysensors/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate MySensors switches into Home Assistant.">
-    <meta property="og:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="MySensors Switch">
     <meta name="twitter:description" content="Instructions how to integrate MySensors switches into Home Assistant.">
-    <meta name="twitter:image" content="https://home-assistant.io/images/home-assistant-logo-2164x2164.png">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -123,6 +123,10 @@
       <td>S_LOCK</td>
       <td>V_LOCK_STATUS</td>
     </tr>
+    <tr>
+      <td>S_IR</td>
+      <td>V_IR_SEND, V_LIGHT</td>
+    </tr>
   </tbody>
 </table>
 
@@ -167,10 +171,60 @@
   </tbody>
 </table>
 
+<p>All V_TYPES for each S_TYPE above are required to activate the actuator for the platform. Use either V_LIGHT or V_STATUS depending on library version for cases where that V_TYPE is required.</p>
+
 <p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
 
-<h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
+<h3><a class="title-link" name="services" href="#services"></a> Services</h3>
 
+<p>The MySensors switch platform exposes a service to change an IR code attribute for an IR switch device and turn the switch on. The IR switch will automatically be turned off after being turned on, if <code>optimistic</code> is set to <code>true</code> in the <a href="/components/mysensors/#configuration">config</a> for the MySensors component. This will simulate a push button on a remote. If <code>optimistic</code> is <code>false</code>, the MySensors device will have to report its updated state to reset the switch. See the <a href="#ir-switch-sketch">example sketch</a> for the IR switch below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mysensors_send_ir_code</td>
+      <td>Set an IR code as a state attribute for a MySensors IR device switch and turn the switch on.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The service can be used as part of an automation script. For example:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml automation entry</span>
+<span class="key">automation</span>:
+  - <span class="string"><span class="content">alias: turn hvac on</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
+      <span class="key">after</span>: <span class="string"><span class="content">'5:30:00'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">switch.mysensors_send_ir_code</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">switch.hvac_1_1</span></span>
+      <span class="key">data</span>:
+        <span class="key">V_IR_SEND</span>: <span class="string"><span class="content">'0xC284'</span></span>  <span class="comment"># the IR code to send</span>
+
+  - <span class="string"><span class="content">alias: turn hvac off</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
+      <span class="key">after</span>: <span class="string"><span class="content">'0:30:00'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">switch.mysensors_send_ir_code</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">switch.hvac_1_1</span></span>
+      <span class="key">data</span>:
+        <span class="key">V_IR_SEND</span>: <span class="string"><span class="content">'0xC288'</span></span>  <span class="comment"># the IR code to send</span>
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="example-sketches" href="#example-sketches"></a> Example sketches</h3>
+
+<h4><a class="title-link" name="switch-sketch" href="#switch-sketch"></a> Switch sketch</h4>
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment">/*
  * Documentation: http://www.mysensors.org
@@ -211,6 +265,79 @@ MyMessage msgRelay(CHILD_ID, V_STATUS);
      <span class="comment">// Change relay state.</span>
      digitalWrite(RELAY_PIN, message.getBool() ? <span class="integer">1</span> : <span class="integer">0</span>);
      gw.send(msgRelay.set(message.getBool() ? <span class="integer">1</span> : <span class="integer">0</span>));
+  }
+}
+</pre></div>
+</div>
+</div>
+
+<h4><a class="title-link" name="ir-switch-sketch" href="#ir-switch-sketch"></a> IR switch sketch</h4>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment">/*
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/ir
+ */</span>
+
+<span class="preprocessor">#include</span> <span class="include">&lt;MySensor.h&gt;</span>
+<span class="preprocessor">#include</span> <span class="include">&lt;SPI.h&gt;</span>
+<span class="preprocessor">#include</span> <span class="include">&lt;IRLib.h&gt;</span>
+
+<span class="preprocessor">#define</span> SN <span class="string"><span class="delimiter">&quot;</span><span class="content">IR Sensor</span><span class="delimiter">&quot;</span></span>
+<span class="preprocessor">#define</span> SV <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>
+<span class="preprocessor">#define</span> CHILD_ID <span class="integer">1</span>
+
+MySensor gw;
+
+<span class="predefined-type">char</span> code[<span class="integer">10</span>] = <span class="string"><span class="delimiter">&quot;</span><span class="content">abcd01234</span><span class="delimiter">&quot;</span></span>;
+<span class="predefined-type">char</span> oldCode[<span class="integer">10</span>] = <span class="string"><span class="delimiter">&quot;</span><span class="content">abcd01234</span><span class="delimiter">&quot;</span></span>;
+MyMessage msgCodeRec(CHILD_ID, V_IR_RECEIVE);
+MyMessage msgCode(CHILD_ID, V_IR_SEND);
+MyMessage msgSendCode(CHILD_ID, V_LIGHT);
+
+<span class="directive">void</span> setup()
+{
+  gw.begin(incomingMessage);
+  gw.sendSketchInfo(SN, SV);
+  gw.present(CHILD_ID, S_IR);
+  <span class="comment">// Send initial values.</span>
+  gw.send(msgCodeRec.set(code));
+  gw.send(msgCode.set(code));
+  gw.send(msgSendCode.set(<span class="integer">0</span>));
+}
+
+<span class="directive">void</span> loop()
+{
+  gw.process();
+  <span class="comment">// IR receiver not implemented, just a dummy report of code when it changes</span>
+  <span class="keyword">if</span> (String(code) != String(oldCode)) {
+    Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Code received </span><span class="delimiter">&quot;</span></span>);
+    Serial.println(code);
+    gw.send(msgCodeRec.set(code));
+    strcpy(oldCode, code);
+  }
+}
+
+<span class="directive">void</span> incomingMessage(<span class="directive">const</span> MyMessage &amp;message) {
+  <span class="keyword">if</span> (message.type==V_LIGHT) {
+    <span class="comment">// IR sender not implemented, just a dummy print.</span>
+    <span class="keyword">if</span> (message.getBool()) {
+      Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Sending code </span><span class="delimiter">&quot;</span></span>);
+      Serial.println(code);
+    }
+    gw.send(msgSendCode.set(message.getBool() ? <span class="integer">1</span> : <span class="integer">0</span>));
+    <span class="comment">// Always turn off device</span>
+    gw.wait(<span class="integer">100</span>);
+    gw.send(msgSendCode.set(<span class="integer">0</span>));
+  }
+  <span class="keyword">if</span> (message.type == V_IR_SEND) {
+    <span class="comment">// Retrieve the IR code value from the incoming message.</span>
+    String codestring = message.getString();
+    codestring.toCharArray(code, <span class="keyword">sizeof</span>(code));
+    Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Changing code to </span><span class="delimiter">&quot;</span></span>);
+    Serial.println(code);
+    gw.send(msgCode.set(code));
   }
 }
 </pre></div>
