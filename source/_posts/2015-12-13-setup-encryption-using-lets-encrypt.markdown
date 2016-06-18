@@ -13,7 +13,7 @@ og_image: /images/blog/2015-12-lets-encrypt/letsencrypt-secured-fb.png
 
 Exposing your Home Assistant instance outside of your network always has been tricky. You have to set up port forwarding on your router and most likely add a dynamic DNS service to work around your ISP changing your IP. After this you would be able to use Home Assistant from anywhere but there is one big red flag: no encryption.
 
-This tutorial will take you through the steps to setup a dynamic DNS for your IP and allow trusted encrypted connection to it - for free using [DuckDNS] and [Let's Encrypt]. It will use the Raspberry Pi 2 with raspbian Jessie as example platform.
+This tutorial will take you through the steps to setup a dynamic DNS for your IP and allow trusted encrypted connection to it - for free using [DuckDNS] and [Let's Encrypt].
 
 <p class='img'>
 <img src='/images/blog/2015-12-lets-encrypt/letsencrypt-secured.png' />
@@ -21,12 +21,15 @@ This tutorial will take you through the steps to setup a dynamic DNS for your IP
 
 <!--more-->
 
+**Updated 2016-06-18**
+
 ### {% linkable_title Requirements %}
 
 The DuckDNS part of this tutorial has no requirements but there are a few requirements as of now to run the Let's Encrypt client.
 
- - Direct connection to the internet or admin access to your router to set up port forwarding
- - A machine running a Unix-ish OS that include Python 2.6 or 2.7 (Docker can be used)
+ - Direct connection to the internet or admin access to your router to set up port forwarding.
+ - A machine running a Unix-ish OS that include Python 2.6 or 2.7 (Docker can be used).
+ - Root access, to write to default config, log and library directories and bind port 80.
 
 <img src='/images/supported_brands/duckdns.png' style='clear: right; border:none; box-shadow: none; float: right; margin-left: 8px; margin-bottom: 8px;' width='60' />
 
@@ -48,18 +51,17 @@ Let's Encrypt will give you a free 90-day certificate if you pass their domain v
 
 Assuming that your home is behind a router, the first thing to do is to set up port forwarding from your router to your computer that will run Let's Encrypt. For the Let's Encrypt set up we need to forward external port `80` to internal port `80` (http connections). This can be set up by accessing your router admin interface ([Site with port forwarding instructions per router][port-forward]). This port forward must be active whenever you want to request a new certificate from Let's Encrypt, typically every three months. If you normally don't use or have an app that listens to port `80`, it should be safe to leave the port open. This will make renewing certificates easier.
 
-Now you're ready to install and run Let's Encrypt. The following example will use the [certbot][certbot] client from Let's Encrypt. For a Raspberry Pi 2 on a fresh install of raspbian Jessie:
+Now you're ready to install and run the client that requests certificates from Let's Encrypt. The following example will use the platform independent script to install and run the [certbot][certbot] client from Let's Encrypt. If there is a certbot package for your OS, it's recommended to install the package instead of the platform independent script. Read the [docs][certbot] for more information. There are also other clients that might offer more customization and options. See the [client options page][letsencrypt-clients] at Let's Encrypt.
 
 ```bash
-$ echo 'deb http://ftp.debian.org/debian jessie-backports main' | sudo tee --append /etc/apt/sources.list.d/backports.list
-$ gpg --keyserver pgpkeys.mit.edu --recv-key 7638D0442B90D010
-$ gpg -a --export 7638D0442B90D010 | sudo apt-key add -
-$ gpg --keyserver pgpkeys.mit.edu --recv-key 8B48AD6246925553
-$ gpg -a --export 8B48AD6246925553 | sudo apt-key add -
-$ sudo apt-get update
-$ sudo apt-get install certbot -t jessie-backports
-$ sudo certbot certonly --standalone --standalone-supported-challenges http-01 \
-                        --email your@email.address -d hass-example.duckdns.org
+$ mkdir certbot
+$ cd certbot/
+$ wget https://dl.eff.org/certbot-auto
+$ chmod a+x certbot-auto
+$ ./certbot-auto certonly --standalone \
+                          --standalone-supported-challenges http-01 \
+                          --email your@email.address \
+                          -d hass-example.duckdns.org
 ```
 
 If you're using Docker, run the following command to generate the required keys:
@@ -74,10 +76,11 @@ sudo docker run -it --rm -p 80:80 --name certbot \
                 --email your@email.address -d hass-example.duckdns.org
 ```
 
-With either method your certificate will be generated and put in the directory `/etc/letsencrypt/live/hass-example.duckdns.org`. As the lifetime is only 90 days, you will have to repeat this every 90 days. For `certbot` there's a special command to simplify renewing certificates:
+With either method your certificate will be generated and put in the directory `/etc/letsencrypt/live/hass-example.duckdns.org`. As the lifetime is only 90 days, you will have to repeat this every 90 days. There's a special command to simplify renewing certificates:
 
-```
-sudo certbot renew --standalone --standalone-supported-challenges http-01 --quiet
+```bash
+./certbot-auto renew --quiet --no-self-upgrade --standalone \
+                     --standalone-supported-challenges http-01
 ```
 
 <img width="60" src="/images/favicon-192x192.png" style='float: right; border:none; box-shadow: none;'>
@@ -103,5 +106,6 @@ _Big thanks to Fabian Affolter for his help and feedback on this article._
 [duckdns-install]: https://www.duckdns.org/install.jsp
 [Let's Encrypt]: https://letsencrypt.org
 [letsencrypt-technology]: https://letsencrypt.org/how-it-works/
+[letsencrypt-clients]: https://letsencrypt.org/docs/client-options/
 [port-forward]: http://portforward.com
 [certbot]: https://certbot.eff.org/
