@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: eliq.png
 ha_category: Sensor
-ha_release: 0.10
+ha_release: "0.10"
 ---
 
 
