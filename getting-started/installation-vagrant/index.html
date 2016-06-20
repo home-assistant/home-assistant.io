@@ -95,11 +95,11 @@
 Vagrant is intended for testing/development only. It is NOT recommended for permanent installations.
 </p>
 
-<h2>Install Vagrant</h2>
+<h2><a class="title-link" name="install-vagrant" href="#install-vagrant"></a> Install Vagrant</h2>
 
 <p>You must have <a href="https://www.vagrantup.com/downloads.html">Vagrant</a> and <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a> installed on your workstation.</p>
 
-<h2>Get Home Assistant source code</h2>
+<h2><a class="title-link" name="get-home-assistant-source-code" href="#get-home-assistant-source-code"></a> Get Home Assistant source code</h2>
 
 <p>Download the home-assistant source code by either downloading the .zip file from <a href="https://github.com/home-assistant/home-assistant/releases">GitHub releases page</a>, or by using <a href="https://git-scm.com/">Git</a></p>
 
@@ -114,7 +114,7 @@ cd home-assistant/virtualization/vagrant
 The following instructions will assume you changed your working directory to be home-assistant/virtualization/vagrant. This is mandatory because Vagrant will look for informations about the running VM inside that folder and won’t work otherwise
 </p>
 
-<h2>Create the Vagrant VM and start Home Assistant</h2>
+<h2><a class="title-link" name="create-the-vagrant-vm-and-start-home-assistant" href="#create-the-vagrant-vm-and-start-home-assistant"></a> Create the Vagrant VM and start Home Assistant</h2>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>vagrant up
@@ -124,7 +124,7 @@ The following instructions will assume you changed your working directory to be 
 
 <p>This will download + start a virtual machine using Virtualbox, which will internally setup the development environment necessary to start Home Assistant process and run test suite as well. After the VM has started succesfully, Home Assistant frontend will be accessible locally from your browser at <a href="http://localhost:8123">http://localhost:8123</a></p>
 
-<h2>Stopping Vagrant</h2>
+<h2><a class="title-link" name="stopping-vagrant" href="#stopping-vagrant"></a> Stopping Vagrant</h2>
 
 <p>To shutdown the Vagrant host:</p>
 
@@ -136,7 +136,7 @@ The following instructions will assume you changed your working directory to be 
 
 <p>To start it again, just run <code>vagrant up</code></p>
 
-<h2>Restarting Home Assistant process to test changes</h2>
+<h2><a class="title-link" name="restarting-home-assistant-process-to-test-changes" href="#restarting-home-assistant-process-to-test-changes"></a> Restarting Home Assistant process to test changes</h2>
 
 <p>The root <code>home-assistant</code> directory on your workstation will be mirrored with <code>/home-assistant</code> inside the VM. In <code>virtualization/vagrant</code> there’s also a <code>config</code> folder that you can use to drop configuration files (<a href="https://home-assistant.io/getting-started/configuration/">here</a> you can find more information on how to configure HASS).</p>
 
@@ -148,7 +148,7 @@ The following instructions will assume you changed your working directory to be 
 </div>
 </div>
 
-<h2>Run test suite (Tox)</h2>
+<h2><a class="title-link" name="run-test-suite-tox" href="#run-test-suite-tox"></a> Run test suite (Tox)</h2>
 
 <p>To run tests against your changes:</p>
 
@@ -158,7 +158,7 @@ The following instructions will assume you changed your working directory to be 
 </div>
 </div>
 
-<h2>Cleanup</h2>
+<h2><a class="title-link" name="cleanup" href="#cleanup"></a> Cleanup</h2>
 
 <p>To completely remove the VM:</p>
 

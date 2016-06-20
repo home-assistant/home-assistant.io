@@ -103,7 +103,9 @@
 </pre></div>
 </div>
 </div>
-<p><em>Note this command is one line and not run as sudo</em></p>
+<p class="note warning">
+  Note this command is one-line and not run as sudo.
+</p>
 
 <p>Installation will take approx. 1-2 hours depending on the Raspberry Pi model the installer is being run against. The installer will identitfy what Raspberry PI hardware revision you are using and adjust commands accordingly. A complete log of the install is located at: <code>/home/pi/fabric-home-assistant/installation_report.txt</code> The installer has been updated to simply log any errors encountered, but resume installing. Please consult the “installation report” if your install encountered issues.</p>
 
@@ -111,8 +113,11 @@
 
 <p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at <a href="http://your_raspberry_pi_ip:8123">http://your_raspberry_pi_ip:8123</a>.</p>
 
-<p>The Home Assistant configuration is located at <code>/home/hass/.homeassistant</code>. The virtualenv with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>. As part of the secure installation, a new user is added to your Raspberry Pi to run Home Assistant as named, <strong>hass</strong>. This is a system account and does not have login or other abilities by design. When editing your configuration.yaml files, you will need to run the commands with “sudo” or by switching user.<br />
-<em>Windows users</em> - Setting up WinSCP to allow this seemlessly is detailed below.</p>
+<p>The Home Assistant configuration is located at <code>/home/hass/.homeassistant</code>. The <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> with the Home Assistant installation is located at <code>/srv/hass/hass_venv</code>. As part of the secure installation, a new user (<strong>hass</strong>) is added to your Raspberry Pi to run Home Assistant. This is a system account and does not have login or other abilities by design. When editing your <code>configuration.yaml</code> files, you will need to run the commands with <code>sudo</code> or by switching user.</p>
+
+<p class="note note">
+  <em>Windows users</em>: Setting up WinSCP to allow this seemlessly is at the end of this page.
+</p>
 
 <p>By default, installation makes use of a Python Virtualenv. If you wish to not follow this recommendation, you may add the flag <code>-n</code> to the end of the install command specified above.</p>
 
@@ -131,6 +136,8 @@
   <li>Add both Home Assistant and Mosquitto to systemd services to start at boot</li>
 </ul>
 
+<h3><a class="title-link" name="upgrading" href="#upgrading"></a> Upgrading</h3>
+
 <p>To upgrade the All-In-One setup manually:</p>
 
 <ul>
@@ -148,7 +155,9 @@
   <li>Run <code>fab upgrade_homeassistant</code></li>
 </ul>
 
-<p>To launch the OZWCP webapp:</p>
+<h3><a class="title-link" name="using-the-ozwcp-web-application" href="#using-the-ozwcp-web-application"></a> Using the OZWCP web application</h3>
+
+<p>To launch the OZWCP web application:</p>
 
 <ul>
   <li>Login to Raspberry Pi <code>ssh pi@your_raspberry_pi_ip</code></li>
@@ -158,9 +167,13 @@
   <li>Specify your zwave controller, for example <code>/dev/ttyACM0</code> and hit initialize</li>
 </ul>
 
-<p><em>don’t check the USB box regardless of using a USB based device</em></p>
+<p class="note warning">
+  Don’t check the USB box regardless of using a USB based device.
+</p>
 
-<p><em>Windows Users</em> - Please note that after running the installer, you will need to modify settings allowing you to “switch users” to edit your configuration files. The needed change within WinSCP is: Environment -&gt; SCP/Shell -&gt; Shell and set it to <code>sudo su -</code>.</p>
+<h3><a class="title-link" name="winscp" href="#winscp"></a> WinSCP</h3>
+
+<p>If you are Windows users who is using <a href="https://winscp.net/">WinSCP</a>, please note that after running the installer, you will need to modify settings allowing you to “switch users” to edit your configuration files. The needed change within WinSCP is: <strong>Environment</strong> -&gt; <strong>SCP/Shell</strong> -&gt; <strong>Shell</strong> and set it to <code>sudo su -</code>.</p>
 
 
 </article>
