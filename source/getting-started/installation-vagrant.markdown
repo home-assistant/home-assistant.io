@@ -15,11 +15,11 @@ A `Vagrantfile` is avalable into `virtualization/vagrant` folder for quickly spi
 Vagrant is intended for testing/development only. It is NOT recommended for permanent installations.
 </p>
 
-## Install Vagrant
+## {% linkable_title Install Vagrant %}
 
 You must have [Vagrant](https://www.vagrantup.com/downloads.html) and [Virtualbox](https://www.virtualbox.org/wiki/Downloads) installed on your workstation.
 
-## Get Home Assistant source code
+## {% linkable_title Get Home Assistant source code %}
 
 Download the home-assistant source code by either downloading the .zip file from [GitHub releases page](https://github.com/home-assistant/home-assistant/releases), or by using [Git](https://git-scm.com/)
 
@@ -32,7 +32,7 @@ cd home-assistant/virtualization/vagrant
 The following instructions will assume you changed your working directory to be home-assistant/virtualization/vagrant. This is mandatory because Vagrant will look for informations about the running VM inside that folder and won't work otherwise
 </p>
 
-## Create the Vagrant VM and start Home Assistant
+## {% linkable_title Create the Vagrant VM and start Home Assistant %}
 
 ```bash
 vagrant up
@@ -40,7 +40,7 @@ vagrant up
 
 This will download + start a virtual machine using Virtualbox, which will internally setup the development environment necessary to start Home Assistant process and run test suite as well. After the VM has started succesfully, Home Assistant frontend will be accessible locally from your browser at [http://localhost:8123](http://localhost:8123)
 
-## Stopping Vagrant
+## {% linkable_title Stopping Vagrant %}
 
 To shutdown the Vagrant host:
 
@@ -50,7 +50,7 @@ vagrant halt
 
 To start it again, just run `vagrant up`
 
-## Restarting Home Assistant process to test changes
+## {% linkable_title Restarting Home Assistant process to test changes %}
 
 The root `home-assistant` directory on your workstation will be mirrored with `/home-assistant` inside the VM. In `virtualization/vagrant` there's also a `config` folder that you can use to drop configuration files ([here](https://home-assistant.io/getting-started/configuration/) you can find more information on how to configure HASS).
 
@@ -60,7 +60,7 @@ Any changes made to the local directory on your workstation will be available fr
 touch restart ; vagrant provision
 ```
 
-## Run test suite (Tox)
+## {% linkable_title Run test suite (Tox) %}
 
 To run tests against your changes:
 
@@ -68,7 +68,7 @@ To run tests against your changes:
 touch run_tests ; vagrant provision
 ```
 
-## Cleanup
+## {% linkable_title Cleanup %}
 
 To completely remove the VM:
 
