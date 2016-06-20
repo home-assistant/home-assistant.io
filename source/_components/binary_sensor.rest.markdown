@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Binary Sensor
-ha_release: 0.10
+ha_release: "0.10"
 ---
 
 
