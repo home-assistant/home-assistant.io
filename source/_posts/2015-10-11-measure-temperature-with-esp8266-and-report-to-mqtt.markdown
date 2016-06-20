@@ -39,9 +39,12 @@ I've been using Adafruit for my shopping:
 
 _Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 
-<p class='note'>
-Adafruit has stopped selling the HDC1008. One possible replacement is the [BME280](https://www.adafruit.com/product/2652). Adjusted sketch to work with the BME280 can be found [here](https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419).
-</p>
+### {% linkable_title Alternatives %}
+
+Since this article has been published the HDC1008 has been discontinued. Updated sketches are available for the following alternatives:
+
+ - [DHT22 sensor](https://www.adafruit.com/product/385) and [updated sketch](https://gist.github.com/balloob/1176b6d87c2816bd07919ce6e29a19e9).
+ - [BME280 sensor](https://www.adafruit.com/product/2652) and [updated sketch](https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419).
 
 ### {% linkable_title Connections %}
 
@@ -111,7 +114,8 @@ void setup() {
   if (!hdc.begin()) {
     Serial.println("Couldn't find sensor!");
     while (1);
-  }}
+  }
+}
 
 void setup_wifi() {
   delay(10);
@@ -153,7 +157,8 @@ void reconnect() {
 }
 
 bool checkBound(float newValue, float prevValue, float maxDiff) {
-  return newValue < prevValue - maxDiff || newValue > prevValue + maxDiff;
+  return !isnan(newValue) &&
+         (newValue < prevValue - maxDiff || newValue > prevValue + maxDiff);
 }
 
 long lastMsg = 0;
