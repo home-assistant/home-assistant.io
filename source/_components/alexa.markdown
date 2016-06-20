@@ -240,7 +240,7 @@ Custom slot type for script support.
 Add a sample utterance:
 
 ```text
-RunScriptIntent run {Scene}
+RunScriptIntent run {Script}
 ```
 
 Then add the intent to your Alexa Section in your HA config file:
