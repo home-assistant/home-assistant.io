@@ -91,6 +91,20 @@
 
   <p>The <code>rest</code> binary sensor platform is consuming a given endpoint which is exposed by a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a> of a device, an application, or a web service. The binary sensor has support for GET and POST requests.</p>
 
+<p>The JSON messages can contain different values like <code>1</code>, <code>"1"</code>, <code>TRUE</code>, <code>true</code>, <code>on</code>, or <code>open</code>. If the value is nested then use a <a href="/topics/templating/">template</a>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Binary sensor</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">open</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">timestamp</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2016-06-20 15:42:52.926733</span><span class="delimiter">&quot;</span></span>
+    }
+}
+</pre></div>
+</div>
+</div>
+
 <p>To enable this sensor, add the following lines to your <code>configuration.yaml</code> file for a GET request:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
