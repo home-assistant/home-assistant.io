@@ -170,6 +170,18 @@
 </div>
 </div>
 
+<h3><a class="title-link" name="read-value-out-of-a-remote-text-file" href="#read-value-out-of-a-remote-text-file"></a> Read value out of a remote text file</h3>
+
+<p>If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor’s value.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>  - <span class="string"><span class="content">platform: command_line</span></span>
+    <span class="key">command</span>: <span class="string"><span class="content">python3 -c &quot;import requests; print(requests.get('http://remote-host/sensor_data.txt').text)&quot;</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">File value</span></span>
+</pre></div>
+</div>
+</div>
+
 <h3><a class="title-link" name="use-an-external-script" href="#use-an-external-script"></a> Use an external script</h3>
 
 <p>The example is doing the same as the <a href="/components/sensor.arest/">aREST sensor</a> but with an external Python script. It should give you an idea about interacting with devices which are exposing a RESTful API.</p>
