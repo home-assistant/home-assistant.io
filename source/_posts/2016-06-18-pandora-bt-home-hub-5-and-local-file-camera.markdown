@@ -43,6 +43,22 @@ Another cool addition is the local file camera. This seems very basic at first b
 - Sensor: [SNMP] is now supported ([@fabaff])
 - Sensor: Support for Swiss hydrological data ([@fabaff])
 
+### {% linkable_title Breaking change %}
+
+- The new Netatmo support caused us to change how Netatmo are configured. It's now done via it's own component.
+
+```yaml
+netatmo:
+    api_key: API_KEY
+    secret_key: SECRET_KEY
+    username: username
+    password: password
+```
+
+### {% linkable_title Hotfix 0.22.1 - June 20 %}
+
+- Insteon Hub lights will load again
+
 [@acockburn]: https://github.com/acockburn/
 [@arsaboo]: https://github.com/arsaboo/
 [@dansullivan86]: https://github.com/dansullivan86/
