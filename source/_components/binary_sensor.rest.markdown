@@ -14,6 +14,18 @@ ha_release: 0.10
 
 The `rest` binary sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The binary sensor has support for GET and POST requests.
 
+The JSON messages can contain different values like `1`, `"1"`, `TRUE`, `true`, `on`, or `open`. If the value is nested then use a [template](/topics/templating/).
+
+```json
+{
+    "name": "Binary sensor",
+    "state": {
+        "open": "true",
+        "timestamp": "2016-06-20 15:42:52.926733"
+    }
+}
+```
+
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
 ```yaml
