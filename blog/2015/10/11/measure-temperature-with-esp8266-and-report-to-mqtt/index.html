@@ -141,9 +141,14 @@ Home Assistant will keep track of historical values and allow you to integrate i
 
 <p><em>Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable.</em></p>
 
-<p class="note">
-Adafruit has stopped selling the HDC1008. One possible replacement is the <a href="https://www.adafruit.com/product/2652">BME280</a>. Adjusted sketch to work with the BME280 can be found <a href="https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419">here</a>.
-</p>
+<h3><a class="title-link" name="alternatives" href="#alternatives"></a> Alternatives</h3>
+
+<p>Since this article has been published the HDC1008 has been discontinued. Updated sketches are available for the following alternatives:</p>
+
+<ul>
+  <li><a href="https://www.adafruit.com/product/385">DHT22 sensor</a> and <a href="https://gist.github.com/balloob/1176b6d87c2816bd07919ce6e29a19e9">updated sketch</a>.</li>
+  <li><a href="https://www.adafruit.com/product/2652">BME280 sensor</a> and <a href="https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419">updated sketch</a>.</li>
+</ul>
 
 <h3><a class="title-link" name="connections" href="#connections"></a> Connections</h3>
 
@@ -315,6 +320,8 @@ Adafruit has stopped selling the HDC1008. One possible replacement is the <a hre
 <a href="#n107" name="n107">107</a>
 <a href="#n108" name="n108">108</a>
 <a href="#n109" name="n109">109</a>
+<strong><a href="#n110" name="n110">110</a></strong>
+<a href="#n111" name="n111">111</a>
 </pre></td>
   <td class="code"><pre><span class="preprocessor">#include</span> <span class="include">&lt;ESP8266WiFi.h&gt;</span>
 <span class="preprocessor">#include</span> <span class="include">&lt;Wire.h&gt;</span>
@@ -347,7 +354,8 @@ Adafruit_HDC1000 hdc = Adafruit_HDC1000();
   <span class="keyword">if</span> (!hdc.begin()) {
     Serial.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Couldn't find sensor!</span><span class="delimiter">&quot;</span></span>);
     <span class="keyword">while</span> (<span class="integer">1</span>);
-  }}
+  }
+}
 
 <span class="directive">void</span> setup_wifi() {
   delay(<span class="integer">10</span>);
@@ -389,7 +397,8 @@ Adafruit_HDC1000 hdc = Adafruit_HDC1000();
 }
 
 <span class="predefined-type">bool</span> checkBound(<span class="predefined-type">float</span> newValue, <span class="predefined-type">float</span> prevValue, <span class="predefined-type">float</span> maxDiff) {
-  <span class="keyword">return</span> newValue &lt; prevValue - maxDiff || newValue &gt; prevValue + maxDiff;
+  <span class="keyword">return</span> !isnan(newValue) &amp;&amp;
+         (newValue &lt; prevValue - maxDiff || newValue &gt; prevValue + maxDiff);
 }
 
 <span class="predefined-type">long</span> lastMsg = <span class="integer">0</span>;
