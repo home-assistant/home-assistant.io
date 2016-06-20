@@ -16,7 +16,7 @@ The default way to update Home Assistant to the latest release, when available, 
 $ pip3 install --upgrade homeassistant
 ```
 
-Different installation methods as [Raspberry Pi All-In-One Installer](/getting-started/installation-raspberry-pi-all-in-one/), [Vagrant](/getting-started/installation-vagrant/), or [Virtualenv](/getting-started/installation-virtualenv/#upgrading-home-assistant) may have a alternative way for updating Home Assistant. 
+Different installation methods as [Raspberry Pi All-In-One Installer](/getting-started/installation-raspberry-pi-all-in-one/#upgrading), [Vagrant](/getting-started/installation-vagrant/), or [Virtualenv](/getting-started/installation-virtualenv/#upgrading-home-assistant) may have a alternative way for updating Home Assistant. 
 
 After updating, restart Home Assistant for the changes to take effect. This means that you have to restart `hass` itself or the [autostarting](/getting-started/autostart/) daemon if you use any.
 
