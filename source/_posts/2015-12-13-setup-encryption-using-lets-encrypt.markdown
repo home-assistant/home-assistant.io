@@ -94,8 +94,8 @@ The final step is to point Home Assistant at the generated certificates. Before 
 ```yaml
 http:
   api_password: YOUR_SECRET_PASSWORD
-  ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
+  ssl_certificate: /etc/letsencrypt/live/hass-example.duckdns.org/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/hass-example.duckdns.org/privkey.pem
 ```
 
 You can now navigate to https://hass-example.duckdns.org and enjoy encryption!
