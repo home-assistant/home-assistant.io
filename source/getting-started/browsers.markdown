@@ -45,6 +45,7 @@ We would appriciate if you help to keep this page up-to-date and add feedback.
 | [Lynx]                | 2.12           | fails      | loads empty page         |
 | [elinks]              |                | fails      | page with manifest and import |
 | [w3m]                 | 0.5.3          | fails      | display the icon shown while loading HA |
+| [Epiphany]            | 3.18.5         | works      |                          |
 
 
 ## {% linkable_title Android %}
@@ -76,4 +77,4 @@ We would appriciate if you help to keep this page up-to-date and add feedback.
 [Lynx]: http://lynx.browser.org/
 [elinks]: http://elinks.or.cz/ 
 [w3m]: http://w3m.sourceforge.net/
-
+[Epiphany]: https://wiki.gnome.org/Apps/Web 
