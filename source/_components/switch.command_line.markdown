@@ -20,7 +20,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
+  platform: command_switch
   switches:
     kitchen_light:
       oncmd: switch_command on kitchen
@@ -49,7 +49,7 @@ The example below is doing the same as the [aREST switch](/components/switch.are
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
+  platform: command_switch
   switches:
     arest_pin4:
       oncmd: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
@@ -68,7 +68,7 @@ This switch will shutdown your host immediately, there will be no confirmation.
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
+  platform: command_switch
   switches:
     Home Assistant system shutdown:
       offcmd: "/usr/sbin/poweroff"
@@ -82,7 +82,7 @@ This switch will control a local VLC media player ([Source](https://community.ho
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
+  platform: command_switch
   switches:
     VLC:
       oncmd: "cvlc 1.mp3 vlc://quit &"
@@ -96,7 +96,7 @@ This switch will control the motion sensor of Foscam Webcams which Support CGI C
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: command_line
+  platform: command_switch
   switches:
     foscam_motion:
       oncmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
