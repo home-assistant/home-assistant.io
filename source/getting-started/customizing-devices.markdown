@@ -19,6 +19,8 @@ You can also use `icon` and refer to any icon from [MaterialDesignIcons.com](htt
 
 For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
 
+To change the order of the card in the view use can set the 'order' state to an numerical value for each group. 
+
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,6 +42,8 @@ homeassistant:
       icon: mdi:kettle
     switch.rfxtrx_switch:
       assumed_state: false
+    group.bedroom_lamp
+      order: 1
 ```
 
 ### [Next step: Setting up presence detection &raquo;](/getting-started/presence-detection/)
