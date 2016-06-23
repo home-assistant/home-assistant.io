@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using USB webcams with Home Assistant"
-description: "A How-to about the integration of USB webcams into Home Assistant."
+description: "A how-to how to repurpose your old USB webcams and integrate them into Home Assistant."
 date: 2016-06-23 06:00:00 +0000
 date_formatted: "June 23, 2016"
 author: Fabian Affolter
