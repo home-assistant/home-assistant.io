@@ -13,9 +13,10 @@ ha_category: Infrastructure
 This is an example about how you can configure Apache to act as a proxy for home assistant.
 
 This is useful if you want to have:
-* a subdomain redirecting to your home assistant instance
-* several subdomain for several instance
-* HTTPS redirection
+
+ * a subdomain redirecting to your home assistant instance
+ * several subdomain for several instance
+ * HTTPS redirection
 
 #### {% linkable_title Subdomain %}
 
@@ -41,6 +42,7 @@ and make sure that this file is read by apache's main configiuration file `/etc/
 Include conf/extra/hass.conf
 ...
 ```
+
 If you don't want HTTPS, you can change `<VirtualHost *:443>` to `<VirtualHost *:80>` or better consider redirecting all HTTP to HTTPS.
 
 
@@ -52,8 +54,8 @@ The configuration file for this home assistant is available in `/home/alice/.hom
 You want another instance available at https://countryside.example.org
 
 You can either :
-* Create a new user, `bob`, to hold the configuration file in `/home/bob/.homeassistant/configuration.yaml` and run home assistant as this new user
-* Create another configuration directory in `/home/alice/.homeassistan2/configuration.yaml` and run home assistant using `hass --config /home/alice/.homeassistant2/`
+ * Create a new user, `bob`, to hold the configuration file in `/home/bob/.homeassistant/configuration.yaml` and run home assistant as this new user
+ * Create another configuration directory in `/home/alice/.homeassistan2/configuration.yaml` and run home assistant using `hass --config /home/alice/.homeassistant2/`
 
 In both solution, change port number used by modifying `configuration.yaml`
 
