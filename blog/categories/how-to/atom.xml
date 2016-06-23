@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-23T12:16:01+00:00</updated>
+  <updated>2016-06-23T15:47:51+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -19,9 +19,9 @@
     <updated>2016-06-23T06:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant</id>
     <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
-In the past month I was thinking about way to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
+In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
 
-<p>In this blog post I using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
+<p>In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
 
 <!--more-->
 
@@ -92,7 +92,7 @@ $ sudo sed -i 's|snapshot_interval 0|snapshot_interval 30|g' /etc/motion/motion.
   The “Cranberry cam” in action
 </p>
 
-<p>The machine with the attached USB camera will become a webcam server as well because <code>motion</code>’s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run <code>motion</code> there, adjust your firewall rules, and use Home Assistant to display the videos. Just check <a href="http://[IP of your webcam host]:8081/">http://[IP of your webcam host]:8081/</a> to see the stream. This required more powerful hardware than using snapshots, of course.</p>
+<p>The machine with the attached USB camera will become a webcam server as well because <code>motion</code>’s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run <code>motion</code> there, adjust your firewall rules, and use Home Assistant to display the videos. Just check http://[IP of your webcam host]:8081/ to see the stream. This required more powerful hardware than using snapshots, of course.</p>
 
 <p>In a scenario like this needs a <a href="https://home-assistant.io/components/camera.mjpeg/">Generic MJPEG IP Camera </a> in your <code>configuration.yaml</code> file.</p>
 
