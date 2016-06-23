@@ -41,15 +41,49 @@ We need an additional software part to handle the cameras. [motion](http://lavrs
 $ sudo dnf -y install motion
 ```
 
-For your setup we need to modify the file `/etc/motion/motion.conf`. For now the most important parameters are `videodevice`, `snapshot_interval`, and `target_dir`. We are going to use the device `/dev/video1`, use a 30 seconds interval, and set the path to `/tmp`. Edit `/etc/motion/motion.conf` or use `sed`.
+For our setup we need to modify the file `/etc/motion/motion.conf`. For now the most important parameters are `videodevice`, `snapshot_interval`, and `target_dir`. The other settings can be left to their defaults. We are going to use the device `/dev/video1`, use a 30 seconds interval, and set the path to `/tmp`.
 
 ```bash
-$ sudo sed -i 's|videodevice /dev/video0|videodevice /dev/video1|g' /etc/motion/motion.conf
-$ sudo sed -i 's|target_dir /var/motion|target_dir /tmp|g' /etc/motion/motion.conf
-$ sudo sed -i 's|snapshot_interval 0|snapshot_interval 30|g' /etc/motion/motion.conf
+[...]
+###########################################################
+# Capture device options
+############################################################
+
+# Videodevice to be used for capturing  (default /dev/video0)
+# for FreeBSD default is /dev/bktr0
+videodevice /dev/video1
+
+[..]
+############################################################
+# Snapshots (Traditional Periodic Webcam File Output)
+############################################################
+
+# Make automated snapshot every N seconds (default: 0 = disabled)
+snapshot_interval 30
+
+[...]
+############################################################
+# Target Directories and filenames For Images And Films
+# For the options snapshot_, picture_, movie_ and timelapse_filename
+# you can use conversion specifiers
+# %Y = year, %m = month, %d = date,
+# %H = hour, %M = minute, %S = second,
+# %v = event, %q = frame number, %t = thread (camera) number,
+# %D = changed pixels, %N = noise level,
+# %i and %J = width and height of motion area,
+# %K and %L = X and Y coordinates of motion center
+# %C = value defined by text_event
+# Quotation marks round string are allowed.
+############################################################
+
+# Target base directory for pictures and films
+# Recommended to use absolute path. (Default: current working directory)
+target_dir /tmp
+
+[...]
 ```
 
-It's suggested that you adjust at least `width` and `height` to get a bigger image from your camera. Now fire up `motion`.
+It's suggested that you adjust at least `width` and `height` to get a bigger image from your camera. If you are done, fire up `motion`.
 
 ```bash
 $ sudo motion
