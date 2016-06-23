@@ -8,13 +8,13 @@ author: Fabian Affolter
 author_twitter: fabaff
 comments: true
 categories: How-To
-og_image: /images/blog/2016-06-cranberry/motion.png
+og_image: /images/blog/2016-06-cranberry/social.png
 ---
 
 <img src='/images/blog/2016-06-cranberry/motion.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
-In the past month I was thinking about way to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like [pygame](http://www.pygame.org/hifi.html) or [SimpleCV](http://www.simplecv.org/) but I never finished something. With the [Local File camera platform](https://home-assistant.io/components/camera.local_file/) by [Landrash](https://github.com/Landrash) and [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) you could integrate a local USB webcam with a few very easy steps.
+In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like [pygame](http://www.pygame.org/hifi.html) or [SimpleCV](http://www.simplecv.org/) but I never finished something. With the [Local File camera platform](https://home-assistant.io/components/camera.local_file/) by [Landrash](https://github.com/Landrash) and [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) you could integrate a local USB webcam with a few very easy steps.
 
-In this blog post I using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old [Logitech QuickCam Orbit AF](http://support.logitech.com/en_us/product/quickcam-sphere-af) and a [Logitech HD Webcam C270](http://support.logitech.com/en_us/product/hd-webcam-c270). As a start only the Quickcam is used. No multi-camera setup for now.
+In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old [Logitech QuickCam Orbit AF](http://support.logitech.com/en_us/product/quickcam-sphere-af) and a [Logitech HD Webcam C270](http://support.logitech.com/en_us/product/hd-webcam-c270). As a start only the Quickcam is used. No multi-camera setup for now.
 
 <!--more-->
 
@@ -73,7 +73,7 @@ camera:
   The "Cranberry cam" in action
 </p>
 
-The machine with the attached USB camera will become a webcam server as well because `motion`'s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run `motion` there, adjust your firewall rules, and use Home Assistant to display the videos. Just check [http://[IP of your webcam host]:8081/](http://[IP of your webcam host]:8081/) to see the stream. This required more powerful hardware than using snapshots, of course.
+The machine with the attached USB camera will become a webcam server as well because `motion`'s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run `motion` there, adjust your firewall rules, and use Home Assistant to display the videos. Just check http://[IP of your webcam host]:8081/ to see the stream. This required more powerful hardware than using snapshots, of course.
 
 In a scenario like this needs a [Generic MJPEG IP Camera ](https://home-assistant.io/components/camera.mjpeg/) in your `configuration.yaml` file.
 
