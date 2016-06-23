@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-23T15:59:16+00:00</updated>
+  <updated>2016-06-23T16:06:15+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -54,17 +54,51 @@ crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
 </div>
 </div>
 
-<p>For your setup we need to modify the file <code>/etc/motion/motion.conf</code>. For now the most important parameters are <code>videodevice</code>, <code>snapshot_interval</code>, and <code>target_dir</code>. We are going to use the device <code>/dev/video1</code>, use a 30 seconds interval, and set the path to <code>/tmp</code>. Edit <code>/etc/motion/motion.conf</code> or use <code>sed</code>.</p>
+<p>For our setup we need to modify the file <code>/etc/motion/motion.conf</code>. For now the most important parameters are <code>videodevice</code>, <code>snapshot_interval</code>, and <code>target_dir</code>. The other settings can be left to their defaults. We are going to use the device <code>/dev/video1</code>, use a 30 seconds interval, and set the path to <code>/tmp</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo sed -i 's|videodevice /dev/video0|videodevice /dev/video1|g' /etc/motion/motion.conf
-$ sudo sed -i 's|target_dir /var/motion|target_dir /tmp|g' /etc/motion/motion.conf
-$ sudo sed -i 's|snapshot_interval 0|snapshot_interval 30|g' /etc/motion/motion.conf
+  <div class="code"><pre>[...]
+###########################################################
+# Capture device options
+############################################################
+
+# Videodevice to be used for capturing  (default /dev/video0)
+# for FreeBSD default is /dev/bktr0
+videodevice /dev/video1
+
+[..]
+############################################################
+# Snapshots (Traditional Periodic Webcam File Output)
+############################################################
+
+# Make automated snapshot every N seconds (default: 0 = disabled)
+snapshot_interval 30
+
+[...]
+############################################################
+# Target Directories and filenames For Images And Films
+# For the options snapshot_, picture_, movie_ and timelapse_filename
+# you can use conversion specifiers
+# %Y = year, %m = month, %d = date,
+# %H = hour, %M = minute, %S = second,
+# %v = event, %q = frame number, %t = thread (camera) number,
+# %D = changed pixels, %N = noise level,
+# %i and %J = width and height of motion area,
+# %K and %L = X and Y coordinates of motion center
+# %C = value defined by text_event
+# Quotation marks round string are allowed.
+############################################################
+
+# Target base directory for pictures and films
+# Recommended to use absolute path. (Default: current working directory)
+target_dir /tmp
+
+[...]
 </pre></div>
 </div>
 </div>
 
-<p>It’s suggested that you adjust at least <code>width</code> and <code>height</code> to get a bigger image from your camera. Now fire up <code>motion</code>.</p>
+<p>It’s suggested that you adjust at least <code>width</code> and <code>height</code> to get a bigger image from your camera. If you are done, fire up <code>motion</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ sudo motion
