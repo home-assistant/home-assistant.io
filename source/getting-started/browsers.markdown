@@ -13,14 +13,14 @@ Home Assistant requires a web browser to show the frontend. Not all browsers inc
 
 We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works.
 
-We would appriciate if you help to keep this page up-to-date and add feedback.
+We would appreciate if you help to keep this page up-to-date and add feedback.
 
 ## {% linkable_title Microsoft Windows %}
 
 | Browser                   | Release        | State      | Comments                 |
 | :------------------------ |:---------------|:-----------|:-------------------------|
-| Internet Explorer ([IE])  | 11             | partically | Streaming updates not working. Display issues |
-| Microsoft [Edge]          | deli. Win 10   | partically | Streaming updates not working. |
+| Internet Explorer ([IE])  | 11             | partially | Streaming updates not working. Display issues |
+| Microsoft [Edge]          | deli. Win 10   | partially | Streaming updates not working. |
 | [Chrome]                  | 50.0.2661.102  | works      |                          |
 | [Firefox]                 | 43.0.1         | works      |                          |
 | [Iridium]                 | 48.2           | works      |                          |
