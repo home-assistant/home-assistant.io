@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-22T08:00:15+00:00</updated>
+  <updated>2016-06-23T09:16:08+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,103 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using USB webcams with Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/"/>
+    <updated>2016-06-23T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant</id>
+    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+In the past month I was thinking about way to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
+
+<p>In this blog post I using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
+
+<!--more-->
+
+<p>Check first if the your operating system lists your cameras.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ lsusb
+[...]
+Bus 002 Device 016: ID 046d:08cc Logitech, Inc. Mic (PTZ)
+[...]
+</pre></div>
+</div>
+</div>
+
+<p>The camera we are going to use is available at <code>/dev/video1</code>. The C270 is the one on <code>/dev/video0</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ ls -al /dev/video*
+crw-rw----+ 1 root video 81, 0 Jun 23 08:05 /dev/video0
+crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
+</pre></div>
+</div>
+</div>
+
+<p>We need an additional software part to handle the cameras. <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo dnf -y install motion
+</pre></div>
+</div>
+</div>
+
+<p>For your setup we need to modify the file <code>/etc/motion/motion.conf</code>. For now the most important parameters are <code>videodevice</code>, <code>snapshot_interval</code>, and <code>target_dir</code>. We are going to use the device <code>/dev/video1</code>, use a 30 seconds interval, and set the path to <code>/tmp</code>. Edit <code>/etc/motion/motion.conf</code> or use <code>sed</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo sed -i 's|videodevice /dev/video0|videodevice /dev/video1|g' /etc/motion/motion.conf
+$ sudo sed -i 's|target_dir /var/motion|target_dir /tmp|g' /etc/motion/motion.conf
+$ sudo sed -i 's|snapshot_interval 0|snapshot_interval 30|g' /etc/motion/motion.conf
+</pre></div>
+</div>
+</div>
+
+<p>It’s suggested that you adjust at least <code>width</code> and <code>height</code> to get a bigger image from your camera. Now fire up <code>motion</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo motion
+[0] [NTC] [ALL] conf_load: Processing thread 0 - config file /etc/motion/motion.conf
+[0] [ALR] [ALL] conf_cmdparse: Unknown config option &quot;sdl_threadnr&quot;
+[0] [NTC] [ALL] motion_startup: Motion 3.3.0 Started
+[0] [NTC] [ALL] motion_startup: Logging to file (/var/log/motion.log)
+</pre></div>
+</div>
+</div>
+
+<p>Your <code>target_dir</code> will start filling up with images from your camera. <code>motion</code> will create a symlink called <code>lastsnap.jpg</code> which always point to the latest snapshot. We will setup the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> to use this file.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">camera</span>:
+  - <span class="string"><span class="content">platform: local_file</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Cranberry cam</span></span>
+    <span class="key">file_path</span>: <span class="string"><span class="content">/tmp/lastsnap.jpg</span></span>
+</pre></div>
+</div>
+</div>
+
+<p class="img">
+  <img src="https://home-assistant.io/images/blog/2016-06-cranberry/cam.png" />
+  The “Cranberry cam” in action
+</p>
+
+<p>The machine with the attached USB camera will become a webcam server as well because <code>motion</code>’s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run <code>motion</code> there, adjust your firewall rules, and use Home Assistant to display the videos. Just check <a href="http://[IP of your webcam host]:8081/">http://[IP of your webcam host]:8081/</a> to see the stream. This required more powerful hardware than using snapshots, of course.</p>
+
+<p>In a scenario like this needs a <a href="https://home-assistant.io/components/camera.mjpeg/">Generic MJPEG IP Camera </a> in your <code>configuration.yaml</code> file.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">camera</span>:
+  - <span class="string"><span class="content">platform: mjpeg</span></span>
+    <span class="key">mjpeg_url</span>: <span class="string"><span class="content">http://[IP of your webcam host]:8081</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Cranberry Live cam</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is a powerful tool and this blog post only showed two very simple use cases. Take a look at the <a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide">documentation</a> of <code>motion</code> to unleash its potential.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Static website]]></title>
@@ -533,75 +630,6 @@ sudo docker run -it --rm -p 80:80 --name certbot \
 
 <p><em>Big thanks to Fabian Affolter for his help and feedback on this article.</em></p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Activating Tasker tasks from Home Assistant using command line switches]]></title>
-    <link href="https://home-assistant.io/blog/2015/12/10/activating-tasker-tasks-from-home-assistant-using-command-line-switches/"/>
-    <updated>2015-12-10T10:39:41+00:00</updated>
-    <id>https://home-assistant.io/blog/2015/12/10/activating-tasker-tasks-from-home-assistant-using-command-line-switches</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2015-12-tasker/tasker-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
-In this tutorial I will explain how you can activate Tasker tasks from Home Assistant command line switches. We are going to set up a switch that when toggled will make your Android device say either “On” or “Off”.</p>
-
-<p>You could also do this with the automation component instead so whenever you put your house to sleep mode for example your Android device will open up Google Play Books or the Kindle app ready for you to read as well as dimming your lights, but this tutorial is all about the switches.</p>
-
-<!--more-->
-
-<h3>AutoRemote URL</h3>
-
-<p>First things first you should install <a href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm">Tasker</a> and <a href="https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote">AutoRemote</a> onto your Android device and launch AutoRemote. You should see a URL above the QR code, visit it in your browser and it should bring up a page a bit like this.</p>
-
-<p class="img">
-<img src="https://home-assistant.io/images/blog/2015-12-tasker/screenshot-1.png" />
-</p>
-
-<p>Now type in <code>SayOn</code> in the <code>Message</code> box and you should see a box appear on the right with a URL in it, this is what we will be using in the Python script later on so save that for later. Do the same thing again but this time replace <code>SayOn</code> with <code>SayOff</code>. Now just click the <code>Send message now!</code> button to test that your commands will get sent to your Android device, if they do you will see a toast message at the bottom of your screen like this one.</p>
-
-<p class="img">
-<img src="https://home-assistant.io/images/blog/2015-12-tasker/screenshot-2.png" height="450" />
-</p>
-
-<h3>Tasker Setup</h3>
-
-<p>Open up Tasker and make sure you’re in the <code>PROFILES</code> tab, then select the plus icon to create a new profile. Select <code>Event</code> -&gt; <code>Plugin</code> -&gt; <code>AutoRemote</code> -&gt; <code>AutoRemote</code> and then the pencil icon to configure the AutoRemote event. Select <code>Message Filter</code> and enter in <code>SayOn</code> then go back until it asks you for a task. Select <code>New task</code> then just leave the next field blank and select the tick icon. <br />
-This is where we’ll configure our task, so select the plus icon to select an action. Select <code>Alert</code> -&gt; <code>Say</code> to add a Say action. Enter <code>On</code> in the text field and go back to test your task, make sure your media volume is up then select the play icon, you should hear your device say “On”.</p>
-
-<p class="img">
-<img src="https://home-assistant.io/images/blog/2015-12-tasker/screenshot-3.png" height="450" />
-</p>
-
-<p>Now you can go back to the main Tasker screen and create another profile but this time replace <code>SayOn</code> with <code>SayOff</code> and <code>On</code> with <code>Off</code>. After you’ve done that go to the main screen again and select the menu button at the top then <code>Exit</code> and <code>Save first</code> to make sure everything is saved properly.</p>
-
-<h3>Python Script</h3>
-
-<p>Now it’s time to set it up the script, so create a new Python script and name it <code>On.py</code> then enter this code:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">requests</span>
-requests.get(<span class="string"><span class="delimiter">'</span><span class="content">[URL]</span><span class="delimiter">'</span></span>)
-</pre></div>
-</div>
-</div>
-
-<p>Enter in your “On” URL then save it. Create another script but this time call it <code>Off.py</code> and enter your “off” URL instead.</p>
-
-<h3>Home Assistant Configuration</h3>
-
-<p>Add a command line switch to your Home Assistant configuration:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_switch</span></span>
-  <span class="key">switches</span>:
-    <span class="key">tasker_say</span>:
-      <span class="key">oncmd</span>: <span class="string"><span class="content">python &quot;[LocationOfOnScript]&quot;</span></span>
-      <span class="key">offcmd</span>: <span class="string"><span class="content">python &quot;[LocationOfOffScript]&quot;</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>Now load up Home Assistant and whenever you toggle the switch you created your Android device will respond with either “On” or “Off”. :-)</p>
 ]]></content>
   </entry>
   

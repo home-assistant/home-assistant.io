@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-06-22T08:00:15+00:00</updated>
+  <updated>2016-06-23T09:16:08+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,103 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using USB webcams with Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/"/>
+    <updated>2016-06-23T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant</id>
+    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+In the past month I was thinking about way to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
+
+<p>In this blog post I using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
+
+<!--more-->
+
+<p>Check first if the your operating system lists your cameras.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ lsusb
+[...]
+Bus 002 Device 016: ID 046d:08cc Logitech, Inc. Mic (PTZ)
+[...]
+</pre></div>
+</div>
+</div>
+
+<p>The camera we are going to use is available at <code>/dev/video1</code>. The C270 is the one on <code>/dev/video0</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ ls -al /dev/video*
+crw-rw----+ 1 root video 81, 0 Jun 23 08:05 /dev/video0
+crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
+</pre></div>
+</div>
+</div>
+
+<p>We need an additional software part to handle the cameras. <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo dnf -y install motion
+</pre></div>
+</div>
+</div>
+
+<p>For your setup we need to modify the file <code>/etc/motion/motion.conf</code>. For now the most important parameters are <code>videodevice</code>, <code>snapshot_interval</code>, and <code>target_dir</code>. We are going to use the device <code>/dev/video1</code>, use a 30 seconds interval, and set the path to <code>/tmp</code>. Edit <code>/etc/motion/motion.conf</code> or use <code>sed</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo sed -i 's|videodevice /dev/video0|videodevice /dev/video1|g' /etc/motion/motion.conf
+$ sudo sed -i 's|target_dir /var/motion|target_dir /tmp|g' /etc/motion/motion.conf
+$ sudo sed -i 's|snapshot_interval 0|snapshot_interval 30|g' /etc/motion/motion.conf
+</pre></div>
+</div>
+</div>
+
+<p>It’s suggested that you adjust at least <code>width</code> and <code>height</code> to get a bigger image from your camera. Now fire up <code>motion</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo motion
+[0] [NTC] [ALL] conf_load: Processing thread 0 - config file /etc/motion/motion.conf
+[0] [ALR] [ALL] conf_cmdparse: Unknown config option &quot;sdl_threadnr&quot;
+[0] [NTC] [ALL] motion_startup: Motion 3.3.0 Started
+[0] [NTC] [ALL] motion_startup: Logging to file (/var/log/motion.log)
+</pre></div>
+</div>
+</div>
+
+<p>Your <code>target_dir</code> will start filling up with images from your camera. <code>motion</code> will create a symlink called <code>lastsnap.jpg</code> which always point to the latest snapshot. We will setup the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> to use this file.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">camera</span>:
+  - <span class="string"><span class="content">platform: local_file</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Cranberry cam</span></span>
+    <span class="key">file_path</span>: <span class="string"><span class="content">/tmp/lastsnap.jpg</span></span>
+</pre></div>
+</div>
+</div>
+
+<p class="img">
+  <img src="https://home-assistant.io/images/blog/2016-06-cranberry/cam.png" />
+  The “Cranberry cam” in action
+</p>
+
+<p>The machine with the attached USB camera will become a webcam server as well because <code>motion</code>’s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run <code>motion</code> there, adjust your firewall rules, and use Home Assistant to display the videos. Just check <a href="http://[IP of your webcam host]:8081/">http://[IP of your webcam host]:8081/</a> to see the stream. This required more powerful hardware than using snapshots, of course.</p>
+
+<p>In a scenario like this needs a <a href="https://home-assistant.io/components/camera.mjpeg/">Generic MJPEG IP Camera </a> in your <code>configuration.yaml</code> file.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">camera</span>:
+  - <span class="string"><span class="content">platform: mjpeg</span></span>
+    <span class="key">mjpeg_url</span>: <span class="string"><span class="content">http://[IP of your webcam host]:8081</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Cranberry Live cam</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is a powerful tool and this blog post only showed two very simple use cases. Take a look at the <a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide">documentation</a> of <code>motion</code> to unleash its potential.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.22: Pandora, BT Home Hub 5 and local file camera.]]></title>
@@ -1002,63 +1099,6 @@ For example, my wife works next door - and I couldn’t detect whether she’s a
 </pre></div>
 </div>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.]]></title>
-    <link href="https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls/"/>
-    <updated>2016-03-12T18:55:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls</id>
-    <content type="html"><![CDATA[<p>Two weeks has past so here is 0.15! We have been focussing a lot on quality. Making sure the system is more stable and reliable. I usually try to highlight one cool thing in the release notes but this release has 4 exciting announcements!</p>
-
-<ul>
-  <li><a href="https://github.com/fabaff">@fabaff</a> has upgraded the codebase to follow the PEP257 documentation standard.</li>
-  <li><a href="https://github.com/PartOfTheThing">@partofthething</a> has migrated us to use the main Python Open Z-Wave library instead of our forked version.</li>
-  <li>To make our automations more powerful, <a href="https://github.com/persandstrom">@persandstrom</a> added the option to use templates to dynamically create service calls. This works for automation, Alexa, universal media player, template switch. <a href="https://home-assistant.io/topics/service_calls/#use-templates-to-decide-which-service-to-call/">Learn more.</a></li>
-  <li><a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> has upgraded our scene support to now support all built-in services and components.</li>
-</ul>
-
-<p>Besides bug fixes, this release also brings:</p>
-
-<p><img src="https://home-assistant.io/images/supported_brands/hunter-douglas-powerview.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Scene: Converted to a platform based component (<a href="https://github.com/sander76">@sander76</a>)</li>
-  <li>Scene: <a href="https://home-assistant.io/components/scene.hunterdouglas_powerview/">Hunter Douglas Powerview</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
-  <li>Lock: <a href="https://home-assistant.io/components/lock.mqtt/">MQTT</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Device Tracker: <a href="https://home-assistant.io/components/device_tracker.owntracks/">OwnTracks</a> will allow filtering inaccurate GPS locations (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
-  <li>Binary Sensor: Wemo Motion now supported (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/ryanlaux">@ryanlaux</a>)</li>
-</ul>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example using templates for service and data in service call.</span>
-<span class="comment"># Works for automation, Alexa, universal media player, template switch.</span>
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">trigger:</span><span class="content">
-      - platform: state
-        entity_id: switch.bathroom</span></span>
-    <span class="key">action</span>:
-      <span class="key">service_template</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-        {% if is_state('switch.bathroom', 'on') %}
-          switch.turn_on
-        {% else %}
-          switch.turn_off
-        {% endif %}</span></span>
-      <span class="key">data_template</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.{{ states('input_select.is') }}</span></span>
-</pre></div>
-</div>
-</div>
-
-<h3>Breaking Changes</h3>
-
-<ul>
-  <li>Media Player: Attributes to call service play_media has been renamed to<br />
-<code>media_content_type</code> and <code>media_content_id</code>, to match the corresponding media<br />
-player state attributes. This change affects automations, scripts and scenes.</li>
-</ul>
-
 ]]></content>
   </entry>
   

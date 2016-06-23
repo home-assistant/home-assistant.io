@@ -7,27 +7,27 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Remote Monitoring with Glances - Home Assistant</title>
+    <title>Using USB webcams with Home Assistant - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="This post describes the setup for monitoring remote hosts with Home Assistant.">
+    <meta name="description" content="A How-to about the integration of USB webcams into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2015/09/18/monitoring-with-glances-and-home-assistant/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Remote Monitoring with Glances">
+    <meta property="og:title" content="Using USB webcams with Home Assistant">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2015/09/18/monitoring-with-glances-and-home-assistant/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="This post describes the setup for monitoring remote hosts with Home Assistant.">
-    <meta property="og:image" content="https://home-assistant.io/images/supported_brands/glances.png">
+    <meta property="og:description" content="A How-to about the integration of USB webcams into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2016-06-cranberry/motion.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
-    <meta name="twitter:title" content="Remote Monitoring with Glances">
-    <meta name="twitter:description" content="This post describes the setup for monitoring remote hosts with Home Assistant.">
-    <meta name="twitter:image" content="https://home-assistant.io/images/supported_brands/glances.png">
+    <meta name="twitter:creator" content="@fabaff">
+    <meta name="twitter:title" content="Using USB webcams with Home Assistant">
+    <meta name="twitter:description" content="A How-to about the integration of USB webcams into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-06-cranberry/motion.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -80,14 +80,14 @@
   
   <header>
   
-  <h1 class="title indent">Remote Monitoring with Glances</h1>
+  <h1 class="title indent">Using USB webcams with Home Assistant</h1>
   
 
   
   <div class="meta clearfix">
-    <time datetime="2015-09-18T09:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 18, 2015</time>
+    <time datetime="2016-06-23T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 23, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -108,82 +108,94 @@
 </header>
 
 
-  <p><img src="/images/supported_brands/glances.png" style="border:none; box-shadow: none; float: right;" height="80" /><br />
-Inspried by a <a href="https://github.com/home-assistant/home-assistant/issues/310">feature requests</a> I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the <a href="/components/sensor.systemmonitor/">systemmonitor</a> sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present.</p>
+  <p><img src="/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+In the past month I was thinking about way to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
+
+<p>In this blog post I using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
 
 <a name="read-more"></a>
 
-<p>The basic problem is to get the data from the remote host. Starting with <a href="https://pypi.python.org/pypi/psutil">psutil</a> that is used by the systemmonitor sensor, a possible solution is only a click away and named <a href="https://github.com/nicolargo/glances">Glances</a>. Glances has a nice curses-based interface and a <a href="https://github.com/nicolargo/glances/wiki/The-Glances-RESTFULL-JSON-API">RESTful API</a>.</p>
-
-<p>The <a href="/components/sensor.glances/">Glances sensor</a> sensor uses that API to get all needed data.</p>
-
-<p>In this post a default Fedora 22 Workstation installation is used on the host that should be monitored. In fact, it doesn’t matter if the system is the local one or a remote one as long as Glances is available. With some adjustments it should work on your own systems too. The difference will be the package and the firewall management tools.</p>
-
-<p>First some extra packages are needed beside Glances, especially the <a href="http://bottlepy.org/docs/dev/index.html">bottle</a> webserver. I guess that Glances is available for your distribution as well. Otherwise follow those <a href="https://github.com/nicolargo/glances#installation">instructions</a>.</p>
+<p>Check first if the your operating system lists your cameras.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo dnf -y install glances python-bottle
+  <div class="code"><pre>$ lsusb
+[...]
+Bus 002 Device 016: ID 046d:08cc Logitech, Inc. Mic (PTZ)
+[...]
 </pre></div>
 </div>
 </div>
 
-<p>On Fedora the Firewall settings are strict. Let’s open port 61208 to allow other hosts to connect to that port. This is not needed if you just want to observe your local machine.</p>
+<p>The camera we are going to use is available at <code>/dev/video1</code>. The C270 is the one on <code>/dev/video0</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo firewall-cmd --permanent --add-port=61208/tcp
-$ sudo firewall-cmd --reload
+  <div class="code"><pre>$ ls -al /dev/video*
+crw-rw----+ 1 root video 81, 0 Jun 23 08:05 /dev/video0
+crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
 </pre></div>
 </div>
 </div>
 
-<p>Launch <code>glances</code> and keep an eye on the output.</p>
+<p>We need an additional software part to handle the cameras. <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ glances -w
-Glances web server started on http://0.0.0.0:61208/
+  <div class="code"><pre>$ sudo dnf -y install motion
 </pre></div>
 </div>
 </div>
 
-<p>Now browse to http://IP_ADRRESS:61208/. You should see the webified view of Glances.</p>
+<p>For your setup we need to modify the file <code>/etc/motion/motion.conf</code>. For now the most important parameters are <code>videodevice</code>, <code>snapshot_interval</code>, and <code>target_dir</code>. We are going to use the device <code>/dev/video1</code>, use a 30 seconds interval, and set the path to <code>/tmp</code>. Edit <code>/etc/motion/motion.conf</code> or use <code>sed</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo sed -i 's|videodevice /dev/video0|videodevice /dev/video1|g' /etc/motion/motion.conf
+$ sudo sed -i 's|target_dir /var/motion|target_dir /tmp|g' /etc/motion/motion.conf
+$ sudo sed -i 's|snapshot_interval 0|snapshot_interval 30|g' /etc/motion/motion.conf
+</pre></div>
+</div>
+</div>
+
+<p>It’s suggested that you adjust at least <code>width</code> and <code>height</code> to get a bigger image from your camera. Now fire up <code>motion</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo motion
+[0] [NTC] [ALL] conf_load: Processing thread 0 - config file /etc/motion/motion.conf
+[0] [ALR] [ALL] conf_cmdparse: Unknown config option &quot;sdl_threadnr&quot;
+[0] [NTC] [ALL] motion_startup: Motion 3.3.0 Started
+[0] [NTC] [ALL] motion_startup: Logging to file (/var/log/motion.log)
+</pre></div>
+</div>
+</div>
+
+<p>Your <code>target_dir</code> will start filling up with images from your camera. <code>motion</code> will create a symlink called <code>lastsnap.jpg</code> which always point to the latest snapshot. We will setup the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> to use this file.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">camera</span>:
+  - <span class="string"><span class="content">platform: local_file</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Cranberry cam</span></span>
+    <span class="key">file_path</span>: <span class="string"><span class="content">/tmp/lastsnap.jpg</span></span>
+</pre></div>
+</div>
+</div>
 
 <p class="img">
-  <img src="/images/blog/2015-09-glances/web-glances.png" />
-  Glances web interface
+  <img src="/images/blog/2016-06-cranberry/cam.png" />
+  The “Cranberry cam” in action
 </p>
 
-<p>Another check is to access the API located at http://IP_ADRRESS:61208/api/2/mem/used and to confirm that a detail about your memory usage is provided as a JSON response. If so, you are good to proceed.</p>
+<p>The machine with the attached USB camera will become a webcam server as well because <code>motion</code>’s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run <code>motion</code> there, adjust your firewall rules, and use Home Assistant to display the videos. Just check <a href="http://[IP of your webcam host]:8081/">http://[IP of your webcam host]:8081/</a> to see the stream. This required more powerful hardware than using snapshots, of course.</p>
+
+<p>In a scenario like this needs a <a href="https://home-assistant.io/components/camera.mjpeg/">Generic MJPEG IP Camera </a> in your <code>configuration.yaml</code> file.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET http://IP_ADDRESS:61208/api/2/mem/used
-{&quot;used&quot;: 203943936}
+  <div class="code"><pre><span class="key">camera</span>:
+  - <span class="string"><span class="content">platform: mjpeg</span></span>
+    <span class="key">mjpeg_url</span>: <span class="string"><span class="content">http://[IP of your webcam host]:8081</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">Cranberry Live cam</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>Add the <a href="/components/sensor.glances/">glances sensor</a> entry to your <code>configuration.yaml</code> file and restart Home Assistant then.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-  - <span class="string"><span class="content">platform: glances</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">NAS</span></span>
-    <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-    <span class="key">resources</span>:
-      - <span class="string"><span class="content">'disk_use_percent'</span></span>
-      - <span class="string"><span class="content">'disk_use'</span></span>
-      - <span class="string"><span class="content">'disk_free'</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>If there are no error in the log file then you should see your new sensors.</p>
-
-<p class="img">
-  <img src="/images/blog/2015-09-glances/sensors.png" />
-  The Glances sensors
-</p>
-
-<p><a href="https://github.com/nicolargo/glances">Glances</a> has a couple of optional dependencies which are extenting the range of provided information. This means that it would be possible to get details about the RAID system, HDD temperature, IP addresses, sensors, etc., please create a <a href="https://github.com/home-assistant/home-assistant/pulls">Pull request</a> with your additions or a <a href="https://github.com/home-assistant/home-assistant/issues/new">Feature request</a> if you want see more details in your Home Assistant frontend.</p>
+<p><a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is a powerful tool and this blog post only showed two very simple use cases. Take a look at the <a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide">documentation</a> of <code>motion</code> to unleash its potential.</p>
 </article>
 
 
@@ -221,12 +233,12 @@ Glances web server started on http://0.0.0.0:61208/
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2015/09/18/monitoring-with-glances-and-home-assistant/"
-     data-counturl="https://home-assistant.io/blog/2015/09/18/monitoring-with-glances-and-home-assistant/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/"
+     data-counturl="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/" >Tweet</a>
   
   
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2015/09/18/monitoring-with-glances-and-home-assistant/"
+         data-href="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/"
          data-layout="button_count">
     </div>
   
@@ -253,10 +265,6 @@ Glances web server started on http://0.0.0.0:61208/
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
     
-      
-        <li class="post">
-          <a href="/blog/2016/06/23/usb-webcams-and-home-assistant/">Using USB webcams with Home Assistant</a>
-        </li>
       
     
       
@@ -323,8 +331,8 @@ Glances web server started on http://0.0.0.0:61208/
   
     
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2015/09/18/monitoring-with-glances-and-home-assistant/';
-    var disqus_url = 'https://home-assistant.io/blog/2015/09/18/monitoring-with-glances-and-home-assistant/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/';
     var disqus_script = 'embed.js';
   
   (function () {
