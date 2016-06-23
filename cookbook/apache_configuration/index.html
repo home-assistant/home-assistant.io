@@ -91,10 +91,13 @@
 
   <p>This is an example about how you can configure Apache to act as a proxy for home assistant.</p>
 
-<p>This is useful if you want to have:<br />
-* a subdomain redirecting to your home assistant instance<br />
-* several subdomain for several instance<br />
-* HTTPS redirection</p>
+<p>This is useful if you want to have:</p>
+
+<ul>
+  <li>a subdomain redirecting to your home assistant instance</li>
+  <li>several subdomain for several instance</li>
+  <li>HTTPS redirection</li>
+</ul>
 
 <h4><a class="title-link" name="subdomain" href="#subdomain"></a> Subdomain</h4>
 
@@ -124,6 +127,7 @@ Include conf/extra/hass.conf
 </pre></div>
 </div>
 </div>
+
 <p>If you don’t want HTTPS, you can change <code>&lt;VirtualHost *:443&gt;</code> to <code>&lt;VirtualHost *:80&gt;</code> or better consider redirecting all HTTP to HTTPS.</p>
 
 <h4><a class="title-link" name="multiple-instance" href="#multiple-instance"></a> Multiple Instance</h4>
@@ -134,8 +138,8 @@ The configuration file for this home assistant is available in <code>/home/alice
 <p>You want another instance available at https://countryside.example.org</p>
 
 <p>You can either :<br />
-* Create a new user, <code>bob</code>, to hold the configuration file in <code>/home/bob/.homeassistant/configuration.yaml</code> and run home assistant as this new user<br />
-* Create another configuration directory in <code>/home/alice/.homeassistan2/configuration.yaml</code> and run home assistant using <code>hass --config /home/alice/.homeassistant2/</code></p>
+ * Create a new user, <code>bob</code>, to hold the configuration file in <code>/home/bob/.homeassistant/configuration.yaml</code> and run home assistant as this new user<br />
+ * Create another configuration directory in <code>/home/alice/.homeassistan2/configuration.yaml</code> and run home assistant using <code>hass --config /home/alice/.homeassistant2/</code></p>
 
 <p>In both solution, change port number used by modifying <code>configuration.yaml</code></p>
 
