@@ -58,3 +58,9 @@ Configuration variables:
 - **autodetect** (*Optional*): <True/False> experimental, detect all devices (default: False)
 - **resolvenames** (*Optional*): <True/False> Try to fetch device names from HM-CFG-LAN metadata or XML-API on CCU (default: False)
 - **delay** (*Optional*): <Float> Delay fetching of current state per deivce. Useful to prevent overloading CCU when initially fetching device states. (Default: 0.5)
+
+To further explain the ```resolvenames``` option:
+We use two approaches to fetch the names of devices. Either one assumes you have properly named your devices in your existing Homematic setup.
+
+1. Using the metadata devices internally have. When using a HM-CFG-LAN interface, you typically use a configuration software ("HomeMatic-Komponenten konfigurieren" is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you'll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like. But you should Stick to ASCII. So rather use _Kueche_ instead of _Küche_. Which also makes sense because the entity-names in HA are ASCII as well.
+2. If you use a regular CCU, there is an add-on called the "XML-API". With it installed, you are generally able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. For some reason the CCU does NOT save the names to the metadata, so we have to use this workaround.
