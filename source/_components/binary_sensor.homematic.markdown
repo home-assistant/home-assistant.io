@@ -2,7 +2,7 @@
 layout: page
 title: "Homematic Binary Sensor"
 description: "Instructions how to integrate Homematic binary sensors within Home Assistant."
-date: 2016-06-25 11:01
+date: 2016-06-25 19:43
 sidebar: true
 comments: false
 sharing: true
@@ -13,7 +13,7 @@ ha_release: 0.23
 ---
 
 
-The `homematic` binary_sensor platform lets observe the state changes of binary [Homematic](http://www.homematic.com/) sensors through Home Assistant.
+The `homematic` binary_sensor platform lets you observe the state changes of binary [Homematic](http://www.homematic.com/) sensors through Home Assistant.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
