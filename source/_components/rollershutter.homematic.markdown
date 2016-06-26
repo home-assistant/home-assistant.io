@@ -10,6 +10,7 @@ footer: true
 logo: homematic.png
 ha_category: Rollershutter
 ha_release: 0.23
+ha_iot_class: "Local Push"
 ---
 
 
@@ -26,6 +27,5 @@ rollershutter:
 
 Configuration variables:
 
-- **platform** (*Required*: Needed to let Home Assistant know this is a Homematic rollershutter.
 - **address** (*Required*): The serial number of the device, eg. LEQ1234567
 - **name** (*Optional*): Name to identify the device.
