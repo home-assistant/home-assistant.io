@@ -2,36 +2,34 @@
 layout: page
 title: "Homematic Thermostat"
 description: "Instructions how to integrate Homematic thermostats within Home Assistant."
-date: 2015-11-25 08:00
+date: 2016-06-25 12:08
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: homematic.png
 ha_category: Thermostat
-ha_release: 0.9
+ha_release: 0.23
 ---
 
 
-The `homematic` thermostat platform let you control [Homematic](http://www.homematic.com/) thermostat from Home Assistant. Currently there is support for Homematic (HM-TC-IT-WM-W-EU, HM-CC-RT-DN) thermostats using Homegear or Homematic central (CCU1/CCU2).
+The `homematic` thermostat platform lets you control [Homematic](http://www.homematic.com/) thermostats through Home Assistant. MAX!-Thermostats are supported as well.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 thermostat:
   platform: homematic
-  address: HOMEGEAR/CCU_ADDRESS
-  devices:
-    Livingroom 1:
-      id: DEVICE_SERIAL_NO
-    Livingroom 2:
-      id: DEVICE_SERIAL_NO
+  address: LEQ1234567
+  name: Kitchen
 ```
 
 Configuration variables:
 
-- **address** (*Required*: Adress of your Homegear or Homeatic central, eg. http://localhost:2001
-- **devices** array (*Required*): List of all your Homeatic devices.
-  - **name** (*Required*): Name to identify the device.
-    - **id** (*Required*): The serial number of the device, eg. MEQ0791521
+- **platform** (*Required*: Needed to let Home Assistant know this is a Homematic thermostat.
+- **address** (*Required*): The serial number of the device, eg. LEQ1234567
+- **name** (*Optional*): Name to identify the device.
 
+Currently the following devices are supported:
+- Thermostats
+- Wall Thermostats
