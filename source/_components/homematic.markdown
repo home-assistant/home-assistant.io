@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: homematic.png
 ha_category: Hub
-featured: true
+ha_iot_class: "Local Push"
 ---
 
 
@@ -28,14 +28,14 @@ If you want to see if a specific device you have is supported, head over to the 
 
 There are some devices which expose multiple functionalities. For example: The HM-Sen-MDIR-WM55 motion detector can be configured as 6 individual entities within HA.
 
-1. Motion detector (binary_sensor platform)
-2. Button 1 short press (binary_sensor platform)
-3. Button 1 long press (binary_sensor platform)
-4. Button 2 short press (binary_sensor platform)
-5. Button 2 long press (binary_sensor platform)
-6. Brightness sensor (sensor platform)
+1. Motion detector ([/components/binary_sensor.homematic/](binary_sensor platform))
+2. Button 1 short press ([/components/binary_sensor.homematic/](binary_sensor platform))
+3. Button 1 long press ([/components/binary_sensor.homematic/](binary_sensor platform))
+4. Button 2 short press ([/components/binary_sensor.homematic/](binary_sensor platform))
+5. Button 2 long press ([/components/binary_sensor.homematic/](binary_sensor platform))
+6. Brightness sensor ([/components/sensor.homematic/](sensor platform))
 
-We also have experimental autodetection support. If you ONLY configure this homematic-component and set autodetect to True, Home Assistant will try to automatically detect and configure each (supported) device paired to your CCU / Homegear. The resulting HA-entities will be named in the fashion of _ADDRESS CHANNEL PARAMETER_. This will provide you with the information which of your devices are supported and may be explicitly configured manually for a more useful integration into Home Assistant. Beware, that autodetection may put heavy load on your CCU and may take some time to complete (maybe 2-3 minutes when a lot of devices are present). Keep an eye on theservice messages on your CCU. If they show up while starting HA, increase the delay parameter in your configuration.
+We also have experimental autodetection support. If you ONLY configure this homematic component and set autodetect to True, Home Assistant will try to automatically detect and configure each (supported) device paired to your CCU/Homegear. The resulting Home Assistant entities will be named in the fashion of _ADDRESS CHANNEL PARAMETER_. This will provide you with the information which of your devices are supported and may be explicitly configured manually for a more useful integration into Home Assistant. Beware, that autodetection may put heavy load on your CCU and may take some time to complete (maybe 2-3 minutes when a lot of devices are present). Keep an eye on the service messages on your CCU. If they show up while starting Home Assistant, increase the delay parameter in your configuration.
 Afterwards you may incrementally configure each device the way you want. Manually configured devices will be handled first and won't be processed again when autodetection is still enabled.
 
 To set up the component, add the following information to your `configuration.yaml` file:
@@ -52,14 +52,14 @@ homematic:
 Configuration variables:
 
 - **local_ip** (*Required*): IP of device running Home Assistant
-- **local_port** (*Optional*): Port for connection with Home Assistant (default: 8943)
-- **remote_ip** (*Required*): IP of CCU / Homegear
-- **remote_port** (*Required*): Port of Homegear / CCU XML-RPC Server (usually 2001)
-- **autodetect** (*Optional*): <True/False> experimental, detect all devices (default: False)
-- **resolvenames** (*Optional*): <True/False> Try to fetch device names from HM-CFG-LAN metadata or XML-API on CCU (default: False)
-- **delay** (*Optional*): <Float> Delay fetching of current state per deivce. Useful to prevent overloading CCU when initially fetching device states. (Default: 0.5)
+- **local_port** (*Optional*): Port for connection with Home Assistant. Defaults to 8943.
+- **remote_ip** (*Required*): IP of CCU/Homegear
+- **remote_port** (*Required*): Port of Homegear/CCU XML-RPC Server (usually 2001)
+- **autodetect** (*Optional*): <True/False> experimental, detect all devices. Default to `False`.
+- **resolvenames** (*Optional*): <True/False> Try to fetch device names from HM-CFG-LAN metadata or XML-API on CCU. Defaults to `False`.
+- **delay** (*Optional*): <Float> Delay fetching of current state per deivce. Useful to prevent overloading CCU when initially fetching device states. Defaults to 0.5.
 
-To further explain the ```resolvenames``` option:
+To further explain the `resolvenames` option:
 We use two approaches to fetch the names of devices. Either one assumes you have properly named your devices in your existing Homematic setup.
 
 1. Using the metadata devices internally have. When using a HM-CFG-LAN interface, you typically use a configuration software ("HomeMatic-Komponenten konfigurieren" is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you'll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like. But you should Stick to ASCII. So rather use _Kueche_ instead of _Küche_. Which also makes sense because the entity-names in HA are ASCII as well.

@@ -10,6 +10,7 @@ footer: true
 logo: homematic.png
 ha_category: Thermostat
 ha_release: 0.23
+ha_iot_class: "Local Push"
 ---
 
 
@@ -26,10 +27,10 @@ thermostat:
 
 Configuration variables:
 
-- **platform** (*Required*: Needed to let Home Assistant know this is a Homematic thermostat.
 - **address** (*Required*): The serial number of the device, eg. LEQ1234567
 - **name** (*Optional*): Name to identify the device.
 
 Currently the following devices are supported:
+
 - Thermostats
 - Wall Thermostats

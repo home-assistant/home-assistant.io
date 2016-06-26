@@ -10,11 +10,12 @@ footer: true
 logo: homematic.png
 ha_category: Light
 ha_release: 0.23
+ha_iot_class: "Local Push"
 ---
 
 
 The `homematic` light platform lets you control [Homematic](http://www.homematic.com/) lights through Home Assistant.
-You have the choice to configure switch-devices as light entities within HA if you have lights attatched to the switch and it makes sense for your setup. If the switch uses multiple channels to control different devices, you may mix the configurations.
+You have the choice to configure switch-devices as light entities within Home Assistant if you have lights attatched to the switch and it makes sense for your setup. If the switch uses multiple channels to control different devices, you may mix the configurations.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -28,10 +29,9 @@ light:
 
 Configuration variables:
 
-- **platform** (*Required*: Needed to let Home Assistant know this is a Homematic rollershutter.
 - **address** (*Required*): The serial number of the device, eg. LEQ1234567
 - **name** (*Optional*): Name to identify the device.
-- **button** (*Optional*): Channel of the Homematic interface to interact with (Default: 1)
+- **button** (*Optional*): Channel of the Homematic interface to interact with. Defaults to 1.
 
 Currently the following devices are supported:
 - Switch from 1 to 4 channels

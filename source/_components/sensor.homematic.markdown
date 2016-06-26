@@ -10,6 +10,7 @@ footer: true
 logo: homematic.png
 ha_category: Sensor
 ha_release: 0.23
+ha_iot_class: "Local Push"
 ---
 
 
@@ -27,13 +28,13 @@ sensor:
 
 Configuration variables:
 
-- **platform** (*Required*: Needed to let Home Assistant know this is a Homematic rollershutter.
 - **address** (*Required*): The serial number of the device, eg. LEQ1234567
 - **name** (*Optional*): Name to identify the device.
-- **button** (*Optional*): Channel of the device to monitor (default: 1)
+- **button** (*Optional*): Channel of the device to monitor. Defaults to 1.
 - **param** (*Optional*):  For devices with multiple channels and possible events, you may define which event type you want to attatch to this entity.
 
 Currently the following devices are supported:
+
 - Thermostats / Weather sensors (param: TEMPERATURE, HUMIDITY)
 - Switch Powermeter (param: POWER, CURRENT, VOLTAGE, FREQUENCY, ENERGY_COUNTER)
 - Motion detectors (param: BIRGHTNESS)
