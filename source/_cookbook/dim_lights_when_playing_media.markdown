@@ -57,7 +57,7 @@ automation:
         entity_id: media_player.htpc
         from: 'playing'
     condition:
-      - platform: state
+      - condition: state
         entity_id: sun.sun
         state: 'below_horizon'
     action:
@@ -70,7 +70,7 @@ automation:
         entity_id: media_player.htpc
         to: 'playing'
     condition:
-      - platform: state
+      - condition: state
         entity_id: sun.sun
         state: 'below_horizon'
     action:
