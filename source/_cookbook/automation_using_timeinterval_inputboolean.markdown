@@ -29,7 +29,7 @@ automation:
     minutes: '/2'
     seconds: 0
   condition:
-    platform: state
+    condition: state
     entity_id: input_boolean.loop_livingcolors
     state: 'on'
   action:
