@@ -10,6 +10,7 @@ footer: true
 logo: homematic.png
 ha_category: Hub
 ha_iot_class: "Local Push"
+featured: true
 ---
 
 
