@@ -33,3 +33,16 @@ Configuration variables:
 - **station** (*Required*): The ID of the measurement point.
 
 The hydrological measurings are coming from the [Swiss Federal Office for the Environment (FOEN)](http://www.hydrodaten.admin.ch).
+
+This sensor contains additional information which an easily accessed by a [template sensor](/components/sensor.template/).
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  platform: template
+  sensors:
+    discharge:
+      value_template: '{% raw %}{{ states.sensor.aare.attributes.Discharge }}{% endraw %}'
+      friendly_name: 'Discharge'
+```
+
