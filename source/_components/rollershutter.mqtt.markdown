@@ -28,8 +28,8 @@ rollershutter:
   state_topic: "home/bedroom/rollershutter"
   command_topic: "home/bedroom/rollershutter/set"
   qos: 0
-  payload_up: "OPEN"
-  payload_down: "CLOSE"
+  payload_up: "UP"
+  payload_down: "DOWN"
   payload_stop: "STOP"
   value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
@@ -41,7 +41,7 @@ Configuration variables:
 - **name** (*Optional*): The name of the rollershutter. Default is 'MQTT Rollershutter'.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates. If not defined, the rollershutter will be stateless, that is, no information about current position or open/closed. If defined, the received payload must be a integer between 0 and 100, that represents the percentage for fully closed and fully open, respectively.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0. This QoS will also be used to publishing messages.
-- **payload_up** (*Optional*): The payload to open the rollershutter. Default is "OPEN".
-- **payload_down** (*Optional*): The payload to close the rollershutter. Default is "CLOSE".
+- **payload_up** (*Optional*): The payload to open the rollershutter. Default is "UP".
+- **payload_down** (*Optional*): The payload to close the rollershutter. Default is "DOWN".
 - **payload_stop** (*Optional*): The payload to stop the rollershutter. Default is "STOP".
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
