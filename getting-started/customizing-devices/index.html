@@ -123,6 +123,14 @@
 </div>
 </div>
 
+<h3><a class="title-link" name="reloading-customize" href="#reloading-customize"></a> Reloading customize</h3>
+
+<p>Home Assistant offers a service to reload the core configuration while Home Assistant is running called <code>homeassistant/reload_core_config</code>. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> service developer tools, select the service <code>homeassistant/reload_core_config</code> and click “Call Service”.</p>
+
+<p class="note warning">
+New customize information will be applied the next time the state of the entity gets updated.
+</p>
+
 <h3><a href="/getting-started/presence-detection/">Next step: Setting up presence detection »</a></h3>
 
 

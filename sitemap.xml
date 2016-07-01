@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/07/01/tbd/</loc>
+    <lastmod>2016-07-01T00:31:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-cherrypi/</loc>
+    <lastmod>2016-07-01T00:31:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/</loc>
     <lastmod>2016-06-23T06:00:00+00:00</lastmod>
   </url>
@@ -960,6 +968,12 @@
       <loc>https://home-assistant.io/components/light.mqtt/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/garage_door.zwave/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/rollershutter.zwave/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/sensor.zwave/</loc>
     </url>
     <url>
@@ -982,9 +996,6 @@
     </url>
     <url>
       <loc>https://home-assistant.io/components/lock/</loc>
-    </url>
-    <url>
-      <loc>https://home-assistant.io/components/thermostat.homematic/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/components/switch.mystrom/</loc>
@@ -1201,6 +1212,9 @@
     </url>
     <url>
       <loc>https://home-assistant.io/components/garage_door/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/garage_door.rpi_gpio/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/components/garage_door.wink/</loc>
@@ -1509,7 +1523,61 @@
       <loc>https://home-assistant.io/components/device_tracker.bt_home_hub_5/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/sensor.swiss_hydrological_data/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/media_player.cmus/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/envisalink/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.fixer/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.openexchangerates/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/sensor.netatmo/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/hdmi_cec/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/persistent_notification/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/binary_sensor.homematic/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/light.homematic/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/rollershutter.homematic/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.homematic/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/switch.homematic/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/homematic/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/lock.vera/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/alarm_control_panel.envisalink/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/binary_sensor.envisalink/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/media_player.braviatv/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.envisalink/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/cookbook/automation_for_rainy_days/</loc>
@@ -1603,6 +1671,9 @@
     </url>
     <url>
       <loc>https://home-assistant.io/topics/splitting_configuration/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/topics/secrets/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/blog/2014/12/18/website-launched/</loc>
@@ -1808,28 +1879,34 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-cherrypi/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/07/01/tbd/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-07-01T17:19:11+00:00</lastmod>
+    <lastmod>2016-07-01T18:45:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-07-01T17:19:11+00:00</lastmod>
+    <lastmod>2016-07-01T18:45:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-07-01T17:19:11+00:00</lastmod>
+    <lastmod>2016-07-01T18:45:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-01T17:19:11+00:00</lastmod>
+    <lastmod>2016-07-01T18:45:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-01T17:19:11+00:00</lastmod>
+    <lastmod>2016-07-01T18:45:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-07-01T17:19:11+00:00</lastmod>
+    <lastmod>2016-07-01T18:45:16+00:00</lastmod>
   </url>
 </urlset>

@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Homematic Thermostat - Home Assistant</title>
+    <title>Vera Lock - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions how to integrate Homematic thermostats within Home Assistant.">
+    <meta name="description" content="Instructions how to integrate Vera locks into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/thermostat.homematic/">
+    <link rel="canonical" href="https://home-assistant.io/components/lock.vera/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Homematic Thermostat">
+    <meta property="og:title" content="Vera Lock">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/thermostat.homematic/">
+    <meta property="og:url" content="https://home-assistant.io/components/lock.vera/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Homematic thermostats within Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate Vera locks into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Homematic Thermostat">
-    <meta name="twitter:description" content="Instructions how to integrate Homematic thermostats within Home Assistant.">
+    <meta name="twitter:title" content="Vera Lock">
+    <meta name="twitter:description" content="Instructions how to integrate Vera locks into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,44 +83,17 @@
   
   <header>
     <h1 class="title indent">
-      Homematic Thermostat
+      Vera Lock
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The <code>homematic</code> thermostat platform let you control <a href="http://www.homematic.com/">Homematic</a> thermostat from Home Assistant. Currently there is support for Homematic (HM-TC-IT-WM-W-EU, HM-CC-RT-DN) thermostats using Homegear or Homematic central (CCU1/CCU2).</p>
+  <p>The <code>vera</code> platform allows you to control your <a href="http://getvera.com/">Vera</a> locks from within Home Assistant.</p>
 
-<p>To set it up, add the following information to your <code>configuration.yaml</code> file:</p>
+<p>They will be automatically discovered if the vera component is loaded.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">thermostat</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">homematic</span></span>
-  <span class="key">address</span>: <span class="string"><span class="content">HOMEGEAR/CCU_ADDRESS</span></span>
-  <span class="key">devices</span>:
-    <span class="key">Livingroom 1</span>:
-      <span class="key">id</span>: <span class="string"><span class="content">DEVICE_SERIAL_NO</span></span>
-    <span class="key">Livingroom 2</span>:
-      <span class="key">id</span>: <span class="string"><span class="content">DEVICE_SERIAL_NO</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>Configuration variables:</p>
-
-<ul>
-  <li><strong>address</strong> (<em>Required</em>: Adress of your Homegear or Homeatic central, eg. http://localhost:2001</li>
-  <li><strong>devices</strong> array (<em>Required</em>): List of all your Homeatic devices.
-    <ul>
-      <li><strong>name</strong> (<em>Required</em>): Name to identify the device.
-        <ul>
-          <li><strong>id</strong> (<em>Required</em>): The serial number of the device, eg. MEQ0791521</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
+<p>For more configuration information see the <a href="/components/vera/">Vera component</a> documentation.</p>
 
 
 </article>
@@ -134,49 +107,54 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_components/thermostat.homematic.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_components/lock.vera.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/homematic.png' />
+      <img src='/images/supported_brands/vera.png' />
   </div>
     <div class='section'>
-    Introduced in release: 0.9
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
     </div>
     <div class='section'>
       This is a platform for
-      <a href='/components/thermostat/'>the Thermostats component</a>.
+      <a href='/components/lock/'>the Locks component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/vera/'>
+          Vera
+        </a></li>
+        <li><a href='/components/binary_sensor.vera/'>
+          Vera Binary Sensor
+        </a></li>
+        <li><a href='/components/light.vera/'>
+          Vera Light
+        </a></li>
+        <li><a href='/components/sensor.vera/'>
+          Vera Sensor
+        </a></li>
+        <li><a href='/components/switch.vera/'>
+          Vera Switch
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
-    <h1 class="title delta">Category Thermostat</h1>
+    <h1 class="title delta">Category Lock</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/thermostat.eq3btsmart/'>EQ3 Bluetooth Smart Thermostats</a>
+            <a href='/components/lock.mqtt/'>MQTT Lock</a>
         </li>
         <li>
-            <a href='/components/thermostat.ecobee/'>Ecobee Thermostat</a>
+            Vera Lock
         </li>
         <li>
-            <a href='/components/thermostat.heat_control/'>Heat control</a>
+            <a href='/components/lock.verisure/'>Verisure Lock</a>
         </li>
         <li>
-            <a href='/components/thermostat.heatmiser/'>Heatmiser Thermostat</a>
+            <a href='/components/lock.wink/'>Wink Lock</a>
         </li>
         <li>
-            Homematic Thermostat
-        </li>
-        <li>
-            <a href='/components/thermostat.honeywell/'>Honeywell Thermostat</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.nest/'>Nest Thermostat</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.proliphix/'>Proliphix Thermostat</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.radiotherm/'>Radiotherm Thermostat</a>
-        </li>
-        <li>
-            <a href='/components/thermostat.zwave/'>Z-Wave Thermostat</a>
+            <a href='/components/lock.zwave/'>Z-Wave Lock</a>
         </li>
     </ul>
     </div>
