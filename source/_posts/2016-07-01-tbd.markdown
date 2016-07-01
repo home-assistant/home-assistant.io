@@ -92,4 +92,4 @@ Breaking changes:
 [Fixer.io]: /components/sensor.fixer/
 [persistent notifications]: /components/persistent_notification/
 [reload core config service]: /getting-started/XX
-[Sony Bravia TV]: /components/XX/
+[Sony Bravia TV]: /components/media_player.braviatv/
