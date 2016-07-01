@@ -42,7 +42,7 @@ action:
 
 ### {% linkable_title Create a persistant notification %}
 
-Go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" />  **Developer Tools** to call the `persistant_notification` service. Choose `persistant_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools** to call the `persistant_notification` service. Select `persistant_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
 {
