@@ -29,6 +29,8 @@ http:
   development: 1
 ```
 
+As everything is compiled into the file `frontend.html` you do not want to work with the compiled version but with the seperate files during development.
+
 Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running:
 
 ```bash
