@@ -13,15 +13,15 @@ ha_release: 0.23
 ---
 
 This component will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and it's sensors to provide Home Assistant with rich information about their homes.
-Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink.  The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad.  This board also exposes a raw TCP/IP based API, upon which this component is built. Currently, the Envisalink version 4 is the latest model.  This component supports both the evl3 and the evl4.
+Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this component is built. Currently, the Envisalink version 4 is the latest model. This component supports both the evl3 and the evl4.
 
 Please visit the [eyezon website](http://www.eyezon.com/) for further information about the evl3 and evl4 boards.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor (Reports on zone status)
-- Sensor (Emulates an alpha-numeric keypad attached to the alarm panel)
-- Alarm Control Panel (Reports on partition status, and can be used to arm/disarm the system)
+- [Binary Sensor](/components/binary_sensor.envisalink/): Reports on zone status
+- [Sensor](/components/sensor.envisalink/): Emulates an alpha-numeric keypad attached to the alarm panel
+- [Alarm Control Panel](/components/alarm_control_panel.envisalink/): Reports on partition status, and can be used to arm/disarm the system
 
 This is a fully event-based component- any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
@@ -30,7 +30,7 @@ This is a fully event-based component- any event sent by the Envisalink device w
 An `envisalink` section must be present in the `configuration.yaml` file and contain the following options as required:
 
 ### Required Parameters
-- **host**: The ip address of the Envisalink device on your home network.
+- **host**: The IP address of the Envisalink device on your home network.
 - **panel_type**: `HONEYWELL` or `DSC`, depending upon which alarm system you have.
 - **user_name**: Which username to authenticate with when connecting to the device.  On a Honeywell alarm panel, the username/password are the same.
 - **password**: Which password to authenticate with when connecting to the device.
