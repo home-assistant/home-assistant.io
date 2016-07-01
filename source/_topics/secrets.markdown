@@ -51,11 +51,37 @@ http:
   api_password: !secret http_password
 ```
 
-Create an entry in your keyring. The service is (SERVICE) `homeassistant` and the identifier is the USERNAME. 
+Create an entry in your keyring. The service (SERVICE) is `homeassistant` and the identifier is the USERNAME in the keyring context.
 
 ```bash
-$ keyring-3.4 set homeassistant http_password
-Password for 'http_password' in 'homeassistant': YOUR_PASSWORD
+$ keyring set homeassistant http_password
+Password for 'http_password' in 'homeassistant': 
+Please set a password for your new keyring: 
+Please confirm the password: 
 ```
 
+If the command-line tool `keyring` is not available, launch `python3` and do the process manually.
+
+```python
+>>> import keyring
+>>> keyring.set_password("homeassistant", "http_password", "12345")
+Please set a password for your new keyring: 
+Please confirm the password: 
+>>> keyring.get_password("homeassistant", "http_password")
+'12345'
+>>> keyring.get_keyring()
+<EncryptedKeyring at /home/your_user/.local/share/python_keyring/crypted_pass.cfg>
+```
+
+If you launch home Assistant now, you will be prompted for the keyring password to unlock your keyring.
+
+```bash
+$ hass
+Config directory: /home/fab/.homeassistant
+Please enter password for encrypted keyring: 
+```
+
+<p class='note warning'>
+  With this configuration [autostart](/getting-started/autostart/) will no longer work.
+</p>
 
