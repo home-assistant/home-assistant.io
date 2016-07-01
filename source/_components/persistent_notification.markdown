@@ -40,9 +40,9 @@ action:
     title: "Custom subject"
 ```
 
-### {% linkable_title Create a perstistant notification %}
+### {% linkable_title Create a persistant notification %}
 
-Use **Call Service** from the **Developer Tools** to call the `persistant_notification` service. Choose `persistant_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+Go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" />  **Developer Tools** to call the `persistant_notification` service. Choose `persistant_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
 {
