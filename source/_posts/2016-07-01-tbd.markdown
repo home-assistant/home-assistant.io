@@ -83,7 +83,7 @@ Breaking changes:
 [OneWire]: /components/sensor.onewire/
 [OpenExchangeRates]: /components/sensor.openexchangerates/
 [Pushover]: /components/notify.pushover/
-[secrets]: /components/XX/
+[secrets]: /topics/secrets
 [Vera]: /components/lock.vera/
 [Wink]: /components/wink/
 [zwave-garage-door]: /components/garage_door.zwave/
