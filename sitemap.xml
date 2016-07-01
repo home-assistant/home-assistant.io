@@ -352,6 +352,12 @@
     <loc>https://home-assistant.io/developers/component_loading/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/developers/component_states/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/developers/component_visibility/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/getting-started/configuration/</loc>
   </url>
   <url>
@@ -364,7 +370,22 @@
     <loc>https://home-assistant.io/getting-started/customizing-devices/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/developers/development/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/developers/development_catching_up/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/developers/development_checklist/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/developers/development_environment/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/developers/development_submitting/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/developers/development_testing/</loc>
   </url>
   <url>
     <loc>https://home-assistant.io/getting-started/devices/</loc>
@@ -1880,26 +1901,26 @@
     </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-07-01T20:19:42+00:00</lastmod>
+    <lastmod>2016-07-01T22:21:25+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-07-01T20:19:42+00:00</lastmod>
+    <lastmod>2016-07-01T22:21:25+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-07-01T20:19:42+00:00</lastmod>
+    <lastmod>2016-07-01T22:21:25+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-01T20:19:43+00:00</lastmod>
+    <lastmod>2016-07-01T22:21:25+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-01T20:19:43+00:00</lastmod>
+    <lastmod>2016-07-01T22:21:25+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-07-01T20:19:43+00:00</lastmod>
+    <lastmod>2016-07-01T22:21:25+00:00</lastmod>
   </url>
 </urlset>

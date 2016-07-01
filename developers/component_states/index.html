@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Multiple Instances - Home Assistant</title>
+    <title>Handling states - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Quick primer on how multiple instances work together.">
+    <meta name="description" content="Instructions how to handle states with your component.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/multiple_instances/">
+    <link rel="canonical" href="https://home-assistant.io/developers/component_states/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Multiple Instances">
+    <meta property="og:title" content="Handling states">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/multiple_instances/">
+    <meta property="og:url" content="https://home-assistant.io/developers/component_states/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Quick primer on how multiple instances work together.">
+    <meta property="og:description" content="Instructions how to handle states with your component.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Multiple Instances">
-    <meta name="twitter:description" content="Quick primer on how multiple instances work together.">
+    <meta name="twitter:title" content="Handling states">
+    <meta name="twitter:description" content="Instructions how to handle states with your component.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,46 +83,25 @@
   
   <header>
     <h1 class="title indent">
-      Multiple Instances
+      Handling States
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Home Assistant supports running multiple synchronized instances using a master-slave model. Whenever <code>events.fire</code> or <code>states.set</code> is called on the salve it will forward it to the master. The master will replicate all events and changed states to its slaves.</p>
+  <p>It is the responsibility of the component to maintain the states of the devices in your domain. Each device should be a single state and, if possible, a group should be provided that tracks the combined state of the devices.</p>
 
-<p class="img">
-  <a href="/images/architecture/architecture-remote.png">
-    <img src="/images/architecture/architecture-remote.png" />
-  </a>
-  Overview of the Home Assistant architecture for multiple devices.
-</p>
+<p>A state can have several attributes that will help the frontend in displaying your state:</p>
 
-<p>A slave instance can be started with the following code and has the same support for components as a master instance.</p>
+<ul>
+  <li><code>friendly_name</code>: this name will be used as the name of the device</li>
+  <li><code>entity_picture</code>: this picture will be shown instead of the domain icon</li>
+  <li><code>unit_of_measurement</code>: this will be appended to the state in the interface</li>
+  <li><code>hidden</code>: This is a suggestion to the frontend on if the state should be hidden</li>
+</ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
-<span class="keyword">import</span> <span class="include">homeassistant.bootstrap</span> <span class="keyword">as</span> bootstrap
+<p>These attributes are defined in <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/entity.py#L180">homeassistant.helpers.entity</a>.</p>
 
-<span class="comment"># Location of the Master API: host, password, port.</span>
-<span class="comment"># Password and port are optional.</span>
-remote_api = remote.API(<span class="string"><span class="delimiter">&quot;</span><span class="content">127.0.0.1</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>, <span class="integer">8124</span>)
-
-<span class="comment"># Initialize slave</span>
-hass = remote.HomeAssistant(remote_api)
-
-<span class="comment"># To add an interface to the slave on localhost:8123</span>
-bootstrap.setup_component(hass, <span class="string"><span class="delimiter">'</span><span class="content">frontend</span><span class="delimiter">'</span></span>)
-
-hass.start()
-hass.block_till_stopped()
-</pre></div>
-</div>
-</div>
-
-<p class="note">
-Because each slave maintains its own Service Registry it is possible to have multiple slaves respond to one service call.
-</p>
 
 
 </article>
@@ -136,7 +115,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/multiple_instances.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/component_states.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -171,7 +150,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
           <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
           <li><a  href='/developers/component_initialization/'>Initialization </a></li>
           <li><a  href='/developers/component_events/'>Handling events </a></li>
-          <li><a  href='/developers/component_states/'>States </a></li>
+          <li><a class='active' href='/developers/component_states/'>States </a></li>
           <li><a  href='/developers/component_visibility/'>Visibility </a></li>
           <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
           <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
@@ -194,7 +173,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
         </ul>
       </li>
       <li><a  href='/developers/helpers/'>Online helpers </a></li>
-      <li><a class='active' href='/developers/multiple_instances/'>Multiple Instances </a></li>
+      <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
       <li><a  href='/developers/website/'>Home-Assistant.io </a></li>
       <li><a  href='/developers/credits/'>Credits </a></li>
     </ul>

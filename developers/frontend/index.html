@@ -113,6 +113,8 @@ Do not use development mode in production. Home Assistant uses aggressive cachin
 </div>
 </div>
 
+<p>As everything is compiled into the file <code>frontend.html</code> you do not want to work with the compiled version but with the seperate files during development.</p>
+
 <p>Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -186,7 +188,16 @@ Polymer build architecture diagram
         <ul>
           <li><a  href='/developers/architecture/'>Architecture </a></li>
           <li><a  href='/developers/architecture_components/'>Components </a></li>
-          <li><a  href='/developers/development_environment/'>Setup Dev Environment </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/development/'>Starting with Development </a>
+        <ul>
+          <li><a  href='/developers/development_environment/'>Setting up Environment </a></li>
+          <li><a  href='/developers/development_submitting/'>Submit your Work </a></li>
+          <li><a  href='/developers/development_checklist/'>Checklist </a></li>
+          <li><a  href='/developers/development_testing/'>Testing </a></li>
+          <li><a  href='/developers/development_catching_up/'>Catching up with Reality </a></li>
         </ul>
       </li>
       <li>
@@ -203,6 +214,8 @@ Polymer build architecture diagram
           <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
           <li><a  href='/developers/component_initialization/'>Initialization </a></li>
           <li><a  href='/developers/component_events/'>Handling events </a></li>
+          <li><a  href='/developers/component_states/'>States </a></li>
+          <li><a  href='/developers/component_visibility/'>Visibility </a></li>
           <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
           <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
         </ul>

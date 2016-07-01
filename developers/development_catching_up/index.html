@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Multiple Instances - Home Assistant</title>
+    <title>Catching up with Reality - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Quick primer on how multiple instances work together.">
+    <meta name="description" content="Update your fork with the latest commit.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/multiple_instances/">
+    <link rel="canonical" href="https://home-assistant.io/developers/development_catching_up/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Multiple Instances">
+    <meta property="og:title" content="Catching up with Reality">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/multiple_instances/">
+    <meta property="og:url" content="https://home-assistant.io/developers/development_catching_up/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Quick primer on how multiple instances work together.">
+    <meta property="og:description" content="Update your fork with the latest commit.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Multiple Instances">
-    <meta name="twitter:description" content="Quick primer on how multiple instances work together.">
+    <meta name="twitter:title" content="Catching up with Reality">
+    <meta name="twitter:description" content="Update your fork with the latest commit.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,46 +83,42 @@
   
   <header>
     <h1 class="title indent">
-      Multiple Instances
+      Catching Up With Reality
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Home Assistant supports running multiple synchronized instances using a master-slave model. Whenever <code>events.fire</code> or <code>states.set</code> is called on the salve it will forward it to the master. The master will replicate all events and changed states to its slaves.</p>
-
-<p class="img">
-  <a href="/images/architecture/architecture-remote.png">
-    <img src="/images/architecture/architecture-remote.png" />
-  </a>
-  Overview of the Home Assistant architecture for multiple devices.
-</p>
-
-<p>A slave instance can be started with the following code and has the same support for components as a master instance.</p>
+  <p>If you’re taking a while developing your feature and would like to catch up with what’s in the current Home Assistant <code>dev</code> branch, you can use <code>git rebase</code> to do so. This will pull the latest Home Assistant changes locally, rewind your commits, bring in the latest changes from Home Assistant and then replay all of your commits on top.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
-<span class="keyword">import</span> <span class="include">homeassistant.bootstrap</span> <span class="keyword">as</span> bootstrap
-
-<span class="comment"># Location of the Master API: host, password, port.</span>
-<span class="comment"># Password and port are optional.</span>
-remote_api = remote.API(<span class="string"><span class="delimiter">&quot;</span><span class="content">127.0.0.1</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>, <span class="integer">8124</span>)
-
-<span class="comment"># Initialize slave</span>
-hass = remote.HomeAssistant(remote_api)
-
-<span class="comment"># To add an interface to the slave on localhost:8123</span>
-bootstrap.setup_component(hass, <span class="string"><span class="delimiter">'</span><span class="content">frontend</span><span class="delimiter">'</span></span>)
-
-hass.start()
-hass.block_till_stopped()
+  <div class="code"><pre># Run this from your feature branch
+$ git fetch upstream dev  # to pull the latest changes into a local dev branch
+$ git rebase upstream/dev # to put those changes into your feature branch before your changes
 </pre></div>
 </div>
 </div>
 
-<p class="note">
-Because each slave maintains its own Service Registry it is possible to have multiple slaves respond to one service call.
-</p>
+<p>If rebase detects conflicts, you can repeat the following process until all changes have been resolved:</p>
+
+<ol>
+  <li><code>git status</code> will show you the file with the conflict.</li>
+  <li>Edit the file and resolving the lines between <code>&lt;&lt;&lt;&lt; | &gt;&gt;&gt;&gt;</code></li>
+  <li>Add the modified file <code>git add &lt;file&gt;</code> or <code>git add .</code></li>
+  <li>Continue rebase <code>git rebase --continue</code></li>
+  <li>Repeat until you’ve resolved all conflicts.</li>
+</ol>
+
+<p>There is other workflows that is covered in detail in the <a href="https://help.github.com/articles/fork-a-repo/">Github documentation</a>. Add an additional <code>remote</code> after you clone your fork.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ git remote add upstream https://github.com/home-assistant/home-assistant.git
+</pre></div>
+</div>
+</div>
+
+<p>and then simply <code>git pull --rebase upstream dev</code>.</p>
+
 
 
 </article>
@@ -136,7 +132,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/multiple_instances.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/development_catching_up.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -154,7 +150,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
           <li><a  href='/developers/development_submitting/'>Submit your Work </a></li>
           <li><a  href='/developers/development_checklist/'>Checklist </a></li>
           <li><a  href='/developers/development_testing/'>Testing </a></li>
-          <li><a  href='/developers/development_catching_up/'>Catching up with Reality </a></li>
+          <li><a class='active' href='/developers/development_catching_up/'>Catching up with Reality </a></li>
         </ul>
       </li>
       <li>
@@ -194,7 +190,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
         </ul>
       </li>
       <li><a  href='/developers/helpers/'>Online helpers </a></li>
-      <li><a class='active' href='/developers/multiple_instances/'>Multiple Instances </a></li>
+      <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
       <li><a  href='/developers/website/'>Home-Assistant.io </a></li>
       <li><a  href='/developers/credits/'>Credits </a></li>
     </ul>

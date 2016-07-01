@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Multiple Instances - Home Assistant</title>
+    <title>Testing your code - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Quick primer on how multiple instances work together.">
+    <meta name="description" content="Make sure that your code passes the checks">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/multiple_instances/">
+    <link rel="canonical" href="https://home-assistant.io/developers/development_testing/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Multiple Instances">
+    <meta property="og:title" content="Testing your code">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/multiple_instances/">
+    <meta property="og:url" content="https://home-assistant.io/developers/development_testing/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Quick primer on how multiple instances work together.">
+    <meta property="og:description" content="Make sure that your code passes the checks">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Multiple Instances">
-    <meta name="twitter:description" content="Quick primer on how multiple instances work together.">
+    <meta name="twitter:title" content="Testing your code">
+    <meta name="twitter:description" content="Make sure that your code passes the checks">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,46 +83,55 @@
   
   <header>
     <h1 class="title indent">
-      Multiple Instances
+      Testing Your Code
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Home Assistant supports running multiple synchronized instances using a master-slave model. Whenever <code>events.fire</code> or <code>states.set</code> is called on the salve it will forward it to the master. The master will replicate all events and changed states to its slaves.</p>
+  <p>Home Assistant enforces strict <a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style</a> compliance on all code submitted. Every Pull Request is automatically tested with <a href="https://coveralls.io/github/home-assistant/home-assistant">Coveralls</a> and <a href="https://travis-ci.org/home-assistant/home-assistant">Travis CI</a> after it is created.</p>
 
-<p class="img">
-  <a href="/images/architecture/architecture-remote.png">
-    <img src="/images/architecture/architecture-remote.png" />
-  </a>
-  Overview of the Home Assistant architecture for multiple devices.
-</p>
+<h3><a class="title-link" name="local-testing" href="#local-testing"></a> Local testing</h3>
 
-<p>A slave instance can be started with the following code and has the same support for components as a master instance.</p>
+<p>It’s highly recommanded to run <code>tox</code> before you create your Pull Request to avoid annoying fixes. Local testing requires <code>tox</code> to be installed.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
-<span class="keyword">import</span> <span class="include">homeassistant.bootstrap</span> <span class="keyword">as</span> bootstrap
-
-<span class="comment"># Location of the Master API: host, password, port.</span>
-<span class="comment"># Password and port are optional.</span>
-remote_api = remote.API(<span class="string"><span class="delimiter">&quot;</span><span class="content">127.0.0.1</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>, <span class="integer">8124</span>)
-
-<span class="comment"># Initialize slave</span>
-hass = remote.HomeAssistant(remote_api)
-
-<span class="comment"># To add an interface to the slave on localhost:8123</span>
-bootstrap.setup_component(hass, <span class="string"><span class="delimiter">'</span><span class="content">frontend</span><span class="delimiter">'</span></span>)
-
-hass.start()
-hass.block_till_stopped()
+  <div class="code"><pre>$ pip3 install tox
 </pre></div>
 </div>
 </div>
 
-<p class="note">
-Because each slave maintains its own Service Registry it is possible to have multiple slaves respond to one service call.
-</p>
+<p>Start the test of your code with <code>tox</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ tox
+</pre></div>
+</div>
+</div>
+
+<p>This will run unit tests against python 3.4 and 3.5 (if both are available locally), as well as run a set of tests which validate <code>pep8</code> and <code>pylint</code> style of the code.</p>
+
+<p>You can optionally run tests on only one tox target using the <code>-e</code> option to select an environment.</p>
+
+<p>For instance <code>tox -e lint</code> will run the linters only, <code>tox -e py34</code> will run unit tests only on python 3.4.</p>
+
+<h3><a class="title-link" name="prevent-linter-errors" href="#prevent-linter-errors"></a> Prevent Linter Errors</h3>
+
+<p>You can save yourself the hassle of extra commits just to fix style errors by enabling the flake8 git commit hook. It will check your code when you attempt to commit to the repository. It will block the commit if there are any style issues, giving you a chance to fix it.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ pip3 install flake8 flake8-docstrings
+$ flake8 --install-hook
+</pre></div>
+</div>
+</div>
+
+<p>The flake8-docstrings extension will check docstrings according to <a href="https://www.python.org/dev/peps/pep-0257/">PEP257</a> when running flake8.</p>
+
+<h3><a class="title-link" name="notes-on-pylint-and-pep8-validation" href="#notes-on-pylint-and-pep8-validation"></a> Notes on PyLint and PEP8 validation</h3>
+
+<p>In case a PyLint warning cannot be avoided, add a comment to disable the PyLint check for that line. This can be done using the format <code># pylint: disable=YOUR-ERROR-NAME</code>. Example of an unavoidable PyLint warning is if you do not use the passed in datetime if you’re listening for time change.</p>
+
 
 
 </article>
@@ -136,7 +145,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/multiple_instances.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/development_testing.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -153,7 +162,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
           <li><a  href='/developers/development_environment/'>Setting up Environment </a></li>
           <li><a  href='/developers/development_submitting/'>Submit your Work </a></li>
           <li><a  href='/developers/development_checklist/'>Checklist </a></li>
-          <li><a  href='/developers/development_testing/'>Testing </a></li>
+          <li><a class='active' href='/developers/development_testing/'>Testing </a></li>
           <li><a  href='/developers/development_catching_up/'>Catching up with Reality </a></li>
         </ul>
       </li>
@@ -194,7 +203,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
         </ul>
       </li>
       <li><a  href='/developers/helpers/'>Online helpers </a></li>
-      <li><a class='active' href='/developers/multiple_instances/'>Multiple Instances </a></li>
+      <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
       <li><a  href='/developers/website/'>Home-Assistant.io </a></li>
       <li><a  href='/developers/credits/'>Credits </a></li>
     </ul>
