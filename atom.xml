@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-01T18:50:25+00:00</updated>
+  <updated>2016-07-01T19:05:19+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[0.23: Envisalink, Homematic, HDMI-CEC and CherryPi]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-cherrypi/"/>
+    <title type="html"><![CDATA[0.23: Envisalink, Homematic, HDMI-CEC and Sony Bravia TV]]></title>
+    <link href="https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv/"/>
     <updated>2016-07-01T00:31:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-cherrypi</id>
+    <id>https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv</id>
     <content type="html"><![CDATA[<p>It’s time for Home Assistant 0.23 and it’s full of goodies. It’s also the release that bumps us over a 1000 tests and to 94% test coverage! Also our install issues on the Raspberry Pi and Synology have been resolved.</p>
 
 <p>This release brings support for two new ecosystems: <a href="https://home-assistant.io/components/envisalink/">Envisalink</a> and <a href="https://home-assistant.io/components/homematic/">Homematic</a>. We can now also control your TV via HDMI using <a href="https://home-assistant.io/components/hdmi_cec/">HDMI-CEC</a> (which works on the Pi!) and another cool feature is the <a href="https://home-assistant.io/components/persistent_notification/">persistent notifications</a> which allow you to add a notification to the frontend till dismissed.</p>
