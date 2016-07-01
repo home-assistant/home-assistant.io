@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: dweet.png
 ha_category: Sensor
-ha_release: 0.10
+ha_release: "0.10"
 ---
 
 The `dweet` sensor platform allows you to get details from your devices which are publishing their values to [Dweet.io](https://dweet.io/).

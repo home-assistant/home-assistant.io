@@ -10,6 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Garage Door
 ha_release: 0.18
+ha_iot_class: depends
 ---
 
 

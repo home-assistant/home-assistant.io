@@ -19,7 +19,7 @@ automation:
     event: sunset
     offset: "-00:45:00"
   condition:
-    platform: state
+    condition: state
     entity_id: group.all_devices
     state: home
   action:

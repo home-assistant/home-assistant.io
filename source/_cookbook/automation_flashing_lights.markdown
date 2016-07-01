@@ -25,10 +25,10 @@ automation:
     entity_id: binary_sensor.PIR1
     state: 'on'
   condition:
-    - platform: state
+    - condition: state
       entity_id: switch.AlmAct1
       state: 'on'
-    - platform: state
+    - condition: state
       entity_id: script.alarm_room1
       state: 'off'
   action:
@@ -52,7 +52,7 @@ automation:
     entity_id: switch.REL1
     state: 'off'
   condition:
-    platform: state
+    condition: state
     entity_id: switch.AlmSnd1
     state: 'off'
   action:
