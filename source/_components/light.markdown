@@ -41,6 +41,7 @@ Turns one light on or multiple lights on using [groups]({{site_root}}/components
 | `color_name` | yes | A human readable string of a color name, such as `blue` or `goldenrod` or [`chucknorris`](http://stackoverflow.com/questions/8318911/why-does-html-think-chucknorris-is-a-color). If your browser can display it, so can Home Assistant.
 | `brightness` | yes | Integer between 0 and 255 for how bright the color should be.
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`. *not supported by Wink
+| `effect`| yes | Applies an effect such as `colorloop` or `random`.
 
 ### {% linkable_title Service `light.turn_off` %}
 
