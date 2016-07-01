@@ -16,7 +16,6 @@ See the [components overview page](/components/) to find installation instructio
 Usually every entity needs its own entry in the `configuration.yaml` file. There are two styles for multiple entries:
 
 #### {% linkable_title Style 1: Collect every entity under the "parent" %}
- 
 
 ```yaml
 sensor:

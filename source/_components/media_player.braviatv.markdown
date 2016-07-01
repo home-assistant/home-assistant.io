@@ -14,7 +14,7 @@ ha_release: 0.23
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](http://www.sony.com).
 
-Almost all [Sony Bravia TV 2013 and newer](http://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. 
+Almost all [Sony Bravia TV 2013 and newer](http://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported.
 
 You will need to configure your TV to allow the Home Assistant for remote usage. To do that, ensure that your TV is turned on. Open the configuration popup on Home Assistant and enter a random PIN (for example 0000). After that, the TV will show you a PIN and Home Assistant will allow you to re-enter that PIN. Enter the PIN shown on your TV and Home Assistant will be able to control your Sony Bravia TV.
 
