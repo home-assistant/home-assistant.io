@@ -28,6 +28,7 @@ The computer running Home Assistant must support CEC, and of course be connected
 ## {% linkable_title Configuration Example %}
 
 In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
+
 ```yaml
 hdmi_cec:
   devices:
