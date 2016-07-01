@@ -32,7 +32,7 @@ Configuration variables:
 - **name** (*Optional*): Name to use in the frontend.
 - **station** (*Required*): The ID of the measurement point.
 
-The hydrological measurings are coming from the [Swiss Federal Office for the Environment (FOEN)](http://www.hydrodaten.admin.ch).
+The hydrological measurings are coming from the [Swiss Federal Office for the Environment (Bundesamt für Umwelt - Abt. Hydrologie)](http://www.hydrodaten.admin.ch) and are updated almost in real-time.
 
 This sensor contains additional information which an easily accessed by a [template sensor](/components/sensor.template/).
 
