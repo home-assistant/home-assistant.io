@@ -103,16 +103,19 @@
 
 <h2><a class="title-link" name="configuration-example" href="#configuration-example"></a> Configuration Example</h2>
 
-<p>In the following example, a Pi Zero running Home Assistant is on a TV’s HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.<br />
-<code>yaml
-hdmi_cec:
-  devices:
-    1: Pi Zero
-    2:
-      1: Fire TV Stick
-      2: Chromecast
-      3: Another Device
-</code></p>
+<p>In the following example, a Pi Zero running Home Assistant is on a TV’s HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">hdmi_cec</span>:
+  <span class="key">devices</span>:
+    <span class="key">1</span>: <span class="string"><span class="content">Pi Zero</span></span>
+    <span class="key">2</span>:
+      <span class="key">1</span>: <span class="string"><span class="content">Fire TV Stick</span></span>
+      <span class="key">2</span>: <span class="string"><span class="content">Chromecast</span></span>
+      <span class="key">3</span>: <span class="string"><span class="content">Another Device</span></span>
+</pre></div>
+</div>
+</div>
 
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 
