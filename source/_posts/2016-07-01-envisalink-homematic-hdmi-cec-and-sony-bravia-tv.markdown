@@ -48,6 +48,10 @@ Breaking changes:
 
 - Homematic thermostat configuration has changed and now depends on the new [Homematic] component.
 
+FAQ:
+
+- `elevation: ` was introduced to the configuration for weather/sunrise data. For an existing [configurations][elevation] add the value shown in the warning `[homeassistant.config] Incomplete core config. Auto detected elevation: 665` to your `configuration.yaml` file.
+
 [@AlucardZero]: https://github.com/AlucardZero/
 [@aparraga]: https://github.com/aparraga/
 [@Ardetus]: https://github.com/Ardetus/
@@ -94,3 +98,4 @@ Breaking changes:
 [reload core config service]: /getting-started/customizing-devices/#reloading-customize
 [Sony Bravia TV]: /components/media_player.braviatv/
 [Raspberry Pi GPIO pins]: /components/garage_door.rpi_gpio/
+[elevation]: https://home-assistant.io/getting-started/basic/
