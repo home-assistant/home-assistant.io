@@ -18,7 +18,7 @@ This release brings support for two new ecosystems: [Envisalink] and [Homematic]
 
 On the config side, you can now [store your passwords][secrets] in your OS keyring or just in a standalone file. We also got a new service to reload the core config so no reboots needed anymore after changing customize settings!
 
-<img src='/images/supported_brands/bravia.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/eyezon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/homematic.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/fixer-io.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/openexchangerates.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/bravia.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/eyezon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/homematic.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/openexchangerates.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Support for [Envisalink] added ([alarm control panel][envi-alarm], [binary sensor][envi-binary-sensor], [sensor][envi-sensor]) ([@cinntax])
 - Support for [Homematic] added ([binary sensor][hm-binary-sensor], [light][hm-light], [rollershutter][hm-rollershutter], [sensor][hm-sensor], [switch][hm-switch]) ([@pvizeli], [@danielperna84])
@@ -44,11 +44,17 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 - Lock: [Vera] now supported ([@rhooper])
 - HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems ([@balloob])
 
-Breaking changes:
+### {% linkable_title Breaking changes %}
 
 - Homematic thermostat configuration has changed and now depends on the new [Homematic] component.
 
-FAQ:
+### {% linkable_title Hotfix 0.23.1 - July 2 %}
+
+- Bump PyVera to 0.2.13 to fix traceback and pyvera thread dying related to bug ([@rhooper])
+- HTTP - SSL: Check for OP_NO_COMPRESSION support before trying to use it ([@AlucardZero])
+- Wink: Downgraded pubnub to work around pycryptodome conflicts ([@w1ll1am23])
+
+### {% linkable_title FAQ %}
 
 - `elevation: ` was introduced to the configuration for weather/sunrise data. For an existing [configurations][elevation] add the value shown in the warning `[homeassistant.config] Incomplete core config. Auto detected elevation: 665` to your `configuration.yaml` file.
 
