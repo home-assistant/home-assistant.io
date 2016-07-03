@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-03T08:20:47+00:00</updated>
+  <updated>2016-07-03T11:16:12+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -71,7 +71,7 @@
 <h3><a class='title-link' name='faq' href='#faq'></a> FAQ </h3>
 
 <ul>
-  <li><code>elevation: </code> was introduced to the configuration for weather/sunrise data. For an existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code>[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code>configuration.yaml</code> file.</li>
+  <li><code>elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code>[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code>configuration.yaml</code> file.</li>
 </ul>
 
 ]]></content>
