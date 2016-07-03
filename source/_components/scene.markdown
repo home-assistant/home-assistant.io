@@ -43,7 +43,7 @@ automation:
     entity_id: device_tracker.sweetheart
     from: 'not_home'
     to: 'home'
-  action:                                                                                                
-    service: scene.turn_on                                                                               
-    entity_id: scene.romantic  
+  action:
+    service: scene.turn_on
+    entity_id: scene.romantic
 ```
