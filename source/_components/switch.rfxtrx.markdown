@@ -56,6 +56,7 @@ switch:
       name: Movment2
     0b1111e003af16aa10000060:
       name: Door
+      fire_event: True
 ```
 
 Configuration variables:
