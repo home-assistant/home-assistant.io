@@ -56,7 +56,7 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 
 ### {% linkable_title FAQ %}
 
-- `elevation: ` was introduced to the configuration for weather/sunrise data. For an existing [configurations][elevation] add the value shown in the warning `[homeassistant.config] Incomplete core config. Auto detected elevation: 665` to your `configuration.yaml` file.
+- `elevation: ` was introduced to the configuration for weather/sunrise data. For existing [configurations][elevation] add the value shown in the warning `[homeassistant.config] Incomplete core config. Auto detected elevation: 665` to your `configuration.yaml` file.
 
 [@AlucardZero]: https://github.com/AlucardZero/
 [@aparraga]: https://github.com/aparraga/
