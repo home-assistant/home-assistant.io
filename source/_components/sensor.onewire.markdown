@@ -31,9 +31,11 @@ sensor:
   platform: onewire
   names:
     some_id: your name
+  mount_dir: "/mnt/1wire"
 ```
 
 Configuration variables:
 
 - **names** array (*Optional*): ID and friendly name of your sensors.
+- **mount_dir** (*Optional*): Location of device tree if owfs driver used.
 
