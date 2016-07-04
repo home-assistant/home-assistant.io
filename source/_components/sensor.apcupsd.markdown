@@ -20,22 +20,21 @@ To add this platform to your installation, add the following to your `configurat
 sensor:
   - platform: apcupsd
     resources:
-      - type: bcharge
-      - type: linev
-      - type: loadpct
-      - type: nominv
-      - type: nompower
-      - type: numxfers
-      - type: outputv
-      - type: status
-      - type: timeleft
-      - type: tonbatt
+      - bcharge
+      - linev
+      - loadpct
+      - nominv
+      - nompower
+      - numxfers
+      - outputv
+      - status
+      - timeleft
+      - tonbatt
 ```
 
 Configuration variables:
 
 - **resources** array (*Required*): Contains all entries to display.
-  - **type** (*Required*): The type of the information to display, please check the table below for details.
 
 #### Example
 
@@ -96,13 +95,13 @@ FIRMWARE : 70.11.I
 END APC  : 2016-02-09 17:13:46 +0000
 ```
 
-Use the (case insensitive) values from the left hand column as your `type`:
+Use the (case insensitive) values from the left hand column:
 
 ```yaml
 sensor:
   - platform: apcupsd
     resources:
-      - type: linev
-      - type: loadpct
-      - type: itemp
+      - linev
+      - loadpct
+      - itemp
 ```
