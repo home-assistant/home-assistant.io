@@ -32,7 +32,7 @@ http:
 The `secrets.yaml` files stored the corresponding password assigned to the identifier.
 
 ```yaml
-debug: 0
+logger: debug
 http_password: YOUR_PASSWORD
 ```
 
