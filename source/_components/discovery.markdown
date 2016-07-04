@@ -20,7 +20,7 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Netgear routers
  * Plex Media Server
 
-It will be able to add Google Chreomcasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
+It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
 To load this component, add the following lines to your `configuration.yaml`:
 
