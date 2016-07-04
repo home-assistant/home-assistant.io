@@ -9,11 +9,11 @@ sharing: true
 footer: true
 ---
 
-The `configuration.yaml` file a plain-text file thus it is readable for everyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. This separation can also help you to keep easier track of your passwords and API keys (as they are all stored at one place and no longer spread across the `configuration.yaml` file) if you don't want to  [split up your configuration](topics/splitting_configuration/).
+The `configuration.yaml` file a plain-text file thus it is readable for everyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. This separation can also help you to keep easier track of your passwords and API keys (as they are all stored at one place and no longer spread across the `configuration.yaml` file) if you don't want to  [split up your configuration](/topics/splitting_configuration/).
 
 ### {% linkable_title Using secrets.yaml %}
 
-The workflow for the outsourcing in the `secrets.yaml` are very similar to the [splitting of the configuration](topics/splitting_configuration/). Create a `secrets.yaml` file in your Home assistant configuration directory (The location of the folder differs between operating systems: on OS X and Linux it's `~/.homeassistant` and on Windows it's `%APPDATA%/.homeassistant`).
+The workflow for the outsourcing in the `secrets.yaml` are very similar to the [splitting of the configuration](/topics/splitting_configuration/). Create a `secrets.yaml` file in your Home assistant configuration directory (The location of the folder differs between operating systems: on OS X and Linux it's `~/.homeassistant` and on Windows it's `%APPDATA%/.homeassistant`).
 
 The entries for password and API keys in the `configuration.yaml` file usally looks like the example below.
 
