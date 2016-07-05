@@ -146,7 +146,9 @@
   <span class="key">trigger</span>:
     <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
     <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus, device_tracker.anne_therese</span></span>
-    <span class="comment"># Optional</span>
+    <span class="comment"># Optional </span>
+    <span class="key">state</span>: <span class="string"><span class="content">'xy'</span></span>
+    <span class="comment"># or (don't use that with condition: use_trigger_values)</span>
     <span class="key">from</span>: <span class="string"><span class="content">'not_home'</span></span>
     <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
     <span class="comment"># If given, will trigger when state has been the to state for X time.</span>
