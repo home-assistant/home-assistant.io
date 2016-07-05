@@ -82,6 +82,6 @@ Please enter password for encrypted keyring:
 ```
 
 <p class='note warning'>
-  With this configuration [autostart](/getting-started/autostart/) will no longer work.
+  If your are using the Python Keyring, [autostarting](/getting-started/autostart/) of Home Assistant will no longer work.
 </p>
 
