@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors Sensor"
 description: "Instructions how to integrate MySensors sensors into Home Assistant."
-date: 2016-04-13 14:20 +0100
+date: 2016-06-12 15:00 +0200
 sidebar: true
 comments: false
 sharing: true
@@ -30,7 +30,7 @@ S_WEIGHT           | V_WEIGHT, V_IMPEDANCE
 S_POWER            | V_WATT, V_KWH
 S_DISTANCE         | V_DISTANCE
 S_LIGHT_LEVEL      | V_LIGHT_LEVEL
-S_IR               | V_IR_SEND, V_IR_RECEIVE
+S_IR               | V_IR_RECEIVE
 S_WATER            | V_FLOW, V_VOLUME
 S_AIR_QUALITY      | V_DUST_LEVEL
 S_CUSTOM           | V_VAR1, V_VAR2, V_VAR3, V_VAR4, V_VAR5

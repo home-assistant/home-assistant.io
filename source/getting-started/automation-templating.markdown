@@ -32,7 +32,7 @@ automation 2:
     topic: /notify/+
   action:
     service_template: >{% raw %}
-      notify.{{ trigger.topic.split('/')[-1] }}
+      notify.{{ trigger.topic.split('/')[-1] }}{% endraw %}
     data_template:
       message: {% raw %}{{ trigger.payload }}{% endraw %}
 ```

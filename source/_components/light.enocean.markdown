@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: enocean.png
 ha_category: Light
+ha_release: 0.21
 ---
 
 An EnOcean light can take many formes. Currently only one type has been tested: Eltako FUD61 dimmer.

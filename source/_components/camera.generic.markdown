@@ -17,7 +17,7 @@ The `generic` camera platform allows you to integrate any IP camera into Home As
 
 Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]?time=[timestamp]`.
 
-To enable this camery in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -31,7 +31,7 @@ camera:
 
 Configuration variables:
 
-- **still_image_url** *Required*: The URL your camera serves the image on, eg. http://192.168.1.21:2112/
-- **name** *Optional*: This parameter allows you to override the name of your camera.
-- **username** *Optional*: The username for accessing your camera.
-- **password** *Optional*: The password for accessing your camera.
+- **still_image_url** (*Required*): The URL your camera serves the image on, eg. http://192.168.1.21:2112/
+- **name** (*Optional*): This parameter allows you to override the name of your camera.
+- **username** (*Optional*): The username for accessing your camera.
+- **password** (*Optional*): The password for accessing your camera.

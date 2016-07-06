@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: command_line.png
 ha_category: Sensor
+ha_release: pre 0.7
 ---
 
 
@@ -80,6 +81,16 @@ You can see directly in the frontend (**Developer tools** -> **About**) what rel
   - platform: command_line
     command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
     name: HA release
+```
+
+### {% linkable_title Read value out of a remote text file %}
+
+If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value. 
+
+```yaml
+  - platform: command_line
+    command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
+    name: File value
 ```
 
 ### {% linkable_title Use an external script %}

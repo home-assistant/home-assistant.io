@@ -13,7 +13,7 @@
     text-transform: uppercase;
     white-space: nowrap;
     display: inline-block;
-    font-weight: bold;
+    font-weight: 500;
   }
 
   .front-install {
@@ -33,29 +33,83 @@
   }
 }
 
-.supported-brands {
-  text-align: center;
-  img {
-    border: none !important;
-    box-shadow: none !important;
-    max-height: 50px;
-    max-width: 140px;
-    margin: 10px;
-    vertical-align: middle;
+.material-card {
+  // display: inline-block;
+  background-color: #fefefe;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+
+  h1 {
+    font-family: Roboto, Noto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -.012em;
+    line-height: 40px;
+    color: #212121;
+    padding: 20px 16px 12px;
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  &.text {
+    padding: 16px;
+
+    h1 {
+      padding: 4px 0px 12px;
+    }
+  }
+
+  .links {
+    margin-top: 8px;
+    margin-left: -8px;
+
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      display: inline-block;
+      margin: 0 8px;
+    }
   }
 }
 
-.brand {
-  border: none !important;
-  box-shadow: none !important;
-  max-height: 50px;
-  max-width: 200px;
-  margin: 10px;
+.frontpage {
 
-  &.overview {
-    max-width: 100px;
-    vertical-align: middle;
+  .current-version {
+    margin-bottom: 16px;
+
+    .release-date {
+      white-space: nowrap;
+    }
+
   }
+
+  .recent-posts {
+    margin-bottom: 16px;
+
+    .blog-date {
+      white-space: nowrap;
+    }
+  }
+
+  .supported-brands {
+    text-align: center;
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      border: none !important;
+      box-shadow: none !important;
+      max-height: 50px;
+      max-width: 140px;
+      margin: 10px;
+      vertical-align: middle;
+    }
+  }
+
 }
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
@@ -158,10 +212,6 @@ article.post, article.page, article.listing {
     &.btn {
       text-decoration: none;
     }
-  }
-
-  .frontpage a {
-    text-decoration: none;
   }
 }
 
@@ -362,4 +412,9 @@ ul.sidebar-menu {
 
 a code {
   color: #049cdb;
+}
+
+twitterwidget {
+  margin-left: auto;
+  margin-right: auto;
 }

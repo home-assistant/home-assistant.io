@@ -29,14 +29,14 @@ If you don't wish to have flux update on 30 second intervals, you can leave the
 switch turned off and use automation rules that call the service `switch.flux_update`
 whenever you want the lights updated.
 
-Example `configuration.yaml`:
 ```yaml
+# Example configuration.yaml entry
 switch:
   platform: flux
   lights:
     - light.desk
     - light.lamp
-  name: Fluxer		      # optional, default Flux
+  name: Fluxer            # optional, default Flux
   start_time: 7:00        # optional, default sunrise
   stop_time: 23:00        # optional, default 22:00
   start_colortemp: 4000   # optional, default 4000

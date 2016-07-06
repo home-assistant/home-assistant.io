@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: enocean.png
 ha_category: Switch
+ha_release: 0.21
 ---
 
 An EnOcean switch can take many forms. Currently only one type has been tested: Permundo PSC234

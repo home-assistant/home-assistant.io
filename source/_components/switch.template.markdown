@@ -42,6 +42,7 @@ Configuration variables:
   - **value_template** (*Required*): Defines a [template](/topics/templating/) to set the state of the switch.
   - **turn_on** (*Required*): Defines an [action](/getting-started/automation/) to run when the switch is turned on.
   - **turn_off** (*Required*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
+  - **entity_id** (*Optional*): Add a list of entity_ids so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
 
 ## {% linkable_title Examples %}
 

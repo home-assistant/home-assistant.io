@@ -69,11 +69,4 @@ Android Chrome
 chrome -> settings -> site settings -> storage -> search for your URL for home assistant-> "clear & reset"
 
 
-#### {% linkable_title Run the development version %}
-If you want to stay on top of the development of Home Assistant then you can upgrade to the `dev` branch. This can result in an unstable system, loss of data, etc. etc.
-
-```bash
-$ pip3 install --upgrade git+git://github.com/balloob/home-assistant.git@dev
-```
-
 ### [&laquo; Back to Getting Started](/getting-started/)
