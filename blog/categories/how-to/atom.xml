@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-06T06:19:25+00:00</updated>
+  <updated>2016-07-06T06:22:35+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -19,20 +19,20 @@
     <updated>2016-07-06T05:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/07/06/pocketchip-running-home-assistant</id>
     <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-pocketchip/pocketchip-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
-Over a year ago I participated in the <a href="https://www.kickstarter.com/projects/1598272670/chip-the-worlds-first-9-computer/description">kickstarter campain</a> for “CHIP - The World’s First Nine Dollar Computer” by <a href="https://www.nextthing.co/">Next Thing Co.</a>. I went for the PocketCHIP because of the idea. Display, built-in storage (thus no need for SD cards), battery-powered, and a keyboard are pretty nice features. Last week a package arrives…</p>
+Over a year ago I participated in the <a href="https://www.kickstarter.com/projects/1598272670/chip-the-worlds-first-9-computer/description">kickstarter campaign</a> for “CHIP - The World’s First Nine Dollar Computer” by <a href="https://www.nextthing.co/">Next Thing Co.</a>. I went for the PocketCHIP because of the idea. Display, built-in storage (thus no need for SD cards), battery-powered, and a keyboard are pretty nice features. Last week a package arrives…</p>
 
 <!--more-->
 
-<p>Thanks to <a href="https://www.nextthing.co/">Next Thing Co.</a> and their CHIP which is actually 9 USD the space requirement for a single board computer has decreased. No ethernet and HDMI output helped with that. But I guess that the next development cycle will allow us to put those boards in a matchbox including wired networking and a SATA interface.</p>
+<p>Thanks to <a href="https://www.nextthing.co/">Next Thing Co.</a> and their CHIP which is actually 9 USD the space requirement for a single board computer has decreased. No Ethernet and HDMI output helped with that. But I guess that the next development cycle will allow us to put those boards in a matchbox including wired networking and a SATA interface.</p>
 
 <p class="img">
   <img src="https://home-assistant.io/images/blog/2016-07-pocketchip/size.png" />
   Size comparison of a Cubieboard, OrangePi One, and CHIP.
 </p>
 
-<p>If you start using a PocketCHIP you will definitly look like a Blackberry or a GameBoy user. Typing is done with your thumbs :-)</p>
+<p>If you start using a PocketCHIP you will definitely look like a Blackberry or a GameBoy user. Typing is done with your thumbs :-)</p>
 
-<p>First a couple of tweaks like setting up <code>sudo</code>, upgradeing the existing installation, change passwords, enabling ssh, and removal of the annoying stuff then installation of Home Assistant. There is not much to tell…it’s straight-forward. For the sake of completeness below the notes about what I did.</p>
+<p>First a couple of tweaks like setting up <code>sudo</code>, upgrading the existing installation, change passwords, enabling ssh, and removal of the annoying stuff then installation of Home Assistant. There is not much to tell…it’s straight-forward. For the sake of completeness below the notes about what I did.</p>
 
 <p>A Debian installation is available by default. This means that some dependencies for Home Assistant are missing. I haven’t checked if a new build for the PocketCHIP would include them. So, after a <code>$ sudo apt-get update</code> installing those dependencies take a minute or two.</p>
 
@@ -59,7 +59,7 @@ $ source bin/activate
 </div>
 </div>
 
-<p>If you haven’t seen the next two commands already then you should definitiy visit our <a href="https://home-assistant.io/">frontsite</a>.</p>
+<p>If you haven’t seen the next two commands already then you should visit our <a href="https://home-assistant.io/">frontsite</a>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ pip3 install homeassistant
@@ -68,7 +68,7 @@ $ hass --open-ui
 </div>
 </div>
 
-<p>With <code>surf</code> the browsing experience on the low-resolution display is not that great. Most shartphones, even very cheap ones, have touchscreens with higher resolutions. Nevermind, <a href="https://twitter.com/fabaff/status/748852317047418880"><code>midori</code></a> is not better.</p>
+<p>With <code>surf</code> the browsing experience on the low-resolution display is not that great. Most smartphones, even very cheap ones, have touchscreens with higher resolutions. Nevermind, <a href="https://twitter.com/fabaff/status/748852317047418880"><code>midori</code></a> is not better.</p>
 
 <p class="img">
   <img src="https://home-assistant.io/images/blog/2016-07-pocketchip/pocketchip.png" />
