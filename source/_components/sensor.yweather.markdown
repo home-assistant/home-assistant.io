@@ -17,7 +17,7 @@ The `yweather` platform uses [Yahoo! weather](http://https://www.yahoo.com/news/
 
 Rate Limits: Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2,000 signed calls per day.
 
-The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your woeid by copying the numeric digits at the end of the URL for your location at [Yahoo! weather](http://https://www.yahoo.com/news/weather/).
+The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your woeid by copying the numeric digits at the end of the URL for your location at [Yahoo! weather](http://https://www.yahoo.com/news/weather/). If you don't add a woeid it generate it from Home-Assistant latitude and longitude.
 
 To add Yahoo! weather to your installation, add the following to your `configuration.yaml` file:
 
@@ -52,7 +52,7 @@ sensor:
 
 Configuration variables:
 
-- **woeid** (*Required*): Your API key for http://openweathermap.org/.
+- **woeid** (*Optional*): See above.
 - **forecast** (*Optional*): Day of forecast. The default is the current day to display conditions.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **weather**: A human-readable text summary with picture from yahoo.
