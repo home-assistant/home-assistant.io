@@ -30,7 +30,7 @@ The [Recorder component][recorder] was migrated to SQLAlchemy. This change will 
 ### {% linkable_title Breaking changes %}
 
 - Migrating existing databases.
-- 
+- The [APCUPSd Sensor][apcupsd-sensor] was updated. This will need that you modify your `configuration.yaml` file.
 
 ### {% linkable_title FAQ %}
 
@@ -46,4 +46,4 @@ The [Recorder component][recorder] was migrated to SQLAlchemy. This change will 
 [secrets]: /topics/secrets/
 [yahoo-weather]: /components/sensor.yweather/
 [simplisafe]: /components/alarm_control_panel.simplisafe/
-
+[apcupsd-sensor]: /components/sensor.apcupsd/
