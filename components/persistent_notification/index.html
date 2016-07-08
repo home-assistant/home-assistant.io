@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Persistent notification - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Instructions on how to integrate persistant notifications into Home Assistant.">
+    <meta name="description" content="Instructions on how to integrate persistent notifications into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/persistent_notification/">
@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/persistent_notification/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions on how to integrate persistant notifications into Home Assistant.">
+    <meta property="og:description" content="Instructions on how to integrate persistent notifications into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="Persistent notification">
-    <meta name="twitter:description" content="Instructions on how to integrate persistant notifications into Home Assistant.">
+    <meta name="twitter:description" content="Instructions on how to integrate persistent notifications into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -89,10 +89,10 @@
   <hr class="divider">
   
 
-  <p>The <code>persistant_notification</code> can be used to show a message on the frontend that has to be dismissed by the user.</p>
+  <p>The <code>persistent_notification</code> can be used to show a message on the frontend that has to be dismissed by the user.</p>
 
 <p class="img">
-  <img src="/images/screenshots/persistant-notification.png" />
+  <img src="/images/screenshots/persistent-notification.png" />
 </p>
 
 <h3><a class="title-link" name="service" href="#service"></a> Service</h3>
@@ -126,13 +126,13 @@
   </tbody>
 </table>
 
-<p>The <code>persistant_notification</code> component supports specifying <a href="/topics/templating/">templates</a> for both the <code>message</code> and the <code>title</code>. This will allow you to use the current state of Home Assistant in your notifications.</p>
+<p>The <code>persistent_notification</code> component supports specifying <a href="/topics/templating/">templates</a> for both the <code>message</code> and the <code>title</code>. This will allow you to use the current state of Home Assistant in your notifications.</p>
 
 <p>In an <a href="https://home-assistant.io/getting-started/automation-action/">action</a> of your <a href="/getting-started/automation/">automation setup</a> it could look like this with a customized subject.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">action</span>:
-  <span class="key">service</span>: <span class="string"><span class="content">persistant_notification.create</span></span>
+  <span class="key">service</span>: <span class="string"><span class="content">persistent_notification.create</span></span>
   <span class="key">data</span>:
     <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Your message goes here</span><span class="delimiter">&quot;</span></span>
     <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Custom subject</span><span class="delimiter">&quot;</span></span>
@@ -140,9 +140,9 @@
 </div>
 </div>
 
-<h3><a class="title-link" name="create-a-persistant-notification" href="#create-a-persistant-notification"></a> Create a persistant notification</h3>
+<h3><a class="title-link" name="create-a-persistent-notification" href="#create-a-persistent-notification"></a> Create a persistent notification</h3>
 
-<p>Choose <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong> to call the <code>persistant_notification</code> service. Select <code>persistant_notification/create</code> from the list of <strong>Available services:</strong> and enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
+<p>Choose <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong> to call the <code>persistent_notification</code> service. Select <code>persistent_notification/create</code> from the list of <strong>Available services:</strong> and enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>{
