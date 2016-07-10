@@ -63,7 +63,7 @@ The "stealth" entry above ensures traffic to and from your Home Assistant instan
 Then, restart Tor:
 
 ```bash
-$ sudo /etc/init.d/tor restart`
+$ sudo /etc/init.d/tor restart
 ```
 
 Then read the new generated authentication cookie from the Tor-generated hostname file:
