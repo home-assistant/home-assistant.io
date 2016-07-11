@@ -21,11 +21,12 @@ The [Recorder component][recorder] was migrated to SQLAlchemy. This change will 
 <img src='/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 
-- Config: improved support for storing [secrets][secrets] ([@kellerza])
+- Config: Improved support for storing [secrets][secrets] ([@kellerza])
 - Sensor: Support for [Yahoo Weather][yahoo-weather] ([@pvizeli])
 - Core: Scripts are available via CLI ([@balloob])
 - Alarm: [SimpliSafe][simplisafe] Alarm panels are now supported ([@w1ll1am23]) 
 - Core: Switch to SQLAlchemy for the Recorder component ([@rhooper])
+- Sensor: The [IMAP sensor][imap-sensor] platform is ovserving Email accounts ([@danieljkemp])
 
 ### {% linkable_title Breaking changes %}
 
@@ -41,9 +42,11 @@ The [Recorder component][recorder] was migrated to SQLAlchemy. This change will 
 [@balloob]: https://github.com/balloob/
 [@rhooper]: https://github.com/rhooper/
 [@w1ll1am23]: https://github.com/w1ll1am23/
+[@danieljkemp]: https://github.com/danieljkemp
 
 [recorder]: /components/recorder/
 [secrets]: /topics/secrets/
 [yahoo-weather]: /components/sensor.yweather/
 [simplisafe]: /components/alarm_control_panel.simplisafe/
 [apcupsd-sensor]: /components/sensor.apcupsd/
+[imap-sensor]: /component/sensor.imap/
