@@ -96,7 +96,6 @@
 <span class="key">http</span>:
   <span class="key">api_password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
   <span class="key">server_port</span>: <span class="string"><span class="content">12345</span></span>
-  <span class="key">development</span>: <span class="string"><span class="content">1</span></span>
   <span class="key">ssl_certificate</span>: <span class="string"><span class="content">/etc/letsencrypt/live/hass.example.com/fullchain.pem</span></span>
   <span class="key">ssl_key</span>: <span class="string"><span class="content">/etc/letsencrypt/live/hass.example.com/privkey.pem</span></span>
   <span class="key">cors_allowed_origins</span>:
@@ -110,6 +109,7 @@
 
 <ul>
   <li><strong>api_password</strong> (<em>Optional</em>): Protect Home Assistant with a password.</li>
+  <li><strong>server_host</strong> (<em>Optional</em>): Only listen to incoming requests on specific ip/host (default: accept all)</li>
   <li><strong>server_port</strong> (<em>Optional</em>): Let you set a port to use. Defaults to 8123.</li>
   <li><strong>development</strong> (<em>Optional</em>): Disable caching and load unvulcanized assets. Useful for Frontend development.</li>
   <li><strong>ssl_certificate</strong> (<em>Optional</em>): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.</li>
