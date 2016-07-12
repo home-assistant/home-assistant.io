@@ -66,3 +66,28 @@ Configuration variables:
 - **chat_id** (*Required*: The chat ID of your user.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+### Photo support
+
+```yaml
+...
+
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: test notify
+    message: That's a exemple
+    data:
+      photo:
+        - url: http://192.168.1.28/camera.jpg
+          username: admin
+          password: secrete
+        - file: /tmp/picture.jpg
+          caption: Picture Title xy
+        - url: http://somebla.ie/video.png
+          caption: I.e. for a Title
+```
+
+- **url** or **file** (*Required*): For local or remote path to a picture
+- **caption** (*Optional*: Picture title
+- **username** and **password** (*Optional*: For URL they require a basic auth
