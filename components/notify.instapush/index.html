@@ -93,6 +93,8 @@
 
 <p>The Instapush <a href="https://instapush.im/home/start/">Getting Started page</a> will guide through the process of creating the required items.</p>
 
+<p>To add Instapush to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">notify</span>:
@@ -112,11 +114,29 @@
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
   <li><strong>api_key</strong> (<em>Required</em>): Your API key for Instapush.</li>
   <li><strong>app_secret</strong> (<em>Required</em>): The secret for your created application.</li>
-  <li><strong>event</strong> (<em>Required</em>): TThe event</li>
+  <li><strong>event</strong> (<em>Required</em>): The event</li>
   <li><strong>tracker</strong> (<em>Required</em>): The name of tracker inside Instapush.</li>
 </ul>
 
-<p>To retrieve those values for existing settings, log into your account at https://instapush.im and go to your <strong>Dashboard</strong>. Then click <strong>APPS</strong> tab, choose an app, and check the <strong>Basic Info</strong> section. The <em>Application ID</em> is the <code>api_key</code> and <code>app_secret</code> is the <em>Application Secret</em>.</p>
+<p>To retrieve those values for existing settings, log into your account at <a href="https://instapush.im">https://instapush.im</a> and go to your <strong>Dashboard</strong>. Then click <strong>APPS</strong> tab, choose an app, and check the <strong>Basic Info</strong> section. The <em>Application ID</em> is the <code>api_key</code> and <code>app_secret</code> is the <em>Application Secret</em>.</p>
+
+<p>Assuming that your setup looks look in the image below…</p>
+
+<p class="img">
+  <img src="/images/screenshots/instapush.png" />
+</p>
+
+<p>…then your entry for the <code>configuration.yaml</code> file needs to be like this sample.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">notify</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">instapush</span></span>
+  [<span class="error">...]</span>
+  <span class="key">event</span>: <span class="string"><span class="content">msg</span></span>
+  <span class="key">tracker</span>: <span class="string"><span class="content">state</span></span>
+</pre></div>
+</div>
+</div>
 
 <p>It’s easy to test your Instapush setup outside of Home Assistant. Assuming you have an event <em>notification</em> and a tracker <em>home-assistant</em>, just fire a request and check the Instapush dashboard for a new entry.</p>
 
@@ -130,6 +150,7 @@
 </pre></div>
 </div>
 </div>
+
 <p>For further details, please check the <a href="https://instapush.im/developer/rest">API</a>.</p>
 
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
