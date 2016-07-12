@@ -94,7 +94,7 @@
 <p>This sensors needs a running instance of <code>glances</code> on the host. The minimal supported version of <code>glances</code> is 2.3:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>glances -w
+  <div class="code"><pre>$ sudo glances -w
 Glances web server started on http://0.0.0.0:61208/
 </pre></div>
 </div>
@@ -145,20 +145,20 @@ Glances web server started on http://0.0.0.0:61208/
   <li><strong>name</strong> (<em>Optional</em>): Name of the Glances sensor.</li>
   <li><strong>resources</strong> (<em>Required</em>): Entries to monitor.
     <ul>
-      <li><strong>‘disk_use_percent’</strong>: Used disk space in percent</li>
-      <li><strong>‘disk_use’</strong>: Used disk space</li>
-      <li><strong>‘disk_free’</strong>: Free disk space</li>
-      <li><strong>‘memory_use_percent’</strong>: Used memory in percent</li>
-      <li><strong>‘memory_use’</strong>: Used memory</li>
-      <li><strong>‘memory_free’</strong>: Free memory</li>
-      <li><strong>‘swap_use_percent’</strong>: Used swap space in percent</li>
-      <li><strong>‘swap_use’</strong>: Used swap space</li>
-      <li><strong>‘swap_free’</strong>: Free swap space</li>
-      <li><strong>‘processor_load’</strong>: Load</li>
-      <li><strong>‘process_running’</strong>: Number of running processes</li>
-      <li><strong>‘process_total’</strong>: Total number of processes</li>
-      <li><strong>‘process_thread’</strong>: Number of threads</li>
-      <li><strong>‘process_sleeping’</strong>: Number of sleeping processes</li>
+      <li><strong>disk_use_percent</strong>: Used disk space in percent</li>
+      <li><strong>disk_use</strong>: Used disk space</li>
+      <li><strong>disk_free</strong>: Free disk space</li>
+      <li><strong>memory_use_percent</strong>: Used memory in percent</li>
+      <li><strong>memory_use</strong>: Used memory</li>
+      <li><strong>memory_free</strong>: Free memory</li>
+      <li><strong>swap_use_percent</strong>: Used swap space in percent</li>
+      <li><strong>swap_use</strong>: Used swap space</li>
+      <li><strong>swap_free</strong>: Free swap space</li>
+      <li><strong>processor_load</strong>: Load</li>
+      <li><strong>process_running</strong>: Number of running processes</li>
+      <li><strong>process_total</strong>: Total number of processes</li>
+      <li><strong>process_thread</strong>: Number of threads</li>
+      <li><strong>process_sleeping</strong>: Number of sleeping processes</li>
     </ul>
   </li>
 </ul>
@@ -182,6 +182,9 @@ Glances web server started on http://0.0.0.0:61208/
   </div>
     <div class='section'>
     IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.7.3
     </div>
     <div class='section'>
     <h1 class="title delta">Category Sensor</h1>

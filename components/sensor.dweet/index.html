@@ -114,9 +114,9 @@
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
 </ul>
 
-<h2><a class="title-link" name="interacting-with-dweetio" href="#interacting-with-dweetio"></a> Interacting with Dweet.io</h2>
+<h3><a class="title-link" name="interacting-with-dweetio" href="#interacting-with-dweetio"></a> Interacting with Dweet.io</h3>
 
-<p>You can easily send dweets from the commandline to test your sensor.</p>
+<p>You can easily send dweets from the commandline to test your sensor with <code>curl</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ curl -H 'Content-Type: application/json' -d '{&quot;temperature&quot;: 40, &quot;humidity&quot;: 65}' https://dweet.io/dweet/for/ha-sensor
