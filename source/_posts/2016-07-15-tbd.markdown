@@ -12,13 +12,11 @@ categories: Release-Notes
 
 It's time for Home Assistant 0.24 and it's full of new integrations for your Home.
 
-This release brings support for two new ecosystems: [Envisalink] and [Homematic]. We can now also control your TV via HDMI using [HDMI-CEC] (which works on the Pi!) and another cool feature is the [persistent notifications] which allow you to add a notification to the frontend till dismissed.
-
-[Wink] support has been dramatically improved by migrating to the PubNub API. This allows Wink to push changes from their system to Home Assistant. This change came just in time as somehow our Wink integration was causing a lot of requests to their servers. Thanks to Wink for letting us know so we could solve it instead of blocking us.
+This release brings support for new ecosystems: [Join by Joaoapps][join-joaoapps], 
 
 The [Recorder component][recorder] was migrated to SQLAlchemy. This change will allow the easy integration of other database systems than SQLite in the future.
 
-<img src='/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/joaoapps_join' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 
 - Config: Improved support for storing [secrets][secrets] ([@kellerza])
@@ -26,7 +24,8 @@ The [Recorder component][recorder] was migrated to SQLAlchemy. This change will 
 - Core: Scripts are available via CLI ([@balloob])
 - Alarm: [SimpliSafe][simplisafe] Alarm panels are now supported ([@w1ll1am23]) 
 - Core: Switch to SQLAlchemy for the Recorder component ([@rhooper])
-- Sensor: The [IMAP sensor][imap-sensor] platform is ovserving Email accounts ([@danieljkemp])
+- Sensor: The [IMAP sensor][imap-sensor] platform is observing Email accounts ([@danieljkemp])
+- Support for [Join by Joaoapps][join-joaoapps] added incl. [Join Notify][join-notify] ([@nkgilley])
 
 ### {% linkable_title Breaking changes %}
 
@@ -43,6 +42,7 @@ The [Recorder component][recorder] was migrated to SQLAlchemy. This change will 
 [@rhooper]: https://github.com/rhooper/
 [@w1ll1am23]: https://github.com/w1ll1am23/
 [@danieljkemp]: https://github.com/danieljkemp
+[@nkgilley]: https://github.com/nkgilley
 
 [recorder]: /components/recorder/
 [secrets]: /topics/secrets/
@@ -50,3 +50,6 @@ The [Recorder component][recorder] was migrated to SQLAlchemy. This change will 
 [simplisafe]: /components/alarm_control_panel.simplisafe/
 [apcupsd-sensor]: /components/sensor.apcupsd/
 [imap-sensor]: /component/sensor.imap/
+[join-joaoapps]: /components/joaoapps_join/
+[join-notify]: /components/notify.joaoapps_join/
+
