@@ -10,6 +10,7 @@ footer: true
 logo: glances.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
+ha_release: 0.7.3
 ---
 
 
@@ -18,7 +19,7 @@ The `glances` sensor platform is consuming the system information provided by th
 This sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3:
 
 ```bash
-glances -w
+$ sudo glances -w
 Glances web server started on http://0.0.0.0:61208/
 ```
 
@@ -61,18 +62,18 @@ Configuration variables:
 - **port** (*Option*): The network port to connect to. Default is 61208.
 - **name** (*Optional*): Name of the Glances sensor.
 - **resources** (*Required*): Entries to monitor.
-  - **'disk_use_percent'**: Used disk space in percent
-  - **'disk_use'**: Used disk space
-  - **'disk_free'**: Free disk space
-  - **'memory_use_percent'**: Used memory in percent
-  - **'memory_use'**: Used memory
-  - **'memory_free'**: Free memory
-  - **'swap_use_percent'**: Used swap space in percent
-  - **'swap_use'**: Used swap space
-  - **'swap_free'**: Free swap space
-  - **'processor_load'**: Load
-  - **'process_running'**: Number of running processes
-  - **'process_total'**: Total number of processes
-  - **'process_thread'**: Number of threads
-  - **'process_sleeping'**: Number of sleeping processes
+  - **disk_use_percent**: Used disk space in percent
+  - **disk_use**: Used disk space
+  - **disk_free**: Free disk space
+  - **memory_use_percent**: Used memory in percent
+  - **memory_use**: Used memory
+  - **memory_free**: Free memory
+  - **swap_use_percent**: Used swap space in percent
+  - **swap_use**: Used swap space
+  - **swap_free**: Free swap space
+  - **processor_load**: Load
+  - **process_running**: Number of running processes
+  - **process_total**: Total number of processes
+  - **process_thread**: Number of threads
+  - **process_sleeping**: Number of sleeping processes
 
