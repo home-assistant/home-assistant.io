@@ -44,7 +44,7 @@ Configuration variables:
 - **local_ip** (*Required*): IP of device running Home Assistant
 - **local_port** (*Optional*): Port for connection with Home Assistant. Defaults to 8943.
 - **remote_ip** (*Required*): IP of CCU/Homegear
-- **remote_port** (*Required*): Port of Homegear/CCU XML-RPC Server (usually 2001)
+- **remote_port** (*Optional*): Port of Homegear/CCU XML-RPC Server (usually 2001)
 - **resolvenames** (*Optional*): <metadata, json, xml> Try to fetch device names. Defaults to `False` if not specified.
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
@@ -83,3 +83,12 @@ automation:
 
 The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
 The name depends on if you chose to resolve names or not. If not, it will be the device ID (e.g. LEQ1234657). If you chose to resolve names (and that is successful), it will be the name you have set in your CCU or in the metadata (e.g. "Kitchen Switch").
+
+**Other events**
+
+*homematic.keypress* see above.
+*homematic.impulse* for impulse sensors with event_data 'name' and 'channel'.
+
+**Service**
+
+*homematic/virtualkey* simulate a keypress on CCU/Homegear with device or virtual keys.
