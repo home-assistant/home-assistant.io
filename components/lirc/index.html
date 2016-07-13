@@ -98,10 +98,45 @@
 <p>To allow Home Assistant to talk to your IR receiver, you need to first make sure you have the correct dependencies installed:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo apt-get install lirc
+  <div class="code"><pre>$ sudo apt-get install lirc python3-lirc
 </pre></div>
 </div>
 </div>
+
+<p>Check the version of <code>python3-lirc</code>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ apt-cache show python3-lirc
+Package: python3-lirc
+Source: python-lirc
+Version: 1.2.1-2
+</pre></div>
+</div>
+</div>
+
+<p>If you do not have this version or you are running in a virtual environment, then your system will completely freeze with this component active. You will need to build <code>python3-lirc</code> from source. The version of this library in the Python package index is also broken, so the typical dependency system cannot fix this. Build it from source like this:</p>
+
+<p>As regular user:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>sudo apt-get install liblircclient-dev
+</pre></div>
+</div>
+</div>
+
+<p>As the user that runs hass:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>(hass) $  git clone https://github.com/tompreston/python-lirc.git
+(hass) $  cd python-lirc
+(hass) $  make py3
+(hass) $  python3 setup.py build
+(hass) $  python3 setup.py install
+</pre></div>
+</div>
+</div>
+
+<p>If you are not using a virtual environment setup, then you’ll need a <code>sudo</code> before the install line above.</p>
 
 <p class="note">
 If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations <a href="http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/">here</a>. Consider following these.
@@ -139,12 +174,12 @@ end
 <p>Test your LIRC installation before proceeding by running:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ irexec -n home-assistant
+  <div class="code"><pre>$ ircat home-assistant
 </pre></div>
 </div>
 </div>
 
-<p>and pressing some buttons on the remote.</p>
+<p>and pressing some buttons on the remote. You should see them register on the screen if LIRC is properly configured.</p>
 
 <h3><a class="title-link" name="configuration-home-assistant" href="#configuration-home-assistant"></a> Configuration Home Assistant</h3>
 
@@ -154,10 +189,6 @@ end
 </pre></div>
 </div>
 </div>
-
-<p class="note">
-If you are on a Debian based system (like Raspberry Pi) and are having issues loading the component due to it being unable to install python-lirc, install it manually using <code>apt-get install python3-lirc</code>.
-</p>
 
 <h4><a class="title-link" name="events" href="#events"></a> Events</h4>
 
