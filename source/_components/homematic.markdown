@@ -92,3 +92,14 @@ The name depends on if you chose to resolve names or not. If not, it will be the
 **Service**
 
 *homematic/virtualkey* simulate a keypress on CCU/Homegear with device or virtual keys.
+
+```yaml
+...
+
+action:
+  service: homematic.virtualkey
+  data:
+    address: BidCoS-RF
+    channel: 1
+    param: PRESS_LONG
+```
