@@ -89,23 +89,15 @@
   <hr class="divider">
   
 
-  <p>The Flux switch platform will change the temperature of your lights similar to<br />
-the way flux works on your computer, using circadian rhythm.  They will be bright<br />
-during the day, and gradually fade to a red/orange at night.</p>
+  <p>The <code>flux</code> switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night.</p>
 
-<p>The component will update your lights based on the the time of day.  It will only<br />
-affect lights that are turned on and listed in the flux configuration.</p>
+<p>The component will update your lights based on the the time of day. It will only affect lights that are turned on and listed in the flux configuration.</p>
 
-<p>During the day (in between <code>start time</code> and <code>sunset time</code>), it will fade the lights from<br />
-the <code>start_colortemp</code> to the <code>sunset_colortemp</code>.  After sunset (between <code>sunset_time</code><br />
-and <code>stop_time</code>), the lights will fade from the the <code>sunset_colortemp</code> to the<br />
-<code>stop_colortemp</code>.  If the lights are still on after the <code>stop_time</code> it will continue<br />
-to change the light to the <code>stop_colortemp</code> until the light is turned off.  The fade<br />
-effect is created by updating the lights every 30 seconds with a 30 second transition time.</p>
+<p>During the day (in between <code>start time</code> and <code>sunset time</code>), it will fade the lights from the <code>start_colortemp</code> to the <code>sunset_colortemp</code>.  After sunset (between <code>sunset_time</code> and <code>stop_time</code>), the lights will fade from the the <code>sunset_colortemp</code> to the <code>stop_colortemp</code>. If the lights are still on after the <code>stop_time</code> it will continue to change the light to the <code>stop_colortemp</code> until the light is turned off. The fade effect is created by updating the lights every 30 seconds with a 30 second transition time.</p>
 
-<p>If you don’t wish to have flux update on 30 second intervals, you can leave the<br />
-switch turned off and use automation rules that call the service <code>switch.flux_update</code><br />
-whenever you want the lights updated.</p>
+<p>If you don’t wish to have flux update on 30 second intervals, you can leave the switch turned off and use automation rules that call the service <code>switch.flux_update</code> whenever you want the lights updated.</p>
+
+<p>To use your TPLink switch in your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
@@ -114,16 +106,29 @@ whenever you want the lights updated.</p>
   <span class="key">lights</span>:
     - <span class="string"><span class="content">light.desk</span></span>
     - <span class="string"><span class="content">light.lamp</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Fluxer</span></span>            <span class="comment"># optional, default Flux</span>
-  <span class="key">start_time</span>: <span class="string"><span class="content">'7:00'</span></span>        <span class="comment"># optional, default sunrise</span>
-  <span class="key">stop_time</span>: <span class="string"><span class="content">'23:00'</span></span>        <span class="comment"># optional, default 22:00</span>
-  <span class="key">start_colortemp</span>: <span class="string"><span class="content">4000</span></span>   <span class="comment"># optional, default 4000</span>
-  <span class="key">sunset_colortemp</span>: <span class="string"><span class="content">3000</span></span>  <span class="comment"># optional, default 3000</span>
-  <span class="key">stop_colortemp</span>: <span class="string"><span class="content">1900</span></span>    <span class="comment"># optional, default 1900</span>
-  <span class="key">brightness</span>: <span class="string"><span class="content">200</span></span>         <span class="comment"># optional, default calculated by RGB_to_xy</span>
+  <span class="key">name</span>: <span class="string"><span class="content">Fluxer</span></span>
+  <span class="key">start_time</span>: <span class="string"><span class="content">'7:00'</span></span>
+  <span class="key">stop_time</span>: <span class="string"><span class="content">'23:00'</span></span>
+  <span class="key">start_colortemp</span>: <span class="string"><span class="content">4000</span></span>
+  <span class="key">sunset_colortemp</span>: <span class="string"><span class="content">3000</span></span>
+  <span class="key">stop_colortemp</span>: <span class="string"><span class="content">1900</span></span>
+  <span class="key">brightness</span>: <span class="string"><span class="content">200</span></span>
 </pre></div>
 </div>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>lights</strong> (<em>Required</em>) array: List of light entities.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this switch.</li>
+  <li><strong>start_time</strong> (<em>Optional</em>): The start time. Default to sunrise.</li>
+  <li><strong>stop_time</strong> (<em>Optional</em>): The stop time. Defaults to 22:00.</li>
+  <li><strong>start_colortemp</strong> (<em>Optional</em>): The color temperature at the start. Defaults to <code>4000</code>.</li>
+  <li><strong>sunset_colortemp</strong> (<em>Optional</em>): The sun set color temperature. Defaults to <code>3000</code>.</li>
+  <li><strong>stop_colortemp</strong> (<em>Optional</em>): The color temperature at the end. Defaults to <code>1900</code>.</li>
+  <li><strong>brightness</strong> (<em>Optional</em>): The brightness of the lights. Calculated with <code>RGB_to_xy</code> by default.</li>
+</ul>
 
 
 
