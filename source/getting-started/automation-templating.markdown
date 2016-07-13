@@ -57,8 +57,8 @@ The following tables show the available trigger data per platform.
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `numeric_state`
 | `trigger.entity_id` | Entity ID that we observe.
-| `trigger.below` | The below treshold, if any.
-| `trigger.above` | The above treshold, if any.
+| `trigger.below` | The below threshold, if any.
+| `trigger.above` | The above threshold, if any.
 | `trigger.from_state` | The previous state of the entity.
 | `trigger.to_state` | The new state that triggered trigger.
 

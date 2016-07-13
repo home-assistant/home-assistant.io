@@ -15,6 +15,8 @@ ha_release: pre 0.7
 
 The `transmission` platform allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
+To enable this sensor, add the following lines to your `configuration.yaml`:
+
 ```yaml
 # Example configuration.yaml entry
 sensor:

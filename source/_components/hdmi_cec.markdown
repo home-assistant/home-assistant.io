@@ -25,9 +25,14 @@ The computer running Home Assistant must support CEC, and of course be connected
 
 [libcec](https://github.com/Pulse-Eight/libcec) must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings, by default as a system Python module. If you are running Home Assistant in a Python virtual environment, make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
 
+#### {% linkable_title Symlinking into virtual environment %}
+
+`ln -s /usr/local/lib/python3.4/dist-packages/cec <your venv>/lib/python3.4/site-packages`
+
 ## {% linkable_title Configuration Example %}
 
 In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
+
 ```yaml
 hdmi_cec:
   devices:

@@ -19,6 +19,9 @@ homeassistant:
   latitude: 32.87336
   longitude: 117.22743
 
+  # Impacts weather/sunrise data (altitude above sea level) 
+  elevation: 430
+
   # C for Celsius, F for Fahrenheit
   temperature_unit: C
 

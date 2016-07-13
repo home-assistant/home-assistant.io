@@ -18,7 +18,6 @@ The `http` component serves all files and data required for the Home Assistant f
 http:
   api_password: YOUR_PASSWORD
   server_port: 12345
-  development: 1
   ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
   cors_allowed_origins:
@@ -29,6 +28,7 @@ http:
 Configuration variables:
 
 - **api_password** (*Optional*): Protect Home Assistant with a password.
+- **server_host** (*Optional*): Only listen to incoming requests on specific ip/host (default: accept all)
 - **server_port** (*Optional*): Let you set a port to use. Defaults to 8123.
 - **development** (*Optional*): Disable caching and load unvulcanized assets. Useful for Frontend development.
 - **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
