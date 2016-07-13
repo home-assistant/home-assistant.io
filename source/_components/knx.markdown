@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KNX"
-description: "Instructions on how to integrate KXN compoents with Home Assistant."
+description: "Instructions on how to integrate KXN components with Home Assistant."
 date: 2016-06-08 12:00
 sidebar: true
 comments: false
@@ -16,22 +16,19 @@ ha_release: 0.24
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](../binary_sensor.knx) 
-- [Switch](../switch.knx) 
+- [Binary Sensor](/components/binary_sensor.knx) 
+- [Switch](/components/switch.knx) 
 
 The local ZigBee device (assuming XBee) must have an up to date Router or Coordinator API firmware installed.
 
-## Configuration
-
 A `knx` section must be present in the `configuration.yaml` file and contain the following options as required:
-
-- **host**: The IP address of the KNX/IP interface to use. You can use "0.0.0.0" if your KNX/IP gateway supports discovery
-
-- **port**: The UDP port number. Default: `3671`
-
-#### Example
 
 ```yaml
 knx:
-  host: 192.168.1.12
+  host: IP_ADDRESS
+  port: PORT
 ```
+
+- **host** (*Required*): The IP address of the KNX/IP interface to use. You can use "0.0.0.0" if your KNX/IP gateway supports discovery.
+- **port** (*Optional*): The UDP port number. Defaults to `3671`.
+
