@@ -61,3 +61,16 @@ Toggles the state of one or multiple lights using [groups]({{site_root}}/compone
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | yes | Integer that represents the time the light should take to transition to the new state.
+
+### {% linkable_title Service `light.set_brightness` %}
+
+Changes the brightness of one or multiple lights using [groups]({{site_root}}/components/group/). 
+
+*Note*: This currently is only supported by the [Lifx]({{site_root}}/components/light.lifx/ component.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `transition` | yes | Integer that represents the time the light should take to transition to the new state.
+| `brightness` | yes | Integer between 0 and 255 for how bright the color should be.
+
