@@ -10,46 +10,82 @@ comments: true
 categories: Release-Notes
 ---
 
-It's time for Home Assistant 0.24 and it's full of new integrations for your Home.
+It's time for Home Assistant 0.24 and it's full of new integrations for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.
 
-This release brings support for new ecosystems: [Join by Joaoapps][join-joaoapps], 
+[Roy Hooper][@rhooper] did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use **any** SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL.However, this does require that you run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script: 
 
-The [Recorder component][recorder] was migrated to SQLAlchemy. This change will allow the easy integration of other database systems than SQLite in the future.
+```bash
+hass --script db_migrator --config /path/to/config
+```
+
+You can omit the `--config` option if you use the default configuration directory. Run the script with `--help` to get more options.
 
 <img src='/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/joaoapps_join' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 
 - Config: Improved support for storing [secrets][secrets] ([@kellerza])
-- Sensor: Support for [Yahoo Weather][yahoo-weather] ([@pvizeli])
-- Core: Scripts are available via CLI ([@balloob])
-- Alarm: [SimpliSafe][simplisafe] Alarm panels are now supported ([@w1ll1am23]) 
+- Sensor: Support for [Yahoo! Weather][yahoo-weather] ([@pvizeli])
+- Core: Add scripts to command line to expose advanced options ([@balloob])
+- Alarm: [SimpliSafe][simplisafe] is now supported ([@w1ll1am23]) 
 - Core: Switch to SQLAlchemy for the Recorder component ([@rhooper])
 - Sensor: The [IMAP sensor][imap-sensor] platform is observing Email accounts ([@danieljkemp])
 - Support for [Join by Joaoapps][join-joaoapps] added incl. [Join Notify][join-notify] ([@nkgilley])
+- Media Player: [Plex] will no longer spam the logs if server goes offline ([@dale3h])
+- Sensor: [APCUPSd Sensor][apcupsd-sensor] now supports names, icons and units ([@dale3h])
+- Lock: [Verisure] entities will now use name instead of serial number for entity id ([@turbokongen])
+- [StatsD] can now also export attributes ([@bah2830])
+- Support for [KNX] added ([@usul27])
+- Switch: [TPLink] HS100/HS110 now supported ([@GadgetReactor])
+- Stability fixes for [RFXTRX] ([@Danielhiversen])
+- Tweaks to [Z-Wave] ([@turbokongen])
+- Light: [Brightness] now clamped to 0-255 ([@keatontaylor])
+- Thermostat: [Radiotherm] HVAC mode now supported ([@danieljkemp])
+- [Google Travel] times can now use dynamic locations for start/end ([@bah2830])
+- Notify: Allow sending photos to [Telegram] ([@pvizeli])
+- Frontend: Improve loading times ([@balloob])
+- Frontend: Fix stream not reconnecting after standby ([@balloob])
+- Frontend: Wait up to two seconds for new state before resetting toggle after toggling state ([@balloob])
 
 ### {% linkable_title Breaking changes %}
 
-- Migrating existing databases.
+- Migrating existing databases (see above).
 - The [APCUPSd Sensor][apcupsd-sensor] was updated. This will need that you modify your `configuration.yaml` file.
+- Entity IDs of Verisure locks will change. This is a one time change but should improve readability.
 
 ### {% linkable_title FAQ %}
 
-- 
+- Frequently asked questions about this release will show up here...
 
-[@pvizeli]: https://github.com/pvizeli/
-[@kellerza]: https://github.com/kellerza/
+[@bah2830]: https://github.com/bah2830/
 [@balloob]: https://github.com/balloob/
-[@rhooper]: https://github.com/rhooper/
-[@w1ll1am23]: https://github.com/w1ll1am23/
+[@dale3h]: https://github.com/dale3h/
 [@danieljkemp]: https://github.com/danieljkemp
+[@GadgetReactor]: https://github.com/GadgetReactor
+[@keatontaylor]: https://github.com/keatontaylor
+[@kellerza]: https://github.com/kellerza/
 [@nkgilley]: https://github.com/nkgilley
+[@pvizeli]: https://github.com/pvizeli/
+[@rhooper]: https://github.com/rhooper/
+[@turbokongen]: https://github.com/turbokongen/
+[@usul27]: https://github.com/usul27
+[@w1ll1am23]: https://github.com/w1ll1am23/
 
-[recorder]: /components/recorder/
-[secrets]: /topics/secrets/
-[yahoo-weather]: /components/sensor.yweather/
-[simplisafe]: /components/alarm_control_panel.simplisafe/
 [apcupsd-sensor]: /components/sensor.apcupsd/
+[Brightness]: /components/light/
+[Google Travel]: /components/sensor.google_travel_time/
 [imap-sensor]: /component/sensor.imap/
 [join-joaoapps]: /components/joaoapps_join/
 [join-notify]: /components/notify.joaoapps_join/
+[KNX]: /components/knx/
+[Plex]: /components/media_player.plex/
+[Radiotherm]: /components/thermostat.radiotherm/
+[recorder]: /components/recorder/
+[secrets]: /topics/secrets/
+[simplisafe]: /components/alarm_control_panel.simplisafe/
+[StatD]: /components/statsd/
+[Telegram]: /components/notify.telegram/
+[TPLink]: /components/switch.tplink/
+[Verisure]: /components/lock.verisure/
+[yahoo-weather]: /components/sensor.yweather/
+[Z-Wave]: /components/zwave/
 
