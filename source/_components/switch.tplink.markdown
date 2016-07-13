@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: tplink.png
+logo: tp-link.png
 ha_category: Switch
 ---
 
