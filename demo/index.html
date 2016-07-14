@@ -62,8 +62,12 @@
         document
           .getElementById('ha-init-skeleton')
           .classList.add('error');
-      }
+      };
       window.noAuth = true;
+      window.deferredLoading = {
+        map: '/demo/partial-map.html',
+        dev: '/demo/dev-tools.html',
+      };
     </script>
   </head>
   <body fullbleed>
