@@ -69,6 +69,14 @@ sensor:
       friendly_name: 'Glances'
 ```
 
+By comparing the details published on the [template](/topics/templating/) page the same can be archived with a different approach: 
+
+```yaml
+value_template: {% raw %}"{%if states.sensor.ENTITY_ID.state == 'on' %}running{%elif states.switch.ENTITY_ID.state == 'off' %}not running{% endif %}"{% endraw %}
+```
+
+The [Binary template sensor](/components/binary_sensor.template/) is the one in similar cases if you prefer to see an icon instead of text.
+
 ### {% linkable_title Multiline example with an if test (and warnings disabled) %}
 
 This example shows a multiple line template with and if test. It looks at a sensing switch and shows on/off in the frontend. It disables warnings to avoid log messages where the switch it depends on isn't loaded yet.
