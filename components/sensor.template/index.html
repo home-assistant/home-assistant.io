@@ -151,7 +151,7 @@
   <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
   <span class="key">sensors</span>:
     <span class="key">glances</span>:
-      <span class="key">value_template</span>: <span class="string"><span class="content">'running'</span></span>
+      <span class="key">value_template</span>: <span class="string"><span class="content">'{% if is_state(&quot;sensor.process_glances&quot;, &quot;off&quot;) %}not running{% else %}running{% endif %}'</span></span>
       <span class="key">friendly_name</span>: <span class="string"><span class="content">'Glances'</span></span>
 </pre></div>
 </div>
