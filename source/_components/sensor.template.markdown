@@ -50,13 +50,26 @@ This example shows the sun angle in the frontend.
 sensor:
   platform: template
   sensors:
-      solar_angle:
-        value_template: {% raw %}'{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'{% endraw %}
-        friendly_name: 'Sun Angle'
-        unit_of_measurement: '°'
+    solar_angle:
+      value_template: {% raw %}'{{ "%+.1f"|format(states.sun.sun.attributes.elevation) }}'{% endraw %}
+      friendly_name: 'Sun Angle'
+      unit_of_measurement: '°'
 ```
 
-### {% linkable_title Multi line example with an if test (and warnings disabled)%}
+### {% linkable_title Renaming sensor output %}
+
+If you don't like the wording of a sensor output then the template sensor can help too. Processes monitored by the [System Monitor sensor](/components/sensor.systemmonitor/) show `on` or `off` if they are running or not. This example shows how the output of a monitored `glances` process can be renamed.
+
+```yaml
+sensor:
+  platform: template
+  sensors:
+    glances:
+      value_template: '{% if is_state("sensor.process_glances", "off") %}not running{% else %}running{% endif %}'
+      friendly_name: 'Glances'
+```
+
+### {% linkable_title Multiline example with an if test (and warnings disabled) %}
 
 This example shows a multiple line template with and if test. It looks at a sensing switch and shows on/off in the frontend. It disables warnings to avoid log messages where the switch it depends on isn't loaded yet.
 
@@ -64,21 +77,22 @@ This example shows a multiple line template with and if test. It looks at a sens
 sensor:
   platform: template
   sensors:
-      kettle:
-        friendly_name: 'Kettle'
-        {% raw %}value_template: >-
-            {%- if is_state("switch.kettle", "off") %}
-                off
-            {%  elif states.switch.kettle.attributes.kwh < 1000 %}
-                standby
-            {% elif is_state("switch.kettle", "on") %}
-                on
-            {% else %}
-                failed
-            {%- endif %}{% endraw %}
+    kettle:
+      friendly_name: 'Kettle'
+      {% raw %}value_template: >-
+          {%- if is_state("switch.kettle", "off") %}
+              off
+          {%  elif states.switch.kettle.attributes.kwh < 1000 %}
+              standby
+          {% elif is_state("switch.kettle", "on") %}
+              on
+          {% else %}
+              failed
+          {%- endif %}{% endraw %}
 
-       warnings: Off
+     warnings: Off
 ```
+
 (please note the blank line to close the multi-line template)
 
 ### {% linkable_title Change the unit of measurment %}
@@ -90,11 +104,12 @@ sensor:
   platform: template
   sensors:
     transmission_down_speed_kbps:
-        value_template: {% raw %}'{{ states.sensor.transmission_down_speed.state | multiply(1024) }}'{% endraw %}
-        friendly_name: 'Transmission Down Speed'
-        unit_of_measurement: 'kB/s'
+      value_template: {% raw %}'{{ states.sensor.transmission_down_speed.state | multiply(1024) }}'{% endraw %}
+      friendly_name: 'Transmission Down Speed'
+      unit_of_measurement: 'kB/s'
     transmission_up_speed_kbps:
-        value_template: {% raw %}'{{ states.sensor.transmission_up_speed.state | multiply(1024) }}'{% endraw %}
-        friendly_name: 'Transmission Up Speed'
-        unit_of_measurement: 'kB/s'
+      value_template: {% raw %}'{{ states.sensor.transmission_up_speed.state | multiply(1024) }}'{% endraw %}
+      friendly_name: 'Transmission Up Speed'
+      unit_of_measurement: 'kB/s'
 ```
+
