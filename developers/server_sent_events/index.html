@@ -98,7 +98,7 @@
 <p>There are various ways to access the stream. One is <code>curl</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: 12345&quot; \
        -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/stream
 </pre></div>
 </div>
@@ -126,9 +126,33 @@
 
 <p>Visit <a href="http://localhost:8123/local/sse.html">http://localhost:8123/local/sse.html</a> to see the stream of events.</p>
 
-<h3><a class="title-link" name="example" href="#example"></a> Example</h3>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<h3><a class="title-link" name="website" href="#website"></a> Website</h3>
 
 <p>The <a href="https://github.com/fabaff/home-assistant-sse">home-assistant-sse</a> repository contains an more advanced example.</p>
+
+<h3><a class="title-link" name="python" href="#python"></a> Python</h3>
+
+<p>If you want test the server-sent events without creating a website then the Python module <a href="https://pypi.python.org/pypi/sseclient/"><code>sseclient</code> </a> can help. Install it first:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ pip3 install sseclient
+</pre></div>
+</div>
+</div>
+
+<p>The simplest script to consume the SSE looks like the following snipplet.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">from</span> <span class="include">sseclient</span> <span class="keyword">import</span> <span class="include">SSEClient</span>
+
+messages = SSEClient(<span class="string"><span class="delimiter">'</span><span class="content">http://localhost:8123/api/stream?api_password=MYPASS</span><span class="delimiter">'</span></span>)
+<span class="keyword">for</span> msg <span class="keyword">in</span> messages:
+    print(msg)
+</pre></div>
+</div>
+</div>
 
 
 

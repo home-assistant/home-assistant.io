@@ -103,12 +103,12 @@
 <h3><a class="title-link" name="website" href="#website"></a> Website</h3>
 
 <ol>
-  <li>Create a blog post and base it on the PR text. Add images, additional text, links, etc. if it adds value. Tag each platform/component in message to documentation.</li>
-  <li>Create missing documentation as stumbs.</li>
-  <li>Create a pull request from <code>next</code> to <code>master</code> with the upcoming release number as title.</li>
-  <li>Merge <code>master</code> into <code>next</code> (<code>git checkout next &amp;&amp; git merge master</code>) to make the PR mergable.</li>
+  <li>Create a blog post in <code>next</code> and base it on the text of the PR in the main repository. Add images, additional text, links, etc. if it adds value. Tag each platform/component in message to documentation.</li>
+  <li>Create missing documentation as stumbs in <code>next</code>.</li>
   <li>Update the link on the frontpage (<code>source/index.html</code>) to link to the new release blog post and version number.</li>
-  <li>Merge blog post and updated frontpage to <code>master</code> (<code>git merge next</code>).</li>
+  <li>Create a pull request from <code>next</code> to <code>master</code> with the upcoming release number as title.</li>
+  <li>Merge <code>master</code> into <code>next</code> (<code>$ git checkout next &amp;&amp; git merge master</code>) to make the PR mergable.</li>
+  <li>Merge pull request (blog post, updated frontpage, and all new documentation) to <code>master</code>.</li>
 </ol>
 
 <h3><a class="title-link" name="python-package-index" href="#python-package-index"></a> Python Package Index</h3>
