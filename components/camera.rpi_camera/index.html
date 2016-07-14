@@ -124,7 +124,12 @@
   <li><strong>file_path</strong> (<em>Optional</em>): Save the picture in a custom file path (default: camera components folder)</li>
 </ul>
 
-<p>The given <strong>file_path</strong> must be an existing file because the camera platform setup make a writeable check on it.</p>
+<p>The given <strong>file_path</strong> must be an existing file because the camera platform setup make a writeable check on it.<br />
+Ensure that the Home Assistant user is in the video group.<br />
+eg.<br />
+<code>
+  sudo usermod -a -G video hass
+</code></p>
 
 
 </article>
