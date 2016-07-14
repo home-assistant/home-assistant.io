@@ -12,7 +12,7 @@ ha_category: Binary Sensor
 
 The `template` platform supports sensors which breaks out the state and `state_attributes` from other entities.
 
-To enable Template sensors in your installation, add the following to your `configuration.yaml` file:
+To enable Template binary sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -45,12 +45,11 @@ This example indicates true if a sensor is above a given threshold. Assuming a s
 sensor:
   platform: template
   sensors:
-      furnace_on:
-        value_template: {% raw %}{{ states.sensor.furnace.state > 2.5 }}{% endraw %}
-        friendly_name: 'Furnace Running
-        sensor_class: heat
+    furnace_on:
+      value_template: {% raw %}{{ states.sensor.furnace.state > 2.5 }}{% endraw %}
+      friendly_name: 'Furnace Running
+      sensor_class: heat
 ```
-
 
 ### {% linkable_title Switch as sensor %}
 
