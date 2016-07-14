@@ -20,12 +20,12 @@ This page describes the steps for publishing a new Home Assistant release.
 
 ### {% linkable_title Website %}
 
-1. Create a blog post and base it on the PR text. Add images, additional text, links, etc. if it adds value. Tag each platform/component in message to documentation.
-2. Create missing documentation as stumbs.
-3. Create a pull request from `next` to `master` with the upcoming release number as title.
-4. Merge `master` into `next` (`git checkout next && git merge master`) to make the PR mergable.
-5. Update the link on the frontpage (`source/index.html`) to link to the new release blog post and version number.
-6. Merge blog post and updated frontpage to `master` (`git merge next`).
+1. Create a blog post in `next` and base it on the text of the PR in the main repository. Add images, additional text, links, etc. if it adds value. Tag each platform/component in message to documentation.
+2. Create missing documentation as stumbs in `next`.
+3. Update the link on the frontpage (`source/index.html`) to link to the new release blog post and version number.
+4. Create a pull request from `next` to `master` with the upcoming release number as title.
+5. Merge `master` into `next` (`$ git checkout next && git merge master`) to make the PR mergable.
+6. Merge pull request (blog post, updated frontpage, and all new documentation) to `master`.
 
 ### {% linkable_title Python Package Index %}
 
