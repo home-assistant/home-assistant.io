@@ -124,12 +124,16 @@
   <li><strong>file_path</strong> (<em>Optional</em>): Save the picture in a custom file path (default: camera components folder)</li>
 </ul>
 
-<p>The given <strong>file_path</strong> must be an existing file because the camera platform setup make a writeable check on it.<br />
-Ensure that the Home Assistant user is in the video group.<br />
-eg.<br />
-<code>
-  sudo usermod -a -G video hass
-</code></p>
+<p>The given <strong>file_path</strong> must be an existing file because the camera platform setup make a writeable check on it.</p>
+
+<p>Ensure that the user who is running Home Assistant is in the video group. Eg. for the user <code>hass</code>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo usermod -a -G video hass
+</pre></div>
+</div>
+</div>
+
 
 
 </article>
