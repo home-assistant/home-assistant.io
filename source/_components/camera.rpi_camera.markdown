@@ -46,8 +46,10 @@ Configuration variables:
  - **file_path** (*Optional*): Save the picture in a custom file path (default: camera components folder)
  
 The given **file_path** must be an existing file because the camera platform setup make a writeable check on it.
-Ensure that the Home Assistant user is in the video group.
-eg.
+
+Ensure that the user who is running Home Assistant is in the video group. Eg. for the user `hass`:
+
+```bash
+$ sudo usermod -a -G video hass
 ```
-  sudo usermod -a -G video hass
-```
+
