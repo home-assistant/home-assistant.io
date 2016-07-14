@@ -31,4 +31,13 @@ recorder:
 Configuration variables:
 
 - **purge_days** (*Optional*): Delete events and states older than x days.
-- **db_url** (*Optional*): The URL which point to your database. Eg. `mysql://localhost/homeassistant`
+- **db_url** (*Optional*): The URL which point to your database. 
+
+| Database engine | `db_url`                                                 | 
+| :---------------|:---------------------------------------------------------|
+| SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
+| MySQL           | `mysql://SERVER_IP/DB_NAME`                              |
+| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME`                |
+| PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
+| PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
+
