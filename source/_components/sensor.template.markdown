@@ -65,7 +65,7 @@ sensor:
   platform: template
   sensors:
     glances:
-      value_template: '{% if is_state("sensor.process_glances", "off") %}not running{% else %}running{% endif %}'
+      value_template: {% raw %}'{% if is_state("sensor.process_glances", "off") %}not running{% else %}running{% endif %}'{% endraw %}
       friendly_name: 'Glances'
 ```
 
