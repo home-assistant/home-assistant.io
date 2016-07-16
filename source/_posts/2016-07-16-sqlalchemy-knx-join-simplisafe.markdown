@@ -30,7 +30,6 @@ You can omit the `--config` option if you use the default configuration director
 - Add scripts to command line to expose advanced options ([@balloob])
 - Alarm: [SimpliSafe][simplisafe] is now supported ([@w1ll1am23]) 
 - Core: Switch to SQLAlchemy for the Recorder component ([@rhooper])
-- Sensor: The [IMAP sensor][imap-sensor] platform is observing Email accounts ([@danieljkemp])
 - Support for [Join by Joaoapps][join-joaoapps] added incl. [Join Notify][join-notify] ([@nkgilley])
 - Media Player: [Plex] will no longer spam the logs if server goes offline ([@dale3h])
 - Sensor: [APCUPSd Sensor][apcupsd-sensor] now supports names, icons and units ([@dale3h])
