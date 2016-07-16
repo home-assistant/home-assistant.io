@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/</loc>
+    <lastmod>2016-07-16T12:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/07/06/pocketchip-running-home-assistant/</loc>
     <lastmod>2016-07-06T05:00:00+00:00</lastmod>
   </url>
@@ -585,6 +589,9 @@
   </url>
   <url>
     <loc>https://home-assistant.io/blog/posts/7/</loc>
+  </url>
+  <url>
+    <loc>https://home-assistant.io/blog/posts/8/</loc>
   </url>
     <url>
       <loc>https://home-assistant.io/components/automation/</loc>
@@ -1529,6 +1536,9 @@
       <loc>https://home-assistant.io/components/sensor.dte_energy_bridge/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/knx/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/media_player.pandora/</loc>
     </url>
     <url>
@@ -1602,6 +1612,27 @@
     </url>
     <url>
       <loc>https://home-assistant.io/components/sensor.envisalink/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/alarm_control_panel.simplisafe/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/sensor.yweather/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/notify.joaoapps_join/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/joaoapps_join/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/binary_sensor.knx/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/switch.knx/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/switch.tplink/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/cookbook/automation_for_rainy_days/</loc>
@@ -1683,6 +1714,12 @@
     </url>
     <url>
       <loc>https://home-assistant.io/cookbook/tor_configuration/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/cookbook/configuration_yaml_by_gstevenson/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/cookbook/configuration_yaml_by_bah2830/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/topics/templating/</loc>
@@ -1912,36 +1949,39 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/07/06/pocketchip-running-home-assistant/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/dev-tools.html</loc>
-    <lastmod>2016-07-16T15:38:33+00:00</lastmod>
+    <lastmod>2016-07-16T19:25:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-07-16T15:38:33+00:00</lastmod>
+    <lastmod>2016-07-16T19:25:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-07-16T15:38:33+00:00</lastmod>
+    <lastmod>2016-07-16T19:25:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/partial-map.html</loc>
-    <lastmod>2016-07-16T15:38:33+00:00</lastmod>
+    <lastmod>2016-07-16T19:25:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-07-16T15:38:33+00:00</lastmod>
+    <lastmod>2016-07-16T19:25:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-16T15:38:33+00:00</lastmod>
+    <lastmod>2016-07-16T19:25:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-16T15:38:33+00:00</lastmod>
+    <lastmod>2016-07-16T19:25:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-07-16T15:38:33+00:00</lastmod>
+    <lastmod>2016-07-16T19:25:02+00:00</lastmod>
   </url>
 </urlset>

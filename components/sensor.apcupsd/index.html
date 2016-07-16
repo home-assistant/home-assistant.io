@@ -89,12 +89,33 @@
   <hr class="divider">
   
 
-  <p>Any of the lines of output from the <a href="http://linux.die.net/man/8/apcaccess">apcaccess</a> command can be used as a sensor device in Home Assistant. In order to create a sensor for a value, create an entity within a <code>sensor</code> section of your configuration. The following parameters may be used:</p>
+  <p>The <code>apcupsd</code> sensor platform to allow you to monitor a UPS (battery backup) by using data from the <a href="http://linux.die.net/man/8/apcaccess">apcaccess</a> command.</p>
+
+<p>To add this platform to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">sensor</span>:
+  - <span class="string"><span class="content">platform: apcupsd</span></span>
+    <span class="key">resources</span>:
+      - <span class="string"><span class="content">bcharge</span></span>
+      - <span class="string"><span class="content">linev</span></span>
+      - <span class="string"><span class="content">loadpct</span></span>
+      - <span class="string"><span class="content">nominv</span></span>
+      - <span class="string"><span class="content">nompower</span></span>
+      - <span class="string"><span class="content">numxfers</span></span>
+      - <span class="string"><span class="content">outputv</span></span>
+      - <span class="string"><span class="content">status</span></span>
+      - <span class="string"><span class="content">timeleft</span></span>
+      - <span class="string"><span class="content">tonbatt</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Required</em>): The name you’d like to give the sensor in Home Assistant.</li>
-  <li><strong>platform</strong> (<em>Required</em>): Set to <code>apcupsd</code>.</li>
-  <li><strong>type</strong> (<em>Required</em>): The label for the value you’d like to track based on the output of <code>apcaccess</code>. Refer to the examples for ideas.</li>
+  <li><strong>resources</strong> array (<em>Required</em>): Contains all entries to display.</li>
 </ul>
 
 <h4>Example</h4>
@@ -158,21 +179,15 @@
 </div>
 </div>
 
-<p>Use the (case insensitive) values from the left hand column as your <code>type</code>:</p>
+<p>Use the (case insensitive) values from the left hand column:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">sensor</span>:
-  - <span class="string"><span class="content">name: Mains Voltage</span></span>
-    <span class="key">platform</span>: <span class="string"><span class="content">apcupsd</span></span>
-    <span class="key">type</span>: <span class="string"><span class="content">linev</span></span>
-
-  - <span class="string"><span class="content">name: UPS Load</span></span>
-    <span class="key">platform</span>: <span class="string"><span class="content">apcupsd</span></span>
-    <span class="key">type</span>: <span class="string"><span class="content">loadpct</span></span>
-
-  - <span class="string"><span class="content">name: UPS Temperature</span></span>
-    <span class="key">platform</span>: <span class="string"><span class="content">apcupsd</span></span>
-    <span class="key">type</span>: <span class="string"><span class="content">itemp</span></span>
+  - <span class="string"><span class="content">platform: apcupsd</span></span>
+    <span class="key">resources</span>:
+      - <span class="string"><span class="content">linev</span></span>
+      - <span class="string"><span class="content">loadpct</span></span>
+      - <span class="string"><span class="content">itemp</span></span>
 </pre></div>
 </div>
 </div>

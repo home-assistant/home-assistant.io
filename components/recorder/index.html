@@ -89,14 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>recorder</code> component is storing details in the local database which then are handled by the <a href="/components/history/"><code>history</code> component</a>.</p>
+  <p>The <code>recorder</code> component is storing details in a database which then are handled by the <a href="/components/history/"><code>history</code> component</a>.</p>
 
-<p>To setup the <code>recorder</code> component in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>Home Assistant uses <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> as Object Relational Mapper (ORM). This means that you can now use <strong>any</strong> SQL backend for the recorder that is supported by SQLAlchemy, like <a href="https://www.mysql.com/">MySQL</a>, <a href="https://mariadb.org/">MariaDB</a>, or <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
+
+<p>The default database engine is <a href="https://www.sqlite.org/">SQLite</a> which doesn’t require any configuration. The database is stored in your Home Assistant configuration directory (<code>.homeassistant</code>) and called <code>home-assistant.db</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">recorder</span>:
-  <span class="key">purge_days</span>: <span class="string"><span class="content">14</span></span>
+  <div class="code"><pre>
+To setup the `recorder` component in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+recorder:
+  purge_days: 14
 </pre></div>
 </div>
 </div>
@@ -105,7 +111,39 @@
 
 <ul>
   <li><strong>purge_days</strong> (<em>Optional</em>): Delete events and states older than x days.</li>
+  <li><strong>db_url</strong> (<em>Optional</em>): The URL which point to your database.</li>
 </ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Database engine</th>
+      <th style="text-align: left"><code>db_url</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SQLite</td>
+      <td style="text-align: left"><code>sqlite:///PATH/TO/DB_NAME</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MySQL</td>
+      <td style="text-align: left"><code>mysql://SERVER_IP/DB_NAME</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MySQL</td>
+      <td style="text-align: left"><code>mysql://user:password@SERVER_IP/DB_NAME</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PostgreSQL</td>
+      <td style="text-align: left"><code>postgresql://SERVER_IP/DB_NAME</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PostgreSQL</td>
+      <td style="text-align: left"><code>postgresql://scott:tiger@SERVER_IP/DB_NAME</code></td>
+    </tr>
+  </tbody>
+</table>
 
 
 
@@ -125,7 +163,7 @@
       <img src='/images/supported_brands/home-assistant.png' />
   </div>
     <div class='section'>
-    Introduced in release: 0.20
+    Introduced in release: pre 0.7
     </div>
     <div class='section'>
     <h1 class="title delta">Category History</h1>

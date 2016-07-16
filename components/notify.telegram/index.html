@@ -153,6 +153,35 @@ print(chat_id)
 
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
 
+<h3>Photo support</h3>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="head"><span class="head">...</span></span>
+
+<span class="key">action</span>:
+  <span class="key">service</span>: <span class="string"><span class="content">notify.NOTIFIER_NAME</span></span>
+  <span class="key">data</span>:
+    <span class="key">title</span>: <span class="string"><span class="content">test notify</span></span>
+    <span class="key">message</span>: <span class="string"><span class="content">That's a exemple</span></span>
+    <span class="key">data</span>:
+      <span class="key">photo</span>:
+        - <span class="string"><span class="content">url: http://192.168.1.28/camera.jpg</span></span>
+          <span class="key">username</span>: <span class="string"><span class="content">admin</span></span>
+          <span class="key">password</span>: <span class="string"><span class="content">secrete</span></span>
+        - <span class="string"><span class="content">file: /tmp/picture.jpg</span></span>
+          <span class="key">caption</span>: <span class="string"><span class="content">Picture Title xy</span></span>
+        - <span class="string"><span class="content">url: http://somebla.ie/video.png</span></span>
+          <span class="key">caption</span>: <span class="string"><span class="content">I.e. for a Title</span></span>
+</pre></div>
+</div>
+</div>
+
+<ul>
+  <li><strong>url</strong> or <strong>file</strong> (<em>Required</em>): For local or remote path to a picture</li>
+  <li><strong>caption</strong> (<em>Optional</em>: Picture title</li>
+  <li><strong>username</strong> and <strong>password</strong> (<em>Optional</em>: For URL they require a basic auth</li>
+</ul>
+
 
 </article>
 
@@ -211,6 +240,9 @@ print(chat_id)
         </li>
         <li>
             <a href='/components/notify.xmpp/'>Jabber (XMPP)</a>
+        </li>
+        <li>
+            <a href='/components/notify.joaoapps_join/'>Join Notify</a>
         </li>
         <li>
             <a href='/components/notify.webostv/'>LG WebOS TV notifications</a>

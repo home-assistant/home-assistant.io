@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-16T15:39:26+00:00</updated>
+  <updated>2016-07-16T19:25:45+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,69 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.24: SQLAlchemy, KNX, Join by Joaoapps, and SimpliSafe.]]></title>
+    <link href="https://home-assistant.io/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/"/>
+    <updated>2016-07-16T12:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/07/16/sqlalchemy-knx-join-simplisafe</id>
+    <content type="html"><![CDATA[<p>It’s time for Home Assistant 0.24 and it’s full of new integration for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.</p>
+
+<p><a href="https://www.mapquest.com/">MapQuest</a> discontinued their free and direct tile access by Monday, July 11, 2016. With <a href="https://carto.com/">CARTO</a> we found a very cool and suitable solution. They allow us to use their tile for the map. Thank you, <a href="https://carto.com/">CARTO</a>.</p>
+
+<p><a href="https://github.com/rhooper/">Roy Hooper</a> did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use <strong>any</strong> SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ pip3 install SQLAlchemy
+$ hass --script db_migrator --config /path/to/config
+</pre></div>
+</div>
+</div>
+
+<p>You can omit the <code>--config</code> option if you use the default configuration directory. Run the script with <code>--help</code> to get more options.</p>
+
+<p><img src="https://home-assistant.io/images/supported_brands/yahooweather.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/joaoapps_join.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/knx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/tp-link.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Config: Improved support for storing <a href="https://home-assistant.io/topics/secrets/">secrets</a> (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.yweather/">Yahoo! Weather</a> (<a href="https://github.com/pvizeli/">@pvizeli</a>)</li>
+  <li>Add scripts to command line to expose advanced options (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Alarm: <a href="https://home-assistant.io/components/alarm_control_panel.simplisafe/">SimpliSafe</a> is now supported (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
+  <li>Core: Switch to SQLAlchemy for the Recorder component (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
+  <li>Support for <a href="https://home-assistant.io/components/joaoapps_join/">Join by Joaoapps</a> added incl. <a href="https://home-assistant.io/components/notify.joaoapps_join/">Join Notify</a> (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>Media Player: <a href="https://home-assistant.io/components/media_player.plex/">Plex</a> will no longer spam the logs if server goes offline (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.apcupsd/">APCUPSd Sensor</a> now supports names, icons and units (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
+  <li>Lock: <a href="https://home-assistant.io/components/lock.verisure/">Verisure</a> entities will now use name instead of serial number for entity id (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>[StatsD] can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
+  <li>Support for <a href="https://home-assistant.io/components/knx/">KNX</a> added (<a href="https://github.com/usul27">@usul27</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/switch.tplink/">TPLink</a> HS100/HS110 now supported (<a href="https://github.com/GadgetReactor">@GadgetReactor</a>)</li>
+  <li>Stability fixes for [RFXTRX] ([@Danielhiversen])</li>
+  <li>Tweaks to <a href="https://home-assistant.io/components/zwave/">Z-Wave</a> (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/light/">Brightness</a> now clamped to 0-255 (<a href="https://github.com/keatontaylor">@keatontaylor</a>)</li>
+  <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.radiotherm/">Radiotherm</a> HVAC mode now supported (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.google_travel_time/">Google Travel</a> times can now use dynamic locations for start/end (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
+  <li>Notify: Allow sending photos to <a href="https://home-assistant.io/components/notify.telegram/">Telegram</a> (<a href="https://github.com/pvizeli/">@pvizeli</a>)</li>
+  <li>Frontend: Improve loading times (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Frontend: Fix stream not reconnecting after standby (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Frontend: Wait up to two seconds for new state before resetting toggle after toggling state (<a href="https://github.com/balloob/">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>Migrating existing databases (see above).</li>
+  <li>The <a href="https://home-assistant.io/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code>configuration.yaml</code> file.</li>
+  <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
+</ul>
+
+<h3><a class="title-link" name="faq" href="#faq"></a> FAQ</h3>
+
+<ul>
+  <li>Frequently asked questions about this release will show up here…</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PocketCHIP running Home Assistant]]></title>
@@ -1151,32 +1214,6 @@ For example, my wife works next door - and I couldn’t detect whether she’s a
 <h3>Breaking changes</h3>
 
 <p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code>execute_service</code> in their script configs. This should be <code>service</code>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Static website]]></title>
-    <link href="https://home-assistant.io/blog/2016/04/07/static-website/"/>
-    <updated>2016-04-07T06:28:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/04/07/static-website</id>
-    <content type="html"><![CDATA[<p>The frontend of Home Assistant is served with the help of a local web server. If you have <a href="https://home-assistant.io/getting-started/devices/#customizing-devices-and-services/">customized</a> your installation you already use this functionality. The content of your folder <code>www</code> in your Home Assistant configuration directory (<code>.homeassistant</code>) is available under <code>/local</code> (eg. <a href="https://localhost:8123/local">https://localhost:8123/local</a>).</p>
-
-<p>But there is more you can do! You can not only host images for customization there but HTML files or even web applications including CSS and Javascript.</p>
-
-<p class="img">
-<img src="https://home-assistant.io/images/blog/2016-04-display/ha-display.png" />
-</p>
-
-<!--more-->
-
-<p>In the past the buzz word “Smart mirror” was used a couple of times in our <a href="https://gitter.im/balloob/home-assistant">chatroom</a> and even made it into the <a href="https://github.com/home-assistant/home-assistant/issues/1392">issue tracker</a>. The existing solutions (<a href="http://docs.smart-mirror.io/">Smart mirror</a>, <a href="http://michaelteeuw.nl/tagged/magicmirror">MagicMirror</a>, and <a href="https://github.com/HannahMitt/HomeMirror">HomeMirror</a>) seems to be overkill if you already have Home Assistant running somewhere in your house or apartment. Why not simple display a web page served by Home Assistant on the tablet? No app and no Raspberry Pi running in the background.</p>
-
-<p>There are plenty of ways to achieve this…<a href="https://home-assistant.io/developers/rest_api/">RESTful API</a>, <a href="https://home-assistant.io/developers/python_api/">Python API</a>, or one of the <a href="https://home-assistant.io/components/#history/">history components</a>. If it is to be a web page I’m using the <a href="https://home-assistant.io/components/mqtt_eventstream/">MQTT Eventstream component</a> and <a href="http://git.eclipse.org/c/paho/org.eclipse.paho.mqtt.javascript.git/tree/src">mqttws31.js</a>.</p>
-
-<p>The <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT</a> broker provides websockets support for MQTT and mqttws31.js included in web page gives you access to the MQTT messages. It’s a matter of minutes. OK, it took a little longer because I’m not a Javascript guy to create the software part that will show details about your environment. The source is available at <a href="https://github.com/fabaff/home-assistant-display">https://github.com/fabaff/home-assistant-display</a> and the screenshot above shows the result. I guess that every person who is familiar with Javascript would be able to reduce the amount of code and to make it more flexible. Well, it’s a only prototype and showcase to include an image in this blog post.</p>
-
-<p>I hope that this little article could give you an idea of extending Home Assistant in an unconventional way.</p>
-
 ]]></content>
   </entry>
   

@@ -124,7 +124,7 @@ You can manually override the created entities be using Home Assistants <a href=
   <li><strong>local_ip</strong> (<em>Required</em>): IP of device running Home Assistant</li>
   <li><strong>local_port</strong> (<em>Optional</em>): Port for connection with Home Assistant. Defaults to 8943.</li>
   <li><strong>remote_ip</strong> (<em>Required</em>): IP of CCU/Homegear</li>
-  <li><strong>remote_port</strong> (<em>Required</em>): Port of Homegear/CCU XML-RPC Server (usually 2001)</li>
+  <li><strong>remote_port</strong> (<em>Optional</em>): Port of Homegear/CCU XML-RPC Server (usually 2001)</li>
   <li><strong>resolvenames</strong> (<em>Optional</em>): &lt;metadata, json, xml&gt; Try to fetch device names. Defaults to <code>False</code> if not specified.</li>
   <li><strong>username</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.</li>
   <li><strong>password</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.</li>
@@ -168,6 +168,28 @@ Here’s an example of how to use these events for automations:</p>
 
 <p>The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.<br />
 The name depends on if you chose to resolve names or not. If not, it will be the device ID (e.g. LEQ1234657). If you chose to resolve names (and that is successful), it will be the name you have set in your CCU or in the metadata (e.g. “Kitchen Switch”).</p>
+
+<p><strong>Other events</strong></p>
+
+<p><em>homematic.keypress</em> see above.<br />
+<em>homematic.impulse</em> for impulse sensors with event_data ‘name’ and ‘channel’.</p>
+
+<p><strong>Service</strong></p>
+
+<p><em>homematic/virtualkey</em> simulate a keypress on CCU/Homegear with device or virtual keys.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="head"><span class="head">...</span></span>
+
+<span class="key">action</span>:
+  <span class="key">service</span>: <span class="string"><span class="content">homematic.virtualkey</span></span>
+  <span class="key">data</span>:
+    <span class="key">address</span>: <span class="string"><span class="content">BidCoS-RF</span></span>
+    <span class="key">channel</span>: <span class="string"><span class="content">1</span></span>
+    <span class="key">param</span>: <span class="string"><span class="content">PRESS_LONG</span></span>
+</pre></div>
+</div>
+</div>
 
 
 </article>
@@ -234,6 +256,9 @@ The name depends on if you chose to resolve names or not. If not, it will be the
         </li>
         <li>
             <a href='/components/insteon_hub/'>Insteon Hub</a>
+        </li>
+        <li>
+            <a href='/components/joaoapps_join/'>Joaoapps Join</a>
         </li>
         <li>
             <a href='/components/mqtt/'>MQTT</a>
