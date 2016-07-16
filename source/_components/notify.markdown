@@ -34,6 +34,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `message`              |       no | Body of the notification.
 | `title`                |      yes | Title of the notification. Default is `Home Assistant`.
 | `target`               |      yes | Some platforms will allow specifying a recipient that will receive the notification. See your platform page if it is supported.
+| `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
 
 The notification component supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
 
