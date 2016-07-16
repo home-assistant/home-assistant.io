@@ -2,8 +2,8 @@
 layout: post
 title: "0.24: SQLAlchemy, KNX, Join by Joaoapps, and SimpliSafe."
 description: "This new release of Home Assistant contains support for KNX, Join by Joaoapps, and SimpliSafe. As of now our new database backend is SQLAlchemy which gives you more flexibility for storing your data."
-date: 2016-07-13 15:00:00 +0000
-date_formatted: "July 13, 2016"
+date: 2016-07-16 12:00:00 +0000
+date_formatted: "July 16, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
 comments: true
@@ -11,6 +11,8 @@ categories: Release-Notes
 ---
 
 It's time for Home Assistant 0.24 and it's full of new integration for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.
+
+[MapQuest] discontinued their free and direct tile access by Monday, July 11, 2016. With [CARTO] we found a very cool and suitable solution. They allow us to use their tile for the map. Thank you, [CARTO].
 
 [Roy Hooper][@rhooper] did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use **any** SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install [SQLAlchemy] and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script: 
 
@@ -72,20 +74,23 @@ You can omit the `--config` option if you use the default configuration director
 
 [apcupsd-sensor]: /components/sensor.apcupsd/
 [Brightness]: /components/light/
+[CARTO]: https://carto.com/
 [Google Travel]: /components/sensor.google_travel_time/
 [imap-sensor]: /component/sensor.imap/
 [join-joaoapps]: /components/joaoapps_join/
 [join-notify]: /components/notify.joaoapps_join/
 [KNX]: /components/knx/
+[MapQuest]: https://www.mapquest.com/
 [Plex]: /components/media_player.plex/
 [Radiotherm]: /components/thermostat.radiotherm/
 [recorder]: /components/recorder/
 [secrets]: /topics/secrets/
 [simplisafe]: /components/alarm_control_panel.simplisafe/
+[SQLAlchemy]: http://www.sqlalchemy.org/
 [StatD]: /components/statsd/
 [Telegram]: /components/notify.telegram/
 [TPLink]: /components/switch.tplink/
 [Verisure]: /components/lock.verisure/
 [yahoo-weather]: /components/sensor.yweather/
 [Z-Wave]: /components/zwave/
-[SQLAlchemy]: http://www.sqlalchemy.org/
+
