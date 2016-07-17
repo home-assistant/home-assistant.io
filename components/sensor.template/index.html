@@ -151,7 +151,7 @@
   <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
   <span class="key">sensors</span>:
     <span class="key">sun_state</span>:
-      <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}</span><span class="delimiter">&quot;</span></span>
+      <span class="key">value_template</span>: <span class="string"><span class="content">'{% if is_state(&quot;sun.sun&quot;, &quot;above_horizon&quot;) %}up{% else %}down{% endif %}'</span></span>
       <span class="key">friendly_name</span>: <span class="string"><span class="content">'Sun state'</span></span>
 </pre></div>
 </div>
