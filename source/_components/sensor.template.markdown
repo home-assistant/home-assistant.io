@@ -58,7 +58,18 @@ sensor:
 
 ### {% linkable_title Renaming sensor output %}
 
-If you don't like the wording of a sensor output then the template sensor can help too. Processes monitored by the [System Monitor sensor](/components/sensor.systemmonitor/) show `on` or `off` if they are running or not. This example shows how the output of a monitored `glances` process can be renamed.
+If you don't like the wording of a sensor output then the template sensor can help too. Let's rename the output of the [Sun component](/components/sun/) as a simple example:
+
+```yaml
+sensor:
+  platform: template
+  sensors:
+      sun_state:
+        value_template: "{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}"
+        friendly_name: 'Sun state'
+```
+
+Processes monitored by the [System Monitor sensor](/components/sensor.systemmonitor/) show `on` or `off` if they are running or not. This example shows how the output of a monitored `glances` process can be renamed.
 
 ```yaml
 sensor:
