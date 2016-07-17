@@ -12,17 +12,18 @@ ha_category: Garage Door
 ha_release: 0.23
 ---
 
-This platform allows you to use a Raspberry PI to control your Garage door.
+The `rpi_gpio` garage door platform allows you to use a Raspberry Pi to control your Garage door.
 
 It uses two pins on the Raspberry Pi. 
 - The `state_pin` will detect if the door is closed, and
 - the `relay_pin` will trigger the door to open or close.
 
-Although you do not need AndrewsHilliday's software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door & sensors up to your Raspberry Pi, which can be found [here](https://github.com/andrewshilliday/garage-door-controller#hardware-setup).
+Although you do not need Andrews Hilliday's software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door & sensors up to your Raspberry Pi, which can be found [here](https://github.com/andrewshilliday/garage-door-controller#hardware-setup).
 
-Example configuration entry:
+To enable Raspberry Pi Garage doors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 garage_door:
   platform: rpi_gpio
   doors:
@@ -34,4 +35,10 @@ garage_door:
       name: 'Right door'
 ```
 
+Configuration variables:
+
+- **doors** array (*Required*): List of your doors.
+  - **name** (*Optional*): Name to use in the Frontend.
+  - **relay_pin** (*Required*): The pin of your Raspberry Pi where the relay is connected.
+  - **state_pin** (*Required*): The pin of your Raspberry Pi to retrieve the state.
 
