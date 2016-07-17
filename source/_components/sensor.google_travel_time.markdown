@@ -34,7 +34,7 @@ sensor:
 Configuration variables:
 
 - **api_key** (*Required*): Your application's API key (get one by following the instructions above). This key identifies your application for purposes of quota management.
-- **origin** (*Required*): The starting point for calculating travel distance and time. You can supply one or more locations separated by the pipe character, in the form of an address, latitude/longitude coordinates, or a Google place ID.
+- **origin** (*Required*): The starting point for calculating travel distance and time. You can supply one or more locations separated by the pipe character, in the form of an address, latitude/longitude coordinates, or a [Google place ID](https://developers.google.com/places/place-id). When specifying the location using a Google place ID, the ID must be prefixed with `place_id:`.
 - **destination** (*Required*): One or more locations to use as the finishing point for calculating travel distance and time. The options for the destinations parameter are the same as for the origins parameter, described above.
 - **name** (*Optional*): A name to display on the sensor. The default is "Google Travel Time - <Transit Mode>" where transit mode is the mode set in options for the sensor (if no mode is set, the default is driving).
 - **options** (*Optional*): A dictionary containing parameters to add to all requests to the Distance Matrix API. A full listing of available options can be found [here](https://developers.google.com/maps/documentation/distance-matrix/intro#RequestParameters).
