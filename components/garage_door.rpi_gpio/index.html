@@ -89,18 +89,19 @@
   <hr class="divider">
   
 
-  <p>This platform allows you to use a Raspberry PI to control your Garage door.</p>
+  <p>The <code>rpi_gpio</code> garage door platform allows you to use a Raspberry Pi to control your Garage door.</p>
 
 <p>It uses two pins on the Raspberry Pi. <br />
 - The <code>state_pin</code> will detect if the door is closed, and<br />
 - the <code>relay_pin</code> will trigger the door to open or close.</p>
 
-<p>Although you do not need AndrewsHilliday’s software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door &amp; sensors up to your Raspberry Pi, which can be found <a href="https://github.com/andrewshilliday/garage-door-controller#hardware-setup">here</a>.</p>
+<p>Although you do not need Andrews Hilliday’s software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door &amp; sensors up to your Raspberry Pi, which can be found <a href="https://github.com/andrewshilliday/garage-door-controller#hardware-setup">here</a>.</p>
 
-<p>Example configuration entry:</p>
+<p>To enable Raspberry Pi Garage doors in your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">garage_door</span>:
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">garage_door</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">rpi_gpio</span></span>
   <span class="key">doors</span>:
     - <span class="string"><span class="content">relay_pin: 10</span></span>
@@ -112,6 +113,18 @@
 </pre></div>
 </div>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>doors</strong> array (<em>Required</em>): List of your doors.
+    <ul>
+      <li><strong>name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
+      <li><strong>relay_pin</strong> (<em>Required</em>): The pin of your Raspberry Pi where the relay is connected.</li>
+      <li><strong>state_pin</strong> (<em>Required</em>): The pin of your Raspberry Pi to retrieve the state.</li>
+    </ul>
+  </li>
+</ul>
 
 
 
