@@ -64,9 +64,9 @@ If you don't like the wording of a sensor output then the template sensor can he
 sensor:
   platform: template
   sensors:
-      sun_state:
-        value_template: {% raw %}"{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}"{% endraw %}
-        friendly_name: 'Sun state'
+    sun_state:
+      value_template: {% raw %}"{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}"{% endraw %}
+      friendly_name: 'Sun state'
 ```
 
 Processes monitored by the [System Monitor sensor](/components/sensor.systemmonitor/) show `on` or `off` if they are running or not. This example shows how the output of a monitored `glances` process can be renamed.
