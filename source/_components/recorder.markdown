@@ -41,3 +41,8 @@ Configuration variables:
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
 
+**Note**: For MySQL you may have to install a few dependencies:  
+```
+$ apt-get install libmysqlclient-dev
+$ pip3 install mysqlclient
+```
