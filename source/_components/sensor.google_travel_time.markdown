@@ -43,7 +43,7 @@ Configuration variables:
 
 
 
-###Dynamic Configuration
+### Dynamic Configuration
 Tracking can be setup to track entities of type device_tracker, zone, and sensor. If an entity is placed in the origin or destination then every 5 minutes when the component updates it will use the latest location of that entity.
 
 ```yaml
@@ -64,7 +64,7 @@ sensor:
     destination: Eddies House    # Friendly name of a zone
 ```
 
-####Entity Tracking
+#### Entity Tracking
 - **device_tracker**
   - If state is a zone then the zone location will be used
   - If state is not a zone it will look for the longitude and latitude attributes
