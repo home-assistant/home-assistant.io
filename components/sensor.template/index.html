@@ -144,7 +144,20 @@
 
 <h3><a class="title-link" name="renaming-sensor-output" href="#renaming-sensor-output"></a> Renaming sensor output</h3>
 
-<p>If you don’t like the wording of a sensor output then the template sensor can help too. Processes monitored by the <a href="/components/sensor.systemmonitor/">System Monitor sensor</a> show <code>on</code> or <code>off</code> if they are running or not. This example shows how the output of a monitored <code>glances</code> process can be renamed.</p>
+<p>If you don’t like the wording of a sensor output then the template sensor can help too. Let’s rename the output of the <a href="/components/sun/">Sun component</a> as a simple example:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">sensor</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
+  <span class="key">sensors</span>:
+      <span class="key">sun_state</span>:
+        <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">down</span><span class="delimiter">&quot;</span></span>
+        <span class="key">friendly_name</span>: <span class="string"><span class="content">'Sun state'</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>Processes monitored by the <a href="/components/sensor.systemmonitor/">System Monitor sensor</a> show <code>on</code> or <code>off</code> if they are running or not. This example shows how the output of a monitored <code>glances</code> process can be renamed.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">sensor</span>:
