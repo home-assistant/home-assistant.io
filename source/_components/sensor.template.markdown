@@ -65,7 +65,7 @@ sensor:
   platform: template
   sensors:
       sun_state:
-        value_template: "{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}"
+        value_template: {% raw %}"{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}"{% endraw %}
         friendly_name: 'Sun state'
 ```
 
