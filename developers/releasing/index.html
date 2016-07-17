@@ -96,8 +96,10 @@
 <ol>
   <li>Create a pull request from <code>dev</code> to <code>master</code> with the upcoming release number as title.</li>
   <li>Merge <code>master</code> into <code>dev</code> to make the PR mergable. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author.</li>
+  <li>Update <code>homeassistant/const.py</code> with the correct version number (remove the the <code>dev</code> tag) and push that commit.</li>
   <li>Merge pull request.</li>
-  <li>Go to <a href="https://github.com/home-assistant/home-assistant/releases">releases</a> and tag a new release on the <code>master</code> branch. Tag name and title name are version number. Release description is text from PR.</li>
+  <li>Then, after merged, push another update to <code>dev</code> of <code>homeassistant/const.py</code> that includes the next version with the <code>dev</code> tag. Add a meaningful commit message like “Version bump to X”. This commit acts as marker for the next release.</li>
+  <li>Go to <a href="https://github.com/home-assistant/home-assistant/releases">releases</a> and tag a new release on the <code>master</code> branch. “Tag version” and “Release title” are the version number (<code>O.x</code> for major version, <code>0.x.y</code> for minor and bug fix releases). Release description is the text from PR. Press “Publish release” to finish the process.</li>
 </ol>
 
 <h3><a class="title-link" name="website" href="#website"></a> Website</h3>
@@ -113,7 +115,7 @@
 
 <h3><a class="title-link" name="python-package-index" href="#python-package-index"></a> Python Package Index</h3>
 
-<p>Checkout <code>master</code> branch and run <code>script/release</code> to publish the new release on <a href="https://pypi.python.org">Python Package Index</a></p>
+<p>Checkout the <code>master</code> branch and run <code>script/release</code> to publish the new release on <a href="https://pypi.python.org">Python Package Index</a>.</p>
 
 <h3><a class="title-link" name="social-media" href="#social-media"></a> Social media</h3>
 
