@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Using time interval and input boolean - Home Assistant</title>
+    <title>Send notification if new Home Assistant release - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Automation to get a random color every 2 minutes that can be turned on/off.">
+    <meta name="description" content="Basic example of how to send a notification if a new Home Assistant release is available">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/cookbook/automation_using_timeinterval_inputboolean/">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/notify_if__new_ha_release/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Using time interval and input boolean">
+    <meta property="og:title" content="Send notification if new Home Assistant release">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/cookbook/automation_using_timeinterval_inputboolean/">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/notify_if__new_ha_release/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Automation to get a random color every 2 minutes that can be turned on/off.">
+    <meta property="og:description" content="Basic example of how to send a notification if a new Home Assistant release is available">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Using time interval and input boolean">
-    <meta name="twitter:description" content="Automation to get a random color every 2 minutes that can be turned on/off.">
+    <meta name="twitter:title" content="Send notification if new Home Assistant release">
+    <meta name="twitter:description" content="Basic example of how to send a notification if a new Home Assistant release is available">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,41 +83,31 @@
   
   <header>
     <h1 class="title indent">
-      Using Time Interval and Input Boolean
+      Send Notification if New Home Assistant Release
     </h1>
   </header>
   <hr class="divider">
   
 
-  <h4><a class="title-link" name="change-hue-light-on-interval-to-random-color-based-on-state-of-a-input-boolean" href="#change-hue-light-on-interval-to-random-color-based-on-state-of-a-input-boolean"></a> Change Hue light on interval to random color based on state of a input boolean</h4>
-
-<p><em>Note, Philips Hue is currently the only light platform that support the random effect.</em></p>
+  <p>The following example sends a notification via XMPP if a new Home Assistant release is available:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">input_boolean</span>:
-  <span class="key">loop_livingcolors</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Loop LivingColors</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">off</span></span>
-    <span class="key">icon</span>: <span class="string"><span class="content">mdi:spotlight</span></span>
+  <div class="code"><pre><span class="key">notify</span>:
+  - <span class="string"><span class="content">platform: xmpp</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">jabber</span></span>
+    <span class="key">sender</span>: <span class="string"><span class="content">sender@jabber.org</span></span>
+    <span class="key">password</span>: <span class="type">!secret</span> <span class="string"><span class="content">xmpp_password</span></span>
+    <span class="key">recipient</span>: <span class="string"><span class="content">recipient@jabber.org</span></span>
 
 <span class="key">automation</span>:
-<span class="comment"># Changes Hue light every two minutes to random color if input boolean is set to on</span>
-- <span class="string"><span class="content">alias: 'Set LivingColors to random color'</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
-    <span class="key">minutes</span>: <span class="string"><span class="content">'/2'</span></span>
-    <span class="key">seconds</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">condition</span>:
-    <span class="key">condition</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">input_boolean.loop_livingcolors</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">light.woonkamer_livingcolors</span></span>
-    <span class="key">data</span>:
-      <span class="key">effect</span>: <span class="string"><span class="content">random</span></span>
-      <span class="key">transition</span>: <span class="string"><span class="content">5</span></span>
-      <span class="key">brightness</span>: <span class="string"><span class="content">255</span></span>
+  - <span class="string"><span class="content">alias: Update notifications</span></span>
+    <span class="key">trigger</span>:
+      - <span class="string"><span class="content">platform: state</span></span>
+        <span class="key">entity_id</span>: <span class="string"><span class="content">updater.updater</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">notify.jabber</span></span>
+      <span class="key">data</span>:
+        <span class="key">message</span>: <span class="string"><span class="content">'There is a new Home Assistant release available.'</span></span>
 </pre></div>
 </div>
 </div>
@@ -134,7 +124,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_cookbook/automation_using_timeinterval_inputboolean.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_cookbook/notify_if__new_ha_release.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <a href='/cookbook'>Back to the cookbook</a>
   </div>
@@ -172,7 +162,7 @@
               <a href='/cookbook/notify_if_over_threshold/'>Send notification based on sensor</a>
           </li>
           <li>
-              <a href='/cookbook/notify_if__new_ha_release/'>Send notification if new Home Assistant release</a>
+              Send notification if new Home Assistant release
           </li>
           <li>
               <a href='/cookbook/track_battery_level/'>Track your battery level</a>
@@ -181,7 +171,7 @@
               <a href='/cookbook/turn_on_light_for_10_minutes_when_motion_detected/'>Turn on lights for 10 minutes after motion detected</a>
           </li>
           <li>
-              Using time interval and input boolean
+              <a href='/cookbook/automation_using_timeinterval_inputboolean/'>Using time interval and input boolean</a>
           </li>
     </ul>
   </div>

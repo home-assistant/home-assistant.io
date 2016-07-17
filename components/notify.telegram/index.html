@@ -145,20 +145,17 @@ print(chat_id)
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service<br />
-<code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
   <li><strong>api_key</strong> (<em>Required</em>): The API token of your bot.</li>
   <li><strong>chat_id</strong> (<em>Required</em>: The chat ID of your user.</li>
 </ul>
 
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
 
-<h3>Photo support</h3>
+<h3><a class="title-link" name="photo-support" href="#photo-support"></a> Photo support</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="head"><span class="head">...</span></span>
-
-<span class="key">action</span>:
+  <div class="code"><pre><span class="key">action</span>:
   <span class="key">service</span>: <span class="string"><span class="content">notify.NOTIFIER_NAME</span></span>
   <span class="key">data</span>:
     <span class="key">title</span>: <span class="string"><span class="content">test notify</span></span>
@@ -177,10 +174,12 @@ print(chat_id)
 </div>
 
 <ul>
-  <li><strong>url</strong> or <strong>file</strong> (<em>Required</em>): For local or remote path to a picture</li>
-  <li><strong>caption</strong> (<em>Optional</em>: Picture title</li>
-  <li><strong>username</strong> and <strong>password</strong> (<em>Optional</em>: For URL they require a basic auth</li>
+  <li><strong>url</strong> or <strong>file</strong> (<em>Required</em>): For local or remote path to an image.</li>
+  <li><strong>caption</strong> (<em>Optional</em>): The title of the image.</li>
+  <li><strong>username</strong> (<em>Optional</em>): Username for an URL which require HTTP basic authentication.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Username for an URL which require HTTP basic authentication.</li>
 </ul>
+
 
 
 </article>
