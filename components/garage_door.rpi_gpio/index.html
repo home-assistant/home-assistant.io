@@ -89,9 +89,18 @@
   <hr class="divider">
   
 
-  <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">garage_door</span>:
+  <p>This platform allows you to use a Raspberry PI to control your Garage door.</p>
+
+<p>It uses two pins on the Raspberry Pi. <br />
+- The <code>state_pin</code> will detect if the door is closed, and<br />
+- the <code>relay_pin</code> will trigger the door to open or close.</p>
+
+<p>Although you do not need AndrewsHilliday’s software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door &amp; sensors up to your Raspberry Pi, which can be found <a href="https://github.com/andrewshilliday/garage-door-controller#hardware-setup">here</a>.</p>
+
+<p>Example configuration entry:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">garage_door</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">rpi_gpio</span></span>
   <span class="key">doors</span>:
     - <span class="string"><span class="content">relay_pin: 10</span></span>
@@ -103,6 +112,7 @@
 </pre></div>
 </div>
 </div>
+
 
 
 </article>
@@ -118,7 +128,7 @@
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_components/garage_door.rpi_gpio.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/wink.png' />
+      <img src='/images/supported_brands/raspberry-pi.png' />
   </div>
     <div class='section'>
     Introduced in release: 0.23
