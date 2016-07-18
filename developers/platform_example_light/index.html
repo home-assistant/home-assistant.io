@@ -91,6 +91,19 @@
 
   <p>This example is for adding support for the imaginary Awesome Lights. It shows the different best practices for developing a platform.</p>
 
+<p>Similar to Example Sensor Platform, Copy the code below and create it as a file in <code>&lt;config_dir&gt;/custom_components/light/awesomelights.py</code>.</p>
+
+<p>Add the following to your configuration.yaml:</p>
+
+<pre><code>light:
+  - platform: awesomelights
+    host: HOST_HERE
+    username: USERNAME_HERE
+    password: PASSWORD_HERE_OR_secrets.yaml
+</code></pre>
+
+<p>Note the <code>platform</code> name matches the filename for the source code.</p>
+
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="keyword">import</span> <span class="include">logging</span>
 
