@@ -15,11 +15,13 @@ Similar to Example Sensor Platform, Copy the code below and create it as a file 
 
 Add the following to your configuration.yaml:
 
-    light:
-      - platform: awesomelights
-        host: HOST_HERE
-        username: USERNAME_HERE
-        password: PASSWORD_HERE_OR_secrets.yaml
+```yaml
+light:
+  - platform: awesomelights
+    host: HOST_HERE
+    username: USERNAME_HERE
+    password: PASSWORD_HERE_OR_secrets.yaml
+```
 
 Note the `platform` name matches the filename for the source code.
 
