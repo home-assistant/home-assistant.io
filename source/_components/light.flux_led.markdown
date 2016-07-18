@@ -13,7 +13,7 @@ featured: true
 ha_release: 0.25
 ---
 
-Flux Led support is integrated into Home Assistant as a light platform. Several brands use the same protoco and they have the HF-LPB100 chipset in common.
+Flux Led support is integrated into Home Assistant as a light platform. Several brands use the same protocol and they have the HF-LPB100 chipset in common.
 Example of bulbs:
 - http://www.fluxsmartlighting.com/
 - [MagicLight® Plus - WiFi Smart LED Light Bulb4](https://www.amazon.com/gp/product/B00NOC93NG)
