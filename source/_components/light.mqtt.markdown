@@ -77,5 +77,6 @@ Configuration variables:
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+  A basic example using a nodeMCU board (ESP8266) to control its build-in led with HA can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light).
 </p>
 
