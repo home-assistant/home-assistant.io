@@ -1,0 +1,56 @@
+---
+layout: page
+title: "GPSD"
+description: "Instructions how to integrate GPSD into Home Assistant."
+date: 2016-07-18 07:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: gpsd.png
+ha_category: "Other"
+ha_release: 0.25
+---
+
+The `gpsd` component is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
+
+A requirement is that `gpsd` is installed (`$ sudo dnf -y install gpsd` or `$ sudo apt-get install gpsd`). `gpsd` uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, `gpsd` is started. Other GPS device may work too, but this was not tested.
+
+```bash
+$ sudo systemctl status gpsdctl@ttyUSB0.service 
+● gpsdctl@ttyUSB0.service - Manage ttyUSB0 for GPS daemon
+   Loaded: loaded (/usr/lib/systemd/system/gpsdctl@.service; static; vendor preset: disabled)
+   Active: active (exited) since Sat 2016-07-16 09:30:33 CEST; 1 day 23h ago
+  Process: 5303 ExecStart=/bin/sh -c [ "$USBAUTO" = true ] && /usr/sbin/gpsdctl add /dev/%I || : (code=exited, status=0/SUCCESS)
+ Main PID: 5303 (code=exited, status=0/SUCCESS)
+
+Jul 16 09:30:33 laptop019 systemd[1]: Starting Manage ttyUSB0 for GPS daemon...
+Jul 16 09:30:33 laptop019 gpsdctl[5305]: gpsd_control(action=add, arg=/dev/ttyUSB0)
+Jul 16 09:30:33 laptop019 gpsdctl[5305]: reached a running gpsd
+```
+
+To check if your setup is working, connect to port 2947 on the host where `gpsd` is running with `telnet`.
+
+```bash
+
+$ telnet localhost 2947
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+{"class":"VERSION","release":"3.15","rev":"3.15-2.fc23","proto_major":3,"proto_minor":11}
+```
+
+To setup the GPSD component in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+gpsd:
+  host: 127.0.0.1
+  port: 2947
+```
+
+Configuration variables:
+
+- **host** (*Optional*): The host where GPSD is running. Defaults to `localhost`.
+- **port** (*Optional*): The port which GPSD is using. Defaults to 2947. 
+
