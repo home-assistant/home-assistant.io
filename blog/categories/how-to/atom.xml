@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-19T20:09:09+00:00</updated>
+  <updated>2016-07-19T20:16:03+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Data mining your IoT data]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/19/data-mining-your-iot-data/"/>
+    <link href="https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/"/>
     <updated>2016-07-19T16:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/19/data-mining-your-iot-data</id>
+    <id>https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data</id>
     <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-reporting/mpl-sensor.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /></p>
 
 <p>The <a href="/components/history/">history component</a> is tracking everything that is going on within Home Assistant. This means that you have access to all stored information about your home. Our history is not a full-fledged graphical processing and visualization component as you may know from systems and network monitoring tools. The current limitation is that you only can select a day for a visual output of your information and not a period. Also, there is no possibility to drill down on a specific entity.</p>
