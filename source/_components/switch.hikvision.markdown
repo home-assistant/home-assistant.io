@@ -26,6 +26,7 @@ To use your Hikvision cam in your installation, add the following to your `confi
 switch:
     platform: hikvisioncam
     host: 192.168.1.32
+    port: 80
     name: Hikvision Cam 1 Motion Detection
     username: USERNAME
     password: PASSWORD
@@ -34,6 +35,7 @@ switch:
 Configuration variables:
 
 - **host** *Required*: The IP address of your Hikvision camera, eg. 192.168.1.32
+- **port** *Optional*: The port to connec to your Hikvision camera (default is 80).
 - **name** *Optional*: This parameter allows you to override the name of your camera.
 - **username** *Required*: The username for accessing your Hikvision camera.
 - **password** *Required*: The password to access your Hikvision camera.
