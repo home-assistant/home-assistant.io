@@ -2,8 +2,8 @@
 layout: post
 title: "Exporting Home Assistant information"
 description: "Export, process, and visualize data stored by Home Assistant."
-date: 2016-07-12 08:00:00 +0000
-date_formatted: "July 12, 2016"
+date: 2016-07-19 16:00:00 +0000
+date_formatted: "July 19, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
 comments: true
