@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://home-assistant.io/blog/2016/07/19/exporting-processing-data/</loc>
+    <loc>https://home-assistant.io/blog/2016/07/19/data-mining-your-iot-data/</loc>
     <lastmod>2016-07-19T16:00:00+00:00</lastmod>
   </url>
   <url>
@@ -1960,38 +1960,38 @@
       <loc>https://home-assistant.io/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/blog/2016/07/19/exporting-processing-data/</loc>
+      <loc>https://home-assistant.io/blog/2016/07/19/data-mining-your-iot-data/</loc>
     </url>
   <url>
     <loc>https://home-assistant.io/demo/dev-tools.html</loc>
-    <lastmod>2016-07-19T19:44:36+00:00</lastmod>
+    <lastmod>2016-07-19T20:08:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-07-19T19:44:36+00:00</lastmod>
+    <lastmod>2016-07-19T20:08:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-07-19T19:44:36+00:00</lastmod>
+    <lastmod>2016-07-19T20:08:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/partial-map.html</loc>
-    <lastmod>2016-07-19T19:44:36+00:00</lastmod>
+    <lastmod>2016-07-19T20:08:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-07-19T19:44:36+00:00</lastmod>
+    <lastmod>2016-07-19T20:08:20+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-19T19:44:37+00:00</lastmod>
+    <lastmod>2016-07-19T20:08:21+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-19T19:44:37+00:00</lastmod>
+    <lastmod>2016-07-19T20:08:21+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-07-19T19:44:37+00:00</lastmod>
+    <lastmod>2016-07-19T20:08:21+00:00</lastmod>
   </url>
 </urlset>
