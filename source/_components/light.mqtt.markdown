@@ -77,6 +77,7 @@ Configuration variables:
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-  A basic example using a nodeMCU board (ESP8266) to control its build-in led with HA can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light).
 </p>
+
+A basic example using a nodeMCU board (ESP8266) to control its built-in led (on/off) can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light). [Here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light) is another example to control a RGB led (on/off, brightness and colors).
 
