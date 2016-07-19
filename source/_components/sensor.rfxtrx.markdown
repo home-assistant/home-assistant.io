@@ -62,6 +62,7 @@ sensor:
   devices:
     0a52080705020095220269:
       name: Lving
+      fire_event: True
     0a520802060100ff0e0269:
       name: Bath
       data_type:
