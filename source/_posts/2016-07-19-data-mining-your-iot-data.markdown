@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Exporting Home Assistant information"
-description: "Export, process, and visualize data stored by Home Assistant."
+title: "Data mining your IoT data"
+description: "Export, process, and visualize your Home Assistant data."
 date: 2016-07-19 16:00:00 +0000
 date_formatted: "July 19, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
 comments: true
 categories: How-To
-og_image: /images/social.png
+og_image: /images/blog/2016-07-reporting/libreoffice-graph.png
 ---
 
 <img src='/images/blog/2016-07-reporting/mpl-sensor.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
