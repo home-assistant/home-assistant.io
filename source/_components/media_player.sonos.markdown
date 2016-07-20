@@ -43,17 +43,33 @@ media_player:
 
 ### {% linkable_title Service `sonos_snapshot` %}
 
-Take a snapshot of what is currently playing. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
+Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
 
-### {% linkable_title Service `snapshot_restore` %}
+### {% linkable_title Service `sonos_restore` %}
 
-Restore a previosly taken snapshot of a speaker
+Restore a previosly taken snapshot of one or more speakers.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+
+### {% linkable_title Service `sonos_group_players` %}
+
+Group all players together under a single coordinator.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of a single `entity_id` that will become the coordinator speaker.
+
+### {% linkable_title Service `sonos_unjoin` %}
+
+Remove one or more speakers from a group of speakers.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will be separated from their coordinator speaker.
 
