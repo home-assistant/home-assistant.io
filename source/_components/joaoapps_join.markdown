@@ -27,9 +27,9 @@ notify:
     api_key: asd97823jb628a34fwsdfwefd5384345tf2d     *optional
 
 joaoapps_join:
-  device_id: group.android
-  name: droid                                       
-  api_key: asd97823jb628a34fwsdfwefd5384345tf2d
+  - name: android
+    device_id: group.android
+    api_key: asd97823jb628a34fwsdfwefd5384345tf2d
 ```
 
 The notify service has a few optional parameters such as icon and smallicon.  You can use them like so:
