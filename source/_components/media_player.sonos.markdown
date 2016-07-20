@@ -41,8 +41,19 @@ media_player:
   hosts: IP
 ```
 
-### {% linkable_title Service %}
+### {% linkable_title Service `sonos_snapshot` %}
 
-There are two extra services exposed that will allow you to take a snapshot of what is currently playing and restore it afterwards. This is useful if you want to play a doorbell or notification sound and resume playback afterwards.
+Take a snapshot of what is currently playing. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
-The services are called `sonos_snapshot` and `snapshot_restore`.
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+
+### {% linkable_title Service `snapshot_restore` %}
+
+Restore a previosly taken snapshot of a speaker
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+
