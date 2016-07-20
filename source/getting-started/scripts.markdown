@@ -70,8 +70,9 @@ delay:
 ```
 
 ```yaml
+# Waits however many minutes input_slider.minute_delay is set to
 delay: '00:{{ input_slider.minute_delay }}:00'
-  # Hours, minutes and seconds must be present for template to function
+  # Valid formats include HH:MM and HH:MM:SS
 ```
 
 #### {% linkable_title Fire an Event %}
