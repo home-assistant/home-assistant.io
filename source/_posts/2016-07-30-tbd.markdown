@@ -17,7 +17,7 @@ We are proud to annonce the availability of Home Assistant 0.25.
 <img src='/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Frontend: Support for [iFrame panels][panel] ([@balloob])
-
+- Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
 
 ### {% linkable_title Breaking changes %}
 
@@ -27,7 +27,7 @@ We are proud to annonce the availability of Home Assistant 0.25.
 
 - Frequently asked questions about this release will show up here...
 
-[@bah2830]: https://github.com/bah2830/
+[@Danielhiversen]: https://github.com/Danielhiversen
 [@balloob]: https://github.com/balloob/
 [@dale3h]: https://github.com/dale3h/
 [@danieljkemp]: https://github.com/danieljkemp
@@ -42,5 +42,5 @@ We are proud to annonce the availability of Home Assistant 0.25.
 [@w1ll1am23]: https://github.com/w1ll1am23/
 
 [panel]: /components/planel_iframe/
-
+[flux]: /component/light.flux_led
 
