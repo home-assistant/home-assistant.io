@@ -37,41 +37,11 @@ Open [http://localhost:8888/](http://localhost:8888/) in your browser. Press "Ne
   <img src='{{site_root}}/images/screenshots/jupyter-new.png' />
 </p>
 
-This example below is using the [Home Assistant Python API](/developers/python_api/).
+You will get an emtpy notebook with one cell. Cells can contain code or text. To get the output of a cell you need to execute them with "Cell" -> "Run Cells" from the menu or by pressing the icon. 
 
-### Using the Home Assistant Python API
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/jupyter-notebook.png' />
+</p>
 
-
-```python
-import homeassistant.remote as remote
-```
-
-
-```python
-api = remote.API('127.0.0.1', 'mypass')
-```
-
-
-```python
-print(remote.validate_api(api))
-```
-
-    ok
-
-
-
-```python
-office_temperature = remote.get_state(api, 'sensor.kitchen_temperature')
-```
-
-
-```python
-print('{} is {} {}.'.format(office_temperature.attributes['friendly_name'],
-                            office_temperature.state,
-                            office_temperature.attributes['unit_of_measurement']
-                            )
-      )
-```
-
-    Kitchen Temperature is 25 °C.
+As you can see is the workflow very similar to working directly with a Python shell. One advantage is that you can go back and forth as you please and save your work.
 
