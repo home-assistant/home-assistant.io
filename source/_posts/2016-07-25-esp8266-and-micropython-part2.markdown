@@ -15,35 +15,58 @@ So, part 1 of [ESP8266 and MicroPython]() was pretty lame, right? Instead of get
 
 <!--more-->
 
-Beside HTTP POST requests, MQTT is the quickest way (from the author's point of view) to publish information with DIY devices. You have to make a decision: Do you want to pull or to poll? For slowly changing values like temperature it's perfectly fine to wait a couple of seconds to retrieve the value. If it's a motion detector the state change should be available instantly. This means the sensor must take initiative. 
+Beside HTTP POST requests, MQTT is the quickest way (from the author's point of view) to publish information with DIY devices. 
 
-For pulling [aREST] is a great way to work with the ESP8266 based units if you want to work with the Ardunio IDE. 
+You have to make a decision: Do you want to pull or to poll? For slowly changing values like temperature it's perfectly fine to wait a couple of seconds to retrieve the value. If it's a motion detector the state change should be available instantly. This means the sensor must take initiative. 
 
-One disatantavege of the ESP8266 boards is that there is only one analog input. If you are using DHT11, Dallas 18S20, or 
+An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
 
-You can find simple examples for publishing and subscribing for [MQTT](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple) in the [MicroPython](https://github.com/micropython/micropython-lib) library overview. 
+Let's do a HTTP POST first with MicroPython. The `curl` command should a new value `"value=23"` as POST to an API endpoint called `/sensor2`.
 
-[@davea](https://github.com/davea) created [sonoff-mqtt](https://github.com/davea/sonoff-mqtt). This code will work on ESP8622 too. Below you find an example based on the work of [@davea](https://github.com/davea). 
+```bash
+$ curl -X POST -d "value=23" http://192.168.1.18:5000/sensor2
+```
+
+The conversion of the `curl` command to use with `urequests` is very simple. Basically it's a one-liner but splitted to be easier to read.
+ 
+```python
+>>> import urequests
+>>> url = 'http://192.168.1.18:5000/sensor2'
+>>> headers = {'content-type': 'application/json'}
+>>> data = '{"value": 23}'
+>>> resp = urequests.post(url, data=data, headers=headers)
+>>> print(resp.json())
+{'name': 'Sensor2', 'value': 23}
+>>> resp1 = urequests.get(url, headers=headers)
+>>> print(resp1.json())
+{'name': 'Sensor2', 'value': 23}
+```
+
+I think that with this piece of information you should be able to use the [Home Assistant RESTful API](/developers/rest_api/).
+
+Now, MQTT. You can find simple examples for publishing and subscribing for MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
+
+[@davea](https://github.com/davea) created [sonoff-mqtt](https://github.com/davea/sonoff-mqtt). This code will work on ESP8622 based devices too. The example below is adopted from the work of [@davea](https://github.com/davea) as we don't want to re-invent the wheel.
 
 
 ```python
 import machine
 import time
-import ubinascii as binascii
+import ubinascii
 import webrepl
 
 from umqtt.simple import MQTTClient
 
 # These defaults are overwritten with the contents of /config.json by load_config()
 CONFIG = {
-    "broker": "10.100.0.31",
+    "broker": "192.168.1.19",
     "sensor_pin": 0, 
-    "client_id": b"esp8266_" + binascii.hexlify(machine.unique_id()),
+    "client_id": b"esp8266_" + ubinascii.hexlify(machine.unique_id()),
     "topic": b"home",
-    "state_topic": b"state",
 }
 
-client = sensor_pin = None
+client = None
+sensor_pin = None
 
 def setup_pins():
     global sensor_pin
@@ -69,28 +92,36 @@ def save_config():
     except OSError:
         print("Couldn't save /config.json")
 
-def setup():
-    load_config()
-    setup_pins()
-
 def main():
     client = MQTTClient(CONFIG['client_id'], CONFIG['broker'])
     client.connect()
     print("Connected to {}".format(CONFIG['broker']))
     while True:
         data = sensor_pin.read()
-        client.publish(b'{}/{}/{}'.format(CONFIG['topic'],
-                                          CONFIG['client_id'],
-                                          CONFIG['state_topic']),
+        client.publish('{}/{}'.format(CONFIG['topic'],
+                                          CONFIG['client_id']),
                                           bytes(str(data), 'utf-8'))
         print('Sensor state: {}'.format(data))
         time.sleep(5)
 
 if __name__ == '__main__':
-    setup()
+    load_config()
+    setup_pins()
     main()
 ```
 
+Subscribe to the topic `home/#` or create a [MQTT sensor](/components/sensor.mqtt/) to check if the sensor values are published.
 
+```bash
+$ mosquitto_sub -h 192.168.1.19 -v -t "home/#"
+```
 
+```yaml
+sensor:
+  - platform: mqtt
+    state_topic: "home/esp8266_[last part of the MAC address]"
+    name: "MicroPython"
+```
+
+One disadvantage of the ESP8266 boards is that there is only one analog input. If you are using DHT11, Dallas 18S20, or other sensors you can work out this limitation.
 
