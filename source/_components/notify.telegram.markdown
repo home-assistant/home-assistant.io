@@ -91,3 +91,19 @@ action:
 - **url** or **file** (*Required*): For local or remote path to a picture
 - **caption** (*Optional*: Picture title
 - **username** and **password** (*Optional*: For URL they require a basic auth
+
+### Send Location
+
+```yaml
+...
+
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: ''
+    message: 'Location updated.'
+    data:
+      location:
+        latitude: 32.87336
+        longitude: 117.22743
+```
