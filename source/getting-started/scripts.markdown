@@ -69,6 +69,12 @@ delay:
   minutes: 1
 ```
 
+```yaml
+# Waits however many minutes input_slider.minute_delay is set to
+delay: '00:{{ input_slider.minute_delay }}:00'
+  # Valid formats include HH:MM and HH:MM:SS
+```
+
 #### {% linkable_title Fire an Event %}
 
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another component that something is happening. For instance, in the below example it is used to create an entry in the logbook.
