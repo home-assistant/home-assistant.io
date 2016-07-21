@@ -134,11 +134,15 @@
 
 <h3><a class="title-link" name="remote-access" href="#remote-access"></a> Remote access</h3>
 
-<p>To make Home Assistant accessible while away from home, you will have to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching <code>&lt;Router model&gt; port forwarding instructions</code>.</p>
+<p>To make Home Assistant accessible while away from home, you will have to make it accessible.</p>
 
-<p>Some Internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while away. You can solve this by using a free Dynamic DNS service like <a href="https://www.duckdns.org/">DuckDNS</a>.</p>
+<p>The common approach is to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching <code>&lt;Router model&gt; port forwarding instructions</code>.</p>
 
-<p>You should definitely consider to encrypt your traffic if you are accessing your Home Assistant installation from abroad. For details please check the <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Set up encryption using Let’s Encrypt</a> blog post.</p>
+<p>The problem with making a port accessible is that some Internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while away. You can solve this by using a free Dynamic DNS service like <a href="https://www.duckdns.org/">DuckDNS</a>.</p>
+
+<p>Just putting a port up is not secure. You should definitely consider to encrypt your traffic if you are accessing your Home Assistant installation from abroad. For details please check the <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Set up encryption using Let’s Encrypt</a> blog post.</p>
+
+<p>If you want the very best security, check out <a href="/cookbook/tor_configuration/">the instructions how to use Tor to access your home</a>.</p>
 
 <h3><a href="/getting-started/devices/">Next step: Setting up devices »</a></h3>
 
