@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-21T05:35:20+00:00</updated>
+  <updated>2016-07-21T05:51:33+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -59,18 +59,16 @@ $ hass --script db_migrator --config /path/to/config
   <li>Frontend: Wait up to two seconds for new state before resetting toggle after toggling state (<a href="https://github.com/balloob/">@balloob</a>)</li>
 </ul>
 
+<h3><a class='title-link' name='hotfix-0241---july-21' href='#hotfix-0241---july-21'></a> Hotfix 0.24.1 - July 21 </h3>
+
+<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to <a href="https://github.com/n8henrie/">@n8henrie</a> and <a href="https://github.com/AlucardZero/">@AlucardZero</a>.</p>
+
 <h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
 
 <ul>
   <li>Migrating existing databases (see above).</li>
   <li>The <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code>configuration.yaml</code> file.</li>
   <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
-</ul>
-
-<h3><a class='title-link' name='faq' href='#faq'></a> FAQ </h3>
-
-<ul>
-  <li>Frequently asked questions about this release will show up here…</li>
 </ul>
 
 ]]></content>
