@@ -18,6 +18,8 @@ We are proud to annonce the availability of Home Assistant 0.25.
 
 - Frontend: Support for [iFrame panels][panel] ([@balloob])
 - Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
+- Script: Delay support for [Scripts][script] ([@Teagan42])
+
 
 ### {% linkable_title Breaking changes %}
 
@@ -29,7 +31,9 @@ We are proud to annonce the availability of Home Assistant 0.25.
 
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@balloob]: https://github.com/balloob/
-[@dale3h]: https://github.com/dale3h/
+[@Teagan42]: https://github.com/Teagan42/
+
+
 [@danieljkemp]: https://github.com/danieljkemp
 [@GadgetReactor]: https://github.com/GadgetReactor
 [@keatontaylor]: https://github.com/keatontaylor
@@ -42,5 +46,5 @@ We are proud to annonce the availability of Home Assistant 0.25.
 [@w1ll1am23]: https://github.com/w1ll1am23/
 
 [panel]: /components/planel_iframe/
-[flux]: /component/light.flux_led
-
+[flux]: /component/light.flux_led/
+[script]: /components/script/
