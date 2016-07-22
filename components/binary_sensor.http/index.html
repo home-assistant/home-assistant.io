@@ -113,6 +113,7 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
+    -H &quot;Content-Type: application/json&quot; \
     -d '{&quot;state&quot;: &quot;off&quot;, &quot;attributes&quot;: {&quot;friendly_name&quot;: &quot;Radio&quot;}}' \
     http://localhost:8123/api/states/binary_sensor.radio
 </pre></div>
