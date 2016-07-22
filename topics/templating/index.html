@@ -150,6 +150,7 @@ The frontend has a template editor developer tool to help develop and debug temp
   <li><code>distance()</code> will measure the distance in meters between home, entity, coordinates.</li>
   <li><code>closest()</code> will find the closest entity.</li>
   <li><code>relative_time(timestamp)</code> will format the date time as relative time vs now (ie 7 seconds)</li>
+  <li><code>float</code> will format the output as float.</li>
 </ul>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
@@ -172,9 +173,9 @@ The frontend has a template editor developer tool to help develop and debug temp
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>
 {% if states.device_tracker.paulus %}
-{{ states.device_tracker.paulus.attributes.battery }}
+  {{ states.device_tracker.paulus.attributes.battery }}
 {% else %}
-??
+  ??
 {% endif %}
 </pre></div>
 </div>
@@ -201,6 +202,11 @@ The frontend has a template editor developer tool to help develop and debug temp
 {% if states('sensor.temperature') | float &gt; 20 %}
   It is warm!
 {%endif %}
+
+{{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+
+{{ as_timestamp(now) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+
 </pre></div>
 </div>
 </div>
@@ -288,6 +294,13 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 
 # Extract third prime number
 {{ value_json.primes[2] }}
+
+# Format output
+{{ &quot;%+.1f&quot; | value_json }}
+
+# Calculations
+{{ value_json | multiply(1024) }}
+{{ value_json.used | multiply(0.0001) | round(0) }}
 </pre></div>
 </div>
 </div>
