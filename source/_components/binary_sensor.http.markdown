@@ -32,6 +32,7 @@ For a quick test `curl` can be useful to "simulate" a device.
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+    -H "Content-Type: application/json" \
     -d '{"state": "off", "attributes": {"friendly_name": "Radio"}}' \
     http://localhost:8123/api/states/binary_sensor.radio
 ```
