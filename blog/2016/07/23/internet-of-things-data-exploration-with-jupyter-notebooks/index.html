@@ -7,27 +7,27 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Home Assistant goes geo with OwnTracks - Home Assistant</title>
+    <title>IoT Data Exploration with Jupyter Notebooks - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing.">
+    <meta name="description" content="Tutorial how to get started exploring your data using Jupyter Notebooks, Pandas and Matplotlib.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Home Assistant goes geo with OwnTracks">
+    <meta property="og:title" content="IoT Data Exploration with Jupyter Notebooks">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing.">
-    <meta property="og:image" content="https://home-assistant.io/images/screenshots/map.png">
+    <meta property="og:description" content="Tutorial how to get started exploring your data using Jupyter Notebooks, Pandas and Matplotlib.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:creator" content="@balloob">
-    <meta name="twitter:title" content="Home Assistant goes geo with OwnTracks">
-    <meta name="twitter:description" content="Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing.">
-    <meta name="twitter:image" content="https://home-assistant.io/images/screenshots/map.png">
+    
+    <meta name="twitter:title" content="IoT Data Exploration with Jupyter Notebooks">
+    <meta name="twitter:description" content="Tutorial how to get started exploring your data using Jupyter Notebooks, Pandas and Matplotlib.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -80,20 +80,22 @@
   
   <header>
   
-  <h1 class="title indent">Home Assistant goes geo with OwnTracks</h1>
+  <h1 class="title indent">IoT Data Exploration with Jupyter Notebooks</h1>
   
 
   
   <div class="meta clearfix">
-    <time datetime="2015-10-05T21:49:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 5, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <time datetime="2016-07-23T18:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 23, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Anton Kireyeu</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+      
+        <li><a class='category' href='/blog/categories/iot-data/'>IoT-Data</a></li>
       
     
     </ul>
@@ -108,37 +110,71 @@
 </header>
 
 
-  <p>A few weeks have past and it is time again for another release: version 0.7.4. This time we’re very glad to be able to introduce brand new integration with OwnTracks to allow tracking of people on a map. The geo support consists of three different parts:</p>
+  <p><em>This is the first blog post by Anton Kireyeu. A new contributor to Home Assistant who will focus on exploring and visualizing Home Assistant data.</em></p>
+
+<p>As we learned in the recent <a href="https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/">blog post by Fabian</a>, all operational data of your Home Assistant application is stored locally and is available for exploration. Our first steps were querying data with the <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>, exporting the data extract as a CSV file and graphing in LibreOffice. But what else can be done with this data and what tools are there available?</p>
+
+<p>This post will help you get set up using a few popular data scientist tools to allow you to locally process your data:</p>
 
 <ul>
-  <li><a href="/components/device_tracker.owntracks/">OwnTracks platform for the device tracker</a> to get locations for devices</li>
-  <li>Brand new <a href="/components/zone/">zone component</a> to define zones to identify locations and <a href="/getting-started/automation-trigger/#zone-trigger">trigger automation</a></li>
-  <li>A map in the UI to see all this (<a href="/demo/">see it in action in the demo</a>)</li>
+  <li> <a href="http://pandas.pydata.org/">Pandas</a>: an open source tool for data analysis for Python</li>
+  <li> <a href="http://matplotlib.org/">matplotlib</a>: a Python plotting library</li>
+  <li> <a href="https://jupyter.org/">Jupyter notebook</a>: application for creation and sharing of documents containing live code, visualizations and explanatory text</li>
 </ul>
-
-<p>We have added a new <a href="/getting-started/presence-detection/">getting started section</a> to get up and running.</p>
 
 <p class="img">
-<img src="/images/screenshots/map.png" />
-Map in Home Assistant showing two people and three zones (home, school, work)
+<img src="/images/blog/2016-07-data-exploration/graph.png" />
+One of the graphs created with this tutorial.
 </p>
 
-<p>Ofcourse more things happened in the last three weeks. I’m moving away from my usual long post to a short summary of highlights:</p>
+<p><em>TL; DR: Use <a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">this Jupyter Notebook</a> to visualize of your data</em></p>
 
-<p><a href="/components/media_player.plex/">
-<img src="/images/supported_brands/plex.png" style="border:none; box-shadow: none; float: right;" height="50" />
-</a></p>
+<a name="read-more"></a>
+
+<h3><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h3>
+
+<p>In order to run the provided Jupyter notebook, please make sure you have the following applications/libraries installed on your computer:</p>
 
 <ul>
-  <li>Sensor: <a href="/components/sensor.rest/">rest platform</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Alarm Control Panel: <a href="/components/alarm_control_panel.mqtt/">MQTT platform</a> added (<a href="https://github.com/sfam">@sfam</a>)</li>
-  <li>Media Player: <a href="/components/media_player.plex/">Plex platform</a> added (<a href="https://github.com/miniconfig, [@adrienbrault](https://github.com/adrienbrault)">@miniconfig</a></li>
-  <li>Dev Tools: services can now show description of fields (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>MQTT: Support for certificates and improved error reporting (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="/components/light.limitlessled/">limitlessled platform</a> extended with white light support (<a href="https://github.com/auchter">@auchter</a>)</li>
-  <li>Fuzzy matching for scenes (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Scene support for media player (<a href="https://github.com/maddox">@maddox</a>)</li>
+  <li>Pandas</li>
+  <li>NumPy</li>
+  <li>Matplotlib</li>
+  <li>SQLAlchemy</li>
+  <li>Jupyter</li>
 </ul>
+
+<p>As a Windows user myself, I find the easiest, quickest and most hassle-free way of installing all of these dependencies is to use <a href="https://winpython.github.io/">WinPython</a>. This free open-source portable distribution includes all of the dependencies required for this notebook, as well as a few other essential Python libraries you may require for data exploration in the future.</p>
+
+<h4><a class="title-link" name="why-jupyter" href="#why-jupyter"></a> Why Jupyter?</h4>
+
+<p>While all Home Assistant implementations can have varying setup, components and scripts, the underlying data structure is standardized and well-defined. This allows us to write Python code that is environmentally agnostic. Wrapping it in a Jupyter notebook ensures the code, visualizations and directions/explanations are kept digestible and neatly-packaged. One of the amazing features of Jupyter is the ability to change code as you go along, customizing all outputs and visualizations on the fly!</p>
+
+<h4><a class="title-link" name="where-do-i-start" href="#where-do-i-start"></a> Where do I start?</h4>
+
+<p>This tutorial is based around a heavily commented Jupyter Notebook that we created. So to get started, you will have to open that:</p>
+
+<ul>
+  <li><a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">download the tutorial Jupyter Notebook</a> (leads to preview page, from there click download top-right)</li>
+  <li>launch the Jupyter Notebook App</li>
+  <li>Click the ‘upload’ button to add the downloaded notebook to Jupyter</li>
+  <li>Adjust the <code>DB_URL</code> at the beginning of the notebook to point at your Home Assistant database</li>
+  <li>Select in top menu: Cell -&gt; Run All</li>
+</ul>
+
+<p>That’s it! The included code will walk you through importing the required libraries, show running raw SQL against your local database, plotting basic data from the states table, and in the end output a few plots of changes for every entity in your system as well as the mean daily value for the past 20 days.</p>
+
+<p>After just those few steps, you will be greeted with beautiful formatted data like this:</p>
+
+<p class="img">
+<img src="/images/blog/2016-07-data-exploration/graph.png" />
+One of the graphs created with this tutorial.
+</p>
+
+<h4><a class="title-link" name="whats-next" href="#whats-next"></a> What’s next?</h4>
+
+<p>Thanks to the magic of Jupyter, all of the code is customizable: want to selectively display your data, only covering a specific entity? Sure thing! Want to change the properties of the plots? No problem!</p>
+
+<p>While you learn and explore your IoT data, we will be working on providing more ready-to-use Jupyter Notebooks. Feel free to ask questions or provide suggestions. Would you like to see a specific visualization? Is there a particular facet of data you’re interested in? Let’s talk about it, let’s dive into the world of data together!</p>
 </article>
 
 
@@ -176,12 +212,12 @@ Map in Home Assistant showing two people and three zones (home, school, work)
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/"
-     data-counturl="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/"
+     data-counturl="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/" >Tweet</a>
   
   
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/"
+         data-href="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/"
          data-layout="button_count">
     </div>
   
@@ -208,10 +244,6 @@ Map in Home Assistant showing two people and three zones (home, school, work)
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
     
-      
-        <li class="post">
-          <a href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">IoT Data Exploration with Jupyter Notebooks</a>
-        </li>
       
     
       
@@ -278,8 +310,8 @@ Map in Home Assistant showing two people and three zones (home, school, work)
   
     
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/';
-    var disqus_url = 'https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/';
     var disqus_script = 'embed.js';
   
   (function () {

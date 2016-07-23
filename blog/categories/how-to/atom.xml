@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-23T16:06:39+00:00</updated>
+  <updated>2016-07-23T19:22:44+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Paulus Schoutsen]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[IoT Data Exploration with Jupyter Notebooks]]></title>
+    <link href="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/"/>
+    <updated>2016-07-23T18:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks</id>
+    <content type="html"><![CDATA[<p><em>This is the first blog post by Anton Kireyeu. A new contributor to Home Assistant who will focus on exploring and visualizing Home Assistant data.</em></p>
+
+<p>As we learned in the recent <a href="https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/">blog post by Fabian</a>, all operational data of your Home Assistant application is stored locally and is available for exploration. Our first steps were querying data with the <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>, exporting the data extract as a CSV file and graphing in LibreOffice. But what else can be done with this data and what tools are there available?</p>
+
+<p>This post will help you get set up using a few popular data scientist tools to allow you to locally process your data:</p>
+
+<ul>
+  <li> <a href="http://pandas.pydata.org/">Pandas</a>: an open source tool for data analysis for Python</li>
+  <li> <a href="http://matplotlib.org/">matplotlib</a>: a Python plotting library</li>
+  <li> <a href="https://jupyter.org/">Jupyter notebook</a>: application for creation and sharing of documents containing live code, visualizations and explanatory text</li>
+</ul>
+
+<p class="img">
+<img src="https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png" />
+One of the graphs created with this tutorial.
+</p>
+
+<p><em>TL; DR: Use <a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">this Jupyter Notebook</a> to visualize of your data</em></p>
+
+<!--more-->
+
+<h3><a class='title-link' name='dependencies' href='#dependencies'></a> Dependencies </h3>
+
+<p>In order to run the provided Jupyter notebook, please make sure you have the following applications/libraries installed on your computer:</p>
+
+<ul>
+  <li>Pandas</li>
+  <li>NumPy</li>
+  <li>Matplotlib</li>
+  <li>SQLAlchemy</li>
+  <li>Jupyter</li>
+</ul>
+
+<p>As a Windows user myself, I find the easiest, quickest and most hassle-free way of installing all of these dependencies is to use <a href="https://winpython.github.io/">WinPython</a>. This free open-source portable distribution includes all of the dependencies required for this notebook, as well as a few other essential Python libraries you may require for data exploration in the future.</p>
+
+<h4><a class='title-link' name='why-jupyter' href='#why-jupyter'></a> Why Jupyter? </h4>
+
+<p>While all Home Assistant implementations can have varying setup, components and scripts, the underlying data structure is standardized and well-defined. This allows us to write Python code that is environmentally agnostic. Wrapping it in a Jupyter notebook ensures the code, visualizations and directions/explanations are kept digestible and neatly-packaged. One of the amazing features of Jupyter is the ability to change code as you go along, customizing all outputs and visualizations on the fly!</p>
+
+<h4><a class='title-link' name='where-do-i-start' href='#where-do-i-start'></a> Where do I start? </h4>
+
+<p>This tutorial is based around a heavily commented Jupyter Notebook that we created. So to get started, you will have to open that:</p>
+
+<ul>
+  <li><a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">download the tutorial Jupyter Notebook</a> (leads to preview page, from there click download top-right)</li>
+  <li>launch the Jupyter Notebook App</li>
+  <li>Click the ‘upload’ button to add the downloaded notebook to Jupyter</li>
+  <li>Adjust the <code>DB_URL</code> at the beginning of the notebook to point at your Home Assistant database</li>
+  <li>Select in top menu: Cell -&gt; Run All</li>
+</ul>
+
+<p>That’s it! The included code will walk you through importing the required libraries, show running raw SQL against your local database, plotting basic data from the states table, and in the end output a few plots of changes for every entity in your system as well as the mean daily value for the past 20 days.</p>
+
+<p>After just those few steps, you will be greeted with beautiful formatted data like this:</p>
+
+<p class="img">
+<img src="https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png" />
+One of the graphs created with this tutorial.
+</p>
+
+<h4><a class='title-link' name='whats-next' href='#whats-next'></a> What’s next? </h4>
+
+<p>Thanks to the magic of Jupyter, all of the code is customizable: want to selectively display your data, only covering a specific entity? Sure thing! Want to change the properties of the plots? No problem!</p>
+
+<p>While you learn and explore your IoT data, we will be working on providing more ready-to-use Jupyter Notebooks. Feel free to ask questions or provide suggestions. Would you like to see a specific visualization? Is there a particular facet of data you’re interested in? Let’s talk about it, let’s dive into the world of data together!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Visualize your IoT data]]></title>
@@ -350,160 +423,6 @@ target_dir /tmp
 <p>The <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT</a> broker provides websockets support for MQTT and mqttws31.js included in web page gives you access to the MQTT messages. It’s a matter of minutes. OK, it took a little longer because I’m not a Javascript guy to create the software part that will show details about your environment. The source is available at <a href="https://github.com/fabaff/home-assistant-display">https://github.com/fabaff/home-assistant-display</a> and the screenshot above shows the result. I guess that every person who is familiar with Javascript would be able to reduce the amount of code and to make it more flexible. Well, it’s a only prototype and showcase to include an image in this blog post.</p>
 
 <p>I hope that this little article could give you an idea of extending Home Assistant in an unconventional way.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Multi-room audio with Snapcast, Mopidy, and Home Assistant]]></title>
-    <link href="https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast/"/>
-    <updated>2016-02-18T05:10:56+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast</id>
-    <content type="html"><![CDATA[<p>Would you like to listen to music in every room in your home, controlled from one source? Then multi-room audio is for you.</p>
-
-<p>Multi-room audio can be achieved by having a computer attached to speakers in every room. On each computer, services run to play and/or control the audio. With this DIY approach, the kind of computer and speakers is very much up to you. It could be your desktop computer with attached powered speakers, your HTPC hooked up to your TV and receiver, a Raspberry Pi with Amp or DAC, or even an Android device.</p>
-
-<p>You’ll need two key software packages, besides Home Assistant. The first is <a href="https://www.mopidy.com/">Mopidy</a>, a music server that can play local files, or connect to streaming music services like Spotify. The second is <a href="https://github.com/badaix/snapcast/">Snapcast</a>, which enables synchronized audio streaming across your network. Both can be integrated into Home Assistant. Each room audio device will run an instance of the Snapcast client, and optionally a Mopidy instance. Your server will run a special instance of Mopidy and the Snapcast server.</p>
-
-<p>Finally, you also need a player to control Mopidy. Any MPD-compatible player will work, and there are several <a href="https://docs.mopidy.com/en/latest/ext/web/#ext-web">Mopidy-only web-based options</a> available. On Android, <a href="https://play.google.com/store/apps/details?id=se.anil.remotedy">Remotedy</a> is particularly nice since you can access multiple Mopidy instances in one place.</p>
-
-<p>Home Assistant will provide device status, and volume control for each room. If you want to play music in all your rooms (on all your clients), access the server instance of Mopidy. If you want to play music only in a specific room, access that specific Mopidy instance. If you’re using a web UI for Mopidy, you can add links to each instance in Home Assistant with the <a href="/components/weblink/">weblink</a> component.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-02-snapcast/diagram.png" />
-</p>
-
-<!--more-->
-
-<h2>Staging</h2>
-
-<ul>
-  <li><a href="https://www.mopidy.com/">Install</a> Mopidy (2.0.0 or greater)</li>
-  <li><a href="https://github.com/badaix/snapcast/releases/">Download</a> and <a href="https://github.com/badaix/snapcast/tree/v0.5.0-beta-1#installation">Install</a> Snapcast (0.5.0 or greater)</li>
-</ul>
-
-<h2>Configure Mopidy</h2>
-
-<p>Mopidy can be run with multiple configuration files, each extending the previous file. This is helpful when we’re running multiple instances with varying functionality.</p>
-
-<h3>core.conf</h3>
-<p>The core configuration is shared between all instances:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[mpd]
-hostname = ::
-
-[http]
-hostname = ::
-
-[audio]
-output = alsasink
-
-[spotify]
-username = &lt;redacted&gt;
-password = &lt;redacted&gt;
-</pre></div>
-</div>
-</div>
-
-<h3>local.conf</h3>
-<p>Add the local configuration on computers that have local media files:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[local]
-media_dir = &lt;your/music/here&gt;
-</pre></div>
-</div>
-</div>
-
-<h3>snapcast.conf</h3>
-<p>Finally, the Mopidy instance that connects with Snapcast needs special configuration. Run on a different port to avoid conflicts if you have a second Mopidy instance running on your computer. The audio output is sent to a named pipe - Snapcast will read from there. Note that you may have to adjust the audio output attribute depending on your system and audio sources.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[mpd]
-hostname = ::
-port = 6601
-
-[http]
-hostname = ::
-port = 6681
-
-[audio]
-output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioconvert ! wavenc ! filesink location=/tmp/snapfifo
-</pre></div>
-</div>
-</div>
-
-<h2>Run Mopidy</h2>
-
-<p>To run a room-specific instance:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf
-</pre></div>
-</div>
-</div>
-
-<p>To run a room-specific instance with local media:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf
-</pre></div>
-</div>
-</div>
-
-<p>To run the special Snapcast-connected instance (with local media):</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf:$CONF_DIR/snapcast.conf
-</pre></div>
-</div>
-</div>
-
-<h2>Run Snapcast</h2>
-
-<p>Start the <code>snapserver</code> on the same server running Mopidy with the snapcast configuration.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ snapserver   # or use systemd
-</pre></div>
-</div>
-</div>
-
-<p>Start the <code>snapclient</code> on computers that will be playing audio.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ snapclient   # or use systemd, add -h &lt;server host&gt; if necessary
-</pre></div>
-</div>
-</div>
-
-<h2>Configure Snapcast</h2>
-
-<p>There are a number of snapcast configuration options, but the one relevant to Home Assistant is the client names. You can set them in the snapserver configuration file, by default located at <code>~/.config/Snapcast/settings.json</code>. Only edit this file while the <code>snapserver</code> is not running. Modify the <code>name</code> JSON value to your liking - this is how the client will be named in Home Assistant.</p>
-
-<h2>Configure Home Assistant</h2>
-
-<p>Use the <a href="/components/media_player.mpd/">mpd</a> and <a href="/components/media_player.snapcast/">snapcast</a> components. Optionally, use <a href="/components/weblink/">weblink</a> to provide easy access to a Mopidy web UI.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">media_player</span>:
-- <span class="string"><span class="content">platform: snapcast</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">xxxxx</span></span>
-- <span class="string"><span class="content">platform: mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">xxxx</span></span>
-  <span class="key">location</span>: <span class="string"><span class="content">Multi-Room Controller</span></span>
-- <span class="string"><span class="content">platform: mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">xxx</span></span>
-  <span class="key">location</span>: <span class="string"><span class="content">Room 1</span></span>
-
-<span class="key">weblink</span>:
-  <span class="key">entities</span>:
-  - <span class="string"><span class="content">name: Multi-Room Player</span></span>
-    <span class="key">url</span>: <span class="string"><span class="content">xxxx</span></span>
-</pre></div>
-</div>
-</div>
 
 ]]></content>
   </entry>

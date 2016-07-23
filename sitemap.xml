@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/</loc>
+    <lastmod>2016-07-23T18:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/</loc>
     <lastmod>2016-07-19T16:00:00+00:00</lastmod>
   </url>
@@ -1977,36 +1981,39 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/dev-tools.html</loc>
-    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
+    <lastmod>2016-07-23T19:22:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
+    <lastmod>2016-07-23T19:22:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
+    <lastmod>2016-07-23T19:22:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/partial-map.html</loc>
-    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
+    <lastmod>2016-07-23T19:22:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
+    <lastmod>2016-07-23T19:22:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
+    <lastmod>2016-07-23T19:22:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
+    <lastmod>2016-07-23T19:22:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
+    <lastmod>2016-07-23T19:22:06+00:00</lastmod>
   </url>
 </urlset>
