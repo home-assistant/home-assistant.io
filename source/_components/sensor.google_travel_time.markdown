@@ -34,16 +34,15 @@ sensor:
 Configuration variables:
 
 - **api_key** (*Required*): Your application's API key (get one by following the instructions above). This key identifies your application for purposes of quota management.
-- **origin** (*Required*): The starting point for calculating travel distance and time. You can supply one or more locations separated by the pipe character, in the form of an address, latitude/longitude coordinates, or a Google place ID.
+- **origin** (*Required*): The starting point for calculating travel distance and time. You can supply one or more locations separated by the pipe character, in the form of an address, latitude/longitude coordinates, or a [Google place ID](https://developers.google.com/places/place-id). When specifying the location using a Google place ID, the ID must be prefixed with `place_id:`.
 - **destination** (*Required*): One or more locations to use as the finishing point for calculating travel distance and time. The options for the destinations parameter are the same as for the origins parameter, described above.
 - **name** (*Optional*): A name to display on the sensor. The default is "Google Travel Time - <Transit Mode>" where transit mode is the mode set in options for the sensor (if no mode is set, the default is driving).
 - **options** (*Optional*): A dictionary containing parameters to add to all requests to the Distance Matrix API. A full listing of available options can be found [here](https://developers.google.com/maps/documentation/distance-matrix/intro#RequestParameters).
   - **departure_time** (*Optional*): Can be `now`, a Unix timestamp, or a 24 hour time string like `08:00:00`. If you provide a time string, it will be combined with the current date to get travel time for that moment.
   - **arrival_time** (*Optional*): See notes above for `departure_time`. `arrival_time` can not be `now`, only a Unix timestamp or time string. You can not provide both `departure_time` and `arrival_time`. If you do provide both, `arrival_time` will be removed from the request.
 
+##### {% linkable_title Dynamic Configuration %}
 
-
-###Dynamic Configuration
 Tracking can be setup to track entities of type device_tracker, zone, and sensor. If an entity is placed in the origin or destination then every 5 minutes when the component updates it will use the latest location of that entity.
 
 ```yaml
@@ -64,7 +63,8 @@ sensor:
     destination: Eddies House    # Friendly name of a zone
 ```
 
-####Entity Tracking
+#### {% linkable_title Entity Tracking %}
+
 - **device_tracker**
   - If state is a zone then the zone location will be used
   - If state is not a zone it will look for the longitude and latitude attributes

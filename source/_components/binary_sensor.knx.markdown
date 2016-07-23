@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: zknx.png
+logo: knx.png
 ha_category: Binary Sensor
 ha_release: 0.24
 ---

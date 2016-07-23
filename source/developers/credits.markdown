@@ -51,7 +51,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Dale Higgs](https://github.com/dale3h)
 - [Dan Cinnamon](https://github.com/Cinntax)
 - [Daniel Perna](https://github.com/danielperna84)
-- [Daniel Iversen](https://github.com/danielhiversen)
+- [Daniel Høyer Iversen](https://github.com/danielhiversen)
 - [Daniel J. Kemp](https://github.com/danieljkemp/)
 - [Daniel Matuschek](https://github.com/usul27)
 - [Dan Smith](https://github.com/kk7ds)

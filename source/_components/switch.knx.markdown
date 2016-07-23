@@ -7,7 +7,11 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+<<<<<<< HEAD
 logo: zknx.png
+=======
+logo: knx.png
+>>>>>>> master
 ha_category: Switch
 ha_release: 0.24
 ---

@@ -22,7 +22,7 @@ In this lighter version we will still need what could be called the core snippet
 ```yaml
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: My Hass Instance
+  name: My Home Assistant Instance
   # Location required to calculate the time the sun rises and sets
   latitude: 37
   longitude: -121
@@ -69,7 +69,7 @@ As with the core snippet, indentation makes a difference. The component headers 
 
 While some of these components can technically be moved to a separate file they are so small or "one off's" where splitting them off is superfluous. Also, you'll notice the # symbol (hash/pound). This represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored. This makes breaking up files for human readability really convenient, not to mention turning off features while leaving the entry intact. (Look at the `zigbee:` entry above and the b entry further down)
 
-Now, lets assume that a blank file has been created in the hass configuration directory for each of the following:
+Now, lets assume that a blank file has been created in the Home Assistant configuration directory for each of the following:
 
 ```text
 automation.yaml

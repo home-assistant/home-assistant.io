@@ -44,6 +44,12 @@ Visit [http://localhost:8123/local/sse.html](http://localhost:8123/local/sse.htm
 
 ## {% linkable_title Examples %}
 
+The simplest way to consume server-sent events is `curl`.
+
+```bash
+$ curl http://localhost:8123/api/stream?api_password=MYPASS
+```
+
 ### {% linkable_title Website %}
 
 The [home-assistant-sse](https://github.com/fabaff/home-assistant-sse) repository contains an more advanced example.

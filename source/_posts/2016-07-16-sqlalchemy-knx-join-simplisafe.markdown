@@ -47,16 +47,26 @@ You can omit the `--config` option if you use the default configuration director
 - Frontend: Fix stream not reconnecting after standby ([@balloob])
 - Frontend: Wait up to two seconds for new state before resetting toggle after toggling state ([@balloob])
 
+<<<<<<< HEAD
+=======
+### {% linkable_title Hotfix 0.24.1 - July 21 %}
+
+Quick hot fix after we found a bug in the migrator where it wouldn't work with a database in a non-standard location. Thanks to [@n8henrie] and [@AlucardZero].
+
+>>>>>>> master
 ### {% linkable_title Breaking changes %}
 
 - Migrating existing databases (see above).
 - The [APCUPSd Sensor][apcupsd-sensor] was updated. This will need that you modify your `configuration.yaml` file.
 - Entity IDs of Verisure locks will change. This is a one time change but should improve readability.
 
+<<<<<<< HEAD
 ### {% linkable_title FAQ %}
 
 - Frequently asked questions about this release will show up here...
 
+=======
+>>>>>>> master
 [@bah2830]: https://github.com/bah2830/
 [@balloob]: https://github.com/balloob/
 [@dale3h]: https://github.com/dale3h/
@@ -70,6 +80,11 @@ You can omit the `--config` option if you use the default configuration director
 [@turbokongen]: https://github.com/turbokongen/
 [@usul27]: https://github.com/usul27
 [@w1ll1am23]: https://github.com/w1ll1am23/
+<<<<<<< HEAD
+=======
+[@n8henrie]: https://github.com/n8henrie/
+[@AlucardZero]: https://github.com/AlucardZero/
+>>>>>>> master
 
 [apcupsd-sensor]: /components/sensor.apcupsd/
 [Brightness]: /components/light/

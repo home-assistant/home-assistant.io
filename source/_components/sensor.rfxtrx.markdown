@@ -74,4 +74,4 @@ Configuration variables:
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
 - **automatic_add** (*Optional*): To enable the automatic addition of new lights.
 - **data_type**  (*Optional*): Which data type the sensor should show
-- **fire_event** *Optional*: Fires an event even if the state is the same as before. Can be used for automations.
+- **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.

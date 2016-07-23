@@ -64,11 +64,13 @@ Notice in the example below that in order to refer to the group "Living Room", y
     entities:
       - light.light_family_1
       - binary_sensor.motion_living
+
   Bedroom: light.light_bedroom, switch.sleeping
-  Rooms:                                                                                                                                                       
-    view: yes                                                                                                                                                  
+
+  Rooms:
+    view: yes                                 
     name: Rooms
-    entities:                                                                                                                                                  
-      - group.living_room                                                                                                                                      
+    entities:
+      - group.living_room                                 
       - group.bedroom                                                                                                                                          
 ``` 
