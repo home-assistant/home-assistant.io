@@ -11,7 +11,7 @@ og_image: /images/blog/2016-07-micropython/social.png
 ---
 
 <img src='/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
-So, part 1 of [ESP8266 and MicroPython]() was pretty lame, right? Instead of get information out of Home Assistant we are going a step forward. Some of the buzz words are "Sensor", "MQTT", and "Button". 
+So, part 1 of [ESP8266 and MicroPython]() was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.
 
 <!--more-->
 
@@ -21,32 +21,41 @@ You have to make a decision: Do you want to pull or to poll? For slowly changing
 
 An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
 
-Let's do a HTTP POST first with MicroPython. The `curl` command should a new value `"value=23"` as POST to an API endpoint called `/sensor2`.
+#### {% linkable_title HTTP POST %}
+
+A [HTTP sensor](/components/sensor.http/) is the perfect starting point because there is no configuration needed for Home Assistant. The sensor's name is `sensor.kitchen_temperature` which will give us the endpoint `http://IP_ADDRESS:8123/api/states/sensor.kitchen_temperature`. For 
+
+The `curl` command will update the temperature or create the HTTP sensor.
 
 ```bash
-$ curl -X POST -d "value=23" http://192.168.1.18:5000/sensor2
+$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       -d '{"state": "23", "attributes": {"friendly_name": "Kitchen Temperature", "unit_of_measurement": "°C"}}' \
+       http://IP_ADDRESS:8123/api/states/sensor.kitchen_temperature
 ```
 
-The conversion of the `curl` command to use with `urequests` is very simple. Basically it's a one-liner but splitted to be easier to read.
+If your ESP8266 is still running with the code from Part 1 then the LED should be set to high. 
+
+Let's do a HTTP POST with MicroPython. The conversion of the `curl` command to use with `urequests` is very simple. Basically it's a one-liner but splitted to be easier to read and identical to Python's [Requests](http://docs.python-requests.org/en/latest/) module.
  
 ```python
 >>> import urequests
->>> url = 'http://192.168.1.18:5000/sensor2'
->>> headers = {'content-type': 'application/json'}
->>> data = '{"value": 23}'
+>>> url = 'http://IP_ADDRESS:8123/api/states/sensor.kitchen_temperature'
+>>> headers = {'x-ha-access': API_PASSWORD, 'content-type': 'application/json'}
+>>> data = '{"state": "15", "attributes": {"friendly_name": "Kitchen Temperature", "unit_of_measurement": "°C"}}'
 >>> resp = urequests.post(url, data=data, headers=headers)
 >>> print(resp.json())
-{'name': 'Sensor2', 'value': 23}
->>> resp1 = urequests.get(url, headers=headers)
->>> print(resp1.json())
-{'name': 'Sensor2', 'value': 23}
+
+Bääähhhh: NotImplementedError: Redirects not yet supported
 ```
 
-I think that with this piece of information you should be able to use the [Home Assistant RESTful API](/developers/rest_api/).
+For additional information check the [Home Assistant RESTful API documentation](/developers/rest_api/).
 
-Now, MQTT. You can find simple examples for publishing and subscribing for MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
+### {% linkable_title MQTT %}
 
-[@davea](https://github.com/davea) created [sonoff-mqtt](https://github.com/davea/sonoff-mqtt). This code will work on ESP8622 based devices too. The example below is adopted from the work of [@davea](https://github.com/davea) as we don't want to re-invent the wheel.
+You can find simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
+
+The example below is adopted from the work of [@davea](https://github.com/davea) as we don't want to re-invent the wheel. The configuration feature is crafty and simplyfies the code with the usage of a file called `/config.json` which stores the configuration details. The ESP8266 device will send the value of a pin every 5 seconds.
 
 
 ```python
@@ -123,5 +132,5 @@ sensor:
     name: "MicroPython"
 ```
 
-One disadvantage of the ESP8266 boards is that there is only one analog input. If you are using DHT11, Dallas 18S20, or other sensors you can work out this limitation.
+[@davea](https://github.com/davea) created [sonoff-mqtt](https://github.com/davea/sonoff-mqtt). This code will work on ESP8622 based devices too and shows how to use a button to control a relay.
 
