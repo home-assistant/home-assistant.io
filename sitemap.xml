@@ -1732,6 +1732,18 @@
       <loc>https://home-assistant.io/cookbook/notify_if__new_ha_release/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/cookbook/jupyther_notebooks_api/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/cookbook/jupyther_notebooks_database/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/cookbook/jupyther_notebooks_graph/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/cookbook/jupyther_notebooks_introduction/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/topics/templating/</loc>
     </url>
     <url>
@@ -1967,34 +1979,34 @@
     </url>
   <url>
     <loc>https://home-assistant.io/demo/dev-tools.html</loc>
-    <lastmod>2016-07-23T07:50:22+00:00</lastmod>
+    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-07-23T07:50:22+00:00</lastmod>
+    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-07-23T07:50:22+00:00</lastmod>
+    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/partial-map.html</loc>
-    <lastmod>2016-07-23T07:50:22+00:00</lastmod>
+    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-07-23T07:50:22+00:00</lastmod>
+    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-23T07:50:22+00:00</lastmod>
+    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-23T07:50:22+00:00</lastmod>
+    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-07-23T07:50:22+00:00</lastmod>
+    <lastmod>2016-07-23T16:05:38+00:00</lastmod>
   </url>
 </urlset>
