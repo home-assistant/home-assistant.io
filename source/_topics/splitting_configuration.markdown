@@ -179,7 +179,7 @@ That about wraps it up.
 
 If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to the [Gitter Chatroom](https://gitter.im/balloob/home-assistant) and ask away.
 
-### {% linkable_title Advanced usage %}
+### {% linkable_title Advanced Usage %}
 
 We offer four advanced options to include whole directories at once.
 
@@ -190,3 +190,255 @@ We offer four advanced options to include whole directories at once.
 `!include_dir_merge_list` will return content of a directory as a list by merging all files (which should contain a list) into 1 big list.
 
 `!include_dir_merge_named` will return content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
+
+#### {% linkable_title `!include_dir_list` Example %}
+
+`configuration.yaml`
+
+```yaml
+automation:
+  - alias: Automation 1
+    trigger:
+      platform: state
+      entity_id: device_tracker.iphone
+      to: 'home'
+    action:
+      service: light.turn_on
+      entity_id: light.entryway
+  - alias: Automation 2
+    trigger:
+      platform: state
+      entity_id: device_tracker.iphone
+      from: 'home'
+    action:
+      service: light.turn_off
+      entity_id: light.entryway
+```
+
+can be turned into:
+
+`configuration.yaml`
+
+```yaml
+automation: !include_dir_list automation/presence/
+```
+
+`automation/presence/automation1.yaml`
+
+```yaml
+alias: Automation 1
+trigger:
+  platform: state
+  entity_id: device_tracker.iphone
+  to: 'home'
+action:
+  service: light.turn_on
+  entity_id: light.entryway
+```
+
+`automation/presence/automation2.yaml`
+
+```yaml
+alias: Automation 2
+trigger:
+  platform: state
+  entity_id: device_tracker.iphone
+  from: 'home'
+action:
+  service: light.turn_off
+  entity_id: light.entryway
+```
+
+It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
+
+#### {% linkable_title `!include_dir_named` Example %}
+
+`configuration.yaml`
+
+```yaml
+alexa:
+  intents:
+    LocateIntent:
+      action:
+        service: notify.pushover
+        data:
+          message: Your location has been queried via Alexa.
+      speech:
+        type: plaintext
+        text: >
+          {%- for state in states.device_tracker -%}
+            {%- if state.name.lower() == User.lower() -%}
+              {{ state.name }} is at {{ state.state }}
+            {%- endif -%}
+          {%- else -%}
+            I am sorry. Pootie! I do not know where {{User}} is.
+          {%- endfor -%}
+    WhereAreWeIntent:
+      speech:
+        type: plaintext
+        text: >
+          {%- if is_state('device_tracker.iphone', 'home') -%}
+            iPhone is home.
+          {%- else -%}
+            iPhone is not home.
+          {% endif %}
+```
+
+can be turned into:
+
+`configuration.yaml`
+
+```yaml
+alexa:
+  intents: !include_dir_named alexa/
+```
+
+`alexa/LocateIntent.yaml`
+
+```yaml
+action:
+  service: notify.pushover
+  data:
+    message: Your location has been queried via Alexa.
+speech:
+  type: plaintext
+  text: >
+    {%- for state in states.device_tracker -%}
+      {%- if state.name.lower() == User.lower() -%}
+        {{ state.name }} is at {{ state.state }}
+      {%- endif -%}
+    {%- else -%}
+      I am sorry. Pootie! I do not know where {{User}} is.
+    {%- endfor -%}
+```
+
+`alexa/WhereAreWeIntent.yaml`
+
+```yaml
+speech:
+  type: plaintext
+  text: >
+    {%- if is_state('device_tracker.iphone', 'home') -%}
+      iPhone is home.
+    {%- else -%}
+      iPhone is not home.
+    {% endif %}
+```
+
+#### {% linkable_title `!include_dir_merge_list` Example %}
+
+`configuration.yaml`
+
+```yaml
+automation:
+  - alias: Automation 1
+    trigger:
+      platform: state
+      entity_id: device_tracker.iphone
+      to: 'home'
+    action:
+      service: light.turn_on
+      entity_id: light.entryway
+  - alias: Automation 2
+    trigger:
+      platform: state
+      entity_id: device_tracker.iphone
+      from: 'home'
+    action:
+      service: light.turn_off
+      entity_id: light.entryway
+```
+
+can be turned into:
+
+`configuration.yaml`
+
+```yaml
+automation: !include_dir_merge_list automation/
+```
+
+`automation/presence.yaml`
+
+```yaml
+- alias: Automation 1
+  trigger:
+    platform: state
+    entity_id: device_tracker.iphone
+    to: 'home'
+  action:
+    service: light.turn_on
+    entity_id: light.entryway
+    
+- alias: Automation 2
+  trigger:
+    platform: state
+    entity_id: device_tracker.iphone
+    from: 'home'
+  action:
+    service: light.turn_off
+    entity_id: light.entryway
+```
+
+It is important to note that when using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.
+
+#### {% linkable_title `!include_dir_merge_named` Example %}
+
+`configuration.yaml`
+
+```yaml
+group:
+  bedroom:
+    name: Bedroom
+    entities:
+      - light.bedroom_lamp
+      - light.bedroom_overhead
+  hallway:
+    name: Hallway
+    entities:
+      - light.hallway
+      - thermostat.home
+  front_yard:
+    name: Front Yard
+    entities:
+      - light.front_porch
+      - light.security
+      - light.pathway
+      - sensor.mailbox
+      - camera.front_porch
+```
+
+can be turned into:
+
+`configuration.yaml`
+
+```yaml
+group: !include_dir_merge_named group/
+```
+
+`group/interior.yaml`
+
+```yaml
+bedroom:
+  name: Bedroom
+  entities:
+    - light.bedroom_lamp
+    - light.bedroom_overhead
+hallway:
+  name: Hallway
+  entities:
+    - light.hallway
+    - thermostat.home
+```
+
+`group/exterior.yaml`
+
+```yaml
+front_yard:
+  name: Front Yard
+  entities:
+    - light.front_porch
+    - light.security
+    - light.pathway
+    - sensor.mailbox
+    - camera.front_porch
+```
