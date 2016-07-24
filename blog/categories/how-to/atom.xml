@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-24T17:13:16+00:00</updated>
+  <updated>2016-07-24T17:38:38+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -39,7 +39,7 @@ One of the graphs created with this tutorial.
 
 <!--more-->
 
-<h3>{% linkable_title Dependencies %}</h3>
+<h3><a class='title-link' name='dependencies' href='#dependencies'></a> Dependencies </h3>
 
 <p>In order to run the provided Jupyter notebook, please make sure you have the following applications/libraries installed on your computer:</p>
 
@@ -53,11 +53,11 @@ One of the graphs created with this tutorial.
 
 <p>As a Windows user myself, I find the easiest, quickest and most hassle-free way of installing all of these dependencies is to use <a href="https://winpython.github.io/">WinPython</a>. This free open-source portable distribution includes all of the dependencies required for this notebook, as well as a few other essential Python libraries you may require for data exploration in the future.</p>
 
-<h4>{% linkable_title Why Jupyter? %}</h4>
+<h4><a class='title-link' name='why-jupyter' href='#why-jupyter'></a> Why Jupyter? </h4>
 
 <p>While all Home Assistant implementations can have varying setup, components and scripts, the underlying data structure is standardized and well-defined. This allows us to write Python code that is environmentally agnostic. Wrapping it in a Jupyter notebook ensures the code, visualizations and directions/explanations are kept digestible and neatly-packaged. One of the amazing features of Jupyter is the ability to change code as you go along, customizing all outputs and visualizations on the fly!</p>
 
-<h4>{% linkable_title Where do I start? %}</h4>
+<h4><a class='title-link' name='where-do-i-start' href='#where-do-i-start'></a> Where do I start? </h4>
 
 <p>This tutorial is based around a heavily commented Jupyter Notebook that we created. So to get started, you will have to open that:</p>
 
@@ -78,7 +78,7 @@ One of the graphs created with this tutorial.
 One of the graphs created with this tutorial.
 </p>
 
-<h4>{% linkable_title What’s next? %}</h4>
+<h4><a class='title-link' name='whats-next' href='#whats-next'></a> What’s next? </h4>
 
 <p>Thanks to the magic of Jupyter, all of the code is customizable: want to selectively display your data, only covering a specific entity? Sure thing! Want to change the properties of the plots? No problem!</p>
 

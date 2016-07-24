@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-24T17:13:16+00:00</updated>
+  <updated>2016-07-24T17:38:38+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -20,11 +20,11 @@
     <id>https://home-assistant.io/blog/2016/06/01/community-highlights</id>
     <content type="html"><![CDATA[<p>Our community is amazingly helpful and creative. If you haven’t been there yet, make sure to stop by our <a href="https://gitter.im/home-assistant/home-assistant">chat room</a> and come hang out with us. In this blog post I want to highlight a few recent awesome projects and videos from the community.</p>
 
-<h3>{% linkable_title SceneGen - cli for making scenes %}</h3>
+<h3><a class='title-link' name='scenegen---cli-for-making-scenes' href='#scenegen---cli-for-making-scenes'></a> SceneGen - cli for making scenes </h3>
 
 <p><a href="https://github.com/acockburn/scenegen">SceneGen</a> is a new command line utility developed by <a href="https://github.com/acockburn">Andrew Cockburn</a> that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.</p>
 
-<h3>{% linkable_title Videos %}</h3>
+<h3><a class='title-link' name='videos' href='#videos'></a> Videos </h3>
 
 <p><a href="https://partofthething.com">Nick Touran</a> has been working on integrating IR remotes with Home Assistant. He made it into a component which should be available in the next release which should arrive in a couple of days. In the meanwhile, he wrote up <a href="https://partofthething.com/thoughts/?p=1010">a blog post</a> and has put out a video showing the new integration, very cool!</p>
 
@@ -54,13 +54,13 @@
     <id>https://home-assistant.io/blog/2016/02/20/community-highlights</id>
     <content type="html"><![CDATA[<p>Home Assistant land has been busy and a lot of people have been creating awesome stuff. We’ve added <a href="/cookbook/">a cookbook section</a> to the website full of examples how you can automate different things. Make sure you take a look and share your own recipes too!</p>
 
-<h3>{% linkable_title Home automation demo by Part of the Thing %}</h3>
+<h3><a class='title-link' name='home-automation-demo-by-part-of-the-thing' href='#home-automation-demo-by-part-of-the-thing'></a> Home automation demo by Part of the Thing </h3>
 
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/Mc_29EC3aZw" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
-<h3>{% linkable_title Haaska - Alexa Skill Adapter for Home Assistant %}</h3>
+<h3><a class='title-link' name='haaska---alexa-skill-adapter-for-home-assistant' href='#haaska---alexa-skill-adapter-for-home-assistant'></a> Haaska - Alexa Skill Adapter for Home Assistant </h3>
 
 <p>Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own <a href="/components/alexa/">Alexa</a> component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the ‘Ask Home Assistant’ part when giving commands:</p>
 
@@ -72,7 +72,7 @@
 
 <p><a href="https://github.com/auchter/haaska">Haaska on GitHub</a></p>
 
-<h3>{% linkable_title Integrating Home Assistant with HomeKit %}</h3>
+<h3><a class='title-link' name='integrating-home-assistant-with-homekit' href='#integrating-home-assistant-with-homekit'></a> Integrating Home Assistant with HomeKit </h3>
 
 <p>Contributor Maddox has created a plugin for HomeBridge, an open-source HomeKit bridge. This will allow you to control your home using Siri on your Apple devices. HomeBridge has recently restructured so you’ll have to install the plugin separately with the homebridge-homeassistant npm package.</p>
 
@@ -95,7 +95,7 @@
 <p><a href="https://github.com/nfarina/homebridge">HomeBridge on GitHub</a><br />
 <a href="https://github.com/maddox/homebridge-homeassistant">HomeBridge Home Assistant Plugin</a></p>
 
-<h3>{% linkable_title Custom alarm system with Home Assistant %}</h3>
+<h3><a class='title-link' name='custom-alarm-system-with-home-assistant' href='#custom-alarm-system-with-home-assistant'></a> Custom alarm system with Home Assistant </h3>
 
 <p>User thaijames <a href="https://community.home-assistant.io/t/controlling-house-alarm-from-ha/67">describes in the Home Assistant forums</a> how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.</p>
 
