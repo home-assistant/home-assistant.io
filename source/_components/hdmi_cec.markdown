@@ -29,6 +29,14 @@ The computer running Home Assistant must support CEC, and of course be connected
 
 `ln -s /usr/local/lib/python3.4/dist-packages/cec <your venv>/lib/python3.4/site-packages`
 
+e.g. the default virtual environment for the Raspberry Pi AIO would be as follows.
+
+`ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages`
+
+You will also need to add the user account HASS runs under to the `video` group or you will encounter this error after running HASS for the first time after adding `hdmi_cec:` to your configuration.
+
+`usermod -a -G video <hass_user_account>`
+
 ## {% linkable_title Configuration Example %}
 
 In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
