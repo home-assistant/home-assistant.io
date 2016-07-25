@@ -13,9 +13,9 @@ featured: true
 ha_release: 0.7.3
 ---
 
-The `sonos` platform allows you to control your [Sonos](http://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant.
+The `sonos` platform allows you to control your [Sonos](http://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`. Alternatively, there are some manual configuration options, listed as follows:
 
-To add your Sonos components to your installation, add the following to your `configuration.yaml` file.  It will perform auto-discovery of your connected speakers.
+To add your Sonos components to your installation, add the following to your `configuration.yaml` file.  It will perform Sonos auto-discovery of your connected speakers.
 
 ```yaml
 # Example configuration.yaml entry
@@ -23,7 +23,16 @@ media_player:
   platform: sonos
 ```
 
-You can also specify hosts to connect to if they cannot be found with auto-discovery.
+If you have multiple network devices, you can provide the IP address of the device that should be used for Sonos auto-discovery.
+
+```yaml
+# Example configuration.yaml entry
+media_player:
+  platform: sonos
+  interface_addr: 192.0.2.1
+```
+
+You can also specify one or more hosts to connect to if they cannot be found with Sonos auto-discovery.
 
 ```yaml
 # Example configuration.yaml entry
