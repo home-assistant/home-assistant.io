@@ -33,7 +33,11 @@ e.g. the default virtual environment for the Raspberry Pi AIO would be as follow
 
 `ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages`
 
-You will also need to add the user account HASS runs under to the `video` group or you will encounter this error after running HASS for the first time after adding `hdmi_cec:` to your configuration.
+If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
+
+`* failed to open vchiq instance`
+
+you will also need to add the user account HASS runs under, to the `video` group. To add the HASS user account to the `video` group run the following command.
 
 `usermod -a -G video <hass_user_account>`
 
