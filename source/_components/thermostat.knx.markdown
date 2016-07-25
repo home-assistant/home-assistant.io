@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "KNX Thermostats"
+title: "KNX Thermostat"
 description: "Instructions on how to integrate KXN thermostats with Home Assistant."
 date: 2016-06-24 12:00
 sidebar: true
@@ -13,16 +13,18 @@ ha_release: 0.25
 ---
 
 
-The KNX thermostat component is used as in interface with KNX thermostats.
+The `knx` thermostat platform is used as in interface with KNX thermostats.
 
 KNX thermostats use at least 2 group addresses: one for the current temperature and one for the target temperature (named set-point in KNX terms).
 
+To use your KNX thermostats in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 thermostat:
-  platform: knx
-  name: KNX Thermostat
-  temperature_address: 0/1/1
-  setpoint_address: 0/1/0
+  - platform: knx
+    name: KNX Thermostat
+    temperature_address: 0/1/1
+    setpoint_address: 0/1/0
 ```
 
 - **name** (*Optional*): A name for this devices used within Home assistant
