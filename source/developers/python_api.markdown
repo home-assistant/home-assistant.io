@@ -110,7 +110,7 @@ The state will be set to those value until the next update occurs.
 
 ### {% linkable_title Blinking all entites of a domain %}
 
-If you want to turn on all entities of a domain, just a service which was retrieved by `get_services`.
+If you want to turn on all entities of a domain, just use a service which was retrieved by `get_services`.
 
 
 ```python
