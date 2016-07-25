@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: dweet.png
 ha_category: Sensor
-ha_release: 0.10
+ha_release: "0.10"
 ---
 
 The `dweet` sensor platform allows you to get details from your devices which are publishing their values to [Dweet.io](https://dweet.io/).
@@ -33,9 +33,9 @@ Configuration variables:
 - **value_template** (*Required*): The variable to extract a value from the content.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 
-## {% linkable_title Interacting with Dweet.io %}
+### {% linkable_title Interacting with Dweet.io %}
 
-You can easily send dweets from the commandline to test your sensor.
+You can easily send dweets from the commandline to test your sensor with `curl`.
 
 ```bash
 $ curl -H 'Content-Type: application/json' -d '{"temperature": 40, "humidity": 65}' https://dweet.io/dweet/for/ha-sensor

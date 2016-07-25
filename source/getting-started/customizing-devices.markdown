@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ---
- 
+
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration inside the `homeassistant:` section.
 
 Devices that you don't want to have visible can be hidden with `hidden`.
@@ -41,5 +41,13 @@ homeassistant:
     switch.rfxtrx_switch:
       assumed_state: false
 ```
+
+### {% linkable_title Reloading customize %}
+
+Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant/reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/reload_core_config` and click "Call Service".
+
+<p class='note warning'>
+New customize information will be applied the next time the state of the entity gets updated.
+</p>
 
 ### [Next step: Setting up presence detection &raquo;](/getting-started/presence-detection/)

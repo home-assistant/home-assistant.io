@@ -37,7 +37,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 class ExampleSensor(Entity):
     @property
     def name(self):
-        return 'Temperature'
+        return 'Example Temperature'
 
     @property
     def state(self):

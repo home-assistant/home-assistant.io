@@ -19,7 +19,7 @@ automation:
     event: sunset
     offset: "-00:45:00"
   condition:
-    platform: state
+    condition: state
     entity_id: group.all_devices
     state: home
   action:
@@ -46,7 +46,7 @@ automation:
 
 #### {% linkable_title Send sun rise/sun set notifications %}
 
-Notifications send through [PushBullet](components/notify.pushbullet/) when the sun state is changed.
+Notifications send through [PushBullet](/components/notify.pushbullet/) when the sun state is changed.
 
 ```yaml
 automation:

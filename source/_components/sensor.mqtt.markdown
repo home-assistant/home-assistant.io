@@ -10,6 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Sensor
 ha_release: 0.7
+ha_iot_class: depends
 ---
 
 

@@ -36,13 +36,13 @@ device_tracker:
 
 Once tracked, a file will be created in your config dir called `known_devices.yaml`. Edit this file to adjust which devices to be tracked. Here you can also setup a URL for each device to be used as the entity picture and set whether the device will be show in the UI when in the away state.
 
-Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/) and [Nmap](/components/device_tracker.nmap_scanner/). The state of the device will be determined by the source that reported last. Device tracker will look for global settings (track_new_devices, consider_home and home_interval) under the configuration of the first platform.
+Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/) and [Nmap](/components/device_tracker.nmap_scanner/). The state of the device will be determined by the source that reported last. Device tracker will look for global settings (`track_new_devices`, `consider_home`, and `home_interval`) under the configuration of the first platform.
 
 The optional `consider_home` entry is useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as nmap. 
 
 To add Nmap tracking just add the MAC address to the OwnTracks or iCloud device `mac:` configuration. To use both OwnTracks and Nmap you could use the following example:
 
-```
+```yaml
 owntracksdevicename:
   name: Friendly Name!
   mac: EA:AA:55:E7:C6:94

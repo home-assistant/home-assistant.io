@@ -16,6 +16,12 @@ The `onewire` platform supports sensors which are using the One wire (1-wire) bu
 Supported devices:
 
 - [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)
+- DS18S20
+- DS1822
+- DS1825
+- DS28EA00 temperature sensors
+
+There is also support for bus masters which use fuse to mount device tree.
 
 To enable One wire sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -25,9 +31,11 @@ sensor:
   platform: onewire
   names:
     some_id: your name
+  mount_dir: "/mnt/1wire"
 ```
 
 Configuration variables:
 
 - **names** array (*Optional*): ID and friendly name of your sensors.
+- **mount_dir** (*Optional*): Location of device tree if owfs driver used.
 

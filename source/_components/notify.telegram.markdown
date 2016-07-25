@@ -60,9 +60,33 @@ notify:
 
 Configuration variables:
 
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service
-`notify.NOTIFIER_NAME`.
+- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **api_key** (*Required*): The API token of your bot.
 - **chat_id** (*Required*: The chat ID of your user.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+### {% linkable_title Photo support %}
+
+```yaml
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: test notify
+    message: That's a exemple
+    data:
+      photo:
+        - url: http://192.168.1.28/camera.jpg
+          username: admin
+          password: secrete
+        - file: /tmp/picture.jpg
+          caption: Picture Title xy
+        - url: http://somebla.ie/video.png
+          caption: I.e. for a Title
+```
+
+- **url** or **file** (*Required*): For local or remote path to an image.
+- **caption** (*Optional*): The title of the image.
+- **username** (*Optional*): Username for an URL which require HTTP basic authentication.
+- **password** (*Optional*): Username for an URL which require HTTP basic authentication.
+

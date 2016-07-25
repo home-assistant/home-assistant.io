@@ -2,7 +2,7 @@
 layout: page
 title: "Netatmo Sensor"
 description: "Instructions how to integrate Netatmo sensors into Home Assistant."
-date: 2016-06-02 08:10
+date: 2016-06-23 11:10
 sidebar: true
 comments: false
 sharing: true
@@ -31,12 +31,24 @@ sensor:
       - rain
       - sum_rain_1
       - sum_rain_24
+      - wifi_status
     module_name2:
       - temperature
+      - battery_vp
+      - min_temp
+      - max_temp
     rainmeter_name3:
       - rain
       - sum_rain_1
       - sum_rain_24
+      - battery_vp
+      - rf_status
+    windmodule_name4:
+      - WindAngle
+      - WindStrength
+      - GustAngle
+      - GustStrength
+      - rf_status
 ```
 
 Configuration variables:
@@ -52,6 +64,15 @@ Configuration variables:
     - **rain**: Estimated rainfall for today in mm.
     - **sum_rain_1**: Rainfall in the last hour in mm.
     - **sum_rain_24**: Rainfall in mm from 00:00am - 23:59pm.
+    - **WindAngle**: Wind angle
+    - **WingStrength**: Wind strength
+    - **GustAngle**: Wind gust angle
+    - **GustStrength**: Wind gust strength
+    - **min_temp**: Min temperature for today
+    - **max_temp**: Max temperature for today
+    - **rf_status**: Current radio status per module. (90=low, 60=highest)
+    - **wifi_status**: Wifi status per Base station
+    - **battery_vp**: Current battery status per module.
 
 ### {% linkable_title Find your modules name %}
 
@@ -62,6 +83,3 @@ You have to provide these name in your Home Assistant configuration file.
 <img src='/images/screenshots/netatmo_module.png' />
 </p>
 
-<p class='note'>
-The Home Assistant NetAtmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
-</p>

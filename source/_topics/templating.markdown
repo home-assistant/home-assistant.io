@@ -59,21 +59,21 @@ script:
 
 Home Assistant adds extensions to allow templates to access all of the current states:
 
- - Iterating `states` will yield each state sorted alphabetically by entity ID.
- - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
- - `states.sensor.temperature` returns the state object for `sensor.temperature`.
- - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
- - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
- - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
- - Filter `multiply(x)` will convert the input to a number and multiply it with `x`.
- - Filter `round(x)` will convert the input to a number and round it to `x` decimals.
- - `now` will be rendered as current time in your time zone.
- - `utcnow` will be rendered as UTC time.
- - `as_timestamp` will convert datetime object or string to UNIX timestamp
- - `distance()` will measure the distance in meters between home, entity, coordinates.
- - `closest()` will find the closest entity.
- - `relative_time(timestamp)` will format the date time as relative time vs now (ie 7 seconds)
-
+- Iterating `states` will yield each state sorted alphabetically by entity ID.
+- Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
+- `states.sensor.temperature` returns the state object for `sensor.temperature`.
+- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
+- `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
+- Filter `multiply(x)` will convert the input to a number and multiply it with `x`.
+- Filter `round(x)` will convert the input to a number and round it to `x` decimals.
+- `now` will be rendered as current time in your time zone.
+- `utcnow` will be rendered as UTC time.
+- `as_timestamp` will convert datetime object or string to UNIX timestamp
+- `distance()` will measure the distance in meters between home, entity, coordinates.
+- `closest()` will find the closest entity.
+- `relative_time(timestamp)` will format the date time as relative time vs now (ie 7 seconds)
+- `float` will format the output as float.
 
 ## {% linkable_title Examples %}
 
@@ -93,9 +93,9 @@ Print an attribute if state is defined
 ```jinja2
 {% raw %}
 {% if states.device_tracker.paulus %}
-{{ states.device_tracker.paulus.attributes.battery }}
+  {{ states.device_tracker.paulus.attributes.battery }}
 {% else %}
-??
+  ??
 {% endif %}{% endraw %}
 ```
 
@@ -119,7 +119,12 @@ Print out a list of all the sensor states.
 
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!
-{%endif %}{% endraw %}
+{%endif %}
+
+{{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+
+{{ as_timestamp(now) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+{% endraw %}
 ```
 
 ### {% linkable_title Distance examples %}
@@ -183,4 +188,11 @@ It depends per component or platform but it is common to be able to define a tem
 
 # Extract third prime number
 {% raw %}{{ value_json.primes[2] }}{% endraw %}
+
+# Format output
+{% raw %}{{ "%+.1f" | value_json }}{% endraw %}
+
+# Calculations
+{% raw %}{{ value_json | multiply(1024) }}{% endraw %}
+{% raw %}{{ value_json.used | multiply(0.0001) | round(0) }}{% endraw %}
 ```

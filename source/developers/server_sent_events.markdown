@@ -18,7 +18,7 @@ A requirement on the client-side is existing support for the [EventSource](https
 There are various ways to access the stream. One is `curl`:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X GET -H "x-ha-access: 12345" \
        -H "Content-Type: application/json" http://localhost:8123/api/stream
 ```
 
@@ -42,7 +42,33 @@ For more comfort put the HTML snippet below in a file `sse.html` in your `www` f
 
 Visit [http://localhost:8123/local/sse.html](http://localhost:8123/local/sse.html) to see the stream of events.
 
-### {% linkable_title Example %}
+## {% linkable_title Examples %}
+
+The simplest way to consume server-sent events is `curl`.
+
+```bash
+$ curl http://localhost:8123/api/stream?api_password=MYPASS
+```
+
+### {% linkable_title Website %}
 
 The [home-assistant-sse](https://github.com/fabaff/home-assistant-sse) repository contains an more advanced example.
+
+### {% linkable_title Python %}
+
+If you want test the server-sent events without creating a website then the Python module [`sseclient` ](https://pypi.python.org/pypi/sseclient/) can help. Install it first:
+
+```bash
+$ pip3 install sseclient
+```
+
+The simplest script to consume the SSE looks like the following snipplet.
+
+```python
+from sseclient import SSEClient
+
+messages = SSEClient('http://localhost:8123/api/stream?api_password=MYPASS')
+for msg in messages:
+    print(msg)
+```
 

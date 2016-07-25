@@ -34,6 +34,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `message`              |       no | Body of the notification.
 | `title`                |      yes | Title of the notification. Default is `Home Assistant`.
 | `target`               |      yes | Some platforms will allow specifying a recipient that will receive the notification. See your platform page if it is supported.
+| `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
 
 The notification component supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
 
@@ -49,7 +50,7 @@ action:
 
 ### {% linkable_title Test if it works %}
 
-A simple way to test if you have set up your notify platform correctly is to use **Call Service** from the **Developer Tools** to call your notify service. Choose your service (*notify/xyz*) from the list of **Available services:** and enter something like the sample below into  the **Service Data** field and hit **CALL SERVICE**.
+A simple way to test if you have set up your notify platform correctly is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose your service (*notify/xyz*) from the list of **Available services:** and enter something like the sample below into  the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
 {
