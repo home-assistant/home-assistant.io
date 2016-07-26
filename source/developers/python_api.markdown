@@ -142,6 +142,30 @@ time.sleep(5)
 remote.call_service(api, domain, 'turn_off', {'entity_id': '{}'.format(switch_name)})
 ```
 
+### {% linkable_title Specify a timeout %}
+
+The default timeout for an API call with `call_service` is 5 seconds. Service
+taking longer than this to return will raise
+`homeassistant.exceptions.HomeAssistantError: Timeout` unless provided with a
+longer timeout.
+
+```python
+import homeassistant.remote as remote
+
+api = remote.API('host', 'password')
+domain = 'switch'
+
+# Assuming switch.timeout_switch takes 10 seconds to return
+switch_name = 'switch.timeout_switch'
+
+# Raises homeassistant.exceptions.HomeAssistantError: Timeout when talking to
+remote.call_service(api, domain, 'turn_on', {'entity_id': switch_name})
+
+# Runs withous exception
+remote.call_service(api, domain, 'turn_on', {'entity_id': switch_name},
+                    timeout=11)
+```
+
 ### {% linkable_title Send a notification %}
 
 The example uses the jabber notification platform to send a single message to the given recipient in the `configuration.yaml` file. 
