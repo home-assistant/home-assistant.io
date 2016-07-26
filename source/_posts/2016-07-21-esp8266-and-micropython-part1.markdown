@@ -2,8 +2,8 @@
 layout: post
 title: "ESP8266 and MicroPython - Part 1"
 description: "Using MicroPython on ESP8266 based devices and Home Assistant."
-date: 2016-07-21 06:00:00 +0200
-date_formatted: "July 21, 2016"
+date: 2016-07-27 06:00:00 +0200
+date_formatted: "July 27, 2016"
 author: Fabian Affolter
 comments: true
 categories: How-To
@@ -13,7 +13,7 @@ og_image: /images/blog/2016-07-micropython/social.png
 <img src='/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
 The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The [documentation](http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html) covers a lot of ground. This post is providing only a little summary which should get you started.
 
-If you don't participated in the KickStarter campaign only the source code was available. This meant that you needed to build the firmware on your own. As of now the [pre-built firmware](https://micropython.org/download/#esp8266) is available for the public.
+Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers. This has changed now and it is available to the public for [download](https://micropython.org/download/#esp8266).
 
 <!--more-->
 
@@ -39,7 +39,9 @@ Wrote 540672 bytes at 0x0 in 13.1 seconds (330.8 kbit/s)...
 Leaving...
 ```
 
-Now reset the device. You should then be able to use a terminal program like `minicom` or `picocom` to connect and get the [REPL (Read Evaluate Print Loop)](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt) prompt.
+Now reset the device. You should then be able to use the [REPL (Read Evaluate Print Loop)](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt). On Linux there is `minicom` or `picocom`, on a Mac you can use `screen` (eg. `screen /dev/tty.SLAB_USBtoUART 115200`), and on Windows there is Putty to open a serial connection and get the REPL prompt.
+
+The [WebREPL](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at [http://micropython.org/webrepl](http://micropython.org/webrepl). Alternatively, you can create a local clone of their [GitHub repository](https://github.com/micropython/webrepl). This is neccessary if your want to use the command-line tool `webrepl_cli.py` which is mentionend later in this post.
 
 ```bash
 $ sudo minicom -D /dev/ttyUSB0
@@ -76,8 +78,6 @@ Various ESP8266 development board are shipped with an onboard photocell or a lig
 >>> brightness.read()
 ```
 
-The REPL can also be accessed through with a browser. For your convinience, is an instance of the WebREPL client hosted at [http://micropython.org/webrepl](http://micropython.org/webrepl). Alternatively, you can create a local clone of their [GitHub repository](https://github.com/micropython/webrepl). This is neccessary if your want to use the command-line tool `webrepl_cli.py`.
-
 Make sure that you are familiar with REPL and WebREPL because this will be needed soon. Keep in mind the password for the WebREPL access.
 
 Read the [instructions](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html) about how to setup your wireless connection. Basically you need to upload a `boot.py` file to the microcontroller and this file is taking care of the connection setup. Below you find a sample which is more or less the same as shown in the [documentation](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html#configuration-of-the-wifi).
@@ -102,7 +102,7 @@ def do_connect():
     print('Network configuration:', sta_if.ifconfig())
 ```
 
-Upload this file:
+Upload this file with `webrepl_cli.py` or the WebREPL:
 
 ```bash
 $ python webrepl_cli.py boot.py 192.168.4.1:/boot.py
