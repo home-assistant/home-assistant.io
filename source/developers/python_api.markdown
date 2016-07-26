@@ -33,6 +33,18 @@ hass.start()
 living_room = hass.states.get('group.living_room')
 ```
 
+### {% linkable_title Get configuration %}
+
+Get the current configuration of a Home Asssitant instance.
+
+```python
+import homeassistant.remote as remote
+
+api = remote.API('127.1.0.1', 'password')
+
+print(remote.get_config(api))
+```
+
 ### {% linkable_title Get details about services, events, and entitites %}
 
 Similar to the output in the "Developer Tools" of the frontend.
