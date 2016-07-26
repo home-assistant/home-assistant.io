@@ -30,6 +30,8 @@ influxdb:
   blacklist:
      - entity.id1
      - entity.id2
+  tags:
+    - instance: prod
 ```
 
 Configuration variables:
@@ -41,4 +43,6 @@ Configuration variables:
 - **password** (*Optional*): The password for the database user account.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
-- **blacklist** (*Optional*): List of entities not logged to influxdb.
+- **blacklist** (*Optional*): List of entities not logged to InfluxDB.
+- **tags** (*Optional*): Tags to mark the data.
+
