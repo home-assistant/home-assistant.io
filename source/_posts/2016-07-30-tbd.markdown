@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.25: iFrame panels, ."
+title: "0.25: iFrame panels, Jupyther notebooks."
 description: "This new release of Home Assistant contains support for iFrame panels."
 date: 2016-07-30 12:00:00 +0000
 date_formatted: "July 30, 2016"
@@ -12,14 +12,30 @@ categories: Release-Notes
 
 We are proud to annonce the availability of Home Assistant 0.25.
 
+The brand-new [iFrame panels][panel] allows you to integrate third-party web frontends into Home Assistant. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view. 
 
+The [Jupyter] Notebooks allows you to create and share documents that contain code, visualizations, and explanatory text. It a great way to work with your stored information about your home. The [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] only covers the basics.
 
-<img src='/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+Typing, Tests...
+
+<img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Frontend: Support for [iFrame panels][panel] ([@balloob])
 - Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
 - Script: Delay support for [Scripts][script] ([@Teagan42])
-
+- Media player: [Russound RNET][Russound] integration ([@laf]) 
+- Python API: Option to define a timeout for call ([@n8henrie])
+- Tests: Dependencies were removed from tests ([@balloob])
+- Thermostat: Integration of [KNX] thermostat (@open-homeautomation])
+- Thermostat: Support for HVAC mode of [Nest] devices ([@vladonemo])
+- InfluxDB: Option to mark data with [tags] ([@open-homeautomation])
+- Input slider: Support for value ([@ngraziano])
+- Template: New filters (`timestamp_local` and `timestamp_utc`) ([@fabaff])
+- Binary sensor: Water leak sensor support added ([@w1ll1am23])
+- Sensor: Support for luminance of Tellduslive sensors ([@PetitCircuitLab])
+- Switch: Inverted logic for RPi GPIO ([@zeroDenial])
+- Z-Wave: Rollershutter update ([@turbokongen])
+- Rfxtrx: Fire events when receiving signals from sensors ([@Danielhiversen])
 
 ### {% linkable_title Breaking changes %}
 
@@ -30,21 +46,28 @@ We are proud to annonce the availability of Home Assistant 0.25.
 - Frequently asked questions about this release will show up here...
 
 [@Danielhiversen]: https://github.com/Danielhiversen
-[@balloob]: https://github.com/balloob/
-[@Teagan42]: https://github.com/Teagan42/
-
-
-[@danieljkemp]: https://github.com/danieljkemp
-[@GadgetReactor]: https://github.com/GadgetReactor
-[@keatontaylor]: https://github.com/keatontaylor
-[@kellerza]: https://github.com/kellerza/
-[@nkgilley]: https://github.com/nkgilley
-[@pvizeli]: https://github.com/pvizeli/
-[@rhooper]: https://github.com/rhooper/
-[@turbokongen]: https://github.com/turbokongen/
+[@balloob]: https://github.com/balloob
+[@Teagan42]: https://github.com/Teagan42
+[@laf]: https://github.com/laf
+[@n8henrie]: https://github.com/n8henrie
 [@usul27]: https://github.com/usul27
-[@w1ll1am23]: https://github.com/w1ll1am23/
+[@vladonemo]: https://github.com/vladonemo
+[@open-homeautomation]: https://github.com/open-homeautomation
+[@ngraziano]: https://github.com/ngraziano
+[@fabaff]: https://github.com/fabaff
+[@w1ll1am23]: https://github.com/w1ll1am23
+[@PetitCircuitLab]: https://github.com/PetitCircuitLab
+[@zeroDenial]: https://github.com/zeroDenial
+[@turbokongen]: https://github.com/turbokongen
+[@kireyeu]: https://github.com/kireyeu
 
 [panel]: /components/planel_iframe/
 [flux]: /component/light.flux_led/
 [script]: /components/script/
+[Russound]: /component/media_player.russound_rnet/
+[tags]: /component/influxdb/ 
+[filter]: /topics/templating/
+[jupyter-notebooks]: /cookbook/#jupyter-notebooks
+[jupyter-repo]: https://github.com/home-assistant/home-assistant-notebooks
+[Jupyter]: http://jupyter.org/
+[blog]: /blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/
