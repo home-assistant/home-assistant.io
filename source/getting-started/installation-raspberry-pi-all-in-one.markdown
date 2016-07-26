@@ -62,6 +62,12 @@ To upgrade with fabric:
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
 *  Change to `cd ~/fabric-home-assistant`
 *  Run `fab upgrade_homeassistant`
+  
+After upgrading, you can restart Home Assistant a few different ways:
+
+* Restarting the Raspberry Pi `sudo reboot`
+* Restarting the Home-Assistant Service `sudo systemctl start home-assistant.service`
+
 
 ### {% linkable_title Using the OZWCP web application %}
 
