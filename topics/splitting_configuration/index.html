@@ -273,7 +273,7 @@ customize.yaml
 
 <p>If you have issues checkout <code>home-assistant.log</code> in the configuration directory as well as your indentations. If all else fails, head over to the <a href="https://gitter.im/balloob/home-assistant">Gitter Chatroom</a> and ask away.</p>
 
-<h3><a class="title-link" name="advanced-usage" href="#advanced-usage"></a> Advanced usage</h3>
+<h3><a class="title-link" name="advanced-usage" href="#advanced-usage"></a> Advanced Usage</h3>
 
 <p>We offer four advanced options to include whole directories at once.</p>
 
@@ -284,6 +284,291 @@ customize.yaml
 <p><code>!include_dir_merge_list</code> will return content of a directory as a list by merging all files (which should contain a list) into 1 big list.</p>
 
 <p><code>!include_dir_merge_named</code> will return content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.</p>
+
+<h4><a class="title-link" name="example-include_dir_list" href="#example-include_dir_list"></a> Example: <code>!include_dir_list</code></h4>
+
+<p><code>configuration.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+  - <span class="string"><span class="content">alias: Automation 1</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.iphone</span></span>
+      <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">light.entryway</span></span>
+  - <span class="string"><span class="content">alias: Automation 2</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.iphone</span></span>
+      <span class="key">from</span>: <span class="string"><span class="content">'home'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">light.turn_off</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">light.entryway</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>can be turned into:</p>
+
+<p><code>configuration.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>: <span class="type">!include_dir_list</span> <span class="string"><span class="content">automation/presence/</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><code>automation/presence/automation1.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">alias</span>: <span class="string"><span class="content">Automation 1</span></span>
+<span class="key">trigger</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+  <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.iphone</span></span>
+  <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
+<span class="key">action</span>:
+  <span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
+  <span class="key">entity_id</span>: <span class="string"><span class="content">light.entryway</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><code>automation/presence/automation2.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">alias</span>: <span class="string"><span class="content">Automation 2</span></span>
+<span class="key">trigger</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+  <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.iphone</span></span>
+  <span class="key">from</span>: <span class="string"><span class="content">'home'</span></span>
+<span class="key">action</span>:
+  <span class="key">service</span>: <span class="string"><span class="content">light.turn_off</span></span>
+  <span class="key">entity_id</span>: <span class="string"><span class="content">light.entryway</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>It is important to note that each file must contain only <strong>one</strong> entry when using <code>!include_dir_list</code>.</p>
+
+<h4><a class="title-link" name="example-include_dir_named" href="#example-include_dir_named"></a> Example: <code>!include_dir_named</code></h4>
+
+<p><code>configuration.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+<span class="key">alexa</span>:
+  <span class="key">intents</span>:
+    <span class="key">LocateIntent</span>:
+      <span class="key">action</span>:
+        <span class="key">service</span>: <span class="string"><span class="content">notify.pushover</span></span>
+        <span class="key">data</span>:
+          <span class="key">message</span>: <span class="string"><span class="content">Your location has been queried via Alexa.</span></span>
+      <span class="key">speech</span>:
+        <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
+        <span class="key">text</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
+          {%- for state in states.device_tracker -%}
+            {%- if state.name.lower() == User.lower() -%}
+              {{ state.name }} is at {{ state.state }}
+            {%- endif -%}
+          {%- else -%}
+            I am sorry. Pootie! I do not know where {{User}} is.
+          {%- endfor -%}</span></span>
+    <span class="key">WhereAreWeIntent</span>:
+      <span class="key">speech</span>:
+        <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
+        <span class="key">text</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
+          {%- if is_state('device_tracker.iphone', 'home') -%}
+            iPhone is home.
+          {%- else -%}
+            iPhone is not home.
+          {% endif %}</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>can be turned into:</p>
+
+<p><code>configuration.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">alexa</span>:
+  <span class="key">intents</span>: <span class="type">!include_dir_named</span> <span class="string"><span class="content">alexa/</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><code>alexa/LocateIntent.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+<span class="key">action</span>:
+  <span class="key">service</span>: <span class="string"><span class="content">notify.pushover</span></span>
+  <span class="key">data</span>:
+    <span class="key">message</span>: <span class="string"><span class="content">Your location has been queried via Alexa.</span></span>
+<span class="key">speech</span>:
+  <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
+  <span class="key">text</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
+    {%- for state in states.device_tracker -%}
+      {%- if state.name.lower() == User.lower() -%}
+        {{ state.name }} is at {{ state.state }}
+      {%- endif -%}
+    {%- else -%}
+      I am sorry. Pootie! I do not know where {{User}} is.
+    {%- endfor -%}</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><code>alexa/WhereAreWeIntent.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+<span class="key">speech</span>:
+  <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
+  <span class="key">text</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
+    {%- if is_state('device_tracker.iphone', 'home') -%}
+      iPhone is home.
+    {%- else -%}
+      iPhone is not home.
+    {% endif %}</span></span>
+</pre></div>
+</div>
+</div>
+
+<h4><a class="title-link" name="example-include_dir_merge_list" href="#example-include_dir_merge_list"></a> Example: <code>!include_dir_merge_list</code></h4>
+
+<p><code>configuration.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+  - <span class="string"><span class="content">alias: Automation 1</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.iphone</span></span>
+      <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">light.entryway</span></span>
+  - <span class="string"><span class="content">alias: Automation 2</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.iphone</span></span>
+      <span class="key">from</span>: <span class="string"><span class="content">'home'</span></span>
+    <span class="key">action</span>:
+      <span class="key">service</span>: <span class="string"><span class="content">light.turn_off</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">light.entryway</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>can be turned into:</p>
+
+<p><code>configuration.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>: <span class="type">!include_dir_merge_list</span> <span class="string"><span class="content">automation/</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><code>automation/presence.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>- <span class="string"><span class="content">alias: Automation 1</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.iphone</span></span>
+    <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">light.entryway</span></span>
+    
+- <span class="string"><span class="content">alias: Automation 2</span></span>
+  <span class="key">trigger</span>:
+    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.iphone</span></span>
+    <span class="key">from</span>: <span class="string"><span class="content">'home'</span></span>
+  <span class="key">action</span>:
+    <span class="key">service</span>: <span class="string"><span class="content">light.turn_off</span></span>
+    <span class="key">entity_id</span>: <span class="string"><span class="content">light.entryway</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>It is important to note that when using <code>!include_dir_merge_list</code>, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.</p>
+
+<h4><a class="title-link" name="example-include_dir_merge_named" href="#example-include_dir_merge_named"></a> Example: <code>!include_dir_merge_named</code></h4>
+
+<p><code>configuration.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">group</span>:
+  <span class="key">bedroom</span>:
+    <span class="key">name</span>: <span class="string"><span class="content">Bedroom</span></span>
+    <span class="key">entities</span>:
+      - <span class="string"><span class="content">light.bedroom_lamp</span></span>
+      - <span class="string"><span class="content">light.bedroom_overhead</span></span>
+  <span class="key">hallway</span>:
+    <span class="key">name</span>: <span class="string"><span class="content">Hallway</span></span>
+    <span class="key">entities</span>:
+      - <span class="string"><span class="content">light.hallway</span></span>
+      - <span class="string"><span class="content">thermostat.home</span></span>
+  <span class="key">front_yard</span>:
+    <span class="key">name</span>: <span class="string"><span class="content">Front Yard</span></span>
+    <span class="key">entities</span>:
+      - <span class="string"><span class="content">light.front_porch</span></span>
+      - <span class="string"><span class="content">light.security</span></span>
+      - <span class="string"><span class="content">light.pathway</span></span>
+      - <span class="string"><span class="content">sensor.mailbox</span></span>
+      - <span class="string"><span class="content">camera.front_porch</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>can be turned into:</p>
+
+<p><code>configuration.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">group</span>: <span class="type">!include_dir_merge_named</span> <span class="string"><span class="content">group/</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><code>group/interior.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">bedroom</span>:
+  <span class="key">name</span>: <span class="string"><span class="content">Bedroom</span></span>
+  <span class="key">entities</span>:
+    - <span class="string"><span class="content">light.bedroom_lamp</span></span>
+    - <span class="string"><span class="content">light.bedroom_overhead</span></span>
+<span class="key">hallway</span>:
+  <span class="key">name</span>: <span class="string"><span class="content">Hallway</span></span>
+  <span class="key">entities</span>:
+    - <span class="string"><span class="content">light.hallway</span></span>
+    - <span class="string"><span class="content">thermostat.home</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><code>group/exterior.yaml</code></p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">front_yard</span>:
+  <span class="key">name</span>: <span class="string"><span class="content">Front Yard</span></span>
+  <span class="key">entities</span>:
+    - <span class="string"><span class="content">light.front_porch</span></span>
+    - <span class="string"><span class="content">light.security</span></span>
+    - <span class="string"><span class="content">light.pathway</span></span>
+    - <span class="string"><span class="content">sensor.mailbox</span></span>
+    - <span class="string"><span class="content">camera.front_porch</span></span>
+</pre></div>
+</div>
+</div>
 
 
 </article>
