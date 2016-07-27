@@ -122,6 +122,21 @@
 
 <p>If one exists, the SNS Subject will be set to the title. All attributes from the payload except message will be sent as stringified message attributes.</p>
 
+<p>Setting up SNS within AWS:<br />
+- Log into your AWS console and under “Security and Identity”, select “Identity &amp; Access Management”.<br />
+- On the left hand side, select “Users” then click “Create New Users”. Enter a name here and then click “Create”. <br />
+- You can either download the credentials or click the arrow to display them one time.  <br />
+<strong>Caution</strong> If you do not download them you’ll lose them and will have to recreate a new user.<br />
+- Copy/Paste the two Keys that you’re provided here in your configuration.yaml respectively.<br />
+- On the left hand side of the screen go back to “Users” and select the user you just created. On the “Permissions” tab click the “Attach Policy” icon.  Search for “SNS” and attach the policy “AmazonSNSFUullAccess”<br />
+- Back to the AWS Console you now need to find “SNS” and click in to that service.  It is under the Mobile Services group.<br />
+- On the left hand side, select “Topics” then “Create new topic”<br />
+- Choose a Topic Name and Display Name.<br />
+- Now check the box next to the Topic you just created and under Actions, select “Subscribe to topic”<br />
+- In the box that pops up, select the Protocol = SMS and enter in the phone number next to “Endpoint” you wish to SMS.  Now click “Create”.<br />
+- Repeat for additional numbers<br />
+- Back in the “Users” section you’ll see a long alphanumeric line that starts with “arn:” and ends with the Topic Name you chose previously.  This is what your “target” in Home Assistant will be.</p>
+
 
 </article>
 
