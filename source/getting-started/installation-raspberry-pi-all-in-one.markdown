@@ -66,7 +66,7 @@ To upgrade with fabric:
 After upgrading, you can restart Home Assistant a few different ways:
 
 * Restarting the Raspberry Pi `sudo reboot`
-* Restarting the Home-Assistant Service `sudo systemctl start home-assistant.service`
+* Restarting the Home-Assistant Service `sudo systemctl restart home-assistant.service`
 
 
 ### {% linkable_title Using the OZWCP web application %}
