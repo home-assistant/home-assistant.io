@@ -19,6 +19,7 @@ This page contains a list of people who have contributed in one way or another t
 
 (in alphabetical order)
 
+- [Cameron Bulock](https://github.com/cbulock)
 - [Adam Mills](https://github.com/armills)
 - [Adrien Brault](https://github.com/adrienbrault)
 - [Alexander Fortin](https://github.com/shaftoe)
