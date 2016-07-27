@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.25: iFrame panels, Jupyther notebooks."
+title: "0.25: iFrame panels, Jupyther notebooks, DirecTV."
 description: "This new release of Home Assistant contains support for iFrame panels."
 date: 2016-07-30 12:00:00 +0000
 date_formatted: "July 30, 2016"
@@ -18,7 +18,7 @@ The [Jupyter] Notebooks allows you to create and share documents that contain co
 
 Typing, Tests...
 
-<img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Frontend: Support for [iFrame panels][panel] ([@balloob])
 - Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
@@ -36,6 +36,8 @@ Typing, Tests...
 - Switch: Inverted logic for RPi GPIO ([@zeroDenial])
 - Z-Wave: Rollershutter update ([@turbokongen])
 - Rfxtrx: Fire events when receiving signals from sensors ([@Danielhiversen])
+- API: Support for getting the [Configuration] through the Python API ([@fabaff])
+- Media player: Support for [DirecTV] ([@cbulock])
 
 ### {% linkable_title Breaking changes %}
 
@@ -60,6 +62,7 @@ Typing, Tests...
 [@zeroDenial]: https://github.com/zeroDenial
 [@turbokongen]: https://github.com/turbokongen
 [@kireyeu]: https://github.com/kireyeu
+[@cbulock]: https://github.com/cbulock
 
 [panel]: /components/planel_iframe/
 [flux]: /component/light.flux_led/
@@ -71,3 +74,5 @@ Typing, Tests...
 [jupyter-repo]: https://github.com/home-assistant/home-assistant-notebooks
 [Jupyter]: http://jupyter.org/
 [blog]: /blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/
+[DirecTV]: /component/media_player.directv/
+[Configuration]: /developers/python_api/
