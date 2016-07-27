@@ -10,7 +10,7 @@ footer: true
 logo: x10.gif
 ha_category: Light
 ha_iot_class: "Local Polling"
-featured: true
+ha_release: true
 ---
 
 X10 support is integrated into Home Assistant as a light platform.
