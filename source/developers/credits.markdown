@@ -19,7 +19,6 @@ This page contains a list of people who have contributed in one way or another t
 
 (in alphabetical order)
 
-- [Cameron Bulock](https://github.com/cbulock)
 - [Adam Mills](https://github.com/armills)
 - [Adrien Brault](https://github.com/adrienbrault)
 - [Alexander Fortin](https://github.com/shaftoe)
@@ -44,6 +43,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Brad Johnson](https://github.com/bradsk88)
 - [Brent](https://github.com/bah2830)
 - [Bruno Adele](https://github.com/badele)
+- [Cameron Bulock](https://github.com/cbulock)
 - [Carlo Costanzo](https://github.com/CCOSTAN)
 - [Charles Spirakis](https://github.com/srcLurker)
 - [Chris Mulder](https://github.com/chrisvis)
