@@ -15,7 +15,7 @@ There is currently support for switches, lights and sensors. All will be picked 
 
 ### {% linkable_title Installation %}
 
-To allow Home Assistant to talk to your Z-Wave USB stick you will have to compile the OpenZWave library and install the related [python-OpenZWave package](https://github.com/OpenZWave/python-openzwave). This can be done as follows. _(Note: The Home Assistant docker image has support for Z-Wave built-in)_
+To allow Home Assistant to talk to your Z-Wave USB stick you will have to compile the OpenZWave library and install the related [python-OpenZWave package](https://github.com/OpenZWave/python-openzwave). This can be done as follows. _(Note: The Home Assistant docker image and the All In One installer have support for Z-Wave already built-in!)_
 
 Make sure you have the correct dependencies installed before running the script:
 
