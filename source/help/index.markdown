@@ -27,6 +27,14 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Issue tracker home-assistant.io](https://github.com/home-assistant/home-assistant.io/issues) (Website and documentation)
 - [Feature requests Home Assistant](https://community.home-assistant.io/c/feature-requests)
 
+### {% linkable_title Videos, interviews, talks, and alike %}
+
+- [Building Online Communities: Home Assistant](https://medium.com/@gitter/building-online-communities-home-assistant-8818dff671ad#.och4x4rhx) - July 2016
+- [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) ([Slides](https://docs.google.com/presentation/d/1PUnOpeFZxNj4LEjaohGqH_1hOGQGuS5yRHD1ThHr6nk/edit?usp=sharing)) - June 2016
+- [Awaken your home: Python and the Internet of Things](https://www.youtube.com/watch?v=Cfasc9EgbMU&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=1) at PyCon 2016 - June 2016
+- [Automating your Home with Home Assistant](https://www.youtube.com/watch?v=4-6rTwKl6ww&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=2) at OpenIoT 2016 - March 2016
+
+
 ### {% linkable_title Roadmap %}
 
 There is no explicit roadmap available but the public [tracker](https://www.pivotaltracker.com/n/projects/1250084) can give you some insight into what is going on.
