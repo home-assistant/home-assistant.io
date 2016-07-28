@@ -82,6 +82,53 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 and MicroPython - Part 1</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-07-28T04:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 28, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/07/28/esp8266-and-micropython-part1/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p><img src="/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html">documentation</a> covers a lot of ground. This post is providing only a little summary which should get you started.</p>
+
+<p>Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers. This has changed now and it is available to the public for <a href="https://micropython.org/download/#esp8266">download</a>.</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/07/28/esp8266-and-micropython-part1/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">IoT Data Exploration with Jupyter Notebooks</a>
   </h1>
   
@@ -252,10 +299,10 @@ $ hass --script db_migrator --config /path/to/config
   <li>Media Player: <a href="/components/media_player.plex/">Plex</a> will no longer spam the logs if server goes offline (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
   <li>Sensor: <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> now supports names, icons and units (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
   <li>Lock: <a href="/components/lock.verisure/">Verisure</a> entities will now use name instead of serial number for entity id (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li>[StatsD] can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
+  <li><a href="/components/statsd/">StatsD</a> can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
   <li>Support for <a href="/components/knx/">KNX</a> added (<a href="https://github.com/usul27">@usul27</a>)</li>
   <li>Switch: <a href="/components/switch.tplink/">TPLink</a> HS100/HS110 now supported (<a href="https://github.com/GadgetReactor">@GadgetReactor</a>)</li>
-  <li>Stability fixes for [RFXTRX] ([@Danielhiversen])</li>
+  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> (<a href="https://github.com/danielhiversen">@Danielhiversen</a>)</li>
   <li>Tweaks to <a href="/components/zwave/">Z-Wave</a> (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
   <li>Light: <a href="/components/light/">Brightness</a> now clamped to 0-255 (<a href="https://github.com/keatontaylor">@keatontaylor</a>)</li>
   <li>Thermostat: <a href="/components/thermostat.radiotherm/">Radiotherm</a> HVAC mode now supported (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
@@ -721,74 +768,6 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   <li>Fix more info dialog not being able to open on Safari (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Add support for OPTIONS HTTP command to get CORS working (<a href="https://github.com/JshWright">@JshWright</a>)</li>
 </ul>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/06/01/community-highlights/">Community Highlights</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-06-01T18:34:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 1, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li><a class='category' href='/blog/categories/community/'>Community</a></li>
-      
-        <li><a class='category' href='/blog/categories/video/'>Video</a></li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/06/01/community-highlights/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Our community is amazingly helpful and creative. If you haven’t been there yet, make sure to stop by our <a href="https://gitter.im/home-assistant/home-assistant">chat room</a> and come hang out with us. In this blog post I want to highlight a few recent awesome projects and videos from the community.</p>
-
-<h3><a class="title-link" name="scenegen---cli-for-making-scenes" href="#scenegen---cli-for-making-scenes"></a> SceneGen - cli for making scenes</h3>
-
-<p><a href="https://github.com/acockburn/scenegen">SceneGen</a> is a new command line utility developed by <a href="https://github.com/acockburn">Andrew Cockburn</a> that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.</p>
-
-<h3><a class="title-link" name="videos" href="#videos"></a> Videos</h3>
-
-<p><a href="https://partofthething.com">Nick Touran</a> has been working on integrating IR remotes with Home Assistant. He made it into a component which should be available in the next release which should arrive in a couple of days. In the meanwhile, he wrote up <a href="https://partofthething.com/thoughts/?p=1010">a blog post</a> and has put out a video showing the new integration, very cool!</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/6I_Lfpda0hc" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-<p>Ben from <a href="http://www.bruhautomation.com/">BRUH Automation</a> has put out another great video how to get started tracking your location in Home Assistant using MQTT and OwnTracks.</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/VaWdvVVYU3A" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-<p>Muhammed Kilic has created a video how to make your Home Assistant instance accessible from the internet using the free dynamic DNS service DuckDNS.</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/UM15pRk56h8" frameborder="0" allowfullscreen=""></iframe>
-</div>
 
 
     

@@ -113,22 +113,28 @@
 
 
 <span class="keyword">def</span> <span class="function">setup_platform</span>(hass, config, add_devices, discovery_info=<span class="predefined-constant">None</span>):
+    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Setup the sensor platform.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
     add_devices([ExampleSensor()])
 
 
 <span class="keyword">class</span> <span class="class">ExampleSensor</span>(Entity):
+    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Representation of a Sensor.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
+
     <span class="decorator">@property</span>
     <span class="keyword">def</span> <span class="function">name</span>(<span class="predefined-constant">self</span>):
+        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Return the name of the sensor.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
         <span class="keyword">return</span> <span class="string"><span class="delimiter">'</span><span class="content">Example Temperature</span><span class="delimiter">'</span></span>
 
     <span class="decorator">@property</span>
     <span class="keyword">def</span> <span class="function">state</span>(<span class="predefined-constant">self</span>):
-        <span class="keyword">return</span> <span class="integer">23</span>
-
-    <span class="decorator">@property</span>
-    <span class="keyword">def</span> <span class="function">unit_of_measurement</span>(<span class="predefined-constant">self</span>):
-        <span class="keyword">return</span> TEMP_CELSIUS
-</pre></div>
+        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Return the state of the sensor.&quot;&quot;</span><span class="content">
+</span><span class="content">        return 23</span><span class="content">
+</span><span class="content">
+</span><span class="content">    @property</span><span class="content">
+</span><span class="content">    def unit_of_measurement(self):</span><span class="content">
+</span><span class="content">        </span><span class="delimiter">&quot;&quot;&quot;</span></span>Return the unit of measurement.<span class="string"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">
+</span><span class="content">        return TEMP_CELSIUS</span><span class="content">
+</span></span></pre></div>
 </div>
 </div>
 

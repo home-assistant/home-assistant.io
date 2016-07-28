@@ -121,7 +121,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 <span class="keyword">def</span> <span class="function">setup_platform</span>(hass, config, add_devices, discovery_info=<span class="predefined-constant">None</span>):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Initialize Awesome Light platform.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
+    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Setup the Awesome Light platform.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
     <span class="keyword">import</span> <span class="include">awesomelights</span>
 
     <span class="comment"># Validate passed in config</span>
@@ -145,8 +145,9 @@ _LOGGER = logging.getLogger(__name__)
     <span class="comment"># Add devices</span>
     add_devices(AwesomeLight(light) <span class="keyword">for</span> light <span class="keyword">in</span> hub.lights())
 
+
 <span class="keyword">class</span> <span class="class">AwesomeLight</span>(Light):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Represents an AwesomeLight in Home Assistant.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
+    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Representation of an Awesome Light.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
 
     <span class="keyword">def</span> <span class="function">__init__</span>(<span class="predefined-constant">self</span>, light):
         <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Initialize an AwesomeLight.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
@@ -154,7 +155,7 @@ _LOGGER = logging.getLogger(__name__)
 
     <span class="decorator">@property</span>
     <span class="keyword">def</span> <span class="function">name</span>(<span class="predefined-constant">self</span>):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Return the display name of this light</span><span class="delimiter">&quot;&quot;&quot;</span></span>
+        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Return the display name of this light.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
         <span class="keyword">return</span> <span class="predefined-constant">self</span>._light.name
 
     <span class="decorator">@property</span>
@@ -168,7 +169,7 @@ _LOGGER = logging.getLogger(__name__)
 
     <span class="decorator">@property</span>
     <span class="keyword">def</span> <span class="function">is_on</span>(<span class="predefined-constant">self</span>):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">If light is on.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
+        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Return true if light is on.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
         <span class="keyword">return</span> <span class="predefined-constant">self</span>._light.is_on()
 
     <span class="keyword">def</span> <span class="function">turn_on</span>(<span class="predefined-constant">self</span>, **kwargs):
@@ -187,7 +188,7 @@ _LOGGER = logging.getLogger(__name__)
     <span class="keyword">def</span> <span class="function">update</span>(<span class="predefined-constant">self</span>):
         <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Fetch new state data for this light.</span><span class="content">
 </span><span class="content">
-</span><span class="content">        This is the only method that should fetch new data for Home Assitant.</span><span class="content">
+</span><span class="content">        This is the only method that should fetch new data for Home Assistant.</span><span class="content">
 </span><span class="content">        </span><span class="delimiter">&quot;&quot;&quot;</span></span>
         <span class="predefined-constant">self</span>._light.update()
 </pre></div>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-27T21:33:06+00:00</updated>
+  <updated>2016-07-28T06:23:19+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,183 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ESP8266 and MicroPython - Part 1]]></title>
+    <link href="https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1/"/>
+    <updated>2016-07-28T04:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1</id>
+    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html">documentation</a> covers a lot of ground. This post is providing only a little summary which should get you started.</p>
+
+<p>Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers. This has changed now and it is available to the public for <a href="https://micropython.org/download/#esp8266">download</a>.</p>
+
+<!--more-->
+
+<p>The easiest way is to use <a href="https://github.com/themadinventor/esptool">esptool.py</a> for firmware handling tasks. First erase the flash:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo python esptool.py --port /dev/ttyUSB0 erase_flash
+esptool.py v1.0.2-dev
+Connecting...
+Erasing flash (this may take a while)...
+</pre></div>
+</div>
+</div>
+
+<p>and then load the firmware. You may adjust the file name of the firmware binary.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo python esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=8m 0 esp8266-2016-07-10-v1.8.2.bin
+esptool.py v1.2-dev
+Connecting...
+Running Cesanta flasher stub...
+Flash params set to 0x0020
+Writing 540672 @ 0x0... 540672 (100 %)
+Wrote 540672 bytes at 0x0 in 13.1 seconds (330.8 kbit/s)...
+Leaving...
+</pre></div>
+</div>
+</div>
+
+<p>Now reset the device. You should then be able to use the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt">REPL (Read Evaluate Print Loop)</a>. On Linux there is <code>minicom</code> or <code>picocom</code>, on a Mac you can use <code>screen</code> (eg. <code>screen /dev/tty.SLAB_USBtoUART 115200</code>), and on Windows there is Putty to open a serial connection and get the REPL prompt.</p>
+
+<p>The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi">WebREPL</a> work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at <a href="http://micropython.org/webrepl">http://micropython.org/webrepl</a>. Alternatively, you can create a local clone of their <a href="https://github.com/micropython/webrepl">GitHub repository</a>. This is neccessary if your want to use the command-line tool <code>webrepl_cli.py</code> which is mentionend later in this post.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ sudo minicom -D /dev/ttyUSB0
+#4 ets_task(4020e374, 29, 3fff70e8, 10)                                                          
+WebREPL daemon started on ws://192.168.4.1:8266
+Started webrepl in setup mode
+could not open file 'main.py' for reading
+
+#5 ets_task(4010035c, 3, 3fff6360, 4)
+MicroPython v1.8.2-9-g805c2b9 on 2016-07-10; ESP module with ESP8266
+Type &quot;help()&quot; for more information.
+&gt;&gt;&gt; 
+</pre></div>
+</div>
+</div>
+
+<p class="note">
+The public build of the firmware may be different than the firmware distributed to the backers of the campaign. Especially in regard of the <a href="http://docs.micropython.org/en/latest/esp8266/py-modindex.html">available modules</a>, turned on debug messages, and alike. Also, the WebREPL may not be started by default.
+</p>
+
+<p>Connect a LED to pin 5 (or another pin of your choosing) to check if the ESP8266 is working as expected.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>&gt;&gt;&gt; <span class="keyword">import</span> <span class="include">machine</span>
+&gt;&gt;&gt; pin = machine.Pin(<span class="integer">5</span>, machine.Pin.OUT)
+&gt;&gt;&gt; pin.high()
+</pre></div>
+</div>
+</div>
+
+<p>You can toogle the LED by changing its state with <code>pin.high()</code> and <code>pin.low()</code>.</p>
+
+<p>Various ESP8266 development board are shipped with an onboard photocell or a light dependent resistors (LDR) connected to the analog pin of your ESP8266 check if you are able to obtain a value.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>&gt;&gt;&gt; <span class="keyword">import</span> <span class="include">machine</span>
+&gt;&gt;&gt; brightness = machine.ADC(<span class="integer">0</span>)
+&gt;&gt;&gt; brightness.read()
+</pre></div>
+</div>
+</div>
+
+<p>Make sure that you are familiar with REPL and WebREPL because this will be needed soon. Keep in mind the password for the WebREPL access.</p>
+
+<p>Read the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html">instructions</a> about how to setup your wireless connection. Basically you need to upload a <code>boot.py</code> file to the microcontroller and this file is taking care of the connection setup. Below you find a sample which is more or less the same as shown in the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html#configuration-of-the-wifi">documentation</a>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">def</span> <span class="function">do_connect</span>():
+    <span class="keyword">import</span> <span class="include">network</span>
+
+    SSID = <span class="string"><span class="delimiter">'</span><span class="content">SSID</span><span class="delimiter">'</span></span>
+    PASSWORD = <span class="string"><span class="delimiter">'</span><span class="content">PASSWORD</span><span class="delimiter">'</span></span>
+
+    sta_if = network.WLAN(network.STA_IF)
+    ap_if = network.WLAN(network.AP_IF)
+    <span class="keyword">if</span> ap_if.active():
+        ap_if.active(<span class="predefined-constant">False</span>)
+    <span class="keyword">if</span> <span class="keyword">not</span> sta_if.isconnected():
+        print(<span class="string"><span class="delimiter">'</span><span class="content">connecting to network...</span><span class="delimiter">'</span></span>)
+        sta_if.active(<span class="predefined-constant">True</span>)
+        sta_if.connect(SSID, PASSWORD)
+        <span class="keyword">while</span> <span class="keyword">not</span> sta_if.isconnected():
+            <span class="keyword">pass</span>
+    print(<span class="string"><span class="delimiter">'</span><span class="content">Network configuration:</span><span class="delimiter">'</span></span>, sta_if.ifconfig())
+</pre></div>
+</div>
+</div>
+
+<p>Upload this file with <code>webrepl_cli.py</code> or the WebREPL:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ python webrepl_cli.py boot.py 192.168.4.1:/boot.py
+</pre></div>
+</div>
+</div>
+
+<p>If you reboot, you should see your current IP address in the terminal.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>&gt;&gt;&gt; Network configuration: ('192.168.0.10', '255.255.255.0', '192.168.0.1', '192.168.0.1')
+</pre></div>
+</div>
+</div>
+
+<p>First let’s create a little consumer for Home Assistant sensor’s state. The code to place in <code>main.py</code> is a mixture of code from above and the <a href="/developers/rest_api/">RESTful API</a> of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on.</p>
+
+<p class="note">
+If a module is missing then you need to download is it from <a href="https://github.com/micropython/micropython-lib">MicroPython Library overview</a> and upload it to the ESP8266 with <code>webrepl_cli.py</code> manually.
+</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Sample code to request the state of a Home Assistant entity.</span>
+
+API_PASSWORD = <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>
+URL = <span class="string"><span class="delimiter">'</span><span class="content">http://10.100.0.197:8123/api/states/</span><span class="delimiter">'</span></span>
+ENTITY = <span class="string"><span class="delimiter">'</span><span class="content">sensor.kitchen_temperature</span><span class="delimiter">'</span></span>
+TIMEOUT = <span class="integer">30</span>
+PIN = <span class="integer">5</span>
+
+<span class="keyword">def</span> <span class="function">get_data</span>():
+    <span class="keyword">import</span> <span class="include">urequests</span>
+    url = <span class="string"><span class="delimiter">'</span><span class="content">{}{}</span><span class="delimiter">'</span></span>.format(URL, ENTITY)
+    headers = {<span class="string"><span class="delimiter">'</span><span class="content">x-ha-access</span><span class="delimiter">'</span></span>: API_PASSWORD,
+               <span class="string"><span class="delimiter">'</span><span class="content">content-type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">application/json</span><span class="delimiter">'</span></span>}
+    resp = urequests.get(URL, headers=headers)
+    <span class="keyword">return</span> resp.json()[<span class="string"><span class="delimiter">'</span><span class="content">state</span><span class="delimiter">'</span></span>]
+
+<span class="keyword">def</span> <span class="function">main</span>():
+    <span class="keyword">import</span> <span class="include">machine</span>
+    <span class="keyword">import</span> <span class="include">time</span>
+
+    pin = machine.Pin(PIN, machine.Pin.OUT)
+    <span class="keyword">while</span> <span class="predefined-constant">True</span>:
+        <span class="keyword">try</span>:
+            <span class="keyword">if</span> <span class="predefined">int</span>(get_data()) &gt;= <span class="integer">20</span>:
+                pin.high()
+            <span class="keyword">else</span>:
+                pin.low()
+        <span class="keyword">except</span> <span class="exception">TypeError</span>:
+            <span class="keyword">pass</span>
+        time.sleep(TIMEOUT)
+
+<span class="keyword">if</span> __name__ == <span class="string"><span class="delimiter">'</span><span class="content">__main__</span><span class="delimiter">'</span></span>:
+    print(<span class="string"><span class="delimiter">'</span><span class="content">Get the state of {}</span><span class="delimiter">'</span></span>.format(ENTITY))
+    main()
+</pre></div>
+</div>
+</div>
+
+<p>Upload <code>main.py</code> the same way as <code>boot.py</code>. After a reboot (<code>&gt;&gt;&gt; import machine</code> and <code>&gt;&gt;&gt; machine.reboot()</code>) or power-cycling your physical notifier is ready.</p>
+
+<p>If you run into trouble, press “Ctrl+c” in the REPL to stop the execution of the code, enter <code>&gt;&gt;&gt; import webrepl</code> and <code>&gt;&gt;&gt; webrepl.start()</code>, and upload your fixed file.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[IoT Data Exploration with Jupyter Notebooks]]></title>
@@ -397,32 +574,6 @@ target_dir /tmp
 </div>
 
 <p><a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is a powerful tool and this blog post only showed two very simple use cases. Take a look at the <a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide">documentation</a> of <code>motion</code> to unleash its potential.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Static website]]></title>
-    <link href="https://home-assistant.io/blog/2016/04/07/static-website/"/>
-    <updated>2016-04-07T06:28:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/04/07/static-website</id>
-    <content type="html"><![CDATA[<p>The frontend of Home Assistant is served with the help of a local web server. If you have <a href="/getting-started/devices/#customizing-devices-and-services">customized</a> your installation you already use this functionality. The content of your folder <code>www</code> in your Home Assistant configuration directory (<code>.homeassistant</code>) is available under <code>/local</code> (eg. <a href="https://localhost:8123/local">https://localhost:8123/local</a>).</p>
-
-<p>But there is more you can do! You can not only host images for customization there but HTML files or even web applications including CSS and Javascript.</p>
-
-<p class="img">
-<img src="https://home-assistant.io/images/blog/2016-04-display/ha-display.png" />
-</p>
-
-<!--more-->
-
-<p>In the past the buzz word “Smart mirror” was used a couple of times in our <a href="https://gitter.im/balloob/home-assistant">chatroom</a> and even made it into the <a href="https://github.com/home-assistant/home-assistant/issues/1392">issue tracker</a>. The existing solutions (<a href="http://docs.smart-mirror.io/">Smart mirror</a>, <a href="http://michaelteeuw.nl/tagged/magicmirror">MagicMirror</a>, and <a href="https://github.com/HannahMitt/HomeMirror">HomeMirror</a>) seems to be overkill if you already have Home Assistant running somewhere in your house or apartment. Why not simple display a web page served by Home Assistant on the tablet? No app and no Raspberry Pi running in the background.</p>
-
-<p>There are plenty of ways to achieve this…<a href="/developers/rest_api/">RESTful API</a>, <a href="/developers/python_api/">Python API</a>, or one of the <a href="/components/#history">history components</a>. If it is to be a web page I’m using the <a href="/components/mqtt_eventstream/">MQTT Eventstream component</a> and <a href="http://git.eclipse.org/c/paho/org.eclipse.paho.mqtt.javascript.git/tree/src">mqttws31.js</a>.</p>
-
-<p>The <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT</a> broker provides websockets support for MQTT and mqttws31.js included in web page gives you access to the MQTT messages. It’s a matter of minutes. OK, it took a little longer because I’m not a Javascript guy to create the software part that will show details about your environment. The source is available at <a href="https://github.com/fabaff/home-assistant-display">https://github.com/fabaff/home-assistant-display</a> and the screenshot above shows the result. I guess that every person who is familiar with Javascript would be able to reduce the amount of code and to make it more flexible. Well, it’s a only prototype and showcase to include an image in this blog post.</p>
-
-<p>I hope that this little article could give you an idea of extending Home Assistant in an unconventional way.</p>
 
 ]]></content>
   </entry>
