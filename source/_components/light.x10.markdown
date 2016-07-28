@@ -10,25 +10,24 @@ footer: true
 logo: x10.gif
 ha_category: Light
 ha_iot_class: "Local Polling"
-ha_release: true
+ha_release: 0.25
 ---
 
-X10 support is integrated into Home Assistant as a light platform.
+The `x10` light platform allows you to control your X10 based lights with Home Assistant.
 
-Requires heyu x10 interface
-http://www.heyu.org
+Requires [Heyu x10 interface](http://www.heyu.org).
 
-To enable x10 lights, add something like this to your `configuration.yaml` file:
+To enable those lights, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-    # Example configuration.yaml entry
-    light:
-    - platform: x10
-        lights:
-        - name: Living Room Lamp
-            id: a2
-        - name: Bedroom Lamp
-            id: a3
+# Example configuration.yaml entry
+light:
+  - platform: x10
+    lights:
+      - name: Living Room Lamp
+        id: a2
+      - name: Bedroom Lamp
+        id: a3
 ```
 
 Configuration variables:
