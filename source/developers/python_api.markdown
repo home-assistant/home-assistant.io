@@ -47,12 +47,12 @@ services = remote.get_services(api)
 for service in services:
     print(service['services'])
 
-print('\n-- Available event')
+print('\n-- Available events:')
 events = remote.get_event_listeners(api)
 for event in events:
     print(event)
 
-print('\n-- Available entities')
+print('\n-- Available entities:')
 entities = remote.get_states(api)
 for entity in entities:
     print(entity)
