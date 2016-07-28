@@ -131,12 +131,12 @@ services = remote.get_services(api)
 <span class="keyword">for</span> service <span class="keyword">in</span> services:
     print(service[<span class="string"><span class="delimiter">'</span><span class="content">services</span><span class="delimiter">'</span></span>])
 
-print(<span class="string"><span class="delimiter">'</span><span class="char">\n</span><span class="content">-- Available event</span><span class="delimiter">'</span></span>)
+print(<span class="string"><span class="delimiter">'</span><span class="char">\n</span><span class="content">-- Available events:</span><span class="delimiter">'</span></span>)
 events = remote.get_event_listeners(api)
 <span class="keyword">for</span> event <span class="keyword">in</span> events:
     print(event)
 
-print(<span class="string"><span class="delimiter">'</span><span class="char">\n</span><span class="content">-- Available entities</span><span class="delimiter">'</span></span>)
+print(<span class="string"><span class="delimiter">'</span><span class="char">\n</span><span class="content">-- Available entities:</span><span class="delimiter">'</span></span>)
 entities = remote.get_states(api)
 <span class="keyword">for</span> entity <span class="keyword">in</span> entities:
     print(entity)

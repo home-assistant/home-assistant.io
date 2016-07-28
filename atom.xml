@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-28T06:23:19+00:00</updated>
+  <updated>2016-07-28T21:11:02+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -148,7 +148,7 @@ If a module is missing then you need to download is it from <a href="https://git
   <div class="code"><pre><span class="comment"># Sample code to request the state of a Home Assistant entity.</span>
 
 API_PASSWORD = <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>
-URL = <span class="string"><span class="delimiter">'</span><span class="content">http://10.100.0.197:8123/api/states/</span><span class="delimiter">'</span></span>
+URL = <span class="string"><span class="delimiter">'</span><span class="content">http://192.168.0.5:8123/api/states/</span><span class="delimiter">'</span></span>
 ENTITY = <span class="string"><span class="delimiter">'</span><span class="content">sensor.kitchen_temperature</span><span class="delimiter">'</span></span>
 TIMEOUT = <span class="integer">30</span>
 PIN = <span class="integer">5</span>
