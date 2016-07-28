@@ -124,7 +124,7 @@ If a module is missing then you need to download is it from [MicroPython Library
 # Sample code to request the state of a Home Assistant entity.
 
 API_PASSWORD = 'YOUR_PASSWORD'
-URL = 'http://10.100.0.197:8123/api/states/'
+URL = 'http://192.168.0.5:8123/api/states/'
 ENTITY = 'sensor.kitchen_temperature'
 TIMEOUT = 30
 PIN = 5
