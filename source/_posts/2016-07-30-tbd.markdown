@@ -40,7 +40,7 @@ Typing, Tests...
 - Media player: Support for [DirecTV] ([@cbulock])
 - Use local timezone for log and history dates ([@armills])
 - Light: New support for [x10] lights ([@fotoetienne])
-- Sensor: Support for observing IMAP accounts ([@danieljkemp])
+- Sensor: Support for observing [IMAP] accounts ([@danieljkemp])
 
 ### {% linkable_title Breaking changes %}
 
@@ -83,3 +83,4 @@ Typing, Tests...
 [DirecTV]: /component/media_player.directv/
 [Configuration]: /developers/python_api/
 [x10]: /components/light.x10/
+[IMAP]: /component/sensor.imap/
