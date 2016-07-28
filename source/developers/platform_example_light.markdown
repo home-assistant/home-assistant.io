@@ -39,7 +39,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
-    """Initialize Awesome Light platform."""
+    """Setup the Awesome Light platform."""
     import awesomelights
 
     # Validate passed in config
@@ -63,8 +63,9 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     # Add devices
     add_devices(AwesomeLight(light) for light in hub.lights())
 
+
 class AwesomeLight(Light):
-    """Representation an AwesomeLight in Home Assistant."""
+    """Representation of an Awesome Light."""
 
     def __init__(self, light):
         """Initialize an AwesomeLight."""
