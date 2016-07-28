@@ -37,7 +37,7 @@ You can omit the `--config` option if you use the default configuration director
 - [StatsD] can now also export attributes ([@bah2830])
 - Support for [KNX] added ([@usul27])
 - Switch: [TPLink] HS100/HS110 now supported ([@GadgetReactor])
-- Stability fixes for [RFXTRX] ([@Danielhiversen])
+- Stability fixes for [RFXtrx] ([@Danielhiversen])
 - Tweaks to [Z-Wave] ([@turbokongen])
 - Light: [Brightness] now clamped to 0-255 ([@keatontaylor])
 - Thermostat: [Radiotherm] HVAC mode now supported ([@danieljkemp])
@@ -72,6 +72,7 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [@w1ll1am23]: https://github.com/w1ll1am23/
 [@n8henrie]: https://github.com/n8henrie/
 [@AlucardZero]: https://github.com/AlucardZero/
+[@Danielhiversen]: https://github.com/danielhiversen
 
 [apcupsd-sensor]: /components/sensor.apcupsd/
 [Brightness]: /components/light/
@@ -88,10 +89,10 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [secrets]: /topics/secrets/
 [simplisafe]: /components/alarm_control_panel.simplisafe/
 [SQLAlchemy]: http://www.sqlalchemy.org/
-[StatD]: /components/statsd/
+[StatsD]: /components/statsd/
 [Telegram]: /components/notify.telegram/
 [TPLink]: /components/switch.tplink/
 [Verisure]: /components/lock.verisure/
 [yahoo-weather]: /components/sensor.yweather/
 [Z-Wave]: /components/zwave/
-
+[RFXtrx]: //components/rfxtrx/
