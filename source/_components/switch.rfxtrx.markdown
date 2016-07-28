@@ -51,9 +51,11 @@ switch:
   signal_repetitions: 2
   devices:
     0b1100ce3213c7f210010f70:
-      name: Movment1
+      name: Movement1
     0b11000a02ef2gf210010f50:
-      name: Movment2
+      name: Movement2
+    "0710010041010160":
+      name: Light1
     0b1111e003af16aa10000060:
       name: Door
       fire_event: True
@@ -65,3 +67,11 @@ Configuration variables:
 - **automatic_add** (*Optional*): To enable the automatic addition of new switches.
 - **signal_repetitions** (*Optional*): Because the rxftrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
+
+**Note:** If the device has a digit-only ID, such as 0710010041010160, then the Id must be surrounded by quotation marks, as in the above example. If you fail to do this, you'll see an error as this in your log and RFXtrx won't work:
+
+>> File "/opt/hass/lib/python3.4/site-packages/homeassistant/components/rfxtrx.py", line 94, in _valid_light_switch
+>> return _valid_device(value, "light_switch")
+>> File "/opt/hass/lib/python3.4/site-packages/homeassistant/components/rfxtrx.py", line 69, in _valid_device
+>> if not len(key) % 2 == 0:
+>> TypeError: object of type 'int' has no len()
