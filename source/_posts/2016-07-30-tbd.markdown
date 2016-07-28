@@ -38,10 +38,13 @@ Typing, Tests...
 - Rfxtrx: Fire events when receiving signals from sensors ([@Danielhiversen])
 - API: Support for getting the [Configuration] through the Python API ([@fabaff])
 - Media player: Support for [DirecTV] ([@cbulock])
+- Use local timezone for log and history dates ([@armills])
+- Light: New support for [x10] lights ([@fotoetienne])
+- Sensor: Support for observing IMAP accounts ([@danieljkemp])
 
 ### {% linkable_title Breaking changes %}
 
-- This release contains no breaking changes.
+- Google Voice SMS notification support was removed.
 
 ### {% linkable_title FAQ %}
 
@@ -63,6 +66,9 @@ Typing, Tests...
 [@turbokongen]: https://github.com/turbokongen
 [@kireyeu]: https://github.com/kireyeu
 [@cbulock]: https://github.com/cbulock
+[@armills]: https://github.com/armills
+[@fotoetienne]: https://github.com/fotoetienne
+[@danieljkemp]: https://github.com/danieljkemp
 
 [panel]: /components/planel_iframe/
 [flux]: /component/light.flux_led/
@@ -76,3 +82,4 @@ Typing, Tests...
 [blog]: /blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/
 [DirecTV]: /component/media_player.directv/
 [Configuration]: /developers/python_api/
+[x10]: /components/light.x10/
