@@ -66,7 +66,15 @@ Call the `hdmi_cec/select_device` service with the name of the device to select,
   "device": "Chromecast"
 }
 ```
+So an Automation action using the example above would look something like this.
 
+```yaml
+action:
+  service: hdmi_cec.select_device
+    data:
+      device: Chromecast
+```
+      
 ### {% linkable_title Power On %}
 
 Call the `hdmi_cec/power_on` service (no arguments) to power on any devices that support this function.
