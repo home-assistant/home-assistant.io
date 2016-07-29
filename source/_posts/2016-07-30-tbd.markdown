@@ -25,8 +25,8 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 <img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Frontend: Support for [iFrame panels][panel] to adding other sites to sidebar ([@balloob])
-- Allow components to register [custom frontend panels][custom-panels] (@balloob)
-- Add example custom_component [react_panel][react-panel] showing custom panels (@balloob)
+- Allow components to register [custom frontend panels][custom-panels] ([@balloob])
+- Add example custom_component [react_panel][react-panel] showing custom panels ([@balloob])
 - Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
 - Script: Delay support for [Scripts][script] ([@Teagan42])
 - Media player: [Russound RNET][Russound] integration ([@laf]) 
