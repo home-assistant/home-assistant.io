@@ -43,6 +43,7 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 - Light: New support for [x10] lights ([@fotoetienne])
 - Sensor: Support for observing [IMAP] accounts ([@danieljkemp])
 - Mediaplayer: Integration for [MPC-HC] mediaplayer ([@abcminiuser])
+- Notify: `location` extension for [Telegram] ([@keatontaylor] and [@pvizeli])
 
 ### {% linkable_title Breaking changes %}
 
@@ -52,27 +53,29 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 
 - Frequently asked questions about this release will show up here...
 
-[@Danielhiversen]: https://github.com/Danielhiversen
+[@abcminiuser]: https://github.com/abcminiuser
+[@armills]: https://github.com/armills
 [@balloob]: https://github.com/balloob
-[@Teagan42]: https://github.com/Teagan42
+[@cbulock]: https://github.com/cbulock
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@danieljkemp]: https://github.com/danieljkemp
+[@fabaff]: https://github.com/fabaff
+[@fabianhjr]: https://github.com/fabianhjr
+[@fotoetienne]: https://github.com/fotoetienne
+[@keatontaylor]: https://github.com/keatontaylor
+[@kireyeu]: https://github.com/kireyeu
 [@laf]: https://github.com/laf
 [@n8henrie]: https://github.com/n8henrie
+[@ngraziano]: https://github.com/ngraziano
+[@open-homeautomation]: https://github.com/open-homeautomation
+[@PetitCircuitLab]: https://github.com/PetitCircuitLab
+[@pvizeli]: https://github.com/pvizeli
+[@Teagan42]: https://github.com/Teagan42
+[@turbokongen]: https://github.com/turbokongen
 [@usul27]: https://github.com/usul27
 [@vladonemo]: https://github.com/vladonemo
-[@open-homeautomation]: https://github.com/open-homeautomation
-[@ngraziano]: https://github.com/ngraziano
-[@fabaff]: https://github.com/fabaff
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@PetitCircuitLab]: https://github.com/PetitCircuitLab
 [@zeroDenial]: https://github.com/zeroDenial
-[@turbokongen]: https://github.com/turbokongen
-[@kireyeu]: https://github.com/kireyeu
-[@cbulock]: https://github.com/cbulock
-[@armills]: https://github.com/armills
-[@fotoetienne]: https://github.com/fotoetienne
-[@danieljkemp]: https://github.com/danieljkemp
-[@abcminiuser]: https://github.com/abcminiuser
-[@fabianhjr]: https://github.com/fabianhjr
 
 [panel]: /components/planel_iframe/
 [flux]: /component/light.flux_led/
@@ -91,3 +94,4 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 [typing]: https://docs.python.org/3/library/typing.html
 [PEP484]: https://www.python.org/dev/peps/pep-0484/
 [MPC-HC]: /components/media_player.mpchc/
+[Telegram]: /components/notify.telegram/
