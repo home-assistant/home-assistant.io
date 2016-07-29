@@ -100,6 +100,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Joel Asher Friedman](https://github.com/joelash)
 - [Joe McMonagle](https://github.com/joemcmonagle)
 - [John Arild Berentsen](https://github.com/turbokongen)
+- [John Lindley](https://github.com/jwl17330536)
 - [John McLaughlin](https://github.com/loghound)
 - [John Williams](https://github.com/Jaidan)
 - [Jon Maddox](https://github.com/maddox)
