@@ -67,7 +67,7 @@ The simplest script to consume the SSE looks like the following snipplet.
 ```python
 from sseclient import SSEClient
 
-messages = SSEClient('http://localhost:8123/api/stream?api_password=MYPASS')
+messages = SSEClient('http://localhost:8123/api/stream?api_password=YOUR_PASSWORD')
 for msg in messages:
     print(msg)
 ```
