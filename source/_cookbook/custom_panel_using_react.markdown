@@ -10,7 +10,7 @@ footer: true
 ha_category: Custom Panel Examples
 ---
 
-This is a [React](https://facebook.github.io/react/) implementation of [TodoMVC](http://todomvc.com/) but instead of checking off to do items, you're turning lights and switches on/off.
+This is a [React](https://facebook.github.io/react/) implementation of [TodoMVC](http://todomvc.com/) but instead of checking off to do items, you are turning lights and switches on/off.
 
 - It uses React to render the data.
 - It hooks into Home Assistant JS which means updates pushed from the server are instantly rendered.
@@ -19,6 +19,13 @@ This is a [React](https://facebook.github.io/react/) implementation of [TodoMVC]
 - It allows toggling the sidebar.
 
 All you need is available as a [custom component](https://github.com/home-assistant/home-assistant/tree/dev/config/custom_components/react_panel).
+
+Create a entry for the panel in your `configuration.yaml` file to enable it. Set a title if you like.
+
+```yaml
+react_panel:
+  title: 'React'
+```
 
 This video shows the frontend in action.
 
