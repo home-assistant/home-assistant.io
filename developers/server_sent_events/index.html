@@ -98,7 +98,7 @@
 <p>There are various ways to access the stream. One is <code>curl</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: 12345&quot; \
+  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
        -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/stream
 </pre></div>
 </div>
@@ -128,10 +128,10 @@
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
-<p>The simplest way to consume server-sent events is <code>curl</code>.</p>
+<p>A simplest way to consume server-sent events is <code>httpie</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl http://localhost:8123/api/stream?api_password=MYPASS
+  <div class="code"><pre>$ http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD content-type:application/json
 </pre></div>
 </div>
 </div>
@@ -155,7 +155,7 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="keyword">from</span> <span class="include">sseclient</span> <span class="keyword">import</span> <span class="include">SSEClient</span>
 
-messages = SSEClient(<span class="string"><span class="delimiter">'</span><span class="content">http://localhost:8123/api/stream?api_password=MYPASS</span><span class="delimiter">'</span></span>)
+messages = SSEClient(<span class="string"><span class="delimiter">'</span><span class="content">http://localhost:8123/api/stream?api_password=YOUR_PASSWORD</span><span class="delimiter">'</span></span>)
 <span class="keyword">for</span> msg <span class="keyword">in</span> messages:
     print(msg)
 </pre></div>

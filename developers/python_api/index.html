@@ -124,7 +124,7 @@ living_room = hass.states.get(<span class="string"><span class="delimiter">'</sp
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
 
-api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">password</span><span class="delimiter">'</span></span>)
+api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>)
 
 print(<span class="string"><span class="delimiter">'</span><span class="content">-- Available services:</span><span class="delimiter">'</span></span>)
 services = remote.get_services(api)
@@ -151,7 +151,7 @@ entities = remote.get_states(api)
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
 
-api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">password</span><span class="delimiter">'</span></span>)
+api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>)
 office_temperature = remote.get_state(api, <span class="string"><span class="delimiter">'</span><span class="content">sensor.office_temperature</span><span class="delimiter">'</span></span>)
 print(<span class="string"><span class="delimiter">'</span><span class="content">{} is {} {}.</span><span class="delimiter">'</span></span>.format(office_temperature.attributes[<span class="string"><span class="delimiter">'</span><span class="content">friendly_name</span><span class="delimiter">'</span></span>],
                             office_temperature.state,
@@ -175,7 +175,7 @@ print(<span class="string"><span class="delimiter">'</span><span class="content"
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
 
-api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">password</span><span class="delimiter">'</span></span>)
+api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>)
 switch_livingroom = remote.get_state(api, <span class="string"><span class="delimiter">'</span><span class="content">switch.livingroom_pin_2</span><span class="delimiter">'</span></span>)
 print(<span class="string"><span class="delimiter">'</span><span class="content">{} is {}.</span><span class="delimiter">'</span></span>.format(switch_livingroom.attributes[<span class="string"><span class="delimiter">'</span><span class="content">friendly_name</span><span class="delimiter">'</span></span>],
                          switch_livingroom.state
@@ -193,7 +193,7 @@ print(<span class="string"><span class="delimiter">'</span><span class="content"
   <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
 <span class="keyword">from</span> <span class="include">homeassistant.const</span> <span class="keyword">import</span> <span class="include">STATE_ON</span>
 
-api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">password</span><span class="delimiter">'</span></span>)
+api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>)
 remote.set_state(api, <span class="string"><span class="delimiter">'</span><span class="content">sensor.office_temperature</span><span class="delimiter">'</span></span>, new_state=<span class="integer">123</span>)
 remote.set_state(api, <span class="string"><span class="delimiter">'</span><span class="content">switch.livingroom_pin_2</span><span class="delimiter">'</span></span>, new_state=STATE_ON)
 </pre></div>
@@ -210,7 +210,7 @@ remote.set_state(api, <span class="string"><span class="delimiter">'</span><span
   <div class="code"><pre><span class="keyword">import</span> <span class="include">time</span>
 <span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
 
-api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">password</span><span class="delimiter">'</span></span>)
+api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>)
 domain = <span class="string"><span class="delimiter">'</span><span class="content">switch</span><span class="delimiter">'</span></span>
 
 remote.call_service(api, domain, <span class="string"><span class="delimiter">'</span><span class="content">turn_on</span><span class="delimiter">'</span></span>)
@@ -228,7 +228,7 @@ remote.call_service(api, domain, <span class="string"><span class="delimiter">'<
   <div class="code"><pre><span class="keyword">import</span> <span class="include">time</span>
 <span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
 
-api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">password</span><span class="delimiter">'</span></span>)
+api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>)
 domain = <span class="string"><span class="delimiter">'</span><span class="content">switch</span><span class="delimiter">'</span></span>
 switch_name = <span class="string"><span class="delimiter">'</span><span class="content">switch.livingroom_pin_2</span><span class="delimiter">'</span></span>
 
@@ -246,7 +246,7 @@ remote.call_service(api, domain, <span class="string"><span class="delimiter">'<
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
 
-api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">password</span><span class="delimiter">'</span></span>)
+api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>)
 domain = <span class="string"><span class="delimiter">'</span><span class="content">notify</span><span class="delimiter">'</span></span>
 data = {<span class="string"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Test</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">A simple test message from HA.</span><span class="delimiter">&quot;</span></span>}
 
