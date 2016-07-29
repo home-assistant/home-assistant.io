@@ -12,7 +12,11 @@ categories: Release-Notes
 
 We are proud to annonce the availability of Home Assistant 0.25. One highlight in this release are the three new media player platforms. This means that today Home Assistant inclused 26 media player integrations. 
 
-The brand-new [iFrame panels][panel] allows you to integrate third-party web frontends into Home Assistant. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view. 
+The brand-new [iFrame panels][panel] allows you to integrate third-party web frontends into Home Assistant. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view. You would be also able to create your own frontend with [custom] panels.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2200UutdXlo" frameborder="0" allowfullscreen></iframe>
+</div>
 
 The [Jupyter] Notebooks are a great way to create and share documents that contain code, visualizations, and explanatory text. It's easy to work with your stored information about your home. The [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] only covers the basics.
 
@@ -44,6 +48,7 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 - Sensor: Support for observing [IMAP] accounts ([@danieljkemp])
 - Mediaplayer: Integration for [MPC-HC] mediaplayer ([@abcminiuser])
 - Notify: `location` extension for [Telegram] ([@keatontaylor] and [@pvizeli])
+- Lock: Support for group state ([@jwl17330536])
 
 ### {% linkable_title Breaking changes %}
 
@@ -76,8 +81,10 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 [@vladonemo]: https://github.com/vladonemo
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zeroDenial]: https://github.com/zeroDenial
+[@jwl17330536]: https://github.com/jwl17330536
 
 [panel]: /components/planel_iframe/
+[custom]: /cookbook/custom_panel_using_react/
 [flux]: /component/light.flux_led/
 [script]: /components/script/
 [Russound]: /component/media_player.russound_rnet/
