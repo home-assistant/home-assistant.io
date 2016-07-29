@@ -69,11 +69,12 @@ To use notifications, please see the [getting started with automation page](/get
 ### {% linkable_title Photo support %}
 
 ```yaml
+...
 action:
   service: notify.NOTIFIER_NAME
   data:
-    title: test notify
-    message: That's a exemple
+    title: Send an images
+    message: That's a example that sends an image.
     data:
       photo:
         - url: http://192.168.1.28/camera.jpg
@@ -89,4 +90,24 @@ action:
 - **caption** (*Optional*): The title of the image.
 - **username** (*Optional*): Username for an URL which require HTTP basic authentication.
 - **password** (*Optional*): Username for an URL which require HTTP basic authentication.
+
+### {% linkable_title Location support %}
+
+```yaml
+...
+
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: Send location
+    message: Location updated.
+    data:
+      location:
+        latitude: 32.87336
+        longitude: 117.22743
+```
+
+- **location** (*Required*): For local or remote path to an image.
+- **latitude** (*Required*): The latitude to send.
+- **longitude** (*Required*): The longitude to send.
 
