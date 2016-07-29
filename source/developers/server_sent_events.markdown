@@ -18,7 +18,7 @@ A requirement on the client-side is existing support for the [EventSource](https
 There are various ways to access the stream. One is `curl`:
 
 ```bash
-$ curl -X GET -H "x-ha-access: 12345" \
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" http://localhost:8123/api/stream
 ```
 
@@ -44,10 +44,10 @@ Visit [http://localhost:8123/local/sse.html](http://localhost:8123/local/sse.htm
 
 ## {% linkable_title Examples %}
 
-The simplest way to consume server-sent events is `curl`.
+A simplest way to consume server-sent events is `httpie`.
 
 ```bash
-$ curl http://localhost:8123/api/stream?api_password=MYPASS
+$ http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD content-type:application/json
 ```
 
 ### {% linkable_title Website %}
