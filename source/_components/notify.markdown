@@ -57,3 +57,30 @@ A simple way to test if you have set up your notify platform correctly is to use
   "message": "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
 }
 ```
+For services which have support for sending images.
+
+```json
+{ "message": "Test plugin",
+  "data": { 
+    "photo": { 
+        "url": "http://www.gbsun.de/gbpics/berge/berge106.jpg"
+    }
+  }
+}
+```
+
+If the service support sending the location, the data from this sample can be used.
+
+```json
+{ "message": "Test plugin",
+  "data": {
+    "location": {
+      "latitude": 7.3284,
+      "longitude": 46.38234
+    }
+  }
+}
+```
+
+
+
