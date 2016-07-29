@@ -24,31 +24,39 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 
 <img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
-- Frontend: Support for [iFrame panels][panel] ([@balloob])
+- Frontend: Support for [iFrame panels][panel] to adding other sites to sidebar ([@balloob])
+- Allow components to register [custom frontend panels][custom-panels] (@balloob)
+- Add example custom_component [react_panel][react-panel] showing custom panels (@balloob)
 - Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
 - Script: Delay support for [Scripts][script] ([@Teagan42])
 - Media player: [Russound RNET][Russound] integration ([@laf]) 
-- Python API: Option to define a timeout for call ([@n8henrie])
+- Remote: Option specifying custom timeout when calling Home Assistant API ([@n8henrie])
 - Tests: Dependencies were removed from tests ([@balloob])
-- Thermostat: Integration of [KNX] thermostat (@open-homeautomation])
+- Thermostat: Integration of [KNX] thermostats (@open-homeautomation])
 - Thermostat: Support for HVAC mode of [Nest] devices ([@vladonemo])
-- InfluxDB: Option to mark data with [tags] ([@open-homeautomation])
-- Input slider: Support for value ([@ngraziano])
+- InfluxDB: Option to specify additional [tags] ([@open-homeautomation])
+- Input slider: Support for float value ([@ngraziano])
 - Template: New filters (`timestamp_local` and `timestamp_utc`) ([@fabaff])
 - Binary sensor: Water leak sensor support added ([@w1ll1am23])
-- Sensor: Support for luminance of Tellduslive sensors ([@PetitCircuitLab])
+- Sensor: Support for luminance of Tellduslive  Fibaro Motion Sensor ([@PetitCircuitLab])
 - Switch: Inverted logic for RPi GPIO ([@zeroDenial])
 - Z-Wave: Rollershutter update ([@turbokongen])
-- Rfxtrx: Fire events when receiving signals from sensors ([@Danielhiversen])
-- Core: First work about [typing] ([@fabianhjr])
-- API: Support for getting the [Configuration] through the Python API ([@fabaff])
+- RFXtrx: Fire events when receiving signals from sensors and tests added ([@Danielhiversen])
+- Core: Add [type] checking using mypy to the core ([@fabianhjr])
+- Remote: Support for getting the [Configuration] through the Python API ([@fabaff])
 - Media player: Support for [DirecTV] ([@cbulock])
-- Use local timezone for log and history dates ([@armills])
+- Use browser timezone for frontend logbook and history dates ([@armills])
 - Light: New support for [x10] lights ([@fotoetienne])
 - Sensor: Support for observing [IMAP] accounts ([@danieljkemp])
-- Mediaplayer: Integration for [MPC-HC] mediaplayer ([@abcminiuser])
-- Notify: `location` extension for [Telegram] ([@keatontaylor] and [@pvizeli])
-- Lock: Support for group state ([@jwl17330536])
+- Media Player: Integration for [MPC-HC] (Media Player Classic - Home Cinema) mediaplayer ([@abcminiuser])
+- Notify: `location` extension for [Telegram] and photo bug fixed ([@keatontaylor] and [@pvizeli])
+- Groups: Lock states will now be properly grouped ([@jwl17330536])
+- Media Player: Added tests for Sonos to improve code quality ([@americanwookie])
+- Device Tracker: iCloud stability fixes ([@kellerza])
+- Sensor: Speedtest with improved error handling and state restoring ([@nkgilley])
+- Recorder: Stability fixes ([@kellerza])
+- Qwikswitch: Stability fixes ([@kellerza])
+- Light: Hyperion keeps now track of active color ([@schneefux])
 
 ### {% linkable_title Breaking changes %}
 
@@ -59,6 +67,7 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 - Frequently asked questions about this release will show up here...
 
 [@abcminiuser]: https://github.com/abcminiuser
+[@americanwookie]: https://github.com/americanwookie 
 [@armills]: https://github.com/armills
 [@balloob]: https://github.com/balloob
 [@cbulock]: https://github.com/cbulock
@@ -67,7 +76,9 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 [@fabaff]: https://github.com/fabaff
 [@fabianhjr]: https://github.com/fabianhjr
 [@fotoetienne]: https://github.com/fotoetienne
+[@jwl17330536]: https://github.com/jwl17330536
 [@keatontaylor]: https://github.com/keatontaylor
+[@kellerza]: https://github.com/kellerza
 [@kireyeu]: https://github.com/kireyeu
 [@laf]: https://github.com/laf
 [@n8henrie]: https://github.com/n8henrie
@@ -75,13 +86,13 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 [@open-homeautomation]: https://github.com/open-homeautomation
 [@PetitCircuitLab]: https://github.com/PetitCircuitLab
 [@pvizeli]: https://github.com/pvizeli
+[@schneefux]: https://github.com/schneefux
 [@Teagan42]: https://github.com/Teagan42
 [@turbokongen]: https://github.com/turbokongen
 [@usul27]: https://github.com/usul27
 [@vladonemo]: https://github.com/vladonemo
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zeroDenial]: https://github.com/zeroDenial
-[@jwl17330536]: https://github.com/jwl17330536
 
 [panel]: /components/planel_iframe/
 [custom]: /cookbook/custom_panel_using_react/
@@ -98,7 +109,9 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 [Configuration]: /developers/python_api/
 [x10]: /components/light.x10/
 [IMAP]: /component/sensor.imap/
-[typing]: https://docs.python.org/3/library/typing.html
+[type]: https://docs.python.org/3/library/typing.html
 [PEP484]: https://www.python.org/dev/peps/pep-0484/
 [MPC-HC]: /components/media_player.mpchc/
 [Telegram]: /components/notify.telegram/
+[react-panel]: /cookbook/custom_panel_using_react/
+[custom-panels]: /developers/frontend_creating_custom_panels/
