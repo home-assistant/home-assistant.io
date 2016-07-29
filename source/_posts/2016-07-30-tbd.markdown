@@ -10,13 +10,13 @@ comments: true
 categories: Release-Notes
 ---
 
-We are proud to annonce the availability of Home Assistant 0.25.
+We are proud to annonce the availability of Home Assistant 0.25. One highlight in this release are the three new media player platforms. This means that today Home Assistant inclused 26 media player integrations. 
 
 The brand-new [iFrame panels][panel] allows you to integrate third-party web frontends into Home Assistant. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view. 
 
-The [Jupyter] Notebooks allows you to create and share documents that contain code, visualizations, and explanatory text. It a great way to work with your stored information about your home. The [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] only covers the basics.
+The [Jupyter] Notebooks are a great way to create and share documents that contain code, visualizations, and explanatory text. It's easy to work with your stored information about your home. The [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] only covers the basics.
 
-Typing, Tests...
+Starting with this release cycle we are now using [typing] as described in [PEP484]. This is another step to improve the code and make us ready for the future. The test coverage is still 99.9999999 %.
 
 <img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
@@ -36,11 +36,13 @@ Typing, Tests...
 - Switch: Inverted logic for RPi GPIO ([@zeroDenial])
 - Z-Wave: Rollershutter update ([@turbokongen])
 - Rfxtrx: Fire events when receiving signals from sensors ([@Danielhiversen])
+- Core: First work about [typing] ([@fabianhjr])
 - API: Support for getting the [Configuration] through the Python API ([@fabaff])
 - Media player: Support for [DirecTV] ([@cbulock])
 - Use local timezone for log and history dates ([@armills])
 - Light: New support for [x10] lights ([@fotoetienne])
 - Sensor: Support for observing [IMAP] accounts ([@danieljkemp])
+- Mediaplayer: Integration for [MPC-HC] mediaplayer ([@abcminiuser])
 
 ### {% linkable_title Breaking changes %}
 
@@ -69,6 +71,8 @@ Typing, Tests...
 [@armills]: https://github.com/armills
 [@fotoetienne]: https://github.com/fotoetienne
 [@danieljkemp]: https://github.com/danieljkemp
+[@abcminiuser]: https://github.com/abcminiuser
+[@fabianhjr]: https://github.com/fabianhjr
 
 [panel]: /components/planel_iframe/
 [flux]: /component/light.flux_led/
@@ -84,3 +88,6 @@ Typing, Tests...
 [Configuration]: /developers/python_api/
 [x10]: /components/light.x10/
 [IMAP]: /component/sensor.imap/
+[typing]: https://docs.python.org/3/library/typing.html
+[PEP484]: https://www.python.org/dev/peps/pep-0484/
+[MPC-HC]: /components/media_player.mpchc/
