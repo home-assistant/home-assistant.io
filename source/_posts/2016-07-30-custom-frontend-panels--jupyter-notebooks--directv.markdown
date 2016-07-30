@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "0.25: Custom frontend panels, Jupyter notebooks, DirecTV."
-description: "This new release of Home Assistant contains support for iFrame panels."
+description: "Frontend became blazing fast and extensible. DirecTV support added."
 date: 2016-07-30 12:00:00 +0000
 date_formatted: "July 30, 2016"
 author: Fabian Affolter & Paulus Schoutsen
