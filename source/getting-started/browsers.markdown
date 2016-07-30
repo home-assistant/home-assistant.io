@@ -59,7 +59,8 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | unknown    |                          |
+| [Safari]              |                | works      | Can also be added to desktop |
+| [Chrome]              |                | works      |                          |
 
 
 [Firefox]: https://www.mozilla.org/en-US/firefox/

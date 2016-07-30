@@ -42,6 +42,10 @@ http:
   api_password: YOUR_PASSWORD
 ```
 
+<p class='note warning'>
+If you are planing to expose your Home Assistant instance to the internet and don't set a password then your installation could be accessed by everybody.
+</p>
+
 See the [HTTP component documentation](/components/http/) for more options like HTTPS encryption.
 
 ### {% linkable_title Setting up your phone or tablet %}

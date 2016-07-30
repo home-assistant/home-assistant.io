@@ -8,6 +8,8 @@ comments: false
 sharing: true
 footer: true
 ha_category: Infrastructure
+author: Nathan Freitas
+author_twitter: n8fr8
 ---
 
 This is an example about how you can configure Tor to provide secure remote access to your Home Assistant instance as an Onion site, through Tor's Hidden Service feature. With this enabled, you do not need to open your firewall ports or setup HTTPS to enable secure remote access.

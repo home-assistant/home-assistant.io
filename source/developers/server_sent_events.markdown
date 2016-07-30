@@ -18,7 +18,7 @@ A requirement on the client-side is existing support for the [EventSource](https
 There are various ways to access the stream. One is `curl`:
 
 ```bash
-$ curl -X GET -H "x-ha-access: 12345" \
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" http://localhost:8123/api/stream
 ```
 
@@ -31,7 +31,7 @@ For more comfort put the HTML snippet below in a file `sse.html` in your `www` f
     <h1>Getting Home Assistant server events</h1>
     <div id="events"></div>
     <script type="text/javascript">
-        var source = new EventSource("/api/stream");
+        var source = new EventSource("/api/stream?password=YOUR_PASSWORD");
         source.onmessage = function(event) {
             document.getElementById("events").innerHTML += event.data + "<br>";
         };
@@ -44,10 +44,10 @@ Visit [http://localhost:8123/local/sse.html](http://localhost:8123/local/sse.htm
 
 ## {% linkable_title Examples %}
 
-The simplest way to consume server-sent events is `curl`.
+A simplest way to consume server-sent events is `httpie`.
 
 ```bash
-$ curl http://localhost:8123/api/stream?api_password=MYPASS
+$ http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD content-type:application/json
 ```
 
 ### {% linkable_title Website %}
@@ -67,7 +67,7 @@ The simplest script to consume the SSE looks like the following snipplet.
 ```python
 from sseclient import SSEClient
 
-messages = SSEClient('http://localhost:8123/api/stream?api_password=MYPASS')
+messages = SSEClient('http://localhost:8123/api/stream?api_password=YOUR_PASSWORD')
 for msg in messages:
     print(msg)
 ```
