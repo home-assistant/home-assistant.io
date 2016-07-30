@@ -29,6 +29,18 @@ The computer running Home Assistant must support CEC, and of course be connected
 
 `ln -s /usr/local/lib/python3.4/dist-packages/cec <your venv>/lib/python3.4/site-packages`
 
+e.g. the default virtual environment for the Raspberry Pi AIO would be as follows.
+
+`ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages`
+
+If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
+
+`* failed to open vchiq instance`
+
+you will also need to add the user account HASS runs under, to the `video` group. To add the HASS user account to the `video` group run the following command.
+
+`usermod -a -G video <hass_user_account>`
+
 ## {% linkable_title Configuration Example %}
 
 In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
@@ -54,7 +66,15 @@ Call the `hdmi_cec/select_device` service with the name of the device to select,
   "device": "Chromecast"
 }
 ```
+So an Automation action using the example above would look something like this.
 
+```yaml
+action:
+  service: hdmi_cec.select_device
+    data:
+      device: Chromecast
+```
+      
 ### {% linkable_title Power On %}
 
 Call the `hdmi_cec/power_on` service (no arguments) to power on any devices that support this function.
