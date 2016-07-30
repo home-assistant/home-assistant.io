@@ -31,7 +31,7 @@ For more comfort put the HTML snippet below in a file `sse.html` in your `www` f
     <h1>Getting Home Assistant server events</h1>
     <div id="events"></div>
     <script type="text/javascript">
-        var source = new EventSource("/api/stream");
+        var source = new EventSource("/api/stream?password=YOUR_PASSWORD");
         source.onmessage = function(event) {
             document.getElementById("events").innerHTML += event.data + "<br>";
         };
