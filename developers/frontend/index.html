@@ -125,7 +125,7 @@ Do not use development mode in production. Home Assistant uses aggressive cachin
 
 <h2><a class="title-link" name="development" href="#development"></a> Development</h2>
 
-<p>While you are developing, you need to have webpack running to have your JavaScript changes be made available.</p>
+<p>While you are developing, you need to have Rollup running to have your JavaScript changes be made available.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ cd homeassistant/components/frontend/www_static/home-assistant-polymer
@@ -134,14 +134,13 @@ $ npm run js_dev
 </div>
 </div>
 
-<p>The source code for the frontend can be found in two different directories:</p>
+<p>The source code for the frontend can be found in three different directories:</p>
 
 <ul>
   <li>UI: <code>homeassistant/components/frontend/www_static/home-assistant-polymer/src/</code></li>
-  <li>Core: <code>homeassistant/components/frontend/www_static/home-assistant-polymer/node_modules/home-assistant-js/src/</code></li>
+  <li>Core: <code>homeassistant/components/frontend/www_static/home-assistant-polymer/home-assistant-js/src/</code></li>
+  <li>Panels: <code>homeassistant/components/frontend/www_static/home-assistant-polymer/panels/</code></li>
 </ul>
-
-<p>After your changes have been accepted into the home-assistant-js repository, you’ll have to update Home Assistant Polymer to use the latest version of it. This can be done by updating <code>package.json</code>. Look for the line that contains home-assistant-js and update the SHA to the SHA of the last commit.</p>
 
 <h1><a class="title-link" name="building-the-polymer-frontend" href="#building-the-polymer-frontend"></a> Building the Polymer frontend</h1>
 
@@ -151,21 +150,16 @@ $ npm run js_dev
   <li><strong>home-assistant-polymer</strong>: Install NPM dependencies.</li>
   <li><strong>home-assistant-polymer</strong>: start frontend build.
     <ul>
-      <li>Compile all used JavaScript to <code>_app_compiled.js</code>.</li>
+      <li>Compile all used JavaScript.</li>
       <li>Install Bower dependencies.</li>
-      <li>Vulcanize all Webcomponents to <code>frontend.vulcan.html</code>.</li>
-      <li>Minify <code>frontend.vulcan.html</code> and save it as <code>frontend.html</code>.</li>
+      <li>Vulcanize and minify the core and panel sources to build dir.</li>
     </ul>
   </li>
   <li>Copy the webcomponents polyfill <code>webcomponents-lite.min.js</code> from <strong>home-assistant-polymer</strong> to <code>components/frontend/www_static/webcomponents-lite.min.js</code>.</li>
-  <li>Copy the final frontend build <code>frontend.html</code> from <strong>home-assistant-polymer</strong> to <code>components/frontend/www_static/frontend/</code>.</li>
-  <li>Generate MD5 hash of <code>frontend.html</code> to signal caches to redownload the UI.</li>
+  <li>Copy the final frontend build <code>frontend.html</code> and panel sources from <strong>home-assistant-polymer</strong> to <code>components/frontend/www_static/frontend/</code>.</li>
+  <li>Generate MD5 hashes of core and panel sources.</li>
+  <li>Create gzip versions of all the sources.</li>
 </ul>
-
-<p class="img">
-<img src="/images/frontend/polymer-build-architecture.png" alt="Polymer build architecture diagram" />
-Polymer build architecture diagram
-</p>
 
 
 </article>
@@ -226,6 +220,7 @@ Polymer build architecture diagram
           <li><a class='active' href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
           <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_creating_custom_panels/'>Add Custom Panels </a></li>
         </ul>
       </li>
       <li>

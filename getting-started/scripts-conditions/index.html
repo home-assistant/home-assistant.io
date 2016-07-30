@@ -199,11 +199,11 @@ This allows you to mix several AND and OR conditions together.</p>
 
 <h4><a class="title-link" name="template-condition" href="#template-condition"></a> Template condition</h4>
 
-<p>The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render ‘true’.</p>
+<p>The template condition will test if the <a href="/topics/templating/">given template</a> renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render ‘true’.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="key">condition</span>: <span class="string"><span class="content">template</span></span>
-<span class="key">value_template</span>: <span class="string"><span class="content">'{{ state.attributes.battery &gt; 50 }}'</span></span>
+<span class="key">value_template</span>: <span class="string"><span class="content">'{{ states.device_tracker.iphone.attributes.battery &gt; 50 }}'</span></span>
 </pre></div>
 </div>
 </div>

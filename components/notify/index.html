@@ -168,6 +168,35 @@
 </pre></div>
 </div>
 </div>
+<p>For services which have support for sending images.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{ <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Test plugin</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: { 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">photo</span><span class="delimiter">&quot;</span></span>: { 
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.gbsun.de/gbpics/berge/berge106.jpg</span><span class="delimiter">&quot;</span></span>
+    }
+  }
+}
+</pre></div>
+</div>
+</div>
+
+<p>If the service support sending the location, the data from this sample can be used.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{ <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Test plugin</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">location</span><span class="delimiter">&quot;</span></span>: {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">latitude</span><span class="delimiter">&quot;</span></span>: <span class="float">7.3284</span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">longitude</span><span class="delimiter">&quot;</span></span>: <span class="float">46.38234</span>
+    }
+  }
+}
+</pre></div>
+</div>
+</div>
+
 
 
 </article>
@@ -209,9 +238,6 @@
           </a></li>
           <li><a href='/components/notify.gntp/'>
             GNTP (Growl)
-          </a></li>
-          <li><a href='/components/notify.google_voice/'>
-            Google Voice SMS
           </a></li>
           <li><a href='/components/notify.instapush/'>
             Instapush

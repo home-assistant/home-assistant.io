@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/</loc>
+    <lastmod>2016-07-30T12:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1/</loc>
     <lastmod>2016-07-28T04:00:00+00:00</lastmod>
   </url>
@@ -420,6 +424,9 @@
     <loc>https://home-assistant.io/developers/frontend_add_more_info/</loc>
   </url>
   <url>
+    <loc>https://home-assistant.io/developers/frontend_creating_custom_panels/</loc>
+  </url>
+  <url>
     <loc>https://home-assistant.io/developers/helpers/</loc>
   </url>
   <url>
@@ -828,6 +835,12 @@
       <loc>https://home-assistant.io/components/camera.generic/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/panel_iframe/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/light.flux_led/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/sensor.rfxtrx/</loc>
     </url>
     <url>
@@ -1168,9 +1181,6 @@
     </url>
     <url>
       <loc>https://home-assistant.io/components/light.zigbee/</loc>
-    </url>
-    <url>
-      <loc>https://home-assistant.io/components/notify.google_voice/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/components/nest/</loc>
@@ -1590,6 +1600,12 @@
       <loc>https://home-assistant.io/components/sensor.netatmo/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/switch.knx/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/thermostat.knx/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/hdmi_cec/</loc>
     </url>
     <url>
@@ -1635,6 +1651,9 @@
       <loc>https://home-assistant.io/components/sensor.yweather/</loc>
     </url>
     <url>
+      <loc>https://home-assistant.io/components/sensor.imap/</loc>
+    </url>
+    <url>
       <loc>https://home-assistant.io/components/notify.joaoapps_join/</loc>
     </url>
     <url>
@@ -1644,10 +1663,19 @@
       <loc>https://home-assistant.io/components/binary_sensor.knx/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/components/switch.knx/</loc>
+      <loc>https://home-assistant.io/components/switch.tplink/</loc>
     </url>
     <url>
-      <loc>https://home-assistant.io/components/switch.tplink/</loc>
+      <loc>https://home-assistant.io/components/media_player.directv/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/media_player.russound_rnet/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/light.x10/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/components/media_player.mpchc/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/cookbook/automation_for_rainy_days/</loc>
@@ -1750,6 +1778,9 @@
     </url>
     <url>
       <loc>https://home-assistant.io/cookbook/jupyther_notebooks_introduction/</loc>
+    </url>
+    <url>
+      <loc>https://home-assistant.io/cookbook/custom_panel_using_react/</loc>
     </url>
     <url>
       <loc>https://home-assistant.io/topics/templating/</loc>
@@ -1991,36 +2022,39 @@
     <url>
       <loc>https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1/</loc>
     </url>
+    <url>
+      <loc>https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/</loc>
+    </url>
   <url>
     <loc>https://home-assistant.io/demo/dev-tools.html</loc>
-    <lastmod>2016-07-30T19:35:26+00:00</lastmod>
+    <lastmod>2016-07-30T20:20:44+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/frontend.html</loc>
-    <lastmod>2016-07-30T19:35:26+00:00</lastmod>
+    <lastmod>2016-07-30T20:20:44+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/index.html</loc>
-    <lastmod>2016-07-30T19:35:26+00:00</lastmod>
+    <lastmod>2016-07-30T20:20:44+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/demo/partial-map.html</loc>
-    <lastmod>2016-07-30T19:35:26+00:00</lastmod>
+    <lastmod>2016-07-30T20:20:44+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/googlef4f3693c209fe788.html</loc>
-    <lastmod>2016-07-30T19:35:26+00:00</lastmod>
+    <lastmod>2016-07-30T20:20:44+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/roboto/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-30T19:35:27+00:00</lastmod>
+    <lastmod>2016-07-30T20:20:45+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/fonts/robotomono/DESCRIPTION.en_us.html</loc>
-    <lastmod>2016-07-30T19:35:27+00:00</lastmod>
+    <lastmod>2016-07-30T20:20:45+00:00</lastmod>
   </url>
   <url>
     <loc>https://home-assistant.io/static/mdi-demo.html</loc>
-    <lastmod>2016-07-30T19:35:27+00:00</lastmod>
+    <lastmod>2016-07-30T20:20:45+00:00</lastmod>
   </url>
 </urlset>

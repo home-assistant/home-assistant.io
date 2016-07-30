@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>Home Assistant supports running multiple synchronized instances using a master-slave model. Whenever <code>events.fire</code> or <code>states.set</code> is called on the salve it will forward it to the master. The master will replicate all events and changed states to its slaves.</p>
+  <p>Home Assistant supports running multiple synchronized instances using a master-slave model. Whenever <code>events.fire</code> or <code>states.set</code> is called on the slave it will forward it to the master. The master will replicate all events and changed states to its slaves.</p>
 
 <p class="img">
   <a href="/images/architecture/architecture-remote.png">
@@ -183,6 +183,7 @@ Because each slave maintains its own Service Registry it is possible to have mul
           <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
           <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_creating_custom_panels/'>Add Custom Panels </a></li>
         </ul>
       </li>
       <li>

@@ -117,6 +117,20 @@ living_room = hass.states.get(<span class="string"><span class="delimiter">'</sp
 </div>
 </div>
 
+<h3><a class="title-link" name="get-configuration" href="#get-configuration"></a> Get configuration</h3>
+
+<p>Get the current configuration of a Home Asssitant instance.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
+
+api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">127.1.0.1</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">password</span><span class="delimiter">'</span></span>)
+
+print(remote.get_config(api))
+</pre></div>
+</div>
+</div>
+
 <h3><a class="title-link" name="get-details-about-services-events-and-entitites" href="#get-details-about-services-events-and-entitites"></a> Get details about services, events, and entitites</h3>
 
 <p>Similar to the output in the “Developer Tools” of the frontend.</p>
@@ -239,6 +253,32 @@ remote.call_service(api, domain, <span class="string"><span class="delimiter">'<
 </div>
 </div>
 
+<h3><a class="title-link" name="specify-a-timeout" href="#specify-a-timeout"></a> Specify a timeout</h3>
+
+<p>The default timeout for an API call with <code>call_service</code> is 5 seconds. Service<br />
+taking longer than this to return will raise<br />
+<code>homeassistant.exceptions.HomeAssistantError: Timeout</code> unless provided with a<br />
+longer timeout.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.remote</span> <span class="keyword">as</span> remote
+
+api = remote.API(<span class="string"><span class="delimiter">'</span><span class="content">host</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">password</span><span class="delimiter">'</span></span>)
+domain = <span class="string"><span class="delimiter">'</span><span class="content">switch</span><span class="delimiter">'</span></span>
+
+<span class="comment"># Assuming switch.timeout_switch takes 10 seconds to return</span>
+switch_name = <span class="string"><span class="delimiter">'</span><span class="content">switch.timeout_switch</span><span class="delimiter">'</span></span>
+
+<span class="comment"># Raises homeassistant.exceptions.HomeAssistantError: Timeout when talking to</span>
+remote.call_service(api, domain, <span class="string"><span class="delimiter">'</span><span class="content">turn_on</span><span class="delimiter">'</span></span>, {<span class="string"><span class="delimiter">'</span><span class="content">entity_id</span><span class="delimiter">'</span></span>: switch_name})
+
+<span class="comment"># Runs withous exception</span>
+remote.call_service(api, domain, <span class="string"><span class="delimiter">'</span><span class="content">turn_on</span><span class="delimiter">'</span></span>, {<span class="string"><span class="delimiter">'</span><span class="content">entity_id</span><span class="delimiter">'</span></span>: switch_name},
+                    timeout=<span class="integer">11</span>)
+</pre></div>
+</div>
+</div>
+
 <h3><a class="title-link" name="send-a-notification" href="#send-a-notification"></a> Send a notification</h3>
 
 <p>The example uses the jabber notification platform to send a single message to the given recipient in the <code>configuration.yaml</code> file.</p>
@@ -316,6 +356,7 @@ remote.call_service(api, domain, <span class="string"><span class="delimiter">'<
           <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
           <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
           <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_creating_custom_panels/'>Add Custom Panels </a></li>
         </ul>
       </li>
       <li>

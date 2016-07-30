@@ -89,34 +89,138 @@
   <hr class="divider">
   
 
-  <p>The <code>sonos</code> platform allows you to control your <a href="http://www.sonos.com">Sonos</a> HiFi wireless speakers and audio components from Home Assistant.</p>
+  <p>The <code>sonos</code> platform allows you to control your <a href="http://www.sonos.com">Sonos</a> HiFi wireless speakers and audio components from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don’t need to add anything to your <code>configuration.yaml</code>. Alternatively, there are some manual configuration options, listed as follows:</p>
 
-<p>To add your Sonos components to your installation, add the following to your <code>configuration.yaml</code> file.  It will perform auto-discovery of your connected speakers.</p>
+<p>To add your Sonos components to your installation, add the following to your <code>configuration.yaml</code> file.  It will perform Sonos auto-discovery of your connected speakers.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry using Sonos discovery</span>
 <span class="key">media_player</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">sonos</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>You can also specify hosts to connect to if they cannot be found with auto-discovery.</p>
+<p>If you have multiple network devices, you can provide the IP address of the device that should be used for Sonos auto-discovery.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry using Sonos discovery on a specific interface</span>
 <span class="key">media_player</span>:
   <span class="key">platform</span>: <span class="string"><span class="content">sonos</span></span>
-  <span class="key">hosts</span>: <span class="string"><span class="content">IP</span></span>
+  <span class="key">interface_addr</span>: <span class="string"><span class="content">192.0.2.1</span></span>
 </pre></div>
 </div>
 </div>
 
-<h3><a class="title-link" name="service" href="#service"></a> Service</h3>
+<p>You can also specify one or more hosts to connect to if they cannot be found with Sonos auto-discovery.</p>
 
-<p>There are two extra services exposed that will allow you to take a snapshot of what is currently playing and restore it afterwards. This is useful if you want to play a doorbell or notification sound and resume playback afterwards.</p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry with manually specified addresses</span>
+<span class="key">media_player</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">sonos</span></span>
+  <span class="key">hosts</span>: <span class="string"><span class="content">192.0.2.25</span></span>
+</pre></div>
+</div>
+</div>
 
-<p>The services are called <code>sonos_snapshot</code> and <code>snapshot_restore</code>.</p>
+<p>or, for multiple hosts:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry with manually specified addresses</span>
+<span class="key">media_player</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">sonos</span></span>
+  <span class="key">hosts</span>:
+    - <span class="string"><span class="content">192.0.2.25</span></span>
+    - <span class="string"><span class="content">192.0.2.26</span></span>
+    - <span class="string"><span class="content">192.0.2.27</span></span>
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="service-sonos_snapshot" href="#service-sonos_snapshot"></a> Service <code>sonos_snapshot</code></h3>
+
+<p>Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards. If no <code>entity_id</code> is provided, all speakers are snapshotted.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>entity_id</code></td>
+      <td>no</td>
+      <td>String or list of strings that point at <code>entity_id</code>s of coordinator speakers.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="service-sonos_restore" href="#service-sonos_restore"></a> Service <code>sonos_restore</code></h3>
+
+<p>Restore a previosly taken snapshot of one or more speakers. If no <code>entity_id</code> is provided, all speakers are restored.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>entity_id</code></td>
+      <td>no</td>
+      <td>String or list of strings that point at <code>entity_id</code>s of coordinator speakers.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="service-sonos_group_players" href="#service-sonos_group_players"></a> Service <code>sonos_group_players</code></h3>
+
+<p>Group all players together under a single coordinator.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>entity_id</code></td>
+      <td>no</td>
+      <td>String or list of a single <code>entity_id</code> that will become the coordinator speaker.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="service-sonos_unjoin" href="#service-sonos_unjoin"></a> Service <code>sonos_unjoin</code></h3>
+
+<p>Remove one or more speakers from a group of speakers. If no <code>entity_id</code> is provided, all speakers are unjoined.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>entity_id</code></td>
+      <td>no</td>
+      <td>String or list of <code>entity_id</code>s that will be separated from their coordinator speaker.</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 </article>
@@ -148,6 +252,9 @@
             <a href='/components/media_player.denon/'>Denon Network Receivers</a>
         </li>
         <li>
+            <a href='/components/media_player.directv/'>DirecTV</a>
+        </li>
+        <li>
             <a href='/components/media_player.firetv/'>FireTV</a>
         </li>
         <li>
@@ -169,6 +276,9 @@
             <a href='/components/media_player.squeezebox/'>Logitech Squeezebox</a>
         </li>
         <li>
+            <a href='/components/media_player.mpchc/'>MPC-HC</a>
+        </li>
+        <li>
             <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
         </li>
         <li>
@@ -188,6 +298,9 @@
         </li>
         <li>
             <a href='/components/media_player.roku/'>Roku</a>
+        </li>
+        <li>
+            <a href='/components/media_player.russound_rnet/'>Russound RNET</a>
         </li>
         <li>
             <a href='/components/media_player.samsungtv/'>Samsung Smart TV</a>

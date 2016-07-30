@@ -155,11 +155,12 @@ print(chat_id)
 <h3><a class="title-link" name="photo-support" href="#photo-support"></a> Photo support</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">action</span>:
+  <div class="code"><pre><span class="head"><span class="head">...</span></span>
+<span class="key">action</span>:
   <span class="key">service</span>: <span class="string"><span class="content">notify.NOTIFIER_NAME</span></span>
   <span class="key">data</span>:
-    <span class="key">title</span>: <span class="string"><span class="content">test notify</span></span>
-    <span class="key">message</span>: <span class="string"><span class="content">That's a exemple</span></span>
+    <span class="key">title</span>: <span class="string"><span class="content">Send an images</span></span>
+    <span class="key">message</span>: <span class="string"><span class="content">That's a example that sends an image.</span></span>
     <span class="key">data</span>:
       <span class="key">photo</span>:
         - <span class="string"><span class="content">url: http://192.168.1.28/camera.jpg</span></span>
@@ -178,6 +179,30 @@ print(chat_id)
   <li><strong>caption</strong> (<em>Optional</em>): The title of the image.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for an URL which require HTTP basic authentication.</li>
   <li><strong>password</strong> (<em>Optional</em>): Username for an URL which require HTTP basic authentication.</li>
+</ul>
+
+<h3><a class="title-link" name="location-support" href="#location-support"></a> Location support</h3>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="head"><span class="head">...</span></span>
+
+<span class="key">action</span>:
+  <span class="key">service</span>: <span class="string"><span class="content">notify.NOTIFIER_NAME</span></span>
+  <span class="key">data</span>:
+    <span class="key">title</span>: <span class="string"><span class="content">Send location</span></span>
+    <span class="key">message</span>: <span class="string"><span class="content">Location updated.</span></span>
+    <span class="key">data</span>:
+      <span class="key">location</span>:
+        <span class="key">latitude</span>: <span class="string"><span class="content">32.87336</span></span>
+        <span class="key">longitude</span>: <span class="string"><span class="content">117.22743</span></span>
+</pre></div>
+</div>
+</div>
+
+<ul>
+  <li><strong>location</strong> (<em>Required</em>): For local or remote path to an image.</li>
+  <li><strong>latitude</strong> (<em>Required</em>): The latitude to send.</li>
+  <li><strong>longitude</strong> (<em>Required</em>): The longitude to send.</li>
 </ul>
 
 
@@ -230,9 +255,6 @@ print(chat_id)
         </li>
         <li>
             <a href='/components/notify.gntp/'>GNTP (Growl)</a>
-        </li>
-        <li>
-            <a href='/components/notify.google_voice/'>Google Voice SMS</a>
         </li>
         <li>
             <a href='/components/notify.instapush/'>Instapush</a>

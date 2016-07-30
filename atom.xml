@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-30T19:36:26+00:00</updated>
+  <updated>2016-07-30T20:21:28+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,69 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.25: Custom frontend panels, Jupyter notebooks, DirecTV.]]></title>
+    <link href="https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/"/>
+    <updated>2016-07-30T12:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/07/30/custom-frontend-panels--jupyter-notebooks--directv</id>
+    <content type="html"><![CDATA[<p>When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!</p>
+
+<p>Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can <a href="https://home-assistant.io/developers/frontend_creating_custom_panels/">add it’s own page to the frontend</a>. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you’ll come up with!</p>
+
+<p>We have also seen an exciting trend of people starting to visualize their Internet of Things data using <a href="http://jupyter.org/">Jupyter</a> Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the <a href="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">blog</a> post by <a href="https://github.com/kireyeu">@kireyeu</a> shows an advanced usecase while our <a href="https://home-assistant.io/cookbook/#jupyter-notebooks/">Notebooks</a> in the <a href="https://github.com/home-assistant/home-assistant-notebooks">Home Assistant Notebooks repository</a> cover the basics.</p>
+
+<p>This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant cna talk to 26 different media players!</p>
+
+<p>The brand-new <a href="https://home-assistant.io/components/panel_iframe/">iFrame panel component</a> allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.</p>
+
+<p>I would like to do a shoutout to <a href="https://github.com/fabianhjr">@fabianhjr</a>. He has started adding <a href="https://docs.python.org/3/library/typing.html">typing</a> data (<a href="https://www.python.org/dev/peps/pep-0484/">PEP484</a>) to the Home Assistant core. This will help us identify issues before they are released.</p>
+
+<p><img src="https://home-assistant.io/images/supported_brands/russound.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/jupyter.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/directv.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Frontend: Support for <a href="https://home-assistant.io/components/panel_iframe/">iFrame panels</a> to adding other sites to sidebar (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Allow components to register <a href="https://home-assistant.io/developers/frontend_creating_custom_panels/">custom frontend panels</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Add example custom_component <a href="https://home-assistant.io/cookbook/custom_panel_using_react/">react_panel</a> showing custom panels (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/light.flux_led/">MagicLight/Flux WiFi Color LED Light</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Script: Delay support for <a href="https://home-assistant.io/getting-started/scripts/#delay/">Scripts</a> (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Media player: <a href="https://home-assistant.io/components/media_player.russound_rnet/">Russound RNET</a> integration (<a href="https://github.com/laf">@laf</a>)</li>
+  <li>Remote: Option specifying custom timeout when calling Home Assistant API (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
+  <li>Thermostat: Integration of <a href="https://home-assistant.io/components/thermostat.knx/">KNX</a> thermostats (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Thermostat: Support for HVAC mode of <a href="https://home-assistant.io/components/thermostat.nest/">Nest</a> devices (<a href="https://github.com/vladonemo">@vladonemo</a>)</li>
+  <li>InfluxDB: Option to specify additional <a href="https://home-assistant.io/components/influxdb/">tags</a> (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Input slider: Support for float value (<a href="https://github.com/ngraziano">@ngraziano</a>)</li>
+  <li>Template: New <a href="https://home-assistant.io/topics/templating/#home-assistant-template-extensions/">filters</a> (<code>timestamp_local</code> and <code>timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Binary sensor - Wink: Water leak sensor support added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor (<a href="https://github.com/PetitCircuitLab">@PetitCircuitLab</a>)</li>
+  <li>Switch - RPi GPIO: Fix when inverted logic (<a href="https://github.com/zeroDenial">@zeroDenial</a>)</li>
+  <li>Z-Wave: Rollershutter update (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>RFXtrx: Fire events when receiving signals from sensors and tests added (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Core: Add <a href="https://docs.python.org/3/library/typing.html">type</a> checking using mypy to the core (<a href="https://github.com/fabianhjr">@fabianhjr</a>)</li>
+  <li>Remote: Support for getting the <a href="https://home-assistant.io/developers/python_api/#get-configuration/">Configuration</a> through the Python API (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Media player: Support for <a href="https://home-assistant.io/components/media_player.directv/">DirecTV</a> (<a href="https://github.com/cbulock">@cbulock</a>)</li>
+  <li>Use browser timezone for frontend logbook and history dates (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Light: New support for <a href="https://home-assistant.io/components/light.x10/">X10</a> lights (<a href="https://github.com/fotoetienne">@fotoetienne</a>)</li>
+  <li>Sensor: Support for observing <a href="https://home-assistant.io/components/sensor.imap/">IMAP</a> accounts (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
+  <li>Media Player: Integration for <a href="https://home-assistant.io/components/media_player.mpchc/">MPC-HC</a> (Media Player Classic - Home Cinema) mediaplayer (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
+  <li>Notify: <code>location</code> extension for <a href="https://home-assistant.io/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Groups: Lock states will now be properly grouped (<a href="https://github.com/jwl17330536">@jwl17330536</a>)</li>
+  <li>Media Player: Added tests for Sonos to improve code quality (<a href="https://github.com/americanwookie">@americanwookie</a>)</li>
+  <li>Device Tracker: iCloud stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Sensor: Speedtest with improved error handling and state restoring (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>Recorder: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Qwikswitch: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/light.hyperion/">Hyperion</a> keeps now track of active color (<a href="https://github.com/schneefux">@schneefux</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>Google Voice SMS notification support was removed.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ESP8266 and MicroPython - Part 1]]></title>
@@ -415,7 +478,7 @@ $ hass --script db_migrator --config /path/to/config
   <li><a href="https://home-assistant.io/components/statsd/">StatsD</a> can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
   <li>Support for <a href="https://home-assistant.io/components/knx/">KNX</a> added (<a href="https://github.com/usul27">@usul27</a>)</li>
   <li>Switch: <a href="https://home-assistant.io/components/switch.tplink/">TPLink</a> HS100/HS110 now supported (<a href="https://github.com/GadgetReactor">@GadgetReactor</a>)</li>
-  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> (<a href="https://github.com/danielhiversen">@Danielhiversen</a>)</li>
+  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> ([@Danielhiversen])</li>
   <li>Tweaks to <a href="https://home-assistant.io/components/zwave/">Z-Wave</a> (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
   <li>Light: <a href="https://home-assistant.io/components/light/">Brightness</a> now clamped to 0-255 (<a href="https://github.com/keatontaylor">@keatontaylor</a>)</li>
   <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.radiotherm/">Radiotherm</a> HVAC mode now supported (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
@@ -428,7 +491,7 @@ $ hass --script db_migrator --config /path/to/config
 
 <h3><a class="title-link" name="hotfix-0241---july-21" href="#hotfix-0241---july-21"></a> Hotfix 0.24.1 - July 21</h3>
 
-<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to <a href="https://github.com/n8henrie/">@n8henrie</a> and <a href="https://github.com/AlucardZero/">@AlucardZero</a>.</p>
+<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to [@n8henrie] and [@AlucardZero].</p>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 
@@ -437,6 +500,16 @@ $ hass --script db_migrator --config /path/to/config
   <li>The <a href="https://home-assistant.io/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code>configuration.yaml</code> file.</li>
   <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
 </ul>
+
+<p>«««&lt; HEAD<br />
+=======<br />
+[@n8henrie]: https://github.com/n8henrie/<br />
+[@AlucardZero]: https://github.com/AlucardZero/<br />
+«««&lt; HEAD<br />
+»»»&gt; master<br />
+=======<br />
+[@Danielhiversen]: https://github.com/danielhiversen<br />
+»»»&gt; origin/master</p>
 
 ]]></content>
   </entry>
@@ -1442,58 +1515,6 @@ For example, my wife works next door - and I couldn’t detect whether she’s a
 <p>You can achieve the same effect by using the same the same <code>UUID</code> but different <code>major</code> / <code>minor</code> numbers - and tell OwnTracks not to worry about the <code>minor</code> / <code>major</code> numbers for a particular region by setting them to 0).</p>
 
 <p><em>Make sure to also check out <a href="https://home-assistant.io/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/">part II</a> where I talk about how to use iBeacons to track any object.</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.18: Bluetooth, LG WebOS TVs and Roombas.]]></title>
-    <link href="https://home-assistant.io/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/"/>
-    <updated>2016-04-20T06:10:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas</id>
-    <content type="html"><![CDATA[<p>It’s time for 0.18. This release cycle is 2 days shorter than usual as I’ll be travelling to Europe. This also means that it can take some more time before you get feedback on PRs.</p>
-
-<p>Since the last release we have moved all Home Assistant source code etc into it’s own <a href="https://github.com/home-assistant">organisation on GitHub</a>. We’re growing up! This sadly did cause us to have to move all Docker images. Check the breaking changes section for more info.</p>
-
-<p><a href="https://home-assistant.io/demo/"><img src="https://home-assistant.io/images/blog/2016-04-release-18/media_player.png" style="box-shadow: none; border: 0;" /></a></p>
-
-<p><img src="https://home-assistant.io/images/supported_brands/bluetooth.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/webos.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/rss.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/eq3.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/thinkingcleaner.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
-
-<ul>
-  <li>Media Player: redesign in the UI! (<a href="https://github.com/DesignFirst/">@DesignFirst</a>, <a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>New component: <a href="https://home-assistant.io/components/zeroconf/">Zeroconf</a> for Home Assistant discovery (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
-  <li>Garage door: <a href="https://home-assistant.io/components/garage_door.mqtt/">MQTT</a> now supported (<a href="https://github.com/joelash/">@joelash</a>)</li>
-  <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.homematic/">Homematic platform</a> now supports Max! devices (<a href="https://github.com/bimbar/">@bimbar</a>)</li>
-  <li>New component Thinkingcleaner (<a href="https://home-assistant.io/components/switch.thinkingcleaner/">switch</a>/<a href="https://home-assistant.io/components/sensor.thinkingcleaner/">sensor</a>) to integrate your Roomba into Home Assistant (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
-  <li>New component: <a href="https://home-assistant.io/components/upnp/">upnp</a> to automatically open a upnp port on your router for Home Assistant (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
-  <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.eq3btsmart/">EQ3 Bluetooth Smart Thermostats</a> now supported (<a href="https://github.com/bimbar/">@bimbar</a>)</li>
-  <li>New component <a href="https://home-assistant.io/components/feedreader/">Feedreader</a> will track RSS feeds (<a href="https://github.com/shaftoe/">@shaftoe</a>)</li>
-  <li>Device Tracker: <a href="https://home-assistant.io/components/device_tracker.bluetooth_tracker/">Bluetooth tracking platform</a> added (<a href="https://github.com/vmulpuru/">@vmulpuru</a>)</li>
-  <li>Media Player: <a href="https://home-assistant.io/components/media_player.webostv/">LG WebOS TVs</a> now supported (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
-  <li>Notify: <a href="https://home-assistant.io/components/notify.webostv/">LG WebOS TVs</a> now supported (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
-  <li>HTTP: Use constant time comparison for auth (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
-  <li>Config and service validations (<a href="https://github.com/jaharkes/">@jaharkes</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>)</li>
-  <li>MySensors: Entity IDs will more clearly differentiate between node ID and child ID (<a href="https://github.com/oeysteinhansen/">@oeysteinhansen</a>)</li>
-  <li>MySensors: Add support for <a href="https://home-assistant.io/components/mysensors/">ethernet gateway</a> (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
-  <li>Media player: <a href="https://home-assistant.io/components/media_player.plex/">Plex</a> will now monitor the server and add clients as they pop up (<a href="https://github.com/infamy/">@infamy</a>)</li>
-  <li>Core: We now use iso8601 for datetimes (<a href="https://github.com/balloob/">@balloob</a>).</li>
-  <li>Media Player: <a href="https://home-assistant.io/components/media_player.mpd/">MPD</a> now supports service to play playlists (<a href="https://github.com/Cinntax/">@Cinntax</a>)</li>
-  <li>Z-Wave should be a little bit more stable (<a href="https://github.com/Turbokongen/">@Turbokongen</a>)</li>
-  <li>Media Player: <a href="https://home-assistant.io/components/media_player.sonos/">Sonos</a> will now only add visible devices (<a href="https://github.com/jpmossin/">@jpmossin</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/light.wink/">Wink</a> will now allow controlling the colors (<a href="https://github.com/bradsk88/">@bradsk88</a>)</li>
-</ul>
-
-<h3>Breaking changes</h3>
-<ul>
-  <li>We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.</li>
-  <li>The constant <code>TEMP_CELCIUS</code> is now correctly called <code>TEMP_CELSIUS</code>. Old one is deprecated and will eventually be removed.</li>
-  <li>The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run <code>homeassistant/home-assistant:latest</code> for the latest release and <code>homeassistant/home-assistant:dev</code> for the latest dev version.</li>
-  <li>MySensors received two big changes that will cause you to update your configs. See <a href="https://home-assistant.io/components/mysensors/">component page</a> for new example config.
-    <ol>
-      <li>All MySensors entity IDs are different! There was an error in the naming that caused MySensors to append node ID and child ID instead of separating them with an underscore. This has been fixed but will cause all your MySensors entity IDs to change. This is a one time breaking change.</li>
-      <li>The second change is that we now support the TCP ethernet gateway. This is causing a slight change to the config format: you have to change <code>port:</code> under <code>gateways</code> to <code>device:</code>.</li>
-    </ol>
-  </li>
-</ul>
 ]]></content>
   </entry>
   

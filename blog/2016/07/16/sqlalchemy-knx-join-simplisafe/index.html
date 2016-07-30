@@ -138,7 +138,7 @@ $ hass --script db_migrator --config /path/to/config
   <li><a href="/components/statsd/">StatsD</a> can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
   <li>Support for <a href="/components/knx/">KNX</a> added (<a href="https://github.com/usul27">@usul27</a>)</li>
   <li>Switch: <a href="/components/switch.tplink/">TPLink</a> HS100/HS110 now supported (<a href="https://github.com/GadgetReactor">@GadgetReactor</a>)</li>
-  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> (<a href="https://github.com/danielhiversen">@Danielhiversen</a>)</li>
+  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> ([@Danielhiversen])</li>
   <li>Tweaks to <a href="/components/zwave/">Z-Wave</a> (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
   <li>Light: <a href="/components/light/">Brightness</a> now clamped to 0-255 (<a href="https://github.com/keatontaylor">@keatontaylor</a>)</li>
   <li>Thermostat: <a href="/components/thermostat.radiotherm/">Radiotherm</a> HVAC mode now supported (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
@@ -151,7 +151,7 @@ $ hass --script db_migrator --config /path/to/config
 
 <h3><a class="title-link" name="hotfix-0241---july-21" href="#hotfix-0241---july-21"></a> Hotfix 0.24.1 - July 21</h3>
 
-<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to <a href="https://github.com/n8henrie/">@n8henrie</a> and <a href="https://github.com/AlucardZero/">@AlucardZero</a>.</p>
+<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to [@n8henrie] and [@AlucardZero].</p>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 
@@ -160,6 +160,16 @@ $ hass --script db_migrator --config /path/to/config
   <li>The <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code>configuration.yaml</code> file.</li>
   <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
 </ul>
+
+<p>«««&lt; HEAD<br />
+=======<br />
+[@n8henrie]: https://github.com/n8henrie/<br />
+[@AlucardZero]: https://github.com/AlucardZero/<br />
+«««&lt; HEAD<br />
+»»»&gt; master<br />
+=======<br />
+[@Danielhiversen]: https://github.com/danielhiversen<br />
+»»»&gt; origin/master</p>
 </article>
 
 
@@ -231,6 +241,12 @@ $ hass --script db_migrator --config /path/to/config
     
       
         <li class="post">
+          <a href="/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/">0.25: Custom frontend panels, Jupyter notebooks, DirecTV.</a>
+        </li>
+      
+    
+      
+        <li class="post">
           <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 and MicroPython - Part 1</a>
         </li>
       
@@ -247,12 +263,6 @@ $ hass --script db_migrator --config /path/to/config
         </li>
       
     
-      
-    
-      
-        <li class="post">
-          <a href="/blog/2016/07/06/pocketchip-running-home-assistant/">PocketCHIP running Home Assistant</a>
-        </li>
       
     
   </ul>
