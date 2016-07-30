@@ -70,9 +70,15 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [@turbokongen]: https://github.com/turbokongen/
 [@usul27]: https://github.com/usul27
 [@w1ll1am23]: https://github.com/w1ll1am23/
+<<<<<<< HEAD
+=======
 [@n8henrie]: https://github.com/n8henrie/
 [@AlucardZero]: https://github.com/AlucardZero/
+<<<<<<< HEAD
+>>>>>>> master
+=======
 [@Danielhiversen]: https://github.com/danielhiversen
+>>>>>>> origin/master
 
 [apcupsd-sensor]: /components/sensor.apcupsd/
 [Brightness]: /components/light/

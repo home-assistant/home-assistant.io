@@ -41,7 +41,6 @@ Configuration variables:
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
 
-
 ## {% linkable_title Installation notes %}
 
 Not all Python bindings for the choosen database engine can be installed directly. This section contains additional details which should help you to get it working. 
@@ -54,5 +53,4 @@ For MySQL you may have to install a few dependencies:
 $ sudo apt-get install libmysqlclient-dev
 $ pip3 install mysqlclient
 ```
-
 

@@ -65,8 +65,6 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
-- Filter `multiply(x)` will convert the input to a number and multiply it with `x`.
-- Filter `round(x)` will convert the input to a number and round it to `x` decimals.
 - `now` will be rendered as current time in your time zone.
 - `utcnow` will be rendered as UTC time.
 - `as_timestamp` will convert datetime object or string to UNIX timestamp
@@ -74,6 +72,10 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `closest()` will find the closest entity.
 - `relative_time(timestamp)` will format the date time as relative time vs now (ie 7 seconds)
 - `float` will format the output as float.
+- Filter `multiply(x)` will convert the input to a number and multiply it with `x`.
+- Filter `round(x)` will convert the input to a number and round it to `x` decimals.
+- Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
+- Filter `timestamp_utc` will convert an UNIX timestamp to UTC time/data.
 
 ## {% linkable_title Examples %}
 
@@ -195,4 +197,8 @@ It depends per component or platform but it is common to be able to define a tem
 # Calculations
 {% raw %}{{ value_json | multiply(1024) }}{% endraw %}
 {% raw %}{{ value_json.used | multiply(0.0001) | round(0) }}{% endraw %}
+
+# Timestamps
+{% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
+{% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
 ```

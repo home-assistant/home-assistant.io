@@ -66,4 +66,6 @@ Configuration variables:
   - **pressure**: The sea-level air pressure in millibars.
   - **visibility**: The average visibility.
 
-Details about the API are available in the [Yahoo! EDeveloper Network](https://developer.yahoo.com/weather/).
+
+Details about the API are available in the [Yahoo! Developer Network](https://developer.yahoo.com/weather/).
+

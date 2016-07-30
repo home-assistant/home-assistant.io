@@ -9,7 +9,6 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_release: 0.25
-published: false
 ---
 
 

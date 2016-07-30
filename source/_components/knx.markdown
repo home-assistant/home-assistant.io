@@ -17,9 +17,8 @@ ha_release: 0.24
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](/components/binary_sensor.knx) 
-- [Switch](/components/switch.knx) 
-
-The local ZigBee device (assuming XBee) must have an up to date Router or Coordinator API firmware installed.
+- [Switch](/components/switch.knx)
+- [Thermostat](/components/thermostat.knx)
 
 A `knx` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -31,4 +30,3 @@ knx:
 
 - **host** (*Required*): The IP address of the KNX/IP interface to use. You can use "0.0.0.0" if your KNX/IP gateway supports discovery.
 - **port** (*Optional*): The UDP port number. Defaults to `3671`.
-
