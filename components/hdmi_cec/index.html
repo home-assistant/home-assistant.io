@@ -105,6 +105,18 @@
 
 <p><code>ln -s /usr/local/lib/python3.4/dist-packages/cec &lt;your venv&gt;/lib/python3.4/site-packages</code></p>
 
+<p>e.g. the default virtual environment for the Raspberry Pi AIO would be as follows.</p>
+
+<p><code>ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages</code></p>
+
+<p>If after symlinking and adding <code>hdmi_cec:</code> to your configuration you are getting the following error in your logs,</p>
+
+<p><code>* failed to open vchiq instance</code></p>
+
+<p>you will also need to add the user account HASS runs under, to the <code>video</code> group. To add the HASS user account to the <code>video</code> group run the following command.</p>
+
+<p><code>usermod -a -G video &lt;hass_user_account&gt;</code></p>
+
 <h2><a class="title-link" name="configuration-example" href="#configuration-example"></a> Configuration Example</h2>
 
 <p>In the following example, a Pi Zero running Home Assistant is on a TV’s HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.</p>
@@ -131,6 +143,16 @@
   <div class="code"><pre>{
   <span class="key"><span class="delimiter">&quot;</span><span class="content">device</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Chromecast</span><span class="delimiter">&quot;</span></span>
 }
+</pre></div>
+</div>
+</div>
+<p>So an Automation action using the example above would look something like this.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">action</span>:
+  <span class="key">service</span>: <span class="string"><span class="content">hdmi_cec.select_device</span><span class="content">
+    data:
+      device: Chromecast</span></span>
 </pre></div>
 </div>
 </div>
