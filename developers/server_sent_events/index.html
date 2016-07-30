@@ -113,7 +113,7 @@
     <span class="tag">&lt;h1&gt;</span>Getting Home Assistant server events<span class="tag">&lt;/h1&gt;</span>
     <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">events</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
     <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-<span class="inline">        <span class="keyword">var</span> source = <span class="keyword">new</span> EventSource(<span class="string"><span class="delimiter">&quot;</span><span class="content">/api/stream</span><span class="delimiter">&quot;</span></span>);
+<span class="inline">        <span class="keyword">var</span> source = <span class="keyword">new</span> EventSource(<span class="string"><span class="delimiter">&quot;</span><span class="content">/api/stream?password=YOUR_PASSWORD</span><span class="delimiter">&quot;</span></span>);
         source.<span class="function">onmessage</span> = <span class="keyword">function</span>(event) {
             document.getElementById(<span class="string"><span class="delimiter">&quot;</span><span class="content">events</span><span class="delimiter">&quot;</span></span>).innerHTML += event.data + <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;br&gt;</span><span class="delimiter">&quot;</span></span>;
         };</span>
