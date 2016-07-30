@@ -62,10 +62,6 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 
 - Google Voice SMS notification support was removed.
 
-### {% linkable_title FAQ %}
-
-- Frequently asked questions about this release will show up here...
-
 [@abcminiuser]: https://github.com/abcminiuser
 [@americanwookie]: https://github.com/americanwookie 
 [@armills]: https://github.com/armills
