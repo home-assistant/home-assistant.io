@@ -65,8 +65,8 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
-- Filter `multiply(x)` will convert the input to a number and multiply it with `x`.
-- Filter `round(x)` will convert the input to a number and round it to `x` decimals.
+- Filter `multiply(x)` will convert the input to a number and multiply it with `x`. (Additional arithmetic can be done from here. See example below.)
+- Filter `round(x)` will convert the input to a number and round it to `x` decimals. 
 - `now` will be rendered as current time in your time zone.
 - `utcnow` will be rendered as UTC time.
 - `as_timestamp` will convert datetime object or string to UNIX timestamp
@@ -125,6 +125,11 @@ Print out a list of all the sensor states.
 
 {{ as_timestamp(now) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 {% endraw %}
+```
+
+Print the target temperature plus one degree. Minus ( - ) and divide ( / ) can also be used here.
+```
+{{ states.sensor.upstairs_target.state | multiply(1) + 1 }}
 ```
 
 ### {% linkable_title Distance examples %}
