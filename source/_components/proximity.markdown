@@ -60,7 +60,7 @@ Configuration variables:
 
 To add multiple proximity components, simply use a list in your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 proximity:
   - zone: home
