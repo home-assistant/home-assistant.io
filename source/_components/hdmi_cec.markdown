@@ -39,17 +39,9 @@ For the default virtual environment of a [Raspberry Pi AIO](/getting-started/ins
 $ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
 ```
 
-If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
-
-```bash
-* failed to open vchiq instance
-```
-
-you will also need to add the user account Home Asssistant runs under, to the `video` group. To add the Home Assisitant's user account to the `video` group run the following command.
-
-```bash
-$ usermod -a -G video <hass_user_account>
-```
+<p class='note'>If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
+`* failed to open vchiq instance` you will also need to add the user account Home Asssistant runs under, to the `video` group. To add the Home Assisitant's user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
+</p>
 
 ## {% linkable_title Configuration Example %}
 
