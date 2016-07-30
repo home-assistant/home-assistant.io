@@ -27,7 +27,7 @@ react_panel:
   title: 'React'
 ```
 
-This video shows the frontend in action.
+This video shows the example in action.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2200UutdXlo" frameborder="0" allowfullscreen></iframe>

@@ -9,9 +9,11 @@ sharing: true
 footer: true
 ---
 
-Starting with 0.25 there is support for custom panels. This means that you can create a frontend in the way you want and hook it into Home Assistant.
+Any component has the possibility to add a panel to the frontend. Panels will be rendered full screen and have real-time access to the Home Assistant object via JavaScript. Examples of this in the app are map, logbook and history.
 
-Create a `__init__.py` file which is loading the panel in a sub-folder like `hello_panel` of your `.homeassistant/custom_components/` folder.
+Adding a custom panel to your component is easy. For this example we're assuming your component is in `hello_panel.py`. Start by converting your panel to a folder. Create a folder called `hello_panel` and move `hello_panel.py` to `hello_panel/__init__.py`. In that same folder, create a file `panel.html`.
+
+Your component should register the panel. The minimum required code for your component is:
 
 ```python
 """A minimal custom panel example."""
@@ -27,41 +29,22 @@ PANEL_PATH = os.path.join(os.path.dirname(__file__), 'panel.html')
 
 def setup(hass, config):
     """Initialize a minimal custom panel."""
-    title = config.get(DOMAIN, {}).get('title')
-
-    config = None if title is None else {'title': title}
-
     register_panel(hass, 'hello', PANEL_PATH, title='Hello World',
-                   icon='mdi:appnet', config=config)
+                   icon='mdi:appnet', config=config.get(DOMAIN, {}))
     return True
 ```
 
 The `panel.html` contains the needed building blocks to create the elements inside the view.
 
-```html
+```javascript
 <dom-module id='ha-panel-hello'>
   <template>
     <style>
-      :host {
-        background: #f5f5f5;
-        display: block;
-        height: 100%;
-        overflow: auto;
-      }
-      .mount {
-        font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        line-height: 1.4em;
-        color: #4d4d4d;
-        min-width: 230px;
-        max-width: 550px;
-        margin: 0 auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-font-smoothing: antialiased;
-        font-smoothing: antialiased;
-        font-weight: 300;
+      p {
+        font-weight: bold;
       }
     </style>
-    <p>Hello {{who}}. Greetings from Home Assistant.</p>
+    <p>Hello {% raw %}{{who}}{% endraw %}. Greetings from Home Assistant.</p>
   </template>
 </dom-module>
 
@@ -90,9 +73,13 @@ Polymer({
     },
     who: {
       type: String,
-      value: 'You'
+      computed: 'computeWho(panel)',
     }
-  }
+  },
+
+  computeWho: function (panel) {
+    return panel && panel.config && panel.config.who ? panel.config.who : 'World';
+  },
 });
 </script>
 ```
@@ -101,7 +88,7 @@ Create an entry for the new panel in your `configuration.yaml` file:
 
 ```yaml
 hello_panel:
-  title: 'Custom panel'
+  who: 'You'
 ```
 
 For more examples, see the [Custom panel Examples](/cookbook#custom-panel-examples) on our examples page.

@@ -1,30 +1,30 @@
 ---
 layout: post
-title: "0.25: iFrame panels, Jupyther notebooks, DirecTV."
+title: "0.25: Custom frontend panels, Jupyter notebooks, DirecTV."
 description: "This new release of Home Assistant contains support for iFrame panels."
 date: 2016-07-30 12:00:00 +0000
 date_formatted: "July 30, 2016"
-author: Fabian Affolter
+author: Fabian Affolter & Paulus Schoutsen
 author_twitter: fabaff
 comments: true
 categories: Release-Notes
 ---
 
-We are proud to annonce the availability of Home Assistant 0.25. One highlight in this release are the three new media player platforms. This means that today Home Assistant inclused 26 media player integrations. 
+When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!
 
-The brand-new [iFrame panels][panel] allows you to integrate third-party web frontends into Home Assistant. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view. You would be also able to create your own frontend with [custom] panels.
+Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can [add it's own page to the frontend][custom-panels]. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you'll come up with!
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2200UutdXlo" frameborder="0" allowfullscreen></iframe>
-</div>
+We have also seen an exciting trend of people starting to visualize their Internet of Things data using [Jupyter] Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] cover the basics.
 
-The [Jupyter] Notebooks are a great way to create and share documents that contain code, visualizations, and explanatory text. It's easy to work with your stored information about your home. The [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] only covers the basics.
+This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant cna talk to 26 different media players!
 
-Starting with this release cycle we are now using [typing] as described in [PEP484]. This is another step to improve the code and make us ready for the future. The test coverage is still 99.9999999 %.
+The brand-new [iFrame panel component][iframe_panel] allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.
+
+I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] data ([PEP484]) to the Home Assistant core. This will help us identify issues before they are released.
 
 <img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
-- Frontend: Support for [iFrame panels][panel] to adding other sites to sidebar ([@balloob])
+- Frontend: Support for [iFrame panels][iframe_panel] to adding other sites to sidebar ([@balloob])
 - Allow components to register [custom frontend panels][custom-panels] ([@balloob])
 - Add example custom_component [react_panel][react-panel] showing custom panels ([@balloob])
 - Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
@@ -32,7 +32,7 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 - Media player: [Russound RNET][Russound] integration ([@laf]) 
 - Remote: Option specifying custom timeout when calling Home Assistant API ([@n8henrie])
 - Tests: Dependencies were removed from tests ([@balloob])
-- Thermostat: Integration of [KNX] thermostats (@open-homeautomation])
+- Thermostat: Integration of [KNX] thermostats ([@open-homeautomation])
 - Thermostat: Support for HVAC mode of [Nest] devices ([@vladonemo])
 - InfluxDB: Option to specify additional [tags] ([@open-homeautomation])
 - Input slider: Support for float value ([@ngraziano])
@@ -46,7 +46,7 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 - Remote: Support for getting the [Configuration] through the Python API ([@fabaff])
 - Media player: Support for [DirecTV] ([@cbulock])
 - Use browser timezone for frontend logbook and history dates ([@armills])
-- Light: New support for [x10] lights ([@fotoetienne])
+- Light: New support for [X10] lights ([@fotoetienne])
 - Sensor: Support for observing [IMAP] accounts ([@danieljkemp])
 - Media Player: Integration for [MPC-HC] (Media Player Classic - Home Cinema) mediaplayer ([@abcminiuser])
 - Notify: `location` extension for [Telegram] and photo bug fixed ([@keatontaylor] and [@pvizeli])
@@ -63,7 +63,7 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 - Google Voice SMS notification support was removed.
 
 [@abcminiuser]: https://github.com/abcminiuser
-[@americanwookie]: https://github.com/americanwookie 
+[@americanwookie]: https://github.com/americanwookie
 [@armills]: https://github.com/armills
 [@balloob]: https://github.com/balloob
 [@cbulock]: https://github.com/cbulock
@@ -90,12 +90,13 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zeroDenial]: https://github.com/zeroDenial
 
-[panel]: /components/planel_iframe/
+[custom-panels]: /developers/frontend_creating_custom_panels/
+[iframe_panel]: /components/panel_iframe/
 [custom]: /cookbook/custom_panel_using_react/
 [flux]: /component/light.flux_led/
 [script]: /components/script/
 [Russound]: /component/media_player.russound_rnet/
-[tags]: /component/influxdb/ 
+[tags]: /component/influxdb/
 [filter]: /topics/templating/
 [jupyter-notebooks]: /cookbook/#jupyter-notebooks
 [jupyter-repo]: https://github.com/home-assistant/home-assistant-notebooks
@@ -103,11 +104,12 @@ Starting with this release cycle we are now using [typing] as described in [PEP4
 [blog]: /blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/
 [DirecTV]: /component/media_player.directv/
 [Configuration]: /developers/python_api/
-[x10]: /components/light.x10/
+[X10]: /components/light.x10/
 [IMAP]: /component/sensor.imap/
 [type]: https://docs.python.org/3/library/typing.html
 [PEP484]: https://www.python.org/dev/peps/pep-0484/
 [MPC-HC]: /components/media_player.mpchc/
 [Telegram]: /components/notify.telegram/
 [react-panel]: /cookbook/custom_panel_using_react/
-[custom-panels]: /developers/frontend_creating_custom_panels/
+[KNX]: /components/thermostat.knx/
+[Nest]: /components/thermostat.nest/

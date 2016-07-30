@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_category: Frontend
 ha_release: 0.25
 ---
 
@@ -32,7 +32,7 @@ panel_iframe:
 
 Configuration variables:
 
-- **[panael_name]** (*Required*): Name of the panel.
+- **[panel_name]** (*Required*): Name of the panel.
   - **title** (*Required*): Friendly title for the panel. Will be used in the sidebar.
   - **icon** (*Optional*): The API token of your bot.
   - **url** (*Required*): The chat ID of your user.
