@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-07-30T20:21:28+00:00</updated>
+  <updated>2016-07-30T20:51:55+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -37,7 +37,7 @@
   <li>Allow components to register <a href="https://home-assistant.io/developers/frontend_creating_custom_panels/">custom frontend panels</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Add example custom_component <a href="https://home-assistant.io/cookbook/custom_panel_using_react/">react_panel</a> showing custom panels (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Light: <a href="https://home-assistant.io/components/light.flux_led/">MagicLight/Flux WiFi Color LED Light</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Script: Delay support for <a href="https://home-assistant.io/getting-started/scripts/#delay/">Scripts</a> (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Script: Specify a delay <a href="https://home-assistant.io/getting-started/scripts/#delay/">using templates</a> (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
   <li>Media player: <a href="https://home-assistant.io/components/media_player.russound_rnet/">Russound RNET</a> integration (<a href="https://github.com/laf">@laf</a>)</li>
   <li>Remote: Option specifying custom timeout when calling Home Assistant API (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
   <li>Thermostat: Integration of <a href="https://home-assistant.io/components/thermostat.knx/">KNX</a> thermostats (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
