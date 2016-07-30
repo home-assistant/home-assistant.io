@@ -99,23 +99,41 @@
 
 <h3><a class="title-link" name="libcec" href="#libcec"></a> libcec</h3>
 
-<p><a href="https://github.com/Pulse-Eight/libcec">libcec</a> must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. <code>libcec</code> installs Python 3 bindings, by default as a system Python module. If you are running Home Assistant in a Python virtual environment, make sure it can access the system module, by either symlinking it or using the <code>--system-site-packages</code> flag.</p>
+<p><a href="https://github.com/Pulse-Eight/libcec">libcec</a> must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. <code>libcec</code> installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a <a href="/getting-started/installation-virtualenv/">Python virtual environment</a>, make sure it can access the system module, by either symlinking it or using the <code>--system-site-packages</code> flag.</p>
 
 <h4><a class="title-link" name="symlinking-into-virtual-environment" href="#symlinking-into-virtual-environment"></a> Symlinking into virtual environment</h4>
 
-<p><code>ln -s /usr/local/lib/python3.4/dist-packages/cec &lt;your venv&gt;/lib/python3.4/site-packages</code></p>
+<p>Create a symlink to the <code>cec</code> installation.</p>
 
-<p>e.g. the default virtual environment for the Raspberry Pi AIO would be as follows.</p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ ln -s /usr/local/lib/python3.4/dist-packages/cec /path/to/your/venv/lib/python3.4/site-packages
+</pre></div>
+</div>
+</div>
 
-<p><code>ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages</code></p>
+<p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi-all-in-one/">Raspberry Pi AIO</a> the command would be as follows.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
+</pre></div>
+</div>
+</div>
 
 <p>If after symlinking and adding <code>hdmi_cec:</code> to your configuration you are getting the following error in your logs,</p>
 
-<p><code>* failed to open vchiq instance</code></p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>* failed to open vchiq instance
+</pre></div>
+</div>
+</div>
 
-<p>you will also need to add the user account HASS runs under, to the <code>video</code> group. To add the HASS user account to the <code>video</code> group run the following command.</p>
+<p>you will also need to add the user account Home Asssistant runs under, to the <code>video</code> group. To add the Home Assisitant’s user account to the <code>video</code> group run the following command.</p>
 
-<p><code>usermod -a -G video &lt;hass_user_account&gt;</code></p>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ usermod -a -G video &lt;hass_user_account&gt;
+</pre></div>
+</div>
+</div>
 
 <h2><a class="title-link" name="configuration-example" href="#configuration-example"></a> Configuration Example</h2>
 
@@ -186,6 +204,7 @@
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/_components/hdmi_cec.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/hdmi.png' />
   </div>
     <div class='section'>
     IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
