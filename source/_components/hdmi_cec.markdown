@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Automation
-featured: false
+logo: hdmi.png
 ha_release: 0.23
 ha_iot_class: "Local Push"
 ---
@@ -23,23 +23,33 @@ The computer running Home Assistant must support CEC, and of course be connected
 
 ### {% linkable_title libcec %}
 
-[libcec](https://github.com/Pulse-Eight/libcec) must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings, by default as a system Python module. If you are running Home Assistant in a Python virtual environment, make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
+[libcec](https://github.com/Pulse-Eight/libcec) must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a [Python virtual environment](/getting-started/installation-virtualenv/), make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
 
 #### {% linkable_title Symlinking into virtual environment %}
 
-`ln -s /usr/local/lib/python3.4/dist-packages/cec <your venv>/lib/python3.4/site-packages`
+Create a symlink to the `cec` installation.
+ 
+```bash
+$ ln -s /usr/local/lib/python3.4/dist-packages/cec /path/to/your/venv/lib/python3.4/site-packages
+```
 
-e.g. the default virtual environment for the Raspberry Pi AIO would be as follows.
+For the default virtual environment of a [Raspberry Pi AIO](/getting-started/installation-raspberry-pi-all-in-one/) the command would be as follows.
 
-`ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages`
+```bash
+$ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
+```
 
 If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
 
-`* failed to open vchiq instance`
+```bash
+* failed to open vchiq instance
+```
 
-you will also need to add the user account HASS runs under, to the `video` group. To add the HASS user account to the `video` group run the following command.
+you will also need to add the user account Home Asssistant runs under, to the `video` group. To add the Home Assisitant's user account to the `video` group run the following command.
 
-`usermod -a -G video <hass_user_account>`
+```bash
+$ usermod -a -G video <hass_user_account>
+```
 
 ## {% linkable_title Configuration Example %}
 
