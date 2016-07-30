@@ -31,18 +31,17 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 - Script: Delay support for [Scripts][script] ([@Teagan42])
 - Media player: [Russound RNET][Russound] integration ([@laf]) 
 - Remote: Option specifying custom timeout when calling Home Assistant API ([@n8henrie])
-- Tests: Dependencies were removed from tests ([@balloob])
 - Thermostat: Integration of [KNX] thermostats ([@open-homeautomation])
 - Thermostat: Support for HVAC mode of [Nest] devices ([@vladonemo])
 - InfluxDB: Option to specify additional [tags] ([@open-homeautomation])
 - Input slider: Support for float value ([@ngraziano])
-- Template: New filters (`timestamp_local` and `timestamp_utc`) ([@fabaff])
-- Binary sensor: Water leak sensor support added ([@w1ll1am23])
-- Sensor: Support for luminance of Tellduslive  Fibaro Motion Sensor ([@PetitCircuitLab])
-- Switch: Inverted logic for RPi GPIO ([@zeroDenial])
+- Template: New [filters] (`timestamp_local` and `timestamp_utc`) ([@fabaff])
+- Binary sensor - Wink: Water leak sensor support added ([@w1ll1am23])
+- Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor ([@PetitCircuitLab])
+- Switch - RPi GPIO: Fix when inverted logic ([@zeroDenial])
 - Z-Wave: Rollershutter update ([@turbokongen])
 - RFXtrx: Fire events when receiving signals from sensors and tests added ([@Danielhiversen])
-- Core: Add [type] checking using mypy to the core ([@fabianhjr])
+- Core: Add [type][typing] checking using mypy to the core ([@fabianhjr])
 - Remote: Support for getting the [Configuration] through the Python API ([@fabaff])
 - Media player: Support for [DirecTV] ([@cbulock])
 - Use browser timezone for frontend logbook and history dates ([@armills])
@@ -56,12 +55,13 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 - Sensor: Speedtest with improved error handling and state restoring ([@nkgilley])
 - Recorder: Stability fixes ([@kellerza])
 - Qwikswitch: Stability fixes ([@kellerza])
-- Light: Hyperion keeps now track of active color ([@schneefux])
+- Light: [Hyperion] keeps now track of active color ([@schneefux])
 
 ### {% linkable_title Breaking changes %}
 
 - Google Voice SMS notification support was removed.
 
+[@nkgilley]: https://github.com/nkgilley
 [@abcminiuser]: https://github.com/abcminiuser
 [@americanwookie]: https://github.com/americanwookie
 [@armills]: https://github.com/armills
@@ -93,23 +93,25 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 [custom-panels]: /developers/frontend_creating_custom_panels/
 [iframe_panel]: /components/panel_iframe/
 [custom]: /cookbook/custom_panel_using_react/
-[flux]: /component/light.flux_led/
-[script]: /components/script/
-[Russound]: /component/media_player.russound_rnet/
-[tags]: /component/influxdb/
+[flux]: /components/light.flux_led/
+[script]: /getting-started/scripts/#delay
+[Russound]: /components/media_player.russound_rnet/
+[tags]: /components/influxdb/
 [filter]: /topics/templating/
 [jupyter-notebooks]: /cookbook/#jupyter-notebooks
 [jupyter-repo]: https://github.com/home-assistant/home-assistant-notebooks
 [Jupyter]: http://jupyter.org/
 [blog]: /blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/
-[DirecTV]: /component/media_player.directv/
-[Configuration]: /developers/python_api/
+[DirecTV]: /components/media_player.directv/
+[Configuration]: /developers/python_api/#get-configuration
 [X10]: /components/light.x10/
-[IMAP]: /component/sensor.imap/
-[type]: https://docs.python.org/3/library/typing.html
+[IMAP]: /components/sensor.imap/
+[typing]: https://docs.python.org/3/library/typing.html
 [PEP484]: https://www.python.org/dev/peps/pep-0484/
 [MPC-HC]: /components/media_player.mpchc/
 [Telegram]: /components/notify.telegram/
 [react-panel]: /cookbook/custom_panel_using_react/
 [KNX]: /components/thermostat.knx/
 [Nest]: /components/thermostat.nest/
+[filters]: /topics/templating/#home-assistant-template-extensions
+[Hyperion]: /components/light.hyperion/

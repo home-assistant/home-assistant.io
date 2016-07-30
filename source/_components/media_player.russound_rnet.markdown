@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: russound.gif
+logo: russound.png
 ha_category: Media Player
 ha_release: 0.25
 ---
