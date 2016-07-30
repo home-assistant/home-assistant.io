@@ -54,11 +54,11 @@ Next I wrote [scripts](/components/script/) that are run whenever the washer or 
 
 Materials used:
 
- - [NodeMCU](https://www.amazon.com/HiLetgo-Version-NodeMCU-Internet-Development/dp/B010O1G1ES)
+ - [NodeMCU](https://www.amazon.com/gp/product/B010O1G1ES)
  - [2 x Accelerometers](http://www.amazon.com/gp/product/B008BOPN40)
  - [2 x Reed switch](http://www.amazon.com/gp/product/B004PARDRO)
 
-[Sketch for the NodeMCU is available here.](https://codebender.cc/sketch:352315)
+[Sketch for the NodeMCU is available here.](https://github.com/nkgilley/nodemcu-laundry/blob/master/nodemcu-laundry.ino)
 
 Home Assistant Configuration:
 
