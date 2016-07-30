@@ -34,6 +34,6 @@ Configuration variables:
 
 - **[panel_name]** (*Required*): Name of the panel.
   - **title** (*Required*): Friendly title for the panel. Will be used in the sidebar.
-  - **icon** (*Optional*): The API token of your bot.
-  - **url** (*Required*): The chat ID of your user.
+  - **icon** (*Optional*): Icon for entry. Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+  - **url** (*Required*): The URL to open.
 
