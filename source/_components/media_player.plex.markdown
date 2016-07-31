@@ -47,3 +47,11 @@ In case [discovery](/components/discovery/) does not work (GDM disabled or non-l
 - **TOKEN** (*Optional*): Only if authentication is required. Set to `null` (without quotes) otherwise.
 
 At this moment, the Plex platform only supports one Plex Media Server.
+
+It is possible to get errors that look like the following.
+```
+ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
+INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
+```
+
+If this occurs, try changing the setting `Secure connections` in your Plex Media Server to `Preferred` (instead of `Required`). The Plex component does not currently support HTTPS.
