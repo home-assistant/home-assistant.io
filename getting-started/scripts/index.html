@@ -164,7 +164,7 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Waits however many minutes input_slider.minute_delay is set to</span>
 <span class="comment"># Valid formats include HH:MM and HH:MM:SS</span>
-<span class="key">delay</span>: <span class="string"><span class="content">'00:{{ input_slider.minute_delay }}:00'</span></span>
+<span class="key">delay</span>: <span class="string"><span class="content">'00:{{ input_slider.minute_delay | int }}:00'</span></span>
 </pre></div>
 </div>
 </div>
