@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-By default Home Assistant will try to detect your location and will automatically select a temperature unit and time zone based on your location. You can overwrite this by adding the following information to your `configuration.yaml`:
+By default Home Assistant will try to detect your location and will automatically select a temperature unit, distance unit and time zone based on your location. You can overwrite this by adding the following information to your `configuration.yaml`:
 
 ```yaml
 homeassistant:
@@ -24,6 +24,9 @@ homeassistant:
 
   # C for Celsius, F for Fahrenheit
   temperature_unit: C
+  
+  # km for Kilometers, m for Meters, mi for Miles, ft for Feet
+  distance_unit: km
 
   # Pick yours from here:
   # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
