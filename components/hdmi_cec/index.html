@@ -119,21 +119,9 @@
 </div>
 </div>
 
-<p>If after symlinking and adding <code>hdmi_cec:</code> to your configuration you are getting the following error in your logs,</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>* failed to open vchiq instance
-</pre></div>
-</div>
-</div>
-
-<p>you will also need to add the user account Home Asssistant runs under, to the <code>video</code> group. To add the Home Assisitant’s user account to the <code>video</code> group run the following command.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ usermod -a -G video &lt;hass_user_account&gt;
-</pre></div>
-</div>
-</div>
+<p class="note">If after symlinking and adding <code>hdmi_cec:</code> to your configuration you are getting the following error in your logs, 
+<code>* failed to open vchiq instance</code> you will also need to add the user account Home Asssistant runs under, to the <code>video</code> group. To add the Home Assisitant’s user account to the <code>video</code> group, run the following command. <code>$ usermod -a -G video &lt;hass_user_account&gt;</code>
+</p>
 
 <h2><a class="title-link" name="configuration-example" href="#configuration-example"></a> Configuration Example</h2>
 
