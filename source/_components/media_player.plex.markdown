@@ -49,6 +49,7 @@ In case [discovery](/components/discovery/) does not work (GDM disabled or non-l
 At this moment, the Plex platform only supports one Plex Media Server.
 
 It is possible to get errors that look like the following.
+
 ```
 ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
 INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
