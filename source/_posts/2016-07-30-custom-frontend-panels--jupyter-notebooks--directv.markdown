@@ -16,7 +16,7 @@ Starting with this release, we are extending our extensability to the frontend. 
 
 We have also seen an exciting trend of people starting to visualize their Internet of Things data using [Jupyter] Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] cover the basics.
 
-This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant cna talk to 26 different media players!
+This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant can talk to 26 different media players!
 
 The brand-new [iFrame panel component][iframe_panel] allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.
 
