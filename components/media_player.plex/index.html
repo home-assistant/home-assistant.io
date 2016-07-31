@@ -129,11 +129,11 @@
 
 <p>At this moment, the Plex platform only supports one Plex Media Server.</p>
 
-<p>It is possible to get errors that look like the following.<br />
-<code>
-ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
+<p>It is possible to get errors that look like the following.</p>
+
+<pre><code>ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
 INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
-</code></p>
+</code></pre>
 
 <p>If this occurs, try changing the setting <code>Secure connections</code> in your Plex Media Server to <code>Preferred</code> (instead of <code>Required</code>). The Plex component does not currently support HTTPS.</p>
 
