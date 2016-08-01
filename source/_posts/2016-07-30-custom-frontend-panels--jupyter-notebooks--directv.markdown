@@ -57,6 +57,13 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 - Qwikswitch: Stability fixes ([@kellerza])
 - Light: [Hyperion] keeps now track of active color ([@schneefux])
 
+### {% linkable_title Hotfix 0.25.1 - August 1 %}
+
+- Light - Z-Wave: Bring back delayed value update behavior ([@jnewland])
+- Recorder: Properly close session after execute ([@kellerza])
+- Media Player - Kodi: No longer block startup if connecting to wrong port ([@shoekstra])
+- Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some ([@balloob])
+
 ### {% linkable_title Breaking changes %}
 
 - Google Voice SMS notification support was removed.
@@ -89,6 +96,8 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 [@vladonemo]: https://github.com/vladonemo
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zeroDenial]: https://github.com/zeroDenial
+[@jnewland]: https://github.com/jnewland
+[@shoekstra]: https://github.com/shoekstra
 
 [custom-panels]: /developers/frontend_creating_custom_panels/
 [iframe_panel]: /components/panel_iframe/
