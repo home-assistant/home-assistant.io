@@ -21,7 +21,8 @@ device_tracker:
   platform: locative
 ```
 
-Install on your smartphone : 
+Install on your smartphone:
+
 - [Android](https://play.google.com/store/apps/details?id=io.locative.app)
 - [iOS](https://itunes.apple.com/us/app/geofancy/id725198453)
 
