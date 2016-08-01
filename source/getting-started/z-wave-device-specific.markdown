@@ -18,9 +18,41 @@ These devices will either show as a binary sensor or a sensor called `Alarm xxxx
 ##### {% linkable_title Locks and other secure devices %}
 
 These devices require a network key to be set for the zwave network before they are paired. This key is set in OpenZwave's `options.xml` which is located in Open Zwave's directory. This should also be the same directory as `config_path:` in your `configuration.yaml`. If it's not, make sure you have the same values in all the files you are using.
-The option is commented by default in `options.xml` and is a default key. Make your own unique key. The key is in Hexadecimals.
+The option is commented out by default in `options.xml` and is a default key. Make your own unique key. The key is in Hexadecimals.
 It is best to pair these devices in Open Zwave Control Panel or other Zwave tool that can show you logs while pairing. Test the device before you save the configuration.
 Make sure you copy the newly saved `zwcfg_[home_id].xml`into your HomeAssistant config directory.
+
+##### {% linkable_title Event node_event for automation %}
+HomeAssistant will trigger a event when command_class_basic changes value on a node.
+This can be virtually anything, so tests have to be made to determine what value equals what.
+You can use this for automations.
+
+Example:
+```yaml
+- alias: Minimote Button Pressed
+  trigger:
+    platform: event
+    event_type: zwave.basic_level
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      basic_level: 255
+```
+
+##### {% linkable_title Event node_event for automation %}
+HomeAssistant will trigger a event when a scene is activated by a node in the zwave network.
+This can be a press of a button, so tests have to be made to determine what scene_id equals what.
+You can use this for automations.
+
+Example:
+```yaml
+- alias: Minimote Button 1 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 1
+```
 
 
 ##### {% linkable_title Aeon Minimote %}
