@@ -32,6 +32,14 @@ cd home-assistant/virtualization/vagrant
 The following instructions will assume you changed your working directory to be home-assistant/virtualization/vagrant. This is mandatory because Vagrant will look for informations about the running VM inside that folder and won't work otherwise
 </p>
 
+<p class='note'>
+When using Vagrant on Windows, change git's auto.crlf to input before cloning the Home Assistant repository. With input setting git won't automatically change line endings from Unix LF to Windows CRLF. Shell scripts executed during provision won't work with Windows line endings.
+</p>
+
+```bash
+git config --global core.autocrlf input
+```
+
 ## {% linkable_title Create the Vagrant VM and start Home Assistant %}
 
 ```bash
