@@ -89,7 +89,7 @@ Returns the current configuration as JSON.
     "latitude": 44.1234,
     "location_name": "Home",
     "longitude": 5.5678,
-    "temperature_unit": "\u00b0C",
+    "unit_system": "metric",
     "time_zone": "Europe/Zurich",
     "version": "0.8.0.dev0"
 }

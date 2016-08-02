@@ -22,8 +22,8 @@ homeassistant:
   # Impacts weather/sunrise data (altitude above sea level) 
   elevation: 430
 
-  # C for Celsius, F for Fahrenheit
-  temperature_unit: C
+  # 'metric' for Metric, 'imperial' for Imperial
+  unit_system: metric
 
   # Pick yours from here:
   # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
