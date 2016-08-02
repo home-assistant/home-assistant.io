@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-01T06:53:55+00:00</updated>
+  <updated>2016-08-02T04:05:48+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -74,6 +74,12 @@
   <li>Recorder: Properly close session after execute (<a href="https://github.com/kellerza">@kellerza</a>)</li>
   <li>Media Player - Kodi: No longer block startup if connecting to wrong port (<a href="https://github.com/shoekstra">@shoekstra</a>)</li>
   <li>Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0252---august-2" href="#hotfix-0252---august-2"></a> Hotfix 0.25.2 - August 2</h3>
+
+<ul>
+  <li>Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
