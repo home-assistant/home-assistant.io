@@ -92,7 +92,7 @@ Depending on what's plugged into your USB ports, the name found above may change
 
 #### {% linkable_title Events %}
 
-Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):
+Some devices can also trigger scene activation or node events, which can be used in automation scripts (for example the press of a button on a scene enabled wall switch):
 
 ```yaml
 # Example configuration.yaml automation entry
@@ -102,11 +102,25 @@ automation:
       platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: zwaveme_zme_wallcs_secure_wall_controller_8
+        object_id: zwaveme_zme_wallcs_secure_wall_controller_8
         scene_id: 11
 ```
 
-The *entity_id* and *scene_id* of all triggered events can be seen in the console output.
+Or a basic class device reporting it's level via a node event:
+
+```yaml
+# Example configuration.yaml automation entry
+automation:
+  - alias: Turn on Desk light
+    trigger:
+      platform: event
+      event_type: zwave.node_event
+      event_data:
+        object_id: leviton_zwave_static_co_11
+        basic_level: 255
+```
+
+The *object_id*, *scene_id* (Scene Events), and *basic_level* (Node Events) of triggered events can be seen in the console output.
 
 #### {% linkable_title Services %}
 
