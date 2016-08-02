@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: mpchc.png
 ha_category: Media Player
-featured: true
+featured: false
 ha_release: 0.25.0
 ---
 
