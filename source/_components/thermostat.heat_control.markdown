@@ -33,3 +33,4 @@ Configuration variables:
 - **min_temp** (*Optional*): Set minimum set point available (default: 7)
 - **max_temp** (*Optional*): Set maximum set point available (default: 35)
 - **target_temp** (*Required*): Set intital target temperature. Failure to set this variable will result in target temperature being set to null on startup.
+- **ac_mode** (*Optional*): Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
