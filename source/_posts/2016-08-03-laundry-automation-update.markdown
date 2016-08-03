@@ -43,7 +43,7 @@ Next I wrote [scripts](/components/script/) that are run whenever the washer or 
   <a href='/images/blog/2016-07-laundry-automation/protoboard.jpg'>
     <img src='/images/blog/2016-07-laundry-automation/protoboard.jpg' />
   </a>
-  Top left: reed switch. Bottom left: moteino. Right: Accelerometer.
+  NodeMCU connected to MPU-6050 accelerometer.
 </p>
 
 Materials used:
