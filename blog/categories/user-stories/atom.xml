@@ -4,7 +4,7 @@
   <title><![CDATA[Category: User-Stories | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/user-stories/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-03T17:58:57+00:00</updated>
+  <updated>2016-08-03T18:55:07+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -51,7 +51,7 @@
   <a href="https://home-assistant.io/images/blog/2016-07-laundry-automation/protoboard.jpg">
     <img src="https://home-assistant.io/images/blog/2016-07-laundry-automation/protoboard.jpg" />
   </a>
-  Top left: reed switch. Bottom left: moteino. Right: Accelerometer.
+  NodeMCU connected to MPU-6050 accelerometer.
 </p>
 
 <p>Materials used:</p>
