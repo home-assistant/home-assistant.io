@@ -55,8 +55,15 @@ To upgrade the All-In-One setup manually:
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
 *  Change to hass user `sudo su -s /bin/bash hass`
 *  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
-*  Update HA `pip3 install --upgrade homeassistant`
-  
+*  Update HA `pip3 install --upgrade homeassistant` ** See below for DEV branch command.
+
+If you want to stay on top of the development of Home Assistant then you can upgrade to the `dev` branch. 
+`pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev`
+
+<p class='note warning'>
+  This can result in an unstable system, loss of data, exessive electric bills, etc. etc.
+</p>
+
 To upgrade with fabric:
 
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
