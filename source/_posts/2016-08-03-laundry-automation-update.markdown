@@ -2,14 +2,13 @@
 layout: post
 title: "Laundry Sensors with NodeMCU and Home Assistant"
 description: "Nolan describes how he gets notified when laundry is done."
-date: 2016-08-03 11:22 -0700
+date: 2016-08-03 10:22 -0700
 date_formatted: "August 2, 2016"
 author: Nolan Gilley
 comments: true
 categories: User-Stories
 og_image: /images/blog/2016-07-laundry-automation/protoboard.jpg
 ---
-
 
 _This is a guest post by Home Assistant user and contributor [Nolan Gilley](https://github.com/nkgilley)._
 
