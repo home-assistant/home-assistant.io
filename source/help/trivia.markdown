@@ -13,7 +13,7 @@ This page contains only irrelevant and unhelpful information about Home Assistan
 
 ### {% linkable_title Name %}
 
-Unknown at the moment.
+Isn't it obvious? Home Assistant is the good soul that is assisting you in your home. It's also common to refer to Home Assistant simply as HA or hass (not to be confused with the German word "Hass", it's more like the abbreviation of *H*ome *A*ssistant *S*erver *S*ervice). 
 
 ### {% linkable_title Website %}
 
@@ -33,7 +33,7 @@ This sections just contains some random numbers of the Home Assistant eco-system
 
 | Description | 2015 |
 |---|---|
-| [Gitter.io](https://gitter.im/home-assistant/home-assistant)  | 334 |
+| [Gitter.io](https://gitter.im/home-assistant/home-assistant) | 334 |
 | [Forum posts](https://community.home-assistant.io/) | 352 |
 | [Forum topics](https://community.home-assistant.io/) | 83 |
 | [Forum members](https://community.home-assistant.io/) | 92 |
