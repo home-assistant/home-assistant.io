@@ -25,6 +25,8 @@ media_player:
   port: 6600
   location: bedroom
   password: PASSWORD
+  baseurl: http://localhost/mpd/cover/
+  covername: cover.jpg
 ```
 
 Configuration variables:
@@ -33,6 +35,22 @@ Configuration variables:
 - **port** (*Optional*): Port of the Music Player Daemon, defaults to 6600.
 - **location** (*Optional*): Location of your Music Player Daemon.
 - **password** (*Optional*): Password for your Music Player Daemon.
+- **baseurl** (*Optional*): Base url for your cover art.
+- **covername** (*Optional*): The name of the file to use for cover art.
+
+To get cover art to work properly you will need to setup a web server that has access to your music directory and have a image of the cover in each album. Here is an example of how to setup nginx.
+
+```yaml
+server {
+    listen 80; 
+    server_name localhost;
+
+    location /mpd/cover/ {
+        root /storage/Music/;
+        rewrite /mpd/cover/(.*) /$1 break;
+    }   
+}
+```
 
 This platform works with [Music Player Daemon](http://www.musicpd.org/) and [mopidy](https://www.mopidy.com/) with [Mopidy-MPD](https://docs.mopidy.com/en/latest/ext/mpd/) as used by [Pi MusicBox](http://www.pimusicbox.com/).
 
