@@ -89,7 +89,51 @@
   <hr class="divider">
   
 
-  <h5><a class="title-link" name="aeon-minimote" href="#aeon-minimote"></a> Aeon Minimote</h5>
+  <h5><a class="title-link" name="motion-or-alarm-sensors" href="#motion-or-alarm-sensors"></a> Motion or alarm sensors</h5>
+
+<p>In order for Home Assistant to recognize well the sensor, you will need to change its configuration from <code>Basic Set (default)</code> to <code>Binary Sensor report</code> or <code>Alarm report</code>. Currently there’s no way to do this in Home Assistant but you can use ozwcp (OpenZWave control panel), Domoticz or similar to do it<br />
+These devices will either show as a binary sensor or a sensor called <code>Alarm xxxx</code> and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.</p>
+
+<h5><a class="title-link" name="locks-and-other-secure-devices" href="#locks-and-other-secure-devices"></a> Locks and other secure devices</h5>
+
+<p>These devices require a network key to be set for the zwave network before they are paired. This key is set in OpenZwave’s <code>options.xml</code> which is located in Open Zwave’s directory. This should also be the same directory as <code>config_path:</code> in your <code>configuration.yaml</code>. If it’s not, make sure you have the same values in all the files you are using.<br />
+The option is commented out by default in <code>options.xml</code> and is a default key. Make your own unique key. The key is in Hexadecimals.<br />
+It is best to pair these devices in Open Zwave Control Panel or other Zwave tool that can show you logs while pairing. Test the device before you save the configuration.<br />
+Make sure you copy the newly saved <code>zwcfg_[home_id].xml</code>into your HomeAssistant config directory.</p>
+
+<h5><a class="title-link" name="event-basic_level-for-automation" href="#event-basic_level-for-automation"></a> Event basic_level for automation</h5>
+<p>HomeAssistant will trigger a event when command_class_basic changes value on a node.<br />
+This can be virtually anything, so tests have to be made to determine what value equals what.<br />
+You can use this for automations.</p>
+
+<p>Example:<br />
+<code>yaml
+- alias: Minimote Button Pressed
+  trigger:
+    platform: event
+    event_type: zwave.basic_level
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      basic_level: 255
+</code></p>
+
+<h5><a class="title-link" name="event-scene_id-for-automation" href="#event-scene_id-for-automation"></a> Event scene_id for automation</h5>
+<p>HomeAssistant will trigger a event when a scene is activated by a node in the zwave network.<br />
+This can be a press of a button, so tests have to be made to determine what scene_id equals what.<br />
+You can use this for automations.</p>
+
+<p>Example:<br />
+<code>yaml
+- alias: Minimote Button 1 Pressed
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: aeon_labs_minimote_1
+      scene_id: 1
+</code></p>
+
+<h5><a class="title-link" name="aeon-minimote" href="#aeon-minimote"></a> Aeon Minimote</h5>
 
 <p>Here’s a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into <code>automation.yaml</code>.</p>
 
@@ -160,10 +204,6 @@
 </pre></div>
 </div>
 </div>
-
-<h5><a class="title-link" name="aeotec-multisensor-6" href="#aeotec-multisensor-6"></a> Aeotec MultiSensor 6</h5>
-
-<p>In order for Home Assistant to recognize well the motion sensor, you will need to change its configuration from <code>Basic Set (default)</code> to <code>Binary Sensor report</code>. Currently there’s no way to do this in Home Assistant but you can use ozwcp (OpenZWave control panel), Domoticz or similar to do it</p>
 
 
 </article>
