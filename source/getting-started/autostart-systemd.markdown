@@ -20,7 +20,7 @@ If the preceding command returns the string `systemd`, you are likely using `sys
 If you want Home Assistant to be launched automatically, an extra step is needed to setup `systemd`. You need a service file to control Home Assistant with `systemd`. If you are using a Raspberry Pi with Raspbian then replace the `[your user]` with `pi` otherwise use your user you want to run Home Assistant. `ExecStart` contains the path to `hass` and this may vary. Check with `whereis hass` for the location.
 
 ```bash
-$ su -c 'cat <<EOF >> /lib/systemd/system/home-assistant@[your user].service
+$ su -c 'cat <<EOF >> /etc/systemd/system/home-assistant@[your user].service
 [Unit]
 Description=Home Assistant
 After=network.target
@@ -38,7 +38,7 @@ EOF'
 There is also another [sample service file](https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service) available. To use this one, just download it.
 
 ```bash
-$ sudo wget https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service -O /lib/systemd/system/home-assistant@[your user].service
+$ sudo wget https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service -O /etc/systemd/system/home-assistant@[your user].service
 ```
 
 You need to reload `systemd` to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.
@@ -54,7 +54,7 @@ If everything went well, `sudo systemctl start home-assistant@[your user]` shoul
 ```bash
 $ sudo systemctl status home-assistant@[your user] -l
 ● home-assistant@fab.service - Home Assistant for [your user]
-   Loaded: loaded (/usr/lib/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled)
+   Loaded: loaded (/etc/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled)
    Active: active (running) since Sat 2016-03-26 12:26:06 CET; 13min ago
  Main PID: 30422 (hass)
    CGroup: /system.slice/system-home\x2dassistant.slice/home-assistant@[your user].service
@@ -66,5 +66,5 @@ $ sudo systemctl status home-assistant@[your user] -l
 To get Home Assistant's logging output, simple use `journalctl`.
 
 ```bash
-$ sudo journalctl -f -u home-assistant@[your user]
+$ journalctl -f -u home-assistant@[your user]
 ```
