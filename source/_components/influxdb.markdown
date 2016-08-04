@@ -30,6 +30,9 @@ influxdb:
   blacklist:
      - entity.id1
      - entity.id2
+  whitelist:
+     - entity.id3
+     - entity.id4
   tags:
     - instance: prod
 ```
@@ -44,5 +47,6 @@ Configuration variables:
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
 - **blacklist** (*Optional*): List of entities not logged to InfluxDB.
+- **whitelist** (*Optional*): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the **blacklist** option will prevail.
 - **tags** (*Optional*): Tags to mark the data.
 
