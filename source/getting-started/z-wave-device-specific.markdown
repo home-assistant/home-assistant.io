@@ -33,7 +33,7 @@ Example:
  - alias: Minimote Button Pressed
    trigger:
      platform: event
-     event_type: zwave.basic_level
+     event_type: zwave.node_event
      event_data:
        object_id: aeon_labs_minimote_1
        basic_level: 255
