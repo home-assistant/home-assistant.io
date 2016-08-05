@@ -28,6 +28,7 @@ This can be virtually anything, so tests have to be made to determine what value
 You can use this for automations.
 
 Example:
+
 ```yaml
  - alias: Minimote Button Pressed
    trigger:
