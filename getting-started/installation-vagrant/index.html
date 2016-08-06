@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>A <code>Vagrantfile</code> is avalable into <code>virtualization/vagrant</code> folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them.</p>
+  <p>A <code>Vagrantfile</code> is available into <code>virtualization/vagrant</code> folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them.</p>
 
 <p class="note">
 Vagrant is intended for testing/development only. It is NOT recommended for permanent installations.
@@ -101,25 +101,25 @@ Vagrant is intended for testing/development only. It is NOT recommended for perm
 
 <h2><a class="title-link" name="get-home-assistant-source-code" href="#get-home-assistant-source-code"></a> Get Home Assistant source code</h2>
 
-<p>Download the home-assistant source code by either downloading the .zip file from <a href="https://github.com/home-assistant/home-assistant/releases">GitHub releases page</a>, or by using <a href="https://git-scm.com/">Git</a></p>
+<p>Download the Home Assistant source code by either downloading the .zip file from <a href="https://github.com/home-assistant/home-assistant/releases">GitHub releases page</a> or by using <a href="https://git-scm.com/">Git</a></p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>git clone https://github.com/home-assistant/home-assistant.git
-cd home-assistant/virtualization/vagrant
+  <div class="code"><pre>$ git clone https://github.com/home-assistant/home-assistant.git
+$ cd home-assistant/virtualization/vagrant
 </pre></div>
 </div>
 </div>
 
 <p class="note">
-The following instructions will assume you changed your working directory to be home-assistant/virtualization/vagrant. This is mandatory because Vagrant will look for informations about the running VM inside that folder and won’t work otherwise
+The following instructions will assume you changed your working directory to be <code>home-assistant/virtualization/vagrant</code>. This is mandatory because Vagrant will look for informations about the running VM inside that folder and won’t work otherwise
 </p>
 
 <p class="note">
-When using Vagrant on Windows, change git’s auto.crlf to input before cloning the Home Assistant repository. With input setting git won’t automatically change line endings from Unix LF to Windows CRLF. Shell scripts executed during provision won’t work with Windows line endings.
+When using Vagrant on Windows, change git’s <code>auto.crlf</code> to input before cloning the Home Assistant repository. With input setting git won’t automatically change line endings from Unix LF to Windows CRLF. Shell scripts executed during provision won’t work with Windows line endings.
 </p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>git config --global core.autocrlf input
+  <div class="code"><pre>$ git config --global core.autocrlf input
 </pre></div>
 </div>
 </div>
@@ -127,7 +127,7 @@ When using Vagrant on Windows, change git’s auto.crlf to input before cloning 
 <h2><a class="title-link" name="create-the-vagrant-vm-and-start-home-assistant" href="#create-the-vagrant-vm-and-start-home-assistant"></a> Create the Vagrant VM and start Home Assistant</h2>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>vagrant up
+  <div class="code"><pre>$ vagrant up
 </pre></div>
 </div>
 </div>
@@ -139,7 +139,7 @@ When using Vagrant on Windows, change git’s auto.crlf to input before cloning 
 <p>To shutdown the Vagrant host:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>vagrant halt
+  <div class="code"><pre>$ vagrant halt
 </pre></div>
 </div>
 </div>
@@ -153,7 +153,7 @@ When using Vagrant on Windows, change git’s auto.crlf to input before cloning 
 <p>Any changes made to the local directory on your workstation will be available from the Vagrant host, so to apply your changes to the Home Assistant process, just restart it:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>touch restart ; vagrant provision
+  <div class="code"><pre>$ touch restart ; vagrant provision
 </pre></div>
 </div>
 </div>
@@ -163,7 +163,7 @@ When using Vagrant on Windows, change git’s auto.crlf to input before cloning 
 <p>To run tests against your changes:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>touch run_tests ; vagrant provision
+  <div class="code"><pre>$ touch run_tests ; vagrant provision
 </pre></div>
 </div>
 </div>
@@ -173,7 +173,7 @@ When using Vagrant on Windows, change git’s auto.crlf to input before cloning 
 <p>To completely remove the VM:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>rm setup_done ; vagrant destroy -f
+  <div class="code"><pre>$ rm setup_done ; vagrant destroy -f
 </pre></div>
 </div>
 </div>
