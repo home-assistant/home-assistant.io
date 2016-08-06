@@ -29,8 +29,8 @@ Example of using condition:
     entity_id: sensor.mini_despacho
     to: 'ON'
   condition:
-      condition: or
-      conditions:
+    condition: or
+    conditions:
       - condition: template
         value_template: '{{ states.sun.sun.attributes.elevation < 4 }}'
       - condition: template
