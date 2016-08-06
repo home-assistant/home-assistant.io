@@ -29,6 +29,10 @@ notify:
   username: YOUR_SMTP_USERNAME
   password: YOUR_SMTP_PASSWORD
   recipient: YOUR_RECIPIENT
+  data:
+    images: 
+        - /path/to/file1.jpg
+        - /path/to/file2.jpg
 ```
 
 Configuration variables:
@@ -41,6 +45,7 @@ Configuration variables:
 - **password** (*Optional*):Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
 - **recipient** (*Required*): Recipient of the notification.
 - **starttls** (*Optional*): Enables STARTTLS, eg. 1 or 0. Defaults to 0.
+- **images** (*Optional*): Adds in-line image attachments to email. Triggers text/HTML multi-part message instead of text default.
 
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 
