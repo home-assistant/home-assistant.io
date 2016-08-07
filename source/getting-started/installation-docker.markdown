@@ -21,6 +21,10 @@ This will launch Home Assistant and serve the web interface from port 8123 on yo
 When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace `-v /etc/localtime:/etc/localtime:ro` with `-e "TZ=America/Los_Angeles"` (replacing America/Los_Angeles with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones))
 </p>
 
+If you changed the Config and want to restart the Server you can go 2 ways.
+ 1. you can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service" or
+ 2. you gan restart it from the Terminal by running `docker restart home-assistant`
+
 ### {% linkable_title Troubleshooting %}
 
 If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
