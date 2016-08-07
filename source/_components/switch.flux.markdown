@@ -19,7 +19,7 @@ During the day (in between `start time` and `sunset time`), it will fade the lig
 
 If you don't wish to have flux update on 30 second intervals, you can leave the switch turned off and use automation rules that call the service `switch.flux_update` whenever you want the lights updated.
 
-To use your TPLink switch in your installation, add the following to your `configuration.yaml` file:
+To use the Flux switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
