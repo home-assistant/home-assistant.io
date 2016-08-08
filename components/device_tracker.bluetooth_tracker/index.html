@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Bluetooth Tracker - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate bluetooth tracking within Home Assistant.">
+    <meta name="description" content="Instructions for integrating bluetooth tracking within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/device_tracker.bluetooth_tracker/">
@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/device_tracker.bluetooth_tracker/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate bluetooth tracking within Home Assistant.">
+    <meta property="og:description" content="Instructions for integrating bluetooth tracking within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="Bluetooth Tracker">
-    <meta name="twitter:description" content="Instructions how to integrate bluetooth tracking within Home Assistant.">
+    <meta name="twitter:description" content="Instructions for integrating bluetooth tracking within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -89,11 +89,11 @@
   <hr class="divider">
   
 
-  <p>This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. It is not requiered to pair the devices with eachother! <br />
-Devices discovered are stored with ‘bt_’ as the prefix for device mac address in <code>known_devices.yaml</code>.</p>
+  <p>This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. It is not required to pair the devices with each other! <br />
+Devices discovered are stored with ‘bt_’ as the prefix for device mac addresses in <code>known_devices.yaml</code>.</p>
 
 <p class="note">
-Requires PyBluez. If you are on raspbian, make sure you first install <code>bluetooth</code> and <code>libbluetooth-dev</code> by running <code>sudo apt install bluetooth libbluetooth-dev</code>
+Requires PyBluez. If you are on Raspbian, make sure you first install <code>bluetooth</code> and <code>libbluetooth-dev</code> by running <code>sudo apt install bluetooth libbluetooth-dev</code>
 </p>
 
 <p>To use the Bluetooth tracker in your installation, add the following to your <code>configuration.yaml</code> file:</p>
