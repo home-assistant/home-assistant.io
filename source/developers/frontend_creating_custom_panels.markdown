@@ -11,30 +11,9 @@ footer: true
 
 Any component has the possibility to add a panel to the frontend. Panels will be rendered full screen and have real-time access to the Home Assistant object via JavaScript. Examples of this in the app are map, logbook and history.
 
-Adding a custom panel to your component is easy. For this example we're assuming your component is in `hello_panel.py`. Start by converting your panel to a folder. Create a folder called `hello_panel` and move `hello_panel.py` to `hello_panel/__init__.py`. In that same folder, create a file `panel.html`.
+Create a file called `hello.html` in your <config dir>/panels/.
 
-Your component should register the panel. The minimum required code for your component is:
-
-```python
-"""A minimal custom panel example."""
-import os
-
-from homeassistant.components.frontend import register_panel
-
-DOMAIN = 'hello_panel'
-DEPENDENCIES = ['frontend']
-
-PANEL_PATH = os.path.join(os.path.dirname(__file__), 'panel.html')
-
-
-def setup(hass, config):
-    """Initialize a minimal custom panel."""
-    register_panel(hass, 'hello', PANEL_PATH, title='Hello World',
-                   icon='mdi:appnet', config=config.get(DOMAIN, {}))
-    return True
-```
-
-The `panel.html` contains the needed building blocks to create the elements inside the view.
+The `hello.html` contains the needed building blocks to create the elements inside the view.
 
 ```javascript
 <dom-module id='ha-panel-hello'>
@@ -87,8 +66,12 @@ Polymer({
 Create an entry for the new panel in your `configuration.yaml` file:
 
 ```yaml
-hello_panel:
-  who: 'You'
+panel_custom:
+  - name: hello_world
+    sidebar_title: Hello World
+    sidebar_icon: mdi:hand-pointing-right
+    url_path: hello_world
+    webcomponent_path: <config dir>/panels/hello.html
 ```
 
 For more examples, see the [Custom panel Examples](/cookbook#custom-panel-examples) on our examples page.
