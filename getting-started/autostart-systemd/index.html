@@ -161,6 +161,11 @@ $ sudo systemctl start home-assistant@[your user]
 </div>
 </div>
 
+<p>Because the log can scroll quite quickly, you might want to open a second terminal to view only the errors:<br />
+<code>bash
+$ journalctl -f -u home-assistant@[your user] | grep -i 'error'
+</code></p>
+
 
 </article>
 
