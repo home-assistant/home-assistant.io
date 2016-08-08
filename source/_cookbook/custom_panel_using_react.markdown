@@ -20,11 +20,17 @@ This is a [React](https://facebook.github.io/react/) implementation of [TodoMVC]
 
 All you need is available as a [custom component](https://github.com/home-assistant/home-assistant/tree/dev/config/custom_components/react_panel).
 
-Create a entry for the panel in your `configuration.yaml` file to enable it. Set a title if you like.
+Create a entry for the panel in your `configuration.yaml` file to enable it.
 
 ```yaml
-react_panel:
-  title: 'React'
+panel_custom:
+  - name: todomvc
+    sidebar_title: TodoMVC
+    sidebar_icon: mdi:work
+    url_path: my-todomvc
+    webcomponent_path: <config dir>/panels/<component name>.html
+    config:
+      hello: world
 ```
 
 This video shows the example in action.
