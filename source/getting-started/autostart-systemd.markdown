@@ -68,3 +68,8 @@ To get Home Assistant's logging output, simple use `journalctl`.
 ```bash
 $ journalctl -f -u home-assistant@[your user]
 ```
+
+Because the log can scroll quite quickly, you might want to open a second terminal to view only the errors:
+```bash
+$ journalctl -f -u home-assistant@[your user] | grep -i 'error'
+```
