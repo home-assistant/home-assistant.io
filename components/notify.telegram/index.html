@@ -98,18 +98,7 @@
   <li>The <code>chat_id</code> of an user.</li>
 </ul>
 
-<p>An easy way to get your chat ID is described below:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">telegram</span>
-bot = telegram.Bot(token=<span class="string"><span class="delimiter">'</span><span class="content">YOUR_API_TOKEN</span><span class="delimiter">'</span></span>)
-chat_id = bot.getUpdates()[-<span class="integer">1</span>].message.chat_id
-print(chat_id)
-</pre></div>
-</div>
-</div>
-
-<p>Another way to retrieve your <code>chat_id</code> is visiting <a href="https://api.telegram.org/botYOUR_API_TOKEN/getUpdates">https://api.telegram.org/botYOUR_API_TOKEN/getUpdates</a>.</p>
+<p>The quickest way to retrieve your <code>chat_id</code> is visiting <a href="https://api.telegram.org/botYOUR_API_TOKEN/getUpdates">https://api.telegram.org/botYOUR_API_TOKEN/getUpdates</a>.</p>
 
 <p>The result set will include your chat ID as <code>id</code> in the <code>from</code> section:</p>
 
@@ -125,6 +114,18 @@ print(chat_id)
                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:<span class="integer">123456789</span>,
                <span class="key"><span class="delimiter">&quot;</span><span class="content">first_name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Your first name</span><span class="delimiter">&quot;</span></span>,
 <span class="error">.</span><span class="error">.</span><span class="error">.</span>
+</pre></div>
+</div>
+</div>
+
+<p>Another way to get your chat ID directly is described below:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">import</span> <span class="include">telegram</span>
+bot = telegram.Bot(token=<span class="string"><span class="delimiter">'</span><span class="content">YOUR_API_TOKEN</span><span class="delimiter">'</span></span>)
+chat_id = bot.getUpdates()[-<span class="integer">1</span>].message.chat_id
+print(chat_id)
+<span class="integer">123456789</span>
 </pre></div>
 </div>
 </div>
