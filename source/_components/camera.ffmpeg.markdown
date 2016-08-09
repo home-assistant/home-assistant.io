@@ -36,3 +36,7 @@ Configuration variables:
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **ffmpeg_bin** (*Optional*): Default 'ffmpeg'.
 - **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. image quality or video filter options.
+
+Image quality:
+
+You can controll the image quality with [extra_arguments](https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000) *-q:v 2-32* or with lossless option *-pred 1*.
