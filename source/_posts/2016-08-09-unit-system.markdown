@@ -58,6 +58,7 @@ homeassistant:
 [@mtreinish]: https://github.com/mtreinish
 [@open-homeautomation]: https://github.com/open-homeautomation
 [@partofthething]: https://github.com/partofthething
+[@persandtrom]: https://github.com/persandtrom
 [@pvizeli]: https://github.com/pvizeli
 [@robbiet480]: https://github.com/robbiet480
 [@sdague]: https://github.com/sdague
