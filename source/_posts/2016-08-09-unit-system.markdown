@@ -34,7 +34,7 @@ It's time for 0.26! The biggest change in this release is a new unit system. Ins
 - [Foursquare] component to receive instant notifications of checkins ([@robbiet480])
 - Camera: New [FFMPEG] platform allows to stream anything through front end ([@pvizeli])
 - New command line script to manage keyring entries ([@kellerza])
-- Notify - SMTP: Allow embedding of [images] ([@partofthething])
+- Notify - SMTP: Allow embedding of [images][images] ([@partofthething])
 - Sensor: [OhmConnect] is now supported ([@robbiet480])
 - [panel_custom] component allows the registering of new panels ([@balloob])
 
