@@ -42,6 +42,27 @@ Configuration variables:
 - **recipient** (*Required*): Recipient of the notification.
 - **starttls** (*Optional*): Enables STARTTLS, eg. 1 or 0. Defaults to 0.
 
+To use the smtp notification, refer to it in an automation or script like in this example:
+
+```yaml
+  burglar: 
+    alias: Burglar Alarm
+    sequence:
+      - service: shell_command.snapshot
+      - delay:
+            seconds: 1
+      - service: notify.NOTIFIER_NAME
+        data:
+            title: 'Intruder alert'
+            message: 'Intruder alert at apartment!!'
+            data:
+                images: 
+                    - /home/pi/snapshot1.jpg
+                    - /home/pi/snapshot2.jpg
+```
+
+The optional **images** field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.
+
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 
 A combination that will work properly is port 587 and STARTTLS. It's recommended to enable STARTTLS, if possible.
