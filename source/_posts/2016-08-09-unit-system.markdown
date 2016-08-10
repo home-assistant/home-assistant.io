@@ -37,6 +37,8 @@ It's time for 0.26! The biggest change in this release is a new unit system. Ins
 - Notify - SMTP: Allow embedding of [images][images] ([@partofthething])
 - Sensor: [OhmConnect] is now supported ([@robbiet480])
 - [panel_custom] component allows the registering of new panels ([@balloob])
+- Light: New [mqtt_json] platform for working with JSON payload ([@corbanmailloux])
+
 
 ### {% linkable_title Breaking changes %}
 
@@ -51,6 +53,7 @@ homeassistant:
 
 [@abcminiuser]: https://github.com/abcminiuser
 [@balloob]: https://github.com/balloob
+[@corbanmailloux]: https://github.com/corbanmailloux
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@HBDK]: https://github.com/HBDK
 [@jnewland]: https://github.com/jnewland
@@ -77,3 +80,4 @@ homeassistant:
 [Whitelist]: /components/influxdb/
 [particulate]: /components/sensor.particulate_matter/
 [screenshot]: /components/media_player.lg_netcast/
+[mqtt_json]: 
