@@ -26,7 +26,7 @@ switch:
     switches:
         skylight:
             friendly_name: 'Skylight'
-            value_template: {% raw %}'{{ states.sensor.skylight.state }}'{% endraw %}
+            value_template: {% raw %}'{{ is_state('sensor.skylight', 'on') }}'{% endraw %}
             turn_on:
                 service: switch.turn_on
                 entity_id: switch.skylight_open
@@ -44,6 +44,12 @@ Configuration variables:
   - **turn_off** (*Required*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
   - **entity_id** (*Optional*): Add a list of entity_ids so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
 
+
+## {% linkable_title Considerations %}
+
+If you are using the state of a platform that takes extra time to load, the template switch may get an 'unknown' state during startup. This results in error messages in your log file until that platform has completed loading. If you use is_state() function in your template, you can avoid this situation. For example, you would replace {% raw %}'{{ states.switch.source.state }}'{% endraw %} with this equivalent that returns true/false and never gives an unknown result:
+{% raw %}'{{ is_state('switch.source', 'on') }}'{% stendraw %}
+
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this switch.
@@ -57,7 +63,7 @@ switch:
     platform: template
     switches:
         copy:
-            value_template: {% raw %}'{{ states.switch.source.state }}'{% endraw %}
+            value_template: {% raw %}'{{ is_state('switch.source', 'on') }}'{% endraw %}
             turn_on:
                 service: switch.turn_on
                 entity_id: switch.source
@@ -95,7 +101,7 @@ switch:
     switches:
         skylight:
             friendly_name: 'Skylight'
-            value_template: {% raw %}'{{ states.sensor.skylight.state }}'{% endraw %}
+            value_template: {% raw %}'{{ is_state('sensor.skylight.state', 'on') }}'{% endraw %}
             turn_on:
                 service: switch.turn_on
                 entity_id: switch.skylight_open
