@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: gpsd.png
-ha_category: "Other"
-ha_release: 0.25
+ha_category: Sensor
+ha_release: 0.26
 ---
 
 The `gpsd` component is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
@@ -29,7 +29,7 @@ Jul 16 09:30:33 laptop019 gpsdctl[5305]: gpsd_control(action=add, arg=/dev/ttyUS
 Jul 16 09:30:33 laptop019 gpsdctl[5305]: reached a running gpsd
 ```
 
-To check if your setup is working, connect to port 2947 on the host where `gpsd` is running with `telnet`.
+To check if your setup is working, connect to port 2947 on the host where `gpsd` is running with `telnet`. This may need adjustments to your firewall.
 
 ```bash
 
@@ -40,17 +40,19 @@ Escape character is '^]'.
 {"class":"VERSION","release":"3.15","rev":"3.15-2.fc23","proto_major":3,"proto_minor":11}
 ```
 
-To setup the GPSD component in your installation, add the following to your `configuration.yaml` file:
+To setup a GPSD sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-gpsd:
-  host: 127.0.0.1
-  port: 2947
+senosr:
+  - platform: gpsd
+    host: 127.0.0.1
+    port: 2947
+    name: GPS USB
 ```
 
 Configuration variables:
 
 - **host** (*Optional*): The host where GPSD is running. Defaults to `localhost`.
 - **port** (*Optional*): The port which GPSD is using. Defaults to 2947. 
-
+- **port** (*Optional*): Friendly name to use for the frontend. Default to GPS.
