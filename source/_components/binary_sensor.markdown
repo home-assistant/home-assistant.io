@@ -18,12 +18,12 @@ Most binary sensors support the `SENSOR_CLASSES` which let you specify the type 
 - **None**: Generic on/off
 - **opening**: Door, window, etc
 - **motion**: Motion sensor
-- **gas**: CO, CO2, etc
+- **gas'**: CO, CO2, etc
 - **smoke'**: Smoke detector
 - **moisture**: Specifically a wetness sensor
 - **light**: Lightness threshold
 - **power**: Power, over-current, etc
-- **safety**: On means unsafe, Off means safe
+- **safety**: Generic on=unsafe, off=safe
 - **heat**: On means hot (or too hot)
 - **cold**: On means cold (or too cold)
 - **moving**: On means moving, Off means stopped
