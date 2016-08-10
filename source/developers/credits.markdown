@@ -49,6 +49,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Charles Spirakis](https://github.com/srcLurker)
 - [Chris Mulder](https://github.com/chrisvis)
 - [Christian Braedstrup](https://github.com/LinuxChristian)
+- [Corban Mailloux](https://github.com/corbanmailloux)
 - [coteyr](https://github.com/coteyr/)
 - [Dale Higgs](https://github.com/dale3h)
 - [Dan Cinnamon](https://github.com/Cinntax)
