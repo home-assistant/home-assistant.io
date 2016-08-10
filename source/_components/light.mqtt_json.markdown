@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MQTT JSON Light"
-description: "Instructions how to setup MQTT JSON lights within Home Assistant."
+description: "Instructions for how to setup MQTT JSON lights within Home Assistant."
 date: 2016-08-09 08:30
 sidebar: true
 comments: false
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Light
+ha_iot_class: "Local Push"
 ---
 
 
