@@ -50,7 +50,7 @@ Configuration variables:
   - **rain**: The rain volume.
   - **snow**: The snow volume
 
-Details about the API are available in the [OpenWeatherMap documentation](http://bugs.openweathermap.org/projects/api/wiki).
+Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).
 
 Only metric measurements are supported at the moment.
 
