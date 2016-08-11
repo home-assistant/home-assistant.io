@@ -96,6 +96,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Ian Copp](https://github.com/icopp)
 - [Igor Shults](https://github.com/ishults)
 - [Issac Kelly](https://github.com/issackelly)
+- [Jacob Tomlinson](https://github.com/jacobtomlinson)
 - [James Cole](https://github.com/jamespcole)
 - [Jan Harkes](https://github.com/jaharkes)
 - [Jan-Preben Mossin](https://github.com/jpmossin)

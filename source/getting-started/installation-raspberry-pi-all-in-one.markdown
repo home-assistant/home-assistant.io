@@ -73,6 +73,7 @@ After upgrading, you can restart Home Assistant a few different ways:
 
 To launch the OZWCP web application:
 
+*  Make sure Home Assistant is not running! So stop that first
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
 *  Change to the ozwcp directory `cd /srv/hass/src/open-zwave-control-panel/`
 *  Launch the control panel `sudo ./ozwcp -p 8888`

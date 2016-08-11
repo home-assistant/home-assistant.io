@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Light
 ha_iot_class: "Local Polling"
-featured: true
+featured: false
 ha_release: 0.25
 ---
 
