@@ -12,7 +12,7 @@ categories: Release-Notes
 
 It's time for 0.26! The biggest change in this release is a new unit system. Instead of picking Celsius or Fahrenheit you'll have to pick imperial or metric now. This influences the units for your temperature, distance, and weight. This will simplify any platform or component that needs to know this information. Big thanks to [@Teagan42] for her hard work on this!
 
-<img src='/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/ohmconnect.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/ohmconnect.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/fastdotcom.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Core: Introduce notion of unit system (deprecates temperature unit option) ([@Teagan42])
 - Front end: Speed improvements ([@balloob])
@@ -38,6 +38,7 @@ It's time for 0.26! The biggest change in this release is a new unit system. Ins
 - Sensor: [OhmConnect] is now supported ([@robbiet480])
 - [panel_custom] component allows the registering of new panels ([@balloob])
 - Light: New [mqtt_json] platform for working with JSON payload ([@corbanmailloux])
+- Sensor: New [Fast.com] platform to measure network bandwidth performance ([@nkgilley])
 
 
 ### {% linkable_title Breaking changes %}
@@ -59,6 +60,7 @@ homeassistant:
 [@jnewland]: https://github.com/jnewland
 [@kellerza]: https://github.com/kellerza
 [@mtreinish]: https://github.com/mtreinish
+[@nkgilley]: https://github.com/nkgilley
 [@open-homeautomation]: https://github.com/open-homeautomation
 [@partofthething]: https://github.com/partofthething
 [@persandtrom]: https://github.com/persandtrom
@@ -78,6 +80,7 @@ homeassistant:
 [changed]: /components/alarm_control_panel.verisure/
 [color]: /components/light.flux_led/
 [Whitelist]: /components/influxdb/
-[particulate]: /components/sensor.particulate_matter/
+[particulate]: /components/sensor.serial_pm/
 [screenshot]: /components/media_player.lg_netcast/
-[mqtt_json]: 
+[mqtt_json]: /components/light.mqtt_json/
+[Fast.com]: /components/sensor.fastdotcom/
