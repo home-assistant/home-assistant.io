@@ -98,11 +98,11 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">openexchangerates</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">your_api_key</span></span>
-  <span class="key">base</span>: <span class="string"><span class="content">USD</span></span> <span class="comment">#optional</span>
-  <span class="key">quote</span>: <span class="string"><span class="content">EUR</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">USDEUR</span></span> <span class="comment">#optional</span>
+  - <span class="string"><span class="content">platform: openexchangerates</span></span>
+    <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_API_KEY</span></span>
+    <span class="key">base</span>: <span class="string"><span class="content">USD</span></span>
+    <span class="key">quote</span>: <span class="string"><span class="content">EUR</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">USDEUR</span></span>
 </pre></div>
 </div>
 </div>
@@ -110,6 +110,7 @@
 <p>Configuration variables:</p>
 
 <ul>
+  <li><strong>api_key</strong> (<em>Required</em>): API Key for <a href="https://openexchangerates.org">Open Exchange Rates</a>.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name to use in the frontend.</li>
   <li><strong>base</strong> (<em>Optional</em>): The symbol of the base currency. Defaults to USD</li>
   <li><strong>quote</strong> (<em>Required</em>): The symbol of the quote or target currency.</li>
