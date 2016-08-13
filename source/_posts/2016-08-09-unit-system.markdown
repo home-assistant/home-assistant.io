@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.26: New unit system"
+title: "0.26: New unit system, pilight, OHMconnect, and Fast.com"
 description: "Frontend became blazing fast and extensible. DirecTV support added."
 date: 2016-08-09 10:00:00 +0000
 date_formatted: "August 09, 2016"
@@ -12,7 +12,7 @@ categories: Release-Notes
 
 It's time for 0.26! The biggest change in this release is a new unit system. Instead of picking Celsius or Fahrenheit you'll have to pick imperial or metric now. This influences the units for your temperature, distance, and weight. This will simplify any platform or component that needs to know this information. Big thanks to [@Teagan42] for her hard work on this!
 
-<img src='/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/ohmconnect.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/fastdotcom.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/ohmconnect.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/fastdotcom.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/pilight.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Core: Introduce notion of unit system (deprecates temperature unit option) ([@Teagan42])
 - Front end: Speed improvements ([@balloob])
@@ -40,6 +40,7 @@ It's time for 0.26! The biggest change in this release is a new unit system. Ins
 - Light: New [mqtt_json] platform for working with JSON payload ([@corbanmailloux])
 - Sensor: New [Fast.com] platform to measure network bandwidth performance ([@nkgilley])
 - New [pilight] component to control 433 Mz devices ([@DavidLP])
+- Sensor: [GPSD] now supported ([@fabaff])
 
 ### {% linkable_title Breaking changes %}
 
@@ -57,6 +58,7 @@ homeassistant:
 [@corbanmailloux]: https://github.com/corbanmailloux
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@DavidLP]: https://github.com/DavidLP
+[@fabaff]: https://github.com/fabaff
 [@HBDK]: https://github.com/HBDK
 [@jnewland]: https://github.com/jnewland
 [@kellerza]: https://github.com/kellerza
@@ -86,3 +88,4 @@ homeassistant:
 [mqtt_json]: /components/light.mqtt_json/
 [Fast.com]: /components/sensor.fastdotcom/
 [pilight]: /components/pilight/
+[GPSD]: /components/sensor.gpsd/
