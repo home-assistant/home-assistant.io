@@ -1,0 +1,268 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Validate the input - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Validation of entries in configuration.yaml">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/developers/development_validation/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Validate the input">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/developers/development_validation/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Validation of entries in configuration.yaml">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Validate the input">
+    <meta name="twitter:description" content="Validation of entries in configuration.yaml">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href='/getting-started/'>Getting started</a></li>
+  <li><a href='/components/'>Components</a></li>
+  <li><a href='/cookbook/'>Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Validate the Input
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The <code>configuration.yaml</code> file contains the configuration options for components and platforms. To ensure that the given configuration provided by the user is valid we use <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> to check it. Certain entries are optional or could be required for the setup of a platform or a component. Others must be of a certain type or out of an already defined list. This will ensure that the users are notified if something is wrong with a platform or component setup before Home Assistant is running.</p>
+
+<p>Beside the <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> default types are a bunch of custom types available. To get a full overview take a look at the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/config_validation.py">config_validation.py</a> helper.</p>
+
+<ul>
+  <li>Types: <code>string</code>, <code>byte</code>, and <code>boolean</code></li>
+  <li>Entity ID: <code>entity_id</code> and <code>entity_ids</code></li>
+  <li>Numbers: <code>small_float</code> and <code>positive_int</code></li>
+  <li>Time: <code>time</code>, <code>time_zone</code></li>
+  <li>Misc: <code>template</code>, <code>slug</code>, <code>temperature_unit</code>, <code>latitude</code>, <code>longitude</code>, <code>isfile</code>, <code>sun_event</code>, <code>ensure_list</code>, and <code>icon</code></li>
+</ul>
+
+<p>To validate plaforms using <a href="/components/mqtt/">MQTT</a> there are <code>valid_subscribe_topic</code> and <code>valid_publish_topic</code> present.</p>
+
+<h3><a class="title-link" name="snippets" href="#snippets"></a> Snippets</h3>
+
+<p>This section contains a couple of snippets for the validation we use.</p>
+
+<h3><a class="title-link" name="default-name" href="#default-name"></a> Default name</h3>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>DEFAULT_NAME = <span class="string"><span class="delimiter">'</span><span class="content">Sensor name</span><span class="delimiter">'</span></span>
+
+PLATFORM_SCHEMA = vol.Schema({
+    ...
+    vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="port" href="#port"></a> Port</h3>
+
+<p>As all port numbers are coming out of the range 1 till 65535 a range check should be performed.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>DEFAULT_PORT = <span class="integer">993</span>
+
+PLATFORM_SCHEMA = vol.Schema({
+    [...]
+    vol.Optional(CONF_PORT, default=DEFAULT_PORT):
+        vol.All(vol.Coerce(<span class="predefined">int</span>), vol.Range(min=<span class="integer">1</span>, max=<span class="integer">65535</span>)),
+</pre></div>
+</div>
+</div>
+
+<h3><a class="title-link" name="sensor-types" href="#sensor-types"></a> Sensor types</h3>
+
+<p>If a sensor has a pre-defined list of available options it should be tested if the configuration entry matches it.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>SENSOR_TYPES = {
+    <span class="string"><span class="delimiter">'</span><span class="content">article_cache</span><span class="delimiter">'</span></span>: (<span class="string"><span class="delimiter">'</span><span class="content">Article Cache</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">MB</span><span class="delimiter">'</span></span>),
+    <span class="string"><span class="delimiter">'</span><span class="content">average_download_rate</span><span class="delimiter">'</span></span>: (<span class="string"><span class="delimiter">'</span><span class="content">Average Speed</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">MB/s</span><span class="delimiter">'</span></span>),
+}
+
+PLATFORM_SCHEMA = vol.Schema({
+    ....
+    vol.Optional(CONF_MONITORED_VARIABLES, default=[]):
+        [vol.In(SENSOR_TYPES)],
+</pre></div>
+</div>
+</div>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.io/tree/master/source/developers/development_validation.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Development Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/developers/'>Introduction </a>
+        <ul>
+          <li><a  href='/developers/architecture/'>Architecture </a></li>
+          <li><a  href='/developers/architecture_components/'>Components </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/development/'>Starting with Development </a>
+        <ul>
+          <li><a  href='/developers/development_environment/'>Setting up Environment </a></li>
+          <li><a  href='/developers/development_submitting/'>Submit your Work </a></li>
+          <li><a  href='/developers/development_checklist/'>Checklist </a></li>
+          <li><a  href='/developers/development_testing/'>Testing </a></li>
+          <li><a  href='/developers/development_catching_up/'>Catching up with Reality </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
+        <ul>
+          <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
+          <li><a  href='/developers/platform_example_light/'>Example light platform </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/creating_components/'>Adding a new component </a>
+        <ul>
+          <li><a  href='/developers/component_loading/'>Loading components </a></li>
+          <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
+          <li><a  href='/developers/component_initialization/'>Initialization </a></li>
+          <li><a  href='/developers/component_events/'>Handling events </a></li>
+          <li><a  href='/developers/component_states/'>States </a></li>
+          <li><a  href='/developers/component_visibility/'>Visibility </a></li>
+          <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
+          <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        Frontend Development
+        <ul>
+          <li><a  href='/developers/frontend/'>Setup Frontend Environment </a></li>
+          <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_creating_custom_panels/'>Add Custom Panels </a></li>
+        </ul>
+      </li>
+      <li>
+        API
+        <ul>
+          <li><a  href='/developers/rest_api/'>RESTful API </a></li>
+          <li><a  href='/developers/python_api/'>Python API </a></li>
+          <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
+        </ul>
+      </li>
+      <li><a  href='/developers/helpers/'>Online helpers </a></li>
+      <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
+      <li><a  href='/developers/website/'>Home-Assistant.io </a></li>
+      <li><a  href='/developers/credits/'>Credits </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
