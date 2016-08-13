@@ -96,12 +96,12 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">systemmonitor</span></span>
-  <span class="key">resources</span>:
-    - <span class="string"><span class="content">type: disk_use_percent</span></span>
-      <span class="key">arg</span>: <span class="string"><span class="content">/home</span></span>
-    - <span class="string"><span class="content">type: memory_free</span></span>
-    - <span class="string"><span class="content">type: processor_use</span></span>
+  - <span class="string"><span class="content">platform: systemmonitor</span></span>
+    <span class="key">resources</span>:
+      - <span class="string"><span class="content">type: disk_use_percent</span></span>
+        <span class="key">arg</span>: <span class="string"><span class="content">/home</span></span>
+      - <span class="string"><span class="content">type: memory_free</span></span>
+      - <span class="string"><span class="content">type: processor_use</span></span>
 </pre></div>
 </div>
 </div>
@@ -122,7 +122,7 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Type (<code>- type:</code>)</th>
+      <th style="text-align: left">Type (<code>type:</code>)</th>
       <th style="text-align: left">Argument (<code>arg:</code>)</th>
     </tr>
   </thead>
@@ -223,6 +223,9 @@
   <div class='brand-logo-container section'>
   </div>
     <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
     Introduced in release: pre 0.7
     </div>
     <div class='section'>
@@ -263,6 +266,9 @@
         </li>
         <li>
             <a href='/components/sensor.enocean/'>EnOcean Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.fitbit/'>Fitbit</a>
@@ -392,9 +398,6 @@
         </li>
         <li>
             <a href='/components/sensor.vera/'>Vera Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.envisalink/'>Vera Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.verisure/'>Verisure Sensor</a>
