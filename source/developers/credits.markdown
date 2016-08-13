@@ -61,6 +61,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Dan Smith](https://github.com/kk7ds)
 - [Dan Sullivan](https://github.com/dansullivan86/)
 - [Daren Lord](https://github.com/Xorso)
+- [David-Leon Pohl](https://github.com/DavidLP)
 - [Dean Camera](https://github.com/abcminiuser)
 - [Dean Galvin](https://github.com/FreekingDean)
 - [Dennis Karpienski](https://github.com/TheRealLink)

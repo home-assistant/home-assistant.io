@@ -39,7 +39,7 @@ It's time for 0.26! The biggest change in this release is a new unit system. Ins
 - [panel_custom] component allows the registering of new panels ([@balloob])
 - Light: New [mqtt_json] platform for working with JSON payload ([@corbanmailloux])
 - Sensor: New [Fast.com] platform to measure network bandwidth performance ([@nkgilley])
-
+- New [pilight] component to control 433 Mz devices ([@DavidLP])
 
 ### {% linkable_title Breaking changes %}
 
@@ -56,6 +56,7 @@ homeassistant:
 [@balloob]: https://github.com/balloob
 [@corbanmailloux]: https://github.com/corbanmailloux
 [@Danielhiversen]: https://github.com/Danielhiversen
+[@DavidLP]: https://github.com/DavidLP
 [@HBDK]: https://github.com/HBDK
 [@jnewland]: https://github.com/jnewland
 [@kellerza]: https://github.com/kellerza
@@ -84,3 +85,4 @@ homeassistant:
 [screenshot]: /components/media_player.lg_netcast/
 [mqtt_json]: /components/light.mqtt_json/
 [Fast.com]: /components/sensor.fastdotcom/
+[pilight]: /components/pilight/
