@@ -22,40 +22,6 @@ The option is commented out by default in `options.xml` and is a default key. Ma
 It is best to pair these devices in Open Zwave Control Panel or other Zwave tool that can show you logs while pairing. Test the device before you save the configuration.
 Make sure you copy the newly saved `zwcfg_[home_id].xml`into your HomeAssistant config directory.
 
-##### {% linkable_title Event basic_level for automation %}
-HomeAssistant will trigger a event when command_class_basic changes value on a node.
-This can be virtually anything, so tests have to be made to determine what value equals what.
-You can use this for automations.
-
-Example:
-
-```yaml
- - alias: Minimote Button Pressed
-   trigger:
-     platform: event
-     event_type: zwave.node_event
-     event_data:
-       object_id: aeon_labs_minimote_1
-       basic_level: 255
-```
-
-##### {% linkable_title Event scene_id for automation %}
-HomeAssistant will trigger a event when a scene is activated by a node in the zwave network.
-This can be a press of a button, so tests have to be made to determine what scene_id equals what.
-You can use this for automations.
-
-Example:
-
-```yaml
- - alias: Minimote Button 1 Pressed
-   trigger:
-     platform: event
-     event_type: zwave.scene_activated
-     event_data:
-       object_id: aeon_labs_minimote_1
-      scene_id: 1
-```
-
 
 ##### {% linkable_title Aeon Minimote %}
 
