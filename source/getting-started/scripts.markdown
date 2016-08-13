@@ -72,7 +72,7 @@ delay:
 ```yaml
 # Waits however many minutes input_slider.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-delay: {% raw %}'00:{{ input_slider.minute_delay }}:00'{% endraw %}
+delay: {% raw %}'00:{{ input_slider.minute_delay | int }}:00'{% endraw %}
 ```
 
 #### {% linkable_title Fire an Event %}

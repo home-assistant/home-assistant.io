@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Vera Sensor"
-description: "Instructions how to integrate Vera sensors into Home Assistant."
+title: "Envisalink Sensor"
+description: "Instructions how to integrate Envisalink sensors into Home Assistant."
 date: 2016-07-01 10:00
 sidebar: true
 comments: false

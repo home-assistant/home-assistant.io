@@ -22,17 +22,17 @@ To enable Template switches in your installation, add the following to your `con
 ```yaml
 # Example configuration.yaml entry
 switch:
-    platform: template
+  - platform: template
     switches:
-        skylight:
-            friendly_name: 'Skylight'
-            value_template: {% raw %}'{{ states.sensor.skylight.state }}'{% endraw %}
-            turn_on:
-                service: switch.turn_on
-                entity_id: switch.skylight_open
-            turn_off:
-                service: switch.turn_on
-                entity_id: switch.skylight_close
+      skylight:
+        friendly_name: 'Skylight'
+        value_template: {% raw %}'{{ is_state('sensor.skylight', 'on') }}'{% endraw %}
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.skylight_open
+        turn_off:
+          service: switch.turn_on
+          entity_id: switch.skylight_close
 ```
 
 Configuration variables:
@@ -42,7 +42,13 @@ Configuration variables:
   - **value_template** (*Required*): Defines a [template](/topics/templating/) to set the state of the switch.
   - **turn_on** (*Required*): Defines an [action](/getting-started/automation/) to run when the switch is turned on.
   - **turn_off** (*Required*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
-  - **entity_id** (*Optional*): Add a list of entity_ids so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
+  - **entity_id** (*Optional*): Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the switch will try to update it's state.
+
+
+## {% linkable_title Considerations %}
+
+If you are using the state of a platform that takes extra time to load, the template switch may get an 'unknown' state during startup. This results in error messages in your log file until that platform has completed loading. If you use is_state() function in your template, you can avoid this situation. For example, you would replace {% raw %}'{{ states.switch.source.state }}'{% endraw %} with this equivalent that returns true/false and never gives an unknown result:
+{% raw %}'{{ is_state('switch.source', 'on') }}'{% endraw %}
 
 ## {% linkable_title Examples %}
 
@@ -54,16 +60,16 @@ This example shows a switch that copies another switch.
 
 ```yaml
 switch:
-    platform: template
+  - platform: template
     switches:
-        copy:
-            value_template: {% raw %}'{{ states.switch.source.state }}'{% endraw %}
-            turn_on:
-                service: switch.turn_on
-                entity_id: switch.source
-            turn_off:
-                service: switch.turn_off
-                entity_id: switch.source
+      copy:
+        value_template: {% raw %}'{{ is_state('switch.source', 'on') }}'{% endraw %}
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.source
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.source
 ````
 
 ### {% linkable_title Toggle switch %}
@@ -72,17 +78,17 @@ This example shows a switch that takes its state from a sensor, and toggles a sw
 
 ```yaml
 switch:
-    platform: template
+  - platform: template
     switches:
-        blind:
-            friendly_name: 'Blind'
-            value_template: {% raw %}'{{ state }}'{% endraw %}
-            turn_on:
-                service: switch.toggle
-                entity_id: switch.blind_toggle
-            turn_off:
-                service: switch.toggle
-                entity_id: switch.blind_toggle
+      blind:
+        friendly_name: 'Blind'
+        value_template: {% raw %}'{{ state }}'{% endraw %}
+        turn_on:
+          service: switch.toggle
+          entity_id: switch.blind_toggle
+        turn_off:
+          service: switch.toggle
+          entity_id: switch.blind_toggle
 ```
 
 ### {% linkable_title Sensor and two switches %}
@@ -91,15 +97,16 @@ This example shows a switch that takes its state from a sensor, and uses two mom
 
 ```yaml
 switch:
-    platform: template
+  - platform: template
     switches:
-        skylight:
-            friendly_name: 'Skylight'
-            value_template: {% raw %}'{{ states.sensor.skylight.state }}'{% endraw %}
-            turn_on:
-                service: switch.turn_on
-                entity_id: switch.skylight_open
-            turn_off:
-                service: switch.turn_on
-                entity_id: switch.skylight_close
+      skylight:
+        friendly_name: 'Skylight'
+        value_template: {% raw %}'{{ is_state('sensor.skylight.state', 'on') }}'{% endraw %}
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.skylight_open
+        turn_off:
+          service: switch.turn_on
+          entity_id: switch.skylight_close
 ```
+

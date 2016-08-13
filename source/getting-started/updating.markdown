@@ -25,6 +25,8 @@ After updating, restart Home Assistant for the changes to take effect. This mean
   The upgrade needs to be run as the same user as the installation was done to avoid permission errors.
 </p>
 
+[BRUH automation](http://www.bruhautomation.com) has created [a tutorial video](https://www.youtube.com/watch?v=tuG2rs1Cl2Y) explaining how to upgrade Home Assistant.
+
 #### {% linkable_title Run the development version %}
 If you want to stay on top of the development of Home Assistant then you can upgrade to the `dev` branch. 
 

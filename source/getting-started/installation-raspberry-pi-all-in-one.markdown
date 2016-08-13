@@ -9,7 +9,7 @@ footer: true
 
 The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric-home-assistant) deploys a complete Home Assistant server including support for MQTT with websockets, Z-Wave, and the Open-Zwave Control Panel.
 
-The only requirement is that you have a Raspberry Pi with a fresh installation of [Raspbian Jessie/Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/) connected to your network.
+The only requirement is that you have a Raspberry Pi with a fresh installation of [Raspbian Jessie](https://www.raspberrypi.org/downloads/raspbian/) connected to your network.
 
 *  Login to Raspberry Pi. For example with `ssh pi@your_raspberry_pi_ip`
 *  Run the following command
@@ -73,6 +73,7 @@ After upgrading, you can restart Home Assistant a few different ways:
 
 To launch the OZWCP web application:
 
+*  Make sure Home Assistant is not running! So stop that first
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
 *  Change to the ozwcp directory `cd /srv/hass/src/open-zwave-control-panel/`
 *  Launch the control panel `sudo ./ozwcp -p 8888`

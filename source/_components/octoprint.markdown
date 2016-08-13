@@ -28,3 +28,5 @@ Configuration variables:
 
 - **api_key** (*Required*): The retrieved api key.
 - **host** (*Required*): The octoprint host.
+
+**NOTE** If your 3D printer isn't connected to the OctoPrint server during the startup of Home Assistant this component will fail to load.

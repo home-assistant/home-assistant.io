@@ -29,6 +29,8 @@ The basics of YAML syntax are block collections and mappings containing key-valu
 
 Note that indentation is an important part of specifying relationships using YAML. Things that are indented are nested "inside" things that are one level higher. So in the above example, `platform: pushbullet` is a property of (nested inside) the `notify` component.
 Getting the right indentation can be tricky if you're not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. Convention is to use 2 spaces for each level of indentation.
+You can use [YAMLLint](http://www.yamllint.com/) to check if your YAML-syntax is correct before loading it into Home Assistant which will save you some time. 
+*Please pay attention on not putting in private data, as it is a 3rd-party website not maintained by Home Assistant.*
 
 Lines that start with **#** are comments and are ignored by the system.
 
