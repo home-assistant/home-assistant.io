@@ -91,32 +91,9 @@
 
   <p>Any component has the possibility to add a panel to the frontend. Panels will be rendered full screen and have real-time access to the Home Assistant object via JavaScript. Examples of this in the app are map, logbook and history.</p>
 
-<p>Adding a custom panel to your component is easy. For this example we’re assuming your component is in <code>hello_panel.py</code>. Start by converting your panel to a folder. Create a folder called <code>hello_panel</code> and move <code>hello_panel.py</code> to <code>hello_panel/__init__.py</code>. In that same folder, create a file <code>panel.html</code>.</p>
+<p>Create a file called <code>hello.html</code> in your <config dir="">/panels/.</config></p>
 
-<p>Your component should register the panel. The minimum required code for your component is:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">A minimal custom panel example.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-<span class="keyword">import</span> <span class="include">os</span>
-
-<span class="keyword">from</span> <span class="include">homeassistant.components.frontend</span> <span class="keyword">import</span> <span class="include">register_panel</span>
-
-DOMAIN = <span class="string"><span class="delimiter">'</span><span class="content">hello_panel</span><span class="delimiter">'</span></span>
-DEPENDENCIES = [<span class="string"><span class="delimiter">'</span><span class="content">frontend</span><span class="delimiter">'</span></span>]
-
-PANEL_PATH = os.path.join(os.path.dirname(__file__), <span class="string"><span class="delimiter">'</span><span class="content">panel.html</span><span class="delimiter">'</span></span>)
-
-
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Initialize a minimal custom panel.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-    register_panel(hass, <span class="string"><span class="delimiter">'</span><span class="content">hello</span><span class="delimiter">'</span></span>, PANEL_PATH, title=<span class="string"><span class="delimiter">'</span><span class="content">Hello World</span><span class="delimiter">'</span></span>,
-                   icon=<span class="string"><span class="delimiter">'</span><span class="content">mdi:appnet</span><span class="delimiter">'</span></span>, config=config.get(DOMAIN, {}))
-    <span class="keyword">return</span> <span class="predefined-constant">True</span>
-</pre></div>
-</div>
-</div>
-
-<p>The <code>panel.html</code> contains the needed building blocks to create the elements inside the view.</p>
+<p>The <code>hello.html</code> contains the needed building blocks to create the elements inside the view.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>&lt;dom-module id=<span class="string"><span class="delimiter">'</span><span class="content">ha-panel-hello</span><span class="delimiter">'</span></span>&gt;
@@ -171,8 +148,12 @@ Polymer({
 <p>Create an entry for the new panel in your <code>configuration.yaml</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">hello_panel</span>:
-  <span class="key">who</span>: <span class="string"><span class="content">'You'</span></span>
+  <div class="code"><pre><span class="key">panel_custom</span>:
+  - <span class="string"><span class="content">name: hello_world</span></span>
+    <span class="key">sidebar_title</span>: <span class="string"><span class="content">Hello World</span></span>
+    <span class="key">sidebar_icon</span>: <span class="string"><span class="content">mdi:hand-pointing-right</span></span>
+    <span class="key">url_path</span>: <span class="string"><span class="content">hello_world</span></span>
+    <span class="key">webcomponent_path</span>: <span class="string"><span class="content">&lt;config dir&gt;/panels/hello.html</span></span>
 </pre></div>
 </div>
 </div>

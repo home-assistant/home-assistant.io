@@ -113,6 +113,7 @@
   <span class="key">sunset_colortemp</span>: <span class="string"><span class="content">3000</span></span>
   <span class="key">stop_colortemp</span>: <span class="string"><span class="content">1900</span></span>
   <span class="key">brightness</span>: <span class="string"><span class="content">200</span></span>
+  <span class="key">mode</span>: <span class="string"><span class="content">xy</span></span>
 </pre></div>
 </div>
 </div>
@@ -128,6 +129,7 @@
   <li><strong>sunset_colortemp</strong> (<em>Optional</em>): The sun set color temperature. Defaults to <code>3000</code>.</li>
   <li><strong>stop_colortemp</strong> (<em>Optional</em>): The color temperature at the end. Defaults to <code>1900</code>.</li>
   <li><strong>brightness</strong> (<em>Optional</em>): The brightness of the lights. Calculated with <code>RGB_to_xy</code> by default.</li>
+  <li><strong>mode</strong> (<em>Optional</em>): Select how color temperature is passed to lights. Valid values are ‘xy’, ‘mired’ and ‘kelvin’. Defaults to ‘xy’.</li>
 </ul>
 
 
@@ -194,6 +196,9 @@
         </li>
         <li>
             <a href='/components/switch.orvibo/'>Orvibo Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.pilight/'>Pilight Switch</a>
         </li>
         <li>
             <a href='/components/switch.pulseaudio_loopback/'>PulseAudio Loopback Switch</a>

@@ -190,7 +190,77 @@ Depending on what’s plugged into your USB ports, the name found above may chan
 
 <h4><a class="title-link" name="events" href="#events"></a> Events</h4>
 
-<p>Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):</p>
+<p><strong>zwave.network_complete</strong><br />
+HomeAssistant will trigger a event when the zwave network is complete. Meaning all of the nodes on the network have been queried. This can take quite som time, depending on wakeup intervals on the battery powered devices on the network.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre> - <span class="string"><span class="content">alias: ZWave network is complete</span></span>
+   <span class="key">trigger</span>:
+     <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+     <span class="key">event_type</span>: <span class="string"><span class="content">zwave.network_complete</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><strong>zwave.network_ready</strong><br />
+HomeAssistant will trigger a event when the zwave network is ready for use. Between <code>zwave.network_start</code> and <code>zwave.network_ready</code> HomeAssistant will feel sluggish when trying to send commands to zwave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered all awake nodes have been queried and sleeping nodes will be queried when they awake.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre> - <span class="string"><span class="content">alias: ZWave network is ready</span></span>
+   <span class="key">trigger</span>:
+     <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+     <span class="key">event_type</span>: <span class="string"><span class="content">zwave.network_ready</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><strong>zwave.network_start</strong><br />
+HomeAssistant will trigger a event when the zwave network is set up to be started.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre> - <span class="string"><span class="content">alias: ZWave network is starting</span></span>
+   <span class="key">trigger</span>:
+     <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+     <span class="key">event_type</span>: <span class="string"><span class="content">zwave.network_start</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><strong>zwave.network_stop</strong><br />
+HomeAssistant will trigger a event when the zwave network stopping.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre> - <span class="string"><span class="content">alias: ZWave network is stopping</span></span>
+   <span class="key">trigger</span>:
+     <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+     <span class="key">event_type</span>: <span class="string"><span class="content">zwave.network_start</span></span>
+</pre></div>
+</div>
+</div>
+
+<p><strong>zwave.node_event</strong><br />
+HomeAssistant will trigger a event when command_class_basic changes value on a node.<br />
+This can be virtually anything, so tests have to be made to determine what value equals what.<br />
+You can use this for automations.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre> - <span class="string"><span class="content">alias: Minimote Button Pressed</span></span>
+   <span class="key">trigger</span>:
+     <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
+     <span class="key">event_type</span>: <span class="string"><span class="content">zwave.node_event</span></span>
+     <span class="key">event_data</span>:
+       <span class="key">object_id</span>: <span class="string"><span class="content">aeon_labs_minimote_1</span></span>
+       <span class="key">basic_level</span>: <span class="string"><span class="content">255</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>The <em>object_id</em> and <em>basic_level</em> of all triggered events can be seen in the console output.</p>
+
+<p><strong>zwave.scene_activated</strong><br />
+Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml automation entry</span>
@@ -200,13 +270,13 @@ Depending on what’s plugged into your USB ports, the name found above may chan
       <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
       <span class="key">event_type</span>: <span class="string"><span class="content">zwave.scene_activated</span></span>
       <span class="key">event_data</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">zwaveme_zme_wallcs_secure_wall_controller_8</span></span>
+        <span class="key">object_id</span>: <span class="string"><span class="content">zwaveme_zme_wallcs_secure_wall_controller_8</span></span>
         <span class="key">scene_id</span>: <span class="string"><span class="content">11</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>The <em>entity_id</em> and <em>scene_id</em> of all triggered events can be seen in the console output.</p>
+<p>The <em>object_id</em> and <em>scene_id</em> of all triggered events can be seen in the console output.</p>
 
 <h4><a class="title-link" name="services" href="#services"></a> Services</h4>
 
@@ -225,12 +295,20 @@ Depending on what’s plugged into your USB ports, the name found above may chan
       <td>Put the zwave controller in inclusion mode. Allows one to add a new device to the zwave network.</td>
     </tr>
     <tr>
-      <td>remove_node</td>
-      <td>Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.</td>
+      <td>add_node_secure</td>
+      <td>Put the zwave controller in secure inclusion mode. Allows one to add a new device with secure communications to the zwave network.</td>
+    </tr>
+    <tr>
+      <td>cancel_command</td>
+      <td>Cancels a running zwave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command.</td>
     </tr>
     <tr>
       <td>heal_network</td>
       <td>Tells the controller to “heal” the network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.</td>
+    </tr>
+    <tr>
+      <td>remove_node</td>
+      <td>Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.</td>
     </tr>
     <tr>
       <td>soft_reset</td>

@@ -102,12 +102,12 @@
 
 <ul>
   <li>Formatting outgoing messages in, for example, the <a href="/components/notify/">notify</a> and <a href="/components/alexa/">alexa</a> components.</li>
-  <li>Process incoming data from sources that provide raw data, like <a href="/components/mqtt/">MQTT</a>, <a href="/components/sensor.rest/">Rest sensor</a> or the <a href="/components/sensor.command_line/">command line sensor</a>.</li>
+  <li>Process incoming data from sources that provide raw data, like <a href="/components/mqtt/">MQTT</a>, <a href="/components/sensor.rest/">REST sensor</a>, or the <a href="/components/sensor.command_line/">command line sensor</a>.</li>
 </ul>
 
 <h2><a class="title-link" name="building-templates" href="#building-templates"></a> Building templates</h2>
 
-<p>Templating in Home Assistant is powered by the Jinja2 templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. We will not go over the basics of the syntax, as Jinja2 does a lot better job at this in their <a href="http://jinja.pocoo.org/docs/dev/templates/">Jinja2 documentation</a>.</p>
+<p>Templating in Home Assistant is powered by the <a href="http://jinja.pocoo.org/">Jinja2</a> templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. We will not go over the basics of the syntax, as Jinja2 does a lot better job at this in their <a href="http://jinja.pocoo.org/docs/dev/templates/">Jinja2 documentation</a>.</p>
 
 <p class="note">
 The frontend has a template editor developer tool to help develop and debug templates.
@@ -131,6 +131,14 @@ The frontend has a template editor developer tool to help develop and debug temp
 </div>
 </div>
 
+<p><a href="http://jinja.pocoo.org/">Jinja2</a> supports a width variety of operations:</p>
+
+<ul>
+  <li><a href="http://jinja.pocoo.org/docs/dev/templates/#math">Mathematical operation</a></li>
+  <li><a href="http://jinja.pocoo.org/docs/dev/templates/#comparisons">Comparisons</a></li>
+  <li><a href="http://jinja.pocoo.org/docs/dev/templates/#logic">Logic</a></li>
+</ul>
+
 <h2><a class="title-link" name="home-assistant-template-extensions" href="#home-assistant-template-extensions"></a> Home Assistant template extensions</h2>
 
 <p>Home Assistant adds extensions to allow templates to access all of the current states:</p>
@@ -149,7 +157,6 @@ The frontend has a template editor developer tool to help develop and debug temp
   <li><code>closest()</code> will find the closest entity.</li>
   <li><code>relative_time(timestamp)</code> will format the date time as relative time vs now (ie 7 seconds)</li>
   <li><code>float</code> will format the output as float.</li>
-  <li>Filter <code>multiply(x)</code> will convert the input to a number and multiply it with <code>x</code>.</li>
   <li>Filter <code>round(x)</code> will convert the input to a number and round it to <code>x</code> decimals.</li>
   <li>Filter <code>timestamp_local</code>  will convert an UNIX timestamp to local time/data.</li>
   <li>Filter <code>timestamp_utc</code> will convert an UNIX timestamp to UTC time/data.</li>
@@ -199,7 +206,9 @@ The frontend has a template editor developer tool to help develop and debug temp
   Paulus is at {{ states('device_tracker.paulus')) }}.
 {% endif %}
 
-{{ states.sensor.temperature | multiply(10) | round(2) }}
+{{ states.sensor.temperature | float + 1 }}
+
+{{ states.sensor.temperature | float * 10 | round(2) }}
 
 {% if states('sensor.temperature') | float &gt; 20 %}
   It is warm!
@@ -300,9 +309,9 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 # Format output
 {{ &quot;%+.1f&quot; | value_json }}
 
-# Calculations
-{{ value_json | multiply(1024) }}
-{{ value_json.used | multiply(0.0001) | round(0) }}
+# Math
+{{ value_json | float * 1024 }}
+{{ float(value_json) * (2**10) }}
 
 # Timestamps
 {{ value_json.tst | timestamp_local }}

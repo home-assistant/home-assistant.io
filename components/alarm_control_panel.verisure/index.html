@@ -93,6 +93,24 @@
 
 <p>The requirement is that you have setup your <a href="/components/verisure/">Verisure hub</a>.</p>
 
+<p>The <code>changed_by</code> attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in <a href="/getting-started/automation/">automation</a>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="key">automation</span>:
+  - <span class="string"><span class="content">alias: Alarm status changed</span></span>
+    <span class="key">trigger</span>:
+      - <span class="string"><span class="content">platform: state</span></span>
+        <span class="key">entity_id</span>: <span class="string"><span class="content">alarm_control_panel.alarm_1</span></span>
+    <span class="key">action</span>:
+      - <span class="string"><span class="content">service: notify.notify</span></span>
+        <span class="key">data_template</span>:
+          <span class="key">message</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
+            Alarm changed from {{ trigger.from_state.state }}
+            to {{ trigger.to_state.state }}
+            by {{ trigger.to_state.attributes.changed_by }}</span></span>
+</pre></div>
+</div>
+</div>
 
 
 </article>

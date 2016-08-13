@@ -103,11 +103,40 @@
 </div>
 </div>
 
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry to show only devices at your vacation home</span>
+<span class="key">nest</span>:
+  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
+  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
+  <span class="key">structure</span>: <span class="string"><span class="content">Vacation</span></span>
+
+<span class="key">thermostat</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">nest</span></span>
+</pre></div>
+</div>
+</div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry to show only devices at your vacation and primary homes</span>
+<span class="key">nest</span>:
+  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
+  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
+  <span class="key">structure</span>:
+    - <span class="string"><span class="content">Vacation</span></span>
+    - <span class="string"><span class="content">Primary</span></span>
+
+<span class="key">thermostat</span>:
+  <span class="key">platform</span>: <span class="string"><span class="content">nest</span></span>
+</pre></div>
+</div>
+</div>
+
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>username</strong> (<em>Required</em>): Your Nest username.</li>
   <li><strong>password</strong> (<em>Required</em>): Your Nest password.</li>
+  <li><strong>structure</strong> (<em>Optional</em>): The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.</li>
 </ul>
 
 
@@ -187,6 +216,9 @@
         </li>
         <li>
             <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/pilight/'>Pilight</a>
         </li>
         <li>
             <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>

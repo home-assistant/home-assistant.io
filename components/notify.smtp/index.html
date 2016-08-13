@@ -122,6 +122,29 @@
   <li><strong>starttls</strong> (<em>Optional</em>): Enables STARTTLS, eg. 1 or 0. Defaults to 0.</li>
 </ul>
 
+<p>To use the smtp notification, refer to it in an automation or script like in this example:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>  <span class="key">burglar</span>: 
+    <span class="key">alias</span>: <span class="string"><span class="content">Burglar Alarm</span></span>
+    <span class="key">sequence</span>:
+      - <span class="string"><span class="content">service: shell_command.snapshot</span></span>
+      - <span class="string"><span class="content">delay:</span><span class="content">
+            seconds: 1</span></span>
+      - <span class="string"><span class="content">service: notify.NOTIFIER_NAME</span></span>
+        <span class="key">data</span>:
+            <span class="key">title</span>: <span class="string"><span class="content">'Intruder alert'</span></span>
+            <span class="key">message</span>: <span class="string"><span class="content">'Intruder alert at apartment!!'</span></span>
+            <span class="key">data</span>:
+                <span class="key">images</span>: 
+                    - <span class="string"><span class="content">/home/pi/snapshot1.jpg</span></span>
+                    - <span class="string"><span class="content">/home/pi/snapshot2.jpg</span></span>
+</pre></div>
+</div>
+</div>
+
+<p>The optional <strong>images</strong> field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.</p>
+
 <p>This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.</p>
 
 <p>A combination that will work properly is port 587 and STARTTLS. It’s recommended to enable STARTTLS, if possible.</p>

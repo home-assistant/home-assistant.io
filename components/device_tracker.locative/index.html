@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>This platform allows you to detect presence using <a href="https://my.locative.io/">Locative</a>. Locative is an <a href="https://github.com/LocativeHQ/ios-app">open source</a> app for iOS that allows users to set up a <code>GET</code> or <code>POST</code> request when a geofence is entered or exited. This can be configured with Home Assistant to update your location.</p>
+  <p>This platform allows you to detect presence using <a href="https://my.locative.io/">Locative</a>. Locative is an open source app for <a href="https://github.com/LocativeHQ/ios-app">iOS</a> and <a href="https://github.com/LocativeHQ/Locative-Android">Android</a> that allows users to set up a <code>GET</code> or <code>POST</code> request when a geofence is entered or exited. This can be configured with Home Assistant to update your location.</p>
 
 <p>To integrate Locative in Home Assistant, add the following section to your <code>configuration.yaml</code> file:</p>
 
@@ -100,6 +100,13 @@
 </pre></div>
 </div>
 </div>
+
+<p>Install on your smartphone:</p>
+
+<ul>
+  <li><a href="https://play.google.com/store/apps/details?id=io.locative.app">Android</a></li>
+  <li><a href="https://itunes.apple.com/us/app/geofancy/id725198453">iOS</a></li>
+</ul>
 
 <p>To configure Locative, you must set up the app to send a <code>GET</code> request to your Home Assistant server at <code>http://&lt;ha_server&gt;/api/locative</code>. Make sure to include the API password if you have configured a password in Home Assistant (add <code>?api_password=&lt;password&gt;</code> to the end of the URL). When you enter or exit a geofence, Locative will send a <code>GET</code> request to that URL, updating Home Assistant.</p>
 

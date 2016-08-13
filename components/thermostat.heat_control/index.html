@@ -101,6 +101,13 @@
   <span class="key">min_temp</span>: <span class="string"><span class="content">15</span></span>
   <span class="key">max_temp</span>: <span class="string"><span class="content">21</span></span>
   <span class="key">target_temp</span>: <span class="string"><span class="content">15</span></span>
+  <span class="key">min_cycle_duration</span>:
+  <span class="comment"># At least one of these must be specified:</span>
+     <span class="key">days</span>: <span class="string"><span class="content">2</span></span>
+     <span class="key">hours</span>: <span class="string"><span class="content">1</span></span>
+     <span class="key">minutes</span>: <span class="string"><span class="content">10</span></span>
+     <span class="key">seconds</span>: <span class="string"><span class="content">5</span></span>
+     <span class="key">milliseconds</span>: <span class="string"><span class="content">20</span></span>
 </pre></div>
 </div>
 </div>
@@ -114,6 +121,8 @@
   <li><strong>min_temp</strong> (<em>Optional</em>): Set minimum set point available (default: 7)</li>
   <li><strong>max_temp</strong> (<em>Optional</em>): Set maximum set point available (default: 35)</li>
   <li><strong>target_temp</strong> (<em>Required</em>): Set intital target temperature. Failure to set this variable will result in target temperature being set to null on startup.</li>
+  <li><strong>ac_mode</strong> (<em>Optional</em>): Set the switch specified in the <em>heater</em> option to be treated as a cooling device instead of a heating device.</li>
+  <li><strong>min_cycle_duration</strong> (<em>Optional</em>): Set a minimum amount of time that the switch specified in the <em>heater</em> option must be in it’s current state prior to being switched either off or on.</li>
 </ul>
 
 

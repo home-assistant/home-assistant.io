@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-13T15:59:07+00:00</updated>
+  <updated>2016-08-13T19:22:16+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.26: Foursquare, Fast.com, FFMPEG and GPSD]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/"/>
+    <updated>2016-08-13T19:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/13/foursquare--fast.com--ffmpeg--gpsd</id>
+    <content type="html"><![CDATA[<p>It’s time for 0.26 and it’s again full of new features and fixes. First I want to highlight that we are now having 500 000 monthly pageviews on the website. A big milestone for us! It’s been an amazing journey. Big thanks to the Home Assistant community for being such a delightful bunch.</p>
+
+<p>This release includes code contributed by 31 different people. The biggest change in this release is a new unit system. Instead of picking Celsius or Fahrenheit you’ll have to pick imperial or metric now. This influences the units for your temperature, distance, and weight. This will simplify any platform or component that needs to know this information. Big thanks to <a href="https://github.com/Teagan42">@Teagan42</a> for her hard work on this!</p>
+
+<p><img src="https://home-assistant.io/images/supported_brands/foursquare.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/ohmconnect.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/fastdotcom.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/gpsd.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/ffmpeg.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+
+<ul>
+  <li>Core: Introduce notion of unit system (deprecates temperature unit option) (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Front end: Speed improvements (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Front end: Improve layout of state dev tool (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li><a href="/components/proximity/">Proximity</a>: Allow definition of unit of measurement (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li><a href="/components/switch.flux/">Flux</a>: Add mired and kelvin mode (<a href="https://github.com/HBDK">@HBDK</a>)</li>
+  <li>Thermostat - <a href="/components/thermostat.proliphix/">Proliphix</a>: Support for cooling (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Media Player - <a href="/components/media_player.lg_netcast/">LG Netcast TV</a>: Show screenshot of what is currently playing (<a href="https://github.com/shmuelzon">@shmuelzon</a>)</li>
+  <li>Z-Wave improvements (<a href="https://github.com/jnewland">@jnewland</a>, <a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Thermostat - <a href="/components/thermostat.heat_control/">heat control</a>: now also able to control an AC (<a href="https://github.com/mtreinish">@mtreinish</a>)</li>
+  <li>Thermostat - <a href="/components/thermostat.heat_control/">heat control</a>: allow specifying a minimum duration before switching (<a href="https://github.com/mtreinish">@mtreinish</a>)</li>
+  <li><a href="/components/influxdb/">InfluxDB</a>: Whitelist entities option added (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Sensor: Serial <a href="/components/sensor.serial_pm/">particulate matters</a> sensors now supported (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Sensor - <a href="/components/sensor.fitbit/">Fitbit</a>: Fix unit system (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Light - <a href="/components/light.flux_led/">Flux LED</a>: Add support for [color and brightness][color] (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Media Player - <a href="/components/media_player.plex/">Plex</a>: Now able to report on music (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
+  <li>Alarm Control Panel - <a href="/components/alarm_control_panel.verisure/">Verisure</a>: Now able to see who changed the alarm (<a href="https://github.com/persandtrom">@persandtrom</a>)</li>
+  <li>Thermostat - <a href="/components/thermostat.honeywell/">Honeywell</a>: Add option to read and control HVAC mode (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li><a href="/components/foursquare/">Foursquare</a> component to receive instant notifications of checkins (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Camera: New <a href="/components/camera.ffmpeg/">FFMPEG</a> platform allows to stream anything through front end (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Manage <a href="/topics/secrets/">secrets</a> with new command line script (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Notify - <a href="/components/notify.smtp/">SMTP</a>: Allow embedding of images (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>Sensor: <a href="/components/sensor.ohmconnect/">OhmConnect</a> is now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li><a href="/components/panel_custom/">panel_custom</a> component allows the registering of new panels (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Light: New <a href="/components/light.mqtt_json/">mqtt_json</a> platform for working with JSON payload (<a href="https://github.com/corbanmailloux">@corbanmailloux</a>)</li>
+  <li>Sensor: New <a href="/components/sensor.fastdotcom/">Fast.com</a> platform to measure network bandwidth performance (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>New <a href="/components/pilight/">pilight</a> component to control 433 Mz devices (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
+  <li>Sensor: <a href="/components/sensor.gpsd/">GPSD</a> now supported (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+</ul>
+
+<h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
+
+<ul>
+  <li>A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:</li>
+</ul>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Configuration.yaml example</span>
+<span class="key">homeassistant</span>:
+  <span class="comment"># 'metric' for the metric system, 'imperial' for the imperial system</span>
+  <span class="key">unit_system</span>: <span class="string"><span class="content">metric</span></span>
+</pre></div>
+</div>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.25: Custom frontend panels, Jupyter notebooks, DirecTV.]]></title>
@@ -286,76 +345,6 @@ $ hass --script db_migrator --config /path/to/config
 
 <ul>
   <li>Insteon Hub lights will load again</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.21: Improved Web and support for EnOcean, LIRC and Osram Lightify]]></title>
-    <link href="https://home-assistant.io/blog/2016/06/08/super-fast-web-enocean-lirc/"/>
-    <updated>2016-06-08T01:06:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/06/08/super-fast-web-enocean-lirc</id>
-    <content type="html"><![CDATA[<p>It’s time for release 0.21 and it contains massive core improvements: replacement of our home grown HTTP stack with a standardized WSGI stack. This will improve performance, speed, security and make future development of advanced HTTP features a breeze.</p>
-
-<p>This work was driven by the amazing Josh Wright. His knowledge, high standards and drive for security has helped improve Home Assistant a lot ever since he started helping out. Hip hip hurray for Josh!</p>
-
-<p>Alright, time for the changes:</p>
-
-<p><img src="https://home-assistant.io/images/supported_brands/enocean.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/osramlightify.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/lirc.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>New HTTP stack based on WSGI (<a href="https://github.com/JshWright">@JshWright</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Frontend: lots of performance improvements (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Initial support for EnOcean <a href="/components/light.enocean/">lights</a>, <a href="/components/sensor.enocean/">sensors</a> and <a href="/components/switch.enocean/">switches</a> added (<a href="https://github.com/rubund">@rubund</a>)</li>
-  <li>Light: <a href="/components/light.osramlightify/">Osram Lightify</a> is now supported (<a href="https://github.com/olimpiurob">@olimpiurob</a>)</li>
-  <li>Light: <a href="/components/insteon_hub/">Insteon Hub</a> now supports brightness (<a href="https://github.com/wkonkel">@wkonkel</a>)</li>
-  <li>Add support for adding HA as Windows 10 tile (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Condition: <a href="/getting-started/scripts-conditions/#time-condition">time condition</a> can now cross midnight (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
-  <li>Template based sensors should now throw less warnings (<a href="https://github.com/Bart274">@Bart274</a>)</li>
-  <li>New <a href="/components/lirc/">LIRC component</a> allows receiving IR commands (<a href="https://github.com/partofthething">@partofthething</a>)</li>
-  <li>The <a href="/components/feedreader/">Feedreader</a> component will now persist data to disk to prevent duplicate events (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
-  <li>Sun: azimuth attribute added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>New <a href="/components/switch.flux/">Flux like switch platform</a> to change light intensity in the evening (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>We no longer crash if you live in a part of the world where the sun never sets (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Rollershutter: <a href="/components/rfxtrx/">RFXTRX</a> now supported (<a href="https://github.com/jacobtomlinson">@jacobtomlinson</a>)</li>
-  <li>Switch: <a href="/components/switch.template/">Template switches</a> can now execute scripts (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Z-Wave: automatically heal the network at midnight (<a href="https://github.com/infamy">@infamy</a>)</li>
-  <li>Sensor: <a href="/components/sensor.dte_energy_bridge/">DTE Energy Bridge</a> now supported (<a href="https://github.com/kylehendricks">@kylehendricks</a>)</li>
-  <li>Media Player: <a href="/components/media_player.kodi/">Kodi</a> now supports different turn off commands (<a href="https://github.com/armills">@armills</a>)</li>
-</ul>
-
-<h3>Breaking Changes</h3>
-
-<ul>
-  <li>Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error</li>
-  <li>The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have <a href="/developers/rest_api/">been updated</a>.</li>
-  <li>Make sure your configuration.yaml file contains <code>frontend:</code> to serve the frontend</li>
-</ul>
-
-<h3>Hotfixes 0.21.1 and 0.21.2</h3>
-
-<p>We released two hotfixes to address some issues that couldn’t wait till the next release.</p>
-
-<h5>0.21.1 - June 12</h5>
-
-<ul>
-  <li>Add eventlet to base requirements to resolve some installation issues (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>GTFS will filter out routes in the wrong direction (<a href="https://github.com/imrehg">@imrehg</a>)</li>
-  <li>Recover from rare error condition from LIRC (<a href="https://github.com/partofthething">@partofthething</a>)</li>
-  <li>Z-Wave autoheal will no longer raise exception (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Alexa will now execute the script before making reply (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Fix MJPEG camera streaming (<a href="https://github.com/stjohnjohnson">@stjohnjohnson</a>)</li>
-  <li>Fix frontend in older browsers (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Fix history in more info dialog being cut off (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
-<h5>0.21.2 - June 15</h5>
-
-<ul>
-  <li>Fix input_select calling the set_option service again when changed (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>Fix more info dialog not being able to open on Safari (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Add support for OPTIONS HTTP command to get CORS working (<a href="https://github.com/JshWright">@JshWright</a>)</li>
 </ul>
 
 ]]></content>

@@ -106,6 +106,9 @@
   <span class="key">blacklist</span>:
      - <span class="string"><span class="content">entity.id1</span></span>
      - <span class="string"><span class="content">entity.id2</span></span>
+  <span class="key">whitelist</span>:
+     - <span class="string"><span class="content">entity.id3</span></span>
+     - <span class="string"><span class="content">entity.id4</span></span>
   <span class="key">tags</span>:
     - <span class="string"><span class="content">instance: prod</span></span>
 </pre></div>
@@ -123,6 +126,7 @@
   <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
   <li><strong>blacklist</strong> (<em>Optional</em>): List of entities not logged to InfluxDB.</li>
+  <li><strong>whitelist</strong> (<em>Optional</em>): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the <strong>blacklist</strong> option will prevail.</li>
   <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
 </ul>
 

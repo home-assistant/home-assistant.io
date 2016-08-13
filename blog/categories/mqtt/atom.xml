@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MQTT | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/mqtt/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-13T15:59:07+00:00</updated>
+  <updated>2016-08-13T19:22:16+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -342,7 +342,7 @@ Home Assistant will keep track of historical values and allow you to integrate i
   <li>Open Arduino IDE and create a new sketch (<code>File</code> -&gt; <code>New</code>)</li>
   <li>Copy and paste the below sketch to the Arduino IDE</li>
   <li>Adjust the values line 6 - 14 to match your setup</li>
-  <li>Optional: If you want to connect to an MQTT server without a username or password, adjust line 63.</li>
+  <li>Optional: If you want to connect to an MQTT server without a username or password, adjust line 62.</li>
   <li>To have the ESP8266 accept our new sketch, we have to put it in upload mode. On the ESP8266 device keep the GPIO0 button pressed while pressing the reset button. The red led will glow half bright to indicate it is in upload mode.</li>
   <li>Press the upload button in Arduino IDE</li>
   <li>Open the serial monitor (<code>Tools</code> -&gt; <code>Serial Monitor</code>) to see the output from your device</li>
