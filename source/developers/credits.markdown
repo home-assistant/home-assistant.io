@@ -79,7 +79,7 @@ This page contains a list of people who have contributed in one way or another t
 - [GadgetReactor](https://github.com/GadgetReactor)
 - [Geoff Norton](https://github.com/kangaroo)
 - [goir](https://github.com/goir)
-- [gottsman](https://github.com/gottsman)
+- [Kevin Gottsman](https://github.com/gottsman)
 - [Greg Dowling](https://github.com/pavoni)
 - [Guillem Barba](https://github.com/gbarba)
 - [Gustav Ahlberg](https://github.com/Gyran)

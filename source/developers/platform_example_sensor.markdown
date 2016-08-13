@@ -45,7 +45,7 @@ class ExampleSensor(Entity):
 
     @property
     def state(self):
-        """Return the state of the sensor.""
+        """Return the state of the sensor."""
         return 23
 
     @property
