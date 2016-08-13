@@ -35,6 +35,6 @@ Configuration variables:
 - **sidebar_title** (*Optional*): Friendly title for the panel in the sidebar. Omitting it means no sidebar entry (but still accessible through the URL).
 - **sidebar_icon** (*Optional*): Icon for entry. Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 - **url_path** (*Optional*): The URL your panel will be available on. If omitted will default to the panel name.
-- **webcomponent_path** (*Optional*): The  path to your component. If omitted will default to <config dir>/panels/<component name>.html
+- **webcomponent_path** (*Optional*): The  path to your component. If omitted will default to `<config dir>/panels/<component name>.html`
 - **config** (*Optional*): Configuration to be passed into your web component when being instantiated.
 

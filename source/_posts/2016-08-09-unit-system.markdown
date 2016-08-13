@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.26: New unit system, pilight, OHMconnect, and Fast.com"
-description: "Frontend became blazing fast and extensible. DirecTV support added."
+title: "0.26: Foursquare, Fast.com, FFMPEG and GPSD"
+description: "Automate based on check ins, slow internet speed or just stream a camera using FFMPEG."
 date: 2016-08-09 10:00:00 +0000
 date_formatted: "August 09, 2016"
 author: Paulus Schoutsen
@@ -10,31 +10,33 @@ comments: true
 categories: Release-Notes
 ---
 
-It's time for 0.26! The biggest change in this release is a new unit system. Instead of picking Celsius or Fahrenheit you'll have to pick imperial or metric now. This influences the units for your temperature, distance, and weight. This will simplify any platform or component that needs to know this information. Big thanks to [@Teagan42] for her hard work on this!
+It's time for 0.26 and it's again full of new features and fixes. First I want to highlight that we are now having 500 000 monthly pageviews on the website. A big milestone for us! It's been an amazing journey. Big thanks to the Home Assistant community for being such a delightful bunch.
 
-<img src='/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/ohmconnect.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/fastdotcom.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/pilight.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+This release includes code contributed by 31 different people. The biggest change in this release is a new unit system. Instead of picking Celsius or Fahrenheit you'll have to pick imperial or metric now. This influences the units for your temperature, distance, and weight. This will simplify any platform or component that needs to know this information. Big thanks to [@Teagan42] for her hard work on this!
+
+<img src='/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/ohmconnect.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/fastdotcom.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/gpsd.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/ffmpeg.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
 - Core: Introduce notion of unit system (deprecates temperature unit option) ([@Teagan42])
 - Front end: Speed improvements ([@balloob])
 - Front end: Improve layout of state dev tool ([@balloob])
-- Proximity: Allow definition of unit of measurement ([@Teagan42])
-- Flux: Add mired and kelvin mode ([@HBDK])
-- Thermostat - Proliphix: Support for cooling ([@sdague])
-- Media Player - LG Netcast TV: Show [screenshot] of what is currently playing ([@shmuelzon])
+- [Proximity]\: Allow definition of unit of measurement ([@Teagan42])
+- [Flux]\: Add mired and kelvin mode ([@HBDK])
+- Thermostat - [Proliphix]: Support for cooling ([@sdague])
+- Media Player - [LG Netcast TV]: Show screenshot of what is currently playing ([@shmuelzon])
 - Z-Wave improvements ([@jnewland], [@turbokongen])
-- Thermostat - heat control: now also able to control an AC ([@mtreinish])
-- Thermostat - heat control: allow specifying a minimum duration before switching ([@mtreinish])
-- InfluxDB: [Whitelist] entities option added ([@tchellomello])
+- Thermostat - [heat control]: now also able to control an AC ([@mtreinish])
+- Thermostat - [heat control]: allow specifying a minimum duration before switching ([@mtreinish])
+- [InfluxDB]\: Whitelist entities option added ([@tchellomello])
 - Sensor: Serial [particulate matters][particulate] sensors now supported ([@open-homeautomation])
-- Sensor - Fitbit: Fix unit system ([@tchellomello])
-- Light - Flux LED: Add support for [color and brightness][color] ([@Danielhiversen])
-- Media Player - Plex: Now able to report on music ([@abcminiuser])
-- Alarm Control Panel - Verisure: Now able to see who [changed] the alarm ([@persandtrom])
-- Thermostat - Honeywell: Add option to read and control HVAC mode ([@Teagan42])
+- Sensor - [Fitbit]: Fix unit system ([@tchellomello])
+- Light - [Flux LED]: Add support for [color and brightness][color] ([@Danielhiversen])
+- Media Player - [Plex]: Now able to report on music ([@abcminiuser])
+- Alarm Control Panel - [Verisure]: Now able to see who changed the alarm ([@persandtrom])
+- Thermostat - [Honeywell]: Add option to read and control HVAC mode ([@Teagan42])
 - [Foursquare] component to receive instant notifications of checkins ([@robbiet480])
 - Camera: New [FFMPEG] platform allows to stream anything through front end ([@pvizeli])
-- New command line script to manage keyring entries ([@kellerza])
-- Notify - SMTP: Allow embedding of [images][images] ([@partofthething])
+- Manage [secrets] with new command line script ([@kellerza])
+- Notify - [SMTP]: Allow embedding of images ([@partofthething])
 - Sensor: [OhmConnect] is now supported ([@robbiet480])
 - [panel_custom] component allows the registering of new panels ([@balloob])
 - Light: New [mqtt_json] platform for working with JSON payload ([@corbanmailloux])
@@ -74,18 +76,27 @@ homeassistant:
 [@tchellomello]: https://github.com/tchellomello
 [@Teagan42]: https://github.com/Teagan42
 [@turbokongen]: https://github.com/turbokongen
+[@fabaff]: https://github.com/fabaff
 
 [Foursquare]: /components/foursquare/
 [OhmConnect]: /components/sensor.ohmconnect/
 [FFMPEG]: /components/camera.ffmpeg/
-[images]: /components/notify.smtp/
+[SMTP]: /components/notify.smtp/
 [panel_custom]: /components/panel_custom/
-[changed]: /components/alarm_control_panel.verisure/
-[color]: /components/light.flux_led/
-[Whitelist]: /components/influxdb/
+[Verisure]: /components/alarm_control_panel.verisure/
+[Flux LED]: /components/light.flux_led/
+[InfluxDB]: /components/influxdb/
 [particulate]: /components/sensor.serial_pm/
-[screenshot]: /components/media_player.lg_netcast/
+[LG Netcast TV]: /components/media_player.lg_netcast/
 [mqtt_json]: /components/light.mqtt_json/
 [Fast.com]: /components/sensor.fastdotcom/
 [pilight]: /components/pilight/
 [GPSD]: /components/sensor.gpsd/
+[heat control]: /components/thermostat.heat_control/
+[Proximity]: /components/proximity/
+[Flux]: /components/switch.flux/
+[Proliphix]: /components/thermostat.proliphix/
+[Fitbit]: /components/sensor.fitbit/
+[Plex]: /components/media_player.plex/
+[Honeywell]: /components/thermostat.honeywell/
+[Secrets]: /topics/secrets/

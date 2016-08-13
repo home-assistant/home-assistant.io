@@ -36,41 +36,25 @@ logger: debug
 http_password: YOUR_PASSWORD
 ```
 
-### {% linkable_title Python Keyring %}
+### {% linkable_title Storing passwords in a keyring managed by your OS %}
 
-Using [Keyring](http://pythonhosted.org/keyring/) is an alternative way to `secrets.yaml` but requires that `keyring` is installed (incl. its command-line tools). This can be done with:
+Using [Keyring](http://pythonhosted.org/keyring/) is an alternative way to `secrets.yaml`. They can be managed from the command line via the keyring script.
 
 ```bash
-$ pip3 install keyring
+$ hass --script keyring --help
 ```
 
-Replace your password or API key with `!secret` and an identifier in `configuration.yaml` file.
+To store a password in keyring, replace your password or API key with `!secret` and an identifier in `configuration.yaml` file.
 
 ```yaml
 http:
   api_password: !secret http_password
 ```
 
-Create an entry in your keyring. The service (SERVICE) is `homeassistant` and the identifier is the USERNAME in the keyring context.
+Create an entry in your keyring.
 
 ```bash
-$ keyring set homeassistant http_password
-Password for 'http_password' in 'homeassistant': 
-Please set a password for your new keyring: 
-Please confirm the password: 
-```
-
-If the command-line tool `keyring` is not available, launch `python3` and do the process manually.
-
-```python
->>> import keyring
->>> keyring.set_password("homeassistant", "http_password", "12345")
-Please set a password for your new keyring: 
-Please confirm the password: 
->>> keyring.get_password("homeassistant", "http_password")
-'12345'
->>> keyring.get_keyring()
-<EncryptedKeyring at /home/your_user/.local/share/python_keyring/crypted_pass.cfg>
+$ hass --script keyring set http_password
 ```
 
 If you launch home Assistant now, you will be prompted for the keyring password to unlock your keyring.
@@ -78,10 +62,9 @@ If you launch home Assistant now, you will be prompted for the keyring password 
 ```bash
 $ hass
 Config directory: /home/fab/.homeassistant
-Please enter password for encrypted keyring: 
+Please enter password for encrypted keyring:
 ```
 
 <p class='note warning'>
   If your are using the Python Keyring, [autostarting](/getting-started/autostart/) of Home Assistant will no longer work.
 </p>
-
