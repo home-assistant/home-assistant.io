@@ -75,6 +75,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Florian Holzapfel](https://github.com/florianholzapfel)
 - [fotoetienne](https://github.com/fotoetienne)
 - [Fredrik Haglund](https://github.com/PetitCircuitLab)
+- [Fredrik Lindqvist](https://github.com/Landrash)
 - [GadgetReactor](https://github.com/GadgetReactor)
 - [Geoff Norton](https://github.com/kangaroo)
 - [goir](https://github.com/goir)
