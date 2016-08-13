@@ -75,7 +75,7 @@ If you have followed the previous steps, you're all set.
  - Open Arduino IDE and create a new sketch (`File` -> `New`)
  - Copy and paste the below sketch to the Arduino IDE
  - Adjust the values line 6 - 14 to match your setup
- - Optional: If you want to connect to an MQTT server without a username or password, adjust line 63.
+ - Optional: If you want to connect to an MQTT server without a username or password, adjust line 62.
  - To have the ESP8266 accept our new sketch, we have to put it in upload mode. On the ESP8266 device keep the GPIO0 button pressed while pressing the reset button. The red led will glow half bright to indicate it is in upload mode.
  - Press the upload button in Arduino IDE
  - Open the serial monitor (`Tools` -> `Serial Monitor`) to see the output from your device

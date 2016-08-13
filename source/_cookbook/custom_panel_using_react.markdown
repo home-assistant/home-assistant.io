@@ -18,13 +18,18 @@ This is a [React](https://facebook.github.io/react/) implementation of [TodoMVC]
 - It uses the user configuration for the component in the `configuration.yaml` file for rendering.
 - It allows toggling the sidebar.
 
-All you need is available as a [custom component](https://github.com/home-assistant/home-assistant/tree/master/config/custom_components/react_panel).
+All you need is available as a [custom panel](https://github.com/home-assistant/home-assistant/tree/master/config/panels/react.html). Download the file and save it in `<config dir>/panels/` (you might have to create the directory if it doesn't exist).
 
-Create a entry for the panel in your `configuration.yaml` file to enable it. Set a title if you like.
+Create a entry for the panel in your `configuration.yaml` file to enable it.
 
 ```yaml
-react_panel:
-  title: 'React'
+panel_custom:
+  - name: react
+    sidebar_title: TodoMVC
+    sidebar_icon: mdi:work
+    url_path: todomvc
+    config:
+      title: hello
 ```
 
 This video shows the example in action.
