@@ -10,6 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Light
 ha_iot_class: "Local Push"
+ha_release: 0.26
 ---
 
 

@@ -59,15 +59,15 @@ The following tables show the available trigger data per platform.
 | `trigger.entity_id` | Entity ID that we observe.
 | `trigger.below` | The below threshold, if any.
 | `trigger.above` | The above threshold, if any.
-| `trigger.from_state` | The previous state of the entity.
-| `trigger.to_state` | The new state that triggered trigger.
+| `trigger.from_state` | The previous [state object] of the entity.
+| `trigger.to_state` | The new [state object] that triggered trigger.
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `state`
 | `trigger.entity_id` | Entity ID that we observe.
-| `trigger.from_state` | The previous state of the entity.
-| `trigger.to_state` | The new state that triggered trigger.
+| `trigger.from_state` | The previous [state object] of the entity.
+| `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
 | Template variable | Data |
@@ -80,8 +80,8 @@ The following tables show the available trigger data per platform.
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `template`
 | `trigger.entity_id` | Entity ID that caused change.
-| `trigger.from_state` | Previous state of entity that caused change.
-| `trigger.to_state` | New state of entity that caused template to change.
+| `trigger.from_state` | Previous [state object] of entity that caused change.
+| `trigger.to_state` | New [state object] of entity that caused template to change.
 
 | Template variable | Data |
 | ---- | ---- |
@@ -92,7 +92,9 @@ The following tables show the available trigger data per platform.
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `zone`
 | `trigger.entity_id` | Entity ID that we are observing.
-| `trigger.from_state` | Previous state of the entity.
-| `trigger.to_state` | New state of the entity.
+| `trigger.from_state` | Previous [state object] of the entity.
+| `trigger.to_state` | New [state object] of the entity.
 | `trigger.zone` | State object of zone
 | `trigger.event` | Event that trigger observed: `enter` or `leave`.
+
+[state object]: /topics/state_object/

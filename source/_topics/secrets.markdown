@@ -13,9 +13,9 @@ The `configuration.yaml` file a plain-text file thus it is readable for everyone
 
 ### {% linkable_title Using secrets.yaml %}
 
-The workflow for the outsourcing in the `secrets.yaml` are very similar to the [splitting of the configuration](/topics/splitting_configuration/). Create a `secrets.yaml` file in your Home assistant configuration directory (The location of the folder differs between operating systems: on OS X and Linux it's `~/.homeassistant` and on Windows it's `%APPDATA%/.homeassistant`).
+The workflow for the outsourcing in the `secrets.yaml` is very similar to the [splitting of the configuration](/topics/splitting_configuration/). Create a `secrets.yaml` file in your Home assistant configuration directory (The location of the folder differs between operating systems: on OS X and Linux it's `~/.homeassistant` and on Windows it's `%APPDATA%/.homeassistant`).
 
-The entries for password and API keys in the `configuration.yaml` file usally looks like the example below.
+The entries for password and API keys in the `configuration.yaml` file usually looks like the example below.
 
 ```yaml
 http:
@@ -29,7 +29,7 @@ http:
   api_password: !secret http_password
 ```
 
-The `secrets.yaml` files stored the corresponding password assigned to the identifier.
+The `secrets.yaml` file contains the corresponding password assigned to the identifier.
 
 ```yaml
 logger: debug
@@ -44,7 +44,7 @@ Using [Keyring](http://pythonhosted.org/keyring/) is an alternative way to `secr
 $ pip3 install keyring
 ```
 
-Replaced your password or API key with `!secret` and an identifier in `configuration.yaml` file.
+Replace your password or API key with `!secret` and an identifier in `configuration.yaml` file.
 
 ```yaml
 http:

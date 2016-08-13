@@ -23,6 +23,13 @@ thermostat:
   min_temp: 15
   max_temp: 21
   target_temp: 15
+  min_cycle_duration:
+  # At least one of these must be specified:
+     days: 2
+     hours: 1
+     minutes: 10
+     seconds: 5
+     milliseconds: 20
 ```
 
 Configuration variables:
@@ -34,3 +41,4 @@ Configuration variables:
 - **max_temp** (*Optional*): Set maximum set point available (default: 35)
 - **target_temp** (*Required*): Set intital target temperature. Failure to set this variable will result in target temperature being set to null on startup.
 - **ac_mode** (*Optional*): Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
+- **min_cycle_duration** (*Optional*): Set a minimum amount of time that the switch specified in the *heater* option must be in it's current state prior to being switched either off or on.

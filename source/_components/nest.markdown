@@ -24,7 +24,32 @@ thermostat:
   platform: nest
 ```
 
+```yaml
+# Example configuration.yaml entry to show only devices at your vacation home
+nest:
+  username: USERNAME
+  password: PASSWORD
+  structure: Vacation
+
+thermostat:
+  platform: nest
+```
+
+```yaml
+# Example configuration.yaml entry to show only devices at your vacation and primary homes
+nest:
+  username: USERNAME
+  password: PASSWORD
+  structure:
+    - Vacation
+    - Primary
+
+thermostat:
+  platform: nest
+```
+
 Configuration variables:
 
 - **username** (*Required*): Your Nest username.
 - **password** (*Required*): Your Nest password.
+- **structure** (*Optional*): The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.

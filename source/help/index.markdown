@@ -15,7 +15,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
  - [Forum](https://community.home-assistant.io/)
  - [Gitter Chatroom](https://gitter.im/home-assistant/home-assistant) for general Home Assistant discussions and questions.
- - Follow us on [Twitter](https://twitter.com/home_assistant), use @home_assistant
+ - Follow us on [Twitter](https://twitter.com/home_assistant), use [@home_assistant](https://twitter.com/home_assistant)
  - Join the [Google+ community](https://plus.google.com/u/0/b/110560654828510104551/communities/106562234893511202708)
  - Join the [Reddit subreddit](https://reddit.com/r/homeassistant) in [/r/homeassistant](https://reddit.com/r/homeassistant)
 
@@ -33,6 +33,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) ([Slides](https://docs.google.com/presentation/d/1PUnOpeFZxNj4LEjaohGqH_1hOGQGuS5yRHD1ThHr6nk/edit?usp=sharing)) - June 2016
 - [Awaken your home: Python and the Internet of Things](https://www.youtube.com/watch?v=Cfasc9EgbMU&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=1) at PyCon 2016 - June 2016
 - [Automating your Home with Home Assistant](https://www.youtube.com/watch?v=4-6rTwKl6ww&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=2) at OpenIoT 2016 - March 2016
+- [Automating Your Life - Home Automation](http://slides.com/teagan42/life_automation#/) at Develop Denver 2016 - August
 
 
 ### {% linkable_title Roadmap %}

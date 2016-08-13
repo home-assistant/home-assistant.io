@@ -92,7 +92,67 @@ Depending on what's plugged into your USB ports, the name found above may change
 
 #### {% linkable_title Events %}
 
-Some devices can also trigger scene activation or node events, which can be used in automation scripts (for example the press of a button on a scene enabled wall switch):
+**zwave.network_complete**
+HomeAssistant will trigger a event when the zwave network is complete. Meaning all of the nodes on the network have been queried. This can take quite som time, depending on wakeup intervals on the battery powered devices on the network.
+
+```yaml
+ - alias: ZWave network is complete
+   trigger:
+     platform: event
+     event_type: zwave.network_complete
+```
+
+**zwave.network_ready**
+HomeAssistant will trigger a event when the zwave network is ready for use. Between `zwave.network_start` and `zwave.network_ready` HomeAssistant will feel sluggish when trying to send commands to zwave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered all awake nodes have been queried and sleeping nodes will be queried when they awake.
+
+```yaml
+ - alias: ZWave network is ready
+   trigger:
+     platform: event
+     event_type: zwave.network_ready
+```
+
+**zwave.network_start**
+HomeAssistant will trigger a event when the zwave network is set up to be started.
+
+```yaml
+ - alias: ZWave network is starting
+   trigger:
+     platform: event
+     event_type: zwave.network_start
+```
+
+**zwave.network_stop**
+HomeAssistant will trigger a event when the zwave network stopping.
+
+```yaml
+ - alias: ZWave network is stopping
+   trigger:
+     platform: event
+     event_type: zwave.network_start
+```
+
+**zwave.node_event**
+HomeAssistant will trigger a event when command_class_basic changes value on a node.
+This can be virtually anything, so tests have to be made to determine what value equals what.
+You can use this for automations.
+
+Example:
+
+```yaml
+ - alias: Minimote Button Pressed
+   trigger:
+     platform: event
+     event_type: zwave.node_event
+     event_data:
+       object_id: aeon_labs_minimote_1
+       basic_level: 255
+```
+
+The *object_id* and *basic_level* of all triggered events can be seen in the console output.
+
+**zwave.scene_activated**
+Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):
 
 ```yaml
 # Example configuration.yaml automation entry
@@ -106,21 +166,7 @@ automation:
         scene_id: 11
 ```
 
-Or a basic class device reporting it's level via a node event:
-
-```yaml
-# Example configuration.yaml automation entry
-automation:
-  - alias: Turn on Desk light
-    trigger:
-      platform: event
-      event_type: zwave.node_event
-      event_data:
-        object_id: leviton_zwave_static_co_11
-        basic_level: 255
-```
-
-The *object_id*, *scene_id* (Scene Events), and *basic_level* (Node Events) of triggered events can be seen in the console output.
+The *object_id* and *scene_id* of all triggered events can be seen in the console output.
 
 #### {% linkable_title Services %}
 
@@ -129,8 +175,10 @@ The Z-Wave component exposes four services to help maintain the network.
 | Service | Description |
 | ------- | ----------- |
 | add_node | Put the zwave controller in inclusion mode. Allows one to add a new device to the zwave network.|
-| remove_node | Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.|
+| add_node_secure | Put the zwave controller in secure inclusion mode. Allows one to add a new device with secure communications to the zwave network. |
+| cancel_command | Cancels a running zwave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
 | heal_network | Tells the controller to "heal" the network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
+| remove_node | Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.|
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | test_network | Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".|
 

@@ -22,7 +22,7 @@ Upon first run, the z-wave component will take time to initialize entities and e
 | Aeotec Z-Stick Series 2 |   &#10003;     |                  |              |
 | Aeotec Z-Stick Series 5 |   &#10003;     |                  |              |
 | Razberry GPIO Module    |   &#10003;     |                  |              |
-
+| ZWave.me UZB1           |   &#10003;     |                  |              |
 
 ## {% linkable_title Stick Alternatives %}
 
