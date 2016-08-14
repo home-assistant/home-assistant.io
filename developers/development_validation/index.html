@@ -103,6 +103,14 @@
 
 <p>To validate plaforms using <a href="/components/mqtt/">MQTT</a> there are <code>valid_subscribe_topic</code> and <code>valid_publish_topic</code> present.</p>
 
+<p>Some things to keep in mind:</p>
+
+<ul>
+  <li>Use the constants which are definded in <code>const.py</code>.</li>
+  <li>Import <code>PLATFORM_SCHEMA</code> from parent component and extend it.</li>
+  <li>Preferred order is <code>required</code> first, then <code>optional</code>.</li>
+</ul>
+
 <h3><a class="title-link" name="snippets" href="#snippets"></a> Snippets</h3>
 
 <p>This section contains a couple of snippets for the validation we use.</p>
@@ -112,7 +120,7 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>DEFAULT_NAME = <span class="string"><span class="delimiter">'</span><span class="content">Sensor name</span><span class="delimiter">'</span></span>
 
-PLATFORM_SCHEMA = vol.Schema({
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     ...
     vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
 </pre></div>
@@ -126,8 +134,8 @@ PLATFORM_SCHEMA = vol.Schema({
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>DEFAULT_PORT = <span class="integer">993</span>
 
-PLATFORM_SCHEMA = vol.Schema({
-    [...]
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    ...
     vol.Optional(CONF_PORT, default=DEFAULT_PORT):
         vol.All(vol.Coerce(<span class="predefined">int</span>), vol.Range(min=<span class="integer">1</span>, max=<span class="integer">65535</span>)),
 </pre></div>
@@ -144,8 +152,8 @@ PLATFORM_SCHEMA = vol.Schema({
     <span class="string"><span class="delimiter">'</span><span class="content">average_download_rate</span><span class="delimiter">'</span></span>: (<span class="string"><span class="delimiter">'</span><span class="content">Average Speed</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">MB/s</span><span class="delimiter">'</span></span>),
 }
 
-PLATFORM_SCHEMA = vol.Schema({
-    ....
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    ...
     vol.Optional(CONF_MONITORED_VARIABLES, default=[]):
         [vol.In(SENSOR_TYPES)],
 </pre></div>
