@@ -27,6 +27,7 @@ camera:
   name: my sample camera
   username: USERNAME
   password: PASSWORD
+  authentication: basic
 ```
 
 Configuration variables:
@@ -35,3 +36,4 @@ Configuration variables:
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **username** (*Optional*): The username for accessing your camera.
 - **password** (*Optional*): The password for accessing your camera.
+- **authentication** (*Optional*): `basic` (default) or `digest` auth for requests.
