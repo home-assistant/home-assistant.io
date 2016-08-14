@@ -44,6 +44,12 @@ This release includes code contributed by 31 different people. The biggest chang
 - New [pilight] component to control 433 Mz devices ([@DavidLP])
 - Sensor: [GPSD] now supported ([@fabaff])
 
+### {% linkable_title Hotfix 0.26.1 - August 14 %}
+
+- Fix serial_pm config validation ([@open-homeautomation])
+- Check for existence of system mode on Honeywell thermostats ([@mKeRix])
+- Fix unknown unit of measurement for hvac and thermostat component ([@turbokongen])
+
 ### {% linkable_title Breaking changes %}
 
  - A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:
@@ -55,6 +61,7 @@ homeassistant:
   unit_system: metric
 ```
 
+[@mKeRix]: https://github.com/mKeRix
 [@abcminiuser]: https://github.com/abcminiuser
 [@balloob]: https://github.com/balloob
 [@corbanmailloux]: https://github.com/corbanmailloux
