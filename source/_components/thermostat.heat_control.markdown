@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Heat control"
+title: "Generic Thermostat"
 description: "Turn Home Assistant into a thermostat"
 date: 2015-03-23 19:59
 sidebar: true

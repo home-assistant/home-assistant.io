@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Binary Sensor
+logo: home-assistant.png
 ---
 
 The `template` platform supports sensors which breaks out the state and `state_attributes` from other entities.

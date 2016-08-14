@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Automation
+logo: home-assistant.png
 ---
 
 This component can expose regular shell commands as services. Services can be called from a [script] or in [automation].

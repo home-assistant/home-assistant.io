@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: lastfm.png
-ha_category: Sensor
+ha_category: Social
 ha_iot_class: "Cloud Polling"
 ha_release: "0.20"
 ---

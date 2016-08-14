@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Finance
 logo: openexchangerates.png
 ha_iot_class: "Cloud Polling"
 ha_release: 0.23

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: train.png
-ha_category: Sensor
+ha_category: Transport
 ha_iot_class: "Cloud Polling"
 ha_release: pre 0.7
 ---
