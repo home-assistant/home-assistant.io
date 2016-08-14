@@ -96,7 +96,7 @@ for:
 
 #### {% linkable_title Sun condition %}
 
-The sun condition can test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger].
+The sun condition can test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
 
 [sun_trigger]: /getting-started/automation-trigger/#sun-trigger
 
