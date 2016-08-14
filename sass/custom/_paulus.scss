@@ -299,21 +299,6 @@ p.note {
       transition-property: transform, opacity;
   }
 
-  .filter-button-group {
-    margin-bottom: 16px;
-
-    .btn {
-      margin-right: 8px;
-      margin-bottom: 8px;
-      text-decoration: none;
-
-      &.current {
-        background-color: #3A5561;
-        background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
-      }
-    }
-  }
-
   #componentContainer {
     a {
       display: inline-block;
@@ -364,6 +349,45 @@ p.note {
     }
   }
 }
+
+@media only screen and (max-width: $lap-end) {
+  #components-page {
+    .filter-button-group {
+      margin-bottom: 16px;
+
+      .btn {
+        display: inline-block;
+        margin-right: 8px;
+        margin-bottom: 8px;
+
+        &.current {
+          background-color: #3A5561;
+          background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $desk-start) {
+  #components-page {
+    .filter-button-group {
+      .btn {
+        display: block;
+        background: 0;
+        color: black;
+        box-shadow: none;
+        text-shadow: none;
+        padding: 2px;
+
+        &.current {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
 
 .aside-module {
   .section {
