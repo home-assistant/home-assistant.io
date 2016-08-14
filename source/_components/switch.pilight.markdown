@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: pilight.png
 ha_category: Switch
-ha_release: pre 0.7
+ha_release: 0.26
+ha_iot_class: "Local Polling"
 ---
 
 

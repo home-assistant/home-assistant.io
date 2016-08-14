@@ -10,6 +10,7 @@ footer: true
 logo: gpsd.png
 ha_category: Sensor
 ha_release: 0.26
+ha_iot_class: "Local Polling"
 ---
 
 The `gpsd` component is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.

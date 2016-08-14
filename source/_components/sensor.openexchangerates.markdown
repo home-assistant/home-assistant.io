@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 logo: openexchangerates.png
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Polling"
 ha_release: 0.23
 ---
 
