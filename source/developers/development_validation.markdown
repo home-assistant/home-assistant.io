@@ -21,6 +21,12 @@ Beside the [voluptuous](https://pypi.python.org/pypi/voluptuous) default types a
  
 To validate plaforms using [MQTT](/components/mqtt/) there are `valid_subscribe_topic` and `valid_publish_topic` present.
 
+Some things to keep in mind:
+
+- Use the constants which are definded in `const.py`.
+- Import `PLATFORM_SCHEMA` from parent component and extend it.
+- Preferred order is `required` first, then `optional`.
+
 ### {% linkable_title Snippets %} 
 
 This section contains a couple of snippets for the validation we use.
@@ -30,7 +36,7 @@ This section contains a couple of snippets for the validation we use.
 ```python
 DEFAULT_NAME = 'Sensor name'
 
-PLATFORM_SCHEMA = vol.Schema({
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     ...
     vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
 ```
@@ -42,8 +48,8 @@ As all port numbers are coming out of the range 1 till 65535 a range check shoul
 ```python
 DEFAULT_PORT = 993
 
-PLATFORM_SCHEMA = vol.Schema({
-    [...]
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    ...
     vol.Optional(CONF_PORT, default=DEFAULT_PORT):
         vol.All(vol.Coerce(int), vol.Range(min=1, max=65535)),
 ```
@@ -58,8 +64,8 @@ SENSOR_TYPES = {
     'average_download_rate': ('Average Speed', 'MB/s'),
 }
 
-PLATFORM_SCHEMA = vol.Schema({
-    ....
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    ...
     vol.Optional(CONF_MONITORED_VARIABLES, default=[]):
         [vol.In(SENSOR_TYPES)],
 ```
