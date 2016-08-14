@@ -372,6 +372,10 @@ p.note {
 @media only screen and (min-width: $desk-start) {
   #components-page {
     .filter-button-group {
+      .featured {
+        margin: 12px 0;
+      }
+
       .btn {
         display: block;
         background: 0;

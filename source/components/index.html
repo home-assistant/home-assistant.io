@@ -13,19 +13,22 @@ body_id: components-page
 regenerate: true
 ---
 
+{% assign count = site.components | size %}
+{% assign nocat = site.components | where: 'ha_category', null | size %}
+{% assign tot = count | minus: nocat %}
+{% assign components = site.components | sort: 'title' %}
+{% assign categories = components | sort: 'ha_category' | map: 'ha_category' | uniq %}
+
 <p class='note'>
 Support for these components is provided by the Home Assistant community.
 </p>
-
-{% assign components = site.components | sort: 'title' %}
-{% assign categories = components | sort: 'ha_category' | map: 'ha_category' | uniq %}
 
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
 
     <div class="filter-button-group">
-      <a href='#all' class="btn">All</a>
-      <a href='#featured' class="btn">Featured</a>
+      <a href='#all' class="btn">All ({{tot}})</a>
+      <a href='#featured' class="btn featured">Featured</a>
 
       {% for category in categories %}
         {% if category and category != 'Other' %}
