@@ -91,7 +91,7 @@
 
   <p>The <code>gpsd</code> component is using the GPS information collected by <a href="http://catb.org/gpsd/">gpsd</a> and a GPS receiver.</p>
 
-<p>A requirement is that <code>gpsd</code> is installed (<code>$ sudo dnf -y install gpsd</code> or <code>$ sudo apt-get install gpsd</code>). <code>gpsd</code> uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, <code>gpsd</code> is started. Other GPS device may work too, but this was not tested.</p>
+<p>A requirement is that <code>gpsd</code> is installed (<code>$ sudo apt-get install gpsd</code> or <code>$ sudo dnf -y install gpsd</code>). <code>gpsd</code> uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, <code>gpsd</code> is started. Other GPS device may work too, but this was not tested.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ sudo systemctl status gpsdctl@ttyUSB0.service 
@@ -139,7 +139,7 @@ Escape character is '^]'.
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): The host where GPSD is running. Defaults to <code>localhost</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port which GPSD is using. Defaults to 2947.</li>
-  <li><strong>port</strong> (<em>Optional</em>): Friendly name to use for the frontend. Default to GPS.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Friendly name to use for the frontend. Default to GPS.</li>
 </ul>
 
 
