@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-15T04:02:00+00:00</updated>
+  <updated>2016-08-15T04:35:51+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -60,6 +60,12 @@
   <li>Fix serial_pm config validation (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
   <li>Check for existence of system mode on Honeywell thermostats (<a href="https://github.com/mKeRix">@mKeRix</a>)</li>
   <li>Fix unknown unit of measurement for hvac and thermostat component (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+</ul>
+
+<h3><a class='title-link' name='hotfix-0262---august-15' href='#hotfix-0262---august-15'></a> Hotfix 0.26.2 - August 15 </h3>
+
+<ul>
+  <li>Fix Wemo: have PyWemo play nicely with the latest Requests (<a href="https://github.com/pavoni">@pavoni</a>)</li>
 </ul>
 
 <h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
