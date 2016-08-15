@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `gpsd` component is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
 
-A requirement is that `gpsd` is installed (`$ sudo dnf -y install gpsd` or `$ sudo apt-get install gpsd`). `gpsd` uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, `gpsd` is started. Other GPS device may work too, but this was not tested.
+A requirement is that `gpsd` is installed (`$ sudo apt-get install gpsd` or `$ sudo dnf -y install gpsd`). `gpsd` uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, `gpsd` is started. Other GPS device may work too, but this was not tested.
 
 ```bash
 $ sudo systemctl status gpsdctl@ttyUSB0.service 
@@ -56,4 +56,4 @@ Configuration variables:
 
 - **host** (*Optional*): The host where GPSD is running. Defaults to `localhost`.
 - **port** (*Optional*): The port which GPSD is using. Defaults to 2947. 
-- **port** (*Optional*): Friendly name to use for the frontend. Default to GPS.
+- **name** (*Optional*): Friendly name to use for the frontend. Default to GPS.
