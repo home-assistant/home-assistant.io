@@ -2,19 +2,20 @@
 layout: page
 title: "HP ILO"
 description: "How to integrate HP ILO sensors within Home Assistant."
-date: 2016-08-15 21:30
+date: 2016-08-15 19:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: hewlett_packard_enterprise.png
 ha_category: Sensor
-ha_release: pre 27.0
+ha_release: pre 0.27
 ---
 
 The `hp_ilo` platform allows you to do an API call to the HP ILO sensor of your server, and use this data in (template) sensors.
 
 The component will output the ILO information in the sensor attributes so they can be accessed like that. 
+
 If the ILO only returns a single value (e.g. a temperature or state), it will be put in the state field.
 
 Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](http://pythonhosted.org/python-hpilo/)
