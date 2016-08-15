@@ -33,12 +33,26 @@ This section contains a couple of snippets for the validation we use.
 
 ### {% linkable_title Default name %} 
 
+It's common to set a default for a sensor if the user is not providing a name to use.
+
 ```python
 DEFAULT_NAME = 'Sensor name'
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     ...
     vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
+```
+
+### {% linkable_title Limit the values %} 
+
+In certain cases you want to limit the user's input to a couple of options.
+
+```python
+DEFAULT_METHOD = 'GET'
+
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    ...
+    vol.Optional(CONF_METHOD, default=DEFAULT_METHOD): vol.In(['POST', 'GET']),
 ```
 
 ### {% linkable_title Port %} 
