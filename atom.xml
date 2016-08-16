@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-15T16:48:04+00:00</updated>
+  <updated>2016-08-16T07:39:07+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -82,6 +82,144 @@
 </pre></div>
 </div>
 </div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[We Have Apps Now]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/09/we-have-apps-now/"/>
+    <updated>2016-08-09T18:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/09/we-have-apps-now</id>
+    <content type="html"><![CDATA[<p>I have been working on a new subsystem to complement Home Assistant’s Automation and Scripting components. <code>AppDaemon</code> is a python daemon that consumes events from Home Assistant and feeds them to snippets of python code called “Apps”. An App is a Python class that is instantiated possibly multiple times from <code>AppDaemon</code> and registers callbacks for various system events. It is also able to inspect and set state and call services. The API provides a rich environment suited to home automation tasks that can also leverage all the power of Python.</p>
+
+<!--more-->
+
+<h2><a class="title-link" name="another-take-on-automation" href="#another-take-on-automation"></a> Another Take on Automation</h2>
+
+<p>If you haven’t yet read Paulus’ excellent Blog entry on <a href="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/">Perfect Home Automation</a> I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a lightswitch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the “Automation” in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation to bring this all together in the vast and chaotic ecosystem that is the “Internet of Things”.</p>
+
+<p>So given the importance of Automation, what should Automation allow us to do? I am a pragmatist at heart so I judge individual systems by the ease of accomplishing a few basic but representative tasks:</p>
+
+<ul>
+  <li>Can the system respond to presence or absence of people?</li>
+  <li>Can I turn a light on at Sunset +/- a certain amount of time?</li>
+  <li>Can I arrive home in light or dark and have the lights figure out if they should be on or off?</li>
+  <li>As I build my system out, can I get the individual pieces to co-operate and use and re-use (potentially complex) logic to make sure everything works smoothly?</li>
+  <li>Is it open and expandable?</li>
+  <li>Does it run locally without any reliance on the cloud?</li>
+</ul>
+
+<p>In my opinion, Home Assistant accomplishes the majority of these very well with a combination of Automations, Scripts and Templates, and it’s Restful API.</p>
+
+<p>So why <code>AppDaemon</code>? <code>AppDaemon</code> is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and appdeamon then comes into its own. It brings quite a few things to the table:</p>
+
+<ul>
+  <li>New paradigm - some problems require a procedural and/or iterative approach, and <code>AppDaemon</code> Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that Automations can’t</li>
+  <li>Ease of use - <code>AppDaemon</code>’s API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as “Pythonic” as possible, experienced Python programmers should feel right at home.</li>
+  <li>Reuse - write a piece of code once and instantiate it as an app as many times as you need with different parameters e.g. a motion light program that you can use in 5 different places around your home. The code stays the same, you just dynamically add new instances of it in the config file</li>
+  <li>Dynamic - <code>AppDaemon</code> has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to it’s loose coupling. However, it is better than that - the user can make changes to code and <code>AppDaemon</code> will automatically reload the code, figure out which Apps were using it and restart them to use the new code without the need to restart <code>AppDaemon</code> itself. It is also possible to change parameters for an individual or multiple apps and have them picked up dynamically, and for a final trick, removing or adding apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.</li>
+  <li>Complex logic - Python’s If/Else constructs are clearer and easier to code for arbitrarily complex nested logic</li>
+  <li>Durable variables and state - variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened</li>
+  <li>All the power of Python - use any of Python’s libraries, create your own modules, share variables, refactor and re-use code, create a single app to do everything, or multiple apps for individual tasks - nothing is off limits!</li>
+</ul>
+
+<p>It is in fact a testament to Home Assistant’s open nature that a component like <code>AppDaemon</code> can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant’s underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for <code>AppDaemon</code> - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additonal functions to make things that were already possible easier.</p>
+
+<h2><a class="title-link" name="how-it-works" href="#how-it-works"></a> How it Works</h2>
+
+<p>The best way to show what <code>AppDaemon</code> does is through a few simple examples.</p>
+
+<h3><a class="title-link" name="sunrisesunset-lighting" href="#sunrisesunset-lighting"></a> Sunrise/Sunset Lighting</h3>
+
+<p>Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its <code>initialize()</code> function called which gives it a chance to register a callback for <code>AppDaemons</code>’s scheduler for a specific time. In this case we are using <code>run_at_sunrise()</code> and <code>run_at_sunset()</code> to register 2 separate callbacks. The argument <code>0</code> is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python’s <code>datetime.timedelta</code> class for calculations. When sunrise or sunset occurs, the appropriate callback function, <code>sunrise_cb()</code> or <code>sunset_cb()</code>  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables <code>args["on_scene"]</code> and <code>args["off_scene"]</code> are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">import</span> <span class="include">appapi</span>
+
+<span class="keyword">class</span> <span class="class">OutsideLights</span>(appapi.AppDaemon):
+
+  <span class="keyword">def</span> <span class="function">initialize</span>(<span class="predefined-constant">self</span>):
+    <span class="predefined-constant">self</span>.run_at_sunrise(<span class="predefined-constant">self</span>.sunrise_cb, <span class="integer">0</span>)
+    <span class="predefined-constant">self</span>.run_at_sunset(<span class="predefined-constant">self</span>.sunset_cb, <span class="integer">0</span>)
+    
+  <span class="keyword">def</span> <span class="function">sunrise_cb</span>(<span class="predefined-constant">self</span>, args, kwargs):
+    <span class="predefined-constant">self</span>.turn_on(<span class="predefined-constant">self</span>.args[<span class="string"><span class="delimiter">&quot;</span><span class="content">off_scene</span><span class="delimiter">&quot;</span></span>])
+
+  <span class="keyword">def</span> <span class="function">sunset_cb</span>(<span class="predefined-constant">self</span>, args, kwargs):
+    <span class="predefined-constant">self</span>.turn_on(<span class="predefined-constant">self</span>.args[<span class="string"><span class="delimiter">&quot;</span><span class="content">on_scene</span><span class="delimiter">&quot;</span></span>])
+
+</pre></div>
+</div>
+</div>
+
+<p>This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.</p>
+
+<h3><a class="title-link" name="motion-light" href="#motion-light"></a> Motion Light</h3>
+
+<p>Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the <code>initialize()</code> function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell <code>AppDaemon</code> that we are only interested in state changes where the motion detector comes on by adding an additional parameter to the callback registration - <code>new = "on"</code>. When the motion is detected, the callack function <code>motion()</code> is called, and we check whether or not the sun has set using a built-in convenience function: <code>sun_down()</code>. Next, we turn the light on with <code>turn_on()</code>, then set a timer using <code>run_in()</code> to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in <code>AppDaemon</code> calling <code>light_off()</code> 60 seconds later using the <code>turn_off()</code> call to actually turn the light off. This is still pretty simple in code terms:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">import</span> <span class="include">appapi</span>
+
+<span class="keyword">class</span> <span class="class">MotionLights</span>(appapi.AppDaemon):
+
+  <span class="keyword">def</span> <span class="function">initialize</span>(<span class="predefined-constant">self</span>):
+    <span class="predefined-constant">self</span>.listen_state(<span class="predefined-constant">self</span>.motion, <span class="string"><span class="delimiter">&quot;</span><span class="content">binary_sensor.drive</span><span class="delimiter">&quot;</span></span>, new = <span class="string"><span class="delimiter">&quot;</span><span class="content">on</span><span class="delimiter">&quot;</span></span>)
+  
+  <span class="keyword">def</span> <span class="function">motion</span>(<span class="predefined-constant">self</span>, entity, attribute, old, new, kwargs):
+    <span class="keyword">if</span> <span class="predefined-constant">self</span>.sun_down():
+      <span class="predefined-constant">self</span>.turn_on(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.drive</span><span class="delimiter">&quot;</span></span>)
+      <span class="predefined-constant">self</span>.run_in(<span class="predefined-constant">self</span>.light_off, <span class="integer">60</span>)
+  
+  <span class="keyword">def</span> <span class="function">light_off</span>(<span class="predefined-constant">self</span>, kwargs):
+    <span class="predefined-constant">self</span>.turn_off(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.drive</span><span class="delimiter">&quot;</span></span>)
+</pre></div>
+</div>
+</div>
+
+<p>This is starting to get a little more complex in Home Assistant automations requiring an Automation rule and two separate scripts.</p>
+
+<p>Now lets extend this with a somewhat artificial example to show something that is simple in <code>AppDaemon</code> but very difficult if not impossible using automations. Lets warn someone inside the house that there has been motion outside by flashing a lamp on and off 10 times. We are reacting to the motion as before by turning on the light and setting a timer to turn it off again, but in addition, we set a 1 second timer to run <code>flash_warning()</code> which when called, toggles the inside light and sets another timer to call itself a second later. To avoid re-triggering forever, it keeps a count of how many times it has been activated and bales out after 10 iterations.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="keyword">import</span> <span class="include">appapi</span>
+
+<span class="keyword">class</span> <span class="class">FlashyMotionLights</span>(appapi.AppDaemon):
+
+  <span class="keyword">def</span> <span class="function">initialize</span>(<span class="predefined-constant">self</span>):
+    <span class="predefined-constant">self</span>.listen_state(<span class="predefined-constant">self</span>.motion, <span class="string"><span class="delimiter">&quot;</span><span class="content">binary_sensor.drive</span><span class="delimiter">&quot;</span></span>, new = <span class="string"><span class="delimiter">&quot;</span><span class="content">on</span><span class="delimiter">&quot;</span></span>)
+  
+  <span class="keyword">def</span> <span class="function">motion</span>(<span class="predefined-constant">self</span>, entity, attribute, old, new, kwargs):
+    <span class="keyword">if</span> <span class="predefined-constant">self</span>.self.sun_down():
+      <span class="predefined-constant">self</span>.turn_on(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.drive</span><span class="delimiter">&quot;</span></span>)
+      <span class="predefined-constant">self</span>.run_in(<span class="predefined-constant">self</span>.light_off, <span class="integer">60</span>)
+      <span class="predefined-constant">self</span>.flashcount = <span class="integer">0</span>
+      <span class="predefined-constant">self</span>.run_in(<span class="predefined-constant">self</span>.flash_warning, <span class="integer">1</span>)
+  
+  <span class="keyword">def</span> <span class="function">light_off</span>(<span class="predefined-constant">self</span>, kwargs):
+    <span class="predefined-constant">self</span>.turn_off(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.drive</span><span class="delimiter">&quot;</span></span>)
+    
+  <span class="keyword">def</span> <span class="function">flash_warning</span>(<span class="predefined-constant">self</span>, kwargs):
+    <span class="predefined-constant">self</span>.toggle(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.living_room</span><span class="delimiter">&quot;</span></span>)
+    <span class="predefined-constant">self</span>.flashcount += <span class="integer">1</span>
+    <span class="keyword">if</span> <span class="predefined-constant">self</span>.flashcount &lt; <span class="integer">10</span>:
+      <span class="predefined-constant">self</span>.run_in(<span class="predefined-constant">self</span>.flash_warning, <span class="integer">1</span>)
+</pre></div>
+</div>
+</div>
+
+<p>Of course if I wanted to make this App or its predecessor reusable I would have provided parameters for the sensor, the light to activate on motion, the warning light and even the number of flashes and delay between flashes.</p>
+
+<p>In addition, Apps can write to <code>AppDaemon</code>’s logfiles, and there is a system of constraints that allows yout to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.</p>
+
+<p>I have spent the last few weeks moving all of my (fairly complex) automations over to <code>APPDaemon</code> and so far it is working very reliably.</p>
+
+<p>Some people will maybe look at all of this and say “what use is this, I can already do all of this”, and that is fine, as I said this is an alternative not a replacement, but I am hopeful that for some users this will seem a more natural, powerful and nimble way of building potentially very complex automations.</p>
+
+<p>If this has whet your appetite, feel free to give it a try. You can find it, <a href="https://github.com/acockburn/appdaemon">here</a>, including full installation instructions, an API reference, and a number of fully fleshed out examples.</p>
+
+<p>Happy Automating!</p>
 
 ]]></content>
   </entry>
@@ -1600,21 +1738,6 @@ target_dir /tmp
 
 <p>So there it is, the reason why we use Polymer.</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Video: How To Configure Home Assistant]]></title>
-    <link href="https://home-assistant.io/blog/2016/05/12/video-configuring-home-assistant/"/>
-    <updated>2016-05-12T00:09:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/05/12/video-configuring-home-assistant</id>
-    <content type="html"><![CDATA[<p>Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a> authors a lot of great video’s about how he is using Home Assistant and how you can get started with it too. The video below will walk you through how to configure Home Assistant. Enjoy!</p>
-
-<p>Make sure to subscribe to <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">his YouTube channel</a> for more Home Assistant video’s.</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/hFDVB2H6TNo" frameborder="0" allowfullscreen=""></iframe>
-</div>
 ]]></content>
   </entry>
   
