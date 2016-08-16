@@ -170,7 +170,7 @@ The *object_id* and *scene_id* of all triggered events can be seen in the consol
 
 #### {% linkable_title Services %}
 
-The Z-Wave component exposes four services to help maintain the network.
+The Z-Wave component exposes seven services to help maintain the network.
 
 | Service | Description |
 | ------- | ----------- |

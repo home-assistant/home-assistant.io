@@ -8,8 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: bitcoin.png
-ha_category: Sensor
+ha_category: Finance
 ha_release: pre 0.7
+ha_iot_class: "Cloud Polling"
 ---
 
 

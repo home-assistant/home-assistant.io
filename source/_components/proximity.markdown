@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Organization
+ha_category: Automation
 ha_release: 0.13
 ---
 

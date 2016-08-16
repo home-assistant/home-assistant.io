@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo:
+logo: home-assistant.png
 ha_category: Media Player
 featured: false
 ---

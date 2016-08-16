@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: speedtest.png
-ha_category: Sensor
+ha_category: System Monitor
 featured: false
 ha_release: 0.13
 ---

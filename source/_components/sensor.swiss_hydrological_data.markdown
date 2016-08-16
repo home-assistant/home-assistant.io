@@ -7,8 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
-ha_iot_class: "Local Polling"
+ha_category: Weather
+ha_iot_class: "Cloud Polling"
 ha_release: 0.22
 ---
 

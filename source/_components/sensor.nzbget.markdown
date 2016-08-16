@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Downloading
 logo: nzbget.png
 ha_iot_class: "Local Polling"
 ha_release: 0.17

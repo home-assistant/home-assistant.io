@@ -8,14 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: sabnzbd.png
-ha_category: Sensor
+ha_category: Downloading
 ha_release: pre 0.7
+ha_iot_class: "Local Polling"
 ---
 
 
 The `sabnzbd` platform will allow you to monitor your downloads with [SABnzbd](http://sabnzbd.org) from within Home Assistant and setup automation based on the information.
 
-To use sabnzbd with your installation, add the following to your `configuration.yaml` file:
+To use SABnzbd with your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: efergy.png
-ha_category: Sensor
+ha_category: Energy
 ha_release: pre 0.7
 ---
 
