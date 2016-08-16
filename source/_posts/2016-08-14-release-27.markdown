@@ -14,12 +14,16 @@ It's time for 0.27 and it's again full of new features and fixes.
 
 <img src='/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
-- 
+- [Fritzbox] ([@DavidMStraub])
+- [HP] ([@Juggels])
 
 ### {% linkable_title Breaking changes %}
 
  - The [NZBGet] and the [SABnzbd] sensor were updated to following the same style for the configuration as the other sensor. If you are using those sensors, please update your configuration. 
 
+
+[@DavidMStraub]: https://github.com/DavidMStraub
+[@Juggels]: https://github.com/Juggels
 
 [@abcminiuser]: https://github.com/abcminiuser
 [@balloob]: https://github.com/balloob
@@ -46,4 +50,6 @@ It's time for 0.27 and it's again full of new features and fixes.
 
 [NZBGet]: /components/sensor.nzbget/
 [SABnzbd]: /components/sensor.sabnzbd/
+[HP]: /components/sensor.hp_ilo/
+[Fritzbox]: /components/sensor.fritzbox_callmonitor/
 
