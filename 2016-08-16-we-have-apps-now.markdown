@@ -2,11 +2,12 @@
 layout: post
 title: "We Have Apps Now"
 description: "A new subsystem that allows automations to be coded using Python"
-date: 2016-08-09 14:00:00 -0400
-date_formatted: "August 09, 2016"
+date: 2016-08-16 06:00:00 -0400
+date_formatted: "August 16, 2016"
 author: Andrew Cockburn
 comments: true
 categories: How-To
+og_image: /images/blog/default-social.png
 ---
 
 I have been working on a new subsystem to complement Home Assistant's Automation and Scripting components. `AppDaemon` is a python daemon that consumes events from Home Assistant and feeds them to snippets of python code called "Apps". An App is a Python class that is instantiated possibly multiple times from `AppDaemon` and registers callbacks for various system events. It is also able to inspect and set state and call services. The API provides a rich environment suited to home automation tasks that can also leverage all the power of Python.
@@ -128,5 +129,3 @@ Some people will maybe look at all of this and say "what use is this, I can alre
 If this has whet your appetite, feel free to give it a try. You can find it, [here](https://github.com/acockburn/appdaemon), including full installation instructions, an API reference, and a number of fully fleshed out examples.
 
 Happy Automating!
-
-
