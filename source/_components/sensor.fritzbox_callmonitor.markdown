@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: avm.png
-ha_category: Sensor
-ha_release: "0.25.2"
+ha_category: System Monitor
+ha_release: "0.27"
 ---
 
 
