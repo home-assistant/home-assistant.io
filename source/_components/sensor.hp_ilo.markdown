@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: hewlett_packard_enterprise.png
-ha_category: Sensor
-ha_release: pre 0.27
+ha_category: System Monitor
+ha_release: 0.27
 ---
 
 The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in (template) sensors.
