@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HP ILO"
-description: "How to integrate HP ILO sensors within Home Assistant."
+description: "How to integrate HP ILO (Integrated Lights-Out) sensors within Home Assistant."
 date: 2016-08-15 19:00
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Sensor
 ha_release: pre 0.27
 ---
 
-The `hp_ilo` platform allows you to do an API call to the HP ILO sensor of your server, and use this data in (template) sensors.
+The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in (template) sensors.
 
 The component will output the ILO information in the sensor attributes so they can be accessed like that. 
 
