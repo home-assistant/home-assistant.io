@@ -148,12 +148,15 @@
 
 <p>If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found <a href="https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22">here</a>. A regular MQTT message from this example looks like this:</p>
 
-<pre><code>office/sensor1
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="error">o</span><span class="error">f</span><span class="error">f</span><span class="error">i</span><span class="error">c</span><span class="error">e</span><span class="error">/</span><span class="error">s</span><span class="error">e</span><span class="error">n</span><span class="error">s</span><span class="error">o</span><span class="error">r</span><span class="integer">1</span>
   {
-    "temperature": 23.20,
-    "humidity": 43.70
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">temperature</span><span class="delimiter">&quot;</span></span>: <span class="float">23.20</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">humidity</span><span class="delimiter">&quot;</span></span>: <span class="float">43.70</span>
   }
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <p>Then use this configuration example to extract the data from the payload:</p>
 
