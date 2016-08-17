@@ -29,7 +29,7 @@ modbus:
 
 Configuration variables:
 
-- **type** (*Required*): Type of the connection to Modebus.
+- **type** (*Required*): Type of the connection to Modbus.
 - **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
 - **port** (*Required*): The port for the comminication.
 
