@@ -121,6 +121,7 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
   <span class="key">platform</span>: <span class="string"><span class="content">yweather</span></span>
   <span class="key">woeid</span>: <span class="string"><span class="content">YOUR_WOEID</span></span>
   <span class="key">forecast</span>: <span class="string"><span class="content">3</span></span>
+  <span class="key">name</span>: <span class="string"><span class="content">OPTIONAL_NAME</span></span>
   <span class="key">monitored_conditions</span>:
    - <span class="string"><span class="content">weather</span></span>
    - <span class="string"><span class="content">temp_min</span></span>
@@ -134,6 +135,7 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
 <ul>
   <li><strong>woeid</strong> (<em>Optional</em>): See above.</li>
   <li><strong>forecast</strong> (<em>Optional</em>): Day of forecast. The default is the current day to display conditions.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend.
     <ul>
       <li><strong>weather</strong>: A human-readable text summary with picture from yahoo.</li>
