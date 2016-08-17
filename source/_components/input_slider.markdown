@@ -34,3 +34,71 @@ Configuration variables:
 - **max** (*Optional*): Maximum value for the slider.
 - **step** (*Optional*): Step value for the slider.
 
+# Automation Examples
+
+Here's an example of `input_slider` being used as a trigger in an automation.
+```
+# Example configuration.yaml entry using 'input_slider' as a trigger in an automation
+
+# Define input_slider
+input_slider:
+  bedroom_brightness:
+    name: Brightness
+    initial: 254
+    min: 0
+    max: 254
+    step: 1
+
+# Automation.     
+automation:    
+  - alias: Bedroom Light - Adjust Brightness
+    trigger:
+      platform: state
+      entity_id: input_slider.bedroom_brightness
+    action:
+      - service: light.turn_on
+# Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable
+        data_template:
+          entity_id: light.bedroom
+          brightness: '{{ trigger.to_state.state | int }}'
+```
+Another code example using `input_slider`, this time being used in an action in an automation.
+```
+# Example configuration.yaml entry using 'input_slider' in an action in an automation
+
+# Define 'input_select'
+input_select:
+  scene_bedroom:
+    name: Scene
+    options:
+      - Select
+      - Concentrate
+      - Energize
+      - Reading
+      - Relax
+      - 'OFF'
+    initial: 'Select'
+    
+# Define input_slider
+input_slider:
+  bedroom_brightness:
+    name: Brightness
+    initial: 254
+    min: 0
+    max: 254
+    step: 1
+
+# Automation.     
+automation:    
+  - alias: Bedroom Light - Custom
+    trigger:
+      platform: state
+      entity_id: input_select.scene_bedroom
+      to: CUSTOM
+    action:
+      - service: light.turn_on
+# Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
+        data_template:
+          entity_id: light.bedroom
+          brightness: '{{ states.input_slider.bedroom_brightness.state | int }}'
+```
