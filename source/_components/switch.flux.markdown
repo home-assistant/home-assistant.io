@@ -1,14 +1,15 @@
 ---
 layout: page
-title: "Flux Switch"
+title: "Flux Light Adjustment"
 description: "Instructions how to have switches call command line commands."
 date: 2016-06-01 17:41
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Switch
+ha_category: Automation
 ha_release: 0.21
+logo: home-assistant.png
 ---
 
 The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night.
@@ -19,7 +20,7 @@ During the day (in between `start time` and `sunset time`), it will fade the lig
 
 If you don't wish to have flux update on 30 second intervals, you can leave the switch turned off and use automation rules that call the service `switch.flux_update` whenever you want the lights updated.
 
-To use your TPLink switch in your installation, add the following to your `configuration.yaml` file:
+To use the Flux switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,6 +36,7 @@ switch:
   sunset_colortemp: 3000
   stop_colortemp: 1900
   brightness: 200
+  mode: xy
 ```
 
 Configuration variables:
@@ -47,4 +49,5 @@ Configuration variables:
 - **sunset_colortemp** (*Optional*): The sun set color temperature. Defaults to `3000`.
 - **stop_colortemp** (*Optional*): The color temperature at the end. Defaults to `1900`.
 - **brightness** (*Optional*): The brightness of the lights. Calculated with `RGB_to_xy` by default.
+- **mode** (*Optional*): Select how color temperature is passed to lights. Valid values are 'xy', 'mired' and 'kelvin'. Defaults to 'xy'.
 

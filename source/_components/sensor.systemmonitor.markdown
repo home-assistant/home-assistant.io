@@ -7,8 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: System Monitor
 ha_release: pre 0.7
+ha_iot_class: "Local Push"
 ---
 
 The `systemmonitor` sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.
@@ -18,12 +19,12 @@ To add this platform to your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /home
-    - type: memory_free
-    - type: processor_use
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: processor_use
 ```
 
 Configuration variables:
@@ -34,7 +35,7 @@ Configuration variables:
 
 The table contains types and their argument to use in your `configuration.yaml` file.
 
-| Type (`- type:`)    | Argument (`arg:`)        |
+| Type (`type:`)      | Argument (`arg:`)        |
 | :------------------ |:-------------------------|
 | disk_use_percent    | Path, eg. `/`            |
 | disk_use            | Path, eg. `/`            |

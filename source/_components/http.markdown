@@ -13,6 +13,10 @@ ha_category: "Other"
 
 The `http` component serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
 
+<p class='note warning'>
+It's HIGHLY recommended that you set the `api_password`, especially if you are planning to expose your installation to the internet.
+</p>
+
 ```yaml
 # Example configuration.yaml entry
 http:
@@ -21,8 +25,8 @@ http:
   ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
   cors_allowed_origins:
-    - google.com
-    - home-assistant.io
+    - https://google.com
+    - https://home-assistant.io
 ```
 
 Configuration variables:
@@ -33,7 +37,7 @@ Configuration variables:
 - **development** (*Optional*): Disable caching and load unvulcanized assets. Useful for Frontend development.
 - **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
 - **ssl_key** (*Optional*): Path to your TLS/SSL key to serve Home Assistant over a secure connection.
-- **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`.
+- **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://home-assistant.io` will allow requests from `https://home-assistant.io` but __not__ `http://home-assistant.io`.
 
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).

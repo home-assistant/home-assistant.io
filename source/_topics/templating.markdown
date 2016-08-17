@@ -21,19 +21,17 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:
 
  - Formatting outgoing messages in, for example, the [notify] and [alexa] components.
- - Process incoming data from sources that provide raw data, like [MQTT], [Rest sensor] or the [command line sensor].
+ - Process incoming data from sources that provide raw data, like [MQTT], [REST sensor], or the [command line sensor].
 
 [notify]: /components/notify/
 [alexa]: /components/alexa/
 [MQTT]: /components/mqtt/
-[Rest sensor]: /components/sensor.rest/
+[REST sensor]: /components/sensor.rest/
 [command line sensor]: /components/sensor.command_line/
 
 ## {% linkable_title Building templates %}
 
-Templating in Home Assistant is powered by the Jinja2 templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. We will not go over the basics of the syntax, as Jinja2 does a lot better job at this in their [Jinja2 documentation].
-
-[Jinja2 documentation]: http://jinja.pocoo.org/docs/dev/templates/
+Templating in Home Assistant is powered by the [Jinja2](http://jinja.pocoo.org/) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. We will not go over the basics of the syntax, as Jinja2 does a lot better job at this in their [Jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/).
 
 <p class='note'>
 The frontend has a template editor developer tool to help develop and debug templates.
@@ -55,25 +53,33 @@ script:
             {% endif %}{% endraw %}
 ```
 
+[Jinja2](http://jinja.pocoo.org/) supports a width variety of operations:
+
+- [Mathematical operation](http://jinja.pocoo.org/docs/dev/templates/#math)
+- [Comparisons](http://jinja.pocoo.org/docs/dev/templates/#comparisons)
+- [Logic](http://jinja.pocoo.org/docs/dev/templates/#logic)
+
+
 ## {% linkable_title Home Assistant template extensions %}
 
 Home Assistant adds extensions to allow templates to access all of the current states:
 
- - Iterating `states` will yield each state sorted alphabetically by entity ID.
- - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
- - `states.sensor.temperature` returns the state object for `sensor.temperature`.
- - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
- - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
- - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
- - Filter `multiply(x)` will convert the input to a number and multiply it with `x`.
- - Filter `round(x)` will convert the input to a number and round it to `x` decimals.
- - `now` will be rendered as current time in your time zone.
- - `utcnow` will be rendered as UTC time.
- - `as_timestamp` will convert datetime object or string to UNIX timestamp
- - `distance()` will measure the distance in meters between home, entity, coordinates.
- - `closest()` will find the closest entity.
- - `relative_time(timestamp)` will format the date time as relative time vs now (ie 7 seconds)
-
+- Iterating `states` will yield each state sorted alphabetically by entity ID.
+- Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
+- `states.sensor.temperature` returns the state object for `sensor.temperature`.
+- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
+- `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
+- `now` will be rendered as current time in your time zone.
+- `utcnow` will be rendered as UTC time.
+- `as_timestamp` will convert datetime object or string to UNIX timestamp
+- `distance()` will measure the distance in meters between home, entity, coordinates.
+- `closest()` will find the closest entity.
+- `relative_time(timestamp)` will format the date time as relative time vs now (ie 7 seconds)
+- `float` will format the output as float.
+- Filter `round(x)` will convert the input to a number and round it to `x` decimals.
+- Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
+- Filter `timestamp_utc` will convert an UNIX timestamp to UTC time/data.
 
 ## {% linkable_title Examples %}
 
@@ -93,9 +99,9 @@ Print an attribute if state is defined
 ```jinja2
 {% raw %}
 {% if states.device_tracker.paulus %}
-{{ states.device_tracker.paulus.attributes.battery }}
+  {{ states.device_tracker.paulus.attributes.battery }}
 {% else %}
-??
+  ??
 {% endif %}{% endraw %}
 ```
 
@@ -115,11 +121,18 @@ Print out a list of all the sensor states.
   Paulus is at {{ states('device_tracker.paulus')) }}.
 {% endif %}
 
-{{ states.sensor.temperature | multiply(10) | round(2) }}
+{{ states.sensor.temperature | float + 1 }}
+
+{{ states.sensor.temperature | float * 10 | round(2) }}
 
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!
-{%endif %}{% endraw %}
+{%endif %}
+
+{{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+
+{{ as_timestamp(now) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+{% endraw %}
 ```
 
 ### {% linkable_title Distance examples %}
@@ -172,10 +185,10 @@ The other part of templating is processing incoming data. It will allow you to m
 
 It depends per component or platform but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
 
-| Variable     | Description |
-| ------------ | ----------- |
-| `value`      | The incoming value.
-| `value_json` | The incoming value parsed as JSON.
+| Variable     | Description                            |
+| ------------ | -------------------------------------- |
+| `value`      | The incoming value.                    |
+| `value_json` | The incoming value parsed as JSON.     |
 
 ```jinja2
 # Incoming value:
@@ -183,4 +196,15 @@ It depends per component or platform but it is common to be able to define a tem
 
 # Extract third prime number
 {% raw %}{{ value_json.primes[2] }}{% endraw %}
+
+# Format output
+{% raw %}{{ "%+.1f" | value_json }}{% endraw %}
+
+# Math
+{% raw %}{{ value_json | float * 1024 }}{% endraw %}
+{% raw %}{{ float(value_json) * (2**10) }}{% endraw %}
+
+# Timestamps
+{% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
+{% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
 ```

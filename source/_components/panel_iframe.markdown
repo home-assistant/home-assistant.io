@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_category: Front end
 ha_release: 0.25
 ---
 
 
 The `panel_iframe` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.
+
+<p class='note warning'>If you are accessing home Assistant over HTTPS using SSL, you cannot access HTTP sites through an iframe panel.</p>
 
 To enable Panel iFrames in your installation, add the following to your `configuration.yaml` file:
 
@@ -32,8 +34,8 @@ panel_iframe:
 
 Configuration variables:
 
-- **[panael_name]** (*Required*): Name of the panel.
+- **[panel_name]** (*Required*): Name of the panel.
   - **title** (*Required*): Friendly title for the panel. Will be used in the sidebar.
-  - **icon** (*Optional*): The API token of your bot.
-  - **url** (*Required*): The chat ID of your user.
+  - **icon** (*Optional*): Icon for entry. Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+  - **url** (*Required*): The URL to open.
 

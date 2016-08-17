@@ -30,6 +30,7 @@ The `else` part is used to have the sensor keep it's last state if the newest [i
 While running the [Owntracks](/components/device_tracker.owntracks/) device tracker you can retrieve the battery level with a MQTT sensor.
 
 ```yaml
+sensor:
   - platform: mqtt
     state_topic: "owntracks/tablet/tablet"
     name: "Battery Tablet"

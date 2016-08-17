@@ -31,3 +31,12 @@ Configuration variables:
 - **devices** (*Required*): List of devices with their topic.
 - **qos** (*Optional*): The QoS level of the topic.
 
+
+Example JSON you can publish to the topic (e.g. via mqtt.publish service):
+
+```json
+{
+  "topic": "/location/paulus",
+  "payload": "home"
+}
+```

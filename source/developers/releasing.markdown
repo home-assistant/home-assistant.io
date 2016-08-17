@@ -15,8 +15,10 @@ This page describes the steps for publishing a new Home Assistant release.
 
 1. Create a pull request from `dev` to `master` with the upcoming release number as title.
 2. Merge `master` into `dev` to make the PR mergable. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author.
-3. Merge pull request.
-4. Go to [releases](https://github.com/home-assistant/home-assistant/releases) and tag a new release on the `master` branch. Tag name and title name are version number. Release description is text from PR.
+3. Update `homeassistant/const.py` with the correct version number (remove the the `dev` tag) and push that commit.
+4. Merge pull request.
+5. Then, after merged, push another update to `dev` of `homeassistant/const.py` that includes the next version with the `dev` tag. Add a meaningful commit message like "Version bump to X". This commit acts as marker for the next release.
+6. Go to [releases](https://github.com/home-assistant/home-assistant/releases) and tag a new release on the `master` branch. "Tag version" and "Release title" are the version number (`O.x` for major version, `0.x.y` for minor and bug fix releases). Release description is the text from PR. Press "Publish release" to finish the process.
 
 ### {% linkable_title Website %}
 
@@ -29,7 +31,7 @@ This page describes the steps for publishing a new Home Assistant release.
 
 ### {% linkable_title Python Package Index %}
 
-Checkout `master` branch and run `script/release` to publish the new release on [Python Package Index](https://pypi.python.org)
+Checkout the `master` branch and run `script/release` to publish the new release on [Python Package Index](https://pypi.python.org).
 
 ### {% linkable_title Social media %}
 

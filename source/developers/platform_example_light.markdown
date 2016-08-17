@@ -11,6 +11,20 @@ footer: true
 
 This example is for adding support for the imaginary Awesome Lights. It shows the different best practices for developing a platform.
 
+Similar to Example Sensor Platform, Copy the code below and create it as a file in `<config_dir>/custom_components/light/awesomelights.py`.
+
+Add the following to your configuration.yaml:
+
+```yaml
+light:
+  - platform: awesomelights
+    host: HOST_HERE
+    username: USERNAME_HERE
+    password: PASSWORD_HERE_OR_secrets.yaml
+```
+
+Note the `platform` name matches the filename for the source code.
+
 ```python
 import logging
 
@@ -25,7 +39,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
-    """Initialize Awesome Light platform."""
+    """Setup the Awesome Light platform."""
     import awesomelights
 
     # Validate passed in config
@@ -49,8 +63,9 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     # Add devices
     add_devices(AwesomeLight(light) for light in hub.lights())
 
+
 class AwesomeLight(Light):
-    """Represents an AwesomeLight in Home Assistant."""
+    """Representation of an Awesome Light."""
 
     def __init__(self, light):
         """Initialize an AwesomeLight."""
@@ -58,7 +73,7 @@ class AwesomeLight(Light):
 
     @property
     def name(self):
-        """Return the display name of this light"""
+        """Return the display name of this light."""
         return self._light.name
 
     @property
@@ -72,7 +87,7 @@ class AwesomeLight(Light):
 
     @property
     def is_on(self):
-        """If light is on."""
+        """Return true if light is on."""
         return self._light.is_on()
 
     def turn_on(self, **kwargs):
@@ -91,7 +106,7 @@ class AwesomeLight(Light):
     def update(self):
         """Fetch new state data for this light.
 
-        This is the only method that should fetch new data for Home Assitant.
+        This is the only method that should fetch new data for Home Assistant.
         """
         self._light.update()
 ```

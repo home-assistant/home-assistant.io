@@ -29,7 +29,7 @@ $ python3 get-pip.py
 ```
 
 #### {% linkable_title distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both %}
-This is a known issue if you're on a Mac using Homebrew to install Python. Please follow [these instructions](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Homebrew-and-Python.md#note-on-pip-install---user) to resolve it.
+This is a known issue if you're on a Mac using Homebrew to install Python. Please follow [these instructions](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md#note-on-pip-install---user) to resolve it.
 
 #### {% linkable_title CentOS and Python 3 %}
 To run Python 3.x on [CentOS](https://www.centos.org/) or RHEL, [Software Collections](https://www.softwarecollections.org/en/scls/rhscl/rh-python34/) needs to be activated.

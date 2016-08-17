@@ -66,7 +66,7 @@ The context will look like this:
     "latitude": 44.1234,
     "location_name": "Home",
     "longitude": 5.5678,
-    "temperature_unit": "°C",
+    "unit_system": "metric",
     "time_zone": "Europe/Zurich",
     "version": "0.20.0.dev0"
   },

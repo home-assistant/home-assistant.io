@@ -39,19 +39,18 @@ $ script/setup
 
 ## {% linkable_title Development %}
 
-While you are developing, you need to have webpack running to have your JavaScript changes be made available.
+While you are developing, you need to have Rollup running to have your JavaScript changes be made available.
 
 ```bash
 $ cd homeassistant/components/frontend/www_static/home-assistant-polymer
 $ npm run js_dev
 ```
 
-The source code for the frontend can be found in two different directories:
+The source code for the frontend can be found in three different directories:
 
  - UI: `homeassistant/components/frontend/www_static/home-assistant-polymer/src/`
- - Core: `homeassistant/components/frontend/www_static/home-assistant-polymer/node_modules/home-assistant-js/src/`
-
-After your changes have been accepted into the home-assistant-js repository, you'll have to update Home Assistant Polymer to use the latest version of it. This can be done by updating `package.json`. Look for the line that contains home-assistant-js and update the SHA to the SHA of the last commit.
+ - Core: `homeassistant/components/frontend/www_static/home-assistant-polymer/home-assistant-js/src/`
+ - Panels: `homeassistant/components/frontend/www_static/home-assistant-polymer/panels/`
 
 # {% linkable_title Building the Polymer frontend %}
 
@@ -59,15 +58,10 @@ Building a new version of the frontend is as simple as running `script/build_fro
 
  * **home-assistant-polymer**: Install NPM dependencies.
  * **home-assistant-polymer**: start frontend build.
-   * Compile all used JavaScript to `_app_compiled.js`.
+   * Compile all used JavaScript.
    * Install Bower dependencies.
-   * Vulcanize all Webcomponents to `frontend.vulcan.html`.
-   * Minify `frontend.vulcan.html` and save it as `frontend.html`.
+   * Vulcanize and minify the core and panel sources to build dir.
  * Copy the webcomponents polyfill `webcomponents-lite.min.js` from **home-assistant-polymer** to `components/frontend/www_static/webcomponents-lite.min.js`.
- * Copy the final frontend build `frontend.html` from **home-assistant-polymer** to `components/frontend/www_static/frontend/`.
- * Generate MD5 hash of `frontend.html` to signal caches to redownload the UI.
-
-<p class='img'>
-<img src='/images/frontend/polymer-build-architecture.png' alt='Polymer build architecture diagram' />
-Polymer build architecture diagram
-</p>
+ * Copy the final frontend build `frontend.html` and panel sources from **home-assistant-polymer** to `components/frontend/www_static/frontend/`.
+ * Generate MD5 hashes of core and panel sources.
+ * Create gzip versions of all the sources.

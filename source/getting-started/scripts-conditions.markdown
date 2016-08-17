@@ -96,7 +96,9 @@ for:
 
 #### {% linkable_title Sun condition %}
 
-The sun condition can test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger](#sun-trigger).
+The sun condition can test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
+
+[sun_trigger]: /getting-started/automation-trigger/#sun-trigger
 
 ```yaml
 condition: sun
@@ -111,11 +113,12 @@ The template condition will test if the [given template][template] renders a val
 
 ```yaml
 condition: template
-value_template: '{% raw %}{{ state.attributes.battery > 50 }}{% endraw %}'
+value_template: '{% raw %}{{ states.device_tracker.iphone.attributes.battery > 50 }}{% endraw %}'
 ```
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
 
+[template]: /topics/templating/
 [automation-templating]: /getting-started/automation-templating/
 
 #### {% linkable_title Time condition %}

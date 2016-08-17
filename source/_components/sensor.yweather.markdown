@@ -13,13 +13,13 @@ ha_release: 0.24
 ---
 
 
-The `yweather` platform uses [Yahoo Weather](http://https://www.yahoo.com/news/weather/) as an source for current meteorological data. The `forecast` will show you the condition for 5 days, 0 is the current day. You can use only `weather`, `temp_min`, and `temp_max` with forecast.
+The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as an source for current meteorological data. The `forecast` will show you the condition for 5 days, 0 is the current day. You can use only `weather`, `temp_min`, and `temp_max` with forecast.
 
 <p class='note warning'>
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2,000 signed calls per day.
 </p>
 
-The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your woeid by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](http://https://www.yahoo.com/news/weather/). If you don't add a woeid it generate it from Home Assistant's latitude and longitude.
+The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your woeid by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](https://www.yahoo.com/news/weather/). If you don't add a woeid it generate it from Home Assistant's latitude and longitude.
 
 To add Yahoo Weather to your installation, add the following to your `configuration.yaml` file:
 
@@ -66,4 +66,6 @@ Configuration variables:
   - **pressure**: The sea-level air pressure in millibars.
   - **visibility**: The average visibility.
 
-Details about the API are available in the [Yahoo! EDeveloper Network](http://https://developer.yahoo.com/weather/).
+
+Details about the API are available in the [Yahoo! Developer Network](https://developer.yahoo.com/weather/).
+

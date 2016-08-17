@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: glances.png
-ha_category: Sensor
+ha_category: System Monitor
 ha_iot_class: "Local Polling"
 ha_release: 0.7.3
 ---

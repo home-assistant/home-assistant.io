@@ -34,7 +34,7 @@ thermostat:
 Configuration variables:
 
 - **host** (*Required*): List of your Radiotherm thermostats
-- **hold_temp** (*Required*): Boolean to control if hass temp adjustments hold(True) or are temporary(False)
+- **hold_temp** (*Required*): Boolean to control if Home Assistant temperature adjustments hold (`True`) or are temporary (`False`).
 
 Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to `False` if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.
 

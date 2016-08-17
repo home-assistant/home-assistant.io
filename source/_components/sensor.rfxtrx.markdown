@@ -62,6 +62,7 @@ sensor:
   devices:
     0a52080705020095220269:
       name: Lving
+      fire_event: True
     0a520802060100ff0e0269:
       name: Bath
       data_type:
@@ -74,4 +75,4 @@ Configuration variables:
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
 - **automatic_add** (*Optional*): To enable the automatic addition of new lights.
 - **data_type**  (*Optional*): Which data type the sensor should show
-- **fire_event** *Optional*: Fires an event even if the state is the same as before. Can be used for automations.
+- **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.

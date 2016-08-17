@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Organization
+ha_category: Automation
 ha_release: 0.13
 ---
 
@@ -47,6 +47,7 @@ proximity:
     - device_tracker.eleanorsiphone
     - device_tracker.tsiphone
   tolerance: 50
+  unit_of_measurement: mi
 ```
 
 Configuration variables:
@@ -55,4 +56,19 @@ Configuration variables:
 - **ignored_zones** array (*Optional*): Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g. work or school).
 - **devices** array (*Optional*):  A list of devices to compare location against to check closeness to the configured zone.
 - **tolerance** (*Optional*): The tolerance used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
+- **unit_of_measurement** (*Optional*): The unit of measurement for distance. Valid values are (km, m, mi, ft) [kilometers, meters, miles and feet respectfully]. The default value is kilometers.
 
+To add multiple proximity components, simply use a list in your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+proximity:
+  - zone: home
+    devices:
+      - device_tracker.tsiphone
+    tolerance: 50
+  - zone: work
+    devices:
+      - device_tracker.elanorsiphone
+    tolerance: 10
+```

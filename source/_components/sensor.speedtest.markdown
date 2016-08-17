@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: speedtest.png
-ha_category: Sensor
+ha_category: System Monitor
 featured: false
 ha_release: 0.13
 ---
@@ -74,3 +74,5 @@ Configuration variables:
 - **day** (*Optional*): Specify the day(s) of the month to schedule the speedtest. Use a list for multiple entries. Default is None.
 
 This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.  Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.
+
+When Home Assistant first starts up, the values of the speedtest will show as `Unknown`. You can use the service `sensor.update_speedtest` to run a manual speedtest and populate the data or just wait for the next regularly scheduled test.

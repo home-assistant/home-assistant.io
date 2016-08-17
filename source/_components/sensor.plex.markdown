@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Plex Sensor"
+title: "Plex Activity Monitor"
 description: "How to add a Plex sensor to Home Assistant."
 date: 2016-06-3 08:19
 sidebar: true
@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: plex.png
-ha_category: Sensor
+ha_category: Media Player
 ha_release: 0.22
 ---
 

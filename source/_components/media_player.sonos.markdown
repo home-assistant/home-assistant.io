@@ -13,27 +13,75 @@ featured: true
 ha_release: 0.7.3
 ---
 
-The `sonos` platform allows you to control your [Sonos](http://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant.
+The `sonos` platform allows you to control your [Sonos](http://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`. Alternatively, there are some manual configuration options, listed as follows:
 
-To add your Sonos components to your installation, add the following to your `configuration.yaml` file.  It will perform auto-discovery of your connected speakers.
+To add your Sonos components to your installation, add the following to your `configuration.yaml` file.  It will perform Sonos auto-discovery of your connected speakers.
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry using Sonos discovery
 media_player:
   platform: sonos
 ```
 
-You can also specify hosts to connect to if they cannot be found with auto-discovery.
+If you have multiple network devices, you can provide the IP address of the device that should be used for Sonos auto-discovery.
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry using Sonos discovery on a specific interface
 media_player:
   platform: sonos
-  hosts: IP
+  interface_addr: 192.0.2.1
 ```
 
-### {% linkable_title Service %}
+You can also specify one or more hosts to connect to if they cannot be found with Sonos auto-discovery.
 
-There are two extra services exposed that will allow you to take a snapshot of what is currently playing and restore it afterwards. This is useful if you want to play a doorbell or notification sound and resume playback afterwards.
+```yaml
+# Example configuration.yaml entry with manually specified addresses
+media_player:
+  platform: sonos
+  hosts: 192.0.2.25
+```
 
-The services are called `sonos_snapshot` and `snapshot_restore`.
+or, for multiple hosts:
+
+```yaml
+# Example configuration.yaml entry with manually specified addresses
+media_player:
+  platform: sonos
+  hosts:
+    - 192.0.2.25
+    - 192.0.2.26
+    - 192.0.2.27
+```
+
+### {% linkable_title Service `sonos_snapshot` %}
+
+Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards. If no `entity_id` is provided, all speakers are snapshotted.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+
+### {% linkable_title Service `sonos_restore` %}
+
+Restore a previosly taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+
+### {% linkable_title Service `sonos_group_players` %}
+
+Group all players together under a single coordinator.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of a single `entity_id` that will become the coordinator speaker.
+
+### {% linkable_title Service `sonos_unjoin` %}
+
+Remove one or more speakers from a group of speakers. If no `entity_id` is provided, all speakers are unjoined.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will be separated from their coordinator speaker.
+

@@ -22,8 +22,8 @@ homeassistant:
   # Impacts weather/sunrise data (altitude above sea level) 
   elevation: 430
 
-  # C for Celsius, F for Fahrenheit
-  temperature_unit: C
+  # 'metric' for Metric, 'imperial' for Imperial
+  unit_system: metric
 
   # Pick yours from here:
   # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -42,6 +42,10 @@ http:
   api_password: YOUR_PASSWORD
 ```
 
+<p class='note warning'>
+If you are planing to expose your Home Assistant instance to the internet and don't set a password then your installation could be accessed by everybody.
+</p>
+
 See the [HTTP component documentation](/components/http/) for more options like HTTPS encryption.
 
 ### {% linkable_title Setting up your phone or tablet %}
@@ -50,11 +54,15 @@ Home Assistant runs as a self-hosted web application and contains support to be 
 
 ### {% linkable_title Remote access %}
 
-To make Home Assistant accessible while away from home, you will have to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching `<Router model> port forwarding instructions`.
+To make Home Assistant accessible while away from home, you will have to make it accessible.
 
-Some Internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while away. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).
+The common approach is to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching `<Router model> port forwarding instructions`.
 
-You should definitely consider to encrypt your traffic if you are accessing your Home Assistant installation from abroad. For details please check the [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post.
+The problem with making a port accessible is that some Internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while away. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).
+
+Just putting a port up is not secure. You should definitely consider to encrypt your traffic if you are accessing your Home Assistant installation from abroad. For details please check the [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post.
+
+If you want the very best security, check out [the instructions how to use Tor to access your home](/cookbook/tor_configuration/).
 
 ### [Next step: Setting up devices &raquo;](/getting-started/devices/)
 

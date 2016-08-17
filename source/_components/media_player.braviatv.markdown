@@ -33,3 +33,8 @@ Configuration variables:
 - **host** (*Required*): The IP of the Sony Bravia TV, eg. 192.168.0.10
 - **name** (*Optional*): The name to use on the frontend.
 
+You are also able to configure the TV manually by placing a `bravia.conf` file in your `.homeassistant` config directory with the following information - please update the details to match your setup:
+
+```json
+{"192.168.0.10": {"pin": "7745", "mac": "ac:1e:0a:e1:0c:01"}}
+```

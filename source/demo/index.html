@@ -16,6 +16,13 @@
           user-scalable=no' />
     <meta name='theme-color' content='#03a9f4'>
     <style>
+      body {
+        font-family: 'Roboto', 'Noto', sans-serif;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
       #ha-init-skeleton {
         display: -webkit-flex;
         display: flex;
@@ -64,10 +71,7 @@
           .classList.add('error');
       };
       window.noAuth = true;
-      window.deferredLoading = {
-        map: '/demo/partial-map.html',
-        dev: '/demo/dev-tools.html',
-      };
+      window.Polymer = {lazyRegister: true, useNativeCSSProperties: true, dom: 'shady'}
     </script>
   </head>
   <body fullbleed>

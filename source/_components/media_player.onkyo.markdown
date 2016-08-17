@@ -31,7 +31,7 @@ media_player:
 ```
 Configuration variables:
 - **host** (*Optional*): IP address of the device. Example:`192.168.1.2` If not specified, the platform will load any discovered receivers.
-- **name** (*Optional, required if host is specified*): Name of the device
+- **name** (*Required if host is specified*): Name of the device
 - **sources** (*Optional*): A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
 
 List of source names:

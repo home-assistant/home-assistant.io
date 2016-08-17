@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Finance
 logo: openexchangerates.png
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Polling"
 ha_release: 0.23
 ---
 
@@ -23,15 +23,16 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: openexchangerates
-  api_key: your_api_key
-  base: USD #optional
-  quote: EUR
-  name: USDEUR #optional
+  - platform: openexchangerates
+    api_key: YOUR_API_KEY
+    base: USD
+    quote: EUR
+    name: USDEUR
 ```
 
 Configuration variables:
 
+- **api_key** (*Required*): API Key for [Open Exchange Rates](https://openexchangerates.org).
 - **name** (*Optional*): Name to use in the frontend.
 - **base** (*Optional*): The symbol of the base currency. Defaults to USD 
 - **quote** (*Required*): The symbol of the quote or target currency.

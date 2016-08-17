@@ -39,7 +39,7 @@ print(response.text)
 ```
 
 <p class='note'>
-You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
+You can append `?password=YOUR_PASSWORD` to any url to log in automatically.
 </p>
 
 Successful calls will return status code 200 or 201. Other status codes that can return are:
@@ -89,7 +89,7 @@ Returns the current configuration as JSON.
     "latitude": 44.1234,
     "location_name": "Home",
     "longitude": 5.5678,
-    "temperature_unit": "\u00b0C",
+    "unit_system": "metric",
     "time_zone": "Europe/Zurich",
     "version": "0.8.0.dev0"
 }

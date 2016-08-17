@@ -7,8 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: 
-ha_category: Other
+ha_category: Front end
 ha_release: 0.13
 ---
 
