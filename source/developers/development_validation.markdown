@@ -57,15 +57,14 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 
 ### {% linkable_title Port %} 
 
-As all port numbers are coming out of the range 1 till 65535 a range check should be performed. 
+As all port numbers are coming out of the range 1 till 65535. 
 
 ```python
 DEFAULT_PORT = 993
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     ...
-    vol.Optional(CONF_PORT, default=DEFAULT_PORT):
-        vol.All(vol.Coerce(int), vol.Range(min=1, max=65535)),
+    vol.Optional(CONF_PORT, default=DEFAULT_PORT): cv.port,
 ```
 
 ### {% linkable_title Sensor types %} 
