@@ -49,6 +49,11 @@ sensor:
     - minutely_summary
     - hourly_summary
     - daily_summary
+    - temperature_max
+    - temperature_min
+    - apparent_temperature_max
+    - apparent_temperature_min
+    - precip_intensity_max
 ```
 
 Configuration variables:
@@ -72,6 +77,11 @@ Configuration variables:
   - **minutely_summary**: A human-readable text summary for the next hour.
   - **hourly_summary**: A human-readable text summary for the next 24 hours.
   - **daily_summary**: A human-readable text summary for the next 7 days.
+  - **temperature_max**: Today's expected high temperature.
+  - **temperature_min**: Today's expected low temperature.
+  - **apparent_temperature_max**: Today's expected apparent high temperature.
+  - **apparent_temperature_min**: Today's expected apparent low temperature.
+  - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let forecast.io decide the unit system based on location.
 
