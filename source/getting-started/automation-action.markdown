@@ -51,6 +51,7 @@ automation 2:
 
 Conditions can also be part of an action:
 
+{% raw %}
 ```yaml
 automation:
 - alias: 'Enciende Despacho'
@@ -68,3 +69,4 @@ automation:
     - service: scene.turn_on
       entity_id: scene.DespiertaDespacho
 ```
+{% endraw %}
