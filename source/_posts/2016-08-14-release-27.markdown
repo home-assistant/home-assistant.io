@@ -16,6 +16,10 @@ It's time for 0.27 and it's again full of new features and fixes.
 
 - [Fritzbox] ([@DavidMStraub])
 - [HP] ([@Juggels])
+- Media player - WebOS: Support for [customizing][webos] inputs ([@roidayan])
+- Device tracker: [Gravatar] ([@robbiet480])
+- [HTML5] notify actions ([@robbiet480])
+- Camera: Support for HTTP Bascic and Digest authentification ([@meatz])
 
 ### {% linkable_title Breaking changes %}
 
@@ -24,6 +28,10 @@ It's time for 0.27 and it's again full of new features and fixes.
 
 [@DavidMStraub]: https://github.com/DavidMStraub
 [@Juggels]: https://github.com/Juggels
+[@roidayan]: ttps://github.com/roidayan
+[@robbiet480]: https://github.com/robbiet480
+[@meatz]: https://github.com/meatz
+
 
 [@abcminiuser]: https://github.com/abcminiuser
 [@balloob]: https://github.com/balloob
@@ -40,7 +48,6 @@ It's time for 0.27 and it's again full of new features and fixes.
 [@partofthething]: https://github.com/partofthething
 [@persandtrom]: https://github.com/persandtrom
 [@pvizeli]: https://github.com/pvizeli
-[@robbiet480]: https://github.com/robbiet480
 [@sdague]: https://github.com/sdague
 [@shmuelzon]: https://github.com/shmuelzon
 [@tchellomello]: https://github.com/tchellomello
@@ -52,4 +59,6 @@ It's time for 0.27 and it's again full of new features and fixes.
 [SABnzbd]: /components/sensor.sabnzbd/
 [HP]: /components/sensor.hp_ilo/
 [Fritzbox]: /components/sensor.fritzbox_callmonitor/
-
+[webos]: /components/media_player.webostv/
+[HTML5]: /components/notify.html5/
+[Gravatar]: /components/device_tracker/
