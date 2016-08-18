@@ -157,7 +157,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 </div>
 </div>
 
-<h3><a class="title-link" name="sensor-types" href="#sensor-types"></a> Sensor types</h3>
+<h3><a class="title-link" name="lists" href="#lists"></a> Lists</h3>
 
 <p>If a sensor has a pre-defined list of available options it should be tested if the configuration entry matches it.</p>
 
@@ -170,7 +170,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     ...
     vol.Optional(CONF_MONITORED_VARIABLES, default=[]):
-        [vol.In(SENSOR_TYPES)],
+        vol.All(ensure_list, [vol.In(SENSOR_TYPES)]),
 </pre></div>
 </div>
 </div>

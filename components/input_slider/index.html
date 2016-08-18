@@ -119,7 +119,8 @@
 
 <p>Here’s an example of <code>input_slider</code> being used as a trigger in an automation.</p>
 
-<pre><code># Example configuration.yaml entry using 'input_slider' as a trigger in an automation
+<pre><code>
+# Example configuration.yaml entry using 'input_slider' as a trigger in an automation
 
 # Define input_slider
 input_slider:
@@ -142,11 +143,13 @@ automation:
         data_template:
           entity_id: light.bedroom
           brightness: '{{ trigger.to_state.state | int }}'
+
 </code></pre>
 
 <p>Another code example using <code>input_slider</code>, this time being used in an action in an automation.</p>
 
-<pre><code># Example configuration.yaml entry using 'input_slider' in an action in an automation
+<pre><code>
+# Example configuration.yaml entry using 'input_slider' in an action in an automation
 
 # Define 'input_select'
 input_select:
@@ -183,6 +186,7 @@ automation:
         data_template:
           entity_id: light.bedroom
           brightness: '{{ states.input_slider.bedroom_brightness.state | int }}'
+
 </code></pre>
 
 
