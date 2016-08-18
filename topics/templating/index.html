@@ -230,11 +230,11 @@ The frontend has a template editor developer tool to help develop and debug temp
   <div class="code"><pre>
 Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
 
-Using State: {{ distance(device_tracker.paulus) }}
+Using State: {{ distance(states.device_tracker.paulus) }}
 
 These can also be combined in any combination:
-{{ distance(123.45, 123.45, device_tracker.paulus) }}
-{{ distance(device_tracker.anne_therese, device_tracker.paulus) }}
+{{ distance(123.45, 123.45, 'device_tracker.paulus') }}
+{{ distance('device_tracker.anne_therese', 'device_tracker.paulus') }}
 </pre></div>
 </div>
 </div>
@@ -246,7 +246,7 @@ These can also be combined in any combination:
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>
 Query all entities: {{ closest(states) }}
-Query all entities of a specific domain: {{ closest(states.device_tracker) }}
+Query all entities of a specific domain: {{ closest('states.device_tracker') }}
 Query all entities in group.children: {{ closest('group.children') }}
 Query all entities in group.children: {{ closest(states.group.children) }}
 </pre></div>
