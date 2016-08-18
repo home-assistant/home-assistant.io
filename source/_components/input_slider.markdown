@@ -38,8 +38,9 @@ Configuration variables:
 
 Here's an example of `input_slider` being used as a trigger in an automation.
 
-{% raw %}
+
 ```
+{% raw %}
 # Example configuration.yaml entry using 'input_slider' as a trigger in an automation
 
 # Define input_slider
@@ -63,13 +64,13 @@ automation:
         data_template:
           entity_id: light.bedroom
           brightness: '{{ trigger.to_state.state | int }}'
-```
 {% endraw %}
+```
 
 Another code example using `input_slider`, this time being used in an action in an automation.
 
-{% raw %}
 ```
+{% raw %}
 # Example configuration.yaml entry using 'input_slider' in an action in an automation
 
 # Define 'input_select'
@@ -107,5 +108,6 @@ automation:
         data_template:
           entity_id: light.bedroom
           brightness: '{{ states.input_slider.bedroom_brightness.state | int }}'
-```
 {% endraw %}
+```
+
