@@ -67,7 +67,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_PORT, default=DEFAULT_PORT): cv.port,
 ```
 
-### {% linkable_title Sensor types %} 
+### {% linkable_title Lists %} 
 
 If a sensor has a pre-defined list of available options it should be tested if the configuration entry matches it.
 
@@ -80,7 +80,7 @@ SENSOR_TYPES = {
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     ...
     vol.Optional(CONF_MONITORED_VARIABLES, default=[]):
-        [vol.In(SENSOR_TYPES)],
+        vol.All(ensure_list, [vol.In(SENSOR_TYPES)]),
 ```
 
 
