@@ -34,12 +34,11 @@ Configuration variables:
 - **max** (*Optional*): Maximum value for the slider.
 - **step** (*Optional*): Step value for the slider.
 
-# Automation Examples
+## {% linkable_title Automation Examples %}
 
 Here's an example of `input_slider` being used as a trigger in an automation.
 
-
-```
+```yaml
 {% raw %}
 # Example configuration.yaml entry using 'input_slider' as a trigger in an automation
 
@@ -69,7 +68,7 @@ automation:
 
 Another code example using `input_slider`, this time being used in an action in an automation.
 
-```
+```yaml
 {% raw %}
 # Example configuration.yaml entry using 'input_slider' in an action in an automation
 
@@ -96,7 +95,7 @@ input_slider:
     step: 1
 
 # Automation.     
-automation:    
+automation:
   - alias: Bedroom Light - Custom
     trigger:
       platform: state
