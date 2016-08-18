@@ -115,79 +115,85 @@
   <li><strong>step</strong> (<em>Optional</em>): Step value for the slider.</li>
 </ul>
 
-<h1>Automation Examples</h1>
+<h2><a class="title-link" name="automation-examples" href="#automation-examples"></a> Automation Examples</h2>
 
 <p>Here’s an example of <code>input_slider</code> being used as a trigger in an automation.</p>
 
-<pre><code>
-# Example configuration.yaml entry using 'input_slider' as a trigger in an automation
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+<span class="comment"># Example configuration.yaml entry using 'input_slider' as a trigger in an automation</span>
 
-# Define input_slider
-input_slider:
-  bedroom_brightness:
-    name: Brightness
-    initial: 254
-    min: 0
-    max: 254
-    step: 1
+<span class="comment"># Define input_slider</span>
+<span class="key">input_slider</span>:
+  <span class="key">bedroom_brightness</span>:
+    <span class="key">name</span>: <span class="string"><span class="content">Brightness</span></span>
+    <span class="key">initial</span>: <span class="string"><span class="content">254</span></span>
+    <span class="key">min</span>: <span class="string"><span class="content">0</span></span>
+    <span class="key">max</span>: <span class="string"><span class="content">254</span></span>
+    <span class="key">step</span>: <span class="string"><span class="content">1</span></span>
 
-# Automation.     
-automation:    
-  - alias: Bedroom Light - Adjust Brightness
-    trigger:
-      platform: state
-      entity_id: input_slider.bedroom_brightness
-    action:
-      - service: light.turn_on
-# Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable
-        data_template:
-          entity_id: light.bedroom
-          brightness: '{{ trigger.to_state.state | int }}'
+<span class="comment"># Automation.     </span>
+<span class="key">automation</span>:    
+  - <span class="string"><span class="content">alias: Bedroom Light - Adjust Brightness</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">input_slider.bedroom_brightness</span></span>
+    <span class="key">action</span>:
+      - <span class="string"><span class="content">service: light.turn_on</span></span>
+<span class="comment"># Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable</span>
+        <span class="key">data_template</span>:
+          <span class="key">entity_id</span>: <span class="string"><span class="content">light.bedroom</span></span>
+          <span class="key">brightness</span>: <span class="string"><span class="content">'{{ trigger.to_state.state | int }}'</span></span>
 
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <p>Another code example using <code>input_slider</code>, this time being used in an action in an automation.</p>
 
-<pre><code>
-# Example configuration.yaml entry using 'input_slider' in an action in an automation
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>
+<span class="comment"># Example configuration.yaml entry using 'input_slider' in an action in an automation</span>
 
-# Define 'input_select'
-input_select:
-  scene_bedroom:
-    name: Scene
-    options:
-      - Select
-      - Concentrate
-      - Energize
-      - Reading
-      - Relax
-      - 'OFF'
-    initial: 'Select'
+<span class="comment"># Define 'input_select'</span>
+<span class="key">input_select</span>:
+  <span class="key">scene_bedroom</span>:
+    <span class="key">name</span>: <span class="string"><span class="content">Scene</span></span>
+    <span class="key">options</span>:
+      - <span class="string"><span class="content">Select</span></span>
+      - <span class="string"><span class="content">Concentrate</span></span>
+      - <span class="string"><span class="content">Energize</span></span>
+      - <span class="string"><span class="content">Reading</span></span>
+      - <span class="string"><span class="content">Relax</span></span>
+      - <span class="string"><span class="content">'OFF'</span></span>
+    <span class="key">initial</span>: <span class="string"><span class="content">'Select'</span></span>
     
-# Define input_slider
-input_slider:
-  bedroom_brightness:
-    name: Brightness
-    initial: 254
-    min: 0
-    max: 254
-    step: 1
+<span class="comment"># Define input_slider</span>
+<span class="key">input_slider</span>:
+  <span class="key">bedroom_brightness</span>:
+    <span class="key">name</span>: <span class="string"><span class="content">Brightness</span></span>
+    <span class="key">initial</span>: <span class="string"><span class="content">254</span></span>
+    <span class="key">min</span>: <span class="string"><span class="content">0</span></span>
+    <span class="key">max</span>: <span class="string"><span class="content">254</span></span>
+    <span class="key">step</span>: <span class="string"><span class="content">1</span></span>
 
-# Automation.     
-automation:    
-  - alias: Bedroom Light - Custom
-    trigger:
-      platform: state
-      entity_id: input_select.scene_bedroom
-      to: CUSTOM
-    action:
-      - service: light.turn_on
-# Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
-        data_template:
-          entity_id: light.bedroom
-          brightness: '{{ states.input_slider.bedroom_brightness.state | int }}'
+<span class="comment"># Automation.     </span>
+<span class="key">automation</span>:
+  - <span class="string"><span class="content">alias: Bedroom Light - Custom</span></span>
+    <span class="key">trigger</span>:
+      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
+      <span class="key">entity_id</span>: <span class="string"><span class="content">input_select.scene_bedroom</span></span>
+      <span class="key">to</span>: <span class="string"><span class="content">CUSTOM</span></span>
+    <span class="key">action</span>:
+      - <span class="string"><span class="content">service: light.turn_on</span></span>
+<span class="comment"># Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.</span>
+        <span class="key">data_template</span>:
+          <span class="key">entity_id</span>: <span class="string"><span class="content">light.bedroom</span></span>
+          <span class="key">brightness</span>: <span class="string"><span class="content">'{{ states.input_slider.bedroom_brightness.state | int }}'</span></span>
 
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 
 
