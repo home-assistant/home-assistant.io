@@ -37,7 +37,7 @@ You can save yourself the hassle of extra commits just to fix style errors by en
 
 ```bash
 $ pip3 install flake8 flake8-docstrings
-$ flake8 --install-hook
+$ flake8 --install-hook=git
 ```
 
 The flake8-docstrings extension will check docstrings according to [PEP257](https://www.python.org/dev/peps/pep-0257/) when running flake8.
