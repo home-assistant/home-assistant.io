@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "HTML5"
-description: "Instructions how to use the HTML5 push API from Home Assistant."
-date: 2016-08-16 20:18
+title: "Push Notifications"
+description: "Instructions how to use the HTML5 push notifications platform from Home Assistant."
+date: 2016-08-17 21:58
 sidebar: true
 comments: false
 sharing: true
@@ -10,6 +10,7 @@ footer: true
 logo: html5.png
 ha_category: Notifications
 ha_release: 0.27
+featured: true
 ---
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
