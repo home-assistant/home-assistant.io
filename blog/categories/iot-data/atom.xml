@@ -4,7 +4,7 @@
   <title><![CDATA[Category: IoT-Data | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/iot-data/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-19T06:00:14+00:00</updated>
+  <updated>2016-08-19T11:39:29+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Github-style calendar heatmap of device data]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/19/github-style-calendar-heatmap-of-device-data/"/>
+    <updated>2016-08-19T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/19/github-style-calendar-heatmap-of-device-data</id>
+    <content type="html"><![CDATA[<p>Thanks to <a href="https://github.com/kireyeu">Anton Kireyeu</a> we are able to present another awesome <a href="https://jupyter.org/">Jupyter notebook</a>. I guess that you all know the graph which Github is using to visualize your commits per day over a time-line. It’s a so-called <a href="https://en.wikipedia.org/wiki/Heat_map">heatmap</a>. If there are more commits, it’s getting hotter. The latest <a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-2/DataExploration-2.ipynb">notebook</a> is capable to do the same thing for your devices. To be more precise, for the hours your devices are home.</p>
+
+<p class="img">
+<img src="https://home-assistant.io/images/blog/2016-08-data-exploration/heatmap.png" />
+Heatmap
+</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[IoT Data Exploration with Jupyter Notebooks]]></title>

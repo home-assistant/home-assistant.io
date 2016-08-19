@@ -89,7 +89,9 @@
   <hr class="divider">
   
 
-  <p>The <code>configuration.yaml</code> file contains the configuration options for components and platforms. To ensure that the given configuration provided by the user is valid we use <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> to check it. Certain entries are optional or could be required for the setup of a platform or a component. Others must be of a certain type or out of an already defined list. This will ensure that the users are notified if something is wrong with a platform or component setup before Home Assistant is running.</p>
+  <p>The <code>configuration.yaml</code> file contains the configuration options for components and platforms. To ensure that the given configuration provided by the user is valid we use <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> to check it. Certain entries are optional or could be required for the setup of a platform or a component. Others must be of a definied type or out of an already defined list.</p>
+
+<p>The goal of testing the configuration is to assure that users have a great experience due to notifications if something is wrong with a platform or component setup before Home Assistant is running.</p>
 
 <p>Beside the <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> default types are a bunch of custom types available. To get a full overview take a look at the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/config_validation.py">config_validation.py</a> helper.</p>
 
