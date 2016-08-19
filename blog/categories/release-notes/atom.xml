@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-18T20:05:40+00:00</updated>
+  <updated>2016-08-19T06:00:14+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -66,6 +66,12 @@
 
 <ul>
   <li>Fix Wemo: have PyWemo play nicely with the latest Requests (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+</ul>
+
+<h3><a class='title-link' name='hotfix-0263---august-19' href='#hotfix-0263---august-19'></a> Hotfix 0.26.3 - August 19 </h3>
+
+<ul>
+  <li>Media Player cover art would not work when an API password was set. Thanks to <a href="https://github.com/maddox">@maddox</a> for reporting it and <a href="https://github.com/balloob">@balloob</a> for the fix.</li>
 </ul>
 
 <h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
