@@ -13,7 +13,7 @@ ha_release: 0.27
 ---
 
 
-The `wunderground` platform uses [Weather Underground](http://www.wunderground.com.com) as an source for current weather information. 
+The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as an source for current weather information. 
 
 <p class='note warning'>
 Obtain Wunderground API [here](https://www.wunderground.com/weather/api). Free account allows 500 requests per day or 10 per minute.
