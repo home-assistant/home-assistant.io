@@ -54,6 +54,10 @@ This release includes code contributed by 31 different people. The biggest chang
 
 - Fix Wemo: have PyWemo play nicely with the latest Requests ([@pavoni])
 
+### {% linkable_title Hotfix 0.26.3 - August 19 %}
+
+- Media Player cover art would not work when an API password was set. Thanks to [@maddox] for reporting it and [@balloob] for the fix.
+
 ### {% linkable_title Breaking changes %}
 
  - A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:
@@ -65,6 +69,7 @@ homeassistant:
   unit_system: metric
 ```
 
+[@maddox]: https://github.com/maddox
 [@pavoni]: https://github.com/pavoni
 [@mKeRix]: https://github.com/mKeRix
 [@abcminiuser]: https://github.com/abcminiuser
