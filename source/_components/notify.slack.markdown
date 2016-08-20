@@ -15,7 +15,11 @@ ha_release: pre 0.7
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
-You need to obtain the [Slack API token](https://api.slack.com/web?sudo=1) to be able to send notifications.
+If you are planning to use Slack as yourself then you need to obtain a [Slack API token](https://api.slack.com/web?sudo=1) to be able to send notifications.
+
+It is also possible to use Slack bots as users. Just create a new bot at https://[YOUR_TEAM].slack.com/apps/build/custom-integration and use the provided token for that. You can add an icon from the frontend for Home Assistant and give the bot a meaningful name.
+
+Don't forget to invite the bot to the room where you want to get the notifications.
 
 To enable the slack notification in your installation, add the following to your `configuration.yaml` file:
 
