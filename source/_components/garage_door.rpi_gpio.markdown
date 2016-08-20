@@ -33,6 +33,8 @@ garage_door:
     - relay_pin: 12
       state_pin: 13
       name: 'Right door'
+      state_pull_mode: DOWN
+      relay_time: 1
 ```
 
 Configuration variables:
@@ -41,4 +43,6 @@ Configuration variables:
   - **name** (*Optional*): Name to use in the Frontend.
   - **relay_pin** (*Required*): The pin of your Raspberry Pi where the relay is connected.
   - **state_pin** (*Required*): The pin of your Raspberry Pi to retrieve the state.
+  - **state_pull_mode** (*Optional*): The direction the State pin is pulling. It can be UP or DOWN.
+  - **relay_time** (*Optional*): The time that the relay will be on for in seconds.
 
