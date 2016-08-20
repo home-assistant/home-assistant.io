@@ -129,7 +129,7 @@ HomeAssistant will trigger a event when the zwave network stopping.
  - alias: ZWave network is stopping
    trigger:
      platform: event
-     event_type: zwave.network_start
+     event_type: zwave.network_stop
 ```
 
 **zwave.node_event**
