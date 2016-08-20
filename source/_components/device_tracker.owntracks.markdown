@@ -64,3 +64,110 @@ This allows you to write zone automations for devices that can't track themselve
 ### {% linkable_title Using mobile and fixed iBeacons together %}
 You can use iBeacons of both types together, so if you have a Zone `drive` with an iBeacon region called `-drive` and you arrive home with a mobile iBeacon called `-car`, then `device_tracker.beacon_car` will be set to a state of `drive`.
 
+
+### {% linkable_title Setting up OwnTracks with 2 MQTT (mosquitto) brokers bridged for use with the MQTT bridge for SmartThings %}
+
+I successfully tied in OwnTracks to HASS and SmartThings while using authentication for external access.
+
+The MQTT bridge doesn't support authentication so I set up 2 MQTT instances.
+
+Here are the steps I performed.. Hopefully it saves someone else some time.
+
+It seems to be working pretty well but if anyone sees something incorrect in my config, please let me know.
+This is my first real interaction with MQTT so if anyone seems something incorrect in my config, please let me know.
+
+Here's a summary of my setup
+
+2 Docker instances of MQTT
+  -- 1 for internal use (the MQTT bridge for SmartThings - no authentication)
+  -- 1 for external use ( with authentication - for OwnTracks)
+
+All Docker config files are on my NAS so the docker can be destroyed with affecting my actual config files.
+
+
+
+**Docker setup for the mosquitto internal instance.. no auth.. for use with the mqtt bridge**
+
+```
+docker run -ti -p 1883:1883  \
+-v /volume1/data/mosquitto-int/config:/mqtt/config:ro \
+-v /volume1/data/mosquitto-int/log:/mqtt/log \
+-v /volume1/data/mosquitto-int/data/:/mqtt/data/ \
+--name mosquitto-int -d toke/mosquitto
+```
+
+
+**Docker setup for the mosquitto external instance.. with auth.. for use with the owntracks**
+
+```
+docker run -ti -p 1884:1883  \
+-v /volume1/data/mosquitto-ext/config:/mqtt/config:ro \
+-v /volume1/data/mosquitto-ext/log:/mqtt/log \
+-v /volume1/data/mosquitto-ext/data/:/mqtt/data/ \
+-v /volume1/data/mosquitto-ext/etc:/etc/mosquitto \
+--name mosquitto-ext -d toke/mosquitto
+```
+
+Here are the config files:
+
+**/volume1/data/mosquitto-int/config/mosquitto.conf**
+
+```
+connection mosquitto-ext
+persistence_file mosquitto.db
+try_private true
+address 10.0.0.20:1884
+start_type automatic
+username test
+password test
+notifications true
+topic owntracks/# in
+log_type all                                              
+log_dest file /mqtt/log/mqtt.log 
+log_facility 5
+```
+
+**/volume1/data/mosquitto-ext/config/mosquitto.conf**
+
+```
+connection mosquitto-int
+persistence_file mosquitto.db
+try_private true
+address 10.0.0.20:1883
+start_type automatic
+username test
+password test
+notifications true
+topic owntracks/# out
+log_type all                                              
+log_dest file /mqtt/log/mqtt.log
+log_facility 5
+allow_anonymous false
+password_file /etc/mosquitto/pwfile
+```
+
+
+**create a password for mosquitto-ext**
+
+```
+docker exec -it mosquitto-ext /bin/bash
+
+cd /etc/mosquitto/
+
+mosquitto_passwd -c /etc/mosquitto/pwfile <userID>
+```
+
+**OwnTracks settings - for Android**
+
+```
+Preferences / Connection / Mode - Private MQTT
+
+Fill out
+Host
+Identification
+Security: TLS disabled
+```
+
+
+
+<img src="//community-home-assistant-assets.s3.amazonaws.com/original/2X/5/5ce27145e5b37bac72859e4c36b8269d14f85ce1.png" width="649" height="500">
