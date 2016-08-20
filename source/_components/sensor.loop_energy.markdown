@@ -37,7 +37,7 @@ secret: "ELECTRICAL_SECRET"
 serial: "ELECTRICAL_SERIAL"
 ```
 
-The serial and secret tokens are the ones you need. If you just have an electricity  monitor then you won't see the gas keys.
+The serial and secret tokens are the ones you need. If you just have an electricity monitor then you won't see the gas keys.
 
 Now you have the keys, add the following lines to your `configuration.yaml`, replacing the `*_SERIAL` and `*_SECRET` keys with the ones you found in the console:
 
