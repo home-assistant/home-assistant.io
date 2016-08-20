@@ -33,7 +33,7 @@ camera:
 
 Configuration variables:
 
-- **input** (*Required*): A ffmpeg compatible input file, stream or feet.
+- **input** (*Required*): A ffmpeg compatible input file, stream or feed.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **ffmpeg_bin** (*Optional*): Default 'ffmpeg'.
 - **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. image quality or video filter options.
