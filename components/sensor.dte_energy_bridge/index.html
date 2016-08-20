@@ -96,8 +96,9 @@
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
 <span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">dte_energy_bridge</span></span>
-  <span class="key">ip</span>: <span class="string"><span class="content">192.168.1.11</span></span>
+  - <span class="string"><span class="content">platform: dte_energy_bridge</span></span>
+    <span class="key">ip</span>: <span class="string"><span class="content">192.168.1.11</span></span>
+    <span class="key">name</span>: <span class="string"><span class="content">DTE Energy</span></span>
 </pre></div>
 </div>
 </div>
@@ -106,8 +107,8 @@
 
 <ul>
   <li><strong>ip</strong> (<em>Required</em>): The IP address of your bridge.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name to use in the frontend.</li>
 </ul>
-
 
 
 </article>
