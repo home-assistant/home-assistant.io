@@ -24,6 +24,7 @@ It's time for 0.27 and it's again full of new features and fixes.
 ### {% linkable_title Breaking changes %}
 
  - The [NZBGet] and the [SABnzbd] sensor were updated to following the same style for the configuration as the other sensor. If you are using those sensors, please update your configuration. 
+- The [Loop Energy][Loop] sensor configuration was updated to better distinguish between gas and electricity.
 
 
 [@DavidMStraub]: https://github.com/DavidMStraub
@@ -31,7 +32,7 @@ It's time for 0.27 and it's again full of new features and fixes.
 [@roidayan]: ttps://github.com/roidayan
 [@robbiet480]: https://github.com/robbiet480
 [@meatz]: https://github.com/meatz
-
+[@pavoni]: https://github.com/pavoni
 
 [@abcminiuser]: https://github.com/abcminiuser
 [@balloob]: https://github.com/balloob
@@ -62,3 +63,4 @@ It's time for 0.27 and it's again full of new features and fixes.
 [webos]: /components/media_player.webostv/
 [HTML5]: /components/notify.html5/
 [Gravatar]: /components/device_tracker/
+[Loop]: /components/sensor.loop_energy/
