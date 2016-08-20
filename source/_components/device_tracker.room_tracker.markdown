@@ -47,3 +47,9 @@ Each client should post the discovered devices in its own subtopic of the config
 Instead of developing your own application, you can also use any of these already existing clients:
 
 - [**room-assistant**](https://github.com/mKeRix/room-assistant): looks for Bluetooth LE beacons, based on Node.js
+
+### {% linkable_title Using with Owntracks %}
+Since this tracker utilizes the `mac` field of the `known_devices.yaml` you can use it in combination with Owntracks, you simply need to modify the Owntracks device accordingly.
+The source that reported last will be used to determine the overall state.
+This allows you to track the device accuractely outdoors as well as indoors.
+More details about this config can found in [device tracker](/components/device_tracker/).
