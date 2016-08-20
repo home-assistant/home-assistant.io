@@ -111,9 +111,21 @@
 
 <p>This will run unit tests against python 3.4 and 3.5 (if both are available locally), as well as run a set of tests which validate <code>pep8</code> and <code>pylint</code> style of the code.</p>
 
-<p>You can optionally run tests on only one tox target using the <code>-e</code> option to select an environment.</p>
+<h4><a class="title-link" name="testing-tips" href="#testing-tips"></a> Testing Tips</h4>
 
-<p>For instance <code>tox -e lint</code> will run the linters only, <code>tox -e py34</code> will run unit tests only on python 3.4.</p>
+<p>You can optionally run tests on only one tox target using the <code>-e</code> option to select an environment. For instance <code>tox -e lint</code> will run the linters only, <code>tox -e py34</code> will run unit tests only on python 3.4.</p>
+
+<p>Tox uses virtual environments under the hood to create isolated testing environments. The Tox virtual environments will get out date when requirements change causing test errors. Run <code>tox -r</code> to create new Tox virtual environments.</p>
+
+<p>During development on a specific file, it can speed up your workflow to just run tests and linting related to the file that you’re working on. To run individual files:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>$ flake8 homeassistant/core.py
+$ pylint homeassistant/core.py
+$ py.test tests/test_core.py
+</pre></div>
+</div>
+</div>
 
 <h3><a class="title-link" name="prevent-linter-errors" href="#prevent-linter-errors"></a> Prevent Linter Errors</h3>
 
