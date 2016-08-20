@@ -117,12 +117,12 @@
   <li><strong>port</strong> (<em>Optional</em>): The port that the SMTP server is using, eg. 587 for Google Mail and STARTTLS or 465/993 depending on your SMTP servers.  Defaults to 25.</li>
   <li><strong>sender</strong> (<em>Optional</em>): E-mail address of the sender.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for the SMTP account.</li>
-  <li><strong>password</strong> (<em>Optional</em>):Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.</li>
   <li><strong>recipient</strong> (<em>Required</em>): Recipient of the notification.</li>
   <li><strong>starttls</strong> (<em>Optional</em>): Enables STARTTLS, eg. 1 or 0. Defaults to 0.</li>
 </ul>
 
-<p>To use the smtp notification, refer to it in an automation or script like in this example:</p>
+<p>To use the SMTP notification, refer to it in an automation or script like in this example:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>  <span class="key">burglar</span>: 
@@ -143,7 +143,7 @@
 </div>
 </div>
 
-<p>The optional <strong>images</strong> field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.</p>
+<p>The optional <code>images</code> field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.</p>
 
 <p>This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.</p>
 
