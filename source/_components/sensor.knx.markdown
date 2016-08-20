@@ -20,9 +20,7 @@ There is currently support for the following KNX Data Point Types
  - Speed(Wind Speed): KNX Datapoint Type 9.005 - m/s - 2 Byte Float
  - Illuminance(Lux): KNX Datapoint Type 9.004 - Lux - 2 Byte Float
 
-The `knx` Component muste be Configured Correctly, see (
-
-A `knx` section must be present in the `configuration.yaml` file and contain the following options as required:
+The `knx` Component muste be Configured Correctly, see [KNX Component](/components/knx)
 
 ```yaml
 sensor:
