@@ -22,6 +22,8 @@ There is currently support for the following KNX Data Point Types
 
 The `knx` Component muste be Configured Correctly, see [KNX Component](/components/knx)
 
+### Sample Configuration ###
+
 ```yaml
 sensor:
   - platform: knx
@@ -39,3 +41,9 @@ sensor:
     type: illuminance
     address: 1/0/1
 ```
+
+### Optional Parameters: ###
+ - minimum - Minimum Sensor Value who gets processed
+ - maxmimum - Maxmimum Sensor Value who gets processed
+
+If minimum and maximum not defined, hardcoded default values are used
