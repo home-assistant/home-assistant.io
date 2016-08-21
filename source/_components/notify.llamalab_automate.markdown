@@ -13,7 +13,7 @@ ha_release: 0.27
 ---
 
 
-The llamalab_automate platform uses LlamaLab [Automate](https://llamalab.com/automate/) to push messages via Googles Cloud Messaging Services from Home Assistant to your Android device running the Automate app. This can serve as an alternative to Tasker + AutoRemote.
+The llamalab_automate platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
 
 To add Automate to your installation, add the following to your `configuration.yaml` file:
 
