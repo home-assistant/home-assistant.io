@@ -1,4 +1,0 @@
-[submodule "_deploy"]
-	path = _deploy
-	url = https://github.com/home-assistant/home-assistant.git
-    branch = gh-pages
