@@ -60,6 +60,7 @@ zwave:
   usb_path: /dev/ttyUSB0
   config_path: /usr/local/share/python-openzwave/config
   polling_interval: 60000
+  use_nodeid_in_names: false
   customize:
     sensor.greenwave_powernode_6_port_energy_10:
         polling_intensity: 1
@@ -71,6 +72,7 @@ Configuration variables:
 - **config_path** (*Optional*): The path to the Python Open Z-Wave configuration files.
 - **autoheal** (*Optional*): Allows disabling auto ZWave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
+- **use_nodeid_in_names** (*Optional*): Allows to remove node ids from device names if set to false. If set to true, user has the responsibility of not adding devices with duplicate names. If set to true, allows persistent device names even if node id's change. Defaults to True. 
 - **customize** (*Optional*): This attribute contains node-specific override values:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc). If not specified then your device will not be polled.
 
