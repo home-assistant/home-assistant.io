@@ -9,7 +9,9 @@ sharing: true
 footer: true
 ---
 
-The `configuration.yaml` file contains the configuration options for components and platforms. To ensure that the given configuration provided by the user is valid we use [voluptuous](https://pypi.python.org/pypi/voluptuous) to check it. Certain entries are optional or could be required for the setup of a platform or a component. Others must be of a certain type or out of an already defined list. This will ensure that the users are notified if something is wrong with a platform or component setup before Home Assistant is running.
+The `configuration.yaml` file contains the configuration options for components and platforms. To ensure that the given configuration provided by the user is valid we use [voluptuous](https://pypi.python.org/pypi/voluptuous) to check it. Certain entries are optional or could be required for the setup of a platform or a component. Others must be of a definied type or out of an already defined list.
+
+The goal of testing the configuration is to assure that users have a great experience due to notifications if something is wrong with a platform or component setup before Home Assistant is running.
 
 Beside the [voluptuous](https://pypi.python.org/pypi/voluptuous) default types are a bunch of custom types available. To get a full overview take a look at the [config_validation.py](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/config_validation.py) helper.
 
@@ -57,18 +59,17 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 
 ### {% linkable_title Port %} 
 
-As all port numbers are coming out of the range 1 till 65535 a range check should be performed. 
+As all port numbers are coming out of the range 1 till 65535. 
 
 ```python
 DEFAULT_PORT = 993
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     ...
-    vol.Optional(CONF_PORT, default=DEFAULT_PORT):
-        vol.All(vol.Coerce(int), vol.Range(min=1, max=65535)),
+    vol.Optional(CONF_PORT, default=DEFAULT_PORT): cv.port,
 ```
 
-### {% linkable_title Sensor types %} 
+### {% linkable_title Lists %} 
 
 If a sensor has a pre-defined list of available options it should be tested if the configuration entry matches it.
 
@@ -81,7 +82,7 @@ SENSOR_TYPES = {
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     ...
     vol.Optional(CONF_MONITORED_VARIABLES, default=[]):
-        [vol.In(SENSOR_TYPES)],
+        vol.All(ensure_list, [vol.In(SENSOR_TYPES)]),
 ```
 
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "PushBullet"
+title: "Pushbullet"
 description: "Instructions how to add user notifications to Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
@@ -12,9 +12,9 @@ ha_category: Notifications
 featured: true
 ---
 
-The `pushbullet` notification platform sends messages to [PushBullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends.
+The `pushbullet` notification platform sends messages to [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends.
 
-To enable PushBullet notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Pushbullet notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,12 +26,12 @@ notify:
 
 Configuration variables:
 
-- **api_key** (*Required*): Enter the API key for PushBullet. Go to https://www.pushbullet.com/ to retrieve your API key.
+- **api_key** (*Required*): Enter the API key for Pushbullet. Go to https://www.pushbullet.com/ to retrieve your API key.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
 ### {% linkable_title Usage %}
 
-PushBullet is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all devices registered in the PushBullet account. An optional **target** parameter can be given to PushBullet to specify specific account's devices, contacts or channels.
+Pushbullet is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all devices registered in the Pushbullet account. An optional **target** parameter can be given to Pushbullet to specify specific account's devices, contacts or channels.
 
 Type | Prefix | Suffix | Example
 ---- | ------ | ------ | -------

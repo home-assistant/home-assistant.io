@@ -17,6 +17,7 @@ The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that 
 First you have to set up your [rfxtrx hub](/components/rfxtrx/).
 
 ### {% linkable_title Configuration %}
+
 ##### Siemens/LightwaveRF
 The easiest way to find your roller shutters is to add this to your `configuration.yaml`:
 

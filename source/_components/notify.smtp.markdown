@@ -38,11 +38,11 @@ Configuration variables:
 - **port** (*Optional*): The port that the SMTP server is using, eg. 587 for Google Mail and STARTTLS or 465/993 depending on your SMTP servers.  Defaults to 25.
 - **sender** (*Optional*): E-mail address of the sender.
 - **username** (*Optional*): Username for the SMTP account.
-- **password** (*Optional*):Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
+- **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
 - **recipient** (*Required*): Recipient of the notification.
 - **starttls** (*Optional*): Enables STARTTLS, eg. 1 or 0. Defaults to 0.
 
-To use the smtp notification, refer to it in an automation or script like in this example:
+To use the SMTP notification, refer to it in an automation or script like in this example:
 
 ```yaml
   burglar: 
@@ -61,7 +61,7 @@ To use the smtp notification, refer to it in an automation or script like in thi
                     - /home/pi/snapshot2.jpg
 ```
 
-The optional **images** field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.
+The optional `images` field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.
 
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 

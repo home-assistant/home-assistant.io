@@ -27,9 +27,19 @@ $ tox
 
 This will run unit tests against python 3.4 and 3.5 (if both are available locally), as well as run a set of tests which validate `pep8` and `pylint` style of the code.
 
-You can optionally run tests on only one tox target using the `-e` option to select an environment.
+#### {% linkable_title Testing Tips %}
 
-For instance `tox -e lint` will run the linters only, `tox -e py34` will run unit tests only on python 3.4.
+You can optionally run tests on only one tox target using the `-e` option to select an environment. For instance `tox -e lint` will run the linters only, `tox -e py34` will run unit tests only on python 3.4.
+
+Tox uses virtual environments under the hood to create isolated testing environments. The Tox virtual environments will get out date when requirements change causing test errors. Run `tox -r` to create new Tox virtual environments.
+
+During development on a specific file, it can speed up your workflow to just run tests and linting related to the file that you're working on. To run individual files:
+
+```bash
+$ flake8 homeassistant/core.py
+$ pylint homeassistant/core.py
+$ py.test tests/test_core.py
+```
 
 ### {% linkable_title Prevent Linter Errors %}
  
@@ -37,7 +47,7 @@ You can save yourself the hassle of extra commits just to fix style errors by en
 
 ```bash
 $ pip3 install flake8 flake8-docstrings
-$ flake8 --install-hook
+$ flake8 --install-hook=git
 ```
 
 The flake8-docstrings extension will check docstrings according to [PEP257](https://www.python.org/dev/peps/pep-0257/) when running flake8.

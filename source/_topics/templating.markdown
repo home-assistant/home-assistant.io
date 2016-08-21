@@ -143,11 +143,11 @@ If only 1 location is passed in will measure the distance from home.
 {% raw %}
 Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
 
-Using State: {{ distance(device_tracker.paulus) }}
+Using State: {{ distance(states.device_tracker.paulus) }}
 
 These can also be combined in any combination:
-{{ distance(123.45, 123.45, device_tracker.paulus) }}
-{{ distance(device_tracker.anne_therese, device_tracker.paulus) }}{% endraw %}
+{{ distance(123.45, 123.45, 'device_tracker.paulus') }}
+{{ distance('device_tracker.anne_therese', 'device_tracker.paulus') }}{% endraw %}
 ```
 
 ### {% linkable_title Closest examples %}
@@ -157,7 +157,7 @@ Find entities closest to the Home Assistant location:
 ```jinja2
 {% raw %}
 Query all entities: {{ closest(states) }}
-Query all entities of a specific domain: {{ closest(states.device_tracker) }}
+Query all entities of a specific domain: {{ closest('states.device_tracker') }}
 Query all entities in group.children: {{ closest('group.children') }}
 Query all entities in group.children: {{ closest(states.group.children) }}{% endraw %}
 ```

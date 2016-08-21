@@ -14,5 +14,6 @@ There are a bunch of online services which can help you if you are developing fo
 - [Coveralls](https://coveralls.io/github/home-assistant/home-assistant)
 - [Travis CI](https://travis-ci.org/home-assistant/home-assistant)
 - [gemnasium](https://gemnasium.com/github.com/home-assistant/home-assistant)
+- [Requires.io](https://requires.io/github/home-assistant/home-assistant/requirements/?branch=dev)
 - [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1250084)
 
