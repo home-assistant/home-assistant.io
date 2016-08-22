@@ -11,12 +11,12 @@ footer: true
 
 The website you're reading now is the home of Home Assistant: [https://home-assistant.io](https://home-assistant.io). This is the place where we provide documentation and additional details about Home Assistant for end users and developers. 
 
-home-assistant.io uses the [Octopress](http://octopress.org/) framework for [Jekyll](http://github.com/mojombo/jekyll). To get more details, please checkout the [Octopress documentation](http://octopress.org/docs/).  
+home-assistant.io uses the [Octopress](http://octopress.org/) framework for [Jekyll](http://github.com/mojombo/jekyll). To get more details, please checkout the [Octopress documentation](http://octopress.org/docs/).
 That means that creating a new page is simple. The pages are written in [markdown](http://daringfireball.net/projects/markdown/); you don't need to care about HTML or the like.
 
 The process for working on the website is no different from working on Home Assistant itself.
 
-To test your changes locally, you need to install the **Ruby** dependencies (gems):  
+To test your changes locally, you need to install the **Ruby** dependencies (gems):
 
 - [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you don't have it already.
 - Install `bundler`, which is a dependency manager for Ruby: `gem install bundler`
@@ -24,11 +24,11 @@ To test your changes locally, you need to install the **Ruby** dependencies (gem
 
 Then you can work on the documentation:
 
-- Fork home-assistant.io [git repository](https://github.com/home-assistant/home-assistant.io).
+- Fork home-assistant.io [git repository](https://github.com/home-assistant/home-assistant.github.io).
 - Create/edit/update a page in the directory `source/_components/` for your platform/component. 
 - Test your changes to home-assistant.io locally: run ``rake preview`` and navigate to [http://127.0.0.1:4000](http://127.0.0.1:4000)
 - Create a Pull Request (PR) against the **next** branch of home-assistant.io if your documentation is for a new feature, platform, or component.
-- Create a Pull Request (PR) against the **master** branch of home-assistant.io if you fix stuff, create Cookbook entries, or expand existing documentation.
+- Create a Pull Request (PR) against the **current** branch of home-assistant.io if you fix stuff, create Cookbook entries, or expand existing documentation.
 
 For a platform page, the fastest way is to make a copy of an existing page and edit it. The [component overview](/components/) is generated automatically, so there is no need to add a link to your page.
 
