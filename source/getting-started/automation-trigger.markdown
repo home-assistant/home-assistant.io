@@ -11,7 +11,7 @@ footer: true
 
 Triggers are what starts the processing of an automation rule. It is possible to specify multiple triggers for the same rule. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.
 
-#### {% linkable_title Event trigger %}
+### {% linkable_title Event trigger %}
 Triggers when an event is being processed. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.
 
 ```yaml
@@ -24,7 +24,7 @@ automation:
       mood: happy
 ```
 
-#### {% linkable_title MQTT trigger %}
+### {% linkable_title MQTT trigger %}
 Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.
 
 ```yaml
@@ -36,7 +36,7 @@ automation:
     payload: 'on'
 ```
 
-#### {% linkable_title Numeric state trigger %}
+### {% linkable_title Numeric state trigger %}
 On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.
 
 ```yaml
@@ -51,7 +51,7 @@ automation:
     below: 25
 ```
 
-#### {% linkable_title State trigger %}
+### {% linkable_title State trigger %}
 
 Triggers when the state of tracked entities change. If only entity_id given will match all state changes.
 
@@ -76,7 +76,7 @@ automation:
   Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
 </p>
 
-#### {% linkable_title Sun trigger %}
+### {% linkable_title Sun trigger %}
 Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.
 
 ```yaml
@@ -89,7 +89,7 @@ automation:
     offset: '-00:45:00'
 ```
 
-#### {% linkable_title Template trigger %}
+### {% linkable_title Template trigger %}
 
 Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).
 
@@ -100,7 +100,7 @@ automation:
     value_template: '{% raw %}{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}{% endraw %}'
 ```
 
-#### {% linkable_title Time trigger %}
+### {% linkable_title Time trigger %}
 
 Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `after` together with hour, minute or second.
 
@@ -127,7 +127,7 @@ automation 3:
     seconds: 0
 ```
 
-#### {% linkable_title Zone trigger %}
+### {% linkable_title Zone trigger %}
 
 Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) as well as the [iCloud platform](/components/device_tracker.icloud/).
 

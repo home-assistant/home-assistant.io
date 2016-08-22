@@ -35,6 +35,8 @@ category_dir: blog/categories
 markdown: kramdown
 timezone: UTC
 
+# highlighter: coderay
+
 kramdown:
   input: GFM
   auto_ids:       false
@@ -43,15 +45,32 @@ kramdown:
   toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   parse_block_html: true
-  enable_coderay: true
 
-  coderay:
-    coderay_wrap:              div
-    coderay_line_numbers:      nil
-    coderay_line_number_start: 1
-    coderay_tab_width:         4
-    coderay_bold_every:        10
-    coderay_css:               class
+  # enable_coderay: true
+
+  # coderay:
+  #   coderay_wrap:              div
+  #   coderay_line_numbers:      nil
+  #   coderay_line_number_start: 1
+  #   coderay_tab_width:         4
+  #   coderay_bold_every:        10
+  #   coderay_css:               class
+
+# syntax_highlighter_opts:
+#   wrap:              div
+#   line_numbers:      nil
+#   line_number_start: 1
+#   tab_width:         4
+#   bold_every:        10
+#   css:               class
+
+  #   block:
+  #     wrap:              div
+  #     line_numbers:      nil
+  #     line_number_start: 1
+  #     tab_width:         4
+  #     bold_every:        10
+  #     css:               class
 
 highlighter: rouge
 

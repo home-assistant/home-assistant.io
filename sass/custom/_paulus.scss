@@ -124,9 +124,12 @@ h6:hover a.title-link {
 
   &::before {
     position: absolute;
-    left: -50px;
+    top: 2px;
+    left: -25px;
     padding-right: 40px;
     font-family: "FontAwesome";
+    font-size: 15px;
+    color: #999;
     content: "\f0c1"
   }
 }
@@ -164,6 +167,9 @@ h6:hover a.title-link {
 }
 
 article.post, article.page, article.listing {
+  font-size: 1.125em;
+  line-height: 1.6;
+
   img, table {
     border-radius: 3px;
     box-shadow: rgba(0,0,0,0.06) 0 0 10px;
@@ -214,9 +220,25 @@ article.post, article.page, article.listing {
     }
   }
 
-  h1, h2, h3 {
-    margin-bottom: 4px;
-    line-height: 1.2;
+  h1 {
+
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-top: 2em;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+    font-size: 1.2rem;
+    margin-top: 2em;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    margin-top: 2em;
   }
 }
 

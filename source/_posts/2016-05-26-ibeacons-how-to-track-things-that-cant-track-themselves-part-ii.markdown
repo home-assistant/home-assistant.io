@@ -58,7 +58,7 @@ If you park your car and go shopping - *device_tracker.beacon_car* will stop mov
 
 With the basic tracking working - you can use automation to do things like open your gates if your car comes home
 
-````yaml
+```yaml
 automation:
     - alias: 'Open gate'
       trigger:
@@ -73,19 +73,19 @@ automation:
       action:
           service: switch.turn_on
           entity_id: switch.gate
-````
+```
 
 Or warn you if you leave your keys behind
 
-````yaml
+```yaml
 automation:
   - alias: 'Forgotten keys'
     trigger:
       platform: template
-      value_template: {% raw %}'{{states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'{% endraw %}
+      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}{% endraw %}'
     condition:
       condition: template
-      value_template: {% raw %}'{{ states.device_tracker.greg_gregphone.state != "home" }}'{% endraw %}
+      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != "home" }}{% endraw %}'
     action:
       service: script.turn_on
       entity_id: script.send_key_alert
@@ -93,7 +93,7 @@ automation:
   - alias: 'Forgotten keys - cancel'
     trigger:
       platform: template
-      value_template: {% raw %}'{{states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state}}'{% endraw %}
+      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}{% endraw %}'
     condition:
       - condition: state
         entity_id: script.send_key_alert
@@ -101,9 +101,9 @@ automation:
     action:
       service: script.turn_off
       entity_id: script.send_key_alert
-````
+```
 
-````yaml
+```yaml
 script:
   send_key_alert:
     sequence:
@@ -113,7 +113,7 @@ script:
         data:
             message: 'You forgot your keys'
             target: 'device/gregs_iphone'
-````
+```
 
 
 (The delay is needed for two reasons: -

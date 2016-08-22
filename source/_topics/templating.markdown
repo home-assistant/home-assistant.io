@@ -86,9 +86,8 @@ Home Assistant adds extensions to allow templates to access all of the current s
 ### {% linkable_title States %}
 Next two statements result in same value if state exists. Second one will result in an error if state does not exist.
 
-```jinja2
-{% raw %}
-{{ states('device_tracker.paulus') }}
+```text
+{% raw %}{{ states('device_tracker.paulus') }}
 {{ states.device_tracker.paulus.state }}{% endraw %}
 ```
 
@@ -96,9 +95,8 @@ Next two statements result in same value if state exists. Second one will result
 
 Print an attribute if state is defined
 
-```jinja2
-{% raw %}
-{% if states.device_tracker.paulus %}
+```text
+{% raw %}{% if states.device_tracker.paulus %}
   {{ states.device_tracker.paulus.attributes.battery }}
 {% else %}
   ??
@@ -109,9 +107,8 @@ Print an attribute if state is defined
 
 Print out a list of all the sensor states.
 
-```jinja2
-{% raw %}
-{% for state in states.sensor %}
+```text
+{% raw %}{% for state in states.sensor %}
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
 
@@ -131,17 +128,15 @@ Print out a list of all the sensor states.
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
-{{ as_timestamp(now) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
-{% endraw %}
+{{ as_timestamp(now) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}{% endraw %}
 ```
 
 ### {% linkable_title Distance examples %}
 
 If only 1 location is passed in will measure the distance from home.
 
-```jinja2
-{% raw %}
-Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
+```text
+{% raw %}Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
 
 Using State: {{ distance(states.device_tracker.paulus) }}
 
@@ -154,9 +149,8 @@ These can also be combined in any combination:
 
 Find entities closest to the Home Assistant location:
 
-```jinja2
-{% raw %}
-Query all entities: {{ closest(states) }}
+```text
+{% raw %}Query all entities: {{ closest(states) }}
 Query all entities of a specific domain: {{ closest('states.device_tracker') }}
 Query all entities in group.children: {{ closest('group.children') }}
 Query all entities in group.children: {{ closest(states.group.children) }}{% endraw %}
@@ -164,9 +158,8 @@ Query all entities in group.children: {{ closest(states.group.children) }}{% end
 
 Find entities closest to a coordinate or another entity. All previous arguments still apply for 2nd argument.
 
-```jinja2
-{% raw %}
-Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
+```text
+{% raw %}Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
 Closest to an entity: {{ closest('zone.school', 'group.children') }}
 Closest to an entity: {{ closest(states.zone.school, 'group.children') }}{% endraw %}
 ```
@@ -174,9 +167,8 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}{% endr
 ### {% linkable_title Combined %}
 Since closest returns a state, we can combine it with distance too
 
-```jinja2
-{% raw %}
-{{ closest(states).name }} is {{ distance(closest(states)) }} meters away.{% endraw %}
+```text
+{% raw %}{{ closest(states).name }} is {{ distance(closest(states)) }} meters away.{% endraw %}
 ```
 
 ## {% linkable_title Processing incoming data %}
@@ -190,7 +182,7 @@ It depends per component or platform but it is common to be able to define a tem
 | `value`      | The incoming value.                    |
 | `value_json` | The incoming value parsed as JSON.     |
 
-```jinja2
+```text
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 

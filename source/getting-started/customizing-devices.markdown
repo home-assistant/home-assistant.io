@@ -9,28 +9,21 @@ sharing: true
 footer: true
 ---
 
-By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration inside the `homeassistant:` section.
-
-Devices that you don't want to have visible can be hidden with `hidden`.
-
-`entity_picture`entries, badges, `device_tracker` pictures, etc. can either be external URLs (e.g. `http://example.com/example.jpg`) or of the form `/local/filename.jpg`, where `/local` represents the directory `www` in the HASS configuration directory. You may have to create the `www` directory yourself as it is not made automatically.
-
-You can also use `icon` and refer to any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com).
-
-For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
-
+By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
 ```yaml
 # Example configuration.yaml entry
 homeassistant:
+  name: Home
+  unit_system: celsius
+  # etc
 
-  # Add this to your existing configuration
-  # Only the `entity_id` is required.  All other options are optional.
   customize:
+    # Only the 'entity_id' is required.  All other options are optional.
     sensor.living_room_motion:
       hidden: true
     thermostat.family_roomfamily_room:
-      entity_picture: https://dl.dropboxusercontent.com/u/12345/images/nest.jpg
+      entity_picture: https://example.com/images/nest.jpg
       friendly_name: Nest
     switch.wemo_switch_1:
       friendly_name: Toaster
@@ -41,6 +34,16 @@ homeassistant:
     switch.rfxtrx_switch:
       assumed_state: false
 ```
+
+### {% linkable_title Possible values %}
+
+| Attribute | Description |
+| --------- | ----------- |
+| friendly_name | Name of the entity
+| hidden    | Set to `true` to hide the entity.
+| entity_picture | url to use as picture for entity
+| icon | Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com). Prefix name with `mdi:`, ie `mdi:home`.
+| assumed_state | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
 
 ### {% linkable_title Reloading customize %}
 

@@ -90,9 +90,9 @@ $ ls /dev/ttyACM*
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/). 
 </p>
 
-#### {% linkable_title Events %}
+### {% linkable_title Events %}
 
-**zwave.network_complete**
+#### {% linkable_title zwave.network_complete %}
 HomeAssistant will trigger a event when the zwave network is complete. Meaning all of the nodes on the network have been queried. This can take quite som time, depending on wakeup intervals on the battery powered devices on the network.
 
 ```yaml
@@ -102,7 +102,7 @@ HomeAssistant will trigger a event when the zwave network is complete. Meaning a
      event_type: zwave.network_complete
 ```
 
-**zwave.network_ready**
+#### {% linkable_title zwave.network_ready %}
 HomeAssistant will trigger a event when the zwave network is ready for use. Between `zwave.network_start` and `zwave.network_ready` HomeAssistant will feel sluggish when trying to send commands to zwave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered all awake nodes have been queried and sleeping nodes will be queried when they awake.
 
 ```yaml
@@ -112,7 +112,7 @@ HomeAssistant will trigger a event when the zwave network is ready for use. Betw
      event_type: zwave.network_ready
 ```
 
-**zwave.network_start**
+#### {% linkable_title zwave.network_start %}
 HomeAssistant will trigger a event when the zwave network is set up to be started.
 
 ```yaml
@@ -122,7 +122,7 @@ HomeAssistant will trigger a event when the zwave network is set up to be starte
      event_type: zwave.network_start
 ```
 
-**zwave.network_stop**
+#### {% linkable_title zwave.network_stop %}
 HomeAssistant will trigger a event when the zwave network stopping.
 
 ```yaml
@@ -132,7 +132,7 @@ HomeAssistant will trigger a event when the zwave network stopping.
      event_type: zwave.network_stop
 ```
 
-**zwave.node_event**
+#### {% linkable_title zwave.node_event %}
 HomeAssistant will trigger a event when command_class_basic changes value on a node.
 This can be virtually anything, so tests have to be made to determine what value equals what.
 You can use this for automations.
@@ -168,7 +168,7 @@ automation:
 
 The *object_id* and *scene_id* of all triggered events can be seen in the console output.
 
-#### {% linkable_title Services %}
+### {% linkable_title Services %}
 
 The Z-Wave component exposes seven services to help maintain the network.
 
