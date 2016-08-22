@@ -91,10 +91,9 @@
 
   <p>The website you’re reading now is the home of Home Assistant: <a href="https://home-assistant.io">https://home-assistant.io</a>. This is the place where we provide documentation and additional details about Home Assistant for end users and developers.</p>
 
-<p>home-assistant.io uses the <a href="http://octopress.org/">Octopress</a> framework for <a href="http://github.com/mojombo/jekyll">Jekyll</a>. To get more details, please checkout the <a href="http://octopress.org/docs/">Octopress documentation</a>.
-That means that creating a new page is simple. The pages are written in <a href="http://daringfireball.net/projects/markdown/">markdown</a>; you don’t need to care about HTML or the like.</p>
+<p>home-assistant.io is built using <a href="http://github.com/mojombo/jekyll">Jekyll</a>. The pages are written in <a href="http://daringfireball.net/projects/markdown/">markdown</a>; to add a page you don’t need to know about HTML or the like.</p>
 
-<p>The process for working on the website is no different from working on Home Assistant itself.</p>
+<p>The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a pull request.</p>
 
 <p>To test your changes locally, you need to install the <strong>Ruby</strong> dependencies (gems):</p>
 
@@ -116,20 +115,23 @@ That means that creating a new page is simple. The pages are written in <a href=
 
 <p>For a platform page, the fastest way is to make a copy of an existing page and edit it. The <a href="/components/">component overview</a> is generated automatically, so there is no need to add a link to your page.</p>
 
-<h3><a class="title-link" name="code" href="#code"></a> Code</h3>
-<p>To take advantage of the built-in features of Octopress to display code snippets, just use the default markdown syntax. Please use <code class="highlighter-rouge">$</code> and <code class="highlighter-rouge">#</code> if it’s a command and to differ from output.</p>
+<h3><a class="title-link" name="embedding-code" href="#embedding-code"></a> Embedding Code</h3>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Here goes the code...
+<p>You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in `. For multi line syntax wrap your code like this:</p>
+
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>\`\`\`yaml
+sensor:
+  platform: template
+\`\`\`
 </code></pre>
 </div>
 
-<p>If you want to display line numbers, add the following snippet somewhere on your page.</p>
+<p>Note that you can replace <code class="highlighter-rouge">text</code> next to ``` with the language that is within the block.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">::options</span><span class="w"> </span><span class="err">coderay_line_numbers=</span><span class="nt">"table"</span><span class="w"> </span><span class="err">/}</span><span class="w">
-</span></code></pre>
-</div>
+<p>When you’re writing code that is to be executed on the terminal, prefix it with <code class="highlighter-rouge">$</code>.</p>
 
 <h3><a class="title-link" name="images-icons-and-logos" href="#images-icons-and-logos"></a> Images, icons, and logos</h3>
+
 <p>The images which are displayed on the pages are stored in various directories according to their purpose.</p>
 
 <table>
@@ -141,7 +143,7 @@ That means that creating a new page is simple. The pages are written in <a href=
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">screen shots</td>
+      <td style="text-align: left">screenshots</td>
       <td style="text-align: left">source/images/screenshots</td>
     </tr>
     <tr>
@@ -152,7 +154,6 @@ That means that creating a new page is simple. The pages are written in <a href=
 </table>
 
 <p>Not everything (product, component, etc.) has a logo. To show something for internal parts of Home Assistant we are using the <a href="https://materialdesignicons.com/">Material Design Icons</a>.</p>
-
 
 
 </article>
