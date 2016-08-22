@@ -70,6 +70,7 @@ for check_dir in dirs:
 # source/components/media_player.kodi.html
 # source/components/media_player.mpd.html
 # source/components/media_player.plex.html
+# source/components/media_player.emby.html
 # source/components/media_player.sonos.html
 # source/components/media_player.squeezebox.html
 # source/components/modbus.html
