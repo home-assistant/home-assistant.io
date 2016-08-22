@@ -92,6 +92,31 @@ action:
 - **username** (*Optional*): Username for an URL which require HTTP basic authentication.
 - **password** (*Optional*): Username for an URL which require HTTP basic authentication.
 
+### {% linkable_title Document support %}
+
+```yaml
+...
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: Send a document
+    message: That's a example that sends a document.
+    data:
+      document:
+        - url: http://192.168.1.28/bounce.gif
+          username: admin
+          password: secrete
+        - file: /tmp/whatever.odf
+          caption: Picture Title xy
+        - url: http://somebla.ie/video.mp4
+          caption: I.e. for a Title
+```
+
+- **url** or **file** (*Required*): For local or remote path to an image.
+- **caption** (*Optional*): The title of the image.
+- **username** (*Optional*): Username for an URL which require HTTP basic authentication.
+- **password** (*Optional*): Username for an URL which require HTTP basic authentication.
+
 ### {% linkable_title Location support %}
 
 ```yaml
