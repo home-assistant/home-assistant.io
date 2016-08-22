@@ -125,7 +125,7 @@
 
 <p>The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.</p>
 
-<h4><a class="title-link" name="use-the-embedded-broker" href="#use-the-embedded-broker"></a> Use the embedded broker</h4>
+<h3><a class="title-link" name="embedded-broker" href="#embedded-broker"></a> Embedded broker</h3>
 
 <p>Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT broker</a> is started and Home Asssistant connects to it. Embedded broker default configuration:</p>
 
@@ -178,7 +178,7 @@ This broker does not currently work with OwnTracks because of a protocol version
 </code></pre>
 </div>
 
-<h4><a class="title-link" name="run-your-own" href="#run-your-own"></a> Run your own</h4>
+<h3><a class="title-link" name="run-your-own" href="#run-your-own"></a> Run your own</h3>
 
 <p>Most private option but requires a bit more work. There are two free and open-source brokers to pick from: <a href="http://mosquitto.org/">Mosquitto</a> and <a href="http://www.mosca.io/">Mosca</a>.</p>
 
@@ -197,7 +197,7 @@ This broker does not currently work with OwnTracks because of a protocol version
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify <code class="highlighter-rouge">protocol: 3.1</code> in your MQTT configuration to work around this issue.
 </p>
 
-<h4><a class="title-link" name="public-mqtt" href="#public-mqtt"></a> Public MQTT</h4>
+<h3><a class="title-link" name="public-broker" href="#public-broker"></a> Public broker</h3>
 
 <p>The Mosquitto project runs a <a href="http://test.mosquitto.org">public broker</a>. Easiest to setup but there is 0 privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.</p>
 
@@ -213,7 +213,7 @@ There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Speci
 </code></pre>
 </div>
 
-<h4><a class="title-link" name="cloudmqtt" href="#cloudmqtt"></a> CloudMQTT</h4>
+<h3><a class="title-link" name="cloudmqtt" href="#cloudmqtt"></a> CloudMQTT</h3>
 
 <p><a href="https://www.cloudmqtt.com">CloudMQTT</a> is a hosted private MQTT instance that is free up to 10 connected devices. This is enough to get started with for example <a href="/components/device_tracker.owntracks/">OwnTracks</a> and give you a taste of what is possible.</p>
 
@@ -335,7 +335,7 @@ Home Assistant will automatically load the correct certificate if you connect to
 
 <p>For the embeeded MQTT broker the command looks like the sample below.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_sub -v -V mqttv311 -t <span class="s2">"#"</span> 
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_sub -v -V mqttv311 -t <span class="s2">"#"</span>
 </code></pre>
 </div>
 
