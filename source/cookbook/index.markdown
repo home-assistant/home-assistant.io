@@ -17,7 +17,7 @@ This is a community curated list of different ways to use Home Assistant. Most o
 [sec-automation]: /components/#automation
 [organization]: /components/#organization
 
-New recipes can be added via the [home-assistant.io repository](https://github.com/home-assistant/home-assistant.io/tree/master/source/_cookbook).
+New recipes can be added via the [home-assistant.io repository](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook).
 
 {% assign cookbook = site.cookbook | sort: 'title' %}
 {% assign categories = cookbook | map: 'ha_category' | uniq | sort %}
