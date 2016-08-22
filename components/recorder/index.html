@@ -95,14 +95,12 @@
 
 <p>The default database engine is <a href="https://www.sqlite.org/">SQLite</a> which doesn’t require any configuration. The database is stored in your Home Assistant configuration directory (<code>.homeassistant</code>) and called <code>home-assistant.db</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>
-To setup the `recorder` component in your installation, add the following to your `configuration.yaml` file:
+<p>To setup the <code>recorder</code> component in your installation, add the following to your <code>configuration.yaml</code> file:</p>
 
-```yaml
-# Example configuration.yaml entry
-recorder:
-  purge_days: 14
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
+<span class="key">recorder</span>:
+  <span class="key">purge_days</span>: <span class="string"><span class="content">14</span></span>
 </pre></div>
 </div>
 </div>
