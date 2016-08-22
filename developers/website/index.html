@@ -93,14 +93,16 @@
 
 <p>home-assistant.io is built using <a href="http://github.com/mojombo/jekyll">Jekyll</a>. The pages are written in <a href="http://daringfireball.net/projects/markdown/">markdown</a>; to add a page you don’t need to know about HTML or the like.</p>
 
-<p>The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a pull request.</p>
+<p>The link “<strong>Edit this page on GitHub</strong>” allows one to edit pages without creating a fork.</p>
+
+<p>For larger changes, we suggest that you clone the website repository. This has the advantage that you can review your changes locally. The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a pull request.</p>
 
 <p>To test your changes locally, you need to install the <strong>Ruby</strong> dependencies (gems):</p>
 
 <ul>
   <li><a href="https://www.ruby-lang.org/en/documentation/installation/">Install Ruby</a> if you don’t have it already.</li>
   <li>Install <code class="highlighter-rouge">bundler</code>, which is a dependency manager for Ruby: <code class="highlighter-rouge">gem install bundler</code></li>
-  <li>In your home-assistant.io root directory, run <code class="highlighter-rouge">bundle</code> to install the gems you need.</li>
+  <li>In your home-assistant.github.io root directory, run <code class="highlighter-rouge">bundle</code> to install the gems you need.</li>
 </ul>
 
 <p>Then you can work on the documentation:</p>
@@ -109,26 +111,62 @@
   <li>Fork home-assistant.io <a href="https://github.com/home-assistant/home-assistant.github.io">git repository</a>.</li>
   <li>Create/edit/update a page in the directory <code class="highlighter-rouge">source/_components/</code> for your platform/component.</li>
   <li>Test your changes to home-assistant.io locally: run <code class="highlighter-rouge">rake preview</code> and navigate to <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a></li>
-  <li>Create a Pull Request (PR) against the <strong>next</strong> branch of home-assistant.io if your documentation is for a new feature, platform, or component.</li>
-  <li>Create a Pull Request (PR) against the <strong>current</strong> branch of home-assistant.io if you fix stuff, create Cookbook entries, or expand existing documentation.</li>
+  <li>Create a Pull Request (PR) against the <strong>next</strong> branch of home-assistant.github.io if your documentation is for a new feature, platform, or component.</li>
+  <li>Create a Pull Request (PR) against the <strong>current</strong> branch of home-assistant.github.io if you fix stuff, create Cookbook entries, or expand existing documentation.</li>
 </ul>
 
-<p>For a platform page, the fastest way is to make a copy of an existing page and edit it. The <a href="/components/">component overview</a> is generated automatically, so there is no need to add a link to your page.</p>
+<h3><a class="title-link" name="create-a-page" href="#create-a-page"></a> Create a page</h3>
 
-<h3><a class="title-link" name="embedding-code" href="#embedding-code"></a> Embedding Code</h3>
+<p>For a platform page, the fastest way is to make a copy of an existing page and edit it. The <a href="/components/">Component overview</a> and the <a href="/cookbook/">Examples section</a> are generated automatically, so there is no need to add a link to those pages.</p>
 
-<p>You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in `. For multi line syntax wrap your code like this:</p>
+<p>If you start from scratch with a page, you need to add a header. Different sections of the doumentation may need different headers.</p>
 
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>\`\`\`yaml
-sensor:
-  platform: template
-\`\`\`
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>---
+layout: page
+title: "Website home-assistant.io"
+description: "home-assistant.io web presence"
+date: 2015-06-17 08:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+---
+
+Content...Written in markdown. 
+
+### {% linkable_title Linkable Header %}
+...
 </code></pre>
 </div>
 
-<p>Note that you can replace <code class="highlighter-rouge">text</code> next to ``` with the language that is within the block.</p>
+<p>There are <a href="https://jekyllrb.com/docs/variables/">pre-definied variables</a> available but usually it’s not necessary to use them when writing documentation.</p>
+
+<h3><a class="title-link" name="embedding-code" href="#embedding-code"></a> Embedding Code</h3>
+
+<p>You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in `. For multi line syntax wrap your code as shown below.</p>
+
+<div class="language-text highlighter-rouge"><pre class="highlight"><code> ```yaml
+ sensor:
+   platform: template
+ ```
+</code></pre>
+</div>
+
+<p>If you are using templates then those parts needs to be <a href="http://stackoverflow.com/a/24102537">escaped</a>. Otherwise they will be rendered and appear blank on the website.</p>
+
+<p>Note that you can replace <code class="highlighter-rouge">yaml</code> next to ``` with the language that is within the block.</p>
 
 <p>When you’re writing code that is to be executed on the terminal, prefix it with <code class="highlighter-rouge">$</code>.</p>
+
+<h3><a class="title-link" name="html" href="#html"></a> HTML</h3>
+
+<p>The direct usage of HTML is supported but not recommanded. The note boxes are an exception.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'note warning'</span><span class="nt">&gt;</span>
+  You need to enable telnet on your router. 
+<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
 
 <h3><a class="title-link" name="images-icons-and-logos" href="#images-icons-and-logos"></a> Images, icons, and logos</h3>
 
