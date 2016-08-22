@@ -28,7 +28,7 @@ Configuration variables:
 - **access_token** (*Required*): A Foursquare API access token.
 - **push_secret** (*Required*): The push secret that Foursquare provides to you in the app dashboard.
 
-#### {% linkable_title Real-Time API %}
+### {% linkable_title Real-Time API %}
 
 The component accepts pushes from Foursquare at `/api/foursquare`. The route does not require authentication.
 
@@ -45,7 +45,7 @@ automation:
       entity_id: script.my_action
 ```
 
-#### {% linkable_title Check ins %}
+### {% linkable_title Check ins %}
 
 To check a user in, use the `foursquare/checkin` service.
 
