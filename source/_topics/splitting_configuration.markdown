@@ -124,7 +124,7 @@ This (large) sensor configuration gives us another example:
   host: 192.168.2.82
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[2]}}"
+  value_template: "{% raw %}{{value.split (' ')[2]}}{% endraw %}"
   unit: C
 - platform: tcp
   name: 'Outdoor Humidity (Meteobridge)'
@@ -132,7 +132,7 @@ This (large) sensor configuration gives us another example:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[3]}}"
+  value_template: "{% raw %}{{value.split (' ')[3]}}{% endraw %}"
   unit: Percent
 - platform: tcp
   name: 'Outdoor Dewpoint (Meteobridge)'
@@ -140,7 +140,7 @@ This (large) sensor configuration gives us another example:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[4] }}"
+  value_template: "{% raw %}{{value.split (' ')[4] }}{% endraw %}"
   unit: C
 ###################################
 #### STEAM FRIENDS            ####

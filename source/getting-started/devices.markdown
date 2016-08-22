@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant will be able to automatically discover and configure any Google Chromecasts, Netgear routers, Belkin WeMo switches, Philips Hue bridges and Sonos speakers on your network if you have [the discovery component]({{site_root}}/components/discovery/) enabled (which is by default).
+Home Assistant will be able to automatically discover a bunch of devices and services available on your network if you have [the discovery component]({{site_root}}/components/discovery/) enabled (which is by default).
 
 See the [components overview page](/components/) to find installation instructions for your devices and services. If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/).
 
@@ -50,10 +50,6 @@ camera 1:
 camera 2:
   platform: mjpeg
 ```
-
-<p class='note note'>
-If your devices are not showing up in the frontend then check the entries in your <code>configuration.yaml</code> file for duplicates. 
-</p>
 
 ### {% linkable_title Grouping devices %}
 

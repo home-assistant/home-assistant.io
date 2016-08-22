@@ -23,7 +23,7 @@ Presence detection detects if people are home, an important input for automation
 Screenshot of Home Assistant showing a school, work and home zone and two people.
 </p>
 
-## {% linkable_title Setting it up %}
+### {% linkable_title Setting it up %}
 
 The device tracker component offers presence detection for Home Assistant. It supports two different methods for presence detection: scan for connected devices on the local network and connect to third party service.
 
@@ -35,7 +35,7 @@ Home Assistant currently supports two third party services for presence detectio
 OwnTracks communicates directly with your MQTT broker, no data will pass through their servers.
 </p>
 
-#### {% linkable_title Zones %}
+### {% linkable_title Zones %}
 
 <img src='/images/screenshots/badges-zone.png' style='float: right; margin-left: 8px; height: 100px;'>
 

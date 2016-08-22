@@ -62,9 +62,9 @@ automation:
     - condition: or
       conditions:
         - condition: template
-          value_template: '{{ states.sun.sun.attributes.elevation < 4 }}'
+          value_template: '{% raw %}{{ states.sun.sun.attributes.elevation < 4 }}{% endraw %}'
         - condition: template
-          value_template: '{{ states.sensor.sensorluz_7_0.state < 10 }}'
+          value_template: '{% raw %}{{ states.sensor.sensorluz_7_0.state < 10 }}{% endraw %}'
     - service: scene.turn_on
       entity_id: scene.DespiertaDespacho
 ```

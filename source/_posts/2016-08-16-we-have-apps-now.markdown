@@ -56,13 +56,12 @@ class OutsideLights(appapi.AppDaemon):
   def initialize(self):
     self.run_at_sunrise(self.sunrise_cb, 0)
     self.run_at_sunset(self.sunset_cb, 0)
-    
+
   def sunrise_cb(self, args, kwargs):
     self.turn_on(self.args["off_scene"])
 
   def sunset_cb(self, args, kwargs):
     self.turn_on(self.args["on_scene"])
-
 ```
 
 This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.

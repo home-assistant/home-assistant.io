@@ -18,8 +18,6 @@ Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/) as Object Relationa
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant`) and called `home-assistant.db`.
 
-```bash
-
 To setup the `recorder` component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

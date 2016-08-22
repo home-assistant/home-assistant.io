@@ -37,14 +37,18 @@ automation 2:
       message: {% raw %}{{ trigger.payload }}{% endraw %}
 ```
 
-### {% linkable_title Available Trigger Data %}
+## {% linkable_title Available Trigger Data %}
 
 The following tables show the available trigger data per platform.
+
+### {% linkable_title event %}
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `event`.
 | `trigger.event` | Event object that matched.
+
+### {% linkable_title mqtt %}
 
 | Template variable | Data |
 | ---- | ---- |
@@ -52,6 +56,8 @@ The following tables show the available trigger data per platform.
 | `trigger.topic` | Topic that received payload.
 | `trigger.payload` | Payload.
 | `trigger.qos` | QOS of payload.
+
+### {% linkable_title numeric_state %}
 
 | Template variable | Data |
 | ---- | ---- |
@@ -62,6 +68,8 @@ The following tables show the available trigger data per platform.
 | `trigger.from_state` | The previous [state object] of the entity.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 
+### {% linkable_title state %}
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `state`
@@ -70,11 +78,15 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
+### {% linkable_title sun %}
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `sun`
 | `trigger.event` | The event that just happened: `sunset` or `sunrise`.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
+
+### {% linkable_title template %}
 
 | Template variable | Data |
 | ---- | ---- |
@@ -83,10 +95,14 @@ The following tables show the available trigger data per platform.
 | `trigger.from_state` | Previous [state object] of entity that caused change.
 | `trigger.to_state` | New [state object] of entity that caused template to change.
 
+### {% linkable_title time %}
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
+
+### {% linkable_title zone %}
 
 | Template variable | Data |
 | ---- | ---- |
