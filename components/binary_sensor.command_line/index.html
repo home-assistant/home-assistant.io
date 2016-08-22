@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>command</code> binary sensor platform issues specific commands to get data.</p>
+  <p>The <code class="highlighter-rouge">command</code> binary sensor platform issues specific commands to get data.</p>
 
-<p>To use your Command binary sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your Command binary sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_line</span></span>
-  <span class="key">command</span>: <span class="string"><span class="content">cat /proc/sys/net/ipv4/ip_forward</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">'IP4 forwarding'</span></span>
-  <span class="key">sensor_class</span>: <span class="string"><span class="content">opening</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+  <span class="s">command</span><span class="pi">:</span> <span class="s">cat /proc/sys/net/ipv4/ip_forward</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">IP4</span><span class="nv"> </span><span class="s">forwarding'</span>
+  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
+  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1"</span>
+  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0"</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -126,44 +124,38 @@
 
 <p>Check the state of an <a href="https://github.com/sickragetv/sickrage">SickRage</a> instance.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_line</span></span>
-  <span class="key">command</span>: <span class="string"><span class="content">netstat -na | find &quot;33322&quot; | find /c &quot;LISTENING&quot; &gt; nul &amp;&amp; (echo &quot;Running&quot;) || (echo &quot;Not running&quot;)</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">'sickragerunning'</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Running</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Not running</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+  <span class="s">command</span><span class="pi">:</span> <span class="s">netstat -na | find "33322" | find /c "LISTENING" &gt; nul &amp;&amp; (echo "Running") || (echo "Not running")</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sickragerunning'</span>
+  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Running"</span>
+  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Not</span><span class="nv"> </span><span class="s">running"</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="check-rasplex" href="#check-rasplex"></a> Check RasPlex</h3>
 
-<p>Check if <a href="http://www.rasplex.com/">RasPlex</a> is <code>online</code>.</p>
+<p>Check if <a href="http://www.rasplex.com/">RasPlex</a> is <code class="highlighter-rouge">online</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_line</span></span>
-  <span class="key">command</span>: <span class="string"><span class="content">'ping -c 1 rasplex.local | grep &quot;1 received&quot; | wc -l'</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">'is_rasplex_online'</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="content">0</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+  <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ping</span><span class="nv"> </span><span class="s">-c</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">rasplex.local</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">grep</span><span class="nv"> </span><span class="s">"1</span><span class="nv"> </span><span class="s">received"</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">wc</span><span class="nv"> </span><span class="s">-l'</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">is_rasplex_online'</span>
+  <span class="s">payload_on</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">payload_off</span><span class="pi">:</span> <span class="s">0</span>
+</code></pre>
 </div>
 
 <p>An alternative solution could look like this:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_line</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Printer</span></span>
-  <span class="key">command</span>: <span class="string"><span class="content">ping -c 1 192.168.1.10 &amp;&gt; /dev/null &amp;&amp; echo success || echo fail</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">success</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">fail</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Printer</span>
+  <span class="s">command</span><span class="pi">:</span> <span class="s">ping -c 1 192.168.1.10 &amp;&gt; /dev/null &amp;&amp; echo success || echo fail</span>
+  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">success"</span>
+  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fail"</span>
+</code></pre>
 </div>
 
 

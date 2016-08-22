@@ -89,32 +89,30 @@
   <hr class="divider">
   
 
-  <p>The <code>syslog</code> platform allows you to deliver notifications from Home Assistant to the local syslog.</p>
+  <p>The <code class="highlighter-rouge">syslog</code> platform allows you to deliver notifications from Home Assistant to the local syslog.</p>
 
-<p>To enable syslog notifications in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable syslog notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">platform</span>: <span class="string"><span class="content">syslog</span></span>
-  <span class="key">facility</span>: <span class="string"><span class="content">SYSLOG_FACILITY</span></span>
-  <span class="key">option</span>: <span class="string"><span class="content">SYSLOG_LOG_OPTION</span></span>
-  <span class="key">priority</span>: <span class="string"><span class="content">SYSLOG_PRIORITY</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">syslog</span>
+  <span class="s">facility</span><span class="pi">:</span> <span class="s">SYSLOG_FACILITY</span>
+  <span class="s">option</span><span class="pi">:</span> <span class="s">SYSLOG_LOG_OPTION</span>
+  <span class="s">priority</span><span class="pi">:</span> <span class="s">SYSLOG_PRIORITY</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>facility</strong> (<em>Optional</em>): Facility according to RFC 3164 (http://tools.ietf.org/html/rfc3164). Default is ‘syslog’ if no value is given. Check the table below for entries.</li>
   <li><strong>option</strong> (<em>Optional</em>): Log option. Default is ‘pid’ if no value is given. Check the table below for entries.</li>
   <li><strong>priority</strong> (<em>Optional</em>): Priority of the messages. Default is ‘info’ if no value is given. Check the table below for entries.</li>
 </ul>
 
-<p>The table contains values to use in your <code>configuration.yaml</code> file.</p>
+<p>The table contains values to use in your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
 <table>
   <thead>

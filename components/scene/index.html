@@ -91,43 +91,39 @@
 
   <p>You can create scenes that capture the states you want certain entities to be. For example a scene can specify that light A should be turned on and light B should be bright red.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">scene</span>:
-  - <span class="string"><span class="content">name: Romantic</span></span>
-    <span class="key">entities</span>:
-      <span class="key">light.tv_back_light</span>: <span class="string"><span class="content">on</span></span>
-      <span class="key">light.ceiling</span>:
-        <span class="key">state</span>: <span class="string"><span class="content">on</span></span>
-        <span class="key">xy_color</span>: <span class="string"><span class="content">[0.33, 0.66]</span></span>
-        <span class="key">brightness</span>: <span class="string"><span class="content">200</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">scene</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Romantic</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="s">light.tv_back_light</span><span class="pi">:</span> <span class="s">on</span>
+      <span class="s">light.ceiling</span><span class="pi">:</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+        <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">0.33</span><span class="pi">,</span> <span class="nv">0.66</span><span class="pi">]</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">200</span>
 
-  - <span class="string"><span class="content">name: Movies</span></span>
-    <span class="key">entities</span>:
-      <span class="key">light.tv_back_light</span>:
-        <span class="key">state</span>: <span class="string"><span class="content">on</span></span>
-        <span class="key">brightness</span>: <span class="string"><span class="content">100</span></span>
-      <span class="key">light.ceiling</span>: <span class="string"><span class="content">off</span></span>
-</pre></div>
-</div>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Movies</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="s">light.tv_back_light</span><span class="pi">:</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">100</span>
+      <span class="s">light.ceiling</span><span class="pi">:</span> <span class="s">off</span>
+</code></pre>
 </div>
 
-<p>Scenes can be activated using the service <code>scene.turn_on</code> (there is no ‘scene.turn_off’ service).</p>
+<p>Scenes can be activated using the service <code class="highlighter-rouge">scene.turn_on</code> (there is no ‘scene.turn_off’ service).</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example automation</span>
-<span class="head"><span class="head">...</span></span>
-<span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.sweetheart</span></span>
-    <span class="key">from</span>: <span class="string"><span class="content">'not_home'</span></span>
-    <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">scene.romantic</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example automation</span>
+<span class="nn">...</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.sweetheart</span>
+    <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.romantic</span>
+</code></pre>
 </div>
 
 

@@ -104,41 +104,35 @@
 
 <h2>Configuration</h2>
 
-<p>A <code>zigbee</code> section must be present in the <code>configuration.yaml</code> file and contain the following options as required:</p>
+<p>A <code class="highlighter-rouge">zigbee</code> section must be present in the <code class="highlighter-rouge">configuration.yaml</code> file and contain the following options as required:</p>
 
 <ul>
   <li>
-    <p><strong>device</strong>: The serial port to which the local ZigBee device is connected. Default: <code>/dev/ttyUSB0</code></p>
+    <p><strong>device</strong>: The serial port to which the local ZigBee device is connected. Default: <code class="highlighter-rouge">/dev/ttyUSB0</code></p>
   </li>
   <li>
-    <p><strong>baud</strong>: The baud rate at which to communicate with the local ZigBee device. Default: <code>9600</code></p>
+    <p><strong>baud</strong>: The baud rate at which to communicate with the local ZigBee device. Default: <code class="highlighter-rouge">9600</code></p>
   </li>
 </ul>
 
 <h4>Example</h4>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">zigbee</span>:
-  <span class="key">device</span>: <span class="string"><span class="content">/dev/ttyUSB0</span></span>
-  <span class="key">baud</span>: <span class="string"><span class="content">115200</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zigbee</span><span class="pi">:</span>
+  <span class="s">device</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
+  <span class="s">baud</span><span class="pi">:</span> <span class="s">115200</span>
+</code></pre>
 </div>
 
 <p>Or to simply use the defaults:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">zigbee</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zigbee</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <p>To find the possible serial port names of your device, run:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ls /dev/ttyUSB*
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyUSB<span class="k">*</span>
+</code></pre>
 </div>
 
 <p class="note">

@@ -91,71 +91,67 @@
 
   <p>Any component has the possibility to add a panel to the frontend. Panels will be rendered full screen and have real-time access to the Home Assistant object via JavaScript. Examples of this in the app are map, logbook and history.</p>
 
-<p>Create a file called <code>hello.html</code> in your <config dir="">/panels/.</config></p>
+<p>Create a file called <code class="highlighter-rouge">hello.html</code> in your <config dir="">/panels/.</config></p>
 
-<p>The <code>hello.html</code> contains the needed building blocks to create the elements inside the view.</p>
+<p>The <code class="highlighter-rouge">hello.html</code> contains the needed building blocks to create the elements inside the view.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&lt;dom-module id=<span class="string"><span class="delimiter">'</span><span class="content">ha-panel-hello</span><span class="delimiter">'</span></span>&gt;
-  <span class="tag">&lt;template&gt;</span>
-    <span class="tag">&lt;style&gt;</span>
-<span class="inline">      <span class="tag">p</span> {
-        <span class="key">font-weight</span>: <span class="value">bold</span>;
-      }</span>
-    <span class="tag">&lt;/style&gt;</span>
-    <span class="tag">&lt;p&gt;</span>Hello {{who}}. Greetings from Home Assistant.<span class="tag">&lt;/p&gt;</span>
-  <span class="tag">&lt;/template&gt;</span>
-&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dom-module&gt;
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">dom</span><span class="o">-</span><span class="nx">module</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'ha-panel-hello'</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
+      <span class="nx">p</span> <span class="p">{</span>
+        <span class="nx">font</span><span class="o">-</span><span class="nx">weight</span><span class="err">:</span> <span class="nx">bold</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="o">&lt;</span><span class="sr">/style</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="p">{{</span><span class="nx">who</span><span class="p">}}.</span> <span class="nx">Greetings</span> <span class="nx">from</span> <span class="nx">Home</span> <span class="nx">Assistant</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/template</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/dom-module</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span><span class="nx">Polymer</span><span class="p">({</span>
+  <span class="na">is</span><span class="p">:</span> <span class="s1">'ha-panel-hello'</span><span class="p">,</span>
+  <span class="na">properties</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// Home Assistant object</span>
+    <span class="na">hass</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">Object</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">// If should render in narrow mode</span>
+    <span class="na">narrow</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">// If sidebar is currently shown</span>
+    <span class="na">showMenu</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+      <span class="na">value</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">// Home Assistant panel info</span>
+    <span class="c1">// panel.config contains config passed to register_panel serverside</span>
+    <span class="na">panel</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">Object</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">who</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="na">computed</span><span class="p">:</span> <span class="s1">'computeWho(panel)'</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
 
-&lt;</span><span class="delimiter">/</span></span>script&gt;
-Polymer({
-  <span class="key">is</span>: <span class="string"><span class="delimiter">'</span><span class="content">ha-panel-hello</span><span class="delimiter">'</span></span>,
-  <span class="key">properties</span>: {
-    <span class="comment">// Home Assistant object</span>
-    <span class="key">hass</span>: {
-      <span class="key">type</span>: Object,
-    },
-    <span class="comment">// If should render in narrow mode</span>
-    <span class="key">narrow</span>: {
-      <span class="key">type</span>: Boolean,
-      <span class="key">value</span>: <span class="predefined-constant">false</span>,
-    },
-    <span class="comment">// If sidebar is currently shown</span>
-    <span class="key">showMenu</span>: {
-      <span class="key">type</span>: Boolean,
-      <span class="key">value</span>: <span class="predefined-constant">false</span>,
-    },
-    <span class="comment">// Home Assistant panel info</span>
-    <span class="comment">// panel.config contains config passed to register_panel serverside</span>
-    <span class="key">panel</span>: {
-      <span class="key">type</span>: Object,
-    },
-    <span class="key">who</span>: {
-      <span class="key">type</span>: String,
-      <span class="key">computed</span>: <span class="string"><span class="delimiter">'</span><span class="content">computeWho(panel)</span><span class="delimiter">'</span></span>,
-    }
-  },
-
-  <span class="function">computeWho</span>: <span class="keyword">function</span> (panel) {
-    <span class="keyword">return</span> panel &amp;&amp; panel.config &amp;&amp; panel.config.who ? panel.config.who : <span class="string"><span class="delimiter">'</span><span class="content">World</span><span class="delimiter">'</span></span>;
-  },
-});
-&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">script&gt;
-</span></span></pre></div>
-</div>
+  <span class="na">computeWho</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">panel</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">panel</span> <span class="o">&amp;&amp;</span> <span class="nx">panel</span><span class="p">.</span><span class="nx">config</span> <span class="o">&amp;&amp;</span> <span class="nx">panel</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">who</span> <span class="p">?</span> <span class="nx">panel</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">who</span> <span class="p">:</span> <span class="s1">'World'</span><span class="p">;</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre>
 </div>
 
-<p>Create an entry for the new panel in your <code>configuration.yaml</code> file:</p>
+<p>Create an entry for the new panel in your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">panel_custom</span>:
-  - <span class="string"><span class="content">name: hello_world</span></span>
-    <span class="key">sidebar_title</span>: <span class="string"><span class="content">Hello World</span></span>
-    <span class="key">sidebar_icon</span>: <span class="string"><span class="content">mdi:hand-pointing-right</span></span>
-    <span class="key">url_path</span>: <span class="string"><span class="content">hello_world</span></span>
-    <span class="key">webcomponent_path</span>: <span class="string"><span class="content">&lt;config dir&gt;/panels/hello.html</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">panel_custom</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">hello_world</span>
+    <span class="s">sidebar_title</span><span class="pi">:</span> <span class="s">Hello World</span>
+    <span class="s">sidebar_icon</span><span class="pi">:</span> <span class="s">mdi:hand-pointing-right</span>
+    <span class="s">url_path</span><span class="pi">:</span> <span class="s">hello_world</span>
+    <span class="s">webcomponent_path</span><span class="pi">:</span> <span class="s">&lt;config dir&gt;/panels/hello.html</span>
+</code></pre>
 </div>
 
 <p>For more examples, see the <a href="/cookbook#custom-panel-examples">Custom panel Examples</a> on our examples page.</p>

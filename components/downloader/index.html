@@ -89,32 +89,28 @@
   <hr class="divider">
   
 
-  <p>The <code>downloader</code> component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist.</p>
+  <p>The <code class="highlighter-rouge">downloader</code> component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist.</p>
 
-<p>To enable it, add the following lines to your <code>configuration.yaml</code> file:</p>
+<p>To enable it, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">downloader</span>:
-  <span class="key">download_dir</span>: <span class="string"><span class="content">downloads</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">downloader</span><span class="pi">:</span>
+  <span class="s">download_dir</span><span class="pi">:</span> <span class="s">downloads</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>download_dir</strong> (<em>Required</em>): If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (eg. <code>.homeassistant/downloads</code>).</li>
+  <li><strong>download_dir</strong> (<em>Required</em>): If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (eg. <code class="highlighter-rouge">.homeassistant/downloads</code>).</li>
 </ul>
 
 <h3><a class="title-link" name="use-the-service" href="#use-the-service"></a> Use the service</h3>
 
-<p>Go the the “Developer Tools”, then to “Call Service”, and choose <code>downloader/download_file</code> from the list of available services. Fill the “Service Data” field as shown in the example below and hit “CALL SERVICE”.</p>
+<p>Go the the “Developer Tools”, then to “Call Service”, and choose <code class="highlighter-rouge">downloader/download_file</code> from the list of available services. Fill the “Service Data” field as shown in the example below and hit “CALL SERVICE”.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">http://domain.tld/path/to/file</span><span class="delimiter">&quot;</span></span>}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"http://domain.tld/path/to/file"</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>This will download the file from the given URL.</p>
@@ -129,7 +125,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>url</code></td>
+      <td><code class="highlighter-rouge">url</code></td>
       <td>no</td>
       <td>The url of the file to download.</td>
     </tr>

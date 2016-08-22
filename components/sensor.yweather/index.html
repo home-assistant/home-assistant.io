@@ -89,45 +89,43 @@
   <hr class="divider">
   
 
-  <p>The <code>yweather</code> platform uses <a href="https://www.yahoo.com/news/weather/">Yahoo Weather</a> as an source for current meteorological data. The <code>forecast</code> will show you the condition for 5 days, 0 is the current day. You can use only <code>weather</code>, <code>temp_min</code>, and <code>temp_max</code> with forecast.</p>
+  <p>The <code class="highlighter-rouge">yweather</code> platform uses <a href="https://www.yahoo.com/news/weather/">Yahoo Weather</a> as an source for current meteorological data. The <code class="highlighter-rouge">forecast</code> will show you the condition for 5 days, 0 is the current day. You can use only <code class="highlighter-rouge">weather</code>, <code class="highlighter-rouge">temp_min</code>, and <code class="highlighter-rouge">temp_max</code> with forecast.</p>
 
 <p class="note warning">
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2,000 signed calls per day.
 </p>
 
-<p>The <code>woeid</code> (Where On Earth ID) for your location, as shown in the example below. You can find your woeid by copying the numeric digits at the end of the URL for your location at <a href="https://www.yahoo.com/news/weather/">Yahoo Weather</a>. If you don’t add a woeid it generate it from Home Assistant’s latitude and longitude.</p>
+<p>The <code class="highlighter-rouge">woeid</code> (Where On Earth ID) for your location, as shown in the example below. You can find your woeid by copying the numeric digits at the end of the URL for your location at <a href="https://www.yahoo.com/news/weather/">Yahoo Weather</a>. If you don’t add a woeid it generate it from Home Assistant’s latitude and longitude.</p>
 
-<p>To add Yahoo Weather to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add Yahoo Weather to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">yweather</span></span>
-  <span class="key">woeid</span>: <span class="string"><span class="content">YOUR_WOEID</span></span>
-  <span class="key">forecast</span>: <span class="string"><span class="content">0 until 5</span></span>
-  <span class="key">monitored_conditions</span>:
-   - <span class="string"><span class="content">weather</span></span>
-   - <span class="string"><span class="content">weather_current</span></span>
-   - <span class="string"><span class="content">temp_min</span></span>
-   - <span class="string"><span class="content">temp_max</span></span>
-   - <span class="string"><span class="content">wind_speed</span></span>
-   - <span class="string"><span class="content">pressure</span></span>
-   - <span class="string"><span class="content">visibility</span></span>
-   - <span class="string"><span class="content">humidity</span></span>
-   - <span class="string"><span class="content">temperature</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
+  <span class="s">woeid</span><span class="pi">:</span> <span class="s">YOUR_WOEID</span>
+  <span class="s">forecast</span><span class="pi">:</span> <span class="s">0 until 5</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">weather</span>
+   <span class="pi">-</span> <span class="s">weather_current</span>
+   <span class="pi">-</span> <span class="s">temp_min</span>
+   <span class="pi">-</span> <span class="s">temp_max</span>
+   <span class="pi">-</span> <span class="s">wind_speed</span>
+   <span class="pi">-</span> <span class="s">pressure</span>
+   <span class="pi">-</span> <span class="s">visibility</span>
+   <span class="pi">-</span> <span class="s">humidity</span>
+   <span class="pi">-</span> <span class="s">temperature</span>
 
-<span class="comment"># Example configuration.yaml entry with forecast</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">yweather</span></span>
-  <span class="key">woeid</span>: <span class="string"><span class="content">YOUR_WOEID</span></span>
-  <span class="key">forecast</span>: <span class="string"><span class="content">3</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">OPTIONAL_NAME</span></span>
-  <span class="key">monitored_conditions</span>:
-   - <span class="string"><span class="content">weather</span></span>
-   - <span class="string"><span class="content">temp_min</span></span>
-   - <span class="string"><span class="content">temp_max</span></span>
-</pre></div>
-</div>
+<span class="c1"># Example configuration.yaml entry with forecast</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
+  <span class="s">woeid</span><span class="pi">:</span> <span class="s">YOUR_WOEID</span>
+  <span class="s">forecast</span><span class="pi">:</span> <span class="s">3</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">OPTIONAL_NAME</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">weather</span>
+   <span class="pi">-</span> <span class="s">temp_min</span>
+   <span class="pi">-</span> <span class="s">temp_max</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

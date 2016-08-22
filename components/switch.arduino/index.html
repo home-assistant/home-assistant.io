@@ -89,25 +89,23 @@
   <hr class="divider">
   
 
-  <p>The <code>arduino</code> switch platform allows you to control the digital pins of your <a href="https://www.arduino.cc/">Arduino</a> board. Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3, 5, 6, 9, 10, and 11 on an Arduino Uno) is not supported yet.</p>
+  <p>The <code class="highlighter-rouge">arduino</code> switch platform allows you to control the digital pins of your <a href="https://www.arduino.cc/">Arduino</a> board. Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3, 5, 6, 9, 10, and 11 on an Arduino Uno) is not supported yet.</p>
 
-<p>To enable the Arduino pins with Home Assistant, add the following section to your <code>configuration.yaml</code> file:</p>
+<p>To enable the Arduino pins with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">arduino</span></span>
-  <span class="key">pins</span>:
-    <span class="key">11</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Fan Office</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">digital</span></span>
-      <span class="key">default</span>: <span class="string"><span class="content">on</span></span>
-      <span class="key">negate</span>: <span class="string"><span class="content">true</span></span>
-    <span class="key">12</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Light Desk</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">digital</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">arduino</span>
+  <span class="s">pins</span><span class="pi">:</span>
+    <span class="s">11</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Fan Office</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s">digital</span>
+      <span class="s">default</span><span class="pi">:</span> <span class="s">on</span>
+      <span class="s">negate</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">12</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Light Desk</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s">digital</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

@@ -89,17 +89,15 @@
   <hr class="divider">
   
 
-  <p>The <code>rfxtrx</code> platform support sensors that communicate in the frequency range of 433.92 MHz.</p>
+  <p>The <code class="highlighter-rouge">rfxtrx</code> platform support sensors that communicate in the frequency range of 433.92 MHz.</p>
 
-<p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub</a>.<br />
-The easiest way to find your sensors is to add this to your <code>configuration.yaml</code>:</p>
+<p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub</a>.
+The easiest way to find your sensors is to add this to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
-  <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
+</code></pre>
 </div>
 
 <p>Then when the sensor emits a signal it will be automatically added:</p>
@@ -108,52 +106,46 @@ The easiest way to find your sensors is to add this to your <code>configuration.
 <img src="/images/components/rfxtrx/sensor.png" />
 </p>
 
-<p>Here the name is <code>0a52080000301004d240259</code> and you can verify that it works from the frontend.<br />
+<p>Here the name is <code class="highlighter-rouge">0a52080000301004d240259</code> and you can verify that it works from the frontend.
 Then you should update your configuration to:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
-  <span class="key">devices</span>:
-    <span class="key">0a52080000301004d240259</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">device_name</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">0a52080000301004d240259</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">device_name</span>
+</code></pre>
 </div>
 
 <p>If you want to display several data types from one sensor:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
-  <span class="key">devices</span>:
-    <span class="key">0a520802060100ff0e0269</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Bath</span></span>
-      <span class="key">data_type</span>:
-       - <span class="string"><span class="content">Humidity</span></span>
-       - <span class="string"><span class="content">Temperature</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">0a520802060100ff0e0269</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Bath</span>
+      <span class="s">data_type</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s">Humidity</span>
+       <span class="pi">-</span> <span class="s">Temperature</span>
+</code></pre>
 </div>
 
 <p>Example configuration:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
-  <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
-  <span class="key">devices</span>:
-    <span class="key">0a52080705020095220269</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Lving</span></span>
-      <span class="key">fire_event</span>: <span class="string"><span class="content">True</span></span>
-    <span class="key">0a520802060100ff0e0269</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Bath</span></span>
-      <span class="key">data_type</span>:
-       - <span class="string"><span class="content">Humidity</span></span>
-       - <span class="string"><span class="content">Temperature</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">0a52080705020095220269</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Lving</span>
+      <span class="s">fire_event</span><span class="pi">:</span> <span class="s">True</span>
+    <span class="s">0a520802060100ff0e0269</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Bath</span>
+      <span class="s">data_type</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s">Humidity</span>
+       <span class="pi">-</span> <span class="s">Temperature</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

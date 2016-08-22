@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>rpi_gpio</code> binary sensor platform allows you to read sensor values of the GPIOs of your <a href="https://www.raspberrypi.org/">Raspberry Pi</a>.</p>
+  <p>The <code class="highlighter-rouge">rpi_gpio</code> binary sensor platform allows you to read sensor values of the GPIOs of your <a href="https://www.raspberrypi.org/">Raspberry Pi</a>.</p>
 
-<p>To use your Raspberry Pi’s GPIO in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your Raspberry Pi’s GPIO in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rpi_gpio</span></span>
-  <span class="key">ports</span>:
-    <span class="key">11</span>: <span class="string"><span class="content">PIR Office</span></span>
-    <span class="key">12</span>: <span class="string"><span class="content">PIR Bedroom</span></span>
-  <span class="key">pull_mode</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">UP</span><span class="delimiter">&quot;</span></span>
-  <span class="key">bouncetime</span>: <span class="string"><span class="content">50</span></span>
-  <span class="key">invert_logic</span>: <span class="string"><span class="content">false</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_gpio</span>
+  <span class="s">ports</span><span class="pi">:</span>
+    <span class="s">11</span><span class="pi">:</span> <span class="s">PIR Office</span>
+    <span class="s">12</span><span class="pi">:</span> <span class="s">PIR Bedroom</span>
+  <span class="s">pull_mode</span><span class="pi">:</span> <span class="s2">"</span><span class="s">UP"</span>
+  <span class="s">bouncetime</span><span class="pi">:</span> <span class="s">50</span>
+  <span class="s">invert_logic</span><span class="pi">:</span> <span class="s">false</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

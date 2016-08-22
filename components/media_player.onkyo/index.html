@@ -89,56 +89,58 @@
   <hr class="divider">
   
 
-  <p>The <code>onkyo</code> platform allows you to control a <a href="http://www.onkyo.com/">Onkyo receiver</a> from Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">onkyo</code> platform allows you to control a <a href="http://www.onkyo.com/">Onkyo receiver</a> from Home Assistant.</p>
 
-<p>To add an Onkyo receiver to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add an Onkyo receiver to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">onkyo</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.2</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">receiver</span></span>
-  <span class="key">sources</span>:
-    <span class="key">pc</span>: <span class="string"><span class="content">'HTPC'</span></span>
-    <span class="key">aux1</span>: <span class="string"><span class="content">'Chromecast'</span></span>
-    <span class="key">bd</span>: <span class="string"><span class="content">'Bluray'</span></span>
-    <span class="key">game</span>: <span class="string"><span class="content">'Wii U'</span></span>
-</pre></div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">onkyo</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">receiver</span>
+  <span class="s">sources</span><span class="pi">:</span>
+    <span class="s">pc</span><span class="pi">:</span> <span class="s1">'</span><span class="s">HTPC'</span>
+    <span class="s">aux1</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Chromecast'</span>
+    <span class="s">bd</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Bluray'</span>
+    <span class="s">game</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Wii</span><span class="nv"> </span><span class="s">U'</span>
+</code></pre>
 </div>
-</div>
-<p>Configuration variables:<br />
-- <strong>host</strong> (<em>Optional</em>): IP address of the device. Example:<code>192.168.1.2</code> If not specified, the platform will load any discovered receivers.<br />
-- <strong>name</strong> (<em>Required if host is specified</em>): Name of the device<br />
-- <strong>sources</strong> (<em>Optional</em>): A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.</p>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>host</strong> (<em>Optional</em>): IP address of the device. Example:<code class="highlighter-rouge">192.168.1.2</code> If not specified, the platform will load any discovered receivers.</li>
+  <li><strong>name</strong> (<em>Required if host is specified</em>): Name of the device</li>
+  <li><strong>sources</strong> (<em>Optional</em>): A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.</li>
+</ul>
 
-<p>List of source names:<br />
-- video1<br />
-- video2<br />
-- video3<br />
-- video4<br />
-- video5<br />
-- video6<br />
-- video7<br />
-- dvd<br />
-- bd-dvd<br />
-- tape1<br />
-- tv-tape<br />
-- tape2<br />
-- phono<br />
-- cd<br />
-- tv-cd<br />
-- fm<br />
-- am<br />
-- tuner<br />
-- dlna<br />
-- internet-radio<br />
-- usb<br />
-- network<br />
-- universal-port<br />
-- multi-ch<br />
-- xm<br />
-- sirius</p>
+<p>List of source names:</p>
+<ul>
+  <li>video1</li>
+  <li>video2</li>
+  <li>video3</li>
+  <li>video4</li>
+  <li>video5</li>
+  <li>video6</li>
+  <li>video7</li>
+  <li>dvd</li>
+  <li>bd-dvd</li>
+  <li>tape1</li>
+  <li>tv-tape</li>
+  <li>tape2</li>
+  <li>phono</li>
+  <li>cd</li>
+  <li>tv-cd</li>
+  <li>fm</li>
+  <li>am</li>
+  <li>tuner</li>
+  <li>dlna</li>
+  <li>internet-radio</li>
+  <li>usb</li>
+  <li>network</li>
+  <li>universal-port</li>
+  <li>multi-ch</li>
+  <li>xm</li>
+  <li>sirius</li>
+</ul>
 
 
 </article>

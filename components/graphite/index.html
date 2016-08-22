@@ -89,26 +89,24 @@
   <hr class="divider">
   
 
-  <p>The <code>graphite</code> component records all events and state changes and feeds the data to a <a href="http://graphite.wikidot.com/">graphite</a> instance.</p>
+  <p>The <code class="highlighter-rouge">graphite</code> component records all events and state changes and feeds the data to a <a href="http://graphite.wikidot.com/">graphite</a> instance.</p>
 
-<p>To enable this component, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">graphite</span>:
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">2003</span></span>
-  <span class="key">prefix</span>: <span class="string"><span class="content">ha</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">graphite</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">2003</span>
+  <span class="s">prefix</span><span class="pi">:</span> <span class="s">ha</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Option</em>): IP address of your graphite host, eg. http://192.168.1.10. Defaults to <code>localhost</code></li>
+  <li><strong>host</strong> (<em>Option</em>): IP address of your graphite host, eg. http://192.168.1.10. Defaults to <code class="highlighter-rouge">localhost</code></li>
   <li><strong>port</strong> (<em>Optional</em>): Port to use. Defaults to 2003.</li>
-  <li><strong>prefix</strong> (<em>Optional</em>):  Prefix is the metric prefix in graphite. Defaults to <code>ha</code>.</li>
+  <li><strong>prefix</strong> (<em>Optional</em>):  Prefix is the metric prefix in graphite. Defaults to <code class="highlighter-rouge">ha</code>.</li>
 </ul>
 
 

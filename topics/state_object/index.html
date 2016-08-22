@@ -106,31 +106,31 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>state.entity_id</code></td>
-      <td>Entity ID. Format: <code>&lt;domain&gt;.&lt;object_id&gt;</code>. Example: <code>light.kitchen</code>.</td>
+      <td><code class="highlighter-rouge">state.entity_id</code></td>
+      <td>Entity ID. Format: <code class="highlighter-rouge">&lt;domain&gt;.&lt;object_id&gt;</code>. Example: <code class="highlighter-rouge">light.kitchen</code>.</td>
     </tr>
     <tr>
-      <td><code>state.domain</code></td>
-      <td>Domain of the entity. Example: <code>light</code>.</td>
+      <td><code class="highlighter-rouge">state.domain</code></td>
+      <td>Domain of the entity. Example: <code class="highlighter-rouge">light</code>.</td>
     </tr>
     <tr>
-      <td><code>state.object_id</code></td>
-      <td>Object ID of entity. Example: <code>kitchen</code>.</td>
+      <td><code class="highlighter-rouge">state.object_id</code></td>
+      <td>Object ID of entity. Example: <code class="highlighter-rouge">kitchen</code>.</td>
     </tr>
     <tr>
-      <td><code>state.name</code></td>
-      <td>Name of the entity. Based on <code>friendly_name</code> attribute with fall back to object ID. Example: <code>Kitchen Ceiling</code>.</td>
+      <td><code class="highlighter-rouge">state.name</code></td>
+      <td>Name of the entity. Based on <code class="highlighter-rouge">friendly_name</code> attribute with fall back to object ID. Example: <code class="highlighter-rouge">Kitchen Ceiling</code>.</td>
     </tr>
     <tr>
-      <td><code>state.last_updated</code></td>
-      <td>Time the state was written to the state machine. Note that writing the exact same state including attributes will not result in this field being updated. Example: <code>14:10:03 13-03-2016</code>.</td>
+      <td><code class="highlighter-rouge">state.last_updated</code></td>
+      <td>Time the state was written to the state machine. Note that writing the exact same state including attributes will not result in this field being updated. Example: <code class="highlighter-rouge">14:10:03 13-03-2016</code>.</td>
     </tr>
     <tr>
-      <td><code>state.last_changed</code></td>
-      <td>Time the state changed. This is not updated when there are only updated attributes. Example: <code>14:10:03 13-03-2016</code>.</td>
+      <td><code class="highlighter-rouge">state.last_changed</code></td>
+      <td>Time the state changed. This is not updated when there are only updated attributes. Example: <code class="highlighter-rouge">14:10:03 13-03-2016</code>.</td>
     </tr>
     <tr>
-      <td><code>state.attributes</code></td>
+      <td><code class="highlighter-rouge">state.attributes</code></td>
       <td>A dictionary with extra attributes related to the current state.</td>
     </tr>
   </tbody>
@@ -138,7 +138,7 @@
 
 <p>The attributes of an entity are optional. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each component will also have it’s own attributes to represent extra state data about the entity. For example, the light component has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state.</p>
 
-<p>When using templates, attributes will be available by their name. For example <code>state.attributes.assumed_state</code>.</p>
+<p>When using templates, attributes will be available by their name. For example <code class="highlighter-rouge">state.attributes.assumed_state</code>.</p>
 
 <table>
   <thead>
@@ -149,33 +149,33 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>friendly_name</code></td>
-      <td>Name of the entity. Example: <code>Kitchen Ceiling</code>.</td>
+      <td><code class="highlighter-rouge">friendly_name</code></td>
+      <td>Name of the entity. Example: <code class="highlighter-rouge">Kitchen Ceiling</code>.</td>
     </tr>
     <tr>
-      <td><code>icon</code></td>
-      <td>Icon to use for the entity in the frontend. Example: <code>mdi:home</code>.</td>
+      <td><code class="highlighter-rouge">icon</code></td>
+      <td>Icon to use for the entity in the frontend. Example: <code class="highlighter-rouge">mdi:home</code>.</td>
     </tr>
     <tr>
-      <td><code>hidden</code></td>
-      <td>Boolean if the entity should not be shown in the frontend. Example: <code>true</code>.</td>
+      <td><code class="highlighter-rouge">hidden</code></td>
+      <td>Boolean if the entity should not be shown in the frontend. Example: <code class="highlighter-rouge">true</code>.</td>
     </tr>
     <tr>
-      <td><code>entity_picture</code></td>
-      <td>Url to a picture that should be used instead of showing the domain icon. Example: <code>http://example.com/picture.jpg</code>.</td>
+      <td><code class="highlighter-rouge">entity_picture</code></td>
+      <td>Url to a picture that should be used instead of showing the domain icon. Example: <code class="highlighter-rouge">http://example.com/picture.jpg</code>.</td>
     </tr>
     <tr>
-      <td><code>assumed_state</code></td>
-      <td>Boolean if the current state is an assumption. <a href="https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#classifiers">More info</a> Example: <code>True</code>.</td>
+      <td><code class="highlighter-rouge">assumed_state</code></td>
+      <td>Boolean if the current state is an assumption. <a href="https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#classifiers">More info</a> Example: <code class="highlighter-rouge">True</code>.</td>
     </tr>
     <tr>
-      <td><code>unit_of_measurement</code></td>
-      <td>The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: <code>°C</code>.</td>
+      <td><code class="highlighter-rouge">unit_of_measurement</code></td>
+      <td>The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: <code class="highlighter-rouge">°C</code>.</td>
     </tr>
   </tbody>
 </table>
 
-<p>When an attribute contains spaces, you can retrieve it like this: <code>states.sensor.livingroom.attributes["Battery numeric"]</code>.</p>
+<p>When an attribute contains spaces, you can retrieve it like this: <code class="highlighter-rouge">states.sensor.livingroom.attributes["Battery numeric"]</code>.</p>
 
 
 </article>

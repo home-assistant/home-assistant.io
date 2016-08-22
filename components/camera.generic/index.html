@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>generic</code> camera platform allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.</p>
+  <p>The <code class="highlighter-rouge">generic</code> camera platform allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.</p>
 
-<p>Home Assistant will serve the images via its server, making it possible to view your IP camera’s while outside of your network. The endpoint is <code>/api/camera_proxy/camera.[name]?time=[timestamp]</code>.</p>
+<p>Home Assistant will serve the images via its server, making it possible to view your IP camera’s while outside of your network. The endpoint is <code class="highlighter-rouge">/api/camera_proxy/camera.[name]?time=[timestamp]</code>.</p>
 
-<p>To enable this camera in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">camera</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">generic</span></span>
-  <span class="key">still_image_url</span>: <span class="string"><span class="content">http://194.218.96.92/jpg/image.jpg</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">my sample camera</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">generic</span>
+  <span class="s">still_image_url</span><span class="pi">:</span> <span class="s">http://194.218.96.92/jpg/image.jpg</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">my sample camera</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

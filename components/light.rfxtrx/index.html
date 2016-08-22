@@ -89,52 +89,46 @@
   <hr class="divider">
   
 
-  <p>The <code>rfxtrx</code> platform support lights that communicate in the frequency range of 433.92 MHz.</p>
+  <p>The <code class="highlighter-rouge">rfxtrx</code> platform support lights that communicate in the frequency range of 433.92 MHz.</p>
 
-<p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub</a>.<br />
-The easiest way to find your lights is to add this to your <code>configuration.yaml</code>:</p>
+<p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub</a>.
+The easiest way to find your lights is to add this to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
-  <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
+</code></pre>
 </div>
 
-<p>Launch your homeassistant and go the website.<br />
+<p>Launch your homeassistant and go the website.
 Push your remote and your device should be added:</p>
 
 <p class="img">
 <img src="/images/components/rfxtrx/switch.png" />
 </p>
 
-<p>Here the name is <code>0b11000102ef9f210010f70</code> and you can verify that it works from the frontend.<br />
+<p>Here the name is <code class="highlighter-rouge">0b11000102ef9f210010f70</code> and you can verify that it works from the frontend.
 Then you should update your configuration to:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
-  <span class="key">devices</span>:
-    <span class="key">0b11000102ef9f210010f70</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">device_name</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">0b11000102ef9f210010f70</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">device_name</span>
+</code></pre>
 </div>
 
 <p>Example configuration:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rfxtrx</span></span>
-  <span class="key">devices</span>:
-    <span class="key">0b11000f10e9e5660b010f70</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Light1</span></span>
-    <span class="key">0b1100100f29e5660c010f70</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Light_TV</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">0b11000f10e9e5660b010f70</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Light1</span>
+    <span class="s">0b1100100f29e5660c010f70</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Light_TV</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

@@ -95,18 +95,16 @@
 
 <p>To find an account’s 64-bit SteamID you can check the URL of the profile page, if it ends with a long string on numbers then that’s the 64-bit SteamID. However, if the profile has a custom URL you will have to copy the it and enter it into <a href="https://steamid.io/">STEAMID I/O</a> to find the 64-bit SteamID.</p>
 
-<p>To use Steam in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use Steam in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">steam_online</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_API_KEY</span></span>
-  <span class="key">accounts</span>:
-    - <span class="string"><span class="content">account1</span></span>
-    - <span class="string"><span class="content">account2</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">steam_online</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+  <span class="s">accounts</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">account1</span>
+    <span class="pi">-</span> <span class="s">account2</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -122,16 +120,14 @@
 
 <p>If you want to add the accounts to a group for example you will have to use:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">group</span>:
-  <span class="key">steam</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Steam</span></span>
-    <span class="key">entities</span>:
-      - <span class="string"><span class="content">sensor.steam_account1</span></span>
-      - <span class="string"><span class="content">sensor.steam_account2</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">steam</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Steam</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.steam_account1</span>
+      <span class="pi">-</span> <span class="s">sensor.steam_account2</span>
+</code></pre>
 </div>
 
 

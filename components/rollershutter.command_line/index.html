@@ -91,21 +91,19 @@
 
   <p>A rollershutter platform that issues specific commands when it is moved up, down and stopped. This might very well become our most powerful platform as it allows anyone to integrate any type of rollershutter into Home Assistant that can be controlled from the command line, including calling other scripts!</p>
 
-<p>To enable command_rollershutter in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable command_rollershutter in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">rollershutter</span>:
-- <span class="string"><span class="content">platform: command_line</span></span>
-  <span class="key">rollershutters</span>:
-    <span class="key">Kitchen Rollershutter</span>:
-      <span class="key">upcmd</span>: <span class="string"><span class="content">move_command up kitchen</span></span>
-      <span class="key">downcmd</span>: <span class="string"><span class="content">move_command down kitchen</span></span>
-      <span class="key">stopcmd</span>: <span class="string"><span class="content">move_command stop kitchen</span></span>
-      <span class="key">statecmd</span>: <span class="string"><span class="content">state_command kitchen</span></span>
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">rollershutter</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+  <span class="s">rollershutters</span><span class="pi">:</span>
+    <span class="s">Kitchen Rollershutter</span><span class="pi">:</span>
+      <span class="s">upcmd</span><span class="pi">:</span> <span class="s">move_command up kitchen</span>
+      <span class="s">downcmd</span><span class="pi">:</span> <span class="s">move_command down kitchen</span>
+      <span class="s">stopcmd</span><span class="pi">:</span> <span class="s">move_command stop kitchen</span>
+      <span class="s">statecmd</span><span class="pi">:</span> <span class="s">state_command kitchen</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -118,7 +116,7 @@
           <li><strong>upcmd</strong> (<em>Required</em>): The action to take for move up.</li>
           <li><strong>downcmd</strong> (<em>Required</em>): The action to take for move down.</li>
           <li><strong>stopcmd</strong> (<em>Required</em>): The action to take for stop.</li>
-          <li><strong>statecmd</strong> (<em>Optional</em>): If given, this command will be run. Returning a result code <code>0</code> will indicate that the rollershutter is fully closed, returning a result code <code>100</code> will indicate that the rollershutter is fully open.</li>
+          <li><strong>statecmd</strong> (<em>Optional</em>): If given, this command will be run. Returning a result code <code class="highlighter-rouge">0</code> will indicate that the rollershutter is fully closed, returning a result code <code class="highlighter-rouge">100</code> will indicate that the rollershutter is fully open.</li>
           <li><strong>value_template</strong> (<em>Optional - default: ‘{{ value }}’</em>): If specified, statecmd will ignore the result code of the command but the template evaluating will indicate the position of the rollershutter.</li>
         </ul>
       </li>

@@ -91,15 +91,13 @@
 
   <p>The default way to update Home Assistant to the latest release, when available, is:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install --upgrade homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install --upgrade homeassistant
+</code></pre>
 </div>
 
 <p>Different installation methods as <a href="/getting-started/installation-raspberry-pi-all-in-one/#upgrading">Raspberry Pi All-In-One Installer</a>, <a href="/getting-started/installation-vagrant/">Vagrant</a>, or <a href="/getting-started/installation-virtualenv/#upgrading-home-assistant">Virtualenv</a> may have an alternative way for updating Home Assistant.</p>
 
-<p>After updating, restart Home Assistant for the changes to take effect. This means that you have to restart <code>hass</code> itself or the <a href="/getting-started/autostart/">autostarting</a> daemon if you use any.</p>
+<p>After updating, restart Home Assistant for the changes to take effect. This means that you have to restart <code class="highlighter-rouge">hass</code> itself or the <a href="/getting-started/autostart/">autostarting</a> daemon if you use any.</p>
 
 <p class="note note">
   The upgrade needs to be run as the same user as the installation was done to avoid permission errors.
@@ -108,16 +106,14 @@
 <p><a href="http://www.bruhautomation.com">BRUH automation</a> has created <a href="https://www.youtube.com/watch?v=tuG2rs1Cl2Y">a tutorial video</a> explaining how to upgrade Home Assistant.</p>
 
 <h4><a class="title-link" name="run-the-development-version" href="#run-the-development-version"></a> Run the development version</h4>
-<p>If you want to stay on top of the development of Home Assistant then you can upgrade to the <code>dev</code> branch.</p>
+<p>If you want to stay on top of the development of Home Assistant then you can upgrade to the <code class="highlighter-rouge">dev</code> branch.</p>
 
 <p class="note warning">
   This can result in an unstable system, loss of data, etc. etc.
 </p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
+</code></pre>
 </div>
 
 

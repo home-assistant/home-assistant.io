@@ -91,34 +91,32 @@
 
   <p>Turn on lights during daytime when it’s dark enough &lt; 200 lux.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: </span></span>
-    <span class="key">trigger</span>:
-      - <span class="string"><span class="content">platform: numeric_state</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.sensor_luminance</span></span>
-        <span class="key">below</span>: <span class="string"><span class="content">200</span></span>
-      - <span class="string"><span class="content">platform: time</span></span>
-        <span class="key">after</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">08:00</span><span class="delimiter">&quot;</span></span>
-        <span class="key">before</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">23:00</span><span class="delimiter">&quot;</span></span>
-    <span class="key">condition</span>: <span class="string"><span class="content">use_trigger_values</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">group.basic_lights</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> 
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.sensor_luminance</span>
+        <span class="s">below</span><span class="pi">:</span> <span class="s">200</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">08:00"</span>
+        <span class="s">before</span><span class="pi">:</span> <span class="s2">"</span><span class="s">23:00"</span>
+    <span class="s">condition</span><span class="pi">:</span> <span class="s">use_trigger_values</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.basic_lights</span>
 
-<span class="key">automation 2</span>:
-  - <span class="string"><span class="content">alias: </span></span>
-    <span class="key">trigger</span>:
-      - <span class="string"><span class="content">platform: numeric_state</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.sensor_luminance</span></span>
-        <span class="key">above</span>: <span class="string"><span class="content">200</span></span>
-      - <span class="string"><span class="content">platform: time</span></span>
-        <span class="key">after</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">23:00</span><span class="delimiter">&quot;</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_off</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">group.basic_lights</span></span>
-</pre></div>
-</div>
+<span class="s">automation 2</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> 
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.sensor_luminance</span>
+        <span class="s">above</span><span class="pi">:</span> <span class="s">200</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">23:00"</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.basic_lights</span>
+</code></pre>
 </div>
 
 

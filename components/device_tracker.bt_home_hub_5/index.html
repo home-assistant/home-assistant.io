@@ -91,18 +91,16 @@
 
   <p>This platform offers presence detection by looking at connected devices to a <a href="https://en.wikipedia.org/wiki/BT_Home_Hub">BT Home Hub 5</a> based router.</p>
 
-<p>To use a BT Home Hub 5 router in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use a BT Home Hub 5 router in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">bt_home_hub_5</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.254</span></span>
-  <span class="key">interval_seconds</span>: <span class="string"><span class="content">10</span></span>
-  <span class="key">consider_home</span>: <span class="string"><span class="content">180</span></span>
-  <span class="key">track_new_devices</span>: <span class="string"><span class="content">yes</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">bt_home_hub_5</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.254</span>
+  <span class="s">interval_seconds</span><span class="pi">:</span> <span class="s">10</span>
+  <span class="s">consider_home</span><span class="pi">:</span> <span class="s">180</span>
+  <span class="s">track_new_devices</span><span class="pi">:</span> <span class="s">yes</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>mqtt</code> alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from <code>state_topic</code>. If these messages are published with <em>RETAIN</em> flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be <code>unknown</code>.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from <code class="highlighter-rouge">state_topic</code>. If these messages are published with <em>RETAIN</em> flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be <code class="highlighter-rouge">unknown</code>.</p>
 
 <p>The component will accept the following states from your Alarm Panel (in lower case):</p>
 
@@ -101,24 +101,22 @@
   <li>‘triggered’</li>
 </ul>
 
-<p>The component is able to control your Alarm Panel by publishing to the <code>command_topic</code> when a user interacts with the Home Assistant frontend.</p>
+<p>The component is able to control your Alarm Panel by publishing to the <code class="highlighter-rouge">command_topic</code> when a user interacts with the Home Assistant frontend.</p>
 
-<p>To enable this platform, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this platform, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">alarm_control_panel</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/alarm</span><span class="delimiter">&quot;</span></span>
-  <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/alarm/set</span><span class="delimiter">&quot;</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MQTT Alarm</span><span class="delimiter">&quot;</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">payload_disarm</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">DISARM</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_arm_home</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ARM_HOME</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_arm_away</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ARM_AWAY</span><span class="delimiter">&quot;</span></span>
-  <span class="key">code</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">mySecretCode</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alarm_control_panel</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/alarm"</span>
+  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/alarm/set"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Alarm"</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">payload_disarm</span><span class="pi">:</span> <span class="s2">"</span><span class="s">DISARM"</span>
+  <span class="s">payload_arm_home</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ARM_HOME"</span>
+  <span class="s">payload_arm_away</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ARM_AWAY"</span>
+  <span class="s">code</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mySecretCode"</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

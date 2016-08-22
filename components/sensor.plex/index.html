@@ -89,30 +89,28 @@
   <hr class="divider">
   
 
-  <p>The <code>plex</code> sensor platform will monitor activity on a given <a href="https://plex.tv/">Plex Media Server</a>. It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.</p>
+  <p>The <code class="highlighter-rouge">plex</code> sensor platform will monitor activity on a given <a href="https://plex.tv/">Plex Media Server</a>. It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.</p>
 
-<p>If your Plex server is on the same local network as Home Assistant, all you need to provide in the <code>configuration.yaml</code> is the host or IP address. If you want to access a remote Plex server, you must provide the Plex username, password, and optionally the server name of the remote Plex server. If no server name is given it will use the first server listed.</p>
+<p>If your Plex server is on the same local network as Home Assistant, all you need to provide in the <code class="highlighter-rouge">configuration.yaml</code> is the host or IP address. If you want to access a remote Plex server, you must provide the Plex username, password, and optionally the server name of the remote Plex server. If no server name is given it will use the first server listed.</p>
 
-<p>If you want to enable the plex sensor, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>If you want to enable the plex sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">plex</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Plex Spy</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.100</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">32400</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">plexuser</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">plexpw</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">MyPlexServer</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">plex</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Plex Spy</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">32400</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">plexuser</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">plexpw</span>
+  <span class="s">server</span><span class="pi">:</span> <span class="s">MyPlexServer</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): The IP address of your Plex server. Defaults to <code>localhost</code>.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The IP address of your Plex server. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port of your Plex Server. Defaults to 32400.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the Plex server. Defaults to Plex.</li>
   <li><strong>username</strong> (<em>Optional</em>): The username for the remote Plex server.</li>

@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -116,7 +116,7 @@
   <li>Restarting now supported without forking (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
   <li>Add <a href="/components/recorder/">purge days option</a> to recorder component (<a href="https://github.com/justyns">@justyns</a>, <a href="https://github.com/infamy">@infamy</a>)</li>
   <li>Generic load_platform mechanism for entity components (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Template: new <a href="/topics/templating/#home-assistant-template-extensions"><code>relative_time</code></a> function to render ie. <code>7 seconds ago</code> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Template: new <a href="/topics/templating/#home-assistant-template-extensions"><code class="highlighter-rouge">relative_time</code></a> function to render ie. <code class="highlighter-rouge">7 seconds ago</code> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>Sensor: <a href="/components/sensor.supervisord/">supervisord</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
   <li>Docker: we should no longer get SSL errors with requests (<a href="https://github.com/lwis">@lwis</a>)</li>
   <li>Media Player: <a href="/components/media_player.gpmdp/">Google Play Music Desktop Player</a> now supported (<a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
@@ -128,7 +128,7 @@
   <li>Sensor: <a href="/components/sensor.lastfm/">Last.fm</a> now supported (<a href="https://github.com/darookee">@darookee</a>, <a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
   <li>Notify: Amazon <a href="/components/notify.aws_lambda/">Lambda</a>, <a href="/components/notify.aws_sns/">SNS</a>, <a href="/components/notify.aws_sqs/">SQS</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>Light: allow human readable colors in turn_on command (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>YAML: new include dir options <a href="/topics/splitting_configuration/#advanced-usage"><code>!include_dir_merge_list</code></a> and <a href="/topics/splitting_configuration/#advanced-usage"><code>!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>YAML: new include dir options <a href="/topics/splitting_configuration/#advanced-usage"><code class="highlighter-rouge">!include_dir_merge_list</code></a> and <a href="/topics/splitting_configuration/#advanced-usage"><code class="highlighter-rouge">!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
   <li>Media Player: <a href="/components/media_player.lg_netcast/">LG Netcast TVs</a> now supported (<a href="https://github.com/wokar">@wokar</a>)</li>
   <li>Media Player: Allow enqueuing media on Sonos (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
   <li>Notify: <a href="/components/notify.ecobee/">Ecobee thermostats</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
@@ -143,12 +143,10 @@
   <li>Asus WRT will now default to SSH with Telnet being an option</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">asuswrt</span></span>
-  <span class="key">protocol</span>: <span class="string"><span class="content">telnet</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">asuswrt</span>
+  <span class="s">protocol</span><span class="pi">:</span> <span class="s">telnet</span>
+</code></pre>
 </div>
 </article>
 
@@ -223,7 +221,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

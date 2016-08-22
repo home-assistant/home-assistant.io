@@ -89,27 +89,25 @@
   <hr class="divider">
   
 
-  <p>The <code>apcupsd</code> sensor platform to allow you to monitor a UPS (battery backup) by using data from the <a href="http://linux.die.net/man/8/apcaccess">apcaccess</a> command.</p>
+  <p>The <code class="highlighter-rouge">apcupsd</code> sensor platform to allow you to monitor a UPS (battery backup) by using data from the <a href="http://linux.die.net/man/8/apcaccess">apcaccess</a> command.</p>
 
-<p>To add this platform to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add this platform to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: apcupsd</span></span>
-    <span class="key">resources</span>:
-      - <span class="string"><span class="content">bcharge</span></span>
-      - <span class="string"><span class="content">linev</span></span>
-      - <span class="string"><span class="content">loadpct</span></span>
-      - <span class="string"><span class="content">nominv</span></span>
-      - <span class="string"><span class="content">nompower</span></span>
-      - <span class="string"><span class="content">numxfers</span></span>
-      - <span class="string"><span class="content">outputv</span></span>
-      - <span class="string"><span class="content">status</span></span>
-      - <span class="string"><span class="content">timeleft</span></span>
-      - <span class="string"><span class="content">tonbatt</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">apcupsd</span>
+    <span class="s">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">bcharge</span>
+      <span class="pi">-</span> <span class="s">linev</span>
+      <span class="pi">-</span> <span class="s">loadpct</span>
+      <span class="pi">-</span> <span class="s">nominv</span>
+      <span class="pi">-</span> <span class="s">nompower</span>
+      <span class="pi">-</span> <span class="s">numxfers</span>
+      <span class="pi">-</span> <span class="s">outputv</span>
+      <span class="pi">-</span> <span class="s">status</span>
+      <span class="pi">-</span> <span class="s">timeleft</span>
+      <span class="pi">-</span> <span class="s">tonbatt</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -120,76 +118,72 @@
 
 <h3><a class="title-link" name="example" href="#example"></a> Example</h3>
 
-<p>Given the following output from <code>apcaccess</code>:</p>
+<p>Given the following output from <code class="highlighter-rouge">apcaccess</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">APC</span>      : <span class="string"><span class="content">001,051,1149</span></span>
-<span class="key">DATE</span>     : <span class="string"><span class="content">2016-02-09 17:13:31 +0000</span></span>
-<span class="key">HOSTNAME</span> : <span class="string"><span class="content">localhost</span></span>
-<span class="key">VERSION</span>  : <span class="string"><span class="content">3.14.12 (29 March 2014) redhat</span></span>
-<span class="key">UPSNAME</span>  : <span class="string"><span class="content">netrack</span></span>
-<span class="key">CABLE</span>    : <span class="string"><span class="content">Custom Cable Smart</span></span>
-<span class="key">DRIVER</span>   : <span class="string"><span class="content">APC Smart UPS (any)</span></span>
-<span class="key">UPSMODE</span>  : <span class="string"><span class="content">Stand Alone</span></span>
-<span class="key">STARTTIME</span>: <span class="string"><span class="content">2016-02-09 16:06:47 +0000</span></span>
-<span class="key">MODEL</span>    : <span class="string"><span class="content">SMART-UPS 1400</span></span>
-<span class="key">STATUS</span>   : <span class="string"><span class="content">TRIM ONLINE</span></span>
-<span class="key">LINEV</span>    : <span class="string"><span class="content">247.0 Volts</span></span>
-<span class="key">LOADPCT</span>  : <span class="string"><span class="content">13.0 Percent</span></span>
-<span class="key">BCHARGE</span>  : <span class="string"><span class="content">100.0 Percent</span></span>
-<span class="key">TIMELEFT</span> : <span class="string"><span class="content">104.0 Minutes</span></span>
-<span class="key">MBATTCHG</span> : <span class="string"><span class="content">5 Percent</span></span>
-<span class="key">MINTIMEL</span> : <span class="string"><span class="content">3 Minutes</span></span>
-<span class="key">MAXTIME</span>  : <span class="string"><span class="content">0 Seconds</span></span>
-<span class="key">MAXLINEV</span> : <span class="string"><span class="content">249.6 Volts</span></span>
-<span class="key">MINLINEV</span> : <span class="string"><span class="content">244.4 Volts</span></span>
-<span class="key">OUTPUTV</span>  : <span class="string"><span class="content">218.4 Volts</span></span>
-<span class="key">SENSE</span>    : <span class="string"><span class="content">High</span></span>
-<span class="key">DWAKE</span>    : <span class="string"><span class="content">0 Seconds</span></span>
-<span class="key">DSHUTD</span>   : <span class="string"><span class="content">180 Seconds</span></span>
-<span class="key">DLOWBATT</span> : <span class="string"><span class="content">2 Minutes</span></span>
-<span class="key">LOTRANS</span>  : <span class="string"><span class="content">196.0 Volts</span></span>
-<span class="key">HITRANS</span>  : <span class="string"><span class="content">253.0 Volts</span></span>
-<span class="key">RETPCT</span>   : <span class="string"><span class="content">15.0 Percent</span></span>
-<span class="key">ITEMP</span>    : <span class="string"><span class="content">30.6 C</span></span>
-<span class="key">ALARMDEL</span> : <span class="string"><span class="content">Low Battery</span></span>
-<span class="key">BATTV</span>    : <span class="string"><span class="content">27.6 Volts</span></span>
-<span class="key">LINEFREQ</span> : <span class="string"><span class="content">50.0 Hz</span></span>
-<span class="key">LASTXFER</span> : <span class="string"><span class="content">High line voltage</span></span>
-<span class="key">NUMXFERS</span> : <span class="string"><span class="content">0</span></span>
-<span class="key">TONBATT</span>  : <span class="string"><span class="content">0 Seconds</span></span>
-<span class="key">CUMONBATT</span>: <span class="string"><span class="content">0 Seconds</span></span>
-<span class="key">XOFFBATT</span> : <span class="string"><span class="content">N/A</span></span>
-<span class="key">SELFTEST</span> : <span class="string"><span class="content">NO</span></span>
-<span class="key">STESTI</span>   : <span class="string"><span class="content">336</span></span>
-<span class="key">STATFLAG</span> : <span class="string"><span class="content">0x0500000A</span></span>
-<span class="key">DIPSW</span>    : <span class="string"><span class="content">0x00</span></span>
-<span class="key">REG1</span>     : <span class="string"><span class="content">0x00</span></span>
-<span class="key">REG2</span>     : <span class="string"><span class="content">0x00</span></span>
-<span class="key">REG3</span>     : <span class="string"><span class="content">0x00</span></span>
-<span class="key">MANDATE</span>  : <span class="string"><span class="content">07/13/99</span></span>
-<span class="key">SERIALNO</span> : <span class="string"><span class="content">GS9888761008</span></span>
-<span class="key">BATTDATE</span> : <span class="string"><span class="content">13/11/15</span></span>
-<span class="key">NOMOUTV</span>  : <span class="string"><span class="content">230 Volts</span></span>
-<span class="key">NOMBATTV</span> : <span class="string"><span class="content">24.0 Volts</span></span>
-<span class="key">EXTBATTS</span> : <span class="string"><span class="content">0</span></span>
-<span class="key">FIRMWARE</span> : <span class="string"><span class="content">70.11.I</span></span>
-<span class="key">END APC</span>  : <span class="string"><span class="content">2016-02-09 17:13:46 +0000</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">APC</span>      <span class="pi">:</span> <span class="s">001,051,1149</span>
+<span class="s">DATE</span>     <span class="pi">:</span> <span class="s">2016-02-09 17:13:31 +0000</span>
+<span class="s">HOSTNAME</span> <span class="pi">:</span> <span class="s">localhost</span>
+<span class="s">VERSION</span>  <span class="pi">:</span> <span class="s">3.14.12 (29 March 2014) redhat</span>
+<span class="s">UPSNAME</span>  <span class="pi">:</span> <span class="s">netrack</span>
+<span class="s">CABLE</span>    <span class="pi">:</span> <span class="s">Custom Cable Smart</span>
+<span class="s">DRIVER</span>   <span class="pi">:</span> <span class="s">APC Smart UPS (any)</span>
+<span class="s">UPSMODE</span>  <span class="pi">:</span> <span class="s">Stand Alone</span>
+<span class="s">STARTTIME</span><span class="pi">:</span> <span class="s">2016-02-09 16:06:47 +0000</span>
+<span class="s">MODEL</span>    <span class="pi">:</span> <span class="s">SMART-UPS 1400</span>
+<span class="s">STATUS</span>   <span class="pi">:</span> <span class="s">TRIM ONLINE</span>
+<span class="s">LINEV</span>    <span class="pi">:</span> <span class="s">247.0 Volts</span>
+<span class="s">LOADPCT</span>  <span class="pi">:</span> <span class="s">13.0 Percent</span>
+<span class="s">BCHARGE</span>  <span class="pi">:</span> <span class="s">100.0 Percent</span>
+<span class="s">TIMELEFT</span> <span class="pi">:</span> <span class="s">104.0 Minutes</span>
+<span class="s">MBATTCHG</span> <span class="pi">:</span> <span class="s">5 Percent</span>
+<span class="s">MINTIMEL</span> <span class="pi">:</span> <span class="s">3 Minutes</span>
+<span class="s">MAXTIME</span>  <span class="pi">:</span> <span class="s">0 Seconds</span>
+<span class="s">MAXLINEV</span> <span class="pi">:</span> <span class="s">249.6 Volts</span>
+<span class="s">MINLINEV</span> <span class="pi">:</span> <span class="s">244.4 Volts</span>
+<span class="s">OUTPUTV</span>  <span class="pi">:</span> <span class="s">218.4 Volts</span>
+<span class="s">SENSE</span>    <span class="pi">:</span> <span class="s">High</span>
+<span class="s">DWAKE</span>    <span class="pi">:</span> <span class="s">0 Seconds</span>
+<span class="s">DSHUTD</span>   <span class="pi">:</span> <span class="s">180 Seconds</span>
+<span class="s">DLOWBATT</span> <span class="pi">:</span> <span class="s">2 Minutes</span>
+<span class="s">LOTRANS</span>  <span class="pi">:</span> <span class="s">196.0 Volts</span>
+<span class="s">HITRANS</span>  <span class="pi">:</span> <span class="s">253.0 Volts</span>
+<span class="s">RETPCT</span>   <span class="pi">:</span> <span class="s">15.0 Percent</span>
+<span class="s">ITEMP</span>    <span class="pi">:</span> <span class="s">30.6 C</span>
+<span class="s">ALARMDEL</span> <span class="pi">:</span> <span class="s">Low Battery</span>
+<span class="s">BATTV</span>    <span class="pi">:</span> <span class="s">27.6 Volts</span>
+<span class="s">LINEFREQ</span> <span class="pi">:</span> <span class="s">50.0 Hz</span>
+<span class="s">LASTXFER</span> <span class="pi">:</span> <span class="s">High line voltage</span>
+<span class="s">NUMXFERS</span> <span class="pi">:</span> <span class="s">0</span>
+<span class="s">TONBATT</span>  <span class="pi">:</span> <span class="s">0 Seconds</span>
+<span class="s">CUMONBATT</span><span class="pi">:</span> <span class="s">0 Seconds</span>
+<span class="s">XOFFBATT</span> <span class="pi">:</span> <span class="s">N/A</span>
+<span class="s">SELFTEST</span> <span class="pi">:</span> <span class="s">NO</span>
+<span class="s">STESTI</span>   <span class="pi">:</span> <span class="s">336</span>
+<span class="s">STATFLAG</span> <span class="pi">:</span> <span class="s">0x0500000A</span>
+<span class="s">DIPSW</span>    <span class="pi">:</span> <span class="s">0x00</span>
+<span class="s">REG1</span>     <span class="pi">:</span> <span class="s">0x00</span>
+<span class="s">REG2</span>     <span class="pi">:</span> <span class="s">0x00</span>
+<span class="s">REG3</span>     <span class="pi">:</span> <span class="s">0x00</span>
+<span class="s">MANDATE</span>  <span class="pi">:</span> <span class="s">07/13/99</span>
+<span class="s">SERIALNO</span> <span class="pi">:</span> <span class="s">GS9888761008</span>
+<span class="s">BATTDATE</span> <span class="pi">:</span> <span class="s">13/11/15</span>
+<span class="s">NOMOUTV</span>  <span class="pi">:</span> <span class="s">230 Volts</span>
+<span class="s">NOMBATTV</span> <span class="pi">:</span> <span class="s">24.0 Volts</span>
+<span class="s">EXTBATTS</span> <span class="pi">:</span> <span class="s">0</span>
+<span class="s">FIRMWARE</span> <span class="pi">:</span> <span class="s">70.11.I</span>
+<span class="s">END APC</span>  <span class="pi">:</span> <span class="s">2016-02-09 17:13:46 +0000</span>
+</code></pre>
 </div>
 
 <p>Use the (case insensitive) values from the left hand column:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: apcupsd</span></span>
-    <span class="key">resources</span>:
-      - <span class="string"><span class="content">linev</span></span>
-      - <span class="string"><span class="content">loadpct</span></span>
-      - <span class="string"><span class="content">itemp</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">apcupsd</span>
+    <span class="s">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">linev</span>
+      <span class="pi">-</span> <span class="s">loadpct</span>
+      <span class="pi">-</span> <span class="s">itemp</span>
+</code></pre>
 </div>
 
 

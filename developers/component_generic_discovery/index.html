@@ -89,13 +89,11 @@
   <hr class="divider">
   
 
-  <p>New controller or hub components often need to add platforms in sub-components (i.e. Lights &amp; Switches) without additional configuration.<br />
-This can be achieved using the <code>homeassistant.components.discovery.load_platform</code> method:</p>
+  <p>New controller or hub components often need to add platforms in sub-components (i.e. Lights &amp; Switches) without additional configuration.
+This can be achieved using the <code class="highlighter-rouge">homeassistant.components.discovery.load_platform</code> method:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">def</span> <span class="function">load_platform</span>(hass, component, platform, info=<span class="predefined-constant">None</span>, hass_config=<span class="predefined-constant">None</span>)
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">load_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">platform</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">hass_config</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <p>From more info on how this works, refer to the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L78">load_platform</a> method.</p>
@@ -106,71 +104,61 @@ This can be achieved using the <code>homeassistant.components.discovery.load_pla
 
 <p>Configuration required for your new hub component:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">myflashyhub</span>:
-   <span class="key">example</span>: <span class="string"><span class="content">setting</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">myflashyhub</span><span class="pi">:</span>
+   <span class="s">example</span><span class="pi">:</span> <span class="s">setting</span>
+</code></pre>
 </div>
 
 <p>The source for your component can be located in your configuration directory for now:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>~/.homeassistant/custom_components/myflashyhub.py
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>~/.homeassistant/custom_components/myflashyhub.py
 ~/.homeassistant/custom_components/light/myflashyhub.py
 ~/.homeassistant/custom_components/switch/myflashyhub.py
-</pre></div>
+</code></pre>
 </div>
-</div>
 
-<p>In the hub component <code>myflashyhub.py</code> you can call your light and switch components. To pass any non-serializable information to the platforms in the sub-component, you can use a global variable.</p>
+<p>In the hub component <code class="highlighter-rouge">myflashyhub.py</code> you can call your light and switch components. To pass any non-serializable information to the platforms in the sub-component, you can use a global variable.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">homeassistant.components.discovery</span> <span class="keyword">import</span> <span class="include">load_platform</span>
-DOMAIN = <span class="string"><span class="delimiter">'</span><span class="content">myflashyhub</span><span class="delimiter">'</span></span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.components.discovery</span> <span class="kn">import</span> <span class="n">load_platform</span>
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">'myflashyhub'</span>
 
-MFH_GLOBAL = <span class="predefined-constant">None</span>
+<span class="n">MFH_GLOBAL</span> <span class="o">=</span> <span class="bp">None</span>
 
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Your controller/hub specific code.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="s">"""Your controller/hub specific code."""</span>
     
-    <span class="keyword">global</span> MFH_GLOBAL
-    <span class="keyword">if</span> MFH_GLOBAL <span class="keyword">is</span> <span class="predefined-constant">None</span>:
-        MFH_GLOBAL = SomeObjectToInitialiseGlobal
-    <span class="comment">#--- snip ---</span>
-    load_platform(hass, <span class="string"><span class="delimiter">'</span><span class="content">light</span><span class="delimiter">'</span></span>, DOMAIN)
-    load_platform(hass, <span class="string"><span class="delimiter">'</span><span class="content">switch</span><span class="delimiter">'</span></span>, DOMAIN, {<span class="string"><span class="delimiter">'</span><span class="content">optional</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">arguments</span><span class="delimiter">'</span></span>})
-</pre></div>
-</div>
-</div>
-
-<p>Add your custom device specific code to the <code>setup_platform</code> method in <code>light/myflashyhub.py</code> and <code>switch/myflashyhub</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.components.myflashyhub</span> <span class="keyword">as</span> myflashyhub
-
-<span class="comment"># 'switch' will receive discovery_info={'optional': 'arguments'} </span>
-<span class="comment"># as passed in above. 'light' will receive discovery_info=None</span>
-<span class="keyword">def</span> <span class="function">setup_platform</span>(hass, config, add_devices, discovery_info=<span class="predefined-constant">None</span>):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Your switch/light specific code.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-    <span class="comment"># You can now use myflashyhub.MFH_GLOBAL</span>
-</pre></div>
-</div>
+    <span class="k">global</span> <span class="n">MFH_GLOBAL</span>
+    <span class="k">if</span> <span class="n">MFH_GLOBAL</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">MFH_GLOBAL</span> <span class="o">=</span> <span class="n">SomeObjectToInitialiseGlobal</span>
+    <span class="c">#--- snip ---</span>
+    <span class="n">load_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="s">'light'</span><span class="p">,</span> <span class="n">DOMAIN</span><span class="p">)</span>
+    <span class="n">load_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="s">'switch'</span><span class="p">,</span> <span class="n">DOMAIN</span><span class="p">,</span> <span class="p">{</span><span class="s">'optional'</span><span class="p">:</span> <span class="s">'arguments'</span><span class="p">})</span>
+</code></pre>
 </div>
 
-<p>The <code>load_platform</code> method allows the platforms to be loaded with the need for any additional platform entries in your <code>configuration.yaml</code> file, which normally would have been:</p>
+<p>Add your custom device specific code to the <code class="highlighter-rouge">setup_platform</code> method in <code class="highlighter-rouge">light/myflashyhub.py</code> and <code class="highlighter-rouge">switch/myflashyhub</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment">#light:</span>
-<span class="comment">#  platform: myflashyhub</span>
-<span class="comment">#switch:</span>
-<span class="comment">#  platform: myflashyhub</span>
-</pre></div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.components.myflashyhub</span> <span class="kn">as</span> <span class="nn">myflashyhub</span>
+
+<span class="c"># 'switch' will receive discovery_info={'optional': 'arguments'} </span>
+<span class="c"># as passed in above. 'light' will receive discovery_info=None</span>
+<span class="k">def</span> <span class="nf">setup_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">add_devices</span><span class="p">,</span> <span class="n">discovery_info</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s">"""Your switch/light specific code."""</span>
+    <span class="c"># You can now use myflashyhub.MFH_GLOBAL</span>
+</code></pre>
 </div>
+
+<p>The <code class="highlighter-rouge">load_platform</code> method allows the platforms to be loaded with the need for any additional platform entries in your <code class="highlighter-rouge">configuration.yaml</code> file, which normally would have been:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">#light:</span>
+<span class="c1">#  platform: myflashyhub</span>
+<span class="c1">#switch:</span>
+<span class="c1">#  platform: myflashyhub</span>
+</code></pre>
 </div>
 
 <p class="note ">
-In the past, this was achieved by adding your component to the <code>DISCOVERY_PLATFORMS</code> in the target sub-component. Generic discovery through  <code>load_platform()</code> allows you to load any sub-component, including custom components, without changing the sub-component.
+In the past, this was achieved by adding your component to the <code class="highlighter-rouge">DISCOVERY_PLATFORMS</code> in the target sub-component. Generic discovery through  <code class="highlighter-rouge">load_platform()</code> allows you to load any sub-component, including custom components, without changing the sub-component.
 </p>
 
 

@@ -89,42 +89,40 @@
   <hr class="divider">
   
 
-  <p>The <code>yr</code> platform uses <a href="http://www.yr.no/">YR.no</a> as an source for current meteorological data for your location. The <br />
+  <p>The <code class="highlighter-rouge">yr</code> platform uses <a href="http://www.yr.no/">YR.no</a> as an source for current meteorological data for your location. The 
 weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.</p>
 
-<p>To add YR to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add YR to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Will show a symbol for the current weather as default:</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">yr</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Will show a symbol for the current weather as default:</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
 
-<span class="comment"># Will show temperatue and wind direction:</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">yr</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">temperature</span></span>
-    - <span class="string"><span class="content">windDirection</span></span>
+<span class="c1"># Will show temperatue and wind direction:</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">temperature</span>
+    <span class="pi">-</span> <span class="s">windDirection</span>
 
-<span class="comment"># Will show all available sensors:</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">yr</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">temperature</span></span>
-    - <span class="string"><span class="content">symbol</span></span>
-    - <span class="string"><span class="content">precipitation</span></span>
-    - <span class="string"><span class="content">windSpeed</span></span>
-    - <span class="string"><span class="content">pressure</span></span>
-    - <span class="string"><span class="content">windDirection</span></span>
-    - <span class="string"><span class="content">humidity</span></span>
-    - <span class="string"><span class="content">fog</span></span>
-    - <span class="string"><span class="content">cloudiness</span></span>
-    - <span class="string"><span class="content">lowClouds</span></span>
-    - <span class="string"><span class="content">mediumClouds</span></span>
-    - <span class="string"><span class="content">highClouds</span></span>
-    - <span class="string"><span class="content">dewpointTemperature</span></span>
-</pre></div>
-</div>
+<span class="c1"># Will show all available sensors:</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">temperature</span>
+    <span class="pi">-</span> <span class="s">symbol</span>
+    <span class="pi">-</span> <span class="s">precipitation</span>
+    <span class="pi">-</span> <span class="s">windSpeed</span>
+    <span class="pi">-</span> <span class="s">pressure</span>
+    <span class="pi">-</span> <span class="s">windDirection</span>
+    <span class="pi">-</span> <span class="s">humidity</span>
+    <span class="pi">-</span> <span class="s">fog</span>
+    <span class="pi">-</span> <span class="s">cloudiness</span>
+    <span class="pi">-</span> <span class="s">lowClouds</span>
+    <span class="pi">-</span> <span class="s">mediumClouds</span>
+    <span class="pi">-</span> <span class="s">highClouds</span>
+    <span class="pi">-</span> <span class="s">dewpointTemperature</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

@@ -91,27 +91,25 @@
 
   <p>Integrate your <a href="https://efergy.com">Efergy</a> meter information into Home Assistant. To get an app token, log in to your efergy account, go to the Settings page, click on App tokens, and click “Add token”.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">efergy</span></span>
-  <span class="key">app_token</span>: <span class="string"><span class="content">APP_TOKEN</span></span>
-  <span class="key">utc_offset</span>: <span class="string"><span class="content">UTC_OFFSET</span></span>
-  <span class="key">monitored_variables</span>:
-    - <span class="string"><span class="content">type: instant_readings</span></span>
-    - <span class="string"><span class="content">type: budget</span></span>
-    - <span class="string"><span class="content">type: cost</span></span>
-      <span class="key">period</span>: <span class="string"><span class="content">day</span></span>
-      <span class="key">currency</span>: <span class="string"><span class="content">$</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">efergy</span>
+  <span class="s">app_token</span><span class="pi">:</span> <span class="s">APP_TOKEN</span>
+  <span class="s">utc_offset</span><span class="pi">:</span> <span class="s">UTC_OFFSET</span>
+  <span class="s">monitored_variables</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">instant_readings</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">budget</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">cost</span>
+      <span class="s">period</span><span class="pi">:</span> <span class="s">day</span>
+      <span class="s">currency</span><span class="pi">:</span> <span class="s">$</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>app_token</strong> (<em>Required</em>): The App Token for your account.</li>
-  <li><strong>utc_offset</strong> (<em>Required</em>): Some variables (currently only the daily_cost) require that the<br />
+  <li><strong>utc_offset</strong> (<em>Required</em>): Some variables (currently only the daily_cost) require that the
 negative number of minutes your timezone is ahead/behind UTC time.</li>
   <li><strong>monitored_variables</strong> array (<em>Required</em>): Variables to monitor.
     <ul>

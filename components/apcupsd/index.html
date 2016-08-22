@@ -91,22 +91,20 @@
 
   <p><a href="http://www.apcupsd.org/">APCUPSd</a> status information can be integrated into Home Assistant when the Network Information Server (NIS) <a href="http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver">is configured</a> is enabled on the APC device.</p>
 
-<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">apcupsd</span>:
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">apcupsd</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">PORT</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): The hostname/IP address on which the APCUPSd NIS is being served. Defaults to <code>localhost</code>.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port on which the APCUPSd NIS is listening. Defaults to <code>3551</code>.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The hostname/IP address on which the APCUPSd NIS is being served. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port on which the APCUPSd NIS is listening. Defaults to <code class="highlighter-rouge">3551</code>.</li>
 </ul>
 
 

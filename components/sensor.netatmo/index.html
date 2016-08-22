@@ -89,45 +89,43 @@
   <hr class="divider">
   
 
-  <p>The <code>netatmo</code> sensor platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo</a> device.</p>
+  <p>The <code class="highlighter-rouge">netatmo</code> sensor platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo</a> device.</p>
 
-<p>To enable the Netatmo sensor, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable the Netatmo sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">netatmo</span></span>
-  <span class="key">station</span>: <span class="string"><span class="content">STATION_NAME</span></span>
-  <span class="key">modules</span>:
-    <span class="key">module_name1</span>:
-      - <span class="string"><span class="content">temperature</span></span>
-      - <span class="string"><span class="content">humidity</span></span>
-      - <span class="string"><span class="content">noise</span></span>
-      - <span class="string"><span class="content">pressure</span></span>
-      - <span class="string"><span class="content">co2</span></span>
-      - <span class="string"><span class="content">rain</span></span>
-      - <span class="string"><span class="content">sum_rain_1</span></span>
-      - <span class="string"><span class="content">sum_rain_24</span></span>
-      - <span class="string"><span class="content">wifi_status</span></span>
-    <span class="key">module_name2</span>:
-      - <span class="string"><span class="content">temperature</span></span>
-      - <span class="string"><span class="content">battery_vp</span></span>
-      - <span class="string"><span class="content">min_temp</span></span>
-      - <span class="string"><span class="content">max_temp</span></span>
-    <span class="key">rainmeter_name3</span>:
-      - <span class="string"><span class="content">rain</span></span>
-      - <span class="string"><span class="content">sum_rain_1</span></span>
-      - <span class="string"><span class="content">sum_rain_24</span></span>
-      - <span class="string"><span class="content">battery_vp</span></span>
-      - <span class="string"><span class="content">rf_status</span></span>
-    <span class="key">windmodule_name4</span>:
-      - <span class="string"><span class="content">WindAngle</span></span>
-      - <span class="string"><span class="content">WindStrength</span></span>
-      - <span class="string"><span class="content">GustAngle</span></span>
-      - <span class="string"><span class="content">GustStrength</span></span>
-      - <span class="string"><span class="content">rf_status</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">netatmo</span>
+  <span class="s">station</span><span class="pi">:</span> <span class="s">STATION_NAME</span>
+  <span class="s">modules</span><span class="pi">:</span>
+    <span class="s">module_name1</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">humidity</span>
+      <span class="pi">-</span> <span class="s">noise</span>
+      <span class="pi">-</span> <span class="s">pressure</span>
+      <span class="pi">-</span> <span class="s">co2</span>
+      <span class="pi">-</span> <span class="s">rain</span>
+      <span class="pi">-</span> <span class="s">sum_rain_1</span>
+      <span class="pi">-</span> <span class="s">sum_rain_24</span>
+      <span class="pi">-</span> <span class="s">wifi_status</span>
+    <span class="s">module_name2</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">battery_vp</span>
+      <span class="pi">-</span> <span class="s">min_temp</span>
+      <span class="pi">-</span> <span class="s">max_temp</span>
+    <span class="s">rainmeter_name3</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">rain</span>
+      <span class="pi">-</span> <span class="s">sum_rain_1</span>
+      <span class="pi">-</span> <span class="s">sum_rain_24</span>
+      <span class="pi">-</span> <span class="s">battery_vp</span>
+      <span class="pi">-</span> <span class="s">rf_status</span>
+    <span class="s">windmodule_name4</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">WindAngle</span>
+      <span class="pi">-</span> <span class="s">WindStrength</span>
+      <span class="pi">-</span> <span class="s">GustAngle</span>
+      <span class="pi">-</span> <span class="s">GustStrength</span>
+      <span class="pi">-</span> <span class="s">rf_status</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -163,7 +161,7 @@
 
 <h3><a class="title-link" name="find-your-modules-name" href="#find-your-modules-name"></a> Find your modules name</h3>
 
-<p>You can find your modules name in your <a href="https://my.netatmo.com/app/station">online NetAtmo account</a>. These names can be found and changed in parameters (See screenshot)<br />
+<p>You can find your modules name in your <a href="https://my.netatmo.com/app/station">online NetAtmo account</a>. These names can be found and changed in parameters (See screenshot)
 You have to provide these name in your Home Assistant configuration file.</p>
 
 <p class="img">

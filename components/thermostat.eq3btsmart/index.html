@@ -95,55 +95,47 @@
 
 <p>Setup is a bit more cumbersome than for most other thermostats. It has to be paired first:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>bluetoothctl
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>bluetoothctl
 scan on
-&lt;Wait for the thermostat to be found, which looks like this: [NEW] Device 00:11:22:33:44:55 CC-RT-BLE&gt;
+&lt;Wait <span class="k">for </span>the thermostat to be found, which looks like this: <span class="o">[</span>NEW] Device 00:11:22:33:44:55 CC-RT-BLE&gt;
 scan off
 &lt;Set the thermostat to pairing mode.&gt;
 pair &lt;MAC&gt;
 trust &lt;MAC&gt;
 disconnect &lt;MAC&gt;
-exit
-</pre></div>
-</div>
+<span class="nb">exit</span>
+</code></pre>
 </div>
 
 <p>Then check with gatttool if the connection works as expected:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>gatttool -b 00:11:22:33:44:55 -I
-[00:11:22:33:44:55][LE]&gt; connect
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>gatttool -b 00:11:22:33:44:55 -I
+<span class="gp">[00:11:22:33:44:55][LE]&gt; </span>connect
 Attempting to connect to 00:11:22:33:44:55
 Connection successful
-[00:11:22:33:44:55][LE]&gt; char-write-req 0x0411 03
+<span class="gp">[00:11:22:33:44:55][LE]&gt; </span>char-write-req 0x0411 03
 Characteristic value was written successfully
-Notification handle = 0x0421 value: 02 01 09 14 04 2d
-[00:11:22:33:44:55][LE]&gt; disconnect
-[00:11:22:33:44:55][LE]&gt; exit
-</pre></div>
-</div>
+Notification handle <span class="o">=</span> 0x0421 value: 02 01 09 14 04 2d
+<span class="gp">[00:11:22:33:44:55][LE]&gt; </span>disconnect
+<span class="gp">[00:11:22:33:44:55][LE]&gt; </span><span class="nb">exit</span>
+</code></pre>
 </div>
 
 <p>Important: For gatttool or homeassistant to work, the thermostat needs to be disconnected from bluetoothd, so I found it best to modify the hass-daemon startscript by adding:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>/usr/bin/bt-device -d CC-RT-BLE
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/usr/bin/bt-device -d CC-RT-BLE
+</code></pre>
 </div>
 
 <p>to the start function of /etc/init.d/hass-daemon.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">thermostat</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">eq3btsmart</span><span class="content">
-    devices:
-      room1:
-        mac: '00:11:22:33:44:55'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">thermostat</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">eq3btsmart</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">room1</span><span class="pi">:</span>
+        <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:11:22:33:44:55'</span>
+</code></pre>
 </div>
 
 

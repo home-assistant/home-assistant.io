@@ -92,23 +92,19 @@
   <p>It can happen that you run into trouble while installing Home Assistant. This page is here to help you solve the most common problems.</p>
 
 <h4><a class="title-link" name="pip3-command-not-found" href="#pip3-command-not-found"></a> pip3: command not found</h4>
-<p>This utility should have been installed as part of the Python 3.4 installation. Check if Python 3.4 is installed by running <code>python3 --version</code>. If it is not installed, <a href="https://www.python.org/getit/">download it here</a>.</p>
+<p>This utility should have been installed as part of the Python 3.4 installation. Check if Python 3.4 is installed by running <code class="highlighter-rouge">python3 --version</code>. If it is not installed, <a href="https://www.python.org/getit/">download it here</a>.</p>
 
-<p>If you are able to successfully run <code>python3 --version</code> but not <code>pip3</code>, install Home Assistant by running the following command instead:</p>
+<p>If you are able to successfully run <code class="highlighter-rouge">python3 --version</code> but not <code class="highlighter-rouge">pip3</code>, install Home Assistant by running the following command instead:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python3 -m pip install homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m pip install homeassistant
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="no-module-named-pip" href="#no-module-named-pip"></a> No module named pip</h4>
-<p><a href="https://pip.pypa.io/en/stable/">Pip</a> should come bundled with the latest Python 3 but is omitted by some distributions. If you are unable to run <code>python3 -m pip --version</code> you can install <code>pip</code> by <a href="https://bootstrap.pypa.io/get-pip.py">downloading the installer</a> and running it with Python 3:</p>
+<p><a href="https://pip.pypa.io/en/stable/">Pip</a> should come bundled with the latest Python 3 but is omitted by some distributions. If you are unable to run <code class="highlighter-rouge">python3 -m pip --version</code> you can install <code class="highlighter-rouge">pip</code> by <a href="https://bootstrap.pypa.io/get-pip.py">downloading the installer</a> and running it with Python 3:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python3 get-pip.py
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 get-pip.py
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="distutilserrorsdistutilsoptionerror-must-supply-either-home-or-prefixexec-prefix----not-both" href="#distutilserrorsdistutilsoptionerror-must-supply-either-home-or-prefixexec-prefix----not-both"></a> distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix – not both</h4>
@@ -129,34 +125,28 @@
 
 <p>For systems with <strong>firewalld</strong> (Fedora, CentOS/RHEL, etc.):</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo firewall-cmd --permanent --add-port=8123/tcp
-$ sudo firewall-cmd --reload
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo firewall-cmd --permanent --add-port<span class="o">=</span>8123/tcp
+<span class="gp">$ </span>sudo firewall-cmd --reload
+</code></pre>
 </div>
 
 <p>For UFW systems (Ubuntu, Debian, Raspbian, etc.):</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo ufw allow 8123/tcp
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo ufw allow 8123/tcp
+</code></pre>
 </div>
 
-<p>For <code>iptables</code> systems (was the default for older distributions):</p>
+<p>For <code class="highlighter-rouge">iptables</code> systems (was the default for older distributions):</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
-$ iptables-save &gt; /etc/network/iptables.rules  # your rules may be saved elsewhere
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
+<span class="gp">$ </span>iptables-save &gt; /etc/network/iptables.rules  <span class="c"># your rules may be saved elsewhere</span>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="after-upgrading-your-browser-login-gets-stuck-at-the-loading-data-step" href="#after-upgrading-your-browser-login-gets-stuck-at-the-loading-data-step"></a> After upgrading, your browser login gets stuck at the “loading data” step</h4>
 <p>After upgrading to a new version, you may notice your browser gets stuck at the “loading data” login screen. Close the window/tab and go into your browser settings and delete all the cookies for your URL. You can then log back in and it should work.</p>
 
-<p>Android Chrome <br />
+<p>Android Chrome 
 chrome -&gt; settings -&gt; site settings -&gt; storage -&gt; search for your URL for home assistant-&gt; “clear &amp; reset”</p>
 
 <h3><a href="/getting-started/">« Back to Getting Started</a></h3>

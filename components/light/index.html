@@ -91,24 +91,22 @@
 
   <p>This component allows you to track and control various light bulbs.</p>
 
-<p>It has <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv">4 built-in light profiles</a> which you’re able to extend by putting a <code>light_profiles.csv</code> file in your config dir.</p>
+<p>It has <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv">4 built-in light profiles</a> which you’re able to extend by putting a <code class="highlighter-rouge">light_profiles.csv</code> file in your config dir.</p>
 
 <p>Preferred way to setup the Philips Hue platform is through the <a href="/components/discovery/">the discovery component</a>. For the Wink light platform enable <a href="/components/wink/">the wink component</a>.</p>
 
-<p>If you want to enable the light component directly, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>If you want to enable the light component directly, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">hue</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hue</span>
+</code></pre>
 </div>
 
 <p class="note">
 The light component supports multiple entries in <code>configuration.yaml</code> by appending a sequential number to the section: <code>light 2:</code>, <code>light 3:</code> etc.
 </p>
 
-<h3><a class="title-link" name="service-lightturn_on" href="#service-lightturn_on"></a> Service <code>light.turn_on</code></h3>
+<h3><a class="title-link" name="service-lightturn_on" href="#service-lightturn_on"></a> Service <code class="highlighter-rouge">light.turn_on</code></h3>
 
 <p>Turns one light on or multiple lights on using <a href="/components/group/">groups</a>.</p>
 
@@ -122,59 +120,59 @@ The light component supports multiple entries in <code>configuration.yaml</code>
   </thead>
   <tbody>
     <tr>
-      <td><code>entity_id</code></td>
+      <td><code class="highlighter-rouge">entity_id</code></td>
       <td>no</td>
-      <td>String or list of strings that point at <code>entity_id</code>s of lights. Else targets all.</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of lights. Else targets all.</td>
     </tr>
     <tr>
-      <td><code>transition</code></td>
+      <td><code class="highlighter-rouge">transition</code></td>
       <td>yes</td>
       <td>Integer that represents the time the light should take to transition to the new state in seconds. *not supported by Wink</td>
     </tr>
     <tr>
-      <td><code>profile</code></td>
+      <td><code class="highlighter-rouge">profile</code></td>
       <td>yes</td>
-      <td>String with the name of one of the built-in profiles (relax, energize, concentrate, reading) or one of the custom profiles defined in <code>light_profiles.csv</code> in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness or xy color then the profile values will be overwritten.</td>
+      <td>String with the name of one of the built-in profiles (relax, energize, concentrate, reading) or one of the custom profiles defined in <code class="highlighter-rouge">light_profiles.csv</code> in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness or xy color then the profile values will be overwritten.</td>
     </tr>
     <tr>
-      <td><code>xy_color</code></td>
+      <td><code class="highlighter-rouge">xy_color</code></td>
       <td>yes</td>
       <td>A list containing two floats representing the xy color you want the light to be. Two comma seperated floats that represent the color in XY.</td>
     </tr>
     <tr>
-      <td><code>rgb_color</code></td>
+      <td><code class="highlighter-rouge">rgb_color</code></td>
       <td>yes</td>
       <td>A list containing three integers representing the rgb color you want the light to be. Three comma seperated integers that represent the color in RGB</td>
     </tr>
     <tr>
-      <td><code>color_temp</code></td>
+      <td><code class="highlighter-rouge">color_temp</code></td>
       <td>yes</td>
       <td>An INT in mireds representing the color temperature you want the light to be.</td>
     </tr>
     <tr>
-      <td><code>color_name</code></td>
+      <td><code class="highlighter-rouge">color_name</code></td>
       <td>yes</td>
-      <td>A human readable string of a color name, such as <code>blue</code> or <code>goldenrod</code> or <a href="http://stackoverflow.com/questions/8318911/why-does-html-think-chucknorris-is-a-color"><code>chucknorris</code></a>. If your browser can display it, so can Home Assistant.</td>
+      <td>A human readable string of a color name, such as <code class="highlighter-rouge">blue</code> or <code class="highlighter-rouge">goldenrod</code> or <a href="http://stackoverflow.com/questions/8318911/why-does-html-think-chucknorris-is-a-color"><code class="highlighter-rouge">chucknorris</code></a>. If your browser can display it, so can Home Assistant.</td>
     </tr>
     <tr>
-      <td><code>brightness</code></td>
+      <td><code class="highlighter-rouge">brightness</code></td>
       <td>yes</td>
       <td>Integer between 0 and 255 for how bright the color should be.</td>
     </tr>
     <tr>
-      <td><code>flash</code></td>
+      <td><code class="highlighter-rouge">flash</code></td>
       <td>yes</td>
-      <td>Tell light to flash, can be either value <code>short</code> or <code>long</code>. *not supported by Wink</td>
+      <td>Tell light to flash, can be either value <code class="highlighter-rouge">short</code> or <code class="highlighter-rouge">long</code>. *not supported by Wink</td>
     </tr>
     <tr>
-      <td><code>effect</code></td>
+      <td><code class="highlighter-rouge">effect</code></td>
       <td>yes</td>
-      <td>Applies an effect such as <code>colorloop</code> or <code>random</code>.</td>
+      <td>Applies an effect such as <code class="highlighter-rouge">colorloop</code> or <code class="highlighter-rouge">random</code>.</td>
     </tr>
   </tbody>
 </table>
 
-<h3><a class="title-link" name="service-lightturn_off" href="#service-lightturn_off"></a> Service <code>light.turn_off</code></h3>
+<h3><a class="title-link" name="service-lightturn_off" href="#service-lightturn_off"></a> Service <code class="highlighter-rouge">light.turn_off</code></h3>
 
 <p>Turns one or multiple lights off.</p>
 
@@ -188,23 +186,23 @@ The light component supports multiple entries in <code>configuration.yaml</code>
   </thead>
   <tbody>
     <tr>
-      <td><code>entity_id</code></td>
+      <td><code class="highlighter-rouge">entity_id</code></td>
       <td>no</td>
-      <td>String or list of strings that point at <code>entity_id</code>s of lights. Else targets all.</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of lights. Else targets all.</td>
     </tr>
     <tr>
-      <td><code>transition</code></td>
+      <td><code class="highlighter-rouge">transition</code></td>
       <td>yes</td>
       <td>Integer that represents the time the light should take to transition to the new state in seconds.</td>
     </tr>
   </tbody>
 </table>
 
-<h3><a class="title-link" name="service-lighttoggle" href="#service-lighttoggle"></a> Service <code>light.toggle</code></h3>
+<h3><a class="title-link" name="service-lighttoggle" href="#service-lighttoggle"></a> Service <code class="highlighter-rouge">light.toggle</code></h3>
 
 <p>Toggles the state of one or multiple lights using <a href="/components/group/">groups</a>.</p>
 
-<p><em>Note</em>: If <code>light.toggle</code> is used for a group of lights, it will toggle the individual state of each light.</p>
+<p><em>Note</em>: If <code class="highlighter-rouge">light.toggle</code> is used for a group of lights, it will toggle the individual state of each light.</p>
 
 <table>
   <thead>
@@ -216,12 +214,12 @@ The light component supports multiple entries in <code>configuration.yaml</code>
   </thead>
   <tbody>
     <tr>
-      <td><code>entity_id</code></td>
+      <td><code class="highlighter-rouge">entity_id</code></td>
       <td>no</td>
-      <td>String or list of strings that point at <code>entity_id</code>s of lights. Else targets all.</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of lights. Else targets all.</td>
     </tr>
     <tr>
-      <td><code>transition</code></td>
+      <td><code class="highlighter-rouge">transition</code></td>
       <td>yes</td>
       <td>Integer that represents the time the light should take to transition to the new state in seconds.</td>
     </tr>

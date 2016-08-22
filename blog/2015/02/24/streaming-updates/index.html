@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -116,7 +116,7 @@
 
 <a name="read-more"></a>
 
-<p>Streaming updates has been implemented using the HTML5 <code>EventSource</code> tag. Implementation is pretty straight forward as all the reconnection logic will be handled by the event source tag. The <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/api.py#L90">server-side code</a> is 50 lines and the <a href="https://github.com/home-assistant/home-assistant-js/blob/master/src/actions/stream.js">client-side code</a> is 80 lines of code.</p>
+<p>Streaming updates has been implemented using the HTML5 <code class="highlighter-rouge">EventSource</code> tag. Implementation is pretty straight forward as all the reconnection logic will be handled by the event source tag. The <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/api.py#L90">server-side code</a> is 50 lines and the <a href="https://github.com/home-assistant/home-assistant-js/blob/master/src/actions/stream.js">client-side code</a> is 80 lines of code.</p>
 
 <p>All events that happen on the server will now also be sent to the browser. This turns any browser running the UI into a fully functioning <a href="https://home-assistant.io/developers/architecture/#multiple-connected-instances">slave instance</a> of Home Assistant. This opens up new possibilities for Home Assistant components that live completely client-side.</p>
 
@@ -124,7 +124,7 @@
 
 <p>A connection can go stale in Chrome without any event handler being called. This happens when a device goes into standby. For computers this is rare but for phones this occurs quite often. This has been solved by sending a regular ping from the server. The frontend will assume the connection has gone stale when it hasn’t heard any communication for a while. Sending a ping will also help the server detect broken connections and clean them up.</p>
 
-<p>Another issue that I encountered is that Safari and Firefox would not fire the <code>open</code> event when the connection has been opened but when the first message has been received. To work around this the server will now fire a ping when the connection gets opened.</p>
+<p>Another issue that I encountered is that Safari and Firefox would not fire the <code class="highlighter-rouge">open</code> event when the connection has been opened but when the first message has been received. To work around this the server will now fire a ping when the connection gets opened.</p>
 </article>
 
 
@@ -198,7 +198,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

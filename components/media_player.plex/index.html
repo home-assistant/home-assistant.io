@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>plex</code> platform allows you to connect a <a href="https://plex.tv">Plex Media Server</a> to Home Assistant. It will allow you to control media playback and see the current playing item. The preferred way to setup the Plex platform is by enabling the the <a href="/components/discovery/">the discovery component</a> and requires GDM to be enabled.</p>
+  <p>The <code class="highlighter-rouge">plex</code> platform allows you to connect a <a href="https://plex.tv">Plex Media Server</a> to Home Assistant. It will allow you to control media playback and see the current playing item. The preferred way to setup the Plex platform is by enabling the the <a href="/components/discovery/">the discovery component</a> and requires GDM to be enabled.</p>
 
 <p>If local authentication is enabled or multiple users are defined, Home Assistant requires an authentication token to be entered in the frontend. Press “CONFIGURE” to do it.</p>
 
@@ -103,39 +103,36 @@
   <img src="/images/screenshots/plex-token.png" />
 </p>
 
-<p>If you want to enable the plex platform directly, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>If you want to enable the plex platform directly, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">plex</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">plex</span>
+</code></pre>
 </div>
 
-<p>In case <a href="/components/discovery/">discovery</a> does not work (GDM disabled or non-local plex server), you can create <code>~/.homeassistant/plex.conf</code> manually.</p>
+<p>In case <a href="/components/discovery/">discovery</a> does not work (GDM disabled or non-local plex server), you can create <code class="highlighter-rouge">~/.homeassistant/plex.conf</code> manually.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">IP_ADDRESS:PORT</span><span class="delimiter">&quot;</span></span>: {<span class="key"><span class="delimiter">&quot;</span><span class="content">token</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">TOKEN</span><span class="delimiter">&quot;</span></span>}}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"IP_ADDRESS:PORT"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN"</span><span class="p">}}</span><span class="w">
+</span></code></pre>
 </div>
 
 <ul>
   <li><strong>IP_ADDRESS</strong> (<em>Required</em>): IP address of the Plex Media Server</li>
   <li><strong>PORT</strong> (<em>Required</em>): Port where Plex is listening. Default is 32400</li>
-  <li><strong>TOKEN</strong> (<em>Optional</em>): Only if authentication is required. Set to <code>null</code> (without quotes) otherwise.</li>
+  <li><strong>TOKEN</strong> (<em>Optional</em>): Only if authentication is required. Set to <code class="highlighter-rouge">null</code> (without quotes) otherwise.</li>
 </ul>
 
 <p>At this moment, the Plex platform only supports one Plex Media Server.</p>
 
 <p>It is possible to get errors that look like the following.</p>
 
-<pre><code>ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
+<div class="highlighter-rouge"><pre class="highlight"><code>ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
 INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
 </code></pre>
+</div>
 
-<p>If this occurs, try changing the setting <code>Secure connections</code> in your Plex Media Server to <code>Preferred</code> (instead of <code>Required</code>). The Plex component does not currently support HTTPS.</p>
+<p>If this occurs, try changing the setting <code class="highlighter-rouge">Secure connections</code> in your Plex Media Server to <code class="highlighter-rouge">Preferred</code> (instead of <code class="highlighter-rouge">Required</code>). The Plex component does not currently support HTTPS.</p>
 
 
 </article>

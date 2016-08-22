@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -138,120 +138,102 @@
 <h3>core.conf</h3>
 <p>The core configuration is shared between all instances:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[mpd]
-hostname = ::
+<div class="language-conf highlighter-rouge"><pre class="highlight"><code>[<span class="n">mpd</span>]
+<span class="n">hostname</span> = ::
 
-[http]
-hostname = ::
+[<span class="n">http</span>]
+<span class="n">hostname</span> = ::
 
-[audio]
-output = alsasink
+[<span class="n">audio</span>]
+<span class="n">output</span> = <span class="n">alsasink</span>
 
-[spotify]
-username = &lt;redacted&gt;
-password = &lt;redacted&gt;
-</pre></div>
-</div>
+[<span class="n">spotify</span>]
+<span class="n">username</span> = &lt;<span class="n">redacted</span>&gt;
+<span class="n">password</span> = &lt;<span class="n">redacted</span>&gt;
+</code></pre>
 </div>
 
 <h3>local.conf</h3>
 <p>Add the local configuration on computers that have local media files:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[local]
-media_dir = &lt;your/music/here&gt;
-</pre></div>
-</div>
+<div class="language-conf highlighter-rouge"><pre class="highlight"><code>[<span class="n">local</span>]
+<span class="n">media_dir</span> = &lt;<span class="n">your</span>/<span class="n">music</span>/<span class="n">here</span>&gt;
+</code></pre>
 </div>
 
 <h3>snapcast.conf</h3>
 <p>Finally, the Mopidy instance that connects with Snapcast needs special configuration. Run on a different port to avoid conflicts if you have a second Mopidy instance running on your computer. The audio output is sent to a named pipe - Snapcast will read from there. Note that you may have to adjust the audio output attribute depending on your system and audio sources.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[mpd]
-hostname = ::
-port = 6601
+<div class="language-conf highlighter-rouge"><pre class="highlight"><code>[<span class="n">mpd</span>]
+<span class="n">hostname</span> = ::
+<span class="n">port</span> = <span class="m">6601</span>
 
-[http]
-hostname = ::
-port = 6681
+[<span class="n">http</span>]
+<span class="n">hostname</span> = ::
+<span class="n">port</span> = <span class="m">6681</span>
 
-[audio]
-output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioconvert ! wavenc ! filesink location=/tmp/snapfifo
-</pre></div>
-</div>
+[<span class="n">audio</span>]
+<span class="n">output</span> = <span class="n">audioresample</span> ! <span class="n">audio</span>/<span class="n">x</span>-<span class="n">raw</span>,<span class="n">rate</span>=<span class="m">48000</span>,<span class="n">channels</span>=<span class="m">2</span>,<span class="n">format</span>=<span class="n">S16LE</span> ! <span class="n">audioconvert</span> ! <span class="n">wavenc</span> ! <span class="n">filesink</span> <span class="n">location</span>=/<span class="n">tmp</span>/<span class="n">snapfifo</span>
+</code></pre>
 </div>
 
 <h2>Run Mopidy</h2>
 
 <p>To run a room-specific instance:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mopidy --config <span class="nv">$CONF_DIR</span>/core.conf
+</code></pre>
 </div>
 
 <p>To run a room-specific instance with local media:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mopidy --config <span class="nv">$CONF_DIR</span>/core.conf:<span class="nv">$CONF_DIR</span>/local.conf
+</code></pre>
 </div>
 
 <p>To run the special Snapcast-connected instance (with local media):</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf:$CONF_DIR/snapcast.conf
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mopidy --config <span class="nv">$CONF_DIR</span>/core.conf:<span class="nv">$CONF_DIR</span>/local.conf:<span class="nv">$CONF_DIR</span>/snapcast.conf
+</code></pre>
 </div>
 
 <h2>Run Snapcast</h2>
 
-<p>Start the <code>snapserver</code> on the same server running Mopidy with the snapcast configuration.</p>
+<p>Start the <code class="highlighter-rouge">snapserver</code> on the same server running Mopidy with the snapcast configuration.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ snapserver   # or use systemd
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>snapserver   <span class="c"># or use systemd</span>
+</code></pre>
 </div>
 
-<p>Start the <code>snapclient</code> on computers that will be playing audio.</p>
+<p>Start the <code class="highlighter-rouge">snapclient</code> on computers that will be playing audio.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ snapclient   # or use systemd, add -h &lt;server host&gt; if necessary
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>snapclient   <span class="c"># or use systemd, add -h &lt;server host&gt; if necessary</span>
+</code></pre>
 </div>
 
 <h2>Configure Snapcast</h2>
 
-<p>There are a number of snapcast configuration options, but the one relevant to Home Assistant is the client names. You can set them in the snapserver configuration file, by default located at <code>~/.config/Snapcast/settings.json</code>. Only edit this file while the <code>snapserver</code> is not running. Modify the <code>name</code> JSON value to your liking - this is how the client will be named in Home Assistant.</p>
+<p>There are a number of snapcast configuration options, but the one relevant to Home Assistant is the client names. You can set them in the snapserver configuration file, by default located at <code class="highlighter-rouge">~/.config/Snapcast/settings.json</code>. Only edit this file while the <code class="highlighter-rouge">snapserver</code> is not running. Modify the <code class="highlighter-rouge">name</code> JSON value to your liking - this is how the client will be named in Home Assistant.</p>
 
 <h2>Configure Home Assistant</h2>
 
 <p>Use the <a href="/components/media_player.mpd/">mpd</a> and <a href="/components/media_player.snapcast/">snapcast</a> components. Optionally, use <a href="/components/weblink/">weblink</a> to provide easy access to a Mopidy web UI.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">media_player</span>:
-- <span class="string"><span class="content">platform: snapcast</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">xxxxx</span></span>
-- <span class="string"><span class="content">platform: mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">xxxx</span></span>
-  <span class="key">location</span>: <span class="string"><span class="content">Multi-Room Controller</span></span>
-- <span class="string"><span class="content">platform: mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">xxx</span></span>
-  <span class="key">location</span>: <span class="string"><span class="content">Room 1</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">snapcast</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">xxxxx</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mpd</span>
+  <span class="s">server</span><span class="pi">:</span> <span class="s">xxxx</span>
+  <span class="s">location</span><span class="pi">:</span> <span class="s">Multi-Room Controller</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mpd</span>
+  <span class="s">server</span><span class="pi">:</span> <span class="s">xxx</span>
+  <span class="s">location</span><span class="pi">:</span> <span class="s">Room 1</span>
 
-<span class="key">weblink</span>:
-  <span class="key">entities</span>:
-  - <span class="string"><span class="content">name: Multi-Room Player</span></span>
-    <span class="key">url</span>: <span class="string"><span class="content">xxxx</span></span>
-</pre></div>
-</div>
+<span class="s">weblink</span><span class="pi">:</span>
+  <span class="s">entities</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Multi-Room Player</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s">xxxx</span>
+</code></pre>
 </div>
 </article>
 
@@ -326,7 +308,7 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

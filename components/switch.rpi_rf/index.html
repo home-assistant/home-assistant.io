@@ -89,32 +89,30 @@
   <hr class="divider">
   
 
-  <p>The <code>rpi_rf</code> switch platform allows you to control devices over 433/315MHz LPD/SRD signals with generic low-cost GPIO RF modules on a <a href="https://www.raspberrypi.org/">Raspberry Pi</a>.</p>
+  <p>The <code class="highlighter-rouge">rpi_rf</code> switch platform allows you to control devices over 433/315MHz LPD/SRD signals with generic low-cost GPIO RF modules on a <a href="https://www.raspberrypi.org/">Raspberry Pi</a>.</p>
 
-<p>Interoperable with codes sniffed via <a href="https://pypi.python.org/pypi/rpi-rf">the rpi-rf module</a> or <a href="https://github.com/sui77/rc-switch">rc-switch</a>.<br />
+<p>Interoperable with codes sniffed via <a href="https://pypi.python.org/pypi/rpi-rf">the rpi-rf module</a> or <a href="https://github.com/sui77/rc-switch">rc-switch</a>.
 For more info see the PyPi module description: <a href="https://pypi.python.org/pypi/rpi-rf">rpi-rf</a>.</p>
 
-<p>To enable, add the following to your <code>configuration.yaml</code>:</p>
+<p>To enable, add the following to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rpi_rf</span></span>
-  <span class="key">gpio</span>: <span class="string"><span class="content">17</span></span>
-  <span class="key">switches</span>:
-    <span class="key">bedroom_light</span>:
-      <span class="key">code_on</span>: <span class="string"><span class="content">1234567</span></span>
-      <span class="key">code_off</span>: <span class="string"><span class="content">1234568</span></span>
-    <span class="key">ambilight</span>:
-      <span class="key">pulselength</span>: <span class="string"><span class="content">200</span></span>
-      <span class="key">code_on</span>: <span class="string"><span class="content">987654</span></span>
-      <span class="key">code_off</span>: <span class="string"><span class="content">133742</span></span>
-    <span class="key">living_room_light</span>:
-      <span class="key">protocol</span>: <span class="string"><span class="content">5</span></span>
-      <span class="key">code_on</span>: <span class="string"><span class="content">654321</span></span>
-      <span class="key">code_off</span>: <span class="string"><span class="content">654320</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_rf</span>
+  <span class="s">gpio</span><span class="pi">:</span> <span class="s">17</span>
+  <span class="s">switches</span><span class="pi">:</span>
+    <span class="s">bedroom_light</span><span class="pi">:</span>
+      <span class="s">code_on</span><span class="pi">:</span> <span class="s">1234567</span>
+      <span class="s">code_off</span><span class="pi">:</span> <span class="s">1234568</span>
+    <span class="s">ambilight</span><span class="pi">:</span>
+      <span class="s">pulselength</span><span class="pi">:</span> <span class="s">200</span>
+      <span class="s">code_on</span><span class="pi">:</span> <span class="s">987654</span>
+      <span class="s">code_off</span><span class="pi">:</span> <span class="s">133742</span>
+    <span class="s">living_room_light</span><span class="pi">:</span>
+      <span class="s">protocol</span><span class="pi">:</span> <span class="s">5</span>
+      <span class="s">code_on</span><span class="pi">:</span> <span class="s">654321</span>
+      <span class="s">code_off</span><span class="pi">:</span> <span class="s">654320</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -127,7 +125,7 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
         <ul>
           <li><strong>code_on</strong> (<em>Required</em>): Decimal code to switch the device on.</li>
           <li><strong>code_off</strong> (<em>Required</em>): Decimal code to switch the device off.</li>
-          <li><strong>protocol</strong> (<em>Optional</em>): RF Protocol (Default is <code>1</code>).</li>
+          <li><strong>protocol</strong> (<em>Optional</em>): RF Protocol (Default is <code class="highlighter-rouge">1</code>).</li>
           <li><strong>pulselength</strong> (<em>Optional</em>): Pulselength (Default is the protocol default).</li>
         </ul>
       </li>

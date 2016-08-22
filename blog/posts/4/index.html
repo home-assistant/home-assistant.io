@@ -96,7 +96,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/internet-of-things/'>Internet-of-Things</a></li>
+        <li>Internet-of-Things</li>
       
     
     </ul>
@@ -148,7 +148,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -164,7 +164,7 @@
 
 
   <div class="entry-content clearfix">
-    <p>Party people, 0.16 is here! The big thing with this release is that we have completely removed the barrier to get started by MQTT by being able to launch an embedded MQTT server: <a href="https://github.com/beerfactory/hbmqtt">hbMQTT</a>. Just add <code>mqtt:</code> to your config and a broker is launched and connected with Home Assistant. See the <a href="/components/mqtt/#use-the-embedded-broker">documentation</a> for more info.</p>
+    <p>Party people, 0.16 is here! The big thing with this release is that we have completely removed the barrier to get started by MQTT by being able to launch an embedded MQTT server: <a href="https://github.com/beerfactory/hbmqtt">hbMQTT</a>. Just add <code class="highlighter-rouge">mqtt:</code> to your config and a broker is launched and connected with Home Assistant. See the <a href="/components/mqtt/#use-the-embedded-broker">documentation</a> for more info.</p>
 
 <p>Further in this release a bunch of cool new stuff, bug fixes and rewrites for the Vera and Tellstick component (see breaking changes section at bottom for this!).</p>
 
@@ -202,26 +202,22 @@
   </li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">tellstick</span>:
-  <span class="key">signal_repetitions</span>: <span class="string"><span class="content">X</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">tellstick</span><span class="pi">:</span>
+  <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">X</span>
+</code></pre>
 </div>
 
 <ul>
   <li>Vera configuration has changed</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">vera</span>:
-  <span class="key">vera_controller_url</span>: <span class="string"><span class="content">http://192.168.1.161:3480/</span></span>
-  <span class="comment"># Optional to exclude devices - this is a list of vera device ids</span>
-  <span class="key">exclude</span>: <span class="string"><span class="content">[ 13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]</span></span>
-  <span class="comment"># Optional to import switches as lights - this is a list of vera device ids</span>
-  <span class="key">lights</span>: <span class="string"><span class="content">[15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">vera</span><span class="pi">:</span>
+  <span class="s">vera_controller_url</span><span class="pi">:</span> <span class="s">http://192.168.1.161:3480/</span>
+  <span class="c1"># Optional to exclude devices - this is a list of vera device ids</span>
+  <span class="s">exclude</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">13</span><span class="pi">,</span> <span class="nv">14</span><span class="pi">,</span> <span class="nv">16</span><span class="pi">,</span> <span class="nv">20</span><span class="pi">,</span> <span class="nv">23</span><span class="pi">,</span> <span class="nv">72</span><span class="pi">,</span> <span class="nv">73</span><span class="pi">,</span> <span class="nv">74</span><span class="pi">,</span> <span class="nv">75</span><span class="pi">,</span> <span class="nv">76</span><span class="pi">,</span> <span class="nv">77</span><span class="pi">,</span> <span class="nv">78</span><span class="pi">,</span> <span class="nv">88</span><span class="pi">,</span> <span class="nv">89</span><span class="pi">,</span> <span class="nv">99</span><span class="pi">]</span>
+  <span class="c1"># Optional to import switches as lights - this is a list of vera device ids</span>
+  <span class="s">lights</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">15</span><span class="pi">,</span> <span class="nv">17</span><span class="pi">,</span> <span class="nv">19</span><span class="pi">,</span> <span class="nv">21</span><span class="pi">,</span> <span class="nv">22</span><span class="pi">,</span> <span class="nv">24</span><span class="pi">,</span> <span class="nv">26</span><span class="pi">,</span> <span class="nv">43</span><span class="pi">,</span> <span class="nv">64</span><span class="pi">,</span> <span class="nv">70</span><span class="pi">,</span> <span class="nv">87</span><span class="pi">]</span>
+</code></pre>
 </div>
 
     
@@ -247,7 +243,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -284,31 +280,29 @@
   <li>Binary Sensor: Wemo Motion now supported (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/ryanlaux">@ryanlaux</a>)</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example using templates for service and data in service call.</span>
-<span class="comment"># Works for automation, Alexa, universal media player, template switch.</span>
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">trigger:</span><span class="content">
-      - platform: state
-        entity_id: switch.bathroom</span></span>
-    <span class="key">action</span>:
-      <span class="key">service_template</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-        {% if is_state('switch.bathroom', 'on') %}
-          switch.turn_on
-        {% else %}
-          switch.turn_off
-        {% endif %}</span></span>
-      <span class="key">data_template</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.{{ states('input_select.is') }}</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example using templates for service and data in service call.</span>
+<span class="c1"># Works for automation, Alexa, universal media player, template switch.</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.bathroom</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">{% if is_state('switch.bathroom', 'on') %}</span>
+          <span class="no">switch.turn_on</span>
+        <span class="no">{% else %}</span>
+          <span class="no">switch.turn_off</span>
+        <span class="no">{% endif %}</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.{{ states('input_select.is') }}</span>
+</code></pre>
 </div>
 
 <h3>Breaking Changes</h3>
 
 <ul>
-  <li>Media Player: Attributes to call service play_media has been renamed to<br />
-<code>media_content_type</code> and <code>media_content_id</code>, to match the corresponding media<br />
+  <li>Media Player: Attributes to call service play_media has been renamed to
+<code class="highlighter-rouge">media_content_type</code> and <code class="highlighter-rouge">media_content_id</code>, to match the corresponding media
 player state attributes. This change affects automations, scripts and scenes.</li>
 </ul>
 
@@ -336,7 +330,7 @@ player state attributes. This change affects automations, scripts and scenes.</l
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -365,7 +359,7 @@ player state attributes. This change affects automations, scripts and scenes.</l
   <li>Sensor: <a href="/components/sensor.neurio_energy/">Neurio energy sensor</a> now supported (<a href="https://github.com/infamy">@infamy</a>)</li>
   <li>Binary Sensor: <a href="/components/binary_sensor.nx584/">nx584</a> support added (<a href="https://github.com/kk7ds">@kk7ds</a>)</li>
   <li>Improve and clarify CI testing (<a href="https://github.com/sdague">@sdague</a>)</li>
-  <li>Automation: State <a href="/getting-started/automation-trigger/#state-trigger">triggers</a> and <a href="/getting-started/automation-condition/#state-condition">conditions</a> now takes optional <code>for</code> config parameter to only trigger when a state hasn’t changed for a certain period of time (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)</li>
+  <li>Automation: State <a href="/getting-started/automation-trigger/#state-trigger">triggers</a> and <a href="/getting-started/automation-condition/#state-condition">conditions</a> now takes optional <code class="highlighter-rouge">for</code> config parameter to only trigger when a state hasn’t changed for a certain period of time (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)</li>
   <li>Sensor: <a href="/components/sensor.nest/">Nest</a> weather data added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
   <li>Device Tracker: <a href="/components/device_tracker.unifi/">Ubiquiti Unifi</a> now supported (<a href="https://github.com/kk7ds">@kk7ds</a>)</li>
   <li>Binary Sensor: <a href="/components/binary_sensor.mysensors/">MySensors</a> now supported (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
@@ -391,7 +385,7 @@ player state attributes. This change affects automations, scripts and scenes.</l
   <li>Component: Simple Alarm has been removed. Still available in <a href="https://home-assistant.io/cookbook/python_component_simple_alarm/">the cookbook</a>.</li>
   <li>Script: Turning on a <a href="/components/script/">script</a> that is already on is now a no-op instead of skipping current delay.</li>
   <li>Wemo switches now have to be set up via the main <a href="/components/wemo/">Wemo component</a></li>
-  <li>Command line platforms for <a href="/components/switch.command_line/">switch</a>, <a href="/components/sensor.command_line/">sensor</a> and <a href="/components/binary_sensor.command_line/">binary_sensor</a> have been renamed to <code>command_line</code>.</li>
+  <li>Command line platforms for <a href="/components/switch.command_line/">switch</a>, <a href="/components/sensor.command_line/">sensor</a> and <a href="/components/binary_sensor.command_line/">binary_sensor</a> have been renamed to <code class="highlighter-rouge">command_line</code>.</li>
   <li>The rfxtrx sensors entity ids will incur a one time change to move to a stable format. See <a href="/components/sensor.rfxtrx/">the docs</a> for more details.</li>
 </ul>
 
@@ -419,9 +413,9 @@ player state attributes. This change affects automations, scripts and scenes.</l
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/community/'>Community</a></li>
+        <li>Community</li>
       
-        <li><a class='category' href='/blog/categories/video/'>Video</a></li>
+        <li>Video</li>
       
     
     </ul>
@@ -463,21 +457,19 @@ player state attributes. This change affects automations, scripts and scenes.</l
 
 <p>Example config.json entry to load Home Assistant:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key"><span class="delimiter">&quot;</span><span class="content">platforms</span><span class="delimiter">&quot;</span></span>: [
-    {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">platform</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HomeAssistant</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HomeAssistant</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">host</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://192.168.1.50:8123</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">xxx</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">supported_types</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">light</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">switch</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">media_player</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">scene</span><span class="delimiter">&quot;</span></span>]
-    }
-]
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"platforms"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HomeAssistant"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HomeAssistant"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://192.168.1.50:8123"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"supported_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"light"</span><span class="p">,</span><span class="w"> </span><span class="s2">"switch"</span><span class="p">,</span><span class="w"> </span><span class="s2">"media_player"</span><span class="p">,</span><span class="w"> </span><span class="s2">"scene"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 </div>
 
-<p><a href="https://github.com/nfarina/homebridge">HomeBridge on GitHub</a><br />
+<p><a href="https://github.com/nfarina/homebridge">HomeBridge on GitHub</a>
 <a href="https://github.com/maddox/homebridge-homeassistant">HomeBridge Home Assistant Plugin</a></p>
 
 <h3><a class="title-link" name="custom-alarm-system-with-home-assistant" href="#custom-alarm-system-with-home-assistant"></a> Custom alarm system with Home Assistant</h3>
@@ -512,7 +504,7 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -568,7 +560,7 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -652,7 +644,7 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/internet-of-things/'>Internet-of-Things</a></li>
+        <li>Internet-of-Things</li>
       
     
     </ul>
@@ -741,7 +733,7 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
     <header>
   
   <h1 class="beta">
-    <a href="/blog/2016/02/09/smarter-smart-things-with-mqtt-and-home-assistant/">Smarter SmartThings with MQTT and Home Assistant</a>
+    <a href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/">Smarter SmartThings with MQTT and Home Assistant</a>
   </h1>
   
 
@@ -749,22 +741,22 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
   <div class="meta clearfix">
     <time datetime="2016-02-09T07:44:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 09, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Jeremiah Wuenschel and St. John Johnson</span>
-    <span><i class='icon-time'></i> eight minutes reading time</span>
+    <span><i class='icon-time'></i> nine minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
-        <li><a class='category' href='/blog/categories/mqtt/'>MQTT</a></li>
+        <li>MQTT</li>
       
     
     </ul>
   </span>
     
       <a class='comments'
-         href="/blog/2016/02/09/smarter-smart-things-with-mqtt-and-home-assistant/#disqus_thread"
+         href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/#disqus_thread"
          >Comments</a>
     
   </div>
@@ -787,7 +779,7 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
 
 
     
-      <a class="btn pull-right" href="/blog/2016/02/09/smarter-smart-things-with-mqtt-and-home-assistant/#read-more">Read on &rarr;</a>
+      <a class="btn pull-right" href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/#read-more">Read on &rarr;</a>
     
   </div>
   </article>
@@ -811,7 +803,7 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -850,12 +842,12 @@ Example of the new views in the frontend. <a href="/components/group/">Learn mor
   <li><a href="/components/insteon_hub/">Insteon hub</a> support added (<a href="https://github.com/FreekingDean">@FreekingDean</a>)</li>
   <li><a href="/components/statsd/">Statsd</a> component added (<a href="https://github.com/michaelkuty">@michaelkuty</a>)</li>
   <li>Light: <a href="/components/light.rfxtrx/">Rfxtrx</a> platform now supports dimming (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Time scheduling (including <a href="/getting-started/automation-trigger/#time-trigger">time automation</a>) now works with intervals (ie. <code>/5</code>) (<a href="https://github.com/kennedyshead">@kennedyshead</a>)</li>
+  <li>Time scheduling (including <a href="/getting-started/automation-trigger/#time-trigger">time automation</a>) now works with intervals (ie. <code class="highlighter-rouge">/5</code>) (<a href="https://github.com/kennedyshead">@kennedyshead</a>)</li>
   <li>Sensor: <a href="/components/sensor.onewire/">onewire</a> support added (<a href="https://github.com/deisi">@deisi</a>)</li>
   <li><a href="/components/zigbee/">Zigbee</a> support added (<a href="https://github.com/flyte">@flyte</a>)</li>
   <li>Device Tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> can now track iBeacons (<a href="https://github.com/pavoni">@pavoni</a>)</li>
   <li>Notify: <a href="/components/notify.google_voice/">Google Voice SMS</a> platform added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li>Toggle service added to <code>homeassistant</code>, <code>switch</code>, <code>light</code> and <code>media_player</code> (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
+  <li>Toggle service added to <code class="highlighter-rouge">homeassistant</code>, <code class="highlighter-rouge">switch</code>, <code class="highlighter-rouge">light</code> and <code class="highlighter-rouge">media_player</code> (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
   <li><a href="/components/thermostat/">Thermostat</a> services added to control fans (<a href="https://github.com/auchter">@auchter</a>)</li>
   <li>Improved Python automation: Event helpers are now also available as decorators for custom components (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
   <li>Frontend: support added for tabs to show <a href="/components/group/">different views</a> of your house (<a href="https://github.com/balloob">@balloob</a>)</li>

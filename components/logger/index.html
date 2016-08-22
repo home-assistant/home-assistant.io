@@ -91,34 +91,30 @@
 
   <p>The logger component lets you define the level of logging activities in Home Assistant.</p>
 
-<p>To enable the logger in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable the logger in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <p>By default log all messages and ignore events lower than critical for specified components.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">logger</span>:
-  <span class="key">default</span>: <span class="string"><span class="content">info</span></span>
-  <span class="key">logs</span>:
-    <span class="key">homeassistant.components.device_tracker</span>: <span class="string"><span class="content">critical</span></span>
-    <span class="key">homeassistant.components.camera</span>: <span class="string"><span class="content">critical</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">logger</span><span class="pi">:</span>
+  <span class="s">default</span><span class="pi">:</span> <span class="s">info</span>
+  <span class="s">logs</span><span class="pi">:</span>
+    <span class="s">homeassistant.components.device_tracker</span><span class="pi">:</span> <span class="s">critical</span>
+    <span class="s">homeassistant.components.camera</span><span class="pi">:</span> <span class="s">critical</span>
+</code></pre>
 </div>
 
 <p>By default ignore all messages lower than critical and log event for specified components.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">logger</span>:
-  <span class="key">default</span>: <span class="string"><span class="content">critical</span></span>
-  <span class="key">logs</span>:
-    <span class="key">homeassistant.components</span>: <span class="string"><span class="content">info</span></span>
-    <span class="key">homeassistant.components.rfxtrx</span>: <span class="string"><span class="content">debug</span></span>
-    <span class="key">homeassistant.components.device_tracker</span>: <span class="string"><span class="content">critical</span></span>
-    <span class="key">homeassistant.components.camera</span>: <span class="string"><span class="content">critical</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">logger</span><span class="pi">:</span>
+  <span class="s">default</span><span class="pi">:</span> <span class="s">critical</span>
+  <span class="s">logs</span><span class="pi">:</span>
+    <span class="s">homeassistant.components</span><span class="pi">:</span> <span class="s">info</span>
+    <span class="s">homeassistant.components.rfxtrx</span><span class="pi">:</span> <span class="s">debug</span>
+    <span class="s">homeassistant.components.device_tracker</span><span class="pi">:</span> <span class="s">critical</span>
+    <span class="s">homeassistant.components.camera</span><span class="pi">:</span> <span class="s">critical</span>
+</code></pre>
 </div>
 
 <p>Possible log severities are:</p>

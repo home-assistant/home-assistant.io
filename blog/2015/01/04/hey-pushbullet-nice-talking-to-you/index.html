@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -123,14 +123,12 @@
 
 <h3>Enabling the notify component</h3>
 
-<p>To enable the new notify component, add the following to your <code>home-assistant.conf</code>:</p>
+<p>To enable the new notify component, add the following to your <code class="highlighter-rouge">home-assistant.conf</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[notify]
-platform=pushbullet
-api_key=ABCDEFGHJKLMNOPQRSTUVXYZ
-</pre></div>
-</div>
+<div class="language-conf highlighter-rouge"><pre class="highlight"><code>[<span class="n">notify</span>]
+<span class="n">platform</span>=<span class="n">pushbullet</span>
+<span class="n">api_key</span>=<span class="n">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+</code></pre>
 </div>
 
 <p>You can get your api key from <a href="https://www.pushbullet.com/account">your account page on PushBullet.com</a>.</p>
@@ -139,14 +137,12 @@ api_key=ABCDEFGHJKLMNOPQRSTUVXYZ
 
 <p>To be able to send messages, the notify component has to be loaded and initialized successfully.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.loader</span> <span class="keyword">as</span> loader
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.loader</span> <span class="kn">as</span> <span class="nn">loader</span>
 
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    notify = loader.get_component(<span class="string"><span class="delimiter">'</span><span class="content">notify</span><span class="delimiter">'</span></span>)
-    notify.send_message(hass, <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello from my component!</span><span class="delimiter">&quot;</span></span>)
-</pre></div>
-</div>
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="n">notify</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="s">'notify'</span><span class="p">)</span>
+    <span class="n">notify</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="s">"Hello from my component!"</span><span class="p">)</span>
+</code></pre>
 </div>
 </article>
 
@@ -221,7 +217,7 @@ api_key=ABCDEFGHJKLMNOPQRSTUVXYZ
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

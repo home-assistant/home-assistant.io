@@ -91,10 +91,8 @@
 
   <p>The URL for a sensor looks like the example below:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
+</code></pre>
 </div>
 
 <p class="note">
@@ -103,41 +101,35 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 
 <p>The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">20</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {<span class="key"><span class="delimiter">&quot;</span><span class="content">unit_of_measurement</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">friendly_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bathroom Temperature</span><span class="delimiter">&quot;</span></span>}}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w"> </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"unit_of_measurement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"°C"</span><span class="p">,</span><span class="w"> </span><span class="nt">"friendly_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bathroom Temperature"</span><span class="p">}}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>For a quick test <code>curl</code> can be useful to “simulate” a device.</p>
+<p>For a quick test <code class="highlighter-rouge">curl</code> can be useful to “simulate” a device.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
-       -d '{&quot;state&quot;: &quot;20&quot;, &quot;attributes&quot;: {&quot;unit_of_measurement&quot;: &quot;°C&quot;, &quot;friendly_name&quot;: &quot;Bathroom Temp&quot;}}' \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+       -d <span class="s1">'{"state": "20", "attributes": {"unit_of_measurement": "°C", "friendly_name": "Bathroom Temp"}}'</span> <span class="se">\</span>
        http://localhost:8123/api/states/sensor.bathroom_temperature
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>Use again <code>curl</code> to retrieve the <a href="/developers/rest_api/#get-apistatesltentity_id">current state</a> to check if the sensor is working.</p>
+<p>Use again <code class="highlighter-rouge">curl</code> to retrieve the <a href="/developers/rest_api/#get-apistatesltentity_id">current state</a> to check if the sensor is working.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        http://localhost:8123/api/states/sensor.bathroom_temperature
-{
-    &quot;attributes&quot;: {
-        &quot;friendly_name&quot;: &quot;Bathroom Temp&quot;,
-        &quot;unit_of_measurement&quot;: &quot;\u00b0C&quot;
-    },
-    &quot;entity_id&quot;: &quot;sensor.bathroom_temperature&quot;,
-    &quot;last_changed&quot;: &quot;09:46:17 06-02-2016&quot;,
-    &quot;last_updated&quot;: &quot;09:48:46 06-02-2016&quot;,
-    &quot;state&quot;: &quot;20&quot;
-}
-</pre></div>
-</div>
+<span class="o">{</span>
+    <span class="s2">"attributes"</span>: <span class="o">{</span>
+        <span class="s2">"friendly_name"</span>: <span class="s2">"Bathroom Temp"</span>,
+        <span class="s2">"unit_of_measurement"</span>: <span class="s2">"</span><span class="se">\u</span><span class="s2">00b0C"</span>
+    <span class="o">}</span>,
+    <span class="s2">"entity_id"</span>: <span class="s2">"sensor.bathroom_temperature"</span>,
+    <span class="s2">"last_changed"</span>: <span class="s2">"09:46:17 06-02-2016"</span>,
+    <span class="s2">"last_updated"</span>: <span class="s2">"09:48:46 06-02-2016"</span>,
+    <span class="s2">"state"</span>: <span class="s2">"20"</span>
+<span class="o">}</span>
+</code></pre>
 </div>
 
 <p>For more examples please visit the <a href="/components/binary_sensor.http/#examples">HTTP Binary Sensor</a> page.</p>

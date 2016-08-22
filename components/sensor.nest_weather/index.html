@@ -89,21 +89,19 @@
   <hr class="divider">
   
 
-  <p>The <code>nest</code> weather sensor platform let you monitor current weather conditions based on the location of your <a href="https://nest.com">Nest</a> thermostat.</p>
+  <p>The <code class="highlighter-rouge">nest</code> weather sensor platform let you monitor current weather conditions based on the location of your <a href="https://nest.com">Nest</a> thermostat.</p>
 
-<p>To set it up, add the following information to your <code>configuration.yaml</code> file:</p>
+<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">nest</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">'weather_temperature'</span></span>
-    - <span class="string"><span class="content">'weather_humidity'</span></span>
-    - <span class="string"><span class="content">'weather_condition'</span></span>
-    - <span class="string"><span class="content">'wind_speed'</span></span>
-    - <span class="string"><span class="content">'wind_direction'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_temperature'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_humidity'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_condition'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">wind_speed'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">wind_direction'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

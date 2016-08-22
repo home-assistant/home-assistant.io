@@ -89,58 +89,52 @@
   <hr class="divider">
   
 
-  <p>The <code>mqtt_json</code> light platform let you control a MQTT-enabled light that can receive <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> messages.</p>
+  <p>The <code class="highlighter-rouge">mqtt_json</code> light platform let you control a MQTT-enabled light that can receive <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> messages.</p>
 
 <p>This platform supports on/off, brightness, RGB colors, transitions, and short/long flashing. The messages sent to/from the lights look similar to this, omitting fields when they aren’t needed:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">brightness</span><span class="delimiter">&quot;</span></span>: <span class="integer">255</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">color</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">g</span><span class="delimiter">&quot;</span></span>: <span class="integer">255</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">b</span><span class="delimiter">&quot;</span></span>: <span class="integer">255</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">r</span><span class="delimiter">&quot;</span></span>: <span class="integer">255</span>
-  },
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">transition</span><span class="delimiter">&quot;</span></span>: <span class="integer">2</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ON</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"g"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"r"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"transition"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the light will be off.</p>
 
-<p>When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from device (message from <code>state_topic</code>).</p>
+<p>When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from device (message from <code class="highlighter-rouge">state_topic</code>).</p>
 
 <p>Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.</p>
 
-<p>To enable a light with brightness and RGB support in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable a light with brightness and RGB support in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">light</span>:
-  - <span class="string"><span class="content">platform: mqtt_json</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">mqtt_json_light_1</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/rgb1</span><span class="delimiter">&quot;</span></span>
-    <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/rgb1/set</span><span class="delimiter">&quot;</span></span>
-    <span class="key">brightness</span>: <span class="string"><span class="content">true</span></span>
-    <span class="key">rgb</span>: <span class="string"><span class="content">true</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt_json</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">mqtt_json_light_1</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/rgb1"</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/rgb1/set"</span>
+    <span class="s">brightness</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">rgb</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
 </div>
 
-<p>To enable a light with brightness (but no color support) in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable a light with brightness (but no color support) in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">light</span>:
-  - <span class="string"><span class="content">platform: mqtt_json</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">mqtt_json_light_1</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/rgb1</span><span class="delimiter">&quot;</span></span>
-    <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/rgb1/set</span><span class="delimiter">&quot;</span></span>
-    <span class="key">brightness</span>: <span class="string"><span class="content">true</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt_json</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">mqtt_json_light_1</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/rgb1"</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/rgb1/set"</span>
+    <span class="s">brightness</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -158,7 +152,7 @@
 </ul>
 
 <p class="note warning">
-  Make sure that your topics match exact. <code>some-topic/</code> and <code>some-topic</code> are different topics.
+  Make sure that your topics match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
 
 <p>A full example of custom lighting using this platform and an ESP8266 microcontroller can be found <a href="https://github.com/corbanmailloux/esp-mqtt-rgb-led">here</a>. It supports on/off, brightness, transitions, RGB colors, and flashing.</p>

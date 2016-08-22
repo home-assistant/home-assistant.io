@@ -93,49 +93,45 @@
 
 <h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
 
-<p>Copy the code below and create it as a file in <code>&lt;config_dir&gt;/custom_components/sensor/example.py</code>.</p>
+<p>Copy the code below and create it as a file in <code class="highlighter-rouge">&lt;config_dir&gt;/custom_components/sensor/example.py</code>.</p>
 
 <p>Add the following to your configuration.yaml:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">example</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">example</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="code" href="#code"></a> Code</h3>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">homeassistant.const</span> <span class="keyword">import</span> <span class="include">TEMP_CELSIUS</span>
-<span class="keyword">from</span> <span class="include">homeassistant.helpers.entity</span> <span class="keyword">import</span> <span class="include">Entity</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.const</span> <span class="kn">import</span> <span class="n">TEMP_CELSIUS</span>
+<span class="kn">from</span> <span class="nn">homeassistant.helpers.entity</span> <span class="kn">import</span> <span class="n">Entity</span>
 
 
-<span class="keyword">def</span> <span class="function">setup_platform</span>(hass, config, add_devices, discovery_info=<span class="predefined-constant">None</span>):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Setup the sensor platform.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-    add_devices([ExampleSensor()])
+<span class="k">def</span> <span class="nf">setup_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">add_devices</span><span class="p">,</span> <span class="n">discovery_info</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s">"""Setup the sensor platform."""</span>
+    <span class="n">add_devices</span><span class="p">([</span><span class="n">ExampleSensor</span><span class="p">()])</span>
 
 
-<span class="keyword">class</span> <span class="class">ExampleSensor</span>(Entity):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Representation of a Sensor.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
+<span class="k">class</span> <span class="nc">ExampleSensor</span><span class="p">(</span><span class="n">Entity</span><span class="p">):</span>
+    <span class="s">"""Representation of a Sensor."""</span>
 
-    <span class="decorator">@property</span>
-    <span class="keyword">def</span> <span class="function">name</span>(<span class="predefined-constant">self</span>):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Return the name of the sensor.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        <span class="keyword">return</span> <span class="string"><span class="delimiter">'</span><span class="content">Example Temperature</span><span class="delimiter">'</span></span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Return the name of the sensor."""</span>
+        <span class="k">return</span> <span class="s">'Example Temperature'</span>
 
-    <span class="decorator">@property</span>
-    <span class="keyword">def</span> <span class="function">state</span>(<span class="predefined-constant">self</span>):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Return the state of the sensor.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        <span class="keyword">return</span> <span class="integer">23</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Return the state of the sensor."""</span>
+        <span class="k">return</span> <span class="mi">23</span>
 
-    <span class="decorator">@property</span>
-    <span class="keyword">def</span> <span class="function">unit_of_measurement</span>(<span class="predefined-constant">self</span>):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Return the unit of measurement.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        <span class="keyword">return</span> TEMP_CELSIUS
-</pre></div>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">unit_of_measurement</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Return the unit of measurement."""</span>
+        <span class="k">return</span> <span class="n">TEMP_CELSIUS</span>
+</code></pre>
 </div>
 
 

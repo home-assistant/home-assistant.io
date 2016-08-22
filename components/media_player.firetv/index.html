@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>firetv</code> platform allows you to control a <a href="http://www.amazon.com/Amazon-DV83YW-Fire-TV/dp/B00U3FPN4U">Amazon Fire TV/stick</a>.</p>
+  <p>The <code class="highlighter-rouge">firetv</code> platform allows you to control a <a href="http://www.amazon.com/Amazon-DV83YW-Fire-TV/dp/B00U3FPN4U">Amazon Fire TV/stick</a>.</p>
 
 <p>The python-firetv Python 2.x module with its helper script that exposes a HTTP server to fetch state and perform actions is used.</p>
 
@@ -109,38 +109,36 @@
       <li>Select System &gt; About &gt; Network.</li>
     </ul>
   </li>
-  <li><code>pip install firetv[firetv-server]</code> into a Python 2.x environment
+  <li><code class="highlighter-rouge">pip install firetv[firetv-server]</code> into a Python 2.x environment
     <ul>
-      <li>If installed on Debian Jessie then the libssl-dev and python-dev packages are needed. Install them with <code>apt-get install libssl-dev python-dev</code></li>
+      <li>If installed on Debian Jessie then the libssl-dev and python-dev packages are needed. Install them with <code class="highlighter-rouge">apt-get install libssl-dev python-dev</code></li>
     </ul>
   </li>
-  <li><code>firetv-server -d &lt;fire tv device IP&gt;:5555</code>, background the process</li>
+  <li><code class="highlighter-rouge">firetv-server -d &lt;fire tv device IP&gt;:5555</code>, background the process</li>
   <li>Configure Home Assistant as follows:</li>
 </ul>
 
-<p>To add FireTV to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add FireTV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">firetv</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">localhost:5556</span></span>
-  <span class="key">device</span>: <span class="string"><span class="content">livingroom-firetv</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">My Amazon Fire TV</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">firetv</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">localhost:5556</span>
+  <span class="s">device</span><span class="pi">:</span> <span class="s">livingroom-firetv</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">My Amazon Fire TV</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): Where <code>firetv-server</code> is running. Default is <em>localhost:5556</em>.</li>
+  <li><strong>host</strong> (<em>Optional</em>): Where <code class="highlighter-rouge">firetv-server</code> is running. Default is <em>localhost:5556</em>.</li>
   <li><strong>device</strong> (<em>Optional</em>): The device ID, default is <em>default</em>.</li>
   <li><strong>name</strong> (<em>Optional</em>): The friendly name of the device, default is ‘Amazon Fire TV’.</li>
 </ul>
 
 <p class="note warning">
-Note that python-firetv has support for multiple Amazon Fire TV devices. If you have more than one configured, be sure to specify the device id used. Run <code>firetv-server -h</code> and/or view the source for complete capabilities.
+Note that python-firetv has support for multiple Amazon Fire TV devices. If you have more than one configured, be sure to specify the device id used. Run <code class="highlighter-rouge">firetv-server -h</code> and/or view the source for complete capabilities.
 </p>
 
 

@@ -89,31 +89,29 @@
   <hr class="divider">
   
 
-  <p>The <code>aws_sqs</code> notification platform enables publishing to an <a href="https://aws.amazon.com/sqs/">AWS SQS</a> message queue.</p>
+  <p>The <code class="highlighter-rouge">aws_sqs</code> notification platform enables publishing to an <a href="https://aws.amazon.com/sqs/">AWS SQS</a> message queue.</p>
 
-<p>To use this notification platform in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use this notification platform in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">aws_sqs</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">aws_access_key_id</span>: <span class="string"><span class="content">AWS_ACCESS_KEY_ID</span></span>
-  <span class="key">aws_secret_access_key</span>: <span class="string"><span class="content">AWS_SECRET_ACCESS_KEY</span></span>
-  <span class="key">profile_name</span>: <span class="string"><span class="content">AWS_PROFILE</span></span>
-  <span class="key">region_name</span>: <span class="string"><span class="content">'us-east-1'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">aws_sqs</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">aws_access_key_id</span><span class="pi">:</span> <span class="s">AWS_ACCESS_KEY_ID</span>
+  <span class="s">aws_secret_access_key</span><span class="pi">:</span> <span class="s">AWS_SECRET_ACCESS_KEY</span>
+  <span class="s">profile_name</span><span class="pi">:</span> <span class="s">AWS_PROFILE</span>
+  <span class="s">region_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">us-east-1'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>aws_access_key_id</strong> (<em>Required if aws_secret_access_key is provided</em>): Your AWS Access Key ID. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code>aws_secret_access_key</code> and must <strong>not</strong> provide a <code>profile_name</code>.</li>
-  <li><strong>aws_secret_access_key</strong> (<em>Required if aws_access_key_id is provided</em>): Your AWS Secret Access Key. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code>aws_access_key_id</code> and must <strong>not</strong> provide a <code>profile_name</code>.</li>
+  <li><strong>aws_access_key_id</strong> (<em>Required if aws_secret_access_key is provided</em>): Your AWS Access Key ID. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_secret_access_key</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code>.</li>
+  <li><strong>aws_secret_access_key</strong> (<em>Required if aws_access_key_id is provided</em>): Your AWS Secret Access Key. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_access_key_id</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code>.</li>
   <li><strong>profile_name</strong> (<em>Optional</em>): A credentials profile name. For more information, please see the <a href="http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file">boto3 documentation section about credentials</a>.</li>
-  <li><strong>region_name</strong> (<em>Required</em>): The region identifier to connect to. The default is <code>us-east-1</code>.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>region_name</strong> (<em>Required</em>): The region identifier to connect to. The default is <code class="highlighter-rouge">us-east-1</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
 </ul>
 
 <h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
@@ -122,17 +120,15 @@
 
 <p>The SQS event payload will contain everything passed in the service call payload. SQS payloads will be published as stringified JSON. All attributes from the payload except message will also be sent as stringified message attributes. Here is an example message that would be published to the SQS queue:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Test message!</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">target</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://sqs.us-east-1.amazonaws.com/123456789012/queue2</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">test</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">okay</span><span class="delimiter">&quot;</span></span>
-  },
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello world!</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test message!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://sqs.us-east-1.amazonaws.com/123456789012/queue2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"okay"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 

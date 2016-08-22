@@ -89,18 +89,16 @@
   <hr class="divider">
   
 
-  <p>The <code>OctoPrint</code> binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.</p>
+  <p>The <code class="highlighter-rouge">OctoPrint</code> binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.</p>
 
-<p>To set it up, add the following information to your <code>configuration.yaml</code> file:</p>
+<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">octoprint</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">Printing</span></span>
-    - <span class="string"><span class="content">Printing Error</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">octoprint</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">Printing</span>
+    <span class="pi">-</span> <span class="s">Printing Error</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

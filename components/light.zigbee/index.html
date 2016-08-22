@@ -89,29 +89,27 @@
   <hr class="divider">
   
 
-  <p>A ZigBee light in this context is a light connected to one of the digital output pins on a ZigBee module. It can simply be switched on and off. By default, a light is considered ‘on’ when the ZigBee device’s digital output is held ‘high’ and considered ‘off’ when it is held ‘low’. This behaviour can be inverted by setting the <code>on_state</code> configuration variable to <code>low</code>.</p>
+  <p>A ZigBee light in this context is a light connected to one of the digital output pins on a ZigBee module. It can simply be switched on and off. By default, a light is considered ‘on’ when the ZigBee device’s digital output is held ‘high’ and considered ‘off’ when it is held ‘low’. This behaviour can be inverted by setting the <code class="highlighter-rouge">on_state</code> configuration variable to <code class="highlighter-rouge">low</code>.</p>
 
 <p>To configure a digital output pin as a light, use the following variables:</p>
 
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The name you’d like to give the light in Home Assistant.</li>
-  <li><strong>platform</strong> (<em>Required</em>): Set to <code>zigbee</code>.</li>
+  <li><strong>platform</strong> (<em>Required</em>): Set to <code class="highlighter-rouge">zigbee</code>.</li>
   <li><strong>pin</strong> (<em>Required</em>): The number identifying which pin to use.</li>
   <li><strong>address</strong>: The long 64bit address of the remote ZigBee device whose digital output pin you’d like to switch. Do not include this variable if you want to switch the local ZigBee device’s pins.</li>
-  <li><strong>on_state</strong>: Either <code>high</code> (default) or <code>low</code>, depicting whether the digital output pin is pulled high or low when the light is turned on.</li>
+  <li><strong>on_state</strong>: Either <code class="highlighter-rouge">high</code> (default) or <code class="highlighter-rouge">low</code>, depicting whether the digital output pin is pulled high or low when the light is turned on.</li>
 </ul>
 
 <h4>Example</h4>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">light</span>:
-  - <span class="string"><span class="content">name: Desk Lamp</span></span>
-    <span class="key">platform</span>: <span class="string"><span class="content">zigbee</span></span>
-    <span class="key">pin</span>: <span class="string"><span class="content">0</span></span>
-    <span class="key">address</span>: <span class="string"><span class="content">0013A20040791FA2</span></span>
-    <span class="key">on_state</span>: <span class="string"><span class="content">low</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Desk Lamp</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">zigbee</span>
+    <span class="s">pin</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">0013A20040791FA2</span>
+    <span class="s">on_state</span><span class="pi">:</span> <span class="s">low</span>
+</code></pre>
 </div>
 
 

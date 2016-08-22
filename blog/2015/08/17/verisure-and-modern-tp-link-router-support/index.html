@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -108,7 +108,7 @@
 </header>
 
 
-  <p>A minor bug fix release to fix some issues that have come up since the last release. Please upgrade as soon as possible by running <code>git pull</code> from the Home Assistant directory.</p>
+  <p>A minor bug fix release to fix some issues that have come up since the last release. Please upgrade as soon as possible by running <code class="highlighter-rouge">git pull</code> from the Home Assistant directory.</p>
 
 <p>This release is a major milestone in our test coverage as we’ve crossed into the 80s! It has to be noted that this covers mainly the core and automation components. Platforms that communicate with IoT devices have been excluded.</p>
 
@@ -119,20 +119,18 @@
   <li>Improved support for MQTT topic subscriptions has been contributed by <a href="https://github.com/qrtn">@qrtn</a></li>
 </ul>
 
-<p><strong>Verisure Support</strong><br />
+<p><strong>Verisure Support</strong>
 <img src="/images/supported_brands/verisure.png" style="border:none; box-shadow: none; float: right;" height="50" /> Home Assistant support to integrate your <a href="https://www.verisure.com/">Verisure</a> alarms, hygrometers, sensors and thermometers has been contributed by <a href="https://github.com/persandstrom">@persandstrom</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">verisure</span>:
-  <span class="key">username</span>: <span class="string"><span class="content">user@example.com</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">password</span></span>
-  <span class="key">alarm</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">hygrometers</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">smartplugs</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">thermometers</span>: <span class="string"><span class="content">0</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">verisure</span><span class="pi">:</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">user@example.com</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
+  <span class="s">alarm</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">hygrometers</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">smartplugs</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">thermometers</span><span class="pi">:</span> <span class="s">0</span>
+</code></pre>
 </div>
 </article>
 
@@ -207,7 +205,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

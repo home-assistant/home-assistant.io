@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>knx</code> thermostat platform is used as in interface with KNX thermostats.</p>
+  <p>The <code class="highlighter-rouge">knx</code> thermostat platform is used as in interface with KNX thermostats.</p>
 
 <p>KNX thermostats use at least 2 group addresses: one for the current temperature and one for the target temperature (named set-point in KNX terms).</p>
 
-<p>To use your KNX thermostats in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your KNX thermostats in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">thermostat</span>:
-  - <span class="string"><span class="content">platform: knx</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">KNX Thermostat</span></span>
-    <span class="key">temperature_address</span>: <span class="string"><span class="content">0/1/1</span></span>
-    <span class="key">setpoint_address</span>: <span class="string"><span class="content">0/1/0</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">thermostat</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">KNX Thermostat</span>
+    <span class="s">temperature_address</span><span class="pi">:</span> <span class="s">0/1/1</span>
+    <span class="s">setpoint_address</span><span class="pi">:</span> <span class="s">0/1/0</span>
+</code></pre>
 </div>
 
 <ul>

@@ -93,56 +93,48 @@
 
 <h3><a class="title-link" name="local-testing" href="#local-testing"></a> Local testing</h3>
 
-<p>It’s highly recommanded to run <code>tox</code> before you create your Pull Request to avoid annoying fixes. Local testing requires <code>tox</code> to be installed.</p>
+<p>It’s highly recommanded to run <code class="highlighter-rouge">tox</code> before you create your Pull Request to avoid annoying fixes. Local testing requires <code class="highlighter-rouge">tox</code> to be installed.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install tox
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install tox
+</code></pre>
 </div>
 
-<p>Start the test of your code with <code>tox</code>.</p>
+<p>Start the test of your code with <code class="highlighter-rouge">tox</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ tox
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>tox
+</code></pre>
 </div>
 
-<p>This will run unit tests against python 3.4 and 3.5 (if both are available locally), as well as run a set of tests which validate <code>pep8</code> and <code>pylint</code> style of the code.</p>
+<p>This will run unit tests against python 3.4 and 3.5 (if both are available locally), as well as run a set of tests which validate <code class="highlighter-rouge">pep8</code> and <code class="highlighter-rouge">pylint</code> style of the code.</p>
 
 <h4><a class="title-link" name="testing-tips" href="#testing-tips"></a> Testing Tips</h4>
 
-<p>You can optionally run tests on only one tox target using the <code>-e</code> option to select an environment. For instance <code>tox -e lint</code> will run the linters only, <code>tox -e py34</code> will run unit tests only on python 3.4.</p>
+<p>You can optionally run tests on only one tox target using the <code class="highlighter-rouge">-e</code> option to select an environment. For instance <code class="highlighter-rouge">tox -e lint</code> will run the linters only, <code class="highlighter-rouge">tox -e py34</code> will run unit tests only on python 3.4.</p>
 
-<p>Tox uses virtual environments under the hood to create isolated testing environments. The Tox virtual environments will get out date when requirements change causing test errors. Run <code>tox -r</code> to create new Tox virtual environments.</p>
+<p>Tox uses virtual environments under the hood to create isolated testing environments. The Tox virtual environments will get out date when requirements change causing test errors. Run <code class="highlighter-rouge">tox -r</code> to create new Tox virtual environments.</p>
 
 <p>During development on a specific file, it can speed up your workflow to just run tests and linting related to the file that you’re working on. To run individual files:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ flake8 homeassistant/core.py
-$ pylint homeassistant/core.py
-$ py.test tests/test_core.py
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>flake8 homeassistant/core.py
+<span class="gp">$ </span>pylint homeassistant/core.py
+<span class="gp">$ </span>py.test tests/test_core.py
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="prevent-linter-errors" href="#prevent-linter-errors"></a> Prevent Linter Errors</h3>
 
 <p>You can save yourself the hassle of extra commits just to fix style errors by enabling the flake8 git commit hook. It will check your code when you attempt to commit to the repository. It will block the commit if there are any style issues, giving you a chance to fix it.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install flake8 flake8-docstrings
-$ flake8 --install-hook=git
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install flake8 flake8-docstrings
+<span class="gp">$ </span>flake8 --install-hook<span class="o">=</span>git
+</code></pre>
 </div>
 
 <p>The flake8-docstrings extension will check docstrings according to <a href="https://www.python.org/dev/peps/pep-0257/">PEP257</a> when running flake8.</p>
 
 <h3><a class="title-link" name="notes-on-pylint-and-pep8-validation" href="#notes-on-pylint-and-pep8-validation"></a> Notes on PyLint and PEP8 validation</h3>
 
-<p>In case a PyLint warning cannot be avoided, add a comment to disable the PyLint check for that line. This can be done using the format <code># pylint: disable=YOUR-ERROR-NAME</code>. Example of an unavoidable PyLint warning is if you do not use the passed in datetime if you’re listening for time change.</p>
+<p>In case a PyLint warning cannot be avoided, add a comment to disable the PyLint check for that line. This can be done using the format <code class="highlighter-rouge"># pylint: disable=YOUR-ERROR-NAME</code>. Example of an unavoidable PyLint warning is if you do not use the passed in datetime if you’re listening for time change.</p>
 
 
 

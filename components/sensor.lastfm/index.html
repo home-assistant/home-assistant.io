@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>lastfm</code> sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on <a href="http://www.last.fm">Last.fm</a>.</p>
+  <p>The <code class="highlighter-rouge">lastfm</code> sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on <a href="http://www.last.fm">Last.fm</a>.</p>
 
 <p>To get an API key you need to create an <a href="http://www.last.fm/api/account/create">API account</a>.</p>
 
-<p>To use Last.fm with your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use Last.fm with your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">lastfm</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_API_KEY</span></span>
-  <span class="key">users</span>:
-    - <span class="string"><span class="content">user1</span></span>
-    - <span class="string"><span class="content">user2</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">lastfm</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+  <span class="s">users</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">user1</span>
+    <span class="pi">-</span> <span class="s">user2</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

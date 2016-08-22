@@ -89,36 +89,34 @@
   <hr class="divider">
   
 
-  <p>The <code>aws_lambda</code> notification platform enables invoking <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> functions.</p>
+  <p>The <code class="highlighter-rouge">aws_lambda</code> notification platform enables invoking <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> functions.</p>
 
-<p>To use this notification platform in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use this notification platform in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <h3>Configuration</h3>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">aws_lambda</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">aws_access_key_id</span>: <span class="string"><span class="content">AWS_ACCESS_KEY_ID</span></span>
-  <span class="key">aws_secret_access_key</span>: <span class="string"><span class="content">AWS_SECRET_ACCESS_KEY</span></span>
-  <span class="key">profile_name</span>: <span class="string"><span class="content">AWS_PROFILE</span></span>
-  <span class="key">region_name</span>: <span class="string"><span class="content">'us-east-1'</span></span>
-  <span class="key">context</span>:
-    <span class="error">...</span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">aws_lambda</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">aws_access_key_id</span><span class="pi">:</span> <span class="s">AWS_ACCESS_KEY_ID</span>
+  <span class="s">aws_secret_access_key</span><span class="pi">:</span> <span class="s">AWS_SECRET_ACCESS_KEY</span>
+  <span class="s">profile_name</span><span class="pi">:</span> <span class="s">AWS_PROFILE</span>
+  <span class="s">region_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">us-east-1'</span>
+  <span class="s">context</span><span class="pi">:</span>
+    <span class="s">...</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>aws_access_key_id</strong> (<em>Required if aws_secret_access_key is provided</em>): Your AWS Access Key ID. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code>aws_secret_access_key</code> and must <strong>not</strong> provide a <code>profile_name</code>.</li>
-  <li><strong>aws_secret_access_key</strong> (<em>Required if aws_access_key_id is provided</em>): Your AWS Secret Access Key. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code>aws_access_key_id</code> and must <strong>not</strong> provide a <code>profile_name</code>.</li>
+  <li><strong>aws_access_key_id</strong> (<em>Required if aws_secret_access_key is provided</em>): Your AWS Access Key ID. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_secret_access_key</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code>.</li>
+  <li><strong>aws_secret_access_key</strong> (<em>Required if aws_access_key_id is provided</em>): Your AWS Secret Access Key. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_access_key_id</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code>.</li>
   <li><strong>profile_name</strong> (<em>Optional</em>): A credentials profile name. For more information, please see the <a href="http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file">boto3 documentation section about credentials</a>.</li>
-  <li><strong>region_name</strong> (<em>Required</em>): The region identifier to connect to. The default is <code>us-east-1</code>.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
-  <li><strong>context</strong> (<em>Optional</em>): An optional dictionary you can provide to pass custom context through to the Lambda function. The <code>context</code> dictionary (if any) is combined with the same data available at the <code>/api/config</code> HTTP API route.</li>
+  <li><strong>region_name</strong> (<em>Required</em>): The region identifier to connect to. The default is <code class="highlighter-rouge">us-east-1</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>context</strong> (<em>Optional</em>): An optional dictionary you can provide to pass custom context through to the Lambda function. The <code class="highlighter-rouge">context</code> dictionary (if any) is combined with the same data available at the <code class="highlighter-rouge">/api/config</code> HTTP API route.</li>
 </ul>
 
 <h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
@@ -127,39 +125,35 @@
 
 <p>The Lambda event payload will contain everything passed in the service call payload. Here is an example payload that would be sent to Lambda:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Test message!</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">target</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">arn:aws:lambda:us-east-1:123456789012:function:ProcessKinesisRecords</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">test</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">okay</span><span class="delimiter">&quot;</span></span>
-  },
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello world!</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test message!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arn:aws:lambda:us-east-1:123456789012:function:ProcessKinesisRecords"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"okay"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello world!"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>The context will look like this:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">hass</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">components</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">recorder</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">logger</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">http</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">logbook</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">api</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">frontend</span><span class="delimiter">&quot;</span></span>],
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">latitude</span><span class="delimiter">&quot;</span></span>: <span class="float">44.1234</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">location_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Home</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">longitude</span><span class="delimiter">&quot;</span></span>: <span class="float">5.5678</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">unit_system</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">metric</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">time_zone</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Europe/Zurich</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0.20.0.dev0</span><span class="delimiter">&quot;</span></span>
-  },
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">custom</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">two</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">three</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">test</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">one</span><span class="delimiter">&quot;</span></span>
-  }
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"hass"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"components"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"recorder"</span><span class="p">,</span><span class="w"> </span><span class="s2">"logger"</span><span class="p">,</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w"> </span><span class="s2">"logbook"</span><span class="p">,</span><span class="w"> </span><span class="s2">"api"</span><span class="p">,</span><span class="w"> </span><span class="s2">"frontend"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.1234</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.5678</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"unit_system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"metric"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Zurich"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.20.0.dev0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"three"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"one"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 

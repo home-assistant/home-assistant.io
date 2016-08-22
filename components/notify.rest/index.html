@@ -89,31 +89,29 @@
   <hr class="divider">
   
 
-  <p>The <code>rest</code> notification platform allows you to deliver <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> notifications from Home Assistant to another party.</p>
+  <p>The <code class="highlighter-rouge">rest</code> notification platform allows you to deliver <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> notifications from Home Assistant to another party.</p>
 
-<p>To enable the REST notification in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable the REST notification in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">platform</span>: <span class="string"><span class="content">rest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
-  <span class="key">method</span>: <span class="string"><span class="content">GET</span></span>
-  <span class="key">message_param_name</span>: <span class="string"><span class="content">MESSAGE_PARAMETER_NAME</span></span>
-  <span class="key">title_param_name</span>: <span class="string"><span class="content">TITLE_PARAMETER_NAME</span></span>
-  <span class="key">target_param_name</span>: <span class="string"><span class="content">TARGET_PARAMETER_NAME</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
+  <span class="s">method</span><span class="pi">:</span> <span class="s">GET</span>
+  <span class="s">message_param_name</span><span class="pi">:</span> <span class="s">MESSAGE_PARAMETER_NAME</span>
+  <span class="s">title_param_name</span><span class="pi">:</span> <span class="s">TITLE_PARAMETER_NAME</span>
+  <span class="s">target_param_name</span><span class="pi">:</span> <span class="s">TARGET_PARAMETER_NAME</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>resource</strong> (<em>Required</em>): The resource or endpoint that will recieve the value.</li>
   <li><strong>method</strong> (<em>Optional</em>): The method of the request. Default is GET.</li>
-  <li><strong>message_param_name</strong> (<em>Optional</em>): Parameter name for the message. Defaults to <code>message</code>.</li>
+  <li><strong>message_param_name</strong> (<em>Optional</em>): Parameter name for the message. Defaults to <code class="highlighter-rouge">message</code>.</li>
   <li><strong>title_param_name</strong> (<em>Optional</em>): Parameter name for the title. Defaults to none.</li>
   <li><strong>target_param_name</strong> (<em>Optional</em>): Parameter name for the target. Defaults to none.</li>
 </ul>

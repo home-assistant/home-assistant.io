@@ -99,14 +99,14 @@
 
 <p><img src="/images/frontend/frontend-badges.png" alt="Badges in the frontend" /></p>
 
-<p>The different badges are located in the file <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/components/entity/ha-state-label-badge.html"><code>/src/components/entity/ha-state-label-badge.html</code></a>.</p>
+<p>The different badges are located in the file <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/components/entity/ha-state-label-badge.html"><code class="highlighter-rouge">/src/components/entity/ha-state-label-badge.html</code></a>.</p>
 
-<p>Adding a custom card type can be done with a few simple steps. For this example we will add a new state card for the domain <code>camera</code>:</p>
+<p>Adding a custom card type can be done with a few simple steps. For this example we will add a new state card for the domain <code class="highlighter-rouge">camera</code>:</p>
 
 <ol>
-  <li>Add <code>'camera'</code> to the array <code>DOMAINS_WITH_CARD</code> in the file <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/util/hass-util.html#L11">/util/hass-util.html</a>.</li>
-  <li>Create the files <code>state-card-camera.html</code> in the folder <a href="https://github.com/home-assistant/home-assistant-polymer/tree/master/src/state-summary">/state-summary/</a>.</li>
-  <li>Add <code>&lt;link rel="import" href="state-card-camera.html"&gt;</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/state-summary/state-card-content.html">state-card-content.html</a>.</li>
+  <li>Add <code class="highlighter-rouge">'camera'</code> to the array <code class="highlighter-rouge">DOMAINS_WITH_CARD</code> in the file <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/util/hass-util.html#L11">/util/hass-util.html</a>.</li>
+  <li>Create the files <code class="highlighter-rouge">state-card-camera.html</code> in the folder <a href="https://github.com/home-assistant/home-assistant-polymer/tree/master/src/state-summary">/state-summary/</a>.</li>
+  <li>Add <code class="highlighter-rouge">&lt;link rel="import" href="state-card-camera.html"&gt;</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/state-summary/state-card-content.html">state-card-content.html</a>.</li>
 </ol>
 
 

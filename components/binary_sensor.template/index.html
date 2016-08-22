@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>template</code> platform supports sensors which breaks out the state and <code>state_attributes</code> from other entities.</p>
+  <p>The <code class="highlighter-rouge">template</code> platform supports sensors which breaks out the state and <code class="highlighter-rouge">state_attributes</code> from other entities.</p>
 
-<p>To enable Template binary sensors in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable Template binary sensors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  - <span class="string"><span class="content">platform: template</span></span>
-    <span class="key">sensors</span>:
-      <span class="key">sun_up</span>:
-        <span class="key">value_template</span>: <span class="string"><span class="content">'{{ states.sun.sun.attributes.elevation &gt; 0}}'</span></span>
-        <span class="key">friendly_name</span>: <span class="string"><span class="content">'Sun is up'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">sun_up</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sun.sun.attributes.elevation</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0}}'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Sun</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">up'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -124,36 +122,32 @@
 
 <h3><a class="title-link" name="sensor-threshold" href="#sensor-threshold"></a> Sensor threshold</h3>
 
-<p>This example indicates true if a sensor is above a given threshold. Assuming a sensor of <code>furnace</code> that provides a current reading for the fan motor, we can determine if the furnace is running by checking that it is over some threshold:</p>
+<p>This example indicates true if a sensor is above a given threshold. Assuming a sensor of <code class="highlighter-rouge">furnace</code> that provides a current reading for the fan motor, we can determine if the furnace is running by checking that it is over some threshold:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: template</span></span>
-    <span class="key">sensors</span>:
-      <span class="key">furnace_on</span>:
-        <span class="key">value_template</span>: <span class="string"><span class="content">{{ states.sensor.furnace.state &gt; 2.5 }}</span></span>
-        <span class="key">friendly_name</span>: <span class="string"><span class="content">'Furnace Running</span></span>
-        <span class="key">sensor_class</span>: <span class="string"><span class="content">heat</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">furnace_on</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">states.sensor.furnace.state &gt; 2.5</span> <span class="pi">}}</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Furnace</span><span class="nv"> </span><span class="s">Running</span>
+        <span class="s">sensor_class:</span><span class="nv"> </span><span class="s">heat</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="switch-as-sensor" href="#switch-as-sensor"></a> Switch as sensor</h3>
 
 <p>Some movement sensors and door/window sensors will appear as a switch. By using a template binary sensor, the switch can be displayed as a binary sensors. The original switch can then be hidden by <a href="/getting-started/customizing-devices/">customizing.</a></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">binary_sensor</span>: 
-  - <span class="string"><span class="content">platform: template </span></span>
-    <span class="key">sensors</span>:
-      <span class="key">movement</span>:
-        <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ states.switch.movement.state == 'on' }}</span><span class="delimiter">&quot;</span></span>
-        <span class="key">sensor_class</span>: <span class="string"><span class="content">motion</span></span>
-      <span class="key">door</span>:
-        <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ states.switch.door.state == 'on' }}</span><span class="delimiter">&quot;</span></span> 
-        <span class="key">sensor_class</span>: <span class="string"><span class="content">opening</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span> 
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span> 
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">movement</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.switch.movement.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">}}"</span>
+        <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">motion</span>
+      <span class="s">door</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.switch.door.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">}}"</span> 
+        <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
+</code></pre>
 </div>
 
 

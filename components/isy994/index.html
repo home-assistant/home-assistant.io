@@ -89,26 +89,24 @@
   <hr class="divider">
   
 
-  <p>The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. The controller is also capable of controlling Z-Wave devices but that functionality has not yet been confirmed with Home Assistant.<br />
+  <p>The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. The controller is also capable of controlling Z-Wave devices but that functionality has not yet been confirmed with Home Assistant.
 The ISY994 controller is manufactured by <a href="https://www.universal-devices.com/residential/isy994i-series/">Universal Devices</a>.</p>
 
 <h3><a class="title-link" name="basic-configuration" href="#basic-configuration"></a> Basic Configuration</h3>
 
 <p>Home Assistant is capable of communicating with any switch, sensor, and light that is configured on the controller. Using the programs on the controller, custom switches and sensors can also be created.</p>
 
-<p>To integrate your ISY994 controller with Home Assistant, add the following section to your <code>configuration.yaml</code> file:</p>
+<p>To integrate your ISY994 controller with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">isy994</span>:
-  <span class="key">host</span>: <span class="string"><span class="content">ISY_ADDRESS</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">ISY_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">ISY_PASSWORD</span></span>
-  <span class="key">sensor_string</span>: <span class="string"><span class="content">SENSOR_STRING</span></span>
-  <span class="key">hidden_string</span>: <span class="string"><span class="content">HIDDEN_STRING</span></span>
-  <span class="key">tls</span>: <span class="string"><span class="content">TLS_VERSION</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">isy994</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">ISY_ADDRESS</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">ISY_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">ISY_PASSWORD</span>
+  <span class="s">sensor_string</span><span class="pi">:</span> <span class="s">SENSOR_STRING</span>
+  <span class="s">hidden_string</span><span class="pi">:</span> <span class="s">HIDDEN_STRING</span>
+  <span class="s">tls</span><span class="pi">:</span> <span class="s">TLS_VERSION</span>
+</code></pre>
 </div>
 <p>Configuration variables:</p>
 

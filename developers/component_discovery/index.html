@@ -93,37 +93,35 @@
 This option is only available to built-in components.
 </p>
 
-<p>Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an <code>SERVICE_DISCOVERED</code> event will be fired with the found service and the information. The <code>discovery</code> component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the <code>SERVICE_DISCOVERED</code> event.</p>
+<p>Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an <code class="highlighter-rouge">SERVICE_DISCOVERED</code> event will be fired with the found service and the information. The <code class="highlighter-rouge">discovery</code> component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the <code class="highlighter-rouge">SERVICE_DISCOVERED</code> event.</p>
 
 <h3><a class="title-link" name="add-discovery-instructions" href="#add-discovery-instructions"></a> Add discovery instructions</h3>
 
-<p>Device discovery  for Home Assistant has been extracted into an external library called <a href="https://github.com/home-assistant/netdisco">NetDisco</a>. This library is integrated using <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a> and scans the network in intervals for uPnP and zeroconf/mDNS services.</p>
+<p>Device discovery  for Home Assistant has been extracted into an external library called <a href="https://github.com/home-assistant/netdisco">NetDisco</a>. This library is integrated using <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code class="highlighter-rouge">discovery</code> component</a> and scans the network in intervals for uPnP and zeroconf/mDNS services.</p>
 
 <p>To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. <a href="https://github.com/home-assistant/netdisco/tree/master/netdisco/discoverables">See the repository for examples of existing discoverables.</a></p>
 
-<h3><a class="title-link" name="listening-to-service_discovered-events" href="#listening-to-service_discovered-events"></a> Listening to <code>SERVICE_DISCOVERED</code> events</h3>
+<h3><a class="title-link" name="listening-to-service_discovered-events" href="#listening-to-service_discovered-events"></a> Listening to <code class="highlighter-rouge">SERVICE_DISCOVERED</code> events</h3>
 
 <p>From your component, you will have to set up the listening for specific services. Below an example how one would listen for discovered Chromecasts:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">homeassistant.loader</span> <span class="keyword">import</span> <span class="include">get_component</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.loader</span> <span class="kn">import</span> <span class="n">get_component</span>
 
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    discovery = get_component(<span class="string"><span class="delimiter">'</span><span class="content">discovery</span><span class="delimiter">'</span></span>)
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="n">discovery</span> <span class="o">=</span> <span class="n">get_component</span><span class="p">(</span><span class="s">'discovery'</span><span class="p">)</span>
 
-    <span class="keyword">def</span> <span class="function">chromecast_discovered</span>(service, info):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Called when a Chromecast has been discovered. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Discovered a new Chromecast: {}</span><span class="delimiter">&quot;</span></span>.format(info))
+    <span class="k">def</span> <span class="nf">chromecast_discovered</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
+        <span class="s">""" Called when a Chromecast has been discovered. """</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Discovered a new Chromecast: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">info</span><span class="p">))</span>
 
-    discovery.listen(
-        hass, discovery.services.GOOGLE_CAST, chromecast_discovered)
-</pre></div>
-</div>
+    <span class="n">discovery</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span>
+        <span class="n">hass</span><span class="p">,</span> <span class="n">discovery</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">GOOGLE_CAST</span><span class="p">,</span> <span class="n">chromecast_discovered</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="auto-loading-your-component-upon-discovery" href="#auto-loading-your-component-upon-discovery"></a> Auto-loading your component upon discovery</h3>
 
-<p>The Discovery component is capable of setting up your components before firing the <code>SERVICE_DISCOVERD</code> event. To do this you will have to update the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L29"><code>SERVICE_HANDLERS</code></a> constant in <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code>discovery</code> component</a>.</p>
+<p>The Discovery component is capable of setting up your components before firing the <code class="highlighter-rouge">SERVICE_DISCOVERD</code> event. To do this you will have to update the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L29"><code class="highlighter-rouge">SERVICE_HANDLERS</code></a> constant in <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code class="highlighter-rouge">discovery</code> component</a>.</p>
 
 
 </article>

@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>mqtt</code> device tracker platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> device tracker platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.</p>
 
-<p>To use this device tracker in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use this device tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">devices</span>:
-    <span class="key">paulus_oneplus</span>: <span class="string"><span class="content">/location/paulus</span></span>
-    <span class="key">annetherese_n4</span>: <span class="string"><span class="content">/location/annetherese</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">paulus_oneplus</span><span class="pi">:</span> <span class="s">/location/paulus</span>
+    <span class="s">annetherese_n4</span><span class="pi">:</span> <span class="s">/location/annetherese</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -114,13 +112,11 @@
 
 <p>Example JSON you can publish to the topic (e.g. via mqtt.publish service):</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">topic</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/location/paulus</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">payload</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/location/paulus"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 

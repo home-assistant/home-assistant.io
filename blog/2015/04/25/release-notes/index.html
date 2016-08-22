@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -110,98 +110,90 @@
 
   <p>It’s been a month since the latest update and a lot has happened again. Here a quick overview of the new things.</p>
 
-<p><strong>Line Charts</strong><br />
+<p><strong>Line Charts</strong>
 <a href="https://github.com/jamespcole">James</a> has upgraded the history in the frontend to support line graphs. Line graphs will be shown for any entity that has a unit of measurement. The line graphs will also be shown in the more info card of an entity. <a href="/demo/">See the demo for a live example.</a></p>
 
 <p class="img">
 <img src="/images/screenshots/history-line-graphs.png" />
 </p>
 
-<p><strong>ISY994 hub support</strong><br />
+<p><strong>ISY994 hub support</strong>
 <img src="/images/supported_brands/universal_devices.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/rmkraus">Ryan</a> has contributed support to integrate the ISY994 hub by Universal Devices. This allows you to integrate your X10/Insteon sensors, switches and lights.</p>
 
 <p>He has created an extensive getting started guide which can be found on <a href="/components/isy994/">the ISY994 component page</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">isy994</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">isy994</span><span class="pi">:</span>
+</code></pre>
 </div>
 
-<p><strong>Logbook</strong><br />
-<img src="/images/screenshots/logbook.png" style="margin-left:10px; float: right;" height="100" /> I (Paulus) have added a logbook component. The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in chronological order. <a href="/demo/">See the demo for a live example.</a><br />
+<p><strong>Logbook</strong>
+<img src="/images/screenshots/logbook.png" style="margin-left:10px; float: right;" height="100" /> I (Paulus) have added a logbook component. The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in chronological order. <a href="/demo/">See the demo for a live example.</a>
 <span class="clearfix"></span></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">logbook</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">logbook</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <a name="read-more"></a>
 
-<p><strong>Transmission support</strong><br />
+<p><strong>Transmission support</strong>
 <img src="/images/supported_brands/transmission.png" style="border:none; box-shadow: none; float: right;" height="50" /> James has also contributed support for integrating Transmission into Home Assistant.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">transmission</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Transmission</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.26</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">9091</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
-  <span class="key">monitored_variables</span>:
-    - <span class="string"><span class="content">type: 'current_status'</span></span>
-    - <span class="string"><span class="content">type: 'download_speed'</span></span>
-    - <span class="string"><span class="content">type: 'upload_speed'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">transmission</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Transmission</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.26</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">9091</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+  <span class="s">monitored_variables</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">current_status'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">download_speed'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">upload_speed'</span>
+</code></pre>
 </div>
 
-<p><strong>Modbus support</strong><br />
+<p><strong>Modbus support</strong>
 <a href="https://github.com/kixam">Kixam</a> has contributed support for modbus, a serial communication protocol to control PLCs. It currently supports sensors and switches which can be controlled over serial, TCP and UDP connections.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">modbus</span>:
-  <span class="key">type</span>: <span class="string"><span class="content">serial</span></span>
-  <span class="key">method</span>: <span class="string"><span class="content">rtu</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">/dev/ttyUSB0</span></span>
-  <span class="key">baudrate</span>: <span class="string"><span class="content">9600</span></span>
-  <span class="key">stopbits</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">bytesize</span>: <span class="string"><span class="content">8</span></span>
-  <span class="key">parity</span>: <span class="string"><span class="content">N</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">modbus</span><span class="pi">:</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s">serial</span>
+  <span class="s">method</span><span class="pi">:</span> <span class="s">rtu</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
+  <span class="s">baudrate</span><span class="pi">:</span> <span class="s">9600</span>
+  <span class="s">stopbits</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">bytesize</span><span class="pi">:</span> <span class="s">8</span>
+  <span class="s">parity</span><span class="pi">:</span> <span class="s">N</span>
 
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">modbus</span></span>
-  <span class="key">slave</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">registers</span>:
-    <span class="key">16</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My integer sensor</span><span class="content">
-        unit: C</span></span>
-    <span class="key">24</span>:
-      <span class="key">bits</span>:
-        <span class="key">0</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My boolean sensor</span></span>
-        <span class="key">2</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My other boolean sensor</span></span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">modbus</span>
+  <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">registers</span><span class="pi">:</span>
+    <span class="s">16</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">My integer sensor</span>
+        <span class="s">unit</span><span class="pi">:</span> <span class="s">C</span>
+    <span class="s">24</span><span class="pi">:</span>
+      <span class="s">bits</span><span class="pi">:</span>
+        <span class="s">0</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">My boolean sensor</span>
+        <span class="s">2</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">My other boolean sensor</span>
 
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">modbus</span></span>
-  <span class="key">slave</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">registers</span>:
-    <span class="key">24</span>:
-      <span class="key">bits</span>:
-        <span class="key">0</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My switch</span></span>
-        <span class="key">2</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My other switch</span></span>
-</pre></div>
-</div>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">modbus</span>
+  <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">registers</span><span class="pi">:</span>
+    <span class="s">24</span><span class="pi">:</span>
+      <span class="s">bits</span><span class="pi">:</span>
+        <span class="s">0</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">My switch</span>
+        <span class="s">2</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">My other switch</span>
+</code></pre>
 </div>
 </article>
 
@@ -276,7 +268,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

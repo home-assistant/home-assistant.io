@@ -91,18 +91,16 @@
 
   <p><a href="http://www.modbus.org/">Modbus</a> is a serial communication protocol to control PLCs (Programmable logic controller). It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.</p>
 
-<p>To add modbus to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add modbus to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <p>For a network connection:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment">#Modbus TCP</span>
-<span class="key">modbus</span>:
-  <span class="key">type</span>: <span class="string"><span class="content">tcp</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">2020</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">#Modbus TCP</span>
+<span class="s">modbus</span><span class="pi">:</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s">tcp</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">2020</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -115,18 +113,16 @@
 
 <p>For a serial connection:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">modbus</span>:
-  <span class="key">type</span>: <span class="string"><span class="content">serial</span></span>
-  <span class="key">method</span>: <span class="string"><span class="content">rtu</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">/dev/ttyUSB0</span></span>
-  <span class="key">baudrate</span>: <span class="string"><span class="content">9600</span></span>
-  <span class="key">stopbits</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">bytesize</span>: <span class="string"><span class="content">8</span></span>
-  <span class="key">parity</span>: <span class="string"><span class="content">N</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">modbus</span><span class="pi">:</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s">serial</span>
+  <span class="s">method</span><span class="pi">:</span> <span class="s">rtu</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
+  <span class="s">baudrate</span><span class="pi">:</span> <span class="s">9600</span>
+  <span class="s">stopbits</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">bytesize</span><span class="pi">:</span> <span class="s">8</span>
+  <span class="s">parity</span><span class="pi">:</span> <span class="s">N</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

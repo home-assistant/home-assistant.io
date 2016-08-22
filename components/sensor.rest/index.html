@@ -89,37 +89,33 @@
   <hr class="divider">
   
 
-  <p>The <code>rest</code> sensor platform is consuming a given endpoint which is exposed by a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a> of a device, an application, or a web service. The sensor has support for GET and POST requests.</p>
+  <p>The <code class="highlighter-rouge">rest</code> sensor platform is consuming a given endpoint which is exposed by a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a> of a device, an application, or a web service. The sensor has support for GET and POST requests.</p>
 
-<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code> file for a GET request:</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file for a GET request:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.thermostat }}'</span></span>
-  <span class="key">method</span>: <span class="string"><span class="content">GET</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">REST GET sensor</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.thermostat</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="s">method</span><span class="pi">:</span> <span class="s">GET</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">REST GET sensor</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+</code></pre>
 </div>
 
 <p>or for a POST request:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
-  <span class="key">method</span>: <span class="string"><span class="content">POST</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.thermostat }}'</span></span>
-  <span class="key">payload</span>: <span class="string"><span class="content">'{ &quot;device&quot; : &quot;heater&quot; }'</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">REST POST sensor</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
+  <span class="s">method</span><span class="pi">:</span> <span class="s">POST</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.thermostat</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">"device"</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">"heater"</span><span class="nv"> </span><span class="s">}'</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">REST POST sensor</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -137,13 +133,11 @@
 Make sure that the URL matches exactly your endpoint or resource.
 </p>
 
-<p><code>curl</code> could help you with the identification of the variable you want to display in your Home Assistant frontend. The example below show the JSON response of a device that is running with <a href="http://arest.io/">aREST</a>.</p>
+<p><code class="highlighter-rouge">curl</code> could help you with the identification of the variable you want to display in your Home Assistant frontend. The example below show the JSON response of a device that is running with <a href="http://arest.io/">aREST</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET http://192.168.1.31/temperature/
-{&quot;temperature&quot;: 77, &quot;id&quot;: &quot;sensor02&quot;, &quot;name&quot;: &quot;livingroom&quot;, &quot;connected&quot;: true}
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET http://192.168.1.31/temperature/
+<span class="o">{</span><span class="s2">"temperature"</span>: 77, <span class="s2">"id"</span>: <span class="s2">"sensor02"</span>, <span class="s2">"name"</span>: <span class="s2">"livingroom"</span>, <span class="s2">"connected"</span>: <span class="nb">true</span><span class="o">}</span>
+</code></pre>
 </div>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
@@ -154,45 +148,39 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 <p>You can find your external IP address using the service <a href="http://www.jsontest.com">JSON Test</a> at their http://ip.jsontest.com/ endpoint.</p>
 
-<p>To display the IP address, the entry for a sensor in the <code>configuration.yaml</code> file will look like this.</p>
+<p>To display the IP address, the entry for a sensor in the <code class="highlighter-rouge">configuration.yaml</code> file will look like this.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>  - <span class="string"><span class="content">platform: rest</span></span>
-    <span class="key">resource</span>: <span class="string"><span class="content">http://ip.jsontest.com</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">External IP</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.ip }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://ip.jsontest.com</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">External IP</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.ip</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="single-value-from-a-local-glances-instance" href="#single-value-from-a-local-glances-instance"></a> Single value from a local Glances instance</h3>
 
 <p>The <a href="/components/sensor.glances/">glances</a> sensor is doing the exact same thing for all exposed values.</p>
 
-<p>Add something similar to the entry below to your <code>configuration.yaml</code> file:</p>
+<p>Add something similar to the entry below to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>  - <span class="string"><span class="content">platform: rest</span></span>
-    <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADRRESS:61208/api/2/mem/used</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Used mem</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.used| multiply(0.000000954) | round(0) }}'</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="content">MB</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADRRESS:61208/api/2/mem/used</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Used mem</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.used|</span><span class="nv"> </span><span class="s">multiply(0.000000954)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(0)</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">MB</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="value-for-other-home-assistant-instance" href="#value-for-other-home-assistant-instance"></a> Value for other Home Assistant instance</h3>
 
 <p>The Home Assistant <a href="/developers/rest_api/">API</a> exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not <a href="/developers/architecture/#multiple-connected-instances">connected</a> you can still get information from them.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>  - <span class="string"><span class="content">platform: rest</span></span>
-    <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS:8123/api/states/sensor.weather_temperature</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Temperature</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.state }}'</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS:8123/api/states/sensor.weather_temperature</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Temperature</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.state</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+</code></pre>
 </div>
 
 

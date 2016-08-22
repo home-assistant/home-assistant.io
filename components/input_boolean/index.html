@@ -89,17 +89,15 @@
   <hr class="divider">
   
 
-  <p>The <code>input_boolean</code> component allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.</p>
+  <p>The <code class="highlighter-rouge">input_boolean</code> component allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">input_boolean</span>:
-  <span class="key">notify_home</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Notify when someone arrives home</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">off</span></span>
-    <span class="key">icon</span>: <span class="string"><span class="content">mdi:car</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">input_boolean</span><span class="pi">:</span>
+  <span class="s">notify_home</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Notify when someone arrives home</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s">off</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:car</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -111,28 +109,26 @@
   <li><strong>icon</strong> (<em>Optional</em>): Icon for entry.</li>
 </ul>
 
-<p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code>mdi:</code>. For example <code>mdi:car</code>, <code>mdi:ambulance</code>, or  <code>mdi:motorbike</code>.</p>
+<p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:car</code>, <code class="highlighter-rouge">mdi:ambulance</code>, or  <code class="highlighter-rouge">mdi:motorbike</code>.</p>
 
 <p>Here’s an example of an automation using the above input_boolean. This action will only occur if the switch is on.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">alias</span>: <span class="string"><span class="content">Arriving home</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">binary_sensor.motion_garage</span></span>
-    <span class="key">to</span>: <span class="string"><span class="content">'on'</span></span>
-  <span class="key">condition</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">input_boolean.notify_home</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">notify.pushbullet</span></span>
-    <span class="key">data</span>:
-      <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
-      <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Honey, I'm home!</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">Arriving home</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.motion_garage</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.notify_home</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.pushbullet</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Honey,</span><span class="nv"> </span><span class="s">I'm</span><span class="nv"> </span><span class="s">home!"</span>
+</code></pre>
 </div>
 
 

@@ -89,23 +89,21 @@
   <hr class="divider">
   
 
-  <p>The <code>mqtt</code> binary sensor platform uses the MQTT message payload as the sensor value. If messages in this <code>state_topic</code> are published with <em>RETAIN</em> flag, the sensor will receive an instant update with the last known value. Otherwise, the initial state will be off.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> binary sensor platform uses the MQTT message payload as the sensor value. If messages in this <code class="highlighter-rouge">state_topic</code> are published with <em>RETAIN</em> flag, the sensor will receive an instant update with the last known value. Otherwise, the initial state will be off.</p>
 
-<p>To use your MQTT binary sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your MQTT binary sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home-assistant/window/contact</span><span class="delimiter">&quot;</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MQTT Sensor</span><span class="delimiter">&quot;</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ON</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OFF</span><span class="delimiter">&quot;</span></span>
-  <span class="key">sensor_class</span>: <span class="string"><span class="content">opening</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/window/contact"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Sensor"</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
+  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
+  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -120,12 +118,10 @@
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
 </ul>
 
-<p>For a quick check you can use the commandline tools shipped with <code>mosquitto</code> to send MQTT messages. Set the state of your sensor manually:</p>
+<p>For a quick check you can use the commandline tools shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. Set the state of your sensor manually:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$  mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m &quot;OFF&quot;
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m <span class="s2">"OFF"</span>
+</code></pre>
 </div>
 
 

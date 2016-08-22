@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -120,115 +120,101 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
 
 <a name="read-more"></a>
 
-<p><strong>Overwriting Entity Attributes</strong><br />
+<p><strong>Overwriting Entity Attributes</strong>
 Before diving into the newly supported devices and services, I want to highlight an awesome configuration enhancement by <a href="https://github.com/rmkraus">rmkraus</a>: overwriting entity attributes.</p>
 
 <p>These new configuration settings allow you to overwrite entity state attributes. The main usage for this is being able to overwrite attributes that influence how an entity is shown in the interface.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">homeassistant</span>:
-  <span class="key">customize</span>:
-    <span class="key">light.bowl</span>:
-      <span class="comment"># hides this entity from the interface</span>
-      <span class="key">hidden</span>: <span class="string"><span class="content">true</span></span>
-    <span class="key">light.ceiling</span>:
-      <span class="comment"># Replaces the state badge with given picture</span>
-      <span class="key">entity_picture</span>: <span class="string"><span class="content">http://graph.facebook.com/schoutsen/picture</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">light.bowl</span><span class="pi">:</span>
+      <span class="c1"># hides this entity from the interface</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">light.ceiling</span><span class="pi">:</span>
+      <span class="c1"># Replaces the state badge with given picture</span>
+      <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">http://graph.facebook.com/schoutsen/picture</span>
+</code></pre>
 </div>
 
-<p><strong>MySensors</strong><br />
+<p><strong>MySensors</strong>
 <img src="/images/supported_brands/mysensors.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/andythigpen">Andythigpen</a> and <a href="https://github.com/theolind">Theolind</a> have added support for the <a href="http://www.mysensors.org">MySensors platform</a> to Home Assistant.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mysensors</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">/dev/ttyACM0</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mysensors</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">/dev/ttyACM0</span>
+</code></pre>
 </div>
 
-<p><strong>OpenWeatherMap</strong><br />
+<p><strong>OpenWeatherMap</strong>
 <img src="/images/supported_brands/openweathermap.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/fabaff">Fabaff</a> has contributed support for <a href="http://openweathermap.org">OpenWeatherMap</a>. This will allow you to integrate local meteorological data into Home Assistant.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">openweathermap</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_API_KEY</span></span>
-  <span class="key">monitored_variables</span>:
-    - <span class="string"><span class="content">type: 'weather'</span></span>
-    - <span class="string"><span class="content">type: 'temperature'</span></span>
-    - <span class="string"><span class="content">type: 'wind_speed'</span></span>
-    - <span class="string"><span class="content">type: 'humidity'</span></span>
-    - <span class="string"><span class="content">type: 'pressure'</span></span>
-    - <span class="string"><span class="content">type: 'clouds'</span></span>
-    - <span class="string"><span class="content">type: 'rain'</span></span>
-    - <span class="string"><span class="content">type: 'snow'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">openweathermap</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+  <span class="s">monitored_variables</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">weather'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">temperature'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">wind_speed'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">humidity'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">pressure'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">clouds'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">rain'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">snow'</span>
+</code></pre>
 </div>
 
-<p><strong>InstaPush</strong><br />
+<p><strong>InstaPush</strong>
 <img src="/images/supported_brands/instapush.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/fabaff">Fabaff</a> has contributed support for <a href="https://instapush.im">InstaPush</a>. This will allow you send messages from Home Assistant to your iOS and Android devices.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">instapush</span></span>
-    <span class="comment"># Get those by creating a new application, event, and tracker on https://instapush.im</span>
-    <span class="key">api_key</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-    <span class="key">app_secret</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-    <span class="key">event</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-    <span class="key">tracker</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">instapush</span>
+    <span class="c1"># Get those by creating a new application, event, and tracker on https://instapush.im</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+    <span class="s">app_secret</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+    <span class="s">tracker</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+</code></pre>
 </div>
 
-<p><strong>XMPP</strong><br />
+<p><strong>XMPP</strong>
 <img src="/images/supported_brands/xmpp.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/fabaff">Fabaff</a> has contributed support for Jabber/XMPP. This will allow you send messages from Home Assistant to anyone on Jabber/XMPP.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">xmpp</span></span>
-    <span class="key">sender</span>: <span class="string"><span class="content">YOUR_JID</span></span>
-    <span class="key">password</span>: <span class="string"><span class="content">YOUR_JABBER_ACCOUNT_PASSWORD</span></span>
-    <span class="key">recipient</span>: <span class="string"><span class="content">YOUR_RECIPIENT</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">xmpp</span>
+    <span class="s">sender</span><span class="pi">:</span> <span class="s">YOUR_JID</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_JABBER_ACCOUNT_PASSWORD</span>
+    <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
+</code></pre>
 </div>
 
-<p><strong>Notify My Android</strong><br />
+<p><strong>Notify My Android</strong>
 <img src="/images/supported_brands/nma.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/fabaff">Fabaff</a> has contributed support for <a href="http://www.notifymyandroid.com/">Notify My Android</a>. This will allow you to send messages from Home Assistant to your Android device.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">nma</span></span>
-    <span class="comment"># Get this by registering a new application on http://www.notifymyandroid.com/</span>
-    <span class="key">api_key</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">nma</span>
+    <span class="c1"># Get this by registering a new application on http://www.notifymyandroid.com/</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+</code></pre>
 </div>
 
-<p><strong>Time &amp; Date sensor</strong><br />
+<p><strong>Time &amp; Date sensor</strong>
 <a href="https://github.com/fabaff">Fabaff</a> has contributed a time &amp; date sensor. This will allow you to show the current time/date on the dashboard.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">time_date</span></span>
-  <span class="key">monitored_variables</span>:
-    - <span class="string"><span class="content">type: 'time'</span></span>
-    - <span class="string"><span class="content">type: 'date'</span></span>
-    - <span class="string"><span class="content">type: 'date_time'</span></span>
-    - <span class="string"><span class="content">type: 'time_date'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">time_date</span>
+  <span class="s">monitored_variables</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">time'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">date'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">date_time'</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">time_date'</span>
+</code></pre>
 </div>
 </article>
 
@@ -303,7 +289,7 @@ Before diving into the newly supported devices and services, I want to highlight
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

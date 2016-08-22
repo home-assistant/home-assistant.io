@@ -99,38 +99,34 @@
 
 <p>You can then open your browser’s console window, how you do this varies by browser but in Chrome you click on `More Tools / Developer Tools’ and click on the console window. You then type:-</p>
 
-<p><code>Drupal.settings.navetas_realtime.</code></p>
+<p><code class="highlighter-rouge">Drupal.settings.navetas_realtime.</code></p>
 
 <p>This should show something like</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">client_ip</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">127.0.0.1</span><span class="delimiter">&quot;</span></span>
-<span class="key">gas_secret</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GAS_SECRET</span><span class="delimiter">&quot;</span></span>
-<span class="key">gas_serial</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GAS_SERIAL</span><span class="delimiter">&quot;</span></span>
-<span class="key">host</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">www.your-loop.com</span><span class="delimiter">&quot;</span></span>
-<span class="head"><span class="head">...</span></span>
-<span class="key">secret</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ELECTRICAL_SECRET</span><span class="delimiter">&quot;</span></span>
-<span class="key">serial</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ELECTRICAL_SERIAL</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">client_ip</span><span class="pi">:</span> <span class="s2">"</span><span class="s">127.0.0.1"</span>
+<span class="s">gas_secret</span><span class="pi">:</span> <span class="s2">"</span><span class="s">GAS_SECRET"</span>
+<span class="s">gas_serial</span><span class="pi">:</span> <span class="s2">"</span><span class="s">GAS_SERIAL"</span>
+<span class="s">host</span><span class="pi">:</span> <span class="s2">"</span><span class="s">www.your-loop.com"</span>
+<span class="nn">...</span>
+<span class="s">secret</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ELECTRICAL_SECRET"</span>
+<span class="s">serial</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ELECTRICAL_SERIAL"</span>
+</code></pre>
 </div>
 
 <p>The serial and secret tokens are the ones you need. If you just have an electricity  monitor - then you won’t see the gas keys.</p>
 
-<p>Now you have the keys, add the following lines to your <code>configuration.yaml</code>, replacing the <code>SERIAL</code> and <code>SECRET</code> keys with the ones you found in the console:</p>
+<p>Now you have the keys, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>, replacing the <code class="highlighter-rouge">SERIAL</code> and <code class="highlighter-rouge">SECRET</code> keys with the ones you found in the console:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">loopenergy</span></span>
-  <span class="key">electricity_serial</span>: <span class="string"><span class="content">ELECTRICAL_SERIAL</span></span>
-  <span class="key">electricity_secret</span>: <span class="string"><span class="content">ELECTRICAL_SECRET</span></span>
-  <span class="key">gas_serial</span>: <span class="string"><span class="content">GAS_SERIAL</span></span>
-  <span class="key">gas_secret</span>: <span class="string"><span class="content">GAS_SECRET</span></span>
-  <span class="key">gas_type</span>: <span class="string"><span class="content">metric</span></span>
-  <span class="key">gas_calorific</span>: <span class="string"><span class="content">39.11</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">loopenergy</span>
+  <span class="s">electricity_serial</span><span class="pi">:</span> <span class="s">ELECTRICAL_SERIAL</span>
+  <span class="s">electricity_secret</span><span class="pi">:</span> <span class="s">ELECTRICAL_SECRET</span>
+  <span class="s">gas_serial</span><span class="pi">:</span> <span class="s">GAS_SERIAL</span>
+  <span class="s">gas_secret</span><span class="pi">:</span> <span class="s">GAS_SECRET</span>
+  <span class="s">gas_type</span><span class="pi">:</span> <span class="s">metric</span>
+  <span class="s">gas_calorific</span><span class="pi">:</span> <span class="s">39.11</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -140,7 +136,7 @@
   <li><strong>electricity_secret</strong> (<em>Required</em>): Secret key for your electricity sensor</li>
   <li><strong>gas_serial</strong> (<em>Optional</em>): Serial number for your gas sensor.</li>
   <li><strong>gas_secret</strong> (<em>Optional</em>): Secret key for your gas sensor.</li>
-  <li><strong>gas_type</strong> (<em>Optional</em>): Type of meter <code>imperial</code> or <code>metric</code>, defaults to metric.</li>
+  <li><strong>gas_type</strong> (<em>Optional</em>): Type of meter <code class="highlighter-rouge">imperial</code> or <code class="highlighter-rouge">metric</code>, defaults to metric.</li>
   <li><strong>gas_calorific</strong> (<em>Optional</em>): Calorific value of your gas supply (usually on your gas bill) - defaults to 39.11.</li>
 </ul>
 

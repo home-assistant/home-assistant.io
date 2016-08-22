@@ -89,26 +89,24 @@
   <hr class="divider">
   
 
-  <p>The <code>dweet</code> sensor platform allows you to get details from your devices which are publishing their values to <a href="https://dweet.io/">Dweet.io</a>.</p>
+  <p>The <code class="highlighter-rouge">dweet</code> sensor platform allows you to get details from your devices which are publishing their values to <a href="https://dweet.io/">Dweet.io</a>.</p>
 
-<p>To use Dweet.io in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use Dweet.io in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">dweet</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Dweet.io Temperature</span></span>
-  <span class="key">device</span>: <span class="string"><span class="content">THING_NAME</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.VARIABLE }}'</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">dweet</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Dweet.io Temperature</span>
+  <span class="s">device</span><span class="pi">:</span> <span class="s">THING_NAME</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.VARIABLE</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>device</strong> (<em>Required</em>): Identification of the device (also known as <code>thing</code>).</li>
+  <li><strong>device</strong> (<em>Required</em>): Identification of the device (also known as <code class="highlighter-rouge">thing</code>).</li>
   <li><strong>name</strong> (<em>Optional</em>): Let you overwrite the the name of the device in the frontend.</li>
   <li><strong>value_template</strong> (<em>Required</em>): The variable to extract a value from the content.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
@@ -116,41 +114,33 @@
 
 <h3><a class="title-link" name="interacting-with-dweetio" href="#interacting-with-dweetio"></a> Interacting with Dweet.io</h3>
 
-<p>You can easily send dweets from the commandline to test your sensor with <code>curl</code>.</p>
+<p>You can easily send dweets from the commandline to test your sensor with <code class="highlighter-rouge">curl</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -H 'Content-Type: application/json' -d '{&quot;temperature&quot;: 40, &quot;humidity&quot;: 65}' https://dweet.io/dweet/for/ha-sensor
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -H <span class="s1">'Content-Type: application/json'</span> -d <span class="s1">'{"temperature": 40, "humidity": 65}'</span> https://dweet.io/dweet/for/ha-sensor
+</code></pre>
 </div>
 <p>will give you a response like the one below:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">this</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">succeeded</span><span class="delimiter">&quot;</span></span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">by</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">dweeting</span><span class="delimiter">&quot;</span></span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">the</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">dweet</span><span class="delimiter">&quot;</span></span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">with</span><span class="delimiter">&quot;</span></span>:{<span class="key"><span class="delimiter">&quot;</span><span class="content">thing</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">ha-sensor</span><span class="delimiter">&quot;</span></span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">created</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">2015-12-10T09:43:31.133Z</span><span class="delimiter">&quot;</span></span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">content</span><span class="delimiter">&quot;</span></span>:{<span class="key"><span class="delimiter">&quot;</span><span class="content">temperature</span><span class="delimiter">&quot;</span></span>:<span class="integer">40</span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">humidity</span><span class="delimiter">&quot;</span></span>:<span class="integer">65</span>}}}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"this"</span><span class="p">:</span><span class="s2">"succeeded"</span><span class="p">,</span><span class="nt">"by"</span><span class="p">:</span><span class="s2">"dweeting"</span><span class="p">,</span><span class="nt">"the"</span><span class="p">:</span><span class="s2">"dweet"</span><span class="p">,</span><span class="nt">"with"</span><span class="p">:{</span><span class="nt">"thing"</span><span class="p">:</span><span class="s2">"ha-sensor"</span><span class="p">,</span><span class="nt">"created"</span><span class="p">:</span><span class="s2">"2015-12-10T09:43:31.133Z"</span><span class="p">,</span><span class="nt">"content"</span><span class="p">:{</span><span class="nt">"temperature"</span><span class="p">:</span><span class="mi">40</span><span class="p">,</span><span class="nt">"humidity"</span><span class="p">:</span><span class="mi">65</span><span class="p">}}}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>The <a href="https://github.com/paddycarey/dweepy">dweepy</a> module gives you another option to work with <a href="https://dweet.io/">Dweet.io</a>.</p>
 
 <p>Send a dweet.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python3
-&gt;&gt;&gt; import dweepy
-&gt;&gt;&gt; dweepy.dweet_for('ha-sensor', {'temperature': '23', 'humiditiy':'81'})
-{'thing': 'ha-sensor', 'created': '2015-12-10T09:46:08.559Z', 'content': {'humiditiy': 81, 'temperature': 23}}
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3
+<span class="gp">&gt;&gt;&gt; </span>import dweepy
+<span class="gp">&gt;&gt;&gt; </span>dweepy.dweet_for<span class="o">(</span><span class="s1">'ha-sensor'</span>, <span class="o">{</span><span class="s1">'temperature'</span>: <span class="s1">'23'</span>, <span class="s1">'humiditiy'</span>:<span class="s1">'81'</span><span class="o">})</span>
+<span class="o">{</span><span class="s1">'thing'</span>: <span class="s1">'ha-sensor'</span>, <span class="s1">'created'</span>: <span class="s1">'2015-12-10T09:46:08.559Z'</span>, <span class="s1">'content'</span>: <span class="o">{</span><span class="s1">'humiditiy'</span>: 81, <span class="s1">'temperature'</span>: 23<span class="o">}}</span>
+</code></pre>
 </div>
 
 <p>Recieve the latest dweet.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&gt;&gt;&gt; dweepy.get_latest_dweet_for('ha-sensor')
-[{'thing': 'ha-sensor'', 'created': '2015-12-10T09:43:31.133Z', 'content': {'humidity': 65, 'temperature': 40}}]
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt;&gt;&gt; </span>dweepy.get_latest_dweet_for<span class="o">(</span><span class="s1">'ha-sensor'</span><span class="o">)</span>
+<span class="o">[{</span><span class="s1">'thing'</span>: <span class="s1">'ha-sensor'', '</span>created<span class="s1">': '</span>2015-12-10T09:43:31.133Z<span class="s1">', '</span>content<span class="s1">': {'</span>humidity<span class="s1">': 65, '</span>temperature<span class="s1">': 40}}]
+</span></code></pre>
 </div>
 
 

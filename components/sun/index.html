@@ -91,16 +91,14 @@
 
   <p>The sun component will use your current location to track if the sun is above or below the horizon.The sun can be used within automation as <a href="/getting-started/automation-trigger/#sun-trigger">a trigger with an optional offset to simulate dawn/dusk</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">homeassistant</span>:
-  <span class="key">latitude</span>: <span class="string"><span class="content">32.87336</span></span>
-  <span class="key">longitude</span>: <span class="string"><span class="content">-117.22743</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.87336</span>
+  <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.22743</span>
 
-<span class="key">sun</span>:
-  <span class="key">elevation</span>: <span class="string"><span class="content">102</span></span>
-</pre></div>
-</div>
+<span class="s">sun</span><span class="pi">:</span>
+  <span class="s">elevation</span><span class="pi">:</span> <span class="s">102</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -119,18 +117,16 @@
 
 <p>The sun event need to have the type ‘sun’, which service to call, which event (sunset or sunrise) and the offset.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sun</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">service</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">switch.turn_on</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">event</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sunset</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">offset</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">-01:00:00</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sun"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"switch.turn_on"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunset"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-01:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<h4><a class="title-link" name="maintains-entity-sunsun" href="#maintains-entity-sunsun"></a> Maintains entity <code>sun.sun</code></h4>
+<h4><a class="title-link" name="maintains-entity-sunsun" href="#maintains-entity-sunsun"></a> Maintains entity <code class="highlighter-rouge">sun.sun</code></h4>
 
 <table>
   <thead>
@@ -141,11 +137,11 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>above_horizon</code></td>
+      <td><code class="highlighter-rouge">above_horizon</code></td>
       <td>When the sun is above the horizon.</td>
     </tr>
     <tr>
-      <td><code>below_horizon</code></td>
+      <td><code class="highlighter-rouge">below_horizon</code></td>
       <td>When the sun is below the horizon.</td>
     </tr>
   </tbody>
@@ -160,19 +156,19 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>next_rising</code></td>
+      <td><code class="highlighter-rouge">next_rising</code></td>
       <td>Date and time of the next sun rising (in UTC).</td>
     </tr>
     <tr>
-      <td><code>next_setting</code></td>
+      <td><code class="highlighter-rouge">next_setting</code></td>
       <td>Date and time of the next sun setting (in UTC).</td>
     </tr>
     <tr>
-      <td><code>elevation</code></td>
+      <td><code class="highlighter-rouge">elevation</code></td>
       <td>Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.</td>
     </tr>
     <tr>
-      <td><code>azimuth</code></td>
+      <td><code class="highlighter-rouge">azimuth</code></td>
       <td>Solar azimuth. The angle is shown clockwise from north.</td>
     </tr>
   </tbody>

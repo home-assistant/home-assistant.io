@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>braviatv</code> platform allows you to control a <a href="http://www.sony.com">Sony Bravia TV</a>.</p>
+  <p>The <code class="highlighter-rouge">braviatv</code> platform allows you to control a <a href="http://www.sony.com">Sony Bravia TV</a>.</p>
 
 <p>Almost all <a href="http://info.tvsideview.sony.net/en_ww/home_device.html#bravia">Sony Bravia TV 2013 and newer</a> are supported.</p>
 
 <p>You will need to configure your TV to allow the Home Assistant for remote usage. To do that, ensure that your TV is turned on. Open the configuration popup on Home Assistant and enter a random PIN (for example 0000). After that, the TV will show you a PIN and Home Assistant will allow you to re-enter that PIN. Enter the PIN shown on your TV and Home Assistant will be able to control your Sony Bravia TV.</p>
 
-<p>To add a TV to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add a TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">braviatv</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.0.10</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Living Room TV</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">braviatv</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -114,12 +112,10 @@
   <li><strong>name</strong> (<em>Optional</em>): The name to use on the frontend.</li>
 </ul>
 
-<p>You are also able to configure the TV manually by placing a <code>bravia.conf</code> file in your <code>.homeassistant</code> config directory with the following information - please update the details to match your setup:</p>
+<p>You are also able to configure the TV manually by placing a <code class="highlighter-rouge">bravia.conf</code> file in your <code class="highlighter-rouge">.homeassistant</code> config directory with the following information - please update the details to match your setup:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">192.168.0.10</span><span class="delimiter">&quot;</span></span>: {<span class="key"><span class="delimiter">&quot;</span><span class="content">pin</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">7745</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">mac</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ac:1e:0a:e1:0c:01</span><span class="delimiter">&quot;</span></span>}}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"192.168.0.10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7745"</span><span class="p">,</span><span class="w"> </span><span class="nt">"mac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ac:1e:0a:e1:0c:01"</span><span class="p">}}</span><span class="w">
+</span></code></pre>
 </div>
 
 

@@ -93,46 +93,42 @@
 
 <p>There are also trackers available which uses different technologies like <a href="/components/mqtt/">MQTT</a> or <a href="/components/device_tracker.nmap_scanner/">Nmap</a> to scan the network for devices.</p>
 
-<p>To get started add the following lines to your <code>configuration.yaml</code> (example for Netgear):</p>
+<p>To get started add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> (example for Netgear):</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry for Netgear device</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">netgear</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.1</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">admin</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for Netgear device</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">netgear</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.1</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">admin</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
 
-  <span class="comment"># Optional configuration</span>
+  <span class="c1"># Optional configuration</span>
 
-  <span class="comment"># If new discovered devices are tracked by default (default: yes)</span>
-  <span class="key">track_new_devices</span>: <span class="string"><span class="content">yes</span></span>
-  <span class="comment"># Seconds between each scan for new devices (default: 12)</span>
-  <span class="key">interval_seconds</span>: <span class="string"><span class="content">12</span></span>
-  <span class="comment"># Seconds to wait till marking someone as not home after not being seen</span>
-  <span class="comment"># (default: 180)</span>
-  <span class="key">consider_home</span>: <span class="string"><span class="content">180</span></span>
-</pre></div>
-</div>
+  <span class="c1"># If new discovered devices are tracked by default (default: yes)</span>
+  <span class="s">track_new_devices</span><span class="pi">:</span> <span class="s">yes</span>
+  <span class="c1"># Seconds between each scan for new devices (default: 12)</span>
+  <span class="s">interval_seconds</span><span class="pi">:</span> <span class="s">12</span>
+  <span class="c1"># Seconds to wait till marking someone as not home after not being seen</span>
+  <span class="c1"># (default: 180)</span>
+  <span class="s">consider_home</span><span class="pi">:</span> <span class="s">180</span>
+</code></pre>
 </div>
 
-<p>Once tracked, a file will be created in your config dir called <code>known_devices.yaml</code>. Edit this file to adjust which devices to be tracked. Here you can also setup a URL for each device to be used as the entity picture and set whether the device will be show in the UI when in the away state.</p>
+<p>Once tracked, a file will be created in your config dir called <code class="highlighter-rouge">known_devices.yaml</code>. Edit this file to adjust which devices to be tracked. Here you can also setup a URL for each device to be used as the entity picture and set whether the device will be show in the UI when in the away state.</p>
 
-<p>Multiple device trackers can be used in parallel, such as <a href="/components/device_tracker.owntracks/">Owntracks</a> and <a href="/components/device_tracker.nmap_scanner/">Nmap</a>. The state of the device will be determined by the source that reported last. Device tracker will look for global settings (<code>track_new_devices</code>, <code>consider_home</code>, and <code>home_interval</code>) under the configuration of the first platform.</p>
+<p>Multiple device trackers can be used in parallel, such as <a href="/components/device_tracker.owntracks/">Owntracks</a> and <a href="/components/device_tracker.nmap_scanner/">Nmap</a>. The state of the device will be determined by the source that reported last. Device tracker will look for global settings (<code class="highlighter-rouge">track_new_devices</code>, <code class="highlighter-rouge">consider_home</code>, and <code class="highlighter-rouge">home_interval</code>) under the configuration of the first platform.</p>
 
-<p>The optional <code>consider_home</code> entry is useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. <code>consider_home</code> helps prevent false alarms in presence detection when using IP scanners such as nmap.</p>
+<p>The optional <code class="highlighter-rouge">consider_home</code> entry is useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. <code class="highlighter-rouge">consider_home</code> helps prevent false alarms in presence detection when using IP scanners such as nmap.</p>
 
-<p>To add Nmap tracking just add the MAC address to the OwnTracks or iCloud device <code>mac:</code> configuration. To use both OwnTracks and Nmap you could use the following example:</p>
+<p>To add Nmap tracking just add the MAC address to the OwnTracks or iCloud device <code class="highlighter-rouge">mac:</code> configuration. To use both OwnTracks and Nmap you could use the following example:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">owntracksdevicename</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">Friendly Name!</span></span>
-  <span class="key">mac</span>: <span class="string"><span class="content">EA:AA:55:E7:C6:94</span></span>
-  <span class="key">picture</span>:
-  <span class="key">track</span>: <span class="string"><span class="content">yes</span></span>
-  <span class="key">hide_if_away</span>: <span class="string"><span class="content">no</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">owntracksdevicename</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Friendly Name!</span>
+  <span class="s">mac</span><span class="pi">:</span> <span class="s">EA:AA:55:E7:C6:94</span>
+  <span class="s">picture</span><span class="pi">:</span>
+  <span class="s">track</span><span class="pi">:</span> <span class="s">yes</span>
+  <span class="s">hide_if_away</span><span class="pi">:</span> <span class="s">no</span>
+</code></pre>
 </div>
 
 

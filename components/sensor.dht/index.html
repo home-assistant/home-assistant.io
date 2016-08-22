@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>dht</code> sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.</p>
+  <p>The <code class="highlighter-rouge">dht</code> sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.</p>
 
-<p>To use your DHTxx sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your DHTxx sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">dht</span></span>
-  <span class="key">sensor</span>: <span class="string"><span class="content">DHT22</span></span>
-  <span class="key">pin</span>: <span class="string"><span class="content">23</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Living Room</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">temperature</span></span>
-    - <span class="string"><span class="content">humidity</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">dht</span>
+  <span class="s">sensor</span><span class="pi">:</span> <span class="s">DHT22</span>
+  <span class="s">pin</span><span class="pi">:</span> <span class="s">23</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">temperature</span>
+    <span class="pi">-</span> <span class="s">humidity</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

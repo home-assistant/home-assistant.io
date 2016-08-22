@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>kodi</code> platform allows you to control a <a href="http://kodi.tv/">Kodi</a> multimedia system from Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">kodi</code> platform allows you to control a <a href="http://kodi.tv/">Kodi</a> multimedia system from Home Assistant.</p>
 
-<p>To add Kodi to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add Kodi to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">kodi</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">http://192.168.0.123</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">8080</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Kodi</span></span>
-  <span class="key">user</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-  <span class="key">turn_off_action</span>: <span class="string"><span class="content">shutdown</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.0.123</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">8080</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Kodi</span>
+  <span class="s">user</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+  <span class="s">turn_off_action</span><span class="pi">:</span> <span class="s">shutdown</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -115,7 +113,7 @@
   <li><strong>name</strong> (<em>Optional</em>): The name of the device used in the frontend.</li>
   <li><strong>username</strong> (<em>Optional</em>): The XBMC/Kodi HTTP username.</li>
   <li><strong>password</strong> (<em>Optional</em>): The XBMC/Kodi HTTP password.</li>
-  <li><strong>turn_off_action</strong> (<em>Optional</em>): The desired turn off action. Options are <code>none</code>, <code>quit</code>, <code>hibernate</code>, <code>suspend</code>, <code>reboot</code>, or <code>shutdown</code>. Default <code>none</code>.</li>
+  <li><strong>turn_off_action</strong> (<em>Optional</em>): The desired turn off action. Options are <code class="highlighter-rouge">none</code>, <code class="highlighter-rouge">quit</code>, <code class="highlighter-rouge">hibernate</code>, <code class="highlighter-rouge">suspend</code>, <code class="highlighter-rouge">reboot</code>, or <code class="highlighter-rouge">shutdown</code>. Default <code class="highlighter-rouge">none</code>.</li>
 </ul>
 
 

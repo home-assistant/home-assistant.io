@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>free_mobile</code> platform is using the French mobile operator <a href="http://mobile.free.fr/">Free Mobile</a> to send SMS to your own cell phone.</p>
+  <p>The <code class="highlighter-rouge">free_mobile</code> platform is using the French mobile operator <a href="http://mobile.free.fr/">Free Mobile</a> to send SMS to your own cell phone.</p>
 
 <p>Before doing anything, you have to activate the SMS API option in your Free Mobile account (In “Gérer mon compte -&gt; Mes Options”). Activating this option will automatically generate a token which is required in your configuration.</p>
 
@@ -103,16 +103,14 @@
 If you disable and re-enable the SMS API option, please be sure to update your token in your configuration.
 </p>
 
-<p>To enable SMS notifications in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable SMS notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">free_mobile</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_ACCOUNT_ID</span></span>
-  <span class="key">access_token</span>: <span class="string"><span class="content">TOKEN</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">free_mobile</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ACCOUNT_ID</span>
+  <span class="s">access_token</span><span class="pi">:</span> <span class="s">TOKEN</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

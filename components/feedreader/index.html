@@ -91,16 +91,14 @@
 
   <p>Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.</p>
 
-<p>To use RSS feeds in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use RSS feeds in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">feedreader</span>:
-  <span class="key">urls</span>:
-   - <span class="string"><span class="content">https://home-assistant.io/atom.xml</span></span>
-   - <span class="string"><span class="content">https://github.com/blog.atom</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">feedreader</span><span class="pi">:</span>
+  <span class="s">urls</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">https://home-assistant.io/atom.xml</span>
+   <span class="pi">-</span> <span class="s">https://github.com/blog.atom</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -111,26 +109,22 @@
 
 <p>Feedreader events can be used out of the box to trigger automation actions, e.g.:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: Trigger action when new element(s) in RSS feed</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
-      <span class="key">event_type</span>: <span class="string"><span class="content">feedreader</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">script.my_action</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Trigger action when new element(s) in RSS feed</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">feedreader</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.my_action</span>
+</code></pre>
 </div>
 
-<p>For more advanced use cases, a custom component registering to the <code>feedreader</code> event type could be used instead:</p>
+<p>For more advanced use cases, a custom component registering to the <code class="highlighter-rouge">feedreader</code> event type could be used instead:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>EVENT_FEEDREADER = <span class="string"><span class="delimiter">&quot;</span><span class="content">feedreader</span><span class="delimiter">&quot;</span></span>
-hass.bus.listen(EVENT_FEEDREADER, event_listener)
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">EVENT_FEEDREADER</span> <span class="o">=</span> <span class="s">"feedreader"</span>
+<span class="n">hass</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">EVENT_FEEDREADER</span><span class="p">,</span> <span class="n">event_listener</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <p>To get started developing custom components, please refer to the <a href="/developers">developers</a> documentation</p>

@@ -89,19 +89,17 @@
   <hr class="divider">
   
 
-  <p>The <code>input_slider</code> component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the slider generate state events. These state events can be utilized as <code>automation</code> triggers as well.</p>
+  <p>The <code class="highlighter-rouge">input_slider</code> component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the slider generate state events. These state events can be utilized as <code class="highlighter-rouge">automation</code> triggers as well.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">input_slider</span>:
-  <span class="key">slider1</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Slider 1</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">30</span></span>
-    <span class="key">min</span>: <span class="string"><span class="content">-20</span></span>
-    <span class="key">max</span>: <span class="string"><span class="content">35</span></span>
-    <span class="key">step</span>: <span class="string"><span class="content">1</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">input_slider</span><span class="pi">:</span>
+  <span class="s">slider1</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Slider 1</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s">30</span>
+    <span class="s">min</span><span class="pi">:</span> <span class="s">-20</span>
+    <span class="s">max</span><span class="pi">:</span> <span class="s">35</span>
+    <span class="s">step</span><span class="pi">:</span> <span class="s">1</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -117,82 +115,78 @@
 
 <h2><a class="title-link" name="automation-examples" href="#automation-examples"></a> Automation Examples</h2>
 
-<p>Here’s an example of <code>input_slider</code> being used as a trigger in an automation.</p>
+<p>Here’s an example of <code class="highlighter-rouge">input_slider</code> being used as a trigger in an automation.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>
-<span class="comment"># Example configuration.yaml entry using 'input_slider' as a trigger in an automation</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="c1"># Example configuration.yaml entry using 'input_slider' as a trigger in an automation</span>
 
-<span class="comment"># Define input_slider</span>
-<span class="key">input_slider</span>:
-  <span class="key">bedroom_brightness</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Brightness</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">254</span></span>
-    <span class="key">min</span>: <span class="string"><span class="content">0</span></span>
-    <span class="key">max</span>: <span class="string"><span class="content">254</span></span>
-    <span class="key">step</span>: <span class="string"><span class="content">1</span></span>
+<span class="c1"># Define input_slider</span>
+<span class="s">input_slider</span><span class="pi">:</span>
+  <span class="s">bedroom_brightness</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Brightness</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s">254</span>
+    <span class="s">min</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">max</span><span class="pi">:</span> <span class="s">254</span>
+    <span class="s">step</span><span class="pi">:</span> <span class="s">1</span>
 
-<span class="comment"># Automation.     </span>
-<span class="key">automation</span>:    
-  - <span class="string"><span class="content">alias: Bedroom Light - Adjust Brightness</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">input_slider.bedroom_brightness</span></span>
-    <span class="key">action</span>:
-      - <span class="string"><span class="content">service: light.turn_on</span></span>
-<span class="comment"># Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable</span>
-        <span class="key">data_template</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">light.bedroom</span></span>
-          <span class="key">brightness</span>: <span class="string"><span class="content">'{{ trigger.to_state.state | int }}'</span></span>
+<span class="c1"># Automation.     </span>
+<span class="s">automation</span><span class="pi">:</span>    
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Bedroom Light - Adjust Brightness</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_slider.bedroom_brightness</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+<span class="c1"># Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.bedroom</span>
+          <span class="s">brightness</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.to_state.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int</span><span class="nv"> </span><span class="s">}}'</span>
 
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>Another code example using <code>input_slider</code>, this time being used in an action in an automation.</p>
+<p>Another code example using <code class="highlighter-rouge">input_slider</code>, this time being used in an action in an automation.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>
-<span class="comment"># Example configuration.yaml entry using 'input_slider' in an action in an automation</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="c1"># Example configuration.yaml entry using 'input_slider' in an action in an automation</span>
 
-<span class="comment"># Define 'input_select'</span>
-<span class="key">input_select</span>:
-  <span class="key">scene_bedroom</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Scene</span></span>
-    <span class="key">options</span>:
-      - <span class="string"><span class="content">Select</span></span>
-      - <span class="string"><span class="content">Concentrate</span></span>
-      - <span class="string"><span class="content">Energize</span></span>
-      - <span class="string"><span class="content">Reading</span></span>
-      - <span class="string"><span class="content">Relax</span></span>
-      - <span class="string"><span class="content">'OFF'</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">'Select'</span></span>
+<span class="c1"># Define 'input_select'</span>
+<span class="s">input_select</span><span class="pi">:</span>
+  <span class="s">scene_bedroom</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Scene</span>
+    <span class="s">options</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">Select</span>
+      <span class="pi">-</span> <span class="s">Concentrate</span>
+      <span class="pi">-</span> <span class="s">Energize</span>
+      <span class="pi">-</span> <span class="s">Reading</span>
+      <span class="pi">-</span> <span class="s">Relax</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">OFF'</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Select'</span>
     
-<span class="comment"># Define input_slider</span>
-<span class="key">input_slider</span>:
-  <span class="key">bedroom_brightness</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Brightness</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">254</span></span>
-    <span class="key">min</span>: <span class="string"><span class="content">0</span></span>
-    <span class="key">max</span>: <span class="string"><span class="content">254</span></span>
-    <span class="key">step</span>: <span class="string"><span class="content">1</span></span>
+<span class="c1"># Define input_slider</span>
+<span class="s">input_slider</span><span class="pi">:</span>
+  <span class="s">bedroom_brightness</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Brightness</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s">254</span>
+    <span class="s">min</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">max</span><span class="pi">:</span> <span class="s">254</span>
+    <span class="s">step</span><span class="pi">:</span> <span class="s">1</span>
 
-<span class="comment"># Automation.     </span>
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: Bedroom Light - Custom</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">input_select.scene_bedroom</span></span>
-      <span class="key">to</span>: <span class="string"><span class="content">CUSTOM</span></span>
-    <span class="key">action</span>:
-      - <span class="string"><span class="content">service: light.turn_on</span></span>
-<span class="comment"># Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.</span>
-        <span class="key">data_template</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">light.bedroom</span></span>
-          <span class="key">brightness</span>: <span class="string"><span class="content">'{{ states.input_slider.bedroom_brightness.state | int }}'</span></span>
+<span class="c1"># Automation.     </span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Bedroom Light - Custom</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_select.scene_bedroom</span>
+      <span class="s">to</span><span class="pi">:</span> <span class="s">CUSTOM</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+<span class="c1"># Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.bedroom</span>
+          <span class="s">brightness</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.input_slider.bedroom_brightness.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int</span><span class="nv"> </span><span class="s">}}'</span>
 
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 

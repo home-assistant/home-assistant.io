@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>recorder</code> component is storing details in a database which then are handled by the <a href="/components/history/"><code>history</code> component</a>.</p>
+  <p>The <code class="highlighter-rouge">recorder</code> component is storing details in a database which then are handled by the <a href="/components/history/"><code class="highlighter-rouge">history</code> component</a>.</p>
 
 <p>Home Assistant uses <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> as Object Relational Mapper (ORM). This means that you can now use <strong>any</strong> SQL backend for the recorder that is supported by SQLAlchemy, like <a href="https://www.mysql.com/">MySQL</a>, <a href="https://mariadb.org/">MariaDB</a>, or <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
 
-<p>The default database engine is <a href="https://www.sqlite.org/">SQLite</a> which doesn’t require any configuration. The database is stored in your Home Assistant configuration directory (<code>.homeassistant</code>) and called <code>home-assistant.db</code>.</p>
+<p>The default database engine is <a href="https://www.sqlite.org/">SQLite</a> which doesn’t require any configuration. The database is stored in your Home Assistant configuration directory (<code class="highlighter-rouge">.homeassistant</code>) and called <code class="highlighter-rouge">home-assistant.db</code>.</p>
 
-<p>To setup the <code>recorder</code> component in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To setup the <code class="highlighter-rouge">recorder</code> component in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">recorder</span>:
-  <span class="key">purge_days</span>: <span class="string"><span class="content">14</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">recorder</span><span class="pi">:</span>
+  <span class="s">purge_days</span><span class="pi">:</span> <span class="s">14</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -116,29 +114,29 @@
   <thead>
     <tr>
       <th style="text-align: left">Database engine</th>
-      <th style="text-align: left"><code>db_url</code></th>
+      <th style="text-align: left"><code class="highlighter-rouge">db_url</code></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">SQLite</td>
-      <td style="text-align: left"><code>sqlite:///PATH/TO/DB_NAME</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">sqlite:///PATH/TO/DB_NAME</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MySQL</td>
-      <td style="text-align: left"><code>mysql://SERVER_IP/DB_NAME</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">mysql://SERVER_IP/DB_NAME</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MySQL</td>
-      <td style="text-align: left"><code>mysql://user:password@SERVER_IP/DB_NAME</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">mysql://user:password@SERVER_IP/DB_NAME</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PostgreSQL</td>
-      <td style="text-align: left"><code>postgresql://SERVER_IP/DB_NAME</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">postgresql://SERVER_IP/DB_NAME</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PostgreSQL</td>
-      <td style="text-align: left"><code>postgresql://scott:tiger@SERVER_IP/DB_NAME</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">postgresql://scott:tiger@SERVER_IP/DB_NAME</code></td>
     </tr>
   </tbody>
 </table>
@@ -151,11 +149,9 @@
 
 <p>For MySQL you may have to install a few dependencies:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo apt-get install libmysqlclient-dev
-$ pip3 install mysqlclient
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libmysqlclient-dev
+<span class="gp">$ </span>pip3 install mysqlclient
+</code></pre>
 </div>
 
 

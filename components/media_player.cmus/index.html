@@ -89,34 +89,32 @@
   <hr class="divider">
   
 
-  <p>The <code>cmus</code> platform allows you to control a <a href="https://cmus.github.io/">cmus</a> music player on a remote or local machine from Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">cmus</code> platform allows you to control a <a href="https://cmus.github.io/">cmus</a> music player on a remote or local machine from Home Assistant.</p>
 
-<p>To add cmus to your installation, add the following to your <code>configuration.yaml</code> file if cmus is running on a remote server:</p>
+<p>To add cmus to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file if cmus is running on a remote server:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">cmus</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">3000</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Desktop Computer Music Player</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">cmus</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">3000</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Desktop Computer Music Player</span>
+</code></pre>
 </div>
 
-<p>if running locally it will look like:<br />
-<code>yaml
-# Example configuration.yaml entry
-media_player:
-  platform: cmus
-  name: Local Music Player
-</code></p>
+<p>if running locally it will look like:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">cmus</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Local Music Player</span>
+</code></pre>
+</div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> Hostname or IP address of the machine running cmus. Note if a remote<br />
+  <li><strong>host</strong> Hostname or IP address of the machine running cmus. Note if a remote
 cmus is configured that instance must be configured to listen to remote connections, which also requires a password to be set.</li>
   <li><strong>password</strong> (<em>Required if host is set</em>): Password for your cmus player.</li>
   <li><strong>port</strong> (<em>Optional</em>): Port of the cmus socket, defaults to 3000.</li>

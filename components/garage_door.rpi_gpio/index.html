@@ -89,29 +89,29 @@
   <hr class="divider">
   
 
-  <p>The <code>rpi_gpio</code> garage door platform allows you to use a Raspberry Pi to control your Garage door.</p>
+  <p>The <code class="highlighter-rouge">rpi_gpio</code> garage door platform allows you to use a Raspberry Pi to control your Garage door.</p>
 
-<p>It uses two pins on the Raspberry Pi. <br />
-- The <code>state_pin</code> will detect if the door is closed, and<br />
-- the <code>relay_pin</code> will trigger the door to open or close.</p>
+<p>It uses two pins on the Raspberry Pi.</p>
+<ul>
+  <li>The <code class="highlighter-rouge">state_pin</code> will detect if the door is closed, and</li>
+  <li>the <code class="highlighter-rouge">relay_pin</code> will trigger the door to open or close.</li>
+</ul>
 
 <p>Although you do not need Andrews Hilliday’s software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door &amp; sensors up to your Raspberry Pi, which can be found <a href="https://github.com/andrewshilliday/garage-door-controller#hardware-setup">here</a>.</p>
 
-<p>To enable Raspberry Pi Garage doors in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable Raspberry Pi Garage doors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">garage_door</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rpi_gpio</span></span>
-  <span class="key">doors</span>:
-    - <span class="string"><span class="content">relay_pin: 10</span></span>
-      <span class="key">state_pin</span>: <span class="string"><span class="content">11</span></span>
-      <span class="key">name</span>: <span class="string"><span class="content">'Left door'</span></span>
-    - <span class="string"><span class="content">relay_pin: 12</span></span>
-      <span class="key">state_pin</span>: <span class="string"><span class="content">13</span></span>
-      <span class="key">name</span>: <span class="string"><span class="content">'Right door'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">garage_door</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_gpio</span>
+  <span class="s">doors</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">10</span>
+      <span class="s">state_pin</span><span class="pi">:</span> <span class="s">11</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Left</span><span class="nv"> </span><span class="s">door'</span>
+    <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">12</span>
+      <span class="s">state_pin</span><span class="pi">:</span> <span class="s">13</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Right</span><span class="nv"> </span><span class="s">door'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

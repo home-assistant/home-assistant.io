@@ -91,17 +91,15 @@
 
   <p>Philips Hue support is integrated into Home Assistant as a light platform. The preferred way to setup the Philips Hue platform is by enabling the <a href="/components/discovery/">the discovery component</a>.</p>
 
-<p>If you want to enable the light component directly, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>If you want to enable the light component directly, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">hue</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">DEVICE_IP_ADDRESS</span></span>
-  <span class="key">allow_unreachable</span>: <span class="string"><span class="content">true</span></span>
-  <span class="key">filename</span>: <span class="string"><span class="content">my_hue_hub_token.conf</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hue</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">DEVICE_IP_ADDRESS</span>
+  <span class="s">allow_unreachable</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">filename</span><span class="pi">:</span> <span class="s">my_hue_hub_token.conf</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

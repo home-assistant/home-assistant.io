@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>local_file</code> camera platform allows you to integrate any readable image file from disk into Home Assistant as a camera. If the image is updated on the file system the image displayed in Home Assistant will also be updated.</p>
+  <p>The <code class="highlighter-rouge">local_file</code> camera platform allows you to integrate any readable image file from disk into Home Assistant as a camera. If the image is updated on the file system the image displayed in Home Assistant will also be updated.</p>
 
 <p>This can for example be used with various camera platforms that save a temporary images locally. It can also be used to display a graph that you render periodically and will then be displayed in Home Assistant.</p>
 
-<p>To enable this camera in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">camera</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">local_file</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Local File</span></span>
-  <span class="key">file_path</span>: <span class="string"><span class="content">/tmp/image.jpg</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">local_file</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Local File</span>
+  <span class="s">file_path</span><span class="pi">:</span> <span class="s">/tmp/image.jpg</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -113,7 +111,7 @@
 </ul>
 
 <p class="note">
-The given <code>file_path</code> must be an existing file because the camera platform setup make a readable check on it.
+The given <code class="highlighter-rouge">file_path</code> must be an existing file because the camera platform setup make a readable check on it.
 </p>
 
 

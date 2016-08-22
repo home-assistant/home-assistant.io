@@ -89,24 +89,22 @@
   <hr class="divider">
   
 
-  <p>The <code>pioneer</code> platform allows you to control Pioneer Network Receivers.</p>
+  <p>The <code class="highlighter-rouge">pioneer</code> platform allows you to control Pioneer Network Receivers.</p>
 
-<p>To add a Pioneer receiver to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add a Pioneer receiver to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">pioneer</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.0.10</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Living receiver</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">pioneer</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Living receiver</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP of the Pioneer device,  eg. <code>192.168.0.10</code></li>
+  <li><strong>host</strong> (<em>Required</em>): The IP of the Pioneer device,  eg. <code class="highlighter-rouge">192.168.0.10</code></li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the receiver.</li>
 </ul>
 

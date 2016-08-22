@@ -89,24 +89,22 @@
   <hr class="divider">
   
 
-  <p>The <code>command_line</code> platform allows you to use external tools for notifications from Home Assistant. The message will be passed in as STDIN.</p>
+  <p>The <code class="highlighter-rouge">command_line</code> platform allows you to use external tools for notifications from Home Assistant. The message will be passed in as STDIN.</p>
 
-<p>To enable those notifications in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable those notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">platform</span>: <span class="string"><span class="content">command_line</span></span>
-  <span class="key">command</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">espeak -vmb/mb-us1</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+  <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">espeak</span><span class="nv"> </span><span class="s">-vmb/mb-us1"</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>command</strong> (<em>Required</em>): The action to take.</li>
 </ul>
 

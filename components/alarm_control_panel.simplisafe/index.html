@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>simplisafe</code> platform enables the ability to control a SimpliSafe control panel. <a href="http://simplisafe.com/">simplisafe.com</a>.</p>
+  <p>The <code class="highlighter-rouge">simplisafe</code> platform enables the ability to control a SimpliSafe control panel. <a href="http://simplisafe.com/">simplisafe.com</a>.</p>
 
-<p>To enable this, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">alarm_control_panel</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">simplisafe</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HA Alarm</span><span class="delimiter">&quot;</span></span>
-  <span class="key">code</span>: <span class="string"><span class="content">PASSCODE</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alarm_control_panel</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">simplisafe</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">HA</span><span class="nv"> </span><span class="s">Alarm"</span>
+  <span class="s">code</span><span class="pi">:</span> <span class="s">PASSCODE</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

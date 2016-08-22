@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>webostv</code> platform allows you to send notifications to a LG WebOS Smart TV.</p>
+  <p>The <code class="highlighter-rouge">webostv</code> platform allows you to send notifications to a LG WebOS Smart TV.</p>
 
 <p>When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.</p>
 
-<p>To add a TV to your installation, add the following to your <code>configuration.yaml</code> file and follow the configurator instructions:</p>
+<p>To add a TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file and follow the configurator instructions:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">webostv</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.0.112</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">livingroom_tv</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.112</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">livingroom_tv</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -114,20 +112,18 @@
 
 <p>A possible automation could be:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: Open a window</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">numeric_state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.netatmo_livingroom_co2</span></span>
-      <span class="key">above</span>: <span class="string"><span class="content">999</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">notify.livingroom_tv</span></span>
-      <span class="key">data</span>:
-        <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">You should open a window! (Livingroom Co2: ppm)</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Open a window</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.netatmo_livingroom_co2</span>
+      <span class="s">above</span><span class="pi">:</span> <span class="s">999</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.livingroom_tv</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">You</span><span class="nv"> </span><span class="s">should</span><span class="nv"> </span><span class="s">open</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">window!</span><span class="nv"> </span><span class="s">(Livingroom</span><span class="nv"> </span><span class="s">Co2:</span><span class="nv"> </span><span class="s">ppm)"</span>
+</code></pre>
 </div>
 
 

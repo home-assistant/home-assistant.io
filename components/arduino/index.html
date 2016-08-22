@@ -93,35 +93,31 @@
 
 <p>There are a lot of extensions (so called <a href="https://www.arduino.cc/en/Main/ArduinoShields">shields</a>) available. Those shields can be plugged-in into the existing connectors and stacked on top of each other. This makes it possible to expand the capabilities of the Arduino boards.</p>
 
-<p>The <code>arduino</code> component is designed to let you use a directly attached board to your Home Assistant host over USB.</p>
+<p>The <code class="highlighter-rouge">arduino</code> component is designed to let you use a directly attached board to your Home Assistant host over USB.</p>
 
-<p>You need to have the <a href="https://github.com/firmata/">Firmata firmware</a> on your board. Please upload the <code>StandardFirmata</code> sketch to your board, please refer to the <a href="https://www.arduino.cc/en/Main/Howto">Arduino documentation</a> for further information.</p>
+<p>You need to have the <a href="https://github.com/firmata/">Firmata firmware</a> on your board. Please upload the <code class="highlighter-rouge">StandardFirmata</code> sketch to your board, please refer to the <a href="https://www.arduino.cc/en/Main/Howto">Arduino documentation</a> for further information.</p>
 
-<p>To integrate an Arduino boards with Home Assistant, add the following section to your <code>configuration.yaml</code> file:</p>
+<p>To integrate an Arduino boards with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">arduino</span>:
-  <span class="key">port</span>: <span class="string"><span class="content">/dev/ttyACM0</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">arduino</span><span class="pi">:</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">/dev/ttyACM0</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>port</strong> (<em>Required</em>): The port where your board is connected to your Home Assistant host. If you are using an original Arduino the port will be named <code>ttyACM*</code> otherwise <code>ttyUSB*</code>.</li>
+  <li><strong>port</strong> (<em>Required</em>): The port where your board is connected to your Home Assistant host. If you are using an original Arduino the port will be named <code class="highlighter-rouge">ttyACM*</code> otherwise <code class="highlighter-rouge">ttyUSB*</code>.</li>
 </ul>
 
 <p>The exact number can be determined with the command shown below.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ls /dev/ttyACM*
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyACM<span class="k">*</span>
+</code></pre>
 </div>
 
-<p>If that’s not working, check your <code>dmesg</code> or <code>journalctl -f</code> output. Keep in mind that Arduino clones are often using a different name for the port (eg. <code>/dev/ttyUSB*</code>).</p>
+<p>If that’s not working, check your <code class="highlighter-rouge">dmesg</code> or <code class="highlighter-rouge">journalctl -f</code> output. Keep in mind that Arduino clones are often using a different name for the port (eg. <code class="highlighter-rouge">/dev/ttyUSB*</code>).</p>
 
 <p class="note warning">
 A word of caution: The Arduino boards are not storing states. This means that with every initialization the pins are set to off/low.

@@ -95,29 +95,27 @@
 
 <h2><a class="title-link" name="component" href="#component"></a> Component</h2>
 
-<p>To get started, create the file <code>&lt;config dir&gt;/custom_components/hello_state.py</code> and copy the below example code.</p>
+<p>To get started, create the file <code class="highlighter-rouge">&lt;config dir&gt;/custom_components/hello_state.py</code> and copy the below example code.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">
-</span><span class="content">Support for showing text in the frontend.</span><span class="content">
-</span><span class="content">
-</span><span class="content">For more details about this component, please refer to the documentation at</span><span class="content">
-</span><span class="content">https://home-assistant.io/components/hello_state/</span><span class="content">
-</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-<span class="keyword">import</span> <span class="include">logging</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="s">"""
+Support for showing text in the frontend.
 
-_LOGGER = logging.getLogger(__name__)
+For more details about this component, please refer to the documentation at
+https://home-assistant.io/components/hello_state/
+"""</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 
-DOMAIN = <span class="string"><span class="delimiter">'</span><span class="content">hello_state</span><span class="delimiter">'</span></span>
-DEPENDENCIES = []
+<span class="n">_LOGGER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config=<span class="predefined-constant">None</span>):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Setup the Hello State component. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-    _LOGGER.info(<span class="string"><span class="delimiter">&quot;</span><span class="content">The 'hello state' component is ready!</span><span class="delimiter">&quot;</span></span>)
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">'hello_state'</span>
+<span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="keyword">return</span> <span class="predefined-constant">True</span>
-</pre></div>
-</div>
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s">"""Setup the Hello State component. """</span>
+    <span class="n">_LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"The 'hello state' component is ready!"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="bp">True</span>
+</code></pre>
 </div>
 
 <ol>
@@ -126,100 +124,88 @@ DEPENDENCIES = []
   <li>The component name is equal to the domain name.</li>
   <li>At the moment this component has no dependencies. For detail check <a href="/developers/creating_components/#dependencies">dependencies</a> section.</li>
   <li>
-    <p>The <code>setup</code> function will take care of the initialization of our component.<br />
+    <p>The <code class="highlighter-rouge">setup</code> function will take care of the initialization of our component.
 The component will only write a log message. Keep in mind for later that you have several options for the severity:</p>
 
     <ul>
-      <li><code>_LOGGER.info(msg)</code></li>
-      <li><code>_LOGGER.warning(msg)</code></li>
-      <li><code>_LOGGER.error(msg)</code></li>
-      <li><code>_LOGGER.critical(msg)</code></li>
-      <li><code>_LOGGER.exception(msg)</code></li>
+      <li><code class="highlighter-rouge">_LOGGER.info(msg)</code></li>
+      <li><code class="highlighter-rouge">_LOGGER.warning(msg)</code></li>
+      <li><code class="highlighter-rouge">_LOGGER.error(msg)</code></li>
+      <li><code class="highlighter-rouge">_LOGGER.critical(msg)</code></li>
+      <li><code class="highlighter-rouge">_LOGGER.exception(msg)</code></li>
     </ul>
   </li>
-  <li>We return <code>True</code> if everything is ok.</li>
+  <li>We return <code class="highlighter-rouge">True</code> if everything is ok.</li>
 </ol>
 
-<p>Add the component to your <code>configuration.yaml</code> file.</p>
+<p>Add the component to your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">hello_state</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hello_state</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <p>After a start or a restart of Home Assistant the component will create an entry in the log.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>16-03-12 14:16:42 INFO (MainThread) [custom_components.hello_state] The 'hello state' component is ready!
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>16-03-12 14:16:42 INFO <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>custom_components.hello_state] The <span class="s1">'hello state'</span> component is ready!
+</code></pre>
 </div>
 
-<p>The next step is the introduction of configuration options. Most configuration details are coming out of the <code>configuration.yaml</code> file. To do that we need to update the <code>def setup()</code> method to accept configuration information and access the configuration variable in the <code>setup</code> method.</p>
+<p>The next step is the introduction of configuration options. Most configuration details are coming out of the <code class="highlighter-rouge">configuration.yaml</code> file. To do that we need to update the <code class="highlighter-rouge">def setup()</code> method to accept configuration information and access the configuration variable in the <code class="highlighter-rouge">setup</code> method.</p>
 
 <p>More details about this topic can be found in the <a href="/developers/creating_components/#config-user-given-configuration">User given configuration</a> section.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">logging</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">logging</span>
 
-_LOGGER = logging.getLogger(__name__)
+<span class="n">_LOGGER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
-DOMAIN = <span class="string"><span class="delimiter">'</span><span class="content">hello_state</span><span class="delimiter">'</span></span>
-DEPENDENCIES = []
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">'hello_state'</span>
+<span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[]</span>
 
-CONF_TEXT = <span class="string"><span class="delimiter">'</span><span class="content">text</span><span class="delimiter">'</span></span>
-DEFAULT_TEXT = <span class="string"><span class="delimiter">'</span><span class="content">No text!</span><span class="delimiter">'</span></span>
+<span class="n">CONF_TEXT</span> <span class="o">=</span> <span class="s">'text'</span>
+<span class="n">DEFAULT_TEXT</span> <span class="o">=</span> <span class="s">'No text!'</span>
 
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Setup the Hello State component. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-    <span class="comment"># Get the text from the configuration. Use DEFAULT_TEXT if no name is provided.</span>
-    text = config[DOMAIN].get(CONF_TEXT, DEFAULT_TEXT)
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="s">"""Setup the Hello State component. """</span>
+    <span class="c"># Get the text from the configuration. Use DEFAULT_TEXT if no name is provided.</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">DOMAIN</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CONF_TEXT</span><span class="p">,</span> <span class="n">DEFAULT_TEXT</span><span class="p">)</span>
 
-    <span class="comment"># States are in the format DOMAIN.OBJECT_ID</span>
-    hass.states.set(<span class="string"><span class="delimiter">'</span><span class="content">hello_state.Hello_State</span><span class="delimiter">'</span></span>, text)
+    <span class="c"># States are in the format DOMAIN.OBJECT_ID</span>
+    <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="s">'hello_state.Hello_State'</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
-    <span class="keyword">return</span> <span class="predefined-constant">True</span>
-</pre></div>
-</div>
+    <span class="k">return</span> <span class="bp">True</span>
+</code></pre>
 </div>
 
-<p>To add the latest feature of our component, update the entry in your <code>configuration.yaml</code> file.</p>
+<p>To add the latest feature of our component, update the entry in your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">hello_state</span>:
-  <span class="key">text</span>: <span class="string"><span class="content">'Hello, World!'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hello_state</span><span class="pi">:</span>
+  <span class="s">text</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Hello,</span><span class="nv"> </span><span class="s">World!'</span>
+</code></pre>
 </div>
 
-<p>Thanks to <code>DEFAULT_TEXT</code> variable the component will launch even if no <code>text:</code> field is used in the <code>configuration.yaml</code> file. Quite often there are variables which are required. It’s important to check if all mandatory configuration variables are provided. If not, the setup should fail. We will use the <code>validate_config</code> function as a helper to achive this. The next listing shows the essential parts.</p>
+<p>Thanks to <code class="highlighter-rouge">DEFAULT_TEXT</code> variable the component will launch even if no <code class="highlighter-rouge">text:</code> field is used in the <code class="highlighter-rouge">configuration.yaml</code> file. Quite often there are variables which are required. It’s important to check if all mandatory configuration variables are provided. If not, the setup should fail. We will use the <code class="highlighter-rouge">validate_config</code> function as a helper to achive this. The next listing shows the essential parts.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">homeassistant.helpers</span> <span class="keyword">import</span> <span class="include">validate_config</span>
-[...]
-    <span class="keyword">if</span> <span class="keyword">not</span> validate_config(config, {DOMAIN: [CONF_TEXT]}, _LOGGER):
-        <span class="keyword">return</span> <span class="predefined-constant">False</span>
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.helpers</span> <span class="kn">import</span> <span class="n">validate_config</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="p">{</span><span class="n">DOMAIN</span><span class="p">:</span> <span class="p">[</span><span class="n">CONF_TEXT</span><span class="p">]},</span> <span class="n">_LOGGER</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</code></pre>
 </div>
 
-<p>If <code>text:</code> is missing, there will be a warning in the log file.</p>
+<p>If <code class="highlighter-rouge">text:</code> is missing, there will be a warning in the log file.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>16-03-12 14:37:37 ERROR (MainThread) [custom_components.hello_state] Missing required configuration items in hello_state: text
-16-03-12 14:37:37 ERROR (MainThread) [homeassistant.bootstrap] component hello_state failed to initialize
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>16-03-12 14:37:37 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>custom_components.hello_state] Missing required configuration items <span class="k">in </span>hello_state: text
+16-03-12 14:37:37 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>homeassistant.bootstrap] component hello_state failed to initialize
+</code></pre>
 </div>
 
-<p>After a start or a restart of Home Assistant the component will be visible in the frontend if the <code>configuration.yaml</code> file is up-to-date.</p>
+<p>After a start or a restart of Home Assistant the component will be visible in the frontend if the <code class="highlighter-rouge">configuration.yaml</code> file is up-to-date.</p>
 
 <p class="img">
 <img src="/images/screenshots/create-component01.png" />
 </p>
 
-<p>To get your component included in the Home Assistant releases, follow the steps described in the <a href="https://home-assistant.io/developers/#submitting-improvements">Submitting improvements</a> section. Basically you only need to move your component in the <code>homeassistant/component/</code> directory of your fork and create a Pull Request.</p>
+<p>To get your component included in the Home Assistant releases, follow the steps described in the <a href="https://home-assistant.io/developers/#submitting-improvements">Submitting improvements</a> section. Basically you only need to move your component in the <code class="highlighter-rouge">homeassistant/component/</code> directory of your fork and create a Pull Request.</p>
 
 
 

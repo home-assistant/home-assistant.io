@@ -89,25 +89,23 @@
   <hr class="divider">
   
 
-  <p>The <code>bloomsky</code> sensor component allows you to view the measurements made by sensors in the <a href="https://www.bloomsky.com">BloomSky</a> weather station. This can work in concert with the <a href="/components/camera.bloomsky">BloomSky camera</a>.</p>
+  <p>The <code class="highlighter-rouge">bloomsky</code> sensor component allows you to view the measurements made by sensors in the <a href="https://www.bloomsky.com">BloomSky</a> weather station. This can work in concert with the <a href="/components/camera.bloomsky">BloomSky camera</a>.</p>
 
-<p>To enable these sensors in your installation, set up the <a href="/components/bloomsky">BloomSky component</a> with your API key add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable these sensors in your installation, set up the <a href="/components/bloomsky">BloomSky component</a> with your API key add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">bloomsky</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">Temperature</span></span>
-    - <span class="string"><span class="content">Humidity</span></span>
-    - <span class="string"><span class="content">Rain</span></span>
-    - <span class="string"><span class="content">Pressure</span></span>
-    - <span class="string"><span class="content">UVIndex</span></span>
-    - <span class="string"><span class="content">Luminance</span></span>
-    - <span class="string"><span class="content">Night</span></span>
-    - <span class="string"><span class="content">Voltage</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">bloomsky</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">Temperature</span>
+    <span class="pi">-</span> <span class="s">Humidity</span>
+    <span class="pi">-</span> <span class="s">Rain</span>
+    <span class="pi">-</span> <span class="s">Pressure</span>
+    <span class="pi">-</span> <span class="s">UVIndex</span>
+    <span class="pi">-</span> <span class="s">Luminance</span>
+    <span class="pi">-</span> <span class="s">Night</span>
+    <span class="pi">-</span> <span class="s">Voltage</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

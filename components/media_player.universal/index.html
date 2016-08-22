@@ -93,37 +93,35 @@
 
 <p>Multiple Media Player entities can be controlled from a Universal Media Player. Additionally, the Universal Media Player allows volume and power commands to be re-routed to other entities in Home Assistant. This allows the power and volume to control external devices like a television or audio receiver.</p>
 
-<p>A Universal Media Player is created in <code>configuration.yaml</code> as follows.</p>
+<p>A Universal Media Player is created in <code class="highlighter-rouge">configuration.yaml</code> as follows.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">universal</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">MEDIA_PLAYER_NAME</span></span>
-  <span class="key">children</span>:
-    - <span class="string"><span class="content">media_player.CHILD_1_ID</span></span>
-    - <span class="string"><span class="content">media_player.CHILD_2_ID</span></span>
-  <span class="key">commands</span>:
-    <span class="key">turn_on</span>:
-       <span class="key">service</span>: <span class="string"><span class="content">SERVICE</span></span>
-       <span class="key">data</span>: <span class="string"><span class="content">SERVICE_DATA</span></span>
-    <span class="key">turn_off</span>:
-       <span class="key">service</span>: <span class="string"><span class="content">SERVICE</span></span>
-       <span class="key">data</span>: <span class="string"><span class="content">SERVICE_DATA</span></span>
-    <span class="key">volume_up</span>:
-       <span class="key">service</span>: <span class="string"><span class="content">SERVICE</span></span>
-       <span class="key">data</span>: <span class="string"><span class="content">SERVICE_DATA</span></span>
-    <span class="key">volume_down</span>:
-       <span class="key">service</span>: <span class="string"><span class="content">SERVICE</span></span>
-       <span class="key">data</span>: <span class="string"><span class="content">SERVICE_DATA</span></span>
-    <span class="key">volume_mute</span>:
-       <span class="key">service</span>: <span class="string"><span class="content">SERVICE</span></span>
-       <span class="key">data</span>: <span class="string"><span class="content">SERVICE_DATA</span></span>
-  <span class="key">attributes</span>:
-    <span class="key">is_volume_muted</span>: <span class="string"><span class="content">ENTITY_ID|ATTRIBUTE</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">ENTITY_ID|ATTRIBUTE</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">universal</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">MEDIA_PLAYER_NAME</span>
+  <span class="s">children</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">media_player.CHILD_1_ID</span>
+    <span class="pi">-</span> <span class="s">media_player.CHILD_2_ID</span>
+  <span class="s">commands</span><span class="pi">:</span>
+    <span class="s">turn_on</span><span class="pi">:</span>
+       <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+       <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+    <span class="s">turn_off</span><span class="pi">:</span>
+       <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+       <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+    <span class="s">volume_up</span><span class="pi">:</span>
+       <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+       <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+    <span class="s">volume_down</span><span class="pi">:</span>
+       <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+       <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+    <span class="s">volume_mute</span><span class="pi">:</span>
+       <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+       <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+  <span class="s">attributes</span><span class="pi">:</span>
+    <span class="s">is_volume_muted</span><span class="pi">:</span> <span class="s">ENTITY_ID|ATTRIBUTE</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s">ENTITY_ID|ATTRIBUTE</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -143,39 +141,37 @@
 
 <p>Below is an example configuration.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">universal</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Test Universal</span></span>
-  <span class="key">children</span>:
-    - <span class="string"><span class="content">media_player.living_room_cast</span></span>
-    - <span class="string"><span class="content">media_player.living_room_kodi</span></span>
-  <span class="key">commands</span>:
-    <span class="key">turn_on</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-      <span class="key">data</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.living_room_tv</span></span>
-    <span class="key">turn_off</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">switch.turn_off</span></span>
-      <span class="key">data</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.living_room_tv</span></span>
-    <span class="key">volume_up</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-      <span class="key">data</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.living_room_volume_up</span></span>
-    <span class="key">volume_down</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-      <span class="key">data</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.living_room_volume_down</span></span>
-    <span class="key">volume_mute</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-      <span class="key">data</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.living_room_mute</span></span>
-  <span class="key">attributes</span>:
-    <span class="key">state</span>: <span class="string"><span class="content">switch.living_room_tv</span></span>
-    <span class="key">is_volume_muted</span>: <span class="string"><span class="content">switch.living_room_mute</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">universal</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Test Universal</span>
+  <span class="s">children</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">media_player.living_room_cast</span>
+    <span class="pi">-</span> <span class="s">media_player.living_room_kodi</span>
+  <span class="s">commands</span><span class="pi">:</span>
+    <span class="s">turn_on</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_tv</span>
+    <span class="s">turn_off</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_off</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_tv</span>
+    <span class="s">volume_up</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_volume_up</span>
+    <span class="s">volume_down</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_volume_down</span>
+    <span class="s">volume_mute</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_mute</span>
+  <span class="s">attributes</span><span class="pi">:</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s">switch.living_room_tv</span>
+    <span class="s">is_volume_muted</span><span class="pi">:</span> <span class="s">switch.living_room_mute</span>
+</code></pre>
 </div>
 
 <p>In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The <em>turn_on</em> and <em>turn_off</em> commands will be redirected to the television and the volume commands will be redirected to an audio receiver.</p>

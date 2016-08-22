@@ -93,73 +93,67 @@
 This example requires you to have the <a href="/components/mqtt/">MQTT component</a> up and running.
 </p>
 
-<p>This is a simple hello world example to show the basics of using MQTT in a custom component. To use this example, create the file <code>&lt;config dir&gt;/custom_components/hello_mqtt.py</code> and copy the below example code.</p>
+<p>This is a simple hello world example to show the basics of using MQTT in a custom component. To use this example, create the file <code class="highlighter-rouge">&lt;config dir&gt;/custom_components/hello_mqtt.py</code> and copy the below example code.</p>
 
 <p>This example follows a topic on MQTT and updates the state of an entity to the last message received on that topic. It will also register a service ‘set_state’ that will publish a message to the MQTT topic that we’re listening to.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">homeassistant.loader</span> <span class="keyword">as</span> loader
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.loader</span> <span class="kn">as</span> <span class="nn">loader</span>
 
-<span class="comment"># The domain of your component. Should be equal to the name of your component.</span>
-DOMAIN = <span class="string"><span class="delimiter">&quot;</span><span class="content">hello_mqtt</span><span class="delimiter">&quot;</span></span>
+<span class="c"># The domain of your component. Should be equal to the name of your component.</span>
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">"hello_mqtt"</span>
 
-<span class="comment"># List of component names (string) your component depends upon.</span>
-DEPENDENCIES = [<span class="string"><span class="delimiter">'</span><span class="content">mqtt</span><span class="delimiter">'</span></span>]
-
-
-CONF_TOPIC = <span class="string"><span class="delimiter">'</span><span class="content">topic</span><span class="delimiter">'</span></span>
-DEFAULT_TOPIC = <span class="string"><span class="delimiter">'</span><span class="content">home-assistant/hello_mqtt</span><span class="delimiter">'</span></span>
+<span class="c"># List of component names (string) your component depends upon.</span>
+<span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s">'mqtt'</span><span class="p">]</span>
 
 
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Setup the Hello MQTT component.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-    mqtt = loader.get_component(<span class="string"><span class="delimiter">'</span><span class="content">mqtt</span><span class="delimiter">'</span></span>)
-    topic = config[DOMAIN].get(<span class="string"><span class="delimiter">'</span><span class="content">topic</span><span class="delimiter">'</span></span>, DEFAULT_TOPIC)
-    entity_id = <span class="string"><span class="delimiter">'</span><span class="content">hello_mqtt.last_message</span><span class="delimiter">'</span></span>
+<span class="n">CONF_TOPIC</span> <span class="o">=</span> <span class="s">'topic'</span>
+<span class="n">DEFAULT_TOPIC</span> <span class="o">=</span> <span class="s">'home-assistant/hello_mqtt'</span>
 
-    <span class="comment"># Listener to be called when we receive a message.</span>
-    <span class="keyword">def</span> <span class="function">message_received</span>(topic, payload, qos):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">A new MQTT message has been received.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        hass.states.set(entity_id, payload)
 
-    <span class="comment"># Subscribe our listener to a topic.</span>
-    mqtt.subscribe(hass, topic, message_received)
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="s">"""Setup the Hello MQTT component."""</span>
+    <span class="n">mqtt</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="s">'mqtt'</span><span class="p">)</span>
+    <span class="n">topic</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">DOMAIN</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'topic'</span><span class="p">,</span> <span class="n">DEFAULT_TOPIC</span><span class="p">)</span>
+    <span class="n">entity_id</span> <span class="o">=</span> <span class="s">'hello_mqtt.last_message'</span>
 
-    <span class="comment"># Set the intial state</span>
-    hass.states.set(entity_id, <span class="string"><span class="delimiter">'</span><span class="content">No messages</span><span class="delimiter">'</span></span>)
+    <span class="c"># Listener to be called when we receive a message.</span>
+    <span class="k">def</span> <span class="nf">message_received</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">qos</span><span class="p">):</span>
+        <span class="s">"""A new MQTT message has been received."""</span>
+        <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">entity_id</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
 
-    <span class="comment"># Service to publish a message on MQTT.</span>
-    <span class="keyword">def</span> <span class="function">set_state_service</span>(call):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Service to send a message.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        mqtt.publish(hass, topic, call.data.get(<span class="string"><span class="delimiter">'</span><span class="content">new_state</span><span class="delimiter">'</span></span>))
+    <span class="c"># Subscribe our listener to a topic.</span>
+    <span class="n">mqtt</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">message_received</span><span class="p">)</span>
 
-    <span class="comment"># Register our service with Home Assistant.</span>
-    hass.services.register(DOMAIN, <span class="string"><span class="delimiter">'</span><span class="content">set_state</span><span class="delimiter">'</span></span>, set_state_service)
+    <span class="c"># Set the intial state</span>
+    <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">entity_id</span><span class="p">,</span> <span class="s">'No messages'</span><span class="p">)</span>
 
-    <span class="comment"># Return boolean to indicate that initialization was successfully.</span>
-    <span class="keyword">return</span> <span class="predefined-constant">True</span>
-</pre></div>
-</div>
+    <span class="c"># Service to publish a message on MQTT.</span>
+    <span class="k">def</span> <span class="nf">set_state_service</span><span class="p">(</span><span class="n">call</span><span class="p">):</span>
+        <span class="s">"""Service to send a message."""</span>
+        <span class="n">mqtt</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">call</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'new_state'</span><span class="p">))</span>
+
+    <span class="c"># Register our service with Home Assistant.</span>
+    <span class="n">hass</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">DOMAIN</span><span class="p">,</span> <span class="s">'set_state'</span><span class="p">,</span> <span class="n">set_state_service</span><span class="p">)</span>
+
+    <span class="c"># Return boolean to indicate that initialization was successfully.</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</code></pre>
 </div>
 
-<p>Load the component by adding the following to your <code>configuration.yaml</code>. When your component is loaded, a new entity should popup and there should be a new service available to call.</p>
+<p>Load the component by adding the following to your <code class="highlighter-rouge">configuration.yaml</code>. When your component is loaded, a new entity should popup and there should be a new service available to call.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># configuration.yaml entry</span>
-<span class="key">hello_mqtt</span>:
-  <span class="key">topic</span>: <span class="string"><span class="content">some_mqtt/topic/here</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># configuration.yaml entry</span>
+<span class="s">hello_mqtt</span><span class="pi">:</span>
+  <span class="s">topic</span><span class="pi">:</span> <span class="s">some_mqtt/topic/here</span>
+</code></pre>
 </div>
 
 <p>You can call the service with example payload:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">new_state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">some new state</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"new_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some new state"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 

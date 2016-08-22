@@ -91,37 +91,37 @@
 
   <p>In Home Assistant 0.19 we introduced a new powerful feature: variables in scripts and automations. This makes it possible to adjust your condition and action based on the information of the trigger.</p>
 
-<p>The trigger data made is available during template rendering as the <code>trigger</code> variable.</p>
+<p>The trigger data made is available during template rendering as the <code class="highlighter-rouge">trigger</code> variable.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entries</span>
-<span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
-    <span class="key">data_template</span>:
-      <span class="key">message</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-        Paulus just changed from {{ trigger.from_state.state }}
-        to {{ trigger.to_state.state }}</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entries</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">Paulus just changed from {{ trigger.from_state.state }}</span>
+        <span class="no">to {{ trigger.to_state.state }}</span>
 
-<span class="key">automation 2</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-    <span class="key">topic</span>: <span class="string"><span class="content">/notify/+</span></span>
-  <span class="key">action</span>:
-    <span class="key">service_template</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-      notify.{{ trigger.topic.split('/')[-1] }}</span></span>
-    <span class="key">data_template</span>:
-      <span class="key">message</span>: <span class="string"><span class="content">{{ trigger.payload }}</span></span>
-</pre></div>
-</div>
+<span class="s">automation 2</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">topic</span><span class="pi">:</span> <span class="s">/notify/+</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+      <span class="no">notify.{{ trigger.topic.split('/')[-1] }}</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">trigger.payload</span> <span class="pi">}}</span>
+</code></pre>
 </div>
 
-<h3><a class="title-link" name="available-trigger-data" href="#available-trigger-data"></a> Available Trigger Data</h3>
+<h2><a class="title-link" name="available-trigger-data" href="#available-trigger-data"></a> Available Trigger Data</h2>
 
 <p>The following tables show the available trigger data per platform.</p>
+
+<h3><a class="title-link" name="event" href="#event"></a> event</h3>
 
 <table>
   <thead>
@@ -132,16 +132,18 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>trigger.platform</code></td>
-      <td>Hardcoded: <code>event</code>.</td>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">event</code>.</td>
     </tr>
     <tr>
-      <td><code>trigger.event</code></td>
+      <td><code class="highlighter-rouge">trigger.event</code></td>
       <td>Event object that matched.</td>
     </tr>
   </tbody>
 </table>
 
+<h3><a class="title-link" name="mqtt" href="#mqtt"></a> mqtt</h3>
+
 <table>
   <thead>
     <tr>
@@ -151,58 +153,25 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>trigger.platform</code></td>
-      <td>Hardcoded: <code>mqtt</code>.</td>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">mqtt</code>.</td>
     </tr>
     <tr>
-      <td><code>trigger.topic</code></td>
+      <td><code class="highlighter-rouge">trigger.topic</code></td>
       <td>Topic that received payload.</td>
     </tr>
     <tr>
-      <td><code>trigger.payload</code></td>
+      <td><code class="highlighter-rouge">trigger.payload</code></td>
       <td>Payload.</td>
     </tr>
     <tr>
-      <td><code>trigger.qos</code></td>
+      <td><code class="highlighter-rouge">trigger.qos</code></td>
       <td>QOS of payload.</td>
     </tr>
   </tbody>
 </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>trigger.platform</code></td>
-      <td>Hardcoded: <code>numeric_state</code></td>
-    </tr>
-    <tr>
-      <td><code>trigger.entity_id</code></td>
-      <td>Entity ID that we observe.</td>
-    </tr>
-    <tr>
-      <td><code>trigger.below</code></td>
-      <td>The below threshold, if any.</td>
-    </tr>
-    <tr>
-      <td><code>trigger.above</code></td>
-      <td>The above threshold, if any.</td>
-    </tr>
-    <tr>
-      <td><code>trigger.from_state</code></td>
-      <td>The previous <a href="/topics/state_object/">state object</a> of the entity.</td>
-    </tr>
-    <tr>
-      <td><code>trigger.to_state</code></td>
-      <td>The new <a href="/topics/state_object/">state object</a> that triggered trigger.</td>
-    </tr>
-  </tbody>
-</table>
+<h3><a class="title-link" name="numeric_state" href="#numeric_state"></a> numeric_state</h3>
 
 <table>
   <thead>
@@ -213,28 +182,67 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>trigger.platform</code></td>
-      <td>Hardcoded: <code>state</code></td>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">numeric_state</code></td>
     </tr>
     <tr>
-      <td><code>trigger.entity_id</code></td>
+      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
       <td>Entity ID that we observe.</td>
     </tr>
     <tr>
-      <td><code>trigger.from_state</code></td>
+      <td><code class="highlighter-rouge">trigger.below</code></td>
+      <td>The below threshold, if any.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.above</code></td>
+      <td>The above threshold, if any.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.from_state</code></td>
       <td>The previous <a href="/topics/state_object/">state object</a> of the entity.</td>
     </tr>
     <tr>
-      <td><code>trigger.to_state</code></td>
+      <td><code class="highlighter-rouge">trigger.to_state</code></td>
+      <td>The new <a href="/topics/state_object/">state object</a> that triggered trigger.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="state" href="#state"></a> state</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">state</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
+      <td>Entity ID that we observe.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.from_state</code></td>
+      <td>The previous <a href="/topics/state_object/">state object</a> of the entity.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.to_state</code></td>
       <td>The new <a href="/topics/state_object/">state object</a> that triggered trigger.</td>
     </tr>
     <tr>
-      <td><code>trigger.for</code></td>
+      <td><code class="highlighter-rouge">trigger.for</code></td>
       <td>Timedelta object how long state has been to state, if any.</td>
     </tr>
   </tbody>
 </table>
 
+<h3><a class="title-link" name="sun" href="#sun"></a> sun</h3>
+
 <table>
   <thead>
     <tr>
@@ -244,20 +252,22 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>trigger.platform</code></td>
-      <td>Hardcoded: <code>sun</code></td>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">sun</code></td>
     </tr>
     <tr>
-      <td><code>trigger.event</code></td>
-      <td>The event that just happened: <code>sunset</code> or <code>sunrise</code>.</td>
+      <td><code class="highlighter-rouge">trigger.event</code></td>
+      <td>The event that just happened: <code class="highlighter-rouge">sunset</code> or <code class="highlighter-rouge">sunrise</code>.</td>
     </tr>
     <tr>
-      <td><code>trigger.offset</code></td>
+      <td><code class="highlighter-rouge">trigger.offset</code></td>
       <td>Timedelta object with offset to the event, if any.</td>
     </tr>
   </tbody>
 </table>
 
+<h3><a class="title-link" name="template" href="#template"></a> template</h3>
+
 <table>
   <thead>
     <tr>
@@ -267,42 +277,25 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>trigger.platform</code></td>
-      <td>Hardcoded: <code>template</code></td>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">template</code></td>
     </tr>
     <tr>
-      <td><code>trigger.entity_id</code></td>
+      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
       <td>Entity ID that caused change.</td>
     </tr>
     <tr>
-      <td><code>trigger.from_state</code></td>
+      <td><code class="highlighter-rouge">trigger.from_state</code></td>
       <td>Previous <a href="/topics/state_object/">state object</a> of entity that caused change.</td>
     </tr>
     <tr>
-      <td><code>trigger.to_state</code></td>
+      <td><code class="highlighter-rouge">trigger.to_state</code></td>
       <td>New <a href="/topics/state_object/">state object</a> of entity that caused template to change.</td>
     </tr>
   </tbody>
 </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>trigger.platform</code></td>
-      <td>Hardcoded: <code>time</code></td>
-    </tr>
-    <tr>
-      <td><code>trigger.now</code></td>
-      <td>DateTime object that triggered the time trigger.</td>
-    </tr>
-  </tbody>
-</table>
+<h3><a class="title-link" name="time" href="#time"></a> time</h3>
 
 <table>
   <thead>
@@ -313,28 +306,49 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>trigger.platform</code></td>
-      <td>Hardcoded: <code>zone</code></td>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">time</code></td>
     </tr>
     <tr>
-      <td><code>trigger.entity_id</code></td>
+      <td><code class="highlighter-rouge">trigger.now</code></td>
+      <td>DateTime object that triggered the time trigger.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="zone" href="#zone"></a> zone</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">zone</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
       <td>Entity ID that we are observing.</td>
     </tr>
     <tr>
-      <td><code>trigger.from_state</code></td>
+      <td><code class="highlighter-rouge">trigger.from_state</code></td>
       <td>Previous <a href="/topics/state_object/">state object</a> of the entity.</td>
     </tr>
     <tr>
-      <td><code>trigger.to_state</code></td>
+      <td><code class="highlighter-rouge">trigger.to_state</code></td>
       <td>New <a href="/topics/state_object/">state object</a> of the entity.</td>
     </tr>
     <tr>
-      <td><code>trigger.zone</code></td>
+      <td><code class="highlighter-rouge">trigger.zone</code></td>
       <td>State object of zone</td>
     </tr>
     <tr>
-      <td><code>trigger.event</code></td>
-      <td>Event that trigger observed: <code>enter</code> or <code>leave</code>.</td>
+      <td><code class="highlighter-rouge">trigger.event</code></td>
+      <td>Event that trigger observed: <code class="highlighter-rouge">enter</code> or <code class="highlighter-rouge">leave</code>.</td>
     </tr>
   </tbody>
 </table>

@@ -92,18 +92,16 @@
   <p>Keeps track which locks are in your environment, their state and allows you to control them.</p>
 
 <ul>
-  <li>Maintains a state per lock and a combined state <code>all_locks</code>.</li>
-  <li>Registers services <code>lock/lock</code> and <code>lock/unlock</code> to control locks.</li>
+  <li>Maintains a state per lock and a combined state <code class="highlighter-rouge">all_locks</code>.</li>
+  <li>Registers services <code class="highlighter-rouge">lock/lock</code> and <code class="highlighter-rouge">lock/unlock</code> to control locks.</li>
 </ul>
 
 <h3><a class="title-link" name="use-the-services" href="#use-the-services"></a> Use the services</h3>
 
-<p>Go the the <strong>Developer Tools</strong>, then to <strong>Call Service</strong> in the frontend, and choose <code>lock/lock</code> or <code>lock/unlock</code> from the list of available services (<strong>Available services:</strong> on the left). Enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
+<p>Go the the <strong>Developer Tools</strong>, then to <strong>Call Service</strong> in the frontend, and choose <code class="highlighter-rouge">lock/lock</code> or <code class="highlighter-rouge">lock/unlock</code> from the list of available services (<strong>Available services:</strong> on the left). Enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">lock.front_door</span><span class="delimiter">&quot;</span></span>}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"entity_id"</span><span class="p">:</span><span class="s2">"lock.front_door"</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <table>
@@ -116,7 +114,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>entity_id</code></td>
+      <td><code class="highlighter-rouge">entity_id</code></td>
       <td>yes</td>
       <td>Only act on specific lock. Else targets all.</td>
     </tr>

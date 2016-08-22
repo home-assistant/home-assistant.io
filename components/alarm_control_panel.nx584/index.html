@@ -89,23 +89,21 @@
   <hr class="divider">
   
 
-  <p>The <code>nx584</code> platform provides integration with GE, Caddx, Interlogix (and other brands) alarm panels that support the NX584 interface module (or have it built in). Supported panels include NX4/6/8/8E. Actual integration is done through <a href="http://github.com/kk7ds/pynx584">pynx584</a> which is required for this to work.</p>
+  <p>The <code class="highlighter-rouge">nx584</code> platform provides integration with GE, Caddx, Interlogix (and other brands) alarm panels that support the NX584 interface module (or have it built in). Supported panels include NX4/6/8/8E. Actual integration is done through <a href="http://github.com/kk7ds/pynx584">pynx584</a> which is required for this to work.</p>
 
-<p>To enable this, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">alarm_control_panel</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">nx584</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">ADDRESS</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alarm_control_panel</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">nx584</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">ADDRESS</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): This is the host connection string (host:port) for the nx584 server process. If unset, it is assumed to be <code>localhost:5007</code>, which will work if the server process is running on the same system as home-assistant.</li>
+  <li><strong>host</strong> (<em>Optional</em>): This is the host connection string (host:port) for the nx584 server process. If unset, it is assumed to be <code class="highlighter-rouge">localhost:5007</code>, which will work if the server process is running on the same system as home-assistant.</li>
 </ul>
 
 

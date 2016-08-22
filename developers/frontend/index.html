@@ -92,9 +92,9 @@
   <p>Home Assistant uses <a href="https://www.polymer-project.org/">Polymer</a> for the UI and <a href="http://optimizely.github.io/nuclear-js/">NuclearJS</a> for maintaing the app state.</p>
 
 <ul>
-  <li>Polymer allows building encapsulated custom HTML elements.<br />
+  <li>Polymer allows building encapsulated custom HTML elements.
 <a href="https://github.com/home-assistant/home-assistant-polymer">Home-Assistant-Polymer source code on GitHub.</a></li>
-  <li>NuclearJS is a reactive flux built with ImmutableJS data structures.<br />
+  <li>NuclearJS is a reactive flux built with ImmutableJS data structures.
 <a href="https://github.com/home-assistant/home-assistant-js">Home-Assistant-JS source code on GitHub.</a></li>
 </ul>
 
@@ -104,47 +104,41 @@ Do not use development mode in production. Home Assistant uses aggressive cachin
 
 <h2><a class="title-link" name="setting-up-the-environment" href="#setting-up-the-environment"></a> Setting up the environment</h2>
 
-<p>Home Assistant will by default serve the compiled version of the frontend. To enable development mode for Home Assistant, update your <code>configuration.yaml</code> to have these lines:</p>
+<p>Home Assistant will by default serve the compiled version of the frontend. To enable development mode for Home Assistant, update your <code class="highlighter-rouge">configuration.yaml</code> to have these lines:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">http</span>:
-  <span class="key">development</span>: <span class="string"><span class="content">1</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">development</span><span class="pi">:</span> <span class="s">1</span>
+</code></pre>
 </div>
 
-<p>As everything is compiled into the file <code>frontend.html</code> you do not want to work with the compiled version but with the seperate files during development.</p>
+<p>As everything is compiled into the file <code class="highlighter-rouge">frontend.html</code> you do not want to work with the compiled version but with the seperate files during development.</p>
 
 <p>Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ script/setup
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>script/setup
+</code></pre>
 </div>
 
 <h2><a class="title-link" name="development" href="#development"></a> Development</h2>
 
 <p>While you are developing, you need to have Rollup running to have your JavaScript changes be made available.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ cd homeassistant/components/frontend/www_static/home-assistant-polymer
-$ npm run js_dev
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>homeassistant/components/frontend/www_static/home-assistant-polymer
+<span class="gp">$ </span>npm run js_dev
+</code></pre>
 </div>
 
 <p>The source code for the frontend can be found in three different directories:</p>
 
 <ul>
-  <li>UI: <code>homeassistant/components/frontend/www_static/home-assistant-polymer/src/</code></li>
-  <li>Core: <code>homeassistant/components/frontend/www_static/home-assistant-polymer/home-assistant-js/src/</code></li>
-  <li>Panels: <code>homeassistant/components/frontend/www_static/home-assistant-polymer/panels/</code></li>
+  <li>UI: <code class="highlighter-rouge">homeassistant/components/frontend/www_static/home-assistant-polymer/src/</code></li>
+  <li>Core: <code class="highlighter-rouge">homeassistant/components/frontend/www_static/home-assistant-polymer/home-assistant-js/src/</code></li>
+  <li>Panels: <code class="highlighter-rouge">homeassistant/components/frontend/www_static/home-assistant-polymer/panels/</code></li>
 </ul>
 
 <h1><a class="title-link" name="building-the-polymer-frontend" href="#building-the-polymer-frontend"></a> Building the Polymer frontend</h1>
 
-<p>Building a new version of the frontend is as simple as running <code>script/build_frontend</code>. This fires off the following commands:</p>
+<p>Building a new version of the frontend is as simple as running <code class="highlighter-rouge">script/build_frontend</code>. This fires off the following commands:</p>
 
 <ul>
   <li><strong>home-assistant-polymer</strong>: Install NPM dependencies.</li>
@@ -155,8 +149,8 @@ $ npm run js_dev
       <li>Vulcanize and minify the core and panel sources to build dir.</li>
     </ul>
   </li>
-  <li>Copy the webcomponents polyfill <code>webcomponents-lite.min.js</code> from <strong>home-assistant-polymer</strong> to <code>components/frontend/www_static/webcomponents-lite.min.js</code>.</li>
-  <li>Copy the final frontend build <code>frontend.html</code> and panel sources from <strong>home-assistant-polymer</strong> to <code>components/frontend/www_static/frontend/</code>.</li>
+  <li>Copy the webcomponents polyfill <code class="highlighter-rouge">webcomponents-lite.min.js</code> from <strong>home-assistant-polymer</strong> to <code class="highlighter-rouge">components/frontend/www_static/webcomponents-lite.min.js</code>.</li>
+  <li>Copy the final frontend build <code class="highlighter-rouge">frontend.html</code> and panel sources from <strong>home-assistant-polymer</strong> to <code class="highlighter-rouge">components/frontend/www_static/frontend/</code>.</li>
   <li>Generate MD5 hashes of core and panel sources.</li>
   <li>Create gzip versions of all the sources.</li>
 </ul>

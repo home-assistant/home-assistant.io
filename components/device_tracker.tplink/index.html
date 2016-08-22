@@ -91,15 +91,13 @@
 
   <p>This platform allows you to detect presence by looking at connected devices to a <a href="https://www.tp-link.com">TP-Link</a> device. This includes the ArcherC9 line.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">tplink</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">YOUR_ROUTER_IP</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_ADMIN_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_ADMIN_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">tplink</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ROUTER_IP</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -117,7 +115,7 @@
   <li>Type in the password you use to login into the passsword field.</li>
   <li>Click somewhere else on the page so that the password field is not selected anymore.</li>
   <li>Open the JavaScript console of your browser (usually by pressing F12 and then clicking on “Console”).</li>
-  <li>Type <code>document.getElementById("login-password").value;</code>.</li>
+  <li>Type <code class="highlighter-rouge">document.getElementById("login-password").value;</code>.</li>
   <li>Copy the returned value to your Home Assistant configuration as password.</li>
 </ol>
 

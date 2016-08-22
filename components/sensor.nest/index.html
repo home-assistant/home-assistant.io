@@ -89,31 +89,29 @@
   <hr class="divider">
   
 
-  <p>The <code>nest</code> sensor platform let you monitor sensors connected to your <a href="https://nest.com">Nest</a> thermostat and/or your Nest Protect Smoke Alarm.</p>
+  <p>The <code class="highlighter-rouge">nest</code> sensor platform let you monitor sensors connected to your <a href="https://nest.com">Nest</a> thermostat and/or your Nest Protect Smoke Alarm.</p>
 
-<p>To set it up, add the following information to your <code>configuration.yaml</code> file:</p>
+<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">nest</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">'temperature'</span></span>
-    - <span class="string"><span class="content">'target'</span></span>
-    - <span class="string"><span class="content">'humidity'</span></span>
-    - <span class="string"><span class="content">'mode'</span></span>
-    - <span class="string"><span class="content">'last_ip'</span></span>
-    - <span class="string"><span class="content">'local_ip'</span></span>
-    - <span class="string"><span class="content">'last_connection'</span></span>
-    - <span class="string"><span class="content">'battery_level'</span></span>
-    - <span class="string"><span class="content">'weather_condition'</span></span>
-    - <span class="string"><span class="content">'weather_temperature'</span></span>
-    - <span class="string"><span class="content">'weather_humidity'</span></span>
-    - <span class="string"><span class="content">'wind_speed'</span></span>
-    - <span class="string"><span class="content">'wind_direction'</span></span>
-    - <span class="string"><span class="content">'co_status'</span></span>
-    - <span class="string"><span class="content">'smoke_status'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">temperature'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">target'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">humidity'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">mode'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">last_ip'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">local_ip'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">last_connection'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">battery_level'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_condition'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_temperature'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_humidity'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">wind_speed'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">wind_direction'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">co_status'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">smoke_status'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

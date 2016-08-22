@@ -89,35 +89,31 @@
   <hr class="divider">
   
 
-  <p>If you’re taking a while developing your feature and would like to catch up with what’s in the current Home Assistant <code>dev</code> branch, you can use <code>git rebase</code> to do so. This will pull the latest Home Assistant changes locally, rewind your commits, bring in the latest changes from Home Assistant and then replay all of your commits on top.</p>
+  <p>If you’re taking a while developing your feature and would like to catch up with what’s in the current Home Assistant <code class="highlighter-rouge">dev</code> branch, you can use <code class="highlighter-rouge">git rebase</code> to do so. This will pull the latest Home Assistant changes locally, rewind your commits, bring in the latest changes from Home Assistant and then replay all of your commits on top.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre># Run this from your feature branch
-$ git fetch upstream dev  # to pull the latest changes into a local dev branch
-$ git rebase upstream/dev # to put those changes into your feature branch before your changes
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Run this from your feature branch</span>
+<span class="gp">$ </span>git fetch upstream dev  <span class="c"># to pull the latest changes into a local dev branch</span>
+<span class="gp">$ </span>git rebase upstream/dev <span class="c"># to put those changes into your feature branch before your changes</span>
+</code></pre>
 </div>
 
 <p>If rebase detects conflicts, you can repeat the following process until all changes have been resolved:</p>
 
 <ol>
-  <li><code>git status</code> will show you the file with the conflict.</li>
-  <li>Edit the file and resolving the lines between <code>&lt;&lt;&lt;&lt; | &gt;&gt;&gt;&gt;</code></li>
-  <li>Add the modified file <code>git add &lt;file&gt;</code> or <code>git add .</code></li>
-  <li>Continue rebase <code>git rebase --continue</code></li>
+  <li><code class="highlighter-rouge">git status</code> will show you the file with the conflict.</li>
+  <li>Edit the file and resolving the lines between <code class="highlighter-rouge">&lt;&lt;&lt;&lt; | &gt;&gt;&gt;&gt;</code></li>
+  <li>Add the modified file <code class="highlighter-rouge">git add &lt;file&gt;</code> or <code class="highlighter-rouge">git add .</code></li>
+  <li>Continue rebase <code class="highlighter-rouge">git rebase --continue</code></li>
   <li>Repeat until you’ve resolved all conflicts.</li>
 </ol>
 
-<p>There is other workflows that is covered in detail in the <a href="https://help.github.com/articles/fork-a-repo/">Github documentation</a>. Add an additional <code>remote</code> after you clone your fork.</p>
+<p>There is other workflows that is covered in detail in the <a href="https://help.github.com/articles/fork-a-repo/">Github documentation</a>. Add an additional <code class="highlighter-rouge">remote</code> after you clone your fork.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ git remote add upstream https://github.com/home-assistant/home-assistant.git
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git remote add upstream https://github.com/home-assistant/home-assistant.git
+</code></pre>
 </div>
 
-<p>and then simply <code>git pull --rebase upstream dev</code>.</p>
+<p>and then simply <code class="highlighter-rouge">git pull --rebase upstream dev</code>.</p>
 
 
 

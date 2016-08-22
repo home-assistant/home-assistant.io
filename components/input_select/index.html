@@ -89,27 +89,25 @@
   <hr class="divider">
   
 
-  <p>The <code>input_select</code> component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selectes a new item, a state transition event is generated. This state event can be used in an <code>automation</code> trigger.</p>
+  <p>The <code class="highlighter-rouge">input_select</code> component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selectes a new item, a state transition event is generated. This state event can be used in an <code class="highlighter-rouge">automation</code> trigger.</p>
 
-<p>To enable this platform, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this platform, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">input_select</span>:
-  <span class="key">who_cooks</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Who cooks today</span></span>
-    <span class="key">options</span>:
-     - <span class="string"><span class="content">Paulus</span></span>
-     - <span class="string"><span class="content">Anne Therese</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">Anne Therese</span></span>
-    <span class="key">icon</span>: <span class="string"><span class="content">mdi:panda</span></span>
-  <span class="key">living_room_preset</span>:
-    <span class="key">options</span>:
-      - <span class="string"><span class="content">Visitors</span></span>
-      - <span class="string"><span class="content">Visitors with kids</span></span>
-      - <span class="string"><span class="content">Home Alone</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">input_select</span><span class="pi">:</span>
+  <span class="s">who_cooks</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Who cooks today</span>
+    <span class="s">options</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">Paulus</span>
+     <span class="pi">-</span> <span class="s">Anne Therese</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s">Anne Therese</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:panda</span>
+  <span class="s">living_room_preset</span><span class="pi">:</span>
+    <span class="s">options</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">Visitors</span>
+      <span class="pi">-</span> <span class="s">Visitors with kids</span>
+      <span class="pi">-</span> <span class="s">Home Alone</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -122,7 +120,7 @@
   <li><strong>icon</strong> (<em>Optional</em>): Icon for entry.</li>
 </ul>
 
-<p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code>mdi:</code>. For example <code>mdi:car</code>, <code>mdi:ambulance</code>, or  <code>mdi:motorbike</code>.</p>
+<p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:car</code>, <code class="highlighter-rouge">mdi:ambulance</code>, or  <code class="highlighter-rouge">mdi:motorbike</code>.</p>
 
 
 

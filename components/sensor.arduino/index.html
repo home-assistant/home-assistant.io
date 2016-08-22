@@ -89,23 +89,21 @@
   <hr class="divider">
   
 
-  <p>The <code>arduino</code> sensor platform allows allow you to get an numerical values from an analog input pin of an <a href="https://www.arduino.cc/">Arduino</a> board. Usually the value is between 0 and 1024.</p>
+  <p>The <code class="highlighter-rouge">arduino</code> sensor platform allows allow you to get an numerical values from an analog input pin of an <a href="https://www.arduino.cc/">Arduino</a> board. Usually the value is between 0 and 1024.</p>
 
-<p>To enable an Arduino sensor with Home Assistant, add the following section to your <code>configuration.yaml</code> file:</p>
+<p>To enable an Arduino sensor with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">arduino</span></span>
-  <span class="key">pins</span>:
-    <span class="key">1</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Door switch</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">analog</span></span>
-    <span class="key">0</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Brightness</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">analog</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">arduino</span>
+  <span class="s">pins</span><span class="pi">:</span>
+    <span class="s">1</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Door switch</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s">analog</span>
+    <span class="s">0</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Brightness</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s">analog</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

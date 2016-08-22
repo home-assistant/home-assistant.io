@@ -93,16 +93,14 @@
 
 <p>Home Assistant offers a wide range of automations. In the next few pages we’ll try to guide you through all the different possibilities and options. Besides this documentation there are also a couple of people who have made their automation configurations <a href="/cookbook/#example-configurationyaml">publicly available</a>.</p>
 
-<h3><a class="title-link" name="the-basics-of-automation" href="#the-basics-of-automation"></a> The basics of automation</h3>
+<h3><a class="title-link" name="automation-basics" href="#automation-basics"></a> Automation basics</h3>
 
 <p>Before you can go ahead and create your own automations, it’s important to learn the basics. To explore the basics, let’s have a look at the following example home automation rule:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>(trigger)    When Paulus arrives home
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>(trigger)    When Paulus arrives home
 (condition)  and it is after sunset:
 (action)     Turn the lights in the living room on
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <p>The example consists of three different parts: a trigger, a condition and an action.</p>
@@ -133,24 +131,24 @@ The difference between a condition and a trigger can be confusing as they are ve
     <tr>
       <td>Entity ID</td>
       <td>Unique identifier for the entity.</td>
-      <td><code>light.kitchen</code></td>
+      <td><code class="highlighter-rouge">light.kitchen</code></td>
     </tr>
     <tr>
       <td>State</td>
       <td>The current state of the device.</td>
-      <td><code>home</code></td>
+      <td><code class="highlighter-rouge">home</code></td>
     </tr>
     <tr>
       <td>Attributes</td>
       <td>Extra data related to the device and/or current state.</td>
-      <td><code>brightness</code></td>
+      <td><code class="highlighter-rouge">brightness</code></td>
     </tr>
   </tbody>
 </table>
 
 <p>State changes can be used as the source of triggers and the current state can be used in conditions.</p>
 
-<p>Actions are all about calling services. To explore the available services open the <img src="/images/screenshots/developer-tool-services-icon.png" class="no-shadow" height="38" /> Services developer tool. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service <code>light.turn_on</code> is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.</p>
+<p>Actions are all about calling services. To explore the available services open the <img src="/images/screenshots/developer-tool-services-icon.png" class="no-shadow" height="38" /> Services developer tool. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service <code class="highlighter-rouge">light.turn_on</code> is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.</p>
 
 <h3><a href="/getting-started/automation-create-first/">Next step: Your First Automation »</a></h3>
 

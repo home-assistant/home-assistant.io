@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -108,7 +108,7 @@
 </header>
 
 
-  <p><img src="/images/blog/2015-12-tasker/tasker-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+  <p><img src="/images/blog/2015-12-tasker/tasker-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 In this tutorial I will explain how you can activate Tasker tasks from Home Assistant command line switches. We are going to set up a switch that when toggled will make your Android device say either “On” or “Off”.</p>
 
 <p>You could also do this with the automation component instead so whenever you put your house to sleep mode for example your Android device will open up Google Play Books or the Kindle app ready for you to read as well as dimming your lights, but this tutorial is all about the switches.</p>
@@ -123,7 +123,7 @@ In this tutorial I will explain how you can activate Tasker tasks from Home Assi
 <img src="/images/blog/2015-12-tasker/screenshot-1.png" />
 </p>
 
-<p>Now type in <code>SayOn</code> in the <code>Message</code> box and you should see a box appear on the right with a URL in it, this is what we will be using in the Python script later on so save that for later. Do the same thing again but this time replace <code>SayOn</code> with <code>SayOff</code>. Now just click the <code>Send message now!</code> button to test that your commands will get sent to your Android device, if they do you will see a toast message at the bottom of your screen like this one.</p>
+<p>Now type in <code class="highlighter-rouge">SayOn</code> in the <code class="highlighter-rouge">Message</code> box and you should see a box appear on the right with a URL in it, this is what we will be using in the Python script later on so save that for later. Do the same thing again but this time replace <code class="highlighter-rouge">SayOn</code> with <code class="highlighter-rouge">SayOff</code>. Now just click the <code class="highlighter-rouge">Send message now!</code> button to test that your commands will get sent to your Android device, if they do you will see a toast message at the bottom of your screen like this one.</p>
 
 <p class="img">
 <img src="/images/blog/2015-12-tasker/screenshot-2.png" height="450" />
@@ -131,41 +131,37 @@ In this tutorial I will explain how you can activate Tasker tasks from Home Assi
 
 <h3>Tasker Setup</h3>
 
-<p>Open up Tasker and make sure you’re in the <code>PROFILES</code> tab, then select the plus icon to create a new profile. Select <code>Event</code> -&gt; <code>Plugin</code> -&gt; <code>AutoRemote</code> -&gt; <code>AutoRemote</code> and then the pencil icon to configure the AutoRemote event. Select <code>Message Filter</code> and enter in <code>SayOn</code> then go back until it asks you for a task. Select <code>New task</code> then just leave the next field blank and select the tick icon. <br />
-This is where we’ll configure our task, so select the plus icon to select an action. Select <code>Alert</code> -&gt; <code>Say</code> to add a Say action. Enter <code>On</code> in the text field and go back to test your task, make sure your media volume is up then select the play icon, you should hear your device say “On”.</p>
+<p>Open up Tasker and make sure you’re in the <code class="highlighter-rouge">PROFILES</code> tab, then select the plus icon to create a new profile. Select <code class="highlighter-rouge">Event</code> -&gt; <code class="highlighter-rouge">Plugin</code> -&gt; <code class="highlighter-rouge">AutoRemote</code> -&gt; <code class="highlighter-rouge">AutoRemote</code> and then the pencil icon to configure the AutoRemote event. Select <code class="highlighter-rouge">Message Filter</code> and enter in <code class="highlighter-rouge">SayOn</code> then go back until it asks you for a task. Select <code class="highlighter-rouge">New task</code> then just leave the next field blank and select the tick icon. 
+This is where we’ll configure our task, so select the plus icon to select an action. Select <code class="highlighter-rouge">Alert</code> -&gt; <code class="highlighter-rouge">Say</code> to add a Say action. Enter <code class="highlighter-rouge">On</code> in the text field and go back to test your task, make sure your media volume is up then select the play icon, you should hear your device say “On”.</p>
 
 <p class="img">
 <img src="/images/blog/2015-12-tasker/screenshot-3.png" height="450" />
 </p>
 
-<p>Now you can go back to the main Tasker screen and create another profile but this time replace <code>SayOn</code> with <code>SayOff</code> and <code>On</code> with <code>Off</code>. After you’ve done that go to the main screen again and select the menu button at the top then <code>Exit</code> and <code>Save first</code> to make sure everything is saved properly.</p>
+<p>Now you can go back to the main Tasker screen and create another profile but this time replace <code class="highlighter-rouge">SayOn</code> with <code class="highlighter-rouge">SayOff</code> and <code class="highlighter-rouge">On</code> with <code class="highlighter-rouge">Off</code>. After you’ve done that go to the main screen again and select the menu button at the top then <code class="highlighter-rouge">Exit</code> and <code class="highlighter-rouge">Save first</code> to make sure everything is saved properly.</p>
 
 <h3>Python Script</h3>
 
-<p>Now it’s time to set it up the script, so create a new Python script and name it <code>On.py</code> then enter this code:</p>
+<p>Now it’s time to set it up the script, so create a new Python script and name it <code class="highlighter-rouge">On.py</code> then enter this code:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">requests</span>
-requests.get(<span class="string"><span class="delimiter">'</span><span class="content">[URL]</span><span class="delimiter">'</span></span>)
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'[URL]'</span><span class="p">)</span>
+</code></pre>
 </div>
 
-<p>Enter in your “On” URL then save it. Create another script but this time call it <code>Off.py</code> and enter your “off” URL instead.</p>
+<p>Enter in your “On” URL then save it. Create another script but this time call it <code class="highlighter-rouge">Off.py</code> and enter your “off” URL instead.</p>
 
 <h3>Home Assistant Configuration</h3>
 
 <p>Add a command line switch to your Home Assistant configuration:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_switch</span></span>
-  <span class="key">switches</span>:
-    <span class="key">tasker_say</span>:
-      <span class="key">oncmd</span>: <span class="string"><span class="content">python &quot;[LocationOfOnScript]&quot;</span></span>
-      <span class="key">offcmd</span>: <span class="string"><span class="content">python &quot;[LocationOfOffScript]&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">command_switch</span>
+  <span class="s">switches</span><span class="pi">:</span>
+    <span class="s">tasker_say</span><span class="pi">:</span>
+      <span class="s">oncmd</span><span class="pi">:</span> <span class="s">python "[LocationOfOnScript]"</span>
+      <span class="s">offcmd</span><span class="pi">:</span> <span class="s">python "[LocationOfOffScript]"</span>
+</code></pre>
 </div>
 
 <p>Now load up Home Assistant and whenever you toggle the switch you created your Android device will respond with either “On” or “Off”. :-)</p>
@@ -242,7 +238,7 @@ requests.get(<span class="string"><span class="delimiter">'</span><span class="c
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

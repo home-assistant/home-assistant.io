@@ -96,36 +96,32 @@
   <li>http://IP_ADDRESS:8123/api/ is a Rest API.</li>
 </ul>
 
-<p>The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header <code>X-HA-Access: YOUR_PASSWORD</code> (YOUR_PASSWORD as specified in your <code>configuration.yaml</code> file in the <a href="/components/http/"><code>http:</code> section</a>).</p>
+<p>The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header <code class="highlighter-rouge">X-HA-Access: YOUR_PASSWORD</code> (YOUR_PASSWORD as specified in your <code class="highlighter-rouge">configuration.yaml</code> file in the <a href="/components/http/"><code class="highlighter-rouge">http:</code> section</a>).</p>
 
-<p>There are multiple ways to consume the Home Assistant Rest API. One is with <code>curl</code>:</p>
+<p>There are multiple ways to consume the Home Assistant Rest API. One is with <code class="highlighter-rouge">curl</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>curl -X GET \
-    -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-    -H &quot;Content-Type: application/json&quot; \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="se">\</span>
+    -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
     http://IP_ADDRESS:8123/ENDPOINT
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <p>Another option is to use Python and the <a href="http://docs.python-requests.org/en/latest/">Requests</a> module.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">requests</span> <span class="keyword">import</span> <span class="include">get</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">get</span>
 
-url = <span class="string"><span class="delimiter">'</span><span class="content">http://localhost:8123/ENDPOINT</span><span class="delimiter">'</span></span>
-headers = {<span class="string"><span class="delimiter">'</span><span class="content">x-ha-access</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>,
-           <span class="string"><span class="delimiter">'</span><span class="content">content-type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">application/json</span><span class="delimiter">'</span></span>}
+<span class="n">url</span> <span class="o">=</span> <span class="s">'http://localhost:8123/ENDPOINT'</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'x-ha-access'</span><span class="p">:</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">,</span>
+           <span class="s">'content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
 
-response = get(url, headers=headers)
-print(response.text)
-</pre></div>
-</div>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <p class="note">
-You can append <code>?password=YOUR_PASSWORD</code> to any url to log in automatically.
+You can append <code class="highlighter-rouge">?password=YOUR_PASSWORD</code> to any url to log in automatically.
 </p>
 
 <p>Successful calls will return status code 200 or 201. Other status codes that can return are:</p>
@@ -144,309 +140,265 @@ You can append <code>?password=YOUR_PASSWORD</code> to any url to log in automat
 <h4><a class="title-link" name="get-api" href="#get-api"></a> GET /api/</h4>
 <p>Returns message if API is up and running.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">API running.</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API running."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apiconfig" href="#get-apiconfig"></a> GET /api/config</h4>
 <p>Returns the current configuration as JSON.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">components</span><span class="delimiter">&quot;</span></span>: [
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">recorder</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">http</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor.time_date</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">api</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">frontend</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">sun</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">logbook</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">history</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">group</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">automation</span><span class="delimiter">&quot;</span></span>
-    ],
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">latitude</span><span class="delimiter">&quot;</span></span>: <span class="float">44.1234</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">location_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Home</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">longitude</span><span class="delimiter">&quot;</span></span>: <span class="float">5.5678</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">unit_system</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">metric</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">time_zone</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Europe/Zurich</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0.8.0.dev0</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"components"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"recorder"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"http"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sensor.time_date"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"api"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frontend"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sun"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"logbook"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"history"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"group"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"automation"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.1234</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.5678</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"unit_system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"metric"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Zurich"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.8.0.dev0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/config
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/config
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apidiscovery_info" href="#get-apidiscovery_info"></a> GET /api/discovery_info</h4>
 <p>Returns basic information about the Home Assistant instance as JSON.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">base_url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://127.0.0.1:8123</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">location_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Home</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">requires_api_password</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0.20.0.dev0</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://127.0.0.1:8123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"requires_api_password"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.20.0.dev0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/discovery_info
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/discovery_info
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apibootstrap" href="#get-apibootstrap"></a> GET /api/bootstrap</h4>
 <p>Returns all data needed to bootstrap Home Assistant.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">config</span><span class="delimiter">&quot;</span></span>: {<span class="error">.</span><span class="error">.</span><span class="error">.</span>},
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">events</span><span class="delimiter">&quot;</span></span>: [<span class="error">.</span><span class="error">.</span><span class="error">.</span>],
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">services</span><span class="delimiter">&quot;</span></span>: [<span class="error">.</span><span class="error">.</span><span class="error">.</span>],
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">states</span><span class="delimiter">&quot;</span></span>: [<span class="error">.</span><span class="error">.</span><span class="error">.</span>]
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"states"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/bootstrap
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/bootstrap
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apievents" href="#get-apievents"></a> GET /api/events</h4>
 <p>Returns an array of event objects. Each event object contain event name and listener count.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">event</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">state_changed</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">listener_count</span><span class="delimiter">&quot;</span></span>: <span class="integer">5</span>
-    },
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">event</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">time_changed</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">listener_count</span><span class="delimiter">&quot;</span></span>: <span class="integer">2</span>
-    }
-]
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"state_changed"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"listener_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"time_changed"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"listener_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/events
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/events
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apiservices" href="#get-apiservices"></a> GET /api/services</h4>
 <p>Returns an array of service objects. Each object contains the domain and which services it contains.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">domain</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">browser</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">services</span><span class="delimiter">&quot;</span></span>: [
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">browse_url</span><span class="delimiter">&quot;</span></span>
-      ]
-    },
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">domain</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">keyboard</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">services</span><span class="delimiter">&quot;</span></span>: [
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">volume_up</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">volume_down</span><span class="delimiter">&quot;</span></span>
-      ]
-    }
-]
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"browser"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"browse_url"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"keyboard"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"volume_up"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume_down"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/services
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/services
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apihistory" href="#get-apihistory"></a> GET /api/history</h4>
 <p>Returns an array of state changes in the past. Each object contains further detail for the entities.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[
-    [
-        {
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">friendly_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Weather Temperature</span><span class="delimiter">&quot;</span></span>,
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">unit_of_measurement</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="char">\u00b0</span><span class="content">C</span><span class="delimiter">&quot;</span></span>
-            },
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor.weather_temperature</span><span class="delimiter">&quot;</span></span>,
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">last_changed</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2016-02-06T22:15:00+00:00</span><span class="delimiter">&quot;</span></span>,
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">last_updated</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2016-02-06T22:15:00+00:00</span><span class="delimiter">&quot;</span></span><span class="string"><span class="delimiter">&quot;</span><span class="content">,
-            </span><span class="delimiter">&quot;</span></span><span class="error">s</span><span class="error">t</span><span class="error">a</span><span class="error">t</span><span class="error">e</span><span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="float">-3.9</span><span class="string"><span class="delimiter">&quot;</span><span class="content">
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"friendly_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weather Temperature"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"unit_of_measurement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\u00b0C"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor.weather_temperature"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-06T22:15:00+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-06T22:15:00+00:00"",
+            "</span><span class="err">state</span><span class="s2">": "</span><span class="mf">-3.9</span><span class="s2">"
         },
         {
-            </span><span class="delimiter">&quot;</span></span><span class="error">a</span><span class="error">t</span><span class="error">t</span><span class="error">r</span><span class="error">i</span><span class="error">b</span><span class="error">u</span><span class="error">t</span><span class="error">e</span><span class="error">s</span><span class="string"><span class="delimiter">&quot;</span><span class="content">: {
-                </span><span class="delimiter">&quot;</span></span><span class="error">f</span><span class="error">r</span><span class="error">i</span><span class="error">e</span><span class="error">n</span><span class="error">d</span><span class="error">l</span><span class="error">y</span><span class="error">_</span><span class="error">n</span><span class="error">a</span><span class="error">m</span><span class="error">e</span><span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="error">W</span><span class="error">e</span><span class="error">a</span><span class="error">t</span><span class="error">h</span><span class="error">e</span><span class="error">r</span> <span class="error">T</span><span class="error">e</span><span class="error">m</span><span class="error">p</span><span class="error">e</span><span class="error">r</span><span class="error">a</span><span class="error">t</span><span class="error">u</span><span class="error">r</span><span class="error">e</span><span class="string"><span class="delimiter">&quot;</span><span class="content">,
-                </span><span class="delimiter">&quot;</span></span><span class="error">u</span><span class="error">n</span><span class="error">i</span><span class="error">t</span><span class="error">_</span><span class="error">o</span><span class="error">f</span><span class="error">_</span><span class="error">m</span><span class="error">e</span><span class="error">a</span><span class="error">s</span><span class="error">u</span><span class="error">r</span><span class="error">e</span><span class="error">m</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="error">\</span><span class="error">u</span><span class="integer">0</span><span class="integer">0</span><span class="error">b</span><span class="integer">0</span><span class="error">C</span><span class="string"><span class="delimiter">&quot;</span><span class="content">
+            "</span><span class="err">attributes</span><span class="s2">": {
+                "</span><span class="err">friendly_name</span><span class="s2">": "</span><span class="err">Weather</span><span class="w"> </span><span class="err">Temperature</span><span class="s2">",
+                "</span><span class="err">unit_of_measurement</span><span class="s2">": "</span><span class="err">\u</span><span class="mi">00</span><span class="err">b</span><span class="mi">0</span><span class="err">C</span><span class="s2">"
             },
-            </span><span class="delimiter">&quot;</span></span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">i</span><span class="error">t</span><span class="error">y</span><span class="error">_</span><span class="error">i</span><span class="error">d</span><span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="error">s</span><span class="error">e</span><span class="error">n</span><span class="error">s</span><span class="error">o</span><span class="error">r</span><span class="error">.</span><span class="error">w</span><span class="error">e</span><span class="error">a</span><span class="error">t</span><span class="error">h</span><span class="error">e</span><span class="error">r</span><span class="error">_</span><span class="error">t</span><span class="error">e</span><span class="error">m</span><span class="error">p</span><span class="error">e</span><span class="error">r</span><span class="error">a</span><span class="error">t</span><span class="error">u</span><span class="error">r</span><span class="error">e</span><span class="string"><span class="delimiter">&quot;</span><span class="content">,
-            </span><span class="delimiter">&quot;</span></span><span class="error">l</span><span class="error">a</span><span class="error">s</span><span class="error">t</span><span class="error">_</span><span class="error">c</span><span class="error">h</span><span class="error">a</span><span class="error">n</span><span class="error">g</span><span class="error">e</span><span class="error">d</span><span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="integer">2016</span><span class="integer">-0</span><span class="integer">2</span><span class="integer">-0</span><span class="integer">6</span><span class="error">T</span><span class="integer">22</span>:<span class="integer">15</span>:<span class="integer">0</span><span class="integer">0</span><span class="error">+</span><span class="integer">0</span><span class="integer">0</span>:<span class="integer">0</span><span class="integer">0</span><span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>,
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">last_updated</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2016-02-06T22:15:00+00:00</span><span class="delimiter">&quot;</span></span><span class="string"><span class="delimiter">&quot;</span><span class="content">,
-            </span><span class="delimiter">&quot;</span></span><span class="error">s</span><span class="error">t</span><span class="error">a</span><span class="error">t</span><span class="error">e</span><span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="float">-1.9</span><span class="string"><span class="delimiter">&quot;</span><span class="content">
-        },
-    ]
-]
-</span></span></pre></div>
-</div>
+            "</span><span class="err">entity_id</span><span class="s2">": "</span><span class="err">sensor.weather_temperature</span><span class="s2">",
+            "</span><span class="err">last_changed</span><span class="s2">": "</span><span class="mi">2016-02-06</span><span class="err">T</span><span class="mi">22</span><span class="err">:</span><span class="mi">15</span><span class="err">:</span><span class="mi">00</span><span class="err">+</span><span class="mi">00</span><span class="err">:</span><span class="mi">00</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-06T22:15:00+00:00"",
+            "</span><span class="err">state</span><span class="s2">": "</span><span class="mf">-1.9</span><span class="err">"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> commands:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> commands:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        http://localhost:8123/api/history/period/2016-02-06
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
-       http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+       http://localhost:8123/api/history/period/2016-02-06?filter_entity_id<span class="o">=</span>sensor.temperature
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apistates" href="#get-apistates"></a> GET /api/states</h4>
 <p>Returns an array of state objects. Each state has the following attributes: entity_id, state, last_changed and attributes.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[
-    {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {},
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sun.sun</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">last_changed</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-30T21:43:32.418320+00:00</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">below_horizon</span><span class="delimiter">&quot;</span></span>
-    },
-    {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {},
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">process.Dropbox</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">last_changed</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">22016-05-30T21:43:32.418320+00:00</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">on</span><span class="delimiter">&quot;</span></span>
-    }
-]
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sun.sun"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30T21:43:32.418320+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"below_horizon"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"process.Dropbox"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22016-05-30T21:43:32.418320+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/states
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/states
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apistatesltentity_id" href="#get-apistatesltentity_id"></a> GET /api/states/&lt;entity_id&gt;</h4>
 <p>Returns a state object for specified entity_id. Returns 404 if not found.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-   <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>:{
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">azimuth</span><span class="delimiter">&quot;</span></span>:<span class="float">336.34</span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">elevation</span><span class="delimiter">&quot;</span></span>:<span class="float">-17.67</span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">friendly_name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Sun</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">next_rising</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-31T03:39:14+00:00</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">next_setting</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-31T19:16:42+00:00</span><span class="delimiter">&quot;</span></span>
-   },
-   <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">sun.sun</span><span class="delimiter">&quot;</span></span>,
-   <span class="key"><span class="delimiter">&quot;</span><span class="content">last_changed</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-30T21:43:29.204838+00:00</span><span class="delimiter">&quot;</span></span>,
-   <span class="key"><span class="delimiter">&quot;</span><span class="content">last_updated</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-30T21:50:30.529465+00:00</span><span class="delimiter">&quot;</span></span>,
-   <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">below_horizon</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"azimuth"</span><span class="p">:</span><span class="mf">336.34</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"elevation"</span><span class="p">:</span><span class="mf">-17.67</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"friendly_name"</span><span class="p">:</span><span class="s2">"Sun"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"next_rising"</span><span class="p">:</span><span class="s2">"2016-05-31T03:39:14+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"next_setting"</span><span class="p">:</span><span class="s2">"2016-05-31T19:16:42+00:00"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="s2">"sun.sun"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="s2">"2016-05-30T21:43:29.204838+00:00"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"last_updated"</span><span class="p">:</span><span class="s2">"2016-05-30T21:50:30.529465+00:00"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"below_horizon"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        http://localhost:8123/api/states/sensor.kitchen_temperature
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apierror_log" href="#get-apierror_log"></a> GET /api/error_log</h4>
 <p>Retrieve all errors logged during the current session of Home Assistant as a plaintext response.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>15-12-20 11:02:50 homeassistant.components.recorder: Found unfinished sessions
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>15-12-20 11:02:50 homeassistant.components.recorder: Found unfinished sessions
 15-12-20 11:03:03 netdisco.ssdp: Error fetching description at http://192.168.1.1:8200/rootDesc.xml
 15-12-20 11:04:36 homeassistant.components.alexa: Received unknown intent HelpIntent
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        http://localhost:8123/api/error_log
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="get-apicamera_proxycameraltentity_id" href="#get-apicamera_proxycameraltentity_id"></a> GET /api/camera_proxy/camera.&lt;entity_id&gt;</h4>
 <p>Returns the data (image) from the specified camera entity_id.</p>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
-       http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+       http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time<span class="o">=</span>1462653861261 -o image.jpg
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="post-apistatesltentity_id" href="#post-apistatesltentity_id"></a> POST /api/states/&lt;entity_id&gt;</h4>
@@ -454,112 +406,96 @@ You can append <code>?password=YOUR_PASSWORD</code> to any url to log in automat
 
 <p>Expects a JSON object that has at least a state attribute:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">below_horizon</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">next_rising</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-31T03:39:14+00:00</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">next_setting</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-31T19:16:42+00:00</span><span class="delimiter">&quot;</span></span>
-    }
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"below_horizon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"next_rising"</span><span class="p">:</span><span class="s2">"2016-05-31T03:39:14+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"next_setting"</span><span class="p">:</span><span class="s2">"2016-05-31T19:16:42+00:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>Return code is 200 if the entity existed, 201 if the state of a new entity was set. A location header will be returned with the url of the new resource. The response body will contain a JSON encoded State object.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">next_rising</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-31T03:39:14+00:00</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">next_setting</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-31T19:16:42+00:00</span><span class="delimiter">&quot;</span></span>
-    },
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sun.sun</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">last_changed</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-30T21:43:29.204838+00:00</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">last_updated</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-30T21:47:30.533530+00:00</span><span class="delimiter">&quot;</span></span>
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">below_horizon</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"next_rising"</span><span class="p">:</span><span class="s2">"2016-05-31T03:39:14+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"next_setting"</span><span class="p">:</span><span class="s2">"2016-05-31T19:16:42+00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sun.sun"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30T21:43:29.204838+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30T21:47:30.533530+00:00"</span><span class="w">
+    </span><span class="s2">"state"</span><span class="err">:</span><span class="w"> </span><span class="s2">"below_horizon"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
-       -d '{&quot;state&quot;: &quot;25&quot;, &quot;attributes&quot;: {&quot;unit_of_measurement&quot;: &quot;°C&quot;}}' \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+       -d <span class="s1">'{"state": "25", "attributes": {"unit_of_measurement": "°C"}}'</span> <span class="se">\</span>
        http://localhost:8123/api/states/sensor.kitchen_temperature
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="post-apieventsltevent_type" href="#post-apieventsltevent_type"></a> POST /api/events/&lt;event_type&gt;</h4>
 <p>Fires an event with event_type</p>
 
-<p>You can pass an optional JSON object to be used as <code>event_data</code>.</p>
+<p>You can pass an optional JSON object to be used as <code class="highlighter-rouge">event_data</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="error">n</span><span class="error">e</span><span class="error">x</span><span class="error">t</span><span class="error">_</span><span class="error">r</span><span class="error">i</span><span class="error">s</span><span class="error">i</span><span class="error">n</span><span class="error">g</span><span class="string"><span class="delimiter">&quot;</span><span class="content">:</span><span class="delimiter">&quot;</span></span><span class="integer">2016</span><span class="integer">-0</span><span class="integer">5</span><span class="integer">-31</span><span class="error">T</span><span class="integer">0</span><span class="integer">3</span>:<span class="integer">39</span>:<span class="integer">14</span><span class="error">+</span><span class="integer">0</span><span class="integer">0</span>:<span class="integer">0</span><span class="integer">0</span><span class="string"><span class="delimiter">&quot;</span><span class="content">,
-}
-</span></span></pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="err">next_rising</span><span class="nt">":"</span><span class="err">2016-05-31T03</span><span class="p">:</span><span class="mi">39</span><span class="err">:</span><span class="mi">14</span><span class="err">+</span><span class="mi">00</span><span class="err">:</span><span class="mi">00</span><span class="err">"</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>Returns a message if successful.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Event download_file fired.</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event download_file fired."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <h4><a class="title-link" name="post-apiservicesltdomainltservice" href="#post-apiservicesltdomainltservice"></a> POST /api/services/&lt;domain&gt;/&lt;service&gt;</h4>
 <p>Calls a service within a specific domain. Will return when the service has been executed or 10 seconds has past, whichever comes first.</p>
 
-<p>You can pass an optional JSON object to be used as <code>service_data</code>.</p>
+<p>You can pass an optional JSON object to be used as <code class="highlighter-rouge">service_data</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">light.Ceiling</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"light.Ceiling"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>Returns a list of states that have changed while the service was being executed.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[
-    {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {},
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sun.sun</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">last_changed</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2016-05-30T21:43:32.418320+00:00</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">below_horizon</span><span class="delimiter">&quot;</span></span>
-    },
-    {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {},
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">entity_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">process.Dropbox</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">last_changed</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">22016-05-30T21:43:32.418320+00:00</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">on</span><span class="delimiter">&quot;</span></span>
-    }
-]
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sun.sun"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30T21:43:32.418320+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"below_horizon"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"process.Dropbox"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22016-05-30T21:43:32.418320+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
-       -d '{&quot;entity_id&quot;: &quot;switch.christmas_lights&quot;, &quot;state&quot;: &quot;on&quot;}' \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+       -d <span class="s1">'{"entity_id": "switch.christmas_lights", "state": "on"}'</span> <span class="se">\</span>
        http://localhost:8123/api/services/switch/turn_on
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <p class="note">
@@ -569,30 +505,24 @@ The result will include any changed states that changed while the service was be
 <h4><a class="title-link" name="post-apitemplate" href="#post-apitemplate"></a> POST /api/template</h4>
 <p>Render a Home Assistant template. <a href="/topics/templating/">See template docs for more information.</a></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">template</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Paulus is at {{ states('device_tracker.paulus') }}!</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paulus is at {{ states('device_tracker.paulus') }}!"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>Returns the rendered template in plain text.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>Paulus is at work!
-</pre></div>
-</div>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>Paulus is at work!
+</code></pre>
 </div>
 
-<p>Sample <code>curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
-       -d '{&quot;template&quot;: &quot;It is !&quot;}' http://localhost:8123/api/template
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+       -d <span class="s1">'{"template": "It is !"}'</span> http://localhost:8123/api/template
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="post-apievent_forwarding" href="#post-apievent_forwarding"></a> POST /api/event_forwarding</h4>
@@ -600,24 +530,20 @@ The result will include any changed states that changed while the service was be
 
 <p>Requires a JSON object that represents the API to forward to.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">host</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">machine</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">api_password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">my_super_secret_password</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">port</span><span class="delimiter">&quot;</span></span>: <span class="integer">8880</span> <span class="error">/</span><span class="error">/</span> <span class="error">o</span><span class="error">p</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">a</span><span class="error">l</span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"machine"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"api_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_super_secret_password"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8880</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">optional</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>It will return a message if event forwarding was setup successful.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Event forwarding setup.</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event forwarding setup."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <h4><a class="title-link" name="delete-apievent_forwarding" href="#delete-apievent_forwarding"></a> DELETE /api/event_forwarding</h4>
@@ -625,24 +551,20 @@ The result will include any changed states that changed while the service was be
 
 <p>Requires a JSON object that represents the API to cancel forwarding to.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">host</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">machine</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">api_password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">my_super_secret_password</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">port</span><span class="delimiter">&quot;</span></span>: <span class="integer">8880</span> <span class="error">/</span><span class="error">/</span> <span class="error">o</span><span class="error">p</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">a</span><span class="error">l</span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"machine"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"api_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_super_secret_password"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8880</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">optional</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>It will return a message if event forwarding was cancelled successful.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Event forwarding cancelled.</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event forwarding cancelled."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p class="note">

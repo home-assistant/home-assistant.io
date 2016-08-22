@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>icloud</code> platform allows you to detect presence using the <a href="https://www.icloud.com/">iCloud</a> service. iCloud allows users to track their location on iOS devices.</p>
+  <p>The <code class="highlighter-rouge">icloud</code> platform allows you to detect presence using the <a href="https://www.icloud.com/">iCloud</a> service. iCloud allows users to track their location on iOS devices.</p>
 
 <p>It does require that your device is registered with “Find My iPhone”.</p>
 
-<p>To integrate iCloud in Home Assistant, add the following section to your <code>configuration.yaml</code> file:</p>
+<p>To integrate iCloud in Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">icloud</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">icloud</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

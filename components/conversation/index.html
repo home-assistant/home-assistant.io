@@ -89,15 +89,13 @@
   <hr class="divider">
   
 
-  <p>The conversation component can process sentences into commands for Home Assistant. It is currently limited to parsing commands in the format <code>turn &lt;Friendly Name&gt; &lt;on/off&gt;</code>.</p>
+  <p>The conversation component can process sentences into commands for Home Assistant. It is currently limited to parsing commands in the format <code class="highlighter-rouge">turn &lt;Friendly Name&gt; &lt;on/off&gt;</code>.</p>
 
-<p>To enable the conversion option in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable the conversion option in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">conversation</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">conversation</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <p>When this component is active and you are using a supported browser voice commands will be activated in the frontend. Browse to <a href="/demo/">the demo</a> using Chrome or Chromium to see it in action.</p>

@@ -91,15 +91,13 @@
 
   <p>Google Cast devices like Android TVs and Chromecasts will be automatically discovered if you enable <a href="/components/discovery/">the discovery component</a>. There is a issue where Chromecasts can only be discovered if your device is connected to the same subnet as your Chromecast.</p>
 
-<p>Chromecast platform can also be forced to load by adding the following lines to your <code>configuration.yaml</code>:</p>
+<p>Chromecast platform can also be forced to load by adding the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">cast</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.9</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">cast</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.9</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

@@ -89,13 +89,11 @@
   <hr class="divider">
   
 
-  <p>Generally, when creating a new entity for Home Assistant you will want it to be a class that inherits the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/entity.py">homeassistant.helpers.entity.Entity</a> class. If this is done, visibility will be handled for you. <br />
-You can set a suggestion for your entity’s visibility by setting the <code>hidden</code> property by doing something similar to the following.</p>
+  <p>Generally, when creating a new entity for Home Assistant you will want it to be a class that inherits the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/entity.py">homeassistant.helpers.entity.Entity</a> class. If this is done, visibility will be handled for you. 
+You can set a suggestion for your entity’s visibility by setting the <code class="highlighter-rouge">hidden</code> property by doing something similar to the following.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="predefined-constant">self</span>.hidden = <span class="predefined-constant">True</span>
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="bp">self</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="bp">True</span>
+</code></pre>
 </div>
 
 <p>This will SUGGEST that the active frontend hides the entity. This requires that the active frontend support hidden cards (the default frontend does) and that the value of hidden be included in your attributes dictionary (see above). The Entity abstract class will take care of this for you.</p>

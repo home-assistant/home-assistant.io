@@ -91,28 +91,26 @@
 
   <p><a href="http://www.growlforwindows.com/gfw/help/gntp.aspx">GNTP</a> is a specification for sending and receiving notifications between computers. The most well known server implementations are <a href="http://growl.info">Growl</a> for Mac and <a href="http://www.growlforwindows.com/gfw/">Growl for Windows</a>.</p>
 
-<p>To use GNTP notifications, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use GNTP notifications, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFER_NAME</span></span>
-  <span class="key">platform</span>: <span class="string"><span class="content">gntp</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFER_NAME</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">gntp</span>
+</code></pre>
 </div>
 
-<p>GNTP will attempt to connect to a local server running on port 23053 if no <code>hostname</code> is provided.</p>
+<p>GNTP will attempt to connect to a local server running on port 23053 if no <code class="highlighter-rouge">hostname</code> is provided.</p>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>app_name</strong> (<em>Optional</em>): The application name that will be displayed on every notification and will be registered with the server.</li>
-  <li><strong>app_icon</strong> (<em>Optional</em>): The icon that will be displayed on every notification. You can provide a HTTP URL or a <code>file://</code> URL. File URLs only work if Home Assistant and the GNTP server are running on the same machine. If no <code>app_icon</code> is set a local copy of the Home Assistant logo will be used. If you choose to use a HTTP URL please make the maximum image size 150 px by 150 px as Growl for Mac will sometimes timeout when registering.</li>
+  <li><strong>app_icon</strong> (<em>Optional</em>): The icon that will be displayed on every notification. You can provide a HTTP URL or a <code class="highlighter-rouge">file://</code> URL. File URLs only work if Home Assistant and the GNTP server are running on the same machine. If no <code class="highlighter-rouge">app_icon</code> is set a local copy of the Home Assistant logo will be used. If you choose to use a HTTP URL please make the maximum image size 150 px by 150 px as Growl for Mac will sometimes timeout when registering.</li>
   <li><strong>hostname</strong> (<em>Optional</em>): The hostname or IP address of the GNTP server to contact.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password to authenticate to the GNTP server with.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port that the GNTP server runs on. The specification states that servers should not allow users to use any port other than 23053 but <code>port</code> is provided here just in case.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port that the GNTP server runs on. The specification states that servers should not allow users to use any port other than 23053 but <code class="highlighter-rouge">port</code> is provided here just in case.</li>
 </ul>
 
 

@@ -91,52 +91,44 @@
 
   <p><a href="http://www.lirc.org/">LIRC</a> integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other <a href="https://home-assistant.io/components/automation/">automation</a>.</p>
 
-<p>Sending IR commands is not supported in this component (yet), but can be accomplished using the <a href="https://home-assistant.io/components/shell_command/">shell_command component</a> in conjunction with the <code>irsend</code> command.</p>
+<p>Sending IR commands is not supported in this component (yet), but can be accomplished using the <a href="https://home-assistant.io/components/shell_command/">shell_command component</a> in conjunction with the <code class="highlighter-rouge">irsend</code> command.</p>
 
 <h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
 
 <p>To allow Home Assistant to talk to your IR receiver, you need to first make sure you have the correct dependencies installed:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo apt-get install lirc python3-lirc
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install lirc python3-lirc
+</code></pre>
 </div>
 
-<p>Check the version of <code>python3-lirc</code>:</p>
+<p>Check the version of <code class="highlighter-rouge">python3-lirc</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ apt-cache show python3-lirc
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>apt-cache show python3-lirc
 Package: python3-lirc
 Source: python-lirc
 Version: 1.2.1-2
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>If you do not have this version or you are running in a virtual environment, then your system will completely freeze with this component active. You will need to build <code>python3-lirc</code> from source. The version of this library in the Python package index is also broken, so the typical dependency system cannot fix this. Build it from source like this:</p>
+<p>If you do not have this version or you are running in a virtual environment, then your system will completely freeze with this component active. You will need to build <code class="highlighter-rouge">python3-lirc</code> from source. The version of this library in the Python package index is also broken, so the typical dependency system cannot fix this. Build it from source like this:</p>
 
 <p>As regular user:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>sudo apt-get install liblircclient-dev
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get install liblircclient-dev
+</code></pre>
 </div>
 
 <p>As the user that runs hass:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>(hass) $  git clone https://github.com/tompreston/python-lirc.git
-(hass) $  cd python-lirc
-(hass) $  make py3
-(hass) $  python3 setup.py build
-(hass) $  python3 setup.py install
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> git clone https://github.com/tompreston/python-lirc.git
+<span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> <span class="nb">cd </span>python-lirc
+<span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> make py3
+<span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> python3 setup.py build
+<span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> python3 setup.py install
+</code></pre>
 </div>
 
-<p>If you are not using a virtual environment setup, then you’ll need a <code>sudo</code> before the install line above.</p>
+<p>If you are not using a virtual environment setup, then you’ll need a <code class="highlighter-rouge">sudo</code> before the install line above.</p>
 
 <p class="note">
 If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations <a href="http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/">here</a>. Consider following these.
@@ -144,74 +136,66 @@ If you are configuring on a Raspberry Pi, there are excellent instructions with 
 
 <h3><a class="title-link" name="configuring-lirc" href="#configuring-lirc"></a> Configuring LIRC</h3>
 
-<p>Now teach LIRC about your particular remote control by preparing a lircd configuration file (<code>/etc/lirc/lircd.conf</code>). Search the <a href="http://lirc.sourceforge.net/remotes/">LIRC remote database</a> for your model. If you can’t find it, then you can always use the <code>irrecord</code> program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If <code>irrecord</code> doesn’t work (e.g. for some air conditioner remotes), then the <code>mode2</code> program is capable of reading the codes in raw mode, followed by <code>irrecord -a</code> to extract hex codes.</p>
+<p>Now teach LIRC about your particular remote control by preparing a lircd configuration file (<code class="highlighter-rouge">/etc/lirc/lircd.conf</code>). Search the <a href="http://lirc.sourceforge.net/remotes/">LIRC remote database</a> for your model. If you can’t find it, then you can always use the <code class="highlighter-rouge">irrecord</code> program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If <code class="highlighter-rouge">irrecord</code> doesn’t work (e.g. for some air conditioner remotes), then the <code class="highlighter-rouge">mode2</code> program is capable of reading the codes in raw mode, followed by <code class="highlighter-rouge">irrecord -a</code> to extract hex codes.</p>
 
-<p>Next, you have to make a <code>~/.lircrc</code> file that maps keypresses to system actions. <a href="http://www.lirc.org/html/configure.html">The configuration</a> is a bit tedious but it must be done. Use the <code>prog = home-assistant</code> for all keys you want to be recognized by Home Assistant. The values you set for <code>button</code> must be the same as in the <code>lircd.conf</code> file and the values you put for <code>config</code> entry will be the sensor value in Home Assistant when you press the button. An example may look like this:</p>
+<p>Next, you have to make a <code class="highlighter-rouge">~/.lircrc</code> file that maps keypresses to system actions. <a href="http://www.lirc.org/html/configure.html">The configuration</a> is a bit tedious but it must be done. Use the <code class="highlighter-rouge">prog = home-assistant</code> for all keys you want to be recognized by Home Assistant. The values you set for <code class="highlighter-rouge">button</code> must be the same as in the <code class="highlighter-rouge">lircd.conf</code> file and the values you put for <code class="highlighter-rouge">config</code> entry will be the sensor value in Home Assistant when you press the button. An example may look like this:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>begin
-    remote = SONY
-    button = KEY_1
-    prog   = home-assistant
-    config = KEY_1
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>begin
+    remote <span class="o">=</span> SONY
+    button <span class="o">=</span> KEY_1
+    prog   <span class="o">=</span> home-assistant
+    config <span class="o">=</span> KEY_1
 end
 begin
-    remote = SONY
-    button = KEY_2
-    prog   = home-assistant
-    config = KEY_2
+    remote <span class="o">=</span> SONY
+    button <span class="o">=</span> KEY_2
+    prog   <span class="o">=</span> home-assistant
+    config <span class="o">=</span> KEY_2
 end
 begin
-    remote = SONY
-    button = KEY_3
-    prog   = home-assistant
-    config = KEY_3
+    remote <span class="o">=</span> SONY
+    button <span class="o">=</span> KEY_3
+    prog   <span class="o">=</span> home-assistant
+    config <span class="o">=</span> KEY_3
 end
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <p>Test your LIRC installation before proceeding by running:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ircat home-assistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ircat home-assistant
+</code></pre>
 </div>
 
 <p>and pressing some buttons on the remote. You should see them register on the screen if LIRC is properly configured.</p>
 
 <h3><a class="title-link" name="configuration-home-assistant" href="#configuration-home-assistant"></a> Configuration Home Assistant</h3>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">lirc</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">lirc</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="events" href="#events"></a> Events</h4>
 
-<p>The LIRC component fires <code>ir_command_received</code> events on the bus. You can capture the events and respond to them in automation scripts like this:</p>
+<p>The LIRC component fires <code class="highlighter-rouge">ir_command_received</code> events on the bus. You can capture the events and respond to them in automation scripts like this:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml automation entry</span>
-<span class="key">automation</span>:
-- <span class="string"><span class="content">alias: Off on Remote</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
-    <span class="key">event_type</span>: <span class="string"><span class="content">ir_command_received</span></span>
-    <span class="key">event_data</span>:
-      <span class="key">button_name</span>: <span class="string"><span class="content">KEY_0</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_off</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">group.a_lights</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Off on Remote</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">ir_command_received</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">button_name</span><span class="pi">:</span> <span class="s">KEY_0</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.a_lights</span>
 
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>The <code>button_name</code> data values (e.g. <code>KEY_0</code>) are set by you in the <code>.lircrc</code> file.</p>
+<p>The <code class="highlighter-rouge">button_name</code> data values (e.g. <code class="highlighter-rouge">KEY_0</code>) are set by you in the <code class="highlighter-rouge">.lircrc</code> file.</p>
 
 
 </article>

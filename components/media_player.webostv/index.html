@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>webostv</code> platform allows you to control a <a href="http://www.lg.com">LG</a> WebOS Smart TV.</p>
+  <p>The <code class="highlighter-rouge">webostv</code> platform allows you to control a <a href="http://www.lg.com">LG</a> WebOS Smart TV.</p>
 
 <p>When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.</p>
 
-<p>To add a TV to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add a TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">webostv</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.0.10</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Living Room TV</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -112,7 +110,7 @@
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the LG WebOS Smart TV.</li>
 </ul>
 
-<p>If you do not provide a host name, all LG WebOS Smart TV’s within your network will be auto-discovered if your TV network name is set to <code>[LG] webOS TV</code></p>
+<p>If you do not provide a host name, all LG WebOS Smart TV’s within your network will be auto-discovered if your TV network name is set to <code class="highlighter-rouge">[LG] webOS TV</code></p>
 
 
 </article>

@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The CEC component provides services that allow selecting the active device, powering on all devices, and setting all devices to standby. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use <code>cec-client</code> (part of the <code>libcec</code> package) to listen to traffic on the CEC bus and discover the correct numbers.</p>
+  <p>The CEC component provides services that allow selecting the active device, powering on all devices, and setting all devices to standby. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use <code class="highlighter-rouge">cec-client</code> (part of the <code class="highlighter-rouge">libcec</code> package) to listen to traffic on the CEC bus and discover the correct numbers.</p>
 
 <h2><a class="title-link" name="cec-setup" href="#cec-setup"></a> CEC Setup</h2>
 
@@ -99,77 +99,67 @@
 
 <h3><a class="title-link" name="libcec" href="#libcec"></a> libcec</h3>
 
-<p><a href="https://github.com/Pulse-Eight/libcec">libcec</a> must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. <code>libcec</code> installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a <a href="/getting-started/installation-virtualenv/">Python virtual environment</a>, make sure it can access the system module, by either symlinking it or using the <code>--system-site-packages</code> flag.</p>
+<p><a href="https://github.com/Pulse-Eight/libcec">libcec</a> must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. <code class="highlighter-rouge">libcec</code> installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a <a href="/getting-started/installation-virtualenv/">Python virtual environment</a>, make sure it can access the system module, by either symlinking it or using the <code class="highlighter-rouge">--system-site-packages</code> flag.</p>
 
 <h4><a class="title-link" name="symlinking-into-virtual-environment" href="#symlinking-into-virtual-environment"></a> Symlinking into virtual environment</h4>
 
-<p>Create a symlink to the <code>cec</code> installation.</p>
+<p>Create a symlink to the <code class="highlighter-rouge">cec</code> installation.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ln -s /usr/local/lib/python3.4/dist-packages/cec /path/to/your/venv/lib/python3.4/site-packages
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/dist-packages/cec /path/to/your/venv/lib/python3.4/site-packages
+</code></pre>
 </div>
 
 <p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi-all-in-one/">Raspberry Pi AIO</a> the command would be as follows.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
+</code></pre>
 </div>
 
-<p class="note">If after symlinking and adding <code>hdmi_cec:</code> to your configuration you are getting the following error in your logs, 
-<code>* failed to open vchiq instance</code> you will also need to add the user account Home Asssistant runs under, to the <code>video</code> group. To add the Home Assisitant’s user account to the <code>video</code> group, run the following command. <code>$ usermod -a -G video &lt;hass_user_account&gt;</code>
+<p class="note">If after symlinking and adding <code class="highlighter-rouge">hdmi_cec:</code> to your configuration you are getting the following error in your logs, 
+<code class="highlighter-rouge">* failed to open vchiq instance</code> you will also need to add the user account Home Asssistant runs under, to the <code class="highlighter-rouge">video</code> group. To add the Home Assisitant’s user account to the <code class="highlighter-rouge">video</code> group, run the following command. <code class="highlighter-rouge">$ usermod -a -G video &lt;hass_user_account&gt;</code>
 </p>
 
 <h2><a class="title-link" name="configuration-example" href="#configuration-example"></a> Configuration Example</h2>
 
 <p>In the following example, a Pi Zero running Home Assistant is on a TV’s HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">hdmi_cec</span>:
-  <span class="key">devices</span>:
-    <span class="key">1</span>: <span class="string"><span class="content">Pi Zero</span></span>
-    <span class="key">2</span>:
-      <span class="key">1</span>: <span class="string"><span class="content">Fire TV Stick</span></span>
-      <span class="key">2</span>: <span class="string"><span class="content">Chromecast</span></span>
-      <span class="key">3</span>: <span class="string"><span class="content">Another Device</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">1</span><span class="pi">:</span> <span class="s">Pi Zero</span>
+    <span class="s">2</span><span class="pi">:</span>
+      <span class="s">1</span><span class="pi">:</span> <span class="s">Fire TV Stick</span>
+      <span class="s">2</span><span class="pi">:</span> <span class="s">Chromecast</span>
+      <span class="s">3</span><span class="pi">:</span> <span class="s">Another Device</span>
+</code></pre>
 </div>
 
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 
 <h3><a class="title-link" name="select-device" href="#select-device"></a> Select Device</h3>
 
-<p>Call the <code>hdmi_cec/select_device</code> service with the name of the device to select, for example:</p>
+<p>Call the <code class="highlighter-rouge">hdmi_cec/select_device</code> service with the name of the device to select, for example:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">device</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Chromecast</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chromecast"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 <p>So an Automation action using the example above would look something like this.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">action</span>:
-  <span class="key">service</span>: <span class="string"><span class="content">hdmi_cec.select_device</span><span class="content">
-    data:
-      device: Chromecast</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">hdmi_cec.select_device</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">device</span><span class="pi">:</span> <span class="s">Chromecast</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="power-on" href="#power-on"></a> Power On</h3>
 
-<p>Call the <code>hdmi_cec/power_on</code> service (no arguments) to power on any devices that support this function.</p>
+<p>Call the <code class="highlighter-rouge">hdmi_cec/power_on</code> service (no arguments) to power on any devices that support this function.</p>
 
 <h3><a class="title-link" name="standby" href="#standby"></a> Standby</h3>
 
-<p>Call the <code>hdmi_cec/standby</code> service (no arguments) to place in standby any devices that support this function.</p>
+<p>Call the <code class="highlighter-rouge">hdmi_cec/standby</code> service (no arguments) to place in standby any devices that support this function.</p>
 
 <h2><a class="title-link" name="useful-references" href="#useful-references"></a> Useful References</h2>
 

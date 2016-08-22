@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>snmp</code> sensor platform simple displays the information which are available through the <a href="https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol">Simple Network Management Protocol (SNMP)</a>. SNMP uses a tree-like hierarchy where each node is an object.</p>
+  <p>The <code class="highlighter-rouge">snmp</code> sensor platform simple displays the information which are available through the <a href="https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol">Simple Network Management Protocol (SNMP)</a>. SNMP uses a tree-like hierarchy where each node is an object.</p>
 
-<p>To enable this sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">snmp</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Load</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.32</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">161</span></span>
-  <span class="key">community</span>: <span class="string"><span class="content">public</span></span>
-  <span class="key">baseoid</span>: <span class="string"><span class="content">1.3.6.1.4.1.2021.10.1.3.1</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">%</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">snmp</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Load</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.32</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">161</span>
+  <span class="s">community</span><span class="pi">:</span> <span class="s">public</span>
+  <span class="s">baseoid</span><span class="pi">:</span> <span class="s">1.3.6.1.4.1.2021.10.1.3.1</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%"</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -113,7 +111,7 @@
   <li><strong>host</strong> (<em>Required</em>): The IP address of your host, eg. 192.168.1.32.</li>
   <li><strong>port</strong> (<em>Option</em>): The SNMP port of your host. Defaults to 161.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the SNMP sensor.</li>
-  <li><strong>community</strong> (<em>Optional</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code>public</code> with read-only permission (which is sufficient).</li>
+  <li><strong>community</strong> (<em>Optional</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code class="highlighter-rouge">public</code> with read-only permission (which is sufficient).</li>
   <li><strong>baseoid</strong> (<em>Required</em>): The OID where the information is located. It’s advised to use the numerical notation.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
 </ul>
@@ -126,13 +124,11 @@
   <li>15 minute Load: 1.3.6.1.4.1.2021.10.1.3.3</li>
 </ul>
 
-<p>There is a large amount of tools available to work with SNMP. <code>snmpwalk</code> let you easily retrieve the value of a OID.</p>
+<p>There is a large amount of tools available to work with SNMP. <code class="highlighter-rouge">snmpwalk</code> let you easily retrieve the value of a OID.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ snmpwalk -Os -c public -v 2c 192.168.1.32 1.3.6.1.4.1.2021.10.1.3.1
-laLoad.1 = STRING: 0.19
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>snmpwalk -Os -c public -v 2c 192.168.1.32 1.3.6.1.4.1.2021.10.1.3.1
+laLoad.1 <span class="o">=</span> STRING: 0.19
+</code></pre>
 </div>
 
 

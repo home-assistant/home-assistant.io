@@ -89,30 +89,28 @@
   <hr class="divider">
   
 
-  <p>The <code>influxdb</code> component makes it possible to transfer all state changes to an external <a href="https://influxdb.com/">InfluxDB</a> database. For more details, <a href="/blog/2015/12/07/influxdb-and-grafana/">see the blog post on InfluxDB</a>.</p>
+  <p>The <code class="highlighter-rouge">influxdb</code> component makes it possible to transfer all state changes to an external <a href="https://influxdb.com/">InfluxDB</a> database. For more details, <a href="/blog/2015/12/07/influxdb-and-grafana/">see the blog post on InfluxDB</a>.</p>
 
-<p>To use the <code>influxdb</code> component in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use the <code class="highlighter-rouge">influxdb</code> component in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">influxdb</span>:
-  <span class="key">host</span>: <span class="string"><span class="content">DB_HOST_IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">20000</span></span>
-  <span class="key">database</span>: <span class="string"><span class="content">DB_TO_STORE_EVENTS</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">MY_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">MY_PASSWORD</span></span>
-  <span class="key">ssl</span>: <span class="string"><span class="content">true</span></span>
-  <span class="key">verify_ssl</span>: <span class="string"><span class="content">true</span></span>
-  <span class="key">blacklist</span>:
-     - <span class="string"><span class="content">entity.id1</span></span>
-     - <span class="string"><span class="content">entity.id2</span></span>
-  <span class="key">whitelist</span>:
-     - <span class="string"><span class="content">entity.id3</span></span>
-     - <span class="string"><span class="content">entity.id4</span></span>
-  <span class="key">tags</span>:
-    - <span class="string"><span class="content">instance: prod</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">influxdb</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">DB_HOST_IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">20000</span>
+  <span class="s">database</span><span class="pi">:</span> <span class="s">DB_TO_STORE_EVENTS</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">MY_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">MY_PASSWORD</span>
+  <span class="s">ssl</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">verify_ssl</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">blacklist</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">entity.id1</span>
+     <span class="pi">-</span> <span class="s">entity.id2</span>
+  <span class="s">whitelist</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">entity.id3</span>
+     <span class="pi">-</span> <span class="s">entity.id4</span>
+  <span class="s">tags</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">instance</span><span class="pi">:</span> <span class="s">prod</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -120,7 +118,7 @@
 <ul>
   <li><strong>host</strong> (<em>Required</em>): IP address of your database host, eg. http://192.168.1.10.</li>
   <li><strong>port</strong> (<em>Optional</em>): Port to use. Defaults to 8086.</li>
-  <li><strong>database</strong> (<em>Optional</em>): Name of the database to use. Defaults to <code>home_assistant</code>. The database must already exist.</li>
+  <li><strong>database</strong> (<em>Optional</em>): Name of the database to use. Defaults to <code class="highlighter-rouge">home_assistant</code>. The database must already exist.</li>
   <li><strong>username</strong> (<em>Optional</em>): The username of the database user.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password for the database user account.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-22T07:26:42+00:00</updated>
+  <updated>2016-08-22T08:20:27+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -15,80 +15,116 @@
   
   <entry>
     <title type="html"><![CDATA[0.26: Foursquare, Fast.com, FFMPEG and GPSD]]></title>
-    <link href="https://home-assistant.io/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/"/>
+    <link href="https://home-assistant.io/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/"/>
     <updated>2016-08-13T19:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/08/13/foursquare--fast.com--ffmpeg--gpsd</id>
-    <content type="html"><![CDATA[<p>It’s time for 0.26 and it’s again full of new features and fixes. First I want to highlight that we are now having 500 000 monthly pageviews on the website. A big milestone for us! It’s been an amazing journey. Big thanks to the Home Assistant community for being such a delightful bunch.</p>
+    <content type="html"><![CDATA[It's time for 0.26 and it's again full of new features and fixes. First I want to highlight that we are now having 500 000 monthly pageviews on the website. A big milestone for us! It's been an amazing journey. Big thanks to the Home Assistant community for being such a delightful bunch.
 
-<p>This release includes code contributed by 31 different people. The biggest change in this release is a new unit system. Instead of picking Celsius or Fahrenheit you’ll have to pick imperial or metric now. This influences the units for your temperature, distance, and weight. This will simplify any platform or component that needs to know this information. Big thanks to <a href="https://github.com/Teagan42">@Teagan42</a> for her hard work on this!</p>
+This release includes code contributed by 31 different people. The biggest change in this release is a new unit system. Instead of picking Celsius or Fahrenheit you'll have to pick imperial or metric now. This influences the units for your temperature, distance, and weight. This will simplify any platform or component that needs to know this information. Big thanks to [@Teagan42] for her hard work on this!
 
-<p><img src="https://home-assistant.io/images/supported_brands/foursquare.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/ohmconnect.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/fastdotcom.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/gpsd.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/ffmpeg.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+<img src='https://home-assistant.io/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/ohmconnect.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/fastdotcom.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/gpsd.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/ffmpeg.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
-<ul>
-  <li>Core: Introduce notion of unit system (deprecates temperature unit option) (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li>Front end: Speed improvements (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Front end: Improve layout of state dev tool (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li><a href="/components/proximity/">Proximity</a>: Allow definition of unit of measurement (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li><a href="/components/switch.flux/">Flux</a>: Add mired and kelvin mode (<a href="https://github.com/HBDK">@HBDK</a>)</li>
-  <li>Thermostat - <a href="/components/thermostat.proliphix/">Proliphix</a>: Support for cooling (<a href="https://github.com/sdague">@sdague</a>)</li>
-  <li>Media Player - <a href="/components/media_player.lg_netcast/">LG Netcast TV</a>: Show screenshot of what is currently playing (<a href="https://github.com/shmuelzon">@shmuelzon</a>)</li>
-  <li>Z-Wave improvements (<a href="https://github.com/jnewland">@jnewland</a>, <a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Thermostat - <a href="/components/thermostat.heat_control/">heat control</a>: now also able to control an AC (<a href="https://github.com/mtreinish">@mtreinish</a>)</li>
-  <li>Thermostat - <a href="/components/thermostat.heat_control/">heat control</a>: allow specifying a minimum duration before switching (<a href="https://github.com/mtreinish">@mtreinish</a>)</li>
-  <li><a href="/components/influxdb/">InfluxDB</a>: Whitelist entities option added (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-  <li>Sensor: Serial <a href="/components/sensor.serial_pm/">particulate matters</a> sensors now supported (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Sensor - <a href="/components/sensor.fitbit/">Fitbit</a>: Fix unit system (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-  <li>Light - <a href="/components/light.flux_led/">Flux LED</a>: Add support for [color and brightness][color] (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Media Player - <a href="/components/media_player.plex/">Plex</a>: Now able to report on music (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
-  <li>Alarm Control Panel - <a href="/components/alarm_control_panel.verisure/">Verisure</a>: Now able to see who changed the alarm (<a href="https://github.com/persandtrom">@persandtrom</a>)</li>
-  <li>Thermostat - <a href="/components/thermostat.honeywell/">Honeywell</a>: Add option to read and control HVAC mode (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li><a href="/components/foursquare/">Foursquare</a> component to receive instant notifications of checkins (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Camera: New <a href="/components/camera.ffmpeg/">FFMPEG</a> platform allows to stream anything through front end (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Manage <a href="/topics/secrets/">secrets</a> with new command line script (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Notify - <a href="/components/notify.smtp/">SMTP</a>: Allow embedding of images (<a href="https://github.com/partofthething">@partofthething</a>)</li>
-  <li>Sensor: <a href="/components/sensor.ohmconnect/">OhmConnect</a> is now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li><a href="/components/panel_custom/">panel_custom</a> component allows the registering of new panels (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: New <a href="/components/light.mqtt_json/">mqtt_json</a> platform for working with JSON payload (<a href="https://github.com/corbanmailloux">@corbanmailloux</a>)</li>
-  <li>Sensor: New <a href="/components/sensor.fastdotcom/">Fast.com</a> platform to measure network bandwidth performance (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>New <a href="/components/pilight/">pilight</a> component to control 433 Mz devices (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
-  <li>Sensor: <a href="/components/sensor.gpsd/">GPSD</a> now supported (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-</ul>
+- Core: Introduce notion of unit system (deprecates temperature unit option) ([@Teagan42])
+- Front end: Speed improvements ([@balloob])
+- Front end: Improve layout of state dev tool ([@balloob])
+- [Proximity]\: Allow definition of unit of measurement ([@Teagan42])
+- [Flux]\: Add mired and kelvin mode ([@HBDK])
+- Thermostat - [Proliphix]: Support for cooling ([@sdague])
+- Media Player - [LG Netcast TV]: Show screenshot of what is currently playing ([@shmuelzon])
+- Z-Wave improvements ([@jnewland], [@turbokongen])
+- Thermostat - [heat control]: now also able to control an AC ([@mtreinish])
+- Thermostat - [heat control]: allow specifying a minimum duration before switching ([@mtreinish])
+- [InfluxDB]\: Whitelist entities option added ([@tchellomello])
+- Sensor: Serial [particulate matters][particulate] sensors now supported ([@open-homeautomation])
+- Sensor - [Fitbit]: Fix unit system ([@tchellomello])
+- Light - [Flux LED]: Add support for [color and brightness][color] ([@Danielhiversen])
+- Media Player - [Plex]: Now able to report on music ([@abcminiuser])
+- Alarm Control Panel - [Verisure]: Now able to see who changed the alarm ([@persandtrom])
+- Thermostat - [Honeywell]: Add option to read and control HVAC mode ([@Teagan42])
+- [Foursquare] component to receive instant notifications of checkins ([@robbiet480])
+- Camera: New [FFMPEG] platform allows to stream anything through front end ([@pvizeli])
+- Manage [secrets] with new command line script ([@kellerza])
+- Notify - [SMTP]: Allow embedding of images ([@partofthething])
+- Sensor: [OhmConnect] is now supported ([@robbiet480])
+- [panel_custom] component allows the registering of new panels ([@balloob])
+- Light: New [mqtt_json] platform for working with JSON payload ([@corbanmailloux])
+- Sensor: New [Fast.com] platform to measure network bandwidth performance ([@nkgilley])
+- New [pilight] component to control 433 Mz devices ([@DavidLP])
+- Sensor: [GPSD] now supported ([@fabaff])
 
-<h3><a class='title-link' name='hotfix-0261---august-14' href='#hotfix-0261---august-14'></a> Hotfix 0.26.1 - August 14 </h3>
+### <a class='title-link' name='hotfix-0261---august-14' href='#hotfix-0261---august-14'></a> Hotfix 0.26.1 - August 14 
 
-<ul>
-  <li>Fix serial_pm config validation (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Check for existence of system mode on Honeywell thermostats (<a href="https://github.com/mKeRix">@mKeRix</a>)</li>
-  <li>Fix unknown unit of measurement for hvac and thermostat component (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-</ul>
+- Fix serial_pm config validation ([@open-homeautomation])
+- Check for existence of system mode on Honeywell thermostats ([@mKeRix])
+- Fix unknown unit of measurement for hvac and thermostat component ([@turbokongen])
 
-<h3><a class='title-link' name='hotfix-0262---august-15' href='#hotfix-0262---august-15'></a> Hotfix 0.26.2 - August 15 </h3>
+### <a class='title-link' name='hotfix-0262---august-15' href='#hotfix-0262---august-15'></a> Hotfix 0.26.2 - August 15 
 
-<ul>
-  <li>Fix Wemo: have PyWemo play nicely with the latest Requests (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-</ul>
+- Fix Wemo: have PyWemo play nicely with the latest Requests ([@pavoni])
 
-<h3><a class='title-link' name='hotfix-0263---august-19' href='#hotfix-0263---august-19'></a> Hotfix 0.26.3 - August 19 </h3>
+### <a class='title-link' name='hotfix-0263---august-19' href='#hotfix-0263---august-19'></a> Hotfix 0.26.3 - August 19 
 
-<ul>
-  <li>Media Player cover art would not work when an API password was set. Thanks to <a href="https://github.com/maddox">@maddox</a> for reporting it and <a href="https://github.com/balloob">@balloob</a> for the fix.</li>
-</ul>
+- Media Player cover art would not work when an API password was set. Thanks to [@maddox] for reporting it and [@balloob] for the fix.
 
-<h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
+### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
-<ul>
-  <li>A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:</li>
-</ul>
+ - A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Configuration.yaml example</span>
-<span class="key">homeassistant</span>:
-  <span class="comment"># 'metric' for the metric system, 'imperial' for the imperial system</span>
-  <span class="key">unit_system</span>: <span class="string"><span class="content">metric</span></span>
-</pre></div>
-</div>
-</div>
+```yaml
+# Configuration.yaml example
+homeassistant:
+  # 'metric' for the metric system, 'imperial' for the imperial system
+  unit_system: metric
+```
 
+[@maddox]: https://github.com/maddox
+[@pavoni]: https://github.com/pavoni
+[@mKeRix]: https://github.com/mKeRix
+[@abcminiuser]: https://github.com/abcminiuser
+[@balloob]: https://github.com/balloob
+[@corbanmailloux]: https://github.com/corbanmailloux
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@DavidLP]: https://github.com/DavidLP
+[@fabaff]: https://github.com/fabaff
+[@HBDK]: https://github.com/HBDK
+[@jnewland]: https://github.com/jnewland
+[@kellerza]: https://github.com/kellerza
+[@mtreinish]: https://github.com/mtreinish
+[@nkgilley]: https://github.com/nkgilley
+[@open-homeautomation]: https://github.com/open-homeautomation
+[@partofthething]: https://github.com/partofthething
+[@persandtrom]: https://github.com/persandtrom
+[@pvizeli]: https://github.com/pvizeli
+[@robbiet480]: https://github.com/robbiet480
+[@sdague]: https://github.com/sdague
+[@shmuelzon]: https://github.com/shmuelzon
+[@tchellomello]: https://github.com/tchellomello
+[@Teagan42]: https://github.com/Teagan42
+[@turbokongen]: https://github.com/turbokongen
+[@fabaff]: https://github.com/fabaff
+
+[Foursquare]: /components/foursquare/
+[OhmConnect]: /components/sensor.ohmconnect/
+[FFMPEG]: /components/camera.ffmpeg/
+[SMTP]: /components/notify.smtp/
+[panel_custom]: /components/panel_custom/
+[Verisure]: /components/alarm_control_panel.verisure/
+[Flux LED]: /components/light.flux_led/
+[InfluxDB]: /components/influxdb/
+[particulate]: /components/sensor.serial_pm/
+[LG Netcast TV]: /components/media_player.lg_netcast/
+[mqtt_json]: /components/light.mqtt_json/
+[Fast.com]: /components/sensor.fastdotcom/
+[pilight]: /components/pilight/
+[GPSD]: /components/sensor.gpsd/
+[heat control]: /components/thermostat.heat_control/
+[Proximity]: /components/proximity/
+[Flux]: /components/switch.flux/
+[Proliphix]: /components/thermostat.proliphix/
+[Fitbit]: /components/sensor.fitbit/
+[Plex]: /components/media_player.plex/
+[Honeywell]: /components/thermostat.honeywell/
+[Secrets]: /topics/secrets/
 ]]></content>
   </entry>
   
@@ -97,76 +133,124 @@
     <link href="https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/"/>
     <updated>2016-07-30T12:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/07/30/custom-frontend-panels--jupyter-notebooks--directv</id>
-    <content type="html"><![CDATA[<p>When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!</p>
+    <content type="html"><![CDATA[When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!
 
-<p>Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can <a href="/developers/frontend_creating_custom_panels/">add it’s own page to the frontend</a>. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you’ll come up with!</p>
+Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can [add it's own page to the frontend][custom-panels]. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you'll come up with!
 
-<p>We have also seen an exciting trend of people starting to visualize their Internet of Things data using <a href="http://jupyter.org/">Jupyter</a> Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the <a href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">blog</a> post by <a href="https://github.com/kireyeu">@kireyeu</a> shows an advanced usecase while our <a href="/cookbook/#jupyter-notebooks">Notebooks</a> in the <a href="https://github.com/home-assistant/home-assistant-notebooks">Home Assistant Notebooks repository</a> cover the basics.</p>
+We have also seen an exciting trend of people starting to visualize their Internet of Things data using [Jupyter] Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] cover the basics.
 
-<p>This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant can talk to 26 different media players!</p>
+This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant can talk to 26 different media players!
 
-<p>The brand-new <a href="/components/panel_iframe/">iFrame panel component</a> allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.</p>
+The brand-new [iFrame panel component][iframe_panel] allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.
 
-<p>I would like to do a shoutout to <a href="https://github.com/fabianhjr">@fabianhjr</a>. He has started adding <a href="https://docs.python.org/3/library/typing.html">typing</a> data (<a href="https://www.python.org/dev/peps/pep-0484/">PEP484</a>) to the Home Assistant core. This will help us identify issues before they are released.</p>
+I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] data ([PEP484]) to the Home Assistant core. This will help us identify issues before they are released.
 
-<p><img src="https://home-assistant.io/images/supported_brands/russound.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/jupyter.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/directv.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<img src='https://home-assistant.io/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
-<ul>
-  <li>Frontend: Support for <a href="/components/panel_iframe/">iFrame panels</a> to adding other sites to sidebar (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Allow components to register <a href="/developers/frontend_creating_custom_panels/">custom frontend panels</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Add example custom_component <a href="/cookbook/custom_panel_using_react/">react_panel</a> showing custom panels (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="/components/light.flux_led/">MagicLight/Flux WiFi Color LED Light</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Script: Specify a delay <a href="/getting-started/scripts/#delay">using templates</a> (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li>Media player: <a href="/components/media_player.russound_rnet/">Russound RNET</a> integration (<a href="https://github.com/laf">@laf</a>)</li>
-  <li>Remote: Option specifying custom timeout when calling Home Assistant API (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
-  <li>Thermostat: Integration of <a href="/components/thermostat.knx/">KNX</a> thermostats (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Thermostat: Support for HVAC mode of <a href="/components/thermostat.nest/">Nest</a> devices (<a href="https://github.com/vladonemo">@vladonemo</a>)</li>
-  <li>InfluxDB: Option to specify additional <a href="/components/influxdb/">tags</a> (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Input slider: Support for float value (<a href="https://github.com/ngraziano">@ngraziano</a>)</li>
-  <li>Template: New <a href="/topics/templating/#home-assistant-template-extensions">filters</a> (<code>timestamp_local</code> and <code>timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Binary sensor - Wink: Water leak sensor support added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li>Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor (<a href="https://github.com/PetitCircuitLab">@PetitCircuitLab</a>)</li>
-  <li>Switch - RPi GPIO: Fix when inverted logic (<a href="https://github.com/zeroDenial">@zeroDenial</a>)</li>
-  <li>Z-Wave: Rollershutter update (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>RFXtrx: Fire events when receiving signals from sensors and tests added (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Core: Add <a href="https://docs.python.org/3/library/typing.html">type</a> checking using mypy to the core (<a href="https://github.com/fabianhjr">@fabianhjr</a>)</li>
-  <li>Remote: Support for getting the <a href="/developers/python_api/#get-configuration">Configuration</a> through the Python API (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Media player: Support for <a href="/components/media_player.directv/">DirecTV</a> (<a href="https://github.com/cbulock">@cbulock</a>)</li>
-  <li>Use browser timezone for frontend logbook and history dates (<a href="https://github.com/armills">@armills</a>)</li>
-  <li>Light: New support for <a href="/components/light.x10/">X10</a> lights (<a href="https://github.com/fotoetienne">@fotoetienne</a>)</li>
-  <li>Sensor: Support for observing <a href="/components/sensor.imap/">IMAP</a> accounts (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
-  <li>Media Player: Integration for <a href="/components/media_player.mpchc/">MPC-HC</a> (Media Player Classic - Home Cinema) mediaplayer (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
-  <li>Notify: <code>location</code> extension for <a href="/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Groups: Lock states will now be properly grouped (<a href="https://github.com/jwl17330536">@jwl17330536</a>)</li>
-  <li>Media Player: Added tests for Sonos to improve code quality (<a href="https://github.com/americanwookie">@americanwookie</a>)</li>
-  <li>Device Tracker: iCloud stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Sensor: Speedtest with improved error handling and state restoring (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>Recorder: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Qwikswitch: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Light: <a href="/components/light.hyperion/">Hyperion</a> keeps now track of active color (<a href="https://github.com/schneefux">@schneefux</a>)</li>
-</ul>
+- Frontend: Support for [iFrame panels][iframe_panel] to adding other sites to sidebar ([@balloob])
+- Allow components to register [custom frontend panels][custom-panels] ([@balloob])
+- Add example custom_component [react_panel][react-panel] showing custom panels ([@balloob])
+- Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
+- Script: Specify a delay [using templates][script] ([@Teagan42])
+- Media player: [Russound RNET][Russound] integration ([@laf]) 
+- Remote: Option specifying custom timeout when calling Home Assistant API ([@n8henrie])
+- Thermostat: Integration of [KNX] thermostats ([@open-homeautomation])
+- Thermostat: Support for HVAC mode of [Nest] devices ([@vladonemo])
+- InfluxDB: Option to specify additional [tags] ([@open-homeautomation])
+- Input slider: Support for float value ([@ngraziano])
+- Template: New [filters] (`timestamp_local` and `timestamp_utc`) ([@fabaff])
+- Binary sensor - Wink: Water leak sensor support added ([@w1ll1am23])
+- Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor ([@PetitCircuitLab])
+- Switch - RPi GPIO: Fix when inverted logic ([@zeroDenial])
+- Z-Wave: Rollershutter update ([@turbokongen])
+- RFXtrx: Fire events when receiving signals from sensors and tests added ([@Danielhiversen])
+- Core: Add [type][typing] checking using mypy to the core ([@fabianhjr])
+- Remote: Support for getting the [Configuration] through the Python API ([@fabaff])
+- Media player: Support for [DirecTV] ([@cbulock])
+- Use browser timezone for frontend logbook and history dates ([@armills])
+- Light: New support for [X10] lights ([@fotoetienne])
+- Sensor: Support for observing [IMAP] accounts ([@danieljkemp])
+- Media Player: Integration for [MPC-HC] (Media Player Classic - Home Cinema) mediaplayer ([@abcminiuser])
+- Notify: `location` extension for [Telegram] and photo bug fixed ([@keatontaylor] and [@pvizeli])
+- Groups: Lock states will now be properly grouped ([@jwl17330536])
+- Media Player: Added tests for Sonos to improve code quality ([@americanwookie])
+- Device Tracker: iCloud stability fixes ([@kellerza])
+- Sensor: Speedtest with improved error handling and state restoring ([@nkgilley])
+- Recorder: Stability fixes ([@kellerza])
+- Qwikswitch: Stability fixes ([@kellerza])
+- Light: [Hyperion] keeps now track of active color ([@schneefux])
 
-<h3><a class='title-link' name='hotfix-0251---august-1' href='#hotfix-0251---august-1'></a> Hotfix 0.25.1 - August 1 </h3>
+### <a class='title-link' name='hotfix-0251---august-1' href='#hotfix-0251---august-1'></a> Hotfix 0.25.1 - August 1 
 
-<ul>
-  <li>Light - Z-Wave: Bring back delayed value update behavior (<a href="https://github.com/jnewland">@jnewland</a>)</li>
-  <li>Recorder: Properly close session after execute (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Media Player - Kodi: No longer block startup if connecting to wrong port (<a href="https://github.com/shoekstra">@shoekstra</a>)</li>
-  <li>Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
+- Light - Z-Wave: Bring back delayed value update behavior ([@jnewland])
+- Recorder: Properly close session after execute ([@kellerza])
+- Media Player - Kodi: No longer block startup if connecting to wrong port ([@shoekstra])
+- Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some ([@balloob])
 
-<h3><a class='title-link' name='hotfix-0252---august-2' href='#hotfix-0252---august-2'></a> Hotfix 0.25.2 - August 2 </h3>
+### <a class='title-link' name='hotfix-0252---august-2' href='#hotfix-0252---august-2'></a> Hotfix 0.25.2 - August 2 
 
-<ul>
-  <li>Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.</li>
-</ul>
+- Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.
 
-<h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
+### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
-<ul>
-  <li>Google Voice SMS notification support was removed.</li>
-</ul>
+- Google Voice SMS notification support was removed.
 
+[@nkgilley]: https://github.com/nkgilley
+[@abcminiuser]: https://github.com/abcminiuser
+[@americanwookie]: https://github.com/americanwookie
+[@armills]: https://github.com/armills
+[@balloob]: https://github.com/balloob
+[@cbulock]: https://github.com/cbulock
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@danieljkemp]: https://github.com/danieljkemp
+[@fabaff]: https://github.com/fabaff
+[@fabianhjr]: https://github.com/fabianhjr
+[@fotoetienne]: https://github.com/fotoetienne
+[@jwl17330536]: https://github.com/jwl17330536
+[@keatontaylor]: https://github.com/keatontaylor
+[@kellerza]: https://github.com/kellerza
+[@kireyeu]: https://github.com/kireyeu
+[@laf]: https://github.com/laf
+[@n8henrie]: https://github.com/n8henrie
+[@ngraziano]: https://github.com/ngraziano
+[@open-homeautomation]: https://github.com/open-homeautomation
+[@PetitCircuitLab]: https://github.com/PetitCircuitLab
+[@pvizeli]: https://github.com/pvizeli
+[@schneefux]: https://github.com/schneefux
+[@Teagan42]: https://github.com/Teagan42
+[@turbokongen]: https://github.com/turbokongen
+[@usul27]: https://github.com/usul27
+[@vladonemo]: https://github.com/vladonemo
+[@w1ll1am23]: https://github.com/w1ll1am23
+[@zeroDenial]: https://github.com/zeroDenial
+[@jnewland]: https://github.com/jnewland
+[@shoekstra]: https://github.com/shoekstra
+
+[custom-panels]: /developers/frontend_creating_custom_panels/
+[iframe_panel]: /components/panel_iframe/
+[custom]: /cookbook/custom_panel_using_react/
+[flux]: /components/light.flux_led/
+[script]: /getting-started/scripts/#delay
+[Russound]: /components/media_player.russound_rnet/
+[tags]: /components/influxdb/
+[filter]: /topics/templating/
+[jupyter-notebooks]: /cookbook/#jupyter-notebooks
+[jupyter-repo]: https://github.com/home-assistant/home-assistant-notebooks
+[Jupyter]: http://jupyter.org/
+[blog]: /blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/
+[DirecTV]: /components/media_player.directv/
+[Configuration]: /developers/python_api/#get-configuration
+[X10]: /components/light.x10/
+[IMAP]: /components/sensor.imap/
+[typing]: https://docs.python.org/3/library/typing.html
+[PEP484]: https://www.python.org/dev/peps/pep-0484/
+[MPC-HC]: /components/media_player.mpchc/
+[Telegram]: /components/notify.telegram/
+[react-panel]: /cookbook/custom_panel_using_react/
+[KNX]: /components/thermostat.knx/
+[Nest]: /components/thermostat.nest/
+[filters]: /topics/templating/#home-assistant-template-extensions
+[Hyperion]: /components/light.hyperion/
 ]]></content>
   </entry>
   
@@ -175,69 +259,98 @@
     <link href="https://home-assistant.io/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/"/>
     <updated>2016-07-16T12:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/07/16/sqlalchemy-knx-join-simplisafe</id>
-    <content type="html"><![CDATA[<p>It’s time for Home Assistant 0.24 and it’s full of new integration for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.</p>
+    <content type="html"><![CDATA[It's time for Home Assistant 0.24 and it's full of new integration for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.
 
-<p><a href="https://www.mapquest.com/">MapQuest</a> discontinued their free and direct tile access by Monday, July 11, 2016. With <a href="https://carto.com/">CARTO</a> we found a very cool and suitable solution. They allow us to use their tile for the map. Thank you, <a href="https://carto.com/">CARTO</a>.</p>
+[MapQuest] discontinued their free and direct tile access by Monday, July 11, 2016. With [CARTO] we found a very cool and suitable solution. They allow us to use their tile for the map. Thank you, [CARTO].
 
-<p><a href="https://github.com/rhooper/">Roy Hooper</a> did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use <strong>any</strong> SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script:</p>
+[Roy Hooper][@rhooper] did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use **any** SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install [SQLAlchemy] and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script: 
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install SQLAlchemy
+```bash
+$ pip3 install SQLAlchemy
 $ hass --script db_migrator --config /path/to/config
-</pre></div>
-</div>
-</div>
+```
 
-<p>You can omit the <code>--config</code> option if you use the default configuration directory. Run the script with <code>--help</code> to get more options.</p>
+You can omit the `--config` option if you use the default configuration directory. Run the script with `--help` to get more options.
 
-<p><img src="https://home-assistant.io/images/supported_brands/yahooweather.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/joaoapps_join.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/knx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/tp-link.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<img src='https://home-assistant.io/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/joaoapps_join.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/knx.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/tp-link.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
-<ul>
-  <li>Config: Improved support for storing <a href="/topics/secrets/">secrets</a> (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
-  <li>Sensor: Support for <a href="/components/sensor.yweather/">Yahoo! Weather</a> (<a href="https://github.com/pvizeli/">@pvizeli</a>)</li>
-  <li>Add scripts to command line to expose advanced options (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Alarm: <a href="/components/alarm_control_panel.simplisafe/">SimpliSafe</a> is now supported (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
-  <li>Core: Switch to SQLAlchemy for the Recorder component (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
-  <li>Support for <a href="/components/joaoapps_join/">Join by Joaoapps</a> added incl. <a href="/components/notify.joaoapps_join/">Join Notify</a> (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>Media Player: <a href="/components/media_player.plex/">Plex</a> will no longer spam the logs if server goes offline (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
-  <li>Sensor: <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> now supports names, icons and units (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
-  <li>Lock: <a href="/components/lock.verisure/">Verisure</a> entities will now use name instead of serial number for entity id (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li><a href="/components/statsd/">StatsD</a> can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
-  <li>Support for <a href="/components/knx/">KNX</a> added (<a href="https://github.com/usul27">@usul27</a>)</li>
-  <li>Switch: <a href="/components/switch.tplink/">TPLink</a> HS100/HS110 now supported (<a href="https://github.com/GadgetReactor">@GadgetReactor</a>)</li>
-  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> ([@Danielhiversen])</li>
-  <li>Tweaks to <a href="/components/zwave/">Z-Wave</a> (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li>Light: <a href="/components/light/">Brightness</a> now clamped to 0-255 (<a href="https://github.com/keatontaylor">@keatontaylor</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.radiotherm/">Radiotherm</a> HVAC mode now supported (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
-  <li>Sensor: <a href="/components/sensor.google_travel_time/">Google Travel</a> times can now use dynamic locations for start/end (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
-  <li>Notify: Allow sending photos to <a href="/components/notify.telegram/">Telegram</a> (<a href="https://github.com/pvizeli/">@pvizeli</a>)</li>
-  <li>Frontend: Improve loading times (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Frontend: Fix stream not reconnecting after standby (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Frontend: Wait up to two seconds for new state before resetting toggle after toggling state (<a href="https://github.com/balloob/">@balloob</a>)</li>
-</ul>
+- Config: Improved support for storing [secrets][secrets] ([@kellerza])
+- Sensor: Support for [Yahoo! Weather][yahoo-weather] ([@pvizeli])
+- Add scripts to command line to expose advanced options ([@balloob])
+- Alarm: [SimpliSafe][simplisafe] is now supported ([@w1ll1am23]) 
+- Core: Switch to SQLAlchemy for the Recorder component ([@rhooper])
+- Support for [Join by Joaoapps][join-joaoapps] added incl. [Join Notify][join-notify] ([@nkgilley])
+- Media Player: [Plex] will no longer spam the logs if server goes offline ([@dale3h])
+- Sensor: [APCUPSd Sensor][apcupsd-sensor] now supports names, icons and units ([@dale3h])
+- Lock: [Verisure] entities will now use name instead of serial number for entity id ([@turbokongen])
+- [StatsD] can now also export attributes ([@bah2830])
+- Support for [KNX] added ([@usul27])
+- Switch: [TPLink] HS100/HS110 now supported ([@GadgetReactor])
+- Stability fixes for [RFXtrx] ([@Danielhiversen])
+- Tweaks to [Z-Wave] ([@turbokongen])
+- Light: [Brightness] now clamped to 0-255 ([@keatontaylor])
+- Thermostat: [Radiotherm] HVAC mode now supported ([@danieljkemp])
+- Sensor: [Google Travel] times can now use dynamic locations for start/end ([@bah2830])
+- Notify: Allow sending photos to [Telegram] ([@pvizeli])
+- Frontend: Improve loading times ([@balloob])
+- Frontend: Fix stream not reconnecting after standby ([@balloob])
+- Frontend: Wait up to two seconds for new state before resetting toggle after toggling state ([@balloob])
 
-<h3><a class='title-link' name='hotfix-0241---july-21' href='#hotfix-0241---july-21'></a> Hotfix 0.24.1 - July 21 </h3>
+### <a class='title-link' name='hotfix-0241---july-21' href='#hotfix-0241---july-21'></a> Hotfix 0.24.1 - July 21 
 
-<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to [@n8henrie] and [@AlucardZero].</p>
+Quick hot fix after we found a bug in the migrator where it wouldn't work with a database in a non-standard location. Thanks to [@n8henrie] and [@AlucardZero].
 
-<h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
+### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
-<ul>
-  <li>Migrating existing databases (see above).</li>
-  <li>The <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code>configuration.yaml</code> file.</li>
-  <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
-</ul>
+- Migrating existing databases (see above).
+- The [APCUPSd Sensor][apcupsd-sensor] was updated. This will need that you modify your `configuration.yaml` file.
+- Entity IDs of Verisure locks will change. This is a one time change but should improve readability.
 
-<p>«««&lt; HEAD<br />
-=======<br />
-[@n8henrie]: https://github.com/n8henrie/<br />
-[@AlucardZero]: https://github.com/AlucardZero/<br />
-«««&lt; HEAD<br />
-»»»&gt; master<br />
-=======<br />
-[@Danielhiversen]: https://github.com/danielhiversen<br />
-»»»&gt; origin/master</p>
+[@bah2830]: https://github.com/bah2830/
+[@balloob]: https://github.com/balloob/
+[@dale3h]: https://github.com/dale3h/
+[@danieljkemp]: https://github.com/danieljkemp
+[@GadgetReactor]: https://github.com/GadgetReactor
+[@keatontaylor]: https://github.com/keatontaylor
+[@kellerza]: https://github.com/kellerza/
+[@nkgilley]: https://github.com/nkgilley
+[@pvizeli]: https://github.com/pvizeli/
+[@rhooper]: https://github.com/rhooper/
+[@turbokongen]: https://github.com/turbokongen/
+[@usul27]: https://github.com/usul27
+[@w1ll1am23]: https://github.com/w1ll1am23/
+<<<<<<< HEAD
+=======
+[@n8henrie]: https://github.com/n8henrie/
+[@AlucardZero]: https://github.com/AlucardZero/
+<<<<<<< HEAD
+>>>>>>> master
+=======
+[@Danielhiversen]: https://github.com/danielhiversen
+>>>>>>> origin/master
 
+[apcupsd-sensor]: /components/sensor.apcupsd/
+[Brightness]: /components/light/
+[CARTO]: https://carto.com/
+[Google Travel]: /components/sensor.google_travel_time/
+[imap-sensor]: /component/sensor.imap/
+[join-joaoapps]: /components/joaoapps_join/
+[join-notify]: /components/notify.joaoapps_join/
+[KNX]: /components/knx/
+[MapQuest]: https://www.mapquest.com/
+[Plex]: /components/media_player.plex/
+[Radiotherm]: /components/thermostat.radiotherm/
+[recorder]: /components/recorder/
+[secrets]: /topics/secrets/
+[simplisafe]: /components/alarm_control_panel.simplisafe/
+[SQLAlchemy]: http://www.sqlalchemy.org/
+[StatsD]: /components/statsd/
+[Telegram]: /components/notify.telegram/
+[TPLink]: /components/switch.tplink/
+[Verisure]: /components/lock.verisure/
+[yahoo-weather]: /components/sensor.yweather/
+[Z-Wave]: /components/zwave/
+[RFXtrx]: //components/rfxtrx/
 ]]></content>
   </entry>
   
@@ -246,62 +359,101 @@ $ hass --script db_migrator --config /path/to/config
     <link href="https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv/"/>
     <updated>2016-07-01T00:31:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv</id>
-    <content type="html"><![CDATA[<p>It’s time for Home Assistant 0.23 and it’s full of goodies. It’s also the release that bumps us over a 1000 tests and to 94% test coverage! Also our install issues on the Raspberry Pi and Synology have been resolved.</p>
+    <content type="html"><![CDATA[It's time for Home Assistant 0.23 and it's full of goodies. It's also the release that bumps us over a 1000 tests and to 94% test coverage! Also our install issues on the Raspberry Pi and Synology have been resolved.
 
-<p>This release brings support for two new ecosystems: <a href="/components/envisalink/">Envisalink</a> and <a href="/components/homematic/">Homematic</a>. We can now also control your TV via HDMI using <a href="/components/hdmi_cec/">HDMI-CEC</a> (which works on the Pi!) and another cool feature is the <a href="/components/persistent_notification/">persistent notifications</a> which allow you to add a notification to the frontend till dismissed.</p>
+This release brings support for two new ecosystems: [Envisalink] and [Homematic]. We can now also control your TV via HDMI using [HDMI-CEC] (which works on the Pi!) and another cool feature is the [persistent notifications] which allow you to add a notification to the frontend till dismissed.
 
-<p><a href="/components/wink/">Wink</a> support has been dramatically improved by migrating to the PubNub API. This allows Wink to push changes from their system to Home Assistant. This change came just in time as somehow our Wink integration was causing a lot of requests to their servers. Thanks to Wink for letting us know so we could solve it instead of blocking us.</p>
+[Wink] support has been dramatically improved by migrating to the PubNub API. This allows Wink to push changes from their system to Home Assistant. This change came just in time as somehow our Wink integration was causing a lot of requests to their servers. Thanks to Wink for letting us know so we could solve it instead of blocking us.
 
-<p>On the config side, you can now <a href="/topics/secrets/">store your passwords</a> in your OS keyring or just in a standalone file. We also got a new service to reload the core config so no reboots needed anymore after changing customize settings!</p>
+On the config side, you can now [store your passwords][secrets] in your OS keyring or just in a standalone file. We also got a new service to reload the core config so no reboots needed anymore after changing customize settings!
 
-<p><img src="https://home-assistant.io/images/supported_brands/bravia.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/eyezon.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/homematic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/openexchangerates.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<img src='https://home-assistant.io/images/supported_brands/bravia.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/eyezon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/homematic.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/openexchangerates.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
-<ul>
-  <li>Support for <a href="/components/envisalink/">Envisalink</a> added (<a href="/components/alarm_control_panel.envisalink/">alarm control panel</a>, <a href="/components/binary_sensor.envisalink/">binary sensor</a>, <a href="/components/sensor.envisalink/">sensor</a>) (<a href="https://github.com/cinntax/">@cinntax</a>)</li>
-  <li>Support for <a href="/components/homematic/">Homematic</a> added (<a href="/components/binary_sensor.homematic/">binary sensor</a>, <a href="/components/light.homematic/">light</a>, <a href="/components/rollershutter.homematic/">rollershutter</a>, <a href="/components/sensor.homematic/">sensor</a>, <a href="/components/switch.homematic/">switch</a>) (<a href="https://github.com/pvizeli/">@pvizeli</a>, <a href="https://github.com/danielperna84/">@danielperna84</a>)</li>
-  <li>New <a href="/components/hdmi_cec/">HDMI-CEC</a> component (<a href="https://github.com/happyleavesaoc/">@happyleavesaoc</a>, <a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>)</li>
-  <li>Major rewrite of <a href="/components/wink/">Wink</a> which now pushes changes to Home Assistant (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
-  <li>Core: new add <a href="/getting-started/customizing-devices/#reloading-customize">reload core config service</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Support for <a href="/components/persistent_notification/">persistent notifications</a> added (<a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Garage door: <a href="/components/garage_door.zwave/">Z-Wave</a> support added (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li>Rollershutter: <a href="/components/rollershutter.zwave/">Z-Wave</a> support added (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li>Media Player: <a href="/components/media_player.braviatv/">Sony Bravia TV</a> now supported (<a href="https://github.com/aparraga/">@aparraga</a>)</li>
-  <li>Sensor: <a href="/components/sensor.fixer/">Fixer.io</a> now supported (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
-  <li>Garage door: Control any garage door using <a href="/components/garage_door.rpi_gpio/">Raspberry Pi GPIO pins</a> (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
-  <li>Sensor: <a href="/components/sensor.openexchangerates/">OpenExchangeRates</a> support added (<a href="https://github.com/arsaboo/">@arsaboo</a>)</li>
-  <li>Notify: <a href="/components/notify.pushover/">Pushover</a> now supports target device, sound, url and priority (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
-  <li>Sensor: <a href="/components/sensor.netatmo/">Netatmo</a> now supports wind, battery and radio signals (<a href="https://github.com/Jypy/">@Jypy</a>)</li>
-  <li>Log successful and failed login attemps (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
-  <li>Config: allow <a href="/topics/secrets/">extracting account info</a> into OS keyring or separate YAML file (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
-  <li>Core: add option to not filter out duplicate states per entity (<a href="https://github.com/philipbl/">@philipbl</a>)</li>
-  <li>HTTP: Follow Mozilla SSL recommendations (<a href="https://github.com/danieljkemp/">@danieljkemp</a>, <a href="https://github.com/AlucardZero/">@AlucardZero</a>)</li>
-  <li>Light: <a href="/components/light.zwave/">Z-Wave colorbulb</a> support added (<a href="https://github.com/armills/">@armills</a>)</li>
-  <li>Core: new elevation config option added (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Sensor: <a href="/components/sensor.onewire/">OneWire</a> support extended with support for DS18S20, DS1822, DS1825 and DS28EA00 temperature sensors + support for bus masters which use fuse to mount device tree. (<a href="https://github.com/Ardetus/">@Ardetus</a>)</li>
-  <li>Lock: <a href="/components/lock.vera/">Vera</a> now supported (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
-  <li>HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems (<a href="https://github.com/balloob/">@balloob</a>)</li>
-</ul>
+- Support for [Envisalink] added ([alarm control panel][envi-alarm], [binary sensor][envi-binary-sensor], [sensor][envi-sensor]) ([@cinntax])
+- Support for [Homematic] added ([binary sensor][hm-binary-sensor], [light][hm-light], [rollershutter][hm-rollershutter], [sensor][hm-sensor], [switch][hm-switch]) ([@pvizeli], [@danielperna84])
+- New [HDMI-CEC] component ([@happyleavesaoc], [@lukas-hetzenecker])
+- Major rewrite of [Wink] which now pushes changes to Home Assistant ([@w1ll1am23])
+- Core: new add [reload core config service] ([@balloob])
+- Support for [persistent notifications] added ([@fabaff], [@balloob])
+- Garage door: [Z-Wave][zwave-garage-door] support added ([@turbokongen])
+- Rollershutter: [Z-Wave][zwave-rollershutter] support added ([@turbokongen])
+- Media Player: [Sony Bravia TV] now supported ([@aparraga])
+- Sensor: [Fixer.io] now supported ([@fabaff])
+- Garage door: Control any garage door using [Raspberry Pi GPIO pins] ([@kellerza])
+- Sensor: [OpenExchangeRates] support added ([@arsaboo])
+- Notify: [Pushover] now supports target device, sound, url and priority ([@dale3h])
+- Sensor: [Netatmo] now supports wind, battery and radio signals ([@Jypy])
+- Log successful and failed login attemps ([@fabaff])
+- Config: allow [extracting account info][secrets] into OS keyring or separate YAML file ([@kellerza])
+- Core: add option to not filter out duplicate states per entity ([@philipbl])
+- HTTP: Follow Mozilla SSL recommendations ([@danieljkemp], [@AlucardZero])
+- Light: [Z-Wave colorbulb][zwave-light] support added ([@armills])
+- Core: new elevation config option added ([@balloob])
+- Sensor: [OneWire] support extended with support for DS18S20, DS1822, DS1825 and DS28EA00 temperature sensors + support for bus masters which use fuse to mount device tree. ([@Ardetus])
+- Lock: [Vera] now supported ([@rhooper])
+- HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems ([@balloob])
 
-<h3><a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes </h3>
+### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
-<ul>
-  <li>Homematic thermostat configuration has changed and now depends on the new <a href="/components/homematic/">Homematic</a> component.</li>
-</ul>
+- Homematic thermostat configuration has changed and now depends on the new [Homematic] component.
 
-<h3><a class='title-link' name='hotfix-0231---july-2' href='#hotfix-0231---july-2'></a> Hotfix 0.23.1 - July 2 </h3>
+### <a class='title-link' name='hotfix-0231---july-2' href='#hotfix-0231---july-2'></a> Hotfix 0.23.1 - July 2 
 
-<ul>
-  <li>Bump PyVera to 0.2.13 to fix traceback and pyvera thread dying related to bug (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
-  <li>HTTP - SSL: Check for OP_NO_COMPRESSION support before trying to use it (<a href="https://github.com/AlucardZero/">@AlucardZero</a>)</li>
-  <li>Wink: Downgraded pubnub to work around pycryptodome conflicts (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
-</ul>
+- Bump PyVera to 0.2.13 to fix traceback and pyvera thread dying related to bug ([@rhooper])
+- HTTP - SSL: Check for OP_NO_COMPRESSION support before trying to use it ([@AlucardZero])
+- Wink: Downgraded pubnub to work around pycryptodome conflicts ([@w1ll1am23])
 
-<h3><a class='title-link' name='faq' href='#faq'></a> FAQ </h3>
+### <a class='title-link' name='faq' href='#faq'></a> FAQ 
 
-<ul>
-  <li><code>elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code>[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code>configuration.yaml</code> file.</li>
-</ul>
+- `elevation: ` was introduced to the configuration for weather/sunrise data. For existing [configurations][elevation] add the value shown in the warning `[homeassistant.config] Incomplete core config. Auto detected elevation: 665` to your `configuration.yaml` file.
 
+[@AlucardZero]: https://github.com/AlucardZero/
+[@aparraga]: https://github.com/aparraga/
+[@Ardetus]: https://github.com/Ardetus/
+[@armills]: https://github.com/armills/
+[@arsaboo]: https://github.com/arsaboo/
+[@balloob]: https://github.com/balloob/
+[@cinntax]: https://github.com/cinntax/
+[@dale3h]: https://github.com/dale3h/
+[@danieljkemp]: https://github.com/danieljkemp/
+[@danielperna84]: https://github.com/danielperna84/
+[@fabaff]: https://github.com/fabaff/
+[@happyleavesaoc]: https://github.com/happyleavesaoc/
+[@Jypy]: https://github.com/Jypy/
+[@kellerza]: https://github.com/kellerza/
+[@lukas-hetzenecker]: https://github.com/lukas-hetzenecker/
+[@philipbl]: https://github.com/philipbl/
+[@pvizeli]: https://github.com/pvizeli/
+[@rhooper]: https://github.com/rhooper/
+[@turbokongen]: https://github.com/turbokongen/
+[@w1ll1am23]: https://github.com/w1ll1am23/
+[envi-alarm]: /components/alarm_control_panel.envisalink/
+[envi-binary-sensor]: /components/binary_sensor.envisalink/
+[envi-sensor]: /components/sensor.envisalink/
+[Envisalink]: /components/envisalink/
+[HDMI-CEC]: /components/hdmi_cec/
+[hm-binary-sensor]: /components/binary_sensor.homematic/
+[hm-light]: /components/light.homematic/
+[hm-rollershutter]: /components/rollershutter.homematic/
+[hm-sensor]: /components/sensor.homematic/
+[hm-switch]: /components/switch.homematic/
+[Homematic]: /components/homematic/
+[Netatmo]: /components/sensor.netatmo/
+[OneWire]: /components/sensor.onewire/
+[OpenExchangeRates]: /components/sensor.openexchangerates/
+[Pushover]: /components/notify.pushover/
+[secrets]: /topics/secrets/
+[Vera]: /components/lock.vera/
+[Wink]: /components/wink/
+[zwave-garage-door]: /components/garage_door.zwave/
+[zwave-light]: /components/light.zwave/
+[zwave-rollershutter]: /components/rollershutter.zwave/
+[Fixer.io]: /components/sensor.fixer/
+[persistent notifications]: /components/persistent_notification/
+[reload core config service]: /getting-started/customizing-devices/#reloading-customize
+[Sony Bravia TV]: /components/media_player.braviatv/
+[Raspberry Pi GPIO pins]: /components/garage_door.rpi_gpio/
+[elevation]: https://home-assistant.io/getting-started/basic/
 ]]></content>
   </entry>
   
@@ -310,63 +462,88 @@ $ hass --script db_migrator --config /path/to/config
     <link href="https://home-assistant.io/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/"/>
     <updated>2016-06-18T18:06:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera</id>
-    <content type="html"><![CDATA[<p>It’s time for the 0.22 release. This was a pretty rough release cycle and we had to issue two hot fixes for our core improvements. But it seems now that all is good and a lot of people have reported that their installs are faster than ever and the occasional quirks no longer occur.</p>
+    <content type="html"><![CDATA[It's time for the 0.22 release. This was a pretty rough release cycle and we had to issue two hot fixes for our core improvements. But it seems now that all is good and a lot of people have reported that their installs are faster than ever and the occasional quirks no longer occur.
 
-<p>We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We’re working on getting to a better solution. For Raspberry Pi, the <a href="/getting-started/installation-raspberry-pi-all-in-one/">All-in-One installer</a> will take care of everything for you. We’re working on updating our <a href="/getting-started/installation-raspberry-pi/">standalone Raspberry Pi installation guide</a>.</p>
+We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We're working on getting to a better solution. For Raspberry Pi, the [All-in-One installer] will take care of everything for you. We're working on updating our [standalone Raspberry Pi installation guide].
 
-<p>There are two cool things that I want to highlight in this release. The first is Pandora support. This is based on the CLI player called pianobar. This means that your machine running Home Assistant can be connected to the speakers and provide your house with tunes.</p>
+There are two cool things that I want to highlight in this release. The first is Pandora support. This is based on the CLI player called pianobar. This means that your machine running Home Assistant can be connected to the speakers and provide your house with tunes.
 
-<p class="img">
-<img src="https://home-assistant.io/images/screenshots/pandora_player.png" />
+<p class='img'>
+<img src='https://home-assistant.io/images/screenshots/pandora_player.png' />
 </p>
 
-<p>Another cool addition is the local file camera. This seems very basic at first but will allow you to generate a graph with your favorite 3rd party graphing tool and display it on your Home Assistant dashboard. We’re looking forward to see what you can do with this!</p>
+Another cool addition is the local file camera. This seems very basic at first but will allow you to generate a graph with your favorite 3rd party graphing tool and display it on your Home Assistant dashboard. We're looking forward to see what you can do with this!
 
-<p><img src="https://home-assistant.io/images/supported_brands/pandora.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/bt.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<img src='https://home-assistant.io/images/supported_brands/pandora.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/bt.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
-<ul>
-  <li>Media Player: <a href="/components/media_player.pandora/">Pandora</a> media player now supported (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.bt_home_hub_5/">BT Home Hub 5</a> now supported (<a href="https://github.com/lwis/">@lwis</a>)</li>
-  <li>Camera: New <a href="/components/camera.local_file/">local file</a> platform shows any image as camera (<a href="https://github.com/Landrash/">@Landrash</a>)</li>
-  <li>Add <a href="/components/media_player.sonos/">Sonos</a> snapshot and restore services (<a href="https://github.com/dansullivan86/">@dansullivan86</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> in Access Point mode now supported (<a href="https://github.com/linjef/">@linjef</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> login using public key now supported (<a href="https://github.com/mtreinish/">@mtreinish</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> protocol to use is now auto detected (<a href="https://github.com/persandstrom/">@persandstrom</a>)</li>
-  <li>Camera: <a href="/components/netatmo/">Netatmo</a> now supported (<a href="https://github.com/jabesq/">@jabesq</a>)</li>
-  <li>API documentation added  in <a href="https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml">Swagger.yaml format</a> (<a href="https://github.com/wind/">@wind-rider</a>)</li>
-  <li>Media Player: <a href="/components/media_player.cast/">Cast</a> devices can now be stopped (<a href="https://github.com/michaelarnauts/">@michaelarnauts</a>)</li>
-  <li>MySensors: <a href="/components/mysensors/">IR switch device</a> and service now supported (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
-  <li>Bloomsky: <a href="/components/sensor.bloomsky/">Voltage sensor</a> now supported (<a href="https://github.com/arsaboo/">@arsaboo</a>)</li>
-  <li>Sensor: New <a href="/components/sensor.plex/">Plex sensor</a> monitors friends streaming from your Plex server (<a href="https://github.com/nkgilley/">@nkgilley</a>)</li>
-  <li>Component <a href="/components/shell_command/">shell command</a> can now use templates to render arguments (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
-  <li>Rollershutter: <a href="/components/rollershutter.wink/">Wink</a> is now supported (<a href="https://github.com/philk/">@philk</a>)</li>
-  <li>Alexa: Updated <a href="/components/alexa/#working-with-scenes">documentation</a> to show how to call scripts and scenes (@acockburn)</li>
-  <li>Sensor: <a href="/components/sensor.snmp/">SNMP</a> is now supported (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
-  <li>Sensor: Support for Swiss hydrological data (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
-</ul>
+- Media Player: [Pandora] media player now supported ([@partofthething])
+- Device Tracker: [BT Home Hub 5] now supported ([@lwis])
+- Camera: New [local file] platform shows any image as camera ([@Landrash])
+- Add [Sonos] snapshot and restore services ([@dansullivan86])
+- Device Tracker: [AsusWRT] in Access Point mode now supported ([@linjef])
+- Device Tracker: [AsusWRT] login using public key now supported ([@mtreinish])
+- Device Tracker: [AsusWRT] protocol to use is now auto detected ([@persandstrom])
+- Camera: [Netatmo] now supported ([@jabesq])
+- API documentation added  in [Swagger.yaml format] ([@wind-rider])
+- Media Player: [Cast] devices can now be stopped ([@michaelarnauts])
+- MySensors: [IR switch device] and service now supported ([@MartinHjelmare])
+- Bloomsky: [Voltage sensor] now supported ([@arsaboo])
+- Sensor: New [Plex sensor] monitors friends streaming from your Plex server ([@nkgilley])
+- Component [shell command] can now use templates to render arguments ([@partofthething])
+- Rollershutter: [Wink] is now supported ([@philk])
+- Alexa: Updated [documentation][alexa] to show how to call scripts and scenes (@acockburn)
+- Sensor: [SNMP] is now supported ([@fabaff])
+- Sensor: Support for Swiss hydrological data ([@fabaff])
 
-<h3><a class='title-link' name='breaking-change' href='#breaking-change'></a> Breaking change </h3>
+### <a class='title-link' name='breaking-change' href='#breaking-change'></a> Breaking change 
 
-<ul>
-  <li>The new Netatmo support caused us to change how Netatmo are configured. It’s now done via it’s own component.</li>
-</ul>
+- The new Netatmo support caused us to change how Netatmo are configured. It's now done via it's own component.
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">netatmo</span>:
-    <span class="key">api_key</span>: <span class="string"><span class="content">API_KEY</span></span>
-    <span class="key">secret_key</span>: <span class="string"><span class="content">SECRET_KEY</span></span>
-    <span class="key">username</span>: <span class="string"><span class="content">username</span></span>
-    <span class="key">password</span>: <span class="string"><span class="content">password</span></span>
-</pre></div>
-</div>
-</div>
+```yaml
+netatmo:
+    api_key: API_KEY
+    secret_key: SECRET_KEY
+    username: username
+    password: password
+```
 
-<h3><a class='title-link' name='hotfix-0221---june-20' href='#hotfix-0221---june-20'></a> Hotfix 0.22.1 - June 20 </h3>
+### <a class='title-link' name='hotfix-0221---june-20' href='#hotfix-0221---june-20'></a> Hotfix 0.22.1 - June 20 
 
-<ul>
-  <li>Insteon Hub lights will load again</li>
-</ul>
+- Insteon Hub lights will load again
 
+[@acockburn]: https://github.com/acockburn/
+[@arsaboo]: https://github.com/arsaboo/
+[@dansullivan86]: https://github.com/dansullivan86/
+[@jabesq]: https://github.com/jabesq/
+[@Landrash]: https://github.com/Landrash/
+[@linjef]: https://github.com/linjef/
+[@lwis]: https://github.com/lwis/
+[@MartinHjelmare]: https://github.com/MartinHjelmare/
+[@michaelarnauts]: https://github.com/michaelarnauts/
+[@mtreinish]: https://github.com/mtreinish/
+[@nkgilley]: https://github.com/nkgilley/
+[@partofthething]: https://github.com/partofthething/
+[@persandstrom]: https://github.com/persandstrom/
+[@philk]: https://github.com/philk/
+[@wind-rider]: https://github.com/wind/
+[@fabaff]: https://github.com/fabaff/
+[AsusWRT]: /components/device_tracker.asuswrt/
+[BT Home Hub 5]: /components/device_tracker.bt_home_hub_5/
+[Cast]: /components/media_player.cast/
+[IR switch device]: /components/mysensors/
+[local file]: /components/camera.local_file/
+[Netatmo]: /components/netatmo/
+[Pandora]: /components/media_player.pandora/
+[shell command]: /components/shell_command/
+[Sonos]: /components/media_player.sonos/
+[Wink]: /components/rollershutter.wink/
+[alexa]: /components/alexa/#working-with-scenes
+[Plex sensor]: /components/sensor.plex/
+[Swagger.yaml format]: https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml
+[All-in-One installer]: /getting-started/installation-raspberry-pi-all-in-one/
+[standalone Raspberry Pi installation guide]: /getting-started/installation-raspberry-pi/
+[Voltage sensor]: /components/sensor.bloomsky/
+[SNMP]: /components/sensor.snmp/
 ]]></content>
   </entry>
   

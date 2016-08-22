@@ -91,21 +91,19 @@
 
   <p>The TCP component allows the integration of some services for which a specific Home Assistant component does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this component will allow integration with it.</p>
 
-<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-<span class="comment"># Example configuration.yaml entry</span>
-  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Central Heating Pressure</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
-  <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
-  <span class="key">payload</span>: <span class="string"><span class="content">PAYLOAD</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
-  <span class="key">unit</span>: <span class="string"><span class="content">UNIT_OF_MEASUREMENT</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<span class="c1"># Example configuration.yaml entry</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">tcp</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Central Heating Pressure</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">PORT</span>
+  <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
+  <span class="s">payload</span><span class="pi">:</span> <span class="s">PAYLOAD</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.split(';')[0]</span><span class="nv"> </span><span class="s">}}"</span>
+  <span class="s">unit</span><span class="pi">:</span> <span class="s">UNIT_OF_MEASUREMENT</span>
+</code></pre>
 </div>
 
 <p>Configuration options for the a TCP Sensor:</p>
@@ -115,10 +113,10 @@
   <li><strong>host</strong> (<em>Required</em>): The hostname/IP address to connect to.</li>
   <li><strong>port</strong> (<em>Required</em>): The port to connect to the host on.</li>
   <li><strong>payload</strong> (<em>Required</em>): What to send to the host in order to get the response we’re interested in.</li>
-  <li><strong>timeout</strong> (<em>Optional</em>): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to <code>10</code></li>
+  <li><strong>timeout</strong> (<em>Optional</em>): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to <code class="highlighter-rouge">10</code></li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the value. By default it’s assumed that the entire response is the value.</li>
   <li><strong>unit</strong> (<em>Optional</em>): The unit of measurement to use for the value.</li>
-  <li><strong>buffer_size</strong> (<em>Optional</em>): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to <code>1024</code>.</li>
+  <li><strong>buffer_size</strong> (<em>Optional</em>): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to <code class="highlighter-rouge">1024</code>.</li>
 </ul>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
@@ -129,68 +127,58 @@
 
 <p>The <a href="https://github.com/john30/ebusd/wiki">EBUSd</a> service enables connection to an EBUS serial bus on some home heating/cooling systems. Using this service it is possible to extract various metrics which may be useful to have within Home Assistant. In order to use EBUSd, you connect to it using a TCP socket and send it a command. The service will respond with the value it has received from EBUS. On the command line, this would look something like:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ echo &quot;r WaterPressure&quot; | nc 10.0.0.127 8888
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"r WaterPressure"</span> | nc 10.0.0.127 8888
 0.903;ok
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>You will notice that the output from the service is not just a single value (it contains “;ok” as well). To grab the value we’re interested in, we can use a Jinja2 template. The response received is injected into the template as the <code>value</code> variable. To use this value within Home Assistant, use the following configuration:</p>
+<p>You will notice that the output from the service is not just a single value (it contains “;ok” as well). To grab the value we’re interested in, we can use a Jinja2 template. The response received is injected into the template as the <code class="highlighter-rouge">value</code> variable. To use this value within Home Assistant, use the following configuration:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-<span class="comment"># Example configuration.yaml entry</span>
-  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Central Heating Pressure</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">10.0.0.127</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">8888</span></span>
-  <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
-  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">r WaterPressure\n</span><span class="delimiter">&quot;</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split(';')[0] }}</span><span class="delimiter">&quot;</span></span>
-  <span class="key">unit</span>: <span class="string"><span class="content">Bar</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<span class="c1"># Example configuration.yaml entry</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">tcp</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Central Heating Pressure</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">10.0.0.127</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">8888</span>
+  <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
+  <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="s">r</span><span class="nv"> </span><span class="s">WaterPressure</span><span class="se">\n</span><span class="s">"</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.split(';')[0]</span><span class="nv"> </span><span class="s">}}"</span>
+  <span class="s">unit</span><span class="pi">:</span> <span class="s">Bar</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="hddtemp" href="#hddtemp"></a> hddtemp</h3>
 
-<p>The tool <code>hddtemp</code> collects the temperature of your harddisks.</p>
+<p>The tool <code class="highlighter-rouge">hddtemp</code> collects the temperature of your harddisks.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ hddtemp
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hddtemp
 /dev/sda: SAMSUNG MZMTE256HMHP-000L1: 39°C
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>With <code>hddtemp -d</code> you can run the tool in TCP/IP daemon mode on port 7634 which enables you to get the data across the network.</p>
+<p>With <code class="highlighter-rouge">hddtemp -d</code> you can run the tool in TCP/IP daemon mode on port 7634 which enables you to get the data across the network.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ telnet localhost 7634
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>telnet localhost 7634
 Trying 127.0.0.1...
 Connected to localhost.
-Escape character is '^]'.
+Escape character is <span class="s1">'^]'</span>.
 |/dev/sda|SAMSUNG MZMTE256HMHP-000L1|38|C|Connection closed by foreign host.
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>The entry for the <code>configuration.yaml</code> file for a <code>hddtemp</code> sensor could look like the example below.</p>
+<p>The entry for the <code class="highlighter-rouge">configuration.yaml</code> file for a <code class="highlighter-rouge">hddtemp</code> sensor could look like the example below.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-<span class="comment"># Example configuration.yaml entry</span>
-  <span class="key">platform</span>: <span class="string"><span class="content">tcp</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">HDD temperature</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">127.0.0.1</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">7634</span></span>
-  <span class="key">timeout</span>: <span class="string"><span class="content">5</span></span>
-  <span class="key">payload</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">\n</span><span class="delimiter">&quot;</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{{ value.split('|')[3] }}</span><span class="delimiter">&quot;</span></span>
-  <span class="key">unit</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<span class="c1"># Example configuration.yaml entry</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">tcp</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">HDD temperature</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">7634</span>
+  <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
+  <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="se">\n</span><span class="s">"</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.split('|')[3]</span><span class="nv"> </span><span class="s">}}"</span>
+  <span class="s">unit</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+</code></pre>
 </div>
 
 

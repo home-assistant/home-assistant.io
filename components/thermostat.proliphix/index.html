@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>proliphix</code> thermostat platform let you control <a href="http://www.proliphix.com">Proliphix</a> thermostat from Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">proliphix</code> thermostat platform let you control <a href="http://www.proliphix.com">Proliphix</a> thermostat from Home Assistant.</p>
 
 <p>Currently supported and tested thermostats:</p>
 
@@ -97,16 +97,14 @@
   <li>NT10e</li>
 </ul>
 
-<p>To set it up, add the following information to your <code>configuration.yaml</code> file:</p>
+<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">thermostat</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">proliphix</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">thermostat</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">proliphix</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -117,7 +115,7 @@
   <li><strong>password</strong> (<em>Required</em>): Password for the thermostat.</li>
 </ul>
 
-<p>The Proliphix NT Thermostat series are ethernet connected thermostats. They have a local HTTP interface that is based on get/set<br />
+<p>The Proliphix NT Thermostat series are ethernet connected thermostats. They have a local HTTP interface that is based on get/set
 of OID values. A complete collection of the API is available in this <a href="https://github.com/sdague/thermostat.rb/blob/master/docs/PDP_API_R1_11.pdf">API documentation</a>.</p>
 
 

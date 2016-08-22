@@ -89,21 +89,19 @@
   <hr class="divider">
   
 
-  <p>The <code>weblink</code> component allows you to display links in the Home Assistant frontend.</p>
+  <p>The <code class="highlighter-rouge">weblink</code> component allows you to display links in the Home Assistant frontend.</p>
 
-<p>To use this component in your installation, add something like the following to your <code>configuration.yaml</code> file:</p>
+<p>To use this component in your installation, add something like the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">weblink</span>:
-  <span class="key">entities</span>:
-    - <span class="string"><span class="content">name: Router</span></span>
-      <span class="key">url</span>: <span class="string"><span class="content">http://192.168.1.1/</span></span>
-      <span class="key">icon</span>: <span class="string"><span class="content">mdi:router-wireless</span></span>
-    - <span class="string"><span class="content">name: Home Assistant</span></span>
-      <span class="key">url</span>: <span class="string"><span class="content">https://home-assistant.io</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">weblink</span><span class="pi">:</span>
+  <span class="s">entities</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Router</span>
+      <span class="s">url</span><span class="pi">:</span> <span class="s">http://192.168.1.1/</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:router-wireless</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Home Assistant</span>
+      <span class="s">url</span><span class="pi">:</span> <span class="s">https://home-assistant.io</span>
+</code></pre>
 </div>
 <p>Configuration variables:</p>
 
@@ -113,7 +111,7 @@
   <li><strong>icon</strong> (<em>Optional</em>): Icon for entry.</li>
 </ul>
 
-<p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code>mdi:</code>. For example <code>mdi:car</code>, <code>mdi:ambulance</code>, or  <code>mdi:motorbike</code>.</p>
+<p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:car</code>, <code class="highlighter-rouge">mdi:ambulance</code>, or  <code class="highlighter-rouge">mdi:motorbike</code>.</p>
 
 
 </article>

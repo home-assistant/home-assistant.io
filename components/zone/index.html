@@ -91,31 +91,29 @@
 
   <p>Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a <a href="/getting-started/automation-trigger/#zone-trigger">trigger</a> or <a href="/getting-started/automation-condition/#zone-condition">condition</a> inside automation setups.</p>
 
-<p>Zones support the usual method to specify multiple zones, use keys <code>zone:</code>, <code>zone 2:</code> etc.</p>
+<p>Zones support the usual method to specify multiple zones, use keys <code class="highlighter-rouge">zone:</code>, <code class="highlighter-rouge">zone 2:</code> etc.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">zone</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">School</span></span>
-  <span class="key">latitude</span>: <span class="string"><span class="content">32.8773367</span></span>
-  <span class="key">longitude</span>: <span class="string"><span class="content">-117.2494053</span></span>
-  <span class="key">radius</span>: <span class="string"><span class="content">250</span></span>
-  <span class="key">icon</span>: <span class="string"><span class="content">mdi:school</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">zone</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">School</span>
+  <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.8773367</span>
+  <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.2494053</span>
+  <span class="s">radius</span><span class="pi">:</span> <span class="s">250</span>
+  <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:school</span>
 
-<span class="key">zone 2</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">Work</span></span>
-  <span class="key">latitude</span>: <span class="string"><span class="content">32.8753367</span></span>
-  <span class="key">longitude</span>: <span class="string"><span class="content">-117.2474053</span></span>
+<span class="s">zone 2</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Work</span>
+  <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.8753367</span>
+  <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.2474053</span>
 
-<span class="comment"># This will override the default home zone</span>
-<span class="key">zone 3</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">Home</span></span>
-  <span class="key">latitude</span>: <span class="string"><span class="content">32.8793367</span></span>
-  <span class="key">longitude</span>: <span class="string"><span class="content">-117.2474053</span></span>
-  <span class="key">radius</span>: <span class="string"><span class="content">100</span></span>
-  <span class="key">icon</span>: <span class="string"><span class="content">mdi:account-multiple</span></span>
-</pre></div>
-</div>
+<span class="c1"># This will override the default home zone</span>
+<span class="s">zone 3</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
+  <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.8793367</span>
+  <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.2474053</span>
+  <span class="s">radius</span><span class="pi">:</span> <span class="s">100</span>
+  <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:account-multiple</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -131,7 +129,7 @@
 
 <h4><a class="title-link" name="home-zone" href="#home-zone"></a> Home zone</h4>
 
-<p>If no configuration is given, the <code>zone</code> component will create a zone for home. This zone will use location given in the <code>configuration.yaml</code> file and have a radius of 100 meters. To override this, create a zone configuration and name it <strong>‘Home’</strong>.</p>
+<p>If no configuration is given, the <code class="highlighter-rouge">zone</code> component will create a zone for home. This zone will use location given in the <code class="highlighter-rouge">configuration.yaml</code> file and have a radius of 100 meters. To override this, create a zone configuration and name it <strong>‘Home’</strong>.</p>
 
 <p class="note">
 Devices that are in the zone <strong>‘Home’</strong> will not appear on the map in the Home Assistant UI.
@@ -139,11 +137,11 @@ Devices that are in the zone <strong>‘Home’</strong> will not appear on the 
 
 <h4><a class="title-link" name="icons" href="#icons"></a> Icons</h4>
 
-<p>It is preferred to pick an icon to use for your zone. Pick any zone that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> and prefix the name with <code>mdi:</code>. For example <code>mdi:school</code>, <code>mdi:worker</code>, <code>mdi:home</code>, <code>mdi:cart</code>, or <code>mdi:castle</code>.</p>
+<p>It is preferred to pick an icon to use for your zone. Pick any zone that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:school</code>, <code class="highlighter-rouge">mdi:worker</code>, <code class="highlighter-rouge">mdi:home</code>, <code class="highlighter-rouge">mdi:cart</code>, or <code class="highlighter-rouge">mdi:castle</code>.</p>
 
 <h4>State</h4>
 
-<p><code>zoning</code> is the state a <code>zone</code> has when it is configured. A <code>zone</code> doesn’t have another state, all configured zones are <code>zoning</code> all the time</p>
+<p><code class="highlighter-rouge">zoning</code> is the state a <code class="highlighter-rouge">zone</code> has when it is configured. A <code class="highlighter-rouge">zone</code> doesn’t have another state, all configured zones are <code class="highlighter-rouge">zoning</code> all the time</p>
 
 
 </article>

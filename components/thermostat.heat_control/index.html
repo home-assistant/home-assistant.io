@@ -91,33 +91,31 @@
 
   <p>Heat Control is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater under the hood. If the measured temperature is cooler then the target temperature, the heater will be turned on and turned off when required temperature is reached.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">thermostat</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">heat_control</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Study</span></span>
-  <span class="key">heater</span>: <span class="string"><span class="content">switch.study_heater</span></span>
-  <span class="key">target_sensor</span>: <span class="string"><span class="content">sensor.study_temperature</span></span>
-  <span class="key">min_temp</span>: <span class="string"><span class="content">15</span></span>
-  <span class="key">max_temp</span>: <span class="string"><span class="content">21</span></span>
-  <span class="key">target_temp</span>: <span class="string"><span class="content">15</span></span>
-  <span class="key">min_cycle_duration</span>:
-  <span class="comment"># At least one of these must be specified:</span>
-     <span class="key">days</span>: <span class="string"><span class="content">2</span></span>
-     <span class="key">hours</span>: <span class="string"><span class="content">1</span></span>
-     <span class="key">minutes</span>: <span class="string"><span class="content">10</span></span>
-     <span class="key">seconds</span>: <span class="string"><span class="content">5</span></span>
-     <span class="key">milliseconds</span>: <span class="string"><span class="content">20</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">thermostat</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">heat_control</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Study</span>
+  <span class="s">heater</span><span class="pi">:</span> <span class="s">switch.study_heater</span>
+  <span class="s">target_sensor</span><span class="pi">:</span> <span class="s">sensor.study_temperature</span>
+  <span class="s">min_temp</span><span class="pi">:</span> <span class="s">15</span>
+  <span class="s">max_temp</span><span class="pi">:</span> <span class="s">21</span>
+  <span class="s">target_temp</span><span class="pi">:</span> <span class="s">15</span>
+  <span class="s">min_cycle_duration</span><span class="pi">:</span>
+  <span class="c1"># At least one of these must be specified:</span>
+     <span class="s">days</span><span class="pi">:</span> <span class="s">2</span>
+     <span class="s">hours</span><span class="pi">:</span> <span class="s">1</span>
+     <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
+     <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
+     <span class="s">milliseconds</span><span class="pi">:</span> <span class="s">20</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>name</strong> (<em>Required</em>): Name of thermostat</li>
-  <li><strong>heater</strong> (<em>Required</em>: <code>entity_id</code> for heater switch, must be a toggle device.</li>
-  <li><strong>target_sensor</strong> (<em>Required</em>): <code>entity_id</code> for a temperature sensor, target_sensor.state must be temperature.</li>
+  <li><strong>heater</strong> (<em>Required</em>: <code class="highlighter-rouge">entity_id</code> for heater switch, must be a toggle device.</li>
+  <li><strong>target_sensor</strong> (<em>Required</em>): <code class="highlighter-rouge">entity_id</code> for a temperature sensor, target_sensor.state must be temperature.</li>
   <li><strong>min_temp</strong> (<em>Optional</em>): Set minimum set point available (default: 7)</li>
   <li><strong>max_temp</strong> (<em>Optional</em>): Set maximum set point available (default: 35)</li>
   <li><strong>target_temp</strong> (<em>Required</em>): Set intital target temperature. Failure to set this variable will result in target temperature being set to null on startup.</li>

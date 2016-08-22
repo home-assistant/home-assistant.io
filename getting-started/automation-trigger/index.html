@@ -91,150 +91,134 @@
 
   <p>Triggers are what starts the processing of an automation rule. It is possible to specify multiple triggers for the same rule. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.</p>
 
-<h4><a class="title-link" name="event-trigger" href="#event-trigger"></a> Event trigger</h4>
+<h3><a class="title-link" name="event-trigger" href="#event-trigger"></a> Event trigger</h3>
 <p>Triggers when an event is being processed. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
-    <span class="key">event_type</span>: <span class="string"><span class="content">MY_CUSTOM_EVENT</span></span>
-    <span class="comment"># optional</span>
-    <span class="key">event_data</span>:
-      <span class="key">mood</span>: <span class="string"><span class="content">happy</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">MY_CUSTOM_EVENT</span>
+    <span class="c1"># optional</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">mood</span><span class="pi">:</span> <span class="s">happy</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="mqtt-trigger" href="#mqtt-trigger"></a> MQTT trigger</h4>
+<h3><a class="title-link" name="mqtt-trigger" href="#mqtt-trigger"></a> MQTT trigger</h3>
 <p>Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-    <span class="key">topic</span>: <span class="string"><span class="content">living_room/switch/ac</span></span>
-    <span class="comment"># Optional</span>
-    <span class="key">payload</span>: <span class="string"><span class="content">'on'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">topic</span><span class="pi">:</span> <span class="s">living_room/switch/ac</span>
+    <span class="c1"># Optional</span>
+    <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="numeric-state-trigger" href="#numeric-state-trigger"></a> Numeric state trigger</h4>
+<h3><a class="title-link" name="numeric-state-trigger" href="#numeric-state-trigger"></a> Numeric state trigger</h3>
 <p>On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">numeric_state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.temperature</span></span>
-    <span class="comment"># Optional</span>
-    <span class="key">value_template</span>: <span class="string"><span class="content">'{{ state.attributes.battery }}'</span></span>
-    <span class="comment"># At least one of the following required</span>
-    <span class="key">above</span>: <span class="string"><span class="content">17</span></span>
-    <span class="key">below</span>: <span class="string"><span class="content">25</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.temperature</span>
+    <span class="c1"># Optional</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.attributes.battery</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="c1"># At least one of the following required</span>
+    <span class="s">above</span><span class="pi">:</span> <span class="s">17</span>
+    <span class="s">below</span><span class="pi">:</span> <span class="s">25</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="state-trigger" href="#state-trigger"></a> State trigger</h4>
+<h3><a class="title-link" name="state-trigger" href="#state-trigger"></a> State trigger</h3>
 
 <p>Triggers when the state of tracked entities change. If only entity_id given will match all state changes.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus, device_tracker.anne_therese</span></span>
-    <span class="comment"># Optional </span>
-    <span class="key">state</span>: <span class="string"><span class="content">'xy'</span></span>
-    <span class="comment"># or (don't use that with condition: use_trigger_values)</span>
-    <span class="key">from</span>: <span class="string"><span class="content">'not_home'</span></span>
-    <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
-    <span class="comment"># If given, will trigger when state has been the to state for X time.</span>
-    <span class="key">for</span>:
-      <span class="key">hours</span>: <span class="string"><span class="content">1</span></span>
-      <span class="key">minutes</span>: <span class="string"><span class="content">10</span></span>
-      <span class="key">seconds</span>: <span class="string"><span class="content">5</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus, device_tracker.anne_therese</span>
+    <span class="c1"># Optional </span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">xy'</span>
+    <span class="c1"># or (don't use that with condition: use_trigger_values)</span>
+    <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+    <span class="c1"># If given, will trigger when state has been the to state for X time.</span>
+    <span class="s">for</span><span class="pi">:</span>
+      <span class="s">hours</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
+      <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
+</code></pre>
 </div>
 
 <p class="note warning">
-  Use quotes around your values for <code>from</code> and <code>to</code> to avoid the YAML parser interpreting values as booleans.
+  Use quotes around your values for <code class="highlighter-rouge">from</code> and <code class="highlighter-rouge">to</code> to avoid the YAML parser interpreting values as booleans.
 </p>
 
-<h4><a class="title-link" name="sun-trigger" href="#sun-trigger"></a> Sun trigger</h4>
+<h3><a class="title-link" name="sun-trigger" href="#sun-trigger"></a> Sun trigger</h3>
 <p>Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">sun</span></span>
-    <span class="comment"># Possible values: sunset, sunrise</span>
-    <span class="key">event</span>: <span class="string"><span class="content">sunset</span></span>
-    <span class="comment"># Optional time offset. This example is 45 minutes.</span>
-    <span class="key">offset</span>: <span class="string"><span class="content">'-00:45:00'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+    <span class="c1"># Possible values: sunset, sunrise</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+    <span class="c1"># Optional time offset. This example is 45 minutes.</span>
+    <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">-00:45:00'</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="template-trigger" href="#template-trigger"></a> Template trigger</h4>
+<h3><a class="title-link" name="template-trigger" href="#template-trigger"></a> Template trigger</h3>
 
-<p>Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render ‘true’. This is achieved by having the template result in a true boolean expression (<code>{{ is_state('device_tracker.paulus', 'home') }}</code>) or by having the template render ‘true’ (example below).</p>
+<p>Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render ‘true’. This is achieved by having the template result in a true boolean expression (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('device_tracker.paulus',</span><span class="w"> </span><span class="err">'home')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>) or by having the template render ‘true’ (example below).</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="content">'{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state('device_tracker.paulus', 'home') %}true{% endif %}'</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="time-trigger" href="#time-trigger"></a> Time trigger</h4>
+<h3><a class="title-link" name="time-trigger" href="#time-trigger"></a> Time trigger</h3>
 
-<p>Time can be triggered in many ways. The most common is to specify <code>after</code> and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a <code>/</code> to match whenever the value is divisible by that number. You cannot use <code>after</code> together with hour, minute or second.</p>
+<p>Time can be triggered in many ways. The most common is to specify <code class="highlighter-rouge">after</code> and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a <code class="highlighter-rouge">/</code> to match whenever the value is divisible by that number. You cannot use <code class="highlighter-rouge">after</code> together with hour, minute or second.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
-    <span class="comment"># Matches every hour at 5 minutes past whole</span>
-    <span class="key">minutes</span>: <span class="string"><span class="content">5</span></span>
-    <span class="key">seconds</span>: <span class="string"><span class="content">0</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="c1"># Matches every hour at 5 minutes past whole</span>
+    <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
+    <span class="s">seconds</span><span class="pi">:</span> <span class="s">0</span>
 
-<span class="key">automation 2</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
-    <span class="comment"># When 'after' is used, you cannot also match on hour, minute, seconds.</span>
-    <span class="comment"># Military time format.</span>
-    <span class="key">after</span>: <span class="string"><span class="content">'15:32:00'</span></span>
+<span class="s">automation 2</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="c1"># When 'after' is used, you cannot also match on hour, minute, seconds.</span>
+    <span class="c1"># Military time format.</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">15:32:00'</span>
 
-<span class="key">automation 3</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
-    <span class="comment"># You can also match on interval. This will match every 5 minutes</span>
-    <span class="key">minutes</span>: <span class="string"><span class="content">'/5'</span></span>
-    <span class="key">seconds</span>: <span class="string"><span class="content">0</span></span>
-</pre></div>
-</div>
+<span class="s">automation 3</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="c1"># You can also match on interval. This will match every 5 minutes</span>
+    <span class="s">minutes</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/5'</span>
+    <span class="s">seconds</span><span class="pi">:</span> <span class="s">0</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="zone-trigger" href="#zone-trigger"></a> Zone trigger</h4>
+<h3><a class="title-link" name="zone-trigger" href="#zone-trigger"></a> Zone trigger</h3>
 
 <p>Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the <a href="/components/device_tracker.owntracks/">OwnTracks platform</a> as well as the <a href="/components/device_tracker.icloud/">iCloud platform</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">zone</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus</span></span>
-    <span class="key">zone</span>: <span class="string"><span class="content">zone.home</span></span>
-    <span class="comment"># Event is either enter or leave</span>
-    <span class="key">event</span>: <span class="string"><span class="content">enter</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">zone</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
+    <span class="s">zone</span><span class="pi">:</span> <span class="s">zone.home</span>
+    <span class="c1"># Event is either enter or leave</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">enter</span>
+</code></pre>
 </div>
 
 

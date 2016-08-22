@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>onewire</code> platform supports sensors which are using the One wire (1-wire) bus for communication.</p>
+  <p>The <code class="highlighter-rouge">onewire</code> platform supports sensors which are using the One wire (1-wire) bus for communication.</p>
 
 <p>Supported devices:</p>
 
@@ -103,17 +103,15 @@
 
 <p>There is also support for bus masters which use fuse to mount device tree.</p>
 
-<p>To enable One wire sensors in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable One wire sensors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">onewire</span></span>
-  <span class="key">names</span>:
-    <span class="key">some_id</span>: <span class="string"><span class="content">your name</span></span>
-  <span class="key">mount_dir</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/mnt/1wire</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">onewire</span>
+  <span class="s">names</span><span class="pi">:</span>
+    <span class="s">some_id</span><span class="pi">:</span> <span class="s">your name</span>
+  <span class="s">mount_dir</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/mnt/1wire"</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

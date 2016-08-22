@@ -89,24 +89,22 @@
   <hr class="divider">
   
 
-  <p>The <code>http</code> component serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.</p>
+  <p>The <code class="highlighter-rouge">http</code> component serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.</p>
 
 <p class="note warning">
-It’s HIGHLY recommended that you set the <code>api_password</code>, especially if you are planning to expose your installation to the internet.
+It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_password</code>, especially if you are planning to expose your installation to the internet.
 </p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">http</span>:
-  <span class="key">api_password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
-  <span class="key">server_port</span>: <span class="string"><span class="content">12345</span></span>
-  <span class="key">ssl_certificate</span>: <span class="string"><span class="content">/etc/letsencrypt/live/hass.example.com/fullchain.pem</span></span>
-  <span class="key">ssl_key</span>: <span class="string"><span class="content">/etc/letsencrypt/live/hass.example.com/privkey.pem</span></span>
-  <span class="key">cors_allowed_origins</span>:
-    - <span class="string"><span class="content">https://google.com</span></span>
-    - <span class="string"><span class="content">https://home-assistant.io</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">http</span><span class="pi">:</span>
+  <span class="s">api_password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+  <span class="s">server_port</span><span class="pi">:</span> <span class="s">12345</span>
+  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/etc/letsencrypt/live/hass.example.com/fullchain.pem</span>
+  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/etc/letsencrypt/live/hass.example.com/privkey.pem</span>
+  <span class="s">cors_allowed_origins</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">https://google.com</span>
+    <span class="pi">-</span> <span class="s">https://home-assistant.io</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -118,14 +116,14 @@ It’s HIGHLY recommended that you set the <code>api_password</code>, especially
   <li><strong>development</strong> (<em>Optional</em>): Disable caching and load unvulcanized assets. Useful for Frontend development.</li>
   <li><strong>ssl_certificate</strong> (<em>Optional</em>): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.</li>
   <li><strong>ssl_key</strong> (<em>Optional</em>): Path to your TLS/SSL key to serve Home Assistant over a secure connection.</li>
-  <li><strong>cors_allowed_origins</strong> (<em>Optional</em>): A list of origin domain names to allow <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> requests from. Enabling this will set the <code>Access-Control-Allow-Origin</code> header to the Origin header if it is found in the list, and the <code>Access-Control-Allow-Headers</code> header to <code>Origin, Accept, X-Requested-With, Content-type, X-HA-access</code>. You must provide the exact Origin, i.e. <code>https://home-assistant.io</code> will allow requests from <code>https://home-assistant.io</code> but <strong>not</strong> <code>http://home-assistant.io</code>.</li>
+  <li><strong>cors_allowed_origins</strong> (<em>Optional</em>): A list of origin domain names to allow <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> requests from. Enabling this will set the <code class="highlighter-rouge">Access-Control-Allow-Origin</code> header to the Origin header if it is found in the list, and the <code class="highlighter-rouge">Access-Control-Allow-Headers</code> header to <code class="highlighter-rouge">Origin, Accept, X-Requested-With, Content-type, X-HA-access</code>. You must provide the exact Origin, i.e. <code class="highlighter-rouge">https://home-assistant.io</code> will allow requests from <code class="highlighter-rouge">https://home-assistant.io</code> but <strong>not</strong> <code class="highlighter-rouge">http://home-assistant.io</code>.</li>
 </ul>
 
 <p>The <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Set up encryption using Let’s Encrypt</a> blog post gives you details about the encryption of your traffic using free certificates from <a href="https://letsencrypt.org/">Let’s Encrypt</a>.</p>
 
-<p>On top of the <code>http</code> component is a <a href="/developers/rest_api/">REST API</a> and a <a href="/developers/python_api/">Python API</a> available. There is also support for <a href="/developers/server_sent_events/">Server-sent events</a> available.</p>
+<p>On top of the <code class="highlighter-rouge">http</code> component is a <a href="/developers/rest_api/">REST API</a> and a <a href="/developers/python_api/">Python API</a> available. There is also support for <a href="/developers/server_sent_events/">Server-sent events</a> available.</p>
 
-<p>The <code>http</code> platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant’s <a href="/developers/rest_api/">REST API</a> sends and receives messages over HTTP.</p>
+<p>The <code class="highlighter-rouge">http</code> platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant’s <a href="/developers/rest_api/">REST API</a> sends and receives messages over HTTP.</p>
 
 <p>To use those kind of <a href="/components/sensor.http/">sensors</a> or <a href="components/binary_sensor.http/">binary sensors</a> in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.</p>
 

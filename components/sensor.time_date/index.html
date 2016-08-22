@@ -89,23 +89,21 @@
   <hr class="divider">
   
 
-  <p>The time and date (<code>time_date</code>) platform simple displays the time in various formats, the date, or both.</p>
+  <p>The time and date (<code class="highlighter-rouge">time_date</code>) platform simple displays the time in various formats, the date, or both.</p>
 
-<p>To enable this sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">time_date</span></span>
-  <span class="key">display_options</span>:
-    - <span class="string"><span class="content">'time'</span></span>
-    - <span class="string"><span class="content">'date'</span></span>
-    - <span class="string"><span class="content">'date_time'</span></span>
-    - <span class="string"><span class="content">'time_date'</span></span>
-    - <span class="string"><span class="content">'time_utc'</span></span>
-    - <span class="string"><span class="content">'beat'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">time_date</span>
+  <span class="s">display_options</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">time'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">date'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">date_time'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">time_date'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">time_utc'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">beat'</span>
+</code></pre>
 </div>
 
 <p>The types <em>date_time</em> and <em>time_date</em> shows the date and the time. The other types just the time or the date. <em>beat</em> shows the <a href="http://www.swatch.com/en_us/internet-time">Swatch Internet Time</a>.</p>

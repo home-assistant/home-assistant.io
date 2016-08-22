@@ -89,70 +89,60 @@
   <hr class="divider">
   
 
-  <p>Home Assistant will be able to automatically discover and configure any Google Chromecasts, Netgear routers, Belkin WeMo switches, Philips Hue bridges and Sonos speakers on your network if you have <a href="/components/discovery/">the discovery component</a> enabled (which is by default).</p>
+  <p>Home Assistant will be able to automatically discover a bunch of devices and services available on your network if you have <a href="/components/discovery/">the discovery component</a> enabled (which is by default).</p>
 
 <p>See the <a href="/components/">components overview page</a> to find installation instructions for your devices and services. If you can’t find support for your favorite device or service, <a href="/developers/add_new_platform/">consider adding support</a>.</p>
 
-<p>Usually every entity needs its own entry in the <code>configuration.yaml</code> file. There are two styles for multiple entries:</p>
+<p>Usually every entity needs its own entry in the <code class="highlighter-rouge">configuration.yaml</code> file. There are two styles for multiple entries:</p>
 
 <h4><a class="title-link" name="style-1-collect-every-entity-under-the-parent" href="#style-1-collect-every-entity-under-the-parent"></a> Style 1: Collect every entity under the “parent”</h4>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/temperature</span><span class="delimiter">&quot;</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MQTT Sensor 1</span><span class="delimiter">&quot;</span></span>
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/kitchen/temperature</span><span class="delimiter">&quot;</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MQTT Sensor 2</span><span class="delimiter">&quot;</span></span>
-  - <span class="string"><span class="content">platform: rest</span></span>
-    <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/temperature"</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Sensor</span><span class="nv"> </span><span class="s">1"</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/kitchen/temperature"</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Sensor</span><span class="nv"> </span><span class="s">2"</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
 
-<span class="key">switch</span>:
-  - <span class="string"><span class="content">platform: vera</span></span>
-</pre></div>
-</div>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">vera</span>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="style-2-list-each-device-separately" href="#style-2-list-each-device-separately"></a> Style 2: List each device separately</h4>
 
 <p>You need to append numbers or strings to differentiate the entries, as in the example below. The appended number or string must be unique.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">media_player livingroom</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player livingroom</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mpd</span>
+  <span class="s">server</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
 
-<span class="key">media_player kitchen</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">plex</span></span>
+<span class="s">media_player kitchen</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">plex</span>
 
-<span class="key">camera 1</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">generic</span></span>
+<span class="s">camera 1</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">generic</span>
 
-<span class="key">camera 2</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mjpeg</span></span>
-</pre></div>
+<span class="s">camera 2</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mjpeg</span>
+</code></pre>
 </div>
-</div>
-
-<p class="note note">
-If your devices are not showing up in the frontend then check the entries in your <code>configuration.yaml</code> file for duplicates. 
-</p>
 
 <h3><a class="title-link" name="grouping-devices" href="#grouping-devices"></a> Grouping devices</h3>
 
-<p>Once you have a bunch of devices set up, it is time to organize them into groups.  <br />
+<p>Once you have a bunch of devices set up, it is time to organize them into groups.<br />
 Each group exists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (second icon).</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry showing two styles</span>
-<span class="key">group</span>:
-  <span class="key">living_room</span>: <span class="string"><span class="content">light.table_lamp, switch.ac</span></span>
-  <span class="key">bedroom</span>:
-    - <span class="string"><span class="content">light.bedroom</span></span>
-    - <span class="string"><span class="content">media_player.nexus_player</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry showing two styles</span>
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">living_room</span><span class="pi">:</span> <span class="s">light.table_lamp, switch.ac</span>
+  <span class="s">bedroom</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">light.bedroom</span>
+    <span class="pi">-</span> <span class="s">media_player.nexus_player</span>
+</code></pre>
 </div>
 
 <p>For more details please check the <a href="https://home-assistant.io/components/group/">Group</a> page.</p>

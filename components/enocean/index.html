@@ -91,7 +91,7 @@
 
   <p>The <a href="https://en.wikipedia.org/wiki/EnOcean">EnOcean</a> standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are unnecessary.</p>
 
-<p>The <code>enocean</code> component adds support for some of these devices. You will need a controller like the <a href="https://www.enocean.com/en/enocean_modules/usb-300-oem/">USB300</a> in order for it to work.</p>
+<p>The <code class="highlighter-rouge">enocean</code> component adds support for some of these devices. You will need a controller like the <a href="https://www.enocean.com/en/enocean_modules/usb-300-oem/">USB300</a> in order for it to work.</p>
 
 <p>There is currently support for the following device types within Home Assistant:</p>
 
@@ -114,12 +114,10 @@
 
 <h1>Configuration</h1>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">enocean</span>:
-  <span class="key">device</span>: <span class="string"><span class="content">/dev/ttyUSB0</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">enocean</span><span class="pi">:</span>
+  <span class="s">device</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
+</code></pre>
 </div>
 
 <p>If no device is specified, the default will be <strong>/dev/ttyUSB0</strong></p>

@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>netatmo</code> camera platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo Welcome</a> camera. This component allows you to view the current photo created by the Camera.</p>
+  <p>The <code class="highlighter-rouge">netatmo</code> camera platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo Welcome</a> camera. This component allows you to view the current photo created by the Camera.</p>
 
-<p>To enable the Netatmo camera, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable the Netatmo camera, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">camera</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">netatmo</span></span>
-  <span class="key">home</span>: <span class="string"><span class="content">home_name</span></span>
-  <span class="key">cameras</span>:
-    - <span class="string"><span class="content">camera_name1</span></span>
-    - <span class="string"><span class="content">camera_name2</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">netatmo</span>
+  <span class="s">home</span><span class="pi">:</span> <span class="s">home_name</span>
+  <span class="s">cameras</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">camera_name1</span>
+    <span class="pi">-</span> <span class="s">camera_name2</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

@@ -89,23 +89,21 @@
   <hr class="divider">
   
 
-  <p>The <code>wake_on_lan</code> (WOL) switch platform allows you to turn on a <a href="https://en.wikipedia.org/wiki/Wake-on-LAN">WOL</a> enabled computer.</p>
+  <p>The <code class="highlighter-rouge">wake_on_lan</code> (WOL) switch platform allows you to turn on a <a href="https://en.wikipedia.org/wiki/Wake-on-LAN">WOL</a> enabled computer.</p>
 
 <p class="note warning">
 The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely.
 </p>
 
-<p>To enable this switch in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this switch in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">wake_on_lan</span></span>
-  <span class="key">mac_address</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">00-01-02-03-04-05</span><span class="delimiter">&quot;</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">WOL</span><span class="delimiter">&quot;</span></span>
-  <span class="key">host</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">192.168.1.1</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">wake_on_lan</span>
+  <span class="s">mac_address</span><span class="pi">:</span> <span class="s2">"</span><span class="s">00-01-02-03-04-05"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">WOL"</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s2">"</span><span class="s">192.168.1.1"</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

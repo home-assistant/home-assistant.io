@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -108,103 +108,87 @@
 </header>
 
 
-  <p><img src="/images/supported_brands/influxdb.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><img src="/images/supported_brands/grafana.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+  <p><img src="/images/supported_brands/influxdb.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><img src="/images/supported_brands/grafana.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 The <a href="https://influxdb.com/">InfluxDB</a> database is a so-called time series database primarly designed to store sensor data and real-time analytics.</p>
 
-<p>The <code>influxdb</code> component makes it possible to transfer all state changes from Home Assistant to an external <a href="https://influxdb.com/">InfluxDB</a> database.</p>
+<p>The <code class="highlighter-rouge">influxdb</code> component makes it possible to transfer all state changes from Home Assistant to an external <a href="https://influxdb.com/">InfluxDB</a> database.</p>
 
 <a name="read-more"></a>
 
 <p>The first step is to install the InfluxDB packages. If you are not running Fedora, check the <a href="https://influxdb.com/docs/v0.9/introduction/installation.html">installation</a> section for further details.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo dnf -y install http://influxdb.s3.amazonaws.com/influxdb-0.9.5.1-1.x86_64.rpm
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install http://influxdb.s3.amazonaws.com/influxdb-0.9.5.1-1.x86_64.rpm
+</code></pre>
 </div>
 
 <p>Launch the InfluxDB service.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl start influxdb
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl start influxdb
+</code></pre>
 </div>
 
-<p>If everything went well, then the web interface of the database should be accessible at <a href="http://localhost:8083/">http://localhost:8083/</a>. Create a database <code>home_assistant</code> to use with Home Assistant either with the web interface or the commandline tool <code>influx</code>.</p>
+<p>If everything went well, then the web interface of the database should be accessible at <a href="http://localhost:8083/">http://localhost:8083/</a>. Create a database <code class="highlighter-rouge">home_assistant</code> to use with Home Assistant either with the web interface or the commandline tool <code class="highlighter-rouge">influx</code>.</p>
 
 <p class="img">
   <img src="/images/blog/2015-12-influxdb/influxdb-frontend.png" />
   InfluxDB web frontend
 </p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ influx
-Visit https://enterprise.influxdata.com to register for updates, InfluxDB server management, and monitoring.
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>influx
+Visit https://enterprise.influxdata.com to register <span class="k">for </span>updates, InfluxDB server management, and monitoring.
 Connected to http://localhost:8086 version 0.9.5.1
 InfluxDB shell 0.9.5.1
-&gt; CREATE DATABASE home_assistant
-</pre></div>
-</div>
-</div>
-
-<p>An optional step is to create a user. Keep in mind to adjust the configuration (add <code>username</code> and <code>password</code>) in the next step if you prefer to go this way.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&gt; CREATE USER &quot;home-assistant&quot; WITH PASSWORD 'password'
-</pre></div>
-</div>
+<span class="gp">&gt; </span>CREATE DATABASE home_assistant
+</code></pre>
 </div>
 
-<p>To use the <code>influxdb</code> component in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>An optional step is to create a user. Keep in mind to adjust the configuration (add <code class="highlighter-rouge">username</code> and <code class="highlighter-rouge">password</code>) in the next step if you prefer to go this way.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">influxdb</span>:
-  <span class="key">host</span>: <span class="string"><span class="content">127.0.0.1</span></span>
-</pre></div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>CREATE USER <span class="s2">"home-assistant"</span> WITH PASSWORD <span class="s1">'password'</span>
+</code></pre>
 </div>
+
+<p>To use the <code class="highlighter-rouge">influxdb</code> component in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">influxdb</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+</code></pre>
 </div>
 
 <p>After you restart Home Assistant you should see that the InfluxDB database gets filled. The <a href="https://influxdb.com/docs/v0.9/query_language/index.html">language</a> to query the database is similar to SQL.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ influx
-[...]
-&gt; USE home_assistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>influx
+<span class="o">[</span>...]
+<span class="gp">&gt; </span>USE home_assistant
 Using database home_assistant
-&gt; SELECT * FROM binary_sensor
+<span class="gp">&gt; </span>SELECT <span class="k">*</span> FROM binary_sensor
 name: binary_sensor
 -------------------
-time            domain        entity_id    value
-1449496577000000000    binary_sensor    bathroom_door    0
-1449496577000000000    binary_sensor    bathroom_window    0
-1449496577000000000    binary_sensor    basement_door    0
-1449496577000000000    binary_sensor    basement_window    0
-1449496684000000000    binary_sensor    bathroom_window    1
-[...]
-</pre></div>
-</div>
+<span class="nb">time			</span>domain		entity_id	value
+1449496577000000000	binary_sensor	bathroom_door	0
+1449496577000000000	binary_sensor	bathroom_window	0
+1449496577000000000	binary_sensor	basement_door	0
+1449496577000000000	binary_sensor	basement_window	0
+1449496684000000000	binary_sensor	bathroom_window	1
+<span class="o">[</span>...]
+</code></pre>
 </div>
 
 <p><a href="http://grafana.org/">Grafana</a> is a dashboard that can create graphs from different sources including InfluxDB. The installation is simple, and there are detailed steps for many different configurations on the <a href="http://docs.grafana.org/installation/">Grafana installation</a> page. For a recent system that is running Fedora:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo dnf -y install https://grafanarel.s3.amazonaws.com/builds/grafana-2.5.0-1.x86_64.rpm
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install https://grafanarel.s3.amazonaws.com/builds/grafana-2.5.0-1.x86_64.rpm
+</code></pre>
 </div>
 
 <p>Start the grafana server.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl daemon-reload
-$ sudo systemctl start grafana-server
-$ sudo systemctl status grafana-server
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl daemon-reload
+<span class="gp">$ </span>sudo systemctl start grafana-server
+<span class="gp">$ </span>sudo systemctl status grafana-server
+</code></pre>
 </div>
 
-<p>Login with the username <code>admin</code> and the password <code>admin</code> at <a href="http://localhost:3000/login">http://localhost:3000/login</a>. Now follow the <a href="http://docs.grafana.org/datasources/influxdb/">InfluxDB setup instructions</a>.</p>
+<p>Login with the username <code class="highlighter-rouge">admin</code> and the password <code class="highlighter-rouge">admin</code> at <a href="http://localhost:3000/login">http://localhost:3000/login</a>. Now follow the <a href="http://docs.grafana.org/datasources/influxdb/">InfluxDB setup instructions</a>.</p>
 
 <p>Now you can start to create dashboards and graphs. You have various options to get the data from the graph. The next image just shows a screenshot of the setting for a temperature sensor.</p>
 
@@ -292,7 +276,7 @@ $ sudo systemctl status grafana-server
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

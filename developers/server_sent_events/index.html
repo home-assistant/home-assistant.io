@@ -91,49 +91,43 @@
 
   <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events">server-sent events</a> feature is a one-way channel from your Home Assistant server to a client which is acting as a consumer. For bi-directional communication check the <a href="/developers/rest_api/">RESTful API</a> and <a href="/developers/python_api/">Python API</a>.</p>
 
-<p>The URI that is generating the data is <code>/api/stream</code>.</p>
+<p>The URI that is generating the data is <code class="highlighter-rouge">/api/stream</code>.</p>
 
 <p>A requirement on the client-side is existing support for the <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventSource">EventSource</a> interface.</p>
 
-<p>There are various ways to access the stream. One is <code>curl</code>:</p>
+<p>There are various ways to access the stream. One is <code class="highlighter-rouge">curl</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; http://localhost:8123/api/stream
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/stream
+</code></pre>
 </div>
 
-<p>For more comfort put the HTML snippet below in a file <code>sse.html</code> in your <code>www</code> folder of your Home Assistant configuration directory (<code>.homeassistant</code>)</p>
+<p>For more comfort put the HTML snippet below in a file <code class="highlighter-rouge">sse.html</code> in your <code class="highlighter-rouge">www</code> folder of your Home Assistant configuration directory (<code class="highlighter-rouge">.homeassistant</code>)</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="doctype">&lt;!DOCTYPE html&gt;</span>
-<span class="tag">&lt;html&gt;</span>
-<span class="tag">&lt;body&gt;</span>
-    <span class="tag">&lt;h1&gt;</span>Getting Home Assistant server events<span class="tag">&lt;/h1&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">events</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-<span class="inline">        <span class="keyword">var</span> source = <span class="keyword">new</span> EventSource(<span class="string"><span class="delimiter">&quot;</span><span class="content">/api/stream?password=YOUR_PASSWORD</span><span class="delimiter">&quot;</span></span>);
-        source.<span class="function">onmessage</span> = <span class="keyword">function</span>(event) {
-            document.getElementById(<span class="string"><span class="delimiter">&quot;</span><span class="content">events</span><span class="delimiter">&quot;</span></span>).innerHTML += event.data + <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;br&gt;</span><span class="delimiter">&quot;</span></span>;
-        };</span>
-    <span class="tag">&lt;/script&gt;</span>
-<span class="tag">&lt;/body&gt;</span>
-<span class="tag">&lt;/html&gt;</span>
-</pre></div>
-</div>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Getting Home Assistant server events<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"events"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+        <span class="kd">var</span> <span class="nx">source</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EventSource</span><span class="p">(</span><span class="s2">"/api/stream?password=YOUR_PASSWORD"</span><span class="p">);</span>
+        <span class="nx">source</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"events"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span> <span class="o">+</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+        <span class="p">};</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
 </div>
 
 <p>Visit <a href="http://localhost:8123/local/sse.html">http://localhost:8123/local/sse.html</a> to see the stream of events.</p>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
-<p>A simplest way to consume server-sent events is <code>httpie</code>.</p>
+<p>A simplest way to consume server-sent events is <code class="highlighter-rouge">httpie</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD content-type:application/json
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD content-type:application/json
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="website" href="#website"></a> Website</h3>
@@ -142,24 +136,20 @@
 
 <h3><a class="title-link" name="python" href="#python"></a> Python</h3>
 
-<p>If you want test the server-sent events without creating a website then the Python module <a href="https://pypi.python.org/pypi/sseclient/"><code>sseclient</code> </a> can help. Install it first:</p>
+<p>If you want test the server-sent events without creating a website then the Python module <a href="https://pypi.python.org/pypi/sseclient/"><code class="highlighter-rouge">sseclient</code> </a> can help. Install it first:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install sseclient
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install sseclient
+</code></pre>
 </div>
 
 <p>The simplest script to consume the SSE looks like the following snipplet.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">sseclient</span> <span class="keyword">import</span> <span class="include">SSEClient</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sseclient</span> <span class="kn">import</span> <span class="n">SSEClient</span>
 
-messages = SSEClient(<span class="string"><span class="delimiter">'</span><span class="content">http://localhost:8123/api/stream?api_password=YOUR_PASSWORD</span><span class="delimiter">'</span></span>)
-<span class="keyword">for</span> msg <span class="keyword">in</span> messages:
-    print(msg)
-</pre></div>
-</div>
+<span class="n">messages</span> <span class="o">=</span> <span class="n">SSEClient</span><span class="p">(</span><span class="s">'http://localhost:8123/api/stream?api_password=YOUR_PASSWORD'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">messages</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre>
 </div>
 
 

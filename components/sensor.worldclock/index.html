@@ -89,18 +89,16 @@
   <hr class="divider">
   
 
-  <p>The <code>worldclock</code> sensor platform simple displays the current time in a different time zone</p>
+  <p>The <code class="highlighter-rouge">worldclock</code> sensor platform simple displays the current time in a different time zone</p>
 
-<p>To enable this sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">worldclock</span></span>
-  <span class="key">time_zone</span>: <span class="string"><span class="content">America/New_York</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">New York</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">worldclock</span>
+  <span class="s">time_zone</span><span class="pi">:</span> <span class="s">America/New_York</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">New York</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -112,10 +110,8 @@
 
 <p>For valid time zones check the <strong>TZ</strong> column in the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia overview</a>. Or get the full list from the <a href="https://pypi.python.org/pypi/pytz">pytz</a> module.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>python3 -c <span class="string"><span class="delimiter">&quot;</span><span class="content">import pytz;print(pytz.all_timezones)</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s">"import pytz;print(pytz.all_timezones)"</span>
+</code></pre>
 </div>
 
 

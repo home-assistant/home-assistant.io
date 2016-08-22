@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -108,7 +108,7 @@
 </header>
 
 
-  <p><img src="/images/blog/2016-07-pocketchip/pocketchip-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+  <p><img src="/images/blog/2016-07-pocketchip/pocketchip-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 Over a year ago I participated in the <a href="https://www.kickstarter.com/projects/1598272670/chip-the-worlds-first-9-computer/description">kickstarter campaign</a> for “CHIP - The World’s First Nine Dollar Computer” by <a href="https://www.nextthing.co/">Next Thing Co.</a>. I went for the PocketCHIP because of the idea. Display, built-in storage (thus no need for SD cards), battery-powered, and a keyboard are pretty nice features. Last week a package arrives…</p>
 
 <a name="read-more"></a>
@@ -122,43 +122,35 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
 
 <p>If you start using a PocketCHIP you will definitely look like a Blackberry or a GameBoy user. Typing is done with your thumbs :-)</p>
 
-<p>First a couple of tweaks like setting up <code>sudo</code>, upgrading the existing installation, change passwords, enabling ssh, and removal of the annoying stuff then installation of Home Assistant. There is not much to tell…it’s straight-forward. For the sake of completeness below the notes about what I did.</p>
+<p>First a couple of tweaks like setting up <code class="highlighter-rouge">sudo</code>, upgrading the existing installation, change passwords, enabling ssh, and removal of the annoying stuff then installation of Home Assistant. There is not much to tell…it’s straight-forward. For the sake of completeness below the notes about what I did.</p>
 
-<p>A Debian installation is available by default. This means that some dependencies for Home Assistant are missing. I haven’t checked if a new build for the PocketCHIP would include them. So, after a <code>$ sudo apt-get update</code> installing those dependencies take a minute or two.</p>
+<p>A Debian installation is available by default. This means that some dependencies for Home Assistant are missing. I haven’t checked if a new build for the PocketCHIP would include them. So, after a <code class="highlighter-rouge">$ sudo apt-get update</code> installing those dependencies take a minute or two.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo apt-get install python3-dev python3-pip python3-venv
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python3-dev python3-pip python3-venv
+</code></pre>
 </div>
 
 <p>As usual I run Python applications in a <a href="https://docs.python.org/3/library/venv.html">venv</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pvenv ha
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pvenv ha
+</code></pre>
 </div>
 
 <p>Let’s activate the created environment.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ cd ha
-$ source bin/activate
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>ha
+<span class="gp">$ </span><span class="nb">source </span>bin/activate
+</code></pre>
 </div>
 
 <p>If you haven’t seen the next two commands already then you should visit our <a href="https://home-assistant.io/">frontsite</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install homeassistant
-$ hass --open-ui
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install homeassistant
+<span class="gp">$ </span>hass --open-ui
+</code></pre>
 </div>
 
-<p>With <code>surf</code> the browsing experience on the low-resolution display is not that great. Most smartphones, even very cheap ones, have touchscreens with higher resolutions. Nevermind, <a href="https://twitter.com/fabaff/status/748852317047418880"><code>midori</code></a> is not better.</p>
+<p>With <code class="highlighter-rouge">surf</code> the browsing experience on the low-resolution display is not that great. Most smartphones, even very cheap ones, have touchscreens with higher resolutions. Nevermind, <a href="https://twitter.com/fabaff/status/748852317047418880"><code class="highlighter-rouge">midori</code></a> is not better.</p>
 
 <p class="img">
   <img src="/images/blog/2016-07-pocketchip/pocketchip.png" />
@@ -239,7 +231,7 @@ $ hass --open-ui
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

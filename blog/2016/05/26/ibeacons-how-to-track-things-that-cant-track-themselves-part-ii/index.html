@@ -93,11 +93,11 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/device-tracking/'>Device-Tracking</a></li>
+        <li>Device-Tracking</li>
       
-        <li><a class='category' href='/blog/categories/owntracks/'>OwnTracks</a></li>
+        <li>OwnTracks</li>
       
-        <li><a class='category' href='/blog/categories/ibeacons/'>iBeacons</a></li>
+        <li>iBeacons</li>
       
     
     </ul>
@@ -158,72 +158,68 @@
 
 <p>With the basic tracking working - you can use automation to do things like open your gates if your car comes home</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-    - <span class="string"><span class="content">alias: 'Open gate'</span></span>
-      <span class="key">trigger</span>:
-        - <span class="string"><span class="content">platform: state</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.beacon_car</span></span>
-          <span class="key">from</span>: <span class="string"><span class="content">'not_home'</span></span>
-          <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
-      <span class="key">condition</span>:
-        - <span class="string"><span class="content">condition: state</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.gate</span></span>
-          <span class="key">state</span>: <span class="string"><span class="content">'off'</span></span>
-      <span class="key">action</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.gate</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Open</span><span class="nv"> </span><span class="s">gate'</span>
+      <span class="s">trigger</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.beacon_car</span>
+          <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
+          <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+      <span class="s">condition</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.gate</span>
+          <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+      <span class="s">action</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.gate</span>
+</code></pre>
 </div>
 
 <p>Or warn you if you leave your keys behind</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: 'Forgotten keys'</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'</span></span>
-    <span class="key">condition</span>:
-      <span class="key">condition</span>: <span class="string"><span class="content">template</span></span>
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{ states.device_tracker.greg_gregphone.state != &quot;home&quot; }}'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">script.send_key_alert</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Forgotten</span><span class="nv"> </span><span class="s">keys'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.device_tracker.greg_gregphone.state</span><span class="nv"> </span><span class="s">!=</span><span class="nv"> </span><span class="s">states.device_tracker.beacon_keys.state}}'</span>
+    <span class="s">condition</span><span class="pi">:</span>
+      <span class="s">condition</span><span class="pi">:</span> <span class="s">template</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.device_tracker.greg_gregphone.state</span><span class="nv"> </span><span class="s">!=</span><span class="nv"> </span><span class="s">"home"</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.send_key_alert</span>
 
-  - <span class="string"><span class="content">alias: 'Forgotten keys - cancel'</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state}}'</span></span>
-    <span class="key">condition</span>:
-      - <span class="string"><span class="content">condition: state</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">script.send_key_alert</span></span>
-        <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">script.turn_off</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">script.send_key_alert</span></span>
-</pre></div>
-</div>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Forgotten</span><span class="nv"> </span><span class="s">keys</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">cancel'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.device_tracker.greg_gregphone.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">states.device_tracker.beacon_keys.state</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">condition</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.send_key_alert</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_off</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.send_key_alert</span>
+</code></pre>
 </div>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">script</span>:
-  <span class="key">send_key_alert</span>:
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">delay:</span><span class="content">
-          minutes: 2</span></span>
-      - <span class="string"><span class="content">service: notify.notify</span></span>
-        <span class="key">data</span>:
-            <span class="key">message</span>: <span class="string"><span class="content">'You forgot your keys'</span></span>
-            <span class="key">target</span>: <span class="string"><span class="content">'device/gregs_iphone'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">send_key_alert</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+          <span class="s">minutes</span><span class="pi">:</span> <span class="s">2</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data</span><span class="pi">:</span>
+            <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">You</span><span class="nv"> </span><span class="s">forgot</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">keys'</span>
+            <span class="s">target</span><span class="pi">:</span> <span class="s1">'</span><span class="s">device/gregs_iphone'</span>
+</code></pre>
 </div>
 
-<p>(The delay is needed for two reasons: -<br />
-1. HA updates the beacon and phone locations at slightly different times - so you don’t want the automation to trigger in the gap between the updates<br />
-2. I’ve found that beacons (especially the low power Estimote Nearables) can get disconnected for a few seconds so it’s best to wait a minute or so before deciding that you’ve left your keys behind)</p>
+<p>(The delay is needed for two reasons: -</p>
+<ol>
+  <li>HA updates the beacon and phone locations at slightly different times - so you don’t want the automation to trigger in the gap between the updates</li>
+  <li>I’ve found that beacons (especially the low power Estimote Nearables) can get disconnected for a few seconds so it’s best to wait a minute or so before deciding that you’ve left your keys behind)</li>
+</ol>
 
 <h3><a class="title-link" name="using-both-types-of-ibeacons-at-the-same-time" href="#using-both-types-of-ibeacons-at-the-same-time"></a> Using both types of iBeacons at the same time</h3>
 <p>Of course you can use both fixed and mobile beacons at the same time. I want my gates to open when I arrive home in the car - so I use an iBeacon in the car so that I can track the car, and a iBeacon on my drive so that a location update is triggered when I arrive. I’ve been experimenting with a high power beacon in a waterproof box on my drive which seems to work well to notice when I get home.</p>
@@ -332,7 +328,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

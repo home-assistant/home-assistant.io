@@ -91,17 +91,15 @@
 
   <p>This platform offers presence detection by looking at connected devices to a <a href="http://www.dd-wrt.com/site/index">DD-WRT</a> based router.</p>
 
-<p>To use a DD-WRT router in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use a DD-WRT router in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">ddwrt</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">ROUTER_IP_ADDRESS</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_ADMIN_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_ADMIN_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">ddwrt</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">ROUTER_IP_ADDRESS</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

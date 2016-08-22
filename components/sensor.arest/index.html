@@ -89,31 +89,29 @@
   <hr class="divider">
   
 
-  <p>The <code>arest</code> sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the <a href="http://arest.io/">aREST</a> RESTful framework.</p>
+  <p>The <code class="highlighter-rouge">arest</code> sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the <a href="http://arest.io/">aREST</a> RESTful framework.</p>
 
-<p>To use your aREST enabled device in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your aREST enabled device in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">arest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Office</span></span>
-  <span class="key">monitored_variables</span>:
-    - <span class="string"><span class="content">name: temperature</span></span>
-      <span class="key">unit_of_measurement</span>: <span class="string"><span class="content">'°C'</span></span>
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value | round(1) }}'</span></span>
-    - <span class="string"><span class="content">name: humidity</span></span>
-      <span class="key">unit_of_measurement</span>: <span class="string"><span class="content">'%'</span></span>
-  <span class="key">pins</span>:
-    <span class="key">A0</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Pin 0 analog</span></span>
-      <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ca</span><span class="delimiter">&quot;</span></span>
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.light }}'</span></span>
-    <span class="key">3</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Pin 3 digital</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Office</span>
+  <span class="s">monitored_variables</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">temperature</span>
+      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(1)</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">humidity</span>
+      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
+  <span class="s">pins</span><span class="pi">:</span>
+    <span class="s">A0</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Pin 0 analog</span>
+      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ca"</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.light</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">3</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Pin 3 digital</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -137,38 +135,32 @@
   </li>
 </ul>
 
-<p>The variables in the <code>monitored_variables</code> array must be available in the response of the device. As a starting point you could use the one of the example sketches (eg.  <a href="https://raw.githubusercontent.com/marcoschwartz/aREST/master/examples/Ethernet/Ethernet.ino">Ethernet</a> for an Arduino with Ethernet shield). In those sketches are two variables (<code>temperature</code> and <code>humidity</code>) available which will act as endpoints.</p>
+<p>The variables in the <code class="highlighter-rouge">monitored_variables</code> array must be available in the response of the device. As a starting point you could use the one of the example sketches (eg.  <a href="https://raw.githubusercontent.com/marcoschwartz/aREST/master/examples/Ethernet/Ethernet.ino">Ethernet</a> for an Arduino with Ethernet shield). In those sketches are two variables (<code class="highlighter-rouge">temperature</code> and <code class="highlighter-rouge">humidity</code>) available which will act as endpoints.</p>
 
 <p>Accessing one of the endpoints (eg. http://192.168.1.10/temperature) will give you the value inside a JSON response.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">temperature</span><span class="delimiter">&quot;</span></span>: <span class="integer">23</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor01</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">livingroom</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">connected</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"temperature"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor01"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"livingroom"</span><span class="p">,</span><span class="w"> </span><span class="nt">"connected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>The root will give you a JSON response that contains all variables and their current values along with some device details.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-   <span class="key"><span class="delimiter">&quot;</span><span class="content">variables</span><span class="delimiter">&quot;</span></span> : {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">temperature</span><span class="delimiter">&quot;</span></span> : <span class="integer">23</span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">humidity</span><span class="delimiter">&quot;</span></span> : <span class="integer">82</span>
-   },
-   <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor01</span><span class="delimiter">&quot;</span></span>,
-   <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">livingroom</span><span class="delimiter">&quot;</span></span>,
-   <span class="key"><span class="delimiter">&quot;</span><span class="content">connected</span><span class="delimiter">&quot;</span></span> : <span class="value">true</span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"variables"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"temperature"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"humidity"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor01"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"livingroom"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"connected"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p><code>return_value</code> contains the sensor’s data in a JSON response for a given pin (eg. http://192.168.1.10/analog/2/ or  http://192.168.1.10/digital/7/).</p>
+<p><code class="highlighter-rouge">return_value</code> contains the sensor’s data in a JSON response for a given pin (eg. http://192.168.1.10/analog/2/ or  http://192.168.1.10/digital/7/).</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">return_value</span><span class="delimiter">&quot;</span></span>: <span class="integer">34</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor02</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">livingroom</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">connected</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"return_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor02"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"livingroom"</span><span class="p">,</span><span class="w"> </span><span class="nt">"connected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 

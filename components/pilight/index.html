@@ -95,21 +95,19 @@
 
 <p>The received and supported RF codes are put on the event bus of home assistant and are therefore directly usable by other components (e.g. automation). Additionally a send service is provided to send RF codes.</p>
 
-<p>To integrate pilight into Home Assistant, add the following section to your <code>configuration.yaml</code> file:</p>
+<p>To integrate pilight into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">pilight</span>:
-  - <span class="string"><span class="content">host: 127.0.0.1</span></span>
-    <span class="key">port</span>: <span class="string"><span class="content">5000</span></span>
-    <span class="key">whitelist</span>:  <span class="comment"># optional</span>
-      <span class="key">protocol</span>:
-        - <span class="string"><span class="content">daycom</span></span>
-        - <span class="string"><span class="content">intertechno</span></span>
-      <span class="key">id</span>:
-        - <span class="string"><span class="content">42</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">pilight</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">5000</span>
+    <span class="s">whitelist</span><span class="pi">:</span>  <span class="c1"># optional</span>
+      <span class="s">protocol</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">daycom</span>
+        <span class="pi">-</span> <span class="s">intertechno</span>
+      <span class="s">id</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">42</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -131,8 +129,8 @@
 
 <ol>
   <li><a href="https://www.pilight.org/get-started/installation/">Install</a> pilight from source (do not worry that is very easy) and only activate the protocols you are expecting in the pop up menu. This reduces false positives.</li>
-  <li>Check the real timings of your device + RF receiver by running <code>pilight-debug</code>. Remember the <code>pulslen</code> parameter.</li>
-  <li>Go to the <code>libs/pilight/protocols/433.92</code> subfolder of the pilight source code and open the .c file of your protocol. Search for <code>MIN_PULSE_LENGTH</code>, <code>MAX_PULSE_LENGTH </code> and <code>AVG_PULSE_LENGTH</code>. Change the pulse lengths to match your measured one. Recompile and install pilight by re-running <code>$ sudo ./setup.sh</code>.</li>
+  <li>Check the real timings of your device + RF receiver by running <code class="highlighter-rouge">pilight-debug</code>. Remember the <code class="highlighter-rouge">pulslen</code> parameter.</li>
+  <li>Go to the <code class="highlighter-rouge">libs/pilight/protocols/433.92</code> subfolder of the pilight source code and open the .c file of your protocol. Search for <code class="highlighter-rouge">MIN_PULSE_LENGTH</code>, <code class="highlighter-rouge">MAX_PULSE_LENGTH </code> and <code class="highlighter-rouge">AVG_PULSE_LENGTH</code>. Change the pulse lengths to match your measured one. Recompile and install pilight by re-running <code class="highlighter-rouge">$ sudo ./setup.sh</code>.</li>
 </ol>
 
 

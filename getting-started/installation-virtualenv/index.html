@@ -95,103 +95,85 @@
 
 <h3><a class="title-link" name="step-0-install-some-dependencies" href="#step-0-install-some-dependencies"></a> Step 0: Install some dependencies</h3>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo apt-get update
-$ sudo apt-get upgrade
-$ sudo apt-get install python-pip python3-dev
-$ sudo pip install --upgrade virtualenv
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get update
+<span class="gp">$ </span>sudo apt-get upgrade
+<span class="gp">$ </span>sudo apt-get install python-pip python3-dev
+<span class="gp">$ </span>sudo pip install --upgrade virtualenv
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="step-1-create-a-home-assistant-user" href="#step-1-create-a-home-assistant-user"></a> Step 1: Create a Home Assistant user</h3>
 
 <p>This step is optional, but it’s a good idea to give services like Home Assistant their own user. It gives you more granular control over permissions, and reduces the exposure to the rest of your system in the event there is a security related bug in Home Assistant. This is a reasonably Linux oriented step, and will look different on other operating systems (or even other Linux distributions).</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo adduser --system hass
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo adduser --system hass
+</code></pre>
 </div>
 
-<p>Home Assistant stores its configuration in <code>$HOME/.homeassistant</code> by default, so in this case, it would be in <code>/home/hass/.homeassistant</code></p>
+<p>Home Assistant stores its configuration in <code class="highlighter-rouge">$HOME/.homeassistant</code> by default, so in this case, it would be in <code class="highlighter-rouge">/home/hass/.homeassistant</code></p>
 
-<p>If you plan to use a Z-Wave controller, you will need to add this user to the <code>dialout</code> group</p>
+<p>If you plan to use a Z-Wave controller, you will need to add this user to the <code class="highlighter-rouge">dialout</code> group</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo usermod -G dialout -a hass
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo usermod -G dialout -a hass
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="step-2-create-a-directory-for-home-assistant" href="#step-2-create-a-directory-for-home-assistant"></a> Step 2: Create a directory for Home Assistant</h3>
 
-<p>This can be anywhere you want. AS example we put it in <code>/srv</code>. You also need to change the ownership of the directory to the user you created above (if you created one).</p>
+<p>This can be anywhere you want. AS example we put it in <code class="highlighter-rouge">/srv</code>. You also need to change the ownership of the directory to the user you created above (if you created one).</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo mkdir /srv/hass
-$ sudo chown hass /srv/hass
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo mkdir /srv/hass
+<span class="gp">$ </span>sudo chown hass /srv/hass
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="step-3-become-the-new-user" href="#step-3-become-the-new-user"></a> Step 3: Become the new user</h3>
 
-<p>This is obviously only necessary if you created a <code>hass</code> user, but if you did, be sure to switch to that user whenever you install things in your virtualenv, otherwise you’ll end up with mucked up permissions.</p>
+<p>This is obviously only necessary if you created a <code class="highlighter-rouge">hass</code> user, but if you did, be sure to switch to that user whenever you install things in your virtualenv, otherwise you’ll end up with mucked up permissions.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo su -s /bin/bash hass
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash hass
+</code></pre>
 </div>
 
-<p>The <code>su</code> command means ‘switch’ user. We use the ‘-s’ flag because the <code>hass</code> user is a system user and doesn’t have a default shell by default (to prevent attackers from being able to log in as that user).</p>
+<p>The <code class="highlighter-rouge">su</code> command means ‘switch’ user. We use the ‘-s’ flag because the <code class="highlighter-rouge">hass</code> user is a system user and doesn’t have a default shell by default (to prevent attackers from being able to log in as that user).</p>
 
 <h3><a class="title-link" name="step-4-set-up-the-virtualenv" href="#step-4-set-up-the-virtualenv"></a> Step 4: Set up the virtualenv</h3>
 
 <p>All this step does is stick a Python environment in the directory we’re using. That’s it. It’s just a directory. There’s nothing ‘special’ about it, and it is entirely self-contained.</p>
 
-<p>It will include a <code>bin</code> directory, which will contain all the executables used in the virtualenv (including hass itself). It also includes a script called <code>activate</code> which we will use to activate the virtualenv.</p>
+<p>It will include a <code class="highlighter-rouge">bin</code> directory, which will contain all the executables used in the virtualenv (including hass itself). It also includes a script called <code class="highlighter-rouge">activate</code> which we will use to activate the virtualenv.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ virtualenv -p python3 /srv/hass
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>virtualenv -p python3 /srv/hass
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="step-5-activate-the-virtualenv" href="#step-5-activate-the-virtualenv"></a> Step 5: Activate the virtualenv</h3>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ source /srv/hass/bin/activate
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source</span> /srv/hass/bin/activate
+</code></pre>
 </div>
 
-<p>After that, your prompt should include <code>(hass)</code>.</p>
+<p>After that, your prompt should include <code class="highlighter-rouge">(hass)</code>.</p>
 
 <h3><a class="title-link" name="step-6-install-home-assistant" href="#step-6-install-home-assistant"></a> Step 6: Install Home Assistant</h3>
 
-<p>Once your virtualenv has been activated, you don’t need to <code>sudo</code> any of your <code>pip</code> commands. <code>pip</code> will be installing things in the virtualenv, which the <code>hass</code> user has permission to modify.</p>
+<p>Once your virtualenv has been activated, you don’t need to <code class="highlighter-rouge">sudo</code> any of your <code class="highlighter-rouge">pip</code> commands. <code class="highlighter-rouge">pip</code> will be installing things in the virtualenv, which the <code class="highlighter-rouge">hass</code> user has permission to modify.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>(hass)$ pip3 install --upgrade homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(hass)$ </span>pip3 install --upgrade homeassistant
+</code></pre>
 </div>
 
-<p>And that’s it… you now have Home Assistant installed, and you can be sure that every bit of it is contained in <code>/srv/hass</code>.</p>
+<p>And that’s it… you now have Home Assistant installed, and you can be sure that every bit of it is contained in <code class="highlighter-rouge">/srv/hass</code>.</p>
 
 <h3><a class="title-link" name="finally-run-home-assistant" href="#finally-run-home-assistant"></a> Finally… Run Home Assistant</h3>
 
-<p>There are two ways to launch Home Assistant. If you are <strong>in</strong> the virtualenv, you can just run <code>hass</code> and it will work as normal. If the virtualenv is not activated, you just use the <code>hass</code> executable in the <code>bin</code> directory mentioned earlier. There is one caveat… Because Home Assistant stores it’s configuration in the user’s home directory, we need to be the user <code>hass</code> user or specify the configuration with <code>-c</code>.</p>
+<p>There are two ways to launch Home Assistant. If you are <strong>in</strong> the virtualenv, you can just run <code class="highlighter-rouge">hass</code> and it will work as normal. If the virtualenv is not activated, you just use the <code class="highlighter-rouge">hass</code> executable in the <code class="highlighter-rouge">bin</code> directory mentioned earlier. There is one caveat… Because Home Assistant stores it’s configuration in the user’s home directory, we need to be the user <code class="highlighter-rouge">hass</code> user or specify the configuration with <code class="highlighter-rouge">-c</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo -u hass -H /srv/hass/bin/hass
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo -u hass -H /srv/hass/bin/hass
+</code></pre>
 </div>
 
-<p>The <code>-H</code> flag is important. It sets the <code>$HOME</code> environment variable to <code>/home/hass</code> so <code>hass</code> can find its configuration.</p>
+<p>The <code class="highlighter-rouge">-H</code> flag is important. It sets the <code class="highlighter-rouge">$HOME</code> environment variable to <code class="highlighter-rouge">/home/hass</code> so <code class="highlighter-rouge">hass</code> can find its configuration.</p>
 
 <h3><a class="title-link" name="upgrading-home-assistant" href="#upgrading-home-assistant"></a> Upgrading Home Assistant</h3>
 
@@ -199,40 +181,34 @@ $ sudo chown hass /srv/hass
 
 <h3><a class="title-link" name="starting-home-assistant-on-boot" href="#starting-home-assistant-on-boot"></a> Starting Home Assistant on boot</h3>
 
-<p>The <a href="/getting-started/autostart/">autostart instructions</a> will work just fine, just be sure to replace <code>/usr/bin/hass</code> with <code>/srv/hass/bin/hass</code> and specify the <code>hass</code> user where appropriate.</p>
+<p>The <a href="/getting-started/autostart/">autostart instructions</a> will work just fine, just be sure to replace <code class="highlighter-rouge">/usr/bin/hass</code> with <code class="highlighter-rouge">/srv/hass/bin/hass</code> and specify the <code class="highlighter-rouge">hass</code> user where appropriate.</p>
 
 <h3><a class="title-link" name="installing-python-openzwave" href="#installing-python-openzwave"></a> Installing python-openzwave</h3>
 
-<p>If you want to use Z-Wave devices, you will need to install <code>python-openzwave</code> in your virtualenv. This requires a small tweak to the instructions on home-assistant.io</p>
+<p>If you want to use Z-Wave devices, you will need to install <code class="highlighter-rouge">python-openzwave</code> in your virtualenv. This requires a small tweak to the instructions on home-assistant.io</p>
 
-<p>Install the dependencies as normal (Note: you will need to do this as your normal user, since <code>hass</code> isn’t a sudoer).</p>
+<p>Install the dependencies as normal (Note: you will need to do this as your normal user, since <code class="highlighter-rouge">hass</code> isn’t a sudoer).</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
+</code></pre>
 </div>
 
 <p>Then, activate your virtualenv (steps 3 and 5 above) and upgrade cython.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>(hass)$ pip3 install --upgrade cython
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(hass)$ </span>pip3 install --upgrade cython
+</code></pre>
 </div>
 
-<p>Finally, get and install <code>python-openzwave</code>.</p>
+<p>Finally, get and install <code class="highlighter-rouge">python-openzwave</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>(hass)$ mkdir /srv/hass/src
-(hass)$ cd /srv/hass/src
-(hass)$ git clone https://github.com/OpenZWave/python-openzwave.git
-(hass)$ cd python-openzwave
-(hass)$ git checkout python3
-(hass)$ PYTHON_EXEC=`which python3` make build
-(hass)$ PYTHON_EXEC=`which python3` make install
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(hass)$ </span>mkdir /srv/hass/src
+<span class="gp">(hass)$ </span><span class="nb">cd</span> /srv/hass/src
+<span class="gp">(hass)$ </span>git clone https://github.com/OpenZWave/python-openzwave.git
+<span class="gp">(hass)$ </span><span class="nb">cd </span>python-openzwave
+<span class="gp">(hass)$ </span>git checkout python3
+<span class="gp">(hass)$ </span><span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="sb">`</span>which python3<span class="sb">`</span> make build
+<span class="gp">(hass)$ </span><span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="sb">`</span>which python3<span class="sb">`</span> make install
+</code></pre>
 </div>
 
 

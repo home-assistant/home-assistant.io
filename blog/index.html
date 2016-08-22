@@ -90,15 +90,15 @@
   <div class="meta clearfix">
     <time datetime="2016-08-19T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 19, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> less than one minute reading time</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
-        <li><a class='category' href='/blog/categories/iot-data/'>IoT-Data</a></li>
+        <li>IoT-Data</li>
       
     
     </ul>
@@ -139,13 +139,13 @@ Heatmap
   <div class="meta clearfix">
     <time datetime="2016-08-16T10:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 16, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Andrew Cockburn</span>
-    <span><i class='icon-time'></i> 10 minutes reading time</span>
+    <span><i class='icon-time'></i> 11 minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -161,7 +161,7 @@ Heatmap
 
 
   <div class="entry-content clearfix">
-    <p>I have been working on a new subsystem to complement Home Assistant’s Automation and Scripting components. <code>AppDaemon</code> is a python daemon that consumes events from Home Assistant and feeds them to snippets of python code called “Apps”. An App is a Python class that is instantiated possibly multiple times from <code>AppDaemon</code> and registers callbacks for various system events. It is also able to inspect and set state and call services. The API provides a rich environment suited to home automation tasks that can also leverage all the power of Python.</p>
+    <p>I have been working on a new subsystem to complement Home Assistant’s Automation and Scripting components. <code class="highlighter-rouge">AppDaemon</code> is a python daemon that consumes events from Home Assistant and feeds them to snippets of python code called “Apps”. An App is a Python class that is instantiated possibly multiple times from <code class="highlighter-rouge">AppDaemon</code> and registers callbacks for various system events. It is also able to inspect and set state and call services. The API provides a rich environment suited to home automation tasks that can also leverage all the power of Python.</p>
 
 
     
@@ -175,7 +175,7 @@ Heatmap
     <header>
   
   <h1 class="beta">
-    <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+    <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
   </h1>
   
 
@@ -189,14 +189,14 @@ Heatmap
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
   </span>
     
       <a class='comments'
-         href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/#disqus_thread"
+         href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/#disqus_thread"
          >Comments</a>
     
   </div>
@@ -267,13 +267,11 @@ Heatmap
   <li>A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Configuration.yaml example</span>
-<span class="key">homeassistant</span>:
-  <span class="comment"># 'metric' for the metric system, 'imperial' for the imperial system</span>
-  <span class="key">unit_system</span>: <span class="string"><span class="content">metric</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Configuration.yaml example</span>
+<span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="c1"># 'metric' for the metric system, 'imperial' for the imperial system</span>
+  <span class="s">unit_system</span><span class="pi">:</span> <span class="s">metric</span>
+</code></pre>
 </div>
 
 
@@ -300,7 +298,7 @@ Heatmap
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/technology/'>Technology</a></li>
+        <li>Technology</li>
       
     
     </ul>
@@ -361,13 +359,13 @@ Heatmap
   <div class="meta clearfix">
     <time datetime="2016-08-03T17:22:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 2, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Nolan Gilley</span>
-    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/user-stories/'>User-Stories</a></li>
+        <li>User-Stories</li>
       
     
     </ul>
@@ -420,7 +418,7 @@ Heatmap
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -462,7 +460,7 @@ Heatmap
   <li>Thermostat: Support for HVAC mode of <a href="/components/thermostat.nest/">Nest</a> devices (<a href="https://github.com/vladonemo">@vladonemo</a>)</li>
   <li>InfluxDB: Option to specify additional <a href="/components/influxdb/">tags</a> (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
   <li>Input slider: Support for float value (<a href="https://github.com/ngraziano">@ngraziano</a>)</li>
-  <li>Template: New <a href="/topics/templating/#home-assistant-template-extensions">filters</a> (<code>timestamp_local</code> and <code>timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Template: New <a href="/topics/templating/#home-assistant-template-extensions">filters</a> (<code class="highlighter-rouge">timestamp_local</code> and <code class="highlighter-rouge">timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Binary sensor - Wink: Water leak sensor support added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
   <li>Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor (<a href="https://github.com/PetitCircuitLab">@PetitCircuitLab</a>)</li>
   <li>Switch - RPi GPIO: Fix when inverted logic (<a href="https://github.com/zeroDenial">@zeroDenial</a>)</li>
@@ -475,7 +473,7 @@ Heatmap
   <li>Light: New support for <a href="/components/light.x10/">X10</a> lights (<a href="https://github.com/fotoetienne">@fotoetienne</a>)</li>
   <li>Sensor: Support for observing <a href="/components/sensor.imap/">IMAP</a> accounts (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
   <li>Media Player: Integration for <a href="/components/media_player.mpchc/">MPC-HC</a> (Media Player Classic - Home Cinema) mediaplayer (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
-  <li>Notify: <code>location</code> extension for <a href="/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Notify: <code class="highlighter-rouge">location</code> extension for <a href="/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
   <li>Groups: Lock states will now be properly grouped (<a href="https://github.com/jwl17330536">@jwl17330536</a>)</li>
   <li>Media Player: Added tests for Sonos to improve code quality (<a href="https://github.com/americanwookie">@americanwookie</a>)</li>
   <li>Device Tracker: iCloud stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
@@ -524,13 +522,13 @@ Heatmap
   <div class="meta clearfix">
     <time datetime="2016-07-28T04:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 28, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span><i class='icon-time'></i> six minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -546,7 +544,7 @@ Heatmap
 
 
   <div class="entry-content clearfix">
-    <p><img src="/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+    <p><img src="/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html">documentation</a> covers a lot of ground. This post is providing only a little summary which should get you started.</p>
 
 <p>Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers. This has changed now and it is available to the public for <a href="https://micropython.org/download/#esp8266">download</a>.</p>
@@ -577,9 +575,9 @@ The first release of Micropython for ESP8266 was delivered a couple of weeks ago
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
-        <li><a class='category' href='/blog/categories/iot-data/'>IoT-Data</a></li>
+        <li>IoT-Data</li>
       
     
     </ul>
@@ -634,15 +632,15 @@ One of the graphs created with this tutorial.
   <div class="meta clearfix">
     <time datetime="2016-07-19T16:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 19, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
-        <li><a class='category' href='/blog/categories/iot-data/'>IoT-Data</a></li>
+        <li>IoT-Data</li>
       
     
     </ul>
@@ -690,7 +688,7 @@ One of the graphs created with this tutorial.
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -712,14 +710,12 @@ One of the graphs created with this tutorial.
 
 <p><a href="https://github.com/rhooper/">Roy Hooper</a> did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use <strong>any</strong> SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install SQLAlchemy
-$ hass --script db_migrator --config /path/to/config
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install SQLAlchemy
+<span class="gp">$ </span>hass --script db_migrator --config /path/to/config
+</code></pre>
 </div>
 
-<p>You can omit the <code>--config</code> option if you use the default configuration directory. Run the script with <code>--help</code> to get more options.</p>
+<p>You can omit the <code class="highlighter-rouge">--config</code> option if you use the default configuration directory. Run the script with <code class="highlighter-rouge">--help</code> to get more options.</p>
 
 <p><img src="/images/supported_brands/yahooweather.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/joaoapps_join.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/knx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/tp-link.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
 
@@ -736,7 +732,7 @@ $ hass --script db_migrator --config /path/to/config
   <li><a href="/components/statsd/">StatsD</a> can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
   <li>Support for <a href="/components/knx/">KNX</a> added (<a href="https://github.com/usul27">@usul27</a>)</li>
   <li>Switch: <a href="/components/switch.tplink/">TPLink</a> HS100/HS110 now supported (<a href="https://github.com/GadgetReactor">@GadgetReactor</a>)</li>
-  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> ([@Danielhiversen])</li>
+  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> (<a href="https://github.com/danielhiversen">@Danielhiversen</a>)</li>
   <li>Tweaks to <a href="/components/zwave/">Z-Wave</a> (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
   <li>Light: <a href="/components/light/">Brightness</a> now clamped to 0-255 (<a href="https://github.com/keatontaylor">@keatontaylor</a>)</li>
   <li>Thermostat: <a href="/components/thermostat.radiotherm/">Radiotherm</a> HVAC mode now supported (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
@@ -755,19 +751,31 @@ $ hass --script db_migrator --config /path/to/config
 
 <ul>
   <li>Migrating existing databases (see above).</li>
-  <li>The <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code>configuration.yaml</code> file.</li>
+  <li>The <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
   <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
 </ul>
 
-<p>«««&lt; HEAD<br />
-=======<br />
-[@n8henrie]: https://github.com/n8henrie/<br />
-[@AlucardZero]: https://github.com/AlucardZero/<br />
-«««&lt; HEAD<br />
-»»»&gt; master<br />
-=======<br />
-[@Danielhiversen]: https://github.com/danielhiversen<br />
-»»»&gt; origin/master</p>
+<p>«««&lt; HEAD
+=======
+[@n8henrie]: https://github.com/n8henrie/
+[@AlucardZero]: https://github.com/AlucardZero/
+«««&lt; HEAD</p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <h1>master</h1>
+              <p>origin/master</p>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
 
 
     

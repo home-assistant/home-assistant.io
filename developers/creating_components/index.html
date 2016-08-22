@@ -93,17 +93,15 @@
 
 <h3><a class="title-link" name="example-component" href="#example-component"></a> Example component</h3>
 
-<p>Add <code>hello_state:</code> to your <code>configuration.yaml</code> file and create a file <code>&lt;config_dir&gt;/custom_components/hello_state.py</code> with the below code to test it locally.</p>
+<p>Add <code class="highlighter-rouge">hello_state:</code> to your <code class="highlighter-rouge">configuration.yaml</code> file and create a file <code class="highlighter-rouge">&lt;config_dir&gt;/custom_components/hello_state.py</code> with the below code to test it locally.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>DOMAIN = <span class="string"><span class="delimiter">'</span><span class="content">hello_state</span><span class="delimiter">'</span></span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">'hello_state'</span>
 
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    hass.states.set(<span class="string"><span class="delimiter">'</span><span class="content">hello.world</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Paulus</span><span class="delimiter">'</span></span>)
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="s">'hello.world'</span><span class="p">,</span> <span class="s">'Paulus'</span><span class="p">)</span>
 
-    <span class="keyword">return</span> <span class="predefined-constant">True</span>
-</pre></div>
-</div>
+    <span class="k">return</span> <span class="bp">True</span>
+</code></pre>
 </div>
 
 <p>For more examples, see the <a href="/cookbook/#custom-python-component-examples">Custom Python Component Examples</a> on our examples page.</p>

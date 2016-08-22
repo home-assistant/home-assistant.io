@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>Tomato requires an extra config variable called <code>http_id</code>. The value can be obtained by logging in to the Tomato admin interface and search for <code>http_id</code> in the page source code.</p>
+  <p>Tomato requires an extra config variable called <code class="highlighter-rouge">http_id</code>. The value can be obtained by logging in to the Tomato admin interface and search for <code class="highlighter-rouge">http_id</code> in the page source code.</p>
 
-<p>To use this device tracker in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use this device tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">tomato</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">YOUR_ROUTER_IP_ADDRESS</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_ADMIN_USERNAME</span></span>
-  <span class="key">password</span>:  <span class="string"><span class="content">YOUR_ADMIN_PASSWORD</span></span>
-  <span class="key">http_id</span>: <span class="string"><span class="content">YOUR_HTTP_ID</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">tomato</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ROUTER_IP_ADDRESS</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span>  <span class="s">YOUR_ADMIN_PASSWORD</span>
+  <span class="s">http_id</span><span class="pi">:</span> <span class="s">YOUR_HTTP_ID</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -111,7 +109,7 @@
   <li><strong>host</strong> (<em>Required</em>): The IP address of your router, e.g. 192.168.1.1.</li>
   <li><strong>username</strong> (<em>Required</em>: The username of an user with administrative privileges, usually <em>admin</em>.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
-  <li><strong>http_id</strong> (<em>Required</em>): The value can be obtained by logging in to the Tomato admin interface and search for <code>http_id</code> in the page source code.</li>
+  <li><strong>http_id</strong> (<em>Required</em>): The value can be obtained by logging in to the Tomato admin interface and search for <code class="highlighter-rouge">http_id</code> in the page source code.</li>
 </ul>
 
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>

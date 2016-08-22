@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -137,17 +137,15 @@
 
 <p>This release introduces templates. This will allow you to parse data before it gets processed or create messages for notifications on the fly based on data within Home Assistant. The notification component and the new Alexa/Amazon Echo component are both using the new template functionality to render responses. A template editor has been added to the developer tool section in the app so you can get instant feedback if your templates are working or not.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>The temperature at home is {{ states('sensor.temperature') }}.
-</pre></div>
-</div>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>The temperature at home is {{ states('sensor.temperature') }}.
+</code></pre>
 </div>
 
 <p>More information and examples can be found in the <a href="/topics/templating/">template documentation</a>.</p>
 
 <h3>Breaking changes</h3>
 
-<p>Templates will now be the only way to extract data from ‘raw’ sources like REST, CommandSensor or MQTT. This will replace any specific option that used to do this before. This means that <code>precision</code>, <code>factor</code>, <code>attribute</code> or <code>json_path</code> etc will no longer work.</p>
+<p>Templates will now be the only way to extract data from ‘raw’ sources like REST, CommandSensor or MQTT. This will replace any specific option that used to do this before. This means that <code class="highlighter-rouge">precision</code>, <code class="highlighter-rouge">factor</code>, <code class="highlighter-rouge">attribute</code> or <code class="highlighter-rouge">json_path</code> etc will no longer work.</p>
 
 <p>Affected components and platforms:</p>
 
@@ -235,7 +233,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

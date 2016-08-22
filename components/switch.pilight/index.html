@@ -95,38 +95,36 @@
 
 <p>To be really sure that HA knows the actual state of your device it is recommended to use the RF remote with codes unknown to any of your 433 MHz devices. Thus you use the remote to trigger this switch to send the correct RF code to the device.</p>
 
-<p>To define a pilight switch, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To define a pilight switch, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">pilight</span></span>
-  <span class="key">switches</span>:
-    <span class="key">Bed light</span>:
-      <span class="key">on_code</span>:
-        <span class="key">protocol</span>: <span class="string"><span class="content">intertechno_old</span></span>  <span class="comment"># protocol has to be defined</span>
-        <span class="key">unit</span>: <span class="string"><span class="content">3</span></span>  <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key">id</span>: <span class="string"><span class="content">4</span></span>    <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key"><span class="delimiter">'</span><span class="content">on</span><span class="delimiter">'</span></span>: <span class="string"><span class="content">1</span></span>  <span class="comment"># on has to be in apostrophes to be parsed correctly</span>
-      <span class="key">off_code</span>:
-        <span class="key">protocol</span>: <span class="string"><span class="content">intertechno_old</span></span>   <span class="comment"># protocol has to be defined</span>
-        <span class="key">unit</span>: <span class="string"><span class="content">3</span></span>  <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key">id</span>: <span class="string"><span class="content">4</span></span>  <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key"><span class="delimiter">'</span><span class="content">off</span><span class="delimiter">'</span></span>: <span class="string"><span class="content">1</span></span>  <span class="comment"># off has to be in apostrophes to be parsed correctly</span>
-      <span class="key">on_code_receive</span>:  <span class="comment"># optional</span>
-        <span class="key">protocol</span>: <span class="string"><span class="content">daycom</span></span>   <span class="comment"># protocol has to be defined</span>
-        <span class="key">systemcode</span>: <span class="string"><span class="content">14462</span></span>  <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key">unit</span>: <span class="string"><span class="content">6</span></span>  <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key">id</span>: <span class="string"><span class="content">34</span></span>  <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>  <span class="comment"># off has to be in apostrophes to be parsed correctly</span>
-      <span class="key">off_code_receive</span>:  <span class="comment"># optional</span>
-        <span class="key">protocol</span>: <span class="string"><span class="content">daycom</span></span>   <span class="comment"># protocol has to be defined</span>
-        <span class="key">systemcode</span>: <span class="string"><span class="content">14462</span></span>  <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key">unit</span>: <span class="string"><span class="content">6</span></span>  <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key">id</span>: <span class="string"><span class="content">34</span></span>  <span class="comment"># these entries are protocol specific and can differ</span>
-        <span class="key">state</span>: <span class="string"><span class="content">'off'</span></span>  <span class="comment"># on has to be in apostrophes to be parsed correctly</span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
+  <span class="s">switches</span><span class="pi">:</span>
+    <span class="s">Bed light</span><span class="pi">:</span>
+      <span class="s">on_code</span><span class="pi">:</span>
+        <span class="s">protocol</span><span class="pi">:</span> <span class="s">intertechno_old</span>  <span class="c1"># protocol has to be defined</span>
+        <span class="s">unit</span><span class="pi">:</span> <span class="s">3</span>  <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="s">4</span>    <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s1">'</span><span class="s">on'</span><span class="pi">:</span> <span class="s">1</span>  <span class="c1"># on has to be in apostrophes to be parsed correctly</span>
+      <span class="s">off_code</span><span class="pi">:</span>
+        <span class="s">protocol</span><span class="pi">:</span> <span class="s">intertechno_old</span>   <span class="c1"># protocol has to be defined</span>
+        <span class="s">unit</span><span class="pi">:</span> <span class="s">3</span>  <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="s">4</span>  <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s1">'</span><span class="s">off'</span><span class="pi">:</span> <span class="s">1</span>  <span class="c1"># off has to be in apostrophes to be parsed correctly</span>
+      <span class="s">on_code_receive</span><span class="pi">:</span>  <span class="c1"># optional</span>
+        <span class="s">protocol</span><span class="pi">:</span> <span class="s">daycom</span>   <span class="c1"># protocol has to be defined</span>
+        <span class="s">systemcode</span><span class="pi">:</span> <span class="s">14462</span>  <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s">unit</span><span class="pi">:</span> <span class="s">6</span>  <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="s">34</span>  <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>  <span class="c1"># off has to be in apostrophes to be parsed correctly</span>
+      <span class="s">off_code_receive</span><span class="pi">:</span>  <span class="c1"># optional</span>
+        <span class="s">protocol</span><span class="pi">:</span> <span class="s">daycom</span>   <span class="c1"># protocol has to be defined</span>
+        <span class="s">systemcode</span><span class="pi">:</span> <span class="s">14462</span>  <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s">unit</span><span class="pi">:</span> <span class="s">6</span>  <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="s">34</span>  <span class="c1"># these entries are protocol specific and can differ</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>  <span class="c1"># on has to be in apostrophes to be parsed correctly</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

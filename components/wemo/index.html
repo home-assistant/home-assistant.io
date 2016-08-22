@@ -89,26 +89,22 @@
   <hr class="divider">
   
 
-  <p>The <code>wemo</code> component is the main component to integrate various <a href="http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/">Belkin WeMo</a> devices with Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">wemo</code> component is the main component to integrate various <a href="http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/">Belkin WeMo</a> devices with Home Assistant.</p>
 
-<p>Supported devices will be automatically discovered if the discovery component is enabled. If you are not using the discovery component, loading the <code>wemo</code> component will scan for WeMo devices on the local network.</p>
+<p>Supported devices will be automatically discovered if the discovery component is enabled. If you are not using the discovery component, loading the <code class="highlighter-rouge">wemo</code> component will scan for WeMo devices on the local network.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">wemo</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">wemo</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <p>Alternately, WeMo devices that are not discoverable can be statically configured. If you have WeMo devices on subnets other than where Home Assistant is running, and/or devices in a remote location reachable over a VPN, you will need to manually configure them. This is also useful if you wish to disable discovery for some wemos, even if they are local. Example static configuration:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">wemo</span>:
-  <span class="key">static</span>:
-    - <span class="string"><span class="content">192.168.1.23</span></span>
-    - <span class="string"><span class="content">192.168.52.172</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wemo</span><span class="pi">:</span>
+  <span class="s">static</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">192.168.1.23</span>
+    <span class="pi">-</span> <span class="s">192.168.52.172</span>
+</code></pre>
 </div>
 
 <p>Any WeMo devices that are not statically configured but reachable via discovery will still be added automatically.</p>

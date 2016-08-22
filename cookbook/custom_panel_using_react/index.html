@@ -95,24 +95,22 @@
   <li>It uses React to render the data.</li>
   <li>It hooks into Home Assistant JS which means updates pushed from the server are instantly rendered.</li>
   <li>It accesses properties made available from Polymer.</li>
-  <li>It uses the user configuration for the component in the <code>configuration.yaml</code> file for rendering.</li>
+  <li>It uses the user configuration for the component in the <code class="highlighter-rouge">configuration.yaml</code> file for rendering.</li>
   <li>It allows toggling the sidebar.</li>
 </ul>
 
-<p>All you need is available as a <a href="https://github.com/home-assistant/home-assistant/tree/master/config/panels/react.html">custom panel</a>. Download the file and save it in <code>&lt;config dir&gt;/panels/</code> (you might have to create the directory if it doesn’t exist).</p>
+<p>All you need is available as a <a href="https://github.com/home-assistant/home-assistant/tree/master/config/panels/react.html">custom panel</a>. Download the file and save it in <code class="highlighter-rouge">&lt;config dir&gt;/panels/</code> (you might have to create the directory if it doesn’t exist).</p>
 
-<p>Create a entry for the panel in your <code>configuration.yaml</code> file to enable it.</p>
+<p>Create a entry for the panel in your <code class="highlighter-rouge">configuration.yaml</code> file to enable it.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">panel_custom</span>:
-  - <span class="string"><span class="content">name: react</span></span>
-    <span class="key">sidebar_title</span>: <span class="string"><span class="content">TodoMVC</span></span>
-    <span class="key">sidebar_icon</span>: <span class="string"><span class="content">mdi:work</span></span>
-    <span class="key">url_path</span>: <span class="string"><span class="content">todomvc</span></span>
-    <span class="key">config</span>:
-      <span class="key">title</span>: <span class="string"><span class="content">hello</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">panel_custom</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">react</span>
+    <span class="s">sidebar_title</span><span class="pi">:</span> <span class="s">TodoMVC</span>
+    <span class="s">sidebar_icon</span><span class="pi">:</span> <span class="s">mdi:work</span>
+    <span class="s">url_path</span><span class="pi">:</span> <span class="s">todomvc</span>
+    <span class="s">config</span><span class="pi">:</span>
+      <span class="s">title</span><span class="pi">:</span> <span class="s">hello</span>
+</code></pre>
 </div>
 
 <p>This video shows the example in action.</p>

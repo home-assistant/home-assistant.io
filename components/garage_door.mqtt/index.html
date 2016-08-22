@@ -89,33 +89,31 @@
   <hr class="divider">
   
 
-  <p>The <code>mqtt</code> garage door platform let you control your MQTT enabled garage door.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> garage door platform let you control your MQTT enabled garage door.</p>
 
 <p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.</p>
 
-<p>When a state topic is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from device (message from <code>state_topic</code>).</p>
+<p>When a state topic is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from device (message from <code class="highlighter-rouge">state_topic</code>).</p>
 
 <p>Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect switch operation.</p>
 
-<p>To use your MQTT binary sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your MQTT binary sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">garage_door</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home-assistant/garage-door</span><span class="delimiter">&quot;</span></span>
-  <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home-assistant/garage-door/set</span><span class="delimiter">&quot;</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MQTT Sensor</span><span class="delimiter">&quot;</span></span>
-  <span class="key">optimistic</span>: <span class="string"><span class="content">false</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">retain</span>: <span class="string"><span class="content">true</span></span>
-  <span class="key">state_open</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">STATE_OPEN</span><span class="delimiter">&quot;</span></span>
-  <span class="key">state_closed</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">STATE_CLOSED</span><span class="delimiter">&quot;</span></span>
-  <span class="key">service_open</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SERVICE_OPEN</span><span class="delimiter">&quot;</span></span>
-  <span class="key">service_close</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">SERVICE_CLOSE</span><span class="delimiter">&quot;</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">garage_door</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/garage-door"</span>
+  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/garage-door/set"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Sensor"</span>
+  <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">state_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STATE_OPEN"</span>
+  <span class="s">state_closed</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STATE_CLOSED"</span>
+  <span class="s">service_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">SERVICE_OPEN"</span>
+  <span class="s">service_close</span><span class="pi">:</span> <span class="s2">"</span><span class="s">SERVICE_CLOSE"</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -133,12 +131,10 @@
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
 </ul>
 
-<p>For a quick check you can use the commandline tools shipped with <code>mosquitto</code> to send MQTT messages. Set the state of your sensor manually:</p>
+<p>For a quick check you can use the commandline tools shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. Set the state of your sensor manually:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$  mosquitto_pub -h 127.0.0.1 -t home-assistant/garage-door/set -m &quot;OFF&quot;
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/garage-door/set -m <span class="s2">"OFF"</span>
+</code></pre>
 </div>
 
 

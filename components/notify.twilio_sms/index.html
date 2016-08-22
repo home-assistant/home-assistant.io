@@ -89,51 +89,47 @@
   <hr class="divider">
   
 
-  <p>The <code>twilio</code> notification platform enables sending notifications via SMS, powered by <a href="https://twilio.com">Twilio</a>.</p>
+  <p>The <code class="highlighter-rouge">twilio</code> notification platform enables sending notifications via SMS, powered by <a href="https://twilio.com">Twilio</a>.</p>
 
-<p>To use this notification platform in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use this notification platform in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">twilio_sms</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">account_sid</span>: <span class="string"><span class="content">ACCOUNT_SID_FROM_TWILIO</span></span>
-  <span class="key">auth_token</span>: <span class="string"><span class="content">AUTH_TOKEN_FROM_TWILIO</span></span>
-  <span class="key">from_number</span>: <span class="string"><span class="content">E164_PHONE_NUMBER</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">twilio_sms</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">account_sid</span><span class="pi">:</span> <span class="s">ACCOUNT_SID_FROM_TWILIO</span>
+  <span class="s">auth_token</span><span class="pi">:</span> <span class="s">AUTH_TOKEN_FROM_TWILIO</span>
+  <span class="s">from_number</span><span class="pi">:</span> <span class="s">E164_PHONE_NUMBER</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>account_sid</strong> (<em>Required</em>): Your Twilio Account SID which can be found in your <a href="https://www.twilio.com/console">console</a>. It starts with the letters <code>AC</code>.</li>
-  <li><strong>auth_token</strong> (<em>Required</em>): Your Twilio Account SID which can be found in your <a href="https://www.twilio.com/console">console</a>. It should be directly under where you found the <code>account_sid</code>.</li>
+  <li><strong>account_sid</strong> (<em>Required</em>): Your Twilio Account SID which can be found in your <a href="https://www.twilio.com/console">console</a>. It starts with the letters <code class="highlighter-rouge">AC</code>.</li>
+  <li><strong>auth_token</strong> (<em>Required</em>): Your Twilio Account SID which can be found in your <a href="https://www.twilio.com/console">console</a>. It should be directly under where you found the <code class="highlighter-rouge">account_sid</code>.</li>
   <li><strong>from_number</strong> (<em>Required</em>): An <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> formatted phone number, like +14151234567. See <a href="https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally">Twilio’s guide to formatting phone numbers</a> for more information.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
 </ul>
 
 <h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
 
-<p>Twilio is a notify platform and thus can be controlled by calling the notify service <a href="/components/notify/">as described here</a>. It will send a notification to all E.164 phone numbers in the notification <strong>target</strong>. See the notes above regarding the <code>from_number</code> configuration variable for information about formatting phone numbers.</p>
+<p>Twilio is a notify platform and thus can be controlled by calling the notify service <a href="/components/notify/">as described here</a>. It will send a notification to all E.164 phone numbers in the notification <strong>target</strong>. See the notes above regarding the <code class="highlighter-rouge">from_number</code> configuration variable for information about formatting phone numbers.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example automation notification entry</span>
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: The sun has set</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">sun</span></span>
-      <span class="key">event</span>: <span class="string"><span class="content">sunset</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">notify.twilio_sms</span></span>
-      <span class="key">data</span>:
-        <span class="key">message</span>: <span class="string"><span class="content">'The sun has set'</span></span>
-        <span class="key">target</span>:
-          - <span class="string"><span class="content">+14151234567</span></span>
-          - <span class="string"><span class="content">+15105555555</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example automation notification entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">The sun has set</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+      <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.twilio_sms</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">The</span><span class="nv"> </span><span class="s">sun</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">set'</span>
+        <span class="s">target</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">+14151234567</span>
+          <span class="pi">-</span> <span class="s">+15105555555</span>
+</code></pre>
 </div>
 
 

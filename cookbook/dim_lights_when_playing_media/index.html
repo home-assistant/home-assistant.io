@@ -96,68 +96,64 @@
 <h4><a class="title-link" name="scenes" href="#scenes"></a> Scenes</h4>
 <p>One scene for normal light, one for when movies are on. A 2 second transition gives a nice ‘feel’ to the switch.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">scene</span>:
-  - <span class="string"><span class="content">name: Livingroom normal</span></span>
-    <span class="key">entities</span>:
-        <span class="key">light.light1</span>:
-            <span class="key">state</span>: <span class="string"><span class="content">on</span></span>
-            <span class="key">transition</span>: <span class="string"><span class="content">2</span></span>
-            <span class="key">brightness</span>: <span class="string"><span class="content">150</span></span>
-            <span class="key">xy_color</span>: <span class="string"><span class="content">[ 0.4448, 0.4066 ]</span></span>
-        <span class="key">light.light2</span>:
-            <span class="key">state</span>: <span class="string"><span class="content">on</span></span>
-            <span class="key">transition</span>: <span class="string"><span class="content">2</span></span>
-            <span class="key">brightness</span>: <span class="string"><span class="content">215</span></span>
-            <span class="key">xy_color</span>: <span class="string"><span class="content">[ 0.4448, 0.4066 ]</span></span>
-  - <span class="string"><span class="content">name: Livingroom dim</span></span>
-    <span class="key">entities</span>:
-        <span class="key">light.light1</span>:
-            <span class="key">state</span>: <span class="string"><span class="content">on</span></span>
-            <span class="key">transition</span>: <span class="string"><span class="content">2</span></span>
-            <span class="key">brightness</span>: <span class="string"><span class="content">75</span></span>
-            <span class="key">xy_color</span>: <span class="string"><span class="content">[ 0.5926, 0.3814 ]</span></span>
-        <span class="key">light.light2</span>:
-            <span class="key">state</span>: <span class="string"><span class="content">on</span></span>
-            <span class="key">transition</span>: <span class="string"><span class="content">2</span></span>
-            <span class="key">brightness</span>: <span class="string"><span class="content">145</span></span>
-            <span class="key">xy_color</span>: <span class="string"><span class="content">[ 0.5529, 0.4107 ]</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">scene</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Livingroom normal</span>
+    <span class="s">entities</span><span class="pi">:</span>
+        <span class="s">light.light1</span><span class="pi">:</span>
+            <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+            <span class="s">transition</span><span class="pi">:</span> <span class="s">2</span>
+            <span class="s">brightness</span><span class="pi">:</span> <span class="s">150</span>
+            <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">0.4448</span><span class="pi">,</span> <span class="nv">0.4066</span> <span class="pi">]</span>
+        <span class="s">light.light2</span><span class="pi">:</span>
+            <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+            <span class="s">transition</span><span class="pi">:</span> <span class="s">2</span>
+            <span class="s">brightness</span><span class="pi">:</span> <span class="s">215</span>
+            <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">0.4448</span><span class="pi">,</span> <span class="nv">0.4066</span> <span class="pi">]</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Livingroom dim</span>
+    <span class="s">entities</span><span class="pi">:</span>
+        <span class="s">light.light1</span><span class="pi">:</span>
+            <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+            <span class="s">transition</span><span class="pi">:</span> <span class="s">2</span>
+            <span class="s">brightness</span><span class="pi">:</span> <span class="s">75</span>
+            <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">0.5926</span><span class="pi">,</span> <span class="nv">0.3814</span> <span class="pi">]</span>
+        <span class="s">light.light2</span><span class="pi">:</span>
+            <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+            <span class="s">transition</span><span class="pi">:</span> <span class="s">2</span>
+            <span class="s">brightness</span><span class="pi">:</span> <span class="s">145</span>
+            <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">0.5529</span><span class="pi">,</span> <span class="nv">0.4107</span> <span class="pi">]</span>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="automation" href="#automation"></a> Automation</h4>
 <p>The paused/stopped state is best matched using “from: ‘playing’”. Adding in the sun condition as we only want this when it’s dark.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: &quot;Media player paused/stopped&quot;</span></span>
-    <span class="key">trigger</span>:
-      - <span class="string"><span class="content">platform: state</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">media_player.htpc</span></span>
-        <span class="key">from</span>: <span class="string"><span class="content">'playing'</span></span>
-    <span class="key">condition</span>:
-      - <span class="string"><span class="content">condition: state</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">sun.sun</span></span>
-        <span class="key">state</span>: <span class="string"><span class="content">'below_horizon'</span></span>
-    <span class="key">action</span>:
-        <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">scene.livingroom_normal</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Media</span><span class="nv"> </span><span class="s">player</span><span class="nv"> </span><span class="s">paused/stopped"</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.htpc</span>
+        <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">playing'</span>
+    <span class="s">condition</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">below_horizon'</span>
+    <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.livingroom_normal</span>
 
-  - <span class="string"><span class="content">alias: &quot;Media player playing&quot;</span></span>
-    <span class="key">trigger</span>:
-      - <span class="string"><span class="content">platform: state</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">media_player.htpc</span></span>
-        <span class="key">to</span>: <span class="string"><span class="content">'playing'</span></span>
-    <span class="key">condition</span>:
-      - <span class="string"><span class="content">condition: state</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">sun.sun</span></span>
-        <span class="key">state</span>: <span class="string"><span class="content">'below_horizon'</span></span>
-    <span class="key">action</span>:
-        <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">scene.livingroom_dim</span></span>
-</pre></div>
-</div>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Media</span><span class="nv"> </span><span class="s">player</span><span class="nv"> </span><span class="s">playing"</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.htpc</span>
+        <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">playing'</span>
+    <span class="s">condition</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">below_horizon'</span>
+    <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.livingroom_dim</span>
+</code></pre>
 </div>
 
 

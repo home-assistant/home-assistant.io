@@ -95,31 +95,29 @@
 
 <p>A free API Key allows 2500 requests per day. The sensor will update the travel time every 5 minutes.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example entry for configuration.yaml</span>
-<span class="key">sensor</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">google_travel_time</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Google Travel Time</span></span>
-    <span class="key">api_key</span>: <span class="string"><span class="content">XXXX_XXXXX_XXXXX</span></span>
-    <span class="key">origin</span>: <span class="string"><span class="content">Trondheim, Norway</span></span>
-    <span class="key">destination</span>: <span class="string"><span class="content">Paris, France</span></span>
-    <span class="key">options</span>:
-      <span class="error">...</span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example entry for configuration.yaml</span>
+<span class="s">sensor</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">google_travel_time</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Google Travel Time</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">XXXX_XXXXX_XXXXX</span>
+    <span class="s">origin</span><span class="pi">:</span> <span class="s">Trondheim, Norway</span>
+    <span class="s">destination</span><span class="pi">:</span> <span class="s">Paris, France</span>
+    <span class="s">options</span><span class="pi">:</span>
+      <span class="s">...</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>api_key</strong> (<em>Required</em>): Your application’s API key (get one by following the instructions above). This key identifies your application for purposes of quota management.</li>
-  <li><strong>origin</strong> (<em>Required</em>): The starting point for calculating travel distance and time. You can supply one or more locations separated by the pipe character, in the form of an address, latitude/longitude coordinates, or a <a href="https://developers.google.com/places/place-id">Google place ID</a>. When specifying the location using a Google place ID, the ID must be prefixed with <code>place_id:</code>.</li>
+  <li><strong>origin</strong> (<em>Required</em>): The starting point for calculating travel distance and time. You can supply one or more locations separated by the pipe character, in the form of an address, latitude/longitude coordinates, or a <a href="https://developers.google.com/places/place-id">Google place ID</a>. When specifying the location using a Google place ID, the ID must be prefixed with <code class="highlighter-rouge">place_id:</code>.</li>
   <li><strong>destination</strong> (<em>Required</em>): One or more locations to use as the finishing point for calculating travel distance and time. The options for the destinations parameter are the same as for the origins parameter, described above.</li>
-  <li><strong>name</strong> (<em>Optional</em>): A name to display on the sensor. The default is “Google Travel Time - <transit mode="">" where transit mode is the mode set in options for the sensor (if no mode is set, the default is driving).</transit></li>
+  <li><strong>name</strong> (<em>Optional</em>): A name to display on the sensor. The default is “Google Travel Time - <Transit Mode="">" where transit mode is the mode set in options for the sensor (if no mode is set, the default is driving).</Transit></li>
   <li><strong>options</strong> (<em>Optional</em>): A dictionary containing parameters to add to all requests to the Distance Matrix API. A full listing of available options can be found <a href="https://developers.google.com/maps/documentation/distance-matrix/intro#RequestParameters">here</a>.
     <ul>
-      <li><strong>departure_time</strong> (<em>Optional</em>): Can be <code>now</code>, a Unix timestamp, or a 24 hour time string like <code>08:00:00</code>. If you provide a time string, it will be combined with the current date to get travel time for that moment.</li>
-      <li><strong>arrival_time</strong> (<em>Optional</em>): See notes above for <code>departure_time</code>. <code>arrival_time</code> can not be <code>now</code>, only a Unix timestamp or time string. You can not provide both <code>departure_time</code> and <code>arrival_time</code>. If you do provide both, <code>arrival_time</code> will be removed from the request.</li>
+      <li><strong>departure_time</strong> (<em>Optional</em>): Can be <code class="highlighter-rouge">now</code>, a Unix timestamp, or a 24 hour time string like <code class="highlighter-rouge">08:00:00</code>. If you provide a time string, it will be combined with the current date to get travel time for that moment.</li>
+      <li><strong>arrival_time</strong> (<em>Optional</em>): See notes above for <code class="highlighter-rouge">departure_time</code>. <code class="highlighter-rouge">arrival_time</code> can not be <code class="highlighter-rouge">now</code>, only a Unix timestamp or time string. You can not provide both <code class="highlighter-rouge">departure_time</code> and <code class="highlighter-rouge">arrival_time</code>. If you do provide both, <code class="highlighter-rouge">arrival_time</code> will be removed from the request.</li>
     </ul>
   </li>
 </ul>
@@ -128,24 +126,22 @@
 
 <p>Tracking can be setup to track entities of type device_tracker, zone, and sensor. If an entity is placed in the origin or destination then every 5 minutes when the component updates it will use the latest location of that entity.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example entry for configuration.yaml</span>
-<span class="key">sensor</span>:
-  <span class="comment"># Tracking entity to entity</span>
-  - <span class="string"><span class="content">platform: google_travel_time</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Phone To Home</span></span>
-    <span class="key">api_key</span>: <span class="string"><span class="content">XXXX_XXXXX_XXXXX</span></span>
-    <span class="key">origin</span>: <span class="string"><span class="content">device_tracker.mobile_phone</span></span>
-    <span class="key">destination</span>: <span class="string"><span class="content">zone.home</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example entry for configuration.yaml</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="c1"># Tracking entity to entity</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">google_travel_time</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Phone To Home</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">XXXX_XXXXX_XXXXX</span>
+    <span class="s">origin</span><span class="pi">:</span> <span class="s">device_tracker.mobile_phone</span>
+    <span class="s">destination</span><span class="pi">:</span> <span class="s">zone.home</span>
 
-  <span class="comment"># Tracking entity to zone friendly name</span>
-  - <span class="string"><span class="content">platform: google_travel_time</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Home To Eddie's House</span></span>
-    <span class="key">api_key</span>: <span class="string"><span class="content">XXXX_XXXXX_XXXXX</span></span>
-    <span class="key">origin</span>: <span class="string"><span class="content">zone.home</span></span>
-    <span class="key">destination</span>: <span class="string"><span class="content">Eddies House</span></span>    <span class="comment"># Friendly name of a zone</span>
-</pre></div>
-</div>
+  <span class="c1"># Tracking entity to zone friendly name</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">google_travel_time</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Home To Eddie's House</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">XXXX_XXXXX_XXXXX</span>
+    <span class="s">origin</span><span class="pi">:</span> <span class="s">zone.home</span>
+    <span class="s">destination</span><span class="pi">:</span> <span class="s">Eddies House</span>    <span class="c1"># Friendly name of a zone</span>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="entity-tracking" href="#entity-tracking"></a> Entity Tracking</h4>

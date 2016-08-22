@@ -109,135 +109,126 @@
 
 <p>Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ cd /volume1/@appstore/py3k/usr/local/bin
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /volume1/@appstore/py3k/usr/local/bin
+</code></pre>
 </div>
 
 <p>Install PIP (Python’s package management system)</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python -m ensurepip
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python -m ensurepip
+</code></pre>
 </div>
 
 <p>Use PIP to install Homeassistant package</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install homeassistant
+</code></pre>
 </div>
 
 <p>Create homeassistant config directory &amp; switch to it</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ mkdir /volume1/homeassistant
-$ cd /volume1/homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir /volume1/homeassistant
+<span class="gp">$ </span><span class="nb">cd</span> /volume1/homeassistant
+</code></pre>
 </div>
 
 <p>Create hass-daemon file using the following code (edit the variables in uppercase if necessary)</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>#!/bin/sh
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
 
-# Package
-PACKAGE=&quot;homeassistant&quot;
-DNAME=&quot;Home Assistant&quot;
+<span class="c"># Package</span>
+<span class="nv">PACKAGE</span><span class="o">=</span><span class="s2">"homeassistant"</span>
+<span class="nv">DNAME</span><span class="o">=</span><span class="s2">"Home Assistant"</span>
 
-# Others
-USER=&quot;homeassistant&quot;
-PYTHON_DIR=&quot;/volume1/@appstore/py3k/usr/local/bin&quot;
-PYTHON=&quot;$PYTHON_DIR/python3&quot;
-HASS=&quot;$PYTHON_DIR/hass&quot;
-INSTALL_DIR=&quot;/volume1/homeassistant&quot;
-PID_FILE=&quot;$INSTALL_DIR/home-assistant.pid&quot;
-FLAGS=&quot;-v --config $INSTALL_DIR --pid-file $PID_FILE --daemon&quot;
-REDIRECT=&quot;&gt; $INSTALL_DIR/home-assistant.log 2&gt;&amp;1&quot;
+<span class="c"># Others</span>
+<span class="nv">USER</span><span class="o">=</span><span class="s2">"homeassistant"</span>
+<span class="nv">PYTHON_DIR</span><span class="o">=</span><span class="s2">"/volume1/@appstore/py3k/usr/local/bin"</span>
+<span class="nv">PYTHON</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PYTHON_DIR</span><span class="s2">/python3"</span>
+<span class="nv">HASS</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PYTHON_DIR</span><span class="s2">/hass"</span>
+<span class="nv">INSTALL_DIR</span><span class="o">=</span><span class="s2">"/volume1/homeassistant"</span>
+<span class="nv">PID_FILE</span><span class="o">=</span><span class="s2">"</span><span class="nv">$INSTALL_DIR</span><span class="s2">/home-assistant.pid"</span>
+<span class="nv">FLAGS</span><span class="o">=</span><span class="s2">"-v --config </span><span class="nv">$INSTALL_DIR</span><span class="s2"> --pid-file </span><span class="nv">$PID_FILE</span><span class="s2"> --daemon"</span>
+<span class="gp">REDIRECT="&gt; </span><span class="nv">$INSTALL_DIR</span>/home-assistant.log 2&gt;&amp;1<span class="s2">"
 
 start_daemon ()
 {
-    su ${USER} -s /bin/sh -c &quot;$PYTHON $HASS $FLAGS $REDIRECT;&quot;
+    su </span><span class="k">${</span><span class="nv">USER</span><span class="k">}</span><span class="s2"> -s /bin/sh -c "</span><span class="nv">$PYTHON</span> <span class="nv">$HASS</span> <span class="nv">$FLAGS</span> <span class="nv">$REDIRECT</span>;<span class="s2">"
 }
 
 stop_daemon ()
 {
-    kill `cat ${PID_FILE}`
-    wait_for_status 1 20 || kill -9 `cat ${PID_FILE}`
-    rm -f ${PID_FILE}
+    kill </span><span class="sb">`</span>cat <span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="sb">`</span><span class="s2">
+    wait_for_status 1 20 || kill -9 </span><span class="sb">`</span>cat <span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="sb">`</span><span class="s2">
+    rm -f </span><span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="s2">
 }
 
 daemon_status ()
 {
-    if [ -f ${PID_FILE} ] &amp;&amp; kill -0 `cat ${PID_FILE}` &gt; /dev/null 2&gt;&amp;1; then
+    if [ -f </span><span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="s2"> ] &amp;&amp; kill -0 </span><span class="sb">`</span>cat <span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="sb">`</span><span class="s2"> &gt; /dev/null 2&gt;&amp;1; then
         return
     fi
-    rm -f ${PID_FILE}
+    rm -f </span><span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="s2">
     return 1
 }
 
 wait_for_status ()
 {
-    counter=$2
-    while [ ${counter} -gt 0 ]; do
+    counter=</span><span class="nv">$2</span><span class="s2">
+    while [ </span><span class="k">${</span><span class="nv">counter</span><span class="k">}</span><span class="s2"> -gt 0 ]; do
         daemon_status
-        [ $? -eq $1 ] &amp;&amp; return
+        [ </span><span class="nv">$?</span><span class="s2"> -eq </span><span class="nv">$1</span><span class="s2"> ] &amp;&amp; return
         let counter=counter-1
         sleep 1
     done
     return 1
 }
 
-case $1 in
+case </span><span class="nv">$1</span><span class="s2"> in
     start)
         if daemon_status; then
-            echo ${DNAME} is already running
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is already running
             exit 0
         else
-            echo Starting ${DNAME} ...
+            echo Starting </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
             start_daemon
-            exit $?
+            exit </span><span class="nv">$?</span><span class="s2">
         fi
         ;;
     stop)
         if daemon_status; then
-            echo Stopping ${DNAME} ...
+            echo Stopping </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
             stop_daemon
-            exit $?
+            exit </span><span class="nv">$?</span><span class="s2">
         else
-            echo ${DNAME} is not running
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is not running
             exit 0
         fi
         ;;
         restart)
         if daemon_status; then
-            echo Stopping ${DNAME} ...
+            echo Stopping </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
             stop_daemon
-            echo Starting ${DNAME} ...
+            echo Starting </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
             start_daemon
-            exit $?
+            exit </span><span class="nv">$?</span><span class="s2">
         else
-            echo ${DNAME} is not running
-            echo Starting ${DNAME} ...
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is not running
+            echo Starting </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
             start_daemon
-            exit $?
+            exit </span><span class="nv">$?</span><span class="s2">
         fi
         ;;
     status)
         if daemon_status; then
-            echo ${DNAME} is running
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is running
             exit 0
         else
-            echo ${DNAME} is not running
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is not running
             exit 1
         fi
         ;;
     log)
-        echo ${LOG_FILE}
+        echo </span><span class="k">${</span><span class="nv">LOG_FILE</span><span class="k">}</span><span class="s2">
         exit 0
         ;;
     *)
@@ -245,37 +236,30 @@ case $1 in
         ;;
 esac
 
-</pre></div>
-</div>
+</span></code></pre>
 </div>
 
 <p>Create links to python folders to make things easier in the future:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ln -s /volume1/@appstore/py3k/usr/local/bin python3
-$ ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /volume1/@appstore/py3k/usr/local/bin python3
+<span class="gp">$ </span>ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant
+</code></pre>
 </div>
 
 <p>Set the owner and permissions on your config folder</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ chown -R homeassistant:users /volume1/homeassistant
-$ chmod -R 664 /volume1/homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chown -R homeassistant:users /volume1/homeassistant
+<span class="gp">$ </span>chmod -R 664 /volume1/homeassistant
+</code></pre>
 </div>
 
 <p>Make the daemon file executable:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ chmod 777 /volume1/homeassistant/hass-daemon
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod 777 /volume1/homeassistant/hass-daemon
+</code></pre>
 </div>
 
-<p>Copy your configuration.yaml file into the config folder<br />
+<p>Copy your configuration.yaml file into the config folder
 That’s it… you’re all set to go</p>
 
 <p>Here are some useful commands:</p>
@@ -284,40 +268,32 @@ That’s it… you’re all set to go</p>
   <li>Start Home Assistant:</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sh hass-daemon start
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sh hass-daemon start
+</code></pre>
 </div>
 
 <ul>
   <li>Stop Home Assistant:</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sh hass-daemon stop
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sh hass-daemon stop
+</code></pre>
 </div>
 
 <ul>
   <li>Restart Home Assistant:</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sh hass-daemon restart
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sh hass-daemon restart
+</code></pre>
 </div>
 
 <ul>
   <li>Upgrade Home Assistant::</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python3 -m pip install --upgrade homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m pip install --upgrade homeassistant
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
@@ -336,7 +312,7 @@ That’s it… you’re all set to go</p>
 
 <p>If you want to have Home Assistant start on boot, <a href="/getting-started/autostart-synology/">autostart instructions can be found here</a>.</p>
 
-<p>To see what Home Assistant can do, launch demo mode: <code>hass --demo-mode</code> or visit the <a href="/demo">demo page</a>.</p>
+<p>To see what Home Assistant can do, launch demo mode: <code class="highlighter-rouge">hass --demo-mode</code> or visit the <a href="/demo">demo page</a>.</p>
 
 <h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
 

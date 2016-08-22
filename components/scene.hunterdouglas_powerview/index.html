@@ -91,15 +91,13 @@
 
   <p>Implements the <a href="http://www.hunterdouglas.com/operating-systems/powerview-motorization/support">Hunter Douglas PowerView</a> platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.</p>
 
-<p>Scenes can be activated using the service <code>scene.turn_on</code>.</p>
+<p>Scenes can be activated using the service <code class="highlighter-rouge">scene.turn_on</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">scene</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">hunterdouglas_powerview</span></span>
-  <span class="key">address</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">scene</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hunterdouglas_powerview</span>
+  <span class="s">address</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

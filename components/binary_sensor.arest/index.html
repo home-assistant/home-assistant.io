@@ -89,19 +89,17 @@
   <hr class="divider">
   
 
-  <p>The <code>arest</code> binary sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the <a href="http://arest.io/">aREST</a> RESTful framework.</p>
+  <p>The <code class="highlighter-rouge">arest</code> binary sensor platform allows you to get all data from your devices (like Arduinos with a ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the <a href="http://arest.io/">aREST</a> RESTful framework.</p>
 
-<p>To use your aREST binary sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your aREST binary sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">arest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Office Switch</span></span>
-  <span class="key">pin</span>: <span class="string"><span class="content">8</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Office Switch</span>
+  <span class="s">pin</span><span class="pi">:</span> <span class="s">8</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -112,13 +110,11 @@
   <li><strong>pin</strong> (<em>Required</em>): Number of the pin to monitor.</li>
 </ul>
 
-<p>Accessing the URL http://IP_ADDRESS/digital/PIN_NUMBER should give you the state of the pin inside a JSON response as <code>return_value</code>.</p>
+<p>Accessing the URL http://IP_ADDRESS/digital/PIN_NUMBER should give you the state of the pin inside a JSON response as <code class="highlighter-rouge">return_value</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET http://10.100.0.157/digital/9
-{&quot;return_value&quot;: 0, &quot;id&quot;: &quot;office1&quot;, &quot;name&quot;: &quot;Office&quot;, &quot;connected&quot;: true}
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET http://10.100.0.157/digital/9
+<span class="o">{</span><span class="s2">"return_value"</span>: 0, <span class="s2">"id"</span>: <span class="s2">"office1"</span>, <span class="s2">"name"</span>: <span class="s2">"Office"</span>, <span class="s2">"connected"</span>: <span class="nb">true</span><span class="o">}</span>
+</code></pre>
 </div>
 
 <p class="note">

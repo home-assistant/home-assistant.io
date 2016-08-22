@@ -89,23 +89,21 @@
   <hr class="divider">
   
 
-  <p>This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. It is not required to pair the devices with each other! <br />
-Devices discovered are stored with ‘bt_’ as the prefix for device mac addresses in <code>known_devices.yaml</code>.</p>
+  <p>This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. It is not required to pair the devices with each other! 
+Devices discovered are stored with ‘bt_’ as the prefix for device mac addresses in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
 
 <p class="note">
-Requires PyBluez. If you are on Raspbian, make sure you first install <code>bluetooth</code> and <code>libbluetooth-dev</code> by running <code>sudo apt install bluetooth libbluetooth-dev</code>
+Requires PyBluez. If you are on Raspbian, make sure you first install <code class="highlighter-rouge">bluetooth</code> and <code class="highlighter-rouge">libbluetooth-dev</code> by running <code class="highlighter-rouge">sudo apt install bluetooth libbluetooth-dev</code>
 </p>
 
-<p>To use the Bluetooth tracker in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use the Bluetooth tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">bluetooth_tracker</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">bluetooth_tracker</span>
+</code></pre>
 </div>
 
-<p>In some cases it can be that your device is not discovered. In that case let your phone scan for BT devices while you restart HA. Just hit Scan on your phone all the time until HA is fully restarted and the device should appear in <code>known_devices.yaml</code>.</p>
+<p>In some cases it can be that your device is not discovered. In that case let your phone scan for BT devices while you restart HA. Just hit Scan on your phone all the time until HA is fully restarted and the device should appear in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
 
 <p>For additional configuration variables check the <a href="/components/device_tracker/">Device tracker page</a>.</p>
 

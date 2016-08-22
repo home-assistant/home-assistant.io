@@ -95,59 +95,49 @@
 
 <p>Before this scanner can be used you have to install the ubus RPC package on OpenWRT:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>opkg install rpcd-mod-file
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>opkg install rpcd-mod-file
+</code></pre>
 </div>
 
-<p>And create a read-only user to be used by setting up the ACL file <code>/usr/share/rpcd/acl.d/user.json</code>.</p>
+<p>And create a read-only user to be used by setting up the ACL file <code class="highlighter-rouge">/usr/share/rpcd/acl.d/user.json</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">user</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Read only user access role</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">read</span><span class="delimiter">&quot;</span></span>: {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">ubus</span><span class="delimiter">&quot;</span></span>: {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">*</span><span class="delimiter">&quot;</span></span>: [ <span class="string"><span class="delimiter">&quot;</span><span class="content">*</span><span class="delimiter">&quot;</span></span> ]
-      },
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">uci</span><span class="delimiter">&quot;</span></span>: [ <span class="string"><span class="delimiter">&quot;</span><span class="content">*</span><span class="delimiter">&quot;</span></span> ]
-    },
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">write</span><span class="delimiter">&quot;</span></span>: {}
-  }
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Read only user access role"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"read"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"ubus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"*"</span><span class="w"> </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"uci"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"*"</span><span class="w"> </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"write"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>Restart the services.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre># /etc/init.d/rpcd restart &amp;&amp; /etc/init.d/uhttpd restart
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># /etc/init.d/rpcd restart &amp;&amp; /etc/init.d/uhttpd restart</span>
+</code></pre>
 </div>
 
-<p>Check if the <code>file</code> namespaces is registered with the RPC server.</p>
+<p>Check if the <code class="highlighter-rouge">file</code> namespaces is registered with the RPC server.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre># ubus list | grep file
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># ubus list | grep file</span>
 file
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>After this is done, add the following to your <code>configuration.yaml</code> file:</p>
+<p>After this is done, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">ubus</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">ROUTER_IP_ADDRESS</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_ADMIN_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_ADMIN_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">ubus</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">ROUTER_IP_ADDRESS</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

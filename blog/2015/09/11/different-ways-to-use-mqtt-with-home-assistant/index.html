@@ -87,15 +87,15 @@
   <div class="meta clearfix">
     <time datetime="2015-09-11T09:19:38+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 11, 2015</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> nine minutes reading time</span>
+    <span><i class='icon-time'></i> eight minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
-        <li><a class='category' href='/blog/categories/mqtt/'>MQTT</a></li>
+        <li>MQTT</li>
       
     
     </ul>
@@ -121,38 +121,24 @@
 
 <h3><a class="title-link" name="manual-usage" href="#manual-usage"></a> Manual usage</h3>
 
-<p>The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let’s create a “Mood” sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snipplets to add to the <code>configuration.yaml</code> file consists of two parts: one for the broker and one for the sensor.</p>
+<p>The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let’s create a “Mood” sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snipplets to add to the <code class="highlighter-rouge">configuration.yaml</code> file consists of two parts: one for the broker and one for the sensor.</p>
 
-<div class="highlighter-coderay"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
-<a href="#n2" name="n2">2</a>
-<a href="#n3" name="n3">3</a>
-<a href="#n4" name="n4">4</a>
-<a href="#n5" name="n5">5</a>
-<a href="#n6" name="n6">6</a>
-<a href="#n7" name="n7">7</a>
-</pre></td>
-  <td class="code"><pre><span class="key">mqtt</span>:
-  <span class="key">broker</span>: <span class="string"><span class="content">127.0.0.1</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
 
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Fabian's Mood</span><span class="delimiter">&quot;</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home-assistant/fabian/mood</span><span class="delimiter">&quot;</span></span>
-</pre></td>
-</tr></table>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Fabian's</span><span class="nv"> </span><span class="s">Mood"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/fabian/mood"</span>
+</code></pre>
 </div>
 
 <p>After a restart of Home Assistant the “Mood” sensor will show up in the frontend. For more details about the configuration of MQTT itself and the sensor, please refer to the <a href="https://home-assistant.io/components/mqtt/">MQTT component</a> or the <a href="https://home-assistant.io/components/sensor.mqtt/">MQTT sensor</a> documentation.</p>
 
-<p>Now we can set the mood. The commandline tool (<code>mosquitto_pub</code>) which is shipped with <code>mosquitto</code> is used to send an MQTT message.</p>
+<p>Now we can set the mood. The commandline tool (<code class="highlighter-rouge">mosquitto_pub</code>) which is shipped with <code class="highlighter-rouge">mosquitto</code> is used to send an MQTT message.</p>
 
-<div class="highlighter-coderay"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
-</pre></td>
-  <td class="code"><pre>$ mosquitto_pub  -h 127.0.0.1 -t &quot;home-assistant/fabian/mood&quot; -m &quot;bad&quot;
-</pre></td>
-</tr></table>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub  -h 127.0.0.1 -t <span class="s2">"home-assistant/fabian/mood"</span> -m <span class="s2">"bad"</span>
+</code></pre>
 </div>
 
 <p class="img">
@@ -166,76 +152,44 @@
 
 <p>The last section was pretty boring, I know. Nobody wants to send MQTT messages by hand if there is a computer on the desk. If you are playing the lottery this section is for you. If not, read it anyway because the lottery is just an example :-).</p>
 
-<p>This example is using the <a href="https://eclipse.org/paho/clients/python/">Paho MQTT Python binding</a> because those binding should be available on the host where Home Assistant is running. If you want to use this example on another machine, please make sure that the bindings are installed (<code>pip3 install paho-mqtt</code>).</p>
+<p>This example is using the <a href="https://eclipse.org/paho/clients/python/">Paho MQTT Python binding</a> because those binding should be available on the host where Home Assistant is running. If you want to use this example on another machine, please make sure that the bindings are installed (<code class="highlighter-rouge">pip3 install paho-mqtt</code>).</p>
 
-<p>The first step is to add an additional MQTT sensor to the <code>configuration.yaml</code> file. The sensor will be called “Lottery” and the unit of measurement will be “No.”.</p>
+<p>The first step is to add an additional MQTT sensor to the <code class="highlighter-rouge">configuration.yaml</code> file. The sensor will be called “Lottery” and the unit of measurement will be “No.”.</p>
 
-<div class="highlighter-coderay"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
-<a href="#n2" name="n2">2</a>
-<a href="#n3" name="n3">3</a>
-<a href="#n4" name="n4">4</a>
-</pre></td>
-  <td class="code"><pre>  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Lottery</span><span class="delimiter">&quot;</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home-assistant/lottery/number</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">No.</span><span class="delimiter">&quot;</span></span>
-</pre></td>
-</tr></table>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Lottery"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/lottery/number"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">No."</span>
+</code></pre>
 </div>
 
 <p>Don’t forget to restart Home Assistant to make the configuration active.</p>
 
 <p>To play, we need numbers from 1 to 49 which can be marked on the ticket. Those numbers should be random and displayed in the Home Assistant frontend. The Python script below is another simple example on how to send MQTT messages from the commandline; this time in a loop. For further information and examples please check the <a href="https://eclipse.org/paho/clients/python/docs/">Paho MQTT</a> documentation.</p>
 
-<div class="highlighter-coderay"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
-<a href="#n2" name="n2">2</a>
-<a href="#n3" name="n3">3</a>
-<a href="#n4" name="n4">4</a>
-<a href="#n5" name="n5">5</a>
-<a href="#n6" name="n6">6</a>
-<a href="#n7" name="n7">7</a>
-<a href="#n8" name="n8">8</a>
-<a href="#n9" name="n9">9</a>
-<strong><a href="#n10" name="n10">10</a></strong>
-<a href="#n11" name="n11">11</a>
-<a href="#n12" name="n12">12</a>
-<a href="#n13" name="n13">13</a>
-<a href="#n14" name="n14">14</a>
-<a href="#n15" name="n15">15</a>
-<a href="#n16" name="n16">16</a>
-<a href="#n17" name="n17">17</a>
-<a href="#n18" name="n18">18</a>
-<a href="#n19" name="n19">19</a>
-<strong><a href="#n20" name="n20">20</a></strong>
-<a href="#n21" name="n21">21</a>
-<a href="#n22" name="n22">22</a>
-</pre></td>
-  <td class="code"><pre><span class="comment">#!/usr/bin/python3</span>
-<span class="comment">#</span>
-<span class="keyword">import</span> <span class="include">time</span>
-<span class="keyword">import</span> <span class="include">random</span>
-<span class="keyword">import</span> <span class="include">paho.mqtt.client</span> <span class="keyword">as</span> mqtt
-<span class="keyword">import</span> <span class="include">paho.mqtt.publish</span> <span class="keyword">as</span> publish
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/python3</span>
+<span class="c">#</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="kn">as</span> <span class="nn">mqtt</span>
+<span class="kn">import</span> <span class="nn">paho.mqtt.publish</span> <span class="kn">as</span> <span class="nn">publish</span>
 
-broker = <span class="string"><span class="delimiter">'</span><span class="content">127.0.0.1</span><span class="delimiter">'</span></span>
-state_topic = <span class="string"><span class="delimiter">'</span><span class="content">home-assistant/lottery/number</span><span class="delimiter">'</span></span>
-delay = <span class="integer">5</span>
+<span class="n">broker</span> <span class="o">=</span> <span class="s">'127.0.0.1'</span>
+<span class="n">state_topic</span> <span class="o">=</span> <span class="s">'home-assistant/lottery/number'</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="comment"># Send a single message to set the mood</span>
-publish.single(<span class="string"><span class="delimiter">'</span><span class="content">home-assistant/fabian/mood</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">good</span><span class="delimiter">'</span></span>, hostname=broker)
+<span class="c"># Send a single message to set the mood</span>
+<span class="n">publish</span><span class="o">.</span><span class="n">single</span><span class="p">(</span><span class="s">'home-assistant/fabian/mood'</span><span class="p">,</span> <span class="s">'good'</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="n">broker</span><span class="p">)</span>
 
-<span class="comment"># Send messages in a loop</span>
-client = mqtt.Client(<span class="string"><span class="delimiter">&quot;</span><span class="content">ha-client</span><span class="delimiter">&quot;</span></span>)
-client.connect(broker)
-client.loop_start()
+<span class="c"># Send messages in a loop</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s">"ha-client"</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">loop_start</span><span class="p">()</span>
 
-<span class="keyword">while</span> <span class="predefined-constant">True</span>:
-    client.publish(state_topic, random.randrange(<span class="integer">0</span>, <span class="integer">50</span>, <span class="integer">1</span>))
-    time.sleep(delay)
-</pre></td>
-</tr></table>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">state_topic</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <p>Every 5 seconds a message with a new number is sent to the broker and picked up by Home Assistant. By the way, my mood is much better now.</p>
@@ -258,162 +212,84 @@ client.loop_start()
 
 <p>The <a href="http://knolleary.github.io/pubsubclient/">MQTT client</a> for the Arduino needs to be available in your Arduino IDE. Below you will find a sketch which could act as a starting point. Please modify the IP addresses, the MAC address, and the pin as needed and upload the sketch to your Arduino.</p>
 
-<div class="highlighter-coderay"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
-<a href="#n2" name="n2">2</a>
-<a href="#n3" name="n3">3</a>
-<a href="#n4" name="n4">4</a>
-<a href="#n5" name="n5">5</a>
-<a href="#n6" name="n6">6</a>
-<a href="#n7" name="n7">7</a>
-<a href="#n8" name="n8">8</a>
-<a href="#n9" name="n9">9</a>
-<strong><a href="#n10" name="n10">10</a></strong>
-<a href="#n11" name="n11">11</a>
-<a href="#n12" name="n12">12</a>
-<a href="#n13" name="n13">13</a>
-<a href="#n14" name="n14">14</a>
-<a href="#n15" name="n15">15</a>
-<a href="#n16" name="n16">16</a>
-<a href="#n17" name="n17">17</a>
-<a href="#n18" name="n18">18</a>
-<a href="#n19" name="n19">19</a>
-<strong><a href="#n20" name="n20">20</a></strong>
-<a href="#n21" name="n21">21</a>
-<a href="#n22" name="n22">22</a>
-<a href="#n23" name="n23">23</a>
-<a href="#n24" name="n24">24</a>
-<a href="#n25" name="n25">25</a>
-<a href="#n26" name="n26">26</a>
-<a href="#n27" name="n27">27</a>
-<a href="#n28" name="n28">28</a>
-<a href="#n29" name="n29">29</a>
-<strong><a href="#n30" name="n30">30</a></strong>
-<a href="#n31" name="n31">31</a>
-<a href="#n32" name="n32">32</a>
-<a href="#n33" name="n33">33</a>
-<a href="#n34" name="n34">34</a>
-<a href="#n35" name="n35">35</a>
-<a href="#n36" name="n36">36</a>
-<a href="#n37" name="n37">37</a>
-<a href="#n38" name="n38">38</a>
-<a href="#n39" name="n39">39</a>
-<strong><a href="#n40" name="n40">40</a></strong>
-<a href="#n41" name="n41">41</a>
-<a href="#n42" name="n42">42</a>
-<a href="#n43" name="n43">43</a>
-<a href="#n44" name="n44">44</a>
-<a href="#n45" name="n45">45</a>
-<a href="#n46" name="n46">46</a>
-<a href="#n47" name="n47">47</a>
-<a href="#n48" name="n48">48</a>
-<a href="#n49" name="n49">49</a>
-<strong><a href="#n50" name="n50">50</a></strong>
-<a href="#n51" name="n51">51</a>
-<a href="#n52" name="n52">52</a>
-<a href="#n53" name="n53">53</a>
-<a href="#n54" name="n54">54</a>
-<a href="#n55" name="n55">55</a>
-<a href="#n56" name="n56">56</a>
-<a href="#n57" name="n57">57</a>
-<a href="#n58" name="n58">58</a>
-<a href="#n59" name="n59">59</a>
-<strong><a href="#n60" name="n60">60</a></strong>
-<a href="#n61" name="n61">61</a>
-<a href="#n62" name="n62">62</a>
-<a href="#n63" name="n63">63</a>
-<a href="#n64" name="n64">64</a>
-<a href="#n65" name="n65">65</a>
-<a href="#n66" name="n66">66</a>
-<a href="#n67" name="n67">67</a>
-<a href="#n68" name="n68">68</a>
-</pre></td>
-  <td class="code"><pre><span class="comment">/*
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
   This sketch is based on the basic MQTT example by
   http://knolleary.github.io/pubsubclient/
 */</span>
 
-<span class="preprocessor">#include</span> <span class="include">&lt;SPI.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;Ethernet.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;PubSubClient.h&gt;</span>
+<span class="cp">#include &lt;SPI.h&gt;
+#include &lt;Ethernet.h&gt;
+#include &lt;PubSubClient.h&gt;
+</span>
+<span class="cp">#define DEBUG 1 // Debug output to serial console
+</span>
+<span class="c1">// Device settings
+</span><span class="n">IPAddress</span> <span class="n">deviceIp</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">43</span><span class="p">);</span>
+<span class="n">byte</span> <span class="n">deviceMac</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0xAB</span><span class="p">,</span> <span class="mh">0xCD</span><span class="p">,</span> <span class="mh">0xFE</span><span class="p">,</span> <span class="mh">0xFE</span><span class="p">,</span> <span class="mh">0xFE</span><span class="p">,</span> <span class="mh">0xFE</span> <span class="p">};</span>
+<span class="kt">char</span><span class="o">*</span> <span class="n">deviceId</span>  <span class="o">=</span> <span class="s">"sensor01"</span><span class="p">;</span> <span class="c1">// Name of the sensor
+</span><span class="kt">char</span><span class="o">*</span> <span class="n">stateTopic</span> <span class="o">=</span> <span class="s">"home-assistant/sensor01/brightness"</span><span class="p">;</span> <span class="c1">// MQTT topic where values are published
+</span><span class="kt">int</span> <span class="n">sensorPin</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span> <span class="c1">// Pin to which the sensor is connected to
+</span><span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">// Buffer to store the sensor value
+</span><span class="kt">int</span> <span class="n">updateInterval</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// Interval in miliseconds
+</span>
+<span class="c1">// MQTT server settings
+</span><span class="n">IPAddress</span> <span class="n">mqttServer</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mqttPort</span> <span class="o">=</span> <span class="mi">1883</span><span class="p">;</span>
 
-<span class="preprocessor">#define</span> DEBUG <span class="integer">1</span> <span class="comment">// Debug output to serial console</span>
+<span class="n">EthernetClient</span> <span class="n">ethClient</span><span class="p">;</span>
+<span class="n">PubSubClient</span> <span class="n">client</span><span class="p">(</span><span class="n">ethClient</span><span class="p">);</span>
 
-<span class="comment">// Device settings</span>
-IPAddress deviceIp(<span class="integer">192</span>, <span class="integer">168</span>, <span class="integer">0</span>, <span class="integer">43</span>);
-byte deviceMac[] = { <span class="hex">0xAB</span>, <span class="hex">0xCD</span>, <span class="hex">0xFE</span>, <span class="hex">0xFE</span>, <span class="hex">0xFE</span>, <span class="hex">0xFE</span> };
-<span class="predefined-type">char</span>* deviceId  = <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor01</span><span class="delimiter">&quot;</span></span>; <span class="comment">// Name of the sensor</span>
-<span class="predefined-type">char</span>* stateTopic = <span class="string"><span class="delimiter">&quot;</span><span class="content">home-assistant/sensor01/brightness</span><span class="delimiter">&quot;</span></span>; <span class="comment">// MQTT topic where values are published</span>
-<span class="predefined-type">int</span> sensorPin = A0; <span class="comment">// Pin to which the sensor is connected to</span>
-<span class="predefined-type">char</span> buf[<span class="integer">4</span>]; <span class="comment">// Buffer to store the sensor value</span>
-<span class="predefined-type">int</span> updateInterval = <span class="integer">1000</span>; <span class="comment">// Interval in miliseconds</span>
+<span class="kt">void</span> <span class="nf">reconnect</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
+<span class="cp">#if DEBUG
+</span>    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Attempting MQTT connection..."</span><span class="p">);</span>
+<span class="cp">#endif
+</span>    <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">deviceId</span><span class="p">))</span> <span class="p">{</span>
+<span class="cp">#if DEBUG
+</span>      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"connected"</span><span class="p">);</span>
+<span class="cp">#endif
+</span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="cp">#if DEBUG
+</span>      <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"failed, rc="</span><span class="p">);</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">state</span><span class="p">());</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" try again in 5 seconds"</span><span class="p">);</span>
+<span class="cp">#endif
+</span>      <span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="comment">// MQTT server settings</span>
-IPAddress mqttServer(<span class="integer">192</span>, <span class="integer">168</span>, <span class="integer">0</span>, <span class="integer">12</span>);
-<span class="predefined-type">int</span> mqttPort = <span class="integer">1883</span>;
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">57600</span><span class="p">);</span>
+  <span class="n">client</span><span class="p">.</span><span class="n">setServer</span><span class="p">(</span><span class="n">mqttServer</span><span class="p">,</span> <span class="n">mqttPort</span><span class="p">);</span>
+  <span class="n">Ethernet</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">deviceMac</span><span class="p">,</span> <span class="n">deviceIp</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1500</span><span class="p">);</span>
+<span class="p">}</span>
 
-EthernetClient ethClient;
-PubSubClient client(ethClient);
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">reconnect</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="n">client</span><span class="p">.</span><span class="n">loop</span><span class="p">();</span>
 
-<span class="directive">void</span> reconnect() {
-  <span class="keyword">while</span> (!client.connected()) {
-<span class="preprocessor">#if</span> DEBUG
-    Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Attempting MQTT connection...</span><span class="delimiter">&quot;</span></span>);
-<span class="preprocessor">#endif</span>
-    <span class="keyword">if</span> (client.connect(deviceId)) {
-<span class="preprocessor">#if</span> DEBUG
-      Serial.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">connected</span><span class="delimiter">&quot;</span></span>);
-<span class="preprocessor">#endif</span>
-    } <span class="keyword">else</span> {
-<span class="preprocessor">#if</span> DEBUG
-      Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">failed, rc=</span><span class="delimiter">&quot;</span></span>);
-      Serial.print(client.state());
-      Serial.println(<span class="string"><span class="delimiter">&quot;</span><span class="content"> try again in 5 seconds</span><span class="delimiter">&quot;</span></span>);
-<span class="preprocessor">#endif</span>
-      delay(<span class="integer">5000</span>);
-    }
-  }
-}
-
-<span class="directive">void</span> setup() {
-  Serial.begin(<span class="integer">57600</span>);
-  client.setServer(mqttServer, mqttPort);
-  Ethernet.begin(deviceMac, deviceIp);
-  delay(<span class="integer">1500</span>);
-}
-
-<span class="directive">void</span> loop() {
-  <span class="keyword">if</span> (!client.connected()) {
-    reconnect();
-  }
-  client.loop();
-
-  <span class="predefined-type">int</span> sensorValue = analogRead(sensorPin);
-<span class="preprocessor">#if</span> DEBUG
-  Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Sensor value: </span><span class="delimiter">&quot;</span></span>);
-  Serial.println(sensorValue);
-<span class="preprocessor">#endif</span>
-  client.publish(stateTopic, itoa(sensorValue, buf, <span class="integer">10</span>));
-  delay(updateInterval);
-}
-</pre></td>
-</tr></table>
+  <span class="kt">int</span> <span class="n">sensorValue</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">);</span>
+<span class="cp">#if DEBUG
+</span>  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Sensor value: "</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">sensorValue</span><span class="p">);</span>
+<span class="cp">#endif
+</span>  <span class="n">client</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">stateTopic</span><span class="p">,</span> <span class="n">itoa</span><span class="p">(</span><span class="n">sensorValue</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+  <span class="n">delay</span><span class="p">(</span><span class="n">updateInterval</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
 </div>
 
-<p>The Arduino will send the value of the sensor every second. To use the data in Home Assistant, add an additional MQTT sensor to the <code>configuration.yaml</code> file.</p>
+<p>The Arduino will send the value of the sensor every second. To use the data in Home Assistant, add an additional MQTT sensor to the <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
-<div class="highlighter-coderay"><table class="CodeRay"><tr>
-  <td class="line-numbers"><pre><a href="#n1" name="n1">1</a>
-<a href="#n2" name="n2">2</a>
-<a href="#n3" name="n3">3</a>
-<a href="#n4" name="n4">4</a>
-</pre></td>
-  <td class="code"><pre>  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Brightness</span><span class="delimiter">&quot;</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home-assistant/sensor01/brightness</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cd</span><span class="delimiter">&quot;</span></span>
-</pre></td>
-</tr></table>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Brightness"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/sensor01/brightness"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cd"</span>
+</code></pre>
 </div>
 
 <p>After a restart of Home Assistant the values of your Arduino will be available.</p>
@@ -497,7 +373,7 @@ PubSubClient client(ethClient);
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

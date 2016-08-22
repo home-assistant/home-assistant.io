@@ -91,13 +91,11 @@
 
   <p>This component can expose regular shell commands as services. Services can be called from a <a href="/components/script/">script</a> or in <a href="/getting-started/automation/">automation</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="comment"># Exposes service shell_command.restart_pow</span>
-<span class="key">shell_command</span>:
-  <span class="key">restart_pow</span>: <span class="string"><span class="content">touch ~/.pow/restart.txt</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="c1"># Exposes service shell_command.restart_pow</span>
+<span class="s">shell_command</span><span class="pi">:</span>
+  <span class="s">restart_pow</span><span class="pi">:</span> <span class="s">touch ~/.pow/restart.txt</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -111,21 +109,19 @@
 
 <p>Any service data passed into the service call to activate the shell command will be available as a variable within the template.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Apply value of a GUI slider to the shell_command</span>
-<span class="key">input_slider</span>:
-  <span class="key">ac_temperature</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">A/C Setting</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">24</span></span>
-    <span class="key">min</span>: <span class="string"><span class="content">18</span></span>
-    <span class="key">max</span>: <span class="string"><span class="content">32</span></span>
-    <span class="key">step</span>: <span class="string"><span class="content">1</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Apply value of a GUI slider to the shell_command</span>
+<span class="s">input_slider</span><span class="pi">:</span>
+  <span class="s">ac_temperature</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">A/C Setting</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s">24</span>
+    <span class="s">min</span><span class="pi">:</span> <span class="s">18</span>
+    <span class="s">max</span><span class="pi">:</span> <span class="s">32</span>
+    <span class="s">step</span><span class="pi">:</span> <span class="s">1</span>
 
-<span class="key">shell_command</span>:
-  <span class="key">set_ac_to_slider</span>: <span class="string"><span class="content">'irsend SEND_ONCE DELONGHI AC_{{ states.input_slider.ac_temperature.state}}_AUTO'</span></span>
+<span class="s">shell_command</span><span class="pi">:</span>
+  <span class="s">set_ac_to_slider</span><span class="pi">:</span> <span class="s1">'</span><span class="s">irsend</span><span class="nv"> </span><span class="s">SEND_ONCE</span><span class="nv"> </span><span class="s">DELONGHI</span><span class="nv"> </span><span class="s">AC_{{</span><span class="nv"> </span><span class="s">states.input_slider.ac_temperature.state}}_AUTO'</span>
 
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 

@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP devices on your network. Currently the <code>discovery</code> component can detect:</p>
+  <p>Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP devices on your network. Currently the <code class="highlighter-rouge">discovery</code> component can detect:</p>
 
 <ul>
   <li>Google Chromecast</li>
@@ -101,18 +101,16 @@
 
 <p>It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.</p>
 
-<p>To load this component, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To load this component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">discovery</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">discovery</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <p class="note">
 The home-assistant server must be on the same network as the devices for uPnP discovery to work. 
-If running home-assistant in a docker container use switch <code>--net=host</code> to put it on the host’s network.
+If running home-assistant in a docker container use switch <code class="highlighter-rouge">--net=host</code> to put it on the host’s network.
 </p>
 
 <p>If you are developing a new platform, please read <a href="/developers/add_new_platform/#discovery">how to make your platform discoverable</a>.</p>
@@ -126,7 +124,7 @@ If you are on Windows and you’re using Python 3.5, download the Netifaces depe
 </p>
 
 <p class="note">
-If you see <code>Not initializing discovery because could not install dependency netdisco==0.6.1</code> in the logs, you will need to install the <code>python3-dev</code> or <code>python3-devel</code> package on your system manually (eg. <code>sudo apt-get install python3-dev</code> or <code>sudo dnf -y install python3-devel</code>). On the next restart of home-assistant, discovery should work. If you still get an error, check if you have a compiler (<code>gcc</code>) available on your system.
+If you see <code class="highlighter-rouge">Not initializing discovery because could not install dependency netdisco==0.6.1</code> in the logs, you will need to install the <code class="highlighter-rouge">python3-dev</code> or <code class="highlighter-rouge">python3-devel</code> package on your system manually (eg. <code class="highlighter-rouge">sudo apt-get install python3-dev</code> or <code class="highlighter-rouge">sudo dnf -y install python3-devel</code>). On the next restart of home-assistant, discovery should work. If you still get an error, check if you have a compiler (<code class="highlighter-rouge">gcc</code>) available on your system.
 </p>
 
 

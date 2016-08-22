@@ -96,67 +96,61 @@
   <li><a href="#temperature-sensor">Temperature sensor</a> (XBee Pro)</li>
 </ul>
 
-<p>To configure an analog input pin sensor, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To configure an analog input pin sensor, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: zigbee</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">My Analog ZigBee Input</span></span>
-    <span class="key">type</span>: <span class="string"><span class="content">analog</span></span>
-    <span class="key">pin</span>: <span class="string"><span class="content">0</span></span>
-    <span class="key">address</span>: <span class="string"><span class="content">0013A2004233D138</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">zigbee</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">My Analog ZigBee Input</span>
+    <span class="s">type</span><span class="pi">:</span> <span class="s">analog</span>
+    <span class="s">pin</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">0013A2004233D138</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The name you would like to give the sensor in Home Assistant.</li>
-  <li><strong>type</strong> (<em>Required</em>): Set to <code>analog</code> or <code>temperature</code>.</li>
+  <li><strong>type</strong> (<em>Required</em>): Set to <code class="highlighter-rouge">analog</code> or <code class="highlighter-rouge">temperature</code>.</li>
   <li><strong>pin</strong> (<em>Required</em>): The number identifying which pin to sample</li>
   <li><strong>address</strong> (<em>Optional</em>): The long 64 bit address of the remote ZigBee device whose pin you would like to sample. Do not include this variable if you want to sample the local ZigBee device’s pins.</li>
-  <li><strong>max_volts</strong> (<em>Optional</em>): The maximum voltage which the input pin is able to read. Defaults to <code>1.2</code></li>
+  <li><strong>max_volts</strong> (<em>Optional</em>): The maximum voltage which the input pin is able to read. Defaults to <code class="highlighter-rouge">1.2</code></li>
 </ul>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
 <h3><a class="title-link" name="analog-input-pin" href="#analog-input-pin"></a> Analog Input Pin</h3>
 
-<p>The analog input pins on an XBee (non-Pro) will read 0V to 1.2 V. This is translated by the <a href="https://github.com/flyte/xbee-helper">xbee-helper</a> library into a percentage. The maximum voltage your ZigBee device will read is configurable using the <code>max_volts</code> configuration variable.</p>
+<p>The analog input pins on an XBee (non-Pro) will read 0V to 1.2 V. This is translated by the <a href="https://github.com/flyte/xbee-helper">xbee-helper</a> library into a percentage. The maximum voltage your ZigBee device will read is configurable using the <code class="highlighter-rouge">max_volts</code> configuration variable.</p>
 
-<p>To configure an analog input pin sensor, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To configure an analog input pin sensor, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment">## Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: zigbee</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">My Analog ZigBee Input</span></span>
-    <span class="key">type</span>: <span class="string"><span class="content">analog</span></span>
-    <span class="key">pin</span>: <span class="string"><span class="content">0</span></span>
-    <span class="key">address</span>: <span class="string"><span class="content">0013A2004233D138</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">## Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">zigbee</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">My Analog ZigBee Input</span>
+    <span class="s">type</span><span class="pi">:</span> <span class="s">analog</span>
+    <span class="s">pin</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">0013A2004233D138</span>
+</code></pre>
 </div>
 
 <p>See the <a href="http://knowledge.digi.com/articles/Knowledge_Base_Article/Digital-and-analog-sampling-using-XBee-radios">Digi knowledge base</a> for more XBee sampling details.</p>
 
 <h2><a class="title-link" name="temperature-sensor" href="#temperature-sensor"></a> Temperature Sensor</h2>
 
-<p>The XBee Pro (and perhaps other third party modules) contains a thermometer device which can be read by using the <code>TP</code> AT command.</p>
+<p>The XBee Pro (and perhaps other third party modules) contains a thermometer device which can be read by using the <code class="highlighter-rouge">TP</code> AT command.</p>
 
-<p>To configure a temperature sensor device, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To configure a temperature sensor device, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: zigbee</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Living Room Temperature ZigBee</span></span>
-    <span class="key">type</span>: <span class="string"><span class="content">temperature</span></span>
-    <span class="key">address</span>: <span class="string"><span class="content">0013A20050E752C5</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">zigbee</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room Temperature ZigBee</span>
+    <span class="s">type</span><span class="pi">:</span> <span class="s">temperature</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">0013A20050E752C5</span>
+</code></pre>
 </div>
 
 

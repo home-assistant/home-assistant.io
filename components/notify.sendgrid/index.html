@@ -89,26 +89,24 @@
   <hr class="divider">
   
 
-  <p>The <code>sendgrid</code> notification platform sends email notifications via <a href="https://sendgrid.com/">SendGrid</a>, a proven cloud-based email platform.</p>
+  <p>The <code class="highlighter-rouge">sendgrid</code> notification platform sends email notifications via <a href="https://sendgrid.com/">SendGrid</a>, a proven cloud-based email platform.</p>
 
-<p>To enable notification emails via SendGrid in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable notification emails via SendGrid in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">platform</span>: <span class="string"><span class="content">sendgrid</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">API_KEY</span></span>
-  <span class="key">sender</span>: <span class="string"><span class="content">SENDER_EMAIL_ADDRESS</span></span>
-  <span class="key">recipient</span>: <span class="string"><span class="content">YOUR_RECIPIENT</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">sendgrid</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
+  <span class="s">sender</span><span class="pi">:</span> <span class="s">SENDER_EMAIL_ADDRESS</span>
+  <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>api_key</strong> (<em>Required</em>): SendGrid API key - https://app.sendgrid.com/settings/api_keys</li>
   <li><strong>sender</strong> (<em>Required</em>): E-mail address of the sender.</li>
   <li><strong>recipient</strong> (<em>Required</em>): Recipient of the notification.</li>

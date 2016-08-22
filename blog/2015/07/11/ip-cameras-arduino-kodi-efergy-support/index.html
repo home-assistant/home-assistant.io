@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -112,21 +112,19 @@
 
 <p>This release includes some architectural changes by me. The first is that the frontend is now based on a <a href="http://optimizely.github.io/nuclear-js/">NuclearJS</a> JavaScript backend. This has greatly helped to organize and optimize the frontend code. Another change is that Home Assistant will now install dependencies on-demand instead of installing dependencies for all supported devices.</p>
 
-<p><strong>IP Camera Support</strong><br />
+<p><strong>IP Camera Support</strong>
 James has worked very hard to add support for IP cameras to Home Assistant which is included in this release. The initial release focusses on providing generic IP camera support. This means that any webcam that can exposes a JPEG image via a url can be integrated.</p>
 
 <p>Home Assistant will route the requests to your camera via the server allowing you to expose IP camera’s inside your network via the Home Assistant app.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">camera</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">generic</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">my sample camera</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">MY_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">MY_PASSWORD</span></span>
-  <span class="key">still_image_url</span>: <span class="string"><span class="content">http://194.218.96.92/jpg/image.jpg</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">generic</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">my sample camera</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">MY_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">MY_PASSWORD</span>
+  <span class="s">still_image_url</span><span class="pi">:</span> <span class="s">http://194.218.96.92/jpg/image.jpg</span>
+</code></pre>
 </div>
 
 <p class="note">
@@ -135,105 +133,95 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
 
 <a name="read-more"></a>
 
-<p><strong>Arduino</strong><br />
+<p><strong>Arduino</strong>
 <img src="/images/supported_brands/arduino.png" style="border:none; box-shadow: none; float: right;" height="50" /> Fabian has contributed support for interfacing with Arduinos. This makes it possible to connect your Arduino via USB and expose pins as sensor data and write to pins via switches. Have a look at <a href="/components/arduino/">the docs</a> for an extensive guide to get started.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">arduino</span></span>
-  <span class="key">pins</span>:
-    <span class="key">11</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Fan Office</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">digital</span></span>
-    <span class="key">12</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Light Desk</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">digital</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">arduino</span>
+  <span class="s">pins</span><span class="pi">:</span>
+    <span class="s">11</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Fan Office</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s">digital</span>
+    <span class="s">12</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Light Desk</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s">digital</span>
 
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">arduino</span></span>
-  <span class="key">pins</span>:
-    <span class="key">1</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Door switch</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">analog</span></span>
-    <span class="key">0</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Brightness</span></span>
-      <span class="key">type</span>: <span class="string"><span class="content">analog</span></span>
-</pre></div>
-</div>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">arduino</span>
+  <span class="s">pins</span><span class="pi">:</span>
+    <span class="s">1</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Door switch</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s">analog</span>
+    <span class="s">0</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Brightness</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s">analog</span>
+</code></pre>
 </div>
 
-<p><strong>Kodi (XBMC)</strong><br />
+<p><strong>Kodi (XBMC)</strong>
 <img src="/images/supported_brands/kodi.png" style="border:none; box-shadow: none; float: right;" height="50" /> Ettisan has contributed a Kodi (XBMC) platform for the media player component. This allows you to track all the media that you are playing and allow you to control it.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">kodi</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Kodi</span></span>
-  <span class="key">url</span>: <span class="string"><span class="content">http://192.168.0.123/jsonrpc</span></span>
-  <span class="key">user</span>: <span class="string"><span class="content">kodi</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">my_secure_password</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Kodi</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">http://192.168.0.123/jsonrpc</span>
+  <span class="s">user</span><span class="pi">:</span> <span class="s">kodi</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">my_secure_password</span>
+</code></pre>
 </div>
 
-<p><strong>TP-Link</strong><br />
+<p><strong>TP-Link</strong>
 <img src="/images/supported_brands/tp-link.png" style="border:none; box-shadow: none; float: right;" width="150" /> Michael has added TP-Link support to the device tracker. This allows you to now detect presence if you have a TP-Link router.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">tplink</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">YOUR_ROUTER_IP</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_ADMIN_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_ADMIN_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">tplink</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ROUTER_IP</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+</code></pre>
 </div>
 
-<p><strong>Efergy energy monitor</strong><br />
+<p><strong>Efergy energy monitor</strong>
 <img src="/images/supported_brands/efergy.png" style="border:none; box-shadow: none; float: right;" height="50" /> Miniconfig has contributed support for the <a href="https://efergy.com">Efergy energy meters</a>. To get an app token, log in to your efergy account, go to the Settings page, click on App tokens, and click “Add token”.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">efergy</span></span>
-  <span class="key">app_token</span>: <span class="string"><span class="content">APP_TOKEN</span></span>
-  <span class="key">utc_offset</span>: <span class="string"><span class="content">UTC_OFFSET</span></span>
-  <span class="key">monitored_variables</span>:
-    - <span class="string"><span class="content">type: instant_readings</span></span>
-    - <span class="string"><span class="content">type: budget</span></span>
-    - <span class="string"><span class="content">type: cost</span></span>
-      <span class="key">period</span>: <span class="string"><span class="content">day</span></span>
-      <span class="key">currency</span>: <span class="string"><span class="content">$</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">efergy</span>
+  <span class="s">app_token</span><span class="pi">:</span> <span class="s">APP_TOKEN</span>
+  <span class="s">utc_offset</span><span class="pi">:</span> <span class="s">UTC_OFFSET</span>
+  <span class="s">monitored_variables</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">instant_readings</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">budget</span>
+    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">cost</span>
+      <span class="s">period</span><span class="pi">:</span> <span class="s">day</span>
+      <span class="s">currency</span><span class="pi">:</span> <span class="s">$</span>
+</code></pre>
 </div>
 
-<p><strong>Forecast.io</strong><br />
-Fabian has added support for <a href="https://forecast.io/">Forecast.io</a> to get weather forecasts for Home Assistant. You need an API key which is free but requires a <a href="https://developer.forecast.io/register">registration</a>. To add Forecast.io to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p><strong>Forecast.io</strong>
+Fabian has added support for <a href="https://forecast.io/">Forecast.io</a> to get weather forecasts for Home Assistant. You need an API key which is free but requires a <a href="https://developer.forecast.io/register">registration</a>. To add Forecast.io to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">forecast</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_APP_KEY</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">summary</span></span>
-    - <span class="string"><span class="content">precip_type</span></span>
-    - <span class="string"><span class="content">precip_intensity</span></span>
-    - <span class="string"><span class="content">temperature</span></span>
-    - <span class="string"><span class="content">dew_point</span></span>
-    - <span class="string"><span class="content">wind_speed</span></span>
-    - <span class="string"><span class="content">wind_bearing</span></span>
-    - <span class="string"><span class="content">cloud_cover</span></span>
-    - <span class="string"><span class="content">humidity</span></span>
-    - <span class="string"><span class="content">pressure</span></span>
-    - <span class="string"><span class="content">visibility</span></span>
-    - <span class="string"><span class="content">ozone</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">forecast</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_APP_KEY</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">summary</span>
+    <span class="pi">-</span> <span class="s">precip_type</span>
+    <span class="pi">-</span> <span class="s">precip_intensity</span>
+    <span class="pi">-</span> <span class="s">temperature</span>
+    <span class="pi">-</span> <span class="s">dew_point</span>
+    <span class="pi">-</span> <span class="s">wind_speed</span>
+    <span class="pi">-</span> <span class="s">wind_bearing</span>
+    <span class="pi">-</span> <span class="s">cloud_cover</span>
+    <span class="pi">-</span> <span class="s">humidity</span>
+    <span class="pi">-</span> <span class="s">pressure</span>
+    <span class="pi">-</span> <span class="s">visibility</span>
+    <span class="pi">-</span> <span class="s">ozone</span>
+</code></pre>
 </div>
 </article>
 
@@ -308,7 +296,7 @@ Fabian has added support for <a href="https://forecast.io/">Forecast.io</a> to g
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

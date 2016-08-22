@@ -89,40 +89,36 @@
   <hr class="divider">
   
 
-  <p>The <code>arest</code> switch platform allows you to toggle pins of your devices (like Arduino boards with a ethernet/wifi connection, ESP8266 based devices, and the Raspberry Pi) running the <a href="http://arest.io/">aREST</a> RESTful framework.</p>
+  <p>The <code class="highlighter-rouge">arest</code> switch platform allows you to toggle pins of your devices (like Arduino boards with a ethernet/wifi connection, ESP8266 based devices, and the Raspberry Pi) running the <a href="http://arest.io/">aREST</a> RESTful framework.</p>
 
-<p>To use your aREST enabled device with pins in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your aREST enabled device with pins in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">arest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Office</span></span>
-  <span class="key">pins</span>:
-    <span class="key">11</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Fan</span></span>
-    <span class="key">12</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Light Desk</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Office</span>
+  <span class="s">pins</span><span class="pi">:</span>
+    <span class="s">11</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Fan</span>
+    <span class="s">12</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Light Desk</span>
+</code></pre>
 </div>
 
-<p>If you want to use custom functions, then add the following to your <code>configuration.yaml</code> file:</p>
+<p>If you want to use custom functions, then add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">arest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Office</span></span>
-  <span class="key">functions</span>:
-    <span class="key">function1</span>:
-      <span class="key">name</span>: 
-    <span class="key">function2</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Light Desk</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Office</span>
+  <span class="s">functions</span><span class="pi">:</span>
+    <span class="s">function1</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> 
+    <span class="s">function2</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Light Desk</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -149,10 +145,8 @@
 
 <p>You can still switch your pins with a web browser or a command line tool. Use the URL http://192.168.1.10/digital/8/1 to set pin 8 to high/on, the JSON response will give you the feedback.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Pin D8 set to 1</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor02</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">livingroom</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">connected</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pin D8 set to 1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor02"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"livingroom"</span><span class="p">,</span><span class="w"> </span><span class="nt">"connected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 

@@ -93,95 +93,79 @@
 
 <p>The script syntax basic structure is a list of key/value maps that contain actions. If a script contains only 1 action, the wrapping list can be omitted.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example script component containing script syntax</span>
-<span class="key">script</span>:
-  <span class="key">example_script</span>:
-    <span class="key">sequence</span>:
-      <span class="comment"># This is written using the Script Syntax</span>
-      - <span class="string"><span class="content">service: light.turn_on</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">light.ceiling</span></span>
-      - <span class="string"><span class="content">service: notify.notify</span></span>
-        <span class="key">data</span>:
-          <span class="key">message</span>: <span class="string"><span class="content">'Turned on the ceiling light!'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example script component containing script syntax</span>
+<span class="s">script</span><span class="pi">:</span>
+  <span class="s">example_script</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="c1"># This is written using the Script Syntax</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.ceiling</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Turned</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">ceiling</span><span class="nv"> </span><span class="s">light!'</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="call-a-service" href="#call-a-service"></a> Call a Service</h4>
+<h3><a class="title-link" name="call-a-service" href="#call-a-service"></a> Call a Service</h3>
 
 <p>The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the <a href="/getting-started/scripts-service-calls/">service calls page</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">alias</span>: <span class="string"><span class="content">Bedroom lights on</span></span>
-<span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
-<span class="key">data</span>:
-  <span class="key">entity_id</span>: <span class="string"><span class="content">group.bedroom</span></span>
-  <span class="key">brightness</span>: <span class="string"><span class="content">100</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">alias</span><span class="pi">:</span> <span class="s">Bedroom lights on</span>
+<span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+<span class="s">data</span><span class="pi">:</span>
+  <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.bedroom</span>
+  <span class="s">brightness</span><span class="pi">:</span> <span class="s">100</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="test-a-condition" href="#test-a-condition"></a> Test a Condition</h4>
+<h3><a class="title-link" name="test-a-condition" href="#test-a-condition"></a> Test a Condition</h3>
 
-<p>While executing a script you can add a condition to stop further execution. When a condition does not return <code>true</code>, the script will finish. There are many different conditions which are documented at the <a href="/getting-started/scripts-conditions/">conditions page</a>.</p>
+<p>While executing a script you can add a condition to stop further execution. When a condition does not return <code class="highlighter-rouge">true</code>, the script will finish. There are many different conditions which are documented at the <a href="/getting-started/scripts-conditions/">conditions page</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">condition</span>: <span class="string"><span class="content">state</span></span>
-<span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus</span></span>
-<span class="key">state</span>: <span class="string"><span class="content">'home'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+<span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
+<span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="delay" href="#delay"></a> Delay</h4>
+<h3><a class="title-link" name="delay" href="#delay"></a> Delay</h3>
 
 <p>Delays are useful for temporarily suspending your script and start it at a later moment. We support  different syntaxes for a delay as shown below.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Waits 1 hour</span>
-<span class="key">delay</span>: <span class="string"><span class="content">01:00</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Waits 1 hour</span>
+<span class="s">delay</span><span class="pi">:</span> <span class="s">01:00</span>
+</code></pre>
 </div>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Waits 1 minute, 30 seconds</span>
-<span class="key">delay</span>: <span class="string"><span class="content">00:01:30</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Waits 1 minute, 30 seconds</span>
+<span class="s">delay</span><span class="pi">:</span> <span class="s">00:01:30</span>
+</code></pre>
 </div>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Waits 1 minute</span>
-<span class="key">delay</span>:
-  <span class="comment"># supports seconds, minutes, hours, days</span>
-  <span class="key">minutes</span>: <span class="string"><span class="content">1</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Waits 1 minute</span>
+<span class="s">delay</span><span class="pi">:</span>
+  <span class="c1"># supports seconds, minutes, hours, days</span>
+  <span class="s">minutes</span><span class="pi">:</span> <span class="s">1</span>
+</code></pre>
 </div>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Waits however many minutes input_slider.minute_delay is set to</span>
-<span class="comment"># Valid formats include HH:MM and HH:MM:SS</span>
-<span class="key">delay</span>: <span class="string"><span class="content">'00:{{ input_slider.minute_delay | int }}:00'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Waits however many minutes input_slider.minute_delay is set to</span>
+<span class="c1"># Valid formats include HH:MM and HH:MM:SS</span>
+<span class="s">delay</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:{{</span><span class="nv"> </span><span class="s">input_slider.minute_delay</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int</span><span class="nv"> </span><span class="s">}}:00'</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="fire-an-event" href="#fire-an-event"></a> Fire an Event</h4>
+<h3><a class="title-link" name="fire-an-event" href="#fire-an-event"></a> Fire an Event</h3>
 
 <p>This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another component that something is happening. For instance, in the below example it is used to create an entry in the logbook.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">event</span>: <span class="string"><span class="content">LOGBOOK_ENTRY</span></span>
-<span class="key">event_data</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">Paulus</span></span>
-  <span class="key">message</span>: <span class="string"><span class="content">is waking up</span></span>
-  <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus</span></span>
-  <span class="key">domain</span>: <span class="string"><span class="content">light</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">event</span><span class="pi">:</span> <span class="s">LOGBOOK_ENTRY</span>
+<span class="s">event_data</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Paulus</span>
+  <span class="s">message</span><span class="pi">:</span> <span class="s">is waking up</span>
+  <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
+  <span class="s">domain</span><span class="pi">:</span> <span class="s">light</span>
+</code></pre>
 </div>
 
 

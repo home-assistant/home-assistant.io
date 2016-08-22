@@ -91,25 +91,23 @@
 
   <p>The following example sends a notification via XMPP if a new Home Assistant release is available:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">notify</span>:
-  - <span class="string"><span class="content">platform: xmpp</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">jabber</span></span>
-    <span class="key">sender</span>: <span class="string"><span class="content">sender@jabber.org</span></span>
-    <span class="key">password</span>: <span class="type">!secret</span> <span class="string"><span class="content">xmpp_password</span></span>
-    <span class="key">recipient</span>: <span class="string"><span class="content">recipient@jabber.org</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xmpp</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">jabber</span>
+    <span class="s">sender</span><span class="pi">:</span> <span class="s">sender@jabber.org</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">xmpp_password</span>
+    <span class="s">recipient</span><span class="pi">:</span> <span class="s">recipient@jabber.org</span>
 
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: Update notifications</span></span>
-    <span class="key">trigger</span>:
-      - <span class="string"><span class="content">platform: state</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">updater.updater</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">notify.jabber</span></span>
-      <span class="key">data</span>:
-        <span class="key">message</span>: <span class="string"><span class="content">'There is a new Home Assistant release available.'</span></span>
-</pre></div>
-</div>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Update notifications</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">updater.updater</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.jabber</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">There</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">new</span><span class="nv"> </span><span class="s">Home</span><span class="nv"> </span><span class="s">Assistant</span><span class="nv"> </span><span class="s">release</span><span class="nv"> </span><span class="s">available.'</span>
+</code></pre>
 </div>
 
 

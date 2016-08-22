@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>torque</code> platform will allow you to monitor <a href="http://torque-bhp.com/">Torque</a> data relayed from a bluetooth OBD2 stick via the Torque mobile application.</p>
+  <p>The <code class="highlighter-rouge">torque</code> platform will allow you to monitor <a href="http://torque-bhp.com/">Torque</a> data relayed from a bluetooth OBD2 stick via the Torque mobile application.</p>
 
 <h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
 <p>To use Torque sensors with your installation, you must configure both the Torque mobile application and Home Assistant.</p>
@@ -109,23 +109,21 @@
 
 <ul>
   <li>Check <strong>Upload to webserver</strong>.</li>
-  <li>Enter <code>http://HOST:PORT/api/torque?api_password=YOUR_PASSWORD</code> as the <strong>Webserver URL</strong>, where <code>HOST</code> and <code>PORT</code> are your externally-accessible Home Assistant HTTP host and port and YOUR_PASSWORD is your password.</li>
+  <li>Enter <code class="highlighter-rouge">http://HOST:PORT/api/torque?api_password=YOUR_PASSWORD</code> as the <strong>Webserver URL</strong>, where <code class="highlighter-rouge">HOST</code> and <code class="highlighter-rouge">PORT</code> are your externally-accessible Home Assistant HTTP host and port and YOUR_PASSWORD is your password.</li>
   <li>Enter an email address in <strong>User Email Address</strong>.</li>
   <li>Optionally set the <strong>Web Logging Interval</strong>. The 2-second default may quickly fill up the Home Assistant history database.</li>
 </ul>
 
 <h3><a class="title-link" name="home-assistant" href="#home-assistant"></a> Home Assistant</h3>
 
-<p>Add the following to your <code>configuration.yaml</code> file:</p>
+<p>Add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">torque</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Your Vehicle Name</span></span>
-  <span class="key">email</span>: <span class="string"><span class="content">your_configured@email.com</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">torque</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Your Vehicle Name</span>
+  <span class="s">email</span><span class="pi">:</span> <span class="s">your_configured@email.com</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

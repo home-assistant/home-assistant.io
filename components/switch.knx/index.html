@@ -89,24 +89,22 @@
   <hr class="divider">
   
 
-  <p>The <code>knx</code> switch component is used as in interface to switching actuators.</p>
+  <p>The <code class="highlighter-rouge">knx</code> switch component is used as in interface to switching actuators.</p>
 
-<p>To use your KNX switch in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your KNX switch in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">switch</span>:
-  - <span class="string"><span class="content">platform: knx</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">KNX Switch</span></span>
-    <span class="key">address</span>: <span class="string"><span class="content">0/0/1</span></span>
-    <span class="key">state_address</span>: <span class="string"><span class="content">0/0/3</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">KNX Switch</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">0/0/1</span>
+    <span class="s">state_address</span><span class="pi">:</span> <span class="s">0/0/3</span>
+</code></pre>
 </div>
 
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): A name for this devices used within Home assistant</li>
   <li><strong>address</strong> (<em>Required</em>): The KNX group address that is used to turn on/off this actuator channel</li>
-  <li><strong>state_address</strong> (<em>Optional</em>): Some KNX devices can change their state internally without any messages on the KXN bus, e.g. if you configure a timer on a channel. The optional <code>state_address</code> can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this wil overwrite the state of the switch object.<br />
+  <li><strong>state_address</strong> (<em>Optional</em>): Some KNX devices can change their state internally without any messages on the KXN bus, e.g. if you configure a timer on a channel. The optional <code class="highlighter-rouge">state_address</code> can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this wil overwrite the state of the switch object.
 For switching actuators that are only controlled by a single group address and can’t change their state internally, you don’t have to configrue the state address.</li>
 </ul>
 

@@ -89,43 +89,41 @@
   <hr class="divider">
   
 
-  <p>The <code>russound_rnet</code> platform allows you to control Russound devices that make use of the RNET protocol.</p>
+  <p>The <code class="highlighter-rouge">russound_rnet</code> platform allows you to control Russound devices that make use of the RNET protocol.</p>
 
 <p>This has initially been tested against a Russound CAV6.6 unit with six zones and six sources.</p>
 
 <p>Connecting to the Russound device is only possible by TCP, you can make use of a TCP to Serial gateway such as <a href="https://github.com/pyserial/pyserial/blob/master/examples/tcp_serial_redirect.py">tcp_serial_redirect</a></p>
 
-<p>To add a device to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add a device to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">russound_rnet</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.10</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">1337</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Russound</span></span>
-  <span class="key">zones</span>:
-    <span class="key">1</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Main Bedroom</span></span>
-    <span class="key">2</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Living Room</span></span>
-    <span class="key">3</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Kitchen</span></span>
-    <span class="key">4</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Bathroom</span></span>
-    <span class="key">5</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Dining Room</span></span>
-    <span class="key">6</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">Guest Bedroom</span></span>
-  <span class="key">sources</span>:
-    - <span class="string"><span class="content">name: Sonos</span></span>
-    - <span class="string"><span class="content">name: Sky+</span></span>
-    - <span class="string"><span class="content">name: iPod</span></span>
-    - <span class="string"><span class="content">name: Unused 1</span></span>
-    - <span class="string"><span class="content">name: Unused 2</span></span>
-    - <span class="string"><span class="content">name: Kodi</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">russound_rnet</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">1337</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Russound</span>
+  <span class="s">zones</span><span class="pi">:</span>
+    <span class="s">1</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Main Bedroom</span>
+    <span class="s">2</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room</span>
+    <span class="s">3</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen</span>
+    <span class="s">4</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Bathroom</span>
+    <span class="s">5</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Dining Room</span>
+    <span class="s">6</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Guest Bedroom</span>
+  <span class="s">sources</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Sonos</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Sky+</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">iPod</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Unused 1</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Unused 2</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Kodi</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

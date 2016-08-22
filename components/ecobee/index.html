@@ -95,14 +95,12 @@
 
 <p>The first time you run Home-Assistant with this component it will give you a PIN code that you need to authorize in the <a href="https://www.ecobee.com/consumerportal/index.html">ecobee consumer portal</a>.  You can do this by clicking ‘Add Application’ in the ‘My Apps’ section in the sidebar. Enter the PIN code from the Home Assistant screeen. To get the PIN code select the item in the Ecobee card. If you do not have an Ecobee card, you may be using groups with default_view that don’t show the card. To get around this you can temporarily comment out the default_view section and restart Home Assistant. Once you enter the PIN on the Ecobee site, wait approximately 5 minutes and then click on the ‘I have authorized the app’ link at the bottom of the Ecobee popup window. If everything worked correctly, you should now be able to restart Home Assistant again to see the full Ecobee card with all of the sensors populated. Now you can re-enable your default_view (if you had to disable it) and add the Ecobee sensors to a group and/or view.</p>
 
-<p>To set it up, add the following information to your <code>configuration.yaml</code> file:</p>
+<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">ecobee</span>:
-  <span class="key">api_key</span>: <span class="string"><span class="content">asdfghjklqwertyuiopzxcvbnm </span></span>
-  <span class="key">hold_temp</span>: <span class="string"><span class="content">True</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">ecobee</span><span class="pi">:</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">asdfghjklqwertyuiopzxcvbnm</span> 
+  <span class="s">hold_temp</span><span class="pi">:</span> <span class="s">True</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

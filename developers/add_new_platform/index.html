@@ -91,7 +91,7 @@
 
   <p>Components that interact with devices are called Entity Components. They are structured in core- and platform logic. This allows the same logic to handle a light to be used by different brands.</p>
 
-<p>For example, the built-in <code>switch</code> component consists of various platform in <a href="https://github.com/home-assistant/home-assistant/tree/master/homeassistant/components/switch"><code>homeassistant/components/switch/</code></a>. The file <code>__init__.py</code> contains the core logic of all platform and the <code>vendor_name.py</code> files only the relevant platform code.</p>
+<p>For example, the built-in <code class="highlighter-rouge">switch</code> component consists of various platform in <a href="https://github.com/home-assistant/home-assistant/tree/master/homeassistant/components/switch"><code class="highlighter-rouge">homeassistant/components/switch/</code></a>. The file <code class="highlighter-rouge">__init__.py</code> contains the core logic of all platform and the <code class="highlighter-rouge">vendor_name.py</code> files only the relevant platform code.</p>
 
 <p>If you are planning to add support for a new type of device to an existing component, you can get away with only writing platform logic. Have a look at how the component works with other platforms and create a similar file for the platform that you would like to add:</p>
 
@@ -110,11 +110,9 @@
 
 <p>Platforms can specify dependencies and requirements the same way as a component does.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>REQUIREMENTS = [<span class="string"><span class="delimiter">'</span><span class="content">some-package==2.0.0</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">some-other-package==2.5.0</span><span class="delimiter">'</span></span>]
-DEPENDENCIES = [<span class="string"><span class="delimiter">'</span><span class="content">mqtt</span><span class="delimiter">'</span></span>]
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">REQUIREMENTS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'some-package==2.0.0'</span><span class="p">,</span> <span class="s">'some-other-package==2.5.0'</span><span class="p">]</span>
+<span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s">'mqtt'</span><span class="p">]</span>
+</code></pre>
 </div>
 
 

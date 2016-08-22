@@ -91,18 +91,18 @@
   <hr class="divider">
   
 
-  <p>The core of Home Assistant is the event bus. The event bus allows any component to fire or listen for events. It is the core of everything. For example, any state change will be announced on the event bus as a <code>state_changed</code> event containing the previous and the new state of an entity.</p>
+  <p>The core of Home Assistant is the event bus. The event bus allows any component to fire or listen for events. It is the core of everything. For example, any state change will be announced on the event bus as a <code class="highlighter-rouge">state_changed</code> event containing the previous and the new state of an entity.</p>
 
 <p>Home Assistant contains a few built-in events that are used to coordinate between various components.</p>
 
-<h3><a class="title-link" name="event-homeassistant_start" href="#event-homeassistant_start"></a> Event <code>homeassistant_start</code></h3>
-<p>Event <code>homeassistant_start</code> is fired when all components from the configuration have been intitialized. This is the event that will start the timer firing off <code>time_changed</code> events.</p>
+<h3><a class="title-link" name="event-homeassistant_start" href="#event-homeassistant_start"></a> Event <code class="highlighter-rouge">homeassistant_start</code></h3>
+<p>Event <code class="highlighter-rouge">homeassistant_start</code> is fired when all components from the configuration have been intitialized. This is the event that will start the timer firing off <code class="highlighter-rouge">time_changed</code> events.</p>
 
-<h3><a class="title-link" name="event-homeassistant_stop" href="#event-homeassistant_stop"></a> Event <code>homeassistant_stop</code></h3>
-<p>Event <code>homeassistant_stop</code> is fired when Home Assistant is shutting down. It should be used to close any open connection or release any resources.</p>
+<h3><a class="title-link" name="event-homeassistant_stop" href="#event-homeassistant_stop"></a> Event <code class="highlighter-rouge">homeassistant_stop</code></h3>
+<p>Event <code class="highlighter-rouge">homeassistant_stop</code> is fired when Home Assistant is shutting down. It should be used to close any open connection or release any resources.</p>
 
-<h3><a class="title-link" name="event-state_changed" href="#event-state_changed"></a> Event <code>state_changed</code></h3>
-<p>Event <code>state_changed</code> is fired when a state changes. Both <code>old_state</code> and <code>new_state</code> are state objects. <a href="/topics/state_object/">Documentation about state objects.</a></p>
+<h3><a class="title-link" name="event-state_changed" href="#event-state_changed"></a> Event <code class="highlighter-rouge">state_changed</code></h3>
+<p>Event <code class="highlighter-rouge">state_changed</code> is fired when a state changes. Both <code class="highlighter-rouge">old_state</code> and <code class="highlighter-rouge">new_state</code> are state objects. <a href="/topics/state_object/">Documentation about state objects.</a></p>
 
 <table>
   <thead>
@@ -113,22 +113,22 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>entity_id</code></td>
-      <td>Entity ID of the changed entity. Example: <code>light.kitchen</code></td>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>Entity ID of the changed entity. Example: <code class="highlighter-rouge">light.kitchen</code></td>
     </tr>
     <tr>
-      <td><code>old_state</code></td>
+      <td><code class="highlighter-rouge">old_state</code></td>
       <td>The previous state of the entity before it changed. This field is ommitted if the entity is new.</td>
     </tr>
     <tr>
-      <td><code>new_state</code></td>
+      <td><code class="highlighter-rouge">new_state</code></td>
       <td>The new state of the entity. This field is ommitted if the entity is removed from the state machine.</td>
     </tr>
   </tbody>
 </table>
 
-<h3><a class="title-link" name="event-time_changed" href="#event-time_changed"></a> Event <code>time_changed</code></h3>
-<p>Event <code>time_changed</code> is fired every second by the timer and contains the current time.</p>
+<h3><a class="title-link" name="event-time_changed" href="#event-time_changed"></a> Event <code class="highlighter-rouge">time_changed</code></h3>
+<p>Event <code class="highlighter-rouge">time_changed</code> is fired every second by the timer and contains the current time.</p>
 
 <table>
   <thead>
@@ -139,14 +139,14 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>now</code></td>
+      <td><code class="highlighter-rouge">now</code></td>
       <td>A <a href="https://docs.python.org/3.4/library/datetime.html#datetime.datetime">datetime object</a> containing the current time in UTC.</td>
     </tr>
   </tbody>
 </table>
 
-<h3><a class="title-link" name="event-service_registered" href="#event-service_registered"></a> Event <code>service_registered</code></h3>
-<p>Event <code>service_registered</code> is fired when a new service has been registered within Home Assistant.</p>
+<h3><a class="title-link" name="event-service_registered" href="#event-service_registered"></a> Event <code class="highlighter-rouge">service_registered</code></h3>
+<p>Event <code class="highlighter-rouge">service_registered</code> is fired when a new service has been registered within Home Assistant.</p>
 
 <table>
   <thead>
@@ -157,18 +157,18 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>domain</code></td>
-      <td>Domain of the service. Example: <code>light</code>.</td>
+      <td><code class="highlighter-rouge">domain</code></td>
+      <td>Domain of the service. Example: <code class="highlighter-rouge">light</code>.</td>
     </tr>
     <tr>
-      <td><code>service</code></td>
-      <td>The service to call. Example: <code>turn_on</code></td>
+      <td><code class="highlighter-rouge">service</code></td>
+      <td>The service to call. Example: <code class="highlighter-rouge">turn_on</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3><a class="title-link" name="event-call_service" href="#event-call_service"></a> Event <code>call_service</code></h3>
-<p>Event <code>call_service</code> is fired to call a service.</p>
+<h3><a class="title-link" name="event-call_service" href="#event-call_service"></a> Event <code class="highlighter-rouge">call_service</code></h3>
+<p>Event <code class="highlighter-rouge">call_service</code> is fired to call a service.</p>
 
 <table>
   <thead>
@@ -179,26 +179,26 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>domain</code></td>
-      <td>Domain of the service. Example: <code>light</code>.</td>
+      <td><code class="highlighter-rouge">domain</code></td>
+      <td>Domain of the service. Example: <code class="highlighter-rouge">light</code>.</td>
     </tr>
     <tr>
-      <td><code>service</code></td>
-      <td>The service to call. Example: <code>turn_on</code></td>
+      <td><code class="highlighter-rouge">service</code></td>
+      <td>The service to call. Example: <code class="highlighter-rouge">turn_on</code></td>
     </tr>
     <tr>
-      <td><code>service_data</code></td>
-      <td>Dictionary with the service call parameters. Example: <code>{ 'brightness': 120 }</code>.</td>
+      <td><code class="highlighter-rouge">service_data</code></td>
+      <td>Dictionary with the service call parameters. Example: <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">'brightness':</span><span class="w"> </span><span class="err">120</span><span class="w"> </span><span class="p">}</span></code>.</td>
     </tr>
     <tr>
-      <td><code>service_call_id</code></td>
-      <td>String with a unique call id. Example: <code>23123-4</code>.</td>
+      <td><code class="highlighter-rouge">service_call_id</code></td>
+      <td>String with a unique call id. Example: <code class="highlighter-rouge">23123-4</code>.</td>
     </tr>
   </tbody>
 </table>
 
-<h3><a class="title-link" name="event-service_executed" href="#event-service_executed"></a> Event <code>service_executed</code></h3>
-<p>Event <code>service_executed</code> is fired by the service handler to indicate the service is done.</p>
+<h3><a class="title-link" name="event-service_executed" href="#event-service_executed"></a> Event <code class="highlighter-rouge">service_executed</code></h3>
+<p>Event <code class="highlighter-rouge">service_executed</code> is fired by the service handler to indicate the service is done.</p>
 
 <table>
   <thead>
@@ -209,14 +209,14 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>service_call_id</code></td>
-      <td>String with the unique call id of the service call that was executed. Example: <code>23123-4</code>.</td>
+      <td><code class="highlighter-rouge">service_call_id</code></td>
+      <td>String with the unique call id of the service call that was executed. Example: <code class="highlighter-rouge">23123-4</code>.</td>
     </tr>
   </tbody>
 </table>
 
-<h3><a class="title-link" name="event-platform_discovered" href="#event-platform_discovered"></a> Event <code>platform_discovered</code></h3>
-<p>Event <code>platform_discovered</code> is fired when a new platform has been discovered by the discovery component.</p>
+<h3><a class="title-link" name="event-platform_discovered" href="#event-platform_discovered"></a> Event <code class="highlighter-rouge">platform_discovered</code></h3>
+<p>Event <code class="highlighter-rouge">platform_discovered</code> is fired when a new platform has been discovered by the discovery component.</p>
 
 <table>
   <thead>
@@ -227,18 +227,18 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>service</code></td>
-      <td>The service that is discovered. Example: <code>zwave</code>.</td>
+      <td><code class="highlighter-rouge">service</code></td>
+      <td>The service that is discovered. Example: <code class="highlighter-rouge">zwave</code>.</td>
     </tr>
     <tr>
-      <td><code>discovered</code></td>
-      <td>Information that is discovered. Can be a dict, tuple etc. Example: <code>(192.168.1.10, 8889)</code>.</td>
+      <td><code class="highlighter-rouge">discovered</code></td>
+      <td>Information that is discovered. Can be a dict, tuple etc. Example: <code class="highlighter-rouge">(192.168.1.10, 8889)</code>.</td>
     </tr>
   </tbody>
 </table>
 
-<h3><a class="title-link" name="event-component_loaded" href="#event-component_loaded"></a> Event <code>component_loaded</code></h3>
-<p>Event <code>component_loaded</code> is fired when a new component has been loaded and initialized.</p>
+<h3><a class="title-link" name="event-component_loaded" href="#event-component_loaded"></a> Event <code class="highlighter-rouge">component_loaded</code></h3>
+<p>Event <code class="highlighter-rouge">component_loaded</code> is fired when a new component has been loaded and initialized.</p>
 
 <table>
   <thead>
@@ -249,8 +249,8 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>component</code></td>
-      <td>Domain of the component that has just been initialized. Example: <code>light</code>.</td>
+      <td><code class="highlighter-rouge">component</code></td>
+      <td>Domain of the component that has just been initialized. Example: <code class="highlighter-rouge">light</code>.</td>
     </tr>
   </tbody>
 </table>

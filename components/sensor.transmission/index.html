@@ -89,25 +89,23 @@
   <hr class="divider">
   
 
-  <p>The <code>transmission</code> platform allows you to monitor your downloads with <a href="http://www.transmissionbt.com/">Transmission</a> from within Home Assistant and setup automation based on the information.</p>
+  <p>The <code class="highlighter-rouge">transmission</code> platform allows you to monitor your downloads with <a href="http://www.transmissionbt.com/">Transmission</a> from within Home Assistant and setup automation based on the information.</p>
 
-<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">transmission</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">9091</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Transmission</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
-  <span class="key">monitored_variables</span>:
-    - <span class="string"><span class="content">'current_status'</span></span>
-    - <span class="string"><span class="content">'download_speed'</span></span>
-    - <span class="string"><span class="content">'upload_speed'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">transmission</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">9091</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Transmission</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+  <span class="s">monitored_variables</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">current_status'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">download_speed'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">upload_speed'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

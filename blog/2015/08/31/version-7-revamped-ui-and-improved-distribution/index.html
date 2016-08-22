@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -113,9 +113,9 @@
 <ul>
   <li>Each release will have a version number, starting with version 0.7. This was chosen because it shows that we have been around for some time but are not considering ourselves to be fully stable.</li>
   <li>Each release will be pushed to PyPi. This will be the only supported method of distribution.</li>
-  <li>Home Assistant is available after installation as a command-line utility <code>hass</code>.</li>
-  <li>The default configuration location has been moved from <code>config</code> in the current working directory to <code>~/.homeassistant</code> (<code>%APPDATA%/.homeassistant</code> on Windows).</li>
-  <li>Requirements for components and platforms are no longer installed into the current Python environment (being virtual or not) but will be installed in <code>&lt;config-dir&gt;/lib</code>.</li>
+  <li>Home Assistant is available after installation as a command-line utility <code class="highlighter-rouge">hass</code>.</li>
+  <li>The default configuration location has been moved from <code class="highlighter-rouge">config</code> in the current working directory to <code class="highlighter-rouge">~/.homeassistant</code> (<code class="highlighter-rouge">%APPDATA%/.homeassistant</code> on Windows).</li>
+  <li>Requirements for components and platforms are no longer installed into the current Python environment (being virtual or not) but will be installed in <code class="highlighter-rouge">&lt;config-dir&gt;/lib</code>.</li>
 </ul>
 
 <p>A huge shout out to <a href="https://github.com/rmkraus">Ryan Kraus</a> for making this all possible. Please make sure you read <a href="/blog/2015/08/31/version-7-revamped-ui-and-improved-distribution/#read-more">the full blog post</a> for details on how to migrate your existing setup.</p>
@@ -133,93 +133,81 @@
 
 <h3><a class="title-link" name="migration-to-version-07" href="#migration-to-version-07"></a> Migration to version 0.7</h3>
 
-<p>For this example, let’s say we have an old Home Assistant installation in <code>/home/paulus/home-assistant</code>.</p>
+<p>For this example, let’s say we have an old Home Assistant installation in <code class="highlighter-rouge">/home/paulus/home-assistant</code>.</p>
 
 <p>If you want to migrate your existing configuration to be used as the default configuration:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ cp -r /home/paulus/home-assistant ~/.homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp -r /home/paulus/home-assistant ~/.homeassistant
+</code></pre>
 </div>
 
-<p>It If you want to have the configuration in a different location, for example <code>/home/paulus/home-assistant-config</code>, you will have to point Home Assistant at this configuration folder when launching:</p>
+<p>It If you want to have the configuration in a different location, for example <code class="highlighter-rouge">/home/paulus/home-assistant-config</code>, you will have to point Home Assistant at this configuration folder when launching:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ hass --config /home/paulus/home-assistant-config
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --config /home/paulus/home-assistant-config
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="new-platforms" href="#new-platforms"></a> New platforms</h3>
 
 <p>And last, but not least: new platforms!</p>
 
-<p><strong>MQTT Sensors and Switches</strong><br />
+<p><strong>MQTT Sensors and Switches</strong>
 <img src="/images/supported_brands/mqtt.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/sfam">@sfam</a> has blessed us with two more MQTT platforms to extend our integration with MQTTT: <a href="/components/sensor.mqtt/">sensor</a> and <a href="/components/switch.mqtt/">switch</a>. Both platforms require the MQTT component to be connected to a broker.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entr</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MQTT Sensor</span><span class="delimiter">&quot;</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/temperature</span><span class="delimiter">&quot;</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ºC</span><span class="delimiter">&quot;</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entr</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Sensor"</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/temperature"</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ºC"</span>
 
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bedroom Switch</span><span class="delimiter">&quot;</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/switch1</span><span class="delimiter">&quot;</span></span>
-  <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/switch1/set</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ON</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OFF</span><span class="delimiter">&quot;</span></span>
-  <span class="key">optimistic</span>: <span class="string"><span class="content">false</span></span>
-</pre></div>
-</div>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">Switch"</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1"</span>
+  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1/set"</span>
+  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
+  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
+  <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+</code></pre>
 </div>
 
-<p><strong>Actiontec MI424WR Verizon FIOS Wireless router</strong><br />
+<p><strong>Actiontec MI424WR Verizon FIOS Wireless router</strong>
 <img src="/images/supported_brands/actiontec.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/nkgilley">Nolan</a> has contributed support for Actiontec wireless routers.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">actiontec</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">YOUR_ROUTER_IP</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_ADMIN_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_ADMIN_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">actiontec</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ROUTER_IP</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+</code></pre>
 </div>
 
-<p><strong>DHT temperature and humidty sensors</strong><br />
+<p><strong>DHT temperature and humidty sensors</strong>
 <a href="https://github.com/makemeasandwich">@MakeMeASandwich</a> has contributed support for DHT temperature and humidity sensors. It allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">dht</span></span>
-  <span class="key">sensor</span>: <span class="string"><span class="content">DHT22</span></span>
-  <span class="key">pin</span>: <span class="string"><span class="content">23</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">temperature</span></span>
-    - <span class="string"><span class="content">humidity</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">dht</span>
+  <span class="s">sensor</span><span class="pi">:</span> <span class="s">DHT22</span>
+  <span class="s">pin</span><span class="pi">:</span> <span class="s">23</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">temperature</span>
+    <span class="pi">-</span> <span class="s">humidity</span>
+</code></pre>
 </div>
 
-<p><strong>Aruba device tracker</strong><br />
+<p><strong>Aruba device tracker</strong>
 <a href="https://github.com/michaelarnauts">Michael Arnauts</a> has contributed support for Aruba wireless routers for presence detection.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">aruba</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">YOUR_ACCESS_POINT_IP</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_ADMIN_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_ADMIN_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">aruba</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ACCESS_POINT_IP</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+</code></pre>
 </div>
 </article>
 
@@ -294,7 +282,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

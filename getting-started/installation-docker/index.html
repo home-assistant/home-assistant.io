@@ -89,26 +89,24 @@
   <hr class="divider">
   
 
-  <p>Installation with Docker is straightforward. Adjust the following command so that <code>/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
+  <p>Installation with Docker is straightforward. Adjust the following command so that <code class="highlighter-rouge">/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ docker run -d --name=&quot;home-assistant&quot; -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run -d --name<span class="o">=</span><span class="s2">"home-assistant"</span> -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net<span class="o">=</span>host homeassistant/home-assistant
+</code></pre>
 </div>
 
 <p>This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.</p>
 
 <p class="note">
-When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code>-v /etc/localtime:/etc/localtime:ro</code> with <code>-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">your timezone</a>)
+When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code class="highlighter-rouge">-v /etc/localtime:/etc/localtime:ro</code> with <code class="highlighter-rouge">-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">your timezone</a>)
 </p>
 
-<p>If you change the config you have to restart the server.<br />
+<p>If you change the config you have to restart the server.
 To do that you have 2 options.</p>
 
 <ol>
-  <li>You can go to the <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> service developer tools, select the service <code>homeassistant/restart</code> and click “Call Service”.</li>
-  <li>Or you can restart it from an terminal by running <code>docker restart home-assistant</code></li>
+  <li>You can go to the <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> service developer tools, select the service <code class="highlighter-rouge">homeassistant/restart</code> and click “Call Service”.</li>
+  <li>Or you can restart it from an terminal by running <code class="highlighter-rouge">docker restart home-assistant</code></li>
 </ol>
 
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>

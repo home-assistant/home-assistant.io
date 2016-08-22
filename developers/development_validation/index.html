@@ -89,28 +89,28 @@
   <hr class="divider">
   
 
-  <p>The <code>configuration.yaml</code> file contains the configuration options for components and platforms. To ensure that the given configuration provided by the user is valid we use <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> to check it. Certain entries are optional or could be required for the setup of a platform or a component. Others must be of a definied type or out of an already defined list.</p>
+  <p>The <code class="highlighter-rouge">configuration.yaml</code> file contains the configuration options for components and platforms. To ensure that the given configuration provided by the user is valid we use <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> to check it. Certain entries are optional or could be required for the setup of a platform or a component. Others must be of a definied type or out of an already defined list.</p>
 
 <p>The goal of testing the configuration is to assure that users have a great experience due to notifications if something is wrong with a platform or component setup before Home Assistant is running.</p>
 
 <p>Beside the <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> default types are a bunch of custom types available. To get a full overview take a look at the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/config_validation.py">config_validation.py</a> helper.</p>
 
 <ul>
-  <li>Types: <code>string</code>, <code>byte</code>, and <code>boolean</code></li>
-  <li>Entity ID: <code>entity_id</code> and <code>entity_ids</code></li>
-  <li>Numbers: <code>small_float</code> and <code>positive_int</code></li>
-  <li>Time: <code>time</code>, <code>time_zone</code></li>
-  <li>Misc: <code>template</code>, <code>slug</code>, <code>temperature_unit</code>, <code>latitude</code>, <code>longitude</code>, <code>isfile</code>, <code>sun_event</code>, <code>ensure_list</code>, and <code>icon</code></li>
+  <li>Types: <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">byte</code>, and <code class="highlighter-rouge">boolean</code></li>
+  <li>Entity ID: <code class="highlighter-rouge">entity_id</code> and <code class="highlighter-rouge">entity_ids</code></li>
+  <li>Numbers: <code class="highlighter-rouge">small_float</code> and <code class="highlighter-rouge">positive_int</code></li>
+  <li>Time: <code class="highlighter-rouge">time</code>, <code class="highlighter-rouge">time_zone</code></li>
+  <li>Misc: <code class="highlighter-rouge">template</code>, <code class="highlighter-rouge">slug</code>, <code class="highlighter-rouge">temperature_unit</code>, <code class="highlighter-rouge">latitude</code>, <code class="highlighter-rouge">longitude</code>, <code class="highlighter-rouge">isfile</code>, <code class="highlighter-rouge">sun_event</code>, <code class="highlighter-rouge">ensure_list</code>, and <code class="highlighter-rouge">icon</code></li>
 </ul>
 
-<p>To validate plaforms using <a href="/components/mqtt/">MQTT</a> there are <code>valid_subscribe_topic</code> and <code>valid_publish_topic</code> present.</p>
+<p>To validate plaforms using <a href="/components/mqtt/">MQTT</a> there are <code class="highlighter-rouge">valid_subscribe_topic</code> and <code class="highlighter-rouge">valid_publish_topic</code> present.</p>
 
 <p>Some things to keep in mind:</p>
 
 <ul>
-  <li>Use the constants which are definded in <code>const.py</code>.</li>
-  <li>Import <code>PLATFORM_SCHEMA</code> from parent component and extend it.</li>
-  <li>Preferred order is <code>required</code> first, then <code>optional</code>.</li>
+  <li>Use the constants which are definded in <code class="highlighter-rouge">const.py</code>.</li>
+  <li>Import <code class="highlighter-rouge">PLATFORM_SCHEMA</code> from parent component and extend it.</li>
+  <li>Preferred order is <code class="highlighter-rouge">required</code> first, then <code class="highlighter-rouge">optional</code>.</li>
 </ul>
 
 <h3><a class="title-link" name="snippets" href="#snippets"></a> Snippets</h3>
@@ -121,60 +121,52 @@
 
 <p>It’s common to set a default for a sensor if the user is not providing a name to use.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>DEFAULT_NAME = <span class="string"><span class="delimiter">'</span><span class="content">Sensor name</span><span class="delimiter">'</span></span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DEFAULT_NAME</span> <span class="o">=</span> <span class="s">'Sensor name'</span>
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    ...
-    vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
-</pre></div>
-</div>
+<span class="n">PLATFORM_SCHEMA</span> <span class="o">=</span> <span class="n">PLATFORM_SCHEMA</span><span class="o">.</span><span class="n">extend</span><span class="p">({</span>
+    <span class="o">...</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_NAME</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_NAME</span><span class="p">):</span> <span class="n">cv</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="limit-the-values" href="#limit-the-values"></a> Limit the values</h3>
 
 <p>In certain cases you want to limit the user’s input to a couple of options.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>DEFAULT_METHOD = <span class="string"><span class="delimiter">'</span><span class="content">GET</span><span class="delimiter">'</span></span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DEFAULT_METHOD</span> <span class="o">=</span> <span class="s">'GET'</span>
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    ...
-    vol.Optional(CONF_METHOD, default=DEFAULT_METHOD): vol.In([<span class="string"><span class="delimiter">'</span><span class="content">POST</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">GET</span><span class="delimiter">'</span></span>]),
-</pre></div>
-</div>
+<span class="n">PLATFORM_SCHEMA</span> <span class="o">=</span> <span class="n">PLATFORM_SCHEMA</span><span class="o">.</span><span class="n">extend</span><span class="p">({</span>
+    <span class="o">...</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_METHOD</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_METHOD</span><span class="p">):</span> <span class="n">vol</span><span class="o">.</span><span class="n">In</span><span class="p">([</span><span class="s">'POST'</span><span class="p">,</span> <span class="s">'GET'</span><span class="p">]),</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="port" href="#port"></a> Port</h3>
 
 <p>As all port numbers are coming out of the range 1 till 65535.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>DEFAULT_PORT = <span class="integer">993</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DEFAULT_PORT</span> <span class="o">=</span> <span class="mi">993</span>
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    ...
-    vol.Optional(CONF_PORT, default=DEFAULT_PORT): cv.port,
-</pre></div>
-</div>
+<span class="n">PLATFORM_SCHEMA</span> <span class="o">=</span> <span class="n">PLATFORM_SCHEMA</span><span class="o">.</span><span class="n">extend</span><span class="p">({</span>
+    <span class="o">...</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_PORT</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_PORT</span><span class="p">):</span> <span class="n">cv</span><span class="o">.</span><span class="n">port</span><span class="p">,</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="lists" href="#lists"></a> Lists</h3>
 
 <p>If a sensor has a pre-defined list of available options it should be tested if the configuration entry matches it.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>SENSOR_TYPES = {
-    <span class="string"><span class="delimiter">'</span><span class="content">article_cache</span><span class="delimiter">'</span></span>: (<span class="string"><span class="delimiter">'</span><span class="content">Article Cache</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">MB</span><span class="delimiter">'</span></span>),
-    <span class="string"><span class="delimiter">'</span><span class="content">average_download_rate</span><span class="delimiter">'</span></span>: (<span class="string"><span class="delimiter">'</span><span class="content">Average Speed</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">MB/s</span><span class="delimiter">'</span></span>),
-}
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">SENSOR_TYPES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'article_cache'</span><span class="p">:</span> <span class="p">(</span><span class="s">'Article Cache'</span><span class="p">,</span> <span class="s">'MB'</span><span class="p">),</span>
+    <span class="s">'average_download_rate'</span><span class="p">:</span> <span class="p">(</span><span class="s">'Average Speed'</span><span class="p">,</span> <span class="s">'MB/s'</span><span class="p">),</span>
+<span class="p">}</span>
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    ...
-    vol.Optional(CONF_MONITORED_VARIABLES, default=[]):
-        vol.All(ensure_list, [vol.In(SENSOR_TYPES)]),
-</pre></div>
-</div>
+<span class="n">PLATFORM_SCHEMA</span> <span class="o">=</span> <span class="n">PLATFORM_SCHEMA</span><span class="o">.</span><span class="n">extend</span><span class="p">({</span>
+    <span class="o">...</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_MONITORED_VARIABLES</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="n">vol</span><span class="o">.</span><span class="n">All</span><span class="p">(</span><span class="n">ensure_list</span><span class="p">,</span> <span class="p">[</span><span class="n">vol</span><span class="o">.</span><span class="n">In</span><span class="p">(</span><span class="n">SENSOR_TYPES</span><span class="p">)]),</span>
+</code></pre>
 </div>
 
 

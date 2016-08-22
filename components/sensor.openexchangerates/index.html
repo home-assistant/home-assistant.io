@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>openexchangerates</code> sensor will show you the current exchange rate from <a href="https://openexchangerates.org">Open Exchange Rates</a> that provides realtime exchange rates for <a href="https://openexchangerates.org/currencies">170 currencies</a>. The free account is limited to only USD as a base currency, allows 1000 requests per month, and updates every hour.</p>
+  <p>The <code class="highlighter-rouge">openexchangerates</code> sensor will show you the current exchange rate from <a href="https://openexchangerates.org">Open Exchange Rates</a> that provides realtime exchange rates for <a href="https://openexchangerates.org/currencies">170 currencies</a>. The free account is limited to only USD as a base currency, allows 1000 requests per month, and updates every hour.</p>
 
 <p>Obtain your API key <a href="https://openexchangerates.org/signup">here</a></p>
 
-<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code> file:</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: openexchangerates</span></span>
-    <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_API_KEY</span></span>
-    <span class="key">base</span>: <span class="string"><span class="content">USD</span></span>
-    <span class="key">quote</span>: <span class="string"><span class="content">EUR</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">USDEUR</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">openexchangerates</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+    <span class="s">base</span><span class="pi">:</span> <span class="s">USD</span>
+    <span class="s">quote</span><span class="pi">:</span> <span class="s">EUR</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">USDEUR</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

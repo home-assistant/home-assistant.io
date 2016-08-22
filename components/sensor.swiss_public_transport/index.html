@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>swiss_public_transport</code> sensor will give you the next two departure times from a given location to another one in Switzerland.</p>
+  <p>The <code class="highlighter-rouge">swiss_public_transport</code> sensor will give you the next two departure times from a given location to another one in Switzerland.</p>
 
 <p>The <a href="http://transport.opendata.ch/examples/stationboard.html">Stationboard</a> website can help to determine the exact name of the start and the end station. With the station names it’s necessary to search for the ID of those stations:</p>
 
 <p>http://transport.opendata.ch/v1/locations?query=[Station name]</p>
 
-<p>If the score is 100 (“score”:”100” in the response), it is a perfect match. Then add the data to your <code>configuration.yaml</code> file as shown in the example:</p>
+<p>If the score is 100 (“score”:”100” in the response), it is a perfect match. Then add the data to your <code class="highlighter-rouge">configuration.yaml</code> file as shown in the example:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">swiss_public_transport</span></span>
-  <span class="key">from</span>: <span class="string"><span class="content">STATION_ID</span></span>
-  <span class="key">to</span>: <span class="string"><span class="content">STATION_ID</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">swiss_public_transport</span>
+  <span class="s">from</span><span class="pi">:</span> <span class="s">STATION_ID</span>
+  <span class="s">to</span><span class="pi">:</span> <span class="s">STATION_ID</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

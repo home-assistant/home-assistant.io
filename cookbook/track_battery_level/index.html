@@ -91,34 +91,30 @@
 
   <p>The <a href="/components/device_tracker.icloud/">iCloud</a> is gathering various details about your device including the battery level. To display it in the Frontend use a <a href="/components/sensor.template/">template sensor</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>  - <span class="string"><span class="content">platform: template</span></span>
-    <span class="key">sensors</span>:
-      <span class="key">battery_iphone</span>:
-        <span class="key">unit_of_measurement</span>: <span class="string"><span class="content">'%'</span></span>
-        <span class="key">value_template</span>: <span class="string"><span class="delimiter">&gt;-</span><span class="content">
-            {%- if states.device_tracker.iphone.attributes.battery %}
-                {{ states.device_tracker.iphone.attributes.battery }}
-            {% else %}
-                {{ states.sensor.battery_iphone.state }}
-            {%- endif %}</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">battery_iphone</span><span class="pi">:</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+            <span class="no">{%- if states.device_tracker.iphone.attributes.battery %}</span>
+                <span class="no">{{ states.device_tracker.iphone.attributes.battery }}</span>
+            <span class="no">{% else %}</span>
+                <span class="no">{{ states.sensor.battery_iphone.state }}</span>
+            <span class="no">{%- endif %}</span>
+</code></pre>
 </div>
 
-<p>The <code>else</code> part is used to have the sensor keep it’s last state if the newest <a href="/components/device_tracker.icloud/">iCloud</a> update doesn’t have any battery state in it (which happens sometimes). Otherwise the sensor will be blank.</p>
+<p>The <code class="highlighter-rouge">else</code> part is used to have the sensor keep it’s last state if the newest <a href="/components/device_tracker.icloud/">iCloud</a> update doesn’t have any battery state in it (which happens sometimes). Otherwise the sensor will be blank.</p>
 
 <p>While running the <a href="/components/device_tracker.owntracks/">Owntracks</a> device tracker you can retrieve the battery level with a MQTT sensor.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">owntracks/tablet/tablet</span><span class="delimiter">&quot;</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Battery Tablet</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">%</span><span class="delimiter">&quot;</span></span>
-    <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.batt }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">owntracks/tablet/tablet"</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Battery</span><span class="nv"> </span><span class="s">Tablet"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%"</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.batt</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 

@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>proximity</code> component allows you to monitor the proximity of devices to a particular <a href="/components/zone/">zone</a> and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.</p>
+  <p>The <code class="highlighter-rouge">proximity</code> component allows you to monitor the proximity of devices to a particular <a href="/components/zone/">zone</a> and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.</p>
 
 <p>This component is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The <a href="/getting-started/automation-trigger/#zone-trigger">zone</a> and <a href="/getting-started/automation-trigger/#state-trigger">state</a> based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.</p>
 
@@ -103,8 +103,8 @@
 <p>The Proximity entity which is created has the following values:</p>
 
 <ul>
-  <li><code>state</code>: Distance from the monitored zone (in km)</li>
-  <li><code>dir_of_travel</code>: Direction of the closest device to the monitored zone. Values are:
+  <li><code class="highlighter-rouge">state</code>: Distance from the monitored zone (in km)</li>
+  <li><code class="highlighter-rouge">dir_of_travel</code>: Direction of the closest device to the monitored zone. Values are:
     <ul>
       <li>‘not set’</li>
       <li>‘arrived’</li>
@@ -114,26 +114,24 @@
       <li>‘stationary’</li>
     </ul>
   </li>
-  <li><code>dist_to_zone</code>: Distance from the monitored zone (in km)</li>
+  <li><code class="highlighter-rouge">dist_to_zone</code>: Distance from the monitored zone (in km)</li>
 </ul>
 
-<p>To enable this component in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this component in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">proximity</span>:
-  <span class="key">zone</span>: <span class="string"><span class="content">home</span></span>
-  <span class="key">ignored_zones</span>:
-    - <span class="string"><span class="content">twork</span></span>
-    - <span class="string"><span class="content">elschool</span></span>
-  <span class="key">devices</span>:
-    - <span class="string"><span class="content">device_tracker.nwaring_nickmobile</span></span>
-    - <span class="string"><span class="content">device_tracker.eleanorsiphone</span></span>
-    - <span class="string"><span class="content">device_tracker.tsiphone</span></span>
-  <span class="key">tolerance</span>: <span class="string"><span class="content">50</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="content">mi</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">proximity</span><span class="pi">:</span>
+  <span class="s">zone</span><span class="pi">:</span> <span class="s">home</span>
+  <span class="s">ignored_zones</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">twork</span>
+    <span class="pi">-</span> <span class="s">elschool</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">device_tracker.nwaring_nickmobile</span>
+    <span class="pi">-</span> <span class="s">device_tracker.eleanorsiphone</span>
+    <span class="pi">-</span> <span class="s">device_tracker.tsiphone</span>
+  <span class="s">tolerance</span><span class="pi">:</span> <span class="s">50</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">mi</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -146,21 +144,19 @@
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): The unit of measurement for distance. Valid values are (km, m, mi, ft) [kilometers, meters, miles and feet respectfully]. The default value is kilometers.</li>
 </ul>
 
-<p>To add multiple proximity components, simply use a list in your <code>configuration.yaml</code> file:</p>
+<p>To add multiple proximity components, simply use a list in your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">proximity</span>:
-  - <span class="string"><span class="content">zone: home</span></span>
-    <span class="key">devices</span>:
-      - <span class="string"><span class="content">device_tracker.tsiphone</span></span>
-    <span class="key">tolerance</span>: <span class="string"><span class="content">50</span></span>
-  - <span class="string"><span class="content">zone: work</span></span>
-    <span class="key">devices</span>:
-      - <span class="string"><span class="content">device_tracker.elanorsiphone</span></span>
-    <span class="key">tolerance</span>: <span class="string"><span class="content">10</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">proximity</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">zone</span><span class="pi">:</span> <span class="s">home</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">device_tracker.tsiphone</span>
+    <span class="s">tolerance</span><span class="pi">:</span> <span class="s">50</span>
+  <span class="pi">-</span> <span class="s">zone</span><span class="pi">:</span> <span class="s">work</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">device_tracker.elanorsiphone</span>
+    <span class="s">tolerance</span><span class="pi">:</span> <span class="s">10</span>
+</code></pre>
 </div>
 
 

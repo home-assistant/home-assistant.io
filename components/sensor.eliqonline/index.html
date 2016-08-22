@@ -91,17 +91,15 @@
 
   <p>Integrate your <a href="http://eliq.se">ELIQ Online</a> smart meter information into Home Assistant. To get an <a href="https://my.eliq.se/user/settings/api">acess token</a> and the <a href="https://my.eliq.se/user/settings/data">Channel ID</a>, log in to your account.</p>
 
-<p>To enable this sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">eliqonline</span></span>
-  <span class="key">access_token</span>: <span class="string"><span class="content">ACCESS_TOKEN</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Power consumption </span></span>
-  <span class="key">channel_id</span>: <span class="string"><span class="content">CHANNEL_ID</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">eliqonline</span>
+  <span class="s">access_token</span><span class="pi">:</span> <span class="s">ACCESS_TOKEN</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Power consumption</span> 
+  <span class="s">channel_id</span><span class="pi">:</span> <span class="s">CHANNEL_ID</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

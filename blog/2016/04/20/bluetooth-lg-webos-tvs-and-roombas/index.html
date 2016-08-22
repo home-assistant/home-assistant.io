@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -143,12 +143,12 @@
 <h3>Breaking changes</h3>
 <ul>
   <li>We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.</li>
-  <li>The constant <code>TEMP_CELCIUS</code> is now correctly called <code>TEMP_CELSIUS</code>. Old one is deprecated and will eventually be removed.</li>
-  <li>The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run <code>homeassistant/home-assistant:latest</code> for the latest release and <code>homeassistant/home-assistant:dev</code> for the latest dev version.</li>
+  <li>The constant <code class="highlighter-rouge">TEMP_CELCIUS</code> is now correctly called <code class="highlighter-rouge">TEMP_CELSIUS</code>. Old one is deprecated and will eventually be removed.</li>
+  <li>The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run <code class="highlighter-rouge">homeassistant/home-assistant:latest</code> for the latest release and <code class="highlighter-rouge">homeassistant/home-assistant:dev</code> for the latest dev version.</li>
   <li>MySensors received two big changes that will cause you to update your configs. See <a href="/components/mysensors/">component page</a> for new example config.
     <ol>
       <li>All MySensors entity IDs are different! There was an error in the naming that caused MySensors to append node ID and child ID instead of separating them with an underscore. This has been fixed but will cause all your MySensors entity IDs to change. This is a one time breaking change.</li>
-      <li>The second change is that we now support the TCP ethernet gateway. This is causing a slight change to the config format: you have to change <code>port:</code> under <code>gateways</code> to <code>device:</code>.</li>
+      <li>The second change is that we now support the TCP ethernet gateway. This is causing a slight change to the config format: you have to change <code class="highlighter-rouge">port:</code> under <code class="highlighter-rouge">gateways</code> to <code class="highlighter-rouge">device:</code>.</li>
     </ol>
   </li>
 </ul>
@@ -225,7 +225,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

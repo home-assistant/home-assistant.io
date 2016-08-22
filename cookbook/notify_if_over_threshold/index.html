@@ -91,43 +91,39 @@
 
   <p>The following example sends a notification via pushbullet if a sensor is over a critical value:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>
-<span class="key">notify me</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">pushbullet</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">API_KEY_HERE</span><span class="delimiter">&quot;</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">mypushbullet</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="s">notify me</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">pushbullet</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">API_KEY_HERE"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">mypushbullet</span>
 
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: FanOn</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">numeric_state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.furnace</span></span>
-      <span class="key">above</span>: <span class="string"><span class="content">2</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">notify.mypushbullet</span></span>
-      <span class="key">data</span>:
-        <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Furnace fan is running</span><span class="delimiter">&quot;</span></span>
-        <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Fan running because current is {{ states.sensor.furnace.state }} amps</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">FanOn</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.furnace</span>
+      <span class="s">above</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.mypushbullet</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Furnace</span><span class="nv"> </span><span class="s">fan</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">running"</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Fan</span><span class="nv"> </span><span class="s">running</span><span class="nv"> </span><span class="s">because</span><span class="nv"> </span><span class="s">current</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.furnace.state</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">amps"</span>
+</code></pre>
 </div>
 
 <p>If you also want a notification when it drops back down below that limit, you could add this as well:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>  - <span class="string"><span class="content">alias: FanOff</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">numeric_state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.furnace</span></span>
-      <span class="key">below</span>: <span class="string"><span class="content">2</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">notify.mypushbullet</span></span>
-      <span class="key">data</span>:
-        <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Furnace fan is stopped</span><span class="delimiter">&quot;</span></span>
-        <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Fan stopped because current is {{ states.sensor.furnace.state }} amps</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">FanOff</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.furnace</span>
+      <span class="s">below</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.mypushbullet</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Furnace</span><span class="nv"> </span><span class="s">fan</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">stopped"</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Fan</span><span class="nv"> </span><span class="s">stopped</span><span class="nv"> </span><span class="s">because</span><span class="nv"> </span><span class="s">current</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.furnace.state</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">amps"</span>
+</code></pre>
 </div>
 
 

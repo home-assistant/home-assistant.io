@@ -89,21 +89,19 @@
   <hr class="divider">
   
 
-  <p>The Squeezebox platform allows you to control a <a href="https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29">Logitech Squeezebox</a> music player from Home Assistant.<br />
+  <p>The Squeezebox platform allows you to control a <a href="https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29">Logitech Squeezebox</a> music player from Home Assistant.
 This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like <a href="http://softsqueeze.sourceforge.net/">SoftSqueeze</a>, <a href="https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer">SqueezePlayer</a> and <a href="http://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released">SqueezeSlave</a>.</p>
 
-<p>To add your Squeezebox player to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add your Squeezebox player to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">squeezebox</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">9090</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">squeezebox</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">9090</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

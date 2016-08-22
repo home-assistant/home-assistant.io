@@ -89,41 +89,37 @@
   <hr class="divider">
   
 
-  <p>By default Home Assistant will try to detect your location and will automatically select a temperature unit and time zone based on your location. You can overwrite this by adding the following information to your <code>configuration.yaml</code>:</p>
+  <p>By default Home Assistant will try to detect your location and will automatically select a temperature unit and time zone based on your location. You can overwrite this by adding the following information to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">homeassistant</span>:
-  <span class="comment"># Omitted values in this section will be auto detected using freegeoip.io</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="c1"># Omitted values in this section will be auto detected using freegeoip.io</span>
 
-  <span class="comment"># Location required to calculate the time the sun rises and sets</span>
-  <span class="key">latitude</span>: <span class="string"><span class="content">32.87336</span></span>
-  <span class="key">longitude</span>: <span class="string"><span class="content">117.22743</span></span>
+  <span class="c1"># Location required to calculate the time the sun rises and sets</span>
+  <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.87336</span>
+  <span class="s">longitude</span><span class="pi">:</span> <span class="s">117.22743</span>
 
-  <span class="comment"># Impacts weather/sunrise data (altitude above sea level) </span>
-  <span class="key">elevation</span>: <span class="string"><span class="content">430</span></span>
+  <span class="c1"># Impacts weather/sunrise data (altitude above sea level) </span>
+  <span class="s">elevation</span><span class="pi">:</span> <span class="s">430</span>
 
-  <span class="comment"># 'metric' for Metric, 'imperial' for Imperial</span>
-  <span class="key">unit_system</span>: <span class="string"><span class="content">metric</span></span>
+  <span class="c1"># 'metric' for Metric, 'imperial' for Imperial</span>
+  <span class="s">unit_system</span><span class="pi">:</span> <span class="s">metric</span>
 
-  <span class="comment"># Pick yours from here:</span>
-  <span class="comment"># http://en.wikipedia.org/wiki/List_of_tz_database_time_zones</span>
-  <span class="key">time_zone</span>: <span class="string"><span class="content">America/Los_Angeles</span></span>
+  <span class="c1"># Pick yours from here:</span>
+  <span class="c1"># http://en.wikipedia.org/wiki/List_of_tz_database_time_zones</span>
+  <span class="s">time_zone</span><span class="pi">:</span> <span class="s">America/Los_Angeles</span>
 
-  <span class="comment"># Name of the location where Home Assistant is running</span>
-  <span class="key">name</span>: <span class="string"><span class="content">Home</span></span>
-</pre></div>
-</div>
+  <span class="c1"># Name of the location where Home Assistant is running</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="password-protecting-the-web-interface" href="#password-protecting-the-web-interface"></a> Password protecting the web interface</h3>
 
-<p>The first thing you will want to add is a password for the web interface. Use your favourite text editor to open <code>configuration.yaml</code> and edit the <code>http</code> section:</p>
+<p>The first thing you will want to add is a password for the web interface. Use your favourite text editor to open <code class="highlighter-rouge">configuration.yaml</code> and edit the <code class="highlighter-rouge">http</code> section:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">http</span>:
-  <span class="key">api_password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">api_password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+</code></pre>
 </div>
 
 <p class="note warning">
@@ -140,7 +136,7 @@ If you are planing to expose your Home Assistant instance to the internet and do
 
 <p>To make Home Assistant accessible while away from home, you will have to make it accessible.</p>
 
-<p>The common approach is to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching <code>&lt;Router model&gt; port forwarding instructions</code>.</p>
+<p>The common approach is to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching <code class="highlighter-rouge">&lt;Router model&gt; port forwarding instructions</code>.</p>
 
 <p>The problem with making a port accessible is that some Internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while away. You can solve this by using a free Dynamic DNS service like <a href="https://www.duckdns.org/">DuckDNS</a>.</p>
 

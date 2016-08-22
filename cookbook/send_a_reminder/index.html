@@ -93,33 +93,29 @@
 
 <p>Add a <a href="/components/notify/">notify platform</a> of your choice.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">notify</span>:
-  - <span class="string"><span class="content">platform: xmpp</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">jabber</span></span>
-    <span class="key">sender</span>: <span class="string"><span class="content">YOUR_JID</span></span>
-    <span class="key">password</span>: <span class="string"><span class="content">YOUR_JABBER_ACCOUNT_PASSWORD</span></span>
-    <span class="key">recipient</span>: <span class="string"><span class="content">YOUR_RECIPIENT</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xmpp</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">jabber</span>
+    <span class="s">sender</span><span class="pi">:</span> <span class="s">YOUR_JID</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_JABBER_ACCOUNT_PASSWORD</span>
+    <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
+</code></pre>
 </div>
 
-<p>and automation part to your <code>configuration.yaml</code> file.</p>
+<p>and automation part to your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: Send message at a given time</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
-      <span class="key">hours</span>: <span class="string"><span class="content">12</span></span>
-      <span class="key">minutes</span>: <span class="string"><span class="content">15</span></span>
-      <span class="key">seconds</span>: <span class="string"><span class="content">0</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">notify.jabber</span></span>
-      <span class="key">data</span>:
-        <span class="key">message</span>: <span class="string"><span class="content">'Time for lunch'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Send message at a given time</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+      <span class="s">hours</span><span class="pi">:</span> <span class="s">12</span>
+      <span class="s">minutes</span><span class="pi">:</span> <span class="s">15</span>
+      <span class="s">seconds</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.jabber</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Time</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">lunch'</span>
+</code></pre>
 </div>
 
 

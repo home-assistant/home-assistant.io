@@ -89,18 +89,16 @@
   <hr class="divider">
   
 
-  <p>The <code>mystrom</code> switch platform allows you to control the state of your <a href="https://mystrom.ch/en/">myStrom</a> switches. The built-in sensor is measuring the power consumption while the switch is on.</p>
+  <p>The <code class="highlighter-rouge">mystrom</code> switch platform allows you to control the state of your <a href="https://mystrom.ch/en/">myStrom</a> switches. The built-in sensor is measuring the power consumption while the switch is on.</p>
 
-<p>To use your myStrom switch in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your myStrom switch in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mystrom</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADRRESS</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">MyStrom Switch</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mystrom</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADRRESS</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">MyStrom Switch</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -110,24 +108,20 @@
   <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this switch.</li>
 </ul>
 
-<p>Check if you are able to access the device located at <code>http://IP_ADRRESS</code>. The details about your switch is provided as a JSON response.</p>
+<p>Check if you are able to access the device located at <code class="highlighter-rouge">http://IP_ADRRESS</code>. The details about your switch is provided as a JSON response.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET -H &quot;Content-Type: application/json&quot; http://IP_ADDRESS/report
-{
-    &quot;power&quot;:    0,
-    &quot;relay&quot;:    false
-}
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"Content-Type: application/json"</span> http://IP_ADDRESS/report
+<span class="o">{</span>
+	<span class="s2">"power"</span>:	0,
+	<span class="s2">"relay"</span>:	<span class="nb">false</span>
+<span class="o">}</span>
+</code></pre>
 </div>
 
 <p>or change its state:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -G -X GET http://IP_ADDRESS/relay -d <span class="s1">'state=1'</span>
+</code></pre>
 </div>
 
 

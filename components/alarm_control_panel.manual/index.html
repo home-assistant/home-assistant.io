@@ -91,16 +91,14 @@
 
   <p>This platform enables you to set manual alarms in Home Assistant.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">alarm_control_panel</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">manual</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HA Alarm</span><span class="delimiter">&quot;</span></span>
-  <span class="key">code</span>: <span class="string"><span class="content">PASSCODE</span></span>
-  <span class="key">pending_time</span>: <span class="string"><span class="content">60</span></span>
-  <span class="key">trigger_time</span>: <span class="string"><span class="content">120</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alarm_control_panel</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">manual</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">HA</span><span class="nv"> </span><span class="s">Alarm"</span>
+  <span class="s">code</span><span class="pi">:</span> <span class="s">PASSCODE</span>
+  <span class="s">pending_time</span><span class="pi">:</span> <span class="s">60</span>
+  <span class="s">trigger_time</span><span class="pi">:</span> <span class="s">120</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -120,31 +118,29 @@
 
 <p>Using sensors to trigger the alarm.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-- <span class="string"><span class="content">alias: 'Trigger alarm while armed away'</span></span>
-  <span class="key">trigger</span>:
-    - <span class="string"><span class="content">platform: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.pir1</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">'active'</span></span>
-    - <span class="string"><span class="content">platform: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.pir2</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">'active'</span></span>
-    - <span class="string"><span class="content">platform: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.door</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">'open'</span></span>
-    - <span class="string"><span class="content">platform: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.window</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">'open'</span></span>
-  <span class="key">condition</span>:
-    - <span class="string"><span class="content">platform: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">alarm_control_panel.ha_alarm</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">armed_away</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">alarm_control_panel.alarm_trigger</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">alarm_control_panel.ha_alarm</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Trigger</span><span class="nv"> </span><span class="s">alarm</span><span class="nv"> </span><span class="s">while</span><span class="nv"> </span><span class="s">armed</span><span class="nv"> </span><span class="s">away'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.pir1</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">active'</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.pir2</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">active'</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.door</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">open'</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.window</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">open'</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">alarm_control_panel.ha_alarm</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s">armed_away</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">alarm_control_panel.alarm_trigger</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">alarm_control_panel.ha_alarm</span>
+</code></pre>
 </div>
 
 

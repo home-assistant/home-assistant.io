@@ -87,15 +87,15 @@
   <div class="meta clearfix">
     <time datetime="2016-07-19T16:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 19, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
-        <li><a class='category' href='/blog/categories/iot-data/'>IoT-Data</a></li>
+        <li>IoT-Data</li>
       
     
     </ul>
@@ -118,37 +118,33 @@
 
 <a name="read-more"></a>
 
-<p>In this blog post I use the temperature of the <a href="https://en.wikipedia.org/wiki/Aare">Aare</a> river close to where I live as a show case. The temperatures were recorded with the <a href="/components/sensor.swiss_hydrological_data/">Swiss Hydrological Data sensor</a> and the name of the sensor is <code>sensor.aare</code>.</p>
+<p>In this blog post I use the temperature of the <a href="https://en.wikipedia.org/wiki/Aare">Aare</a> river close to where I live as a show case. The temperatures were recorded with the <a href="/components/sensor.swiss_hydrological_data/">Swiss Hydrological Data sensor</a> and the name of the sensor is <code class="highlighter-rouge">sensor.aare</code>.</p>
 
-<p>The database is stored at <code>&lt;path to config dir&gt;/.homeassistant/home-assistant_v2.db</code> as <a href="https://www.sqlite.org/">SQLite database</a>. In all examples we are going to use the path: <code>/home/ha/.homeassistant/home-assistant_v2.db</code></p>
+<p>The database is stored at <code class="highlighter-rouge">&lt;path to config dir&gt;/.homeassistant/home-assistant_v2.db</code> as <a href="https://www.sqlite.org/">SQLite database</a>. In all examples we are going to use the path: <code class="highlighter-rouge">/home/ha/.homeassistant/home-assistant_v2.db</code></p>
 
-<p>If you are just curious what’s stored in your database then you can use the <code>sqlite3</code> command-line tool or a graphical one like <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>.</p>
+<p>If you are just curious what’s stored in your database then you can use the <code class="highlighter-rouge">sqlite3</code> command-line tool or a graphical one like <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>.</p>
 
-<p>The table that is holding the states is called <code>states</code>. The <code>events</code> tables is responsible for storing the events which occurred. So, we will first check how many entries there are in the <code>states</code> table. <code>sqlite3</code> needs to know where the databases is located. To work with your database make sure that Home Assistant is not running or create a copy of the existing database. It’s recommended to work with a copy.</p>
+<p>The table that is holding the states is called <code class="highlighter-rouge">states</code>. The <code class="highlighter-rouge">events</code> tables is responsible for storing the events which occurred. So, we will first check how many entries there are in the <code class="highlighter-rouge">states</code> table. <code class="highlighter-rouge">sqlite3</code> needs to know where the databases is located. To work with your database make sure that Home Assistant is not running or create a copy of the existing database. It’s recommended to work with a copy.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sqlite3 /home/ha/.homeassistant/home-assistant_v2.db 
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sqlite3 /home/ha/.homeassistant/home-assistant_v2.db 
 SQLite version 3.11.0 2016-02-15 17:29:24
-sqlite&gt; SELECT count(*) FROM states;
+<span class="gp">sqlite&gt; </span>SELECT count<span class="o">(</span><span class="k">*</span><span class="o">)</span> FROM states;
 24659
-</pre></div>
-</div>
-</div>
-
-<p>Let’s have a look at a sample <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> query. This query will show all states in a period for the sensor <code>sensor.aare</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="class">SELECT</span> state, last_changed <span class="keyword">FROM</span> states
-  <span class="keyword">WHERE</span>
-    entity_id = <span class="string"><span class="delimiter">'</span><span class="content">sensor.aare</span><span class="delimiter">'</span></span>
-  <span class="keyword">AND</span>
-     last_changed <span class="keyword">BETWEEN</span>
-    <span class="string"><span class="delimiter">'</span><span class="content">2016-07-05 00:00:00.000000</span><span class="delimiter">'</span></span> <span class="keyword">AND</span> <span class="string"><span class="delimiter">'</span><span class="content">2016-07-07 00:00:00.000000</span><span class="delimiter">'</span></span>;
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>The SQL statement can be formed that it fits exactly what you need. This means that you can process the data in any way you want for further use. Often it makes sense to eliminate certain entries like <code>Unknown</code> or peaks.</p>
+<p>Let’s have a look at a sample <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> query. This query will show all states in a period for the sensor <code class="highlighter-rouge">sensor.aare</code>.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">state</span><span class="p">,</span> <span class="n">last_changed</span> <span class="k">FROM</span> <span class="n">states</span>
+  <span class="k">WHERE</span>
+    <span class="n">entity_id</span> <span class="o">=</span> <span class="s1">'sensor.aare'</span>
+  <span class="k">AND</span>
+     <span class="n">last_changed</span> <span class="k">BETWEEN</span>
+    <span class="s1">'2016-07-05 00:00:00.000000'</span> <span class="k">AND</span> <span class="s1">'2016-07-07 00:00:00.000000'</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>The SQL statement can be formed that it fits exactly what you need. This means that you can process the data in any way you want for further use. Often it makes sense to eliminate certain entries like <code class="highlighter-rouge">Unknown</code> or peaks.</p>
 
 <p>If the above query is executed in DB Browser for SQLite you would be able to save the sensor’s graph as png.</p>
 
@@ -159,13 +155,11 @@ sqlite&gt; SELECT count(*) FROM states;
 
 <p>You may ask: Why not do this with LibreOffice Calc or another spreadsheet application? As most spreadsheet applications are not able to work directly with SQLite database we are going to export the data from the database to <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sqlite3 -header -csv /home/ha/.homeassistant/home-assistant_v2.db &quot;SELECT last_changed, state FROM states WHERE entity_id = 'sensor.aare' AND last_changed BETWEEN '2016-07-05 00:00:00.000000' AND '2016-07-07 00:00:00.000000';&quot; &gt; sensor.csv
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sqlite3 -header -csv /home/ha/.homeassistant/home-assistant_v2.db <span class="s2">"SELECT last_changed, state FROM states WHERE entity_id = 'sensor.aare' AND last_changed BETWEEN '2016-07-05 00:00:00.000000' AND '2016-07-07 00:00:00.000000';"</span> &gt; sensor.csv
+</code></pre>
 </div>
 
-<p>The ordering for the <code>SELECT</code> was changed to get the time stamps first and then the state. Now we can import the CSV file into the application of your choice, here it’s LibreOffice Calc.</p>
+<p>The ordering for the <code class="highlighter-rouge">SELECT</code> was changed to get the time stamps first and then the state. Now we can import the CSV file into the application of your choice, here it’s LibreOffice Calc.</p>
 
 <p class="img">
   <img src="/images/blog/2016-07-reporting/libreoffice-import.png" />
@@ -181,33 +175,31 @@ sqlite&gt; SELECT count(*) FROM states;
 
 <p>You can also use <a href="http://matplotlib.org/">matplotlib</a> to generate graphs as an alternative to a spreadsheet application. This is a powerful Python 2D plotting library. With the built-in support for SQLite in Python it will only take a couple lines of code to visualize your data.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">sqlite3</span>
-<span class="keyword">from</span> <span class="include">matplotlib</span> <span class="keyword">import</span> <span class="include">dates</span>
-<span class="keyword">import</span> <span class="include">matplotlib.pyplot</span> <span class="keyword">as</span> plt
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">dates</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
-<span class="keyword">import</span> <span class="include">homeassistant.util.dt</span> <span class="keyword">as</span> dt
+<span class="kn">import</span> <span class="nn">homeassistant.util.dt</span> <span class="kn">as</span> <span class="nn">dt</span>
 
-values = []
-timestamps = []
+<span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">timestamps</span> <span class="o">=</span> <span class="p">[]</span>
 
-conn = sqlite3.connect(<span class="string"><span class="delimiter">'</span><span class="content">/home/ha/.homeassistant/home-assistant_v2.db</span><span class="delimiter">'</span></span>)
-data = conn.execute(<span class="string"><span class="delimiter">&quot;</span><span class="content">SELECT state, last_changed FROM states WHERE </span><span class="delimiter">&quot;</span></span>
-                    <span class="string"><span class="delimiter">&quot;</span><span class="content">entity_id = 'sensor.aare' AND last_changed BETWEEN </span><span class="delimiter">&quot;</span></span>
-                    <span class="string"><span class="delimiter">&quot;</span><span class="content">'2016-07-05 00:00:00.000000' AND </span><span class="delimiter">&quot;</span></span>
-                    <span class="string"><span class="delimiter">&quot;</span><span class="content">'2016-07-07 00:00:00.000000'</span><span class="delimiter">&quot;</span></span>)
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">'/home/ha/.homeassistant/home-assistant_v2.db'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT state, last_changed FROM states WHERE "</span>
+                    <span class="s">"entity_id = 'sensor.aare' AND last_changed BETWEEN "</span>
+                    <span class="s">"'2016-07-05 00:00:00.000000' AND "</span>
+                    <span class="s">"'2016-07-07 00:00:00.000000'"</span><span class="p">)</span>
 
-<span class="keyword">for</span> x <span class="keyword">in</span> data:
-    timestamps.append(dates.date2num(dt.parse_datetime(x[<span class="integer">1</span>])))
-    values.append(<span class="predefined">float</span>(x[<span class="integer">0</span>]))
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">timestamps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">parse_datetime</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 
-plt.plot_date(x=timestamps, y=values, fmt=<span class="string"><span class="delimiter">&quot;</span><span class="content">r-</span><span class="delimiter">&quot;</span></span>)
-plt.ylabel(<span class="string"><span class="delimiter">'</span><span class="content">Temperature</span><span class="delimiter">'</span></span>)
-plt.xlabel(<span class="string"><span class="delimiter">'</span><span class="content">Time line</span><span class="delimiter">'</span></span>)
+<span class="n">plt</span><span class="o">.</span><span class="n">plot_date</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">timestamps</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">"r-"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Temperature'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Time line'</span><span class="p">)</span>
 
-plt.savefig(<span class="string"><span class="delimiter">'</span><span class="content">sensor.png</span><span class="delimiter">'</span></span>)
-</pre></div>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'sensor.png'</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <p>Creating a connection to the database and executing a query is similar to the ways already seen. The return values from the query are splitted into two lists. The time stamps must be converted in an value which is accepted by matplotlib and then the graph is generated and saved as image.</p>
@@ -291,7 +283,7 @@ plt.savefig(<span class="string"><span class="delimiter">'</span><span class="co
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

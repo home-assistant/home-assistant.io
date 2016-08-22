@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>mpd</code> platform allows you to control a <a href="http://www.musicpd.org/">Music Player Daemon</a> from Home Assistant. Unfortunatly you will not be able to manipulate the playlist (add or delete songs) or add transitions between the songs.</p>
+  <p>The <code class="highlighter-rouge">mpd</code> platform allows you to control a <a href="http://www.musicpd.org/">Music Player Daemon</a> from Home Assistant. Unfortunatly you will not be able to manipulate the playlist (add or delete songs) or add transitions between the songs.</p>
 
-<p>To add MPD to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add MPD to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">6600</span></span>
-  <span class="key">location</span>: <span class="string"><span class="content">bedroom</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mpd</span>
+  <span class="s">server</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">6600</span>
+  <span class="s">location</span><span class="pi">:</span> <span class="s">bedroom</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

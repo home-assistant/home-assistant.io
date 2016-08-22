@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -129,31 +129,29 @@
   <li>Binary Sensor: Wemo Motion now supported (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/ryanlaux">@ryanlaux</a>)</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example using templates for service and data in service call.</span>
-<span class="comment"># Works for automation, Alexa, universal media player, template switch.</span>
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">trigger:</span><span class="content">
-      - platform: state
-        entity_id: switch.bathroom</span></span>
-    <span class="key">action</span>:
-      <span class="key">service_template</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-        {% if is_state('switch.bathroom', 'on') %}
-          switch.turn_on
-        {% else %}
-          switch.turn_off
-        {% endif %}</span></span>
-      <span class="key">data_template</span>:
-        <span class="key">entity_id</span>: <span class="string"><span class="content">switch.{{ states('input_select.is') }}</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example using templates for service and data in service call.</span>
+<span class="c1"># Works for automation, Alexa, universal media player, template switch.</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.bathroom</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">{% if is_state('switch.bathroom', 'on') %}</span>
+          <span class="no">switch.turn_on</span>
+        <span class="no">{% else %}</span>
+          <span class="no">switch.turn_off</span>
+        <span class="no">{% endif %}</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.{{ states('input_select.is') }}</span>
+</code></pre>
 </div>
 
 <h3>Breaking Changes</h3>
 
 <ul>
-  <li>Media Player: Attributes to call service play_media has been renamed to<br />
-<code>media_content_type</code> and <code>media_content_id</code>, to match the corresponding media<br />
+  <li>Media Player: Attributes to call service play_media has been renamed to
+<code class="highlighter-rouge">media_content_type</code> and <code class="highlighter-rouge">media_content_id</code>, to match the corresponding media
 player state attributes. This change affects automations, scripts and scenes.</li>
 </ul>
 </article>
@@ -229,7 +227,7 @@ player state attributes. This change affects automations, scripts and scenes.</l
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

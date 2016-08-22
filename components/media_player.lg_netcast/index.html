@@ -89,19 +89,17 @@
   <hr class="divider">
   
 
-  <p>The <code>lg_netcast</code> platform allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV’s use the <a href="/components/media_player.webostv">webostv</a> platform.</p>
+  <p>The <code class="highlighter-rouge">lg_netcast</code> platform allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV’s use the <a href="/components/media_player.webostv">webostv</a> platform.</p>
 
-<p>To add a LG TV to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add a LG TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">lg_netcast</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.0.20</span></span>
-  <span class="key">access_token</span>: <span class="string"><span class="content">889955</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Living Room TV</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">lg_netcast</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.20</span>
+  <span class="s">access_token</span><span class="pi">:</span> <span class="s">889955</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -112,8 +110,8 @@
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the LG Smart TV. The default is “LG TV Remote”.</li>
 </ul>
 
-<p>To get the access token for your TV configure the <code>lg_netcast</code> platform in Home Assistant without the <code>access_token</code>.<br />
-After starting Home Assistant the TV will display the access token on screen.<br />
+<p>To get the access token for your TV configure the <code class="highlighter-rouge">lg_netcast</code> platform in Home Assistant without the <code class="highlighter-rouge">access_token</code>.
+After starting Home Assistant the TV will display the access token on screen.
 Just add the token to your configuration and restart Home Assistant and the media player component for your LG TV will show up.</p>
 
 <p class="note">

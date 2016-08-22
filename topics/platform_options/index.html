@@ -95,28 +95,24 @@
 
 <h3><a class="title-link" name="entity-namespace" href="#entity-namespace"></a> Entity namespace</h3>
 
-<p>By setting an entity namespace, all entities will be prefixed with that namespace. That way <code>light.bathroom</code> can become <code>light.holiday_house_bathroom</code>.</p>
+<p>By setting an entity namespace, all entities will be prefixed with that namespace. That way <code class="highlighter-rouge">light.bathroom</code> can become <code class="highlighter-rouge">light.holiday_house_bathroom</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">hue</span></span>
-  <span class="key">entity_namespace</span>: <span class="string"><span class="content">holiday_house</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hue</span>
+  <span class="s">entity_namespace</span><span class="pi">:</span> <span class="s">holiday_house</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="scan-interval" href="#scan-interval"></a> Scan Interval</h3>
 
-<p>Platforms that require polling will be polled in an interval specified by the main component. For example a light will check every 30 seconds for a changed state. It is possible to overwrite this scan interval for any platform that is being polled by specifying a <code>scan_interval</code> config key. In the example below we setup the Philips Hue lights but tell Home Assistant to poll the devices every 10 seconds instead of the default 30 seconds.</p>
+<p>Platforms that require polling will be polled in an interval specified by the main component. For example a light will check every 30 seconds for a changed state. It is possible to overwrite this scan interval for any platform that is being polled by specifying a <code class="highlighter-rouge">scan_interval</code> config key. In the example below we setup the Philips Hue lights but tell Home Assistant to poll the devices every 10 seconds instead of the default 30 seconds.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry to poll Hue lights every 10 seconds.</span>
-<span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">hue</span></span>
-  <span class="key">scan_interval</span>: <span class="string"><span class="content">10</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry to poll Hue lights every 10 seconds.</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hue</span>
+  <span class="s">scan_interval</span><span class="pi">:</span> <span class="s">10</span>
+</code></pre>
 </div>
 
 
@@ -187,7 +183,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

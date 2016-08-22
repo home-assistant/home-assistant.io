@@ -95,27 +95,23 @@
 
 <p>The very first step is to install the requirement to run Jupyter Notebooks.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install jupyter matplotlib
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install jupyter matplotlib
+</code></pre>
 </div>
 
 <p class="note warning">
-Certain notebooks hosted in the <a href="https://github.com/home-assistant/home-assistant-notebooks">Home Assistant notebooks repository</a> require access to a running Home Assistant instance or parts of a Home Assistant installation. If you want to run those notebooks install Home Assistant with <code>$ pip3 install homeassistant</code> as well.
+Certain notebooks hosted in the <a href="https://github.com/home-assistant/home-assistant-notebooks">Home Assistant notebooks repository</a> require access to a running Home Assistant instance or parts of a Home Assistant installation. If you want to run those notebooks install Home Assistant with <code class="highlighter-rouge">$ pip3 install homeassistant</code> as well.
 </p>
 
 <p>Now you are able to start the application.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ jupyter notebook
-[I 17:22:18.081 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
-[I 17:22:18.921 NotebookApp] Serving notebooks from local directory: /home/fabaff/home-assistant
-[I 17:22:18.921 NotebookApp] 0 active kernels 
-[I 17:22:18.921 NotebookApp] The Jupyter Notebook is running at: http://localhost:8888/
-[I 17:22:18.922 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>jupyter notebook
+<span class="o">[</span>I 17:22:18.081 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
+<span class="o">[</span>I 17:22:18.921 NotebookApp] Serving notebooks from <span class="nb">local </span>directory: /home/fabaff/home-assistant
+<span class="o">[</span>I 17:22:18.921 NotebookApp] 0 active kernels 
+<span class="o">[</span>I 17:22:18.921 NotebookApp] The Jupyter Notebook is running at: http://localhost:8888/
+<span class="o">[</span>I 17:22:18.922 NotebookApp] Use Control-C to stop this server and shut down all kernels <span class="o">(</span>twice to skip confirmation<span class="o">)</span>.
+</code></pre>
 </div>
 
 <p>Open <a href="http://localhost:8888/">http://localhost:8888/</a> in your browser. Press “New” -&gt; “Python3” to open a new notebook.</p>

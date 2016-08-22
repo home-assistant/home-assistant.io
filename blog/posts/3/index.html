@@ -96,7 +96,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/technology/'>Technology</a></li>
+        <li>Technology</li>
       
     
     </ul>
@@ -140,13 +140,13 @@
   <div class="meta clearfix">
     <time datetime="2016-05-12T00:09:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 12, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> less than one minute reading time</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/video/'>Video</a></li>
+        <li>Video</li>
       
     
     </ul>
@@ -193,7 +193,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -211,49 +211,45 @@
   <div class="entry-content clearfix">
     <p>This release is big. Until now, our automations and scripts have been very static. Starting today it should all be a bit more dynamic.</p>
 
-<p><strong>Scripts</strong> are now available in automations and when responding to Alexa/Amazon Echo. Both of these components will now expose data to be used in script templates (including <code>from_state</code> !). Passing data to script entities is available by passing the data to the script services.</p>
+<p><strong>Scripts</strong> are now available in automations and when responding to Alexa/Amazon Echo. Both of these components will now expose data to be used in script templates (including <code class="highlighter-rouge">from_state</code> !). Passing data to script entities is available by passing the data to the script services.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-    <span class="key">topic</span>: <span class="string"><span class="content">some/notify/topic</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
-    <span class="key">data_template</span>:
-      <span class="key">message</span>: 
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">topic</span><span class="pi">:</span> <span class="s">some/notify/topic</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> 
 
-<span class="key">automation 2</span>:
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">light.hue</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
-    <span class="key">data_template</span>:
-      <span class="key">message</span>:  <span class="string"><span class="content">is now </span></span>
-</pre></div>
-</div>
+<span class="s">automation 2</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.hue</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span>  <span class="s">is now</span> 
+</code></pre>
 </div>
 
-<p><strong>Entity Namespaces</strong> allow you to influence the entity ids for a specific platform. For example you can turn <code>light.living_room</code> into <code>light.holiday_home_living_room</code> with the following config:</p>
+<p><strong>Entity Namespaces</strong> allow you to influence the entity ids for a specific platform. For example you can turn <code class="highlighter-rouge">light.living_room</code> into <code class="highlighter-rouge">light.holiday_home_living_room</code> with the following config:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">hue</span></span>
-  <span class="key">entity_namespace</span>: <span class="string"><span class="content">holiday_home</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hue</span>
+  <span class="s">entity_namespace</span><span class="pi">:</span> <span class="s">holiday_home</span>
+</code></pre>
 </div>
 
 <ul>
   <li>Automation: allow <a href="/getting-started/scripts/">script syntax</a> for action (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Automation: expose <a href="/getting-started/automation-templating/#available-trigger-data"><code>trigger</code> variable</a> to script templates (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Automation: expose <a href="/getting-started/automation-templating/#available-trigger-data"><code class="highlighter-rouge">trigger</code> variable</a> to script templates (<a href="https://github.com/balloob/">@balloob</a>)</li>
   <li>Script: allow passing variables for script templates in the <a href="/components/script/#passing-parameters-in-service-calls">script service calls</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
   <li>Alexa/Amazon Echo: allow <a href="/getting-started/scripts/">script syntax</a> for action (<a href="https://github.com/balloob/">@balloob</a>)</li>
   <li>Alexa/Amazon Echo: <a href="/components/alexa/#configuring-home-assistant">expose intent variables</a> to script templates (<a href="https://github.com/balloob/">@balloob</a>)</li>
   <li>Script syntax: <a href="/getting-started/scripts-conditions/">conditions now supported</a> to interrupt execution (<a href="https://github.com/balloob/">@balloob</a>)</li>
   <li>Automation: use <a href="/getting-started/scripts-conditions/">new condition syntax</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Script syntax: two new conditions <a href="/getting-started/scripts-conditions/#and-condition"><code>and</code></a> and <a href="/getting-started/scripts-conditions/#or-condition"><code>or</code></a> to combine conditions (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Script syntax: two new conditions <a href="/getting-started/scripts-conditions/#and-condition"><code class="highlighter-rouge">and</code></a> and <a href="/getting-started/scripts-conditions/#or-condition"><code class="highlighter-rouge">or</code></a> to combine conditions (<a href="https://github.com/balloob/">@balloob</a>)</li>
   <li>Any platform: Allow setting <a href="/topics/platform_options/#entity-namespace">entity namespace</a> to prefix entity_ids. (<a href="https://github.com/balloob/">@balloob</a>)</li>
   <li>Switch: <a href="/components/switch.rpi_rf/">Raspberry Pi generic 433 Mhz GPIO adapters</a> now supported (<a href="https://github.com/milaq/">@milaq</a>)</li>
   <li>Z-Wave: use more sane defaults (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
@@ -266,14 +262,14 @@
   <li>Switch: <a href="/components/switch.acer_projector/">Acer Projectors</a> now supported (<a href="https://github.com/deisi/">@deisi</a>)</li>
   <li>New <a href="/components/hvac/">HVAC component</a> added with Z-Wave support (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
   <li>Support added for <a href="/components/octoprint/">OctoPrint</a> (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
-  <li>Configuration.yaml can now refer to environment variables using <code>!env_var</code> (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
+  <li>Configuration.yaml can now refer to environment variables using <code class="highlighter-rouge">!env_var</code> (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
   <li>Lock: <a href="/components/lock.zwave/">Z-Wave</a> now supported (<a href="https://github.com/devdelay/">@devdelay</a>)</li>
   <li>New <a href="/components/dweet/">Dweet component</a> to export data (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
   <li>Media Player now supports stop command + initial kodi support (<a href="https://github.com/hmronline/">@hmronline</a>)</li>
   <li>Zigbee: push updates now supported (<a href="https://github.com/flyte/">@flyte</a>)</li>
   <li>Wink devices with battery level will now show these (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
-  <li>Templates: new <a href="/topics/templating/#home-assistant-template-extensions"><code>as_timestamp</code></a> method now available (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
-  <li>API: Add [<code>/api/discovery_info</code>] with basic instance info (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Templates: new <a href="/topics/templating/#home-assistant-template-extensions"><code class="highlighter-rouge">as_timestamp</code></a> method now available (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
+  <li>API: Add [<code class="highlighter-rouge">/api/discovery_info</code>] with basic instance info (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
   <li>Sensor: <a href="/components/sensor.google_travel_time/">Google Maps travel time</a> added (<a href="https://github.com/Danielhiversen/">@Danielhiversen</a>)</li>
   <li>HTTP: Allow adding <a href="/components/http/">CORS headers</a> (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
   <li>Sensor: <a href="/components/sensor.fitbit/">Fitbit</a> support added (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
@@ -282,29 +278,25 @@
 
 <h3>Deprecations</h3>
 <ul>
-  <li>Conditions in automations should now specify which condition to use with <code>condition:</code> instead of <code>platform:</code>. For example <code>condition: state</code>.</li>
+  <li>Conditions in automations should now specify which condition to use with <code class="highlighter-rouge">condition:</code> instead of <code class="highlighter-rouge">platform:</code>. For example <code class="highlighter-rouge">condition: state</code>.</li>
   <li>RFXtrx has a new config format.</li>
 </ul>
 
 <p>Old RFXtrx config format:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>  <span class="key">devices</span>:
-    <span class="key">123efab1</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My DI.0 light device</span></span>
-      <span class="key">packetid</span>: <span class="string"><span class="content">1b2200000890efab1213f60</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">123efab1</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">My DI.0 light device</span>
+      <span class="s">packetid</span><span class="pi">:</span> <span class="s">1b2200000890efab1213f60</span>
+</code></pre>
 </div>
 
 <p>New RFXtrx config format:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>  <span class="key">devices</span>:
-    <span class="key">1b2200000890efab1213f60</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My DI.0 light device</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">1b2200000890efab1213f60</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">My DI.0 light device</span>
+</code></pre>
 </div>
 
     
@@ -324,15 +316,15 @@
   <div class="meta clearfix">
     <time datetime="2016-05-06T14:09:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 6, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> less than one minute reading time</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/talks/'>Talks</a></li>
+        <li>Talks</li>
       
-        <li><a class='category' href='/blog/categories/video/'>Video</a></li>
+        <li>Video</li>
       
     
     </ul>
@@ -378,11 +370,11 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/owntracks/'>OwnTracks</a></li>
+        <li>OwnTracks</li>
       
-        <li><a class='category' href='/blog/categories/presence-detection/'>Presence-Detection</a></li>
+        <li>Presence-Detection</li>
       
-        <li><a class='category' href='/blog/categories/ibeacons/'>iBeacons</a></li>
+        <li>iBeacons</li>
       
     
     </ul>
@@ -436,7 +428,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -487,12 +479,12 @@
 <h3>Breaking changes</h3>
 <ul>
   <li>We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.</li>
-  <li>The constant <code>TEMP_CELCIUS</code> is now correctly called <code>TEMP_CELSIUS</code>. Old one is deprecated and will eventually be removed.</li>
-  <li>The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run <code>homeassistant/home-assistant:latest</code> for the latest release and <code>homeassistant/home-assistant:dev</code> for the latest dev version.</li>
+  <li>The constant <code class="highlighter-rouge">TEMP_CELCIUS</code> is now correctly called <code class="highlighter-rouge">TEMP_CELSIUS</code>. Old one is deprecated and will eventually be removed.</li>
+  <li>The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run <code class="highlighter-rouge">homeassistant/home-assistant:latest</code> for the latest release and <code class="highlighter-rouge">homeassistant/home-assistant:dev</code> for the latest dev version.</li>
   <li>MySensors received two big changes that will cause you to update your configs. See <a href="/components/mysensors/">component page</a> for new example config.
     <ol>
       <li>All MySensors entity IDs are different! There was an error in the naming that caused MySensors to append node ID and child ID instead of separating them with an underscore. This has been fixed but will cause all your MySensors entity IDs to change. This is a one time breaking change.</li>
-      <li>The second change is that we now support the TCP ethernet gateway. This is causing a slight change to the config format: you have to change <code>port:</code> under <code>gateways</code> to <code>device:</code>.</li>
+      <li>The second change is that we now support the TCP ethernet gateway. This is causing a slight change to the config format: you have to change <code class="highlighter-rouge">port:</code> under <code class="highlighter-rouge">gateways</code> to <code class="highlighter-rouge">device:</code>.</li>
     </ol>
   </li>
 </ul>
@@ -520,7 +512,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/organisation/'>Organisation</a></li>
+        <li>Organisation</li>
       
     
     </ul>
@@ -587,7 +579,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/website/'>Website</a></li>
+        <li>Website</li>
       
     
     </ul>
@@ -636,7 +628,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -676,7 +668,7 @@
 
 <h3>Breaking changes</h3>
 
-<p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code>execute_service</code> in their script configs. This should be <code>service</code>.</p>
+<p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code class="highlighter-rouge">execute_service</code> in their script configs. This should be <code class="highlighter-rouge">service</code>.</p>
 
     
   </div>
@@ -701,7 +693,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -717,7 +709,7 @@
 
 
   <div class="entry-content clearfix">
-    <p>The frontend of Home Assistant is served with the help of a local web server. If you have <a href="/getting-started/devices/#customizing-devices-and-services">customized</a> your installation you already use this functionality. The content of your folder <code>www</code> in your Home Assistant configuration directory (<code>.homeassistant</code>) is available under <code>/local</code> (eg. <a href="https://localhost:8123/local">https://localhost:8123/local</a>).</p>
+    <p>The frontend of Home Assistant is served with the help of a local web server. If you have <a href="/getting-started/devices/#customizing-devices-and-services">customized</a> your installation you already use this functionality. The content of your folder <code class="highlighter-rouge">www</code> in your Home Assistant configuration directory (<code class="highlighter-rouge">.homeassistant</code>) is available under <code class="highlighter-rouge">/local</code> (eg. <a href="https://localhost:8123/local">https://localhost:8123/local</a>).</p>
 
 <p>But there is more you can do! You can not only host images for customization there but HTML files or even web applications including CSS and Javascript.</p>
 

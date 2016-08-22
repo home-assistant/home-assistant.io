@@ -89,25 +89,23 @@
   <hr class="divider">
   
 
-  <p>The <code>rpi</code> platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application <a href="https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md"><code>raspistill</code></a> to store the image from camera.</p>
+  <p>The <code class="highlighter-rouge">rpi</code> platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application <a href="https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md"><code class="highlighter-rouge">raspistill</code></a> to store the image from camera.</p>
 
-<p>To enable this camera in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">camera</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rpi_camera</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Raspberry Pi Camera</span></span>
-  <span class="key">image_width</span>: <span class="string"><span class="content">640</span></span>
-  <span class="key">image_height</span>: <span class="string"><span class="content">480</span></span>
-  <span class="key">image_quality</span>: <span class="string"><span class="content">7</span></span>
-  <span class="key">image_rotation</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">timelapse</span>: <span class="string"><span class="content">1000</span></span>
-  <span class="key">horizontal_flip</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">vertical_flip</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">file_path</span>: <span class="string"><span class="content">/tmp/image.jpg</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_camera</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Raspberry Pi Camera</span>
+  <span class="s">image_width</span><span class="pi">:</span> <span class="s">640</span>
+  <span class="s">image_height</span><span class="pi">:</span> <span class="s">480</span>
+  <span class="s">image_quality</span><span class="pi">:</span> <span class="s">7</span>
+  <span class="s">image_rotation</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">timelapse</span><span class="pi">:</span> <span class="s">1000</span>
+  <span class="s">horizontal_flip</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">vertical_flip</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">file_path</span><span class="pi">:</span> <span class="s">/tmp/image.jpg</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -126,12 +124,10 @@
 
 <p>The given <strong>file_path</strong> must be an existing file because the camera platform setup make a writeable check on it.</p>
 
-<p>Ensure that the user who is running Home Assistant is in the video group. Eg. for the user <code>hass</code>:</p>
+<p>Ensure that the user who is running Home Assistant is in the video group. Eg. for the user <code class="highlighter-rouge">hass</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo usermod -a -G video hass
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo usermod -a -G video hass
+</code></pre>
 </div>
 
 

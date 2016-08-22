@@ -95,31 +95,31 @@
 This device tracker needs SNMP to be enabled on the router.
 </p>
 
-<p>OID examples:<br />
-- Mikrotik: <code>1.3.6.1.4.1.14988.1.1.1.2.1.1</code> (confirmed, unknown RouterOS version/model)<br />
-- Mikrotik: <code>1.3.6.1.2.1.4.22.1.2</code> (confirmed, RouterOS 6.x on RB2011)<br />
-- Aruba: <code>1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2</code> (untested)<br />
-- BiPAC 7800DXL: <code>1.3.6.1.2.1.17.7.1.2.2.1.1</code> (confirmed on firmware 2.32e)<br />
-- OpenWrt: <code>1.3.6.1.2.1.4.22.1.2</code> (tested on Chaos Calmer 15.05 firmware, need to install snmpd package)<br />
-- pfSense: <code>1.3.6.1.2.1.4.22.1.2</code> (tested on 2.2.4-RELEASE, need to enable SNMP service)</p>
+<p>OID examples:</p>
+<ul>
+  <li>Mikrotik: <code class="highlighter-rouge">1.3.6.1.4.1.14988.1.1.1.2.1.1</code> (confirmed, unknown RouterOS version/model)</li>
+  <li>Mikrotik: <code class="highlighter-rouge">1.3.6.1.2.1.4.22.1.2</code> (confirmed, RouterOS 6.x on RB2011)</li>
+  <li>Aruba: <code class="highlighter-rouge">1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2</code> (untested)</li>
+  <li>BiPAC 7800DXL: <code class="highlighter-rouge">1.3.6.1.2.1.17.7.1.2.2.1.1</code> (confirmed on firmware 2.32e)</li>
+  <li>OpenWrt: <code class="highlighter-rouge">1.3.6.1.2.1.4.22.1.2</code> (tested on Chaos Calmer 15.05 firmware, need to install snmpd package)</li>
+  <li>pfSense: <code class="highlighter-rouge">1.3.6.1.2.1.4.22.1.2</code> (tested on 2.2.4-RELEASE, need to enable SNMP service)</li>
+</ul>
 
-<p>To use the SNMP platform in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use the SNMP platform in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">snmp</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.1</span></span>
-  <span class="key">community</span>: <span class="string"><span class="content">public</span></span>
-  <span class="key">baseoid</span>: <span class="string"><span class="content">1.3.6.1.4.1.14988.1.1.1.2.1.1</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">snmp</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.1</span>
+  <span class="s">community</span><span class="pi">:</span> <span class="s">public</span>
+  <span class="s">baseoid</span><span class="pi">:</span> <span class="s">1.3.6.1.4.1.14988.1.1.1.2.1.1</span>
+</code></pre>
 </div>
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP address of the router, eg. 192.168.1.1.</li>
-  <li><strong>community</strong> (<em>Required</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code>public</code> with read-only permission (which is sufficient).</li>
+  <li><strong>community</strong> (<em>Required</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code class="highlighter-rouge">public</code> with read-only permission (which is sufficient).</li>
   <li><strong>baseoid</strong> (<em>Required</em>): The OID prefix where wireless client registrations can be found, usually vendor specific. It’s advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.</li>
 </ul>
 

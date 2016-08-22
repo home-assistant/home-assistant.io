@@ -89,23 +89,21 @@
   <hr class="divider">
   
 
-  <p>The <code>x10</code> light platform allows you to control your X10 based lights with Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">x10</code> light platform allows you to control your X10 based lights with Home Assistant.</p>
 
 <p>Requires <a href="http://www.heyu.org">Heyu x10 interface</a>.</p>
 
-<p>To enable those lights, add the following lines to your <code>configuration.yaml</code> file:</p>
+<p>To enable those lights, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">light</span>:
-  - <span class="string"><span class="content">platform: x10</span></span>
-    <span class="key">lights</span>:
-      - <span class="string"><span class="content">name: Living Room Lamp</span></span>
-        <span class="key">id</span>: <span class="string"><span class="content">a2</span></span>
-      - <span class="string"><span class="content">name: Bedroom Lamp</span></span>
-        <span class="key">id</span>: <span class="string"><span class="content">a3</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">x10</span>
+    <span class="s">lights</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room Lamp</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="s">a2</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Bedroom Lamp</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="s">a3</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

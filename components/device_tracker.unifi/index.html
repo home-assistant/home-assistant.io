@@ -91,19 +91,17 @@
 
   <p>This platform allows you to detect presence by looking at connected devices to a <a href="http://ubnt.com/">Ubiquiti</a> <a href="https://www.ubnt.com/enterprise/#unifi">Unifi</a> controller.</p>
 
-<p>To use this device tracker in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use this device tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">unifi</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">CONTROLLER</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_ADMIN_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_ADMIN_PASSWORD</span></span>
-  <span class="key">site_id</span>: <span class="string"><span class="content">SITE_ID</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">unifi</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">CONTROLLER</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">PORT</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+  <span class="s">site_id</span><span class="pi">:</span> <span class="s">SITE_ID</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

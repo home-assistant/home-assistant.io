@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/technology/'>Technology</a></li>
+        <li>Technology</li>
       
     
     </ul>
@@ -181,13 +181,11 @@
 
 <p>Breaking up an app in JavaScript is complex because each module explicitly imports their dependencies. This has to continue to work in your browser after breaking it up in multiple files. Web components do not have this problem as it’s part of the platform and thus your browser is the registry! An unregistered web component will be rendered as an empty span element until the element gets registered. Loading order is not important.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment">// Example of the flexibility of web components.</span>
-<span class="keyword">var</span> spinner = document.createElement(<span class="string"><span class="delimiter">'</span><span class="content">paper-spinner</span><span class="delimiter">'</span></span>);
-spinner.active = <span class="predefined-constant">true</span>;
-document.body.appendChild(spinner);
-</pre></div>
-</div>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// Example of the flexibility of web components.</span>
+<span class="kd">var</span> <span class="nx">spinner</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'paper-spinner'</span><span class="p">);</span>
+<span class="nx">spinner</span><span class="p">.</span><span class="nx">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">spinner</span><span class="p">);</span>
+</code></pre>
 </div>
 
 <p>Because the browser tracks your web components, creating standalone bundles for parts of the app is easy:</p>
@@ -250,7 +248,7 @@ document.body.appendChild(spinner);
   <li>Reduce the number of icons that are loaded.</li>
   <li>Embed initial API response in served page if not using a service worker.</li>
   <li>Reduce size of initial bundle by moving out all things that are not visible for initial paint. For example the dialogs that show more info about entities.</li>
-  <li>Prefetch the other pages using <code>&lt;link rel="preload" …&gt;</code></li>
+  <li>Prefetch the other pages using <code class="highlighter-rouge">&lt;link rel="preload" …&gt;</code></li>
 </ul>
 </article>
 
@@ -325,7 +323,7 @@ document.body.appendChild(spinner);
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

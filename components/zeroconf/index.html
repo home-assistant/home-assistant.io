@@ -89,27 +89,23 @@
   <hr class="divider">
   
 
-  <p>The <code>zeroconf</code> component exposes your Home Assistant to the local network using <a href="https://en.wikipedia.org/wiki/Zero-configuration_networking">Zeroconf</a>. Zeroconf is also sometimes known as Bonjour, Rendezvous and Avahi.</p>
+  <p>The <code class="highlighter-rouge">zeroconf</code> component exposes your Home Assistant to the local network using <a href="https://en.wikipedia.org/wiki/Zero-configuration_networking">Zeroconf</a>. Zeroconf is also sometimes known as Bonjour, Rendezvous and Avahi.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">zeroconf</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">zeroconf</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <p>The registration will include metadata about the Home Assistant instance, including a base URL that can be used to access Home Assistant, the currently running Home Assistant version, and whether an API password is needed to access the instance.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ avahi-browse -alr
-+ eth0 IPv4 Home                              _home-assistant._tcp local
-= eth0 IPv4 Home                              _home-assistant._tcp local
-   hostname = [Home._home-assistant._tcp.local]
-   address = [192.168.0.5]
-   port = [8123]
-   txt = [&quot;version=0.27.0.dev0&quot; &quot;base_url=http://192.168.0.5:8123&quot; &quot;requires_api_password=true&quot;]
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>avahi-browse -alr
++ eth0 IPv4 Home                              _home-assistant._tcp <span class="nb">local</span>
+<span class="o">=</span> eth0 IPv4 Home                              _home-assistant._tcp <span class="nb">local
+   </span>hostname <span class="o">=</span> <span class="o">[</span>Home._home-assistant._tcp.local]
+   address <span class="o">=</span> <span class="o">[</span>192.168.0.5]
+   port <span class="o">=</span> <span class="o">[</span>8123]
+   txt <span class="o">=</span> <span class="o">[</span><span class="s2">"version=0.27.0.dev0"</span> <span class="s2">"base_url=http://192.168.0.5:8123"</span> <span class="s2">"requires_api_password=true"</span><span class="o">]</span>
+</code></pre>
 </div>
 
 

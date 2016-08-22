@@ -90,13 +90,13 @@
   <div class="meta clearfix">
     <time datetime="2015-08-26T15:12:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 26, 2015</time>
     <span class="byline author vcard"><i class='icon-user'></i> Nolan Gilley</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/user-stories/'>User-Stories</a></li>
+        <li>User-Stories</li>
       
     
     </ul>
@@ -153,7 +153,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -169,7 +169,7 @@
 
 
   <div class="entry-content clearfix">
-    <p>A minor bug fix release to fix some issues that have come up since the last release. Please upgrade as soon as possible by running <code>git pull</code> from the Home Assistant directory.</p>
+    <p>A minor bug fix release to fix some issues that have come up since the last release. Please upgrade as soon as possible by running <code class="highlighter-rouge">git pull</code> from the Home Assistant directory.</p>
 
 <p>This release is a major milestone in our test coverage as we’ve crossed into the 80s! It has to be noted that this covers mainly the core and automation components. Platforms that communicate with IoT devices have been excluded.</p>
 
@@ -180,20 +180,18 @@
   <li>Improved support for MQTT topic subscriptions has been contributed by <a href="https://github.com/qrtn">@qrtn</a></li>
 </ul>
 
-<p><strong>Verisure Support</strong><br />
+<p><strong>Verisure Support</strong>
 <img src="/images/supported_brands/verisure.png" style="border:none; box-shadow: none; float: right;" height="50" /> Home Assistant support to integrate your <a href="https://www.verisure.com/">Verisure</a> alarms, hygrometers, sensors and thermometers has been contributed by <a href="https://github.com/persandstrom">@persandstrom</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">verisure</span>:
-  <span class="key">username</span>: <span class="string"><span class="content">user@example.com</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">password</span></span>
-  <span class="key">alarm</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">hygrometers</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">smartplugs</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">thermometers</span>: <span class="string"><span class="content">0</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">verisure</span><span class="pi">:</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">user@example.com</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
+  <span class="s">alarm</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">hygrometers</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">smartplugs</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">thermometers</span><span class="pi">:</span> <span class="s">0</span>
+</code></pre>
 </div>
 
     
@@ -219,7 +217,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -237,21 +235,19 @@
   <div class="entry-content clearfix">
     <p>It’s time for the August release and there is some serious good stuff this time. The core of Home Assistant has gone some serious clean up and a bump in test coverage thanks to <a href="https://github.com/balloob">@balloob</a>. If you’re a developer, make sure you read up on <a href="https://github.com/home-assistant/home-assistant/pull/251">the deprecation notices</a>. <a href="https://github.com/fabaff">@fabaff</a> did another great round of documentating all the various components.</p>
 
-<p><strong>MQTT Support</strong><br />
+<p><strong>MQTT Support</strong>
 <img src="/images/supported_brands/mqtt.png" style="border:none; box-shadow: none; float: right;" height="50" /> The big new addition in this release is the support for the MQTT protocol by <a href="https://github.com/fabaff">@fabaff</a> with some help from <a href="https://github.com/balloob">@balloob</a>. It will now be possible to integrate any IoT device that talks via MQTT. For the initial release we support connecting Home Assistant to a broker (no TLS yet). Components can now subscribe and publish to MQTT topics (<a href="https://github.com/home-assistant/home-assistant/blob/dev/config/custom_components/mqtt_example.py">see the example</a>) and also support for the automation component <a href="/getting-started/automation-trigger/#mqtt-trigger">has been added</a>. For more information, see <a href="/components/mqtt/">the MQTT component page</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">mqtt</span>:
-  <span class="key">broker</span>: <span class="string"><span class="content">IP_ADDRESS_BROKER</span></span>
-  <span class="comment"># All the other options are optional:</span>
-  <span class="key">port</span>: <span class="string"><span class="content">1883</span></span>
-  <span class="key">keepalive</span>: <span class="string"><span class="content">60</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">your_username</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">your_secret_password</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">IP_ADDRESS_BROKER</span>
+  <span class="c1"># All the other options are optional:</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">1883</span>
+  <span class="s">keepalive</span><span class="pi">:</span> <span class="s">60</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">your_username</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">your_secret_password</span>
+</code></pre>
 </div>
 
 
@@ -280,7 +276,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -300,21 +296,19 @@
 
 <p>This release includes some architectural changes by me. The first is that the frontend is now based on a <a href="http://optimizely.github.io/nuclear-js/">NuclearJS</a> JavaScript backend. This has greatly helped to organize and optimize the frontend code. Another change is that Home Assistant will now install dependencies on-demand instead of installing dependencies for all supported devices.</p>
 
-<p><strong>IP Camera Support</strong><br />
+<p><strong>IP Camera Support</strong>
 James has worked very hard to add support for IP cameras to Home Assistant which is included in this release. The initial release focusses on providing generic IP camera support. This means that any webcam that can exposes a JPEG image via a url can be integrated.</p>
 
 <p>Home Assistant will route the requests to your camera via the server allowing you to expose IP camera’s inside your network via the Home Assistant app.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">camera</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">generic</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">my sample camera</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">MY_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">MY_PASSWORD</span></span>
-  <span class="key">still_image_url</span>: <span class="string"><span class="content">http://194.218.96.92/jpg/image.jpg</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">generic</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">my sample camera</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">MY_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">MY_PASSWORD</span>
+  <span class="s">still_image_url</span><span class="pi">:</span> <span class="s">http://194.218.96.92/jpg/image.jpg</span>
+</code></pre>
 </div>
 
 <p class="note">
@@ -347,7 +341,7 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -403,7 +397,7 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -455,7 +449,7 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -473,32 +467,30 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
   <div class="entry-content clearfix">
     <p>I have recently merged code to refactor Home Assistant to use only UTC times internally. A much needed refactor. I’ve added some extra test coverage to time sensitive parts to ensure stability. The code has been live in the dev branch for the last 9 days and will be soon released to the master branch.</p>
 
-<p>From now on all internal communication will be done in UTC: time changed events, datetime attributes of states, etc. To get the current time in UTC you can call <code>homeassistant.util.dt.utcnow()</code>. This is a timezone aware UTC datetime object. <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/util/dt.py"><code>homeassistant.util.dt</code></a> is a new util package with date helpers.</p>
+<p>From now on all internal communication will be done in UTC: time changed events, datetime attributes of states, etc. To get the current time in UTC you can call <code class="highlighter-rouge">homeassistant.util.dt.utcnow()</code>. This is a timezone aware UTC datetime object. <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/util/dt.py"><code class="highlighter-rouge">homeassistant.util.dt</code></a> is a new util package with date helpers.</p>
 
-<p>There is also such a thing as local time. Local time is based on the time zone that you have setup in your <code>configuration.yaml</code>. Local times should only be used for user facing information: logs, frontend and automation settings in <code>configuration.yaml</code>.</p>
+<p>There is also such a thing as local time. Local time is based on the time zone that you have setup in your <code class="highlighter-rouge">configuration.yaml</code>. Local times should only be used for user facing information: logs, frontend and automation settings in <code class="highlighter-rouge">configuration.yaml</code>.</p>
 
 <h3>Setting up your time zone</h3>
-<p>Setting up a time zone happens in <code>configuration.yaml</code>. If you have no time zone setup, it will be auto detected using the existing detection code using <a href="https://freegeoip.net">freegeoip.net</a>. You can find a list of compatible time zones on <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia</a>.</p>
+<p>Setting up a time zone happens in <code class="highlighter-rouge">configuration.yaml</code>. If you have no time zone setup, it will be auto detected using the existing detection code using <a href="https://freegeoip.net">freegeoip.net</a>. You can find a list of compatible time zones on <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">homeassistant</span>:
-  <span class="key">time_zone</span>: <span class="string"><span class="content">America/Los_Angeles</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">time_zone</span><span class="pi">:</span> <span class="s">America/Los_Angeles</span>
+</code></pre>
 </div>
 
 <h3>Compatibility</h3>
-<p>The changes to the code are mostly backwards compatible. The old <code>hass.track_time_change</code> and <code>hass.track_point_in_time</code> use now internally two new methods: <code>hass.track_utc_time_change</code> and <code>hass.track_point_in_utc_time</code>. The usage of the old methods have not changed and should be backwards compatible.</p>
+<p>The changes to the code are mostly backwards compatible. The old <code class="highlighter-rouge">hass.track_time_change</code> and <code class="highlighter-rouge">hass.track_point_in_time</code> use now internally two new methods: <code class="highlighter-rouge">hass.track_utc_time_change</code> and <code class="highlighter-rouge">hass.track_point_in_utc_time</code>. The usage of the old methods have not changed and should be backwards compatible.</p>
 
-<p>This refactor adds a new migration for the database adding a <code>utc_offset</code> column to events and states. This information is currently not used but can prove useful in the future when we start analyzing the historical data.</p>
+<p>This refactor adds a new migration for the database adding a <code class="highlighter-rouge">utc_offset</code> column to events and states. This information is currently not used but can prove useful in the future when we start analyzing the historical data.</p>
 
 <h3><a class="title-link" name="backwards-incompatible-stuff" href="#backwards-incompatible-stuff"></a> Backwards incompatible stuff</h3>
 
 <p>All built-in components have been upgraded. The following list is only for people that run custom components:</p>
 
 <ul>
-  <li><code>hass.track_time_change</code> and <code>hass.track_point_in_time</code> will now return a time zone aware datetime object. Python does not allow comparing a naive with an aware datetime object.</li>
-  <li>the sun attributes for rising and setting are now in UTC. The methods <code>sun.next_rising(hass)</code> and <code>sun.next_setting(hass)</code> are backwards compatible, just be careful if you used to read the raw attributes.</li>
+  <li><code class="highlighter-rouge">hass.track_time_change</code> and <code class="highlighter-rouge">hass.track_point_in_time</code> will now return a time zone aware datetime object. Python does not allow comparing a naive with an aware datetime object.</li>
+  <li>the sun attributes for rising and setting are now in UTC. The methods <code class="highlighter-rouge">sun.next_rising(hass)</code> and <code class="highlighter-rouge">sun.next_setting(hass)</code> are backwards compatible, just be careful if you used to read the raw attributes.</li>
   <li>the API sends all times in UTC. If you use anything else besides the frontend to talk to HA, make sure it handles it differently.</li>
 </ul>
 
@@ -525,7 +517,7 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -543,34 +535,30 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
   <div class="entry-content clearfix">
     <p>It’s been a month since the latest update and a lot has happened again. Here a quick overview of the new things.</p>
 
-<p><strong>Line Charts</strong><br />
+<p><strong>Line Charts</strong>
 <a href="https://github.com/jamespcole">James</a> has upgraded the history in the frontend to support line graphs. Line graphs will be shown for any entity that has a unit of measurement. The line graphs will also be shown in the more info card of an entity. <a href="/demo/">See the demo for a live example.</a></p>
 
 <p class="img">
 <img src="/images/screenshots/history-line-graphs.png" />
 </p>
 
-<p><strong>ISY994 hub support</strong><br />
+<p><strong>ISY994 hub support</strong>
 <img src="/images/supported_brands/universal_devices.png" style="border:none; box-shadow: none; float: right;" height="50" /> <a href="https://github.com/rmkraus">Ryan</a> has contributed support to integrate the ISY994 hub by Universal Devices. This allows you to integrate your X10/Insteon sensors, switches and lights.</p>
 
 <p>He has created an extensive getting started guide which can be found on <a href="/components/isy994/">the ISY994 component page</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">isy994</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">isy994</span><span class="pi">:</span>
+</code></pre>
 </div>
 
-<p><strong>Logbook</strong><br />
-<img src="/images/screenshots/logbook.png" style="margin-left:10px; float: right;" height="100" /> I (Paulus) have added a logbook component. The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in chronological order. <a href="/demo/">See the demo for a live example.</a><br />
+<p><strong>Logbook</strong>
+<img src="/images/screenshots/logbook.png" style="margin-left:10px; float: right;" height="100" /> I (Paulus) have added a logbook component. The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in chronological order. <a href="/demo/">See the demo for a live example.</a>
 <span class="clearfix"></span></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">logbook</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">logbook</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 
@@ -599,7 +587,7 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -617,29 +605,27 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
   <div class="entry-content clearfix">
     <p>A new version of Home Assistant has just been pushed out. It contains bugfixes contributed by <a href="https://github.com/jamespcole">jamespcole</a>, <a href="https://github.com/andythigpen">andythigpen</a>, <a href="https://github.com/trainman419">trainman419</a> and <a href="https://github.com/balloob">me</a>. It also adds a bunch of great new features:</p>
 
-<p><strong>Script</strong><br />
-Andythigpen has contributed a script component. This allows users to create a sequence of service calls and delays. Scripts can be started using the service <code>script/turn_on</code> and interrupted using the service <code>script/turn_off</code>. A separate page has been added to the frontend to see the status of your scripts.</p>
+<p><strong>Script</strong>
+Andythigpen has contributed a script component. This allows users to create a sequence of service calls and delays. Scripts can be started using the service <code class="highlighter-rouge">script/turn_on</code> and interrupted using the service <code class="highlighter-rouge">script/turn_off</code>. A separate page has been added to the frontend to see the status of your scripts.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">script</span>:
-  <span class="comment"># Turns on the bedroom lights and then the living room lights 1 minute later</span>
-  <span class="key">wakeup</span>:
-    <span class="key">alias</span>: <span class="string"><span class="content">Wake Up</span></span>
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">alias: Bedroom lights on</span></span>
-        <span class="key">execute_service</span>: <span class="string"><span class="content">light.turn_on</span></span>
-        <span class="key">service_data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">group.bedroom</span></span>
-      - <span class="string"><span class="content">delay:</span><span class="content">
-          # supports seconds, milliseconds, minutes, hours, etc.
-          minutes: 1</span></span>
-      - <span class="string"><span class="content">alias: Living room lights on</span></span>
-        <span class="key">execute_service</span>: <span class="string"><span class="content">light.turn_on</span></span>
-        <span class="key">service_data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">group.living_room</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">script</span><span class="pi">:</span>
+  <span class="c1"># Turns on the bedroom lights and then the living room lights 1 minute later</span>
+  <span class="s">wakeup</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Wake Up</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Bedroom lights on</span>
+        <span class="s">execute_service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+        <span class="s">service_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.bedroom</span>
+      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+          <span class="c1"># supports seconds, milliseconds, minutes, hours, etc.</span>
+          <span class="s">minutes</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Living room lights on</span>
+        <span class="s">execute_service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+        <span class="s">service_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
+</code></pre>
 </div>
 
 
@@ -668,7 +654,7 @@ Andythigpen has contributed a script component. This allows users to create a se
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -686,50 +672,44 @@ Andythigpen has contributed a script component. This allows users to create a se
   <div class="entry-content clearfix">
     <p>It has only been a little over a week since Theodor introduced YAML support for Home Assistant but so much has already happened that it is time for a summary of recent changes. Before mentioning the highlights I want to thank <a href="https://github.com/andythigpen">andythigpen</a>, <a href="https://github.com/jamespcole">jamespcole</a> and <a href="https://github.com/theolind">theolind</a> for numerous bug fixes, enhancements and new contributions. Thanks!</p>
 
-<p><strong>Monitor local resources.</strong><br /><br />
+<p><strong>Monitor local resources.</strong><br />
 Theodor has contributed a new sensor platform to allow you to monitor disk usage, memory usage, CPU usage and running processes. This platform has superseded the process component which is now considered deprecated.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: systemmonitor</span></span>
-    <span class="key">resources</span>:
-      - <span class="string"><span class="content">type: disk_use_percent</span></span>
-        <span class="key">arg</span>: <span class="string"><span class="content">/home</span></span>
-      - <span class="string"><span class="content">type: memory_free</span></span>
-      - <span class="string"><span class="content">type: process</span></span>
-        <span class="key">arg</span>: <span class="string"><span class="content">kodi</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">systemmonitor</span>
+    <span class="s">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">disk_use_percent</span>
+        <span class="s">arg</span><span class="pi">:</span> <span class="s">/home</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">memory_free</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">process</span>
+        <span class="s">arg</span><span class="pi">:</span> <span class="s">kodi</span>
+</code></pre>
 </div>
 
-<p><strong>Experimental Z-Wave support</strong><br /><br />
+<p><strong>Experimental Z-Wave support</strong><br />
 There is now experimental support for connecting Z-Wave networks using a Z-Wave USB stick. Right now it only integrates Z-Wave sensors into Home Assistant. Our goal is to get this tested by more people before adding support for other Z-Wave devices.</p>
 
-<p>The new component is built on top of <a href="https://code.google.com/p/python-openzwave/">python-openzwave</a>. This package is currently not distributed on PyPi so we’ve added a script <code>scripts/build_python_openzwave</code> to install it on your machine. Alternatively you can use the Docker image which is ready to go.</p>
+<p>The new component is built on top of <a href="https://code.google.com/p/python-openzwave/">python-openzwave</a>. This package is currently not distributed on PyPi so we’ve added a script <code class="highlighter-rouge">scripts/build_python_openzwave</code> to install it on your machine. Alternatively you can use the Docker image which is ready to go.</p>
 
 <p>The development was done using an AEON Z-Wave USB stick and an AEON Z-Wave MultiSensor.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">zwave</span>:
-  <span class="key">usb_path</span>: <span class="string"><span class="content">/dev/ttyUSB0</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
+</code></pre>
 </div>
 
-<p><strong>Voice control</strong><br /><br />
+<p><strong>Voice control</strong><br />
 An initial version of voice control for Home Assistant has landed. The current implementation consists of two parts.</p>
 
-<p>The first part is a component called <code>conversation</code> that exposes the service <code>conversation/process</code>. This service is capable of processing text and translating them into commands for devices. For now it will only support commands in the format of <code>Turn &lt;Friendly Name&gt; &lt;on/off&gt;</code>.</p>
+<p>The first part is a component called <code class="highlighter-rouge">conversation</code> that exposes the service <code class="highlighter-rouge">conversation/process</code>. This service is capable of processing text and translating them into commands for devices. For now it will only support commands in the format of <code class="highlighter-rouge">Turn &lt;Friendly Name&gt; &lt;on/off&gt;</code>.</p>
 
 <p>The second part is an upgrade to the frontend to use the speech-to-text in Chrome to allow users to speak commands. If you’re using Chrome, you can test this out in <a href="/demo/">the demo</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">conversation</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">conversation</span><span class="pi">:</span>
+</code></pre>
 </div>
 
     

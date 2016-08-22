@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-22T07:26:42+00:00</updated>
+  <updated>2016-08-22T08:20:27+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -33,7 +33,7 @@ Heatmap
     <link href="https://home-assistant.io/blog/2016/08/16/we-have-apps-now/"/>
     <updated>2016-08-16T10:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/08/16/we-have-apps-now</id>
-    <content type="html"><![CDATA[<p>I have been working on a new subsystem to complement Home Assistant’s Automation and Scripting components. <code>AppDaemon</code> is a python daemon that consumes events from Home Assistant and feeds them to snippets of python code called “Apps”. An App is a Python class that is instantiated possibly multiple times from <code>AppDaemon</code> and registers callbacks for various system events. It is also able to inspect and set state and call services. The API provides a rich environment suited to home automation tasks that can also leverage all the power of Python.</p>
+    <content type="html"><![CDATA[<p>I have been working on a new subsystem to complement Home Assistant’s Automation and Scripting components. <code class="highlighter-rouge">AppDaemon</code> is a python daemon that consumes events from Home Assistant and feeds them to snippets of python code called “Apps”. An App is a Python class that is instantiated possibly multiple times from <code class="highlighter-rouge">AppDaemon</code> and registers callbacks for various system events. It is also able to inspect and set state and call services. The API provides a rich environment suited to home automation tasks that can also leverage all the power of Python.</p>
 
 <!--more-->
 
@@ -54,108 +54,101 @@ Heatmap
 
 <p>In my opinion, Home Assistant accomplishes the majority of these very well with a combination of Automations, Scripts and Templates, and it’s Restful API.</p>
 
-<p>So why <code>AppDaemon</code>? <code>AppDaemon</code> is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and appdeamon then comes into its own. It brings quite a few things to the table:</p>
+<p>So why <code class="highlighter-rouge">AppDaemon</code>? <code class="highlighter-rouge">AppDaemon</code> is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and appdeamon then comes into its own. It brings quite a few things to the table:</p>
 
 <ul>
-  <li>New paradigm - some problems require a procedural and/or iterative approach, and <code>AppDaemon</code> Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that Automations can’t</li>
-  <li>Ease of use - <code>AppDaemon</code>’s API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as “Pythonic” as possible, experienced Python programmers should feel right at home.</li>
+  <li>New paradigm - some problems require a procedural and/or iterative approach, and <code class="highlighter-rouge">AppDaemon</code> Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that Automations can’t</li>
+  <li>Ease of use - <code class="highlighter-rouge">AppDaemon</code>’s API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as “Pythonic” as possible, experienced Python programmers should feel right at home.</li>
   <li>Reuse - write a piece of code once and instantiate it as an app as many times as you need with different parameters e.g. a motion light program that you can use in 5 different places around your home. The code stays the same, you just dynamically add new instances of it in the config file</li>
-  <li>Dynamic - <code>AppDaemon</code> has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to it’s loose coupling. However, it is better than that - the user can make changes to code and <code>AppDaemon</code> will automatically reload the code, figure out which Apps were using it and restart them to use the new code without the need to restart <code>AppDaemon</code> itself. It is also possible to change parameters for an individual or multiple apps and have them picked up dynamically, and for a final trick, removing or adding apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.</li>
+  <li>Dynamic - <code class="highlighter-rouge">AppDaemon</code> has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to it’s loose coupling. However, it is better than that - the user can make changes to code and <code class="highlighter-rouge">AppDaemon</code> will automatically reload the code, figure out which Apps were using it and restart them to use the new code without the need to restart <code class="highlighter-rouge">AppDaemon</code> itself. It is also possible to change parameters for an individual or multiple apps and have them picked up dynamically, and for a final trick, removing or adding apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.</li>
   <li>Complex logic - Python’s If/Else constructs are clearer and easier to code for arbitrarily complex nested logic</li>
   <li>Durable variables and state - variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened</li>
   <li>All the power of Python - use any of Python’s libraries, create your own modules, share variables, refactor and re-use code, create a single app to do everything, or multiple apps for individual tasks - nothing is off limits!</li>
 </ul>
 
-<p>It is in fact a testament to Home Assistant’s open nature that a component like <code>AppDaemon</code> can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant’s underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for <code>AppDaemon</code> - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additonal functions to make things that were already possible easier.</p>
+<p>It is in fact a testament to Home Assistant’s open nature that a component like <code class="highlighter-rouge">AppDaemon</code> can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant’s underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for <code class="highlighter-rouge">AppDaemon</code> - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additonal functions to make things that were already possible easier.</p>
 
 <h2><a class="title-link" name="how-it-works" href="#how-it-works"></a> How it Works</h2>
 
-<p>The best way to show what <code>AppDaemon</code> does is through a few simple examples.</p>
+<p>The best way to show what <code class="highlighter-rouge">AppDaemon</code> does is through a few simple examples.</p>
 
 <h3><a class="title-link" name="sunrisesunset-lighting" href="#sunrisesunset-lighting"></a> Sunrise/Sunset Lighting</h3>
 
-<p>Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its <code>initialize()</code> function called which gives it a chance to register a callback for <code>AppDaemons</code>’s scheduler for a specific time. In this case we are using <code>run_at_sunrise()</code> and <code>run_at_sunset()</code> to register 2 separate callbacks. The argument <code>0</code> is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python’s <code>datetime.timedelta</code> class for calculations. When sunrise or sunset occurs, the appropriate callback function, <code>sunrise_cb()</code> or <code>sunset_cb()</code>  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables <code>args["on_scene"]</code> and <code>args["off_scene"]</code> are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.</p>
+<p>Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its <code class="highlighter-rouge">initialize()</code> function called which gives it a chance to register a callback for <code class="highlighter-rouge">AppDaemons</code>’s scheduler for a specific time. In this case we are using <code class="highlighter-rouge">run_at_sunrise()</code> and <code class="highlighter-rouge">run_at_sunset()</code> to register 2 separate callbacks. The argument <code class="highlighter-rouge">0</code> is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python’s <code class="highlighter-rouge">datetime.timedelta</code> class for calculations. When sunrise or sunset occurs, the appropriate callback function, <code class="highlighter-rouge">sunrise_cb()</code> or <code class="highlighter-rouge">sunset_cb()</code>  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables <code class="highlighter-rouge">args["on_scene"]</code> and <code class="highlighter-rouge">args["off_scene"]</code> are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">appapi</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">appapi</span>
 
-<span class="keyword">class</span> <span class="class">OutsideLights</span>(appapi.AppDaemon):
+<span class="k">class</span> <span class="nc">OutsideLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
 
-  <span class="keyword">def</span> <span class="function">initialize</span>(<span class="predefined-constant">self</span>):
-    <span class="predefined-constant">self</span>.run_at_sunrise(<span class="predefined-constant">self</span>.sunrise_cb, <span class="integer">0</span>)
-    <span class="predefined-constant">self</span>.run_at_sunset(<span class="predefined-constant">self</span>.sunset_cb, <span class="integer">0</span>)
-    
-  <span class="keyword">def</span> <span class="function">sunrise_cb</span>(<span class="predefined-constant">self</span>, args, kwargs):
-    <span class="predefined-constant">self</span>.turn_on(<span class="predefined-constant">self</span>.args[<span class="string"><span class="delimiter">&quot;</span><span class="content">off_scene</span><span class="delimiter">&quot;</span></span>])
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunrise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunrise_cb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunset_cb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-  <span class="keyword">def</span> <span class="function">sunset_cb</span>(<span class="predefined-constant">self</span>, args, kwargs):
-    <span class="predefined-constant">self</span>.turn_on(<span class="predefined-constant">self</span>.args[<span class="string"><span class="delimiter">&quot;</span><span class="content">on_scene</span><span class="delimiter">&quot;</span></span>])
+  <span class="k">def</span> <span class="nf">sunrise_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s">"off_scene"</span><span class="p">])</span>
 
-</pre></div>
-</div>
+  <span class="k">def</span> <span class="nf">sunset_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s">"on_scene"</span><span class="p">])</span>
+</code></pre>
 </div>
 
 <p>This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.</p>
 
 <h3><a class="title-link" name="motion-light" href="#motion-light"></a> Motion Light</h3>
 
-<p>Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the <code>initialize()</code> function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell <code>AppDaemon</code> that we are only interested in state changes where the motion detector comes on by adding an additional parameter to the callback registration - <code>new = "on"</code>. When the motion is detected, the callack function <code>motion()</code> is called, and we check whether or not the sun has set using a built-in convenience function: <code>sun_down()</code>. Next, we turn the light on with <code>turn_on()</code>, then set a timer using <code>run_in()</code> to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in <code>AppDaemon</code> calling <code>light_off()</code> 60 seconds later using the <code>turn_off()</code> call to actually turn the light off. This is still pretty simple in code terms:</p>
+<p>Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the <code class="highlighter-rouge">initialize()</code> function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell <code class="highlighter-rouge">AppDaemon</code> that we are only interested in state changes where the motion detector comes on by adding an additional parameter to the callback registration - <code class="highlighter-rouge">new = "on"</code>. When the motion is detected, the callack function <code class="highlighter-rouge">motion()</code> is called, and we check whether or not the sun has set using a built-in convenience function: <code class="highlighter-rouge">sun_down()</code>. Next, we turn the light on with <code class="highlighter-rouge">turn_on()</code>, then set a timer using <code class="highlighter-rouge">run_in()</code> to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in <code class="highlighter-rouge">AppDaemon</code> calling <code class="highlighter-rouge">light_off()</code> 60 seconds later using the <code class="highlighter-rouge">turn_off()</code> call to actually turn the light off. This is still pretty simple in code terms:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">appapi</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">appapi</span>
 
-<span class="keyword">class</span> <span class="class">MotionLights</span>(appapi.AppDaemon):
+<span class="k">class</span> <span class="nc">MotionLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
 
-  <span class="keyword">def</span> <span class="function">initialize</span>(<span class="predefined-constant">self</span>):
-    <span class="predefined-constant">self</span>.listen_state(<span class="predefined-constant">self</span>.motion, <span class="string"><span class="delimiter">&quot;</span><span class="content">binary_sensor.drive</span><span class="delimiter">&quot;</span></span>, new = <span class="string"><span class="delimiter">&quot;</span><span class="content">on</span><span class="delimiter">&quot;</span></span>)
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">listen_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span> <span class="s">"binary_sensor.drive"</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="s">"on"</span><span class="p">)</span>
   
-  <span class="keyword">def</span> <span class="function">motion</span>(<span class="predefined-constant">self</span>, entity, attribute, old, new, kwargs):
-    <span class="keyword">if</span> <span class="predefined-constant">self</span>.sun_down():
-      <span class="predefined-constant">self</span>.turn_on(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.drive</span><span class="delimiter">&quot;</span></span>)
-      <span class="predefined-constant">self</span>.run_in(<span class="predefined-constant">self</span>.light_off, <span class="integer">60</span>)
+  <span class="k">def</span> <span class="nf">motion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sun_down</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">light_off</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
   
-  <span class="keyword">def</span> <span class="function">light_off</span>(<span class="predefined-constant">self</span>, kwargs):
-    <span class="predefined-constant">self</span>.turn_off(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.drive</span><span class="delimiter">&quot;</span></span>)
-</pre></div>
-</div>
+  <span class="k">def</span> <span class="nf">light_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">turn_off</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <p>This is starting to get a little more complex in Home Assistant automations requiring an Automation rule and two separate scripts.</p>
 
-<p>Now lets extend this with a somewhat artificial example to show something that is simple in <code>AppDaemon</code> but very difficult if not impossible using automations. Lets warn someone inside the house that there has been motion outside by flashing a lamp on and off 10 times. We are reacting to the motion as before by turning on the light and setting a timer to turn it off again, but in addition, we set a 1 second timer to run <code>flash_warning()</code> which when called, toggles the inside light and sets another timer to call itself a second later. To avoid re-triggering forever, it keeps a count of how many times it has been activated and bales out after 10 iterations.</p>
+<p>Now lets extend this with a somewhat artificial example to show something that is simple in <code class="highlighter-rouge">AppDaemon</code> but very difficult if not impossible using automations. Lets warn someone inside the house that there has been motion outside by flashing a lamp on and off 10 times. We are reacting to the motion as before by turning on the light and setting a timer to turn it off again, but in addition, we set a 1 second timer to run <code class="highlighter-rouge">flash_warning()</code> which when called, toggles the inside light and sets another timer to call itself a second later. To avoid re-triggering forever, it keeps a count of how many times it has been activated and bales out after 10 iterations.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">appapi</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">appapi</span>
 
-<span class="keyword">class</span> <span class="class">FlashyMotionLights</span>(appapi.AppDaemon):
+<span class="k">class</span> <span class="nc">FlashyMotionLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
 
-  <span class="keyword">def</span> <span class="function">initialize</span>(<span class="predefined-constant">self</span>):
-    <span class="predefined-constant">self</span>.listen_state(<span class="predefined-constant">self</span>.motion, <span class="string"><span class="delimiter">&quot;</span><span class="content">binary_sensor.drive</span><span class="delimiter">&quot;</span></span>, new = <span class="string"><span class="delimiter">&quot;</span><span class="content">on</span><span class="delimiter">&quot;</span></span>)
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">listen_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span> <span class="s">"binary_sensor.drive"</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="s">"on"</span><span class="p">)</span>
   
-  <span class="keyword">def</span> <span class="function">motion</span>(<span class="predefined-constant">self</span>, entity, attribute, old, new, kwargs):
-    <span class="keyword">if</span> <span class="predefined-constant">self</span>.self.sun_down():
-      <span class="predefined-constant">self</span>.turn_on(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.drive</span><span class="delimiter">&quot;</span></span>)
-      <span class="predefined-constant">self</span>.run_in(<span class="predefined-constant">self</span>.light_off, <span class="integer">60</span>)
-      <span class="predefined-constant">self</span>.flashcount = <span class="integer">0</span>
-      <span class="predefined-constant">self</span>.run_in(<span class="predefined-constant">self</span>.flash_warning, <span class="integer">1</span>)
+  <span class="k">def</span> <span class="nf">motion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="bp">self</span><span class="o">.</span><span class="n">sun_down</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">light_off</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">flashcount</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flash_warning</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
   
-  <span class="keyword">def</span> <span class="function">light_off</span>(<span class="predefined-constant">self</span>, kwargs):
-    <span class="predefined-constant">self</span>.turn_off(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.drive</span><span class="delimiter">&quot;</span></span>)
+  <span class="k">def</span> <span class="nf">light_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">turn_off</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
     
-  <span class="keyword">def</span> <span class="function">flash_warning</span>(<span class="predefined-constant">self</span>, kwargs):
-    <span class="predefined-constant">self</span>.toggle(<span class="string"><span class="delimiter">&quot;</span><span class="content">light.living_room</span><span class="delimiter">&quot;</span></span>)
-    <span class="predefined-constant">self</span>.flashcount += <span class="integer">1</span>
-    <span class="keyword">if</span> <span class="predefined-constant">self</span>.flashcount &lt; <span class="integer">10</span>:
-      <span class="predefined-constant">self</span>.run_in(<span class="predefined-constant">self</span>.flash_warning, <span class="integer">1</span>)
-</pre></div>
-</div>
+  <span class="k">def</span> <span class="nf">flash_warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">toggle</span><span class="p">(</span><span class="s">"light.living_room"</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">flashcount</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flashcount</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flash_warning</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <p>Of course if I wanted to make this App or its predecessor reusable I would have provided parameters for the sensor, the light to activate on motion, the warning light and even the number of flashes and delay between flashes.</p>
 
-<p>In addition, Apps can write to <code>AppDaemon</code>’s logfiles, and there is a system of constraints that allows yout to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.</p>
+<p>In addition, Apps can write to <code class="highlighter-rouge">AppDaemon</code>’s logfiles, and there is a system of constraints that allows yout to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.</p>
 
-<p>I have spent the last few weeks moving all of my (fairly complex) automations over to <code>APPDaemon</code> and so far it is working very reliably.</p>
+<p>I have spent the last few weeks moving all of my (fairly complex) automations over to <code class="highlighter-rouge">APPDaemon</code> and so far it is working very reliably.</p>
 
 <p>Some people will maybe look at all of this and say “what use is this, I can already do all of this”, and that is fine, as I said this is an alternative not a replacement, but I am hopeful that for some users this will seem a more natural, powerful and nimble way of building potentially very complex automations.</p>
 
@@ -167,7 +160,7 @@ Heatmap
   
   <entry>
     <title type="html"><![CDATA[0.26: Foursquare, Fast.com, FFMPEG and GPSD]]></title>
-    <link href="https://home-assistant.io/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/"/>
+    <link href="https://home-assistant.io/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/"/>
     <updated>2016-08-13T19:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/08/13/foursquare--fast.com--ffmpeg--gpsd</id>
     <content type="html"><![CDATA[<p>It’s time for 0.26 and it’s again full of new features and fixes. First I want to highlight that we are now having 500 000 monthly pageviews on the website. A big milestone for us! It’s been an amazing journey. Big thanks to the Home Assistant community for being such a delightful bunch.</p>
@@ -232,13 +225,11 @@ Heatmap
   <li>A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Configuration.yaml example</span>
-<span class="key">homeassistant</span>:
-  <span class="comment"># 'metric' for the metric system, 'imperial' for the imperial system</span>
-  <span class="key">unit_system</span>: <span class="string"><span class="content">metric</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Configuration.yaml example</span>
+<span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="c1"># 'metric' for the metric system, 'imperial' for the imperial system</span>
+  <span class="s">unit_system</span><span class="pi">:</span> <span class="s">metric</span>
+</code></pre>
 </div>
 
 ]]></content>
@@ -322,13 +313,11 @@ Heatmap
 
 <p>Breaking up an app in JavaScript is complex because each module explicitly imports their dependencies. This has to continue to work in your browser after breaking it up in multiple files. Web components do not have this problem as it’s part of the platform and thus your browser is the registry! An unregistered web component will be rendered as an empty span element until the element gets registered. Loading order is not important.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment">// Example of the flexibility of web components.</span>
-<span class="keyword">var</span> spinner = document.createElement(<span class="string"><span class="delimiter">'</span><span class="content">paper-spinner</span><span class="delimiter">'</span></span>);
-spinner.active = <span class="predefined-constant">true</span>;
-document.body.appendChild(spinner);
-</pre></div>
-</div>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// Example of the flexibility of web components.</span>
+<span class="kd">var</span> <span class="nx">spinner</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'paper-spinner'</span><span class="p">);</span>
+<span class="nx">spinner</span><span class="p">.</span><span class="nx">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">spinner</span><span class="p">);</span>
+</code></pre>
 </div>
 
 <p>Because the browser tracks your web components, creating standalone bundles for parts of the app is easy:</p>
@@ -391,7 +380,7 @@ document.body.appendChild(spinner);
   <li>Reduce the number of icons that are loaded.</li>
   <li>Embed initial API response in served page if not using a service worker.</li>
   <li>Reduce size of initial bundle by moving out all things that are not visible for initial paint. For example the dialogs that show more info about entities.</li>
-  <li>Prefetch the other pages using <code>&lt;link rel="preload" …&gt;</code></li>
+  <li>Prefetch the other pages using <code class="highlighter-rouge">&lt;link rel="preload" …&gt;</code></li>
 </ul>
 
 ]]></content>
@@ -450,59 +439,57 @@ document.body.appendChild(spinner);
 
 <p>Home Assistant Configuration:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">mqtt</span>:
-  <span class="key">broker</span>: <span class="string"><span class="content">192.168.1.100</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">1883</span></span>
-  <span class="key">keepalive</span>: <span class="string"><span class="content">60</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">1883</span>
+  <span class="s">keepalive</span><span class="pi">:</span> <span class="s">60</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
 
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Dryer Status</span><span class="delimiter">&quot;</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor/dryer</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Dryer</span><span class="nv"> </span><span class="s">Status"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sensor/dryer"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
 
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Washer Status</span><span class="delimiter">&quot;</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor/washer</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Washer</span><span class="nv"> </span><span class="s">Status"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sensor/washer"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
 
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: Washer complete</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.washer_status</span></span>
-      <span class="key">from</span>: <span class="string"><span class="content">'Running'</span></span>
-      <span class="key">to</span>: <span class="string"><span class="content">'Complete'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">script.washer_complete</span></span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Washer complete</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.washer_status</span>
+      <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Running'</span>
+      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Complete'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.washer_complete</span>
 
-  - <span class="string"><span class="content">alias: Washer emptied</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.washer_status</span></span>
-      <span class="key">from</span>: <span class="string"><span class="content">'Complete'</span></span>
-      <span class="key">to</span>: <span class="string"><span class="content">'Empty'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">scene.normal</span></span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Washer emptied</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.washer_status</span>
+      <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Complete'</span>
+      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Empty'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.normal</span>
 
-<span class="key">script</span>:
-  <span class="key">washer_complete</span>:
-    <span class="key">alias</span>: <span class="string"><span class="content">Washer Complete</span></span>
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">alias: Join Notification</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">notify.join</span></span>
-        <span class="key">data</span>:
-          <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">The washing machine has finished its cycle, please empty it!</span><span class="delimiter">&quot;</span></span>
-      - <span class="string"><span class="content">alias: Living Room Lights Blue</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on</span></span>
-        <span class="key">data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">scene.blue</span></span>
-</pre></div>
-</div>
+<span class="s">script</span><span class="pi">:</span>
+  <span class="s">washer_complete</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Washer Complete</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Join Notification</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.join</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">washing</span><span class="nv"> </span><span class="s">machine</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">finished</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">cycle,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">empty</span><span class="nv"> </span><span class="s">it!"</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Living Room Lights Blue</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.blue</span>
+</code></pre>
 </div>
 
 <p>Resources used:</p>
@@ -545,7 +532,7 @@ document.body.appendChild(spinner);
   <li>Thermostat: Support for HVAC mode of <a href="https://home-assistant.io/components/thermostat.nest/">Nest</a> devices (<a href="https://github.com/vladonemo">@vladonemo</a>)</li>
   <li>InfluxDB: Option to specify additional <a href="https://home-assistant.io/components/influxdb/">tags</a> (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
   <li>Input slider: Support for float value (<a href="https://github.com/ngraziano">@ngraziano</a>)</li>
-  <li>Template: New <a href="https://home-assistant.io/topics/templating/#home-assistant-template-extensions/">filters</a> (<code>timestamp_local</code> and <code>timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Template: New <a href="https://home-assistant.io/topics/templating/#home-assistant-template-extensions/">filters</a> (<code class="highlighter-rouge">timestamp_local</code> and <code class="highlighter-rouge">timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Binary sensor - Wink: Water leak sensor support added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
   <li>Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor (<a href="https://github.com/PetitCircuitLab">@PetitCircuitLab</a>)</li>
   <li>Switch - RPi GPIO: Fix when inverted logic (<a href="https://github.com/zeroDenial">@zeroDenial</a>)</li>
@@ -558,7 +545,7 @@ document.body.appendChild(spinner);
   <li>Light: New support for <a href="https://home-assistant.io/components/light.x10/">X10</a> lights (<a href="https://github.com/fotoetienne">@fotoetienne</a>)</li>
   <li>Sensor: Support for observing <a href="https://home-assistant.io/components/sensor.imap/">IMAP</a> accounts (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
   <li>Media Player: Integration for <a href="https://home-assistant.io/components/media_player.mpchc/">MPC-HC</a> (Media Player Classic - Home Cinema) mediaplayer (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
-  <li>Notify: <code>location</code> extension for <a href="https://home-assistant.io/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Notify: <code class="highlighter-rouge">location</code> extension for <a href="https://home-assistant.io/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
   <li>Groups: Lock states will now be properly grouped (<a href="https://github.com/jwl17330536">@jwl17330536</a>)</li>
   <li>Media Player: Added tests for Sonos to improve code quality (<a href="https://github.com/americanwookie">@americanwookie</a>)</li>
   <li>Device Tracker: iCloud stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
@@ -597,7 +584,7 @@ document.body.appendChild(spinner);
     <link href="https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1/"/>
     <updated>2016-07-28T04:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html">documentation</a> covers a lot of ground. This post is providing only a little summary which should get you started.</p>
 
 <p>Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers. This has changed now and it is available to the public for <a href="https://micropython.org/download/#esp8266">download</a>.</p>
@@ -606,47 +593,41 @@ The first release of Micropython for ESP8266 was delivered a couple of weeks ago
 
 <p>The easiest way is to use <a href="https://github.com/themadinventor/esptool">esptool.py</a> for firmware handling tasks. First erase the flash:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo python esptool.py --port /dev/ttyUSB0 erase_flash
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo python esptool.py --port /dev/ttyUSB0 erase_flash
 esptool.py v1.0.2-dev
 Connecting...
-Erasing flash (this may take a while)...
-</pre></div>
-</div>
+Erasing flash <span class="o">(</span>this may take a <span class="k">while</span><span class="o">)</span>...
+</code></pre>
 </div>
 
 <p>and then load the firmware. You may adjust the file name of the firmware binary.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo python esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=8m 0 esp8266-2016-07-10-v1.8.2.bin
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo python esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size<span class="o">=</span>8m 0 esp8266-2016-07-10-v1.8.2.bin
 esptool.py v1.2-dev
 Connecting...
 Running Cesanta flasher stub...
-Flash params set to 0x0020
-Writing 540672 @ 0x0... 540672 (100 %)
-Wrote 540672 bytes at 0x0 in 13.1 seconds (330.8 kbit/s)...
+Flash params <span class="nb">set </span>to 0x0020
+Writing 540672 @ 0x0... 540672 <span class="o">(</span>100 %<span class="o">)</span>
+Wrote 540672 bytes at 0x0 <span class="k">in </span>13.1 seconds <span class="o">(</span>330.8 kbit/s<span class="o">)</span>...
 Leaving...
-</pre></div>
+</code></pre>
 </div>
-</div>
 
-<p>Now reset the device. You should then be able to use the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt">REPL (Read Evaluate Print Loop)</a>. On Linux there is <code>minicom</code> or <code>picocom</code>, on a Mac you can use <code>screen</code> (eg. <code>screen /dev/tty.SLAB_USBtoUART 115200</code>), and on Windows there is Putty to open a serial connection and get the REPL prompt.</p>
+<p>Now reset the device. You should then be able to use the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt">REPL (Read Evaluate Print Loop)</a>. On Linux there is <code class="highlighter-rouge">minicom</code> or <code class="highlighter-rouge">picocom</code>, on a Mac you can use <code class="highlighter-rouge">screen</code> (eg. <code class="highlighter-rouge">screen /dev/tty.SLAB_USBtoUART 115200</code>), and on Windows there is Putty to open a serial connection and get the REPL prompt.</p>
 
-<p>The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi">WebREPL</a> work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at <a href="http://micropython.org/webrepl">http://micropython.org/webrepl</a>. Alternatively, you can create a local clone of their <a href="https://github.com/micropython/webrepl">GitHub repository</a>. This is neccessary if your want to use the command-line tool <code>webrepl_cli.py</code> which is mentionend later in this post.</p>
+<p>The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi">WebREPL</a> work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at <a href="http://micropython.org/webrepl">http://micropython.org/webrepl</a>. Alternatively, you can create a local clone of their <a href="https://github.com/micropython/webrepl">GitHub repository</a>. This is neccessary if your want to use the command-line tool <code class="highlighter-rouge">webrepl_cli.py</code> which is mentionend later in this post.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo minicom -D /dev/ttyUSB0
-#4 ets_task(4020e374, 29, 3fff70e8, 10)                                                          
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo minicom -D /dev/ttyUSB0
+<span class="c">#4 ets_task(4020e374, 29, 3fff70e8, 10)                                                          </span>
 WebREPL daemon started on ws://192.168.4.1:8266
-Started webrepl in setup mode
-could not open file 'main.py' for reading
+Started webrepl <span class="k">in </span>setup mode
+could not open file <span class="s1">'main.py'</span> <span class="k">for </span>reading
 
-#5 ets_task(4010035c, 3, 3fff6360, 4)
+<span class="c">#5 ets_task(4010035c, 3, 3fff6360, 4)</span>
 MicroPython v1.8.2-9-g805c2b9 on 2016-07-10; ESP module with ESP8266
-Type &quot;help()&quot; for more information.
-&gt;&gt;&gt; 
-</pre></div>
-</div>
+Type <span class="s2">"help()"</span> <span class="k">for </span>more information.
+<span class="gp">&gt;&gt;&gt; </span>
+</code></pre>
 </div>
 
 <p class="note">
@@ -655,116 +636,104 @@ The public build of the firmware may be different than the firmware distributed 
 
 <p>Connect a LED to pin 5 (or another pin of your choosing) to check if the ESP8266 is working as expected.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&gt;&gt;&gt; <span class="keyword">import</span> <span class="include">machine</span>
-&gt;&gt;&gt; pin = machine.Pin(<span class="integer">5</span>, machine.Pin.OUT)
-&gt;&gt;&gt; pin.high()
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">machine</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pin</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+</code></pre>
 </div>
 
-<p>You can toogle the LED by changing its state with <code>pin.high()</code> and <code>pin.low()</code>.</p>
+<p>You can toogle the LED by changing its state with <code class="highlighter-rouge">pin.high()</code> and <code class="highlighter-rouge">pin.low()</code>.</p>
 
 <p>Various ESP8266 development board are shipped with an onboard photocell or a light dependent resistors (LDR) connected to the analog pin of your ESP8266 check if you are able to obtain a value.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&gt;&gt;&gt; <span class="keyword">import</span> <span class="include">machine</span>
-&gt;&gt;&gt; brightness = machine.ADC(<span class="integer">0</span>)
-&gt;&gt;&gt; brightness.read()
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">machine</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">brightness</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">brightness</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></pre>
 </div>
 
 <p>Make sure that you are familiar with REPL and WebREPL because this will be needed soon. Keep in mind the password for the WebREPL access.</p>
 
-<p>Read the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html">instructions</a> about how to setup your wireless connection. Basically you need to upload a <code>boot.py</code> file to the microcontroller and this file is taking care of the connection setup. Below you find a sample which is more or less the same as shown in the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html#configuration-of-the-wifi">documentation</a>.</p>
+<p>Read the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html">instructions</a> about how to setup your wireless connection. Basically you need to upload a <code class="highlighter-rouge">boot.py</code> file to the microcontroller and this file is taking care of the connection setup. Below you find a sample which is more or less the same as shown in the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html#configuration-of-the-wifi">documentation</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">def</span> <span class="function">do_connect</span>():
-    <span class="keyword">import</span> <span class="include">network</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">do_connect</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">network</span>
 
-    SSID = <span class="string"><span class="delimiter">'</span><span class="content">SSID</span><span class="delimiter">'</span></span>
-    PASSWORD = <span class="string"><span class="delimiter">'</span><span class="content">PASSWORD</span><span class="delimiter">'</span></span>
+    <span class="n">SSID</span> <span class="o">=</span> <span class="s">'SSID'</span>
+    <span class="n">PASSWORD</span> <span class="o">=</span> <span class="s">'PASSWORD'</span>
 
-    sta_if = network.WLAN(network.STA_IF)
-    ap_if = network.WLAN(network.AP_IF)
-    <span class="keyword">if</span> ap_if.active():
-        ap_if.active(<span class="predefined-constant">False</span>)
-    <span class="keyword">if</span> <span class="keyword">not</span> sta_if.isconnected():
-        print(<span class="string"><span class="delimiter">'</span><span class="content">connecting to network...</span><span class="delimiter">'</span></span>)
-        sta_if.active(<span class="predefined-constant">True</span>)
-        sta_if.connect(SSID, PASSWORD)
-        <span class="keyword">while</span> <span class="keyword">not</span> sta_if.isconnected():
-            <span class="keyword">pass</span>
-    print(<span class="string"><span class="delimiter">'</span><span class="content">Network configuration:</span><span class="delimiter">'</span></span>, sta_if.ifconfig())
-</pre></div>
-</div>
+    <span class="n">sta_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+    <span class="n">ap_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">AP_IF</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ap_if</span><span class="o">.</span><span class="n">active</span><span class="p">():</span>
+        <span class="n">ap_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'connecting to network...'</span><span class="p">)</span>
+        <span class="n">sta_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">sta_if</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">SSID</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+            <span class="k">pass</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Network configuration:'</span><span class="p">,</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+</code></pre>
 </div>
 
-<p>Upload this file with <code>webrepl_cli.py</code> or the WebREPL:</p>
+<p>Upload this file with <code class="highlighter-rouge">webrepl_cli.py</code> or the WebREPL:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python webrepl_cli.py boot.py 192.168.4.1:/boot.py
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python webrepl_cli.py boot.py 192.168.4.1:/boot.py
+</code></pre>
 </div>
 
 <p>If you reboot, you should see your current IP address in the terminal.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&gt;&gt;&gt; Network configuration: ('192.168.0.10', '255.255.255.0', '192.168.0.1', '192.168.0.1')
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt;&gt;&gt; </span>Network configuration: <span class="o">(</span><span class="s1">'192.168.0.10'</span>, <span class="s1">'255.255.255.0'</span>, <span class="s1">'192.168.0.1'</span>, <span class="s1">'192.168.0.1'</span><span class="o">)</span>
+</code></pre>
 </div>
 
-<p>First let’s create a little consumer for Home Assistant sensor’s state. The code to place in <code>main.py</code> is a mixture of code from above and the <a href="https://home-assistant.io/developers/rest_api/">RESTful API</a> of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on.</p>
+<p>First let’s create a little consumer for Home Assistant sensor’s state. The code to place in <code class="highlighter-rouge">main.py</code> is a mixture of code from above and the <a href="https://home-assistant.io/developers/rest_api/">RESTful API</a> of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on.</p>
 
 <p class="note">
-If a module is missing then you need to download is it from <a href="https://github.com/micropython/micropython-lib">MicroPython Library overview</a> and upload it to the ESP8266 with <code>webrepl_cli.py</code> manually.
+If a module is missing then you need to download is it from <a href="https://github.com/micropython/micropython-lib">MicroPython Library overview</a> and upload it to the ESP8266 with <code class="highlighter-rouge">webrepl_cli.py</code> manually.
 </p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Sample code to request the state of a Home Assistant entity.</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Sample code to request the state of a Home Assistant entity.</span>
 
-API_PASSWORD = <span class="string"><span class="delimiter">'</span><span class="content">YOUR_PASSWORD</span><span class="delimiter">'</span></span>
-URL = <span class="string"><span class="delimiter">'</span><span class="content">http://192.168.0.5:8123/api/states/</span><span class="delimiter">'</span></span>
-ENTITY = <span class="string"><span class="delimiter">'</span><span class="content">sensor.kitchen_temperature</span><span class="delimiter">'</span></span>
-TIMEOUT = <span class="integer">30</span>
-PIN = <span class="integer">5</span>
+<span class="n">API_PASSWORD</span> <span class="o">=</span> <span class="s">'YOUR_PASSWORD'</span>
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://192.168.0.5:8123/api/states/'</span>
+<span class="n">ENTITY</span> <span class="o">=</span> <span class="s">'sensor.kitchen_temperature'</span>
+<span class="n">TIMEOUT</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">PIN</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="keyword">def</span> <span class="function">get_data</span>():
-    <span class="keyword">import</span> <span class="include">urequests</span>
-    url = <span class="string"><span class="delimiter">'</span><span class="content">{}{}</span><span class="delimiter">'</span></span>.format(URL, ENTITY)
-    headers = {<span class="string"><span class="delimiter">'</span><span class="content">x-ha-access</span><span class="delimiter">'</span></span>: API_PASSWORD,
-               <span class="string"><span class="delimiter">'</span><span class="content">content-type</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">application/json</span><span class="delimiter">'</span></span>}
-    resp = urequests.get(URL, headers=headers)
-    <span class="keyword">return</span> resp.json()[<span class="string"><span class="delimiter">'</span><span class="content">state</span><span class="delimiter">'</span></span>]
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">urequests</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">'{}{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">ENTITY</span><span class="p">)</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'x-ha-access'</span><span class="p">:</span> <span class="n">API_PASSWORD</span><span class="p">,</span>
+               <span class="s">'content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">urequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s">'state'</span><span class="p">]</span>
 
-<span class="keyword">def</span> <span class="function">main</span>():
-    <span class="keyword">import</span> <span class="include">machine</span>
-    <span class="keyword">import</span> <span class="include">time</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">machine</span>
+    <span class="kn">import</span> <span class="nn">time</span>
 
-    pin = machine.Pin(PIN, machine.Pin.OUT)
-    <span class="keyword">while</span> <span class="predefined-constant">True</span>:
-        <span class="keyword">try</span>:
-            <span class="keyword">if</span> <span class="predefined">int</span>(get_data()) &gt;= <span class="integer">20</span>:
-                pin.high()
-            <span class="keyword">else</span>:
-                pin.low()
-        <span class="keyword">except</span> <span class="exception">TypeError</span>:
-            <span class="keyword">pass</span>
-        time.sleep(TIMEOUT)
+    <span class="n">pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">PIN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_data</span><span class="p">())</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">:</span>
+                <span class="n">pin</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pin</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+        <span class="k">except</span> <span class="nb">TypeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">TIMEOUT</span><span class="p">)</span>
 
-<span class="keyword">if</span> __name__ == <span class="string"><span class="delimiter">'</span><span class="content">__main__</span><span class="delimiter">'</span></span>:
-    print(<span class="string"><span class="delimiter">'</span><span class="content">Get the state of {}</span><span class="delimiter">'</span></span>.format(ENTITY))
-    main()
-</pre></div>
-</div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Get the state of {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ENTITY</span><span class="p">))</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre>
 </div>
 
-<p>Upload <code>main.py</code> the same way as <code>boot.py</code>. After a reboot (<code>&gt;&gt;&gt; import machine</code> and <code>&gt;&gt;&gt; machine.reboot()</code>) or power-cycling your physical notifier is ready.</p>
+<p>Upload <code class="highlighter-rouge">main.py</code> the same way as <code class="highlighter-rouge">boot.py</code>. After a reboot (<code class="highlighter-rouge">&gt;&gt;&gt; import machine</code> and <code class="highlighter-rouge">&gt;&gt;&gt; machine.reboot()</code>) or power-cycling your physical notifier is ready.</p>
 
-<p>If you run into trouble, press “Ctrl+c” in the REPL to stop the execution of the code, enter <code>&gt;&gt;&gt; import webrepl</code> and <code>&gt;&gt;&gt; webrepl.start()</code>, and upload your fixed file.</p>
+<p>If you run into trouble, press “Ctrl+c” in the REPL to stop the execution of the code, enter <code class="highlighter-rouge">&gt;&gt;&gt; import webrepl</code> and <code class="highlighter-rouge">&gt;&gt;&gt; webrepl.start()</code>, and upload your fixed file.</p>
 
 ]]></content>
   </entry>
@@ -821,7 +790,7 @@ One of the graphs created with this tutorial.
   <li><a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">download the tutorial Jupyter Notebook</a> (leads to preview page, from there click download top-right)</li>
   <li>launch the Jupyter Notebook App</li>
   <li>Click the ‘upload’ button to add the downloaded notebook to Jupyter</li>
-  <li>Adjust the <code>DB_URL</code> at the beginning of the notebook to point at your Home Assistant database</li>
+  <li>Adjust the <code class="highlighter-rouge">DB_URL</code> at the beginning of the notebook to point at your Home Assistant database</li>
   <li>Select in top menu: Cell -&gt; Run All</li>
 </ul>
 
@@ -855,37 +824,33 @@ One of the graphs created with this tutorial.
 
 <!--more-->
 
-<p>In this blog post I use the temperature of the <a href="https://en.wikipedia.org/wiki/Aare">Aare</a> river close to where I live as a show case. The temperatures were recorded with the <a href="https://home-assistant.io/components/sensor.swiss_hydrological_data/">Swiss Hydrological Data sensor</a> and the name of the sensor is <code>sensor.aare</code>.</p>
+<p>In this blog post I use the temperature of the <a href="https://en.wikipedia.org/wiki/Aare">Aare</a> river close to where I live as a show case. The temperatures were recorded with the <a href="https://home-assistant.io/components/sensor.swiss_hydrological_data/">Swiss Hydrological Data sensor</a> and the name of the sensor is <code class="highlighter-rouge">sensor.aare</code>.</p>
 
-<p>The database is stored at <code>&lt;path to config dir&gt;/.homeassistant/home-assistant_v2.db</code> as <a href="https://www.sqlite.org/">SQLite database</a>. In all examples we are going to use the path: <code>/home/ha/.homeassistant/home-assistant_v2.db</code></p>
+<p>The database is stored at <code class="highlighter-rouge">&lt;path to config dir&gt;/.homeassistant/home-assistant_v2.db</code> as <a href="https://www.sqlite.org/">SQLite database</a>. In all examples we are going to use the path: <code class="highlighter-rouge">/home/ha/.homeassistant/home-assistant_v2.db</code></p>
 
-<p>If you are just curious what’s stored in your database then you can use the <code>sqlite3</code> command-line tool or a graphical one like <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>.</p>
+<p>If you are just curious what’s stored in your database then you can use the <code class="highlighter-rouge">sqlite3</code> command-line tool or a graphical one like <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>.</p>
 
-<p>The table that is holding the states is called <code>states</code>. The <code>events</code> tables is responsible for storing the events which occurred. So, we will first check how many entries there are in the <code>states</code> table. <code>sqlite3</code> needs to know where the databases is located. To work with your database make sure that Home Assistant is not running or create a copy of the existing database. It’s recommended to work with a copy.</p>
+<p>The table that is holding the states is called <code class="highlighter-rouge">states</code>. The <code class="highlighter-rouge">events</code> tables is responsible for storing the events which occurred. So, we will first check how many entries there are in the <code class="highlighter-rouge">states</code> table. <code class="highlighter-rouge">sqlite3</code> needs to know where the databases is located. To work with your database make sure that Home Assistant is not running or create a copy of the existing database. It’s recommended to work with a copy.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sqlite3 /home/ha/.homeassistant/home-assistant_v2.db 
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sqlite3 /home/ha/.homeassistant/home-assistant_v2.db 
 SQLite version 3.11.0 2016-02-15 17:29:24
-sqlite&gt; SELECT count(*) FROM states;
+<span class="gp">sqlite&gt; </span>SELECT count<span class="o">(</span><span class="k">*</span><span class="o">)</span> FROM states;
 24659
-</pre></div>
-</div>
-</div>
-
-<p>Let’s have a look at a sample <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> query. This query will show all states in a period for the sensor <code>sensor.aare</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="class">SELECT</span> state, last_changed <span class="keyword">FROM</span> states
-  <span class="keyword">WHERE</span>
-    entity_id = <span class="string"><span class="delimiter">'</span><span class="content">sensor.aare</span><span class="delimiter">'</span></span>
-  <span class="keyword">AND</span>
-     last_changed <span class="keyword">BETWEEN</span>
-    <span class="string"><span class="delimiter">'</span><span class="content">2016-07-05 00:00:00.000000</span><span class="delimiter">'</span></span> <span class="keyword">AND</span> <span class="string"><span class="delimiter">'</span><span class="content">2016-07-07 00:00:00.000000</span><span class="delimiter">'</span></span>;
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>The SQL statement can be formed that it fits exactly what you need. This means that you can process the data in any way you want for further use. Often it makes sense to eliminate certain entries like <code>Unknown</code> or peaks.</p>
+<p>Let’s have a look at a sample <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> query. This query will show all states in a period for the sensor <code class="highlighter-rouge">sensor.aare</code>.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">state</span><span class="p">,</span> <span class="n">last_changed</span> <span class="k">FROM</span> <span class="n">states</span>
+  <span class="k">WHERE</span>
+    <span class="n">entity_id</span> <span class="o">=</span> <span class="s1">'sensor.aare'</span>
+  <span class="k">AND</span>
+     <span class="n">last_changed</span> <span class="k">BETWEEN</span>
+    <span class="s1">'2016-07-05 00:00:00.000000'</span> <span class="k">AND</span> <span class="s1">'2016-07-07 00:00:00.000000'</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>The SQL statement can be formed that it fits exactly what you need. This means that you can process the data in any way you want for further use. Often it makes sense to eliminate certain entries like <code class="highlighter-rouge">Unknown</code> or peaks.</p>
 
 <p>If the above query is executed in DB Browser for SQLite you would be able to save the sensor’s graph as png.</p>
 
@@ -896,13 +861,11 @@ sqlite&gt; SELECT count(*) FROM states;
 
 <p>You may ask: Why not do this with LibreOffice Calc or another spreadsheet application? As most spreadsheet applications are not able to work directly with SQLite database we are going to export the data from the database to <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sqlite3 -header -csv /home/ha/.homeassistant/home-assistant_v2.db &quot;SELECT last_changed, state FROM states WHERE entity_id = 'sensor.aare' AND last_changed BETWEEN '2016-07-05 00:00:00.000000' AND '2016-07-07 00:00:00.000000';&quot; &gt; sensor.csv
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sqlite3 -header -csv /home/ha/.homeassistant/home-assistant_v2.db <span class="s2">"SELECT last_changed, state FROM states WHERE entity_id = 'sensor.aare' AND last_changed BETWEEN '2016-07-05 00:00:00.000000' AND '2016-07-07 00:00:00.000000';"</span> &gt; sensor.csv
+</code></pre>
 </div>
 
-<p>The ordering for the <code>SELECT</code> was changed to get the time stamps first and then the state. Now we can import the CSV file into the application of your choice, here it’s LibreOffice Calc.</p>
+<p>The ordering for the <code class="highlighter-rouge">SELECT</code> was changed to get the time stamps first and then the state. Now we can import the CSV file into the application of your choice, here it’s LibreOffice Calc.</p>
 
 <p class="img">
   <img src="https://home-assistant.io/images/blog/2016-07-reporting/libreoffice-import.png" />
@@ -918,33 +881,31 @@ sqlite&gt; SELECT count(*) FROM states;
 
 <p>You can also use <a href="http://matplotlib.org/">matplotlib</a> to generate graphs as an alternative to a spreadsheet application. This is a powerful Python 2D plotting library. With the built-in support for SQLite in Python it will only take a couple lines of code to visualize your data.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">import</span> <span class="include">sqlite3</span>
-<span class="keyword">from</span> <span class="include">matplotlib</span> <span class="keyword">import</span> <span class="include">dates</span>
-<span class="keyword">import</span> <span class="include">matplotlib.pyplot</span> <span class="keyword">as</span> plt
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">dates</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
-<span class="keyword">import</span> <span class="include">homeassistant.util.dt</span> <span class="keyword">as</span> dt
+<span class="kn">import</span> <span class="nn">homeassistant.util.dt</span> <span class="kn">as</span> <span class="nn">dt</span>
 
-values = []
-timestamps = []
+<span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">timestamps</span> <span class="o">=</span> <span class="p">[]</span>
 
-conn = sqlite3.connect(<span class="string"><span class="delimiter">'</span><span class="content">/home/ha/.homeassistant/home-assistant_v2.db</span><span class="delimiter">'</span></span>)
-data = conn.execute(<span class="string"><span class="delimiter">&quot;</span><span class="content">SELECT state, last_changed FROM states WHERE </span><span class="delimiter">&quot;</span></span>
-                    <span class="string"><span class="delimiter">&quot;</span><span class="content">entity_id = 'sensor.aare' AND last_changed BETWEEN </span><span class="delimiter">&quot;</span></span>
-                    <span class="string"><span class="delimiter">&quot;</span><span class="content">'2016-07-05 00:00:00.000000' AND </span><span class="delimiter">&quot;</span></span>
-                    <span class="string"><span class="delimiter">&quot;</span><span class="content">'2016-07-07 00:00:00.000000'</span><span class="delimiter">&quot;</span></span>)
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">'/home/ha/.homeassistant/home-assistant_v2.db'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT state, last_changed FROM states WHERE "</span>
+                    <span class="s">"entity_id = 'sensor.aare' AND last_changed BETWEEN "</span>
+                    <span class="s">"'2016-07-05 00:00:00.000000' AND "</span>
+                    <span class="s">"'2016-07-07 00:00:00.000000'"</span><span class="p">)</span>
 
-<span class="keyword">for</span> x <span class="keyword">in</span> data:
-    timestamps.append(dates.date2num(dt.parse_datetime(x[<span class="integer">1</span>])))
-    values.append(<span class="predefined">float</span>(x[<span class="integer">0</span>]))
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">timestamps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">parse_datetime</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 
-plt.plot_date(x=timestamps, y=values, fmt=<span class="string"><span class="delimiter">&quot;</span><span class="content">r-</span><span class="delimiter">&quot;</span></span>)
-plt.ylabel(<span class="string"><span class="delimiter">'</span><span class="content">Temperature</span><span class="delimiter">'</span></span>)
-plt.xlabel(<span class="string"><span class="delimiter">'</span><span class="content">Time line</span><span class="delimiter">'</span></span>)
+<span class="n">plt</span><span class="o">.</span><span class="n">plot_date</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">timestamps</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">"r-"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Temperature'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Time line'</span><span class="p">)</span>
 
-plt.savefig(<span class="string"><span class="delimiter">'</span><span class="content">sensor.png</span><span class="delimiter">'</span></span>)
-</pre></div>
-</div>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'sensor.png'</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <p>Creating a connection to the database and executing a query is similar to the ways already seen. The return values from the query are splitted into two lists. The time stamps must be converted in an value which is accepted by matplotlib and then the graph is generated and saved as image.</p>
@@ -970,14 +931,12 @@ plt.savefig(<span class="string"><span class="delimiter">'</span><span class="co
 
 <p><a href="https://github.com/rhooper/">Roy Hooper</a> did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use <strong>any</strong> SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install SQLAlchemy
-$ hass --script db_migrator --config /path/to/config
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install SQLAlchemy
+<span class="gp">$ </span>hass --script db_migrator --config /path/to/config
+</code></pre>
 </div>
 
-<p>You can omit the <code>--config</code> option if you use the default configuration directory. Run the script with <code>--help</code> to get more options.</p>
+<p>You can omit the <code class="highlighter-rouge">--config</code> option if you use the default configuration directory. Run the script with <code class="highlighter-rouge">--help</code> to get more options.</p>
 
 <p><img src="https://home-assistant.io/images/supported_brands/yahooweather.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/joaoapps_join.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/knx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/tp-link.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
 
@@ -994,7 +953,7 @@ $ hass --script db_migrator --config /path/to/config
   <li><a href="https://home-assistant.io/components/statsd/">StatsD</a> can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
   <li>Support for <a href="https://home-assistant.io/components/knx/">KNX</a> added (<a href="https://github.com/usul27">@usul27</a>)</li>
   <li>Switch: <a href="https://home-assistant.io/components/switch.tplink/">TPLink</a> HS100/HS110 now supported (<a href="https://github.com/GadgetReactor">@GadgetReactor</a>)</li>
-  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> ([@Danielhiversen])</li>
+  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> (<a href="https://github.com/danielhiversen">@Danielhiversen</a>)</li>
   <li>Tweaks to <a href="https://home-assistant.io/components/zwave/">Z-Wave</a> (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
   <li>Light: <a href="https://home-assistant.io/components/light/">Brightness</a> now clamped to 0-255 (<a href="https://github.com/keatontaylor">@keatontaylor</a>)</li>
   <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.radiotherm/">Radiotherm</a> HVAC mode now supported (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
@@ -1013,19 +972,31 @@ $ hass --script db_migrator --config /path/to/config
 
 <ul>
   <li>Migrating existing databases (see above).</li>
-  <li>The <a href="https://home-assistant.io/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code>configuration.yaml</code> file.</li>
+  <li>The <a href="https://home-assistant.io/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
   <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
 </ul>
 
-<p>«««&lt; HEAD<br />
-=======<br />
-[@n8henrie]: https://github.com/n8henrie/<br />
-[@AlucardZero]: https://github.com/AlucardZero/<br />
-«««&lt; HEAD<br />
-»»»&gt; master<br />
-=======<br />
-[@Danielhiversen]: https://github.com/danielhiversen<br />
-»»»&gt; origin/master</p>
+<p>«««&lt; HEAD
+=======
+[@n8henrie]: https://github.com/n8henrie/
+[@AlucardZero]: https://github.com/AlucardZero/
+«««&lt; HEAD</p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <h1>master</h1>
+              <p>origin/master</p>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
 
 ]]></content>
   </entry>
@@ -1035,7 +1006,7 @@ $ hass --script db_migrator --config /path/to/config
     <link href="https://home-assistant.io/blog/2016/07/06/pocketchip-running-home-assistant/"/>
     <updated>2016-07-06T05:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/07/06/pocketchip-running-home-assistant</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-pocketchip/pocketchip-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-pocketchip/pocketchip-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 Over a year ago I participated in the <a href="https://www.kickstarter.com/projects/1598272670/chip-the-worlds-first-9-computer/description">kickstarter campaign</a> for “CHIP - The World’s First Nine Dollar Computer” by <a href="https://www.nextthing.co/">Next Thing Co.</a>. I went for the PocketCHIP because of the idea. Display, built-in storage (thus no need for SD cards), battery-powered, and a keyboard are pretty nice features. Last week a package arrives…</p>
 
 <!--more-->
@@ -1049,43 +1020,35 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
 
 <p>If you start using a PocketCHIP you will definitely look like a Blackberry or a GameBoy user. Typing is done with your thumbs :-)</p>
 
-<p>First a couple of tweaks like setting up <code>sudo</code>, upgrading the existing installation, change passwords, enabling ssh, and removal of the annoying stuff then installation of Home Assistant. There is not much to tell…it’s straight-forward. For the sake of completeness below the notes about what I did.</p>
+<p>First a couple of tweaks like setting up <code class="highlighter-rouge">sudo</code>, upgrading the existing installation, change passwords, enabling ssh, and removal of the annoying stuff then installation of Home Assistant. There is not much to tell…it’s straight-forward. For the sake of completeness below the notes about what I did.</p>
 
-<p>A Debian installation is available by default. This means that some dependencies for Home Assistant are missing. I haven’t checked if a new build for the PocketCHIP would include them. So, after a <code>$ sudo apt-get update</code> installing those dependencies take a minute or two.</p>
+<p>A Debian installation is available by default. This means that some dependencies for Home Assistant are missing. I haven’t checked if a new build for the PocketCHIP would include them. So, after a <code class="highlighter-rouge">$ sudo apt-get update</code> installing those dependencies take a minute or two.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo apt-get install python3-dev python3-pip python3-venv
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python3-dev python3-pip python3-venv
+</code></pre>
 </div>
 
 <p>As usual I run Python applications in a <a href="https://docs.python.org/3/library/venv.html">venv</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pvenv ha
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pvenv ha
+</code></pre>
 </div>
 
 <p>Let’s activate the created environment.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ cd ha
-$ source bin/activate
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>ha
+<span class="gp">$ </span><span class="nb">source </span>bin/activate
+</code></pre>
 </div>
 
 <p>If you haven’t seen the next two commands already then you should visit our <a href="https://home-assistant.io/">frontsite</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip3 install homeassistant
-$ hass --open-ui
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install homeassistant
+<span class="gp">$ </span>hass --open-ui
+</code></pre>
 </div>
 
-<p>With <code>surf</code> the browsing experience on the low-resolution display is not that great. Most smartphones, even very cheap ones, have touchscreens with higher resolutions. Nevermind, <a href="https://twitter.com/fabaff/status/748852317047418880"><code>midori</code></a> is not better.</p>
+<p>With <code class="highlighter-rouge">surf</code> the browsing experience on the low-resolution display is not that great. Most smartphones, even very cheap ones, have touchscreens with higher resolutions. Nevermind, <a href="https://twitter.com/fabaff/status/748852317047418880"><code class="highlighter-rouge">midori</code></a> is not better.</p>
 
 <p class="img">
   <img src="https://home-assistant.io/images/blog/2016-07-pocketchip/pocketchip.png" />
@@ -1155,7 +1118,7 @@ $ hass --open-ui
 <h3><a class="title-link" name="faq" href="#faq"></a> FAQ</h3>
 
 <ul>
-  <li><code>elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code>[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code>configuration.yaml</code> file.</li>
+  <li><code class="highlighter-rouge">elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code class="highlighter-rouge">[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
 </ul>
 
 ]]></content>
@@ -1166,7 +1129,7 @@ $ hass --open-ui
     <link href="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/"/>
     <updated>2016-06-23T06:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
 
 <p>In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
@@ -1175,98 +1138,86 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
 
 <p>Check first if the your operating system lists your cameras.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ lsusb
-[...]
-Bus 002 Device 016: ID 046d:08cc Logitech, Inc. Mic (PTZ)
-[...]
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>lsusb
+<span class="o">[</span>...]
+Bus 002 Device 016: ID 046d:08cc Logitech, Inc. Mic <span class="o">(</span>PTZ<span class="o">)</span>
+<span class="o">[</span>...]
+</code></pre>
 </div>
 
-<p>The camera we are going to use is available at <code>/dev/video1</code>. The C270 is the one on <code>/dev/video0</code>.</p>
+<p>The camera we are going to use is available at <code class="highlighter-rouge">/dev/video1</code>. The C270 is the one on <code class="highlighter-rouge">/dev/video0</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ls -al /dev/video*
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls -al /dev/video<span class="k">*</span>
 crw-rw----+ 1 root video 81, 0 Jun 23 08:05 /dev/video0
 crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <p>We need an additional software part to handle the cameras. <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations. Make sure that you have the <a href="http://rpmfusion.org/">RPM Fusion respository</a> enabled.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo dnf -y install motion
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install motion
+</code></pre>
 </div>
 
-<p>For our setup we need to modify the file <code>/etc/motion/motion.conf</code>. For now the most important parameters are <code>videodevice</code>, <code>snapshot_interval</code>, and <code>target_dir</code>. The other settings can be left to their defaults. We are going to use the device <code>/dev/video1</code>, use a 30 seconds interval, and set the path to <code>/tmp</code>.</p>
+<p>For our setup we need to modify the file <code class="highlighter-rouge">/etc/motion/motion.conf</code>. For now the most important parameters are <code class="highlighter-rouge">videodevice</code>, <code class="highlighter-rouge">snapshot_interval</code>, and <code class="highlighter-rouge">target_dir</code>. The other settings can be left to their defaults. We are going to use the device <code class="highlighter-rouge">/dev/video1</code>, use a 30 seconds interval, and set the path to <code class="highlighter-rouge">/tmp</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[...]
-###########################################################
-# Capture device options
-############################################################
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>...]
+<span class="c">###########################################################</span>
+<span class="c"># Capture device options</span>
+<span class="c">############################################################</span>
 
-# Videodevice to be used for capturing  (default /dev/video0)
-# for FreeBSD default is /dev/bktr0
+<span class="c"># Videodevice to be used for capturing  (default /dev/video0)</span>
+<span class="c"># for FreeBSD default is /dev/bktr0</span>
 videodevice /dev/video1
 
-[..]
-############################################################
-# Snapshots (Traditional Periodic Webcam File Output)
-############################################################
+<span class="o">[</span>..]
+<span class="c">############################################################</span>
+<span class="c"># Snapshots (Traditional Periodic Webcam File Output)</span>
+<span class="c">############################################################</span>
 
-# Make automated snapshot every N seconds (default: 0 = disabled)
+<span class="c"># Make automated snapshot every N seconds (default: 0 = disabled)</span>
 snapshot_interval 30
 
-[...]
-############################################################
-# Target Directories and filenames For Images And Films
-# For the options snapshot_, picture_, movie_ and timelapse_filename
-# you can use conversion specifiers
-# %Y = year, %m = month, %d = date,
-# %H = hour, %M = minute, %S = second,
-# %v = event, %q = frame number, %t = thread (camera) number,
-# %D = changed pixels, %N = noise level,
-# %i and %J = width and height of motion area,
-# %K and %L = X and Y coordinates of motion center
-# %C = value defined by text_event
-# Quotation marks round string are allowed.
-############################################################
+<span class="o">[</span>...]
+<span class="c">############################################################</span>
+<span class="c"># Target Directories and filenames For Images And Films</span>
+<span class="c"># For the options snapshot_, picture_, movie_ and timelapse_filename</span>
+<span class="c"># you can use conversion specifiers</span>
+<span class="c"># %Y = year, %m = month, %d = date,</span>
+<span class="c"># %H = hour, %M = minute, %S = second,</span>
+<span class="c"># %v = event, %q = frame number, %t = thread (camera) number,</span>
+<span class="c"># %D = changed pixels, %N = noise level,</span>
+<span class="c"># %i and %J = width and height of motion area,</span>
+<span class="c"># %K and %L = X and Y coordinates of motion center</span>
+<span class="c"># %C = value defined by text_event</span>
+<span class="c"># Quotation marks round string are allowed.</span>
+<span class="c">############################################################</span>
 
-# Target base directory for pictures and films
-# Recommended to use absolute path. (Default: current working directory)
+<span class="c"># Target base directory for pictures and films</span>
+<span class="c"># Recommended to use absolute path. (Default: current working directory)</span>
 target_dir /tmp
 
-[...]
-</pre></div>
-</div>
-</div>
-
-<p>It’s suggested that you adjust at least <code>width</code> and <code>height</code> to get a bigger image from your camera. If you are done, fire up <code>motion</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo motion
-[0] [NTC] [ALL] conf_load: Processing thread 0 - config file /etc/motion/motion.conf
-[0] [ALR] [ALL] conf_cmdparse: Unknown config option &quot;sdl_threadnr&quot;
-[0] [NTC] [ALL] motion_startup: Motion 3.3.0 Started
-[0] [NTC] [ALL] motion_startup: Logging to file (/var/log/motion.log)
-</pre></div>
-</div>
+<span class="o">[</span>...]
+</code></pre>
 </div>
 
-<p>Your <code>target_dir</code> will start filling up with images from your camera. <code>motion</code> will create a symlink called <code>lastsnap.jpg</code> which always point to the latest snapshot. We will setup the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> to use this file.</p>
+<p>It’s suggested that you adjust at least <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code> to get a bigger image from your camera. If you are done, fire up <code class="highlighter-rouge">motion</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">camera</span>:
-  - <span class="string"><span class="content">platform: local_file</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Cranberry cam</span></span>
-    <span class="key">file_path</span>: <span class="string"><span class="content">/tmp/lastsnap.jpg</span></span>
-</pre></div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo motion
+<span class="o">[</span>0] <span class="o">[</span>NTC] <span class="o">[</span>ALL] conf_load: Processing thread 0 - config file /etc/motion/motion.conf
+<span class="o">[</span>0] <span class="o">[</span>ALR] <span class="o">[</span>ALL] conf_cmdparse: Unknown config option <span class="s2">"sdl_threadnr"</span>
+<span class="o">[</span>0] <span class="o">[</span>NTC] <span class="o">[</span>ALL] motion_startup: Motion 3.3.0 Started
+<span class="o">[</span>0] <span class="o">[</span>NTC] <span class="o">[</span>ALL] motion_startup: Logging to file <span class="o">(</span>/var/log/motion.log<span class="o">)</span>
+</code></pre>
 </div>
+
+<p>Your <code class="highlighter-rouge">target_dir</code> will start filling up with images from your camera. <code class="highlighter-rouge">motion</code> will create a symlink called <code class="highlighter-rouge">lastsnap.jpg</code> which always point to the latest snapshot. We will setup the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> to use this file.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">local_file</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Cranberry cam</span>
+    <span class="s">file_path</span><span class="pi">:</span> <span class="s">/tmp/lastsnap.jpg</span>
+</code></pre>
 </div>
 
 <p class="img">
@@ -1274,20 +1225,18 @@ target_dir /tmp
   The “Cranberry cam” in action
 </p>
 
-<p>The machine with the attached USB camera will become a webcam server as well because <code>motion</code>’s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run <code>motion</code> there, adjust your firewall rules, and use Home Assistant to display the videos. Just check http://[IP of your webcam host]:8081/ to see the stream. This required more powerful hardware than using snapshots, of course.</p>
+<p>The machine with the attached USB camera will become a webcam server as well because <code class="highlighter-rouge">motion</code>’s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run <code class="highlighter-rouge">motion</code> there, adjust your firewall rules, and use Home Assistant to display the videos. Just check http://[IP of your webcam host]:8081/ to see the stream. This required more powerful hardware than using snapshots, of course.</p>
 
-<p>In a scenario like this needs a <a href="https://home-assistant.io/components/camera.mjpeg/">Generic MJPEG IP Camera </a> in your <code>configuration.yaml</code> file.</p>
+<p>In a scenario like this needs a <a href="https://home-assistant.io/components/camera.mjpeg/">Generic MJPEG IP Camera </a> in your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">camera</span>:
-  - <span class="string"><span class="content">platform: mjpeg</span></span>
-    <span class="key">mjpeg_url</span>: <span class="string"><span class="content">http://[IP of your webcam host]:8081</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Cranberry Live cam</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mjpeg</span>
+    <span class="s">mjpeg_url</span><span class="pi">:</span> <span class="s">http://[IP of your webcam host]:8081</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Cranberry Live cam</span>
+</code></pre>
 </div>
 
-<p><a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is a powerful tool and this blog post only showed two very simple use cases. Take a look at the <a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide">documentation</a> of <code>motion</code> to unleash its potential.</p>
+<p><a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is a powerful tool and this blog post only showed two very simple use cases. Take a look at the <a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide">documentation</a> of <code class="highlighter-rouge">motion</code> to unleash its potential.</p>
 
 ]]></content>
   </entry>
@@ -1338,14 +1287,12 @@ target_dir /tmp
   <li>The new Netatmo support caused us to change how Netatmo are configured. It’s now done via it’s own component.</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">netatmo</span>:
-    <span class="key">api_key</span>: <span class="string"><span class="content">API_KEY</span></span>
-    <span class="key">secret_key</span>: <span class="string"><span class="content">SECRET_KEY</span></span>
-    <span class="key">username</span>: <span class="string"><span class="content">username</span></span>
-    <span class="key">password</span>: <span class="string"><span class="content">password</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">netatmo</span><span class="pi">:</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
+    <span class="s">secret_key</span><span class="pi">:</span> <span class="s">SECRET_KEY</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">username</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="hotfix-0221---june-20" href="#hotfix-0221---june-20"></a> Hotfix 0.22.1 - June 20</h3>
@@ -1437,7 +1384,7 @@ target_dir /tmp
 <ul>
   <li>Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error</li>
   <li>The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have <a href="https://home-assistant.io/developers/rest_api/">been updated</a>.</li>
-  <li>Make sure your configuration.yaml file contains <code>frontend:</code> to serve the frontend</li>
+  <li>Make sure your configuration.yaml file contains <code class="highlighter-rouge">frontend:</code> to serve the frontend</li>
 </ul>
 
 <h3>Hotfixes 0.21.1 and 0.21.2</h3>
@@ -1553,72 +1500,68 @@ target_dir /tmp
 
 <p>With the basic tracking working - you can use automation to do things like open your gates if your car comes home</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-    - <span class="string"><span class="content">alias: 'Open gate'</span></span>
-      <span class="key">trigger</span>:
-        - <span class="string"><span class="content">platform: state</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.beacon_car</span></span>
-          <span class="key">from</span>: <span class="string"><span class="content">'not_home'</span></span>
-          <span class="key">to</span>: <span class="string"><span class="content">'home'</span></span>
-      <span class="key">condition</span>:
-        - <span class="string"><span class="content">condition: state</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.gate</span></span>
-          <span class="key">state</span>: <span class="string"><span class="content">'off'</span></span>
-      <span class="key">action</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.gate</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Open</span><span class="nv"> </span><span class="s">gate'</span>
+      <span class="s">trigger</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.beacon_car</span>
+          <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
+          <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+      <span class="s">condition</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.gate</span>
+          <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+      <span class="s">action</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.gate</span>
+</code></pre>
 </div>
 
 <p>Or warn you if you leave your keys behind</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: 'Forgotten keys'</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'</span></span>
-    <span class="key">condition</span>:
-      <span class="key">condition</span>: <span class="string"><span class="content">template</span></span>
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{ states.device_tracker.greg_gregphone.state != &quot;home&quot; }}'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">script.send_key_alert</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Forgotten</span><span class="nv"> </span><span class="s">keys'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.device_tracker.greg_gregphone.state</span><span class="nv"> </span><span class="s">!=</span><span class="nv"> </span><span class="s">states.device_tracker.beacon_keys.state}}'</span>
+    <span class="s">condition</span><span class="pi">:</span>
+      <span class="s">condition</span><span class="pi">:</span> <span class="s">template</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.device_tracker.greg_gregphone.state</span><span class="nv"> </span><span class="s">!=</span><span class="nv"> </span><span class="s">"home"</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.send_key_alert</span>
 
-  - <span class="string"><span class="content">alias: 'Forgotten keys - cancel'</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state}}'</span></span>
-    <span class="key">condition</span>:
-      - <span class="string"><span class="content">condition: state</span></span>
-        <span class="key">entity_id</span>: <span class="string"><span class="content">script.send_key_alert</span></span>
-        <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">script.turn_off</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">script.send_key_alert</span></span>
-</pre></div>
-</div>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Forgotten</span><span class="nv"> </span><span class="s">keys</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">cancel'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.device_tracker.greg_gregphone.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">states.device_tracker.beacon_keys.state</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">condition</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.send_key_alert</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_off</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.send_key_alert</span>
+</code></pre>
 </div>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">script</span>:
-  <span class="key">send_key_alert</span>:
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">delay:</span><span class="content">
-          minutes: 2</span></span>
-      - <span class="string"><span class="content">service: notify.notify</span></span>
-        <span class="key">data</span>:
-            <span class="key">message</span>: <span class="string"><span class="content">'You forgot your keys'</span></span>
-            <span class="key">target</span>: <span class="string"><span class="content">'device/gregs_iphone'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">send_key_alert</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+          <span class="s">minutes</span><span class="pi">:</span> <span class="s">2</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data</span><span class="pi">:</span>
+            <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">You</span><span class="nv"> </span><span class="s">forgot</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">keys'</span>
+            <span class="s">target</span><span class="pi">:</span> <span class="s1">'</span><span class="s">device/gregs_iphone'</span>
+</code></pre>
 </div>
 
-<p>(The delay is needed for two reasons: -<br />
-1. HA updates the beacon and phone locations at slightly different times - so you don’t want the automation to trigger in the gap between the updates<br />
-2. I’ve found that beacons (especially the low power Estimote Nearables) can get disconnected for a few seconds so it’s best to wait a minute or so before deciding that you’ve left your keys behind)</p>
+<p>(The delay is needed for two reasons: -</p>
+<ol>
+  <li>HA updates the beacon and phone locations at slightly different times - so you don’t want the automation to trigger in the gap between the updates</li>
+  <li>I’ve found that beacons (especially the low power Estimote Nearables) can get disconnected for a few seconds so it’s best to wait a minute or so before deciding that you’ve left your keys behind)</li>
+</ol>
 
 <h3><a class="title-link" name="using-both-types-of-ibeacons-at-the-same-time" href="#using-both-types-of-ibeacons-at-the-same-time"></a> Using both types of iBeacons at the same time</h3>
 <p>Of course you can use both fixed and mobile beacons at the same time. I want my gates to open when I arrive home in the car - so I use an iBeacon in the car so that I can track the car, and a iBeacon on my drive so that a location update is triggered when I arrive. I’ve been experimenting with a high power beacon in a waterproof box on my drive which seems to work well to notice when I get home.</p>
@@ -1665,10 +1608,8 @@ target_dir /tmp
     <id>https://home-assistant.io/blog/2016/05/22/get-started-with-all-in-one-installer</id>
     <content type="html"><![CDATA[<p>We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That’s why <a href="https://github.com/jbags81">@jbags81</a> recently introduced the <a href="https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/">all-in-one installer</a>. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh &amp;&amp; bash hass_rpi_installer.sh;
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh <span class="o">&amp;&amp;</span> bash hass_rpi_installer.sh;
+</code></pre>
 </div>
 
 <p>This feature wouldn’t be complete if it wasn’t accompanied by a new video by Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a>. The video shows how to install Raspbian Jessie on your Raspberry Pi and use the new installation script to get a full Home Assistant system up and running.</p>
@@ -1693,7 +1634,7 @@ target_dir /tmp
   <li>Restarting now supported without forking (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
   <li>Add <a href="https://home-assistant.io/components/recorder/">purge days option</a> to recorder component (<a href="https://github.com/justyns">@justyns</a>, <a href="https://github.com/infamy">@infamy</a>)</li>
   <li>Generic load_platform mechanism for entity components (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Template: new <a href="https://home-assistant.io/topics/templating/#home-assistant-template-extensions/"><code>relative_time</code></a> function to render ie. <code>7 seconds ago</code> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Template: new <a href="https://home-assistant.io/topics/templating/#home-assistant-template-extensions/"><code class="highlighter-rouge">relative_time</code></a> function to render ie. <code class="highlighter-rouge">7 seconds ago</code> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>Sensor: <a href="https://home-assistant.io/components/sensor.supervisord/">supervisord</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
   <li>Docker: we should no longer get SSL errors with requests (<a href="https://github.com/lwis">@lwis</a>)</li>
   <li>Media Player: <a href="https://home-assistant.io/components/media_player.gpmdp/">Google Play Music Desktop Player</a> now supported (<a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
@@ -1705,7 +1646,7 @@ target_dir /tmp
   <li>Sensor: <a href="https://home-assistant.io/components/sensor.lastfm/">Last.fm</a> now supported (<a href="https://github.com/darookee">@darookee</a>, <a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
   <li>Notify: Amazon <a href="https://home-assistant.io/components/notify.aws_lambda/">Lambda</a>, <a href="https://home-assistant.io/components/notify.aws_sns/">SNS</a>, <a href="https://home-assistant.io/components/notify.aws_sqs/">SQS</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>Light: allow human readable colors in turn_on command (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>YAML: new include dir options <a href="https://home-assistant.io/topics/splitting_configuration/#advanced-usage/"><code>!include_dir_merge_list</code></a> and <a href="https://home-assistant.io/topics/splitting_configuration/#advanced-usage/"><code>!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>YAML: new include dir options <a href="https://home-assistant.io/topics/splitting_configuration/#advanced-usage/"><code class="highlighter-rouge">!include_dir_merge_list</code></a> and <a href="https://home-assistant.io/topics/splitting_configuration/#advanced-usage/"><code class="highlighter-rouge">!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
   <li>Media Player: <a href="https://home-assistant.io/components/media_player.lg_netcast/">LG Netcast TVs</a> now supported (<a href="https://github.com/wokar">@wokar</a>)</li>
   <li>Media Player: Allow enqueuing media on Sonos (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
   <li>Notify: <a href="https://home-assistant.io/components/notify.ecobee/">Ecobee thermostats</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
@@ -1720,12 +1661,10 @@ target_dir /tmp
   <li>Asus WRT will now default to SSH with Telnet being an option</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">asuswrt</span></span>
-  <span class="key">protocol</span>: <span class="string"><span class="content">telnet</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">asuswrt</span>
+  <span class="s">protocol</span><span class="pi">:</span> <span class="s">telnet</span>
+</code></pre>
 </div>
 
 ]]></content>

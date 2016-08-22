@@ -91,7 +91,7 @@
 
   <p>The website you’re reading now is the home of Home Assistant: <a href="https://home-assistant.io">https://home-assistant.io</a>. This is the place where we provide documentation and additional details about Home Assistant for end users and developers.</p>
 
-<p>home-assistant.io uses the <a href="http://octopress.org/">Octopress</a> framework for <a href="http://github.com/mojombo/jekyll">Jekyll</a>. To get more details, please checkout the <a href="http://octopress.org/docs/">Octopress documentation</a>.<br />
+<p>home-assistant.io uses the <a href="http://octopress.org/">Octopress</a> framework for <a href="http://github.com/mojombo/jekyll">Jekyll</a>. To get more details, please checkout the <a href="http://octopress.org/docs/">Octopress documentation</a>.
 That means that creating a new page is simple. The pages are written in <a href="http://daringfireball.net/projects/markdown/">markdown</a>; you don’t need to care about HTML or the like.</p>
 
 <p>The process for working on the website is no different from working on Home Assistant itself.</p>
@@ -100,16 +100,16 @@ That means that creating a new page is simple. The pages are written in <a href=
 
 <ul>
   <li><a href="https://www.ruby-lang.org/en/documentation/installation/">Install Ruby</a> if you don’t have it already.</li>
-  <li>Install <code>bundler</code>, which is a dependency manager for Ruby: <code>gem install bundler</code></li>
-  <li>In your home-assistant.io root directory, run <code>bundle</code> to install the gems you need.</li>
+  <li>Install <code class="highlighter-rouge">bundler</code>, which is a dependency manager for Ruby: <code class="highlighter-rouge">gem install bundler</code></li>
+  <li>In your home-assistant.io root directory, run <code class="highlighter-rouge">bundle</code> to install the gems you need.</li>
 </ul>
 
 <p>Then you can work on the documentation:</p>
 
 <ul>
   <li>Fork home-assistant.io <a href="https://github.com/home-assistant/home-assistant.github.io">git repository</a>.</li>
-  <li>Create/edit/update a page in the directory <code>source/_components/</code> for your platform/component.</li>
-  <li>Test your changes to home-assistant.io locally: run <code>rake preview</code> and navigate to <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a></li>
+  <li>Create/edit/update a page in the directory <code class="highlighter-rouge">source/_components/</code> for your platform/component.</li>
+  <li>Test your changes to home-assistant.io locally: run <code class="highlighter-rouge">rake preview</code> and navigate to <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a></li>
   <li>Create a Pull Request (PR) against the <strong>next</strong> branch of home-assistant.io if your documentation is for a new feature, platform, or component.</li>
   <li>Create a Pull Request (PR) against the <strong>current</strong> branch of home-assistant.io if you fix stuff, create Cookbook entries, or expand existing documentation.</li>
 </ul>
@@ -117,18 +117,17 @@ That means that creating a new page is simple. The pages are written in <a href=
 <p>For a platform page, the fastest way is to make a copy of an existing page and edit it. The <a href="/components/">component overview</a> is generated automatically, so there is no need to add a link to your page.</p>
 
 <h3><a class="title-link" name="code" href="#code"></a> Code</h3>
-<p>To take advantage of the built-in features of Octopress to display code snippets, just use the default markdown syntax. Please use <code>$</code> and <code>#</code> if it’s a command and to differ from output.</p>
+<p>To take advantage of the built-in features of Octopress to display code snippets, just use the default markdown syntax. Please use <code class="highlighter-rouge">$</code> and <code class="highlighter-rouge">#</code> if it’s a command and to differ from output.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>Here goes the code...
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Here goes the code...
+</code></pre>
 </div>
 
 <p>If you want to display line numbers, add the following snippet somewhere on your page.</p>
 
-<pre><code>{::options coderay_line_numbers="table" /}
-</code></pre>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">::options</span><span class="w"> </span><span class="err">coderay_line_numbers=</span><span class="nt">"table"</span><span class="w"> </span><span class="err">/}</span><span class="w">
+</span></code></pre>
+</div>
 
 <h3><a class="title-link" name="images-icons-and-logos" href="#images-icons-and-logos"></a> Images, icons, and logos</h3>
 <p>The images which are displayed on the pages are stored in various directories according to their purpose.</p>

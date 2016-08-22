@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>gtfs</code> sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as <a href="https://developers.google.com/transit/gtfs/">General Transit Feed Specification</a> data, commonly known as GTFS.</p>
+  <p>The <code class="highlighter-rouge">gtfs</code> sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as <a href="https://developers.google.com/transit/gtfs/">General Transit Feed Specification</a> data, commonly known as GTFS.</p>
 
 <p>You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at either <a href="http://transitfeeds.com/feeds">TransitFeeds</a> or <a href="http://www.gtfs-data-exchange.com/">GTFS Data Exchange</a>.</p>
 
@@ -101,13 +101,13 @@
   <li><a href="http://www.gbrail.info/">GBRail.info</a> - Provides data feeds for most if not all rail companies in Britain.</li>
 </ul>
 
-<p>You need to download a GTFS ZIP file and put it into a folder named <code>gtfs</code> in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (i.e. <code>bart.zip</code> instead of <code>google_transit_20160328_v1.zip</code>). You can also unzip and place a folder in the <code>gtfs</code> folder.</p>
+<p>You need to download a GTFS ZIP file and put it into a folder named <code class="highlighter-rouge">gtfs</code> in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (i.e. <code class="highlighter-rouge">bart.zip</code> instead of <code class="highlighter-rouge">google_transit_20160328_v1.zip</code>). You can also unzip and place a folder in the <code class="highlighter-rouge">gtfs</code> folder.</p>
 
 <p>The data will be converted into a queryable format and saved as a SQLite3 database alongside the source data. The sensor will check for the existence of this SQLite3 data at every startup and will re-import the ZIP/Folder if none is found.</p>
 
 <p>To update the data, delete the SQLite3 file and restart Home Assistant.</p>
 
-<p>To find your stop ID, open the <code>stops.txt</code> file inside the ZIP file/unzipped folder. The format of the ID is different for every transit agency but will be the first “column” (meaning the string before the first comma) in a row.</p>
+<p>To find your stop ID, open the <code class="highlighter-rouge">stops.txt</code> file inside the ZIP file/unzipped folder. The format of the ID is different for every transit agency but will be the first “column” (meaning the string before the first comma) in a row.</p>
 
 <p>The sensor attributes will contain all related information for the specific trip, such as agency information, origin and destination stop information, origin and destination stop time and the route information.</p>
 
@@ -115,15 +115,13 @@
 
 <p><strong>Please note</strong>: This is a <em>static</em> data source. Currently, there is no GTFS Realtime support in this sensor due to issues surrounding parsing the protocol buffer format in Python 3. Once those issues have been fixed Realtime support will be added. Once added, the sensor will check for any delays and advisories and report them in the sensor as needed.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">gtfs</span></span>
-  <span class="key">origin</span>: <span class="string"><span class="content">STOP_ID</span></span>
-  <span class="key">destination</span>: <span class="string"><span class="content">STOP_ID</span></span>
-  <span class="key">data</span>: <span class="string"><span class="content">DATA_SOURCE</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">gtfs</span>
+  <span class="s">origin</span><span class="pi">:</span> <span class="s">STOP_ID</span>
+  <span class="s">destination</span><span class="pi">:</span> <span class="s">STOP_ID</span>
+  <span class="s">data</span><span class="pi">:</span> <span class="s">DATA_SOURCE</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -131,7 +129,7 @@
 <ul>
   <li><strong>origin</strong> (<em>Required</em>): The stop ID of your origin station.</li>
   <li><strong>destination</strong> (<em>Required</em>): The stop ID of your destination station.</li>
-  <li><strong>data</strong> (<em>Required</em>): The name of the ZIP file or folder containing the GTFS data. It must be located inside the <code>gtfs</code> folder of your configuration directory.</li>
+  <li><strong>data</strong> (<em>Required</em>): The name of the ZIP file or folder containing the GTFS data. It must be located inside the <code class="highlighter-rouge">gtfs</code> folder of your configuration directory.</li>
 </ul>
 
 

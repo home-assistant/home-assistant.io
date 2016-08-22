@@ -97,44 +97,36 @@
 
 <p>Install the following dependencies:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson0-dev make pkg-config libav-tools libavcodec-extra libavcodec-dev libcurl4-openssl-dev  libavfilter-dev libavformat-dev
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson0-dev make pkg-config libav-tools libavcodec-extra libavcodec-dev libcurl4-openssl-dev  libavfilter-dev libavformat-dev
+</code></pre>
 </div>
 
 <p>Now clone the Pianobar repo and build pianobar:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ git clone https://github.com/PromyLOPh/pianobar.git
-$ cd pianobar
-$ make clean &amp;&amp; make
-$ sudo make install
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/PromyLOPh/pianobar.git
+<span class="gp">$ </span><span class="nb">cd </span>pianobar
+<span class="gp">$ </span>make clean <span class="o">&amp;&amp;</span> make
+<span class="gp">$ </span>sudo make install
+</code></pre>
 </div>
 
-<p>Configure Pianobar to auto-login and start playing a station (optional, see <code>man pianobar</code>) by creating and editing the <code>~/.config/pianobar/config</code> file:</p>
+<p>Configure Pianobar to auto-login and start playing a station (optional, see <code class="highlighter-rouge">man pianobar</code>) by creating and editing the <code class="highlighter-rouge">~/.config/pianobar/config</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>password = Password
-user = you@youraccount.com
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>password <span class="o">=</span> Password
+user <span class="o">=</span> you@youraccount.com
+</code></pre>
 </div>
 
-<p>Test it out by running <code>pianobar</code> in the command line. You should be able to listen to your Pandora stations.</p>
+<p>Test it out by running <code class="highlighter-rouge">pianobar</code> in the command line. You should be able to listen to your Pandora stations.</p>
 
 <h3><a class="title-link" name="configuration-in-home-assistant" href="#configuration-in-home-assistant"></a> Configuration in Home Assistant</h3>
 
-<p>The Pandora player can be loaded by adding the following lines to your <code>configuration.yaml</code>:</p>
+<p>The Pandora player can be loaded by adding the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">pandora</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">pandora</span>
+</code></pre>
 </div>
 
 <p>That’s it! Now you will find a media player. If you click it you will find all your stations listed as different sources. If you switch to one, the station will begin playing.</p>

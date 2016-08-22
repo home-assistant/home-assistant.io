@@ -89,19 +89,17 @@
   <hr class="divider">
   
 
-  <p>The <code>uvc</code> component allows you to integrate <a href="https://www.ubnt.com/unifi-video/unifi-video-camera/">UniFi Video Camera (UVC)</a> into Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">uvc</code> component allows you to integrate <a href="https://www.ubnt.com/unifi-video/unifi-video-camera/">UniFi Video Camera (UVC)</a> into Home Assistant.</p>
 
-<p>To enable a UVC camera in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable a UVC camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">camera</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">uvc</span></span>
-  <span class="key">nvr</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
-  <span class="key">key</span>: <span class="string"><span class="content">APIKEY</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">uvc</span>
+  <span class="s">nvr</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">PORT</span>
+  <span class="s">key</span><span class="pi">:</span> <span class="s">APIKEY</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

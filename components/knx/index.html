@@ -99,19 +99,17 @@
   <li><a href="/components/thermostat.knx">Thermostat</a></li>
 </ul>
 
-<p>A <code>knx</code> section must be present in the <code>configuration.yaml</code> file and contain the following options as required:</p>
+<p>A <code class="highlighter-rouge">knx</code> section must be present in the <code class="highlighter-rouge">configuration.yaml</code> file and contain the following options as required:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">knx</span>:
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">PORT</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">knx</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">PORT</span>
+</code></pre>
 </div>
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP address of the KNX/IP interface to use. You can use “0.0.0.0” if your KNX/IP gateway supports discovery.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The UDP port number. Defaults to <code>3671</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The UDP port number. Defaults to <code class="highlighter-rouge">3671</code>.</li>
 </ul>
 
 

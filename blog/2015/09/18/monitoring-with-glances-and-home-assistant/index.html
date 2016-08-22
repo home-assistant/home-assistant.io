@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -108,7 +108,7 @@
 </header>
 
 
-  <p><img src="/images/supported_brands/glances.png" style="border:none; box-shadow: none; float: right;" height="80" /><br />
+  <p><img src="/images/supported_brands/glances.png" style="border:none; box-shadow: none; float: right;" height="80" />
 Inspried by a <a href="https://github.com/home-assistant/home-assistant/issues/310">feature requests</a> I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the <a href="/components/sensor.systemmonitor/">systemmonitor</a> sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present.</p>
 
 <a name="read-more"></a>
@@ -121,28 +121,22 @@ Inspried by a <a href="https://github.com/home-assistant/home-assistant/issues/3
 
 <p>First some extra packages are needed beside Glances, especially the <a href="http://bottlepy.org/docs/dev/index.html">bottle</a> webserver. I guess that Glances is available for your distribution as well. Otherwise follow those <a href="https://github.com/nicolargo/glances#installation">instructions</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo dnf -y install glances python-bottle
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install glances python-bottle
+</code></pre>
 </div>
 
 <p>On Fedora the Firewall settings are strict. Let’s open port 61208 to allow other hosts to connect to that port. This is not needed if you just want to observe your local machine.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo firewall-cmd --permanent --add-port=61208/tcp
-$ sudo firewall-cmd --reload
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo firewall-cmd --permanent --add-port<span class="o">=</span>61208/tcp
+<span class="gp">$ </span>sudo firewall-cmd --reload
+</code></pre>
 </div>
 
-<p>Launch <code>glances</code> and keep an eye on the output.</p>
+<p>Launch <code class="highlighter-rouge">glances</code> and keep an eye on the output.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ glances -w
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>glances -w
 Glances web server started on http://0.0.0.0:61208/
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <p>Now browse to http://IP_ADRRESS:61208/. You should see the webified view of Glances.</p>
@@ -154,26 +148,22 @@ Glances web server started on http://0.0.0.0:61208/
 
 <p>Another check is to access the API located at http://IP_ADRRESS:61208/api/2/mem/used and to confirm that a detail about your memory usage is provided as a JSON response. If so, you are good to proceed.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET http://IP_ADDRESS:61208/api/2/mem/used
-{&quot;used&quot;: 203943936}
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET http://IP_ADDRESS:61208/api/2/mem/used
+<span class="o">{</span><span class="s2">"used"</span>: 203943936<span class="o">}</span>
+</code></pre>
 </div>
 
-<p>Add the <a href="/components/sensor.glances/">glances sensor</a> entry to your <code>configuration.yaml</code> file and restart Home Assistant then.</p>
+<p>Add the <a href="/components/sensor.glances/">glances sensor</a> entry to your <code class="highlighter-rouge">configuration.yaml</code> file and restart Home Assistant then.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-  - <span class="string"><span class="content">platform: glances</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">NAS</span></span>
-    <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-    <span class="key">resources</span>:
-      - <span class="string"><span class="content">'disk_use_percent'</span></span>
-      - <span class="string"><span class="content">'disk_use'</span></span>
-      - <span class="string"><span class="content">'disk_free'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">glances</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">NAS</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_use_percent'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_use'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_free'</span>
+</code></pre>
 </div>
 
 <p>If there are no error in the log file then you should see your new sensors.</p>
@@ -257,7 +247,7 @@ Glances web server started on http://0.0.0.0:61208/
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

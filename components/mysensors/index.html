@@ -93,27 +93,25 @@
 
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 
-<p>Integrate your Serial or Ethernet MySensors Gateway by adding the following to your <code>configuration.yaml</code> file:</p>
+<p>Integrate your Serial or Ethernet MySensors Gateway by adding the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">mysensors</span>:
-  <span class="key">gateways</span>:
-    - <span class="string"><span class="content">device: '/dev/ttyUSB0'</span></span>
-      <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors.json'</span></span>
-      <span class="key">baud_rate</span>: <span class="string"><span class="content">38400</span></span>
-    - <span class="string"><span class="content">device: '/dev/ttyACM0'</span></span>
-      <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors2.json'</span></span>
-      <span class="key">baud_rate</span>: <span class="string"><span class="content">115200</span></span>
-    - <span class="string"><span class="content">device: '192.168.1.18'</span></span>
-      <span class="key">persistence_file</span>: <span class="string"><span class="content">'path/mysensors3.json'</span></span>
-      <span class="key">tcp_port</span>: <span class="string"><span class="content">5003</span></span>
-  <span class="key">debug</span>: <span class="string"><span class="content">true</span></span>
-  <span class="key">persistence</span>: <span class="string"><span class="content">true</span></span>
-  <span class="key">version</span>: <span class="string"><span class="content">'1.5'</span></span>
-  <span class="key">optimistic</span>: <span class="string"><span class="content">false</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mysensors</span><span class="pi">:</span>
+  <span class="s">gateways</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">device</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/dev/ttyUSB0'</span>
+      <span class="s">persistence_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">path/mysensors.json'</span>
+      <span class="s">baud_rate</span><span class="pi">:</span> <span class="s">38400</span>
+    <span class="pi">-</span> <span class="s">device</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/dev/ttyACM0'</span>
+      <span class="s">persistence_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">path/mysensors2.json'</span>
+      <span class="s">baud_rate</span><span class="pi">:</span> <span class="s">115200</span>
+    <span class="pi">-</span> <span class="s">device</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.1.18'</span>
+      <span class="s">persistence_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">path/mysensors3.json'</span>
+      <span class="s">tcp_port</span><span class="pi">:</span> <span class="s">5003</span>
+  <span class="s">debug</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">persistence</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1.5'</span>
+  <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -129,12 +127,10 @@
   <li><strong>optimistic</strong> (<em>Optional</em>): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.</li>
 </ul>
 
-<p>If you are using an original Arduino as a serial gateway, the port will be named <code>ttyACM*</code>. The exact number can be determined with the command shown below.</p>
+<p>If you are using an original Arduino as a serial gateway, the port will be named <code class="highlighter-rouge">ttyACM*</code>. The exact number can be determined with the command shown below.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ls /dev/ttyACM*
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyACM<span class="k">*</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="presentation" href="#presentation"></a> Presentation</h3>

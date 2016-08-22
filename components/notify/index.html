@@ -89,27 +89,25 @@
   <hr class="divider">
   
 
-  <p>The <code>notify</code> component makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.</p>
+  <p>The <code class="highlighter-rouge">notify</code> component makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.</p>
 
 <h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">pushbullet</span></span>
-  <span class="comment"># Optional name for the notify service</span>
-  <span class="key">name</span>: <span class="string"><span class="content">paulus</span></span>
-  <span class="comment"># api_key is a required config key by the pushbullet platform</span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">ABCDEFG</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">pushbullet</span>
+  <span class="c1"># Optional name for the notify service</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">paulus</span>
+  <span class="c1"># api_key is a required config key by the pushbullet platform</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFG</span>
+</code></pre>
 </div>
 
-<p>The <strong>name</strong> parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service <code>notify/&lt;name&gt;</code>. The name will default to <code>notify</code> if not supplied.</p>
+<p>The <strong>name</strong> parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service <code class="highlighter-rouge">notify/&lt;name&gt;</code>. The name will default to <code class="highlighter-rouge">notify</code> if not supplied.</p>
 
 <h3><a class="title-link" name="service" href="#service"></a> Service</h3>
 
-<p>Once loaded, the <code>notify</code> platform will expose a service that can be called to send notifications.</p>
+<p>Once loaded, the <code class="highlighter-rouge">notify</code> platform will expose a service that can be called to send notifications.</p>
 
 <table>
   <thead>
@@ -121,80 +119,72 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>message</code></td>
+      <td><code class="highlighter-rouge">message</code></td>
       <td>no</td>
       <td>Body of the notification.</td>
     </tr>
     <tr>
-      <td><code>title</code></td>
+      <td><code class="highlighter-rouge">title</code></td>
       <td>yes</td>
-      <td>Title of the notification. Default is <code>Home Assistant</code>.</td>
+      <td>Title of the notification. Default is <code class="highlighter-rouge">Home Assistant</code>.</td>
     </tr>
     <tr>
-      <td><code>target</code></td>
+      <td><code class="highlighter-rouge">target</code></td>
       <td>yes</td>
       <td>Some platforms will allow specifying a recipient that will receive the notification. See your platform page if it is supported.</td>
     </tr>
     <tr>
-      <td><code>data</code></td>
+      <td><code class="highlighter-rouge">data</code></td>
       <td>yes</td>
       <td>On platforms who have extended functionality. See your platform page if it is supported.</td>
     </tr>
   </tbody>
 </table>
 
-<p>The notification component supports specifying <a href="/topics/templating/">templates</a> for both the <code>message</code> and the <code>title</code>. This will allow you to use the current state of Home Assistant in your notifications.</p>
+<p>The notification component supports specifying <a href="/topics/templating/">templates</a> for both the <code class="highlighter-rouge">message</code> and the <code class="highlighter-rouge">title</code>. This will allow you to use the current state of Home Assistant in your notifications.</p>
 
 <p>In an <a href="https://home-assistant.io/getting-started/automation-action/">action</a> of your <a href="/getting-started/automation/">automation setup</a> it could look like this with a customized subject.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">action</span>:
-  <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
-  <span class="key">data</span>:
-    <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Your message goes here</span><span class="delimiter">&quot;</span></span>
-    <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Custom subject</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">message</span><span class="nv"> </span><span class="s">goes</span><span class="nv"> </span><span class="s">here"</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Custom</span><span class="nv"> </span><span class="s">subject"</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="test-if-it-works" href="#test-if-it-works"></a> Test if it works</h3>
 
 <p>A simple way to test if you have set up your notify platform correctly is to use <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong>. Choose your service (<em>notify/xyz</em>) from the list of <strong>Available services:</strong> and enter something like the sample below into  the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 <p>For services which have support for sending images.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{ <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Test plugin</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: { 
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">photo</span><span class="delimiter">&quot;</span></span>: { 
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.gbsun.de/gbpics/berge/berge106.jpg</span><span class="delimiter">&quot;</span></span>
-    }
-  }
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test plugin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+    </span><span class="nt">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.gbsun.de/gbpics/berge/berge106.jpg"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>If the service support sending the location, the data from this sample can be used.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{ <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Test plugin</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">location</span><span class="delimiter">&quot;</span></span>: {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">latitude</span><span class="delimiter">&quot;</span></span>: <span class="float">7.3284</span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">longitude</span><span class="delimiter">&quot;</span></span>: <span class="float">46.38234</span>
-    }
-  }
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test plugin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.3284</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.38234</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 

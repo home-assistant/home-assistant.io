@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>dweet</code> component makes it possible to transfer details collected with Home Assistant to <a href="http://dweet.io/">Dweet.io</a> and visualize them with <a href="https://freeboard.io">freeboard.io</a>. Keep in mind that your information will be public!</p>
+  <p>The <code class="highlighter-rouge">dweet</code> component makes it possible to transfer details collected with Home Assistant to <a href="http://dweet.io/">Dweet.io</a> and visualize them with <a href="https://freeboard.io">freeboard.io</a>. Keep in mind that your information will be public!</p>
 
 <p class="img">
   <img src="/images/screenshots/dweet-freeboard.png" />
@@ -99,19 +99,17 @@
   The publishing interval is limited to 1 second. This means that it’s possible to missing fast changes.
 </p>
 
-<p>To use the <code>deweet</code> component in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use the <code class="highlighter-rouge">deweet</code> component in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">dweet</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">HAExport</span></span>
-  <span class="key">whitelist</span>:
-    - <span class="string"><span class="content">input_slider.brightness</span></span>
-    - <span class="string"><span class="content">input_boolean.notify_home</span></span>
-    - <span class="string"><span class="content">sensor.weather_temperature</span></span>
-    - <span class="string"><span class="content">sensor.cpu</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">dweet</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">HAExport</span>
+  <span class="s">whitelist</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">input_slider.brightness</span>
+    <span class="pi">-</span> <span class="s">input_boolean.notify_home</span>
+    <span class="pi">-</span> <span class="s">sensor.weather_temperature</span>
+    <span class="pi">-</span> <span class="s">sensor.cpu</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

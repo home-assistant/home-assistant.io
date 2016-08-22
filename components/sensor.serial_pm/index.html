@@ -106,20 +106,18 @@
   <li>plantower,pms3003</li>
 </ul>
 
-<p>To use your PM sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your PM sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: serial_pm</span></span>
-    <span class="key">serial_device</span>: <span class="string"><span class="content">/dev/tty.SLAB_USBtoUART</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Nova</span></span>
-    <span class="key">brand</span>: <span class="string"><span class="content">novafitness,sds011</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">serial_pm</span>
+    <span class="s">serial_device</span><span class="pi">:</span> <span class="s">/dev/tty.SLAB_USBtoUART</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Nova</span>
+    <span class="s">brand</span><span class="pi">:</span> <span class="s">novafitness,sds011</span>
+</code></pre>
 </div>
 
 <ul>
-  <li><strong>serial_device</strong> (<em>Required</em>): The serial port to use. On *nix systems, it can often be identified by <code>$ ls /dev/tty*</code></li>
+  <li><strong>serial_device</strong> (<em>Required</em>): The serial port to use. On *nix systems, it can often be identified by <code class="highlighter-rouge">$ ls /dev/tty*</code></li>
   <li><strong>name</strong> (<em>Optional</em>): The name displayed in the frontend.</li>
   <li><strong>brand</strong> (<em>Required</em>): Manufacturer and type of the sensor.</li>
 </ul>

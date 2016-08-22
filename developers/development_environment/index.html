@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.<br />
+  <p>You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.
 Visit the <a href="https://github.com/home-assistant/home-assistant">the Home Assistant repository</a> first and click fork in the top right.</p>
 
-<p>We suggest that you setup a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code>venv</code></a> before running the setup script.</p>
+<p>We suggest that you setup a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a> before running the setup script.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
-$ cd home-assistant
-$ git remote add upstream https://github.com/home-assistant/home-assistant.git
-$ script/setup
-</pre></div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
+<span class="gp">$ </span><span class="nb">cd </span>home-assistant
+<span class="gp">$ </span>git remote add upstream https://github.com/home-assistant/home-assistant.git
+<span class="gp">$ </span>script/setup
+</code></pre>
 </div>
-</div>
-<p>On Windows you can use <code>python setup.py develop</code> instead of the setup script.</p>
+<p>On Windows you can use <code class="highlighter-rouge">python setup.py develop</code> instead of the setup script.</p>
 
-<p>After following these steps, running <code>hass</code> will invoke your local installation.</p>
+<p>After following these steps, running <code class="highlighter-rouge">hass</code> will invoke your local installation.</p>
 
 
 

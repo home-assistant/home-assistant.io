@@ -177,7 +177,7 @@
 
 <h3><a class="title-link" name="services" href="#services"></a> Services</h3>
 
-<p>The MySensors switch platform exposes a service to change an IR code attribute for an IR switch device and turn the switch on. The IR switch will automatically be turned off after being turned on, if <code>optimistic</code> is set to <code>true</code> in the <a href="/components/mysensors/#configuration">config</a> for the MySensors component. This will simulate a push button on a remote. If <code>optimistic</code> is <code>false</code>, the MySensors device will have to report its updated state to reset the switch. See the <a href="#ir-switch-sketch">example sketch</a> for the IR switch below.</p>
+<p>The MySensors switch platform exposes a service to change an IR code attribute for an IR switch device and turn the switch on. The IR switch will automatically be turned off after being turned on, if <code class="highlighter-rouge">optimistic</code> is set to <code class="highlighter-rouge">true</code> in the <a href="/components/mysensors/#configuration">config</a> for the MySensors component. This will simulate a push button on a remote. If <code class="highlighter-rouge">optimistic</code> is <code class="highlighter-rouge">false</code>, the MySensors device will have to report its updated state to reset the switch. See the <a href="#ir-switch-sketch">example sketch</a> for the IR switch below.</p>
 
 <table>
   <thead>
@@ -196,152 +196,146 @@
 
 <p>The service can be used as part of an automation script. For example:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml automation entry</span>
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: turn hvac on</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
-      <span class="key">after</span>: <span class="string"><span class="content">'5:30:00'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">switch.mysensors_send_ir_code</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">switch.hvac_1_1</span></span>
-      <span class="key">data</span>:
-        <span class="key">V_IR_SEND</span>: <span class="string"><span class="content">'0xC284'</span></span>  <span class="comment"># the IR code to send</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">turn hvac on</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5:30:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.mysensors_send_ir_code</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.hvac_1_1</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">V_IR_SEND</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0xC284'</span>  <span class="c1"># the IR code to send</span>
 
-  - <span class="string"><span class="content">alias: turn hvac off</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
-      <span class="key">after</span>: <span class="string"><span class="content">'0:30:00'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">switch.mysensors_send_ir_code</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">switch.hvac_1_1</span></span>
-      <span class="key">data</span>:
-        <span class="key">V_IR_SEND</span>: <span class="string"><span class="content">'0xC288'</span></span>  <span class="comment"># the IR code to send</span>
-</pre></div>
-</div>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">turn hvac off</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0:30:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.mysensors_send_ir_code</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.hvac_1_1</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">V_IR_SEND</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0xC288'</span>  <span class="c1"># the IR code to send</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="example-sketches" href="#example-sketches"></a> Example sketches</h3>
 
 <h4><a class="title-link" name="switch-sketch" href="#switch-sketch"></a> Switch sketch</h4>
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment">/*
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
  * Documentation: http://www.mysensors.org
  * Support Forum: http://forum.mysensors.org
  *
  * http://www.mysensors.org/build/relay
  */</span>
 
-<span class="preprocessor">#include</span> <span class="include">&lt;MySensor.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;SPI.h&gt;</span>
+<span class="cp">#include &lt;MySensor.h&gt;
+#include &lt;SPI.h&gt;
+</span>
+<span class="cp">#define SN "Relay"
+#define SV "1.0"
+#define CHILD_ID 1
+#define RELAY_PIN 3
+</span>
+<span class="n">MySensor</span> <span class="n">gw</span><span class="p">;</span>
+<span class="n">MyMessage</span> <span class="n">msgRelay</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_STATUS</span><span class="p">);</span>
 
-<span class="preprocessor">#define</span> SN <span class="string"><span class="delimiter">&quot;</span><span class="content">Relay</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> SV <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> CHILD_ID <span class="integer">1</span>
-<span class="preprocessor">#define</span> RELAY_PIN <span class="integer">3</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">incomingMessage</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">sendSketchInfo</span><span class="p">(</span><span class="n">SN</span><span class="p">,</span> <span class="n">SV</span><span class="p">);</span>
+  <span class="c1">// Initialize the digital pin as an output.
+</span>  <span class="n">pinMode</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">S_BINARY</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgRelay</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="p">}</span>
 
-MySensor gw;
-MyMessage msgRelay(CHILD_ID, V_STATUS);
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">process</span><span class="p">();</span>
+<span class="p">}</span>
 
-<span class="directive">void</span> setup()
-{
-  gw.begin(incomingMessage);
-  gw.sendSketchInfo(SN, SV);
-  <span class="comment">// Initialize the digital pin as an output.</span>
-  pinMode(RELAY_PIN, OUTPUT);
-  gw.present(CHILD_ID, S_BINARY);
-  gw.send(msgRelay.set(<span class="integer">0</span>));
-}
-
-<span class="directive">void</span> loop()
-{
-  gw.process();
-}
-
-<span class="directive">void</span> incomingMessage(<span class="directive">const</span> MyMessage &amp;message)
-{
-  <span class="keyword">if</span> (message.type == V_STATUS) {
-     <span class="comment">// Change relay state.</span>
-     digitalWrite(RELAY_PIN, message.getBool() ? <span class="integer">1</span> : <span class="integer">0</span>);
-     gw.send(msgRelay.set(message.getBool() ? <span class="integer">1</span> : <span class="integer">0</span>));
-  }
-}
-</pre></div>
-</div>
+<span class="kt">void</span> <span class="nf">incomingMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_STATUS</span><span class="p">)</span> <span class="p">{</span>
+     <span class="c1">// Change relay state.
+</span>     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span> <span class="n">message</span><span class="p">.</span><span class="n">getBool</span><span class="p">()</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span>
+     <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgRelay</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">getBool</span><span class="p">()</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="ir-switch-sketch" href="#ir-switch-sketch"></a> IR switch sketch</h4>
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment">/*
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
  * Documentation: http://www.mysensors.org
  * Support Forum: http://forum.mysensors.org
  *
  * http://www.mysensors.org/build/ir
  */</span>
 
-<span class="preprocessor">#include</span> <span class="include">&lt;MySensor.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;SPI.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;IRLib.h&gt;</span>
+<span class="cp">#include &lt;MySensor.h&gt;
+#include &lt;SPI.h&gt;
+#include &lt;IRLib.h&gt;
+</span>
+<span class="cp">#define SN "IR Sensor"
+#define SV "1.0"
+#define CHILD_ID 1
+</span>
+<span class="n">MySensor</span> <span class="n">gw</span><span class="p">;</span>
 
-<span class="preprocessor">#define</span> SN <span class="string"><span class="delimiter">&quot;</span><span class="content">IR Sensor</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> SV <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> CHILD_ID <span class="integer">1</span>
+<span class="kt">char</span> <span class="n">code</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">"abcd01234"</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">oldCode</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">"abcd01234"</span><span class="p">;</span>
+<span class="n">MyMessage</span> <span class="n">msgCodeRec</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_IR_RECEIVE</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">msgCode</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_IR_SEND</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">msgSendCode</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_LIGHT</span><span class="p">);</span>
 
-MySensor gw;
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">incomingMessage</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">sendSketchInfo</span><span class="p">(</span><span class="n">SN</span><span class="p">,</span> <span class="n">SV</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">S_IR</span><span class="p">);</span>
+  <span class="c1">// Send initial values.
+</span>  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgCodeRec</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgSendCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="p">}</span>
 
-<span class="predefined-type">char</span> code[<span class="integer">10</span>] = <span class="string"><span class="delimiter">&quot;</span><span class="content">abcd01234</span><span class="delimiter">&quot;</span></span>;
-<span class="predefined-type">char</span> oldCode[<span class="integer">10</span>] = <span class="string"><span class="delimiter">&quot;</span><span class="content">abcd01234</span><span class="delimiter">&quot;</span></span>;
-MyMessage msgCodeRec(CHILD_ID, V_IR_RECEIVE);
-MyMessage msgCode(CHILD_ID, V_IR_SEND);
-MyMessage msgSendCode(CHILD_ID, V_LIGHT);
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">process</span><span class="p">();</span>
+  <span class="c1">// IR receiver not implemented, just a dummy report of code when it changes
+</span>  <span class="k">if</span> <span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="o">!=</span> <span class="n">String</span><span class="p">(</span><span class="n">oldCode</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Code received "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgCodeRec</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">oldCode</span><span class="p">,</span> <span class="n">code</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="directive">void</span> setup()
-{
-  gw.begin(incomingMessage);
-  gw.sendSketchInfo(SN, SV);
-  gw.present(CHILD_ID, S_IR);
-  <span class="comment">// Send initial values.</span>
-  gw.send(msgCodeRec.set(code));
-  gw.send(msgCode.set(code));
-  gw.send(msgSendCode.set(<span class="integer">0</span>));
-}
-
-<span class="directive">void</span> loop()
-{
-  gw.process();
-  <span class="comment">// IR receiver not implemented, just a dummy report of code when it changes</span>
-  <span class="keyword">if</span> (String(code) != String(oldCode)) {
-    Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Code received </span><span class="delimiter">&quot;</span></span>);
-    Serial.println(code);
-    gw.send(msgCodeRec.set(code));
-    strcpy(oldCode, code);
-  }
-}
-
-<span class="directive">void</span> incomingMessage(<span class="directive">const</span> MyMessage &amp;message) {
-  <span class="keyword">if</span> (message.type==V_LIGHT) {
-    <span class="comment">// IR sender not implemented, just a dummy print.</span>
-    <span class="keyword">if</span> (message.getBool()) {
-      Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Sending code </span><span class="delimiter">&quot;</span></span>);
-      Serial.println(code);
-    }
-    gw.send(msgSendCode.set(message.getBool() ? <span class="integer">1</span> : <span class="integer">0</span>));
-    <span class="comment">// Always turn off device</span>
-    gw.wait(<span class="integer">100</span>);
-    gw.send(msgSendCode.set(<span class="integer">0</span>));
-  }
-  <span class="keyword">if</span> (message.type == V_IR_SEND) {
-    <span class="comment">// Retrieve the IR code value from the incoming message.</span>
-    String codestring = message.getString();
-    codestring.toCharArray(code, <span class="keyword">sizeof</span>(code));
-    Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">Changing code to </span><span class="delimiter">&quot;</span></span>);
-    Serial.println(code);
-    gw.send(msgCode.set(code));
-  }
-}
-</pre></div>
-</div>
+<span class="kt">void</span> <span class="nf">incomingMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span><span class="o">==</span><span class="n">V_LIGHT</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// IR sender not implemented, just a dummy print.
+</span>    <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">getBool</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Sending code "</span><span class="p">);</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgSendCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">getBool</span><span class="p">()</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">));</span>
+    <span class="c1">// Always turn off device
+</span>    <span class="n">gw</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgSendCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_IR_SEND</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Retrieve the IR code value from the incoming message.
+</span>    <span class="n">String</span> <span class="n">codestring</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">getString</span><span class="p">();</span>
+    <span class="n">codestring</span><span class="p">.</span><span class="n">toCharArray</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Changing code to "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 </div>
 
 

@@ -93,33 +93,31 @@
 
 <p><em>Note, Philips Hue is currently the only light platform that support the random effect.</em></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">input_boolean</span>:
-  <span class="key">loop_livingcolors</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Loop LivingColors</span></span>
-    <span class="key">initial</span>: <span class="string"><span class="content">off</span></span>
-    <span class="key">icon</span>: <span class="string"><span class="content">mdi:spotlight</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">input_boolean</span><span class="pi">:</span>
+  <span class="s">loop_livingcolors</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Loop LivingColors</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s">off</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:spotlight</span>
 
-<span class="key">automation</span>:
-<span class="comment"># Changes Hue light every two minutes to random color if input boolean is set to on</span>
-- <span class="string"><span class="content">alias: 'Set LivingColors to random color'</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
-    <span class="key">minutes</span>: <span class="string"><span class="content">'/2'</span></span>
-    <span class="key">seconds</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">condition</span>:
-    <span class="key">condition</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">input_boolean.loop_livingcolors</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">light.woonkamer_livingcolors</span></span>
-    <span class="key">data</span>:
-      <span class="key">effect</span>: <span class="string"><span class="content">random</span></span>
-      <span class="key">transition</span>: <span class="string"><span class="content">5</span></span>
-      <span class="key">brightness</span>: <span class="string"><span class="content">255</span></span>
-</pre></div>
-</div>
+<span class="s">automation</span><span class="pi">:</span>
+<span class="c1"># Changes Hue light every two minutes to random color if input boolean is set to on</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Set</span><span class="nv"> </span><span class="s">LivingColors</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">random</span><span class="nv"> </span><span class="s">color'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">minutes</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/2'</span>
+    <span class="s">seconds</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.loop_livingcolors</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.woonkamer_livingcolors</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">effect</span><span class="pi">:</span> <span class="s">random</span>
+      <span class="s">transition</span><span class="pi">:</span> <span class="s">5</span>
+      <span class="s">brightness</span><span class="pi">:</span> <span class="s">255</span>
+</code></pre>
 </div>
 
 

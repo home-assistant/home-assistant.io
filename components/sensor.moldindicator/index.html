@@ -91,30 +91,26 @@
 
   <p>The Mold Indicator sensor component consumes information of two temperature sensors and a humidity sensor to give an indication for possible mold growth in your home. In case of bad ventilation and insulation, the indoor humidity may lead to condensation on cold surfaces as the windows or even walls. Condensation or a high relative humidity near those cold surfaces leads to a higher risk for mold growth. This sensor component estimates the temperature at a pre-calibrated critical point in the room (the coldest surface) and calculates the relative humidity of the air at that point. If the sensor value rises above approximately 70 percent, mold growth might occur and the room should be ventilated. At 100%, the air humidity condensates at the critical point.</p>
 
-<p>The sensor data may be used e.g. to signal bad air quality (too high air humidity) or to automate operation of indoor air humidifiers to keep the indoor humidity at an optimum. To use the Mold Indicator sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>The sensor data may be used e.g. to signal bad air quality (too high air humidity) or to automate operation of indoor air humidifiers to keep the indoor humidity at an optimum. To use the Mold Indicator sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mold_indicator</span></span>
-  <span class="key">indoor_temp_sensor</span>: <span class="string"><span class="content">sensor.temp</span></span>
-  <span class="key">indoor_humidity_sensor</span>: <span class="string"><span class="content">sensor.humidity</span></span>
-  <span class="key">outdoor_temp_sensor</span>: <span class="string"><span class="content">sensor.weather_temperature</span></span>
-  <span class="key">calibration_factor</span>: <span class="string"><span class="content">2.0</span></span>       <span class="comment"># Needs to be calibrated to the critical point in the room</span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mold_indicator</span>
+  <span class="s">indoor_temp_sensor</span><span class="pi">:</span> <span class="s">sensor.temp</span>
+  <span class="s">indoor_humidity_sensor</span><span class="pi">:</span> <span class="s">sensor.humidity</span>
+  <span class="s">outdoor_temp_sensor</span><span class="pi">:</span> <span class="s">sensor.weather_temperature</span>
+  <span class="s">calibration_factor</span><span class="pi">:</span> <span class="s">2.0</span>       <span class="c1"># Needs to be calibrated to the critical point in the room</span>
+</code></pre>
 </div>
 <p>In this case, the weather forecast temperature sensor is used for the outside temperature.</p>
 
 <h2><a class="title-link" name="calibration" href="#calibration"></a> Calibration</h2>
 
-<p>The Mold Indicator sensor component needs to be calibrated in order to estimate the temperature at the critical point from the outdoor and indoor temperature. First find the coldest surface in the room (critical point), which is typically near the window frames, but depends on the insulation of your home. For calibration you need to measure the temperature at this critical point and simultaneously write down the values for the indoor- and outdoor temperature sensors used for the Mold Indicator. Be sure that there is a significant indoor to outdoor temperature difference to get the best calibration results.<br />
+<p>The Mold Indicator sensor component needs to be calibrated in order to estimate the temperature at the critical point from the outdoor and indoor temperature. First find the coldest surface in the room (critical point), which is typically near the window frames, but depends on the insulation of your home. For calibration you need to measure the temperature at this critical point and simultaneously write down the values for the indoor- and outdoor temperature sensors used for the Mold Indicator. Be sure that there is a significant indoor to outdoor temperature difference to get the best calibration results.
 With the three measured temperatures (in Celsius or Fahrenheit), the calibration_factor for your configuration file is given by:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>calibration_factor = (temp_indoor - temp_outdoor) / (temp_criticalpoint - temp_outdoor)
-</pre></div>
-</div>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>calibration_factor = (temp_indoor - temp_outdoor) / (temp_criticalpoint - temp_outdoor)
+</code></pre>
 </div>
 
 

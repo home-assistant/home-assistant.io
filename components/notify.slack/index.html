@@ -89,27 +89,25 @@
   <hr class="divider">
   
 
-  <p>The <code>slack</code> platform allows you to deliver notifications from Home Assistant to <a href="https://slack.com/">Slack</a>.</p>
+  <p>The <code class="highlighter-rouge">slack</code> platform allows you to deliver notifications from Home Assistant to <a href="https://slack.com/">Slack</a>.</p>
 
 <p>You need to obtain the <a href="https://api.slack.com/web?sudo=1">Slack API token</a> to be able to send notifications.</p>
 
-<p>To enable the slack notification in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable the slack notification in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">platform</span>: <span class="string"><span class="content">slack</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-  <span class="key">default_channel</span>: <span class="string"><span class="content">'#general'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">slack</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+  <span class="s">default_channel</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#general'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>api_key</strong> (<em>Required</em>): The slack API token to use for sending slack messages.</li>
   <li><strong>default_channel</strong> (<em>Required</em>): The default channel to post to if no channel is explicitly specified when sending the notification message.</li>
 </ul>

@@ -89,39 +89,37 @@
   <hr class="divider">
   
 
-  <p>The <code>bitcoin</code> sensor platform displays various details about the <a href="https://bitcoin.org">Bitcoin</a> network.</p>
+  <p>The <code class="highlighter-rouge">bitcoin</code> sensor platform displays various details about the <a href="https://bitcoin.org">Bitcoin</a> network.</p>
 
-<p>To add the Bitcoin sensor to your installation, add a selection of the available display options to your <code>configuration.yaml</code> file:</p>
+<p>To add the Bitcoin sensor to your installation, add a selection of the available display options to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">bitcoin</span></span>
-  <span class="key">currency</span>: <span class="string"><span class="content">YOUR CURRENCY</span></span>
-  <span class="key">display_options</span>:
-    - <span class="string"><span class="content">exchangerate</span></span>
-    - <span class="string"><span class="content">trade_volume_btc</span></span>
-    - <span class="string"><span class="content">miners_revenue_usd</span></span>
-    - <span class="string"><span class="content">btc_mined</span></span>
-    - <span class="string"><span class="content">trade_volume_usd</span></span>
-    - <span class="string"><span class="content">difficulty</span></span>
-    - <span class="string"><span class="content">minutes_between_blocks</span></span>
-    - <span class="string"><span class="content">number_of_transactions</span></span>
-    - <span class="string"><span class="content">hash_rate</span></span>
-    - <span class="string"><span class="content">timestamp</span></span>
-    - <span class="string"><span class="content">mined_blocks</span></span>
-    - <span class="string"><span class="content">blocks_size</span></span>
-    - <span class="string"><span class="content">total_fees_btc</span></span>
-    - <span class="string"><span class="content">total_btc_sent</span></span>
-    - <span class="string"><span class="content">estimated_btc_sent</span></span>
-    - <span class="string"><span class="content">total_btc</span></span>
-    - <span class="string"><span class="content">total_blocks</span></span>
-    - <span class="string"><span class="content">next_retarget</span></span>
-    - <span class="string"><span class="content">estimated_transaction_volume_usd</span></span>
-    - <span class="string"><span class="content">miners_revenue_btc</span></span>
-    - <span class="string"><span class="content">market_price_usd</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">bitcoin</span>
+  <span class="s">currency</span><span class="pi">:</span> <span class="s">YOUR CURRENCY</span>
+  <span class="s">display_options</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">exchangerate</span>
+    <span class="pi">-</span> <span class="s">trade_volume_btc</span>
+    <span class="pi">-</span> <span class="s">miners_revenue_usd</span>
+    <span class="pi">-</span> <span class="s">btc_mined</span>
+    <span class="pi">-</span> <span class="s">trade_volume_usd</span>
+    <span class="pi">-</span> <span class="s">difficulty</span>
+    <span class="pi">-</span> <span class="s">minutes_between_blocks</span>
+    <span class="pi">-</span> <span class="s">number_of_transactions</span>
+    <span class="pi">-</span> <span class="s">hash_rate</span>
+    <span class="pi">-</span> <span class="s">timestamp</span>
+    <span class="pi">-</span> <span class="s">mined_blocks</span>
+    <span class="pi">-</span> <span class="s">blocks_size</span>
+    <span class="pi">-</span> <span class="s">total_fees_btc</span>
+    <span class="pi">-</span> <span class="s">total_btc_sent</span>
+    <span class="pi">-</span> <span class="s">estimated_btc_sent</span>
+    <span class="pi">-</span> <span class="s">total_btc</span>
+    <span class="pi">-</span> <span class="s">total_blocks</span>
+    <span class="pi">-</span> <span class="s">next_retarget</span>
+    <span class="pi">-</span> <span class="s">estimated_transaction_volume_usd</span>
+    <span class="pi">-</span> <span class="s">miners_revenue_btc</span>
+    <span class="pi">-</span> <span class="s">market_price_usd</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

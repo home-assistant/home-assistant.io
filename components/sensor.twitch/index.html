@@ -89,19 +89,17 @@
   <hr class="divider">
   
 
-  <p>The <code>twitch</code> platform will allow you to monitor <a href="http://www.twitch.tv/">Twitch</a> channel status from within Home Assistant and setup automation based on the information.</p>
+  <p>The <code class="highlighter-rouge">twitch</code> platform will allow you to monitor <a href="http://www.twitch.tv/">Twitch</a> channel status from within Home Assistant and setup automation based on the information.</p>
 
-<p>To use Twitch with your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use Twitch with your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">twitch</span></span>
-  <span class="key">channels</span>:
-    - <span class="string"><span class="content">channel1</span></span>
-    - <span class="string"><span class="content">channel2</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">twitch</span>
+  <span class="s">channels</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">channel1</span>
+    <span class="pi">-</span> <span class="s">channel2</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

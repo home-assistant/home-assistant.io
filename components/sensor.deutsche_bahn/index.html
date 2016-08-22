@@ -89,18 +89,16 @@
   <hr class="divider">
   
 
-  <p>The <code>deutsche_bahn</code> sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about eg. the type of the train, price, and if it is ontime.</p>
+  <p>The <code class="highlighter-rouge">deutsche_bahn</code> sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about eg. the type of the train, price, and if it is ontime.</p>
 
-<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code> file:</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">deutsche_bahn</span></span>
-  <span class="key">from</span>: <span class="string"><span class="content">NAME_OF_START_STATION</span></span>
-  <span class="key">to</span>: <span class="string"><span class="content">NAME_OF_FINAL_STATION</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">deutsche_bahn</span>
+  <span class="s">from</span><span class="pi">:</span> <span class="s">NAME_OF_START_STATION</span>
+  <span class="s">to</span><span class="pi">:</span> <span class="s">NAME_OF_FINAL_STATION</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -112,16 +110,14 @@
 
 <p>As already mentioned this sensor contains a lot of information to access those a <a href="/components/sensor.template/">template senosr</a> can come handy.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">template</span></span>
-  <span class="key">sensors</span>:
-    <span class="key">next_departure</span>:
-      <span class="key">value_template</span>: <span class="string"><span class="content">'{{ states.sensor.munich_to_ulm.attributes.next }}'</span></span>
-      <span class="key">friendly_name</span>: <span class="string"><span class="content">'Next departure'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+  <span class="s">sensors</span><span class="pi">:</span>
+    <span class="s">next_departure</span><span class="pi">:</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.munich_to_ulm.attributes.next</span><span class="nv"> </span><span class="s">}}'</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">departure'</span>
+</code></pre>
 </div>
 
 <p>The data is coming from the <a href="http://www.bahn.de/p/view/index.shtml">bahn.de</a> website.</p>

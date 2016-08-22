@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>gpmdp</code> media player platform allows you to control a <a href="http://www.googleplaymusicdesktopplayer.com/">GPMDP</a> instance running on a computer from Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">gpmdp</code> media player platform allows you to control a <a href="http://www.googleplaymusicdesktopplayer.com/">GPMDP</a> instance running on a computer from Home Assistant.</p>
 
 <p>You will have first have to check “Enable playback API” in GPMDP’s settings and then add an inbound rule to the firewall to allow access to port 5672 on the computer running GPMDP.</p>
 
-<p>Then just add the following to your <code>configuration.yaml</code> file:</p>
+<p>Then just add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">gpmdp</span></span>
-  <span class="key">address</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">NAME</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">gpmdp</span>
+  <span class="s">address</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

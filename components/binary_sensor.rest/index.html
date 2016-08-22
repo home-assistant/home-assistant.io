@@ -89,51 +89,45 @@
   <hr class="divider">
   
 
-  <p>The <code>rest</code> binary sensor platform is consuming a given endpoint which is exposed by a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a> of a device, an application, or a web service. The binary sensor has support for GET and POST requests.</p>
+  <p>The <code class="highlighter-rouge">rest</code> binary sensor platform is consuming a given endpoint which is exposed by a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a> of a device, an application, or a web service. The binary sensor has support for GET and POST requests.</p>
 
-<p>The JSON messages can contain different values like <code>1</code>, <code>"1"</code>, <code>TRUE</code>, <code>true</code>, <code>on</code>, or <code>open</code>. If the value is nested then use a <a href="/topics/templating/">template</a>.</p>
+<p>The JSON messages can contain different values like <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">"1"</code>, <code class="highlighter-rouge">TRUE</code>, <code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">on</code>, or <code class="highlighter-rouge">open</code>. If the value is nested then use a <a href="/topics/templating/">template</a>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Binary sensor</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">state</span><span class="delimiter">&quot;</span></span>: {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">open</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">timestamp</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2016-06-20 15:42:52.926733</span><span class="delimiter">&quot;</span></span>
-    }
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary sensor"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-20 15:42:52.926733"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code> file for a GET request:</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file for a GET request:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
-  <span class="key">method</span>: <span class="string"><span class="content">GET</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">REST GET binary sensor</span></span>
-  <span class="key">sensor_class</span>: <span class="string"><span class="content">opening</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.state }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
+  <span class="s">method</span><span class="pi">:</span> <span class="s">GET</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">REST GET binary sensor</span>
+  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.state</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <p>or for a POST request:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
-  <span class="key">method</span>: <span class="string"><span class="content">POST</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">REST POST binary sensor</span></span>
-  <span class="key">sensor_class</span>: <span class="string"><span class="content">opening</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.state }}'</span></span>
-  <span class="key">payload</span>: <span class="string"><span class="content">'{ &quot;device&quot; : &quot;door&quot; }'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
+  <span class="s">method</span><span class="pi">:</span> <span class="s">POST</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">REST POST binary sensor</span>
+  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.state</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">"device"</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">"door"</span><span class="nv"> </span><span class="s">}'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

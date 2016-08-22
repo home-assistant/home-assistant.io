@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>dlink</code> switch platform allows you to control the state of your <a href="http://us.dlink.com/product-category/home-solutions/connected-home/smart-plugs/">D-Link Wi-Fi Smart Plugs</a>.</p>
+  <p>The <code class="highlighter-rouge">dlink</code> switch platform allows you to control the state of your <a href="http://us.dlink.com/product-category/home-solutions/connected-home/smart-plugs/">D-Link Wi-Fi Smart Plugs</a>.</p>
 
 <p>Supported devices (tested):</p>
 
@@ -98,18 +98,16 @@
   <li>DSP-W110</li>
 </ul>
 
-<p>To use your D-Link smart plugs in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your D-Link smart plugs in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">dlink</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADRRESS</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">D-Link plug</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">dlink</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADRRESS</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">D-Link plug</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -117,8 +115,8 @@
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP address of your D-Link plug, eg. http://192.168.1.32</li>
   <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this switch.</li>
-  <li><strong>username</strong> (<em>Required</em>): The username for your plug. Defaults to <code>admin</code>.</li>
-  <li><strong>password</strong> (<em>Required</em>): The password for your plug. Default password is the <code>PIN</code> inlcuded on the configuration card.</li>
+  <li><strong>username</strong> (<em>Required</em>): The username for your plug. Defaults to <code class="highlighter-rouge">admin</code>.</li>
+  <li><strong>password</strong> (<em>Required</em>): The password for your plug. Default password is the <code class="highlighter-rouge">PIN</code> inlcuded on the configuration card.</li>
 </ul>
 
 

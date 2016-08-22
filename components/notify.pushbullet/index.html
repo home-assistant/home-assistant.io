@@ -89,25 +89,23 @@
   <hr class="divider">
   
 
-  <p>The <code>pushbullet</code> notification platform sends messages to <a href="https://www.pushbullet.com/">Pushbullet</a>, a free service to send information between your phones, browsers, and friends.</p>
+  <p>The <code class="highlighter-rouge">pushbullet</code> notification platform sends messages to <a href="https://www.pushbullet.com/">Pushbullet</a>, a free service to send information between your phones, browsers, and friends.</p>
 
-<p>To enable Pushbullet notifications in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable Pushbullet notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">pushbullet</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_API_KEY</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">pushbullet</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>api_key</strong> (<em>Required</em>): Enter the API key for Pushbullet. Go to https://www.pushbullet.com/ to retrieve your API key.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
 </ul>
 
 <h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
@@ -126,21 +124,21 @@
   <tbody>
     <tr>
       <td>Device</td>
-      <td><code>device/</code></td>
+      <td><code class="highlighter-rouge">device/</code></td>
       <td>Device nickname</td>
-      <td><code>device/iphone</code></td>
+      <td><code class="highlighter-rouge">device/iphone</code></td>
     </tr>
     <tr>
       <td>Channel</td>
-      <td><code>channel/</code></td>
+      <td><code class="highlighter-rouge">channel/</code></td>
       <td>Channel tag</td>
-      <td><code>channel/my_home</code></td>
+      <td><code class="highlighter-rouge">channel/my_home</code></td>
     </tr>
     <tr>
       <td>Email</td>
-      <td><code>email/</code></td>
+      <td><code class="highlighter-rouge">email/</code></td>
       <td>Contact’s email address</td>
-      <td><code>email/email@example.com</code></td>
+      <td><code class="highlighter-rouge">email/email@example.com</code></td>
     </tr>
   </tbody>
 </table>
@@ -149,17 +147,15 @@
 
 <h4><a class="title-link" name="example-service-payload" href="#example-service-payload"></a> Example service payload</h4>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">A message for many people</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">target</span><span class="delimiter">&quot;</span></span>: [
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">device/telephone</span><span class="delimiter">&quot;</span></span>,
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">email/hello@example.com</span><span class="delimiter">&quot;</span></span>,
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">channel/my_home</span><span class="delimiter">&quot;</span></span>
-  ]
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A message for many people"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"device/telephone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email/hello@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"channel/my_home"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 

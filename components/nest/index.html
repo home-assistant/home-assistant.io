@@ -91,44 +91,38 @@
 
   <p>The Nest component is the main component to integrate all Nest related platforms. Besides this component you will have to setup your thermostat and any connected sensors separately.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">nest</span>:
-  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">nest</span><span class="pi">:</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
 
-<span class="key">thermostat</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">nest</span></span>
-</pre></div>
-</div>
+<span class="s">thermostat</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+</code></pre>
 </div>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry to show only devices at your vacation home</span>
-<span class="key">nest</span>:
-  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-  <span class="key">structure</span>: <span class="string"><span class="content">Vacation</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry to show only devices at your vacation home</span>
+<span class="s">nest</span><span class="pi">:</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+  <span class="s">structure</span><span class="pi">:</span> <span class="s">Vacation</span>
 
-<span class="key">thermostat</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">nest</span></span>
-</pre></div>
-</div>
+<span class="s">thermostat</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+</code></pre>
 </div>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry to show only devices at your vacation and primary homes</span>
-<span class="key">nest</span>:
-  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-  <span class="key">structure</span>:
-    - <span class="string"><span class="content">Vacation</span></span>
-    - <span class="string"><span class="content">Primary</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry to show only devices at your vacation and primary homes</span>
+<span class="s">nest</span><span class="pi">:</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+  <span class="s">structure</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">Vacation</span>
+    <span class="pi">-</span> <span class="s">Primary</span>
 
-<span class="key">thermostat</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">nest</span></span>
-</pre></div>
-</div>
+<span class="s">thermostat</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

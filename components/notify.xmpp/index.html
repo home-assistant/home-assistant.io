@@ -89,25 +89,23 @@
   <hr class="divider">
   
 
-  <p>The <code>xmpp</code> platform allows you to deliver notifications from Home Assistant to a <a href="http://xmpp.org">Jabber (XMPP)</a> account.</p>
+  <p>The <code class="highlighter-rouge">xmpp</code> platform allows you to deliver notifications from Home Assistant to a <a href="http://xmpp.org">Jabber (XMPP)</a> account.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">platform</span>: <span class="string"><span class="content">xmpp</span></span>
-  <span class="key">sender</span>: <span class="string"><span class="content">YOUR_JID</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_JABBER_ACCOUNT_PASSWORD</span></span>
-  <span class="key">recipient</span>: <span class="string"><span class="content">YOUR_RECIPIENT</span></span>
-  <span class="key">tls</span>: <span class="string"><span class="content">False</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">xmpp</span>
+  <span class="s">sender</span><span class="pi">:</span> <span class="s">YOUR_JID</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_JABBER_ACCOUNT_PASSWORD</span>
+  <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
+  <span class="s">tls</span><span class="pi">:</span> <span class="s">False</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>sender</strong> (<em>Required</em>): The Jabber ID (JID) that will act as origin of the messages. Add your JID including the domain, eg. your_name@jabber.org.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given Jabber account.</li>
   <li><strong>recipient</strong> (<em>Required</em>): The Jabber ID (JID) that will receive the messages.</li>

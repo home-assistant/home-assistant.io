@@ -89,21 +89,19 @@
   <hr class="divider">
   
 
-  <p>This <code>mqtt</code> sensor platform uses the MQTT message payload as the sensor value. If messages in this <code>state_topic</code> are published with <em>RETAIN</em> flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.</p>
+  <p>This <code class="highlighter-rouge">mqtt</code> sensor platform uses the MQTT message payload as the sensor value. If messages in this <code class="highlighter-rouge">state_topic</code> are published with <em>RETAIN</em> flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.</p>
 
-<p>To use your MQTT sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your MQTT sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/temperature</span><span class="delimiter">&quot;</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MQTT Sensor</span><span class="delimiter">&quot;</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">°C</span><span class="delimiter">&quot;</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/temperature"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Sensor"</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -124,59 +122,51 @@
 
 <p>If you are using the <a href="/components/device_tracker.owntracks/">Owntracks</a> and enable the reporting of the battery level then you can use a MQTT sensor to keep track of your battery. A regular MQTT message from Owntracks looks like this:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>owntracks/tablet/tablet {&quot;_type&quot;:&quot;location&quot;,&quot;lon&quot;:7.21,&quot;t&quot;:&quot;u&quot;,&quot;batt&quot;:92,&quot;tst&quot;:144995643,&quot;tid&quot;:&quot;ta&quot;,&quot;acc&quot;:27,&quot;lat&quot;:46.12}
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>owntracks/tablet/tablet <span class="o">{</span><span class="s2">"_type"</span>:<span class="s2">"location"</span>,<span class="s2">"lon"</span>:7.21,<span class="s2">"t"</span>:<span class="s2">"u"</span>,<span class="s2">"batt"</span>:92,<span class="s2">"tst"</span>:144995643,<span class="s2">"tid"</span>:<span class="s2">"ta"</span>,<span class="s2">"acc"</span>:27,<span class="s2">"lat"</span>:46.12<span class="o">}</span>
+</code></pre>
 </div>
 
 <p>Thus the trick is extract the battery level from the payload.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">owntracks/tablet/tablet</span><span class="delimiter">&quot;</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Battery Tablet</span><span class="delimiter">&quot;</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">%</span><span class="delimiter">&quot;</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value_json.batt }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">owntracks/tablet/tablet"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Battery</span><span class="nv"> </span><span class="s">Tablet"</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%"</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.batt</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="get-temperature-and-humidity" href="#get-temperature-and-humidity"></a> Get temperature and humidity</h3>
 
 <p>If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found <a href="https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22">here</a>. A regular MQTT message from this example looks like this:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="error">o</span><span class="error">f</span><span class="error">f</span><span class="error">i</span><span class="error">c</span><span class="error">e</span><span class="error">/</span><span class="error">s</span><span class="error">e</span><span class="error">n</span><span class="error">s</span><span class="error">o</span><span class="error">r</span><span class="integer">1</span>
-  {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">temperature</span><span class="delimiter">&quot;</span></span>: <span class="float">23.20</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">humidity</span><span class="delimiter">&quot;</span></span>: <span class="float">43.70</span>
-  }
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">office/sensor</span><span class="mi">1</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"temperature"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"humidity"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.70</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>Then use this configuration example to extract the data from the payload:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">sensor 1</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="content">'office/sensor1'</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">'Temperature'</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="content">'°C'</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">''</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">sensor 1</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/sensor1'</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temperature'</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
 
-<span class="key">sensor 2</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="content">'office/sensor1'</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">'Humidity'</span></span>
-  <span class="key">unit_of_measurement</span>: <span class="string"><span class="content">'%'</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">''</span></span>
-</pre></div>
-</div>
+<span class="s">sensor 2</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/sensor1'</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidity'</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+</code></pre>
 </div>
 
 

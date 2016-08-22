@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>persistent_notification</code> can be used to show a message on the frontend that has to be dismissed by the user.</p>
+  <p>The <code class="highlighter-rouge">persistent_notification</code> can be used to show a message on the frontend that has to be dismissed by the user.</p>
 
 <p class="img">
   <img src="/images/screenshots/persistent-notification.png" />
@@ -97,7 +97,7 @@
 
 <h3><a class="title-link" name="service" href="#service"></a> Service</h3>
 
-<p>The service <code>persistent_notification/create</code> takes in <code>message</code>, <code>title</code>, and <code>notification_id</code>.</p>
+<p>The service <code class="highlighter-rouge">persistent_notification/create</code> takes in <code class="highlighter-rouge">message</code>, <code class="highlighter-rouge">title</code>, and <code class="highlighter-rouge">notification_id</code>.</p>
 
 <table>
   <thead>
@@ -109,53 +109,49 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>message</code></td>
+      <td><code class="highlighter-rouge">message</code></td>
       <td>no</td>
       <td>Body of the notification.</td>
     </tr>
     <tr>
-      <td><code>title</code></td>
+      <td><code class="highlighter-rouge">title</code></td>
       <td>yes</td>
       <td>Title of the notification.</td>
     </tr>
     <tr>
-      <td><code>notification_id</code></td>
+      <td><code class="highlighter-rouge">notification_id</code></td>
       <td>yes</td>
-      <td>If <code>notification_id</code> is given, it will overwrite the notification if there already was a notification with that ID.</td>
+      <td>If <code class="highlighter-rouge">notification_id</code> is given, it will overwrite the notification if there already was a notification with that ID.</td>
     </tr>
   </tbody>
 </table>
 
-<p>The <code>persistent_notification</code> component supports specifying <a href="/topics/templating/">templates</a> for both the <code>message</code> and the <code>title</code>. This will allow you to use the current state of Home Assistant in your notifications.</p>
+<p>The <code class="highlighter-rouge">persistent_notification</code> component supports specifying <a href="/topics/templating/">templates</a> for both the <code class="highlighter-rouge">message</code> and the <code class="highlighter-rouge">title</code>. This will allow you to use the current state of Home Assistant in your notifications.</p>
 
 <p>In an <a href="https://home-assistant.io/getting-started/automation-action/">action</a> of your <a href="/getting-started/automation/">automation setup</a> it could look like this with a customized subject.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">action</span>:
-  <span class="key">service</span>: <span class="string"><span class="content">persistent_notification.create</span></span>
-  <span class="key">data</span>:
-    <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Your message goes here</span><span class="delimiter">&quot;</span></span>
-    <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Custom subject</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">persistent_notification.create</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">message</span><span class="nv"> </span><span class="s">goes</span><span class="nv"> </span><span class="s">here"</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Custom</span><span class="nv"> </span><span class="s">subject"</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="create-a-persistent-notification" href="#create-a-persistent-notification"></a> Create a persistent notification</h3>
 
-<p>Choose <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong> to call the <code>persistent_notification</code> service. Select <code>persistent_notification/create</code> from the list of <strong>Available services:</strong> and enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
+<p>Choose <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong> to call the <code class="highlighter-rouge">persistent_notification</code> service. Select <code class="highlighter-rouge">persistent_notification/create</code> from the list of <strong>Available services:</strong> and enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">notification_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1234</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Sample notification</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">This is a sample text</span><span class="delimiter">&quot;</span></span>
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"notification_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample notification"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a sample text"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 <p>This will create the notification entry shown above.</p>
 
-<p>NOTE: if you have defined a <code>default_view:</code> in your <code>Groups:</code> configuration you will need to include <code>persistent_notification.&lt;notification_id&gt;</code> e.g. <code>persistent_notification.1234</code> as per the example above, to your Groups configuration, in order to see the notification after creating it.</p>
+<p>NOTE: if you have defined a <code class="highlighter-rouge">default_view:</code> in your <code class="highlighter-rouge">Groups:</code> configuration you will need to include <code class="highlighter-rouge">persistent_notification.&lt;notification_id&gt;</code> e.g. <code class="highlighter-rouge">persistent_notification.1234</code> as per the example above, to your Groups configuration, in order to see the notification after creating it.</p>
 
 
 </article>

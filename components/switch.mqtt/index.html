@@ -89,31 +89,29 @@
   <hr class="divider">
   
 
-  <p>The <code>mqtt</code> switch platform let you control your MQTT enabled light.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> switch platform let you control your MQTT enabled light.</p>
 
 <p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.</p>
 
-<p>When a state topic is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from device (message from <code>state_topic</code>).</p>
+<p>When a state topic is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from device (message from <code class="highlighter-rouge">state_topic</code>).</p>
 
 <p>Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect switch operation.</p>
 
-<p>To enable this switch in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable this switch in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bedroom Switch</span><span class="delimiter">&quot;</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/switch1</span><span class="delimiter">&quot;</span></span>
-  <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/switch1/set</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ON</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OFF</span><span class="delimiter">&quot;</span></span>
-  <span class="key">optimistic</span>: <span class="string"><span class="content">false</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">retain</span>: <span class="string"><span class="content">true</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">Switch"</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1"</span>
+  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1/set"</span>
+  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
+  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
+  <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -131,7 +129,7 @@
 </ul>
 
 <p class="note warning">
-Make sure that your topic match exact. <code>some-topic/</code> and <code>some-topic</code> are different topics.
+Make sure that your topic match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
 
 

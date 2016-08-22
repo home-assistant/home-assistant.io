@@ -103,19 +103,17 @@
 
 <p>If you want to see if a specific device you have is supported, head over to the <a href="https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes">pyhomematic</a> repository and browse through the sourcecode. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom.</p>
 
-<p>We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.<br />
+<p>We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
 You can manually override the created entities be using Home Assistants <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing</a> feature. With it you are able to hide entities you don’t need to see within the UI.</p>
 
-<p>To set up the component, add the following information to your <code>configuration.yaml</code> file:</p>
+<p>To set up the component, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">homematic</span>:
-  <span class="key">local_ip</span>: <span class="string"><span class="content">127.0.0.1</span></span>
-  <span class="key">local_port</span>: <span class="string"><span class="content">8943</span></span>
-  <span class="key">remote_ip</span>: <span class="string"><span class="content">127.0.0.1</span></span>
-  <span class="key">remote_port</span>: <span class="string"><span class="content">2001</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homematic</span><span class="pi">:</span>
+  <span class="s">local_ip</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+  <span class="s">local_port</span><span class="pi">:</span> <span class="s">8943</span>
+  <span class="s">remote_ip</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+  <span class="s">remote_port</span><span class="pi">:</span> <span class="s">2001</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -125,13 +123,13 @@ You can manually override the created entities be using Home Assistants <a href=
   <li><strong>local_port</strong> (<em>Optional</em>): Port for connection with Home Assistant. Defaults to 8943.</li>
   <li><strong>remote_ip</strong> (<em>Required</em>): IP of CCU/Homegear</li>
   <li><strong>remote_port</strong> (<em>Optional</em>): Port of Homegear/CCU XML-RPC Server (usually 2001)</li>
-  <li><strong>resolvenames</strong> (<em>Optional</em>): &lt;metadata, json, xml&gt; Try to fetch device names. Defaults to <code>False</code> if not specified.</li>
+  <li><strong>resolvenames</strong> (<em>Optional</em>): &lt;metadata, json, xml&gt; Try to fetch device names. Defaults to <code class="highlighter-rouge">False</code> if not specified.</li>
   <li><strong>username</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.</li>
   <li><strong>password</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.</li>
-  <li><strong>delay</strong> (<em>Optional</em>): <float> Delay fetching of current state per deivce on startup. Used to prevent overloading of the CCU. Defaults to 0.5.</float></li>
+  <li><strong>delay</strong> (<em>Optional</em>): <Float> Delay fetching of current state per deivce on startup. Used to prevent overloading of the CCU. Defaults to 0.5.</Float></li>
 </ul>
 
-<p>To further explain the <code>resolvenames</code> option:<br />
+<p>To further explain the <code class="highlighter-rouge">resolvenames</code> option:
 We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won’t include non-ASCII characters in entity-names.</p>
 
 <ol>
@@ -144,51 +142,47 @@ We use three approaches to fetch the names of devices. Each assumes you have pro
 
 <p><strong>Devices with buttons</strong></p>
 
-<p>Devices with buttons (e.g. HM-Sen-MDIR-WM55, remote controls) may not be fully visible in the UI. This is intended, as buttons don’t serve any value here and all they do is trigger events.<br />
-As an example:<br />
-The HM-Sen-MDIR-WM55 motion detector will be displayed as 2 entities. A motion sensor and a brightness sensor. On top of that we have 2 sets (one set per button) of 4 events: PRESS_SHORT, PRESS_LONG, PRESS_CONT, PRESS_LONG_RELEASE. Be aware, that there are devices which don’t provide all of these events. But in general: if you can press it, it at least has PRESS_SHORT.<br />
+<p>Devices with buttons (e.g. HM-Sen-MDIR-WM55, remote controls) may not be fully visible in the UI. This is intended, as buttons don’t serve any value here and all they do is trigger events.
+As an example:
+The HM-Sen-MDIR-WM55 motion detector will be displayed as 2 entities. A motion sensor and a brightness sensor. On top of that we have 2 sets (one set per button) of 4 events: PRESS_SHORT, PRESS_LONG, PRESS_CONT, PRESS_LONG_RELEASE. Be aware, that there are devices which don’t provide all of these events. But in general: if you can press it, it at least has PRESS_SHORT.
 Here’s an example of how to use these events for automations:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-   <span class="key">trigger</span>:
-     <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
-     <span class="key">event_type</span>: <span class="string"><span class="content">homematic.keypress</span></span>
-     <span class="key">event_data</span>:
-       <span class="key">name</span>: <span class="string"><span class="content">Kitchen Switch</span></span>
-       <span class="key">channel</span>: <span class="string"><span class="content">1</span></span>
-       <span class="key">param</span>: <span class="string"><span class="content">PRESS_SHORT</span></span>
-   <span class="key">action</span>:
-     <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-     <span class="key">entity_id</span>: <span class="string"><span class="content">switch.Kitchen_Ambience</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">homematic.keypress</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen Switch</span>
+       <span class="s">channel</span><span class="pi">:</span> <span class="s">1</span>
+       <span class="s">param</span><span class="pi">:</span> <span class="s">PRESS_SHORT</span>
+   <span class="s">action</span><span class="pi">:</span>
+     <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.Kitchen_Ambience</span>
 
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.<br />
+<p>The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
 The name depends on if you chose to resolve names or not. If not, it will be the device ID (e.g. LEQ1234657). If you chose to resolve names (and that is successful), it will be the name you have set in your CCU or in the metadata (e.g. “Kitchen Switch”).</p>
 
 <p><strong>Other events</strong></p>
 
-<p><em>homematic.keypress</em> see above.<br />
+<p><em>homematic.keypress</em> see above.
 <em>homematic.impulse</em> for impulse sensors with event_data ‘name’ and ‘channel’.</p>
 
 <p><strong>Service</strong></p>
 
 <p><em>homematic/virtualkey</em> simulate a keypress on CCU/Homegear with device or virtual keys.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="head"><span class="head">...</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 
-<span class="key">action</span>:
-  <span class="key">service</span>: <span class="string"><span class="content">homematic.virtualkey</span></span>
-  <span class="key">data</span>:
-    <span class="key">address</span>: <span class="string"><span class="content">BidCoS-RF</span></span>
-    <span class="key">channel</span>: <span class="string"><span class="content">1</span></span>
-    <span class="key">param</span>: <span class="string"><span class="content">PRESS_LONG</span></span>
-</pre></div>
-</div>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">homematic.virtualkey</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">BidCoS-RF</span>
+    <span class="s">channel</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">param</span><span class="pi">:</span> <span class="s">PRESS_LONG</span>
+</code></pre>
 </div>
 
 

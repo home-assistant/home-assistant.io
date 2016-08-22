@@ -89,21 +89,19 @@
   <hr class="divider">
   
 
-  <p>The <code>systemmonitor</code> sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.</p>
+  <p>The <code class="highlighter-rouge">systemmonitor</code> sensor platform to allow you to monitor disk usage, memory usage, CPU usage, and running processes. This platform has superseded the process component which is now considered deprecated.</p>
 
-<p>To add this platform to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add this platform to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: systemmonitor</span></span>
-    <span class="key">resources</span>:
-      - <span class="string"><span class="content">type: disk_use_percent</span></span>
-        <span class="key">arg</span>: <span class="string"><span class="content">/home</span></span>
-      - <span class="string"><span class="content">type: memory_free</span></span>
-      - <span class="string"><span class="content">type: processor_use</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">systemmonitor</span>
+    <span class="s">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">disk_use_percent</span>
+        <span class="s">arg</span><span class="pi">:</span> <span class="s">/home</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">memory_free</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">processor_use</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -117,27 +115,27 @@
   </li>
 </ul>
 
-<p>The table contains types and their argument to use in your <code>configuration.yaml</code> file.</p>
+<p>The table contains types and their argument to use in your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Type (<code>type:</code>)</th>
-      <th style="text-align: left">Argument (<code>arg:</code>)</th>
+      <th style="text-align: left">Type (<code class="highlighter-rouge">type:</code>)</th>
+      <th style="text-align: left">Argument (<code class="highlighter-rouge">arg:</code>)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">disk_use_percent</td>
-      <td style="text-align: left">Path, eg. <code>/</code></td>
+      <td style="text-align: left">Path, eg. <code class="highlighter-rouge">/</code></td>
     </tr>
     <tr>
       <td style="text-align: left">disk_use</td>
-      <td style="text-align: left">Path, eg. <code>/</code></td>
+      <td style="text-align: left">Path, eg. <code class="highlighter-rouge">/</code></td>
     </tr>
     <tr>
       <td style="text-align: left">disk_free</td>
-      <td style="text-align: left">Path, eg. <code>/</code></td>
+      <td style="text-align: left">Path, eg. <code class="highlighter-rouge">/</code></td>
     </tr>
     <tr>
       <td style="text-align: left">memory_use_percent</td>
@@ -165,27 +163,27 @@
     </tr>
     <tr>
       <td style="text-align: left">network_in</td>
-      <td style="text-align: left">Interface, eg. <code>eth0</code></td>
+      <td style="text-align: left">Interface, eg. <code class="highlighter-rouge">eth0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">network_out</td>
-      <td style="text-align: left">Interface, eg. <code>eth0</code></td>
+      <td style="text-align: left">Interface, eg. <code class="highlighter-rouge">eth0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">packets_in</td>
-      <td style="text-align: left">Interface, eg. <code>eth0</code></td>
+      <td style="text-align: left">Interface, eg. <code class="highlighter-rouge">eth0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">packets_out</td>
-      <td style="text-align: left">Interface, eg. <code>eth0</code></td>
+      <td style="text-align: left">Interface, eg. <code class="highlighter-rouge">eth0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ipv4_address</td>
-      <td style="text-align: left">Interface, eg. <code>eth0</code></td>
+      <td style="text-align: left">Interface, eg. <code class="highlighter-rouge">eth0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ipv6_address</td>
-      <td style="text-align: left">Interface, eg. <code>eth0</code></td>
+      <td style="text-align: left">Interface, eg. <code class="highlighter-rouge">eth0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">processor_use</td>
@@ -193,7 +191,7 @@
     </tr>
     <tr>
       <td style="text-align: left">process</td>
-      <td style="text-align: left">Binary, eg. <code>octave-cli</code></td>
+      <td style="text-align: left">Binary, eg. <code class="highlighter-rouge">octave-cli</code></td>
     </tr>
     <tr>
       <td style="text-align: left">last_boot</td>

@@ -89,26 +89,24 @@
   <hr class="divider">
   
 
-  <p>The <code>mqtt</code> rollershutter platform enables the possibility to control an MQTT rollershutter. The device state will be updated only after receiving the a new state from <code>state_topic</code>. If these messages are published with RETAIN flag, the MQTT device will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state will be <code>unknown</code>.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> rollershutter platform enables the possibility to control an MQTT rollershutter. The device state will be updated only after receiving the a new state from <code class="highlighter-rouge">state_topic</code>. If these messages are published with RETAIN flag, the MQTT device will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state will be <code class="highlighter-rouge">unknown</code>.</p>
 
-<p>There is a state attribute that stores the relative position of the device, where 0% means the device is <code>closed</code> and all other intermediate positions means the device is <code>open</code>.</p>
+<p>There is a state attribute that stores the relative position of the device, where 0% means the device is <code class="highlighter-rouge">closed</code> and all other intermediate positions means the device is <code class="highlighter-rouge">open</code>.</p>
 
-<p>To enable this platform, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable this platform, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">rollershutter</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bedroom Rollershutter</span><span class="delimiter">&quot;</span></span>
-  <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/rollershutter</span><span class="delimiter">&quot;</span></span>
-  <span class="key">command_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/bedroom/rollershutter/set</span><span class="delimiter">&quot;</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
-  <span class="key">payload_up</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OPEN</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_down</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">CLOSE</span><span class="delimiter">&quot;</span></span>
-  <span class="key">payload_stop</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">STOP</span><span class="delimiter">&quot;</span></span>
-  <span class="key">value_template</span>: <span class="string"><span class="content">'{{ value.x }}'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">rollershutter</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">Rollershutter"</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/rollershutter"</span>
+  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/rollershutter/set"</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">payload_up</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OPEN"</span>
+  <span class="s">payload_down</span><span class="pi">:</span> <span class="s2">"</span><span class="s">CLOSE"</span>
+  <span class="s">payload_stop</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STOP"</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

@@ -89,43 +89,68 @@
   <hr class="divider">
   
 
-  <p>By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by adding the following configuration inside the <code>homeassistant:</code> section.</p>
+  <p>By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.</p>
 
-<p>Devices that you don’t want to have visible can be hidden with <code>hidden</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
+  <span class="s">unit_system</span><span class="pi">:</span> <span class="s">celsius</span>
+  <span class="c1"># etc</span>
 
-<p><code>entity_picture</code>entries, badges, <code>device_tracker</code> pictures, etc. can either be external URLs (e.g. <code>http://example.com/example.jpg</code>) or of the form <code>/local/filename.jpg</code>, where <code>/local</code> represents the directory <code>www</code> in the HASS configuration directory. You may have to create the <code>www</code> directory yourself as it is not made automatically.</p>
-
-<p>You can also use <code>icon</code> and refer to any icon from <a href="http://MaterialDesignIcons.com">MaterialDesignIcons.com</a>.</p>
-
-<p>For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting <code>assumed_state</code> to <code>false</code> you will get the default switch icon.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">homeassistant</span>:
-
-  <span class="comment"># Add this to your existing configuration</span>
-  <span class="comment"># Only the `entity_id` is required.  All other options are optional.</span>
-  <span class="key">customize</span>:
-    <span class="key">sensor.living_room_motion</span>:
-      <span class="key">hidden</span>: <span class="string"><span class="content">true</span></span>
-    <span class="key">thermostat.family_roomfamily_room</span>:
-      <span class="key">entity_picture</span>: <span class="string"><span class="content">https://dl.dropboxusercontent.com/u/12345/images/nest.jpg</span></span>
-      <span class="key">friendly_name</span>: <span class="string"><span class="content">Nest</span></span>
-    <span class="key">switch.wemo_switch_1</span>:
-      <span class="key">friendly_name</span>: <span class="string"><span class="content">Toaster</span></span>
-      <span class="key">entity_picture</span>: <span class="string"><span class="content">/local/toaster.jpg</span></span>
-    <span class="key">switch.wemo_switch_2</span>:
-      <span class="key">friendly_name</span>: <span class="string"><span class="content">Kitchen kettle</span></span>
-      <span class="key">icon</span>: <span class="string"><span class="content">mdi:kettle</span></span>
-    <span class="key">switch.rfxtrx_switch</span>:
-      <span class="key">assumed_state</span>: <span class="string"><span class="content">false</span></span>
-</pre></div>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="c1"># Only the 'entity_id' is required.  All other options are optional.</span>
+    <span class="s">sensor.living_room_motion</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">thermostat.family_roomfamily_room</span><span class="pi">:</span>
+      <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">https://example.com/images/nest.jpg</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Nest</span>
+    <span class="s">switch.wemo_switch_1</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Toaster</span>
+      <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">/local/toaster.jpg</span>
+    <span class="s">switch.wemo_switch_2</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kitchen kettle</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:kettle</span>
+    <span class="s">switch.rfxtrx_switch</span><span class="pi">:</span>
+      <span class="s">assumed_state</span><span class="pi">:</span> <span class="s">false</span>
+</code></pre>
 </div>
-</div>
+
+<h3><a class="title-link" name="possible-values" href="#possible-values"></a> Possible values</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>friendly_name</td>
+      <td>Name of the entity</td>
+    </tr>
+    <tr>
+      <td>hidden</td>
+      <td>Set to <code class="highlighter-rouge">true</code> to hide the entity.</td>
+    </tr>
+    <tr>
+      <td>entity_picture</td>
+      <td>url to use as picture for entity</td>
+    </tr>
+    <tr>
+      <td>icon</td>
+      <td>Any icon from <a href="http://MaterialDesignIcons.com">MaterialDesignIcons.com</a>. Prefix name with <code class="highlighter-rouge">mdi:</code>, ie <code class="highlighter-rouge">mdi:home</code>.</td>
+    </tr>
+    <tr>
+      <td>assumed_state</td>
+      <td>For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting <code class="highlighter-rouge">assumed_state</code> to <code class="highlighter-rouge">false</code> you will get the default switch icon.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3><a class="title-link" name="reloading-customize" href="#reloading-customize"></a> Reloading customize</h3>
 
-<p>Home Assistant offers a service to reload the core configuration while Home Assistant is running called <code>homeassistant/reload_core_config</code>. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> service developer tools, select the service <code>homeassistant/reload_core_config</code> and click “Call Service”.</p>
+<p>Home Assistant offers a service to reload the core configuration while Home Assistant is running called <code class="highlighter-rouge">homeassistant/reload_core_config</code>. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> service developer tools, select the service <code class="highlighter-rouge">homeassistant/reload_core_config</code> and click “Call Service”.</p>
 
 <p class="note warning">
 New customize information will be applied the next time the state of the entity gets updated.

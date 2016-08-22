@@ -93,98 +93,96 @@
 
 <p>For flashing regular lights in case the the triggering of an alarm.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># AlmAct1 - switch to activate the alarm in Room1</span>
-<span class="comment"># AlmSnd1 - switch for a buzzer</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># AlmAct1 - switch to activate the alarm in Room1</span>
+<span class="c1"># AlmSnd1 - switch for a buzzer</span>
 
-<span class="key">automation</span>:
-- <span class="string"><span class="content">alias: 'Alarm_PIR_Room1'</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">binary_sensor.PIR1</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
-  <span class="key">condition</span>:
-    - <span class="string"><span class="content">condition: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">switch.AlmAct1</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
-    - <span class="string"><span class="content">condition: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">script.alarm_room1</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">'off'</span></span>
-  <span class="key">action</span>:
-    <span class="comment"># start alarm on movement if alarm activated</span>
-    <span class="comment"># and the alarm is not triggered</span>
-    <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">script.alarm_room1</span></span>
+<span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Alarm_PIR_Room1'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.PIR1</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.AlmAct1</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.alarm_room1</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="c1"># start alarm on movement if alarm activated</span>
+    <span class="c1"># and the alarm is not triggered</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.alarm_room1</span>
 
-- <span class="string"><span class="content">alias: 'flash_room1_start'</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">switch.AlmSnd1</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">'on'</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">script.flash_room1</span></span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">flash_room1_start'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.AlmSnd1</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.flash_room1</span>
 
-- <span class="string"><span class="content">alias: 'flash_room1_stop'</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">switch.REL1</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">'off'</span></span>
-  <span class="key">condition</span>:
-    <span class="key">condition</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">switch.AlmSnd1</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">'off'</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">script.turn_off</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">script.flash_room1</span></span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">flash_room1_stop'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.REL1</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.AlmSnd1</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_off</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.flash_room1</span>
 
-<span class="key">script</span>:
-  <span class="key">alarm_room1</span>:
-    <span class="key">alias</span>: <span class="string"><span class="content">Alarm room1</span></span>
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">alias: Alarm Room1 Start</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
-        <span class="key">data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.AlmSnd1</span></span>
-      - <span class="string"><span class="content">alias: Set Ack Room1</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
-        <span class="key">data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">input_boolean.ack1</span></span>
-      - <span class="string"><span class="content">alias: email_Room1</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">notify.email</span></span>
-        <span class="key">data</span>:
-          <span class="key">message</span>: <span class="string"><span class="content">'Movement alarm in Room1'</span></span>
-      - <span class="string"><span class="content">delay:</span><span class="content">
-          # time interval for alarm sound and light flashing
-          seconds: 60</span></span>
-      - <span class="string"><span class="content">alias: Alarm Room1 Stop</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_off</span></span>
-        <span class="key">data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.AlmSnd1</span></span>
+<span class="s">script</span><span class="pi">:</span>
+  <span class="s">alarm_room1</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Alarm room1</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Alarm Room1 Start</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.AlmSnd1</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Set Ack Room1</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.ack1</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">email_Room1</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.email</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Movement</span><span class="nv"> </span><span class="s">alarm</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">Room1'</span>
+      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+          <span class="c1"># time interval for alarm sound and light flashing</span>
+          <span class="s">seconds</span><span class="pi">:</span> <span class="s">60</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Alarm Room1 Stop</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.AlmSnd1</span>
 
-  <span class="key">flash_room1</span>:
-    <span class="key">alias</span>: <span class="string"><span class="content">Flash Room1 On</span></span>
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">alias: Light Room1 On</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
-        <span class="key">data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.REL1</span></span>
-      - <span class="string"><span class="content">delay:</span><span class="content">
-          # time for flash light on
-          seconds: 1</span></span>
-      - <span class="string"><span class="content">alias: Light Room1 Off</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_off</span></span>
-        <span class="key">data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.REL1</span></span>
-      - <span class="string"><span class="content">delay:</span><span class="content">
-          # time for flash light off
-          seconds: 1</span></span>
-      - <span class="string"><span class="content">alias: loop_room1</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-        <span class="key">data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">script.flash_room1</span></span>
-</pre></div>
-</div>
+  <span class="s">flash_room1</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Flash Room1 On</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Light Room1 On</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.REL1</span>
+      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+          <span class="c1"># time for flash light on</span>
+          <span class="s">seconds</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Light Room1 Off</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.REL1</span>
+      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+          <span class="c1"># time for flash light off</span>
+          <span class="s">seconds</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">loop_room1</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.flash_room1</span>
+</code></pre>
 </div>
 
 

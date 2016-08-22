@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>panasonic_viera</code> platform allows you to control a Panasonic Viera TV.</p>
+  <p>The <code class="highlighter-rouge">panasonic_viera</code> platform allows you to control a Panasonic Viera TV.</p>
 
 <p>Currently known supported models:</p>
 
@@ -99,24 +99,22 @@
 
 <p>If your model is not on the list then give it a test, if everything works correctly then add it to the list on <a href="https://github.com/home-assistant/home-assistant.io">GitHub</a>.</p>
 
-<p>To add a TV to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add a TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">panasonic_viera</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.0.10</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">55000</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Living Room TV</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">panasonic_viera</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">55000</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP of the Panasonic Viera TV, e.g. <code>192.168.0.10</code></li>
-  <li><strong>port</strong> (<em>Optional</em>): The port of your Panasonic Viera TV. Defaults to <code>55000</code></li>
+  <li><strong>host</strong> (<em>Required</em>): The IP of the Panasonic Viera TV, e.g. <code class="highlighter-rouge">192.168.0.10</code></li>
+  <li><strong>port</strong> (<em>Optional</em>): The port of your Panasonic Viera TV. Defaults to <code class="highlighter-rouge">55000</code></li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the Panasonic Viera TV.</li>
 </ul>
 

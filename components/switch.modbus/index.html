@@ -89,27 +89,25 @@
   <hr class="divider">
   
 
-  <p>The <code>modbus</code> switch platform allows you to control <a href="http://www.modbus.org/">Modbus</a> switches.</p>
+  <p>The <code class="highlighter-rouge">modbus</code> switch platform allows you to control <a href="http://www.modbus.org/">Modbus</a> switches.</p>
 
-<p>To use your Modbus switches in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your Modbus switches in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">modbus</span></span>
-  <span class="key">slave</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">registers</span>:
-    <span class="key">24</span>:
-      <span class="key">bits</span>:
-        <span class="key">0</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My switch</span></span>
-        <span class="key">2</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My other switch</span></span>
-  <span class="key">coils</span>:
-    <span class="key">0</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My coil switch</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">modbus</span>
+  <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">registers</span><span class="pi">:</span>
+    <span class="s">24</span><span class="pi">:</span>
+      <span class="s">bits</span><span class="pi">:</span>
+        <span class="s">0</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">My switch</span>
+        <span class="s">2</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">My other switch</span>
+  <span class="s">coils</span><span class="pi">:</span>
+    <span class="s">0</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">My coil switch</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -118,9 +116,9 @@
   <li><strong>slave</strong> (<em>Required</em>): The number of the slave (ignored and can be omitted if not serial Modbus).</li>
   <li><strong>registers</strong> array (<em>Required</em>): The array contains a list of relevant registers to read from.
     <ul>
-      <li><strong>number of register</strong> (<em>Required</em>): Listing relevant bits. It must contain a <code>bits</code> section.
+      <li><strong>number of register</strong> (<em>Required</em>): Listing relevant bits. It must contain a <code class="highlighter-rouge">bits</code> section.
         <ul>
-          <li><strong>bits</strong> array (<em>Required</em>): Listing relevant bits. It must contain a <code>bits</code> section.
+          <li><strong>bits</strong> array (<em>Required</em>): Listing relevant bits. It must contain a <code class="highlighter-rouge">bits</code> section.
             <ul>
               <li><strong>name</strong> (<em>Required</em>): Name of the switch.</li>
             </ul>

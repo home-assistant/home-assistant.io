@@ -89,30 +89,28 @@
   <hr class="divider">
   
 
-  <p>The <code>modbus</code> sensor platform allows you to gather data from your <a href="http://www.modbus.org/">Modbus</a> sensors.</p>
+  <p>The <code class="highlighter-rouge">modbus</code> sensor platform allows you to gather data from your <a href="http://www.modbus.org/">Modbus</a> sensors.</p>
 
-<p>To use your Modbus sensors in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use your Modbus sensors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">modbus</span></span>
-  <span class="key">slave</span>: <span class="string"><span class="content">1</span></span>
-  <span class="key">registers</span>:
-    <span class="key">16</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My integer sensor</span></span>
-      <span class="key">unit</span>: <span class="string"><span class="content">C</span></span>
-    <span class="key">24</span>:
-      <span class="key">bits</span>:
-        <span class="key">0</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My boolean sensor</span></span>
-        <span class="key">2</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">My other boolean sensor</span></span>
-  <span class="key">coils</span>:
-    <span class="key">0</span>:
-      <span class="key">name</span>: <span class="string"><span class="content">My coil switch</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">modbus</span>
+  <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">registers</span><span class="pi">:</span>
+    <span class="s">16</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">My integer sensor</span>
+      <span class="s">unit</span><span class="pi">:</span> <span class="s">C</span>
+    <span class="s">24</span><span class="pi">:</span>
+      <span class="s">bits</span><span class="pi">:</span>
+        <span class="s">0</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">My boolean sensor</span>
+        <span class="s">2</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">My other boolean sensor</span>
+  <span class="s">coils</span><span class="pi">:</span>
+    <span class="s">0</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">My coil switch</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -121,9 +119,9 @@
   <li><strong>slave</strong> (<em>Required</em>): The number of the slave (ignored and can be omitted if not serial Modbus).</li>
   <li><strong>registers</strong> array (<em>Required</em>): The array contains a list of relevant registers to read from.
     <ul>
-      <li><strong>number of register</strong> (<em>Required</em>): Listing relevant bits. It must contain a <code>bits</code> section.
+      <li><strong>number of register</strong> (<em>Required</em>): Listing relevant bits. It must contain a <code class="highlighter-rouge">bits</code> section.
         <ul>
-          <li><strong>bits</strong> array (<em>Required</em>): Listing relevant bits. It must contain a <code>bits</code> section.
+          <li><strong>bits</strong> array (<em>Required</em>): Listing relevant bits. It must contain a <code class="highlighter-rouge">bits</code> section.
             <ul>
               <li><strong>name</strong> (<em>Required</em>): Name of the sensor.</li>
               <li><strong>unit</strong> (<em>Required</em>): Unit to attach to value (optional, ignored for boolean sensors).</li>

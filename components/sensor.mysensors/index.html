@@ -225,52 +225,50 @@
 
 <h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment">/**
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
  * Documentation: http://www.mysensors.org
  * Support Forum: http://forum.mysensors.org
  *
  * http://www.mysensors.org/build/light
  */</span>
 
-<span class="preprocessor">#include</span> <span class="include">&lt;SPI.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;MySensor.h&gt;</span>  
-<span class="preprocessor">#include</span> <span class="include">&lt;BH1750.h&gt;</span>
-<span class="preprocessor">#include</span> <span class="include">&lt;Wire.h&gt;</span>
+<span class="cp">#include &lt;SPI.h&gt;
+#include &lt;MySensor.h&gt;  
+#include &lt;BH1750.h&gt;
+#include &lt;Wire.h&gt;
+</span>
+<span class="cp">#define SN "LightLuxSensor"
+#define SV "1.0"
+#define CHILD_ID 1
+</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">SLEEP_TIME</span> <span class="o">=</span> <span class="mi">30000</span><span class="p">;</span> <span class="c1">// Sleep time between reads (in milliseconds)
+</span>
+<span class="n">BH1750</span> <span class="n">lightSensor</span><span class="p">;</span>
+<span class="n">MySensor</span> <span class="n">gw</span><span class="p">;</span>
+<span class="n">MyMessage</span> <span class="n">msg</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_LEVEL</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">msgPrefix</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_UNIT_PREFIX</span><span class="p">);</span>  <span class="c1">// Custom unit message.
+</span><span class="kt">uint16_t</span> <span class="n">lastlux</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<span class="preprocessor">#define</span> SN <span class="string"><span class="delimiter">&quot;</span><span class="content">LightLuxSensor</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> SV <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0</span><span class="delimiter">&quot;</span></span>
-<span class="preprocessor">#define</span> CHILD_ID <span class="integer">1</span>
-<span class="predefined-type">unsigned</span> <span class="predefined-type">long</span> SLEEP_TIME = <span class="integer">30000</span>; <span class="comment">// Sleep time between reads (in milliseconds)</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>  
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">sendSketchInfo</span><span class="p">(</span><span class="n">SN</span><span class="p">,</span> <span class="n">SV</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">S_LIGHT_LEVEL</span><span class="p">);</span>
+  <span class="n">lightSensor</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">lastlux</span><span class="p">));</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgPrefix</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">"lux"</span><span class="p">));</span>  <span class="c1">// Set custom unit.
+</span><span class="p">}</span>
 
-BH1750 lightSensor;
-MySensor gw;
-MyMessage msg(CHILD_ID, V_LEVEL);
-MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  <span class="comment">// Custom unit message.</span>
-uint16_t lastlux = <span class="integer">0</span>;
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>      
+<span class="p">{</span>     
+  <span class="kt">uint16_t</span> <span class="n">lux</span> <span class="o">=</span> <span class="n">lightSensor</span><span class="p">.</span><span class="n">readLightLevel</span><span class="p">();</span>  <span class="c1">// Get Lux value
+</span>  <span class="k">if</span> <span class="p">(</span><span class="n">lux</span> <span class="o">!=</span> <span class="n">lastlux</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">lux</span><span class="p">));</span>
+      <span class="n">lastlux</span> <span class="o">=</span> <span class="n">lux</span><span class="p">;</span>
+  <span class="p">}</span>
 
-<span class="directive">void</span> setup()  
-{
-  gw.begin();
-  gw.sendSketchInfo(SN, SV);
-  gw.present(CHILD_ID, S_LIGHT_LEVEL);
-  lightSensor.begin();
-  gw.send(msg.set(lastlux));
-  gw.send(msgPrefix.set(<span class="string"><span class="delimiter">&quot;</span><span class="content">lux</span><span class="delimiter">&quot;</span></span>));  <span class="comment">// Set custom unit.</span>
-}
-
-<span class="directive">void</span> loop()      
-{     
-  uint16_t lux = lightSensor.readLightLevel();  <span class="comment">// Get Lux value</span>
-  <span class="keyword">if</span> (lux != lastlux) {
-      gw.send(msg.set(lux));
-      lastlux = lux;
-  }
-
-  gw.sleep(SLEEP_TIME);
-}
-</pre></div>
-</div>
+  <span class="n">gw</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">SLEEP_TIME</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
 </div>
 
 

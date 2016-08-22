@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>rest</code> switch platform allows you to control a given endpoint that supports a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a>. The switch can get the state via GET and set the state via POST on a given REST resource.</p>
+  <p>The <code class="highlighter-rouge">rest</code> switch platform allows you to control a given endpoint that supports a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a>. The switch can get the state via GET and set the state via POST on a given REST resource.</p>
 
-<p>To enable this switch, add the following lines to your <code>configuration.yaml</code> file:</p>
+<p>To enable this switch, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">rest</span></span>
-  <span class="key">resource</span>: <span class="string"><span class="content">http://IP_ADDRESS/ENDPOINT</span></span>
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bedroom Switch</span><span class="delimiter">&quot;</span></span>
-  <span class="key">body_on</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ON</span><span class="delimiter">&quot;</span></span>
-  <span class="key">body_off</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">OFF</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">Switch"</span>
+  <span class="s">body_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
+  <span class="s">body_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

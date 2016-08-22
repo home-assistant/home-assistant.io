@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>mpchc</code> platform allows you to connect a <a href="https://mpc-hc.org/">Media Player Classic Home Cinema</a> to Home Assistant. It will allow you to see the current playing item, and respond to changes in the player’s state.</p>
+  <p>The <code class="highlighter-rouge">mpchc</code> platform allows you to connect a <a href="https://mpc-hc.org/">Media Player Classic Home Cinema</a> to Home Assistant. It will allow you to see the current playing item, and respond to changes in the player’s state.</p>
 
 <p>For this component to function, you will need to enable the Web Interface in the MPC-HC options dialog.</p>
 
@@ -103,17 +103,15 @@
 The MPC-HC web interface is highly insecure, and allows remote clients full player control file-system access without authentication. Never allow access to the Web UI from outside of your trusted network, and if possible <a href="https://github.com/abcminiuser/mpc-hc-webui-proxy">use a proxy script to restrict control or redact sensitive information</a>.
 </p>
 
-<p>To add MPC-HC to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add MPC-HC to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mpchc</span><span class="content">
-    host: http://192.168.0.123
-    port: 13579
-    name: MPC-HC</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mpchc</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.0.123</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">13579</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">MPC-HC</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

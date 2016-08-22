@@ -89,30 +89,28 @@
   <hr class="divider">
   
 
-  <p>A <code>zigbee</code> binary sensor in this context is a device connected to one of the digital input pins on a <a href="http://www.zigbee.org/">ZigBee</a> module. The states reported by such a device are limited to ‘on’ or ‘off’. By default, a binary sensor is considered ‘on’ when the ZigBee device’s digital input pin is held ‘high’ and considered ‘off’ when it is held ‘low’. This behaviour can be inverted by setting the <code>on_state</code> configuration variable to <code>low</code>.</p>
+  <p>A <code class="highlighter-rouge">zigbee</code> binary sensor in this context is a device connected to one of the digital input pins on a <a href="http://www.zigbee.org/">ZigBee</a> module. The states reported by such a device are limited to ‘on’ or ‘off’. By default, a binary sensor is considered ‘on’ when the ZigBee device’s digital input pin is held ‘high’ and considered ‘off’ when it is held ‘low’. This behaviour can be inverted by setting the <code class="highlighter-rouge">on_state</code> configuration variable to <code class="highlighter-rouge">low</code>.</p>
 
-<p>To enable the ZigBee binary sensors in your installation, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To enable the ZigBee binary sensors in your installation, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  - <span class="string"><span class="content">platform: zigbee</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Hallway PIR Sensor</span></span>
-    <span class="key">pin</span>: <span class="string"><span class="content">0</span></span>
-    <span class="key">address</span>: <span class="string"><span class="content">0013A20040892FA2</span></span>
-    <span class="key">on_state</span>: <span class="string"><span class="content">low</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">zigbee</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Hallway PIR Sensor</span>
+    <span class="s">pin</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">0013A20040892FA2</span>
+    <span class="s">on_state</span><span class="pi">:</span> <span class="s">low</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The name you’d like to give the binary sensor in Home Assistant.</li>
-  <li><strong>platform</strong> (<em>Required</em>): Set to <code>zigbee</code>.</li>
+  <li><strong>platform</strong> (<em>Required</em>): Set to <code class="highlighter-rouge">zigbee</code>.</li>
   <li><strong>pin</strong> (<em>Required</em>): The number identifying which pin to use.</li>
   <li><strong>address</strong>: The long 64bit address of the remote ZigBee device whose digital input pin you’d like to sample. Do not include this variable if you want to sample the local ZigBee device’s pins.</li>
-  <li><strong>on_state</strong>: Either <code>high</code> (default) or <code>low</code>, depicting whether the binary sensor is considered ‘on’ when the pin is ‘high’ or ‘low’.</li>
+  <li><strong>on_state</strong>: Either <code class="highlighter-rouge">high</code> (default) or <code class="highlighter-rouge">low</code>, depicting whether the binary sensor is considered ‘on’ when the pin is ‘high’ or ‘low’.</li>
 </ul>
 
 

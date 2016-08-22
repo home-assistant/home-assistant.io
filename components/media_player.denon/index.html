@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>denon</code> platform allows you to control a <a href="http://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo">Denon Network Receivers</a> from Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">denon</code> platform allows you to control a <a href="http://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo">Denon Network Receivers</a> from Home Assistant.</p>
 
 <p>Supported devices:</p>
 
@@ -100,16 +100,14 @@
   <li>Denon AVR receivers with Integrated Network support (partial support)</li>
 </ul>
 
-<p>To add a Denon Network Receiver to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add a Denon Network Receiver to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">denon</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Music station</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">denon</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Music station</span>
+</code></pre>
 </div>
 <p>Configuration variables:</p>
 

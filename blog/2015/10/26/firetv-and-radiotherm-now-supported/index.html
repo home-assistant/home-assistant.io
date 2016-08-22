@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -121,10 +121,10 @@
   <li>Media Player: <a href="/components/media_player.firetv/">Amazon FireTV</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
   <li>Device Tracker: <a href="/components/device_tracker.locative/">Geofancy</a> now supported (<a href="https://github.com/wind-rider">@wind-rider</a>)</li>
   <li>New component <a href="/components/shell_command/">Shell Command</a> can expose shell commands as services (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li><a href="/components/script/">Scripts</a> can now be customized using <code>customize</code> key in <code>configuration.yaml</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li><a href="/components/script/">Scripts</a> can now be customized using <code class="highlighter-rouge">customize</code> key in <code class="highlighter-rouge">configuration.yaml</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Light: <a href="/components/light.hyperion/">Hyperion</a> now supported (<a href="https://github.com/MakeMeASandwich">@MakeMeASandwich</a>)</li>
   <li>Sensor: <a href="/components/sensor.arest/">aRest</a> can now also read out pins (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Sensor: <a href="/components/sensor.forecast/">Forecast.io</a> now supports specifying units in <code>configuration.yaml</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Sensor: <a href="/components/sensor.forecast/">Forecast.io</a> now supports specifying units in <code class="highlighter-rouge">configuration.yaml</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Thermostat: <a href="/components/thermostat.heat_control/">Heat Control</a> has been completely rewritten (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Switch: <a href="/components/switch.rest/">Rest</a> now supported (<a href="https://github.com/bachp">@bachp</a>)</li>
   <li>Media Player: <a href="/components/media_player.plex/">Plex</a> can now be auto discovered and configure itself (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
@@ -139,16 +139,16 @@
 
 <p>As part of this release we did some cleanup which introduced backwards incompatible changes:</p>
 
-<p><strong>Heat Control thermostat no longer includes scheduling features.</strong><br />
+<p><strong>Heat Control thermostat no longer includes scheduling features.</strong>
 This feature has been removed completely. Use the <a href="/getting-started/automation/">automation component</a> instead to control target temperature.</p>
 
-<p><strong>Config changed for calling a service from a script.</strong><br />
-<code>execute_service:</code> has been replaced with <code>service:</code>. See <a href="/components/script/">component page</a> for example. The old method will continue working for some time.</p>
+<p><strong>Config changed for calling a service from a script.</strong>
+<code class="highlighter-rouge">execute_service:</code> has been replaced with <code class="highlighter-rouge">service:</code>. See <a href="/components/script/">component page</a> for example. The old method will continue working for some time.</p>
 
-<p><strong>Scenes can no longer be turned off.</strong><br />
+<p><strong>Scenes can no longer be turned off.</strong>
 It is no longer possible to turn a scene off after it has been activated. The way it worked was unpredictable and causes a lot of confusion.</p>
 
-<p><strong>Downloader treats relative paths now relative to the config dir instead of the current working dir.</strong><br />
+<p><strong>Downloader treats relative paths now relative to the config dir instead of the current working dir.</strong>
 This makes more sense as most people run Home Assistant as a daemon</p>
 </article>
 
@@ -223,7 +223,7 @@ This makes more sense as most people run Home Assistant as a daemon</p>
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

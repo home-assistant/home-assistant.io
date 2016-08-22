@@ -89,21 +89,19 @@
   <hr class="divider">
   
 
-  <p>The <code>ohmconnect</code> sensor will show you the current <a href="https://www.ohmconnect.com/">OhmConnect</a> status for the given OhmConnect ID.</p>
+  <p>The <code class="highlighter-rouge">ohmconnect</code> sensor will show you the current <a href="https://www.ohmconnect.com/">OhmConnect</a> status for the given OhmConnect ID.</p>
 
 <blockquote>
   <p>OhmConnect monitors real-time conditions on the electricity grid. When dirty and unsustainable power plants turn on, our users receive a notification to save energy. By saving energy at that time, California does not have to turn on additional power plants and California’s energy authorities pay you for that.</p>
 </blockquote>
 
-<p>You can find your OhmConnect ID under “Open Source Projects” on the <a href="https://login.ohmconnect.com/settings">settings page</a>. It’s the string after the last <code>/</code> in the URL, i.e. for the URL <code>https://login.ohmconnect.com/verify-ohm-hour/AbCd1e</code> your ID is <code>AbCd1e</code>.</p>
+<p>You can find your OhmConnect ID under “Open Source Projects” on the <a href="https://login.ohmconnect.com/settings">settings page</a>. It’s the string after the last <code class="highlighter-rouge">/</code> in the URL, i.e. for the URL <code class="highlighter-rouge">https://login.ohmconnect.com/verify-ohm-hour/AbCd1e</code> your ID is <code class="highlighter-rouge">AbCd1e</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">ohmconnect</span></span>
-  <span class="key">id</span>: <span class="string"><span class="content">AbCd1e</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">ohmconnect</span>
+  <span class="s">id</span><span class="pi">:</span> <span class="s">AbCd1e</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

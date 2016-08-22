@@ -89,36 +89,34 @@
   <hr class="divider">
   
 
-  <p>Groups allow the user to combine multiple entities into one. A group can be promoted to a <strong>view</strong> by setting the <code>view</code> option to <code>yes</code>. This will make the group available as a new tab in the frontend.</p>
+  <p>Groups allow the user to combine multiple entities into one. A group can be promoted to a <strong>view</strong> by setting the <code class="highlighter-rouge">view</code> option to <code class="highlighter-rouge">yes</code>. This will make the group available as a new tab in the frontend.</p>
 
 <p>Check the <strong>Set State</strong> page from the <strong>Developer Tools</strong> and browse the <strong>Current entities:</strong> listing for all available entities.</p>
 
-<p>By default, every group appears in the HOME tab. If you name a group <code>default_view</code> it will REPLACE the contents of the HOME tab so you can customize it as you wish.</p>
+<p>By default, every group appears in the HOME tab. If you name a group <code class="highlighter-rouge">default_view</code> it will REPLACE the contents of the HOME tab so you can customize it as you wish.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">group</span>:
-  <span class="key">default_view</span>:
-    <span class="key">view</span>: <span class="string"><span class="content">yes</span></span>
-    <span class="key">entities</span>:
-      - <span class="string"><span class="content">group.awesome_people</span></span>
-      - <span class="string"><span class="content">group.climate</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">default_view</span><span class="pi">:</span>
+    <span class="s">view</span><span class="pi">:</span> <span class="s">yes</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">group.awesome_people</span>
+      <span class="pi">-</span> <span class="s">group.climate</span>
 
-  <span class="key">kitchen</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Kitchen</span></span>
-    <span class="key">entities</span>:
-      - <span class="string"><span class="content">switch.kitchen_pin_3</span></span>
-  <span class="key">upstairs</span>:
-    <span class="key">name</span>: <span class="string"><span class="content">Kids</span></span>
-    <span class="key">icon</span>: <span class="string"><span class="content">mdi:account-multiple</span></span>
-    <span class="key">view</span>: <span class="string"><span class="content">yes</span></span>
-    <span class="key">entities</span>:
-      - <span class="string"><span class="content">input_boolean.notify_home</span></span>
-      - <span class="string"><span class="content">camera.demo_camera</span></span>
-      - <span class="string"><span class="content">device_tracker.demo_paulus</span></span>
-      - <span class="string"><span class="content">group.garden</span></span>
-</pre></div>
-</div>
+  <span class="s">kitchen</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">switch.kitchen_pin_3</span>
+  <span class="s">upstairs</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Kids</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:account-multiple</span>
+    <span class="s">view</span><span class="pi">:</span> <span class="s">yes</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">input_boolean.notify_home</span>
+      <span class="pi">-</span> <span class="s">camera.demo_camera</span>
+      <span class="pi">-</span> <span class="s">device_tracker.demo_paulus</span>
+      <span class="pi">-</span> <span class="s">group.garden</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -137,26 +135,24 @@ Example of groups shown as views in the frontend.
 
 <p>If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once.</p>
 
-<p>You can create views (tabs) that contain other groups.  <br />
-Notice in the example below that in order to refer to the group “Living Room”, you use <code>group.living_room</code> (lowercase and spaces replaced with underscores).</p>
+<p>You can create views (tabs) that contain other groups.<br />
+Notice in the example below that in order to refer to the group “Living Room”, you use <code class="highlighter-rouge">group.living_room</code> (lowercase and spaces replaced with underscores).</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry that shows two groups, referred to in a view group (tab)</span>
-  <span class="key">Living Room</span>:
-    <span class="key">entities</span>:
-      - <span class="string"><span class="content">light.light_family_1</span></span>
-      - <span class="string"><span class="content">binary_sensor.motion_living</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry that shows two groups, referred to in a view group (tab)</span>
+  <span class="s">Living Room</span><span class="pi">:</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">light.light_family_1</span>
+      <span class="pi">-</span> <span class="s">binary_sensor.motion_living</span>
 
-  <span class="key">Bedroom</span>: <span class="string"><span class="content">light.light_bedroom, switch.sleeping</span></span>
+  <span class="s">Bedroom</span><span class="pi">:</span> <span class="s">light.light_bedroom, switch.sleeping</span>
 
-  <span class="key">Rooms</span>:
-    <span class="key">view</span>: <span class="string"><span class="content">yes                                 </span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Rooms</span></span>
-    <span class="key">entities</span>:
-      - <span class="string"><span class="content">group.living_room                                 </span></span>
-      - <span class="string"><span class="content">group.bedroom                                                                                                                                          </span></span>
-</pre></div>
-</div>
+  <span class="s">Rooms</span><span class="pi">:</span>
+    <span class="s">view</span><span class="pi">:</span> <span class="s">yes</span>                                 
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Rooms</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">group.living_room</span>                                 
+      <span class="pi">-</span> <span class="s">group.bedroom</span>                                                                                                                                          
+</code></pre>
 </div>
 
 

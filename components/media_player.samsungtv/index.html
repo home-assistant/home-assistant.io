@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>The <code>samsungtv</code> platform allows you to control a <a href="http://www.samsung.com/uk/consumer/tv-audio-video/televisions/">Samsung Smart TV</a>.</p>
+  <p>The <code class="highlighter-rouge">samsungtv</code> platform allows you to control a <a href="http://www.samsung.com/uk/consumer/tv-audio-video/televisions/">Samsung Smart TV</a>.</p>
 
 <p>When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.</p>
 
-<p>To add a TV to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add a TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">samsungtv</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.0.10</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Living Room TV</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">samsungtv</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -126,7 +124,7 @@
   <li>F6400AF</li>
 </ul>
 
-<p>If your model is not on the list then give it a test, if everything works correctly then add it to the list on <a href="https://github.com/home-assistant/home-assistant.io">GitHub</a>.<br />
+<p>If your model is not on the list then give it a test, if everything works correctly then add it to the list on <a href="https://github.com/home-assistant/home-assistant.io">GitHub</a>.
 The two letters at the beginning of the model number represent the region, UE is Europe, UN is North America and UA is Asia &amp; Australia. The two numbers following that represent the screen size. If you add your model remember to remove these before adding them to the list.</p>
 
 <p>There’s currently a <a href="https://github.com/home-assistant/home-assistant/issues/2098">known issue</a> with some TV’s receiving a <em>Key press UP</em> that can interrupt certain applications.</p>

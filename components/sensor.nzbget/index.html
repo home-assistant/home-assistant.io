@@ -89,26 +89,24 @@
   <hr class="divider">
   
 
-  <p>The <code>nzbget</code> platform will allow you to monitor your downloads with <a href="http://NZBGet.net">NZBGet</a> from within Home Assistant and setup automation based on the information.</p>
+  <p>The <code class="highlighter-rouge">nzbget</code> platform will allow you to monitor your downloads with <a href="http://NZBGet.net">NZBGet</a> from within Home Assistant and setup automation based on the information.</p>
 
-<p>To use NZBGet with your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use NZBGet with your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">nzbget</span></span>
-  <span class="key">base_url</span>: <span class="string"><span class="content">http://192.168.1.18:6789</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">apiuser</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">apipass</span></span>
-  <span class="key">monitored_variables</span>:
-    - <span class="string"><span class="content">ArticleCacheMB</span></span>
-    - <span class="string"><span class="content">DownloadRate</span></span>
-    - <span class="string"><span class="content">DownloadPaused</span></span>
-    - <span class="string"><span class="content">FreeDiskSpaceMB</span></span>
-    - <span class="string"><span class="content">PostPaused</span></span>
-    - <span class="string"><span class="content">RemainingSizeMB</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">nzbget</span>
+  <span class="s">base_url</span><span class="pi">:</span> <span class="s">http://192.168.1.18:6789</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">apiuser</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">apipass</span>
+  <span class="s">monitored_variables</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ArticleCacheMB</span>
+    <span class="pi">-</span> <span class="s">DownloadRate</span>
+    <span class="pi">-</span> <span class="s">DownloadPaused</span>
+    <span class="pi">-</span> <span class="s">FreeDiskSpaceMB</span>
+    <span class="pi">-</span> <span class="s">PostPaused</span>
+    <span class="pi">-</span> <span class="s">RemainingSizeMB</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

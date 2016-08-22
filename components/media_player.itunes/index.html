@@ -93,17 +93,15 @@
 
 <p>In addition to controlling iTunes, your available AirPlay endpoints will be added as media players as well. You can then individually address them append turn them on, turn them off, or adjust their volume.</p>
 
-<p>To add iTunes to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add iTunes to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">itunes</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">iTunes</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">http://192.168.1.50</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">8181</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">itunes</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">iTunes</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.1.50</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">8181</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

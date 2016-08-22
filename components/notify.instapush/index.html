@@ -89,36 +89,34 @@
   <hr class="divider">
   
 
-  <p>The <code>instapush</code> platform uses <a href="https://instapush.im">Instapush</a> to delivery notifications from Home Assistant to your Android or iOS device.</p>
+  <p>The <code class="highlighter-rouge">instapush</code> platform uses <a href="https://instapush.im">Instapush</a> to delivery notifications from Home Assistant to your Android or iOS device.</p>
 
 <p>The Instapush <a href="https://instapush.im/home/start/">Getting Started page</a> will guide through the process of creating the required items.</p>
 
-<p>To add Instapush to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add Instapush to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">platform</span>: <span class="string"><span class="content">instapush</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-  <span class="key">app_secret</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-  <span class="key">event</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-  <span class="key">tracker</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">instapush</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+  <span class="s">app_secret</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+  <span class="s">event</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+  <span class="s">tracker</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>api_key</strong> (<em>Required</em>): Your API key for Instapush.</li>
   <li><strong>app_secret</strong> (<em>Required</em>): The secret for your created application.</li>
   <li><strong>event</strong> (<em>Required</em>): The event</li>
   <li><strong>tracker</strong> (<em>Required</em>): The name of tracker inside Instapush.</li>
 </ul>
 
-<p>To retrieve those values for existing settings, log into your account at <a href="https://instapush.im">https://instapush.im</a> and go to your <strong>Dashboard</strong>. Then click <strong>APPS</strong> tab, choose an app, and check the <strong>Basic Info</strong> section. The <em>Application ID</em> is the <code>api_key</code> and <code>app_secret</code> is the <em>Application Secret</em>.</p>
+<p>To retrieve those values for existing settings, log into your account at <a href="https://instapush.im">https://instapush.im</a> and go to your <strong>Dashboard</strong>. Then click <strong>APPS</strong> tab, choose an app, and check the <strong>Basic Info</strong> section. The <em>Application ID</em> is the <code class="highlighter-rouge">api_key</code> and <code class="highlighter-rouge">app_secret</code> is the <em>Application Secret</em>.</p>
 
 <p>Assuming that your setup looks look in the image below…</p>
 
@@ -126,29 +124,25 @@
   <img src="/images/screenshots/instapush.png" />
 </p>
 
-<p>…then your entry for the <code>configuration.yaml</code> file needs to be like this sample.</p>
+<p>…then your entry for the <code class="highlighter-rouge">configuration.yaml</code> file needs to be like this sample.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">instapush</span></span>
-  [<span class="error">...]</span>
-  <span class="key">event</span>: <span class="string"><span class="content">msg</span></span>
-  <span class="key">tracker</span>: <span class="string"><span class="content">state</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">instapush</span>
+  <span class="pi">[</span><span class="nv">...</span><span class="pi">]</span>
+  <span class="s">event</span><span class="pi">:</span> <span class="s">msg</span>
+  <span class="s">tracker</span><span class="pi">:</span> <span class="s">state</span>
+</code></pre>
 </div>
 
 <p>It’s easy to test your Instapush setup outside of Home Assistant. Assuming you have an event <em>notification</em> and a tracker <em>home-assistant</em>, just fire a request and check the Instapush dashboard for a new entry.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>curl -X POST \
-    -H &quot;x-instapush-appid: YOUR_APP_KEY&quot; \
-    -H &quot;x-instapush-appsecret: YOUR_APP_SECRET&quot; \
-    -H &quot;Content-Type: application/json&quot; \
-      -d '{&quot;event&quot;:&quot;notification&quot;,&quot;trackers&quot;:{&quot;home-assistant&quot;:&quot;Switch 1&quot;}}' \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="se">\</span>
+    -H <span class="s2">"x-instapush-appid: YOUR_APP_KEY"</span> <span class="se">\</span>
+    -H <span class="s2">"x-instapush-appsecret: YOUR_APP_SECRET"</span> <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+      -d <span class="s1">'{"event":"notification","trackers":{"home-assistant":"Switch 1"}}'</span> <span class="se">\</span>
     https://api.instapush.im/v1/post
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <p>For further details, please check the <a href="https://instapush.im/developer/rest">API</a>.</p>

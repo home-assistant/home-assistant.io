@@ -89,15 +89,13 @@
   <hr class="divider">
   
 
-  <p>The <code>foursquare</code> component accepts pushes from the Foursquare <a href="https://developer.foursquare.com/overview/realtime">Real-Time API</a> and a service to check users in on Swarm.</p>
+  <p>The <code class="highlighter-rouge">foursquare</code> component accepts pushes from the Foursquare <a href="https://developer.foursquare.com/overview/realtime">Real-Time API</a> and a service to check users in on Swarm.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">foursquare</span>:
-  <span class="key">access_token</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;foursquare access token&gt;</span><span class="delimiter">&quot;</span></span>
-  <span class="key">push_secret</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;foursquare push secret&gt;</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">foursquare</span><span class="pi">:</span>
+  <span class="s">access_token</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;foursquare</span><span class="nv"> </span><span class="s">access</span><span class="nv"> </span><span class="s">token&gt;"</span>
+  <span class="s">push_secret</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;foursquare</span><span class="nv"> </span><span class="s">push</span><span class="nv"> </span><span class="s">secret&gt;"</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -109,26 +107,24 @@
 
 <h4><a class="title-link" name="real-time-api" href="#real-time-api"></a> Real-Time API</h4>
 
-<p>The component accepts pushes from Foursquare at <code>/api/foursquare</code>. The route does not require authentication.</p>
+<p>The component accepts pushes from Foursquare at <code class="highlighter-rouge">/api/foursquare</code>. The route does not require authentication.</p>
 
 <p>Foursquare checkin events can be used out of the box to trigger automation actions, e.g.:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: Trigger action when you check into a venue.</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">event</span></span>
-      <span class="key">event_type</span>: <span class="string"><span class="content">foursquare.push</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">script.my_action</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Trigger action when you check into a venue.</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">foursquare.push</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.my_action</span>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="check-ins" href="#check-ins"></a> Check ins</h4>
 
-<p>To check a user in, use the <code>foursquare/checkin</code> service.</p>
+<p>To check a user in, use the <code class="highlighter-rouge">foursquare/checkin</code> service.</p>
 
 <p>Parameters:</p>
 

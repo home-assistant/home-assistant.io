@@ -91,16 +91,14 @@
 
   <p>A sensor platform for the <a href="https://www.dteenergy.com/">DTE</a> Energy Bridge.</p>
 
-<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code> file:</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: dte_energy_bridge</span></span>
-    <span class="key">ip</span>: <span class="string"><span class="content">192.168.1.11</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">DTE Energy</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">dte_energy_bridge</span>
+    <span class="s">ip</span><span class="pi">:</span> <span class="s">192.168.1.11</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">DTE Energy</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

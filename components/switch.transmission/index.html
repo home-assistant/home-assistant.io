@@ -89,21 +89,19 @@
   <hr class="divider">
   
 
-  <p>The <code>transmission</code> switch platform allows you to control your <a href="http://www.transmissionbt.com/">Transmission</a> client from within Home Assistant. The platform enables you switch to your ‘Alternative Speed Limits’ (aka ‘Turtle mode’) setting.</p>
+  <p>The <code class="highlighter-rouge">transmission</code> switch platform allows you to control your <a href="http://www.transmissionbt.com/">Transmission</a> client from within Home Assistant. The platform enables you switch to your ‘Alternative Speed Limits’ (aka ‘Turtle mode’) setting.</p>
 
-<p>To add Transmission to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add Transmission to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">transmission</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">9091</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Transmission</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">transmission</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">9091</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Transmission</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

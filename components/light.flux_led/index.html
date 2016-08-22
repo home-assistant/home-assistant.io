@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>flux_led</code> support is integrated into Home Assistant as a light platform. Several brands use the same protocol and they have the HF-LPB100 chipset in common.</p>
+  <p>The <code class="highlighter-rouge">flux_led</code> support is integrated into Home Assistant as a light platform. Several brands use the same protocol and they have the HF-LPB100 chipset in common.</p>
 
 <p>Example of bulbs:</p>
 
@@ -102,20 +102,18 @@
 
 <p>The chances are high that you bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.</p>
 
-<p>To enable those lights, add the following lines to your <code>configuration.yaml</code> file:</p>
+<p>To enable those lights, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">light</span>:
-  - <span class="string"><span class="content">platform: flux_led</span></span>
-    <span class="key">automatic_add</span>: <span class="string"><span class="content">BOOLEAN</span></span>
-    <span class="key">devices</span>:
-      <span class="key">IP_ADDR_1</span>:
-        <span class="key">name</span>: <span class="string"><span class="content">CUSTOM_NAME_1</span></span>
-      <span class="key">IP_ADDR_2</span>:
-        <span class="key">name</span>: <span class="string"><span class="content">CUSTOM_NAME_2</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">flux_led</span>
+    <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">BOOLEAN</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">IP_ADDR_1</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">CUSTOM_NAME_1</span>
+      <span class="s">IP_ADDR_2</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">CUSTOM_NAME_2</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -129,28 +127,24 @@
 
 <p>Will automatically search and add all lights on start up:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">light</span>:
-  - <span class="string"><span class="content">platform: flux_led</span></span>
-    <span class="key">automatic_add</span>: <span class="string"><span class="content">True</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">flux_led</span>
+    <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
+</code></pre>
 </div>
 
 <p>Will add two lights with given name:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">light</span>:
-<span class="comment"># Example configuration.yaml entry</span>
-  - <span class="string"><span class="content">platform: flux_led</span></span>
-    <span class="key">devices</span>:
-      <span class="key">192.168.0.106</span>:
-        <span class="key">name</span>: <span class="string"><span class="content">flux_lamppost</span></span>
-      <span class="key">192.168.0.109</span>:
-        <span class="key">name</span>: <span class="string"><span class="content">flux_living_room_lamp</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+<span class="c1"># Example configuration.yaml entry</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">flux_led</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">192.168.0.106</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">flux_lamppost</span>
+      <span class="s">192.168.0.109</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">flux_living_room_lamp</span>
+</code></pre>
 </div>
 
 

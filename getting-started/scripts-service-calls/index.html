@@ -101,71 +101,63 @@ Use the <img src="/images/screenshots/developer-tool-services-icon.png" class="n
 
 <h3><a class="title-link" name="the-basics" href="#the-basics"></a> The basics</h3>
 
-<p>Call the service <code>homeassistant.turn_on</code> on the entity <code>group.living_room</code>. This will turn all members of <code>group.living_room</code> on. You can also omit <code>entity_id</code> and it will turn on all possible entities.</p>
+<p>Call the service <code class="highlighter-rouge">homeassistant.turn_on</code> on the entity <code class="highlighter-rouge">group.living_room</code>. This will turn all members of <code class="highlighter-rouge">group.living_room</code> on. You can also omit <code class="highlighter-rouge">entity_id</code> and it will turn on all possible entities.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
-<span class="key">entity_id</span>: <span class="string"><span class="content">group.living_room</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+<span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="passing-data-to-the-service-call" href="#passing-data-to-the-service-call"></a> Passing data to the service call</h3>
 
 <p>You can also specify other parameters beside the entity to target. For example, the light turn on service allows specifying the brightness.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">service</span>: <span class="string"><span class="content">light.turn_on</span></span>
-<span class="key">entity_id</span>: <span class="string"><span class="content">group.living_room</span></span>
-<span class="key">data</span>:
-  <span class="key">brightness</span>: <span class="string"><span class="content">120</span></span>
-  <span class="key">rgb_color</span>: <span class="string"><span class="content">[255, 0, 0]</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+<span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
+<span class="s">data</span><span class="pi">:</span>
+  <span class="s">brightness</span><span class="pi">:</span> <span class="s">120</span>
+  <span class="s">rgb_color</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">255</span><span class="pi">,</span> <span class="nv">0</span><span class="pi">,</span> <span class="nv">0</span><span class="pi">]</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="use-templates-to-decide-which-service-to-call" href="#use-templates-to-decide-which-service-to-call"></a> Use templates to decide which service to call</h3>
 
 <p>You can use <a href="/topics/templating/">templating</a> support to dynamically choose which service to call. For example, you can call a certain service based on if a light is on.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">service_template</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-  {% if states.sensor.temperature | float &gt; 15 %}
-    switch.turn_on
-  {% else %}
-    switch.turn_off
-  {% endif %}</span></span>
-<span class="key">entity_id</span>: <span class="string"><span class="content">switch.ac</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+  <span class="no">{% if states.sensor.temperature | float &gt; 15 %}</span>
+    <span class="no">switch.turn_on</span>
+  <span class="no">{% else %}</span>
+    <span class="no">switch.turn_off</span>
+  <span class="no">{% endif %}</span>
+<span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.ac</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="using-the-services-developer-tool" href="#using-the-services-developer-tool"></a> Using the Services Developer Tool</h3>
 
-<p>You can use the Services Developer Tool to test data to pass in a service call.<br />
+<p>You can use the Services Developer Tool to test data to pass in a service call.
 For example, you may test turning on or off a ‘group’ (See [groups] for more info)</p>
 
-<p>To turn a group on or off, pass the following info:<br />
-Domain: <code>homeassistant</code><br />
-Service: <code>turn_on</code><br />
-Service Data: <code>{ "entity_id": "group.kitchen" }</code></p>
+<p>To turn a group on or off, pass the following info:
+Domain: <code class="highlighter-rouge">homeassistant</code>
+Service: <code class="highlighter-rouge">turn_on</code>
+Service Data: <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"group.kitchen"</span><span class="w"> </span><span class="p">}</span></code></p>
 
 <h3><a class="title-link" name="use-templates-to-determine-the-attributes" href="#use-templates-to-determine-the-attributes"></a> Use templates to determine the attributes</h3>
 
 <p>Templates can also be used for the data that you pass to the service call.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">service</span>: <span class="string"><span class="content">thermostat.set_temperature</span></span>
-<span class="key">data_template</span>:
-  <span class="key">entity_id</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-    {% if is_state('device_tracker.paulus', 'home') %}
-      thermostat.upstairs
-    {% else %}
-      thermostat.downstairs
-    {% endif %}</span></span>
-  <span class="key">temperature</span>: <span class="string"><span class="content">{{ 22 - distance(states.device_tracker.paulus) }}</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">thermostat.set_temperature</span>
+<span class="s">data_template</span><span class="pi">:</span>
+  <span class="s">entity_id</span><span class="pi">:</span> <span class="pi">&gt;</span>
+    <span class="no">{% if is_state('device_tracker.paulus', 'home') %}</span>
+      <span class="no">thermostat.upstairs</span>
+    <span class="no">{% else %}</span>
+      <span class="no">thermostat.downstairs</span>
+    <span class="no">{% endif %}</span>
+  <span class="s">temperature</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">22 - distance(states.device_tracker.paulus)</span> <span class="pi">}}</span>
+</code></pre>
 </div>
 
 

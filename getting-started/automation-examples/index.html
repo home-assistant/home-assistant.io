@@ -89,60 +89,58 @@
   <hr class="divider">
   
 
-  <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example of entry in configuration.yaml</span>
-<span class="key">automation</span>:
-<span class="comment"># Turns on lights 1 hour before sunset if people are home</span>
-<span class="comment"># and if people get home between 16:00-23:00</span>
-- <span class="string"><span class="content">alias: 'Rule 1 Light on in the evening'</span></span>
-  <span class="key">trigger</span>:
-    <span class="comment"># Prefix the first line of each trigger configuration</span>
-    <span class="comment"># with a '-' to enter multiple</span>
-    - <span class="string"><span class="content">platform: sun</span></span>
-      <span class="key">event</span>: <span class="string"><span class="content">sunset</span></span>
-      <span class="key">offset</span>: <span class="string"><span class="content">'-01:00:00'</span></span>
-    - <span class="string"><span class="content">platform: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_devices</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">'home'</span></span>
-  <span class="key">condition</span>:
-    <span class="comment"># Prefix the first line of each condition configuration</span>
-    <span class="comment"># with a '-'' to enter multiple</span>
-    - <span class="string"><span class="content">platform: state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_devices</span></span>
-      <span class="key">state</span>: <span class="string"><span class="content">'home'</span></span>
-    - <span class="string"><span class="content">platform: time</span></span>
-      <span class="key">after</span>: <span class="string"><span class="content">'16:00:00'</span></span>
-      <span class="key">before</span>: <span class="string"><span class="content">'23:00:00'</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">homeassistant.turn_on</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">group.living_room</span></span>
+  <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example of entry in configuration.yaml</span>
+<span class="s">automation</span><span class="pi">:</span>
+<span class="c1"># Turns on lights 1 hour before sunset if people are home</span>
+<span class="c1"># and if people get home between 16:00-23:00</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Rule</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">Light</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">evening'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="c1"># Prefix the first line of each trigger configuration</span>
+    <span class="c1"># with a '-' to enter multiple</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+      <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+      <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">-01:00:00'</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="c1"># Prefix the first line of each condition configuration</span>
+    <span class="c1"># with a '-'' to enter multiple</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16:00:00'</span>
+      <span class="s">before</span><span class="pi">:</span> <span class="s1">'</span><span class="s">23:00:00'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
 
-<span class="comment"># Turn off lights when everybody leaves the house</span>
-- <span class="string"><span class="content">alias: 'Rule 2 - Away Mode'</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_devices</span></span>
-    <span class="key">state</span>: <span class="string"><span class="content">'not_home'</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">light.turn_off</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">group.all_lights</span></span>
+<span class="c1"># Turn off lights when everybody leaves the house</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Rule</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Away</span><span class="nv"> </span><span class="s">Mode'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_lights</span>
 
-<span class="comment"># Notify when Paulus leaves the house in the evening</span>
-- <span class="string"><span class="content">alias: 'Leave Home notification'</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">zone</span></span>
-    <span class="key">event</span>: <span class="string"><span class="content">leave</span></span>
-    <span class="key">zone</span>: <span class="string"><span class="content">zone.home</span></span>
-    <span class="key">entity_id</span>: <span class="string"><span class="content">device_tracker.paulus</span></span>
-  <span class="key">condition</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">time</span></span>
-    <span class="key">after</span>: <span class="string"><span class="content">'20:00'</span></span>
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
-    <span class="key">data</span>:
-      <span class="key">message</span>: <span class="string"><span class="content">'Paulus left the house'</span></span>
-</pre></div>
-</div>
+<span class="c1"># Notify when Paulus leaves the house in the evening</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Leave</span><span class="nv"> </span><span class="s">Home</span><span class="nv"> </span><span class="s">notification'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">zone</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">leave</span>
+    <span class="s">zone</span><span class="pi">:</span> <span class="s">zone.home</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">20:00'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Paulus</span><span class="nv"> </span><span class="s">left</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">house'</span>
+</code></pre>
 </div>
 
 

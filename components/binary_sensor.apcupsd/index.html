@@ -91,15 +91,13 @@
 
   <p>In addition to the <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> devices, you may also create a device which is simply “on” when the UPS status is online and “off” at all other times.</p>
 
-<p>To enable this sensor, add the following lines to your <code>configuration.yaml</code> file:</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">binary_sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">apcupsd</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">UPS Online</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">apcupsd</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">UPS Online</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

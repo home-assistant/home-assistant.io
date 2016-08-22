@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -128,7 +128,7 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
 
 <ul>
   <li>Fronted upgraded to Polymer 1.0 by @balloob</li>
-  <li>Include other YAML files using the <code>!include</code> keyword by @andythigpen</li>
+  <li>Include other YAML files using the <code class="highlighter-rouge">!include</code> keyword by @andythigpen</li>
   <li>Switch support and bug fixes for Vera platform by @jamespcole</li>
   <li>HTTP session support for the HTTP component by @jamespcole</li>
   <li>Device tracker bugfixes by @Dutchy-</li>
@@ -140,148 +140,132 @@ To update to the latest version, run <code>scripts/update</code>. Please report 
   <li>Update documentation by @fabaff</li>
 </ul>
 
-<p><strong>Music Player Daemon</strong><br />
+<p><strong>Music Player Daemon</strong>
 <img src="/images/supported_brands/mpd.png" style="border:none; box-shadow: none; float: right;" height="50" /> Fabaff has contributed MusicPlayerDaemon support. The mpd platform allows you to control a <a href="http://www.musicpd.org/">Music Player Daemon</a> from Home Assistant. Right now, only playback is supported and not playlist manipulation.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">media_player</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mpd</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">127.0.0.1</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">6600</span></span>
-  <span class="key">location</span>: <span class="string"><span class="content">bedroom</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mpd</span>
+  <span class="s">server</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">6600</span>
+  <span class="s">location</span><span class="pi">:</span> <span class="s">bedroom</span>
+</code></pre>
 </div>
 
-<p><strong>Command line switch</strong><br />
+<p><strong>Command line switch</strong>
 A switch platform that issues specific commands when it is turned on and off. This might very well become our most popular platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">command_switch</span></span>
-  <span class="key">switches</span>:
-    - <span class="string"><span class="content">kitchen_light:</span><span class="content">
-        oncmd: switch_command on kitchen
-        offcmd: switch_command off kitchen</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">command_switch</span>
+  <span class="s">switches</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">kitchen_light</span><span class="pi">:</span>
+        <span class="s">oncmd</span><span class="pi">:</span> <span class="s">switch_command on kitchen</span>
+        <span class="s">offcmd</span><span class="pi">:</span> <span class="s">switch_command off kitchen</span>
+</code></pre>
 </div>
 
-<p><strong>LimitlessLED</strong><br />
+<p><strong>LimitlessLED</strong>
 This new platform can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight or iLight.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">light</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">limitlessled</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.10</span></span>
-  <span class="key">group_1_name</span>: <span class="string"><span class="content">Living Room</span></span>
-  <span class="key">group_2_name</span>: <span class="string"><span class="content">Bedroom</span></span>
-  <span class="key">group_3_name</span>: <span class="string"><span class="content">Office</span></span>
-  <span class="key">group_4_name</span>: <span class="string"><span class="content">Kitchen</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">limitlessled</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
+  <span class="s">group_1_name</span><span class="pi">:</span> <span class="s">Living Room</span>
+  <span class="s">group_2_name</span><span class="pi">:</span> <span class="s">Bedroom</span>
+  <span class="s">group_3_name</span><span class="pi">:</span> <span class="s">Office</span>
+  <span class="s">group_4_name</span><span class="pi">:</span> <span class="s">Kitchen</span>
+</code></pre>
 </div>
 
-<p><strong>Bitcoin sensor</strong><br />
+<p><strong>Bitcoin sensor</strong>
 <img src="/images/supported_brands/bitcoin.png" style="border:none; box-shadow: none; float: right;" height="50" /> The bitcoin platform displays various details about the <a href="https://bitcoin.org">Bitcoin</a> network. If you have an online wallet from <a href="https://blockchain.info/">Blockchain.info</a> the sensor is capable to show your current balance.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">bitcoin</span></span>
-  <span class="key">wallet</span>: <span class="string"><span class="content">'YOUR WALLET_ID'</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_ACCOUNT_PASSWORD</span></span>
-  <span class="key">currency</span>: <span class="string"><span class="content">YOUR CURRENCY</span></span>
-  <span class="key">display_options</span>:
-    - <span class="string"><span class="content">exchangerate</span></span>
-    - <span class="string"><span class="content">trade_volume_btc</span></span>
-    - <span class="string"><span class="content">miners_revenue_usd</span></span>
-    - <span class="string"><span class="content">btc_mined</span></span>
-    - <span class="string"><span class="content">trade_volume_usd</span></span>
-    - <span class="string"><span class="content">difficulty</span></span>
-    - <span class="string"><span class="content">minutes_between_blocks</span></span>
-    - <span class="string"><span class="content">number_of_transactions</span></span>
-    - <span class="string"><span class="content">hash_rate</span></span>
-    - <span class="string"><span class="content">timestamp</span></span>
-    - <span class="string"><span class="content">mined_blocks</span></span>
-    - <span class="string"><span class="content">blocks_size</span></span>
-    - <span class="string"><span class="content">total_fees_btc</span></span>
-    - <span class="string"><span class="content">total_btc_sent</span></span>
-    - <span class="string"><span class="content">estimated_btc_sent</span></span>
-    - <span class="string"><span class="content">total_btc</span></span>
-    - <span class="string"><span class="content">total_blocks</span></span>
-    - <span class="string"><span class="content">next_retarget</span></span>
-    - <span class="string"><span class="content">estimated_transaction_volume_usd</span></span>
-    - <span class="string"><span class="content">miners_revenue_btc</span></span>
-    - <span class="string"><span class="content">market_price_usd</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">bitcoin</span>
+  <span class="s">wallet</span><span class="pi">:</span> <span class="s1">'</span><span class="s">YOUR</span><span class="nv"> </span><span class="s">WALLET_ID'</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ACCOUNT_PASSWORD</span>
+  <span class="s">currency</span><span class="pi">:</span> <span class="s">YOUR CURRENCY</span>
+  <span class="s">display_options</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">exchangerate</span>
+    <span class="pi">-</span> <span class="s">trade_volume_btc</span>
+    <span class="pi">-</span> <span class="s">miners_revenue_usd</span>
+    <span class="pi">-</span> <span class="s">btc_mined</span>
+    <span class="pi">-</span> <span class="s">trade_volume_usd</span>
+    <span class="pi">-</span> <span class="s">difficulty</span>
+    <span class="pi">-</span> <span class="s">minutes_between_blocks</span>
+    <span class="pi">-</span> <span class="s">number_of_transactions</span>
+    <span class="pi">-</span> <span class="s">hash_rate</span>
+    <span class="pi">-</span> <span class="s">timestamp</span>
+    <span class="pi">-</span> <span class="s">mined_blocks</span>
+    <span class="pi">-</span> <span class="s">blocks_size</span>
+    <span class="pi">-</span> <span class="s">total_fees_btc</span>
+    <span class="pi">-</span> <span class="s">total_btc_sent</span>
+    <span class="pi">-</span> <span class="s">estimated_btc_sent</span>
+    <span class="pi">-</span> <span class="s">total_btc</span>
+    <span class="pi">-</span> <span class="s">total_blocks</span>
+    <span class="pi">-</span> <span class="s">next_retarget</span>
+    <span class="pi">-</span> <span class="s">estimated_transaction_volume_usd</span>
+    <span class="pi">-</span> <span class="s">miners_revenue_btc</span>
+    <span class="pi">-</span> <span class="s">market_price_usd</span>
+</code></pre>
 </div>
 
-<p><strong>SMTP notificatoin platform</strong><br />
+<p><strong>SMTP notificatoin platform</strong>
 <img src="/images/supported_brands/smtp.png" style="border:none; box-shadow: none; float: right;" height="50" /> The smtp platform allows you to deliver notifications from Home Assistant to an e-mail recipient.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">mail</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">MAIL_SERVER</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">YOUR_SMTP_PORT</span></span>
-  <span class="key">sender</span>: <span class="string"><span class="content">SENDER_EMAIL_ADDRESS</span></span>
-  <span class="key">starttls</span>: <span class="string"><span class="content">1 or 0</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_SMTP_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_SMTP_PASSWORD</span></span>
-  <span class="key">recipient</span>: <span class="string"><span class="content">YOUR_RECIPIENT</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mail</span>
+  <span class="s">server</span><span class="pi">:</span> <span class="s">MAIL_SERVER</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">YOUR_SMTP_PORT</span>
+  <span class="s">sender</span><span class="pi">:</span> <span class="s">SENDER_EMAIL_ADDRESS</span>
+  <span class="s">starttls</span><span class="pi">:</span> <span class="s">1 or 0</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_SMTP_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_SMTP_PASSWORD</span>
+  <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
+</code></pre>
 </div>
 
-<p><strong>Syslog notification platform</strong><br />
+<p><strong>Syslog notification platform</strong>
 The syslog platform allows you to deliver notifications from Home Assistant to the local syslog.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">syslog</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">syslog</span>
+</code></pre>
 </div>
 
-<p><strong>Swiss Public transport sensor</strong><br />
+<p><strong>Swiss Public transport sensor</strong>
 The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland. See the <a href="/components/sensor.swiss_public_transport/">component page</a> for more information how to set it up.</p>
 
-<p><strong>Transmission turtle mode switch</strong><br />
+<p><strong>Transmission turtle mode switch</strong>
 <img src="/images/supported_brands/transmission.png" style="border:none; box-shadow: none; float: right;" height="50" /> The transmission platform allows you to control your <a href="http://www.transmissionbt.com/">Transmission</a> client from within Home Assistant. The platform enables you switch to your ‘Alternative Speed Limits’ (aka ‘Turtle mode’) setting.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">transmission</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Transmission</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">192.168.1.26</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">9091</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">transmission</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Transmission</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.26</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">9091</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+</code></pre>
 </div>
 
-<p><strong>Hikvision camera motion detection support</strong><br />
+<p><strong>Hikvision camera motion detection support</strong>
 This switch platform allows you to control your motion detection setting on your Hikvision camera.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">hikvisioncam</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">Hikvision Cam 1 Motion Detection</span></span>
-    <span class="key">host</span>: <span class="string"><span class="content">192.168.1.26</span></span>
-    <span class="key">username</span>: <span class="string"><span class="content">YOUR_USERNAME</span></span>
-    <span class="key">password</span>: <span class="string"><span class="content">YOUR_PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">hikvisioncam</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Hikvision Cam 1 Motion Detection</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.26</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+</code></pre>
 </div>
 </article>
 
@@ -356,7 +340,7 @@ This switch platform allows you to control your motion detection setting on your
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

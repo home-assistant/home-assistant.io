@@ -89,20 +89,17 @@
   <hr class="divider">
   
 
-  <p>Newer linux distributions are trending towards using <code>systemd</code> for managing daemons. Typically, systems based on Fedora, ArchLinux, or Debian (8 or later) use <code>systemd</code>. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using <code>systemd</code>, you may check with the following command:</p>
+  <p>Newer linux distributions are trending towards using <code class="highlighter-rouge">systemd</code> for managing daemons. Typically, systems based on Fedora, ArchLinux, or Debian (8 or later) use <code class="highlighter-rouge">systemd</code>. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using <code class="highlighter-rouge">systemd</code>, you may check with the following command:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ps -p 1 -o comm=
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ps -p 1 -o <span class="nv">comm</span><span class="o">=</span>
+</code></pre>
 </div>
 
-<p>If the preceding command returns the string <code>systemd</code>, you are likely using <code>systemd</code>.</p>
+<p>If the preceding command returns the string <code class="highlighter-rouge">systemd</code>, you are likely using <code class="highlighter-rouge">systemd</code>.</p>
 
-<p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code>systemd</code>. You need a service file to control Home Assistant with <code>systemd</code>. If you are using a Raspberry Pi with Raspbian then replace the <code>[your user]</code> with <code>pi</code> otherwise use your user you want to run Home Assistant. <code>ExecStart</code> contains the path to <code>hass</code> and this may vary. Check with <code>whereis hass</code> for the location.</p>
+<p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code class="highlighter-rouge">systemd</code>. You need a service file to control Home Assistant with <code class="highlighter-rouge">systemd</code>. If you are using a Raspberry Pi with Raspbian then replace the <code class="highlighter-rouge">[your user]</code> with <code class="highlighter-rouge">pi</code> otherwise use your user you want to run Home Assistant. <code class="highlighter-rouge">ExecStart</code> contains the path to <code class="highlighter-rouge">hass</code> and this may vary. Check with <code class="highlighter-rouge">whereis hass</code> for the location.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ su -c 'cat &lt;&lt;EOF &gt;&gt; /etc/systemd/system/home-assistant@[your user].service
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>su -c <span class="s1">'cat &lt;&lt;EOF &gt;&gt; /etc/systemd/system/home-assistant@[your user].service
 [Unit]
 Description=Home Assistant
 After=network.target
@@ -114,57 +111,48 @@ ExecStart=/usr/bin/hass
 
 [Install]
 WantedBy=multi-user.target
-EOF'
-</pre></div>
-</div>
+EOF'</span>
+</code></pre>
 </div>
 
 <p>There is also another <a href="https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service">sample service file</a> available. To use this one, just download it.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo wget https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service -O /etc/systemd/system/home-assistant@[your user].service
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo wget https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service -O /etc/systemd/system/home-assistant@[your user].service
+</code></pre>
 </div>
 
-<p>You need to reload <code>systemd</code> to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.</p>
+<p>You need to reload <code class="highlighter-rouge">systemd</code> to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl --system daemon-reload
-$ sudo systemctl enable home-assistant@[your user]
-$ sudo systemctl start home-assistant@[your user]
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl --system daemon-reload
+<span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>home-assistant@[your user]
+<span class="gp">$ </span>sudo systemctl start home-assistant@[your user]
+</code></pre>
 </div>
 
-<p>If everything went well, <code>sudo systemctl start home-assistant@[your user]</code> should give you a positive feedback.</p>
+<p>If everything went well, <code class="highlighter-rouge">sudo systemctl start home-assistant@[your user]</code> should give you a positive feedback.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl status home-assistant@[your user] -l
-● home-assistant@fab.service - Home Assistant for [your user]
-   Loaded: loaded (/etc/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled)
-   Active: active (running) since Sat 2016-03-26 12:26:06 CET; 13min ago
- Main PID: 30422 (hass)
-   CGroup: /system.slice/system-home\x2dassistant.slice/home-assistant@[your user].service
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl status home-assistant@[your user] -l
+● home-assistant@fab.service - Home Assistant <span class="k">for</span> <span class="o">[</span>your user]
+   Loaded: loaded <span class="o">(</span>/etc/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled<span class="o">)</span>
+   Active: active <span class="o">(</span>running<span class="o">)</span> since Sat 2016-03-26 12:26:06 CET; 13min ago
+ Main PID: 30422 <span class="o">(</span>hass<span class="o">)</span>
+   CGroup: /system.slice/system-home<span class="se">\x</span>2dassistant.slice/home-assistant@[your user].service
            ├─30422 /usr/bin/python3 /usr/bin/hass
            └─30426 /usr/bin/python3 /usr/bin/hass
-[...]
-</pre></div>
-</div>
-</div>
-
-<p>To get Home Assistant’s logging output, simple use <code>journalctl</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ journalctl -f -u home-assistant@[your user]
-</pre></div>
-</div>
+<span class="o">[</span>...]
+</code></pre>
 </div>
 
-<p>Because the log can scroll quite quickly, you might want to open a second terminal to view only the errors:<br />
-<code>bash
-$ journalctl -f -u home-assistant@[your user] | grep -i 'error'
-</code></p>
+<p>To get Home Assistant’s logging output, simple use <code class="highlighter-rouge">journalctl</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>journalctl -f -u home-assistant@[your user]
+</code></pre>
+</div>
+
+<p>Because the log can scroll quite quickly, you might want to open a second terminal to view only the errors:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>journalctl -f -u home-assistant@[your user] | grep -i <span class="s1">'error'</span>
+</code></pre>
+</div>
 
 
 </article>

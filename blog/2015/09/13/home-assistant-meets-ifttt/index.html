@@ -93,9 +93,9 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -165,22 +165,20 @@
   <img src="/images/blog/2015-09-ifttt/recipe-twitter.png" />
 </p>
 
-<p>This will tweet a message when an MQTT message is received that the smoke alarm has been triggered. Setup Maker channel with event name <code>HA_FIRE_ALARM</code> and Twitter channel to tweet the message in <code>value1</code>.</p>
+<p>This will tweet a message when an MQTT message is received that the smoke alarm has been triggered. Setup Maker channel with event name <code class="highlighter-rouge">HA_FIRE_ALARM</code> and Twitter channel to tweet the message in <code class="highlighter-rouge">value1</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Configuration.yaml entry</span>
-<span class="key">automation</span>:
-- <span class="string"><span class="content">alias: Post a tweet when fire alarm is triggered</span></span>
-  <span class="key">trigger</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">mqtt</span></span>
-    <span class="key">mqtt_topic</span>: <span class="string"><span class="content">home/alarm/fire</span></span>
-    <span class="key">mqtt_payload</span>: <span class="string"><span class="content">'on'</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Post a tweet when fire alarm is triggered</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">mqtt_topic</span><span class="pi">:</span> <span class="s">home/alarm/fire</span>
+    <span class="s">mqtt_payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
 
-  <span class="key">action</span>:
-    <span class="key">service</span>: <span class="string"><span class="content">ifttt.trigger</span></span>
-    <span class="key">data</span>: <span class="string"><span class="content">{&quot;event&quot;:&quot;HA_FIRE_ALARM&quot;, &quot;value1&quot;:&quot;The fire alarm just triggered!&quot;}</span></span>
-</pre></div>
-</div>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">ifttt.trigger</span>
+    <span class="s">data</span><span class="pi">:</span> <span class="pi">{</span><span class="s2">"</span><span class="s">event"</span><span class="pi">:</span><span class="s2">"</span><span class="s">HA_FIRE_ALARM"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">value1"</span><span class="pi">:</span><span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">fire</span><span class="nv"> </span><span class="s">alarm</span><span class="nv"> </span><span class="s">just</span><span class="nv"> </span><span class="s">triggered!"</span><span class="pi">}</span>
+</code></pre>
 </div>
 
 <h2><a class="title-link" name="turn-on-lights-when-i-get-home" href="#turn-on-lights-when-i-get-home"></a> Turn on lights when I get home</h2>
@@ -356,7 +354,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

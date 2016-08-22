@@ -89,31 +89,29 @@
   <hr class="divider">
   
 
-  <p>The <code>smtp</code> platform allows you to deliver notifications from Home Assistant to an e-mail recipient.</p>
+  <p>The <code class="highlighter-rouge">smtp</code> platform allows you to deliver notifications from Home Assistant to an e-mail recipient.</p>
 
-<p>To enable notification by e-mail in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable notification by e-mail in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">platform</span>: <span class="string"><span class="content">smtp</span></span>
-  <span class="key">server</span>: <span class="string"><span class="content">MAIL_SERVER</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">YOUR_SMTP_PORT</span></span>
-  <span class="key">sender</span>: <span class="string"><span class="content">SENDER_EMAIL_ADDRESS</span></span>
-  <span class="key">starttls</span>: <span class="string"><span class="content">1 or 0</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">YOUR_SMTP_USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">YOUR_SMTP_PASSWORD</span></span>
-  <span class="key">recipient</span>: <span class="string"><span class="content">YOUR_RECIPIENT</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">smtp</span>
+  <span class="s">server</span><span class="pi">:</span> <span class="s">MAIL_SERVER</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">YOUR_SMTP_PORT</span>
+  <span class="s">sender</span><span class="pi">:</span> <span class="s">SENDER_EMAIL_ADDRESS</span>
+  <span class="s">starttls</span><span class="pi">:</span> <span class="s">1 or 0</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_SMTP_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_SMTP_PASSWORD</span>
+  <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
-  <li><strong>server</strong> (<em>Optional</em>): SMTP server which is used to end the notifications. For Google Mail, eg. smtp.gmail.com. Keep in mind that Google has some extra layers of protection which need special attention (Hint: ‘Less secure apps’). Defaults to <code>localhost</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>server</strong> (<em>Optional</em>): SMTP server which is used to end the notifications. For Google Mail, eg. smtp.gmail.com. Keep in mind that Google has some extra layers of protection which need special attention (Hint: ‘Less secure apps’). Defaults to <code class="highlighter-rouge">localhost</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port that the SMTP server is using, eg. 587 for Google Mail and STARTTLS or 465/993 depending on your SMTP servers.  Defaults to 25.</li>
   <li><strong>sender</strong> (<em>Optional</em>): E-mail address of the sender.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for the SMTP account.</li>
@@ -124,34 +122,32 @@
 
 <p>To use the SMTP notification, refer to it in an automation or script like in this example:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>  <span class="key">burglar</span>: 
-    <span class="key">alias</span>: <span class="string"><span class="content">Burglar Alarm</span></span>
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">service: shell_command.snapshot</span></span>
-      - <span class="string"><span class="content">delay:</span><span class="content">
-            seconds: 1</span></span>
-      - <span class="string"><span class="content">service: notify.NOTIFIER_NAME</span></span>
-        <span class="key">data</span>:
-            <span class="key">title</span>: <span class="string"><span class="content">'Intruder alert'</span></span>
-            <span class="key">message</span>: <span class="string"><span class="content">'Intruder alert at apartment!!'</span></span>
-            <span class="key">data</span>:
-                <span class="key">images</span>: 
-                    - <span class="string"><span class="content">/home/pi/snapshot1.jpg</span></span>
-                    - <span class="string"><span class="content">/home/pi/snapshot2.jpg</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">burglar</span><span class="pi">:</span> 
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Burglar Alarm</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">shell_command.snapshot</span>
+      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+            <span class="s">seconds</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
+        <span class="s">data</span><span class="pi">:</span>
+            <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Intruder</span><span class="nv"> </span><span class="s">alert'</span>
+            <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Intruder</span><span class="nv"> </span><span class="s">alert</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">apartment!!'</span>
+            <span class="s">data</span><span class="pi">:</span>
+                <span class="s">images</span><span class="pi">:</span> 
+                    <span class="pi">-</span> <span class="s">/home/pi/snapshot1.jpg</span>
+                    <span class="pi">-</span> <span class="s">/home/pi/snapshot2.jpg</span>
+</code></pre>
 </div>
 
-<p>The optional <code>images</code> field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.</p>
+<p>The optional <code class="highlighter-rouge">images</code> field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.</p>
 
 <p>This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.</p>
 
 <p>A combination that will work properly is port 587 and STARTTLS. It’s recommended to enable STARTTLS, if possible.</p>
 
-<p>Keep in mind that if the password contains a colon, it needs to be wrapped in apostrophes in the <code>configuration.yaml</code> file.</p>
+<p>Keep in mind that if the password contains a colon, it needs to be wrapped in apostrophes in the <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
-<p>For Google Mail (smtp.gmail.com) an additional step in the setup process is needed. Google has some extra layers of protection<br />
+<p>For Google Mail (smtp.gmail.com) an additional step in the setup process is needed. Google has some extra layers of protection
 which need special attention. By default, the usage by external applications, especially scripts, is limited. Visit the <a href="https://www.google.com/settings/security/lesssecureapps">Less secure apps</a> page and enable it.</p>
 
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>

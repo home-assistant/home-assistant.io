@@ -89,18 +89,16 @@
   <hr class="divider">
   
 
-  <p>The <code>browser</code> component provides a service to open URLs in the default browser on the host machine.</p>
+  <p>The <code class="highlighter-rouge">browser</code> component provides a service to open URLs in the default browser on the host machine.</p>
 
-<p>To load this component, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>To load this component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">browser</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">browser</span><span class="pi">:</span>
+</code></pre>
 </div>
 
-<h4><a class="title-link" name="service-browserbrowse_url" href="#service-browserbrowse_url"></a> Service <code>browser/browse_url</code></h4>
+<h4><a class="title-link" name="service-browserbrowse_url" href="#service-browserbrowse_url"></a> Service <code class="highlighter-rouge">browser/browse_url</code></h4>
 
 <table>
   <thead>
@@ -112,7 +110,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>url</code></td>
+      <td><code class="highlighter-rouge">url</code></td>
       <td>no</td>
       <td>The url to open</td>
     </tr>
@@ -123,10 +121,8 @@
 
 <p>To use this service, choose <strong>Call Service</strong> from the <strong>Developer Tools</strong>. Choose the service <em>browser/browse_url</em> from the list of <strong>Available services:</strong> and enter the URL into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.google.com</span><span class="delimiter">&quot;</span></span>}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com"</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>This will open the given URL on the host machine.</p>

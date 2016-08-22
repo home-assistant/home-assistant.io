@@ -93,7 +93,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -110,87 +110,79 @@
 
   <p>A new version of Home Assistant has just been pushed out. It contains bugfixes contributed by <a href="https://github.com/jamespcole">jamespcole</a>, <a href="https://github.com/andythigpen">andythigpen</a>, <a href="https://github.com/trainman419">trainman419</a> and <a href="https://github.com/balloob">me</a>. It also adds a bunch of great new features:</p>
 
-<p><strong>Script</strong><br />
-Andythigpen has contributed a script component. This allows users to create a sequence of service calls and delays. Scripts can be started using the service <code>script/turn_on</code> and interrupted using the service <code>script/turn_off</code>. A separate page has been added to the frontend to see the status of your scripts.</p>
+<p><strong>Script</strong>
+Andythigpen has contributed a script component. This allows users to create a sequence of service calls and delays. Scripts can be started using the service <code class="highlighter-rouge">script/turn_on</code> and interrupted using the service <code class="highlighter-rouge">script/turn_off</code>. A separate page has been added to the frontend to see the status of your scripts.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">script</span>:
-  <span class="comment"># Turns on the bedroom lights and then the living room lights 1 minute later</span>
-  <span class="key">wakeup</span>:
-    <span class="key">alias</span>: <span class="string"><span class="content">Wake Up</span></span>
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">alias: Bedroom lights on</span></span>
-        <span class="key">execute_service</span>: <span class="string"><span class="content">light.turn_on</span></span>
-        <span class="key">service_data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">group.bedroom</span></span>
-      - <span class="string"><span class="content">delay:</span><span class="content">
-          # supports seconds, milliseconds, minutes, hours, etc.
-          minutes: 1</span></span>
-      - <span class="string"><span class="content">alias: Living room lights on</span></span>
-        <span class="key">execute_service</span>: <span class="string"><span class="content">light.turn_on</span></span>
-        <span class="key">service_data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">group.living_room</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">script</span><span class="pi">:</span>
+  <span class="c1"># Turns on the bedroom lights and then the living room lights 1 minute later</span>
+  <span class="s">wakeup</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Wake Up</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Bedroom lights on</span>
+        <span class="s">execute_service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+        <span class="s">service_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.bedroom</span>
+      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+          <span class="c1"># supports seconds, milliseconds, minutes, hours, etc.</span>
+          <span class="s">minutes</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Living room lights on</span>
+        <span class="s">execute_service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+        <span class="s">service_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
+</code></pre>
 </div>
 
 <a name="read-more"></a>
 
-<p><strong>Scene</strong><br />
+<p><strong>Scene</strong>
 I (Paulus) have contributed a scene component. A user can create scenes that capture the states you want certain entities to be. For example a scene can contain that light A should be turned on and light B should be bright red. Deactivating a scene will restore the previous state from before the scene was activated. Just like scripts, scenes have their own separate page to see which scenes are on.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">scene</span>:
-  - <span class="string"><span class="content">name: Romantic</span></span>
-    <span class="key">entities</span>:
-      <span class="key">light.tv_back_light</span>: <span class="string"><span class="content">on</span></span>
-      <span class="key">light.ceiling</span>:
-        <span class="key">state</span>: <span class="string"><span class="content">on</span></span>
-        <span class="key">color</span>: <span class="string"><span class="content">[0.33, 0.66]</span></span>
-        <span class="key">brightness</span>: <span class="string"><span class="content">200</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">scene</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Romantic</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="s">light.tv_back_light</span><span class="pi">:</span> <span class="s">on</span>
+      <span class="s">light.ceiling</span><span class="pi">:</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+        <span class="s">color</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">0.33</span><span class="pi">,</span> <span class="nv">0.66</span><span class="pi">]</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">200</span>
+</code></pre>
 </div>
 
-<p><a name="sabnzbd"></a><br />
-<strong>SABnzbd</strong><br />
+<p><a name="sabnzbd"></a>
+<strong>SABnzbd</strong>
 <img src="/images/supported_brands/sabnzbd.png" style="border:none; box-shadow: none; float: right;" height="50" /> James Cole has contributed support to integrate SABnzbd. This will allow you to monitor your downloads from within Home Assistant and setup automation based on the information.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: sabnzbd</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">SAB</span></span>
-    <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_API_KEY</span></span>
-    <span class="comment"># Example: http://192.168.1.32:8124/</span>
-    <span class="key">base_url</span>: <span class="string"><span class="content">YOUR_SABNZBD_BASE_URL</span></span>
-    <span class="key">monitored_variables</span>:
-        - <span class="string"><span class="content">type: 'current_status'</span></span>
-        - <span class="string"><span class="content">type: 'speed'</span></span>
-        - <span class="string"><span class="content">type: 'queue_size'</span></span>
-        - <span class="string"><span class="content">type: 'queue_remaining'</span></span>
-        - <span class="string"><span class="content">type: 'disk_size'</span></span>
-        - <span class="string"><span class="content">type: 'disk_free'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sabnzbd</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">SAB</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+    <span class="c1"># Example: http://192.168.1.32:8124/</span>
+    <span class="s">base_url</span><span class="pi">:</span> <span class="s">YOUR_SABNZBD_BASE_URL</span>
+    <span class="s">monitored_variables</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">current_status'</span>
+        <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">speed'</span>
+        <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">queue_size'</span>
+        <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">queue_remaining'</span>
+        <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">disk_size'</span>
+        <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">disk_free'</span>
+</code></pre>
 </div>
 
-<p><a name="pushover"></a><br />
-<strong>PushOver</strong><br />
+<p><a name="pushover"></a>
+<strong>PushOver</strong>
 <img src="/images/supported_brands/pushover.png" style="border:none; box-shadow: none; float: right;" height="50" /> James Cole has also contributed support for <a href="https://pushover.net/">the PushOver service</a> as a platform for the notify component. This allows components to send messages to the user using PushOver.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-    <span class="key">platform</span>: <span class="string"><span class="content">pushover</span></span>
-    <span class="comment"># Get this by registering a new application on https://pushover.net</span>
-    <span class="key">api_key</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-    <span class="comment"># Get this by logging into your account on https://pushover.net</span>
-    <span class="key">user_key</span>: <span class="string"><span class="content">ABCDEFGHJKLMNOPQRSTUVXYZ</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">pushover</span>
+    <span class="c1"># Get this by registering a new application on https://pushover.net</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+    <span class="c1"># Get this by logging into your account on https://pushover.net</span>
+    <span class="s">user_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+</code></pre>
 </div>
 </article>
 
@@ -265,7 +257,7 @@ I (Paulus) have contributed a scene component. A user can create scenes that cap
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

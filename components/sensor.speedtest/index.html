@@ -89,60 +89,54 @@
   <hr class="divider">
   
 
-  <p>The <code>speedtest</code> sensor component uses the <a href="https://speedtest.net/">Speedtest.net</a> web service to measure network bandwidth performance.</p>
+  <p>The <code class="highlighter-rouge">speedtest</code> sensor component uses the <a href="https://speedtest.net/">Speedtest.net</a> web service to measure network bandwidth performance.</p>
 
 <p>By default, it will run every hour.  The user can change the update frequency in the config by defining the minute, hour, and day for a speedtest to run.</p>
 
-<p>To add a Speedtest.net sensor to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add a Speedtest.net sensor to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <p>Once per hour, on the hour (default):</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">speedtest</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">ping</span></span>
-    - <span class="string"><span class="content">download</span></span>
-    - <span class="string"><span class="content">upload</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ping</span>
+    <span class="pi">-</span> <span class="s">download</span>
+    <span class="pi">-</span> <span class="s">upload</span>
+</code></pre>
 </div>
 
 <p>More examples:</p>
 
 <p>Every half hour of every day:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">speedtest</span></span>
-  <span class="key">minute</span>:
-    - <span class="string"><span class="content">0</span></span>
-    - <span class="string"><span class="content">30</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">ping</span></span>
-    - <span class="string"><span class="content">download</span></span>
-    - <span class="string"><span class="content">upload</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
+  <span class="s">minute</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">0</span>
+    <span class="pi">-</span> <span class="s">30</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ping</span>
+    <span class="pi">-</span> <span class="s">download</span>
+    <span class="pi">-</span> <span class="s">upload</span>
+</code></pre>
 </div>
 
 <p>Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">speedtest</span></span>
-  <span class="key">minute</span>: <span class="string"><span class="content">30</span></span>
-  <span class="key">hour</span>:
-    - <span class="string"><span class="content">0</span></span>
-    - <span class="string"><span class="content">6</span></span>
-    - <span class="string"><span class="content">12</span></span>
-    - <span class="string"><span class="content">18</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">ping</span></span>
-    - <span class="string"><span class="content">download</span></span>
-    - <span class="string"><span class="content">upload</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
+  <span class="s">minute</span><span class="pi">:</span> <span class="s">30</span>
+  <span class="s">hour</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">0</span>
+    <span class="pi">-</span> <span class="s">6</span>
+    <span class="pi">-</span> <span class="s">12</span>
+    <span class="pi">-</span> <span class="s">18</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ping</span>
+    <span class="pi">-</span> <span class="s">download</span>
+    <span class="pi">-</span> <span class="s">upload</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -162,7 +156,7 @@
 
 <p>This component uses <a href="https://github.com/sivel/speedtest-cli">speedtest-cli</a> to gather network performance data from Speedtest.net.  Please be aware of the potential <a href="https://github.com/sivel/speedtest-cli#inconsistency">inconsistencies</a> that this component may display.</p>
 
-<p>When Home Assistant first starts up, the values of the speedtest will show as <code>Unknown</code>. You can use the service <code>sensor.update_speedtest</code> to run a manual speedtest and populate the data or just wait for the next regularly scheduled test.</p>
+<p>When Home Assistant first starts up, the values of the speedtest will show as <code class="highlighter-rouge">Unknown</code>. You can use the service <code class="highlighter-rouge">sensor.update_speedtest</code> to run a manual speedtest and populate the data or just wait for the next regularly scheduled test.</p>
 
 
 </article>

@@ -89,30 +89,28 @@
   <hr class="divider">
   
 
-  <p>The <code>template</code> platform creates switches that combine components.</p>
+  <p>The <code class="highlighter-rouge">template</code> platform creates switches that combine components.</p>
 
 <p>For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a switch that knows whether the garage door is open or closed.</p>
 
-<p>This can simplify the gui, and make it easier to write automations. You can mark the components you have combined as <code>hidden</code> so they don’t appear themselves.</p>
+<p>This can simplify the gui, and make it easier to write automations. You can mark the components you have combined as <code class="highlighter-rouge">hidden</code> so they don’t appear themselves.</p>
 
-<p>To enable Template switches in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable Template switches in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">switch</span>:
-  - <span class="string"><span class="content">platform: template</span></span>
-    <span class="key">switches</span>:
-      <span class="key">skylight</span>:
-        <span class="key">friendly_name</span>: <span class="string"><span class="content">'Skylight'</span></span>
-        <span class="key">value_template</span>: <span class="string"><span class="content">'{{ is_state('sensor.skylight', 'on') }}'</span></span>
-        <span class="key">turn_on</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.skylight_open</span></span>
-        <span class="key">turn_off</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.skylight_close</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">skylight</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Skylight'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state('sensor.skylight', 'on') }}'</span>
+        <span class="s">turn_on</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.skylight_open</span>
+        <span class="s">turn_off</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.skylight_close</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -131,7 +129,7 @@
 
 <h2><a class="title-link" name="considerations" href="#considerations"></a> Considerations</h2>
 
-<p>If you are using the state of a platform that takes extra time to load, the template switch may get an ‘unknown’ state during startup. This results in error messages in your log file until that platform has completed loading. If you use is_state() function in your template, you can avoid this situation. For example, you would replace ‘{{ states.switch.source.state }}’ with this equivalent that returns true/false and never gives an unknown result:<br />
+<p>If you are using the state of a platform that takes extra time to load, the template switch may get an ‘unknown’ state during startup. This results in error messages in your log file until that platform has completed loading. If you use is_state() function in your template, you can avoid this situation. For example, you would replace ‘{{ states.switch.source.state }}’ with this equivalent that returns true/false and never gives an unknown result:
 ‘{{ is_state(‘switch.source’, ‘on’) }}’</p>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
@@ -142,62 +140,56 @@
 
 <p>This example shows a switch that copies another switch.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">switch</span>:
-  - <span class="string"><span class="content">platform: template</span></span>
-    <span class="key">switches</span>:
-      <span class="key">copy</span>:
-        <span class="key">value_template</span>: <span class="string"><span class="content">'{{ is_state('switch.source', 'on') }}'</span></span>
-        <span class="key">turn_on</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.source</span></span>
-        <span class="key">turn_off</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.turn_off</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.source</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">copy</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state('switch.source', 'on') }}'</span>
+        <span class="s">turn_on</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.source</span>
+        <span class="s">turn_off</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_off</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.source</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="toggle-switch" href="#toggle-switch"></a> Toggle switch</h3>
 
 <p>This example shows a switch that takes its state from a sensor, and toggles a switch.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">switch</span>:
-  - <span class="string"><span class="content">platform: template</span></span>
-    <span class="key">switches</span>:
-      <span class="key">blind</span>:
-        <span class="key">friendly_name</span>: <span class="string"><span class="content">'Blind'</span></span>
-        <span class="key">value_template</span>: <span class="string"><span class="content">'{{ state }}'</span></span>
-        <span class="key">turn_on</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.toggle</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.blind_toggle</span></span>
-        <span class="key">turn_off</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.toggle</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.blind_toggle</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">blind</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Blind'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">state</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">turn_on</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.toggle</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.blind_toggle</span>
+        <span class="s">turn_off</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.toggle</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.blind_toggle</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="sensor-and-two-switches" href="#sensor-and-two-switches"></a> Sensor and two switches</h3>
 
 <p>This example shows a switch that takes its state from a sensor, and uses two momentary switches to control a device.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">switch</span>:
-  - <span class="string"><span class="content">platform: template</span></span>
-    <span class="key">switches</span>:
-      <span class="key">skylight</span>:
-        <span class="key">friendly_name</span>: <span class="string"><span class="content">'Skylight'</span></span>
-        <span class="key">value_template</span>: <span class="string"><span class="content">'{{ is_state('sensor.skylight.state', 'on') }}'</span></span>
-        <span class="key">turn_on</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.skylight_open</span></span>
-        <span class="key">turn_off</span>:
-          <span class="key">service</span>: <span class="string"><span class="content">switch.turn_on</span></span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">switch.skylight_close</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">skylight</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Skylight'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state('sensor.skylight.state', 'on') }}'</span>
+        <span class="s">turn_on</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.skylight_open</span>
+        <span class="s">turn_off</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.skylight_close</span>
+</code></pre>
 </div>
 
 

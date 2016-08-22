@@ -91,31 +91,27 @@
 
   <p>The Home Assistant discovery protocol is a lightweight feature that introduces support for Home Assistant servers to be discoverable. This will allow <a href="https://github.com/balloob/micropython-home-assistant">Home Assistant instances</a> running with <a href="https://micropython.org/">MicroPython</a> to get started without any required configuration (Example from the <a href="https://github.com/balloob/micropython-home-assistant">MicroPython Home Assistant</a> documentation):</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">homeassistant.discovery</span> <span class="keyword">import</span> <span class="include">get_instance</span>()
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.discovery</span> <span class="kn">import</span> <span class="n">get_instance</span><span class="p">()</span>
 
-hass = get_instance()
+<span class="n">hass</span> <span class="o">=</span> <span class="n">get_instance</span><span class="p">()</span>
 
-<span class="keyword">for</span> state <span class="keyword">in</span> hass.states():
-    print(state)
-</pre></div>
-</div>
+<span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</code></pre>
 </div>
 
-<p>To enable <code>discovery</code> in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable <code class="highlighter-rouge">discovery</code> in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yml entry</span>
-<span class="key">discoverable</span>:
-  <span class="key">expose_password</span>: <span class="string"><span class="content">yes</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">discoverable</span><span class="pi">:</span>
+  <span class="s">expose_password</span><span class="pi">:</span> <span class="s">yes</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>expose_password</strong> (<em>Optional</em>): It is up to the user to expose the password in the discovery response (Default: off). If password not exposed, uHA instances will have to provide it (<code>get_instance('my password')</code>).</li>
+  <li><strong>expose_password</strong> (<em>Optional</em>): It is up to the user to expose the password in the discovery response (Default: off). If password not exposed, uHA instances will have to provide it (<code class="highlighter-rouge">get_instance('my password')</code>).</li>
 </ul>
 
 

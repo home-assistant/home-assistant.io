@@ -91,12 +91,10 @@
 
   <p><a href="https://ifttt.com">IFTTT</a> is a web service that allows users to create chains of simple conditional statements, so called “recipes”. With the IFTTT component you can trigger recipes through the “maker” channel. See the <a href="/blog/2015/09/13/home-assistant-meets-ifttt/">announcement blog post</a> for examples how to use it.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">ifttt</span>:
-  <span class="key">key</span>: <span class="string"><span class="content">xxxxx-x-xxxxxxxxxxxxx</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">ifttt</span><span class="pi">:</span>
+  <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxx-x-xxxxxxxxxxxxx</span>
+</code></pre>
 </div>
 
 <p>Key is your API key which can be obtained by viewing the properties of the <a href="https://ifttt.com/maker">Maker Channel</a>.</p>
@@ -106,7 +104,7 @@
 Property screen of the Maker Channel
 </p>
 
-<p>Once you have added your key to <code>configuration.yaml</code>, restart your Home Assistant server. This will load up the IFTTT component and make a service available to trigger events in IFTTT.</p>
+<p>Once you have added your key to <code class="highlighter-rouge">configuration.yaml</code>, restart your Home Assistant server. This will load up the IFTTT component and make a service available to trigger events in IFTTT.</p>
 
 <p class="note">
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
@@ -126,15 +124,15 @@ After restarting the server, be sure to watch the console for any logging errors
   <tbody>
     <tr>
       <td>domain</td>
-      <td><code>ifttt</code></td>
+      <td><code class="highlighter-rouge">ifttt</code></td>
     </tr>
     <tr>
       <td>service</td>
-      <td><code>trigger</code></td>
+      <td><code class="highlighter-rouge">trigger</code></td>
     </tr>
     <tr>
       <td>Service Data</td>
-      <td><code>{"event": "EventName", "value1": "Hello World"}</code></td>
+      <td><code class="highlighter-rouge"><span class="p">{</span><span class="nt">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EventName"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello World"</span><span class="p">}</span></code></td>
     </tr>
   </tbody>
 </table>

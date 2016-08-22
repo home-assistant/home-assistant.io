@@ -91,32 +91,28 @@
 
   <p><img src="/images/screenshots/logbook.png" style="margin-left:10px; float: right;" height="100" /> The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. <a href="/demo/">See the demo for a live example</a>.</p>
 
-<p>To enable the logbook in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable the logbook in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">logbook</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">logbook</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <p>It is possible to add custom entries to the logbook by using the script component to fire an event.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">script</span>:
-  <span class="key">add_logbook_entry</span>:
-    <span class="key">alias</span>: <span class="string"><span class="content">Add Logbook</span></span>
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">event: LOGBOOK_ENTRY</span></span>
-        <span class="key">event_data</span>:
-          <span class="key">name</span>: <span class="string"><span class="content">Kitchen</span></span>
-          <span class="key">message</span>: <span class="string"><span class="content">is being used</span></span>
-          <span class="comment"># Optional</span>
-          <span class="key">entity_id</span>: <span class="string"><span class="content">light.kitchen</span></span>
-          <span class="key">domain</span>: <span class="string"><span class="content">light</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">script</span><span class="pi">:</span>
+  <span class="s">add_logbook_entry</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Add Logbook</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">event</span><span class="pi">:</span> <span class="s">LOGBOOK_ENTRY</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s">is being used</span>
+          <span class="c1"># Optional</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen</span>
+          <span class="s">domain</span><span class="pi">:</span> <span class="s">light</span>
+</code></pre>
 </div>
 
 

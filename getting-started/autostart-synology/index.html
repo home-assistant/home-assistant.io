@@ -93,45 +93,37 @@
 
 <p>SSH onto your synology &amp; login as admin or root</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ cd /volume1/homeassistant
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /volume1/homeassistant
+</code></pre>
 </div>
 
 <p>Create “homeassistant.conf” file using the following code</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre># only start this service after the httpd user process has started
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># only start this service after the httpd user process has started</span>
 start on started httpd-user
 
-# stop the service gracefully if the runlevel changes to 'reboot'
-stop on runlevel [06]
+<span class="c"># stop the service gracefully if the runlevel changes to 'reboot'</span>
+stop on runlevel <span class="o">[</span>06]
 
-# run the scripts as the 'http' user. Running as root (the default) is a bad ide
-#setuid admin
+<span class="c"># run the scripts as the 'http' user. Running as root (the default) is a bad ide</span>
+<span class="c">#setuid admin</span>
 
-# exec the process. Use fully formed path names so that there is no reliance on
-# the 'www' file is a node.js script which starts the foobar application.
-exec /bin/sh /volume1/homeassistant/hass-daemon start
-</pre></div>
-</div>
+<span class="c"># exec the process. Use fully formed path names so that there is no reliance on</span>
+<span class="c"># the 'www' file is a node.js script which starts the foobar application.</span>
+<span class="nb">exec</span> /bin/sh /volume1/homeassistant/hass-daemon start
+</code></pre>
 </div>
 
 <p>Register the autostart</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ ln -s homeassistant-conf /etc/init/homeassistant-conf
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s homeassistant-conf /etc/init/homeassistant-conf
+</code></pre>
 </div>
 
 <p>Make the relevant files executable:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ chmod -r 777 /etc/init/homeassistant-conf
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod -r 777 /etc/init/homeassistant-conf
+</code></pre>
 </div>
 
 <p>That’s it - reboot your NAS and Home Assistant should automatically start</p>

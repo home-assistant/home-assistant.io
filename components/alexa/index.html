@@ -95,7 +95,7 @@
 
 <p>Amazon has released <a href="https://echosim.io/">Echosim</a>, a website that simulates the Alexa service in your browser. That way it is easy to test your skills without having access to a physical Amazon Echo.</p>
 
-<h3><a class="title-link" name="i-just-want-to-turn-devices-on-and-off-using-echo" href="#i-just-want-to-turn-devices-on-and-off-using-echo"></a> I just want to turn devices on and off using Echo</h3>
+<h2><a class="title-link" name="i-just-want-to-turn-devices-on-and-off-using-echo" href="#i-just-want-to-turn-devices-on-and-off-using-echo"></a> I just want to turn devices on and off using Echo</h2>
 
 <p>If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, check out Michael Auchter’s <a href="https://github.com/auchter/haaska">Haaska</a> which integrates the <a href="https://developer.amazon.com/public/binaries/content/assets/html/alexa-lighting-api.html">Alexa Lighting API</a> into Home Assistant.</p>
 
@@ -127,7 +127,7 @@
 
 <p>Please note that you can use Haaska and the built-in Alexa component side-by-side without issue if you wish.</p>
 
-<h3><a class="title-link" name="i-want-to-build-custom-commands-to-use-with-echo" href="#i-want-to-build-custom-commands-to-use-with-echo"></a> I want to build custom commands to use with Echo</h3>
+<h2><a class="title-link" name="i-want-to-build-custom-commands-to-use-with-echo" href="#i-want-to-build-custom-commands-to-use-with-echo"></a> I want to build custom commands to use with Echo</h2>
 
 <p>The built-in Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.</p>
 
@@ -135,7 +135,8 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
-<h4><a class="title-link" name="requirements-before-using" href="#requirements-before-using"></a> Requirements before using</h4>
+<h3><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h3>
+
 <p>Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">our blog</a> about how to set up encryption for Home Assistant. If you are unable to get HTTPS up and running, consider using <a href="https://forums.developer.amazon.com/forums/thread.jspa?messageID=18604">this AWS Lambda proxy for Alexa skills</a>.</p>
 
 <p>To get started with Alexa skills:</p>
@@ -158,42 +159,38 @@
   </li>
 </ul>
 
-<h4><a class="title-link" name="configuring-your-amazon-alexa-skill" href="#configuring-your-amazon-alexa-skill"></a> Configuring your Amazon Alexa skill</h4>
+<h3><a class="title-link" name="configuring-your-amazon-alexa-skill" href="#configuring-your-amazon-alexa-skill"></a> Configuring your Amazon Alexa skill</h3>
 
-<p>Alexa works based on intents. Each intent has a name and variable slots. For example, a <code>LocateIntent</code> with a slot that contains a <code>User</code>. Example intent schema:</p>
+<p>Alexa works based on intents. Each intent has a name and variable slots. For example, a <code class="highlighter-rouge">LocateIntent</code> with a slot that contains a <code class="highlighter-rouge">User</code>. Example intent schema:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">intents</span><span class="delimiter">&quot;</span></span>: [
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">intent</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">LocateIntent</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">slots</span><span class="delimiter">&quot;</span></span>: [
-      {
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">User</span><span class="delimiter">&quot;</span></span>,
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">AMAZON.US_FIRST_NAME</span><span class="delimiter">&quot;</span></span>
-        }]
-    },
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">intent</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">WhereAreWeIntent</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">slots</span><span class="delimiter">&quot;</span></span>: []
-    }
-  ]
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"intents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LocateIntent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMAZON.US_FIRST_NAME"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WhereAreWeIntent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>To bind these intents to sentences said by users you define utterances. Example utterances can look like this:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>LocateIntent Where is {User}
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>LocateIntent Where is {User}
 LocateIntent Where's {User}
 LocateIntent Where {User} is
 LocateIntent Where did {User} go
 
 WhereAreWeIntent where we are
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 <p>This means that we can now ask Alexa things like:</p>
@@ -203,54 +200,51 @@ WhereAreWeIntent where we are
   <li>Alexa, ask Home Assistant where we are</li>
 </ul>
 
-<h3><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h3>
+<h2><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h2>
 
-<p>Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on <a href="/topics/templating/">templates</a> that you define. Each template will have access to the existing states via the <code>states</code> variable but will also have access to all variables defined in the intent.</p>
+<p>Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on <a href="/topics/templating/">templates</a> that you define. Each template will have access to the existing states via the <code class="highlighter-rouge">states</code> variable but will also have access to all variables defined in the intent.</p>
 
-<p>You can use <a href="/topics/templating/">templates</a> for the values of <code>speech/text</code>, <code>card/title</code> and <code>card/content</code>.</p>
+<p>You can use <a href="/topics/templating/">templates</a> for the values of <code class="highlighter-rouge">speech/text</code>, <code class="highlighter-rouge">card/title</code> and <code class="highlighter-rouge">card/content</code>.</p>
 
 <p>Actions are using the <a href="/getting-started/scripts/">Home Assistant Script Syntax</a> and also have access to the variables from the intent.</p>
 
 <p>Configuring the Alexa component for the above intents would look like this:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>
-<span class="comment"># Example configuration.yaml entry</span>
-<span class="key">alexa</span>:
-  <span class="key">intents</span>:
-    <span class="key">WhereAreWeIntent</span>:
-      <span class="key">speech</span>:
-        <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
-        <span class="key">text</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-          {%- if is_state('device_tracker.paulus', 'home') and
-                 is_state('device_tracker.anne_therese', 'home') -%}
-            You are both home, you silly
-          {%- else -%}
-            Anne Therese is at {{ states(&quot;device_tracker.anne_therese&quot;) }} and
-            Paulus is at {{ states(&quot;device_tracker.paulus&quot;) }}
-          {% endif %}</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alexa</span><span class="pi">:</span>
+  <span class="s">intents</span><span class="pi">:</span>
+    <span class="s">WhereAreWeIntent</span><span class="pi">:</span>
+      <span class="s">speech</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">plaintext</span>
+        <span class="s">text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{%- if is_state('device_tracker.paulus', 'home') and</span>
+                 <span class="no">is_state('device_tracker.anne_therese', 'home') -%}</span>
+            <span class="no">You are both home, you silly</span>
+          <span class="no">{%- else -%}</span>
+            <span class="no">Anne Therese is at {{ states("device_tracker.anne_therese") }}</span>
+            <span class="no">and Paulus is at {{ states("device_tracker.paulus") }}</span>
+          <span class="no">{% endif %}</span>
 
-    <span class="key">LocateIntent</span>:
-      <span class="key">action</span>:
-        <span class="key">service</span>: <span class="string"><span class="content">notify.notify</span></span>
-        <span class="key">data_template</span>:
-          <span class="key">message</span>: <span class="string"><span class="content">The location of {{ User }} has been queried via Alexa.</span></span>
-      <span class="key">speech</span>:
-        <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
-        <span class="key">text</span>: <span class="string"><span class="delimiter">&gt;</span><span class="content">
-          {%- for state in states.device_tracker -%}
-            {%- if state.name.lower() == User.lower() -%}
-              {{ state.name }} is at {{ state.state }}
-            {%- endif -%}
-          {%- else -%}
-            I am sorry, I do not know where {{ User }} is.
-          {%- endfor -%}</span></span>
-      <span class="key">card</span>:
-        <span class="key">type</span>: <span class="string"><span class="content">simple</span></span>
-        <span class="key">title</span>: <span class="string"><span class="content">Sample title</span></span>
-        <span class="key">content</span>: <span class="string"><span class="content">Some more content</span></span>
-</pre></div>
-</div>
+    <span class="s">LocateIntent</span><span class="pi">:</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s">The location of {{ User }} has been queried via Alexa.</span>
+      <span class="s">speech</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">plaintext</span>
+        <span class="s">text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{%- for state in states.device_tracker -%}</span>
+            <span class="no">{%- if state.name.lower() == User.lower() -%}</span>
+              <span class="no">{{ state.name }} is at {{ state.state }}</span>
+            <span class="no">{%- endif -%}</span>
+          <span class="no">{%- else -%}</span>
+            <span class="no">I am sorry, I do not know where {{ User }} is.</span>
+          <span class="no">{%- endfor -%}</span>
+      <span class="s">card</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">simple</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s">Sample title</span>
+        <span class="s">content</span><span class="pi">:</span> <span class="s">Some more content</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="working-with-scenes" href="#working-with-scenes"></a> Working With Scenes</h3>
@@ -259,22 +253,20 @@ WhereAreWeIntent where we are
 
 <p>First we will configure Alexa. In the Amazon Interaction module add this to the intent schema:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">intent</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ActivateSceneIntent</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">slots</span><span class="delimiter">&quot;</span></span>:
-  [
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Scene</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Scenes</span><span class="delimiter">&quot;</span></span>
-    }
-  ]
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ActivateSceneIntent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"slots"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Scene"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Scenes"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Then create a custom slot type called <code>Scenes</code> listing every scene you want to control:</p>
+<p>Then create a custom slot type called <code class="highlighter-rouge">Scenes</code> listing every scene you want to control:</p>
 
 <p class="img">
 <img src="/images/components/alexa/scene_slot.png" />
@@ -284,52 +276,45 @@ Custom slot type for scene support.
 
 <p>Add a sample utterance:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ActivateSceneIntent activate {Scene}
-</pre></div>
-</div>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>ActivateSceneIntent activate {Scene}
+</code></pre>
 </div>
 
 <p>Then add the intent to your Alexa Section in your HA config file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>
-    <span class="key">ActivateSceneIntent</span>:
-      <span class="key">action</span>:
-        <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on</span></span>
-        <span class="key">data_template</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">scene.{{ Scene | replace(&quot; &quot;, &quot;_&quot;) }}</span></span>
-      <span class="key">speech</span>:
-        <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
-        <span class="key">text</span>: <span class="string"><span class="content">OK</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">ActivateSceneIntent</span><span class="pi">:</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.{{ Scene | replace(" ", "_") }}</span>
+      <span class="s">speech</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">plaintext</span>
+        <span class="s">text</span><span class="pi">:</span> <span class="s">OK</span>
+</code></pre>
 </div>
 
-<p>Here we are using <a href="/topics/templating/">templates</a> to take the name we gave to Alexa e.g. <code>downstairs on</code> and replace the space with an underscore so it becomes <code>downstairs_on</code> as Home Assistant expects.</p>
+<p>Here we are using <a href="/topics/templating/">templates</a> to take the name we gave to Alexa e.g. <code class="highlighter-rouge">downstairs on</code> and replace the space with an underscore so it becomes <code class="highlighter-rouge">downstairs_on</code> as Home Assistant expects.</p>
 
-<p>Now say <code>Alexa ask homeassistant to activate &lt;some scene&gt;</code> and Alexa will activate that scene for you.</p>
+<p>Now say <code class="highlighter-rouge">Alexa ask homeassistant to activate &lt;some scene&gt;</code> and Alexa will activate that scene for you.</p>
 
 <h3><a class="title-link" name="adding-scripts" href="#adding-scripts"></a> Adding Scripts</h3>
 
 <p>We can easily extend the above idea to work with scripts as well. As before, add an intent for scripts:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">intent</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">RunScriptIntent</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">slots</span><span class="delimiter">&quot;</span></span>:
-  [
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Script</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Scripts</span><span class="delimiter">&quot;</span></span>
-    }
-  ]
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RunScriptIntent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"slots"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Script"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Scripts"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
-<p>Create a custom slot type called <code>Scripts</code> listing every script you want to run:</p>
+<p>Create a custom slot type called <code class="highlighter-rouge">Scripts</code> listing every script you want to run:</p>
 
 <p class="img">
 <img src="/images/components/alexa/script_slot.png" />
@@ -338,70 +323,63 @@ Custom slot type for script support.
 
 <p>Add a sample utterance:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>RunScriptIntent run {Script}
-</pre></div>
-</div>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>RunScriptIntent run {Script}
+</code></pre>
 </div>
 
 <p>Then add the intent to your Alexa Section in your HA config file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>
-    <span class="key">RunScriptIntent</span>:
-      <span class="key">action</span>:
-        <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-        <span class="key">data_template</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">script.{{ Script | replace(&quot; &quot;, &quot;_&quot;) }}</span></span>
-      <span class="key">speech</span>:
-        <span class="key">type</span>: <span class="string"><span class="content">plaintext</span></span>
-        <span class="key">text</span>: <span class="string"><span class="content">OK</span></span>
-
-</pre></div>
-</div>
-</div>
-
-<p>Now say <code>Alexa ask homeassistant to run &lt;some script&gt;</code> and Alexa will run that script for you.</p>
-
-<h3><a class="title-link" name="giving-alexa-some-personality" href="#giving-alexa-some-personality"></a> Giving Alexa Some Personality</h3>
-
-<p>In the examples above, we told Alexa to say <code>OK</code> when she succesfully completed the task. This is effective but a little dull! We can again use <a href="/topics/templating/">templates</a> to spice things up a little.</p>
-
-<p>First create a file called <code>alexa_confirm.yaml</code> with something like the following in it (go on, be creative!):</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>
-          &gt;
-          {{ [
-          &quot;OK&quot;,
-          &quot;Sure&quot;,
-          &quot;If you insist&quot;,
-          &quot;Done&quot;,
-          &quot;No worries&quot;,
-          &quot;I can do that&quot;,
-          &quot;Leave it to me&quot;,
-          &quot;Consider it done&quot;,
-          &quot;As you wish&quot;,
-          &quot;By your command&quot;,
-          &quot;Affirmative&quot;,
-          &quot;Yes oh revered one&quot;,
-          &quot;I will&quot;,
-          &quot;As you decree, so shall it be&quot;,
-          &quot;No Problem&quot;
-          ] | random }} 
-</pre></div>
-</div>
-</div>
-
-<p>Then, wherever you would but some simple text for a response like<code>OK</code>, replace it with a reference to the file so that:</p>
-
-<pre><code>text: OK
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">RunScriptIntent</span><span class="pi">:</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.{{ Script | replace(" ", "_") }}</span>
+      <span class="s">speech</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">plaintext</span>
+        <span class="s">text</span><span class="pi">:</span> <span class="s">OK</span>
 </code></pre>
+</div>
+
+<p>Now say <code class="highlighter-rouge">Alexa ask homeassistant to run &lt;some script&gt;</code> and Alexa will run that script for you.</p>
+
+<h2><a class="title-link" name="giving-alexa-some-personality" href="#giving-alexa-some-personality"></a> Giving Alexa Some Personality</h2>
+
+<p>In the examples above, we told Alexa to say <code class="highlighter-rouge">OK</code> when she succesfully completed the task. This is effective but a little dull! We can again use <a href="/topics/templating/">templates</a> to spice things up a little.</p>
+
+<p>First create a file called <code class="highlighter-rouge">alexa_confirm.yaml</code> with something like the following in it (go on, be creative!):</p>
+
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>          &gt;
+          {{ [
+          "OK",
+          "Sure",
+          "If you insist",
+          "Done",
+          "No worries",
+          "I can do that",
+          "Leave it to me",
+          "Consider it done",
+          "As you wish",
+          "By your command",
+          "Affirmative",
+          "Yes oh revered one",
+          "I will",
+          "As you decree, so shall it be",
+          "No Problem"
+          ] | random }} 
+</code></pre>
+</div>
+
+<p>Then, wherever you would but some simple text for a response like<code class="highlighter-rouge">OK</code>, replace it with a reference to the file so that:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>text: OK
+</code></pre>
+</div>
 
 <p>becomes:</p>
 
-<pre><code>text: !include alexa_confirm.yaml
+<div class="highlighter-rouge"><pre class="highlight"><code>text: !include alexa_confirm.yaml
 </code></pre>
+</div>
 
 <p>Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.</p>
 

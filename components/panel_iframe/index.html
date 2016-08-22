@@ -89,25 +89,23 @@
   <hr class="divider">
   
 
-  <p>The <code>panel_iframe</code> support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.</p>
+  <p>The <code class="highlighter-rouge">panel_iframe</code> support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.</p>
 
 <p class="note warning">If you are accessing home Assistant over HTTPS using SSL, you cannot access HTTP sites through an iframe panel.</p>
 
-<p>To enable Panel iFrames in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable Panel iFrames in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">panel_iframe</span>:
-  <span class="key">router</span>:
-    <span class="key">title</span>: <span class="string"><span class="content">'Router'</span></span>
-    <span class="key">icon</span>: <span class="string"><span class="content">'mdi:router-wireless'</span></span>
-    <span class="key">url</span>: <span class="string"><span class="content">'http://192.168.1.1'</span></span>
-  <span class="key">fridge</span>:
-    <span class="key">title</span>: <span class="string"><span class="content">'Fridge'</span></span>
-    <span class="key">icon</span>: <span class="string"><span class="content">'mdi:fridge'</span></span>
-    <span class="key">url</span>: <span class="string"><span class="content">'http://192.168.1.5'</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">panel_iframe</span><span class="pi">:</span>
+  <span class="s">router</span><span class="pi">:</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Router'</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s1">'</span><span class="s">mdi:router-wireless'</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s1">'</span><span class="s">http://192.168.1.1'</span>
+  <span class="s">fridge</span><span class="pi">:</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Fridge'</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s1">'</span><span class="s">mdi:fridge'</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s1">'</span><span class="s">http://192.168.1.5'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -116,7 +114,7 @@
   <li><strong>[panel_name]</strong> (<em>Required</em>): Name of the panel.
     <ul>
       <li><strong>title</strong> (<em>Required</em>): Friendly title for the panel. Will be used in the sidebar.</li>
-      <li><strong>icon</strong> (<em>Optional</em>): Icon for entry. Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code>mdi:</code>. For example <code>mdi:car</code>, <code>mdi:ambulance</code>, or  <code>mdi:motorbike</code>.</li>
+      <li><strong>icon</strong> (<em>Optional</em>): Icon for entry. Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:car</code>, <code class="highlighter-rouge">mdi:ambulance</code>, or  <code class="highlighter-rouge">mdi:motorbike</code>.</li>
       <li><strong>url</strong> (<em>Required</em>): The URL to open.</li>
     </ul>
   </li>

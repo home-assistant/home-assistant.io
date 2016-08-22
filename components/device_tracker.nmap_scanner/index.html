@@ -89,20 +89,18 @@
   <hr class="divider">
   
 
-  <p>As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (<code>192.168.1.1/24</code>) and the range notation (<code>192.168.1.1-255</code>).</p>
+  <p>As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (<code class="highlighter-rouge">192.168.1.1/24</code>) and the range notation (<code class="highlighter-rouge">192.168.1.1-255</code>).</p>
 
-<p>If you’re on Debian or Ubuntu, you might have to install the packages for <code>arp</code> and <code>nmap</code>. Do so by running <code>apt-get install net-tools nmap</code>. On a Fedora host run <code>sudo dnf -y install nmap</code>.</p>
+<p>If you’re on Debian or Ubuntu, you might have to install the packages for <code class="highlighter-rouge">arp</code> and <code class="highlighter-rouge">nmap</code>. Do so by running <code class="highlighter-rouge">apt-get install net-tools nmap</code>. On a Fedora host run <code class="highlighter-rouge">sudo dnf -y install nmap</code>.</p>
 
-<p>To use this device tracker in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To use this device tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">nmap_tracker</span></span>
-  <span class="key">hosts</span>: <span class="string"><span class="content">192.168.1.1/24</span></span>
-  <span class="key">home_interval</span>: <span class="string"><span class="content">10</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
+  <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.1/24</span>
+  <span class="s">home_interval</span><span class="pi">:</span> <span class="s">10</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

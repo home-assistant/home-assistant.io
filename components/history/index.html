@@ -89,15 +89,13 @@
   <hr class="divider">
   
 
-  <p>The <code>history</code> component will track everything that is going on within Home Assistant and allows the user to browse through it.</p>
+  <p>The <code class="highlighter-rouge">history</code> component will track everything that is going on within Home Assistant and allows the user to browse through it.</p>
 
-<p>To enable the history option in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable the history option in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">history</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">history</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <p class="img">
@@ -112,34 +110,32 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
 
 <h4><a class="title-link" name="implementation-details" href="#implementation-details"></a> Implementation details</h4>
 
-<p>The history is stored in a SQLite database <code>home-assistant.db</code> within your config directory.</p>
+<p>The history is stored in a SQLite database <code class="highlighter-rouge">home-assistant.db</code> within your config directory.</p>
 
 <ul>
-  <li>events table is all events except <code>time_changed</code> that happened while recorder component was running.</li>
-  <li>states table contains all the <code>new_state</code> values of <code>state_changed</code> events.</li>
+  <li>events table is all events except <code class="highlighter-rouge">time_changed</code> that happened while recorder component was running.</li>
+  <li>states table contains all the <code class="highlighter-rouge">new_state</code> values of <code class="highlighter-rouge">state_changed</code> events.</li>
   <li>Inside the states table you have:
     <ul>
-      <li><code>entity_id</code>: the entity_id of the entity</li>
-      <li><code>state</code>: the state of the entity</li>
-      <li><code>attributes</code>: JSON of the state attributes</li>
-      <li><code>last_changed</code>: timestamp last time the state has changed. A state_changed event can happen when just attributes change.</li>
-      <li><code>last_updated</code>: timestamp anything has changed (state, attributes)</li>
-      <li><code>created</code>: timestamp this entry was inserted into the database</li>
+      <li><code class="highlighter-rouge">entity_id</code>: the entity_id of the entity</li>
+      <li><code class="highlighter-rouge">state</code>: the state of the entity</li>
+      <li><code class="highlighter-rouge">attributes</code>: JSON of the state attributes</li>
+      <li><code class="highlighter-rouge">last_changed</code>: timestamp last time the state has changed. A state_changed event can happen when just attributes change.</li>
+      <li><code class="highlighter-rouge">last_updated</code>: timestamp anything has changed (state, attributes)</li>
+      <li><code class="highlighter-rouge">created</code>: timestamp this entry was inserted into the database</li>
     </ul>
   </li>
 </ul>
 
-<p>When the history component queries the states table it only selects states where the state has changed: <code>WHERE last_changed=last_updated</code></p>
+<p>When the history component queries the states table it only selects states where the state has changed: <code class="highlighter-rouge">WHERE last_changed=last_updated</code></p>
 
 <h4><a class="title-link" name="on-dates" href="#on-dates"></a> On dates</h4>
 
 <p>SQLite databases do not support native dates. That’s why all the dates are saved in seconds since the UNIX epoch. Convert them manually using this site or in Python:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="keyword">from</span> <span class="include">datetime</span> <span class="keyword">import</span> <span class="include">datetime</span>
-datetime.fromtimestamp(<span class="integer">1422830502</span>)
-</pre></div>
-</div>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">1422830502</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <h4><a class="title-link" name="api" href="#api"></a> API</h4>

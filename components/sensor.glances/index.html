@@ -89,52 +89,46 @@
   <hr class="divider">
   
 
-  <p>The <code>glances</code> sensor platform is consuming the system information provided by the <a href="https://github.com/nicolargo/glances">Glances</a> API. This enables one to track remote host and display their stats in Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">glances</code> sensor platform is consuming the system information provided by the <a href="https://github.com/nicolargo/glances">Glances</a> API. This enables one to track remote host and display their stats in Home Assistant.</p>
 
-<p>This sensors needs a running instance of <code>glances</code> on the host. The minimal supported version of <code>glances</code> is 2.3:</p>
+<p>This sensors needs a running instance of <code class="highlighter-rouge">glances</code> on the host. The minimal supported version of <code class="highlighter-rouge">glances</code> is 2.3:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo glances -w
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo glances -w
 Glances web server started on http://0.0.0.0:61208/
-</pre></div>
-</div>
-</div>
-
-<p>Check if you are able to access the API located at <code>http://IP_ADRRESS:61208/api/2</code>. The details about your memory usage is provided as a JSON response. If so, you are good to proceed.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
-{&quot;free&quot;: 203943936}
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>To enable the glances sensor, add the following lines to your <code>configuration.yaml</code>:</p>
+<p>Check if you are able to access the API located at <code class="highlighter-rouge">http://IP_ADRRESS:61208/api/2</code>. The details about your memory usage is provided as a JSON response. If so, you are good to proceed.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">glances</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Glances sensor</span></span>
-  <span class="key">host</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">61208</span></span>
-  <span class="key">resources</span>:
-    - <span class="string"><span class="content">'disk_use_percent'</span></span>
-    - <span class="string"><span class="content">'disk_use'</span></span>
-    - <span class="string"><span class="content">'disk_free'</span></span>
-    - <span class="string"><span class="content">'memory_use_percent'</span></span>
-    - <span class="string"><span class="content">'memory_use'</span></span>
-    - <span class="string"><span class="content">'memory_free'</span></span>
-    - <span class="string"><span class="content">'swap_use_percent'</span></span>
-    - <span class="string"><span class="content">'swap_use'</span></span>
-    - <span class="string"><span class="content">'swap_free'</span></span>
-    - <span class="string"><span class="content">'processor_load'</span></span>
-    - <span class="string"><span class="content">'process_running'</span></span>
-    - <span class="string"><span class="content">'process_total'</span></span>
-    - <span class="string"><span class="content">'process_thread'</span></span>
-    - <span class="string"><span class="content">'process_sleeping'</span></span>
-</pre></div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
+<span class="o">{</span><span class="s2">"free"</span>: 203943936<span class="o">}</span>
+</code></pre>
 </div>
+
+<p>To enable the glances sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">glances</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Glances sensor</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">61208</span>
+  <span class="s">resources</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_use_percent'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_use'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_free'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">memory_use_percent'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">memory_use'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">memory_free'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">swap_use_percent'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">swap_use'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">swap_free'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">processor_load'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">process_running'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">process_total'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">process_thread'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">process_sleeping'</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

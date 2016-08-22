@@ -87,13 +87,13 @@
   <div class="meta clearfix">
     <time datetime="2016-08-03T17:22:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 2, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Nolan Gilley</span>
-    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/user-stories/'>User-Stories</a></li>
+        <li>User-Stories</li>
       
     
     </ul>
@@ -156,59 +156,57 @@
 
 <p>Home Assistant Configuration:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">mqtt</span>:
-  <span class="key">broker</span>: <span class="string"><span class="content">192.168.1.100</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">1883</span></span>
-  <span class="key">keepalive</span>: <span class="string"><span class="content">60</span></span>
-  <span class="key">qos</span>: <span class="string"><span class="content">0</span></span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">1883</span>
+  <span class="s">keepalive</span><span class="pi">:</span> <span class="s">60</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
 
-<span class="key">sensor</span>:
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Dryer Status</span><span class="delimiter">&quot;</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor/dryer</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Dryer</span><span class="nv"> </span><span class="s">Status"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sensor/dryer"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
 
-  - <span class="string"><span class="content">platform: mqtt</span></span>
-    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Washer Status</span><span class="delimiter">&quot;</span></span>
-    <span class="key">state_topic</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sensor/washer</span><span class="delimiter">&quot;</span></span>
-    <span class="key">unit_of_measurement</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Washer</span><span class="nv"> </span><span class="s">Status"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sensor/washer"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
 
-<span class="key">automation</span>:
-  - <span class="string"><span class="content">alias: Washer complete</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.washer_status</span></span>
-      <span class="key">from</span>: <span class="string"><span class="content">'Running'</span></span>
-      <span class="key">to</span>: <span class="string"><span class="content">'Complete'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">script.turn_on</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">script.washer_complete</span></span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Washer complete</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.washer_status</span>
+      <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Running'</span>
+      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Complete'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.washer_complete</span>
 
-  - <span class="string"><span class="content">alias: Washer emptied</span></span>
-    <span class="key">trigger</span>:
-      <span class="key">platform</span>: <span class="string"><span class="content">state</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">sensor.washer_status</span></span>
-      <span class="key">from</span>: <span class="string"><span class="content">'Complete'</span></span>
-      <span class="key">to</span>: <span class="string"><span class="content">'Empty'</span></span>
-    <span class="key">action</span>:
-      <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on</span></span>
-      <span class="key">entity_id</span>: <span class="string"><span class="content">scene.normal</span></span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Washer emptied</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.washer_status</span>
+      <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Complete'</span>
+      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Empty'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.normal</span>
 
-<span class="key">script</span>:
-  <span class="key">washer_complete</span>:
-    <span class="key">alias</span>: <span class="string"><span class="content">Washer Complete</span></span>
-    <span class="key">sequence</span>:
-      - <span class="string"><span class="content">alias: Join Notification</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">notify.join</span></span>
-        <span class="key">data</span>:
-          <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">The washing machine has finished its cycle, please empty it!</span><span class="delimiter">&quot;</span></span>
-      - <span class="string"><span class="content">alias: Living Room Lights Blue</span></span>
-        <span class="key">service</span>: <span class="string"><span class="content">scene.turn_on</span></span>
-        <span class="key">data</span>:
-          <span class="key">entity_id</span>: <span class="string"><span class="content">scene.blue</span></span>
-</pre></div>
-</div>
+<span class="s">script</span><span class="pi">:</span>
+  <span class="s">washer_complete</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Washer Complete</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Join Notification</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.join</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">washing</span><span class="nv"> </span><span class="s">machine</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">finished</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">cycle,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">empty</span><span class="nv"> </span><span class="s">it!"</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Living Room Lights Blue</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.blue</span>
+</code></pre>
 </div>
 
 <p>Resources used:</p>
@@ -289,7 +287,7 @@
     
       
         <li class="post">
-          <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+          <a href="/blog/2016/08/13/foursquare-fast.com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
         </li>
       
     

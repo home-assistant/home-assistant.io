@@ -93,10 +93,8 @@
 
 <p><strong>Call Service</strong> section from the <strong>Developer Tools</strong> allows you to send MQTT messages. Choose <em>mqtt/publish</em>  from the list of <strong>Available services:</strong> and enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span class="key"><span class="delimiter">&quot;</span><span class="content">payload</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Test message from HA</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">topic</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home/notification</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">qos</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">retain</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test message from HA"</span><span class="p">,</span><span class="w"> </span><span class="nt">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home/notification"</span><span class="p">,</span><span class="w"> </span><span class="nt">"qos"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"retain"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p class="img">
@@ -105,13 +103,11 @@
 
 <p>Using the <a href="/developers/rest_api/#post-apiservicesltdomainltservice">REST API</a> to send a message to a given topic.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ curl -X POST -H &quot;x-ha-access: YOUR_PASSWORD&quot; \
-       -H &quot;Content-Type: application/json&quot; \
-       -d '{&quot;payload&quot;: &quot;Test message from HA&quot;, &quot;topic&quot;: &quot;home/notification&quot;}' \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
+       -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+       -d <span class="s1">'{"payload": "Test message from HA", "topic": "home/notification"}'</span> <span class="se">\</span>
        http://IP_ADDRESS:8123/api/services/mqtt/publish
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 

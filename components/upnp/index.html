@@ -89,28 +89,24 @@
   <hr class="divider">
   
 
-  <p>The <code>upnp</code> component automatically creates port forwarding mappings on your router for Home Assistant. UPnP or NAT-PMP needs to be enabled on your router for this component to work.</p>
+  <p>The <code class="highlighter-rouge">upnp</code> component automatically creates port forwarding mappings on your router for Home Assistant. UPnP or NAT-PMP needs to be enabled on your router for this component to work.</p>
 
 <h1>Installation</h1>
 <p>You need to install <a href="https://github.com/miniupnp/miniupnp/tree/master/miniupnpc">miniupnpc</a> before using the UPnP component:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ git clone https://github.com/miniupnp/miniupnp.git
-$ cd miniupnp/miniupnpc
-$ make
-$ make pythonmodule3
-$ sudo make installpythonmodule3
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/miniupnp/miniupnp.git
+<span class="gp">$ </span><span class="nb">cd </span>miniupnp/miniupnpc
+<span class="gp">$ </span>make
+<span class="gp">$ </span>make pythonmodule3
+<span class="gp">$ </span>sudo make installpythonmodule3
+</code></pre>
 </div>
 
 <h1>Configuration</h1>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">upnp</span>:
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">upnp</span><span class="pi">:</span>
+</code></pre>
 </div>
 
 <p>A port mapping will be created using the IP address and port that Home Assistant is running on. The mapping will never automatically expire. Upon stopping Home Assistant, the mapping will be removed from your router.</p>

@@ -89,22 +89,20 @@
   <hr class="divider">
   
 
-  <p>The <code>panel_custom</code> support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar if wished and can be highly customized.</p>
+  <p>The <code class="highlighter-rouge">panel_custom</code> support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar if wished and can be highly customized.</p>
 
-<p>To enable customized panels in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable customized panels in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">panel_custom</span>:
-  - <span class="string"><span class="content">name: todomvc</span></span>
-    <span class="key">sidebar_title</span>: <span class="string"><span class="content">TodoMVC</span></span>
-    <span class="key">sidebar_icon</span>: <span class="string"><span class="content">mdi:work</span></span>
-    <span class="key">url_path</span>: <span class="string"><span class="content">my-todomvc</span></span>
-    <span class="key">webcomponent_path</span>: <span class="string"><span class="content">/home/hass/hello.html</span></span>
-    <span class="key">config</span>:
-      <span class="key">hello</span>: <span class="string"><span class="content">world</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">panel_custom</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">todomvc</span>
+    <span class="s">sidebar_title</span><span class="pi">:</span> <span class="s">TodoMVC</span>
+    <span class="s">sidebar_icon</span><span class="pi">:</span> <span class="s">mdi:work</span>
+    <span class="s">url_path</span><span class="pi">:</span> <span class="s">my-todomvc</span>
+    <span class="s">webcomponent_path</span><span class="pi">:</span> <span class="s">/home/hass/hello.html</span>
+    <span class="s">config</span><span class="pi">:</span>
+      <span class="s">hello</span><span class="pi">:</span> <span class="s">world</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -112,9 +110,9 @@
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): Name of the panel.</li>
   <li><strong>sidebar_title</strong> (<em>Optional</em>): Friendly title for the panel in the sidebar. Omitting it means no sidebar entry (but still accessible through the URL).</li>
-  <li><strong>sidebar_icon</strong> (<em>Optional</em>): Icon for entry. Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code>mdi:</code>. For example <code>mdi:car</code>, <code>mdi:ambulance</code>, or  <code>mdi:motorbike</code>.</li>
+  <li><strong>sidebar_icon</strong> (<em>Optional</em>): Icon for entry. Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:car</code>, <code class="highlighter-rouge">mdi:ambulance</code>, or  <code class="highlighter-rouge">mdi:motorbike</code>.</li>
   <li><strong>url_path</strong> (<em>Optional</em>): The URL your panel will be available on. If omitted will default to the panel name.</li>
-  <li><strong>webcomponent_path</strong> (<em>Optional</em>): The  path to your component. If omitted will default to <code>&lt;config dir&gt;/panels/&lt;component name&gt;.html</code></li>
+  <li><strong>webcomponent_path</strong> (<em>Optional</em>): The  path to your component. If omitted will default to <code class="highlighter-rouge">&lt;config dir&gt;/panels/&lt;component name&gt;.html</code></li>
   <li><strong>config</strong> (<em>Optional</em>): Configuration to be passed into your web component when being instantiated.</li>
 </ul>
 

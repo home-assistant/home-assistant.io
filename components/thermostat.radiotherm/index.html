@@ -89,35 +89,35 @@
   <hr class="divider">
   
 
-  <p>The <code>radiotherm</code> thermostat platform let you control a thermostat from <a href="http://www.radiothermostat.com/">Radio Thermostat</a>.</p>
+  <p>The <code class="highlighter-rouge">radiotherm</code> thermostat platform let you control a thermostat from <a href="http://www.radiothermostat.com/">Radio Thermostat</a>.</p>
 
-<p>The underlaying library supports:<br />
-- CT50 V1.09<br />
-- CT50 V1.88<br />
-- CT50 V1.94 (also known as Filtrete 3M50)<br />
-- CT80 Rev B2 V1.03</p>
+<p>The underlaying library supports:</p>
+<ul>
+  <li>CT50 V1.09</li>
+  <li>CT50 V1.88</li>
+  <li>CT50 V1.94 (also known as Filtrete 3M50)</li>
+  <li>CT80 Rev B2 V1.03</li>
+</ul>
 
-<p>To set it up, add the following information to your <code>configuration.yaml</code> file:</p>
+<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">thermostat</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">radiotherm</span></span>
-  <span class="key">host</span>:
-    - <span class="string"><span class="content">192.168.99.137</span></span>
-    - <span class="string"><span class="content">192.168.99.202</span></span>
-  <span class="key">hold_temp</span>: <span class="string"><span class="content">True</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">thermostat</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">radiotherm</span>
+  <span class="s">host</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">192.168.99.137</span>
+    <span class="pi">-</span> <span class="s">192.168.99.202</span>
+  <span class="s">hold_temp</span><span class="pi">:</span> <span class="s">True</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): List of your Radiotherm thermostats</li>
-  <li><strong>hold_temp</strong> (<em>Required</em>): Boolean to control if Home Assistant temperature adjustments hold (<code>True</code>) or are temporary (<code>False</code>).</li>
+  <li><strong>hold_temp</strong> (<em>Required</em>): Boolean to control if Home Assistant temperature adjustments hold (<code class="highlighter-rouge">True</code>) or are temporary (<code class="highlighter-rouge">False</code>).</li>
 </ul>
 
-<p>Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to <code>False</code> if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.</p>
+<p>Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to <code class="highlighter-rouge">False</code> if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.</p>
 
 
 

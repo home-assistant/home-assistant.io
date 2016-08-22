@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code>forecast</code> platform uses the <a href="https://forecast.io/">Forecast.io</a> web service as a source of meteorological data for your location. The location is based on the <code>longitude</code> and <code>latitude</code> coordinates configured in your <code>configuration.yaml</code> file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using <a href="">Google Maps</a> and clicking on your home or <a href="http://www.openstreetmap.org/">Openstreetmap</a>.</p>
+  <p>The <code class="highlighter-rouge">forecast</code> platform uses the <a href="https://forecast.io/">Forecast.io</a> web service as a source of meteorological data for your location. The location is based on the <code class="highlighter-rouge">longitude</code> and <code class="highlighter-rouge">latitude</code> coordinates configured in your <code class="highlighter-rouge">configuration.yaml</code> file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using <a href="">Google Maps</a> and clicking on your home or <a href="http://www.openstreetmap.org/">Openstreetmap</a>.</p>
 
 <p>You need an API key which is free but requires <a href="https://developer.forecast.io/register">registration</a>. You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.</p>
 
@@ -97,36 +97,34 @@
 <a href="https://forecast.io/">Forecast.io</a> will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
 </p>
 
-<p>To add Forecast.io to your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To add Forecast.io to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">forecast</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_APP_KEY</span></span>
-  <span class="key">monitored_conditions</span>:
-    - <span class="string"><span class="content">summary</span></span>
-    - <span class="string"><span class="content">icon</span></span>
-    - <span class="string"><span class="content">nearest_storm_distance</span></span>
-    - <span class="string"><span class="content">nearest_storm_bearing</span></span>
-    - <span class="string"><span class="content">precip_type</span></span>
-    - <span class="string"><span class="content">precip_intensity</span></span>
-    - <span class="string"><span class="content">precip_probability</span></span>
-    - <span class="string"><span class="content">temperature</span></span>
-    - <span class="string"><span class="content">apparent_temperature</span></span>
-    - <span class="string"><span class="content">dew_point</span></span>
-    - <span class="string"><span class="content">wind_speed</span></span>
-    - <span class="string"><span class="content">wind_bearing</span></span>
-    - <span class="string"><span class="content">cloud_cover</span></span>
-    - <span class="string"><span class="content">humidity</span></span>
-    - <span class="string"><span class="content">pressure</span></span>
-    - <span class="string"><span class="content">visibility</span></span>
-    - <span class="string"><span class="content">ozone</span></span>
-    - <span class="string"><span class="content">minutely_summary</span></span>
-    - <span class="string"><span class="content">hourly_summary</span></span>
-    - <span class="string"><span class="content">daily_summary</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">forecast</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_APP_KEY</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">summary</span>
+    <span class="pi">-</span> <span class="s">icon</span>
+    <span class="pi">-</span> <span class="s">nearest_storm_distance</span>
+    <span class="pi">-</span> <span class="s">nearest_storm_bearing</span>
+    <span class="pi">-</span> <span class="s">precip_type</span>
+    <span class="pi">-</span> <span class="s">precip_intensity</span>
+    <span class="pi">-</span> <span class="s">precip_probability</span>
+    <span class="pi">-</span> <span class="s">temperature</span>
+    <span class="pi">-</span> <span class="s">apparent_temperature</span>
+    <span class="pi">-</span> <span class="s">dew_point</span>
+    <span class="pi">-</span> <span class="s">wind_speed</span>
+    <span class="pi">-</span> <span class="s">wind_bearing</span>
+    <span class="pi">-</span> <span class="s">cloud_cover</span>
+    <span class="pi">-</span> <span class="s">humidity</span>
+    <span class="pi">-</span> <span class="s">pressure</span>
+    <span class="pi">-</span> <span class="s">visibility</span>
+    <span class="pi">-</span> <span class="s">ozone</span>
+    <span class="pi">-</span> <span class="s">minutely_summary</span>
+    <span class="pi">-</span> <span class="s">hourly_summary</span>
+    <span class="pi">-</span> <span class="s">daily_summary</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -154,8 +152,8 @@
       <li><strong>daily_summary</strong>: A human-readable text summary for the next 7 days.</li>
     </ul>
   </li>
-  <li><strong>units</strong> (<em>Optional</em>): Specify the unit system. Default to <code>si</code> or <code>us</code> based on the temperature preference in Home Assistant. Other options are <code>auto</code>, <code>us</code>, <code>si</code>, <code>ca</code>, and <code>uk2</code>.<br />
-<code>auto</code> will let forecast.io decide the unit system based on location.</li>
+  <li><strong>units</strong> (<em>Optional</em>): Specify the unit system. Default to <code class="highlighter-rouge">si</code> or <code class="highlighter-rouge">us</code> based on the temperature preference in Home Assistant. Other options are <code class="highlighter-rouge">auto</code>, <code class="highlighter-rouge">us</code>, <code class="highlighter-rouge">si</code>, <code class="highlighter-rouge">ca</code>, and <code class="highlighter-rouge">uk2</code>.
+<code class="highlighter-rouge">auto</code> will let forecast.io decide the unit system based on location.</li>
 </ul>
 
 <p>Details about the API are available in the <a href="https://developer.forecast.io/docs/v2">Forecast.io documentation</a>.</p>

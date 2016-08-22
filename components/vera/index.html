@@ -95,28 +95,24 @@
 
 <p>To use  Vera devices in your installation, add the following to your configuration.yaml file using the IP and port number of your Vera controller:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">vera</span>:
-  <span class="key">vera_controller_url</span>: <span class="string"><span class="content">http://192.168.1.161:3480/</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">vera</span><span class="pi">:</span>
+  <span class="s">vera_controller_url</span><span class="pi">:</span> <span class="s">http://192.168.1.161:3480/</span>
+</code></pre>
 </div>
 
-<p>By default your switches will be added to HA as switches, however if some of them are light switches, you can tell HA this using the optional <code>lights</code> parameter as shown below.</p>
+<p>By default your switches will be added to HA as switches, however if some of them are light switches, you can tell HA this using the optional <code class="highlighter-rouge">lights</code> parameter as shown below.</p>
 
-<p>Vera imports detailed zwave devices into HA - this can include system devices and other devices that you don’t use, you can tell HA not to load these devices using the <code>exclude:</code> parameter as shown below.</p>
+<p>Vera imports detailed zwave devices into HA - this can include system devices and other devices that you don’t use, you can tell HA not to load these devices using the <code class="highlighter-rouge">exclude:</code> parameter as shown below.</p>
 
-<p>You can find the vera device id either by looking at your vera controller - or by checking the <code>Vera Device Id</code> attribute on each device imported into HA.</p>
+<p>You can find the vera device id either by looking at your vera controller - or by checking the <code class="highlighter-rouge">Vera Device Id</code> attribute on each device imported into HA.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">vera</span>:
-  <span class="key">vera_controller_url</span>: <span class="string"><span class="content">http://192.168.1.161:3480/</span></span>
-  <span class="comment"># Optional to exclude devices - this is a list of vera device ids</span>
-  <span class="key">exclude</span>: <span class="string"><span class="content">[ 13, 14, 16, 20, 23, 72, 73, 74, 75, 76, 77, 78, 88, 89, 99]</span></span>
-  <span class="comment"># Optional to import switches as lights - this is a list of vera device ids</span>
-  <span class="key">lights</span>: <span class="string"><span class="content">[15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">vera</span><span class="pi">:</span>
+  <span class="s">vera_controller_url</span><span class="pi">:</span> <span class="s">http://192.168.1.161:3480/</span>
+  <span class="c1"># Optional to exclude devices - this is a list of vera device ids</span>
+  <span class="s">exclude</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">13</span><span class="pi">,</span> <span class="nv">14</span><span class="pi">,</span> <span class="nv">16</span><span class="pi">,</span> <span class="nv">20</span><span class="pi">,</span> <span class="nv">23</span><span class="pi">,</span> <span class="nv">72</span><span class="pi">,</span> <span class="nv">73</span><span class="pi">,</span> <span class="nv">74</span><span class="pi">,</span> <span class="nv">75</span><span class="pi">,</span> <span class="nv">76</span><span class="pi">,</span> <span class="nv">77</span><span class="pi">,</span> <span class="nv">78</span><span class="pi">,</span> <span class="nv">88</span><span class="pi">,</span> <span class="nv">89</span><span class="pi">,</span> <span class="nv">99</span><span class="pi">]</span>
+  <span class="c1"># Optional to import switches as lights - this is a list of vera device ids</span>
+  <span class="s">lights</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">15</span><span class="pi">,</span> <span class="nv">17</span><span class="pi">,</span> <span class="nv">19</span><span class="pi">,</span> <span class="nv">21</span><span class="pi">,</span> <span class="nv">22</span><span class="pi">,</span> <span class="nv">24</span><span class="pi">,</span> <span class="nv">26</span><span class="pi">,</span> <span class="nv">43</span><span class="pi">,</span> <span class="nv">64</span><span class="pi">,</span> <span class="nv">70</span><span class="pi">,</span> <span class="nv">87</span><span class="pi">]</span>
+</code></pre>
 </div>
 
 

@@ -101,78 +101,68 @@
 
 <h4><a class="title-link" name="subdomain" href="#subdomain"></a> Subdomain</h4>
 
-<p>So you already have a working Apache server available at example.org.<br />
+<p>So you already have a working Apache server available at example.org.
 Your home assistant is correctly working on this web server and available at localhost:8123</p>
 
-<p>To be able to access to your home assistant instance by using https://home.example.org, add to following file into <code>/etc/httpd/conf/extra/hass.conf</code></p>
+<p>To be able to access to your home assistant instance by using https://home.example.org, add to following file into <code class="highlighter-rouge">/etc/httpd/conf/extra/hass.conf</code></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&lt;VirtualHost *:443&gt;
+<pre><code class="language-apacheconf">&lt;VirtualHost *:443&gt;
   ProxyPreserveHost On
   ProxyRequests Off
   ServerName home.example.org
   ProxyPass / http://localhost:8123/
   ProxyPassReverse / http://localhost:8123/
 &lt;/VirtualHost&gt;
-</pre></div>
-</div>
-</div>
+</code></pre>
 
-<p>and make sure that this file is read by apache’s main configiuration file <code>/etc/httpd/conf/httpd.conf</code></p>
+<p>and make sure that this file is read by apache’s main configiuration file <code class="highlighter-rouge">/etc/httpd/conf/httpd.conf</code></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>...
+<pre><code class="language-apacheconf">...
 Include conf/extra/hass.conf
 ...
-</pre></div>
-</div>
-</div>
+</code></pre>
 
-<p>If you don’t want HTTPS, you can change <code>&lt;VirtualHost *:443&gt;</code> to <code>&lt;VirtualHost *:80&gt;</code> or better consider redirecting all HTTP to HTTPS.</p>
+<p>If you don’t want HTTPS, you can change <code class="highlighter-rouge">&lt;VirtualHost *:443&gt;</code> to <code class="highlighter-rouge">&lt;VirtualHost *:80&gt;</code> or better consider redirecting all HTTP to HTTPS.</p>
 
 <h4><a class="title-link" name="multiple-instance" href="#multiple-instance"></a> Multiple Instance</h4>
 
-<p>You already have home assistant running on localhost:8123 and available at home.example.org as describe before.<br />
-The configuration file for this home assistant is available in <code>/home/alice/.homeassistant/configuration.yaml</code></p>
+<p>You already have home assistant running on localhost:8123 and available at home.example.org as describe before.
+The configuration file for this home assistant is available in <code class="highlighter-rouge">/home/alice/.homeassistant/configuration.yaml</code></p>
 
 <p>You want another instance available at https://countryside.example.org</p>
 
-<p>You can either :<br />
- * Create a new user, <code>bob</code>, to hold the configuration file in <code>/home/bob/.homeassistant/configuration.yaml</code> and run home assistant as this new user<br />
- * Create another configuration directory in <code>/home/alice/.homeassistan2/configuration.yaml</code> and run home assistant using <code>hass --config /home/alice/.homeassistant2/</code></p>
+<p>You can either :</p>
+<ul>
+  <li>Create a new user, <code class="highlighter-rouge">bob</code>, to hold the configuration file in <code class="highlighter-rouge">/home/bob/.homeassistant/configuration.yaml</code> and run home assistant as this new user</li>
+  <li>Create another configuration directory in <code class="highlighter-rouge">/home/alice/.homeassistan2/configuration.yaml</code> and run home assistant using <code class="highlighter-rouge">hass --config /home/alice/.homeassistant2/</code></li>
+</ul>
 
-<p>In both solution, change port number used by modifying <code>configuration.yaml</code></p>
+<p>In both solution, change port number used by modifying <code class="highlighter-rouge">configuration.yaml</code></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">http</span>:
-  <span class="key">server_port</span>: <span class="string"><span class="content">8124</span></span>
-  <span class="error">...</span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">server_port</span><span class="pi">:</span> <span class="s">8124</span>
+  <span class="s">...</span>
+</code></pre>
 </div>
 
 <p>Start home assistant: Now, you have another instance running on localhost:8124</p>
 
-<p>To access this instance by using https://countryside.example.org add to <code>/etc/httpd/conf/extra/hass.conf</code></p>
+<p>To access this instance by using https://countryside.example.org add to <code class="highlighter-rouge">/etc/httpd/conf/extra/hass.conf</code></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&lt;VirtualHost *:443&gt;
+<pre><code class="language-apacheconf">&lt;VirtualHost *:443&gt;
   ProxyPreserveHost On
   ProxyRequests Off
   ServerName countryside.example.org
   ProxyPass / http://localhost:8124/
   ProxyPassReverse / http://localhost:8124/
 &lt;/VirtualHost&gt;
-</pre></div>
-</div>
-</div>
+</code></pre>
 
 <h4><a class="title-link" name="http-to-https-redirection" href="#http-to-https-redirection"></a> HTTP to HTTPS redirection</h4>
 
-<p>Add to your <code>/etc/httpd/conf/extra/hass.conf</code></p>
+<p>Add to your <code class="highlighter-rouge">/etc/httpd/conf/extra/hass.conf</code></p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&lt;VirtualHost *:80&gt;
+<pre><code class="language-apacheconf">&lt;VirtualHost *:80&gt;
   ServerName example.org
   ServerSignature Off
 
@@ -180,9 +170,7 @@ The configuration file for this home assistant is available in <code>/home/alice
   RewriteCond %{HTTPS} !=on
   RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [NE,R,L]
 &lt;/VirtualHost&gt;
-</pre></div>
-</div>
-</div>
+</code></pre>
 
 
 </article>

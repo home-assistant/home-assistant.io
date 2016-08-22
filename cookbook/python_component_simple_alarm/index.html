@@ -93,15 +93,13 @@
 
 <p>This component depends on the components <a href="/components/device_tracker/">device_tracker</a> and <a href="/components/light/">light</a> being setup.</p>
 
-<p>To set it up, add the following lines to your <code>configuration.yaml</code> file:</p>
+<p>To set it up, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">simple_alarm</span>:
-  <span class="key">known_light</span>: <span class="string"><span class="content">light.Bowl</span></span>
-  <span class="key">unknown_light</span>: <span class="string"><span class="content">group.living_room</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">simple_alarm</span><span class="pi">:</span>
+  <span class="s">known_light</span><span class="pi">:</span> <span class="s">light.Bowl</span>
+  <span class="s">unknown_light</span><span class="pi">:</span> <span class="s">group.living_room</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
@@ -111,101 +109,99 @@
   <li><strong>unknown_light</strong> (<em>Optional</em>): Which light/light group has to flash red when light turns on while no one home.</li>
 </ul>
 
-<p>Create the file <code>&lt;config dir&gt;/custom_components/simple_alarm.py</code> and copy paste the content below:</p>
+<p>Create the file <code class="highlighter-rouge">&lt;config dir&gt;/custom_components/simple_alarm.py</code> and copy paste the content below:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">Simple alarm component.</span><span class="delimiter">&quot;&quot;&quot;</span></span>
-<span class="keyword">import</span> <span class="include">logging</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="s">"""Simple alarm component."""</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 
-<span class="keyword">import</span> <span class="include">homeassistant.loader</span> <span class="keyword">as</span> loader
-<span class="keyword">from</span> <span class="include">homeassistant.components</span> <span class="keyword">import</span> <span class="include">device_tracker</span>, <span class="include">light</span>, <span class="include">notify</span>
-<span class="keyword">from</span> <span class="include">homeassistant.helpers.event</span> <span class="keyword">import</span> <span class="include">track_state_change</span>
-<span class="keyword">from</span> <span class="include">homeassistant.const</span> <span class="keyword">import</span> <span class="include">STATE_ON</span>, <span class="include">STATE_OFF</span>, <span class="include">STATE_HOME</span>, <span class="include">STATE_NOT_HOME</span>
+<span class="kn">import</span> <span class="nn">homeassistant.loader</span> <span class="kn">as</span> <span class="nn">loader</span>
+<span class="kn">from</span> <span class="nn">homeassistant.components</span> <span class="kn">import</span> <span class="n">device_tracker</span><span class="p">,</span> <span class="n">light</span><span class="p">,</span> <span class="n">notify</span>
+<span class="kn">from</span> <span class="nn">homeassistant.helpers.event</span> <span class="kn">import</span> <span class="n">track_state_change</span>
+<span class="kn">from</span> <span class="nn">homeassistant.const</span> <span class="kn">import</span> <span class="n">STATE_ON</span><span class="p">,</span> <span class="n">STATE_OFF</span><span class="p">,</span> <span class="n">STATE_HOME</span><span class="p">,</span> <span class="n">STATE_NOT_HOME</span>
 
-DOMAIN = <span class="string"><span class="delimiter">&quot;</span><span class="content">simple_alarm</span><span class="delimiter">&quot;</span></span>
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">"simple_alarm"</span>
 
-DEPENDENCIES = [<span class="string"><span class="delimiter">'</span><span class="content">group</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">device_tracker</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">light</span><span class="delimiter">'</span></span>]
+<span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s">'group'</span><span class="p">,</span> <span class="s">'device_tracker'</span><span class="p">,</span> <span class="s">'light'</span><span class="p">]</span>
 
-<span class="comment"># Attribute to tell which light has to flash whem a known person comes home</span>
-<span class="comment"># If omitted will flash all.</span>
-CONF_KNOWN_LIGHT = <span class="string"><span class="delimiter">&quot;</span><span class="content">known_light</span><span class="delimiter">&quot;</span></span>
+<span class="c"># Attribute to tell which light has to flash whem a known person comes home</span>
+<span class="c"># If omitted will flash all.</span>
+<span class="n">CONF_KNOWN_LIGHT</span> <span class="o">=</span> <span class="s">"known_light"</span>
 
-<span class="comment"># Attribute to tell which light has to flash whem an unknown person comes home</span>
-<span class="comment"># If omitted will flash all.</span>
-CONF_UNKNOWN_LIGHT = <span class="string"><span class="delimiter">&quot;</span><span class="content">unknown_light</span><span class="delimiter">&quot;</span></span>
+<span class="c"># Attribute to tell which light has to flash whem an unknown person comes home</span>
+<span class="c"># If omitted will flash all.</span>
+<span class="n">CONF_UNKNOWN_LIGHT</span> <span class="o">=</span> <span class="s">"unknown_light"</span>
 
-<span class="comment"># Services to test the alarms</span>
-SERVICE_TEST_KNOWN_ALARM = <span class="string"><span class="delimiter">&quot;</span><span class="content">test_known</span><span class="delimiter">&quot;</span></span>
-SERVICE_TEST_UNKNOWN_ALARM = <span class="string"><span class="delimiter">&quot;</span><span class="content">test_unknown</span><span class="delimiter">&quot;</span></span>
+<span class="c"># Services to test the alarms</span>
+<span class="n">SERVICE_TEST_KNOWN_ALARM</span> <span class="o">=</span> <span class="s">"test_known"</span>
+<span class="n">SERVICE_TEST_UNKNOWN_ALARM</span> <span class="o">=</span> <span class="s">"test_unknown"</span>
 
 
-<span class="keyword">def</span> <span class="function">setup</span>(hass, config):
-    <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Sets up the simple alarms. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-    logger = logging.getLogger(__name__)
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="s">""" Sets up the simple alarms. """</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
-    light_ids = []
+    <span class="n">light_ids</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="keyword">for</span> conf_key <span class="keyword">in</span> (CONF_KNOWN_LIGHT, CONF_UNKNOWN_LIGHT):
-        light_id = config[DOMAIN].get(conf_key, light.ENTITY_ID_ALL_LIGHTS)
+    <span class="k">for</span> <span class="n">conf_key</span> <span class="ow">in</span> <span class="p">(</span><span class="n">CONF_KNOWN_LIGHT</span><span class="p">,</span> <span class="n">CONF_UNKNOWN_LIGHT</span><span class="p">):</span>
+        <span class="n">light_id</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">DOMAIN</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">conf_key</span><span class="p">,</span> <span class="n">light</span><span class="o">.</span><span class="n">ENTITY_ID_ALL_LIGHTS</span><span class="p">)</span>
 
-        <span class="keyword">if</span> hass.states.get(light_id) <span class="keyword">is</span> <span class="predefined-constant">None</span>:
-            logger.error(
-                <span class="string"><span class="delimiter">'</span><span class="content">Light id %s could not be found in state machine</span><span class="delimiter">'</span></span>, light_id)
+        <span class="k">if</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">light_id</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="s">'Light id </span><span class="si">%</span><span class="s">s could not be found in state machine'</span><span class="p">,</span> <span class="n">light_id</span><span class="p">)</span>
 
-            <span class="keyword">return</span> <span class="predefined-constant">False</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
-        light_ids.append(light_id)
+        <span class="n">light_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">light_id</span><span class="p">)</span>
 
-    <span class="comment"># pylint: disable=unbalanced-tuple-unpacking</span>
-    known_light_id, unknown_light_id = light_ids
+    <span class="c"># pylint: disable=unbalanced-tuple-unpacking</span>
+    <span class="n">known_light_id</span><span class="p">,</span> <span class="n">unknown_light_id</span> <span class="o">=</span> <span class="n">light_ids</span>
 
-    <span class="keyword">if</span> hass.states.get(device_tracker.ENTITY_ID_ALL_DEVICES) <span class="keyword">is</span> <span class="predefined-constant">None</span>:
-        logger.error(<span class="string"><span class="delimiter">'</span><span class="content">No devices are being tracked, cannot setup alarm</span><span class="delimiter">'</span></span>)
+    <span class="k">if</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">device_tracker</span><span class="o">.</span><span class="n">ENTITY_ID_ALL_DEVICES</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">'No devices are being tracked, cannot setup alarm'</span><span class="p">)</span>
 
-        <span class="keyword">return</span> <span class="predefined-constant">False</span>
+        <span class="k">return</span> <span class="bp">False</span>
 
-    <span class="keyword">def</span> <span class="function">known_alarm</span>():
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Fire an alarm if a known person arrives home. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        light.turn_on(hass, known_light_id, flash=light.FLASH_SHORT)
+    <span class="k">def</span> <span class="nf">known_alarm</span><span class="p">():</span>
+        <span class="s">""" Fire an alarm if a known person arrives home. """</span>
+        <span class="n">light</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">known_light_id</span><span class="p">,</span> <span class="n">flash</span><span class="o">=</span><span class="n">light</span><span class="o">.</span><span class="n">FLASH_SHORT</span><span class="p">)</span>
 
-    <span class="keyword">def</span> <span class="function">unknown_alarm</span>():
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Fire an alarm if the light turns on while no one is home. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        light.turn_on(
-            hass, unknown_light_id,
-            flash=light.FLASH_LONG, rgb_color=[<span class="integer">255</span>, <span class="integer">0</span>, <span class="integer">0</span>])
+    <span class="k">def</span> <span class="nf">unknown_alarm</span><span class="p">():</span>
+        <span class="s">""" Fire an alarm if the light turns on while no one is home. """</span>
+        <span class="n">light</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span>
+            <span class="n">hass</span><span class="p">,</span> <span class="n">unknown_light_id</span><span class="p">,</span>
+            <span class="n">flash</span><span class="o">=</span><span class="n">light</span><span class="o">.</span><span class="n">FLASH_LONG</span><span class="p">,</span> <span class="n">rgb_color</span><span class="o">=</span><span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 
-        <span class="comment"># Send a message to the user</span>
-        notify.send_message(
-            hass, <span class="string"><span class="delimiter">&quot;</span><span class="content">The lights just got turned on while no one was home.</span><span class="delimiter">&quot;</span></span>)
+        <span class="c"># Send a message to the user</span>
+        <span class="n">notify</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span>
+            <span class="n">hass</span><span class="p">,</span> <span class="s">"The lights just got turned on while no one was home."</span><span class="p">)</span>
 
-    <span class="comment"># Setup services to test the effect</span>
-    hass.services.register(
-        DOMAIN, SERVICE_TEST_KNOWN_ALARM, <span class="keyword">lambda</span> call: known_alarm())
-    hass.services.register(
-        DOMAIN, SERVICE_TEST_UNKNOWN_ALARM, <span class="keyword">lambda</span> call: unknown_alarm())
+    <span class="c"># Setup services to test the effect</span>
+    <span class="n">hass</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="n">DOMAIN</span><span class="p">,</span> <span class="n">SERVICE_TEST_KNOWN_ALARM</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">call</span><span class="p">:</span> <span class="n">known_alarm</span><span class="p">())</span>
+    <span class="n">hass</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="n">DOMAIN</span><span class="p">,</span> <span class="n">SERVICE_TEST_UNKNOWN_ALARM</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">call</span><span class="p">:</span> <span class="n">unknown_alarm</span><span class="p">())</span>
 
-    <span class="keyword">def</span> <span class="function">unknown_alarm_if_lights_on</span>(entity_id, old_state, new_state):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Called when a light has been turned on. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        <span class="keyword">if</span> <span class="keyword">not</span> device_tracker.is_on(hass):
-            unknown_alarm()
+    <span class="k">def</span> <span class="nf">unknown_alarm_if_lights_on</span><span class="p">(</span><span class="n">entity_id</span><span class="p">,</span> <span class="n">old_state</span><span class="p">,</span> <span class="n">new_state</span><span class="p">):</span>
+        <span class="s">""" Called when a light has been turned on. """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">device_tracker</span><span class="o">.</span><span class="n">is_on</span><span class="p">(</span><span class="n">hass</span><span class="p">):</span>
+            <span class="n">unknown_alarm</span><span class="p">()</span>
 
-    track_state_change(
-        hass, light.ENTITY_ID_ALL_LIGHTS,
-        unknown_alarm_if_lights_on, STATE_OFF, STATE_ON)
+    <span class="n">track_state_change</span><span class="p">(</span>
+        <span class="n">hass</span><span class="p">,</span> <span class="n">light</span><span class="o">.</span><span class="n">ENTITY_ID_ALL_LIGHTS</span><span class="p">,</span>
+        <span class="n">unknown_alarm_if_lights_on</span><span class="p">,</span> <span class="n">STATE_OFF</span><span class="p">,</span> <span class="n">STATE_ON</span><span class="p">)</span>
 
-    <span class="keyword">def</span> <span class="function">ring_known_alarm</span>(entity_id, old_state, new_state):
-        <span class="docstring"><span class="delimiter">&quot;&quot;&quot;</span><span class="content"> Called when a known person comes home. </span><span class="delimiter">&quot;&quot;&quot;</span></span>
-        <span class="keyword">if</span> light.is_on(hass, known_light_id):
-            known_alarm()
+    <span class="k">def</span> <span class="nf">ring_known_alarm</span><span class="p">(</span><span class="n">entity_id</span><span class="p">,</span> <span class="n">old_state</span><span class="p">,</span> <span class="n">new_state</span><span class="p">):</span>
+        <span class="s">""" Called when a known person comes home. """</span>
+        <span class="k">if</span> <span class="n">light</span><span class="o">.</span><span class="n">is_on</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">known_light_id</span><span class="p">):</span>
+            <span class="n">known_alarm</span><span class="p">()</span>
 
-    <span class="comment"># Track home coming of each device</span>
-    track_state_change(
-        hass, hass.states.entity_ids(device_tracker.DOMAIN),
-        ring_known_alarm, STATE_NOT_HOME, STATE_HOME)
+    <span class="c"># Track home coming of each device</span>
+    <span class="n">track_state_change</span><span class="p">(</span>
+        <span class="n">hass</span><span class="p">,</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">entity_ids</span><span class="p">(</span><span class="n">device_tracker</span><span class="o">.</span><span class="n">DOMAIN</span><span class="p">),</span>
+        <span class="n">ring_known_alarm</span><span class="p">,</span> <span class="n">STATE_NOT_HOME</span><span class="p">,</span> <span class="n">STATE_HOME</span><span class="p">)</span>
 
-    <span class="keyword">return</span> <span class="predefined-constant">True</span>
-</pre></div>
-</div>
+    <span class="k">return</span> <span class="bp">True</span>
+</code></pre>
 </div>
 
 

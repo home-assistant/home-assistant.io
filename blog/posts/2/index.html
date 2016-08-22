@@ -96,7 +96,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -112,7 +112,7 @@
 
 
   <div class="entry-content clearfix">
-    <p><img src="/images/blog/2016-07-pocketchip/pocketchip-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+    <p><img src="/images/blog/2016-07-pocketchip/pocketchip-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 Over a year ago I participated in the <a href="https://www.kickstarter.com/projects/1598272670/chip-the-worlds-first-9-computer/description">kickstarter campaign</a> for “CHIP - The World’s First Nine Dollar Computer” by <a href="https://www.nextthing.co/">Next Thing Co.</a>. I went for the PocketCHIP because of the idea. Display, built-in storage (thus no need for SD cards), battery-powered, and a keyboard are pretty nice features. Last week a package arrives…</p>
 
 
@@ -141,7 +141,7 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -210,7 +210,7 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
 <h3><a class="title-link" name="faq" href="#faq"></a> FAQ</h3>
 
 <ul>
-  <li><code>elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code>[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code>configuration.yaml</code> file.</li>
+  <li><code class="highlighter-rouge">elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code class="highlighter-rouge">[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
 </ul>
 
 
@@ -237,7 +237,7 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/how-to/'>How-To</a></li>
+        <li>How-To</li>
       
     
     </ul>
@@ -253,7 +253,7 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
 
 
   <div class="entry-content clearfix">
-    <p><img src="/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><br />
+    <p><img src="/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
 
 <p>In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
@@ -284,7 +284,7 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -341,14 +341,12 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   <li>The new Netatmo support caused us to change how Netatmo are configured. It’s now done via it’s own component.</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">netatmo</span>:
-    <span class="key">api_key</span>: <span class="string"><span class="content">API_KEY</span></span>
-    <span class="key">secret_key</span>: <span class="string"><span class="content">SECRET_KEY</span></span>
-    <span class="key">username</span>: <span class="string"><span class="content">username</span></span>
-    <span class="key">password</span>: <span class="string"><span class="content">password</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">netatmo</span><span class="pi">:</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
+    <span class="s">secret_key</span><span class="pi">:</span> <span class="s">SECRET_KEY</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">username</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
+</code></pre>
 </div>
 
 <h3><a class="title-link" name="hotfix-0221---june-20" href="#hotfix-0221---june-20"></a> Hotfix 0.22.1 - June 20</h3>
@@ -381,7 +379,7 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/video/'>Video</a></li>
+        <li>Video</li>
       
     
     </ul>
@@ -438,7 +436,7 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -488,7 +486,7 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
 <ul>
   <li>Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error</li>
   <li>The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have <a href="/developers/rest_api/">been updated</a>.</li>
-  <li>Make sure your configuration.yaml file contains <code>frontend:</code> to serve the frontend</li>
+  <li>Make sure your configuration.yaml file contains <code class="highlighter-rouge">frontend:</code> to serve the frontend</li>
 </ul>
 
 <h3>Hotfixes 0.21.1 and 0.21.2</h3>
@@ -540,9 +538,9 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/community/'>Community</a></li>
+        <li>Community</li>
       
-        <li><a class='category' href='/blog/categories/video/'>Video</a></li>
+        <li>Video</li>
       
     
     </ul>
@@ -608,11 +606,11 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/device-tracking/'>Device-Tracking</a></li>
+        <li>Device-Tracking</li>
       
-        <li><a class='category' href='/blog/categories/owntracks/'>OwnTracks</a></li>
+        <li>OwnTracks</li>
       
-        <li><a class='category' href='/blog/categories/ibeacons/'>iBeacons</a></li>
+        <li>iBeacons</li>
       
     
     </ul>
@@ -668,13 +666,13 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   <div class="meta clearfix">
     <time datetime="2016-05-22T16:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 22, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> less than one minute reading time</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/video/'>Video</a></li>
+        <li>Video</li>
       
     
     </ul>
@@ -692,10 +690,8 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   <div class="entry-content clearfix">
     <p>We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That’s why <a href="https://github.com/jbags81">@jbags81</a> recently introduced the <a href="/getting-started/installation-raspberry-pi-all-in-one/">all-in-one installer</a>. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh &amp;&amp; bash hass_rpi_installer.sh;
-</pre></div>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh <span class="o">&amp;&amp;</span> bash hass_rpi_installer.sh;
+</code></pre>
 </div>
 
 <p>This feature wouldn’t be complete if it wasn’t accompanied by a new video by Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a>. The video shows how to install Raspbian Jessie on your Raspberry Pi and use the new installation script to get a full Home Assistant system up and running.</p>
@@ -728,7 +724,7 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/release-notes/'>Release-Notes</a></li>
+        <li>Release-Notes</li>
       
     
     </ul>
@@ -752,7 +748,7 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   <li>Restarting now supported without forking (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
   <li>Add <a href="/components/recorder/">purge days option</a> to recorder component (<a href="https://github.com/justyns">@justyns</a>, <a href="https://github.com/infamy">@infamy</a>)</li>
   <li>Generic load_platform mechanism for entity components (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Template: new <a href="/topics/templating/#home-assistant-template-extensions"><code>relative_time</code></a> function to render ie. <code>7 seconds ago</code> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Template: new <a href="/topics/templating/#home-assistant-template-extensions"><code class="highlighter-rouge">relative_time</code></a> function to render ie. <code class="highlighter-rouge">7 seconds ago</code> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>Sensor: <a href="/components/sensor.supervisord/">supervisord</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
   <li>Docker: we should no longer get SSL errors with requests (<a href="https://github.com/lwis">@lwis</a>)</li>
   <li>Media Player: <a href="/components/media_player.gpmdp/">Google Play Music Desktop Player</a> now supported (<a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
@@ -764,7 +760,7 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   <li>Sensor: <a href="/components/sensor.lastfm/">Last.fm</a> now supported (<a href="https://github.com/darookee">@darookee</a>, <a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
   <li>Notify: Amazon <a href="/components/notify.aws_lambda/">Lambda</a>, <a href="/components/notify.aws_sns/">SNS</a>, <a href="/components/notify.aws_sqs/">SQS</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>Light: allow human readable colors in turn_on command (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>YAML: new include dir options <a href="/topics/splitting_configuration/#advanced-usage"><code>!include_dir_merge_list</code></a> and <a href="/topics/splitting_configuration/#advanced-usage"><code>!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>YAML: new include dir options <a href="/topics/splitting_configuration/#advanced-usage"><code class="highlighter-rouge">!include_dir_merge_list</code></a> and <a href="/topics/splitting_configuration/#advanced-usage"><code class="highlighter-rouge">!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
   <li>Media Player: <a href="/components/media_player.lg_netcast/">LG Netcast TVs</a> now supported (<a href="https://github.com/wokar">@wokar</a>)</li>
   <li>Media Player: Allow enqueuing media on Sonos (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
   <li>Notify: <a href="/components/notify.ecobee/">Ecobee thermostats</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
@@ -779,12 +775,10 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   <li>Asus WRT will now default to SSH with Telnet being an option</li>
 </ul>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">device_tracker</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">asuswrt</span></span>
-  <span class="key">protocol</span>: <span class="string"><span class="content">telnet</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">asuswrt</span>
+  <span class="s">protocol</span><span class="pi">:</span> <span class="s">telnet</span>
+</code></pre>
 </div>
 
 

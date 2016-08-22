@@ -89,21 +89,19 @@
   <hr class="divider">
   
 
-  <p>The <code>foscam</code> platform allows you to watch the live stream of your <a href="http://www.foscam.com/">Foscam</a> IP camera in Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">foscam</code> platform allows you to watch the live stream of your <a href="http://www.foscam.com/">Foscam</a> IP camera in Home Assistant.</p>
 
-<p>To enable your Foscam IP camera in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable your Foscam IP camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">camera</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">foscam</span></span>
-  <span class="key">ip</span>: <span class="string"><span class="content">IP_ADDRESS</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">Door Camera</span></span>
-  <span class="key">port</span>: <span class="string"><span class="content">88</span></span>
-  <span class="key">username</span>: <span class="string"><span class="content">USERNAME</span></span>
-  <span class="key">password</span>: <span class="string"><span class="content">PASSWORD</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">foscam</span>
+  <span class="s">ip</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Door Camera</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">88</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

@@ -89,17 +89,15 @@
   <hr class="divider">
   
 
-  <p>The <code>mqtt_eventstream</code> components connects two Home Assistant instances via MQTT.</p>
+  <p>The <code class="highlighter-rouge">mqtt_eventstream</code> components connects two Home Assistant instances via MQTT.</p>
 
-<p>To integrate MQTT Eventstream into Home Assistant, add the following section to your <code>configuration.yaml</code> file:</p>
+<p>To integrate MQTT Eventstream into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">mqtt_eventstream</span>:
-  <span class="key">publish_topic</span>: <span class="string"><span class="content">MyServerName</span></span>
-  <span class="key">subscribe_topic</span>: <span class="string"><span class="content">OtherHaServerName</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mqtt_eventstream</span><span class="pi">:</span>
+  <span class="s">publish_topic</span><span class="pi">:</span> <span class="s">MyServerName</span>
+  <span class="s">subscribe_topic</span><span class="pi">:</span> <span class="s">OtherHaServerName</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>

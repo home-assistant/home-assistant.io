@@ -89,27 +89,25 @@
   <hr class="divider">
   
 
-  <p>The <code>MessageBird</code> notification platform sends notifications as SMS messages using <a href="https://www.messagebird.com/">MessageBird</a> to your mobile phone.</p>
+  <p>The <code class="highlighter-rouge">MessageBird</code> notification platform sends notifications as SMS messages using <a href="https://www.messagebird.com/">MessageBird</a> to your mobile phone.</p>
 
-<p>To enable MessageBird notifications in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To enable MessageBird notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">notify</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">message_bird</span></span>
-  <span class="key">api_key</span>: <span class="string"><span class="content">YOUR_API_KEY</span></span>
-  <span class="key">name</span>: <span class="string"><span class="content">NOTIFIER_NAME</span></span>
-  <span class="key">sender</span>: <span class="string"><span class="content">SENDER_NAME</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">message_bird</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+  <span class="s">sender</span><span class="pi">:</span> <span class="s">SENDER_NAME</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>api_key</strong> (<em>Required</em>): Enter the API key for MessageBird. Go to https://www.messagebird.com/ to retrieve your API key.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code>name</code> allows multiple notifiers to be created. The default value is <code>notify</code>. The notifier will bind to the service <code>notify.NOTIFIER_NAME</code>.</li>
-  <li><strong>sender</strong> (<em>Optional</em>): Setting the optional parameter <code>sender</code>. This will be the sender of the SMS. It may be either a telephone number (e.g. <code>+4915112345678</code>) or a text with a maximum length of 11 characters. Defaults to <code>HA</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>sender</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">sender</code>. This will be the sender of the SMS. It may be either a telephone number (e.g. <code class="highlighter-rouge">+4915112345678</code>) or a text with a maximum length of 11 characters. Defaults to <code class="highlighter-rouge">HA</code>.</li>
 </ul>
 
 <h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
@@ -118,13 +116,11 @@
 
 <h4><a class="title-link" name="example-service-payload" href="#example-service-payload"></a> Example service payload</h4>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">A message for many people</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">target</span><span class="delimiter">&quot;</span></span>: [ <span class="string"><span class="delimiter">&quot;</span><span class="content">+49123456789</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">+43123456789</span><span class="delimiter">&quot;</span></span> ]
-}
-</pre></div>
-</div>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A message for many people"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"+49123456789"</span><span class="p">,</span><span class="w"> </span><span class="s2">"+43123456789"</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 

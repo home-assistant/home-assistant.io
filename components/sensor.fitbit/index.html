@@ -93,25 +93,22 @@
 
 <p>Enable the sensor by adding the following to your configuration:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="key">sensor</span>:
-  <span class="key">platform</span>: <span class="string"><span class="content">fitbit</span></span>
-  <span class="key">monitored_resources</span>:
-    - <span class="string"><span class="delimiter">&quot;</span><span class="content">body/weight</span><span class="delimiter">&quot;</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">fitbit</span>
+  <span class="s">monitored_resources</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">body/weight"</span>
+</code></pre>
 </div>
 
 <p>Restart Home Assistant once this is complete. Go to the frontend. You will see a new entry for configuring Fitbit. Follow the instructions there to complete the setup process.</p>
 
-<p>Please be aware that Fitbit has very low rate limits, 150 per user per hour. The clock resets at the <em>top</em> of the hour (meaning it is not a rolling 60 minutes). There is no way around the limits. Due to the rate limits, the sensor only updates every 30 minutes. You can manually trigger an update by restarting Home Assistant. Keep in mind that 1 request is used for every entry in <code>monitored_resources</code>.</p>
+<p>Please be aware that Fitbit has very low rate limits, 150 per user per hour. The clock resets at the <em>top</em> of the hour (meaning it is not a rolling 60 minutes). There is no way around the limits. Due to the rate limits, the sensor only updates every 30 minutes. You can manually trigger an update by restarting Home Assistant. Keep in mind that 1 request is used for every entry in <code class="highlighter-rouge">monitored_resources</code>.</p>
 
 <p>The unit system that the sensor will use is based on the country you set in your Fitbit profile.</p>
 
-<p>Below is the list of resources that you can add to <code>monitored_resources</code>. One sensor is exposed for every resource.</p>
+<p>Below is the list of resources that you can add to <code class="highlighter-rouge">monitored_resources</code>. One sensor is exposed for every resource.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>activities/activityCalories
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>activities/activityCalories
 activities/calories
 activities/caloriesBMR
 activities/distance
@@ -144,8 +141,7 @@ sleep/minutesAwake
 sleep/minutesToFallAsleep
 sleep/startTime
 sleep/timeInBed
-</pre></div>
-</div>
+</code></pre>
 </div>
 
 

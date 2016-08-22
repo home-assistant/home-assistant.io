@@ -89,55 +89,49 @@
   <hr class="divider">
   
 
-  <p>The <code>gpsd</code> component is using the GPS information collected by <a href="http://catb.org/gpsd/">gpsd</a> and a GPS receiver.</p>
+  <p>The <code class="highlighter-rouge">gpsd</code> component is using the GPS information collected by <a href="http://catb.org/gpsd/">gpsd</a> and a GPS receiver.</p>
 
-<p>A requirement is that <code>gpsd</code> is installed (<code>$ sudo apt-get install gpsd</code> or <code>$ sudo dnf -y install gpsd</code>). <code>gpsd</code> uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, <code>gpsd</code> is started. Other GPS device may work too, but this was not tested.</p>
+<p>A requirement is that <code class="highlighter-rouge">gpsd</code> is installed (<code class="highlighter-rouge">$ sudo apt-get install gpsd</code> or <code class="highlighter-rouge">$ sudo dnf -y install gpsd</code>). <code class="highlighter-rouge">gpsd</code> uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, <code class="highlighter-rouge">gpsd</code> is started. Other GPS device may work too, but this was not tested.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo systemctl status gpsdctl@ttyUSB0.service 
-● gpsdctl@ttyUSB0.service - Manage ttyUSB0 for GPS daemon
-   Loaded: loaded (/usr/lib/systemd/system/gpsdctl@.service; static; vendor preset: disabled)
-   Active: active (exited) since Sat 2016-07-16 09:30:33 CEST; 1 day 23h ago
-  Process: 5303 ExecStart=/bin/sh -c [ &quot;$USBAUTO&quot; = true ] &amp;&amp; /usr/sbin/gpsdctl add /dev/%I || : (code=exited, status=0/SUCCESS)
- Main PID: 5303 (code=exited, status=0/SUCCESS)
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl status gpsdctl@ttyUSB0.service 
+● gpsdctl@ttyUSB0.service - Manage ttyUSB0 <span class="k">for </span>GPS daemon
+   Loaded: loaded <span class="o">(</span>/usr/lib/systemd/system/gpsdctl@.service; static; vendor preset: disabled<span class="o">)</span>
+   Active: active <span class="o">(</span>exited<span class="o">)</span> since Sat 2016-07-16 09:30:33 CEST; 1 day 23h ago
+  Process: 5303 <span class="nv">ExecStart</span><span class="o">=</span>/bin/sh -c <span class="o">[</span> <span class="s2">"</span><span class="nv">$USBAUTO</span><span class="s2">"</span> <span class="o">=</span> <span class="nb">true</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> /usr/sbin/gpsdctl add /dev/%I <span class="o">||</span> : <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>0/SUCCESS<span class="o">)</span>
+ Main PID: 5303 <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>0/SUCCESS<span class="o">)</span>
 
-Jul 16 09:30:33 laptop019 systemd[1]: Starting Manage ttyUSB0 for GPS daemon...
-Jul 16 09:30:33 laptop019 gpsdctl[5305]: gpsd_control(action=add, arg=/dev/ttyUSB0)
+Jul 16 09:30:33 laptop019 systemd[1]: Starting Manage ttyUSB0 <span class="k">for </span>GPS daemon...
+Jul 16 09:30:33 laptop019 gpsdctl[5305]: gpsd_control<span class="o">(</span><span class="nv">action</span><span class="o">=</span>add, <span class="nv">arg</span><span class="o">=</span>/dev/ttyUSB0<span class="o">)</span>
 Jul 16 09:30:33 laptop019 gpsdctl[5305]: reached a running gpsd
-</pre></div>
-</div>
+</code></pre>
 </div>
 
-<p>To check if your setup is working, connect to port 2947 on the host where <code>gpsd</code> is running with <code>telnet</code>. This may need adjustments to your firewall.</p>
+<p>To check if your setup is working, connect to port 2947 on the host where <code class="highlighter-rouge">gpsd</code> is running with <code class="highlighter-rouge">telnet</code>. This may need adjustments to your firewall.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>
-$ telnet localhost 2947
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
+<span class="gp">$ </span>telnet localhost 2947
 Trying 127.0.0.1...
 Connected to localhost.
-Escape character is '^]'.
-{&quot;class&quot;:&quot;VERSION&quot;,&quot;release&quot;:&quot;3.15&quot;,&quot;rev&quot;:&quot;3.15-2.fc23&quot;,&quot;proto_major&quot;:3,&quot;proto_minor&quot;:11}
-</pre></div>
-</div>
+Escape character is <span class="s1">'^]'</span>.
+<span class="o">{</span><span class="s2">"class"</span>:<span class="s2">"VERSION"</span>,<span class="s2">"release"</span>:<span class="s2">"3.15"</span>,<span class="s2">"rev"</span>:<span class="s2">"3.15-2.fc23"</span>,<span class="s2">"proto_major"</span>:3,<span class="s2">"proto_minor"</span>:11<span class="o">}</span>
+</code></pre>
 </div>
 
-<p>To setup a GPSD sensor in your installation, add the following to your <code>configuration.yaml</code> file:</p>
+<p>To setup a GPSD sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="comment"># Example configuration.yaml entry</span>
-<span class="key">senosr</span>:
-  - <span class="string"><span class="content">platform: gpsd</span></span>
-    <span class="key">host</span>: <span class="string"><span class="content">127.0.0.1</span></span>
-    <span class="key">port</span>: <span class="string"><span class="content">2947</span></span>
-    <span class="key">name</span>: <span class="string"><span class="content">GPS USB</span></span>
-</pre></div>
-</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">senosr</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">gpsd</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">2947</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">GPS USB</span>
+</code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): The host where GPSD is running. Defaults to <code>localhost</code>.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The host where GPSD is running. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port which GPSD is using. Defaults to 2947.</li>
   <li><strong>name</strong> (<em>Optional</em>): Friendly name to use for the frontend. Default to GPS.</li>
 </ul>
