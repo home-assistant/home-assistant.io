@@ -62,6 +62,18 @@ conditions:
       below: '20'
 ```
 
+#### {% linkable_title NOT condition %}
+
+Using the key `invert: True` each condition can be inverted.
+
+```yaml
+condition: state
+entity_id: 'device_tracker.paulus'
+state: 'home'
+# Tests if the state is not home
+invert: True
+```
+
 #### {% linkable_title Numeric state condition %}
 
 This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches all of the above or below thresholds.
