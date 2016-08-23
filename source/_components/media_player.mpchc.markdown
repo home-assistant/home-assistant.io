@@ -34,9 +34,9 @@ To add MPC-HC to your installation, add the following to your `configuration.yam
 # Example configuration.yaml entry
 media_player:
   platform: mpchc
-    host: http://192.168.0.123
-    port: 13579
-    name: MPC-HC
+  host: http://192.168.0.123
+  port: 13579
+  name: MPC-HC
 ```
 
 Configuration variables:
