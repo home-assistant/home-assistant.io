@@ -54,7 +54,7 @@ camera 2:
 ### {% linkable_title Grouping devices %}
 
 Once you have a bunch of devices set up, it is time to organize them into groups.  
-Each group exists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (second icon).
+Each group consists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (second icon).
 
 ```yaml
 # Example configuration.yaml entry showing two styles
