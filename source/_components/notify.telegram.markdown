@@ -103,13 +103,9 @@ action:
     message: That's a example that sends a document.
     data:
       document:
-        - url: http://192.168.1.28/bounce.gif
-          username: admin
-          password: secrete
-        - file: /tmp/whatever.odf
-          caption: Picture Title xy
-        - url: http://somebla.ie/video.mp4
-          caption: I.e. for a Title
+        file: /tmp/whatever.odf
+        caption: Picture Title xy
+        
 ```
 
 - **url** or **file** (*Required*): For local or remote path to an image.
