@@ -2,14 +2,14 @@
 layout: page
 title: "Raspberry Pi Cover"
 description: "Instructions how to setup the Raspberry Pi covers within Home Assistant."
-date: 2016-02-12 07:00
+date: 2016-08-24 14:28
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
 ha_category: Cover
-ha_release: 0.23
+ha_release: 0.27
 ---
 
 The `rpi_gpio` cover platform allows you to use a Raspberry Pi to control your cover such as Garage doors.
