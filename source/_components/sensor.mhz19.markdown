@@ -1,0 +1,29 @@
+---
+layout: page
+title: "MH-Z19 CO2 Sensor"
+description: "Instructions on how to integrate the MH-Z19 CO2 sensor with Home Assistant."
+date: 2016-08-11 12:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+ha_category: DIY
+ha_release: 0.27
+---
+
+The MH-Z19 is a small nondispersive infrared sensor that can measure CO2 sensors. High CO2 levels can lead to drowsiness, poor concentration, loss of attention or increased heart rate. Outside CO2 levels are usually between 250 and 350ppm, but inside levels can reach between 1000 and 5000 ppm. High CO2 levels indicate that you should increase ventilation.
+
+Check out the [Open Home Automation web site](https://www.open-homeautomation.com/2016/08/24/monitor-co2-levels-in-your-house/) for a quick guide how to connect the sensor to your PC or Raspberry Pi.
+
+To use this sensor in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+sensor:
+  - platform: mhz19
+    serial_device: /dev/tty.SLAB_USBtoUART
+    name: CO2
+```
+
+- **serial_device** (*Required*): The serial port to use. On *nix systems, it can often be identified by `$ ls /dev/tty*`
+- **name** (*Optional*): The name displayed in the frontend.
+
