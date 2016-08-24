@@ -10,6 +10,8 @@ footer: true
 ha_release: 0.19
 ---
 
+**This component has been deprecated in favor of the "climate" component and will be removed in the future. Please use climate.**
+
 The `hvac` component is built for the controlling and monitoring of HVAC (heating, ventilating, and air conditioning) devices.
  
 To enable this component, pick one of the platforms and add it to your `configuration.yaml`:
