@@ -21,21 +21,26 @@ To use NZBGet with your installation, add the following to your `configuration.y
 # Example configuration.yaml entry
 sensor:
   platform: nzbget
-  base_url: http://192.168.1.18:6789
+  host: 192.168.1.18
+  port: 6789
   username: apiuser
   password: apipass
   monitored_variables:
-    - ArticleCacheMB
-    - DownloadRate
-    - DownloadPaused
-    - FreeDiskSpaceMB
-    - PostPaused
-    - RemainingSizeMB
+    - article_cache
+    - average_download_rate
+    - download_paused
+    - download_rate
+    - download_size
+    - free_disk_space
+    - post_paused
+    - remaining_size
+    - uptime
 ```
 
 Configuration variables:
 
-- **base_url** (*Required*): The URL to your NZBGet installation.
+- **host** (*Required*): The ip address or hostname of your NZBGet installation.
+- **port** (*Optional*): The port to access your NZBGet installation. (default 6789)
 - **username** (*Optional*): The username to access your NZBGet installation.
 - **password** (*Optional*): The password to access your NZBGet installation.
 - **monitored_variables** (*Required*): Array of monitored details.
