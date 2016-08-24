@@ -18,10 +18,10 @@ The `enocean` component adds support for some of these devices. You will need a 
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](../binary_sensor.enocean) (wall switches)
-- [Sensor](../sensor.enocean) (power meters)
-- [Light](../light.enocean) (dimmers)
-- [Switch](../switch.enocean)
+- [Binary Sensor](/components/binary_sensor.enocean/) (wall switches)
+- [Sensor](/components/sensor.enocean/) (power meters)
+- [Light](/components/light.enocean/) (dimmers)
+- [Switch](/components/switch.enocean/)
 
 However, only a few devices have been confirmed to work. These are:
 
@@ -29,9 +29,9 @@ However, only a few devices have been confirmed to work. These are:
 - Eltako FT55 battery-less wall switch
 - Permundo PSC234 (switch and power monitor)
 
-Other devices will most likely need some changes in the Home-Assistant code in order to work. Support for teaching of devices is also missing at this time.
+Other devices will most likely need some changes in the Home Assistant code in order to work. Support for teaching of devices is also missing at this time.
 
-# Configuration
+To integrate an EnOcean controller with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,5 +39,7 @@ enocean:
   device: /dev/ttyUSB0
 ```
 
-If no device is specified, the default will be **/dev/ttyUSB0**
+Configuration variables:
+
+- **device** (*Required*): The port where your device is connected to your Home Assistant host.
 

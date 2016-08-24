@@ -15,13 +15,13 @@ ha_release: 0.21
 An EnOcean light can take many formes. Currently only one type has been tested: Eltako FUD61 dimmer.
 
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](../enocean) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 light:
-  - name: Living_room
-    platform: enocean
+  - platform: enocean
+    name: Living_room
     id: [0x01,0x90,0x84,0x3C]
     sender_id: [0xFF,0xC6,0xEA,0x04]
 ```
@@ -30,5 +30,4 @@ Configuration variables:
 
 - **id** (*Required*): The ID of the device. This is the 4 bytes long number written on the dimmer.
 - **sender_id** (*Required*): The Sender ID of the device. This is a 4 bytes long number.
-- **platform** (*Required*): Set to `enocean`.
-- **name** (*Required*): An identifier for the switch
+- **name** (*Optional*): An identifier for the Ligh in the frontend.
