@@ -26,6 +26,8 @@ To enable Raspberry Pi Garage doors in your installation, add the following to y
 # Example configuration.yaml entry
 garage_door:
   platform: rpi_gpio
+  state_pull_mode: DOWN
+  relay_time: 1
   doors:
     - relay_pin: 10
       state_pin: 11
@@ -33,8 +35,6 @@ garage_door:
     - relay_pin: 12
       state_pin: 13
       name: 'Right door'
-      state_pull_mode: DOWN
-      relay_time: 1
 ```
 
 Configuration variables:
