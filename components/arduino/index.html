@@ -123,6 +123,12 @@
 A word of caution: The Arduino boards are not storing states. This means that with every initialization the pins are set to off/low.
 </p>
 
+<p>Add the user who is used to run Home Assistant to the groups to allow access to the serial port.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo usermod -a -G dialout,lock <span class="nv">$USER</span>
+</code></pre>
+</div>
+
 
 
 </article>

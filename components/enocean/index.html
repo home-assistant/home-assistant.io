@@ -96,10 +96,10 @@
 <p>There is currently support for the following device types within Home Assistant:</p>
 
 <ul>
-  <li><a href="../binary_sensor.enocean">Binary Sensor</a> (wall switches)</li>
-  <li><a href="../sensor.enocean">Sensor</a> (power meters)</li>
-  <li><a href="../light.enocean">Light</a> (dimmers)</li>
-  <li><a href="../switch.enocean">Switch</a></li>
+  <li><a href="/components/binary_sensor.enocean/">Binary Sensor</a> (wall switches)</li>
+  <li><a href="/components/sensor.enocean/">Sensor</a> (power meters)</li>
+  <li><a href="/components/light.enocean/">Light</a> (dimmers)</li>
+  <li><a href="/components/switch.enocean/">Switch</a></li>
 </ul>
 
 <p>However, only a few devices have been confirmed to work. These are:</p>
@@ -110,9 +110,9 @@
   <li>Permundo PSC234 (switch and power monitor)</li>
 </ul>
 
-<p>Other devices will most likely need some changes in the Home-Assistant code in order to work. Support for teaching of devices is also missing at this time.</p>
+<p>Other devices will most likely need some changes in the Home Assistant code in order to work. Support for teaching of devices is also missing at this time.</p>
 
-<h1>Configuration</h1>
+<p>To integrate an EnOcean controller with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">enocean</span><span class="pi">:</span>
@@ -120,7 +120,11 @@
 </code></pre>
 </div>
 
-<p>If no device is specified, the default will be <strong>/dev/ttyUSB0</strong></p>
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>device</strong> (<em>Required</em>): The port where your device is connected to your Home Assistant host.</li>
+</ul>
 
 
 

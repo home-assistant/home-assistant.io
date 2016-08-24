@@ -95,16 +95,15 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">apcupsd</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">UPS Online</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">apcupsd</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">UPS Online</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>resource</strong> (<em>Required</em>): The resource or endpoint that contains the value.</li>
-  <li><strong>method</strong> (<em>Optional</em>): The method of the request. Default is GET.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name to use in the front end.</li>
 </ul>
 
 
