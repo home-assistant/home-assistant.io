@@ -41,9 +41,9 @@ Configuration variables:
 - **input** (*Required*): A ffmpeg compatible input file, stream or feed.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **ffmpeg_bin** (*Optional*): Default 'ffmpeg'.
-- **peak** (*Optional*): Default -30dB.
-- **duration** (*Optional*): Default 1 seconds.
-- **reset** (*Optional*): Default 20 seconds.
+- **peak** (*Optional*): Default -30. A peak of dB to detect it as noise. 0 is very loud and -100 is low.
+- **duration** (*Optional*): Default 1 seconds. How long need the noise over the peak to trigger the state.
+- **reset** (*Optional*): Default 20 seconds. The time to reset the state after none new noise is over the peak.
 - **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. audio frequence filtering.
 - **output** (*Optional*):
 
