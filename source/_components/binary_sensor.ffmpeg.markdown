@@ -50,6 +50,8 @@ Configuration variables:
 
 ### {% linkable_title Motion %}
 
+FFmpeg don't have a motion detection filter so it use a scene filter to detect a new scene/motion. In fact you can set how big a object or size of image they need change to detect a motion. The option 'changes' is the percent value of change between frames. You can add a denoice filter to video if you want a realy small value for 'changes'.
+
 To enable your FFmpeg with motion detection in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
