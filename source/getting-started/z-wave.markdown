@@ -99,12 +99,12 @@ Edit your options.xml file:
 ```
   <!-- <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F 0x10" /> -->
 ```
-> Uncomment the line:
+Uncomment the line:
 ```
    <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10" />
 ```
 
-You can replace these values with your own 16 byte network key. For more information on this process see the [Open-Zwave](https://github.com/OpenZWave/open-zwave) wiki article [Adding Security Devices to OZW](https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW)
+You can also replace these values with your own 16 byte network key. For more information on this process see the [Open-Zwave](https://github.com/OpenZWave/open-zwave) wiki article [Adding Security Devices to OZW](https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW)
 
 ### {% linkable_title Events %}
 
