@@ -92,7 +92,7 @@ Depending on what's plugged into your USB ports, the name found above may change
 
 ### {% linkable_title Adding Security Devices %}
 
-Security Z-Wave devices require to be added using the zwave.add_node_secure service. You must edit the options.xml file, located in the python-openzwave config directory to use a network key before adding these devices.
+Security Z-Wave devices require a network key before being added to the network using the zwave.add_node_secure service. You must edit the options.xml file, located in your python-openzwave config_path to use a network key before adding these devices.
 
 Edit your options.xml file:
 
