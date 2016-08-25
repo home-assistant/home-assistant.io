@@ -48,6 +48,11 @@ Configuration variables:
 - **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. audio frequence filtering.
 - **output** (*Optional*): Allow you to send the audio output of this sensor to a icecast server or other ffmpeg supported output. i.e. to stream with sonos after state is trigger.
 
+For playing with values:
+```bash
+ffmpeg -i YOUR_INPUT -vn -filter:a silencedetect=n=-30dB:d=1 -f null -
+```
+
 ### {% linkable_title Motion %}
 
 FFmpeg don't have a motion detection filter so it use a scene filter to detect a new scene/motion. In fact you can set how big a object or size of image they need change to detect a motion. The option 'changes' is the percent value of change between frames. You can add a denoice filter to video if you want a realy small value for 'changes'.
@@ -82,5 +87,7 @@ Configuration variables:
 - **repeat_time** (*Optional*): Default 0 seconds (deactivate). The time to repeats befor it trigger a motion.
 - **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. video denoise filtering.
 
-
-
+For playing with values:
+```bash
+ffmpeg -i YOUR_INPUT -an -filter:v select=gt(scene\,0.1) -f framemd5 -
+```
