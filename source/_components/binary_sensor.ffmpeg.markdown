@@ -74,7 +74,7 @@ Configuration variables:
 - **tool** (*Required*): is fix set to 'motion'.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **ffmpeg_bin** (*Optional*): Default 'ffmpeg'.
-- **changes** (*Optional*): Default 10 percent.
+- **changes** (*Optional*): Default 10 percent. A lower value is more sensitive. I use 4 / 3.5 on my cameras. It describe how mutch of two frames need to change to detect it as motion. See on descripton.
 - **reset** (*Optional*): Default 20 seconds. The time to reset the state after none new motion is detect.
 - **repeat** (*Optional*): Default 0 repeats (deactivate). How many motion need to detect in *repeat_time* to trigger a motion.
 - **repeat_time** (*Optional*): Default 0 seconds (deactivate). The time to repeats befor it trigger a motion.
