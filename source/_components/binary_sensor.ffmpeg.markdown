@@ -13,7 +13,7 @@ ha_release: 0.27
 ---
 
 
-The `ffmpeg` platform allows you to use every video or audio feed with [FFmpeg](http://www.ffmpeg.org/) as varius sensors in Home Assistant. Avilable are: **noise**, **motion**
+The `ffmpeg` platform allows you to use every video or audio feed with [FFmpeg](http://www.ffmpeg.org/) as varius sensors in Home Assistant. Avilable are: **noise**, **motion**. If ffmpeg process is brocken, sensor going to unavilable. It exists a service to restart a instance with *binary_sensor.ffmpeg_restart*.
 
 <p class='note'>
 You need a ffmpeg binary in your system path. On debain 8 you can install it from backports. If you want HW support on raspberry you need self build from source. Windows binary are avilable on ffmpeg homepage.
