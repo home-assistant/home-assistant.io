@@ -39,6 +39,7 @@ camera:
 Configuration variables:
 
 - **input** (*Required*): A ffmpeg compatible input file, stream or feed.
+- **tool** (*Required*): is fix set to 'noise'.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **ffmpeg_bin** (*Optional*): Default 'ffmpeg'.
 - **peak** (*Optional*): Default -30. A peak of dB to detect it as noise. 0 is very loud and -100 is low.
@@ -59,16 +60,25 @@ camera:
     input: FFMPEG_SUPPORTED_INPUT
     name: FFmpeg Motion
     ffmpeg_bin: /usr/bin/ffmpeg
+    changes: 10
     reset: 20
+    # group feature / default not in use
+    repeat: 0
+    repeat_time: 0
+    
 ```
 
 Configuration variables:
 
 - **input** (*Required*): A ffmpeg compatible input file, stream or feed.
+- **tool** (*Required*): is fix set to 'motion'.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **ffmpeg_bin** (*Optional*): Default 'ffmpeg'.
+- **changes** (*Optional*): Default 10 percent.
 - **reset** (*Optional*): Default 20 seconds. The time to reset the state after none new motion is detect.
-- **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. audio frequence filtering.
+- **repeat** (*Optional*): Default 0 repeats (deactivate). How many motion need to detect in *repeat_time* to trigger a motion.
+- **repeat_time** (*Optional*): Default 0 seconds (deactivate). The time to repeats befor it trigger a motion.
+- **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. video denoise filtering.
 
 
 
