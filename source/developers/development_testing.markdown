@@ -41,6 +41,12 @@ $ pylint homeassistant/core.py
 $ py.test tests/test_core.py
 ```
 
+You also run linting tests against all changed files, as reported by `git diff upstream/dev --name-only` using the `lint` script:
+
+```bash
+home-assistant$ script/lint --changed
+```
+
 ### {% linkable_title Prevent Linter Errors %}
  
 You can save yourself the hassle of extra commits just to fix style errors by enabling the flake8 git commit hook. It will check your code when you attempt to commit to the repository. It will block the commit if there are any style issues, giving you a chance to fix it.
