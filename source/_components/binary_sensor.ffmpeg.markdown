@@ -45,10 +45,30 @@ Configuration variables:
 - **duration** (*Optional*): Default 1 seconds. How long need the noise over the peak to trigger the state.
 - **reset** (*Optional*): Default 20 seconds. The time to reset the state after none new noise is over the peak.
 - **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. audio frequence filtering.
-- **output** (*Optional*):
+- **output** (*Optional*): Allow you to send the audio output of this sensor to a icecast server or other ffmpeg supported output. i.e. to stream with sonos after state is trigger.
 
-### {% linkable_title Image quality %}
+### {% linkable_title Motion %}
 
-You can control the `image quality` with [`extra_arguments`](https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000) `-q:v 2-32` or with lossless option `-pred 1`.
+To enable your FFmpeg with motion detection in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: ffmpeg
+    tool: motion
+    input: FFMPEG_SUPPORTED_INPUT
+    name: FFmpeg Motion
+    ffmpeg_bin: /usr/bin/ffmpeg
+    reset: 20
+```
+
+Configuration variables:
+
+- **input** (*Required*): A ffmpeg compatible input file, stream or feed.
+- **name** (*Optional*): This parameter allows you to override the name of your camera.
+- **ffmpeg_bin** (*Optional*): Default 'ffmpeg'.
+- **reset** (*Optional*): Default 20 seconds. The time to reset the state after none new motion is detect.
+- **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. audio frequence filtering.
+
 
 
