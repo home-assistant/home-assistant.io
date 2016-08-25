@@ -87,7 +87,7 @@ Configuration variables:
 - **repeat_time** (*Optional*): Default 0 seconds (deactivate). The time to repeats befor it trigger a motion.
 - **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. video denoise filtering.
 
-For playing with values:
+For playing with values (changes/100 is the scene value on ffmpeg):
 ```bash
 ffmpeg -i YOUR_INPUT -an -filter:v select=gt(scene\,0.1) -f framemd5 -
 ```
