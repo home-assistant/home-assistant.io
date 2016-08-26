@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-26T13:45:27+00:00</updated>
+  <updated>2016-08-26T20:17:25+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -966,7 +966,7 @@ SQLite version 3.11.0 2016-02-15 17:29:24
 
 <h3><a class="title-link" name="hotfix-0241---july-21" href="#hotfix-0241---july-21"></a> Hotfix 0.24.1 - July 21</h3>
 
-<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to [@n8henrie] and [@AlucardZero].</p>
+<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to <a href="https://github.com/n8henrie/">@n8henrie</a> and <a href="https://github.com/AlucardZero/">@AlucardZero</a>.</p>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 
@@ -975,28 +975,6 @@ SQLite version 3.11.0 2016-02-15 17:29:24
   <li>The <a href="https://home-assistant.io/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
   <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
 </ul>
-
-<p>«««&lt; HEAD
-=======
-[@n8henrie]: https://github.com/n8henrie/
-[@AlucardZero]: https://github.com/AlucardZero/
-«««&lt; HEAD</p>
-<blockquote>
-  <blockquote>
-    <blockquote>
-      <blockquote>
-        <blockquote>
-          <blockquote>
-            <blockquote>
-              <h1>master</h1>
-              <p>origin/master</p>
-            </blockquote>
-          </blockquote>
-        </blockquote>
-      </blockquote>
-    </blockquote>
-  </blockquote>
-</blockquote>
 
 ]]></content>
   </entry>
