@@ -12,16 +12,15 @@ ha_category: DIY
 ha_release: 0.25
 ---
 
-**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
-The `knx` thermostat platform is used as in interface with KNX thermostats.
+The `knx` climate platform is used as in interface with KNX thermostats.
 
 KNX thermostats use at least 2 group addresses: one for the current temperature and one for the target temperature (named set-point in KNX terms).
 
 To use your KNX thermostats in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-thermostat:
+climate:
   - platform: knx
     name: KNX Thermostat
     temperature_address: 0/1/1

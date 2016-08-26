@@ -8,13 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: proliphix.png
-ha_category: Thermostat
+ha_category: Climate
 ha_release: 0.11
 ---
 
-**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
-The `proliphix` thermostat platform let you control [Proliphix](http://www.proliphix.com) thermostat from Home Assistant.
+The `proliphix` climate platform let you control [Proliphix](http://www.proliphix.com) thermostat from Home Assistant.
 
 Currently supported and tested thermostats:
 
@@ -23,7 +22,7 @@ Currently supported and tested thermostats:
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
-thermostat:
+climate:
   platform: proliphix
   host: IP_ADDRESS
   username: YOUR_USERNAME

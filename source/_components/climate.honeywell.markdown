@@ -8,17 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: honeywell.png
-ha_category: Thermostat
+ha_category: Climate
 ---
 
-**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
-The `honeywell` thermostat platform let you control [Honeywell Connected](http://getconnected.honeywell.com/en/) thermostats from Home Assistant.
+The `honeywell` cliamte platform let you control [Honeywell Connected](http://getconnected.honeywell.com/en/) thermostats from Home Assistant.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
-thermostat:
+cliamte:
   platform: honeywell
   username: YOUR_USERNAME
   password:  YOUR_PASSWORD

@@ -8,12 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: radiotherm.png
-ha_category: Thermostat
+ha_category: Climate
 ---
 
-**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
-The `radiotherm` thermostat platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
+The `radiotherm` climate platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
 
 The underlaying library supports:
 - CT50 V1.09
@@ -24,7 +23,7 @@ The underlaying library supports:
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
-thermostat:
+climate:
   platform: radiotherm
   host:
     - 192.168.99.137

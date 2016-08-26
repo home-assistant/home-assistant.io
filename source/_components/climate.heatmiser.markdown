@@ -8,20 +8,19 @@ comments: false
 sharing: true
 footer: true
 logo: heatmiser.png
-ha_category: Thermostat
+ha_category: Climate
 ha_release: "0.10"
 ---
 
-**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
-The `heatmiser` thermostat platform let you control [Heatmiser DT/DT-E/PRT/PRT-E](http://www.heatmisershop.co.uk/heatmiser-slimline-programmable-room-thermostat/) thermostats from Heatmiser.  The module itself is currently setup to work over a RS232 -> RS485 converter, therefore it connects over IP.
+The `heatmiser` climate platform let you control [Heatmiser DT/DT-E/PRT/PRT-E](http://www.heatmisershop.co.uk/heatmiser-slimline-programmable-room-thermostat/) thermostats from Heatmiser.  The module itself is currently setup to work over a RS232 -> RS485 converter, therefore it connects over IP.
 
 Further work would be required to get this setup to connect over Wifi, but the HeatmiserV3 python module being used is a full implementation of the V3 protocol.  If you would like to contribute to making this work over wifi, please contact @andylockran on github.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
-thermostat:
+climate:
   platform: heatmiser
   ipaddress: YOUR_IPADDRESS
   port:  YOUR_PORT

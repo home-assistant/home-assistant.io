@@ -8,16 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: heat-control.png
-ha_category: Thermostat
+ha_category: Climate
 ---
 
-**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
-Heat Control is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater under the hood. If the measured temperature is cooler then the target temperature, the heater will be turned on and turned off when required temperature is reached.
+The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater under the hood. If the measured temperature is cooler then the target temperature, the heater will be turned on and turned off when required temperature is reached.
 
 ```yaml
 # Example configuration.yaml entry
-thermostat:
+climate:
   platform: heat_control
   name: Study
   heater: switch.study_heater
