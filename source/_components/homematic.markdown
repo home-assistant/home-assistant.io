@@ -86,12 +86,13 @@ The name depends on if you chose to resolve names or not. If not, it will be the
 
 **Other events**
 
-*homematic.keypress* see above.
-*homematic.impulse* for impulse sensors with event_data 'name' and 'channel'.
+*homematic.keypress*: See above.
+
+*homematic.impulse*: For impulse sensors with event_data 'name' and 'channel'.
 
 **Service**
 
-*homematic/virtualkey* simulate a keypress on CCU/Homegear with device or virtual keys.
+*homematic/virtualkey*: Simulate a keypress on CCU/Homegear with device or virtual keys.
 
 ```yaml
 ...
@@ -102,4 +103,16 @@ action:
     address: BidCoS-RF
     channel: 1
     param: PRESS_LONG
+```
+
+*homematic/set_value*: Set the value of a system variable.
+
+```yaml
+...
+
+action:
+  service: homematic.set_value
+  data:
+    entity_id: homematic.varname_bool
+    value: true
 ```
