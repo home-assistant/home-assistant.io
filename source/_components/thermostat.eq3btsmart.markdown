@@ -12,6 +12,8 @@ ha_category: Thermostat
 ha_iot_class: "Local Poll"
 ---
 
+**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
+
 This platform allows you to integrate EQ3 Bluetooth Smart Thermostats.
 
 The only functionality is to set the temperature, there doesn't seem to be any way to query the temperature sensor or battery level ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)).

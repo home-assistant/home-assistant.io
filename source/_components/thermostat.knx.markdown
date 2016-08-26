@@ -12,6 +12,7 @@ ha_category: DIY
 ha_release: 0.25
 ---
 
+**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
 The `knx` thermostat platform is used as in interface with KNX thermostats.
 

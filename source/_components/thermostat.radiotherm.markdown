@@ -11,6 +11,7 @@ logo: radiotherm.png
 ha_category: Thermostat
 ---
 
+**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
 The `radiotherm` thermostat platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
 

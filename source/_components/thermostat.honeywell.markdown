@@ -11,6 +11,7 @@ logo: honeywell.png
 ha_category: Thermostat
 ---
 
+**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
 The `honeywell` thermostat platform let you control [Honeywell Connected](http://getconnected.honeywell.com/en/) thermostats from Home Assistant.
 

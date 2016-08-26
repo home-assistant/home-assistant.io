@@ -12,6 +12,7 @@ ha_category: Thermostat
 ha_release: 0.11
 ---
 
+**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
 
 The `proliphix` thermostat platform let you control [Proliphix](http://www.proliphix.com) thermostat from Home Assistant.
 
