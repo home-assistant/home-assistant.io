@@ -10,6 +10,7 @@ footer: true
 ha_category: DIY
 ha_release: 0.7
 logo: dht.png
+ha_iot_class: "Local Polling"
 ---
 
 
