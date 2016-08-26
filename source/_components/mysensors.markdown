@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors"
 description: "Instructions how to integrate MySensors sensors into Home Assistant."
-date: 2016-08-25 23:00 +0200
+date: 2016-08-26 23:00 +0200
 sidebar: true
 comments: false
 sharing: true
@@ -39,7 +39,7 @@ mysensors:
   optimistic: false
   persistence: true
   retain: true
-  version: '2.0'
+  version: 2.0
 ```
 
 Configuration variables:
@@ -55,6 +55,10 @@ Configuration variables:
 - **version** (*Optional*): Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0. Default is 1.4.
 - **optimistic** (*Optional*): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
 - **retain** (*Optional*): Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway. Default is true.
+
+<p class='note'>
+Not all features of MySensors 2.0 are yet supported by Home Assistant. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
+</p>
 
 If you are using an original Arduino as a serial gateway, the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
 
