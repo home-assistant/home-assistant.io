@@ -10,6 +10,7 @@ footer: true
 logo: hewlett_packard_enterprise.png
 ha_category: System Monitor
 ha_release: 0.27
+ha_iot_class: "Local Polling"
 ---
 
 The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in (template) sensors.
@@ -18,14 +19,13 @@ The component will output the ILO information in the sensor attributes so they c
 
 If the ILO only returns a single value (e.g. a temperature or state), it will be put in the state field.
 
-Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](http://pythonhosted.org/python-hpilo/)
+Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](http://pythonhosted.org/python-hpilo/).
 
-## Example
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/hp_ilo.png' />
 </p>
 
-## Usage
+
 To use this component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

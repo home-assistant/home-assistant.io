@@ -13,7 +13,9 @@ ha_release: 0.27
 ---
 
 
-The llamalab_automate platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
+The `llamalab_automate` platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
+
+Go to [https://llamalab.com/automate/cloud/](https://llamalab.com/automate/cloud/) and create a new API key/secret.
 
 To add Automate to your installation, add the following to your `configuration.yaml` file:
 
@@ -29,7 +31,7 @@ notify:
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): Enter the API key for Automate. Go to [https://llamalab.com/automate/cloud/](https://llamalab.com/automate/cloud/) and create a new API key / secret.
+- **api_key** (*Required*): Enter the API key for Automate.
 - **to** (*Required*): E-Mail address the Automate-Fiber is configured for.
 - **device** (*Optional*): Name of the target device to receive the messages.
 
@@ -45,4 +47,4 @@ Receiving cloud messages in Automate:
 8. Assign a variable name for the Payload
 9. Tap Toast show and set the message value to the variable you've specified
 
-If you have multiple devices paired to one GMail account and want to control each instance of Automate individually, you can set the notifier to target a specific device. To determine your devices name, add a Cloud Message send block to your flow, tap it and scroll all the way to the bottom. Device names are case sensitive.
+If you have multiple devices paired to one Google Mail account and want to control each instance of Automate individually, you can set the notifier to target a specific device. To determine your devices name, add a Cloud Message send block to your flow, tap it and scroll all the way to the bottom. Device names are case sensitive.
