@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Weather Underground (Wunderground)"
-description: "Instructions how to integrate Weather Underground (Wunderground) Weather within Home Assistant."
+title: "Weather Underground (WUnderground)"
+description: "Instructions how to integrate Weather Underground (WUnderground) Weather within Home Assistant."
 date: 2016-08-18
 sidebar: true
 comments: false
@@ -10,13 +10,14 @@ footer: true
 logo: wunderground.png
 ha_category: Weather
 ha_release: 0.27
+ha_iot_class: "Cloud Polling"
 ---
 
 
 The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as an source for current weather information. 
 
 <p class='note warning'>
-Obtain Wunderground API [here](https://www.wunderground.com/weather/api). Free account allows 500 requests per day or 10 per minute.
+Obtain WUnderground API [here](https://www.wunderground.com/weather/api). Free account allows 500 requests per day or 10 per minute.
 </p>
 
 To add Wunderground to your installation, add the following to your `configuration.yaml` file:
@@ -77,7 +78,7 @@ Configuration variables:
   - **dewpoint_string**: Text summary of dew point
   - **wind_kph**: Current wind speed in kph
   - **wind_mph**: Current wind speed in mph
-  - **UV**: Current levels of UV radiation. See [here](https://www.wunderground.com/resources/health/uvindex.asp) for explanation.  
+  - **UV**: Current levels of UV radiation. See [here](https://www.wunderground.com/resources/health/uvindex.asp) for explanation.
   - **pressure_in**: Atmospheric air pressure in inches
   - **pressure_mb**: Atmospheric air pressure in millibars
   - **wind_dir**: Wind direction
