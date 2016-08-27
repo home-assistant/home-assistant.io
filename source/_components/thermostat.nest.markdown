@@ -8,10 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: nest_thermostat.png
-ha_category: Thermostat
+ha_category: Deprecated
 ---
 
-**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
+**This platform has been deprecated in favor of a "[climate](/components/climate.nest/)" platform and will be removed in the future. Please use the climate platform.**
 
 The `nest` thermostat platform let you control a thermostat from [Nest](https://nest.com).
 

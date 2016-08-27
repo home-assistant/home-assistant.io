@@ -8,11 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: z-wave.png
-ha_category: Thermostat
+ha_category: Deprecated
 ha_release: 0.17
 ---
 
-**This platform has been deprecated in favor of a "climate" platform and will be removed in the future. Please use the climate platform.**
+**This platform has been deprecated in favor of a "[climate](/components/climate.zwave/)" platform and will be removed in the future. Please use the climate platform.**
 
 To get your Z-Wave thermostat working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/).
 
