@@ -12,4 +12,6 @@ ha_category: Garage Door
 ha_release: 0.23
 ---
 
+**This platform has been deprecated in favor of a "cover" platform and will be removed in the future. Please use the cover platform.**
+
 To get your Z-Wave garage doors working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/).

@@ -13,6 +13,7 @@ ha_release: 0.18
 ha_iot_class: depends
 ---
 
+**This platform has been deprecated in favor of a "cover" platform and will be removed in the future. Please use the cover platform.**
 
 The `mqtt` garage door platform let you control your MQTT enabled garage door.
 

@@ -12,6 +12,8 @@ ha_category: Garage Door
 ha_release: 0.23
 ---
 
+**This platform has been deprecated in favor of a "cover" platform and will be removed in the future. Please use the cover platform.**
+
 The `rpi_gpio` garage door platform allows you to use a Raspberry Pi to control your Garage door.
 
 It uses two pins on the Raspberry Pi. 
