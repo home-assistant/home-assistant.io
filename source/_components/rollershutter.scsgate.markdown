@@ -8,8 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: bus_scs.png
-ha_category: Rollershutter
+ha_category: Deprecated
 ---
+
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[cover](/components/cover.scsgate/)" platform and will be removed in the future. Please use the cover platform.**
+</p>
+
 The SCSGate device can control motirized roller shutters connected to the BTicino MyHome system.
 
 To enable SCSGate roller shutters in your installation, add the following to your `configuration.yaml` file:

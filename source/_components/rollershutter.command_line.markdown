@@ -8,10 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: command_line.png
-ha_category: Rollershutter
+ha_category: Deprecated
 ha_release: 0.14
 ---
-A rollershutter platform that issues specific commands when it is moved up, down and stopped. This might very well become our most powerful platform as it allows anyone to integrate any type of rollershutter into Home Assistant that can be controlled from the command line, including calling other scripts!
+
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[cover](/components/cover.command_line/)" platform and will be removed in the future. Please use the cover platform.**
+</p>
+
+A `rollershutter` platform that issues specific commands when it is moved up, down and stopped. This might very well become our most powerful platform as it allows anyone to integrate any type of rollershutter into Home Assistant that can be controlled from the command line, including calling other scripts!
 
 To enable command_rollershutter in your installation, add the following to your `configuration.yaml` file:
 
