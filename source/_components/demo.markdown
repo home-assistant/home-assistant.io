@@ -26,6 +26,7 @@ Available demo platforms:
 - [Sensor](/components/sensor/) (`sensor`)
 - [Switch](/components/switch/) (`switch`)
 - [Climate](/components/climate/) (`climate`)
+- [Fan](/components/fan/) (`fan`)
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 
