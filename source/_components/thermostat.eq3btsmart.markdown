@@ -12,7 +12,9 @@ ha_category: Deprecated
 ha_iot_class: "Local Poll"
 ---
 
+<p class='note warning'>
 **This platform has been deprecated in favor of a "[climate](/components/climate.eq3btsmart/)" platform and will be removed in the future. Please use the climate platform.**
+</p>
 
 This platform allows you to integrate EQ3 Bluetooth Smart Thermostats.
 
