@@ -14,6 +14,8 @@ entities. The driving use case behind this functionality is to allow Home
 Assistant to work with an Amazon Echo with no set up cost outside of
 configuration changes.
 
+### {% linkable_title Configuration %}
+
 To enable the emulated Hue bridge, add the following to your `configuration.yaml`
 file:
 
@@ -40,8 +42,6 @@ homeassistant:
       # Address light.office_light as "back office light"
       emulated_hue_name: "back office light"
 ```
-
-Configuration variables:
 
 - **host_ip** (*Optional*): The IP address that your Home Assistant installation is
   running on. If you do not specify this option, the component will attempt to
@@ -88,26 +88,4 @@ The following are attributes that can be applied in the `customize` section:
 ### {% linkable_title License %}
 
 Much of this code is based on work done by Bruce Locke on his [ha-local-echo](https://github.com/blocke/ha-local-echo)
-project, originally released under the MIT License. The license is reproduced below:
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Bruce Locke
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+project, originally released under the MIT License. The license is located [here](https://github.com/blocke/ha-local-echo/blob/b9bf5dcaae6d8e305e2283179ffba64bde9ed29e/LICENSE)
