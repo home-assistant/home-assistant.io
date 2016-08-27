@@ -143,6 +143,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Markus Stenberg](https://github.com/fingon)
 - [Martin Hjelmare](https://github.com/MartinHjelmare)
 - [Matteo Lampugnani](https://github.com/t30)
+- [Matthew Bowen](https://github.com/mgbowen)
 - [Matthew Treinish](https://github.com/mtreinish)
 - [Matthias Grawinkel](https://github.com/meatz)
 - [Michaël Arnauts](https://github.com/michaelarnauts)
