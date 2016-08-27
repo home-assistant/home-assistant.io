@@ -10,11 +10,10 @@ footer: true
 logo: bus_scs.png
 ha_category: Cover
 ---
-The SCSGate devices can control motorized covers connected to the BTicino
-MyHome system.
 
-To enable SCSGate covers in your installation, add the following to your
-`configuration.yaml` file:
+The SCSGate devices can control motorized covers connected to the BTicino MyHome system.
+
+To enable SCSGate covers in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -28,8 +27,12 @@ cover:
 
 Configuration variables:
 
-- **devices** (*Required*): A list of devices with their name to use in the
-  frontend.
+- **devices** array (*Required*): A list of devices.
+  - **[slug]** (*Required*): Slug of the device.
+    - **name** (*Required*): Name to use in the frontend.
+    - **scs_id** (*Required*): The ID of your SCSGate device.
 
-**Known limitation:** it is not possible to know the current state of the
-cover.
+<p class='note'>
+**Known limitation:** It is not possible to know the current state of the cover.
+</p>
+

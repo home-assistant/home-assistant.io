@@ -9,12 +9,13 @@ sharing: true
 footer: true
 logo: raspberry-pi.png
 ha_category: Cover
-ha_release: 0.27
+ha_release: 0.23
 ---
 
 The `rpi_gpio` cover platform allows you to use a Raspberry Pi to control your cover such as Garage doors.
 
-It uses two pins on the Raspberry Pi. 
+It uses two pins on the Raspberry Pi.
+
 - The `state_pin` will detect if the cover is closed, and
 - the `relay_pin` will trigger the cover to open or close.
 
