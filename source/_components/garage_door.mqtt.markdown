@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Garage Door
+ha_category: Deprecated
 ha_release: 0.18
 ha_iot_class: depends
 ---
 
-**This platform has been deprecated in favor of a "cover" platform and will be removed in the future. Please use the cover platform.**
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[cover](/components/cover.mqtt/)" platform and will be removed in the future. Please use the cover platform.**
+</p>
 
 The `mqtt` garage door platform let you control your MQTT enabled garage door.
 

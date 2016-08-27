@@ -8,15 +8,18 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Garage Door
+ha_category: Deprecated
 ha_release: 0.23
 ---
 
-**This platform has been deprecated in favor of a "cover" platform and will be removed in the future. Please use the cover platform.**
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[cover](/components/cover.rpi_gpio/)" platform and will be removed in the future. Please use the cover platform.**
+</p>
 
 The `rpi_gpio` garage door platform allows you to use a Raspberry Pi to control your Garage door.
 
-It uses two pins on the Raspberry Pi. 
+It uses two pins on the Raspberry Pi.
+
 - The `state_pin` will detect if the door is closed, and
 - the `relay_pin` will trigger the door to open or close.
 

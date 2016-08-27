@@ -8,11 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: wink.png
-ha_category: Garage Door
+ha_category: Deprecated
 ha_release: 0.13
 ---
 
-**This platform has been deprecated in favor of a "cover" platform and will be removed in the future. Please use the cover platform.**
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[cover](/components/cover.wink/)" platform and will be removed in the future. Please use the cover platform.**
+</p>
 
 Wink garage door functionality is currently limited to view only. Wink garage doors will still show the current state of the door, but control has been disabled for third parties. If you have a Chamberlain garage door, and would like to control it via Home Assistant, please contact Chamberlain and request that they re-enabled third-party control.
 
