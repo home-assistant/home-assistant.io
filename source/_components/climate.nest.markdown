@@ -17,7 +17,7 @@ The `nest` climate platform let you control a thermostat from [Nest](https://nes
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
-cliamte:
+climate:
   platform: nest
 ```
 
