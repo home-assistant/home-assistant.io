@@ -97,7 +97,7 @@
 
 <p>As commenting code doesn’t always happen, please read on for the details.</p>
 
-<p>Now despite the logical assumption that the <code class="highlighter-rouge">configuration.yaml</code> will be replaced by this process it will in fact remain all be it in a much less cluttered form.</p>
+<p>Now despite the logical assumption that the <code class="highlighter-rouge">configuration.yaml</code> will be replaced by this process it will in fact remain, albeit in a much less cluttered form.</p>
 
 <p>In this lighter version we will still need what could be called the core snippet:</p>
 
@@ -261,17 +261,26 @@ customize.yaml
 
 <p>If you have issues checkout <code class="highlighter-rouge">home-assistant.log</code> in the configuration directory as well as your indentations. If all else fails, head over to the <a href="https://gitter.im/balloob/home-assistant">Gitter Chatroom</a> and ask away.</p>
 
+<h3><a class="title-link" name="debugging-multiple-configuration-files" href="#debugging-multiple-configuration-files"></a> Debugging multiple configuration files</h3>
+
+<p>If you have many configuration files, the <code class="highlighter-rouge">check_config</code> script allows you to see how Home Assistant interprets them:</p>
+<ul>
+  <li>Listing all loaded files: <code class="highlighter-rouge">hass --script --check_config --files</code></li>
+  <li>Viewing a component’s config: <code class="highlighter-rouge">hass --script --check_config --info light</code></li>
+  <li>Or all components’ config:  <code class="highlighter-rouge">hass --script check_config --info all</code></li>
+</ul>
+
+<p>You can get help from the command line using: <code class="highlighter-rouge">hass --script check_config --help</code></p>
+
 <h3><a class="title-link" name="advanced-usage" href="#advanced-usage"></a> Advanced Usage</h3>
 
 <p>We offer four advanced options to include whole directories at once.</p>
-
-<p><code class="highlighter-rouge">!include_dir_list</code> will return content of a directory as a list with each file content being an entry in the list.</p>
-
-<p><code class="highlighter-rouge">!include_dir_named</code> will return content of a directory as a dictionary which maps filename =&gt; content of file.</p>
-
-<p><code class="highlighter-rouge">!include_dir_merge_list</code> will return content of a directory as a list by merging all files (which should contain a list) into 1 big list.</p>
-
-<p><code class="highlighter-rouge">!include_dir_merge_named</code> will return content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.</p>
+<ul>
+  <li><code class="highlighter-rouge">!include_dir_list</code> will return the content of a directory as a list with each file content being an entry in the list.</li>
+  <li><code class="highlighter-rouge">!include_dir_named</code> will return the content of a directory as a dictionary which maps filename =&gt; content of file.</li>
+  <li><code class="highlighter-rouge">!include_dir_merge_list</code> will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.</li>
+  <li><code class="highlighter-rouge">!include_dir_merge_named</code> will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.</li>
+</ul>
 
 <h4><a class="title-link" name="example-include_dir_list" href="#example-include_dir_list"></a> Example: <code class="highlighter-rouge">!include_dir_list</code></h4>
 

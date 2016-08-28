@@ -99,28 +99,29 @@
 
 <p>When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the <code class="highlighter-rouge">home-assistant.log</code> file and see if there are any errors related to your component you are trying to set up.</p>
 
+<p>If you have incorrect entries in your configuration files you can use the <code class="highlighter-rouge">check_config</code> script to assist in identifying them: <code class="highlighter-rouge">hass --script check_config</code>.</p>
+
 <h4><a class="title-link" name="problems-with-the-configuration" href="#problems-with-the-configuration"></a> Problems with the configuration</h4>
 
 <p>One of the most common problems with Home Assistant is an invalid <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
 <ul>
-  <li>You can test your configuration using <a href="http://yaml-online-parser.appspot.com/">this online YAML parser</a> or <a href="http://www.yamllint.com/">YAML Lint</a>.</li>
+  <li>You can test your configuration using the command line with: <code class="highlighter-rouge">hass --script check_config</code></li>
+  <li>You can verify your configuration’s yaml structure using <a href="http://yaml-online-parser.appspot.com/">this online YAML parser</a> or <a href="http://www.yamllint.com/">YAML Lint</a>.</li>
   <li>To learn more about the quirks of YAML, read <a href="https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html">YAML IDIOSYNCRASIES</a> by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).</li>
 </ul>
 
-<p><code class="highlighter-rouge">configuration.yaml</code> does not allow multiple sections to have the same name. If you want a specific platform to be loaded twice, append a <a href="/getting-started/devices/#style-2">number or string</a> to the name or nest them using <a href="/getting-started/devices/#style-1">this style</a>.</p>
+<p><code class="highlighter-rouge">configuration.yaml</code> does not allow multiple sections to have the same name. If you want to load multiplte platforms for one component, you can append a <a href="/getting-started/devices/#style-2-list-each-device-separately">number or string</a> to the name or nest them using <a href="/getting-started/devices/#style-1-collect-every-entity-under-the-parent">this style</a>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">forecast</span>
-  <span class="s">...</span>
-
-<span class="s">sensor 2</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">bitcoin</span>
-  <span class="s">...</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">forecast</span>
+    <span class="s">...</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bitcoin</span>
+    <span class="s">...</span>
 </code></pre>
 </div>
 
-<p>Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to <code class="highlighter-rouge">home-assistant.log</code>. You can have a look at <a href="/components/">the component page</a> for instructions on how to setup the components.</p>
+<p>Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to <code class="highlighter-rouge">home-assistant.log</code>. You can have a look at <a href="/components/">the various component pages</a> for instructions on how to setup the components.</p>
 
 <p>If you find any errors or want to expand the documentation, please <a href="https://github.com/home-assistant/home-assistant.io/issues">let us know</a>.</p>
 
