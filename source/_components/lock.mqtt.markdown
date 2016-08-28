@@ -15,7 +15,7 @@ ha_iot_class: depends
 
 The `mqtt` lock platform let you control your MQTT enabled locks.
 
-In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with RETAIN flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/unlocked.
+In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with `RETAIN` flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the lock will be false/unlocked.
 
 When a `state_topic` is not available, the lock will work in optimistic mode. In this mode, the lock will immediately change state after every command. Otherwise, the lock will wait for state confirmation from device (message from `state_topic`).
 

@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Custom Panel Examples
+ha_category: User Interface
 ---
 
 This is a [React](https://facebook.github.io/react/) implementation of [TodoMVC](http://todomvc.com/) but instead of checking off to do items, you are turning lights and switches on/off.

@@ -8,9 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: radiotherm.png
-ha_category: Thermostat
+ha_category: Deprecated
 ---
 
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[climate](/components/climate.radiotherm/)" platform and will be removed in the future. Please use the climate platform.**
+</p>
 
 The `radiotherm` thermostat platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
 

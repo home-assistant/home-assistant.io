@@ -8,8 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: z-wave.png
-ha_category: HVAC
+ha_category: Deprecated
 ha_release: 0.19
 ---
- 
+
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[climate](/components/climate.zwave/)" platform and will be removed in the future. Please use the climate platform.**
+</p>
+
 To get your Z-Wave `hvac` devices working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/) and the [HVAC component](/components/hvac/).

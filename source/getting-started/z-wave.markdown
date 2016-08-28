@@ -197,6 +197,7 @@ The Z-Wave component exposes seven services to help maintain the network.
 | remove_node | Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.|
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | test_network | Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".|
+| rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
 
 The soft_reset and heal_network commands can be used as part of an automation script
 to help keep a zwave network running relliably. For example:

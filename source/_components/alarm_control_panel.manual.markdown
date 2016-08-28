@@ -22,6 +22,7 @@ alarm_control_panel:
   code: PASSCODE
   pending_time: 60
   trigger_time: 120
+  disarm_after_trigger: true
 ```
 
 Configuration variables:
@@ -30,7 +31,7 @@ Configuration variables:
 - **code** (*Optional*): If defined, specifies a code to enable or disable the alarm in the frontend.
 - **pending_time** (*Optional*): The time in seconds of the pending time before arming the alarm. Default is 60 seconds.
 - **trigger_time** (*Optional*): The time in seconds of the trigger time in which the alarm is firing. Default is 120 seconds.
-
+- **disarm_after_trigger** (*Optional*): If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.
 
 ## {% linkable_title Examples %}
 

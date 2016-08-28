@@ -8,9 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: rfxtrx.png
-ha_category: Rollershutter
+ha_category: Deprecated
 ha_release: 0.21
 ---
+
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[cover](/components/cover.rfxtrx/)" platform and will be removed in the future. Please use the cover platform.**
+</p>
 
 The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
 

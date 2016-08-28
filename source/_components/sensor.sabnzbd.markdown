@@ -24,21 +24,27 @@ sensor:
   platform: sabnzbd
   name: SAB
   api_key: YOUR_API_KEY
-  base_url: YOUR_SABNZBD_BASE_URL
+  host: YOUR_SABNZBD_HOST
+  port: 8080
   monitored_variables:
-    - type: 'current_status'
-    - type: 'speed'
-    - type: 'queue_size'
-    - type: 'queue_remaining'
-    - type: 'disk_size'
-    - type: 'disk_free'
+    - 'current_status'
+    - 'speed'
+    - 'queue_size'
+    - 'queue_remaining'
+    - 'disk_size'
+    - 'disk_free'
 ```
 
 Configuration variables:
 
-- **base_url** (*Required*): This is the base URL of your SABnzbd instance including the port number if not running on 80, eg. http://192.168.1.32:8124/
+- **host** (*Required*): This is the base URL of your SABnzbd instance including the port number if not running on 80, eg. http://192.168.1.32:8124/
+- **port** (*Optional*): The port to use whith SABnzbd instance. Defaults to 8080.
 - **api_key** (*Required*): Name that will be used in the frontend for the pin.
 - **name** (*Optional*): The name to use when displaying this SABnzbd instance.
-- **monitored_variables** (*Required*): Array of the monitored variables.
-  - **type** (*Required*): Valid entries are: *'current_status'*, *'speed'*, *'queue_size'*, *'queue_remaining'*, *'disk_size'*, and *'disk_free'*
-
+- **monitored_variables** array (*Required*): List of the monitored variables.
+  - **current_status**: current status of the SABnzbd instance
+  - **speed**: Current speed
+  - **queue_size**: Size of the queue
+  - **queue_remaining**: Remaining elements in the queue
+  - **disk_size**: Disk size of the storage location
+  - **disk_free**: Free disk space at the sotrage location

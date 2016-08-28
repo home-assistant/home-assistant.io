@@ -8,10 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: heatmiser.png
-ha_category: Thermostat
+ha_category: Deprecated
 ha_release: "0.10"
 ---
 
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[climate](/components/climate.heatmiser/)" platform and will be removed in the future. Please use the climate platform.**
+</p>
 
 The `heatmiser` thermostat platform let you control [Heatmiser DT/DT-E/PRT/PRT-E](http://www.heatmisershop.co.uk/heatmiser-slimline-programmable-room-thermostat/) thermostats from Heatmiser.  The module itself is currently setup to work over a RS232 -> RS485 converter, therefore it connects over IP.
 

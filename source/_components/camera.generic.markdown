@@ -10,12 +10,13 @@ footer: true
 ha_category: Camera
 logo: camcorder.png
 ha_release: pre 0.7
+ha_iot_class: "depends"
 ---
 
 
-The `generic` camera platform allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.
+The `generic` camera platform allows you to integrate any IP camera or other url into Home Assistant. Templates can be used to generate the urls on the fly.
 
-Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]?time=[timestamp]`.
+Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -27,11 +28,24 @@ camera:
   name: my sample camera
   username: USERNAME
   password: PASSWORD
+  authentication: basic
+  limit_refetch_to_url_change: true
 ```
 
 Configuration variables:
 
-- **still_image_url** (*Required*): The URL your camera serves the image on, eg. http://192.168.1.21:2112/
+- **still_image_url** (*Required*): The URL your camera serves the image on, eg. http://192.168.1.21:2112/. Can be a [template].
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **username** (*Optional*): The username for accessing your camera.
 - **password** (*Optional*): The password for accessing your camera.
+- **authentication** (*Optional*): `basic` (default) or `digest` auth for requests.
+- **limit_refetch_to_url_change** (*Optional*): true/false value (default: false). Limits refetching of the remote image to when the url changes. Only relevant if using a template to fetch the remote image.
+
+<p class='img'>
+  <a href='/cookbook/google_maps_card/'>
+    <img src='/images/components/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
+    Example showing the Generic camera platform pointing at a dynamic Google Map image.
+  </a>
+</p>
+
+[template]: /topics/templating/

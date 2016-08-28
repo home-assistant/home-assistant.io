@@ -13,7 +13,7 @@ featured: true
 ha_release: pre 0.7
 ---
 
-The `forecast` platform uses the [Forecast.io](https://forecast.io/) web service as a source of meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps]() and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
+The `forecast` platform uses the [Forecast.io](https://forecast.io/) web service as a source of meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
 
 You need an API key which is free but requires [registration](https://developer.forecast.io/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
@@ -49,6 +49,11 @@ sensor:
     - minutely_summary
     - hourly_summary
     - daily_summary
+    - temperature_max
+    - temperature_min
+    - apparent_temperature_max
+    - apparent_temperature_min
+    - precip_intensity_max
 ```
 
 Configuration variables:
@@ -72,6 +77,11 @@ Configuration variables:
   - **minutely_summary**: A human-readable text summary for the next hour.
   - **hourly_summary**: A human-readable text summary for the next 24 hours.
   - **daily_summary**: A human-readable text summary for the next 7 days.
+  - **temperature_max**: Today's expected high temperature.
+  - **temperature_min**: Today's expected low temperature.
+  - **apparent_temperature_max**: Today's expected apparent high temperature.
+  - **apparent_temperature_min**: Today's expected apparent low temperature.
+  - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let forecast.io decide the unit system based on location.
 

@@ -22,14 +22,21 @@ To add a TV to your installation, add the following to your `configuration.yaml`
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: webostv
-  host: 192.168.0.10
-  name: Living Room TV
+  - platform: webostv
+    host: 192.168.0.10
+    name: Living Room TV
+    customize:
+      sources:
+        - livetv
+        - youtube
+        - makotv
 ```
 
 Configuration variables:
 
 - **host** (*Optional*): The IP of the LG WebOS Smart TV, eg. 192.168.0.10
 - **name** (*Optional*): The name you would like to give to the LG WebOS Smart TV.
+- **customize** array (*Optional*): List of options to customize.
+  - ***sources** array (*Optional*): List of hardware inputs.
 
 If you do not provide a host name, all LG WebOS Smart TV's within your network will be auto-discovered if your TV network name is set to `[LG] webOS TV`

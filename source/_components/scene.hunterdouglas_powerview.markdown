@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: hunter-douglas-powerview.png
-ha_category: Rollershutter
+ha_category: Cover
 ha_release: 0.15
 ---
 

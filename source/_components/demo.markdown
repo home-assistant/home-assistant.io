@@ -19,14 +19,14 @@ Available demo platforms:
 - [Alarm control panel](/components/alarm_control_panel/) (`alarm_control_panel`)
 - [Binary sensor](/components/binary_sensor/) (`binary_sensor`)
 - [Camera](/components/camera/) (`camera`)
-- [Garage door](/components/garage_door/) (`garage_door`)
 - [Light](/components/light/) (`light`)
 - [Lock](/components/lock/) (`lock`)
 - [Notification](/components/notify/) (`notify`)
-- [Roller shutter](/components/rollershutter/) (`rollershutter`)
+- [Cover](/components/cover/) (`cover`)
 - [Sensor](/components/sensor/) (`sensor`)
 - [Switch](/components/switch/) (`switch`)
-- [Thermostat](/components/thermostat/) (`thermostat`)
+- [Climate](/components/climate/) (`climate`)
+- [Fan](/components/fan/) (`fan`)
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 
