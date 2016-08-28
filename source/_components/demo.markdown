@@ -19,6 +19,7 @@ Available demo platforms:
 - [Alarm control panel](/components/alarm_control_panel/) (`alarm_control_panel`)
 - [Binary sensor](/components/binary_sensor/) (`binary_sensor`)
 - [Camera](/components/camera/) (`camera`)
+- [Fan](/components/fan/) (`fan`)
 - [Light](/components/light/) (`light`)
 - [Lock](/components/lock/) (`lock`)
 - [Notification](/components/notify/) (`notify`)
