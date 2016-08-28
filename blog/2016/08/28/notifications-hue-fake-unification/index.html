@@ -148,7 +148,7 @@
 
 <h2><a class="title-link" name="027" href="#027"></a> 0.27</h2>
 
-<p>While this release is <strong>#Amazing</strong>, we had to break a few eggs (now you understand the title reference!) to make a beautiful omelette (using home automation obviously) so some platforms and components have needed to introduce breaking changes. Please make sure to read the Breaking Changes section below.</p>
+<p>While this release is <strong>#Amazing</strong>, we had to break a few eggs (now you understand the title reference!) to make a beautiful omelette (using home automation obviously) so some platforms and components have needed to introduce breaking changes. Please make sure to read the <a href="#breaking-changes">Breaking Changes</a> section below.</p>
 
 <h3><a class="title-link" name="hue-bridge-emulation" href="#hue-bridge-emulation"></a> Hue Bridge Emulation</h3>
 <p>Thanks to <a href="https://github.com/mgbowen">@mgbowen</a> we now have the functionality previously provided by <a href="https://github.com/blocke">@blocke</a>’s <a href="https://github.com/blocke/ha-local-echo">ha-local-echo</a> <a href="/components/emulated_hue/">built right into Home Assistant</a>! This means that for those of you with devices that either lack or have a subpar integration with Home Assistant (looking at you Amazon Echo) you can now have a better experience by having your Home Assistant pretend to be a Hue Bridge. Personally, I have used <a href="https://github.com/auchter">@auchter</a>’s <a href="https://github.com/auchter/haaska">Haaska</a> previously but found that it was slow to respond and sometimes failed entirely. With the new <a href="/components/emulated_hue/"><code class="highlighter-rouge">emulated_hue</code></a> component, you can have local control of entities through Amazon Echo.</p>
@@ -157,7 +157,7 @@
 <p>We have some excellent upgrades to the notification system coming to you in 0.27, courtesy of me, <a href="https://github.com/robbiet480">@robbiet480</a>.</p>
 
 <h4><a class="title-link" name="html5-push-notifications" href="#html5-push-notifications"></a> HTML5 Push Notifications</h4>
-<p>This release adds support for <a href="/components/notify.html5/">HTML5</a> push notifications on Chrome/Firefox/Opera on both desktop and Android devices. This means that you can send a notification to your phone even your Home Assistant is not in your mobile browser. When using Chrome you can even include 2 action buttons so that you can control your Home Assistant from your phone’s lock screen, allowing you to do things like sound alarms or unlock your front door, all without leaving the notification. Thanks again to me (<a href="https://github.com/robbiet480">@robbiet480</a>) and Paulus (<a href="https://github.com/balloob">@balloob</a>) for all the hard work on this!</p>
+<p>This release adds support for <a href="/components/notify.html5/">HTML5</a> push notifications on Chrome/Firefox/Opera on both desktop and Android devices. This means that you can send a notification to your phone even when your Home Assistant is not open in your mobile browser. When using Chrome you can even include 2 action buttons so that you can control your Home Assistant from your phone’s lock screen, allowing you to do things like sound alarms or unlock your front door, all without leaving the notification. Thanks again to me (<a href="https://github.com/robbiet480">@robbiet480</a>) and Paulus (<a href="https://github.com/balloob">@balloob</a>) for all the hard work on this!</p>
 
 <p class="img">
   <img src="/images/screenshots/html5-notify.png" />
@@ -237,6 +237,8 @@
   <li>Forecast.io entity IDs are now like <code class="highlighter-rouge">sensor.forecastio_temperature</code>. Previously they were like <code class="highlighter-rouge">sensor.weather_temperature</code>. Apologies for this change, but we needed to make Forecast.io more generic now that we have many weather platforms.</li>
   <li>The <a href="/components/sensor.loop_energy/">Loop Energy</a> sensor configuration format changed slightly, please reformat based on the revised documentation.</li>
   <li>The configuration for the <a href="/components/sensor.sabnzbd/">SABnzbd</a> sensor has slightly changed. The prefix <code class="highlighter-rouge">type:</code> is no longer required for monitored variables.</li>
+  <li>The <a href="/components/sensor.imap/">IMAP</a> sensor now uses <code class="highlighter-rouge">username</code> instead of <code class="highlighter-rouge">user</code>.</li>
+  <li>The <a href="/components/sensor.nzbget/">NZBGet</a> sensor has had so many changes I can’t list them all. Please refer to the documentation for more info.</li>
 </ul>
 
 <h3><a class="title-link" name="deprecations" href="#deprecations"></a> Deprecations</h3>
@@ -247,7 +249,7 @@
 
 <h2><a class="title-link" name="finishing-up" href="#finishing-up"></a> Finishing up</h2>
 
-<p>Thanks all for sticking with me to the end. I’ll be taking over a lot of Paulus’s (@balloob) work while he is gone, but as I said, don’t worry because he’ll be back well before 0.28.0 comes out. Hopefully you didn’t find this jovial blog post too jarring from our standard style, I just wrote a lot of this at 2am after being awake for almost 20 hours, so I’m a little loopy hahaha 😴.</p>
+<p>Thanks all for sticking with me to the end. I’ll be taking over a lot of Paulus’s (<a href="https://github.com/balloob">@balloob</a>) work while he is gone, but as I said, don’t worry because he’ll be back well before 0.28.0 comes out. Hopefully you didn’t find this jovial blog post too jarring from our standard style, I just wrote a lot of this at 2am after being awake for almost 20 hours, so I’m a little loopy hahaha 😴.</p>
 
 <p>Also, thanks as always to our developer contributors, documentation contributors, but most of all our users! This would’ve just been a script that Paulus (@balloob) used to control his lights at home if we didn’t have your enthusiasm.</p>
 
