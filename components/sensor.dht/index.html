@@ -123,10 +123,6 @@
 
 <p>The name of the pin to which the sensor is connected has different names on different platforms. ‘P8_11’ for Beaglebone, ‘23’ for Raspberry Pi.</p>
 
-<p class="note warning">
-As this requires access to the GPIO, you will need to run Home Assistant as root.
-</p>
-
 
 
 </article>
@@ -144,6 +140,9 @@ As this requires access to the GPIO, you will need to run Home Assistant as root
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/dht.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.7
     </div>
@@ -169,7 +168,7 @@ As this requires access to the GPIO, you will need to run Home Assistant as root
             <a href='/components/switch.knx/'>KNX Switch</a>
         </li>
         <li>
-            <a href='/components/thermostat.knx/'>KNX Thermostat</a>
+            <a href='/components/climate.knx/'>KNX Thermostat</a>
         </li>
         <li>
             <a href='/components/sensor.serial_pm/'>Particulate matter Sensor</a>

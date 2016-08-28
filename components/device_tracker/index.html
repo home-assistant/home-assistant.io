@@ -89,9 +89,11 @@
   <hr class="divider">
   
 
-  <p>Home Assistant can get information from your wireless router to track which devices are connected. Please check the sidebar for a list of  brands of supported wireless routers.</p>
+  <p>Home Assistant can get information from your wireless router or third party services like iCloud or OwnTracks to track which devices are connected and considered “in home”. Please check the sidebar for a list of  brands of supported wireless routers and services.</p>
 
-<p>There are also trackers available which uses different technologies like <a href="/components/mqtt/">MQTT</a> or <a href="/components/device_tracker.nmap_scanner/">Nmap</a> to scan the network for devices.</p>
+<p>There are also trackers available which use different technologies like <a href="/components/mqtt/">MQTT</a> or <a href="/components/device_tracker.nmap_scanner/">Nmap</a> to scan the network for devices.</p>
+
+<h1><a class="title-link" name="configuring-a-device_tracker-platform" href="#configuring-a-device_tracker-platform"></a> Configuring a <code class="highlighter-rouge">device_tracker</code> platform</h1>
 
 <p>To get started add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> (example for Netgear):</p>
 
@@ -101,35 +103,97 @@
   <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.1</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">admin</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
-
-  <span class="c1"># Optional configuration</span>
-
-  <span class="c1"># If new discovered devices are tracked by default (default: yes)</span>
-  <span class="s">track_new_devices</span><span class="pi">:</span> <span class="s">yes</span>
-  <span class="c1"># Seconds between each scan for new devices (default: 12)</span>
-  <span class="s">interval_seconds</span><span class="pi">:</span> <span class="s">12</span>
-  <span class="c1"># Seconds to wait till marking someone as not home after not being seen</span>
-  <span class="c1"># (default: 180)</span>
-  <span class="s">consider_home</span><span class="pi">:</span> <span class="s">180</span>
 </code></pre>
 </div>
 
-<p>Once tracked, a file will be created in your config dir called <code class="highlighter-rouge">known_devices.yaml</code>. Edit this file to adjust which devices to be tracked. Here you can also setup a URL for each device to be used as the entity picture and set whether the device will be show in the UI when in the away state.</p>
+<p>The following optional parameters can be used with any platform. However device tracker will only look for global settings under the configuration of the first configured platform:</p>
 
-<p>Multiple device trackers can be used in parallel, such as <a href="/components/device_tracker.owntracks/">Owntracks</a> and <a href="/components/device_tracker.nmap_scanner/">Nmap</a>. The state of the device will be determined by the source that reported last. Device tracker will look for global settings (<code class="highlighter-rouge">track_new_devices</code>, <code class="highlighter-rouge">consider_home</code>, and <code class="highlighter-rouge">home_interval</code>) under the configuration of the first platform.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">track_new_devices</code></td>
+      <td>True</td>
+      <td>If new discovered devices are tracked by default</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">interval_seconds</code></td>
+      <td>12</td>
+      <td>Seconds between each scan for new devices</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">consider_home</code></td>
+      <td>180</td>
+      <td>Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. <code class="highlighter-rouge">consider_home</code> helps prevent false alarms in presence detection when using IP scanners such as Nmap.</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>The optional <code class="highlighter-rouge">consider_home</code> entry is useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. <code class="highlighter-rouge">consider_home</code> helps prevent false alarms in presence detection when using IP scanners such as nmap.</p>
+<p>Multiple device trackers can be used in parallel, such as <a href="/components/device_tracker.owntracks/">Owntracks</a> and <a href="/components/device_tracker.nmap_scanner/">Nmap</a>. The state of the device will be determined by the source that reported last.</p>
 
-<p>To add Nmap tracking just add the MAC address to the OwnTracks or iCloud device <code class="highlighter-rouge">mac:</code> configuration. To use both OwnTracks and Nmap you could use the following example:</p>
+<h1><a class="title-link" name="known_devicesyaml" href="#known_devicesyaml"></a> <code class="highlighter-rouge">known_devices.yaml</code></h1>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">owntracksdevicename</span><span class="pi">:</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Friendly Name!</span>
+<p>Once <code class="highlighter-rouge">device_tracker</code> is enabled, a file will be created in your config dir named <code class="highlighter-rouge">known_devices.yaml</code>. Edit this file to adjust which devices to be tracked.</p>
+
+<p>Here’s an example configuration for a single device:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">devicename</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Friendly Name</span>
   <span class="s">mac</span><span class="pi">:</span> <span class="s">EA:AA:55:E7:C6:94</span>
-  <span class="s">picture</span><span class="pi">:</span>
+  <span class="s">picture</span><span class="pi">:</span> <span class="s">https://home-assistant.io/images/favicon-192x192.png</span>
+  <span class="s">gravatar</span><span class="pi">:</span> <span class="s">test@example.com</span>
   <span class="s">track</span><span class="pi">:</span> <span class="s">yes</span>
   <span class="s">hide_if_away</span><span class="pi">:</span> <span class="s">no</span>
 </code></pre>
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>Host name or “Unnamed Device”</td>
+      <td>The friendly name of the device</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mac</code></td>
+      <td>None</td>
+      <td>The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">picture</code></td>
+      <td>None</td>
+      <td>A picture that you can use to easily identify the person or device</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gravatar</code></td>
+      <td>None</td>
+      <td>An email address for the device’s owner. If provided, it will override <code class="highlighter-rouge">picture</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">track</code></td>
+      <td>False</td>
+      <td>If  <code class="highlighter-rouge">yes</code>/<code class="highlighter-rouge">on</code>/<code class="highlighter-rouge">true</code> then the device will be tracked. Otherwise its location and state will not update</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hide_if_away</code></td>
+      <td>False</td>
+      <td>If <code class="highlighter-rouge">yes</code>/<code class="highlighter-rouge">on</code>/<code class="highlighter-rouge">true</code> then the device will be hidden if it is not at home</td>
+    </tr>
+  </tbody>
+</table>
 
 
 </article>
@@ -161,6 +225,9 @@
             BT Home Hub 5
           </a></li>
           <li><a href='/components/device_tracker.bluetooth_tracker/'>
+            Bluetooth Tracker
+          </a></li>
+          <li><a href='/components/device_tracker.bluetooth_le_tracker/'>
             Bluetooth Tracker
           </a></li>
           <li><a href='/components/device_tracker.ddwrt/'>

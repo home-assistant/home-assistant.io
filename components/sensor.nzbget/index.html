@@ -96,27 +96,40 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">nzbget</span>
-  <span class="s">base_url</span><span class="pi">:</span> <span class="s">http://192.168.1.18:6789</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_NZBGET_HOST</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">6789</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">apiuser</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">apipass</span>
   <span class="s">monitored_variables</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">ArticleCacheMB</span>
-    <span class="pi">-</span> <span class="s">DownloadRate</span>
-    <span class="pi">-</span> <span class="s">DownloadPaused</span>
-    <span class="pi">-</span> <span class="s">FreeDiskSpaceMB</span>
-    <span class="pi">-</span> <span class="s">PostPaused</span>
-    <span class="pi">-</span> <span class="s">RemainingSizeMB</span>
+    <span class="pi">-</span> <span class="s">article_cache</span>
+    <span class="pi">-</span> <span class="s">download_rate</span>
+    <span class="pi">-</span> <span class="s">download_paused</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>base_url</strong> (<em>Required</em>): The URL to your NZBGet installation.</li>
+  <li><strong>host</strong> (<em>Required</em>): IP address where your NZBGet installation is running.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port of your NZBGet installation. Defaults to 6789.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The prefix to use for your sensor. Defaults to NZBGet.</li>
   <li><strong>username</strong> (<em>Optional</em>): The username to access your NZBGet installation.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password to access your NZBGet installation.</li>
-  <li><strong>monitored_variables</strong> (<em>Required</em>): Array of monitored details.</li>
+  <li><strong>monitored_variables</strong> arrary (<em>Required</em>): List of monitored details.
+    <ul>
+      <li><strong>article_cache</strong>: Number of cached articles.</li>
+      <li><strong>average_download_rate</strong>: Average download rate</li>
+      <li><strong>download_paused</strong>: Paused downloads</li>
+      <li><strong>download_rate</strong>: Current download rate</li>
+      <li><strong>download_size</strong>: The size to download</li>
+      <li><strong>free_disk_space</strong>: Free disk space at the storage location of NZBGet</li>
+      <li><strong>post_paused</strong>: Paused posts</li>
+      <li><strong>remaining_size</strong>: Remaining size to download</li>
+      <li><strong>uptime</strong>: Uptime of NZBGet</li>
+    </ul>
+  </li>
 </ul>
+
 
 
 </article>

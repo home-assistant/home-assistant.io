@@ -1,0 +1,317 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>FFmpeg Binary Sensor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate a varius ffmpeg based binary sensor">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.ffmpeg/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="FFmpeg Binary Sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.ffmpeg/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate a varius ffmpeg based binary sensor">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="FFmpeg Binary Sensor">
+    <meta name="twitter:description" content="Instructions how to integrate a varius ffmpeg based binary sensor">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href='/getting-started/'>Getting started</a></li>
+  <li><a href='/components/'>Components</a></li>
+  <li><a href='/cookbook/'>Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      FFmpeg Binary Sensor
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The <code class="highlighter-rouge">ffmpeg</code> platform allows you to use every video or audio feed with <a href="http://www.ffmpeg.org/">FFmpeg</a> for various sensors in Home Assistant. Available are: <strong>noise</strong>, <strong>motion</strong>. If the <code class="highlighter-rouge">ffmpeg</code> process is brocken, the sensor going to unavailable. It exists a service to restart a instance with <em>binary_sensor.ffmpeg_restart</em>.</p>
+
+<p class="note">
+You need a <code class="highlighter-rouge">ffmpeg</code> binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need to build it from sourceby ourself. Windows binary are avilable on <a href="http://www.ffmpeg.org/">FFmpeg</a> homepage.
+</p>
+
+<h3><a class="title-link" name="noise" href="#noise"></a> Noise</h3>
+
+<p>To enable your FFmpeg with noise detection in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ffmpeg</span>
+    <span class="s">tool</span><span class="pi">:</span> <span class="s">noise</span>
+    <span class="s">input</span><span class="pi">:</span> <span class="s">FFMPEG_SUPPORTED_INPUT</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">FFmpeg Noise</span>
+    <span class="s">ffmpeg_bin</span><span class="pi">:</span> <span class="s">/usr/bin/ffmpeg</span>
+    <span class="s">peak</span><span class="pi">:</span> <span class="s">-30</span>
+    <span class="s">duration</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">reset</span><span class="pi">:</span> <span class="s">20</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>input</strong> (<em>Required</em>): A ffmpeg compatible input file, stream or feed.</li>
+  <li><strong>tool</strong> (<em>Required</em>): Is fix set to <code class="highlighter-rouge">noise</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
+  <li><strong>ffmpeg_bin</strong> (<em>Optional</em>): Default <code class="highlighter-rouge">ffmpeg</code>.</li>
+  <li><strong>peak</strong> (<em>Optional</em>): Default -30. A peak of dB to detect it as noise. 0 is very loud and -100 is low.</li>
+  <li><strong>duration</strong> (<em>Optional</em>): Default 1 seconds. How long need the noise over the peak to trigger the state.</li>
+  <li><strong>reset</strong> (<em>Optional</em>): Defaults to 20 seconds. The time to reset the state after none new noise is over the peak.</li>
+  <li><strong>extra_arguments</strong> (<em>Optional</em>): Extra option they will pass to <code class="highlighter-rouge">ffmpeg</code>, like audio frequence filtering.</li>
+  <li><strong>output</strong> (<em>Optional</em>): Allow you to send the audio output of this sensor to a icecast server or other ffmpeg supported output, eg. to stream with sonos after state is trigger.</li>
+</ul>
+
+<p>For playing with values:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ffmpeg -i YOUR_INPUT -vn -filter:a <span class="nv">silencedetect</span><span class="o">=</span><span class="nv">n</span><span class="o">=</span>-30dB:d<span class="o">=</span>1 -f null -
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="motion" href="#motion"></a> Motion</h3>
+
+<p>FFmpeg don’t have a motion detection filter so it use a scene filter to detect a new scene/motion. In fact you can set how big a object or size of image they need change to detect a motion. The option ‘changes’ is the percent value of change between frames. You can add a denoise filter to video if you want a realy small value for ‘changes’.</p>
+
+<p>To enable your FFmpeg with motion detection in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">camera</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ffmpeg</span>
+    <span class="s">tool</span><span class="pi">:</span> <span class="s">motion</span>
+    <span class="s">input</span><span class="pi">:</span> <span class="s">FFMPEG_SUPPORTED_INPUT</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">FFmpeg Motion</span>
+    <span class="s">ffmpeg_bin</span><span class="pi">:</span> <span class="s">/usr/bin/ffmpeg</span>
+    <span class="s">changes</span><span class="pi">:</span> <span class="s">10</span>
+    <span class="s">reset</span><span class="pi">:</span> <span class="s">20</span>
+    <span class="c1"># group feature / default not in use</span>
+    <span class="s">repeat</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">repeat_time</span><span class="pi">:</span> <span class="s">0</span>
+    
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>input</strong> (<em>Required</em>): A ffmpeg compatible input file, stream or feed.</li>
+  <li><strong>tool</strong> (<em>Required</em>): Is fix set to <code class="highlighter-rouge">motion</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
+  <li><strong>ffmpeg_bin</strong> (<em>Optional</em>): Default <code class="highlighter-rouge">ffmpeg</code>.</li>
+  <li><strong>changes</strong> (<em>Optional</em>): Default 10 percent. A lower value is more sensitive. I use 4 / 3.5 on my cameras. It describe how much of two frames need to change to detect it as motion. See on descripton.</li>
+  <li><strong>reset</strong> (<em>Optional</em>): Default 20 seconds. The time to reset the state after none new motion is detect.</li>
+  <li><strong>repeat</strong> (<em>Optional</em>): Default 0 repeats (deactivate). How many motion need to detect in <em>repeat_time</em> to trigger a motion.</li>
+  <li><strong>repeat_time</strong> (<em>Optional</em>): Default 0 seconds (deactivate). The time to repeats before it trigger a motion.</li>
+  <li><strong>extra_arguments</strong> (<em>Optional</em>): Extra option they will pass to ffmpeg. i.e. video denoise filtering.</li>
+</ul>
+
+<p>For playing with values (changes/100 is the scene value on ffmpeg):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ffmpeg -i YOUR_INPUT -an -filter:v <span class="k">select</span><span class="o">=</span>gt<span class="o">(</span>scene<span class="se">\,</span>0.1<span class="o">)</span> -f framemd5 -
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/binary_sensor.ffmpeg.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/ffmpeg.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.27
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/camera.ffmpeg/'>
+          FFmpeg Camera
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Binary Sensor</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/binary_sensor.apcupsd/'>APCUPSd Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bloomsky/'>BloomSky Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.envisalink/'>Envisalink Binary Sensor</a>
+        </li>
+        <li>
+            FFmpeg Binary Sensor
+        </li>
+        <li>
+            <a href='/components/binary_sensor.http/'>HTTP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.knx/'>KNX Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mysensors/'>MySensors Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nx584/'>NX584 zones</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nest/'>Nest Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.octoprint/'>OctoPrint Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rest/'>RESTful Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rpi_gpio/'>Raspberry PI GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tcp/'>TCP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.template/'>Template Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.vera/'>Vera Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.wink/'>Wink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zwave/'>Z-Wave Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zigbee/'>ZigBee Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.arest/'>aREST Binary Sensor</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

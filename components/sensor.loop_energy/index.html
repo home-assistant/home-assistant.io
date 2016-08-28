@@ -97,7 +97,7 @@
 
 <p>To do this log into <a href="https://www.your-loop.com/">Loop Energy</a>. Once you’re logged in you should be able see see your live readings on the webpage.</p>
 
-<p>You can then open your browser’s console window, how you do this varies by browser but in Chrome you click on `More Tools / Developer Tools’ and click on the console window. You then type:-</p>
+<p>You can then open your browser’s console window, how you do this varies by browser but in Chrome you click on `More Tools / Developer Tools’ and click on the console window. You then type:</p>
 
 <p><code class="highlighter-rouge">Drupal.settings.navetas_realtime.</code></p>
 
@@ -113,21 +113,24 @@
 </code></pre>
 </div>
 
-<p>The serial and secret tokens are the ones you need. If you just have an electricity  monitor - then you won’t see the gas keys.</p>
+<p>The serial and secret tokens are the ones you need. If you just have an electricity monitor then you won’t see the gas keys.</p>
 
-<p>Now you have the keys, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>, replacing the <code class="highlighter-rouge">SERIAL</code> and <code class="highlighter-rouge">SECRET</code> keys with the ones you found in the console:</p>
+<p>Now you have the keys, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>, replacing the <code class="highlighter-rouge">*_SERIAL</code> and <code class="highlighter-rouge">*_SECRET</code> keys with the ones you found in the console:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">loopenergy</span>
-  <span class="s">electricity_serial</span><span class="pi">:</span> <span class="s">ELECTRICAL_SERIAL</span>
-  <span class="s">electricity_secret</span><span class="pi">:</span> <span class="s">ELECTRICAL_SECRET</span>
-  <span class="s">gas_serial</span><span class="pi">:</span> <span class="s">GAS_SERIAL</span>
-  <span class="s">gas_secret</span><span class="pi">:</span> <span class="s">GAS_SECRET</span>
-  <span class="s">gas_type</span><span class="pi">:</span> <span class="s">metric</span>
-  <span class="s">gas_calorific</span><span class="pi">:</span> <span class="s">39.11</span>
-</code></pre>
-</div>
+<p>```yaml</p>
+<h1>Example configuration.yaml entry</h1>
+<p>sensor:</p>
+<ul>
+  <li>platform: loopenergy
+electricity:
+  electricity_serial: ‘ELECTRICAL_SERIAL’
+  electricity_secret: ‘ELECTRICAL_SECRET’
+gas:
+  gas_serial: ‘GAS_SERIAL’
+  gas_secret: ‘GAS_SECRET’
+  gas_type: imperial
+  gas_calorific: 38.2</li>
+</ul>
 
 <p>Configuration variables:</p>
 
@@ -136,13 +139,13 @@
   <li><strong>electricity_secret</strong> (<em>Required</em>): Secret key for your electricity sensor</li>
   <li><strong>gas_serial</strong> (<em>Optional</em>): Serial number for your gas sensor.</li>
   <li><strong>gas_secret</strong> (<em>Optional</em>): Secret key for your gas sensor.</li>
-  <li><strong>gas_type</strong> (<em>Optional</em>): Type of meter <code class="highlighter-rouge">imperial</code> or <code class="highlighter-rouge">metric</code>, defaults to metric.</li>
-  <li><strong>gas_calorific</strong> (<em>Optional</em>): Calorific value of your gas supply (usually on your gas bill) - defaults to 39.11.</li>
+  <li><strong>gas_type</strong> (<em>Optional</em>): Type of meter <code class="highlighter-rouge">imperial</code> or <code class="highlighter-rouge">metric</code>. Defaults to <code class="highlighter-rouge">metric</code>.</li>
+  <li><strong>gas_calorific</strong> (<em>Optional</em>): Calorific value of your gas supply (usually on your gas bill). Defaults to 39.11.</li>
 </ul>
 
 <p>The electricity readings are updated every 10 seconds and the gas readings every 15 minutes.</p>
 
-<p>The gas readings are experimental and not all gas meters are properly supported - so if the data you see doesn’t agree with the readings you see via loop energy please report an issue.</p>
+<p>The gas readings are experimental and not all gas meters are properly supported. So if the data you see doesn’t agree with the readings you see via loop energy please report an issue.</p>
 
 
 </article>

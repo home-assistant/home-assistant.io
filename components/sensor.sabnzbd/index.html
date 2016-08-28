@@ -98,30 +98,36 @@
   <span class="s">platform</span><span class="pi">:</span> <span class="s">sabnzbd</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">SAB</span>
   <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
-  <span class="s">base_url</span><span class="pi">:</span> <span class="s">YOUR_SABNZBD_BASE_URL</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_SABNZBD_HOST</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">8080</span>
   <span class="s">monitored_variables</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">current_status'</span>
-    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">speed'</span>
-    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">queue_size'</span>
-    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">queue_remaining'</span>
-    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">disk_size'</span>
-    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">disk_free'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">current_status'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">speed'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">queue_size'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">queue_remaining'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_size'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_free'</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>base_url</strong> (<em>Required</em>): This is the base URL of your SABnzbd instance including the port number if not running on 80, eg. http://192.168.1.32:8124/</li>
+  <li><strong>host</strong> (<em>Required</em>): This is the base URL of your SABnzbd instance including the port number if not running on 80, eg. http://192.168.1.32:8124/</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port to use whith SABnzbd instance. Defaults to 8080.</li>
   <li><strong>api_key</strong> (<em>Required</em>): Name that will be used in the frontend for the pin.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this SABnzbd instance.</li>
-  <li><strong>monitored_variables</strong> (<em>Required</em>): Array of the monitored variables.
+  <li><strong>monitored_variables</strong> array (<em>Required</em>): List of the monitored variables.
     <ul>
-      <li><strong>type</strong> (<em>Required</em>): Valid entries are: <em>‘current_status’</em>, <em>‘speed’</em>, <em>‘queue_size’</em>, <em>‘queue_remaining’</em>, <em>‘disk_size’</em>, and <em>‘disk_free’</em></li>
+      <li><strong>current_status</strong>: current status of the SABnzbd instance</li>
+      <li><strong>speed</strong>: Current speed</li>
+      <li><strong>queue_size</strong>: Size of the queue</li>
+      <li><strong>queue_remaining</strong>: Remaining elements in the queue</li>
+      <li><strong>disk_size</strong>: Disk size of the storage location</li>
+      <li><strong>disk_free</strong>: Free disk space at the sotrage location</li>
     </ul>
   </li>
 </ul>
-
 
 
 </article>

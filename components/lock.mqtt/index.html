@@ -91,7 +91,7 @@
 
   <p>The <code class="highlighter-rouge">mqtt</code> lock platform let you control your MQTT enabled locks.</p>
 
-<p>In an ideal scenario, the MQTT device will have a <code class="highlighter-rouge">state_topic</code> to publish state changes. If these messages are published with RETAIN flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/unlocked.</p>
+<p>In an ideal scenario, the MQTT device will have a <code class="highlighter-rouge">state_topic</code> to publish state changes. If these messages are published with <code class="highlighter-rouge">RETAIN</code> flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the lock will be false/unlocked.</p>
 
 <p>When a <code class="highlighter-rouge">state_topic</code> is not available, the lock will work in optimistic mode. In this mode, the lock will immediately change state after every command. Otherwise, the lock will wait for state confirmation from device (message from <code class="highlighter-rouge">state_topic</code>).</p>
 
@@ -170,8 +170,14 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
         <li><a href='/components/binary_sensor.mqtt/'>
           MQTT Binary Sensor
         </a></li>
+        <li><a href='/components/cover.mqtt/'>
+          MQTT Cover
+        </a></li>
         <li><a href='/components/device_tracker.mqtt/'>
           MQTT Device Tracker
+        </a></li>
+        <li><a href='/components/fan.mqtt/'>
+          MQTT Fan
         </a></li>
         <li><a href='/components/garage_door.mqtt/'>
           MQTT Garage door

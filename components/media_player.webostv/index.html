@@ -97,9 +97,14 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+    <span class="s">customize</span><span class="pi">:</span>
+      <span class="s">sources</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">livetv</span>
+        <span class="pi">-</span> <span class="s">youtube</span>
+        <span class="pi">-</span> <span class="s">makotv</span>
 </code></pre>
 </div>
 
@@ -108,6 +113,11 @@
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): The IP of the LG WebOS Smart TV, eg. 192.168.0.10</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the LG WebOS Smart TV.</li>
+  <li><strong>customize</strong> array (<em>Optional</em>): List of options to customize.
+    <ul>
+      <li><em><strong>sources</strong> array (</em>Optional*): List of hardware inputs.</li>
+    </ul>
+  </li>
 </ul>
 
 <p>If you do not provide a host name, all LG WebOS Smart TV’s within your network will be auto-discovered if your TV network name is set to <code class="highlighter-rouge">[LG] webOS TV</code></p>

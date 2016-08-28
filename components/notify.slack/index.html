@@ -91,7 +91,11 @@
 
   <p>The <code class="highlighter-rouge">slack</code> platform allows you to deliver notifications from Home Assistant to <a href="https://slack.com/">Slack</a>.</p>
 
-<p>You need to obtain the <a href="https://api.slack.com/web?sudo=1">Slack API token</a> to be able to send notifications.</p>
+<p>If you are planning to use Slack as yourself then you need to obtain a <a href="https://api.slack.com/web?sudo=1">Slack API token</a> to be able to send notifications.</p>
+
+<p>It is also possible to use Slack bots as users. Just create a new bot at https://[YOUR_TEAM].slack.com/apps/build/custom-integration and use the provided token for that. You can add an icon from the frontend for Home Assistant and give the bot a meaningful name.</p>
+
+<p>Don’t forget to invite the bot to the room where you want to get the notifications.</p>
 
 <p>To enable the slack notification in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -178,22 +182,31 @@
             <a href='/components/notify.webostv/'>LG WebOS TV notifications</a>
         </li>
         <li>
+            <a href='/components/notify.llamalab_automate/'>LlamaLab Automate</a>
+        </li>
+        <li>
             <a href='/components/notify.mqtt/'>MQTT Notifications</a>
         </li>
         <li>
             <a href='/components/notify.message_bird/'>MessageBird</a>
         </li>
         <li>
+            <a href='/components/notify.group/'>Notify Group</a>
+        </li>
+        <li>
             <a href='/components/notify.nma/'>Notify My Android</a>
         </li>
         <li>
-            <a href='/components/notify.pushover/'>PushOver</a>
+            <a href='/components/notify.html5/'>Push Notifications</a>
         </li>
         <li>
             <a href='/components/notify.pushbullet/'>Pushbullet</a>
         </li>
         <li>
             <a href='/components/notify.pushetta/'>Pushetta</a>
+        </li>
+        <li>
+            <a href='/components/notify.pushover/'>Pushover</a>
         </li>
         <li>
             <a href='/components/notify.rest/'>REST</a>

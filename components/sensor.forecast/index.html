@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">forecast</code> platform uses the <a href="https://forecast.io/">Forecast.io</a> web service as a source of meteorological data for your location. The location is based on the <code class="highlighter-rouge">longitude</code> and <code class="highlighter-rouge">latitude</code> coordinates configured in your <code class="highlighter-rouge">configuration.yaml</code> file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using <a href="">Google Maps</a> and clicking on your home or <a href="http://www.openstreetmap.org/">Openstreetmap</a>.</p>
+  <p>The <code class="highlighter-rouge">forecast</code> platform uses the <a href="https://forecast.io/">Forecast.io</a> web service as a source of meteorological data for your location. The location is based on the <code class="highlighter-rouge">longitude</code> and <code class="highlighter-rouge">latitude</code> coordinates configured in your <code class="highlighter-rouge">configuration.yaml</code> file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using <a href="https://www.google.com/maps">Google Maps</a> and clicking on your home or <a href="http://www.openstreetmap.org/">Openstreetmap</a>.</p>
 
 <p>You need an API key which is free but requires <a href="https://developer.forecast.io/register">registration</a>. You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.</p>
 
@@ -124,6 +124,11 @@
     <span class="pi">-</span> <span class="s">minutely_summary</span>
     <span class="pi">-</span> <span class="s">hourly_summary</span>
     <span class="pi">-</span> <span class="s">daily_summary</span>
+    <span class="pi">-</span> <span class="s">temperature_max</span>
+    <span class="pi">-</span> <span class="s">temperature_min</span>
+    <span class="pi">-</span> <span class="s">apparent_temperature_max</span>
+    <span class="pi">-</span> <span class="s">apparent_temperature_min</span>
+    <span class="pi">-</span> <span class="s">precip_intensity_max</span>
 </code></pre>
 </div>
 
@@ -150,6 +155,11 @@
       <li><strong>minutely_summary</strong>: A human-readable text summary for the next hour.</li>
       <li><strong>hourly_summary</strong>: A human-readable text summary for the next 24 hours.</li>
       <li><strong>daily_summary</strong>: A human-readable text summary for the next 7 days.</li>
+      <li><strong>temperature_max</strong>: Today’s expected high temperature.</li>
+      <li><strong>temperature_min</strong>: Today’s expected low temperature.</li>
+      <li><strong>apparent_temperature_max</strong>: Today’s expected apparent high temperature.</li>
+      <li><strong>apparent_temperature_min</strong>: Today’s expected apparent low temperature.</li>
+      <li><strong>precip_intensity_max</strong>: Today’s expected maximum intensity of precipitation.</li>
     </ul>
   </li>
   <li><strong>units</strong> (<em>Optional</em>): Specify the unit system. Default to <code class="highlighter-rouge">si</code> or <code class="highlighter-rouge">us</code> based on the temperature preference in Home Assistant. Other options are <code class="highlighter-rouge">auto</code>, <code class="highlighter-rouge">us</code>, <code class="highlighter-rouge">si</code>, <code class="highlighter-rouge">ca</code>, and <code class="highlighter-rouge">uk2</code>.
@@ -197,6 +207,9 @@
         </li>
         <li>
             <a href='/components/sensor.swiss_hydrological_data/'>Swiss Hydrological Data</a>
+        </li>
+        <li>
+            <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
         </li>
         <li>
             <a href='/components/sensor.yr/'>YR</a>

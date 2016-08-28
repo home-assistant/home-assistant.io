@@ -89,9 +89,9 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">generic</code> camera platform allows you to integrate any IP camera into Home Assistant. It supports fetching images from a url with optional HTTP authentication.</p>
+  <p>The <code class="highlighter-rouge">generic</code> camera platform allows you to integrate any IP camera or other url into Home Assistant. Templates can be used to generate the urls on the fly.</p>
 
-<p>Home Assistant will serve the images via its server, making it possible to view your IP camera’s while outside of your network. The endpoint is <code class="highlighter-rouge">/api/camera_proxy/camera.[name]?time=[timestamp]</code>.</p>
+<p>Home Assistant will serve the images via its server, making it possible to view your IP camera’s while outside of your network. The endpoint is <code class="highlighter-rouge">/api/camera_proxy/camera.[name]</code>.</p>
 
 <p>To enable this camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -102,17 +102,29 @@
   <span class="s">name</span><span class="pi">:</span> <span class="s">my sample camera</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+  <span class="s">authentication</span><span class="pi">:</span> <span class="s">basic</span>
+  <span class="s">limit_refetch_to_url_change</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>still_image_url</strong> (<em>Required</em>): The URL your camera serves the image on, eg. http://192.168.1.21:2112/</li>
+  <li><strong>still_image_url</strong> (<em>Required</em>): The URL your camera serves the image on, eg. http://192.168.1.21:2112/. Can be a <a href="/topics/templating/">template</a>.</li>
   <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
   <li><strong>username</strong> (<em>Optional</em>): The username for accessing your camera.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password for accessing your camera.</li>
+  <li><strong>authentication</strong> (<em>Optional</em>): <code class="highlighter-rouge">basic</code> (default) or <code class="highlighter-rouge">digest</code> auth for requests.</li>
+  <li><strong>limit_refetch_to_url_change</strong> (<em>Optional</em>): true/false value (default: false). Limits refetching of the remote image to when the url changes. Only relevant if using a template to fetch the remote image.</li>
 </ul>
+
+<p class="img">
+  <a href="/cookbook/google_maps_card/">
+    <img src="/images/components/camera/generic-google-maps.png" alt="Screenshot showing Google Maps integration in Home Assistant front end." />
+    Example showing the Generic camera platform pointing at a dynamic Google Map image.
+  </a>
+</p>
+
 
 
 </article>
@@ -130,6 +142,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/camcorder.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: depends
+    </div>
     <div class='section'>
     Introduced in release: pre 0.7
     </div>

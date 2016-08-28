@@ -98,6 +98,7 @@
   <span class="s">code</span><span class="pi">:</span> <span class="s">PASSCODE</span>
   <span class="s">pending_time</span><span class="pi">:</span> <span class="s">60</span>
   <span class="s">trigger_time</span><span class="pi">:</span> <span class="s">120</span>
+  <span class="s">disarm_after_trigger</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
 
@@ -108,6 +109,7 @@
   <li><strong>code</strong> (<em>Optional</em>): If defined, specifies a code to enable or disable the alarm in the frontend.</li>
   <li><strong>pending_time</strong> (<em>Optional</em>): The time in seconds of the pending time before arming the alarm. Default is 60 seconds.</li>
   <li><strong>trigger_time</strong> (<em>Optional</em>): The time in seconds of the trigger time in which the alarm is firing. Default is 120 seconds.</li>
+  <li><strong>disarm_after_trigger</strong> (<em>Optional</em>): If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.</li>
 </ul>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
