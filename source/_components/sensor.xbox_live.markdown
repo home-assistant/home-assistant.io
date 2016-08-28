@@ -10,7 +10,7 @@ footer: true
 logo: xbox-live.png
 ha_category: Social
 ha_iot_class: "Cloud Polling"
-ha_release: 0.27
+ha_release: 0.28
 ---
 
 The Xbox Live component is able to track [Xbox](http://xbox.com/) profiles.
