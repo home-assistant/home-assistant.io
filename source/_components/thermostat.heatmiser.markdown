@@ -28,9 +28,9 @@ thermostat:
   ipaddress: YOUR_IPADDRESS
   port:  YOUR_PORT
   tstats:
-    1:
-    id: THERMOSTAT_ID
-    name: THERMOSTAT_NAME
+    - 1:
+      id: THERMOSTAT_ID
+      name: THERMOSTAT_NAME
 ```
 
 A single interface can handle up to 32 connected devices.
