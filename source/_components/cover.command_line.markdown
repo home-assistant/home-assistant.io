@@ -22,10 +22,10 @@ cover:
 - platform: command_line
   covers:
     Garage door:
-      open_cmd: move_command up kitchen
-      close_cmd: move_command down kitchen
-      stop_cmd: move_command stop kitchen
-      state_cmd: state_command kitchen
+      opencmd: move_command up kitchen
+      closecmd: move_command down kitchen
+      stopcmd: move_command stop kitchen
+      statecmd: state_command kitchen
       value_template: {% raw %}>
         {% if value == 'open' %}
         100
@@ -39,8 +39,8 @@ Configuration variables:
 
 - **covers** (*Required*): The array that contains all command line covers.
   - **entry** (*Required*): Name of the command line cover. Multiple entries are possible.
-    - **open_cmd** (*Required*): The command to open the cover.
-    - **close_cmd** (*Required*): The action to close the cover.
-    - **stop_cmd** (*Required*): The action to stop the cover.
-    - **state_cmd** (*Optional*): If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
+    - **opencmd** (*Required*): The command to open the cover.
+    - **closecmd** (*Required*): The action to close the cover.
+    - **stopcmd** (*Required*): The action to stop the cover.
+    - **statecmd** (*Optional*): If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
     - **value_template** (*optional - default: '{% raw %}{{ value }}{% endraw%}'*): if specified, `state_cmd` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `state_cmd` returns a string "open", using `value_template` as in the example config above will allow you to translate that into the valid state `100`.
