@@ -14,6 +14,6 @@ ha_iot_class: "Local Push"
 ---
 
 
-The `homematic` cliamte platform lets you control [Homematic](http://www.homematic.com/) thermostats through Home Assistant.
+The `homematic` climate platform lets you control [Homematic](http://www.homematic.com/) thermostats through Home Assistant.
 
 Devices will be configured automatically. Please refer to the [component](/components/homematic/) configuration on how to setup Homematic.
