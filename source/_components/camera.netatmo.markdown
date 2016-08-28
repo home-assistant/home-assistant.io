@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: netatmo.png
 ha_category: Camera
-ha_release: "0.22"
+ha_release: 0.22
 ---
 
 
@@ -29,8 +29,8 @@ camera:
 
 Configuration variables:
 
-- **home** (*Optionnal*): Will display the cameras of this home only.
-- **cameras** array (*Optionnal*): Cameras to use. Multiple enties allowed.
+- **home** (*Optional*): Will display the cameras of this home only.
+- **cameras** array (*Optional*): Cameras to use. Multiple enties allowed.
     - **camera_name**: Name of the camera to display.
 
 If **home** and **cameras** is not provided, all cameras will be displayed.

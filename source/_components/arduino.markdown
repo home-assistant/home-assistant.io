@@ -45,3 +45,9 @@ If that's not working, check your `dmesg` or `journalctl -f` output. Keep in min
 A word of caution: The Arduino boards are not storing states. This means that with every initialization the pins are set to off/low.
 </p>
 
+Add the user who is used to run Home Assistant to the groups to allow access to the serial port.
+
+```bash
+sudo usermod -a -G dialout,lock $USER
+```
+

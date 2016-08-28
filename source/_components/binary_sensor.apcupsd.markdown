@@ -19,11 +19,11 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: apcupsd
-  name: UPS Online
+  - platform: apcupsd
+    name: UPS Online
 ```
 
 Configuration variables:
 
-- **resource** (*Required*): The resource or endpoint that contains the value.
-- **method** (*Optional*): The method of the request. Default is GET.
+
+- **name** (*Optional*): Name to use in the front end.

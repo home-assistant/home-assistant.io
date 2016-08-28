@@ -90,6 +90,22 @@ $ ls /dev/ttyACM*
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/). 
 </p>
 
+### {% linkable_title Adding Security Devices %}
+
+Security Z-Wave devices require a network key before being added to the network using the zwave.add_node_secure service. You must edit the options.xml file, located in your python-openzwave config_path to use a network key before adding these devices.
+
+Edit your options.xml file:
+
+```bash
+  <!-- <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F 0x10" /> -->
+```
+Uncomment the line:
+```bash
+   <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10" />
+```
+
+You can replace these values with your own 16 byte network key. For more information on this process see the [Open-Zwave](https://github.com/OpenZWave/open-zwave) wiki article [Adding Security Devices to OZW](https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW)
+
 ### {% linkable_title Events %}
 
 #### {% linkable_title zwave.network_complete %}

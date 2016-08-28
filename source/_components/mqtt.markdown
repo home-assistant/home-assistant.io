@@ -48,7 +48,7 @@ Configuration variables:
 
 The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
 
-#### {% linkable_title Use the embedded broker %}
+### {% linkable_title Embedded broker %}
 
 Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Asssistant connects to it. Embedded broker default configuration:
 
@@ -75,7 +75,7 @@ mqtt:
     # http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration
 ```
 
-#### {% linkable_title Run your own %}
+### {% linkable_title Run your own %}
 
 Most private option but requires a bit more work. There are two free and open-source brokers to pick from: [Mosquitto](http://mosquitto.org/) and [Mosca](http://www.mosca.io/).
 
@@ -94,7 +94,7 @@ mqtt:
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
 </p>
 
-#### {% linkable_title Public MQTT %}
+### {% linkable_title Public broker %}
 
 The Mosquitto project runs a [public broker](http://test.mosquitto.org). Easiest to setup but there is 0 privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.
 
@@ -110,7 +110,7 @@ mqtt:
   certificate: /home/paulus/downloads/mosquitto.org.crt
 ```
 
-#### {% linkable_title CloudMQTT %}
+### {% linkable_title CloudMQTT %}
 
 [CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free up to 10 connected devices. This is enough to get started with for example [OwnTracks](/components/device_tracker.owntracks/) and give you a taste of what is possible.
 
@@ -174,7 +174,7 @@ The MQTT component will register the service `publish` which allows publishing m
 
 ### {% linkable_title Logging %}
 
-The [logger](/components/logger/) component allow the logging of received MQTT messages. 
+The [logger](/components/logger/) component allow the logging of received MQTT messages.
 
 ```yaml
 # Example configuration.yaml entry
@@ -228,7 +228,7 @@ $ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 For the embeeded MQTT broker the command looks like the sample below.
 
 ```bash
-$ mosquitto_sub -v -V mqttv311 -t "#" 
+$ mosquitto_sub -v -V mqttv311 -t "#"
 ```
 
 Add the username `homeassistant` and your API password if needed.
