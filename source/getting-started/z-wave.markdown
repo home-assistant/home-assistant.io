@@ -86,6 +86,12 @@ Or, on some other systems (such as Raspberry Pi), use:
 $ ls /dev/ttyACM*
 ```
 
+Or, on macOS, use:
+
+```bash
+$ ls /dev/cu.usbmodem*
+```
+
 <p class='note'>
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/). 
 </p>
