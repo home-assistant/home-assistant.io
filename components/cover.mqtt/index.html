@@ -106,13 +106,15 @@ state from <code class="highlighter-rouge">state_topic</code>. If these messages
     <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/cover"</span>
     <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/cover/set"</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Sensor"</span>
-    <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
     <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
     <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">payload_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOAD_OPEN"</span>
+    <span class="s">payload_close</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOD__CLOSE"</span>
+    <span class="s">payload_stop</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOAD_STOP"</span>
     <span class="s">state_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STATE_OPEN"</span>
     <span class="s">state_closed</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STATE_CLOSED"</span>
-    <span class="s">service_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">SERVICE_OPEN"</span>
-    <span class="s">service_close</span><span class="pi">:</span> <span class="s2">"</span><span class="s">SERVICE_CLOSE"</span>
+    <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">retain</span><span class="pi">:</span> <span class="s">false</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
@@ -121,14 +123,16 @@ state from <code class="highlighter-rouge">state_topic</code>. If these messages
 
 <ul>
   <li><strong>state_topic</strong> (<em>Required</em>): The MQTT topic subscribed to receive sensor values.</li>
+  <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to control the rollershutter.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the sensor. Default is “MQTT Sensor”.</li>
-  <li><strong>state_open</strong> (<em>Optional</em>): The payload that represents open state. Default is”STATE_OPEN”</li>
-  <li><strong>state_closed</strong> (<em>Optional</em>): The payload that represents closed state. Default is “STATE_CLOSED”</li>
-  <li><strong>service_open</strong> (<em>Optional</em>):  The payload that represents open state in service mode. Default is”SERVICE_OPEN”</li>
-  <li><strong>service_close</strong> (<em>Optional</em>): The payload that represents closed state in service mode. Default is “SERVICE_CLOSE”</li>
-  <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no state topic defined, else <code class="highlighter-rouge">false</code>.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
+  <li><strong>payload_open</strong> (<em>Optional</em>): The payload that opens the cover. Default is “UP”</li>
+  <li><strong>payload_close</strong> (<em>Optional</em>): The payload that closes the cover. Default is “DOWN”</li>
+  <li><strong>payload_stop</strong> (<em>Optional</em>):  The payload that stops the rollershutter. default is “STOP”</li>
+  <li><strong>state_open</strong> (<em>Optional</em>): The payload that represents open state. Default is”STATE_OPEN”</li>
+  <li><strong>state_closed</strong> (<em>Optional</em>): The payload that represents closed state. Default is “STATE_CLOSED”</li>
+  <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no state topic defined, else <code class="highlighter-rouge">false</code>.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
 </ul>
 
