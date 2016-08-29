@@ -94,7 +94,7 @@
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 
 <h3><a class="title-link" name="media-control-services" href="#media-control-services"></a> Media control services</h3>
-<p>Available services: <code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">turn_off</code>, <code class="highlighter-rouge">toggle</code>, <code class="highlighter-rouge">volume_up</code>, <code class="highlighter-rouge">volume_down</code>, <code class="highlighter-rouge">media_play_pause</code>, <code class="highlighter-rouge">media_play</code>, <code class="highlighter-rouge">media_pause</code>, <code class="highlighter-rouge">media_next_track</code>, <code class="highlighter-rouge">media_previous_track</code>, <code class="highlighter-rouge">clear_playlist</code></p>
+<p>Available services: <code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">turn_off</code>, <code class="highlighter-rouge">toggle</code>, <code class="highlighter-rouge">volume_up</code>, <code class="highlighter-rouge">volume_down</code>, <code class="highlighter-rouge">media_play_pause</code>, <code class="highlighter-rouge">media_play</code>, <code class="highlighter-rouge">media_pause</code>, <code class="highlighter-rouge">media_stop</code>, <code class="highlighter-rouge">media_next_track</code>, <code class="highlighter-rouge">media_previous_track</code>, <code class="highlighter-rouge">clear_playlist</code></p>
 
 <table>
   <thead>
@@ -113,7 +113,7 @@
   </tbody>
 </table>
 
-<h4><a class="title-link" name="service-media_playermute_volume" href="#service-media_playermute_volume"></a> Service <code class="highlighter-rouge">media_player/mute_volume</code></h4>
+<h4><a class="title-link" name="service-media_playervolume_mute" href="#service-media_playervolume_mute"></a> Service <code class="highlighter-rouge">media_player/volume_mute</code></h4>
 
 <table>
   <thead>
@@ -130,14 +130,14 @@
       <td>Target a specific media player. Defaults to all.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">mute</code></td>
+      <td><code class="highlighter-rouge">is_volume_muted</code></td>
       <td>no</td>
       <td>True/false for mute/unmute</td>
     </tr>
   </tbody>
 </table>
 
-<h4><a class="title-link" name="service-media_playerset_volume_level" href="#service-media_playerset_volume_level"></a> Service <code class="highlighter-rouge">media_player/set_volume_level</code></h4>
+<h4><a class="title-link" name="service-media_playervolume_set" href="#service-media_playervolume_set"></a> Service <code class="highlighter-rouge">media_player/volume_set</code></h4>
 
 <table>
   <thead>
@@ -154,7 +154,7 @@
       <td>Target a specific media player. Defaults to all.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">volume</code></td>
+      <td><code class="highlighter-rouge">volume_level</code></td>
       <td>no</td>
       <td>Integer for volume level</td>
     </tr>
@@ -178,7 +178,7 @@
       <td>Target a specific media player. Defaults to all.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">position</code></td>
+      <td><code class="highlighter-rouge">seek_position</code></td>
       <td>no</td>
       <td>Position to seek to. The format is platform dependent.</td>
     </tr>
