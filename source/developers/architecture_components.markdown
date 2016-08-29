@@ -22,7 +22,7 @@ We can differentiate between two different types of components within Home Assis
 
 These components will track devices within a specific domain and consist of a core part and platform-specific logic. These components make their information available via the State Machine and the Event Bus. The component will also register services in the Service Registry to expose control of the devices.
 
-For example, one of the built-in components is the `switch` component. This component is responsible for interaction with different types of switches.
+For example, one of the built-in components is the [`switch` component](/components/switch/). This component is responsible for interaction with different types of switches.
 
 A platform provides support for a particular kind/brand of device. For example, a switch could use a WeMo or Orvibo platform, and a light component might interact with the Hue or LiFX platform.
 
