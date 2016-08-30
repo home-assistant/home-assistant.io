@@ -21,12 +21,18 @@ If you are able to successfully run `python3 --version` but not `pip3`, install 
 $ python3 -m pip install homeassistant
 ```
 
+On a Debian system, you can also install python3 by `sudo apt-get install python3`, and pip3 by `sudo apt-get install python3-pip`.
+
 #### {% linkable_title No module named pip %}
 [Pip](https://pip.pypa.io/en/stable/) should come bundled with the latest Python 3 but is omitted by some distributions. If you are unable to run `python3 -m pip --version` you can install `pip` by [downloading the installer](https://bootstrap.pypa.io/get-pip.py) and running it with Python 3:
 
 ```bash
 $ python3 get-pip.py
 ```
+
+#### {% linkable_title libyaml is not found or a compiler error %}
+
+On a Debian system, install the Python 3 YAML library by `sudo apt-get install python3-yaml`.
 
 #### {% linkable_title distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both %}
 This is a known issue if you're on a Mac using Homebrew to install Python. Please follow [these instructions](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md#note-on-pip-install---user) to resolve it.
