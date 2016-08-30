@@ -57,6 +57,14 @@ Configuration variables:
 - **bytesize** (*Required*): The bytesize for the serial connection.
 - **parity** (*Required*): The parity for the serial connection.
 
+### {% linkable_title Services %}
+
+
+| Service | Description |
+| ------- | ----------- |
+| write_register | Write single register. Requires `unit`, `address` and `value` fields. |
+
+
 ## {% linkable_title Building on top of Modbus %}
 
  - [Modbus Sensor](/components/sensor.modbus/)
