@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-30T19:11:58+00:00</updated>
+  <updated>2016-08-30T21:33:22+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -172,6 +172,29 @@
 <p>– Robbie</p>
 
 <p>(p.s. To those of you that scrolled directly to the bottom to get your present, just know that you didn’t earn it like the others did. 😄)</p>
+
+<h3><a class="title-link" name="hotfix-0271---august-30" href="#hotfix-0271---august-30"></a> Hotfix 0.27.1 - August 30</h3>
+
+<ul>
+  <li>Migrate APCUPSd to voluptuous (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Ecobee operation mode fix (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>update ha-ffmpeg version to 0.9 (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Device tracker component &amp; platform validation. No more home_range. (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Added option to use effect:random for Flux Led light bulbs (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Use voluptuous for smtp (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Upgrade sendgrid to 3.2.10 (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Upgrade TwitterAPI to 2.4.2 (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Fix bug in wemo discovery caused by voluptuous addition. (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Bug fix for asuswrt device_tracker. (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Remove units for humidity in Wundeground sensor (<a href="https://github.com/arsaboo">@arsaboo</a>)</li>
+  <li>Fix media_player descriptions and select_source (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Allow user to configure server id to perform speed test against (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Bug fix for asuswrt device_tracker. (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>More Ecobee operation mode fixes (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Map Modes to setpoint indexes (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>fix voluptuous and cover autodiscovery (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fixes wrong statevalue and problem with zwave setpoint (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+</ul>
 
 ]]></content>
   </entry>
