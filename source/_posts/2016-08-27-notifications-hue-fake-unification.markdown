@@ -155,7 +155,7 @@ Talk to you soon on Gitter and in your pull request comments!
 
 (p.s. To those of you that scrolled directly to the bottom to get your present, just know that you didn't earn it like the others did. 😄)
 
-### {% linkable_title Hotfix 0.27.1 - August 30 %}
+## {% linkable_title Hotfix 0.27.1 - August 30 %}
 
 - Migrate APCUPSd to voluptuous ([@fabaff])
 - Ecobee operation mode fix ([@turbokongen])
