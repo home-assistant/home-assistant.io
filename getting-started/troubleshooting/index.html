@@ -100,12 +100,18 @@
 </code></pre>
 </div>
 
+<p>On a Debian system, you can also install python3 by <code class="highlighter-rouge">sudo apt-get install python3</code>, and pip3 by <code class="highlighter-rouge">sudo apt-get install python3-pip</code>.</p>
+
 <h4><a class="title-link" name="no-module-named-pip" href="#no-module-named-pip"></a> No module named pip</h4>
 <p><a href="https://pip.pypa.io/en/stable/">Pip</a> should come bundled with the latest Python 3 but is omitted by some distributions. If you are unable to run <code class="highlighter-rouge">python3 -m pip --version</code> you can install <code class="highlighter-rouge">pip</code> by <a href="https://bootstrap.pypa.io/get-pip.py">downloading the installer</a> and running it with Python 3:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 get-pip.py
 </code></pre>
 </div>
+
+<h4><a class="title-link" name="libyaml-is-not-found-or-a-compiler-error" href="#libyaml-is-not-found-or-a-compiler-error"></a> libyaml is not found or a compiler error</h4>
+
+<p>On a Debian system, install the Python 3 YAML library by <code class="highlighter-rouge">sudo apt-get install python3-yaml</code>.</p>
 
 <h4><a class="title-link" name="distutilserrorsdistutilsoptionerror-must-supply-either-home-or-prefixexec-prefix----not-both" href="#distutilserrorsdistutilsoptionerror-must-supply-either-home-or-prefixexec-prefix----not-both"></a> distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix – not both</h4>
 <p>This is a known issue if you’re on a Mac using Homebrew to install Python. Please follow <a href="https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md#note-on-pip-install---user">these instructions</a> to resolve it.</p>

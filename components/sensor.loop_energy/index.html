@@ -117,20 +117,19 @@
 
 <p>Now you have the keys, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>, replacing the <code class="highlighter-rouge">*_SERIAL</code> and <code class="highlighter-rouge">*_SECRET</code> keys with the ones you found in the console:</p>
 
-<p>```yaml</p>
-<h1>Example configuration.yaml entry</h1>
-<p>sensor:</p>
-<ul>
-  <li>platform: loopenergy
-electricity:
-  electricity_serial: ‘ELECTRICAL_SERIAL’
-  electricity_secret: ‘ELECTRICAL_SECRET’
-gas:
-  gas_serial: ‘GAS_SERIAL’
-  gas_secret: ‘GAS_SECRET’
-  gas_type: imperial
-  gas_calorific: 38.2</li>
-</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">loopenergy</span>
+    <span class="s">electricity</span><span class="pi">:</span>
+      <span class="s">electricity_serial</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ELECTRICAL_SERIAL'</span>
+      <span class="s">electricity_secret</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ELECTRICAL_SECRET'</span>
+    <span class="s">gas</span><span class="pi">:</span>
+      <span class="s">gas_serial</span><span class="pi">:</span> <span class="s1">'</span><span class="s">GAS_SERIAL'</span>
+      <span class="s">gas_secret</span><span class="pi">:</span> <span class="s1">'</span><span class="s">GAS_SECRET'</span>
+      <span class="s">gas_type</span><span class="pi">:</span> <span class="s">imperial</span>
+      <span class="s">gas_calorific</span><span class="pi">:</span> <span class="s">38.2</span>
+</code></pre>
+</div>
 
 <p>Configuration variables:</p>
 
