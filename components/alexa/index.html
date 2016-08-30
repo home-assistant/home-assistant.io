@@ -97,9 +97,9 @@
 
 <h2><a class="title-link" name="i-just-want-to-turn-devices-on-and-off-using-echo" href="#i-just-want-to-turn-devices-on-and-off-using-echo"></a> I just want to turn devices on and off using Echo</h2>
 
-<p>If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, check out Michael Auchter’s <a href="https://github.com/auchter/haaska">Haaska</a> which integrates the <a href="https://developer.amazon.com/public/binaries/content/assets/html/alexa-lighting-api.html">Alexa Lighting API</a> into Home Assistant.</p>
+<p>If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, you should enable the <a href="https://home-assistant.io/components/emulated_hue/">Emulated Hue</a> component. It makes your Home Assistant appear as if it were a Phillips Hue bridge, which Echo works with natively.</p>
 
-<p>Implementing Haaska means you can turn things on and off by simply saying</p>
+<p>Enabling the Emulated Hue component means you can turn things on and off by simply saying</p>
 
 <blockquote>
   <p>Alexa, turn the living room lights on.</p>
@@ -123,9 +123,9 @@
   <p>Alexa, tell Home Assistant to set the living room lights to twenty percent.</p>
 </blockquote>
 
-<p>In addition, you would need to build custom intents for each device and on/off combination using the below method, whereas everything just works without any extra work by using Haaska.</p>
+<p>In addition, you would need to build custom intents for each device and on/off combination using the below method, whereas everything just works without any extra work by using Emulated Hue.</p>
 
-<p>Please note that you can use Haaska and the built-in Alexa component side-by-side without issue if you wish.</p>
+<p>Please note that you can use Emulated Hue and the built-in Alexa component side-by-side without issue if you wish.</p>
 
 <h2><a class="title-link" name="i-want-to-build-custom-commands-to-use-with-echo" href="#i-want-to-build-custom-commands-to-use-with-echo"></a> I want to build custom commands to use with Echo</h2>
 
