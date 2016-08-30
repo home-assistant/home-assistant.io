@@ -54,7 +54,7 @@ light:
     automatic_add: True
 ```
 
-Will add two lights with given name and create an automation rule to randomically set color each 45 seconds:
+Will add two lights with given name and create an automation rule to randomly set color each 45 seconds:
 
 ```yaml
 light:
