@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-30T21:33:22+00:00</updated>
+  <updated>2016-08-30T21:38:51+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -163,7 +163,7 @@ Talk to you soon on Gitter and in your pull request comments!
 
 (p.s. To those of you that scrolled directly to the bottom to get your present, just know that you didn't earn it like the others did. 😄)
 
-### <a class='title-link' name='hotfix-0271---august-30' href='#hotfix-0271---august-30'></a> Hotfix 0.27.1 - August 30 
+## <a class='title-link' name='hotfix-0271---august-30' href='#hotfix-0271---august-30'></a> Hotfix 0.27.1 - August 30 
 
 - Migrate APCUPSd to voluptuous ([@fabaff])
 - Ecobee operation mode fix ([@turbokongen])
