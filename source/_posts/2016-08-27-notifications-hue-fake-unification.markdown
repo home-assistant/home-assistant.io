@@ -155,11 +155,33 @@ Talk to you soon on Gitter and in your pull request comments!
 
 (p.s. To those of you that scrolled directly to the bottom to get your present, just know that you didn't earn it like the others did. 😄)
 
+### {% linkable_title Hotfix 0.27.1 - August 30 %}
+
+- Migrate APCUPSd to voluptuous ([@fabaff])
+- Ecobee operation mode fix ([@turbokongen])
+- update ha-ffmpeg version to 0.9 ([@pvizeli])
+- Device tracker component & platform validation. No more home_range. ([@kellerza])
+- Added option to use effect:random for Flux Led light bulbs ([@tchellomello])
+- Use voluptuous for smtp ([@pvizeli])
+- Upgrade sendgrid to 3.2.10 ([@fabaff])
+- Upgrade TwitterAPI to 2.4.2 ([@fabaff])
+- Fix bug in wemo discovery caused by voluptuous addition. ([@pavoni])
+- Bug fix for asuswrt device_tracker. ([@Danielhiversen])
+- Remove units for humidity in Wundeground sensor ([@arsaboo])
+- Fix media_player descriptions and select_source ([@MartinHjelmare])
+- Allow user to configure server id to perform speed test against ([@Teagan42])
+- Bug fix for asuswrt device_tracker. ([@Danielhiversen])
+- More Ecobee operation mode fixes ([@turbokongen])
+- Map Modes to setpoint indexes ([@turbokongen])
+- fix voluptuous and cover autodiscovery ([@pvizeli])
+- Fixes wrong statevalue and problem with zwave setpoint ([@turbokongen])
+
 [@arsaboo]: https://github.com/arsaboo
 [@auchter]: https://github.com/auchter
 [@balloob]: https://github.com/balloob
 [@blocke]: https://github.com/blocke
 [@BluGeni]: https://github.com/BluGeni
+[@Danielhiversen]: https://github.com/Danielhiversen
 [@danielperna84]: https://github.com/danielperna84
 [@DavidMStraub]: https://github.com/DavidMStraub
 [@dpford]: https://github.com/dpford
@@ -168,6 +190,7 @@ Talk to you soon on Gitter and in your pull request comments!
 [@jnewland]: https://github.com/jnewland
 [@Juggels]: https://github.com/Juggels
 [@kellerza]: https://github.com/kellerza
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@mcdeck]: https://github.com/mcdeck
 [@meatz]: https://github.com/meatz
 [@mgbowen]: https://github.com/mgbowen
@@ -181,6 +204,7 @@ Talk to you soon on Gitter and in your pull request comments!
 [@roidayan]: https://github.com/roidayan
 [@roidayan]: ttps://github.com/roidayan
 [@shmuelzon]: https://github.com/shmuelzon
+[@tchellomello]: https://github.com/tchellomello
 [@Teagan42]: https://github.com/Teagan42
 [@technicalpickles]: https://github.com/technicalpickles
 [@tobiebooth]: https://github.com/tobiebooth
