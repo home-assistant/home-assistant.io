@@ -17,7 +17,7 @@ The `honeywell` cliamte platform let you control [Honeywell Connected](http://ge
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
-cliamte:
+climate:
   platform: honeywell
   username: YOUR_USERNAME
   password:  YOUR_PASSWORD
