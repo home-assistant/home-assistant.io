@@ -22,12 +22,11 @@ Amazon has released [Echosim], a website that simulates the Alexa service in you
 
 ## {% linkable_title I just want to turn devices on and off using Echo %}
 
-If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, check out Michael Auchter's [Haaska][haaska-github-link] which integrates the [Alexa Lighting API][alexa-lighting-api] into Home Assistant.
+If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, you should enable the [Emulated Hue][emulated-hue-component] component. It makes your Home Assistant appear as if it were a Phillips Hue bridge, which Echo works with natively.
 
-[haaska-github-link]: https://github.com/auchter/haaska
-[alexa-lighting-api]: https://developer.amazon.com/public/binaries/content/assets/html/alexa-lighting-api.html
+[emulated-hue-component]: https://home-assistant.io/components/emulated_hue/
 
-Implementing Haaska means you can turn things on and off by simply saying
+Enabling the Emulated Hue component means you can turn things on and off by simply saying
 
 > Alexa, turn the living room lights on.
 
@@ -43,9 +42,9 @@ or
 
 > Alexa, tell Home Assistant to set the living room lights to twenty percent.
 
-In addition, you would need to build custom intents for each device and on/off combination using the below method, whereas everything just works without any extra work by using Haaska.
+In addition, you would need to build custom intents for each device and on/off combination using the below method, whereas everything just works without any extra work by using Emulated Hue.
 
-Please note that you can use Haaska and the built-in Alexa component side-by-side without issue if you wish.
+Please note that you can use Emulated Hue and the built-in Alexa component side-by-side without issue if you wish.
 
 ## {% linkable_title I want to build custom commands to use with Echo %}
 
