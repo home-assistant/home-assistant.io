@@ -79,14 +79,14 @@ binary_sensor:
       co:
         friendly_name: 'CO'
         sensor_class: 'gas'
-        value_template: >-
+        value_template: {% raw %}>-
           {%- if is_state("sensor.bedroom_co_status", "Ok") 
               and is_state("sensor.kitchen_co_status", "Ok")
               and is_state("sensor.wardrobe_co_status", "Ok") -%}
           Off
           {%- else -%}
           On
-          {%- endif %}
+          {%- endif %}{% endraw %}
         entity_id:
           - sensor.bedroom_co_status
           - sensor.kitchen_co_status
