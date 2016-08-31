@@ -16,7 +16,7 @@ ha_release: 0.26
 The `ffmpeg` platform allows you to use every video feed with [FFmpeg](http://www.ffmpeg.org/) as camera in Home Assistant.
 
 <p class='note'>
-You need a ffmpeg binary in your system path. On debain 8 you can install it from backports. If you want HW support on raspberry you need self build from source. Windows binary are avilable on ffmpeg homepage.
+You need a `ffmpeg` binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need tobuild from source by yourself. Windows binary are avilable on the [FFmpeg](http://www.ffmpeg.org/) website.
 </p>
 
 To enable your FFmpeg feed in your installation, add the following to your `configuration.yaml` file:
@@ -36,7 +36,7 @@ Configuration variables:
 - **input** (*Required*): A ffmpeg compatible input file, stream or feed.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **ffmpeg_bin** (*Optional*): Default 'ffmpeg'.
-- **extra_arguments** (*Optional*): Extra option they will pass to ffmpeg. i.e. image quality or video filter options.
+- **extra_arguments** (*Optional*): Extra option they will pass to `ffmpeg`. i.e. image quality or video filter options.
 
 ### {% linkable_title Image quality %}
 
@@ -47,9 +47,11 @@ You can control the `image quality` with [`extra_arguments`](https://www.ffmpeg.
 In most of case, ffmpeg autodetect all needed options to read a video/audio stream or file. But it is possible in rare cases that's needed to set a option to help ffmpeg. Default ffmpeg use 5 seconds to detect all options or abord.
 
 First check, if your stream playable by ffmpeg with (use option `-an` or `-vn` to disable video or audio stream):
+
 ```
-ffmpeg -i INPUT -an -f null -
+$ ffmpeg -i INPUT -an -f null -
 ```
+
 Now you can see what going wrong. Following list could be help to solve your trouble:
 
 - `[rtsp @ ...] UDP timeout, retrying with TCP`: You need to set rtsp transport in config with: `input: -rtsp_transport tcp -i INPUT`
