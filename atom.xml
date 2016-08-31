@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-08-30T21:57:10+00:00</updated>
+  <updated>2016-08-31T05:03:39+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,107 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ESP8266 and MicroPython - Part 2]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/"/>
+    <updated>2016-08-31T04:17:25+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2</id>
+    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
+So, part 1 of <a href="https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 and MicroPython</a> was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.</p>
+
+<!--more-->
+
+<p>Beside <a href="https://en.wikipedia.org/wiki/POST_(HTTP)">HTTP POST</a> requests, MQTT is the quickest way (from the author’s point of view) to publish information with DIY devices.</p>
+
+<p>You have to make a decision: Do you want to pull or to poll? For slowly changing values like temperature it’s perfectly fine to wait a couple of seconds to retrieve the value. If it’s a motion detector the state change should be available instantly. This means the sensor must take initiative.</p>
+
+<p>An example for pulling is <a href="https://home-assistant.io/components/sensor.arest/">aREST</a>. This is a great way to work with the ESP8266 based units and the Ardunio IDE.</p>
+
+<h3><a class="title-link" name="mqtt" href="#mqtt"></a> MQTT</h3>
+
+<p>You can find a simple examples for publishing and subscribing with MQTT in the <a href="https://github.com/micropython/micropython-lib">MicroPython</a> library overview in the section for <a href="https://github.com/micropython/micropython-lib/tree/master/umqtt.simple">umqtt</a>.</p>
+
+<p>The example below is adopted from the work of <a href="https://github.com/davea">@davea</a> as we don’t want to re-invent the wheel. The configuration feature is crafty and simplyfies the code with the usage of a file called <code class="highlighter-rouge">/config.json</code> which stores the configuration details. The ESP8266 device will send the value of a pin every 5 seconds.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">ubinascii</span>
+<span class="kn">import</span> <span class="nn">webrepl</span>
+
+<span class="kn">from</span> <span class="nn">umqtt.simple</span> <span class="kn">import</span> <span class="n">MQTTClient</span>
+
+<span class="c"># These defaults are overwritten with the contents of /config.json by load_config()</span>
+<span class="n">CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"broker"</span><span class="p">:</span> <span class="s">"192.168.1.19"</span><span class="p">,</span>
+    <span class="s">"sensor_pin"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+    <span class="s">"client_id"</span><span class="p">:</span> <span class="n">b</span><span class="s">"esp8266_"</span> <span class="o">+</span> <span class="n">ubinascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()),</span>
+    <span class="s">"topic"</span><span class="p">:</span> <span class="n">b</span><span class="s">"home"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">sensor_pin</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="k">def</span> <span class="nf">setup_pins</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">sensor_pin</span>
+    <span class="n">sensor_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">[</span><span class="s">'sensor_pin'</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">load_config</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">ujson</span> <span class="kn">as</span> <span class="nn">json</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"/config.json"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="k">except</span> <span class="p">(</span><span class="nb">OSError</span><span class="p">,</span> <span class="nb">ValueError</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Couldn't load /config.json"</span><span class="p">)</span>
+        <span class="n">save_config</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">CONFIG</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Loaded config from /config.json"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_config</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">ujson</span> <span class="kn">as</span> <span class="nn">json</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"/config.json"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">))</span>
+    <span class="k">except</span> <span class="nb">OSError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Couldn't save /config.json"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">MQTTClient</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">[</span><span class="s">'client_id'</span><span class="p">],</span> <span class="n">CONFIG</span><span class="p">[</span><span class="s">'broker'</span><span class="p">])</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Connected to {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">[</span><span class="s">'broker'</span><span class="p">]))</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">sensor_pin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s">'{}/{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">[</span><span class="s">'topic'</span><span class="p">],</span>
+                                          <span class="n">CONFIG</span><span class="p">[</span><span class="s">'client_id'</span><span class="p">]),</span>
+                                          <span class="nb">bytes</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="s">'utf-8'</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Sensor state: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">load_config</span><span class="p">()</span>
+    <span class="n">setup_pins</span><span class="p">()</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>Subscribe to the topic <code class="highlighter-rouge">home/#</code> or create a <a href="https://home-assistant.io/components/sensor.mqtt/">MQTT sensor</a> to check if the sensor values are published.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_sub -h 192.168.1.19 -v -t <span class="s2">"home/#"</span>
+</code></pre>
+</div>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/esp8266_[last</span><span class="nv"> </span><span class="s">part</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MAC</span><span class="nv"> </span><span class="s">address]"</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MicroPython"</span>
+</code></pre>
+</div>
+
+<p><a href="https://github.com/davea">@davea</a> created <a href="https://github.com/davea/sonoff-mqtt">sonoff-mqtt</a>. This code will work on ESP8622 based devices too and shows how to use a button to control a relay.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.27 is here to break eggs and take names: notifications, Hue fakery, safety and unification come to Home Assistant]]></title>
@@ -1761,26 +1862,6 @@ target_dir /tmp
 <h3><a class="title-link" name="notes" href="#notes"></a> Notes</h3>
 
 <p>Please see the <a href="https://home-assistant.io/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/#tips/">notes at the end of Part 1</a> for documentation information.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Raspberry Pi all-in-one installer]]></title>
-    <link href="https://home-assistant.io/blog/2016/05/22/get-started-with-all-in-one-installer/"/>
-    <updated>2016-05-22T16:06:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/05/22/get-started-with-all-in-one-installer</id>
-    <content type="html"><![CDATA[<p>We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That’s why <a href="https://github.com/jbags81">@jbags81</a> recently introduced the <a href="https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/">all-in-one installer</a>. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh <span class="o">&amp;&amp;</span> bash hass_rpi_installer.sh;
-</code></pre>
-</div>
-
-<p>This feature wouldn’t be complete if it wasn’t accompanied by a new video by Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a>. The video shows how to install Raspbian Jessie on your Raspberry Pi and use the new installation script to get a full Home Assistant system up and running.</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/VGl3KTrYo6s" frameborder="0" allowfullscreen=""></iframe>
-</div>
 
 ]]></content>
   </entry>
