@@ -92,7 +92,7 @@
   <p>The <code class="highlighter-rouge">ffmpeg</code> platform allows you to use every video feed with <a href="http://www.ffmpeg.org/">FFmpeg</a> as camera in Home Assistant.</p>
 
 <p class="note">
-You need a ffmpeg binary in your system path. On debain 8 you can install it from backports. If you want HW support on raspberry you need self build from source. Windows binary are avilable on ffmpeg homepage.
+You need a <code class="highlighter-rouge">ffmpeg</code> binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need tobuild from source by yourself. Windows binary are avilable on the <a href="http://www.ffmpeg.org/">FFmpeg</a> website.
 </p>
 
 <p>To enable your FFmpeg feed in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
@@ -113,7 +113,7 @@ You need a ffmpeg binary in your system path. On debain 8 you can install it fro
   <li><strong>input</strong> (<em>Required</em>): A ffmpeg compatible input file, stream or feed.</li>
   <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
   <li><strong>ffmpeg_bin</strong> (<em>Optional</em>): Default ‘ffmpeg’.</li>
-  <li><strong>extra_arguments</strong> (<em>Optional</em>): Extra option they will pass to ffmpeg. i.e. image quality or video filter options.</li>
+  <li><strong>extra_arguments</strong> (<em>Optional</em>): Extra option they will pass to <code class="highlighter-rouge">ffmpeg</code>. i.e. image quality or video filter options.</li>
 </ul>
 
 <h3><a class="title-link" name="image-quality" href="#image-quality"></a> Image quality</h3>
@@ -125,9 +125,11 @@ You need a ffmpeg binary in your system path. On debain 8 you can install it fro
 <p>In most of case, ffmpeg autodetect all needed options to read a video/audio stream or file. But it is possible in rare cases that’s needed to set a option to help ffmpeg. Default ffmpeg use 5 seconds to detect all options or abord.</p>
 
 <p>First check, if your stream playable by ffmpeg with (use option <code class="highlighter-rouge">-an</code> or <code class="highlighter-rouge">-vn</code> to disable video or audio stream):</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg -i INPUT -an -f null -
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ ffmpeg -i INPUT -an -f null -
 </code></pre>
 </div>
+
 <p>Now you can see what going wrong. Following list could be help to solve your trouble:</p>
 
 <ul>
