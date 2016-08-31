@@ -163,7 +163,7 @@
     <span class="s">switches</span><span class="pi">:</span>
       <span class="s">blind</span><span class="pi">:</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Blind'</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">state</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state_attr("switch.blind_toggle",</span><span class="nv"> </span><span class="s">"sensor_state",</span><span class="nv"> </span><span class="s">"on")</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">turn_on</span><span class="pi">:</span>
           <span class="s">service</span><span class="pi">:</span> <span class="s">switch.toggle</span>
           <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.blind_toggle</span>
