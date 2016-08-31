@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: sensor
+ha_category: Sensor
 ha_release: 0.27
 ---
 
