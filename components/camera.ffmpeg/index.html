@@ -128,7 +128,12 @@ You need a ffmpeg binary in your system path. On debain 8 you can install it fro
 <div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg -i INPUT -an -f null -
 </code></pre>
 </div>
-<p>Now you can see what going wrong.</p>
+<p>Now you can see what going wrong. Following list could be help to solve your trouble:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">[rtsp @ ...] UDP timeout, retrying with TCP</code>: You need to set rtsp transport in config with: <code class="highlighter-rouge">input: -rtsp_transport tcp -i INPUT</code></li>
+  <li><code class="highlighter-rouge">[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size</code>: FFmpeg need more data or time for autodetect. You can set the ‘analyzeduration’ and/or ‘probesize’ option, play with this value. If you now the needed value you can set it to config with: <code class="highlighter-rouge">input: -analyzeduration xy -probesize xy tcp -i INPUT</code>. More info about that on <a href="https://www.ffmpeg.org/ffmpeg-formats.html#Description">ffmpeg</a>.</li>
+</ul>
 
 
 
