@@ -42,3 +42,13 @@ Configuration variables:
 
 You can control the `image quality` with [`extra_arguments`](https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000) `-q:v 2-32` or with lossless option `-pred 1`.
 
+### {% linkable_title Troubleshooting %}
+
+In most of case, ffmpeg autodetect all needed options to read a video/audio stream or file. But it is possible in rare cases that's needed to set a option to help ffmpeg. Default ffmpeg use 5 seconds to detect all options or abord.
+
+First check, if your stream playable by ffmpeg with (use option `-an` or `-vn` to disable video or audio stream):
+```
+ffmpeg -i INPUT -an -f null -
+```
+Now you can see what going wrong.
+
