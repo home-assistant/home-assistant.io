@@ -13,7 +13,7 @@ After loading, the bootstrapper will call `setup(hass, config)` method on the co
 
 ### {% linkable_title hass: the Home Assistant instance %}
 
-The Home Assistant instance contains three objects to help you interact with the system.
+The Home Assistant instance contains four objects to help you interact with the system.
 
 | Object | Description |
 | ------ | ----------- |
