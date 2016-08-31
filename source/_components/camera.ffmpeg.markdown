@@ -53,5 +53,5 @@ ffmpeg -i INPUT -an -f null -
 Now you can see what going wrong. Following list could be help to solve your trouble:
 
 - `[rtsp @ ...] UDP timeout, retrying with TCP`: You need to set rtsp transport in config with: `input: -rtsp_transport tcp -i INPUT`
-- `[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size`: FFmpeg need more data or time for autodetect. You can set the 'analyzeduration' and/or 'probesize' option, play with this value. If you now the needed value you can set it to config with: `input: -analyzeduration xy -probesize xy tcp -i INPUT`. More info about that on [ffmpeg](https://www.ffmpeg.org/ffmpeg-formats.html#Description).
+- `[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size`: FFmpeg need more data or time for autodetect. You can set the 'analyzeduration' and/or 'probesize' option, play with this value. If you know the needed value you can set it to config with: `input: -analyzeduration xy -probesize xy tcp -i INPUT`. More info about that on [ffmpeg](https://www.ffmpeg.org/ffmpeg-formats.html#Description).
 
