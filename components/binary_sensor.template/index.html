@@ -150,6 +150,31 @@
 </code></pre>
 </div>
 
+<h3><a class="title-link" name="combining-multiple-sensors-and-using-entity_id" href="#combining-multiple-sensors-and-using-entity_id"></a> Combining multiple sensors, and using entity_id:</h3>
+
+<p>This example combines multiple CO sensors into a single overall status. It also shows how to use <code class="highlighter-rouge">entity_id</code></p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span> 
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span> 
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">co</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">CO'</span>
+        <span class="s">sensor_class</span><span class="pi">:</span> <span class="s1">'</span><span class="s">gas'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{%- if is_state("sensor.bedroom_co_status", "Ok") </span>
+              <span class="no">and is_state("sensor.kitchen_co_status", "Ok")</span>
+              <span class="no">and is_state("sensor.wardrobe_co_status", "Ok") -%}</span>
+          <span class="no">Off</span>
+          <span class="no">{%- else -%}</span>
+          <span class="no">On</span>
+          <span class="no">{%- endif %}</span>
+        <span class="no">entity_id:</span>
+          <span class="no">- sensor.bedroom_co_status</span>
+          <span class="no">- sensor.kitchen_co_status</span>
+          <span class="no">- sensor.wardrobe_co_status</span>
+</code></pre>
+</div>
+
 
 </article>
 
