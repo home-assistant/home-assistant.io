@@ -44,9 +44,9 @@ You can control the `image quality` with [`extra_arguments`](https://www.ffmpeg.
 
 ### {% linkable_title Troubleshooting %}
 
-In most of case, ffmpeg autodetect all needed options to read a video/audio stream or file. But it is possible in rare cases that's needed to set a option to help ffmpeg. Default ffmpeg use 5 seconds to detect all options or abord.
+In most of case, `ffmpeg` autodetect all needed options to read a video/audio stream or file. But it is possible in rare cases that's needed to set a option to help `ffmpeg`. Per default `ffmpeg` use 5 seconds to detect all options or abort.
 
-First check, if your stream playable by ffmpeg with (use option `-an` or `-vn` to disable video or audio stream):
+First check, if your stream playable by `ffmpeg` with (use option `-an` or `-vn` to disable video or audio stream):
 
 ```
 $ ffmpeg -i INPUT -an -f null -
@@ -54,6 +54,6 @@ $ ffmpeg -i INPUT -an -f null -
 
 Now you can see what going wrong. Following list could be help to solve your trouble:
 
-- `[rtsp @ ...] UDP timeout, retrying with TCP`: You need to set rtsp transport in config with: `input: -rtsp_transport tcp -i INPUT`
-- `[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size`: FFmpeg need more data or time for autodetect. You can set the 'analyzeduration' and/or 'probesize' option, play with this value. If you know the needed value you can set it to config with: `input: -analyzeduration xy -probesize xy tcp -i INPUT`. More info about that on [ffmpeg](https://www.ffmpeg.org/ffmpeg-formats.html#Description).
+- `[rtsp @ ...] UDP timeout, retrying with TCP`: You need to set RTSP transport in the configuration with: `input: -rtsp_transport tcp -i INPUT`
+- `[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size`: FFmpeg need more data or time for autodetect. You can set the `analyzeduration` and/or `probesize` option, play with this value. If you know the needed value you can set it  with: `input: -analyzeduration xy -probesize xy tcp -i INPUT`. More information about that can be found on [FFmpeg](https://www.ffmpeg.org/ffmpeg-formats.html#Description).
 
