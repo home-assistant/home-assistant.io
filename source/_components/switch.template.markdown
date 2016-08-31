@@ -84,7 +84,7 @@ switch:
     switches:
       blind:
         friendly_name: 'Blind'
-        value_template: {% raw %}'{{ state }}'{% endraw %}
+        value_template: {% raw %}'{{ is_state_attr("switch.blind_toggle", "sensor_state", "on") }}'{% endraw %}
         turn_on:
           service: switch.toggle
           entity_id: switch.blind_toggle
