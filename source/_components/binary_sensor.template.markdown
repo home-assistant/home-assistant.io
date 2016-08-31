@@ -66,3 +66,29 @@ binary_sensor:
         value_template: {% raw %}"{{ states.switch.door.state == 'on' }}"{% endraw %} 
         sensor_class: opening
 ```
+
+
+### {% linkable_title Combining multiple sensors, and using entity_id: %}
+
+This example combines multiple CO sensors into a single overall status. It also shows how to use `entity_id`
+
+```yaml
+binary_sensor: 
+  - platform: template 
+    sensors:
+      co:
+        friendly_name: 'CO'
+        sensor_class: 'gas'
+        value_template: {% raw %}>-
+          {%- if is_state("sensor.bedroom_co_status", "Ok") 
+              and is_state("sensor.kitchen_co_status", "Ok")
+              and is_state("sensor.wardrobe_co_status", "Ok") -%}
+          Off
+          {%- else -%}
+          On
+          {%- endif %}{% endraw %}
+        entity_id:
+          - sensor.bedroom_co_status
+          - sensor.kitchen_co_status
+          - sensor.wardrobe_co_status
+```
