@@ -105,3 +105,5 @@ sensor:
       - loadpct
       - itemp
 ```
+
+**NOTE:** Before using above sensor, you must enable  [apcupsd](https://home-assistant.io/components/apcupsd/) in configuration file
