@@ -34,6 +34,7 @@ binary_sensor:
 
 Configuration variables:
 
+- **scan_interval** (*Optional*): Interval in seconds to scan.
 - **monitored_conditions** array (*Required*): States to monitor.
   - 'fan'
   - 'hvac_ac_state'
