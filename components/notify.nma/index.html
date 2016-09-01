@@ -89,7 +89,9 @@
   <hr class="divider">
   
 
-  <p>The nma platform uses <a href="http://www.notifymyandroid.com/">Notify My Android (NMA)</a> to delivery notifications from Home Assistant to your Android device.</p>
+  <p>The <code class="highlighter-rouge">nma</code> platform uses <a href="http://www.notifymyandroid.com/">Notify My Android (NMA)</a> to delivery notifications from Home Assistant to your Android device.</p>
+
+<p>Go to the <a href="https://www.notifymyandroid.com">NMA website</a> and create a new API key. If you are using the trial offer then keep in mind that your limit is five (5) message per day.</p>
 
 <p>To add NMA to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -105,10 +107,10 @@
 
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
-  <li><strong>api_key</strong> (<em>Required</em>): Enter the API key for NMA. Go to https://www.notifymyandroid.com and create a new API key.</li>
+  <li><strong>api_key</strong> (<em>Required</em>): Enter the API key for NMA.</li>
 </ul>
 
-<p>Details for the API : https://www.notifymyandroid.com/api.jsp</p>
+<p>Details for the (API)[https://www.notifymyandroid.com/api.jsp].</p>
 
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
 
