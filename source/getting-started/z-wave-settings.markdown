@@ -13,7 +13,7 @@ You may wish to modify the zwave settings ozw*.xml file in your .homeassistant r
 
 The reasoning for using these tools is that your Zwave controller stores the values and data that are used to control the network. The XML file in the .homeassistant folder acts as a settings/values cache for the zwave network, so modifying it directly won't change the network values. The Open-Zwave Control Panel writes values directly to the network, and will provide you with an updated .xml file to overwrite in your .homeassistant folder. This is the most foolproof way to make modifications to your zwave devices.
 
-Although totally normal for your ZWave stick (Aeon Aeotec Z-Stick Gen5 for example) to cycle through LEDs (Yellow, Blue and Red) while plugged into your Pi, it's also super annoying.  If you want to turn off the cycling color, you can use the following commands from a putty session tot your Pi.
+Although totally normal for your ZWave stick (Aeon Aeotec Z-Stick Gen5 for example) to cycle through LEDs (Yellow, Blue and Red) while plugged into your Pi, it's also super annoying.  If you want to turn off the cycling color, you can use the following commands from a terminal session to your Pi.
 
 Turn off Disco lights
 
