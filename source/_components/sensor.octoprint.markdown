@@ -13,7 +13,11 @@ ha_release: 0.19
 ---
 
 
-The `OctoPrint` sensor platform let you monitor various states of your 3D printer and its print jobs.
+The `octoprint` sensor platform let you monitor various states of your 3D printer and its print jobs.
+
+<p class='note'>
+You must have the [OctoPrint component](/components/octoprint/) configured to use this sensor.
+</p>
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -33,4 +37,3 @@ Configuration variables:
   - Temperatures (Temperatures of all available tools)(print head, print bed, ...) These will be displayed as tool0, tool1, ... please refer to your OctoPrint frontend to associate tool number with actual device.
   - Job Percentage
 
-<p class='note'>You must have the [OctoPrint component](/components/octoprint/) configured to use this sensor.</p>

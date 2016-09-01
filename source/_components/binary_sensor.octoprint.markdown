@@ -13,7 +13,11 @@ ha_release: 0.19
 ---
 
 
-The `OctoPrint` binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.
+The `octoprint` binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.
+
+<p class='note'>
+You must have the [OctoPrint component](/components/octoprint/) configured to use this sensor.
+</p>
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -31,4 +35,3 @@ Configuration variables:
   - Printing
   - Printing Error
 
-<p class='note'>You must have the [OctoPrint component](/components/octoprint/) configured to use this sensor.</p>
