@@ -24,6 +24,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 binary_sensor:
   platform: octoprint
+  name: OctoPrint
   monitored_conditions:
     - Printing
     - Printing Error
@@ -31,7 +32,8 @@ binary_sensor:
 
 Configuration variables:
 
+- **name** (*Optional*): The name of the sensor. Default is 'OctoPrint'.
 - **monitored_conditions** array (*Required*): States to monitor.
-  - Printing
-  - Printing Error
+  - **Printing**: State of the printer.
+  - **Printing Error**: Error while printing.
 
