@@ -64,7 +64,7 @@ automation:
     event_type: homeassistant_start
   action:
     service: ifttt.trigger
-    data: {"event":"HATest_Trigger", "value1":"Home Assistant is Up and Running"}
+    data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
 ```
 
 ### {% linkable_title Sending events from IFTTT to Home Assistant %}
