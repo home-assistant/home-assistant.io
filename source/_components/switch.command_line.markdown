@@ -10,10 +10,11 @@ footer: true
 logo: command_line.png
 ha_category: Switch
 ha_release: pre 0.7
+ha_iot_class: "Local Polling"
 ---
 
 
-A switch platform that issues specific commands when it is turned on and off. This might very well become our most powerful platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
+The `command_line` switch platform issues specific commands when it is turned on and off. This might very well become our most powerful platform as it allows anyone to integrate any type of switch into Home Assistant that can be controlled from the command line, including calling other scripts!
 
 To enable it, add the following lines to your `configuration.yaml`:
 
