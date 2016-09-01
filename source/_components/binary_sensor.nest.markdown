@@ -19,6 +19,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 binary_sensor:
   platform: nest
+  scan_interval: 60
   monitored_conditions:
     - 'fan'
     - 'hvac_ac_state'
