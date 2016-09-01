@@ -15,6 +15,10 @@ ha_release: pre 0.7
 
 The `nest` sensor platform let you monitor sensors connected to your [Nest](https://nest.com) thermostat and/or your Nest Protect Smoke Alarm.
 
+<p class='note'>
+You must have the [Nest component](/components/nest/) configured to use those sensors.
+</p>
+
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
@@ -57,6 +61,3 @@ Configuration variables:
   - 'co_status' # Nest Protect only
   - 'smoke_status' # Nest Protect only
 
-<p class='note'>
-You must have the [Nest component](/components/nest/) configured to use this sensor.
-</p>
