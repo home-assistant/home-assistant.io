@@ -91,6 +91,8 @@
 
   <p>The <a href="https://pushover.net/">Pushover service</a> is a platform for the notify component. This allows components to send messages to the user using Pushover.</p>
 
+<p>In order to get an API key you need to go to the <a href="https://pushover.net">Pushover website</a> and register a new application. From the website you can also retrieve your user key.</p>
+
 <p>To use Pushover notifications, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -106,8 +108,8 @@
 
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
-  <li><strong>api_key</strong> (<em>Required</em>): This parameter is optional but should be configured, in order to get an API key you should go to https://pushover.net and register a new application.</li>
-  <li><strong>user_key</strong> (<em>Required</em>): To retrieve this value log into your account at https://pushover.net</li>
+  <li><strong>api_key</strong> (<em>Required</em>): Your API key.</li>
+  <li><strong>user_key</strong> (<em>Required</em>): Your user key for Pushover.</li>
 </ul>
 
 <p>This is a quote from the Pushover website regarding free/open source apps:</p>
@@ -117,6 +119,8 @@
 </blockquote>
 
 <p>When setting up the application you can use this <a href="https://home-assistant.io/images/favicon-192x192.png">icon</a>.</p>
+
+<p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
 
 
 </article>

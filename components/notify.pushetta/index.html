@@ -89,7 +89,9 @@
   <hr class="divider">
   
 
-  <p>The pushetta platform uses <a href="http://www.pushetta.com">Pushetta</a> to delivery notifications from Home Assistant to your devices.</p>
+  <p>The <code class="highlighter-rouge">pushetta</code> notify platform uses <a href="http://www.pushetta.com">Pushetta</a> to delivery notifications from Home Assistant to your devices.</p>
+
+<p>To retrieve the API token, log into your account at (http://www.pushetta.com)[http://www.pushetta.com] and go to your <strong>Dashboard</strong>. Create a new  channel by clicking on <strong>Channels</strong> and then <strong>Add a Channel</strong>.</p>
 
 <p>To enable Pushetta notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -109,8 +111,6 @@
   <li><strong>api_key</strong> (<em>Required</em>): Your API key for Pushetta.</li>
   <li><strong>channel_name</strong> (<em>Required</em>): The name of your channel.</li>
 </ul>
-
-<p>To retrieve the API token, log into your account at http://www.pushetta.com and go to your <strong>Dashboard</strong>. Create a new  channel by clicking on <strong>Channels</strong> and then <strong>Add a Channel</strong>.</p>
 
 <p>It’s easy to test your Pushetta setup outside of Home Assistant. Assuming you have a channel <em>home-assistant</em>, just fire a request and check the channel page in the dashboard for a new message.</p>
 
@@ -142,6 +142,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/pushetta.png' />
   </div>
+    <div class='section'>
+    Introduced in release: pre 0.7
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/notify/'>the Notifications component</a>.

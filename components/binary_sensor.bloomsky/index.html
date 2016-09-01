@@ -98,9 +98,22 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bloomsky</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">Night</span>
+      <span class="pi">-</span> <span class="s">Rain</span>
 </code></pre>
 </div>
 
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>monitored_conditions</strong> array (<em>Required</em>): The sensors that you wish to monitor on all of your devices. Select from these options:
+    <ul>
+      <li>Night</li>
+      <li>Rain</li>
+    </ul>
+  </li>
+</ul>
 
 
 </article>
@@ -118,6 +131,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/bloomsky.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.14
     </div>
