@@ -55,6 +55,18 @@ When your screen looks like this, click the 'call service' button.
 You need to setup a unique trigger for each event you sent to IFTTT.
 </p>
 
+```yaml
+# Example configuration.yaml Automation entry
+automation:
+  - alias: Startup Notification
+  trigger:
+    platform: event
+    event_type: homeassistant_start
+  action:
+    service: ifttt.trigger
+    data: {"event":"HATest_Trigger", "value1":"Home Assistant is Up and Running"}
+```
+
 ### {% linkable_title Sending events from IFTTT to Home Assistant %}
 
 To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web. This can be achieved by forwarding port 8123 from your router to the device running Home Assistant. If your ISP is giving you a new IP address from time to time, consider using [DuckDNS][duck-dns].
