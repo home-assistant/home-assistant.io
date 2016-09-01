@@ -91,10 +91,15 @@
 
   <p>The <code class="highlighter-rouge">nest</code> binary sensor platform let you monitor various states of a thermostat from <a href="https://nest.com">Nest</a>.</p>
 
+<p class="note">
+You must have the <a href="/components/nest/">Nest component</a> configured to use this sensors.
+</p>
+
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+  <span class="s">scan_interval</span><span class="pi">:</span> <span class="s">60</span>
   <span class="s">monitored_conditions</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s1">'</span><span class="s">fan'</span>
     <span class="pi">-</span> <span class="s1">'</span><span class="s">hvac_ac_state'</span>
@@ -112,6 +117,7 @@
 <p>Configuration variables:</p>
 
 <ul>
+  <li><strong>scan_interval</strong> (<em>Optional</em>): Interval in seconds to scan.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.
     <ul>
       <li>‘fan’</li>
@@ -127,7 +133,6 @@
   </li>
 </ul>
 
-<p class="note">You must have the <a href="/components/nest/">Nest component</a> configured to use this sensor.</p>
 
 
 </article>
