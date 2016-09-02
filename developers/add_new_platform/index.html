@@ -89,9 +89,9 @@
   <hr class="divider">
   
 
-  <p>Components that interact with devices are called Entity Components. They are structured in core- and platform logic. This allows the same logic to handle a light to be used by different brands.</p>
+  <p>Components that interact with devices are called “Entity Components”. They are structured in core- and platform logic. This allows the same logic to handle a light to be used by different brands.</p>
 
-<p>For example, the built-in <code class="highlighter-rouge">switch</code> component consists of various platform in <a href="https://github.com/home-assistant/home-assistant/tree/master/homeassistant/components/switch"><code class="highlighter-rouge">homeassistant/components/switch/</code></a>. The file <code class="highlighter-rouge">__init__.py</code> contains the core logic of all platform and the <code class="highlighter-rouge">vendor_name.py</code> files only the relevant platform code.</p>
+<p>For example, the built-in <code class="highlighter-rouge">switch</code> component consists of various platforms in <a href="https://github.com/home-assistant/home-assistant/tree/master/homeassistant/components/switch"><code class="highlighter-rouge">homeassistant/components/switch/</code></a>. The file <code class="highlighter-rouge">__init__.py</code> contains the core logic of all platform and the <code class="highlighter-rouge">vendor_name.py</code> files only the relevant platform code.</p>
 
 <p>If you are planning to add support for a new type of device to an existing component, you can get away with only writing platform logic. Have a look at how the component works with other platforms and create a similar file for the platform that you would like to add:</p>
 
