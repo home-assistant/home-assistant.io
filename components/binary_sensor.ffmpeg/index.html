@@ -89,10 +89,10 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">ffmpeg</code> platform allows you to use every video or audio feed with <a href="http://www.ffmpeg.org/">FFmpeg</a> for various sensors in Home Assistant. Available are: <strong>noise</strong>, <strong>motion</strong>. If the <code class="highlighter-rouge">ffmpeg</code> process is brocken, the sensor going to unavailable. It exists a service to restart a instance with <em>binary_sensor.ffmpeg_restart</em>.</p>
+  <p>The <code class="highlighter-rouge">ffmpeg</code> platform allows you to use every video or audio feed with <a href="http://www.ffmpeg.org/">FFmpeg</a> for various sensors in Home Assistant. Available are: <strong>noise</strong>, <strong>motion</strong>. If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sensor will be unavailable.   To restart the instance, use the service <em>binary_sensor.ffmpeg_restart</em>.</p>
 
 <p class="note">
-You need a <code class="highlighter-rouge">ffmpeg</code> binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need to build it from sourceby ourself. Windows binary are avilable on <a href="http://www.ffmpeg.org/">FFmpeg</a> homepage.
+You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need to build it from source. Windows binary are avilable on <a href="http://www.ffmpeg.org/">FFmpeg</a> homepage.
 </p>
 
 <h3><a class="title-link" name="noise" href="#noise"></a> Noise</h3>
@@ -123,7 +123,7 @@ You need a <code class="highlighter-rouge">ffmpeg</code> binary in your system p
   <li><strong>duration</strong> (<em>Optional</em>): Default 1 seconds. How long need the noise over the peak to trigger the state.</li>
   <li><strong>reset</strong> (<em>Optional</em>): Defaults to 20 seconds. The time to reset the state after none new noise is over the peak.</li>
   <li><strong>extra_arguments</strong> (<em>Optional</em>): Extra option they will pass to <code class="highlighter-rouge">ffmpeg</code>, like audio frequence filtering.</li>
-  <li><strong>output</strong> (<em>Optional</em>): Allow you to send the audio output of this sensor to a icecast server or other ffmpeg supported output, eg. to stream with sonos after state is trigger.</li>
+  <li><strong>output</strong> (<em>Optional</em>): Allow you to send the audio output of this sensor to an icecast server or other ffmpeg supported output, eg. to stream with sonos after state is triggered.</li>
 </ul>
 
 <p>For playing with values:</p>
@@ -134,7 +134,7 @@ You need a <code class="highlighter-rouge">ffmpeg</code> binary in your system p
 
 <h3><a class="title-link" name="motion" href="#motion"></a> Motion</h3>
 
-<p>FFmpeg don’t have a motion detection filter so it use a scene filter to detect a new scene/motion. In fact you can set how big a object or size of image they need change to detect a motion. The option ‘changes’ is the percent value of change between frames. You can add a denoise filter to video if you want a realy small value for ‘changes’.</p>
+<p>FFmpeg doesn’t have a motion detection filter, so it uses a scene filter to detect a new scene/motion. In fact, you can set how big of an object or the size of an image that needs to change in order to detect motion. The option ‘changes’ is the percent value of change between frames. You can add a denoise filter to the video if you want a really small value for ‘changes’.</p>
 
 <p>To enable your FFmpeg with motion detection in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -157,14 +157,14 @@ You need a <code class="highlighter-rouge">ffmpeg</code> binary in your system p
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>input</strong> (<em>Required</em>): A ffmpeg compatible input file, stream or feed.</li>
+  <li><strong>input</strong> (<em>Required</em>): A ffmpeg compatible input file, stream, or feed.</li>
   <li><strong>tool</strong> (<em>Required</em>): Is fix set to <code class="highlighter-rouge">motion</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
   <li><strong>ffmpeg_bin</strong> (<em>Optional</em>): Default <code class="highlighter-rouge">ffmpeg</code>.</li>
-  <li><strong>changes</strong> (<em>Optional</em>): Default 10 percent. A lower value is more sensitive. I use 4 / 3.5 on my cameras. It describe how much of two frames need to change to detect it as motion. See on descripton.</li>
-  <li><strong>reset</strong> (<em>Optional</em>): Default 20 seconds. The time to reset the state after none new motion is detect.</li>
-  <li><strong>repeat</strong> (<em>Optional</em>): Default 0 repeats (deactivate). How many motion need to detect in <em>repeat_time</em> to trigger a motion.</li>
-  <li><strong>repeat_time</strong> (<em>Optional</em>): Default 0 seconds (deactivate). The time to repeats before it trigger a motion.</li>
+  <li><strong>changes</strong> (<em>Optional</em>): Default 10 percent. A lower value is more sensitive. I use 4 / 3.5 on my cameras. It describes how much needs to change between two frames to detect it as motion. See on descripton.</li>
+  <li><strong>reset</strong> (<em>Optional</em>): Default 20 seconds. The time to reset the state after no new motion is detected.</li>
+  <li><strong>repeat</strong> (<em>Optional</em>): Default 0 repeats (deactivate). How many events need to be detected in <em>repeat_time</em> in order to trigger a motion.</li>
+  <li><strong>repeat_time</strong> (<em>Optional</em>): Default 0 seconds (deactivate). The span of time <em>repeat</em> events need to occur in before triggering a motion.</li>
   <li><strong>extra_arguments</strong> (<em>Optional</em>): Extra option they will pass to ffmpeg. i.e. video denoise filtering.</li>
 </ul>
 
