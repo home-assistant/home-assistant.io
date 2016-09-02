@@ -13,7 +13,7 @@ ha_release: 0.26
 ---
 
 
-The `ffmpeg` platform allows you to use every video feed with [FFmpeg](http://www.ffmpeg.org/) as camera in Home Assistant. The input for ffmpeg need to support that could have multiple connection to source (input). For every user in UI and all 10 seconds (snapshot image) it make a new connection/reading to source. Normally that should never be a trouble only in strange selfmade constructs can be make mistakes.
+The `ffmpeg` platform allows you to use every video feed with [FFmpeg](http://www.ffmpeg.org/) as camera in Home Assistant. The input for ffmpeg need to support that could have multiple connection to source (input) in same time. For every user in UI and all 10 seconds (snapshot image) it make a new connection/reading to source. Normally that should never be a trouble only in strange selfmade constructs can be make mistakes.
 
 <p class='note'>
 You need a `ffmpeg` binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need tobuild from source by yourself. Windows binary are avilable on the [FFmpeg](http://www.ffmpeg.org/) website.
