@@ -37,8 +37,8 @@ sensor:
 
 Configuration variables:
 
-- **host** (*Required*): This is the base URL of your SABnzbd instance including the port number if not running on 80, eg. http://192.168.1.32:8124/
-- **port** (*Optional*): The port to use whith SABnzbd instance. Defaults to 8080.
+- **host** (*Required*): The host where your SABnzbd instance is running, eg. 192.168.1.32
+- **port** (*Optional*): The port to use whith SABnzbd instance. Defaults to `8080`.
 - **api_key** (*Required*): Name that will be used in the frontend for the pin.
 - **name** (*Optional*): The name to use when displaying this SABnzbd instance.
 - **monitored_variables** array (*Required*): List of the monitored variables.
@@ -50,6 +50,7 @@ Configuration variables:
   - **disk_free**: Free disk space at the sotrage location
 
 Note that this will create sensors under the name 'sab' and NOT 'sabnzbd' as follows:
+
 ```
  - sensor.sab_status
  - sensor.sab_speed
@@ -58,4 +59,5 @@ Note that this will create sensors under the name 'sab' and NOT 'sabnzbd' as fol
  - sensor.sab_disk
  - sensor.sab_disk_free
 ```
+
 As always, you can determine the names of sensors by looking at the dev-state page `< >` in the web interface.
