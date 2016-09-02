@@ -48,3 +48,14 @@ Configuration variables:
   - **queue_remaining**: Remaining elements in the queue
   - **disk_size**: Disk size of the storage location
   - **disk_free**: Free disk space at the sotrage location
+
+Note that this will create sensors under the name 'sab' and NOT 'sabnzbd' as follows:
+```
+ - sensor.sab_status
+ - sensor.sab_speed
+ - sensor.sab_queue
+ - sensor.sab_left
+ - sensor.sab_disk
+ - sensor.sab_disk_free
+```
+As always, you can determine the names of sensors by looking at the dev-state page `< >` in the web interface.
