@@ -15,6 +15,10 @@ ha_iot_class: "Local Push"
 The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, that allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo with no set up cost outside of configuration changes.
 
+<p class='note'>
+  It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresss, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
+</p>
+
 ### {% linkable_title Configuration %}
 
 To enable the emulated Hue bridge, add the following to your `configuration.yaml` file:
