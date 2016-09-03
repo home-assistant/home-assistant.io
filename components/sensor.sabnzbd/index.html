@@ -113,8 +113,8 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): This is the base URL of your SABnzbd instance including the port number if not running on 80, eg. http://192.168.1.32:8124/</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port to use whith SABnzbd instance. Defaults to 8080.</li>
+  <li><strong>host</strong> (<em>Required</em>): The host where your SABnzbd instance is running, eg. 192.168.1.32</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port to use whith SABnzbd instance. Defaults to <code class="highlighter-rouge">8080</code>.</li>
   <li><strong>api_key</strong> (<em>Required</em>): Name that will be used in the frontend for the pin.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this SABnzbd instance.</li>
   <li><strong>monitored_variables</strong> array (<em>Required</em>): List of the monitored variables.
@@ -130,6 +130,7 @@
 </ul>
 
 <p>Note that this will create sensors under the name ‘sab’ and NOT ‘sabnzbd’ as follows:</p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code> - sensor.sab_status
  - sensor.sab_speed
  - sensor.sab_queue
@@ -138,6 +139,7 @@
  - sensor.sab_disk_free
 </code></pre>
 </div>
+
 <p>As always, you can determine the names of sensors by looking at the dev-state page <code class="highlighter-rouge">&lt; &gt;</code> in the web interface.</p>
 
 
