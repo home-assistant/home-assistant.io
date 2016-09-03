@@ -19,7 +19,7 @@ Beside the [voluptuous](https://pypi.python.org/pypi/voluptuous) default types a
 - Entity ID: `entity_id` and `entity_ids`
 - Numbers: `small_float` and `positive_int`
 - Time: `time`, `time_zone`
-- Misc: `template`, `slug`, `temperature_unit`, `latitude`, `longitude`, `isfile`, `sun_event`, `ensure_list`, and `icon`
+- Misc: `template`, `slug`, `temperature_unit`, `latitude`, `longitude`, `isfile`, `sun_event`, `ensure_list`, `port`, `url`,  and `icon`
  
 To validate plaforms using [MQTT](/components/mqtt/) there are `valid_subscribe_topic` and `valid_publish_topic` present.
 

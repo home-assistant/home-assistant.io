@@ -14,6 +14,10 @@ ha_category: Climate
 
 The `nest` climate platform let you control a thermostat from [Nest](https://nest.com).
 
+<p class='note'>
+You must have the [Nest component](/components/nest/) configured to use those thermostats.
+</p>
+
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
@@ -25,6 +29,3 @@ climate:
   <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
 </p>
 
-<p class='note'>
-  You must have the [Nest component](https://home-assistant.io/components/nest/) configured to use this sensor.
-</p>

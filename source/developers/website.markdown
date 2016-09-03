@@ -11,7 +11,7 @@ footer: true
 
 The website you're reading now is the home of Home Assistant: [https://home-assistant.io](https://home-assistant.io). This is the place where we provide documentation and additional details about Home Assistant for end users and developers.
 
-home-assistant.io is built using [Jekyll](http://github.com/mojombo/jekyll). The pages are written in [markdown](http://daringfireball.net/projects/markdown/); to add a page you don't need to know about HTML or the like.
+home-assistant.io is built using [Jekyll](http://github.com/mojombo/jekyll) and [those available dependencies](https://pages.github.com/versions/). The pages are written in [markdown](http://daringfireball.net/projects/markdown/); to add a page you don't need to know about HTML or the like.
 
 The link "**Edit this page on GitHub**" allows one to edit pages without creating a fork.
 

@@ -38,7 +38,7 @@ Configuration variables:
 - **event** (*Required*): The event
 - **tracker** (*Required*): The name of tracker inside Instapush.
 
-To retrieve those values for existing settings, log into your account at [https://instapush.im](https://instapush.im) and go to your **Dashboard**. Then click **APPS** tab, choose an app, and check the **Basic Info** section. The *Application ID* is the ``api_key`` and ``app_secret`` is the *Application Secret*.
+To retrieve the needed values for existing settings, log into your account at [https://instapush.im](https://instapush.im) and go to your **Dashboard**. Then click the **APPS** tab, choose an app, and check the **Basic Info** section. The *Application ID* is the `api_key` and `app_secret` is the *Application Secret*.
 
 Assuming that your setup looks look in the image below...
 

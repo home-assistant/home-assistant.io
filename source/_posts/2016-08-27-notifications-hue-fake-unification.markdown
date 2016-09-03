@@ -46,7 +46,7 @@ Now that we have that great news out of the way, onto this week's release which 
 
 ## {% linkable_title 0.27 %}
 
-While this release is **#Amazing**, we had to break a few eggs (now you understand the title reference!) to make a beautiful omelette (using home automation obviously) so some platforms and components have needed to introduce breaking changes. Please make sure to read the Breaking Changes section below.
+While this release is **#Amazing**, we had to break a few eggs (now you understand the title reference!) to make a beautiful omelette (using home automation obviously) so some platforms and components have needed to introduce breaking changes. Please make sure to read the [Breaking Changes](#breaking-changes) section below.
 
 ### {% linkable_title Hue Bridge Emulation %}
 Thanks to [@mgbowen] we now have the functionality previously provided by [@blocke]'s [ha-local-echo](https://github.com/blocke/ha-local-echo) [built right into Home Assistant](/components/emulated_hue/)! This means that for those of you with devices that either lack or have a subpar integration with Home Assistant (looking at you Amazon Echo) you can now have a better experience by having your Home Assistant pretend to be a Hue Bridge. Personally, I have used [@auchter]'s [Haaska](https://github.com/auchter/haaska) previously but found that it was slow to respond and sometimes failed entirely. With the new [`emulated_hue`](/components/emulated_hue/) component, you can have local control of entities through Amazon Echo.
@@ -55,7 +55,7 @@ Thanks to [@mgbowen] we now have the functionality previously provided by [@bloc
 We have some excellent upgrades to the notification system coming to you in 0.27, courtesy of me, [@robbiet480].
 
 #### {% linkable_title HTML5 Push Notifications %}
-This release adds support for [HTML5] push notifications on Chrome/Firefox/Opera on both desktop and Android devices. This means that you can send a notification to your phone even your Home Assistant is not in your mobile browser. When using Chrome you can even include 2 action buttons so that you can control your Home Assistant from your phone's lock screen, allowing you to do things like sound alarms or unlock your front door, all without leaving the notification. Thanks again to me ([@robbiet480]) and Paulus ([@balloob]) for all the hard work on this!
+This release adds support for [HTML5] push notifications on Chrome/Firefox/Opera on both desktop and Android devices. This means that you can send a notification to your phone even when your Home Assistant is not open in your mobile browser. When using Chrome you can even include 2 action buttons so that you can control your Home Assistant from your phone's lock screen, allowing you to do things like sound alarms or unlock your front door, all without leaving the notification. Thanks again to me ([@robbiet480]) and Paulus ([@balloob]) for all the hard work on this!
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/html5-notify.png' />
@@ -132,6 +132,8 @@ Along with the new `climate` component, [@Teagan42] and I ([@robbiet480]) decide
 - Forecast.io entity IDs are now like `sensor.forecastio_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make Forecast.io more generic now that we have many weather platforms.
 - The [Loop Energy][Loop] sensor configuration format changed slightly, please reformat based on the revised documentation.
 - The configuration for the [SABnzbd] sensor has slightly changed. The prefix `type:` is no longer required for monitored variables.
+- The [IMAP] sensor now uses `username` instead of `user`.
+- The [NZBGet] sensor has had so many changes I can't list them all. Please refer to the documentation for more info.
 
 ### {% linkable_title Deprecations %}
 - Using the `thermostat` and `hvac` components has been deprecated. Please migrate to the new `climate` component. (just change the component name, the configurations are compatible)
@@ -139,7 +141,7 @@ Along with the new `climate` component, [@Teagan42] and I ([@robbiet480]) decide
 
 ## {% linkable_title Finishing up %}
 
-Thanks all for sticking with me to the end. I'll be taking over a lot of Paulus's (@balloob) work while he is gone, but as I said, don't worry because he'll be back well before 0.28.0 comes out. Hopefully you didn't find this jovial blog post too jarring from our standard style, I just wrote a lot of this at 2am after being awake for almost 20 hours, so I'm a little loopy hahaha 😴.
+Thanks all for sticking with me to the end. I'll be taking over a lot of Paulus's ([@balloob]) work while he is gone, but as I said, don't worry because he'll be back well before 0.28.0 comes out. Hopefully you didn't find this jovial blog post too jarring from our standard style, I just wrote a lot of this at 2am after being awake for almost 20 hours, so I'm a little loopy hahaha 😴.
 
 Also, thanks as always to our developer contributors, documentation contributors, but most of all our users! This would've just been a script that Paulus (@balloob) used to control his lights at home if we didn't have your enthusiasm.
 
@@ -153,11 +155,55 @@ Talk to you soon on Gitter and in your pull request comments!
 
 (p.s. To those of you that scrolled directly to the bottom to get your present, just know that you didn't earn it like the others did. 😄)
 
+## {% linkable_title Hotfix 0.27.1 - August 30 %}
+
+- Migrate APCUPSd to voluptuous ([@fabaff])
+- Ecobee operation mode fix ([@turbokongen])
+- update ha-ffmpeg version to 0.9 ([@pvizeli])
+- Device tracker component & platform validation. No more home_range. ([@kellerza])
+- Added option to use effect:random for Flux Led light bulbs ([@tchellomello])
+- Use voluptuous for smtp ([@pvizeli])
+- Upgrade sendgrid to 3.2.10 ([@fabaff])
+- Upgrade TwitterAPI to 2.4.2 ([@fabaff])
+- Fix bug in wemo discovery caused by voluptuous addition. ([@pavoni])
+- Bug fix for asuswrt device_tracker. ([@Danielhiversen])
+- Remove units for humidity in Wundeground sensor ([@arsaboo])
+- Fix media_player descriptions and select_source ([@MartinHjelmare])
+- Allow user to configure server id to perform speed test against ([@Teagan42])
+- Bug fix for asuswrt device_tracker. ([@Danielhiversen])
+- More Ecobee operation mode fixes ([@turbokongen])
+- Map Modes to setpoint indexes ([@turbokongen])
+- fix voluptuous and cover autodiscovery ([@pvizeli])
+- Fixes wrong statevalue and problem with zwave setpoint ([@turbokongen])
+
+## {% linkable_title Hotfix 0.27.2 - September 3 %}
+### home-assistant
+
+- Ble fix ([#3019](https://github.com/home-assistant/home-assistant/pull/3019)) - ([@open-homeautomation](https://github.com/open-homeautomation))
+- Reset insteon hub ([#3062](https://github.com/home-assistant/home-assistant/pull/3062)) - ([@Teagan42](https://github.com/Teagan42))
+- Host should be optional for apcupsd component ([#3072](https://github.com/home-assistant/home-assistant/pull/3072)) - ([@Danielhiversen](https://github.com/Danielhiversen))
+- Zwave climate Bugfix: if some setpoints have different units, we should fetch the o… ([#3078](https://github.com/home-assistant/home-assistant/pull/3078)) - ([@turbokongen](https://github.com/turbokongen))
+- Bugfix  unit fix ([#3083](https://github.com/home-assistant/home-assistant/pull/3083)) - ([@turbokongen](https://github.com/turbokongen))
+- Ecobee humidity slider ([#3088](https://github.com/home-assistant/home-assistant/pull/3088)) - ([@turbokongen](https://github.com/turbokongen))
+- Zwave Climate Bugfix: If device was off target temp was null. Default to Heating setpoint ([#3091](https://github.com/home-assistant/home-assistant/pull/3091)) - ([@turbokongen](https://github.com/turbokongen))
+- Climate and cover bugfix ([#3097](https://github.com/home-assistant/home-assistant/pull/3097)) - ([@turbokongen](https://github.com/turbokongen))
+- Add missing docstrings (fix PEP257 issues) ([#3098](https://github.com/home-assistant/home-assistant/pull/3098)) - ([@fabaff](https://github.com/fabaff))
+- Allow None MAC to be loaded from known_devices ([#3102](https://github.com/home-assistant/home-assistant/pull/3102)) - ([@kellerza](https://github.com/kellerza))
+- fix homematic climate implementation ([#3114](https://github.com/home-assistant/home-assistant/pull/3114)) - ([@pvizeli](https://github.com/pvizeli))
+- Fixed Homematic cover ([#3116](https://github.com/home-assistant/home-assistant/pull/3116)) - ([@danielperna84](https://github.com/danielperna84))
+- Bugfix. climate and covermqt ([#3130](https://github.com/home-assistant/home-assistant/pull/3130)) - ([@turbokongen](https://github.com/turbokongen))
+
+### home-assistant-polymer
+
+- Fix missing attributes on the climate and HVAC more info cards ([7e455e2](https://github.com/home-assistant/home-assistant-polymer/commit/7e455e2be1cb7cc4f55628b063019bea548a3182)) - ([@robbiet480](https://github.com/robbiet480))
+- Add a default icon for the fan component ([#101](https://github.com/home-assistant/home-assistant-polymer/pull/101)) - ([@robbiet480](https://github.com/robbiet480))
+
 [@arsaboo]: https://github.com/arsaboo
 [@auchter]: https://github.com/auchter
 [@balloob]: https://github.com/balloob
 [@blocke]: https://github.com/blocke
 [@BluGeni]: https://github.com/BluGeni
+[@Danielhiversen]: https://github.com/Danielhiversen
 [@danielperna84]: https://github.com/danielperna84
 [@DavidMStraub]: https://github.com/DavidMStraub
 [@dpford]: https://github.com/dpford
@@ -166,6 +212,7 @@ Talk to you soon on Gitter and in your pull request comments!
 [@jnewland]: https://github.com/jnewland
 [@Juggels]: https://github.com/Juggels
 [@kellerza]: https://github.com/kellerza
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@mcdeck]: https://github.com/mcdeck
 [@meatz]: https://github.com/meatz
 [@mgbowen]: https://github.com/mgbowen
@@ -179,6 +226,7 @@ Talk to you soon on Gitter and in your pull request comments!
 [@roidayan]: https://github.com/roidayan
 [@roidayan]: ttps://github.com/roidayan
 [@shmuelzon]: https://github.com/shmuelzon
+[@tchellomello]: https://github.com/tchellomello
 [@Teagan42]: https://github.com/Teagan42
 [@technicalpickles]: https://github.com/technicalpickles
 [@tobiebooth]: https://github.com/tobiebooth
@@ -221,3 +269,4 @@ Talk to you soon on Gitter and in your pull request comments!
 [attachments]: /components/notify.slack/
 [Hue]: /components/emulated_hue/
 [fan]: /components/fan/
+[IMAP]: /components/sensor.imap/

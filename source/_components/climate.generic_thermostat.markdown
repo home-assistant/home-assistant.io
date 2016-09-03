@@ -17,7 +17,7 @@ The `generic_thermostat` climate platform is a thermostat implemented in Home As
 ```yaml
 # Example configuration.yaml entry
 climate:
-  platform: heat_control
+  platform: generic_thermostat
   name: Study
   heater: switch.study_heater
   target_sensor: sensor.study_temperature

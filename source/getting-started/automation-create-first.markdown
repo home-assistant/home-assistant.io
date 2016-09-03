@@ -37,7 +37,7 @@ automation:
   condition:
     condition: state
     entity_id: group.all_devices
-    state: home
+    state: 'home'
   action:
     service: light.turn_on
 ```
@@ -66,7 +66,7 @@ automation:
   condition:
     condition: state
     entity_id: group.all_devices
-    state: home
+    state: 'home'
   action:
     service: light.turn_on
     entity_id: group.living_room
@@ -93,7 +93,7 @@ automation:
   condition:
     condition: state
     entity_id: group.all_devices
-    state: home
+    state: 'home'
   action:
     service: homeassistant.turn_on
     entity_id: group.living_room

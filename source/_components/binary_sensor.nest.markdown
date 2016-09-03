@@ -14,11 +14,16 @@ ha_category: Binary Sensor
 
 The `nest` binary sensor platform let you monitor various states of a thermostat from [Nest](https://nest.com).
 
+<p class='note'>
+You must have the [Nest component](/components/nest/) configured to use this sensors.
+</p>
+
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 binary_sensor:
   platform: nest
+  scan_interval: 60
   monitored_conditions:
     - 'fan'
     - 'hvac_ac_state'
@@ -34,6 +39,7 @@ binary_sensor:
 
 Configuration variables:
 
+- **scan_interval** (*Optional*): Interval in seconds to scan.
 - **monitored_conditions** array (*Required*): States to monitor.
   - 'fan'
   - 'hvac_ac_state'
@@ -45,4 +51,3 @@ Configuration variables:
   - 'hvac_emer_heat_state'
   - 'online'
 
-<p class='note'>You must have the [Nest component](/components/nest/) configured to use this sensor.</p>
