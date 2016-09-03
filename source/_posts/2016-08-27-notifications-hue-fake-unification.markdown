@@ -176,6 +176,28 @@ Talk to you soon on Gitter and in your pull request comments!
 - fix voluptuous and cover autodiscovery ([@pvizeli])
 - Fixes wrong statevalue and problem with zwave setpoint ([@turbokongen])
 
+## {% linkable_title Hotfix 0.27.2 - September 3 %}
+### home-assistant
+
+- Ble fix ([#3019](https://github.com/home-assistant/home-assistant/pull/3019)) - ([@open-homeautomation](https://github.com/open-homeautomation))
+- Reset insteon hub ([#3062](https://github.com/home-assistant/home-assistant/pull/3062)) - ([@Teagan42](https://github.com/Teagan42))
+- Host should be optional for apcupsd component ([#3072](https://github.com/home-assistant/home-assistant/pull/3072)) - ([@Danielhiversen](https://github.com/Danielhiversen))
+- Zwave climate Bugfix: if some setpoints have different units, we should fetch the o… ([#3078](https://github.com/home-assistant/home-assistant/pull/3078)) - ([@turbokongen](https://github.com/turbokongen))
+- Bugfix  unit fix ([#3083](https://github.com/home-assistant/home-assistant/pull/3083)) - ([@turbokongen](https://github.com/turbokongen))
+- Ecobee humidity slider ([#3088](https://github.com/home-assistant/home-assistant/pull/3088)) - ([@turbokongen](https://github.com/turbokongen))
+- Zwave Climate Bugfix: If device was off target temp was null. Default to Heating setpoint ([#3091](https://github.com/home-assistant/home-assistant/pull/3091)) - ([@turbokongen](https://github.com/turbokongen))
+- Climate and cover bugfix ([#3097](https://github.com/home-assistant/home-assistant/pull/3097)) - ([@turbokongen](https://github.com/turbokongen))
+- Add missing docstrings (fix PEP257 issues) ([#3098](https://github.com/home-assistant/home-assistant/pull/3098)) - ([@fabaff](https://github.com/fabaff))
+- Allow None MAC to be loaded from known_devices ([#3102](https://github.com/home-assistant/home-assistant/pull/3102)) - ([@kellerza](https://github.com/kellerza))
+- fix homematic climate implementation ([#3114](https://github.com/home-assistant/home-assistant/pull/3114)) - ([@pvizeli](https://github.com/pvizeli))
+- Fixed Homematic cover ([#3116](https://github.com/home-assistant/home-assistant/pull/3116)) - ([@danielperna84](https://github.com/danielperna84))
+- Bugfix. climate and covermqt ([#3130](https://github.com/home-assistant/home-assistant/pull/3130)) - ([@turbokongen](https://github.com/turbokongen))
+
+### home-assistant-polymer
+
+- Fix missing attributes on the climate and HVAC more info cards ([7e455e2](https://github.com/home-assistant/home-assistant-polymer/commit/7e455e2be1cb7cc4f55628b063019bea548a3182)) - ([@robbiet480](https://github.com/robbiet480))
+- Add a default icon for the fan component ([#101](https://github.com/home-assistant/home-assistant-polymer/pull/101)) - ([@robbiet480](https://github.com/robbiet480))
+
 [@arsaboo]: https://github.com/arsaboo
 [@auchter]: https://github.com/auchter
 [@balloob]: https://github.com/balloob
