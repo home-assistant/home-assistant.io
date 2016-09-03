@@ -20,8 +20,9 @@ categories: Release-Notes
 
 ### {% linkable_title Breaking changes %}
 
-- OpenweatherMap entity IDs are now like `sensor.owm_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.
-- 
+- [OpenweatherMap] entity IDs are now like `sensor.owm_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.
+- The configuration for the [OctoPrint] component was updated.
+- The mFi platform ([switch][mfi-switch] and [sensor][mfi-sensor]) are no aligned with the configuration of other platforms.
 
 [@arsaboo]: https://github.com/arsaboo
 [@auchter]: https://github.com/auchter
@@ -55,39 +56,7 @@ categories: Release-Notes
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
 
-[checking]: /components/sensor.dht/
-[FFMpeg]: /components/binary_sensor.ffmpeg/
-[Climate]: /components/climate/
-[NZBGet]: /components/sensor.nzbget/
-[SABnzbd]: /components/sensor.sabnzbd/
-[HP]: /components/sensor.hp_ilo/
-[Fritzbox]: /components/sensor.fritzbox_callmonitor/
-[webos]: /components/media_player.webostv/
-[HTML5]: /components/notify.html5/
-[Gravatar]: /components/device_tracker/
-[Loop]: /components/sensor.loop_energy/
-[cover]: /components/cover/
-[climate]: /components/climate/
-[expose]: /components/light/
-[Automate]: /components/notify.llamalab_automate/
-[Secrets]: /topics/secrets/
-[trigger]: /components/alarm_control_panel.manual/
-[CO2]: /components/sensor.mhz19/
-[presence]: /components/sensor.mqtt_room
-[grouping]: /components/notify.group/
-[Wunderground]: /components/sensor.wunderground/
-[monitoring]: /components/binary_sensor.ffmpeg/
-[MJPEG]: /components/camera.mjpeg/
-[Generic]: /components/camera.generic/
-[positions]: /components/cover.zwave/
-[forecast]: /components/sensor.forecast/
-[Bluetooth]: /components/device_tracker.bluetooth_le_tracker/
-[Slack]: /components/notify.slack/
-[template]: /components/camera.generic/
-[Bug]: /components/wink/
-[support]: /components/homematic/
-[node]: /components/zwave/
-[found]: /components/device_tracker.tplink/
-[attachments]: /components/notify.slack/
-[Hue]: /components/emulated_hue/
-[fan]: /components/fan/
+[OpenweatherMap]: /components/sensor.openweathermap/
+[OctoPrint]: /components/octoprint/
+[mfi-switch]: /components/switch.mfi/
+[mfi-sensor]: /components/sensor.mfi/
