@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-03T17:31:45+00:00</updated>
+  <updated>2016-09-03T23:05:00+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -295,6 +295,32 @@ So, part 1 of <a href="https://home-assistant.io/blog/2016/07/28/esp8266-and-mic
   <li>Map Modes to setpoint indexes (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
   <li>fix voluptuous and cover autodiscovery (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
   <li>Fixes wrong statevalue and problem with zwave setpoint (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+</ul>
+
+<h2><a class="title-link" name="hotfix-0272---september-3" href="#hotfix-0272---september-3"></a> Hotfix 0.27.2 - September 3</h2>
+<h3>home-assistant</h3>
+
+<ul>
+  <li>Ble fix (<a href="https://github.com/home-assistant/home-assistant/pull/3019">#3019</a>) - (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Reset insteon hub (<a href="https://github.com/home-assistant/home-assistant/pull/3062">#3062</a>) - (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Host should be optional for apcupsd component (<a href="https://github.com/home-assistant/home-assistant/pull/3072">#3072</a>) - (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Zwave climate Bugfix: if some setpoints have different units, we should fetch the o… (<a href="https://github.com/home-assistant/home-assistant/pull/3078">#3078</a>) - (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Bugfix  unit fix (<a href="https://github.com/home-assistant/home-assistant/pull/3083">#3083</a>) - (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Ecobee humidity slider (<a href="https://github.com/home-assistant/home-assistant/pull/3088">#3088</a>) - (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Zwave Climate Bugfix: If device was off target temp was null. Default to Heating setpoint (<a href="https://github.com/home-assistant/home-assistant/pull/3091">#3091</a>) - (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Climate and cover bugfix (<a href="https://github.com/home-assistant/home-assistant/pull/3097">#3097</a>) - (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Add missing docstrings (fix PEP257 issues) (<a href="https://github.com/home-assistant/home-assistant/pull/3098">#3098</a>) - (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Allow None MAC to be loaded from known_devices (<a href="https://github.com/home-assistant/home-assistant/pull/3102">#3102</a>) - (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>fix homematic climate implementation (<a href="https://github.com/home-assistant/home-assistant/pull/3114">#3114</a>) - (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fixed Homematic cover (<a href="https://github.com/home-assistant/home-assistant/pull/3116">#3116</a>) - (<a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Bugfix. climate and covermqt (<a href="https://github.com/home-assistant/home-assistant/pull/3130">#3130</a>) - (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+</ul>
+
+<h3>home-assistant-polymer</h3>
+
+<ul>
+  <li>Fix missing attributes on the climate and HVAC more info cards (<a href="https://github.com/home-assistant/home-assistant-polymer/commit/7e455e2be1cb7cc4f55628b063019bea548a3182">7e455e2</a>) - (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Add a default icon for the fan component (<a href="https://github.com/home-assistant/home-assistant-polymer/pull/101">#101</a>) - (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
 </ul>
 
 ]]></content>
