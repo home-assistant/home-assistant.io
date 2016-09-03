@@ -26,6 +26,7 @@ sensor:
   api_key: YOUR_API_KEY
   host: YOUR_SABNZBD_HOST
   port: 8080
+  ssl: True
   monitored_variables:
     - 'current_status'
     - 'speed'
@@ -41,6 +42,7 @@ Configuration variables:
 - **port** (*Optional*): The port to use whith SABnzbd instance. Defaults to 8080.
 - **api_key** (*Required*): Name that will be used in the frontend for the pin.
 - **name** (*Optional*): The name to use when displaying this SABnzbd instance.
+- **ssl** (*Optional*): Use `https` instead of `http` to connect. Defaults to False.
 - **monitored_variables** array (*Required*): List of the monitored variables.
   - **current_status**: current status of the SABnzbd instance
   - **speed**: Current speed
