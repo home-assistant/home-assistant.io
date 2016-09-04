@@ -47,5 +47,5 @@ sensor:
 
 Configuration variables:
 
-- **name** (*Required*): Vehicle name (your choice).
-- **email**: Email address configured in Torque application.
+- **name** (*Optional*): Vehicle name (your choice).
+- **email**  (*Required*): Email address configured in Torque application.
