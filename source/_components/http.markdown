@@ -49,3 +49,5 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 To use those kind of [sensors](/components/sensor.http/) or [binary sensors](components/binary_sensor.http/) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
 All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
+
+If you want to host static files on your site this canbe done by making a www directory under the .htomassistant configuration path. Then static files in `.homeassistant/www/` can be accessed by using `http://your.domain:8123/local/`
