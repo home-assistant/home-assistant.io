@@ -85,7 +85,7 @@ My Programs
 ```
 
 A device is created by creating a directory, with the name for the device, under any of the following root directories:
- * *HA.binary_sensor* will create a binary sensor
+ * *HA.binary_sensor* will create a binary sensor (see [Customizing Devices](https://home-assistant.io/getting-started/customizing-devices/) to set the sensor class)
  * *HA.cover* will create a cover
  * *HA.fan* will create a fan
  * *HA.lock* will create a lock
