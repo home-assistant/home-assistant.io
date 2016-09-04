@@ -17,6 +17,7 @@ Most binary sensors support the `SENSOR_CLASSES` which let you specify the type 
 
 - **None**: Generic on/off
 - **cold**: On means cold (or too cold)
+- **connectivity**: On means connection present, Off means no connection
 - **gas**: CO, CO2, etc
 - **heat**: On means hot (or too hot)
 - **light**: Lightness threshold
