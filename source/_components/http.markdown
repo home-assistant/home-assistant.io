@@ -50,4 +50,4 @@ To use those kind of [sensors](/components/sensor.http/) or [binary sensors](com
 
 All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
-If you want to host static files on your site this canbe done by making a www directory under the .htomassistant configuration path. Then static files in `.homeassistant/www/` can be accessed by using `http://your.domain:8123/local/`
+If you want to use Home Assistant to host or serve static files then create a directory called `www` under the `.homeassistant` configuration path. The static files in `.homeassistant/www/` can be accessed by the following URL `http://your.domain:8123/local/`.
