@@ -13,7 +13,7 @@ ha_category: Sensor
 
 The `apcupsd` sensor platform allows you to monitor a UPS (battery backup) by using data from the [apcaccess](http://linux.die.net/man/8/apcaccess) command.
 
-To use this sensor platform, you first have to set up [apcupsd](/components/apcupsd/) and add the following to your `configuration.yaml` file:
+To use this sensor platform, you first have to set up [apcupsd](/components/apcupsd/), and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
