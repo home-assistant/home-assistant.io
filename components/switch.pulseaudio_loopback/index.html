@@ -89,24 +89,24 @@
   <hr class="divider">
   
 
-  <p>The goal behind this switch is to allow a very flexible whole home audio system based upon PulseAudio.</p>
+  <p>The goal behind this switch is to allow a very flexible whole home audio system based upon <a href="https://www.freedesktop.org/wiki/Software/PulseAudio/">PulseAudio</a>.</p>
 
-<p>For example, for a system with a 7.1 surround sound card, and 3 instances of mpd running, it is possible to quickly route the output of any mpd instance to any of the 8 possible (4 stereo) channels on the sound card, by loading/unloading a loopback module.  This loading/unloading functionality is provided by this component. When the switch is ‘on’, the loopback module is loaded.  When the switch is ‘off’, the module is not loaded.</p>
+<p>For example, for a system with a 7.1 surround sound card, and 3 instances of <a href="https://www.musicpd.org/">MPD</a> running, it is possible to quickly route the output of any MPD instance to any of the 8 possible (4 stereo) channels on the sound card, by loading/unloading a loopback module. This loading/unloading functionality is provided by this component. When the switch is <code class="highlighter-rouge">on</code>, the loopback module is loaded.  When the switch is <code class="highlighter-rouge">off</code>, the module is not loaded.</p>
 
-<p>The benefit of this approach is that this audio routing can occur without modifying the design-time configuration of mpd or PulseAudio.</p>
+<p>The benefit of this approach is that this audio routing can occur without modifying the design-time configuration of MPD or PulseAudio.</p>
 
-<p>This component uses a TCP connection to control a local or remote PulseAudio server- so there are no local dependencies.</p>
+<p>This component uses a TCP connection to control a local or remote PulseAudio server. So there are no local dependencies.</p>
 
 <p>To enable this switch, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">pulseaudio_loopback</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">mpd1 -&gt; bedroom</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">4712</span>
-  <span class="s">source_name</span><span class="pi">:</span> <span class="s">mpd1.monitor</span>
-  <span class="s">sink_name</span><span class="pi">:</span> <span class="s">bedroom</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pulseaudio_loopback</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">mpd1 -&gt; bedroom</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">4712</span>
+    <span class="s">source_name</span><span class="pi">:</span> <span class="s">mpd1.monitor</span>
+    <span class="s">sink_name</span><span class="pi">:</span> <span class="s">bedroom</span>
 </code></pre>
 </div>
 
@@ -123,8 +123,7 @@
 </ul>
 
 <p class="note warning">
-This component relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with
-this component, module-cli-protocol must be loaded on the PulseAudio server.
+This component relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, <code class="highlighter-rouge">module-cli-protocol</code> must be loaded on the PulseAudio server.
 </p>
 
 

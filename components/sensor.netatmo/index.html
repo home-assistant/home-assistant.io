@@ -91,7 +91,7 @@
 
   <p>The <code class="highlighter-rouge">netatmo</code> sensor platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo</a> device.</p>
 
-<p>To enable the Netatmo sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<p>To enable the Netatmo sensor, you first have to set up <a href="/components/netatmo/">netatmo</a>, and add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -131,7 +131,7 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>station</strong> (<em>Optionnal</em>): The name of the weather station. Needed if several stations are associated with the account.</li>
+  <li><strong>station</strong> (<em>Optional</em>): The name of the weather station. Needed if several stations are associated with the account.</li>
   <li><strong>modules</strong> (<em>Required</em>): Modules to use. Multiple entries allowed.
     <ul>
       <li><strong>module_name</strong> array (<em>Required</em>): Name of the module.
@@ -161,8 +161,7 @@
 
 <h3><a class="title-link" name="find-your-modules-name" href="#find-your-modules-name"></a> Find your modules name</h3>
 
-<p>You can find your modules name in your <a href="https://my.netatmo.com/app/station">online NetAtmo account</a>. These names can be found and changed in parameters (See screenshot)
-You have to provide these name in your Home Assistant configuration file.</p>
+<p>You can find your modules name in your <a href="https://my.netatmo.com/app/station">online NetAtmo account</a>. These names can be found and changed in parameters. You have to provide these name in your Home Assistant <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
 <p class="img">
 <img src="/images/screenshots/netatmo_module.png" />
