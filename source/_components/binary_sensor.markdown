@@ -16,17 +16,17 @@ Knowing that there are only two states allows Home Assistant to represent the se
 Most binary sensors support the `SENSOR_CLASSES` which let you specify the type of your sensor. The following types are supported:
 
 - **None**: Generic on/off
-- **opening**: Door, window, etc
-- **motion**: Motion sensor
+- **cold**: On means cold (or too cold)
 - **gas**: CO, CO2, etc
-- **smoke**: Smoke detector
-- **moisture**: Specifically a wetness sensor
+- **heat**: On means hot (or too hot)
 - **light**: Lightness threshold
+- **moisture**: Specifically a wetness sensor
+- **motion**: Motion sensor
+- **moving**: On means moving, Off means stopped
+- **opening**: Door, window, etc
 - **power**: Power, over-current, etc
 - **safety**: On means unsafe, Off means safe
-- **heat**: On means hot (or too hot)
-- **cold**: On means cold (or too cold)
-- **moving**: On means moving, Off means stopped
+- **smoke**: Smoke detector
 - **sound**: On means sound detected, Off means no sound
 - **vibration**: On means vibration detected, Off means no vibration
 
