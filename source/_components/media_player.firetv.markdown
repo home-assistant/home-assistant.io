@@ -47,8 +47,8 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Optional*): Where `firetv-server` is running. Default is localhost.
-- **port** (*Optional*): THe port where `firetv-server` is running. Default is 5556.
+- **host** (*Optional*): The host where `firetv-server` is running. Default is localhost.
+- **port** (*Optional*): The port where `firetv-server` is running. Default is 5556.
 - **device** (*Optional*): The device ID. Defaults to `default`.
 - **name** (*Optional*): The friendly name of the device, default is 'Amazon Fire TV'.
 
