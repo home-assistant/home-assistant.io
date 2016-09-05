@@ -71,7 +71,7 @@ Chrome supports notification actions, which are configurable buttons that arrive
     "actions": [
       {
         "action": "open",
-        "icon": "/static/icons/favicon-192x192.png"
+        "icon": "/static/icons/favicon-192x192.png",
         "title": "Open Home Assistant"
       },
       {
