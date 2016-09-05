@@ -23,6 +23,7 @@ categories: Release-Notes
 - [OpenweatherMap] entity IDs are now like `sensor.owm_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.
 - The configuration for the [OctoPrint] component was updated.
 - The mFi platform ([switch][mfi-switch] and [sensor][mfi-sensor]) are no aligned with the configuration of other platforms.
+- Fire-TV configuration was updated.
 
 [@arsaboo]: https://github.com/arsaboo
 [@auchter]: https://github.com/auchter
@@ -60,3 +61,4 @@ categories: Release-Notes
 [OctoPrint]: /components/octoprint/
 [mfi-switch]: /components/switch.mfi/
 [mfi-sensor]: /components/sensor.mfi/
+[FireTV]: /components/media_player.firetv/
