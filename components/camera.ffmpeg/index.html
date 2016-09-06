@@ -134,7 +134,7 @@ You need a <code class="highlighter-rouge">ffmpeg</code> binary in your system p
 
 <ul>
   <li><code class="highlighter-rouge">[rtsp @ ...] UDP timeout, retrying with TCP</code>: You need to set RTSP transport in the configuration with: <code class="highlighter-rouge">input: -rtsp_transport tcp -i INPUT</code></li>
-  <li><code class="highlighter-rouge">[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size</code>: FFmpeg need more data or time for autodetect. You can set the <code class="highlighter-rouge">analyzeduration</code> and/or <code class="highlighter-rouge">probesize</code> option, play with this value. If you know the needed value you can set it  with: <code class="highlighter-rouge">input: -analyzeduration xy -probesize xy tcp -i INPUT</code>. More information about that can be found on <a href="https://www.ffmpeg.org/ffmpeg-formats.html#Description">FFmpeg</a>.</li>
+  <li><code class="highlighter-rouge">[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size</code>: FFmpeg need more data or time for autodetect. You can set the <code class="highlighter-rouge">analyzeduration</code> and/or <code class="highlighter-rouge">probesize</code> option, play with this value. If you know the needed value you can set it  with: <code class="highlighter-rouge">input: -analyzeduration xy -probesize xy -i INPUT</code>. More information about that can be found on <a href="https://www.ffmpeg.org/ffmpeg-formats.html#Description">FFmpeg</a>.</li>
 </ul>
 
 
