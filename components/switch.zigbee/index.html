@@ -89,19 +89,9 @@
   <hr class="divider">
   
 
-  <p>A ZigBee switch in this context is a device connected to one of the digital output pins on a ZigBee module. It can simply be switched on and off. By default, a switch is considered ‘on’ when the ZigBee device’s digital output is held ‘high’ and considered ‘off’ when it is held ‘low’. This behaviour can be inverted by setting the <code class="highlighter-rouge">on_state</code> configuration variable to <code class="highlighter-rouge">low</code>.</p>
+  <p>A ZigBee switch in this context is a device connected to one of the digital output pins on a ZigBee module. It can simply be switched on and off. By default, a switch is considered <code class="highlighter-rouge">on</code> when the ZigBee device’s digital output is held <code class="highlighter-rouge">high</code> and considered <code class="highlighter-rouge">off</code> when it is held <code class="highlighter-rouge">low</code>. This behaviour can be inverted by setting the <code class="highlighter-rouge">on_state</code> configuration variable to <code class="highlighter-rouge">low</code>.</p>
 
-<p>To configure a digital output pin as a switch, use the following variables:</p>
-
-<ul>
-  <li><strong>name</strong> (<em>Required</em>): The name you’d like to give the switch in Home Assistant.</li>
-  <li><strong>platform</strong> (<em>Required</em>): Set to <code class="highlighter-rouge">zigbee</code>.</li>
-  <li><strong>pin</strong> (<em>Required</em>): The number identifying which pin to use.</li>
-  <li><strong>address</strong>: The long 64bit address of the remote ZigBee device whose digital output pin you’d like to switch. Do not include this variable if you want to switch the local ZigBee device’s pins.</li>
-  <li><strong>on_state</strong>: Either <code class="highlighter-rouge">high</code> (default) or <code class="highlighter-rouge">low</code>, depicting whether the digital output pin is pulled high or low when the switch is turned on.</li>
-</ul>
-
-<h4>Example</h4>
+<p>To configure a digital output pin as switch, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Pond Fountain</span>
@@ -111,6 +101,15 @@
     <span class="s">on_state</span><span class="pi">:</span> <span class="s">low</span>
 </code></pre>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>name</strong> (<em>Required</em>): The name you would like to give the switch in Home Assistant.</li>
+  <li><strong>pin</strong> (<em>Required</em>): The number identifying which pin to use.</li>
+  <li><strong>address</strong>: The long 6 4bit address of the remote ZigBee device whose digital output pin you would like to switch. Do not include this variable if you want to switch the local ZigBee device’s pins.</li>
+  <li><strong>on_state</strong>: Either <code class="highlighter-rouge">high</code> (default) or <code class="highlighter-rouge">low</code>, depicting whether the digital output pin is pulled <code class="highlighter-rouge">high</code> or <code class="highlighter-rouge">low</code> when the switch is turned on.</li>
+</ul>
 
 
 </article>
@@ -128,6 +127,12 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/zigbee.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.12
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/switch/'>the Switches component</a>.
