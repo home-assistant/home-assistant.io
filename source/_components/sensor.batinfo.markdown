@@ -18,7 +18,7 @@ To setup a battery sensor to your installation, add the following to your `confi
 
 ```yaml
 # Example configuration.yaml entry
-senosr:
+sensor:
   - platform: batinfo
     name: House
 ```
