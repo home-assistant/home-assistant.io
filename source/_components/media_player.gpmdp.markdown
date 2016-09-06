@@ -24,12 +24,12 @@ Then just add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 media_player:
   platform: gpmdp
-  address: IP_ADDRESS
+  host: IP_ADDRESS
   name: NAME
 ```
 
 Configuration variables:
 
-- **address** (*Required*): IP address of the computer running GPMDP
+- **host** (*Optional*): IP address of the computer running GPMDP, default: localhost
 - **name** (*Optional*): Name of the player
 
