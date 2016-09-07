@@ -91,7 +91,7 @@
 
   <p>This example is for adding support for the imaginary Awesome Lights. It shows the different best practices for developing a platform.</p>
 
-<p>Similar to Example Sensor Platform, Copy the code below and create it as a file in <code class="highlighter-rouge">&lt;config_dir&gt;/custom_components/light/awesomelights.py</code>.</p>
+<p>Similar to Example Sensor Platform, copy the code below, and create it as a file in <code class="highlighter-rouge">&lt;config_dir&gt;/custom_components/light/awesomelights.py</code>.</p>
 
 <p>Add the following to your configuration.yaml:</p>
 
@@ -107,34 +107,40 @@
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">logging</span>
 
+<span class="kn">import</span> <span class="nn">voluptuous</span> <span class="kn">as</span> <span class="nn">vol</span>
+
 <span class="c"># Import the device class from the component that you want to support</span>
-<span class="kn">from</span> <span class="nn">homeassistant.components.light</span> <span class="kn">import</span> <span class="n">ATTR_BRIGHTNESS</span><span class="p">,</span> <span class="n">Light</span>
+<span class="kn">from</span> <span class="nn">homeassistant.components.light</span> <span class="kn">import</span> <span class="n">ATTR_BRIGHTNESS</span><span class="p">,</span> <span class="n">Light</span><span class="p">,</span> <span class="n">PLATFORM_SCHEMA</span>
 <span class="kn">from</span> <span class="nn">homeassistant.const</span> <span class="kn">import</span> <span class="n">CONF_HOST</span><span class="p">,</span> <span class="n">CONF_USERNAME</span><span class="p">,</span> <span class="n">CONF_PASSWORD</span>
+<span class="kn">import</span> <span class="nn">homeassistant.helpers.config_validation</span> <span class="kn">as</span> <span class="nn">cv</span>
 
 <span class="c"># Home Assistant depends on 3rd party packages for API specific code.</span>
 <span class="n">REQUIREMENTS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'awesome_lights==1.2.3'</span><span class="p">]</span>
 
 <span class="n">_LOGGER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
+<span class="c"># Validation of the user's configuration</span>
+<span class="n">PLATFORM_SCHEMA</span> <span class="o">=</span> <span class="n">PLATFORM_SCHEMA</span><span class="o">.</span><span class="n">extend</span><span class="p">({</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Required</span><span class="p">(</span><span class="n">CONF_HOST</span><span class="p">):</span> <span class="n">cv</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_USERNAME</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'admin'</span><span class="p">):</span> <span class="n">cv</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_PASSWORD</span><span class="p">):</span> <span class="n">cv</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+<span class="p">})</span>
+
 
 <span class="k">def</span> <span class="nf">setup_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">add_devices</span><span class="p">,</span> <span class="n">discovery_info</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="s">"""Setup the Awesome Light platform."""</span>
     <span class="kn">import</span> <span class="nn">awesomelights</span>
 
-    <span class="c"># Validate passed in config</span>
+    <span class="c"># Assign configuration variables. The configuration check takes care they are</span>
+    <span class="c"># present. </span>
     <span class="n">host</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CONF_HOST</span><span class="p">)</span>
     <span class="n">username</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CONF_USERNAME</span><span class="p">)</span>
     <span class="n">password</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CONF_PASSWORD</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">host</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">username</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">password</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">_LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">'Invalid config. Expected </span><span class="si">%</span><span class="s">s, </span><span class="si">%</span><span class="s">s and </span><span class="si">%</span><span class="s">s'</span><span class="p">,</span>
-                      <span class="n">CONF_HOST</span><span class="p">,</span> <span class="n">CONF_USERNAME</span><span class="p">,</span> <span class="n">CONF_PASSWORD</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">False</span>
-
     <span class="c"># Setup connection with devices/cloud</span>
     <span class="n">hub</span> <span class="o">=</span> <span class="n">awesomelights</span><span class="o">.</span><span class="n">Hub</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 
-    <span class="c"># Verify that passed in config works</span>
+    <span class="c"># Verify that passed in configuration works</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">hub</span><span class="o">.</span><span class="n">is_valid_login</span><span class="p">():</span>
         <span class="n">_LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">'Could not connect to AwesomeLight hub'</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">False</span>
