@@ -89,8 +89,7 @@
   <hr class="divider">
   
 
-  <p>This component will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and it’s sensors to provide Home Assistant with rich information about their homes.
-Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this component is built. Currently, the Envisalink version 4 is the latest model. This component supports both the evl3 and the evl4.</p>
+  <p>The <code class="highlighter-rouge">envisalink</code> component will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and it’s sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this component is built. Currently, the Envisalink version 4 is the latest model. This component supports both the evl3 and the evl4.</p>
 
 <p>Please visit the <a href="http://www.eyezon.com/">eyezon website</a> for further information about the evl3 and evl4 boards.</p>
 
@@ -102,61 +101,50 @@ Connectivity between Home Assistant and the alarm panel is accomplished through 
   <li><a href="/components/alarm_control_panel.envisalink/">Alarm Control Panel</a>: Reports on partition status, and can be used to arm/disarm the system</li>
 </ul>
 
-<p>This is a fully event-based component- any event sent by the Envisalink device will be immediately reflected within Home Assistant.</p>
-
-<h2>Configuration</h2>
+<p>This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.</p>
 
 <p>An <code class="highlighter-rouge">envisalink</code> section must be present in the <code class="highlighter-rouge">configuration.yaml</code> file and contain the following options as required:</p>
 
-<h3>Required Parameters</h3>
-<ul>
-  <li><strong>host</strong>: The IP address of the Envisalink device on your home network.</li>
-  <li><strong>panel_type</strong>: <code class="highlighter-rouge">HONEYWELL</code> or <code class="highlighter-rouge">DSC</code>, depending upon which alarm system you have.</li>
-  <li><strong>user_name</strong>: Which username to authenticate with when connecting to the device.  On a Honeywell alarm panel, the username/password are the same.</li>
-  <li><strong>password</strong>: Which password to authenticate with when connecting to the device.</li>
-  <li><strong>code</strong>: Your alarm panel’s code, for authenticating user input during arm/disarm.</li>
-</ul>
-
-<h3>Optional Parameters</h3>
-<ul>
-  <li><strong>port</strong>: Which network port to connect with. Default: <code class="highlighter-rouge">4025</code></li>
-  <li><strong>evl_version</strong>: 3 for evl3, or 4 for evl4. Default: <code class="highlighter-rouge">3</code></li>
-  <li><strong>keepalive_interval</strong>: This is a periodic heartbeat signal (measured in seconds) sent to your Envisalink board to keep it from restarting.  This is required for DSC and Honeywell systems. Default: <code class="highlighter-rouge">60</code> seconds</li>
-  <li><strong>zonedump_interval</strong>: This is an interval (measured in seconds) where the evl will dump out all zone statuses.  This is required for Honeywell systems, which do not properly send zone closure events.  DSC boards do not technically need this. Default: <code class="highlighter-rouge">30</code></li>
-  <li><strong>zones</strong>: Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant.  For each zone, at least a name must be given. <em>Note- if no zones are specified, Home Assistant will not load any binary_sensor components.</em></li>
-  <li><strong>partitions</strong>: Again, Envisalink boards do not tell us what is in use, and what is not, so each partition must be configured with a partition name.  If no partition parameter is specified, then no alarm_panel or sensor components are loaded.</li>
-</ul>
-
-<h4>Example</h4>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">envisalink</span><span class="pi">:</span>
-<span class="c1">#optional</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">envisalink</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">&lt;envisalink IP address&gt;</span>
+  <span class="s">panel_type</span><span class="pi">:</span> <span class="s">HONEYWELL or DSC</span>
+  <span class="s">user_name</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+  <span class="s">code</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1234'</span>
   <span class="s">port</span><span class="pi">:</span> <span class="s">4025</span>
   <span class="s">evl_version</span><span class="pi">:</span> <span class="s">3</span>
   <span class="s">keepalive_interval</span><span class="pi">:</span> <span class="s">60</span>
   <span class="s">zonedump_interval</span><span class="pi">:</span> <span class="s">30</span>
-
-<span class="c1">#required</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">&lt;envisalink IP address&gt;</span>
-  <span class="s">panel_type</span><span class="pi">:</span> <span class="s">HONEYWELL or DSC</span>
-  <span class="s">user_name</span><span class="pi">:</span> <span class="s">&lt;pass&gt;</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">&lt;pass&gt;</span>
-  <span class="s">code</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1234'</span>
-
   <span class="s">zones</span><span class="pi">:</span>
     <span class="s">11</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Back</span><span class="nv"> </span><span class="s">Door'</span>
       <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">opening'</span>
-
     <span class="s">21</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">First</span><span class="nv"> </span><span class="s">Floor</span><span class="nv"> </span><span class="s">Motion'</span>
       <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">motion'</span>
-
   <span class="s">partitions</span><span class="pi">:</span>
     <span class="s">1</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Home</span><span class="nv"> </span><span class="s">Alarm'</span>
 </code></pre>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of the Envisalink device on your home network.</li>
+  <li><strong>panel_type</strong> (<em>Required</em>): <code class="highlighter-rouge">HONEYWELL</code> or <code class="highlighter-rouge">DSC</code>, depending upon which alarm system you have.</li>
+  <li><strong>user_name</strong> (<em>Required</em>): Which username to authenticate with when connecting to the device. On a Honeywell alarm panel, the username/password are the same.</li>
+  <li><strong>password</strong> (<em>Required</em>): Which password to authenticate with when connecting to the device. EVL3 only works with max. 6 characters.</li>
+  <li><strong>code</strong> (<em>Required</em>): Your alarm panel’s code, for authenticating user input during arm/disarm.</li>
+  <li><strong>port</strong> (<em>Optional</em>): Which network port to connect with. Default: <code class="highlighter-rouge">4025</code></li>
+  <li><strong>evl_version</strong> (<em>Optional</em>): 3 for evl3, or 4 for evl4. Default: <code class="highlighter-rouge">3</code></li>
+  <li><strong>keepalive_interval</strong> (<em>Optional</em>): This is a periodic heartbeat signal (measured in seconds) sent to your Envisalink board to keep it from restarting.  This is required for DSC and Honeywell systems. Defaults to <code class="highlighter-rouge">60</code> seconds.</li>
+  <li><strong>zonedump_interval</strong> (<em>Optional</em>): This is an interval (measured in seconds) where the evl will dump out all zone statuses.  This is required for Honeywell systems, which do not properly send zone closure events.  DSC boards do not technically need this. Default: <code class="highlighter-rouge">30</code></li>
+  <li><strong>zones</strong> (<em>Optional</em>): Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant.  For each zone, at least a name must be given. <em>Note: if no zones are specified, Home Assistant will not load any binary_sensor components.</em></li>
+  <li><strong>partitions</strong> (<em>Optional</em>): Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor components are loaded.</li>
+</ul>
+
 
 
 </article>
@@ -174,6 +162,9 @@ Connectivity between Home Assistant and the alarm panel is accomplished through 
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/eyezon.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
     <div class='section'>
     Introduced in release: 0.23
     </div>
