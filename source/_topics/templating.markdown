@@ -199,4 +199,7 @@ It depends per component or platform but it is common to be able to define a tem
 # Timestamps
 {% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
+
+# Square bracket notation
+{% raw %}{{ value_json["001"] }}{% endraw %}
 ```
