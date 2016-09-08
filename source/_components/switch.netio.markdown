@@ -18,7 +18,7 @@ The `netio` switch platform allows you to control your [Netio](http://www.netio-
 
 To use Netio devices in your installation, add the following to your `configuration.yaml` file:
 
-```
+```yaml
 # Example configuration.yaml entry
 switch:
   - platform: netio
