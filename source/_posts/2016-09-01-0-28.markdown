@@ -25,7 +25,8 @@ categories: Release-Notes
   - [OctoPrint] component
   - mFi platform ([switch][mfi-switch] and [sensor][mfi-sensor])
   - NX584 Alarm Control Panel
-  - Fire-TV
+  - [Fire-TV]
+  - [switch][command-line-switch] and the [cover][command-line-cover] `command_line` platforms 
 
 
 [@arsaboo]: https://github.com/arsaboo
@@ -65,3 +66,5 @@ categories: Release-Notes
 [mfi-switch]: /components/switch.mfi/
 [mfi-sensor]: /components/sensor.mfi/
 [FireTV]: /components/media_player.firetv/
+[command-line-switch]: /components/switch.command_line/
+[command-line-cover]: /components/cover.command_line/
