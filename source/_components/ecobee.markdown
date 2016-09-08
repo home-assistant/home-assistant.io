@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Ecobee"
+title: "ecobee"
 description: "Instructions for how to integrate Ecobee thermostats and sensors within Home Assistant."
 date: 2015-11-30 17:54
 sidebar: true
@@ -18,7 +18,7 @@ The `ecobee` component lets you control a thermostats and view sensor data from 
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this component. To get the key, first you need to register your thermostat which should be done as part of the ecobee installation. Once you have done that perform the following steps. 
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/developers/). 
-2. Login with your Ecobee credentials.
+2. Login with your ecobee credentials.
 3. Accept the SDK agreement.
 4. Fill in the fields.
 5. Click **save**. 
@@ -52,7 +52,7 @@ ecobee:
 
 Configuration variables:
 
-- **api_key** (*Required*): Your ecobee API key.
+- **api_key** (*Required*): Your ecobee API key. This is only needed for the inital setup of the component. Once registered it can be removed. If you revoke the key in the ecobee portal you will need to update this again and remove the ecobee.conf file in the `.homeassistant` configuration path.
 - **hold_temp** (*Optional*): True/False whether or not to hold changes indefinitely (True) or until the next scheduled event. Defaults to `False`.
 
 <p class='img'>
