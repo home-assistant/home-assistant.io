@@ -34,7 +34,7 @@ switch:
 Configuration variables:
 
 - **switches** (*Required*): The array that contains all command switches.
-  - **entry** (*Required*): Name of the command switch. Multiple entries are possible.
+  - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
     - **command_on** (*Required*): The action to take for on.
     - **command_off** (*Required*): The action to take for off.
     - **command_state** (*Optional*): If given, this command will be run. Returning a result code `0` will indicate that the switch is on.

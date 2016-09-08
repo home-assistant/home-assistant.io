@@ -39,7 +39,7 @@ cover:
 Configuration variables:
 
 - **covers** (*Required*): The array that contains all command line covers.
-  - **entry** (*Required*): Name of the command line cover. Multiple entries are possible.
+  - **identifier** (*Required*): Name of the command line cover as slug. Multiple entries are possible.
     - **command_open** (*Required*): The command to open the cover.
     - **command_close** (*Required*): The action to close the cover.
     - **command_stop** (*Required*): The action to stop the cover.
