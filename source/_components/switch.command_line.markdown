@@ -24,20 +24,22 @@ switch:
   platform: command_line
   switches:
     kitchen_light:
-      oncmd: switch_command on kitchen
-      offcmd: switch_command off kitchen
-      statecmd: query_command kitchen
+      command_on: switch_command on kitchen
+      command_off: switch_command off kitchen
+      command_state: query_command kitchen
       value_template: '{% raw %}{{ value == "online" }}{% endraw %}'
+      friendly_name: Kitchen switch
 ```
 
 Configuration variables:
 
 - **switches** (*Required*): The array that contains all command switches.
   - **entry** (*Required*): Name of the command switch. Multiple entries are possible.
-    - **oncmd** (*Required*): The action to take for on.
-    - **offcmd** (*Required*): The action to take for off.
-    - **statecmd** (*Optional*): If given, this command will be run. Returning a result code `0` will indicate that the switch is on.
-    - **value_template** (*Optional*): If specified, statecmd will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on.
+    - **command_on** (*Required*): The action to take for on.
+    - **command_off** (*Required*): The action to take for off.
+    - **command_state** (*Optional*): If given, this command will be run. Returning a result code `0` will indicate that the switch is on.
+    - **value_template** (*Optional*): If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on.
+    - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
 
 ## {% linkable_title Examples %}
 
@@ -53,8 +55,8 @@ switch:
   platform: command_line
   switches:
     arest_pin4:
-      oncmd: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
-      offcmd: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
+      command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
+      command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
 ```
 
 ### {% linkable_title Shutdown your local host %}
@@ -72,7 +74,7 @@ switch:
   platform: command_line
   switches:
     Home Assistant system shutdown:
-      offcmd: "/usr/sbin/poweroff"
+      command_off: "/usr/sbin/poweroff"
 ```
 
 ### {% linkable_title Control your VLC player %}
@@ -86,8 +88,8 @@ switch:
   platform: command_line
   switches:
     VLC:
-      oncmd: "cvlc 1.mp3 vlc://quit &"
-      offcmd: "pkill vlc"
+      command_on: "cvlc 1.mp3 vlc://quit &"
+      command_off: "pkill vlc"
 ```
 
 ### {% linkable_title Control Foscam Motion Sensor %}
@@ -100,9 +102,9 @@ switch:
   platform: command_line
   switches:
     foscam_motion:
-      oncmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
-      offcmd: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
-      statecmd: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
+      command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
+      command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
+      command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
       value_template: {% raw %}'{{ value == "1" }}'{% endraw %}
 ```
 
