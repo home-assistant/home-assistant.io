@@ -24,3 +24,5 @@ On Windows you can use `python setup.py develop` instead of the setup script.
 
 After following these steps, running `hass` will invoke your local installation.
 
+Note: If you are developing on the windows platform ensure you have the correct Microsoft Visual C++ Build tools installed. Please see [the Windows Compilers](https://wiki.python.org/moin/WindowsCompilers) section on the python site. Validation using Tox will fail if this is not done correctly. 
+
