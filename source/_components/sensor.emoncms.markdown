@@ -34,7 +34,7 @@ sensor:
 - **exclude_feed_id** (*optional*): Positive integer list of emoncms feed id's. All the feeds will be displayed as sensors except the ones listed here. Can not be specified if `include_only_feed_id` is specified.
 - **sensor_names** (*optional*): Dictionary of names for the sensors created that are created based on feedid. The dictionary consists of feedid:name pairs. Sensors for feeds with their feedid mentioned here will get the chosen name instead of the default name
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to alter the feed value.
-- **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds. Minimum is 5, default 60.
+- **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of for all the sensors. default is "W".
 
 ## {% linkable_title Default naming scheme %}
