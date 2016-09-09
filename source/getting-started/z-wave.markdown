@@ -199,7 +199,7 @@ The Z-Wave component exposes seven services to help maintain the network.
 | test_network | Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".|
 | rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
 
-The `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a zwave network running reliably as shown in the example below.  By deafult, Home Assistant will run a `heal_network` at midnight.  This is a configuration option for the zwave component, it defaults to `true` but can be diabled by setting `auto_heal` to false.  Soft resetting some zwave controllers can cause the network to hang, so the below automation should only be used if there are issues with your zwave network.
+The `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a zwave network running reliably as shown in the example below.  By default, Home Assistant will run a `heal_network` at midnight.  This is a configuration option for the zwave component, the option defaults to `true` but can be disabled by setting `auto_heal` to false.  Soft resetting some zwave controllers can cause the network to hang, so the below automation should only be used if there are issues with your zwave network.
 
 ```yaml
 # Example configuration.yaml automation entry
