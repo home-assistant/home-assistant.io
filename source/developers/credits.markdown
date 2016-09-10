@@ -138,6 +138,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Luca Soldi](https://github.com/LucaSoldi)
 - [Lukas Hetzenecker](https://github.com/lukas-hetzenecker)
 - [Magnus Knutas](https://github.com/MagnusKnutas)
+- [Mal Curtis](https://github.com/snikch)
 - [Malte Deiseroth](https://github.com/deisi)
 - [Manoj](https://github.com/vmulpuru)
 - [Marcelo Moreira de Mello](https://github.com/tchellomello)
