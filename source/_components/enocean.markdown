@@ -27,7 +27,7 @@ However, only a few devices have been confirmed to work. These are:
 
 - Eltako FUD61 dimmer
 - Eltako FT55 battery-less wall switch
-- Jung ENOA590WW battery-less wall switch (bianry_sensor)
+- Jung ENOA590WW battery-less wall switch
 - Permundo PSC234 (switch and power monitor)
 
 Other devices will most likely need some changes in the Home Assistant code in order to work. Support for teaching of devices is also missing at this time.
