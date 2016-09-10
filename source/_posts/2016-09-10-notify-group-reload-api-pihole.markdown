@@ -98,6 +98,10 @@ Stay tuned for more details.
   - [switch][command-line-switch] and the [cover][command-line-cover] `command_line` platforms
 - Custom components extending `BaseNotificationService` need to be aware that `kwargs.get(ATTR_TITLE)` will now return `None` if a title has not been set, and will need to specify `kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT)` if they always require a title.
 
+### {% linkable_title If you need help... %}
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant).
+
+
 [@Ardetus]: https://github.com/Ardetus
 [@arsaboo]: https://github.com/arsaboo
 [@auchter]: https://github.com/auchter
