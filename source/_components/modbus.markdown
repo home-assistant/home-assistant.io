@@ -62,7 +62,7 @@ Configuration variables:
 
 | Service | Description |
 | ------- | ----------- |
-| write_register | Write single register. Requires `unit`, `address` and `value` fields. |
+| write_register | Write register. Requires `unit`, `address` and `value` fields. `value` can be either single value or an array |
 
 
 ## {% linkable_title Building on top of Modbus %}
