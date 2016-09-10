@@ -84,6 +84,8 @@ Stay tuned for more details.
 - `check_config`: Improve yaml fault tolerance and handle border cases ([@kellerza])
 - Core: Add additional [template] for custom date formats ([@lwis])
 - Sensor: Support for getting stats from Pi-Hole systems ([@fabaff])
+- Modbus: New `write_registers` [Modbus] service ([@persandstrom])
+- Device tracker: Fix TP-Link Archer C7 long passwords ([@snikch])
 
 ### {% linkable_title Breaking changes %}
 
@@ -126,7 +128,9 @@ Stay tuned for more details.
 [@technicalpickles]: https://github.com/technicalpickles
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
+[@snikch]: https://github.com/snikch
 
+[modbus]: /components/modbus/
 [rpi]: /getting-started/installation-raspberry-pi/
 [MPD]: /components/media_player.mpd/
 [Coinmarketcap]: /components/sensor.coinmarketcap
