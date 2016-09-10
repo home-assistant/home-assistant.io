@@ -28,10 +28,10 @@ input_slider:
 Configuration variables:
 
 - **[alias]** (*Required*): Alias for the slider input.
+- **min** (*Required*): Minimum value for the slider.
+- **max** (*Required*): Maximum value for the slider.
 - **name** (*Optional*): Friendly name of the slider input.
 - **initial** (*Optional*): Initial value when Home Assistant starts.
-- **min** (*Optional*): Minimum value for the slider.
-- **max** (*Optional*): Maximum value for the slider.
 - **step** (*Optional*): Step value for the slider.
 
 ## {% linkable_title Automation Examples %}
