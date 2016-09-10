@@ -62,7 +62,7 @@ Stay tuned for more details.
 - Cover: Bugfixes ([@turbokongen], [@danielperna84])
 - Sensor: Support for displaying details about [crypto currencies][Coinmarketcap] ([@fabaff])
 - Device tracker: Support for [automatic] to track your vehicles ([@Teagan42])
-- Devie tracker: Add exclude option to [Nmap] device tracker ([danieljkemp])
+- Devie tracker: Add exclude option to [Nmap] device tracker ([@danieljkemp])
 - Device tracker: Improved login errors for Asus device tracker ([@kellerza])
 - Sensor: Support for displaying the status of [Xbox] Live accounts ([@mKerix])
 - Notify: Adding `link_names` for sending Slack message ([@salt-lick])
