@@ -20,6 +20,9 @@ This release brings you a huge improvement of the [automation] and [group] handl
   <img src='{{site_root}}/images/screenshots/automation-switches.png' />
 </p>
 
+### {% linkable_title Raspberry Pi installation guide %}
+Singleboard computers are very popular to run Home Assistant. To support this fact, the [installation documentation][rpi] for the Raspberry Pi devices was re-written. [@Landrash] took the lead with on this tasks with help from [@kellerza] and [@MartinHjelmare]. 
+
 ### {% linkable_title Climate and  cover %}
 There are countless bugfixes included in this release which will make your experience with the `climate` and the `cover` platforms better. Two week ago was the biggest merger of implementations released that ever happened in the history of Home Assistant. Thanks to [@turbokongen], [@pvizeli], [@djbanks], [@danielperna84], and others the improvements on the code and the frontend side is continuing... 
 
@@ -89,8 +92,10 @@ The validation of the configuration is still on-going. Approximatly 80 % is done
 [@infamy]: https://github.com/infamy
 [@jnewland]: https://github.com/jnewland
 [@kellerza]: https://github.com/kellerza
+[@Landrash]: https://github.com/Landrash
 [@LinuxChristian]: https://github.com/LinuxChristian
 [@lwis]: https://github.com/lwis
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@mKerix]: https://github.com/mKerix
 [@nkgilley]: https://github.com/nkgilley
 [@open-homeautomation]: https://github.com/open-homeautomation
@@ -105,6 +110,7 @@ The validation of the configuration is still on-going. Approximatly 80 % is done
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
 
+[rpi]: /getting-started/installation-raspberry-pi/
 [MPD]: /components/media_player.mpd/
 [Coinmarketcap]: /components/sensor.coinmarketcap
 [template]: /topics/templating/
