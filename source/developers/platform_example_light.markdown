@@ -11,7 +11,7 @@ footer: true
 
 This example is for adding support for the imaginary Awesome Lights. It shows the different best practices for developing a platform.
 
-Similar to Example Sensor Platform, Copy the code below and create it as a file in `<config_dir>/custom_components/light/awesomelights.py`.
+Similar to Example Sensor Platform, copy the code below, and create it as a file in `<config_dir>/custom_components/light/awesomelights.py`.
 
 Add the following to your configuration.yaml:
 
@@ -28,34 +28,40 @@ Note the `platform` name matches the filename for the source code.
 ```python
 import logging
 
+import voluptuous as vol
+
 # Import the device class from the component that you want to support
-from homeassistant.components.light import ATTR_BRIGHTNESS, Light
+from homeassistant.components.light import ATTR_BRIGHTNESS, Light, PLATFORM_SCHEMA
 from homeassistant.const import CONF_HOST, CONF_USERNAME, CONF_PASSWORD
+import homeassistant.helpers.config_validation as cv
 
 # Home Assistant depends on 3rd party packages for API specific code.
 REQUIREMENTS = ['awesome_lights==1.2.3']
 
 _LOGGER = logging.getLogger(__name__)
 
+# Validation of the user's configuration
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    vol.Required(CONF_HOST): cv.string,
+    vol.Optional(CONF_USERNAME, default='admin'): cv.string,
+    vol.Optional(CONF_PASSWORD): cv.string,
+})
+
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Setup the Awesome Light platform."""
     import awesomelights
 
-    # Validate passed in config
+    # Assign configuration variables. The configuration check takes care they are
+    # present. 
     host = config.get(CONF_HOST)
     username = config.get(CONF_USERNAME)
     password = config.get(CONF_PASSWORD)
 
-    if host is None or username is None or password is None:
-        _LOGGER.error('Invalid config. Expected %s, %s and %s',
-                      CONF_HOST, CONF_USERNAME, CONF_PASSWORD)
-        return False
-
     # Setup connection with devices/cloud
     hub = awesomelights.Hub(host, username, password)
 
-    # Verify that passed in config works
+    # Verify that passed in configuration works
     if not hub.is_valid_login():
         _LOGGER.error('Could not connect to AwesomeLight hub')
         return False

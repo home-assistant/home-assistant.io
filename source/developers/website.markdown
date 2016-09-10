@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The website you're reading now is the home of Home Assistant: [https://home-assistant.io](https://home-assistant.io). This is the place where we provide documentation and additional details about Home Assistant for end users and developers.
+The website you are reading now is the home of Home Assistant: [https://home-assistant.io](https://home-assistant.io). This is the place where we provide documentation and additional details about Home Assistant for end users and developers.
 
 home-assistant.io is built using [Jekyll](http://github.com/mojombo/jekyll) and [those available dependencies](https://pages.github.com/versions/). The pages are written in [markdown](http://daringfireball.net/projects/markdown/); to add a page you don't need to know about HTML or the like.
 
@@ -31,6 +31,9 @@ Then you can work on the documentation:
 - Create a Pull Request (PR) against the **next** branch of home-assistant.github.io if your documentation is for a new feature, platform, or component.
 - Create a Pull Request (PR) against the **current** branch of home-assistant.github.io if you fix stuff, create Cookbook entries, or expand existing documentation.
 
+<p class='note'>
+It could be necessary that you run `rake generate` prior to `rake preview` for the very first preview.
+</p>
 
 ### {% linkable_title Create a page %}
 

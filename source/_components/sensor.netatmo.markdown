@@ -14,7 +14,9 @@ ha_category: Weather
 
 The `netatmo` sensor platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) device.
 
-To enable the Netatmo sensor, add the following lines to your `configuration.yaml`:
+
+
+To enable the Netatmo sensor, you first have to set up [netatmo](/components/netatmo/), and add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -53,7 +55,7 @@ sensor:
 
 Configuration variables:
 
-- **station** (*Optionnal*): The name of the weather station. Needed if several stations are associated with the account.
+- **station** (*Optional*): The name of the weather station. Needed if several stations are associated with the account.
 - **modules** (*Required*): Modules to use. Multiple entries allowed.
   - **module_name** array (*Required*): Name of the module.
     - **temperature**: Current temperature.
@@ -76,8 +78,7 @@ Configuration variables:
 
 ### {% linkable_title Find your modules name %}
 
-You can find your modules name in your [online NetAtmo account](https://my.netatmo.com/app/station). These names can be found and changed in parameters (See screenshot)
-You have to provide these name in your Home Assistant configuration file.
+You can find your modules name in your [online NetAtmo account](https://my.netatmo.com/app/station). These names can be found and changed in parameters. You have to provide these name in your Home Assistant `configuration.yaml` file.
 
 <p class='img'>
 <img src='/images/screenshots/netatmo_module.png' />

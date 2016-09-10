@@ -11,8 +11,8 @@ footer: true
 
 This is an advanced feature of Home Assistant. You'll need a basic understanding of the following things:
 
-  - [Home Assistant architecture], especially states.
-  - [State object]
+- [Home Assistant architecture], especially states.
+- [State object]
 
 
 [Home Assistant architecture]: /developers/architecture/
@@ -20,8 +20,8 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 
 Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:
 
- - Formatting outgoing messages in, for example, the [notify] and [alexa] components.
- - Process incoming data from sources that provide raw data, like [MQTT], [REST sensor], or the [command line sensor].
+- Formatting outgoing messages in, for example, the [notify] and [alexa] components.
+- Process incoming data from sources that provide raw data, like [MQTT], [REST sensor], or the [command line sensor].
 
 [notify]: /components/notify/
 [alexa]: /components/alexa/
@@ -201,4 +201,7 @@ It depends per component or platform but it is common to be able to define a tem
 {% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
+
+# Square bracket notation
+{% raw %}{{ value_json["001"] }}{% endraw %}
 ```

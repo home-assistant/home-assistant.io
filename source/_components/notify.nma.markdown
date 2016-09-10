@@ -30,8 +30,8 @@ notify:
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): Enter the API key for NMA.
+- **api_key** (*Required*): The API key for NMA.
 
-Details for the (API)[https://www.notifymyandroid.com/api.jsp].
+Details for the [API](https://www.notifymyandroid.com/api.jsp).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
