@@ -100,6 +100,10 @@
 </code></pre>
 </div>
 
+<p class="note">
+  It is recommended to assign a static IP address to your Vera Controller. This ensures that it won’t change IP addresses, so you won’t have to change the <code class="highlighter-rouge">vera_controller_url</code> if it reboots and comes up with a different IP address. See your router’s manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
+</p>
+
 <p>By default your switches will be added to HA as switches, however if some of them are light switches, you can tell HA this using the optional <code class="highlighter-rouge">lights</code> parameter as shown below.</p>
 
 <p>Vera imports detailed zwave devices into HA - this can include system devices and other devices that you don’t use, you can tell HA not to load these devices using the <code class="highlighter-rouge">exclude:</code> parameter as shown below.</p>
