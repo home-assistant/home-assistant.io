@@ -39,10 +39,13 @@ Configuration variables:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
-<p class='note warning'>
-If you are not running Raspbian Jessie, you will need to run Home Assistant as root.
-</p>
+Ensure that the user who is running Home Assistant is in the gpio group. Eg. for the user `hass`:
 
-<p class='note warning'>
-To avoid having to run Home Assistant as root when using this component, run a Raspbian version released at or after September 29, 2015.
-</p>
+```bash
+$ Ensure that the user who is running Home Assistant is in the gpio group. Eg. for the user `hass`:
+
+```bash
+$ sudo adduser hass gpio
+```
+
+```
