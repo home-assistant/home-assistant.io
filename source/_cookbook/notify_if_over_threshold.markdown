@@ -27,7 +27,7 @@ automation:
       above: 2
     action:
       service: notify.mypushbullet
-      data:
+      data_template:
         title: "Furnace fan is running"
         message: "Fan running because current is {% raw %}{{ states.sensor.furnace.state }}{% endraw %} amps"
 ```
