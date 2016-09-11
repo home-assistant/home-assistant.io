@@ -91,10 +91,10 @@
 
   <p><a href="http://octoprint.org/">OctoPrint</a> is a web interface for your 3D printer. This is the main component to integrate OctoPrint sensors, you will have to setup sensors and binary sensors separately.</p>
 
-<p>To get started with the OctoPrint API, please follow the directions on their <a href="http://docs.octoprint.org/en/master/api/general.html">site</a>. Once OctoPrint is configured you will need to add your API key and host to your configuration.yaml.</p>
+<p>To get started with the OctoPrint API, please follow the directions on their <a href="http://docs.octoprint.org/en/master/api/general.html">site</a>. Once OctoPrint is configured you will need to add your API key and host to your <code class="highlighter-rouge">configuration.yaml</code>.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">octoprint</span><span class="pi">:</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">http://YOUR_OCTOPRINT_HOST</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_OCTOPRINT_HOST</span>
   <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
 </code></pre>
 </div>
@@ -102,8 +102,8 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>api_key</strong> (<em>Required</em>): The retrieved api key.</li>
   <li><strong>host</strong> (<em>Required</em>): The octoprint host.</li>
+  <li><strong>api_key</strong> (<em>Required</em>): The retrieved api key.</li>
 </ul>
 
 <p><strong>NOTE</strong> If your 3D printer isn’t connected to the OctoPrint server during the startup of Home Assistant this component will fail to load.</p>

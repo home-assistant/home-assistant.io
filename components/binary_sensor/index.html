@@ -97,17 +97,19 @@
 
 <ul>
   <li><strong>None</strong>: Generic on/off</li>
-  <li><strong>opening</strong>: Door, window, etc</li>
-  <li><strong>motion</strong>: Motion sensor</li>
+  <li><strong>cold</strong>: On means cold (or too cold)</li>
+  <li><strong>connectivity</strong>: On means connection present, Off means no connection</li>
   <li><strong>gas</strong>: CO, CO2, etc</li>
-  <li><strong>smoke</strong>: Smoke detector</li>
-  <li><strong>moisture</strong>: Specifically a wetness sensor</li>
+  <li><strong>heat</strong>: On means hot (or too hot)</li>
   <li><strong>light</strong>: Lightness threshold</li>
+  <li><strong>moisture</strong>: Specifically a wetness sensor</li>
+  <li><strong>motion</strong>: Motion sensor</li>
+  <li><strong>moving</strong>: On means moving, Off means stopped</li>
+  <li><strong>occupancy</strong>: On means occupied, Off means not occupied</li>
+  <li><strong>opening</strong>: Door, window, etc</li>
   <li><strong>power</strong>: Power, over-current, etc</li>
   <li><strong>safety</strong>: On means unsafe, Off means safe</li>
-  <li><strong>heat</strong>: On means hot (or too hot)</li>
-  <li><strong>cold</strong>: On means cold (or too cold)</li>
-  <li><strong>moving</strong>: On means moving, Off means stopped</li>
+  <li><strong>smoke</strong>: Smoke detector</li>
   <li><strong>sound</strong>: On means sound detected, Off means no sound</li>
   <li><strong>vibration</strong>: On means vibration detected, Off means no vibration</li>
 </ul>
@@ -187,6 +189,9 @@
           </a></li>
           <li><a href='/components/binary_sensor.template/'>
             Template Binary Sensor
+          </a></li>
+          <li><a href='/components/binary_sensor.trend/'>
+            Trend Binary Sensor
           </a></li>
           <li><a href='/components/binary_sensor.vera/'>
             Vera Binary Sensor

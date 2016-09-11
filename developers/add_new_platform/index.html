@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>Components that interact with devices are called “Entity Components”. They are structured in core- and platform logic. This allows the same logic to handle a light to be used by different brands.</p>
+  <p>Components that interact with devices are called “<a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/entity_component.py">Entity Components</a>”. They are structured in core- and platform logic. This allows the same logic to handle a light to be used by different brands.</p>
 
 <p>For example, the built-in <code class="highlighter-rouge">switch</code> component consists of various platforms in <a href="https://github.com/home-assistant/home-assistant/tree/master/homeassistant/components/switch"><code class="highlighter-rouge">homeassistant/components/switch/</code></a>. The file <code class="highlighter-rouge">__init__.py</code> contains the core logic of all platform and the <code class="highlighter-rouge">vendor_name.py</code> files only the relevant platform code.</p>
 
@@ -104,11 +104,11 @@
 
 <p>One of the rules for Home Assistant is that platform logic should never interface directly with devices but use a third-party Python 3 library to do so. This way Home Assistant is able to share code with the Python community and we can keep the project maintainable.</p>
 
-<p>To integrate the third-party library you create an Entity class for your device. Entities are Home Assistant’s representation of lights, switches, sensors, etc. and are derived from the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/entity.py">Entity Abstract Class</a>. This abstract class contains logic for integrating most standard features into your entities, such as visibility, entity IDs, updates, and much more.</p>
+<p>To integrate the third-party library you create an <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/entity.py">Entity class</a> for your device. Entities are Home Assistant’s representation of lights, switches, sensors, etc. and are derived from the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/entity.py">Entity Abstract Class</a>. This abstract class contains logic for integrating most standard features into your entities, such as visibility, entity IDs, updates, and much more.</p>
 
 <h3><a class="title-link" name="requirements-and-dependencies" href="#requirements-and-dependencies"></a> Requirements and dependencies</h3>
 
-<p>Platforms can specify dependencies and requirements the same way as a component does.</p>
+<p>Platforms can specify dependencies and requirements <a href="/developers/component_deps_and_reqs">the same way as a component does</a>:</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">REQUIREMENTS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'some-package==2.0.0'</span><span class="p">,</span> <span class="s">'some-other-package==2.5.0'</span><span class="p">]</span>
 <span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s">'mqtt'</span><span class="p">]</span>
@@ -182,6 +182,7 @@
       <li>
         API
         <ul>
+          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Home Assistant API </a></li>
           <li><a  href='/developers/rest_api/'>RESTful API </a></li>
           <li><a  href='/developers/python_api/'>Python API </a></li>
           <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>

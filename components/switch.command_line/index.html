@@ -98,10 +98,11 @@
   <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
   <span class="s">switches</span><span class="pi">:</span>
     <span class="s">kitchen_light</span><span class="pi">:</span>
-      <span class="s">oncmd</span><span class="pi">:</span> <span class="s">switch_command on kitchen</span>
-      <span class="s">offcmd</span><span class="pi">:</span> <span class="s">switch_command off kitchen</span>
-      <span class="s">statecmd</span><span class="pi">:</span> <span class="s">query_command kitchen</span>
+      <span class="s">command_on</span><span class="pi">:</span> <span class="s">switch_command on kitchen</span>
+      <span class="s">command_off</span><span class="pi">:</span> <span class="s">switch_command off kitchen</span>
+      <span class="s">command_state</span><span class="pi">:</span> <span class="s">query_command kitchen</span>
       <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"online"</span><span class="nv"> </span><span class="s">}}'</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kitchen switch</span>
 </code></pre>
 </div>
 
@@ -110,12 +111,13 @@
 <ul>
   <li><strong>switches</strong> (<em>Required</em>): The array that contains all command switches.
     <ul>
-      <li><strong>entry</strong> (<em>Required</em>): Name of the command switch. Multiple entries are possible.
+      <li><strong>identifier</strong> (<em>Required</em>): Name of the command switch as slug. Multiple entries are possible.
         <ul>
-          <li><strong>oncmd</strong> (<em>Required</em>): The action to take for on.</li>
-          <li><strong>offcmd</strong> (<em>Required</em>): The action to take for off.</li>
-          <li><strong>statecmd</strong> (<em>Optional</em>): If given, this command will be run. Returning a result code <code class="highlighter-rouge">0</code> will indicate that the switch is on.</li>
-          <li><strong>value_template</strong> (<em>Optional</em>): If specified, statecmd will ignore the result code of the command but the template evaluating to <code class="highlighter-rouge">true</code> will indicate the switch is on.</li>
+          <li><strong>command_on</strong> (<em>Required</em>): The action to take for on.</li>
+          <li><strong>command_off</strong> (<em>Required</em>): The action to take for off.</li>
+          <li><strong>command_state</strong> (<em>Optional</em>): If given, this command will be run. Returning a result code <code class="highlighter-rouge">0</code> will indicate that the switch is on.</li>
+          <li><strong>value_template</strong> (<em>Optional</em>): If specified, <code class="highlighter-rouge">command_state</code> will ignore the result code of the command but the template evaluating to <code class="highlighter-rouge">true</code> will indicate the switch is on.</li>
+          <li><strong>friendly_name</strong> (<em>Optional</em>): The name used to display the switch in the frontend.</li>
         </ul>
       </li>
     </ul>
@@ -135,8 +137,8 @@
   <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
   <span class="s">switches</span><span class="pi">:</span>
     <span class="s">arest_pin4</span><span class="pi">:</span>
-      <span class="s">oncmd</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/1"</span>
-      <span class="s">offcmd</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/0"</span>
+      <span class="s">command_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/1"</span>
+      <span class="s">command_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/0"</span>
 </code></pre>
 </div>
 
@@ -153,7 +155,7 @@ This switch will shutdown your host immediately, there will be no confirmation.
   <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
   <span class="s">switches</span><span class="pi">:</span>
     <span class="s">Home Assistant system shutdown</span><span class="pi">:</span>
-      <span class="s">offcmd</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/sbin/poweroff"</span>
+      <span class="s">command_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/sbin/poweroff"</span>
 </code></pre>
 </div>
 
@@ -166,8 +168,8 @@ This switch will shutdown your host immediately, there will be no confirmation.
   <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
   <span class="s">switches</span><span class="pi">:</span>
     <span class="s">VLC</span><span class="pi">:</span>
-      <span class="s">oncmd</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cvlc</span><span class="nv"> </span><span class="s">1.mp3</span><span class="nv"> </span><span class="s">vlc://quit</span><span class="nv"> </span><span class="s">&amp;"</span>
-      <span class="s">offcmd</span><span class="pi">:</span> <span class="s2">"</span><span class="s">pkill</span><span class="nv"> </span><span class="s">vlc"</span>
+      <span class="s">command_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cvlc</span><span class="nv"> </span><span class="s">1.mp3</span><span class="nv"> </span><span class="s">vlc://quit</span><span class="nv"> </span><span class="s">&amp;"</span>
+      <span class="s">command_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">pkill</span><span class="nv"> </span><span class="s">vlc"</span>
 </code></pre>
 </div>
 
@@ -180,9 +182,9 @@ This switch will shutdown your host immediately, there will be no confirmation.
   <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
   <span class="s">switches</span><span class="pi">:</span>
     <span class="s">foscam_motion</span><span class="pi">:</span>
-      <span class="s">oncmd</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">-k</span><span class="nv"> </span><span class="s">"https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=1&amp;usr=admin&amp;pwd=password"'</span>
-      <span class="s">offcmd</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">-k</span><span class="nv"> </span><span class="s">"https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=0&amp;usr=admin&amp;pwd=password"'</span>
-      <span class="s">statecmd</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">-k</span><span class="nv"> </span><span class="s">--silent</span><span class="nv"> </span><span class="s">"https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&amp;usr=admin&amp;pwd=password"</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">grep</span><span class="nv"> </span><span class="s">-oP</span><span class="nv"> </span><span class="s">"(?&lt;=isEnable&gt;).*?(?=&lt;/isEnable&gt;)"'</span>
+      <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">-k</span><span class="nv"> </span><span class="s">"https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=1&amp;usr=admin&amp;pwd=password"'</span>
+      <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">-k</span><span class="nv"> </span><span class="s">"https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&amp;isEnable=0&amp;usr=admin&amp;pwd=password"'</span>
+      <span class="s">command_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">-k</span><span class="nv"> </span><span class="s">--silent</span><span class="nv"> </span><span class="s">"https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&amp;usr=admin&amp;pwd=password"</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">grep</span><span class="nv"> </span><span class="s">-oP</span><span class="nv"> </span><span class="s">"(?&lt;=isEnable&gt;).*?(?=&lt;/isEnable&gt;)"'</span>
       <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"1"</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>

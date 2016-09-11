@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Orvibo Switch - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate Orvibo switches within Home Assistant.">
+    <meta name="description" content="Instructions how to integrate Orvibo sockets within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/switch.orvibo/">
@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/switch.orvibo/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Orvibo switches within Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate Orvibo sockets within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="Orvibo Switch">
-    <meta name="twitter:description" content="Instructions how to integrate Orvibo switches within Home Assistant.">
+    <meta name="twitter:description" content="Instructions how to integrate Orvibo sockets within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -89,23 +89,38 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">orvibo</code> switch platform allows you to toggle your Orvibo S20 Wifi Smart Switch.</p>
+  <p>The <code class="highlighter-rouge">orvibo</code> switch platform allows you to toggle your Orvibo S20 Wifi Smart Sockets.</p>
 
-<p>To use your Orvibo switch in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To automatically discover Orvibo sockets on your network:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">switch</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">orvibo</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">mac</span><span class="pi">:</span> <span class="s">MA:CA:DD:RE:SS:00</span>
+</code></pre>
+</div>
+
+<p>To specify Orvibo sockets and skip discovery:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">orvibo</span>
+  <span class="s">discovery</span><span class="pi">:</span> <span class="s">false</span>
+  <span class="s">switches</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s">MA:CA:DD:RE:SS:00</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">Socket"</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): IP address of your switch, eg. 192.168.1.10.</li>
-  <li><strong>mac</strong> (<em>Optional</em>): MAC address of the switch, eg “AA:BB:CC:DD:EE:FF”. This is required if the switch is connected to a different subnet to the machine running Home Assistant</li>
+  <li><strong>discovery</strong> (<em>Optional</em>): Whether to discover sockets (default true).</li>
+  <li><strong>switches</strong> (<em>Optional</em>):
+    <ul>
+      <li><strong>host</strong> (<em>Required</em>): IP address of your socket, eg. 192.168.1.10.</li>
+      <li><strong>mac</strong> (<em>Optional</em>): MAC address of the socket, eg “AA:BB:CC:DD:EE:FF”. This is required if the socket is connected to a different subnet to the machine running Home Assistant</li>
+      <li><strong>name</strong> (<em>Optional</em>): Your name for the socket.</li>
+    </ul>
+  </li>
 </ul>
 
 

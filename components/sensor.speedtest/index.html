@@ -91,7 +91,7 @@
 
   <p>The <code class="highlighter-rouge">speedtest</code> sensor component uses the <a href="https://speedtest.net/">Speedtest.net</a> web service to measure network bandwidth performance.</p>
 
-<p>By default, it will run every hour.  The user can change the update frequency in the config by defining the minute, hour, and day for a speedtest to run.</p>
+<p>By default, it will run every hour. The user can change the update frequency in the configuration by defining the minute, hour, and day for a speedtest to run. For the <code class="highlighter-rouge">server_id</code> check the list of <a href="https://www.speedtest.net/speedtest-servers.php">available servers</a>.</p>
 
 <p>To add a Speedtest.net sensor to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -99,6 +99,7 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
+  <span class="s">server_id</span><span class="pi">:</span> <span class="s">1234</span>
   <span class="s">monitored_conditions</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">ping</span>
     <span class="pi">-</span> <span class="s">download</span>
@@ -149,6 +150,7 @@
       <li><strong>upload</strong>: Upload speed in Mbps.</li>
     </ul>
   </li>
+  <li><strong>server_id</strong> (<em>Optional</em>): Specify the speedtest server to perform test against.</li>
   <li><strong>minute</strong> (<em>Optional</em>): Specify the minute(s) of the hour to schedule the speedtest. Use a list for multiple entries. Default is 0.</li>
   <li><strong>hour</strong> (<em>Optional</em>): Specify the hour(s) of the day to schedule the speedtest. Use a list for multiple entries. Default is None.</li>
   <li><strong>day</strong> (<em>Optional</em>): Specify the day(s) of the month to schedule the speedtest. Use a list for multiple entries. Default is None.</li>
@@ -194,6 +196,12 @@
         </li>
         <li>
             <a href='/components/sensor.hp_ilo/'>HP ILO</a>
+        </li>
+        <li>
+            <a href='/components/sensor.linux_battery/'>Linux Battery</a>
+        </li>
+        <li>
+            <a href='/components/sensor.pi_hole/'>Pi-Hole Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.snmp/'>SNMP</a>

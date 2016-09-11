@@ -97,11 +97,11 @@
 <span class="s">cover</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
   <span class="s">covers</span><span class="pi">:</span>
-    <span class="s">Garage door</span><span class="pi">:</span>
-      <span class="s">opencmd</span><span class="pi">:</span> <span class="s">move_command up kitchen</span>
-      <span class="s">closecmd</span><span class="pi">:</span> <span class="s">move_command down kitchen</span>
-      <span class="s">stopcmd</span><span class="pi">:</span> <span class="s">move_command stop kitchen</span>
-      <span class="s">statecmd</span><span class="pi">:</span> <span class="s">state_command kitchen</span>
+    <span class="s">garage_door</span><span class="pi">:</span>
+      <span class="s">command_open</span><span class="pi">:</span> <span class="s">move_command up garage</span>
+      <span class="s">command_close</span><span class="pi">:</span> <span class="s">move_command down garage</span>
+      <span class="s">command_stop</span><span class="pi">:</span> <span class="s">move_command stop garage</span>
+      <span class="s">command_state</span><span class="pi">:</span> <span class="s">state_command garage</span>
       <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
         <span class="no">{% if value == 'open' %}</span>
         <span class="no">100</span>
@@ -117,13 +117,14 @@
 <ul>
   <li><strong>covers</strong> (<em>Required</em>): The array that contains all command line covers.
     <ul>
-      <li><strong>entry</strong> (<em>Required</em>): Name of the command line cover. Multiple entries are possible.
+      <li><strong>identifier</strong> (<em>Required</em>): Name of the command line cover as slug. Multiple entries are possible.
         <ul>
-          <li><strong>opencmd</strong> (<em>Required</em>): The command to open the cover.</li>
-          <li><strong>closecmd</strong> (<em>Required</em>): The action to close the cover.</li>
-          <li><strong>stopcmd</strong> (<em>Required</em>): The action to stop the cover.</li>
-          <li><strong>statecmd</strong> (<em>Optional</em>): If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a <code class="highlighter-rouge">0</code> the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.</li>
-          <li><strong>value_template</strong> (<em>optional - default: ‘{{ value }}’</em>): if specified, <code class="highlighter-rouge">statecmd</code> will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your <code class="highlighter-rouge">statecmd</code> returns a string “open”, using <code class="highlighter-rouge">value_template</code> as in the example config above will allow you to translate that into the valid state <code class="highlighter-rouge">100</code>.</li>
+          <li><strong>command_open</strong> (<em>Required</em>): The command to open the cover.</li>
+          <li><strong>command_close</strong> (<em>Required</em>): The action to close the cover.</li>
+          <li><strong>command_stop</strong> (<em>Required</em>): The action to stop the cover.</li>
+          <li><strong>command_state</strong> (<em>Optional</em>): If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a <code class="highlighter-rouge">0</code> the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.</li>
+          <li><strong>value_template</strong> (<em>optional - default: ‘{{ value }}’</em>): if specified, <code class="highlighter-rouge">command_state</code> will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your <code class="highlighter-rouge">command_state</code> returns a string “open”, using <code class="highlighter-rouge">value_template</code> as in the example config above will allow you to translate that into the valid state <code class="highlighter-rouge">100</code>.</li>
+          <li><strong>friendly_name</strong> (<em>Optional</em>): The name used to display the cover in the frontend.</li>
         </ul>
       </li>
     </ul>

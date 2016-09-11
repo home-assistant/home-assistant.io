@@ -109,7 +109,7 @@
   <li>Create missing documentation as stumbs in <code class="highlighter-rouge">next</code>.</li>
   <li>Update the link on the frontpage (<code class="highlighter-rouge">source/index.html</code>) to link to the new release blog post and version number.</li>
   <li>Create a pull request from <code class="highlighter-rouge">next</code> to <code class="highlighter-rouge">current</code> with the upcoming release number as title.</li>
-  <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code> (<code class="highlighter-rouge">$ git checkout next &amp;&amp; git merge master</code>) to make the PR mergable.</li>
+  <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code> (<code class="highlighter-rouge">$ git checkout next &amp;&amp; git merge current</code>) to make the PR mergable.</li>
   <li>Merge pull request (blog post, updated frontpage, and all new documentation) to <code class="highlighter-rouge">current</code>.</li>
 </ol>
 
@@ -191,6 +191,7 @@
       <li>
         API
         <ul>
+          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Home Assistant API </a></li>
           <li><a  href='/developers/rest_api/'>RESTful API </a></li>
           <li><a  href='/developers/python_api/'>Python API </a></li>
           <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>

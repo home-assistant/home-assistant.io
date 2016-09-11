@@ -97,6 +97,7 @@
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">directv</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">8080</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">DirecTV Living Room</span>
 </code></pre>
 </div>
@@ -104,9 +105,11 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> <em>Optional</em>: Use only if you don’t want to scan for devices.</li>
-  <li><strong>name</strong> <em>Optional</em>: Use to give a specific name to the device.</li>
+  <li><strong>host</strong> (<em>Optional</em>): Use only if you don’t want to scan for devices.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port your receiver is using. Defaults to <code class="highlighter-rouge">8080</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Use to give a specific name to the device.</li>
 </ul>
+
 
 
 </article>
@@ -124,6 +127,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/directv.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.25
     </div>

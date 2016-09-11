@@ -96,14 +96,16 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">alarm_control_panel</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">nx584</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">ADDRESS</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">5007</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): This is the host connection string (host:port) for the nx584 server process. If unset, it is assumed to be <code class="highlighter-rouge">localhost:5007</code>, which will work if the server process is running on the same system as home-assistant.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The host where the nx584 server process is running. Defaults to localhost.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port where the Alarm panel ist listening. Defaults to 5007.</li>
 </ul>
 
 

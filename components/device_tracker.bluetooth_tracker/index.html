@@ -92,10 +92,6 @@
   <p>This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. It is not required to pair the devices with each other! 
 Devices discovered are stored with ‘bt_’ as the prefix for device mac addresses in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
 
-<p class="note">
-Requires PyBluez. If you are on Raspbian, make sure you first install <code class="highlighter-rouge">bluetooth</code> and <code class="highlighter-rouge">libbluetooth-dev</code> by running <code class="highlighter-rouge">sudo apt install bluetooth libbluetooth-dev</code>
-</p>
-
 <p>To use the Bluetooth tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">device_tracker</span><span class="pi">:</span>
@@ -144,6 +140,9 @@ Requires PyBluez. If you are on Raspbian, make sure you first install <code clas
         </li>
         <li>
             <a href='/components/device_tracker.aruba/'>Aruba</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.automatic/'>Automatic</a>
         </li>
         <li>
             <a href='/components/device_tracker.bt_home_hub_5/'>BT Home Hub 5</a>

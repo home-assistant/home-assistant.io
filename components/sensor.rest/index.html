@@ -115,6 +115,7 @@
   <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">"device"</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">"heater"</span><span class="nv"> </span><span class="s">}'</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">REST POST sensor</span>
   <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+  <span class="s">verify_ssl</span><span class="pi">:</span> <span class="s">False</span>
 </code></pre>
 </div>
 
@@ -127,6 +128,7 @@
   <li><strong>payload</strong> (<em>Optional</em>): The payload to send with a POST request. Depends on the service, but usually formed as JSON.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the REST sensor.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
+  <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify the certification of the endpoint. Default to True.</li>
 </ul>
 
 <p class="note warning">

@@ -119,7 +119,7 @@ The frontend has a template editor developer tool to help develop and debug temp
   <span class="s">msg_who_is_home</span><span class="pi">:</span>
     <span class="s">sequence</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
-        <span class="s">data</span><span class="pi">:</span>
+        <span class="s">data_template</span><span class="pi">:</span>
           <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
             <span class="no">{% if is_state('device_tracker.paulus', 'home') %}</span>
               <span class="no">Ha, Paulus is home!</span>
@@ -158,6 +158,7 @@ The frontend has a template editor developer tool to help develop and debug temp
   <li>Filter <code class="highlighter-rouge">round(x)</code> will convert the input to a number and round it to <code class="highlighter-rouge">x</code> decimals.</li>
   <li>Filter <code class="highlighter-rouge">timestamp_local</code>  will convert an UNIX timestamp to local time/data.</li>
   <li>Filter <code class="highlighter-rouge">timestamp_utc</code> will convert an UNIX timestamp to UTC time/data.</li>
+  <li>Filter <code class="highlighter-rouge">timestamp_custom(format_string, local_boolean)</code> will convert an UNIX timestamp to a custom format, the use of a local timestamp is default, supporting <a href="https://docs.python.org/3/library/time.html#time.strftime">Python format options</a>.</li>
 </ul>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
@@ -291,6 +292,7 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 # Timestamps
 {{ value_json.tst | timestamp_local }}
 {{ value_json.tst | timestamp_utc }}
+{{ value_json.tst | timestamp_custom('%Y' True) }}
 
 # Square bracket notation
 {{ value_json["001"] }}

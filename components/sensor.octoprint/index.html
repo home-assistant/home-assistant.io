@@ -89,12 +89,17 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">OctoPrint</code> sensor platform let you monitor various states of your 3D printer and its print jobs.</p>
+  <p>The <code class="highlighter-rouge">octoprint</code> sensor platform let you monitor various states of your 3D printer and its print jobs.</p>
+
+<p class="note">
+You must have the <a href="/components/octoprint/">OctoPrint component</a> configured to use this sensor.
+</p>
 
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">octoprint</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">OctoPrint</span>
   <span class="s">monitored_conditions</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">Current State</span>
     <span class="pi">-</span> <span class="s">Temperatures</span>
@@ -105,16 +110,16 @@
 <p>Configuration variables:</p>
 
 <ul>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the sensor. Default is ‘OctoPrint’.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.
     <ul>
-      <li>Current State (Text of current state)</li>
-      <li>Temperatures (Temperatures of all available tools)(print head, print bed, …) These will be displayed as tool0, tool1, … please refer to your OctoPrint frontend to associate tool number with actual device.</li>
-      <li>Job Percentage</li>
+      <li><strong>Current State</strong>: Text of current state)</li>
+      <li><strong>Temperatures</strong>:  Temperatures of all available tools, eg. <code class="highlighter-rouge">print</code>, <code class="highlighter-rouge">head</code>, <code class="highlighter-rouge">print bed</code>, etc. These will be displayed as <code class="highlighter-rouge">tool0</code>, <code class="highlighter-rouge">tool1</code>, or <code class="highlighter-rouge">toolN</code> please refer to your OctoPrint frontend to associate the tool number with an actual device.</li>
+      <li><strong>Job Percentage</strong>:</li>
     </ul>
   </li>
 </ul>
 
-<p class="note">You must have the <a href="/components/octoprint/">OctoPrint component</a> configured to use this sensor.</p>
 
 
 </article>

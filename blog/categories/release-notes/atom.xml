@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-10T21:40:15+00:00</updated>
+  <updated>2016-09-11T01:32:24+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,159 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.28: Reload automation and groups, API documentation, car tracking, Pi-Hole stats]]></title>
+    <link href="https://home-assistant.io/blog/2016/09/10/notify-group-reload-api-pihole/"/>
+    <updated>2016-09-10T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/09/10/notify-group-reload-api-pihole</id>
+    <content type="html"><![CDATA[It's already time for 0.28 thanks to our super short release cycles. Now, it' official...we hit 4000 stars on Github. That's amazing. Sorry, not as amazing as all the stuff that was going on for 0.27 but still pretty awesome.
+
+### <a class='title-link' name='reload-automation-rules' href='#reload-automation-rules'></a> Reload automation rules 
+
+This release brings you a huge improvement of the [automation] and [group] handling. Both can be reloaded without a Home Assistant restart. The automations can be controlled directly from the frontend.
+
+<p class='img'>
+  <img src='/images/screenshots/automation-switches.png' />
+</p>
+
+### <a class='title-link' name='raspberry-pi-installation-guide' href='#raspberry-pi-installation-guide'></a> Raspberry Pi installation guide 
+Singleboard computers are very popular to run Home Assistant. To support this fact, the [installation documentation][rpi] for the Raspberry Pi devices was re-written to get users started as quickly as possible. [@Landrash] took the lead with on this tasks with help from [@kellerza] and [@MartinHjelmare]. 
+
+### <a class='title-link' name='climate-and--cover' href='#climate-and--cover'></a> Climate and  cover 
+There are countless bugfixes included in this release which will make your experience with the `climate` and the `cover` platforms better. Two week ago was the biggest merger of implementations released that ever happened in the history of Home Assistant. Thanks to [@turbokongen], [@pvizeli], [@djbanks], [@danielperna84], and others the improvements on the code and the frontend side is continuing... 
+
+### <a class='title-link' name='api-documentation' href='#api-documentation'></a> API documentation 
+The [Home Assistant API Documentation](https://dev-docs.home-assistant.io/en/dev/) is a great addition to the already exisiting user documentation. The focus is not end-users but developers who whant to get details about the code without actually browsing the code on Github.
+
+### <a class='title-link' name='configuration-validation' href='#configuration-validation'></a> Configuration validation 
+The validation of the configuration is still on-going. Approximatly 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to [@kellerza], [@fabaff], [@Teagan42], and [@pvizeli] for your effort!
+
+### <a class='title-link' name='templating' href='#templating'></a> Templating 
+`data_template` needs to be present in all notify templates for the future.
+
+```yaml
+action:
+  service: notify.telegram
+  data_template:
+    message: "Test from your Home"
+    data:
+      location:
+        latitude: ""
+        longitude: ""
+```
+
+Stay tuned for more details.
+
+### <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
+
+<img src='https://home-assistant.io/images/supported_brands/xbox-live.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/automatic.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/pi_hole.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+
+- Light: Added bitfield to Flux LED since we are supporting effects ([@tchellomello])
+- Device tracker: [Owntracks] waypoint import ([@pavoni])
+- Climate: A lot of bugfix ([@turbokongen], [@pvizeli], [@djbanks])
+- Notify: Improvement of the title handling ([@lwis])
+- RFXtrx: Sensor cleanup ([@turbokongen])
+- Device tracker: Fix for BLE device tracker ([@open-homeautomation])
+- Device tracker: Allow 'None' MAC addresses to be loaded from `known_devices` file ([@kellerza])
+- Cover: Bugfixes ([@turbokongen], [@danielperna84])
+- Sensor: Support for displaying details about [crypto currencies][Coinmarketcap] ([@fabaff])
+- Device tracker: Support for [automatic] to track your vehicles ([@Teagan42])
+- Devie tracker: Add exclude option to [Nmap] device tracker ([@danieljkemp])
+- Device tracker: Improved login errors for Asus device tracker ([@kellerza])
+- Sensor: Support for displaying the status of [Xbox] Live accounts ([@mKerix])
+- Notify: Adding `link_names` for sending Slack message ([@salt-lick])
+- Binary sensor: Add the occupancy sensor class ([@robbiet480])
+- Fan: Add supoort for [MQTT fans][mqtt-fan] ([@robbiet480])
+- Docs: Add Sphinx API doc generation ([@bbangert])
+- Core: Allow reloading automation without restart ([@balloob])
+- Sensor: Added scale and offset to the [Temper] sensor ([@mKerix])
+- Sensor: New support for [Trend] sensor ([@pavoni])
+- Device tracker: Keep looking for new BLE devices ([@Bart274])
+- Switch: Added device state attributes and support for legacy firmware for D-Link switches ([@LinuxChristian])
+- Sensor: Improve 1-Wire device family detection ([@Ardetus])
+- Modbus: Update to be thread safe ([@persandstrom])
+- Camera: FFMpeg is abale to get the images ([@pvizeli])
+- Core: Reload groups without restart ([@balloob])
+- Core: Fix remove listener ([@balloob])
+- Sensor: Support for monitoring your [battery] on a Linux host ([@fabaff])
+- Core: Add support for complex template structures to `data_template` ([@pvizeli])
+- `check_config`: Improve yaml fault tolerance and handle border cases ([@kellerza])
+- Core: Add additional [template] for custom date formats ([@lwis])
+- Sensor: Support for getting stats from Pi-Hole systems ([@fabaff])
+- Modbus: New `write_registers` [Modbus] service ([@persandstrom])
+- Device tracker: Fix TP-Link Archer C7 long passwords ([@snikch])
+
+### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
+
+- [OpenweatherMap] entity IDs are now like `sensor.owm_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.
+- Updates of configuration variables due to configuration check or alignment with other platforms. Please update your configuration entries according to the documentation:
+  - [OctoPrint] component
+  - mFi platform ([switch][mfi-switch] and [sensor][mfi-sensor])
+  - NX584 Alarm Control Panel
+  - Mediaplayer platforms [FireTV] and [MPD]
+  - [switch][command-line-switch] and the [cover][command-line-cover] `command_line` platforms
+- Custom components extending `BaseNotificationService` need to be aware that `kwargs.get(ATTR_TITLE)` will now return `None` if a title has not been set, and will need to specify `kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT)` if they always require a title.
+
+### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant).
+
+
+[@Ardetus]: https://github.com/Ardetus
+[@arsaboo]: https://github.com/arsaboo
+[@auchter]: https://github.com/auchter
+[@balloob]: https://github.com/balloob
+[@Bart274]: https://github.com/Bart274
+[@bbangert]: https://github.com/bbangert
+[@danieljkemp]: https://github.com/danieljkemp
+[@danielperna84]: https://github.com/danielperna84
+[@djbanks]: https://github.com/djbanks
+[@fabaff]: https://github.com/fabaff
+[@infamy]: https://github.com/infamy
+[@jnewland]: https://github.com/jnewland
+[@kellerza]: https://github.com/kellerza
+[@Landrash]: https://github.com/Landrash
+[@LinuxChristian]: https://github.com/LinuxChristian
+[@lwis]: https://github.com/lwis
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@mKerix]: https://github.com/mKerix
+[@nkgilley]: https://github.com/nkgilley
+[@open-homeautomation]: https://github.com/open-homeautomation
+[@pavoni]: https://github.com/pavoni
+[@persandstrom]: https://github.com/persandstrom
+[@pvizeli]: https://github.com/pvizeli
+[@robbiet480]: https://github.com/robbiet480
+[@salt-lick]: https://github.com/salt-lick
+[@tchellomello]: https://github.com/tchellomello
+[@Teagan42]: https://github.com/Teagan42
+[@technicalpickles]: https://github.com/technicalpickles
+[@turbokongen]: https://github.com/turbokongen
+[@w1ll1am23]: https://github.com/w1ll1am23
+[@snikch]: https://github.com/snikch
+
+[modbus]: /components/modbus/
+[rpi]: /getting-started/installation-raspberry-pi/
+[MPD]: /components/media_player.mpd/
+[Coinmarketcap]: /components/sensor.coinmarketcap
+[template]: /topics/templating/
+[battery]: /components/sensor.linux_battery
+[group]: /components/group/
+[automation]: /components/automation/
+[Temper]: /components/sensor.temper/
+[mqtt-fan]: /components/fan.mqtt/
+[Xbox]: /components/sensor.xbox_live/
+[Nmap]: /components/device_tracker.nmap_scanner/
+[automatic]: /components/device_tracker.automatic/
+[Owntracks]: /components/device_tracker.owntracks/
+[OpenweatherMap]: /components/sensor.openweathermap/
+[OctoPrint]: /components/octoprint/
+[mfi-switch]: /components/switch.mfi/
+[mfi-sensor]: /components/sensor.mfi/
+[FireTV]: /components/media_player.firetv/
+[command-line-switch]: /components/switch.command_line/
+[command-line-cover]: /components/cover.command_line/
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.27 is here to break eggs and take names: notifications, Hue fakery, safety and unification come to Home Assistant]]></title>
@@ -614,109 +767,6 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [yahoo-weather]: /components/sensor.yweather/
 [Z-Wave]: /components/zwave/
 [RFXtrx]: //components/rfxtrx/
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.23: Envisalink, Homematic, HDMI-CEC and Sony Bravia TV]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv/"/>
-    <updated>2016-07-01T00:31:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv</id>
-    <content type="html"><![CDATA[It's time for Home Assistant 0.23 and it's full of goodies. It's also the release that bumps us over a 1000 tests and to 94% test coverage! Also our install issues on the Raspberry Pi and Synology have been resolved.
-
-This release brings support for two new ecosystems: [Envisalink] and [Homematic]. We can now also control your TV via HDMI using [HDMI-CEC] (which works on the Pi!) and another cool feature is the [persistent notifications] which allow you to add a notification to the frontend till dismissed.
-
-[Wink] support has been dramatically improved by migrating to the PubNub API. This allows Wink to push changes from their system to Home Assistant. This change came just in time as somehow our Wink integration was causing a lot of requests to their servers. Thanks to Wink for letting us know so we could solve it instead of blocking us.
-
-On the config side, you can now [store your passwords][secrets] in your OS keyring or just in a standalone file. We also got a new service to reload the core config so no reboots needed anymore after changing customize settings!
-
-<img src='https://home-assistant.io/images/supported_brands/bravia.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/eyezon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/homematic.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/openexchangerates.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
-
-- Support for [Envisalink] added ([alarm control panel][envi-alarm], [binary sensor][envi-binary-sensor], [sensor][envi-sensor]) ([@cinntax])
-- Support for [Homematic] added ([binary sensor][hm-binary-sensor], [light][hm-light], [rollershutter][hm-rollershutter], [sensor][hm-sensor], [switch][hm-switch]) ([@pvizeli], [@danielperna84])
-- New [HDMI-CEC] component ([@happyleavesaoc], [@lukas-hetzenecker])
-- Major rewrite of [Wink] which now pushes changes to Home Assistant ([@w1ll1am23])
-- Core: new add [reload core config service] ([@balloob])
-- Support for [persistent notifications] added ([@fabaff], [@balloob])
-- Garage door: [Z-Wave][zwave-garage-door] support added ([@turbokongen])
-- Rollershutter: [Z-Wave][zwave-rollershutter] support added ([@turbokongen])
-- Media Player: [Sony Bravia TV] now supported ([@aparraga])
-- Sensor: [Fixer.io] now supported ([@fabaff])
-- Garage door: Control any garage door using [Raspberry Pi GPIO pins] ([@kellerza])
-- Sensor: [OpenExchangeRates] support added ([@arsaboo])
-- Notify: [Pushover] now supports target device, sound, url and priority ([@dale3h])
-- Sensor: [Netatmo] now supports wind, battery and radio signals ([@Jypy])
-- Log successful and failed login attemps ([@fabaff])
-- Config: allow [extracting account info][secrets] into OS keyring or separate YAML file ([@kellerza])
-- Core: add option to not filter out duplicate states per entity ([@philipbl])
-- HTTP: Follow Mozilla SSL recommendations ([@danieljkemp], [@AlucardZero])
-- Light: [Z-Wave colorbulb][zwave-light] support added ([@armills])
-- Core: new elevation config option added ([@balloob])
-- Sensor: [OneWire] support extended with support for DS18S20, DS1822, DS1825 and DS28EA00 temperature sensors + support for bus masters which use fuse to mount device tree. ([@Ardetus])
-- Lock: [Vera] now supported ([@rhooper])
-- HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems ([@balloob])
-
-### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
-
-- Homematic thermostat configuration has changed and now depends on the new [Homematic] component.
-
-### <a class='title-link' name='hotfix-0231---july-2' href='#hotfix-0231---july-2'></a> Hotfix 0.23.1 - July 2 
-
-- Bump PyVera to 0.2.13 to fix traceback and pyvera thread dying related to bug ([@rhooper])
-- HTTP - SSL: Check for OP_NO_COMPRESSION support before trying to use it ([@AlucardZero])
-- Wink: Downgraded pubnub to work around pycryptodome conflicts ([@w1ll1am23])
-
-### <a class='title-link' name='faq' href='#faq'></a> FAQ 
-
-- `elevation: ` was introduced to the configuration for weather/sunrise data. For existing [configurations][elevation] add the value shown in the warning `[homeassistant.config] Incomplete core config. Auto detected elevation: 665` to your `configuration.yaml` file.
-
-[@AlucardZero]: https://github.com/AlucardZero/
-[@aparraga]: https://github.com/aparraga/
-[@Ardetus]: https://github.com/Ardetus/
-[@armills]: https://github.com/armills/
-[@arsaboo]: https://github.com/arsaboo/
-[@balloob]: https://github.com/balloob/
-[@cinntax]: https://github.com/cinntax/
-[@dale3h]: https://github.com/dale3h/
-[@danieljkemp]: https://github.com/danieljkemp/
-[@danielperna84]: https://github.com/danielperna84/
-[@fabaff]: https://github.com/fabaff/
-[@happyleavesaoc]: https://github.com/happyleavesaoc/
-[@Jypy]: https://github.com/Jypy/
-[@kellerza]: https://github.com/kellerza/
-[@lukas-hetzenecker]: https://github.com/lukas-hetzenecker/
-[@philipbl]: https://github.com/philipbl/
-[@pvizeli]: https://github.com/pvizeli/
-[@rhooper]: https://github.com/rhooper/
-[@turbokongen]: https://github.com/turbokongen/
-[@w1ll1am23]: https://github.com/w1ll1am23/
-[envi-alarm]: /components/alarm_control_panel.envisalink/
-[envi-binary-sensor]: /components/binary_sensor.envisalink/
-[envi-sensor]: /components/sensor.envisalink/
-[Envisalink]: /components/envisalink/
-[HDMI-CEC]: /components/hdmi_cec/
-[hm-binary-sensor]: /components/binary_sensor.homematic/
-[hm-light]: /components/light.homematic/
-[hm-rollershutter]: /components/rollershutter.homematic/
-[hm-sensor]: /components/sensor.homematic/
-[hm-switch]: /components/switch.homematic/
-[Homematic]: /components/homematic/
-[Netatmo]: /components/sensor.netatmo/
-[OneWire]: /components/sensor.onewire/
-[OpenExchangeRates]: /components/sensor.openexchangerates/
-[Pushover]: /components/notify.pushover/
-[secrets]: /topics/secrets/
-[Vera]: /components/lock.vera/
-[Wink]: /components/wink/
-[zwave-garage-door]: /components/garage_door.zwave/
-[zwave-light]: /components/light.zwave/
-[zwave-rollershutter]: /components/rollershutter.zwave/
-[Fixer.io]: /components/sensor.fixer/
-[persistent notifications]: /components/persistent_notification/
-[reload core config service]: /getting-started/customizing-devices/#reloading-customize
-[Sony Bravia TV]: /components/media_player.braviatv/
-[Raspberry Pi GPIO pins]: /components/garage_door.rpi_gpio/
-[elevation]: https://home-assistant.io/getting-started/basic/
 ]]></content>
   </entry>
   

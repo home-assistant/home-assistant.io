@@ -100,7 +100,7 @@
   <span class="s">server</span><span class="pi">:</span> <span class="s">MAIL_SERVER</span>
   <span class="s">port</span><span class="pi">:</span> <span class="s">YOUR_SMTP_PORT</span>
   <span class="s">sender</span><span class="pi">:</span> <span class="s">SENDER_EMAIL_ADDRESS</span>
-  <span class="s">starttls</span><span class="pi">:</span> <span class="s">1 or 0</span>
+  <span class="s">starttls</span><span class="pi">:</span> <span class="s">true or false</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_SMTP_USERNAME</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_SMTP_PASSWORD</span>
   <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
@@ -117,7 +117,8 @@
   <li><strong>username</strong> (<em>Optional</em>): Username for the SMTP account.</li>
   <li><strong>password</strong> (<em>Optional</em>): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.</li>
   <li><strong>recipient</strong> (<em>Required</em>): Recipient of the notification.</li>
-  <li><strong>starttls</strong> (<em>Optional</em>): Enables STARTTLS, eg. 1 or 0. Defaults to 0.</li>
+  <li><strong>starttls</strong> (<em>Optional</em>): Enables STARTTLS, eg. True or False. Defaults to False.</li>
+  <li><strong>debug</strong> (<em>Optional</em>): Enables Debug, eg. True or False. Defaults to False.</li>
 </ul>
 
 <p>To use the SMTP notification, refer to it in an automation or script like in this example:</p>

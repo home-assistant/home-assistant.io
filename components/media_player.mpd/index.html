@@ -96,7 +96,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">mpd</span>
-  <span class="s">server</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
   <span class="s">port</span><span class="pi">:</span> <span class="s">6600</span>
   <span class="s">location</span><span class="pi">:</span> <span class="s">bedroom</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
@@ -106,9 +106,9 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>server</strong> (<em>Required</em>): IP address of the Music Player Daemon, eg. 192.168.1.32</li>
-  <li><strong>port</strong> (<em>Optional</em>): Port of the Music Player Daemon, defaults to 6600.</li>
-  <li><strong>location</strong> (<em>Optional</em>): Location of your Music Player Daemon.</li>
+  <li><strong>host</strong> (<em>Required</em>): IP address of the Host where Music Player Daemon is running.</li>
+  <li><strong>port</strong> (<em>Optional</em>): Port of the Music Player Daemon. Defaults to 6600.</li>
+  <li><strong>location</strong> (<em>Optional</em>): Location of your Music Player Daemon. Defaults to “MPD”.</li>
   <li><strong>password</strong> (<em>Optional</em>): Password for your Music Player Daemon.</li>
 </ul>
 

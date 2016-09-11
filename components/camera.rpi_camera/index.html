@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">rpi</code> platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application <a href="https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md"><code class="highlighter-rouge">raspistill</code></a> to store the image from camera.</p>
+  <p>The <code class="highlighter-rouge">rpi_camera</code> platform allows you to integrate the Raspberry Pi camera into Home Assistant. This component uses the application <a href="https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md"><code class="highlighter-rouge">raspistill</code></a> to store the image from camera.</p>
 
 <p>To enable this camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -123,12 +123,6 @@
 </ul>
 
 <p>The given <strong>file_path</strong> must be an existing file because the camera platform setup make a writeable check on it.</p>
-
-<p>Ensure that the user who is running Home Assistant is in the video group. Eg. for the user <code class="highlighter-rouge">hass</code>:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo usermod -a -G video hass
-</code></pre>
-</div>
 
 
 

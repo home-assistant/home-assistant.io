@@ -96,8 +96,22 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">temper</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">My</span><span class="nv"> </span><span class="s">TEMPer'</span>
+  <span class="s">scale</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">offset</span><span class="pi">:</span> <span class="s">0</span>
 </code></pre>
 </div>
+
+<p>Since some of these sensors consistently show higher temperatures the scale and offset values can be used to fine-tune your sensor.
+The calculation follows the formula <code class="highlighter-rouge">scale * sensor value + offset</code>.</p>
+
+<p>The TEMPer sensors can only be accessed as root by default. To fix the USB permissions on your system create the file <code class="highlighter-rouge">/etc/udev/rules.d/99-tempsensor.rules</code> and add the following line to it:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SUBSYSTEMS=="usb", ACTION=="add", ATTRS{idVendor}=="0c45", ATTRS{idProduct}=="7401", MODE="666"
+</code></pre>
+</div>
+
+<p>After that re-plug the device and restart Home Assistant.</p>
 
 
 </article>
