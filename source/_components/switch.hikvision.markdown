@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Hikvision Camera Switch"
-description: "Instructions how to integrate Hikvision camera's into Home Assistant."
+description: "Instructions how to integrate Hikvision camera switches into Home Assistant."
 date: 2015-06-10 22:54
 sidebar: true
 comments: false
@@ -34,8 +34,8 @@ switch:
 
 Configuration variables:
 
-- **host** *Required*: The IP address of your Hikvision camera, eg. 192.168.1.32
-- **port** *Optional*: The port to connec to your Hikvision camera (default is 80).
-- **name** *Optional*: This parameter allows you to override the name of your camera.
-- **username** *Required*: The username for accessing your Hikvision camera.
-- **password** *Required*: The password to access your Hikvision camera.
+- **host** (*Required*): The IP address of your Hikvision camera, eg. 192.168.1.32
+- **port** (*Optional*): The port to connec to your Hikvision camera. Defaults to 80.
+- **name** (*Optional*): This parameter allows you to override the name of your camera.
+- **username** (*Optional*): The username for accessing your Hikvision camera. Defaults to "admin".
+- **password** (*Optional*): The password to access your Hikvision camera. Defaults to "12345".

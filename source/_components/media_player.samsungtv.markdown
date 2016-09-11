@@ -24,13 +24,17 @@ To add a TV to your installation, add the following to your `configuration.yaml`
 media_player:
   platform: samsungtv
   host: 192.168.0.10
+  port: 55000
   name: Living Room TV
+  timeout: 2
 ```
 
 Configuration variables:
 
 - **host** (*Required*): The IP of the Samsung Smart TV, eg. 192.168.0.10
+- **port** (*Optional*): The port of the Samsung Smart TV. Defaults to 55000.
 - **name** (*Optional*): The name you would like to give to the Samsung Smart TV.
+- **timeout** (*Optional*): The time-out for the communication with the TV. Defaults to 0.
 
 
 Currently known supported models:

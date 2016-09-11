@@ -18,4 +18,18 @@ To use your TEMPer sensor in your installation, add the following to your `confi
 # Example configuration.yaml entry
 sensor:
   platform: temper
+  name: 'My TEMPer'
+  scale: 1
+  offset: 0
 ```
+
+Since some of these sensors consistently show higher temperatures the scale and offset values can be used to fine-tune your sensor.
+The calculation follows the formula `scale * sensor value + offset`.
+
+The TEMPer sensors can only be accessed as root by default. To fix the USB permissions on your system create the file `/etc/udev/rules.d/99-tempsensor.rules` and add the following line to it:
+
+```
+SUBSYSTEMS=="usb", ACTION=="add", ATTRS{idVendor}=="0c45", ATTRS{idProduct}=="7401", MODE="666"
+```
+
+After that re-plug the device and restart Home Assistant.

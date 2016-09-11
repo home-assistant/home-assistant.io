@@ -12,7 +12,7 @@ ha_category: Climate
 ---
 
 
-The `honeywell` cliamte platform let you control [Honeywell Connected](http://getconnected.honeywell.com/en/) thermostats from Home Assistant.
+The `honeywell` climate platform let you control [Honeywell Connected](http://getconnected.honeywell.com/en/) thermostats from Home Assistant.
 
 To set it up, add the following information to your `configuration.yaml` file:
 

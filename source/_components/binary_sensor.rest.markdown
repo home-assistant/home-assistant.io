@@ -37,6 +37,7 @@ binary_sensor:
   name: REST GET binary sensor
   sensor_class: opening
   value_template: '{% raw %}{{ value_json.state }}{% endraw %}'
+  verify_ssl: False
 ```
 
 or for a POST request:
@@ -61,6 +62,7 @@ Configuration variables:
 - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
+- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.

@@ -60,5 +60,3 @@ That's it! Now you will find a media player. If you click it you will find all y
 <img src='/images/screenshots/pandora_player.png' />
 </p>
 
-<p class='note warning'>This is a new component and it has some issues. </p>
-
