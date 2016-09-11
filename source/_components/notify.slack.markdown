@@ -30,6 +30,8 @@ notify:
   platform: slack
   api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
   default_channel: '#general'
+  icon: ':robot_face:' 
+  username: 'Home-Assistant'
 ```
 
 Configuration variables:
