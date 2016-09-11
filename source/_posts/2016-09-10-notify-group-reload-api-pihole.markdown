@@ -14,7 +14,7 @@ It's already time for 0.28 thanks to our super short release cycles. Now, it' of
 
 ### {% linkable_title Reload automation rules %}
 
-This release brings you a huge improvement of the [automation] and [group] handling. Both can be reloaded without a Home Assistant restart. The automations can be controlled directly from the frontend.
+This release brings you a huge improvement of the [automation] and [group] handling. Both can be reloaded without a Home Assistant restart by calling their new reload services. The automations can be controlled directly from the frontend.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/automation-switches.png' />
