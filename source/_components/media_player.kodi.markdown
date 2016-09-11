@@ -25,7 +25,7 @@ media_player:
   host: http://192.168.0.123
   port: 8080
   name: Kodi
-  user: USERNAME
+  username: USERNAME
   password: PASSWORD
   turn_off_action: shutdown
 ```
