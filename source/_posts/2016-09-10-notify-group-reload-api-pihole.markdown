@@ -42,8 +42,8 @@ action:
     message: "Test from your Home"
     data:
       location:
-        latitude: "{{ state.device_tracker.phone.attributes.latitude }}"
-        longitude: "{{ state.device_tracker.phone.attributes.longitude }}"
+        latitude: "{% raw %}{{ state.device_tracker.phone.attributes.latitude }}{% endraw %}"
+        longitude: "{% raw %}{{ state.device_tracker.phone.attributes.longitude }}{% endraw %}"
 ```
 
 Stay tuned for more details.
