@@ -28,7 +28,7 @@ camera:
 
 Configuration variables:
 
-- **nvr** *Required**: The IP or hostname of the NVR (Network Video Recorder) server.
-- **port** *Optional*: The port number to use for accessing the NVR.
-- **key** *Required*: The API key available from the NVR web interface.
+- **nvr** (*Required*): The IP or hostname of the NVR (Network Video Recorder) server.
+- **port** (*Optional*): The port number to use for accessing the NVR.
+- **key** (*Required*): The API key available from the NVR web interface.
 

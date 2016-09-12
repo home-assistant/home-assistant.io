@@ -53,6 +53,7 @@ sensor:
       gas_secret: 'GAS_SECRET'
       gas_type: imperial
       gas_calorific: 38.2
+```
 
 Configuration variables:
 

@@ -9,13 +9,15 @@ sharing: true
 footer: true
 logo: avm.png
 ha_category: System Monitor
-ha_release: "0.27"
+ha_release: 0.27
+ha_iot_class: "Local Polling"
 ---
 
 
 The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers
-on TCP port 1012. It will assume the values 'idle', 'ringing', 'dialing', or 'talking',
-with the phone numbers involved contained in the state attributes.
+on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing`, or `talking` with the phone numbers involved contained in the state attributes.
+
+To activate the call monitor on your Fritz!Box, dial #96*5* from any phone connected to it.
 
 To use the Fritz!Box call monitor in your installation, add the following to your `configuration.yaml` file:
 

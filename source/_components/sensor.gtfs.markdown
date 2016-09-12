@@ -52,3 +52,5 @@ Configuration variables:
 - **origin** (*Required*): The stop ID of your origin station.
 - **destination** (*Required*): The stop ID of your destination station.
 - **data** (*Required*): The name of the ZIP file or folder containing the GTFS data. It must be located inside the `gtfs` folder of your configuration directory.
+- **name** (*Optional*): Name to use in the frontend.
+

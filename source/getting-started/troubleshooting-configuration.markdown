@@ -19,26 +19,27 @@ Whenever a component or configuration option results in a warning, it will be st
 
 When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your component you are trying to set up.
 
+If you have incorrect entries in your configuration files you can use the `check_config` script to assist in identifying them: `hass --script check_config`.
+
 #### {% linkable_title Problems with the configuration %}
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` file. 
-
- - You can test your configuration using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
+ 
+ - You can test your configuration using the command line with: `hass --script check_config`
+ - You can verify your configuration's yaml structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
  - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
-`configuration.yaml` does not allow multiple sections to have the same name. If you want a specific platform to be loaded twice, append a [number or string](/getting-started/devices/#style-2) to the name or nest them using [this style](/getting-started/devices/#style-1).
+`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiplte platforms for one component, you can append a [number or string](/getting-started/devices/#style-2-list-each-device-separately) to the name or nest them using [this style](/getting-started/devices/#style-1-collect-every-entity-under-the-parent):
 
 ```yaml
 sensor:
-  platform: forecast
-  ...
-
-sensor 2:
-  platform: bitcoin
-  ...
+  - platform: forecast
+    ...
+  - platform: bitcoin
+    ...
 ```
 
-Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to `home-assistant.log`. You can have a look at [the component page](/components/) for instructions on how to setup the components.
+Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to `home-assistant.log`. You can have a look at [the various component pages](/components/) for instructions on how to setup the components.
 
 If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
 

@@ -24,14 +24,14 @@ To integrate pilight into Home Assistant, add the following section to your `con
 ```yaml
 # Example configuration.yaml entry
 pilight:
-  - host: 127.0.0.1
-    port: 5000
-    whitelist:  # optional
-      protocol:
-        - daycom
-        - intertechno
-      id:
-        - 42
+  host: 127.0.0.1
+  port: 5000
+  whitelist:  # optional
+    protocol:
+      - daycom
+      - intertechno
+    id:
+      - 42
 ```
 
 Configuration variables:

@@ -11,8 +11,8 @@ footer: true
 
 This is an advanced feature of Home Assistant. You'll need a basic understanding of the following things:
 
-  - [Home Assistant architecture], especially states.
-  - [State object]
+- [Home Assistant architecture], especially states.
+- [State object]
 
 
 [Home Assistant architecture]: /developers/architecture/
@@ -20,8 +20,8 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 
 Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:
 
- - Formatting outgoing messages in, for example, the [notify] and [alexa] components.
- - Process incoming data from sources that provide raw data, like [MQTT], [REST sensor], or the [command line sensor].
+- Formatting outgoing messages in, for example, the [notify] and [alexa] components.
+- Process incoming data from sources that provide raw data, like [MQTT], [REST sensor], or the [command line sensor].
 
 [notify]: /components/notify/
 [alexa]: /components/alexa/
@@ -44,7 +44,7 @@ script:
   msg_who_is_home:
     sequence:
       - service: notify.notify
-        data:
+        data_template:
           message: >
             {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
               Ha, Paulus is home!
@@ -80,6 +80,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - Filter `round(x)` will convert the input to a number and round it to `x` decimals.
 - Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
 - Filter `timestamp_utc` will convert an UNIX timestamp to UTC time/data.
+- Filter `timestamp_custom(format_string, local_boolean)` will convert an UNIX timestamp to a custom format, the use of a local timestamp is default, supporting [Python format options](https://docs.python.org/3/library/time.html#time.strftime).
 
 ## {% linkable_title Examples %}
 
@@ -199,4 +200,8 @@ It depends per component or platform but it is common to be able to define a tem
 # Timestamps
 {% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
+{% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
+
+# Square bracket notation
+{% raw %}{{ value_json["001"] }}{% endraw %}
 ```

@@ -23,9 +23,12 @@ To use your EnOcean device, you first have to set up your [EnOcean hub](/compone
 binary_sensor:
   - platform: enocean
     id: [0x01,0x90,0x84,0x3C]
+    name: Door
+    sensor_class: opening
 ```
 
 Configuration variables:
 
 - **id** (*Required*): The ID of the device. This is the 4 bytes long number written on the dimmer.
-- **platform** (*Required*): Set to `enocean`.
+- **name** (*Optional*): An identifier for the Ligh in the frontend.
+- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.

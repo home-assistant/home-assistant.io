@@ -71,7 +71,7 @@ Chrome supports notification actions, which are configurable buttons that arrive
     "actions": [
       {
         "action": "open",
-        "icon": "/static/icons/favicon-192x192.png"
+        "icon": "/static/icons/favicon-192x192.png",
         "title": "Open Home Assistant"
       },
       {
@@ -85,7 +85,7 @@ Chrome supports notification actions, which are configurable buttons that arrive
 
 #### {% linkable_title Data %}
 
-Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`) will be sent back to you in the [callback events](http://localhost:4000/components/notify.html5/#automating-notification-events).
+Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`) will be sent back to you in the [callback events](#automating-notification-events).
 
 ```json
 {

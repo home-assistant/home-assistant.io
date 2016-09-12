@@ -15,7 +15,7 @@ ha_release: 0.13
 
 The `speedtest` sensor component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-By default, it will run every hour.  The user can change the update frequency in the config by defining the minute, hour, and day for a speedtest to run.
+By default, it will run every hour. The user can change the update frequency in the configuration by defining the minute, hour, and day for a speedtest to run. For the `server_id` check the list of [available servers](https://www.speedtest.net/speedtest-servers.php).
 
 To add a Speedtest.net sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -24,6 +24,7 @@ Once per hour, on the hour (default):
 ```yaml
 sensor:
   platform: speedtest
+  server_id: 1234
   monitored_conditions:
     - ping
     - download
@@ -69,6 +70,7 @@ Configuration variables:
   - **ping**: Reaction time in ms of your connection, (how fast you get a response after you've sent out a request).
   - **download**: Download speed in Mbps.
   - **upload**: Upload speed in Mbps.
+- **server_id** (*Optional*): Specify the speedtest server to perform test against.
 - **minute** (*Optional*): Specify the minute(s) of the hour to schedule the speedtest. Use a list for multiple entries. Default is 0.
 - **hour** (*Optional*): Specify the hour(s) of the day to schedule the speedtest. Use a list for multiple entries. Default is None.
 - **day** (*Optional*): Specify the day(s) of the month to schedule the speedtest. Use a list for multiple entries. Default is None.

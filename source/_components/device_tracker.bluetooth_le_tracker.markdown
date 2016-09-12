@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Bluetooth Tracker"
+title: "Bluetooth LE Tracker"
 description: "Instructions for integrating bluetooth low-energy tracking within Home Assistant."
 date: 2016-08-24 00:00
 sidebar: true

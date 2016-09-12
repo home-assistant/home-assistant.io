@@ -39,6 +39,7 @@ sensor:
   payload: '{ "device" : "heater" }'
   name: REST POST sensor
   unit_of_measurement: "°C"
+  verify_ssl: False
 ```
 
 Configuration variables:
@@ -49,6 +50,7 @@ Configuration variables:
 - **payload** (*Optional*): The payload to send with a POST request. Depends on the service, but usually formed as JSON.
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
+- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.

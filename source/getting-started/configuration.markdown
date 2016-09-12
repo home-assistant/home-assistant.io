@@ -23,14 +23,14 @@ If you want to use a different folder for configuration, use the config command 
 
 Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains which components will be loaded and what their configuration is. Throughout the documentation you will find snippets that you can add to your configuration file to enable that functionality.
 
-If you run into trouble while configuring Home Assistant, have a look at [the configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
-
 <p class='note'>
-  You will have to restart Home Assistant for changes to `configuration.yaml` take effect.
+  You will have to restart Home Assistant for changes to `configuration.yaml` to take effect.
 </p>
 
+If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
+
 <p class='note tip'>
-  Install colorlog (`$ pip3 install colorlog`) to make the console output easier to read, hence also easier to catch errors and warnings.
+  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant.
 </p>
 
 ### [Next step: Get familiar with YAML &raquo;](/getting-started/yaml/)

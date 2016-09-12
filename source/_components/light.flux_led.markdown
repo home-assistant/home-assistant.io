@@ -54,7 +54,7 @@ light:
     automatic_add: True
 ```
 
-Will add two lights with given name:
+Will add two lights with given name and create an automation rule to randomly set color each 45 seconds:
 
 ```yaml
 light:
@@ -65,5 +65,15 @@ light:
         name: flux_lamppost
       192.168.0.109:
         name: flux_living_room_lamp
-```
 
+automation:
+  random_flux_living_room_lamp:
+  trigger:
+    platform: time
+    seconds: '/45'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.flux_living_room_lamp
+      effect: random
+```

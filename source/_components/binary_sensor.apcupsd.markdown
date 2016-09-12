@@ -14,16 +14,16 @@ ha_release: 0.13
 
 In addition to the [APCUPSd Sensor](/components/sensor.apcupsd/) devices, you may also create a device which is simply "on" when the UPS status is online and "off" at all other times.
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this sensor, you first have to set up [apcupsd](/components/apcupsd/), and add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: apcupsd
-  name: UPS Online
+  - platform: apcupsd
+    name: UPS Online
 ```
 
 Configuration variables:
 
-- **resource** (*Required*): The resource or endpoint that contains the value.
-- **method** (*Optional*): The method of the request. Default is GET.
+
+- **name** (*Optional*): Name to use in the front end.

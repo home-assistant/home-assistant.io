@@ -12,7 +12,7 @@ ha_category: Downloading
 ha_release: pre 0.7
 ---
 
-The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist.
+The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
 
 To enable it, add the following lines to your `configuration.yaml` file:
 

@@ -15,7 +15,7 @@ First off, several community members have sanitized (read: without api keys/pass
 
 As commenting code doesn't always happen, please read on for the details.
 
-Now despite the logical assumption that the `configuration.yaml` will be replaced by this process it will in fact remain all be it in a much less cluttered form.
+Now despite the logical assumption that the `configuration.yaml` will be replaced by this process it will in fact remain, albeit in a much less cluttered form.
 
 In this lighter version we will still need what could be called the core snippet:
 
@@ -179,17 +179,23 @@ That about wraps it up.
 
 If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to the [Gitter Chatroom](https://gitter.im/balloob/home-assistant) and ask away.
 
+### {% linkable_title Debugging multiple configuration files %}
+
+If you have many configuration files, the `check_config` script allows you to see how Home Assistant interprets them:
+- Listing all loaded files: `hass --script --check_config --files`
+- Viewing a component's config: `hass --script --check_config --info light`
+- Or all components' config:  `hass --script check_config --info all`
+
+You can get help from the command line using: `hass --script check_config --help`
+
 ### {% linkable_title Advanced Usage %}
 
 We offer four advanced options to include whole directories at once.
+- `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list.
+- `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
+- `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
+- `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
 
-`!include_dir_list` will return content of a directory as a list with each file content being an entry in the list.
-
-`!include_dir_named` will return content of a directory as a dictionary which maps filename => content of file.
-
-`!include_dir_merge_list` will return content of a directory as a list by merging all files (which should contain a list) into 1 big list.
-
-`!include_dir_merge_named` will return content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
 
 #### {% linkable_title Example: `!include_dir_list` %}
 

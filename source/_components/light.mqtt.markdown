@@ -51,6 +51,8 @@ light:
   name: "Office light"
   state_topic: "office/rgb1/light/status"
   command_topic: "office/rgb1/light/switch"
+  brightness_state_topic: 'office/rgb1/light/brightness'
+  brightness_command_topic: 'office/rgb1/light/brightness/set'
   qos: 0
   payload_on: "ON"
   payload_off: "OFF"

@@ -9,13 +9,13 @@ sharing: true
 footer: true
 logo: netatmo.png
 ha_category: Camera
-ha_release: "0.22"
+ha_release: 0.22
 ---
 
 
 The `netatmo` camera platform is consuming the information provided by a [Netatmo Welcome](https://www.netatmo.com) camera. This component allows you to view the current photo created by the Camera.
 
-To enable the Netatmo camera, add the following lines to your `configuration.yaml`:
+To enable the Netatmo camera, you first have to set up [netatmo](/components/netatmo/), and add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,8 +29,8 @@ camera:
 
 Configuration variables:
 
-- **home** (*Optionnal*): Will display the cameras of this home only.
-- **cameras** array (*Optionnal*): Cameras to use. Multiple enties allowed.
+- **home** (*Optional*): Will display the cameras of this home only.
+- **cameras** array (*Optional*): Cameras to use. Multiple enties allowed.
     - **camera_name**: Name of the camera to display.
 
 If **home** and **cameras** is not provided, all cameras will be displayed.

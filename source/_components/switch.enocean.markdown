@@ -15,18 +15,17 @@ ha_release: 0.21
 An EnOcean switch can take many forms. Currently only one type has been tested: Permundo PSC234
 
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](../enocean) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 switch:
-  - name: Television
-    platform: enocean
+  - platform: enocean
+    name: Front door
     id: [0x01,0x90,0x84,0x3C]
 ```
 
 Configuration variables:
 
 - **id** (*Required*): The ID of the device. This is a 4 bytes long number.
-- **platform** (*Required*): Set to `enocean`.
-- **name** (*Required*): An identifier for the switch
+- **name** (*Optional*): An identifier for the switch. Default to `EnOcean Switch`.
