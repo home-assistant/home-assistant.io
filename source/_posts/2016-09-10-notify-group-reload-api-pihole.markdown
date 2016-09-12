@@ -87,6 +87,13 @@ Stay tuned for more details.
 - Modbus: New `write_registers` [Modbus] service ([@persandstrom])
 - Device tracker: Fix TP-Link Archer C7 long passwords ([@snikch])
 
+### {% linkable_title Hotfix 0.28.1 - September 12 %}
+
+- Fix: Simplisafe alarm control panels accept any string for code ([@tchellomello])
+- Fix: Z-Wave would sometimes not detect all thermostats ([@turbokongen])
+- Fix: Automatic device tracker when 2 or more cars are tracked ([@teagan42])
+- Fix: Group ordering is now based on config again ([@balloob], [@kellerza])
+
 ### {% linkable_title Breaking changes %}
 
 - [OpenweatherMap] entity IDs are now like `sensor.owm_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.
