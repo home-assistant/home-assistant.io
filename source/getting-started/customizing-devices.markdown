@@ -33,6 +33,15 @@ homeassistant:
       icon: mdi:kettle
     switch.rfxtrx_switch:
       assumed_state: false
+    # Order groups or entities using order: with a number
+    group.default_view:
+      order: '1'
+    group.switches:
+      order: '2'
+    light.kitchen:
+      order: '1'
+    light.bedroom:
+      order: '2'
 ```
 
 ### {% linkable_title Possible values %}
