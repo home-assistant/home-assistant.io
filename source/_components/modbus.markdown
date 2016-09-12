@@ -20,7 +20,7 @@ To add modbus to your installation, add the following to your `configuration.yam
 For a network connection:
 
 ```yaml
-#Modbus TCP
+# Example configuration.yaml entry for a TCP connection
 modbus:
   type: tcp
   host: IP_ADDRESS
@@ -31,12 +31,12 @@ Configuration variables:
 
 - **type** (*Required*): Type of the connection to Modbus.
 - **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
-- **port** (*Required*): The port for the comminication.
+- **port** (*Required*): The port for the communication.
 
 For a serial connection:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for a serial connection
 modbus:
   type: serial
   method: rtu
