@@ -23,6 +23,7 @@ To use your KNX thermostats in your installation, add the following to your `con
 climate:
   - platform: knx
     name: KNX Thermostat
+    address : KNX_ADDRESS
     temperature_address: 0/1/1
     setpoint_address: 0/1/0
 ```
