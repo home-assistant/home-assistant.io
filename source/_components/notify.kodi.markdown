@@ -50,7 +50,7 @@ kodi_notification:
         displaytime: 20000
         icon: "warning"
 ```
-####message variables:
+#### message variables:
 - **title** (*Optional*): Title that is displayed on the message.
 - **message** (*Required*): Message to be displayed.
 - **data** (*Optional*)
