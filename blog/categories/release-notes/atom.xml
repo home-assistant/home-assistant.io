@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-11T20:38:53+00:00</updated>
+  <updated>2016-09-12T05:48:21+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -94,6 +94,13 @@ Stay tuned for more details.
 - Sensor: Support for getting stats from Pi-Hole systems ([@fabaff])
 - Modbus: New `write_registers` [Modbus] service ([@persandstrom])
 - Device tracker: Fix TP-Link Archer C7 long passwords ([@snikch])
+
+### <a class='title-link' name='hotfix-0281---september-12' href='#hotfix-0281---september-12'></a> Hotfix 0.28.1 - September 12 
+
+- Fix: Simplisafe alarm control panels accept any string for code ([@tchellomello])
+- Fix: Z-Wave would sometimes not detect all thermostats ([@turbokongen])
+- Fix: Automatic device tracker when 2 or more cars are tracked ([@teagan42])
+- Fix: Group ordering is now based on config again ([@balloob], [@kellerza])
 
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 

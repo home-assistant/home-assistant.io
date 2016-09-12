@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-11T20:38:53+00:00</updated>
+  <updated>2016-09-12T05:48:21+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -95,6 +95,15 @@
   <li>Sensor: Support for getting stats from Pi-Hole systems (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Modbus: New <code class="highlighter-rouge">write_registers</code> <a href="https://home-assistant.io/components/modbus/">Modbus</a> service (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
   <li>Device tracker: Fix TP-Link Archer C7 long passwords (<a href="https://github.com/snikch">@snikch</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0281---september-12" href="#hotfix-0281---september-12"></a> Hotfix 0.28.1 - September 12</h3>
+
+<ul>
+  <li>Fix: Simplisafe alarm control panels accept any string for code (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Fix: Z-Wave would sometimes not detect all thermostats (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Fix: Automatic device tracker when 2 or more cars are tracked (<a href="https://github.com/Teagan42">@teagan42</a>)</li>
+  <li>Fix: Group ordering is now based on config again (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
