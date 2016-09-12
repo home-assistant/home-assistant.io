@@ -16,14 +16,15 @@ Conditions can be used within a script or automation to prevent further executio
 Test multiple conditions in 1 condition statement. Passes if all embedded conditions are valid.
 
 ```yaml
-condition: and
-conditions:
-  - condition: state
-    entity_id: 'device_tracker.paulus'
-    state: 'home'
-  - condition: numeric_state
-    entity_id: 'sensor.temperature'
-    below: '20'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: 'device_tracker.paulus'
+      state: 'home'
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      below: '20'
 ```
 
 ### {% linkable_title OR condition %}
@@ -31,14 +32,15 @@ conditions:
 Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.
 
 ```yaml
-condition: or
-conditions:
-  - condition: state
-    entity_id: 'device_tracker.paulus'
-    state: 'home'
-  - condition: numeric_state
-    entity_id: 'sensor.temperature'
-    below: '20'
+condition:
+  condition: or
+  conditions:
+    - condition: state
+      entity_id: 'device_tracker.paulus'
+      state: 'home'
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      below: '20'
 ```
 
 ### {% linkable_title MIXED  AND and OR conditions %}
@@ -47,19 +49,20 @@ Test multiple AND and OR conditions in 1 condition statement. Passes if any embe
 This allows you to mix several AND and OR conditions together.
 
 ```yaml
-condition: and
-conditions:
-  - condition: state
-    entity_id: 'device_tracker.paulus'
-    state: 'home'
-  - condition: or
-    conditions:
+condition:
+  condition: and
+  conditions:
     - condition: state
-      entity_id: sensor.weather_precip
-      state: 'rain'
-    - condition: numeric_state
-      entity_id: 'sensor.temperature'
-      below: '20'
+      entity_id: 'device_tracker.paulus'
+      state: 'home'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: sensor.weather_precip
+        state: 'rain'
+      - condition: numeric_state
+        entity_id: 'sensor.temperature'
+        below: '20'
 ```
 
 ### {% linkable_title Numeric state condition %}
