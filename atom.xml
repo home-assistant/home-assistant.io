@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-12T10:03:36+00:00</updated>
+  <updated>2016-09-12T15:25:07+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -39,22 +39,6 @@
 
 <h3><a class="title-link" name="configuration-validation" href="#configuration-validation"></a> Configuration validation</h3>
 <p>The validation of the configuration is still on-going. Approximatly 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/Teagan42">@Teagan42</a>, and <a href="https://github.com/pvizeli">@pvizeli</a> for your effort!</p>
-
-<h3><a class="title-link" name="templating" href="#templating"></a> Templating</h3>
-<p><code class="highlighter-rouge">data_template</code> needs to be present in all notify templates for the future.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
-  <span class="s">service</span><span class="pi">:</span> <span class="s">notify.telegram</span>
-  <span class="s">data_template</span><span class="pi">:</span>
-    <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Test</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">Home"</span>
-    <span class="s">data</span><span class="pi">:</span>
-      <span class="s">location</span><span class="pi">:</span>
-        <span class="s">latitude</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.device_tracker.phone.attributes.latitude</span><span class="nv"> </span><span class="s">}}"</span>
-        <span class="s">longitude</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.device_tracker.phone.attributes.longitude</span><span class="nv"> </span><span class="s">}}"</span>
-</code></pre>
-</div>
-
-<p>Stay tuned for more details.</p>
 
 <h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-12T10:03:36+00:00</updated>
+  <updated>2016-09-12T15:25:07+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -39,22 +39,6 @@ The [Home Assistant API Documentation](https://dev-docs.home-assistant.io/en/dev
 
 ### <a class='title-link' name='configuration-validation' href='#configuration-validation'></a> Configuration validation 
 The validation of the configuration is still on-going. Approximatly 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to [@kellerza], [@fabaff], [@Teagan42], and [@pvizeli] for your effort!
-
-### <a class='title-link' name='templating' href='#templating'></a> Templating 
-`data_template` needs to be present in all notify templates for the future.
-
-```yaml
-action:
-  service: notify.telegram
-  data_template:
-    message: "Test from your Home"
-    data:
-      location:
-        latitude: "{{ state.device_tracker.phone.attributes.latitude }}"
-        longitude: "{{ state.device_tracker.phone.attributes.longitude }}"
-```
-
-Stay tuned for more details.
 
 ### <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
