@@ -49,6 +49,5 @@ For MySQL you may have to install a few dependencies:
 
 ```bash
 $ sudo apt-get install libmysqlclient-dev
-$ pip3 install mysqlclient
+$ sudo pip3 install mysqlclient
 ```
-
