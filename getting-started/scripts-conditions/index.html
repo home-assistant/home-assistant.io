@@ -95,14 +95,15 @@
 
 <p>Test multiple conditions in 1 condition statement. Passes if all embedded conditions are valid.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">and</span>
-<span class="s">conditions</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">device_tracker.paulus'</span>
-    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
-  <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sensor.temperature'</span>
-    <span class="s">below</span><span class="pi">:</span> <span class="s1">'</span><span class="s">20'</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
+  <span class="s">condition</span><span class="pi">:</span> <span class="s">and</span>
+  <span class="s">conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">device_tracker.paulus'</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sensor.temperature'</span>
+      <span class="s">below</span><span class="pi">:</span> <span class="s1">'</span><span class="s">20'</span>
 </code></pre>
 </div>
 
@@ -110,14 +111,15 @@
 
 <p>Test multiple conditions in 1 condition statement. Passes if any embedded conditions is valid.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">or</span>
-<span class="s">conditions</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">device_tracker.paulus'</span>
-    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
-  <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sensor.temperature'</span>
-    <span class="s">below</span><span class="pi">:</span> <span class="s1">'</span><span class="s">20'</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
+  <span class="s">condition</span><span class="pi">:</span> <span class="s">or</span>
+  <span class="s">conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">device_tracker.paulus'</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sensor.temperature'</span>
+      <span class="s">below</span><span class="pi">:</span> <span class="s1">'</span><span class="s">20'</span>
 </code></pre>
 </div>
 
@@ -126,19 +128,20 @@
 <p>Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.
 This allows you to mix several AND and OR conditions together.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">and</span>
-<span class="s">conditions</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">device_tracker.paulus'</span>
-    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
-  <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">or</span>
-    <span class="s">conditions</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
+  <span class="s">condition</span><span class="pi">:</span> <span class="s">and</span>
+  <span class="s">conditions</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.weather_precip</span>
-      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">rain'</span>
-    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sensor.temperature'</span>
-      <span class="s">below</span><span class="pi">:</span> <span class="s1">'</span><span class="s">20'</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">device_tracker.paulus'</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">or</span>
+      <span class="s">conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.weather_precip</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">rain'</span>
+      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sensor.temperature'</span>
+        <span class="s">below</span><span class="pi">:</span> <span class="s1">'</span><span class="s">20'</span>
 </code></pre>
 </div>
 
