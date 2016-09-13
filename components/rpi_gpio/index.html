@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>KNX Thermostat - Home Assistant</title>
+    <title>Raspberry PI GPIO - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions on how to integrate KXN thermostats with Home Assistant.">
+    <meta name="description" content="Instructions how to integrate the GPIO capability of a Raspberry PI into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/climate.knx/">
+    <link rel="canonical" href="https://home-assistant.io/components/rpi_gpio/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="KNX Thermostat">
+    <meta property="og:title" content="Raspberry PI GPIO">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/climate.knx/">
+    <meta property="og:url" content="https://home-assistant.io/components/rpi_gpio/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions on how to integrate KXN thermostats with Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate the GPIO capability of a Raspberry PI into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="KNX Thermostat">
-    <meta name="twitter:description" content="Instructions on how to integrate KXN thermostats with Home Assistant.">
+    <meta name="twitter:title" content="Raspberry PI GPIO">
+    <meta name="twitter:description" content="Instructions how to integrate the GPIO capability of a Raspberry PI into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,35 +83,14 @@
   
   <header>
     <h1 class="title indent">
-      KNX Thermostat
+      Raspberry PI GPIO
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">knx</code> climate platform is used as in interface with KNX thermostats.</p>
+  <p>The <code class="highlighter-rouge">rpi_gpio</code> component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding pages.</p>
 
-<p>KNX thermostats use at least 2 group addresses: one for the current temperature and one for the target temperature (named set-point in KNX terms).</p>
-
-<p>To use your KNX thermostats in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">climate</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">KNX Thermostat</span>
-    <span class="s">address</span> <span class="pi">:</span> <span class="s">KNX_ADDRESS</span>
-    <span class="s">temperature_address</span><span class="pi">:</span> <span class="s">0/1/1</span>
-    <span class="s">setpoint_address</span><span class="pi">:</span> <span class="s">0/1/0</span>
-</code></pre>
-</div>
-
-<ul>
-  <li><strong>name</strong> (<em>Optional</em>): A name for this devices used within Home assistant</li>
-  <li><strong>address</strong> (<em>Required</em>): The KNX group address that is used to turn on/off this actuator channel</li>
-  <li><strong>temperature_address</strong> (<em>Required</em>): The group address that is used to communicate the current temperature. Data format must be datapoint type 9.001 DPT_Value_Temp (2-Octet float value), check <a href="http://www.knx.org/fileadmin/template/documents/downloads_support_menu/KNX_tutor_seminar_page/Advanced_documentation/05_Interworking_E1209.pdf">details</a>.</li>
-  <li><strong>setpoint_address</strong> (<em>Required</em>): The group address that is used to set/read the target temperature. Data format must be datapoint type 9.001 DPT_Value_Temp (2-Octet float value). Make sure, you set the read-flag for the thermostat to allow Home Assistant to read the target temperature.</li>
-</ul>
-
-<p>With the current version of the module, no advanced KNX thermostat functionalities (e.g. HVAC mode) are supported.</p>
 
 
 </article>
@@ -125,31 +104,27 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/climate.knx.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/rpi_gpio.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/knx.png' />
+      <img src='/images/supported_brands/raspberry-pi.png' />
   </div>
     <div class='section'>
-    Introduced in release: 0.25
-    </div>
-    <div class='section'>
-      This is a platform for
-      <a href='/components/climate/'>the Climate component</a>.
+    Introduced in release: pre 0.7
     </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
-        <li><a href='/components/knx/'>
-          KNX
+        <li><a href='/components/binary_sensor.rpi_gpio/'>
+          Raspberry PI GPIO Binary Sensor
         </a></li>
-        <li><a href='/components/binary_sensor.knx/'>
-          KNX Binary Sensor
+        <li><a href='/components/switch.rpi_gpio/'>
+          Raspberry PI GPIO Switch
         </a></li>
-        <li><a href='/components/switch.knx/'>
-          KNX Switch
+        <li><a href='/components/cover.rpi_gpio/'>
+          Raspberry Pi Cover
         </a></li>
-        <li><a href='/components/thermostat.knx/'>
-          KNX Thermostat
+        <li><a href='/components/garage_door.rpi_gpio/'>
+          Raspberry Pi Garage door
         </a></li>
     </ul>
     </div>
@@ -175,13 +150,13 @@
             <a href='/components/switch.knx/'>KNX Switch</a>
         </li>
         <li>
-            KNX Thermostat
+            <a href='/components/climate.knx/'>KNX Thermostat</a>
         </li>
         <li>
             <a href='/components/sensor.serial_pm/'>Particulate matter Sensor</a>
         </li>
         <li>
-            <a href='/components/rpi_gpio/'>Raspberry PI GPIO</a>
+            Raspberry PI GPIO
         </li>
         <li>
             <a href='/components/zigbee/'>ZigBee</a>

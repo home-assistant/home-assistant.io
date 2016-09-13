@@ -95,7 +95,7 @@
 
 <p>For a network connection:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">#Modbus TCP</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for a TCP connection</span>
 <span class="s">modbus</span><span class="pi">:</span>
   <span class="s">type</span><span class="pi">:</span> <span class="s">tcp</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
@@ -108,12 +108,12 @@
 <ul>
   <li><strong>type</strong> (<em>Required</em>): Type of the connection to Modbus.</li>
   <li><strong>host</strong> (<em>Required</em>): The IP address of your router, eg. 192.168.1.1.</li>
-  <li><strong>port</strong> (<em>Required</em>): The port for the comminication.</li>
+  <li><strong>port</strong> (<em>Required</em>): The port for the communication.</li>
 </ul>
 
 <p>For a serial connection:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for a serial connection</span>
 <span class="s">modbus</span><span class="pi">:</span>
   <span class="s">type</span><span class="pi">:</span> <span class="s">serial</span>
   <span class="s">method</span><span class="pi">:</span> <span class="s">rtu</span>
