@@ -21,7 +21,7 @@ To add Simplepush to your installation, add the following to your `configuration
 notify:
   - name: NOTIFIER_NAME
     platform: simplepush
-    device_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    device_key: ABCDE
 ```
 
 Configuration variables:
