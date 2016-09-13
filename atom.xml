@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-12T15:49:26+00:00</updated>
+  <updated>2016-09-13T04:34:59+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -88,6 +88,17 @@
   <li>Fix: Z-Wave would sometimes not detect all thermostats (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
   <li>Fix: Automatic device tracker when 2 or more cars are tracked (<a href="https://github.com/Teagan42">@teagan42</a>)</li>
   <li>Fix: Group ordering is now based on config again (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0282---september-13" href="#hotfix-0282---september-13"></a> Hotfix 0.28.2 - September 13</h3>
+
+<ul>
+  <li>Light - pilight: Fix send RF code (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
+  <li>Recorder: Fix specifying SQLite (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Wink: Fix garage door detection (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Climate - Ecobee: Fix inverted high and low temperatures (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Allow changing covers using scenes (<a href="https://github.com/nvella">@nvella</a>)</li>
+  <li>Device tracker - Automatic: Fix polling (<a href="https://github.com/Teagan42">@teagan42</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
