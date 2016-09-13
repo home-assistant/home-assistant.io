@@ -78,6 +78,15 @@ The validation of the configuration is still on-going. Approximatly 80 % is done
 - Fix: Automatic device tracker when 2 or more cars are tracked ([@teagan42])
 - Fix: Group ordering is now based on config again ([@balloob], [@kellerza])
 
+### {% linkable_title Hotfix 0.28.2 - September 13 %}
+
+- Light - pilight: Fix send RF code ([@DavidLP])
+- Recorder: Fix specifying SQLite ([@pvizeli])
+- Wink: Fix garage door detection ([@turbokongen])
+- Climate - Ecobee: Fix inverted high and low temperatures ([@turbokongen])
+- Allow changing covers using scenes ([@nvella])
+- Device tracker - Automatic: Fix polling ([@teagan42])
+
 ### {% linkable_title Breaking changes %}
 
 - [OpenweatherMap] entity IDs are now like `sensor.owm_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.
@@ -93,6 +102,8 @@ The validation of the configuration is still on-going. Approximatly 80 % is done
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant).
 
 
+[@DavidLP]: https://github.com/DavidLP
+[@nvella]: https://github.com/nvella
 [@Ardetus]: https://github.com/Ardetus
 [@arsaboo]: https://github.com/arsaboo
 [@auchter]: https://github.com/auchter
