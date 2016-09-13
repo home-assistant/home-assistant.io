@@ -106,8 +106,8 @@
 </span>  <span class="o">&lt;</span><span class="sr">/template</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/dom-module</span><span class="err">&gt;
 </span>
-<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span><span class="nx">Polymer</span><span class="p">({</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="nx">Polymer</span><span class="p">({</span>
   <span class="na">is</span><span class="p">:</span> <span class="s1">'ha-panel-hello'</span><span class="p">,</span>
   <span class="na">properties</span><span class="p">:</span> <span class="p">{</span>
     <span class="c1">// Home Assistant object</span>
@@ -146,11 +146,10 @@
 <p>Create an entry for the new panel in your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">panel_custom</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">hello_world</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">hello</span>
     <span class="s">sidebar_title</span><span class="pi">:</span> <span class="s">Hello World</span>
     <span class="s">sidebar_icon</span><span class="pi">:</span> <span class="s">mdi:hand-pointing-right</span>
-    <span class="s">url_path</span><span class="pi">:</span> <span class="s">hello_world</span>
-    <span class="s">webcomponent_path</span><span class="pi">:</span> <span class="s">&lt;config dir&gt;/panels/hello.html</span>
+    <span class="s">url_path</span><span class="pi">:</span> <span class="s">hello</span>
 </code></pre>
 </div>
 
