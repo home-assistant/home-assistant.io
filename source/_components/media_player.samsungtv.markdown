@@ -57,3 +57,4 @@ There's currently a [known issue](https://github.com/home-assistant/home-assista
 Currently tested but not working models:
 
 - KU6300 - Shows in GUI but unable to control.
+- UE75H6400 - Shows in GUI but unable to control.
