@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ---
 
 
-The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) switches.
+The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils.
 
 To use your Modbus switches in your installation, add the following to your `configuration.yaml` file:
 
@@ -22,30 +22,18 @@ To use your Modbus switches in your installation, add the following to your `con
 switch:
   platform: modbus
   slave: 1
-  registers:
-    24:
-      bits:
-        0:
-          name: My switch
-        2:
-          name: My other switch
   coils:
-    0:
-      name: My coil switch
+    - name: Switch1
+      slave: 1
+      coil: 13
+    - name: Switch2
+      slave: 2
+      coil: 14
 ```
 
 Configuration variables:
 
-- **slave** (*Required*): The number of the slave (ignored and can be omitted if not serial Modbus).
-- **registers** array (*Required*): The array contains a list of relevant registers to read from.
-  - **number of register** (*Required*): Listing relevant bits. It must contain a `bits` section.
-    - **bits** array (*Required*): Listing relevant bits. It must contain a `bits` section.
-      - **name** (*Required*): Name of the switch.
 - **coils** (*Optional*): A list of relevant coils to read from/write to
-  - **number of coil** array (*Required*): 
-    - **name** (*Required*): Name of the coil.
-
-<p class='note warning'>
-Each named bit will create a switch.
-</p>
-
+  - **slave** (*Required*): The number of the slave (can be omitted for tcp and udp Modbus).
+  - **name** (*Required*): Name of the sensor
+  - **coil** (*Required*): Coil number
