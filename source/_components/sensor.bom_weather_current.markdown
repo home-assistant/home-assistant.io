@@ -10,7 +10,7 @@ footer: true
 logo: bom.png
 ha_category: Weather
 featured: false
-ha_release: 0.19
+ha_release: 0.29
 ---
 
 The `bom_weather_current` platform allows you to get the current weather conditions from the Bureau of Meteorology (BOM) Australia.
