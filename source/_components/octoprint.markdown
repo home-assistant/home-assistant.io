@@ -26,7 +26,7 @@ octoprint:
 
 Configuration variables:
 
-- **host** (*Required*): The octoprint host.
+- **host** (*Required*): IP address or hostname of Octoprint host.
 - **api_key** (*Required*): The retrieved api key.
 
 
