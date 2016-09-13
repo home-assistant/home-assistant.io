@@ -28,5 +28,5 @@ knx:
   port: PORT
 ```
 
-- **host** (*Required*): The IP address of the KNX/IP interface to use. You can use "0.0.0.0" if your KNX/IP gateway supports discovery.
+- **host** (*Optional*): The IP address of the KNX/IP interface to use. It defaults to `0.0.0.0` which will start discovery for your KNX/IP gateway.
 - **port** (*Optional*): The UDP port number. Defaults to `3671`.
