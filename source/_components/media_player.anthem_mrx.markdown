@@ -10,7 +10,7 @@ footer: true
 logo: anthemav.png
 ha_category: Media Player
 featured: false
-ha_release: 0.19
+ha_release: 0.29
 ---
 
 The `anthem_mrx` platform allows you to control Anthem MRXx00 Receivers. MRXx00 receivers do not have direct IP control so therefore will require a IP to Serial converter.
@@ -43,7 +43,7 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): The IP of the IP to Serial device,  eg. `192.168.2.200`
+- **host** (*Required*): The IP or hostname of the IP to Serial device,  eg. `192.168.2.200`
 - **port** (*Required*): The Port of the IP to Serial device,  eg. `4999`
 - **name** (*Optional*): The name you would like to give to the receiver.
 - **mrxzone** (*Optional*): The zone of the receiver. Defaults to zone 1.
