@@ -23,6 +23,7 @@ automation:
     event_data:
       mood: happy
 ```
+For example, to carry out actions when Home Assistant starts, you can use `event_type: homeassistant_start`. 
 
 ### {% linkable_title MQTT trigger %}
 Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.
