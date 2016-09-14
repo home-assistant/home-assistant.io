@@ -20,7 +20,7 @@ nest:
   username: USERNAME
   password: PASSWORD
 
-thermostat:
+climate:
   platform: nest
 ```
 
@@ -31,7 +31,7 @@ nest:
   password: PASSWORD
   structure: Vacation
 
-thermostat:
+climate:
   platform: nest
 ```
 
@@ -44,7 +44,7 @@ nest:
     - Vacation
     - Primary
 
-thermostat:
+climate:
   platform: nest
 ```
 
