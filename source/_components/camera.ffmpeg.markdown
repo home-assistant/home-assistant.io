@@ -23,7 +23,6 @@ camera:
   - platform: ffmpeg
     input: FFMPEG_SUPPORTED_INPUT
     name: FFmpeg
-    ffmpeg_bin: /usr/bin/ffmpeg
     extra_arguments: -q:v 2
 ```
 
