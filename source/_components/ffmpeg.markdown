@@ -13,7 +13,7 @@ featured: true
 ---
 
 <p class='note'>
-You need a `ffmpeg` binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need tobuild from source by yourself. Windows binary are avilable on the [FFmpeg](http://www.ffmpeg.org/) website.
+You need a `ffmpeg` binary in your system path. On Debain 8 or Raspbian (Jessie) you can install it from backports. If you want Hardware support on a Raspberry Pi you need to build from source by yourself. Windows binary are avilable on the [FFmpeg](http://www.ffmpeg.org/) website.
 </p>
 
 To set it up, add the following information to your `configuration.yaml` file:
