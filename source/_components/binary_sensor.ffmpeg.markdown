@@ -16,10 +16,6 @@ ha_iot_class: "Local Polling"
 
 The `ffmpeg` platform allows you to use every video or audio feed with [FFmpeg](http://www.ffmpeg.org/) for various sensors in Home Assistant. Available are: **noise**, **motion**. If the `ffmpeg` process is broken, the sensor will be unavailable.   To restart the instance, use the service *binary_sensor.ffmpeg_restart*.
 
-<p class='note'>
-You need the `ffmpeg` binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need to build it from source. Windows binary are avilable on [FFmpeg](http://www.ffmpeg.org/) homepage.
-</p>
-
 ### {% linkable_title Noise %}
 
 To enable your FFmpeg with noise detection in your installation, add the following to your `configuration.yaml` file:
