@@ -27,7 +27,6 @@ camera:
     tool: noise
     input: FFMPEG_SUPPORTED_INPUT
     name: FFmpeg Noise
-    ffmpeg_bin: /usr/bin/ffmpeg
     peak: -30
     duration: 1
     reset: 20
@@ -64,7 +63,6 @@ camera:
     tool: motion
     input: FFMPEG_SUPPORTED_INPUT
     name: FFmpeg Motion
-    ffmpeg_bin: /usr/bin/ffmpeg
     changes: 10
     reset: 20
     # group feature / default not in use
