@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: mysensors.png
-ha_category: Light
+ha_category: Climate
 featured: false
 ha_release: 0.28+
 ---
@@ -21,7 +21,7 @@ The following actuator types are supported:
 
 S_TYPE      | V_TYPE
 ------------|-------------
-S_HVAC      | [V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COLD, V_HVAC_FLOW_STATE, V_HVAC_FLOW_MODE, V_HVAC_SPEED]
+S_HVAC      | [V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_FLOW_STATE, V_HVAC_FLOW_MODE, V_HVAC_SPEED]
 
 For more information, visit the [serial api] of MySensors.
 
@@ -32,71 +32,69 @@ For more information, visit the [serial api] of MySensors.
  * Documentation: http://www.mysensors.org
  * Support Forum: http://forum.mysensors.org
  *
- * http://www.mysensors.org/build/dimmer
  */
 
 #include <MySensor.h>
-#include <SPI.h>
+...
+...
+...
 
-#define SN "DimmableRGBLED"
-#define SV "1.0"
-#define CHILD_ID 1
-#define LED_PIN 5
-
-MySensor gw;
-
-char rgb[7] = "ffffff"; // RGB value.
-int currentLevel = 0;  // Current dimmer level.
-MyMessage dimmerMsg(CHILD_ID, V_PERCENTAGE);
-MyMessage lightMsg(CHILD_ID, V_STATUS);
-MyMessage rgbMsg(CHILD_ID, V_RGB);
-
+#define CHILD_ID_HVAC  0  // childId
+MyMessage msgHVACSetPointC(CHILD_ID_HVAC, V_HVAC_SETPOINT_COOL);
+MyMessage msgHVACSetPointH(CHILD_ID_HVAC, V_HVAC_SETPOINT_COOL);
+MyMessage msgHVACSpeed(CHILD_ID_HVAC, V_HVAC_SPEED);
+MyMessage msgHVACFlowState(CHILD_ID_HVAC, V_HVAC_FLOW_STATE);
+...
+...
+...
 void setup()
 {
-  gw.begin(incomingMessage);
-  gw.sendSketchInfo(SN, SV);
-  gw.present(CHILD_ID, S_RGB_LIGHT);
-  // Send initial values.
-  gw.send(lightMsg.set(currentLevel > 0 ? 1 : 0));
-  gw.send(dimmerMsg.set(currentLevel));
-  gw.send(rgbMsg.set(rgb));
-}
 
-void loop()
-{
-  gw.process();
+        // Startup and initialize MySensors library. Set callback for incoming messages.
+        gw.begin(incomingMessage);
+
+        // Send the sketch version information to the gateway and Controller
+        gw.sendSketchInfo("HVAC", "0.1");
+
+        gw.present(CHILD_ID_HVAC, S_HVAC, "Thermostat");
+        gw.send(msgHVACFlowState.set("Off"));
+        gw.send(msgHVACSetPointC.set(target_temp));
+        gw.send(msgHVACSetPointH.set(target_temp));
+        gw.send(msgHVACSpeed.set("Max"));
 }
 
 void incomingMessage(const MyMessage &message) {
-  if (message.type == V_RGB) {
-    // Retrieve the RGB value from the incoming message.
-    // RGB LED not implemented, just a dummy print.
-    String hexstring = message.getString();
-    hexstring.toCharArray(rgb, sizeof(rgb));
-    Serial.print("Changing color to ");
-    Serial.println(rgb);
-    gw.send(rgbMsg.set(rgb));
-  }
+        String recvData = message.data;
+        recvData.trim();
+        switch (message.type) {
+        case V_HVAC_SPEED:
+                if(recvData.equalsIgnoreCase("auto")) fan_speed = 0;
+                else if(recvData.equalsIgnoreCase("min")) fan_speed = 1;
+                else if(recvData.equalsIgnoreCase("normal")) fan_speed = 2;
+                else if(recvData.equalsIgnoreCase("max")) fan_speed = 3;
+                processHVAC();
+                break;
+        case V_HVAC_SETPOINT_COOL:
+        case V_HVAC_SETPOINT_HEAT:
+                target_temp = message.getFloat();
+                processHVAC();
+                break;
+        case V_HVAC_FLOW_STATE:
+                if(recvData.equalsIgnoreCase("coolon") && (!Present_Power_On )){
+                  togglePower();
+                }
+                else if(recvData.equalsIgnoreCase("off") && Present_Power_On ){
+                  togglePower();
+                }
+                break;
+        }
+}
 
-  if (message.type == V_STATUS || message.type == V_PERCENTAGE) {
-    // Retrieve the light status or dimmer level from the incoming message.
-    int requestedLevel = atoi(message.data);
+void loop() {
 
-    // Adjust incoming level if this is a V_LIGHT update [0 == off, 1 == on].
-    requestedLevel *= (message.type == V_STATUS ? 100 : 1);
+        // Process incoming messages (like config from server)
+        gw.process();
 
-    // Clip incoming level to valid range of 0 to 100
-    requestedLevel = requestedLevel > 100 ? 100 : requestedLevel;
-    requestedLevel = requestedLevel < 0   ? 0   : requestedLevel;
-
-    // Change level value of LED pin.
-    analogWrite(LED_PIN, (int)(requestedLevel / 100. * 255));
-    currentLevel = requestedLevel;
-
-    // Update the gateway with the current V_STATUS and V_PERCENTAGE.
-    gw.send(lightMsg.set(currentLevel > 0 ? 1 : 0));
-    gw.send(dimmerMsg.set(currentLevel));
-    }
 }
 ```
 
