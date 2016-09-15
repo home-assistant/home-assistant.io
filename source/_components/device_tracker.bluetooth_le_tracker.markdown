@@ -37,7 +37,7 @@ For running Home Assistant as non root user we can give python3 the missing capa
 sudo apt-get install libcap2-bin
 sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
 ```
-A restard of Home Assistant is required.
+A restart of Home Assistant is required.
 
 
 For additional configuration variables check the [Device tracker page](/components/device_tracker/).
