@@ -16,10 +16,6 @@ ha_iot_class: "Local Polling"
 
 The `ffmpeg` platform allows you to use every video or audio feed with [FFmpeg](http://www.ffmpeg.org/) for various sensors in Home Assistant. Available are: **noise**, **motion**. If the `ffmpeg` process is broken, the sensor will be unavailable.   To restart the instance, use the service *binary_sensor.ffmpeg_restart*.
 
-<p class='note'>
-You need the `ffmpeg` binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need to build it from source. Windows binary are avilable on [FFmpeg](http://www.ffmpeg.org/) homepage.
-</p>
-
 ### {% linkable_title Noise %}
 
 To enable your FFmpeg with noise detection in your installation, add the following to your `configuration.yaml` file:
@@ -31,7 +27,6 @@ camera:
     tool: noise
     input: FFMPEG_SUPPORTED_INPUT
     name: FFmpeg Noise
-    ffmpeg_bin: /usr/bin/ffmpeg
     peak: -30
     duration: 1
     reset: 20
@@ -68,7 +63,6 @@ camera:
     tool: motion
     input: FFMPEG_SUPPORTED_INPUT
     name: FFmpeg Motion
-    ffmpeg_bin: /usr/bin/ffmpeg
     changes: 10
     reset: 20
     # group feature / default not in use
@@ -95,4 +89,4 @@ For playing with values (changes/100 is the scene value on ffmpeg):
 $ ffmpeg -i YOUR_INPUT -an -filter:v select=gt(scene\,0.1) -f framemd5 -
 ```
 
-If you are running into trouble with this sensor, please refer to this [Troubleshooting section](/components/camera.ffmpeg/#troubleshooting).
+If you are running into trouble with this sensor, please refer to this [Troubleshooting section](/components/ffmpeg/#troubleshooting).
