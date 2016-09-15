@@ -32,4 +32,12 @@ Some BTLE devices (e.g. fitness trackers) are only visible to the devices that t
 
 BTLE tracking requires root privileges.
 
+For running Home Assistant as non root user we can give python3 the missing capabilities to access the bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
+```bash
+sudo apt-get install libcap2-bin
+sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
+```
+A restard of Home Assistant is required.
+
+
 For additional configuration variables check the [Device tracker page](/components/device_tracker/).
