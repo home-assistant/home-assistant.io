@@ -58,7 +58,7 @@ to the start function of /etc/init.d/hass-daemon.
 # Example configuration.yaml entry
 climate:
   platform: eq3btsmart
-    devices:
-      room1:
-        mac: '00:11:22:33:44:55'
+  devices:
+    room1:
+      mac: '00:11:22:33:44:55'
 ```
