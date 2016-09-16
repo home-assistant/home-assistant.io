@@ -56,6 +56,7 @@ To upgrade the All-In-One setup manually:
 *  Change to hass user `sudo su -s /bin/bash hass`
 *  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
 *  Update HA `pip3 install --upgrade homeassistant`
+*  Type `exit` to get out of hass user and change to normal user.
   
 To upgrade with fabric:
 
@@ -67,7 +68,6 @@ After upgrading, you can restart Home Assistant a few different ways:
 
 * Restarting the Raspberry Pi `sudo reboot`
 * Restarting the Home-Assistant Service `sudo systemctl restart home-assistant.service`
-
 
 ### {% linkable_title Using the OZWCP web application %}
 
