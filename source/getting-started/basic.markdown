@@ -19,7 +19,7 @@ homeassistant:
   latitude: 32.87336
   longitude: 117.22743
 
-  # Impacts weather/sunrise data (altitude above sea level) 
+  # Impacts weather/sunrise data (altitude above sea level in meters) 
   elevation: 430
 
   # 'metric' for Metric, 'imperial' for Imperial
