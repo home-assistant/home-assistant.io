@@ -35,7 +35,7 @@ Configuration variables:
 
 ### {% linkable_title Implementation Details %}
 
-The suns event listener will call the service when the sun rises or sets with an offset.
+The sun's event listener will call the service when the sun rises or sets with an offset.
 
 The sun event need to have the type 'sun', which service to call, which event (sunset or sunrise) and the offset.
 
@@ -62,3 +62,4 @@ The sun event need to have the type 'sun', which service to call, which event (s
 | `next_rising` | Date and time of the next sun rising (in UTC).
 | `next_setting` | Date and time of the next sun setting (in UTC).
 | `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
+| `azimuth` | Solar azimuth. The angle is shown clockwise from north.

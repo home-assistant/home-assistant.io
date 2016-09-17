@@ -8,10 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Rollershutter
+ha_category: Deprecated
 ha_release: 0.9
+ha_iot_class: depends
 ---
 
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[cover](/components/cover.mqtt/)" platform and will be removed in the future. Please use the cover platform.**
+</p>
 
 The `mqtt` rollershutter platform enables the possibility to control an MQTT rollershutter. The device state will be updated only after receiving the a new state from `state_topic`. If these messages are published with RETAIN flag, the MQTT device will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state will be `unknown`.
 

@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: influxdb.png
 ha_category: "History"
-featured: true
 ha_release: 0.9
 ---
 
@@ -30,6 +29,11 @@ influxdb:
   blacklist:
      - entity.id1
      - entity.id2
+  whitelist:
+     - entity.id3
+     - entity.id4
+  tags:
+    - instance: prod
 ```
 
 Configuration variables:
@@ -41,4 +45,7 @@ Configuration variables:
 - **password** (*Optional*): The password for the database user account.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
-- **blacklist** (*Optional*): List of entities not logged to influxdb.
+- **blacklist** (*Optional*): List of entities not logged to InfluxDB.
+- **whitelist** (*Optional*): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the **blacklist** option will prevail.
+- **tags** (*Optional*): Tags to mark the data.
+

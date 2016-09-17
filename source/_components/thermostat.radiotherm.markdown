@@ -8,9 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: radiotherm.png
-ha_category: Thermostat
+ha_category: Deprecated
 ---
 
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[climate](/components/climate.radiotherm/)" platform and will be removed in the future. Please use the climate platform.**
+</p>
 
 The `radiotherm` thermostat platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
 
@@ -34,7 +37,7 @@ thermostat:
 Configuration variables:
 
 - **host** (*Required*): List of your Radiotherm thermostats
-- **hold_temp** (*Required*): Boolean to control if hass temp adjustments hold(True) or are temporary(False)
+- **hold_temp** (*Required*): Boolean to control if Home Assistant temperature adjustments hold (`True`) or are temporary (`False`).
 
 Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to `False` if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.
 

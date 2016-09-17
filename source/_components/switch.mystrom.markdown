@@ -32,7 +32,7 @@ Configuration variables:
 Check if you are able to access the device located at `http://IP_ADRRESS`. The details about your switch is provided as a JSON response.
 
 ```bash
-$ curl -X GET http://IP_ADDRESS/report
+$ curl -X GET -H "Content-Type: application/json" http://IP_ADDRESS/report
 {
 	"power":	0,
 	"relay":	false

@@ -6,7 +6,7 @@
 url: https://home-assistant.io
 title: Home Assistant
 subtitle: Open-source home automation platform running on Python 3
-author: Paulus Schoutsen
+author: Home Assistant
 simple_search: https://www.google.com/search
 description: Home Assistant is an open-source home automation platform running on Python 3.
 
@@ -35,6 +35,8 @@ category_dir: blog/categories
 markdown: kramdown
 timezone: UTC
 
+# highlighter: coderay
+
 kramdown:
   input: GFM
   auto_ids:       false
@@ -43,15 +45,6 @@ kramdown:
   toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   parse_block_html: true
-  enable_coderay: true
-
-  coderay:
-    coderay_wrap:              div
-    coderay_line_numbers:      nil
-    coderay_line_number_start: 1
-    coderay_tab_width:         4
-    coderay_bold_every:        10
-    coderay_css:               class
 
 highlighter: rouge
 

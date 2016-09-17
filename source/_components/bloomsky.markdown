@@ -9,10 +9,14 @@ sharing: true
 footer: true
 logo: bloomsky.png
 ha_category: Hub
+ha_release: 0.14
+ha_iot_class: "Cloud Polling"
 ---
 
 
-The `bloomsky` component allows you to access your [BloomSky](http://www.insteon.com/) weather station's [sensors](/components/sensor.bloomsky) and [camera](/components/camera.bloomsky) from Home Assistant.
+The `bloomsky` component allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's [sensors](/components/sensor.bloomsky), [binary sensors](/components/binary_sensor.bloomsky), and [camera](/components/camera.bloomsky) from Home Assistant.
+
+Obtain your PI key from your [BloomSky dashboard](https://dashboard.bloomsky.com). Click `developers` in the bottom left of the screen.
 
 To integrate your BloomSky hub with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -24,4 +28,4 @@ bloomsky:
 
 Configuration variables:
 
-- **api_key** *Required*: Your BloomSky API key, obtained from your [BloomSky dashboard](https://dashboard.bloomsky.com) (click `developers` in the bottom left of the screen)
+- **api_key** (*Required*): Your BloomSky API key.

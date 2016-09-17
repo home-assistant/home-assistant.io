@@ -17,6 +17,8 @@ The `instapush` platform uses [Instapush](https://instapush.im) to delivery noti
 
 The Instapush [Getting Started page](https://instapush.im/home/start/) will guide through the process of creating the required items.
 
+To add Instapush to your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 notify:
@@ -33,10 +35,26 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **api_key** (*Required*): Your API key for Instapush.
 - **app_secret** (*Required*): The secret for your created application.
-- **event** (*Required*): TThe event
+- **event** (*Required*): The event
 - **tracker** (*Required*): The name of tracker inside Instapush.
 
-To retrieve those values for existing settings, log into your account at https://instapush.im and go to your **Dashboard**. Then click **APPS** tab, choose an app, and check the **Basic Info** section. The *Application ID* is the ``api_key`` and ``app_secret`` is the *Application Secret*.
+To retrieve the needed values for existing settings, log into your account at [https://instapush.im](https://instapush.im) and go to your **Dashboard**. Then click the **APPS** tab, choose an app, and check the **Basic Info** section. The *Application ID* is the `api_key` and `app_secret` is the *Application Secret*.
+
+Assuming that your setup looks look in the image below...
+
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/instapush.png' />
+</p>
+
+...then your entry for the `configuration.yaml` file needs to be like this sample.
+
+```yaml
+notify:
+  platform: instapush
+  [...]
+  event: msg
+  tracker: state
+```
 
 It's easy to test your Instapush setup outside of Home Assistant. Assuming you have an event *notification* and a tracker *home-assistant*, just fire a request and check the Instapush dashboard for a new entry.
 
@@ -48,6 +66,7 @@ curl -X POST \
       -d '{"event":"notification","trackers":{"home-assistant":"Switch 1"}}' \
     https://api.instapush.im/v1/post
 ```
+
 For further details, please check the [API](https://instapush.im/developer/rest).
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

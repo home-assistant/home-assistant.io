@@ -61,22 +61,22 @@ script:
           entity_id: switch.killhass
   
 automation:
-  - alias: "Restart HA if WeMo switch isn't found after 15 minutes"
+- alias: "Restart HA if WeMo switch isn't found after 15 minutes"
   trigger:
     platform: state
     entity_id: device_tracker.wemo
     from: 'not_home'
     to: 'home'
   condition:
-    - platform: template
+    - condition: template
       value_template: {% raw %}'{% if states.switch.wemo %}false{% else %}true{% endif %}'{% endraw %}
-    - platform: state
+    - condition: state
       entity_id: script.restarthawemo
       state: 'off'
   action:
     service: homeassistant.turn_on
     entity_id: script.restarthawemo
-  - alias: 'Stop HA'
+- alias: 'Stop HA'
   trigger:
     - platform: state
       entity_id: switch.KillHass
@@ -88,7 +88,7 @@ automation:
     platform: template
     value_template: {% raw %}'{% if states.switch.wemo %}true{% else %}false{% endif %}'{% endraw %}
   condition:
-    platform: state
+    condition: state
     entity_id: script.restarthawemo
     state: 'on'
   action:

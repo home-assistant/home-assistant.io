@@ -7,7 +7,7 @@ date_formatted: "December 5, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Community
+categories: Community Video
 og_image: /images/blog/2015-12-community/hass-alexa.png
 ---
 

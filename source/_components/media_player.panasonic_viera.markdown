@@ -18,6 +18,7 @@ The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 Currently known supported models:
 
 - TX-P42STW50
+- TC-P65VT30
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io).
 
@@ -34,7 +35,6 @@ media_player:
 
 Configuration variables:
 
-- **host** *Required*: The IP of the Panasonic Viera TV, e.g. `192.168.0.10`
-- **port** *Optional*: The port of your Panasonic Viera TV. Defaults to `55000`
-- **name** *Optional*: The name you would like to give to the Panasonic Viera TV.
-
+- **host** (*Required*): The IP of the Panasonic Viera TV, e.g. `192.168.0.10`
+- **port** (*Optional*): The port of your Panasonic Viera TV. Defaults to `55000`
+- **name** (*Optional*): The name you would like to give to the Panasonic Viera TV.

@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: "History"
+ha_release: pre 0.7
 ---
 
 
-This component will track everything that is going on within Home Assistant and allows the user to browse through it.
+The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it.
 
 To enable the history option in your installation, add the following to your `configuration.yaml` file:
 

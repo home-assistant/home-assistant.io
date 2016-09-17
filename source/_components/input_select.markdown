@@ -37,7 +37,7 @@ Configuration variables:
 
 - **[alias]** (*Required*): Alias for the input.
 - **name** (*Optional*): Friendly name of the input.
-- **options** array (*Optional*): List of options to choose from
+- **options** array: List of options to choose from
 - **initial** (*Optional*): Initial value when Home Assistant starts.
 - **icon** (*Optional*): Icon for entry.
 

@@ -11,13 +11,32 @@ logo: apcupsd.png
 ha_category: Sensor
 ---
 
-Any of the lines of output from the [apcaccess](http://linux.die.net/man/8/apcaccess) command can be used as a sensor device in Home Assistant. In order to create a sensor for a value, create an entity within a `sensor` section of your configuration. The following parameters may be used:
+The `apcupsd` sensor platform allows you to monitor a UPS (battery backup) by using data from the [apcaccess](http://linux.die.net/man/8/apcaccess) command.
 
-- **name** (*Required*): The name you'd like to give the sensor in Home Assistant.
-- **platform** (*Required*): Set to `apcupsd`.
-- **type** (*Required*): The label for the value you'd like to track based on the output of `apcaccess`. Refer to the examples for ideas.
+To use this sensor platform, you first have to set up [apcupsd](/components/apcupsd/), and add the following to your `configuration.yaml` file:
 
-#### Example
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: apcupsd
+    resources:
+      - bcharge
+      - linev
+      - loadpct
+      - nominv
+      - nompower
+      - numxfers
+      - outputv
+      - status
+      - timeleft
+      - tonbatt
+```
+
+Configuration variables:
+
+- **resources** array (*Required*): Contains all entries to display.
+
+### {% linkable_title Example  %}
 
 Given the following output from `apcaccess`:
 
@@ -76,19 +95,13 @@ FIRMWARE : 70.11.I
 END APC  : 2016-02-09 17:13:46 +0000
 ```
 
-Use the (case insensitive) values from the left hand column as your `type`:
+Use the (case insensitive) values from the left hand column:
 
 ```yaml
 sensor:
-  - name: Mains Voltage
-    platform: apcupsd
-    type: linev
-
-  - name: UPS Load
-    platform: apcupsd
-    type: loadpct
-
-  - name: UPS Temperature
-    platform: apcupsd
-    type: itemp
+  - platform: apcupsd
+    resources:
+      - linev
+      - loadpct
+      - itemp
 ```

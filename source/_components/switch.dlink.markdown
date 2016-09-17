@@ -31,6 +31,7 @@ switch:
   name: D-Link plug
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
+  use_legacy_protocol: False
 ```
 
 Configuration variables:
@@ -39,4 +40,5 @@ Configuration variables:
 - **name** (*Optional*): The name to use when displaying this switch.
 - **username** (*Required*): The username for your plug. Defaults to `admin`.
 - **password** (*Required*): The password for your plug. Default password is the `PIN` inlcuded on the configuration card.
+- **use_legacy_protocol** (*Optional*): Enable limited support for legacy firmware protocols (Tested with v1.24).
 

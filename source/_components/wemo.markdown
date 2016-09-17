@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Belkin WeMo devices"
+title: "Belkin WeMo"
 description: "Instructions how to integrate Belkin WeMo devices into Home Assistant."
 date: 2016-02-20 00:41
 sidebar: true
@@ -10,6 +10,7 @@ footer: true
 logo: belkin_wemo.png
 ha_category: Hub
 featured: true
+ha_release: pre 0.7
 ---
 
 The `wemo` component is the main component to integrate various [Belkin WeMo](http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.

@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: bloomsky.png
 ha_category: Sensor
+ha_release: 0.14
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -28,11 +30,12 @@ sensor:
     - UVIndex
     - Luminance
     - Night
+    - Voltage
 ```
 
 Configuration variables:
 
-- **monitored_conditions** array *Required*: The sensors that you wish to monitor on all of your devices. Select from these options:
+- **monitored_conditions** array (*Required*): The sensors that you wish to monitor on all of your devices. Select from these options:
   - Humidity
   - Luminance
   - Night
@@ -40,3 +43,4 @@ Configuration variables:
   - Rain
   - Temperature
   - UVIndex
+  - Voltage

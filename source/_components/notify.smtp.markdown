@@ -25,7 +25,7 @@ notify:
   server: MAIL_SERVER
   port: YOUR_SMTP_PORT
   sender: SENDER_EMAIL_ADDRESS
-  starttls: 1 or 0
+  starttls: true or false
   username: YOUR_SMTP_USERNAME
   password: YOUR_SMTP_PASSWORD
   recipient: YOUR_RECIPIENT
@@ -38,9 +38,31 @@ Configuration variables:
 - **port** (*Optional*): The port that the SMTP server is using, eg. 587 for Google Mail and STARTTLS or 465/993 depending on your SMTP servers.  Defaults to 25.
 - **sender** (*Optional*): E-mail address of the sender.
 - **username** (*Optional*): Username for the SMTP account.
-- **password** (*Optional*):Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
+- **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
 - **recipient** (*Required*): Recipient of the notification.
-- **starttls** (*Optional*): Enables STARTTLS, eg. 1 or 0. Defaults to 0.
+- **starttls** (*Optional*): Enables STARTTLS, eg. True or False. Defaults to False.
+- **debug** (*Optional*): Enables Debug, eg. True or False. Defaults to False.
+
+To use the SMTP notification, refer to it in an automation or script like in this example:
+
+```yaml
+  burglar: 
+    alias: Burglar Alarm
+    sequence:
+      - service: shell_command.snapshot
+      - delay:
+            seconds: 1
+      - service: notify.NOTIFIER_NAME
+        data:
+            title: 'Intruder alert'
+            message: 'Intruder alert at apartment!!'
+            data:
+                images: 
+                    - /home/pi/snapshot1.jpg
+                    - /home/pi/snapshot2.jpg
+```
+
+The optional `images` field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.
 
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 

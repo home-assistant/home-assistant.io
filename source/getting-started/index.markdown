@@ -11,7 +11,7 @@ footer: true
 
 Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you're running a Linux based platform, we suggest to follow the [VirtualEnv Linux instructions] to avoid having to use root.
 
-[VirtualEnv Linux instructions]: /getting-started/installation-virtualenv/
+[Virtualenv Linux instructions]: /getting-started/installation-virtualenv/
 
 Installing and running Home Assistant on your local machine is easy. Make sure you have [Python 3.4 or higher](https://www.python.org/downloads/) installed and execute the following code in a console:
 
@@ -33,13 +33,7 @@ If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has
 
 ### {% linkable_title Updating %}
 
-To update Home Assistant to the latest release when available, run:
-
-```bash
-pip3 install --upgrade homeassistant
-```
-
-After updating, restart Home Assistant for the changes to take effect.
+To update Home Assistant to the latest release check the [Updating section](/getting-started/updating/).
 
 ### {% linkable_title Troubleshooting %}
 
@@ -51,7 +45,7 @@ In addition to this site, check out these sources for additional help:
  - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant.
  - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
 
-### {% linkable_title What's next %}
+### {% linkable_title What's next? %}
 
 To see what Home Assistant can do, launch demo mode: `hass --demo-mode` or visit the [demo page](/demo).
 

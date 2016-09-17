@@ -1,0 +1,14 @@
+---
+layout: page
+title: "SleepIQ Sensor"
+description: "Instructions for how to integrate SleepIQ sensors within Home Assistant."
+date: 2016-08-28 8:56
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: sleepiq
+ha_category: Sensor
+---
+
+To get your SleepIQ sensors working with Home Assistant, follow the instructions for the general [SleepIQ component](/components/sleepiq/).

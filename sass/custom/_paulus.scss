@@ -13,7 +13,7 @@
     text-transform: uppercase;
     white-space: nowrap;
     display: inline-block;
-    font-weight: bold;
+    font-weight: 500;
   }
 
   .front-install {
@@ -33,29 +33,83 @@
   }
 }
 
-.supported-brands {
-  text-align: center;
-  img {
-    border: none !important;
-    box-shadow: none !important;
-    max-height: 50px;
-    max-width: 140px;
-    margin: 10px;
-    vertical-align: middle;
+.material-card {
+  // display: inline-block;
+  background-color: #fefefe;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+
+  h1 {
+    font-family: Roboto, Noto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -.012em;
+    line-height: 40px;
+    color: #212121;
+    padding: 20px 16px 12px;
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  &.text {
+    padding: 16px;
+
+    h1 {
+      padding: 4px 0px 12px;
+    }
+  }
+
+  .links {
+    margin-top: 8px;
+    margin-left: -8px;
+
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      display: inline-block;
+      margin: 0 8px;
+    }
   }
 }
 
-.brand {
-  border: none !important;
-  box-shadow: none !important;
-  max-height: 50px;
-  max-width: 200px;
-  margin: 10px;
+.frontpage {
 
-  &.overview {
-    max-width: 100px;
-    vertical-align: middle;
+  .current-version {
+    margin-bottom: 16px;
+
+    .release-date {
+      white-space: nowrap;
+    }
+
   }
+
+  .recent-posts {
+    margin-bottom: 16px;
+
+    .blog-date {
+      white-space: nowrap;
+    }
+  }
+
+  .supported-brands {
+    text-align: center;
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      border: none !important;
+      box-shadow: none !important;
+      max-height: 50px;
+      max-width: 140px;
+      margin: 10px;
+      vertical-align: middle;
+    }
+  }
+
 }
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
@@ -70,9 +124,12 @@ h6:hover a.title-link {
 
   &::before {
     position: absolute;
-    left: -50px;
+    top: 2px;
+    left: -25px;
     padding-right: 40px;
     font-family: "FontAwesome";
+    font-size: 15px;
+    color: #999;
     content: "\f0c1"
   }
 }
@@ -110,6 +167,9 @@ h6:hover a.title-link {
 }
 
 article.post, article.page, article.listing {
+  font-size: 1.125em;
+  line-height: 1.6;
+
   img, table {
     border-radius: 3px;
     box-shadow: rgba(0,0,0,0.06) 0 0 10px;
@@ -160,8 +220,25 @@ article.post, article.page, article.listing {
     }
   }
 
-  .frontpage a {
-    text-decoration: none;
+  h1 {
+
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-top: 2em;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+    font-size: 1.2rem;
+    margin-top: 2em;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    margin-top: 2em;
   }
 }
 
@@ -207,8 +284,10 @@ p.note {
   text-align: center;
 
   i {
-    font-size: 2.2em;
+    font-size: 3em;
     margin-right: 8px;
+    position: relative;
+    top: -5px;
   }
   .credit {
     text-align: left;
@@ -240,21 +319,6 @@ p.note {
       -webkit-transition-property: -webkit-transform, opacity;
       -moz-transition-property: -moz-transform, opacity;
       transition-property: transform, opacity;
-  }
-
-  .filter-button-group {
-    margin-bottom: 16px;
-
-    .btn {
-      margin-right: 8px;
-      margin-bottom: 8px;
-      text-decoration: none;
-
-      &.current {
-        background-color: #3A5561;
-        background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
-      }
-    }
   }
 
   #componentContainer {
@@ -308,6 +372,49 @@ p.note {
   }
 }
 
+@media only screen and (max-width: $lap-end) {
+  #components-page {
+    .filter-button-group {
+      margin-bottom: 16px;
+
+      .btn {
+        display: inline-block;
+        margin-right: 8px;
+        margin-bottom: 8px;
+
+        &.current {
+          background-color: #3A5561;
+          background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $desk-start) {
+  #components-page {
+    .filter-button-group {
+      .featured {
+        margin: 12px 0;
+      }
+
+      .btn {
+        display: block;
+        background: 0;
+        color: black;
+        box-shadow: none;
+        text-shadow: none;
+        padding: 2px;
+
+        &.current {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+
 .aside-module {
   .section {
     margin-bottom: 16px;
@@ -360,4 +467,9 @@ ul.sidebar-menu {
 
 a code {
   color: #049cdb;
+}
+
+twitterwidget {
+  margin-left: auto;
+  margin-right: auto;
 }

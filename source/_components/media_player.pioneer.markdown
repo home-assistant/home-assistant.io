@@ -27,6 +27,6 @@ media_player:
 
 Configuration variables:
 
-- **host** *Required*: The IP of the Pioneer device,  eg. `192.168.0.10`
-- **name** *Optional*: The name you would like to give to the receiver.
+- **host** (*Required*): The IP of the Pioneer device,  eg. `192.168.0.10`
+- **name** (*Optional*): The name you would like to give to the receiver.
 

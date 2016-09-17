@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: twitch.png
-ha_category: Sensor
-ha_release: 0.10
+ha_category: Social
+ha_release: "0.10"
 ---
 
 

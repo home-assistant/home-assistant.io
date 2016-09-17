@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: loop.png
-ha_category: Sensor
+ha_category: Energy
 ha_release: 0.17
 ---
 
@@ -21,7 +21,7 @@ The library used to get the data isn't officially supported and the only way to 
 
 To do this log into [Loop Energy](https://www.your-loop.com/). Once you're logged in you should be able see see your live readings on the webpage.
 
-You can then open your browser's console window, how you do this varies by browser but in Chrome you click on `More Tools / Developer Tools' and click on the console window. You then type:-
+You can then open your browser's console window, how you do this varies by browser but in Chrome you click on `More Tools / Developer Tools' and click on the console window. You then type:
 
 `Drupal.settings.navetas_realtime.`
 
@@ -37,20 +37,22 @@ secret: "ELECTRICAL_SECRET"
 serial: "ELECTRICAL_SERIAL"
 ```
 
-The serial and secret tokens are the ones you need. If you just have an electricity  monitor - then you won't see the gas keys.
+The serial and secret tokens are the ones you need. If you just have an electricity monitor then you won't see the gas keys.
 
-Now you have the keys, add the following lines to your `configuration.yaml`, replacing the `SERIAL` and `SECRET` keys with the ones you found in the console:
+Now you have the keys, add the following lines to your `configuration.yaml`, replacing the `*_SERIAL` and `*_SECRET` keys with the ones you found in the console:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: loopenergy
-  electricity_serial: ELECTRICAL_SERIAL
-  electricity_secret: ELECTRICAL_SECRET
-  gas_serial: GAS_SERIAL
-  gas_secret: GAS_SECRET
-  gas_type: metric
-  gas_calorific: 39.11
+  - platform: loopenergy
+    electricity:
+      electricity_serial: 'ELECTRICAL_SERIAL'
+      electricity_secret: 'ELECTRICAL_SECRET'
+    gas:
+      gas_serial: 'GAS_SERIAL'
+      gas_secret: 'GAS_SECRET'
+      gas_type: imperial
+      gas_calorific: 38.2
 ```
 
 Configuration variables:
@@ -59,9 +61,9 @@ Configuration variables:
 - **electricity_secret** (*Required*): Secret key for your electricity sensor
 - **gas_serial** (*Optional*): Serial number for your gas sensor.
 - **gas_secret** (*Optional*): Secret key for your gas sensor.
-- **gas_type** (*Optional*): Type of meter `imperial` or `metric`, defaults to metric.
-- **gas_calorific** (*Optional*): Calorific value of your gas supply (usually on your gas bill) - defaults to 39.11.
+- **gas_type** (*Optional*): Type of meter `imperial` or `metric`. Defaults to `metric`.
+- **gas_calorific** (*Optional*): Calorific value of your gas supply (usually on your gas bill). Defaults to 39.11.
 
 The electricity readings are updated every 10 seconds and the gas readings every 15 minutes.
 
-The gas readings are experimental and not all gas meters are properly supported - so if the data you see doesn't agree with the readings you see via loop energy please report an issue.
+The gas readings are experimental and not all gas meters are properly supported. So if the data you see doesn't agree with the readings you see via loop energy please report an issue.

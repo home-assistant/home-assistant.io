@@ -29,7 +29,7 @@ modbus:
 
 Configuration variables:
 
-- **type** (*Required*): Type of the connection to Modebus.
+- **type** (*Required*): Type of the connection to Modbus.
 - **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
 - **port** (*Required*): The port for the comminication.
 
@@ -56,6 +56,14 @@ Configuration variables:
 - **stopbits** (*Required*): The stopbits for the serial connection.
 - **bytesize** (*Required*): The bytesize for the serial connection.
 - **parity** (*Required*): The parity for the serial connection.
+
+### {% linkable_title Services %}
+
+
+| Service | Description |
+| ------- | ----------- |
+| write_register | Write register. Requires `unit`, `address` and `value` fields. `value` can be either single value or an array |
+
 
 ## {% linkable_title Building on top of Modbus %}
 

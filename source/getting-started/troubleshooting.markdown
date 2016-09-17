@@ -21,6 +21,8 @@ If you are able to successfully run `python3 --version` but not `pip3`, install 
 $ python3 -m pip install homeassistant
 ```
 
+On a Debian system, you can also install python3 by `sudo apt-get install python3`, and pip3 by `sudo apt-get install python3-pip`.
+
 #### {% linkable_title No module named pip %}
 [Pip](https://pip.pypa.io/en/stable/) should come bundled with the latest Python 3 but is omitted by some distributions. If you are unable to run `python3 -m pip --version` you can install `pip` by [downloading the installer](https://bootstrap.pypa.io/get-pip.py) and running it with Python 3:
 
@@ -28,8 +30,12 @@ $ python3 -m pip install homeassistant
 $ python3 get-pip.py
 ```
 
+#### {% linkable_title libyaml is not found or a compiler error %}
+
+On a Debian system, install the Python 3 YAML library by `sudo apt-get install python3-yaml`.
+
 #### {% linkable_title distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both %}
-This is a known issue if you're on a Mac using Homebrew to install Python. Please follow [these instructions](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Homebrew-and-Python.md#note-on-pip-install---user) to resolve it.
+This is a known issue if you're on a Mac using Homebrew to install Python. Please follow [these instructions](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md#note-on-pip-install---user) to resolve it.
 
 #### {% linkable_title CentOS and Python 3 %}
 To run Python 3.x on [CentOS](https://www.centos.org/) or RHEL, [Software Collections](https://www.softwarecollections.org/en/scls/rhscl/rh-python34/) needs to be activated.
@@ -39,8 +45,8 @@ In newer Linux distributions (at least Fedora 22/CentOS 7) the access to a host 
 
 To fix this you will need to open your machine's firewall for TCP traffic over port 8123. The method for doing this will vary depending on your operating system and the firewall you have installed. Below are some suggestions to try. Google is your friend here.
 
-[Windows instructions](http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7)
-[Mac OSX instructions](https://support.apple.com/en-us/HT201642)
+- [Windows instructions](http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7)
+- [Mac OSX instructions](https://support.apple.com/en-us/HT201642)
 
 For systems with **firewalld** (Fedora, CentOS/RHEL, etc.):
 
@@ -68,12 +74,5 @@ After upgrading to a new version, you may notice your browser gets stuck at the 
 Android Chrome 
 chrome -> settings -> site settings -> storage -> search for your URL for home assistant-> "clear & reset"
 
-
-#### {% linkable_title Run the development version %}
-If you want to stay on top of the development of Home Assistant then you can upgrade to the `dev` branch. This can result in an unstable system, loss of data, etc. etc.
-
-```bash
-$ pip3 install --upgrade git+git://github.com/balloob/home-assistant.git@dev
-```
 
 ### [&laquo; Back to Getting Started](/getting-started/)

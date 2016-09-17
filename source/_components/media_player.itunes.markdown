@@ -30,5 +30,5 @@ media_player:
 
 Configuration variables:
 
-- **host** *Required*: The URL of the itunes-api API, eg. http://192.168.1.50
-- **port** *Optional*: The port where itunes-api is accessible, eg. 8181.
+- **host** (*Required*): The URL of the itunes-api API, eg. http://192.168.1.50
+- **port** (*Optional*): The port where itunes-api is accessible, eg. 8181.

@@ -17,8 +17,8 @@ homeassistant:
   # Location required to calculate the time the sun rises and sets
   latitude: 37
   longitude: -121
-  # C for Celcius, F for Fahrenheit
-  temperature_unit: F
+  # 'metric' for Metric, 'imperial' for Imperial
+  unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
   customize:
@@ -306,7 +306,7 @@ sensor 3:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"   
-  value_template: "{{value.split (' ')[2]}}"
+  value_template: "{% raw %}{{value.split (' ')[2]}}{% endraw %}"
   unit: C
 
 sensor 4:
@@ -316,7 +316,7 @@ sensor 4:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[3]}}"
+  value_template: "{% raw %}{{value.split (' ')[3]}}{% endraw %}"
   unit: Percent
 
 sensor 5:
@@ -326,7 +326,7 @@ sensor 5:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[4] }}"
+  value_template: "{% raw %}{{value.split (' ')[4] }}{% endraw %}"
   unit: C
 
 sensor 6:
@@ -336,7 +336,7 @@ sensor 6:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[7]}}"
+  value_template: "{% raw %}{{value.split (' ')[7]}}{% endraw %}"
   unit: Degrees
 
 sensor 7:
@@ -346,7 +346,7 @@ sensor 7:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[8]}}"
+  value_template: "{% raw %}{{value.split (' ')[8]}}{% endraw %}"
   unit: m/s
 
 sensor 8:
@@ -356,7 +356,7 @@ sensor 8:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[9]}}"
+  value_template: "{% raw %}{{value.split (' ')[9]}}{% endraw %}"
   unit: m/s
 
 sensor 9:
@@ -366,7 +366,7 @@ sensor 9:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[10]}}"
+  value_template: "{% raw %}{{value.split (' ')[10]}}{% endraw %}"
   unit: C
 
 sensor 10:
@@ -376,7 +376,7 @@ sensor 10:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[13]}}"
+  value_template: "{% raw %}{{value.split (' ')[13]}}{% endraw %}"
   unit: mm/hr
 
 sensor 11:
@@ -386,7 +386,7 @@ sensor 11:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[14]}}"
+  value_template: "{% raw %}{{value.split (' ')[14]}}{% endraw %}"
   unit: mm
 
 sensor 12:
@@ -396,7 +396,7 @@ sensor 12:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[15]}}"
+  value_template: "{% raw %}{{value.split (' ')[15]}}{% endraw %}"
   unit: mm
 
 sensor 13:
@@ -406,7 +406,7 @@ sensor 13:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[18]}}"
+  value_template: "{% raw %}{{value.split (' ')[18]}}{% endraw %}"
   unit: C
 
 sensor 14:
@@ -416,7 +416,7 @@ sensor 14:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[19]}}"
+  value_template: "{% raw %}{{value.split (' ')[19]}}{% endraw %}"
   unit: percent
 
 sensor 15:
@@ -426,7 +426,7 @@ sensor 15:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[20]}}"
+  value_template: "{% raw %}{{value.split (' ')[20]}}{% endraw %}"
   unit: C
 
 sensor 16:
@@ -436,7 +436,7 @@ sensor 16:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[21]}}"
+  value_template: "{% raw %}{{value.split (' ')[21]}}{% endraw %}"
   unit: mb
 
 sensor 17:
@@ -446,14 +446,14 @@ sensor 17:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charaset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[22]}}"
+  value_template: "{% raw %}{{value.split (' ')[22]}}{% endraw %}"
   unit: mb
 
 sensor 18:
   platform: steam_online
   api_key: [Redact]
   accounts:
-    - 76561198012067051  
+    - 76561198012067051
 
 switch:
   platform: wemo

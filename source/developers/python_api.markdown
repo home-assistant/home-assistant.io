@@ -18,7 +18,7 @@ First import the module and setup the basics.
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('host', 'password')
+api = remote.API('127.1.0.1', 'password')
 print(remote.validate_api(api))
 ```
 
@@ -27,30 +27,47 @@ This snippets shows how to use the `homeassistant.remote` package in another way
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('host', 'password')
+api = remote.API('127.1.0.1', 'password')
 hass = remote.HomeAssistant(api)
 hass.start()
 living_room = hass.states.get('group.living_room')
 ```
 
-### {% linkable_title Get details about servies and events %}
+### {% linkable_title Get configuration %}
+
+Get the current configuration of a Home Asssitant instance.
+
+```python
+import homeassistant.remote as remote
+
+api = remote.API('127.1.0.1', 'password')
+
+print(remote.get_config(api))
+```
+
+### {% linkable_title Get details about services, events, and entitites %}
 
 Similar to the output in the "Developer Tools" of the frontend.
 
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('host', 'password')
+api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
 
 print('-- Available services:')
 services = remote.get_services(api)
 for service in services:
     print(service['services'])
 
-print('\n-- Available event')
+print('\n-- Available events:')
 events = remote.get_event_listeners(api)
 for event in events:
     print(event)
+
+print('\n-- Available entities:')
+entities = remote.get_states(api)
+for entity in entities:
+    print(entity)
 ```
 
 ### {% linkable_title Get the state of an entity %}
@@ -60,7 +77,7 @@ To get the details of a single entity the `get_state` method is used.
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('host', 'password')
+api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
 office_temperature = remote.get_state(api, 'sensor.office_temperature')
 print('{} is {} {}.'.format(office_temperature.attributes['friendly_name'],
                             office_temperature.state,
@@ -80,7 +97,7 @@ The exact same thing is working for a switch. The difference is that both entiti
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('host', 'password')
+api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
 switch_livingroom = remote.get_state(api, 'switch.livingroom_pin_2')
 print('{} is {}.'.format(switch_livingroom.attributes['friendly_name'],
                          switch_livingroom.state
@@ -96,7 +113,7 @@ Of course, it's possible to set the state.
 import homeassistant.remote as remote
 from homeassistant.const import STATE_ON
 
-api = remote.API('host', 'password')
+api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
 remote.set_state(api, 'sensor.office_temperature', new_state=123)
 remote.set_state(api, 'switch.livingroom_pin_2', new_state=STATE_ON)
 ```
@@ -105,14 +122,14 @@ The state will be set to those value until the next update occurs.
 
 ### {% linkable_title Blinking all entites of a domain %}
 
-If you want to turn on all entities of a domain, just a service which was retrieved by `get_services`.
+If you want to turn on all entities of a domain, just use a service which was retrieved by `get_services`.
 
 
 ```python
 import time
 import homeassistant.remote as remote
 
-api = remote.API('host', 'password')
+api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
 domain = 'switch'
 
 remote.call_service(api, domain, 'turn_on')
@@ -128,13 +145,37 @@ To turn on or off a single switch. The ID of the entity is needed as attribute.
 import time
 import homeassistant.remote as remote
 
-api = remote.API('host', 'password')
+api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
 domain = 'switch'
 switch_name = 'switch.livingroom_pin_2'
 
 remote.call_service(api, domain, 'turn_on', {'entity_id': '{}'.format(switch_name)})
 time.sleep(5)
 remote.call_service(api, domain, 'turn_off', {'entity_id': '{}'.format(switch_name)})
+```
+
+### {% linkable_title Specify a timeout %}
+
+The default timeout for an API call with `call_service` is 5 seconds. Service
+taking longer than this to return will raise
+`homeassistant.exceptions.HomeAssistantError: Timeout` unless provided with a
+longer timeout.
+
+```python
+import homeassistant.remote as remote
+
+api = remote.API('host', 'password')
+domain = 'switch'
+
+# Assuming switch.timeout_switch takes 10 seconds to return
+switch_name = 'switch.timeout_switch'
+
+# Raises homeassistant.exceptions.HomeAssistantError: Timeout when talking to
+remote.call_service(api, domain, 'turn_on', {'entity_id': switch_name})
+
+# Runs withous exception
+remote.call_service(api, domain, 'turn_on', {'entity_id': switch_name},
+                    timeout=11)
 ```
 
 ### {% linkable_title Send a notification %}
@@ -144,7 +185,7 @@ The example uses the jabber notification platform to send a single message to th
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('host', 'password')
+api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
 domain = 'notify'
 data = {"title":"Test", "message":"A simple test message from HA."}
 

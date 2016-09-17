@@ -7,11 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
-ha_release: 0.20
+ha_category: System Monitor
+ha_release: "0.20"
 ---
 
-The `supervisord` platform allows you to track the states of [Supervisor](http://supervisord.org/).
+The `supervisord` platform allows you to track the states of [Supervisord](http://supervisord.org/).
+
+To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

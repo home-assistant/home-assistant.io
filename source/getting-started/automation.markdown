@@ -15,7 +15,7 @@ Home Assistant offers a wide range of automations. In the next few pages we'll t
 
 [cookbook-config]: /cookbook/#example-configurationyaml
 
-### {% linkable_title The basics of automation %}
+### {% linkable_title Automation basics %}
 
 Before you can go ahead and create your own automations, it's important to learn the basics. To explore the basics, let's have a look at the following example home automation rule:
 

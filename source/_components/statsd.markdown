@@ -22,6 +22,7 @@ statsd:
   port: 20000
   prefix: DB_TO_STORE_EVENTS
   rate: 1
+  log_attributes: true
 ```
 
 Configuration variables:
@@ -30,6 +31,7 @@ Configuration variables:
 - **port** (*Optional*): Port to use. Defaults to 8125.
 - **prefix** (*Optional*): Prefix to use. Defaults to `hass`.
 - **rate** (*Optional*): The sample rate. Defaults to 1.
+- **log_attributes** (*Optional*): Log state and attribute changes. This changes the default stats path.
 
 StatsD supports various [backends](https://github.com/etsy/statsd/blob/master/docs/backend.md).
 

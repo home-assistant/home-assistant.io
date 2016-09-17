@@ -1,9 +1,6 @@
 language: ruby
 sudo: false
 cache: bundler
-script: rake generate
+script: bundle exec rake generate
 after_success:
-- '[ "${TRAVIS_BRANCH}" = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ] && rake deploy || false'
-env:
-  global:
-    secure: RgYtd9+qY3kBrDbAqSGszBEiZIalPzSd72a0w4zyG1FX4B/xA9ilqH1mLaBbjNsuwsDIfW6D4Vupec8Uh/eBtLKAt05pdZ70WiP9TYg1QRQS9k5epaqbOvxFzIzQO4Mcz1dT0tuMJ9c0H9VXUjFJVtCG17vkPpK3qHkYW0GAxqE=
+- '[ "${TRAVIS_BRANCH}" = "current" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake deploy || false'

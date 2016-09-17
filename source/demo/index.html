@@ -16,6 +16,13 @@
           user-scalable=no' />
     <meta name='theme-color' content='#03a9f4'>
     <style>
+      body {
+        font-family: 'Roboto', 'Noto', sans-serif;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
       #ha-init-skeleton {
         display: -webkit-flex;
         display: flex;
@@ -31,7 +38,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        margin-bottom: 97px;
+        margin-bottom: 83px;
         font-family: Roboto, sans-serif;
         font-size: 0pt;
         transition: font-size 2s;
@@ -39,6 +46,7 @@
 
       #ha-init-skeleton paper-spinner {
         height: 28px;
+        margin-top: 16px;
       }
 
       #ha-init-skeleton a {
@@ -61,9 +69,10 @@
         document
           .getElementById('ha-init-skeleton')
           .classList.add('error');
-      }
+      };
+      window.noAuth = true;
+      window.Polymer = {lazyRegister: true, useNativeCSSProperties: true, dom: 'shady'}
     </script>
-    <link rel='import' href='/demo/frontend.html' onerror='initError()' async />
   </head>
   <body fullbleed>
     <div id='ha-init-skeleton'>
@@ -85,6 +94,10 @@
       }
     </script>
     <home-assistant auth='no_password_set' icons='demo'></home-assistant>
+    <script src='/demo/data.js'></script>
+    <script src='/demo/core.js'></script>
+    <link rel='import' href='/demo/frontend.html' onerror='initError()' async />
+    <link rel='import' href='/static/mdi-demo.html' async />
     <script>
       var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

@@ -11,37 +11,57 @@ footer: true
 
 This example is for adding support for the imaginary Awesome Lights. It shows the different best practices for developing a platform.
 
+Similar to Example Sensor Platform, copy the code below, and create it as a file in `<config_dir>/custom_components/light/awesomelights.py`.
+
+Add the following to your configuration.yaml:
+
+```yaml
+light:
+  - platform: awesomelights
+    host: HOST_HERE
+    username: USERNAME_HERE
+    password: PASSWORD_HERE_OR_secrets.yaml
+```
+
+Note the `platform` name matches the filename for the source code.
+
 ```python
 import logging
 
+import voluptuous as vol
+
 # Import the device class from the component that you want to support
-from homeassistant.components.light import ATTR_BRIGHTNESS, Light
+from homeassistant.components.light import ATTR_BRIGHTNESS, Light, PLATFORM_SCHEMA
 from homeassistant.const import CONF_HOST, CONF_USERNAME, CONF_PASSWORD
+import homeassistant.helpers.config_validation as cv
 
 # Home Assistant depends on 3rd party packages for API specific code.
 REQUIREMENTS = ['awesome_lights==1.2.3']
 
 _LOGGER = logging.getLogger(__name__)
 
+# Validation of the user's configuration
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    vol.Required(CONF_HOST): cv.string,
+    vol.Optional(CONF_USERNAME, default='admin'): cv.string,
+    vol.Optional(CONF_PASSWORD): cv.string,
+})
+
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
-    """Initialize Awesome Light platform."""
+    """Setup the Awesome Light platform."""
     import awesomelights
 
-    # Validate passed in config
+    # Assign configuration variables. The configuration check takes care they are
+    # present. 
     host = config.get(CONF_HOST)
     username = config.get(CONF_USERNAME)
     password = config.get(CONF_PASSWORD)
 
-    if host is None or username is None or password is None:
-        _LOGGER.error('Invalid config. Expected %s, %s and %s',
-                      CONF_HOST, CONF_USERNAME, CONF_PASSWORD)
-        return False
-
     # Setup connection with devices/cloud
     hub = awesomelights.Hub(host, username, password)
 
-    # Verify that passed in config works
+    # Verify that passed in configuration works
     if not hub.is_valid_login():
         _LOGGER.error('Could not connect to AwesomeLight hub')
         return False
@@ -49,8 +69,9 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     # Add devices
     add_devices(AwesomeLight(light) for light in hub.lights())
 
+
 class AwesomeLight(Light):
-    """Represents an AwesomeLight in Home Assistant."""
+    """Representation of an Awesome Light."""
 
     def __init__(self, light):
         """Initialize an AwesomeLight."""
@@ -58,7 +79,7 @@ class AwesomeLight(Light):
 
     @property
     def name(self):
-        """Return the display name of this light"""
+        """Return the display name of this light."""
         return self._light.name
 
     @property
@@ -72,7 +93,7 @@ class AwesomeLight(Light):
 
     @property
     def is_on(self):
-        """If light is on."""
+        """Return true if light is on."""
         return self._light.is_on()
 
     def turn_on(self, **kwargs):
@@ -91,7 +112,7 @@ class AwesomeLight(Light):
     def update(self):
         """Fetch new state data for this light.
 
-        This is the only method that should fetch new data for Home Assitant.
+        This is the only method that should fetch new data for Home Assistant.
         """
         self._light.update()
 ```

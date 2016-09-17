@@ -14,32 +14,32 @@ Interacts with media players on your network. Please check the sidebar for a ful
 ## {% linkable_title Services %}
 
 ### {% linkable_title Media control services %}
-Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `media_play_pause`, `media_play`, `media_pause`, `media_next_track`, `media_previous_track`
+Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.
 
-#### {% linkable_title Service `media_player/mute_volume` %}
+#### {% linkable_title Service `media_player/volume_mute` %}
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Target a specific media player. Defaults to all.
-| `mute`                 |       no | True/false for mute/unmute
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+| `entity_id`            | yes      | Target a specific media player. Defaults to all. |
+| `is_volume_muted`      | no       | True/false for mute/unmute                       |
 
-#### {% linkable_title Service `media_player/set_volume_level` %}
+#### {% linkable_title Service `media_player/volume_set` %}
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Target a specific media player. Defaults to all.
-| `volume`               |       no | Integer for volume level
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+| `entity_id`            | yes      | Target a specific media player. Defaults to all. |
+| `volume_level`         | no       | Integer for volume level                         |
 
 #### {% linkable_title Service `media_player/media_seek` %}
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Target a specific media player. Defaults to all.
-| `position`             |       no | Position to seek to. The format is platform dependent.
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `entity_id`            | yes      | Target a specific media player. Defaults to all.       |
+| `seek_position`        | no       | Position to seek to. The format is platform dependent. |
 
 #### {% linkable_title Service `media_player/play_media` %}
 

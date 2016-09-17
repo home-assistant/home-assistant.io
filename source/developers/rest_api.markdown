@@ -21,6 +21,7 @@ There are multiple ways to consume the Home Assistant Rest API. One is with `cur
 ```bash
 curl -X GET \
     -H "x-ha-access: YOUR_PASSWORD" \
+    -H "Content-Type: application/json" \
     http://IP_ADDRESS:8123/ENDPOINT
 ```
 
@@ -38,7 +39,7 @@ print(response.text)
 ```
 
 <p class='note'>
-You can append <code>?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
+You can append `?password=YOUR_PASSWORD` to any url to log in automatically.
 </p>
 
 Successful calls will return status code 200 or 201. Other status codes that can return are:
@@ -64,7 +65,8 @@ Returns message if API is up and running.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/
 ```
 
 #### {% linkable_title GET /api/config %}
@@ -87,7 +89,7 @@ Returns the current configuration as JSON.
     "latitude": 44.1234,
     "location_name": "Home",
     "longitude": 5.5678,
-    "temperature_unit": "\u00b0C",
+    "unit_system": "metric",
     "time_zone": "Europe/Zurich",
     "version": "0.8.0.dev0"
 }
@@ -96,7 +98,8 @@ Returns the current configuration as JSON.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/config
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/config
 ```
 
 #### {% linkable_title GET /api/discovery_info %}
@@ -114,7 +117,8 @@ Returns basic information about the Home Assistant instance as JSON.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/discovery_info
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/discovery_info
 ```
 
 #### {% linkable_title GET /api/bootstrap %}
@@ -132,7 +136,8 @@ Returns all data needed to bootstrap Home Assistant.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/bootstrap
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/bootstrap
 ```
 
 #### {% linkable_title GET /api/events %}
@@ -154,7 +159,8 @@ Returns an array of event objects. Each event object contain event name and list
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/events
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/events
 ```
 
 #### {% linkable_title GET /api/services %}
@@ -181,7 +187,8 @@ Returns an array of service objects. Each object contains the domain and which s
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/services
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/services
 ```
 
 #### {% linkable_title GET /api/history %}
@@ -196,8 +203,8 @@ Returns an array of state changes in the past. Each object contains further deta
                 "unit_of_measurement": "\u00b0C"
             },
             "entity_id": "sensor.weather_temperature",
-            "last_changed": "23:30:00 05-02-2016",
-            "last_updated": "23:30:00 05-02-2016",
+            "last_changed": "2016-02-06T22:15:00+00:00",
+            "last_updated": "2016-02-06T22:15:00+00:00"",
             "state": "-3.9"
         },
         {
@@ -206,8 +213,8 @@ Returns an array of state changes in the past. Each object contains further deta
                 "unit_of_measurement": "\u00b0C"
             },
             "entity_id": "sensor.weather_temperature",
-            "last_changed": "07:03:30 06-02-2016",
-            "last_updated": "07:03:30 06-02-2016",
+            "last_changed": "2016-02-06T22:15:00+00:00"",
+            "last_updated": "2016-02-06T22:15:00+00:00"",
             "state": "-1.9"
         },
     ]
@@ -217,11 +224,15 @@ Returns an array of state changes in the past. Each object contains further deta
 Sample `curl` commands:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/history/period/2016-02-06
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/history/period/2016-02-06
 ```
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
 ```
 
 #### {% linkable_title GET /api/states %}
@@ -230,18 +241,15 @@ Returns an array of state objects. Each state has the following attributes: enti
 ```json
 [
     {
-        "attributes": {
-            "next_rising": "07:04:15 29-10-2013",
-            "next_setting": "18:00:31 29-10-2013"
-        },
+        "attributes": {},
         "entity_id": "sun.sun",
-        "last_changed": "23:24:33 28-10-2013",
+        "last_changed": "2016-05-30T21:43:32.418320+00:00",
         "state": "below_horizon"
     },
     {
         "attributes": {},
         "entity_id": "process.Dropbox",
-        "last_changed": "23:24:33 28-10-2013",
+        "last_changed": "22016-05-30T21:43:32.418320+00:00",
         "state": "on"
     }
 ]
@@ -250,7 +258,8 @@ Returns an array of state objects. Each state has the following attributes: enti
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" http://localhost:8123/api/states
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" http://localhost:8123/api/states
 ```
 
 #### {% linkable_title GET /api/states/&lt;entity_id> %}
@@ -258,13 +267,17 @@ Returns a state object for specified entity_id. Returns 404 if not found.
 
 ```json
 {
-    "attributes": {
-        "next_rising": "07:04:15 29-10-2013",
-        "next_setting": "18:00:31 29-10-2013"
-    },
-    "entity_id": "sun.sun",
-    "last_changed": "23:24:33 28-10-2013",
-    "state": "below_horizon"
+   "attributes":{
+      "azimuth":336.34,
+      "elevation":-17.67,
+      "friendly_name":"Sun",
+      "next_rising":"2016-05-31T03:39:14+00:00",
+      "next_setting":"2016-05-31T19:16:42+00:00"
+   },
+   "entity_id":"sun.sun",
+   "last_changed":"2016-05-30T21:43:29.204838+00:00",
+   "last_updated":"2016-05-30T21:50:30.529465+00:00",
+   "state":"below_horizon"
 }
 ```
 
@@ -272,7 +285,8 @@ Sample `curl` command:
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
-        http://localhost:8123/api/states/sensor.kitchen_temperature
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/states/sensor.kitchen_temperature
 ```
 
 #### {% linkable_title GET /api/error_log %}
@@ -288,6 +302,7 @@ Sample `curl` command:
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
        http://localhost:8123/api/error_log
 ```
 
@@ -297,8 +312,9 @@ Returns the data (image) from the specified camera entity_id.
 Sample `curl` command:
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD"\
-   http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time=1462653861261 -o image.jpg
 ```
 
 #### {% linkable_title POST /api/states/&lt;entity_id> %}
@@ -310,8 +326,8 @@ Expects a JSON object that has at least a state attribute:
 {
     "state": "below_horizon",
     "attributes": {
-        "next_rising": "07:04:15 29-10-2013",
-        "next_setting": "18:00:31 29-10-2013"
+        "next_rising":"2016-05-31T03:39:14+00:00",
+        "next_setting":"2016-05-31T19:16:42+00:00"
     }
 }
 ```
@@ -321,11 +337,12 @@ Return code is 200 if the entity existed, 201 if the state of a new entity was s
 ```json
 {
     "attributes": {
-        "next_rising": "07:04:15 29-10-2013",
-        "next_setting": "18:00:31 29-10-2013"
+        "next_rising":"2016-05-31T03:39:14+00:00",
+        "next_setting":"2016-05-31T19:16:42+00:00"
     },
-    "entity_id": "weather.sun",
-    "last_changed": "23:24:33 28-10-2013",
+    "entity_id": "sun.sun",
+    "last_changed": "2016-05-30T21:43:29.204838+00:00",
+    "last_updated": "2016-05-30T21:47:30.533530+00:00"
     "state": "below_horizon"
 }
 ```
@@ -334,6 +351,7 @@ Sample `curl` command:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
        -d '{"state": "25", "attributes": {"unit_of_measurement": "°C"}}' \
        http://localhost:8123/api/states/sensor.kitchen_temperature
 ```
@@ -345,7 +363,7 @@ You can pass an optional JSON object to be used as `event_data`.
 
 ```json
 {
-    "next_rising": "18:00:31 29-10-2013"
+    next_rising":"2016-05-31T03:39:14+00:00",
 }
 ```
 
@@ -373,18 +391,15 @@ Returns a list of states that have changed while the service was being executed.
 ```json
 [
     {
-        "attributes": {
-            "next_rising": "07:04:15 29-10-2013",
-            "next_setting": "18:00:31 29-10-2013"
-        },
+        "attributes": {},
         "entity_id": "sun.sun",
-        "last_changed": "23:24:33 28-10-2013",
+        "last_changed": "2016-05-30T21:43:32.418320+00:00",
         "state": "below_horizon"
     },
     {
         "attributes": {},
         "entity_id": "process.Dropbox",
-        "last_changed": "23:24:33 28-10-2013",
+        "last_changed": "22016-05-30T21:43:32.418320+00:00",
         "state": "on"
     }
 ]
@@ -394,6 +409,7 @@ Sample `curl` command:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
        -d '{"entity_id": "switch.christmas_lights", "state": "on"}' \
        http://localhost:8123/api/services/switch/turn_on
 ```
@@ -421,8 +437,8 @@ Sample `curl` command:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
-      -d '{"template": "It is {{ now }}!"}' \
-      http://localhost:8123/api/template
+       -H "Content-Type: application/json" \
+       -d '{"template": "It is {{ now }}!"}' http://localhost:8123/api/template
 ```
 
 #### {% linkable_title POST /api/event_forwarding %}

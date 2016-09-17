@@ -6,12 +6,6 @@ This is the source for the [Home-Assistant.io website](https://home-assistant.io
 
 Setting up to contribute to documentation and the process for submitting pull requests is [explained here](https://home-assistant.io/developers/website/).
 
-## Create a new blog post
-
-```bash
-$ rake new_post["title"]
-```
-
 ## Site preview
 
 ```bash

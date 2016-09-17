@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Autostart on macOS boot"
-description: "Instructions how to setup Home Assistant to launch on macOS boot."
+title: "Autostart on OS X"
+description: "Instructions how to setup Home Assistant to launch on OS X."
 date: 2015-9-1 22:57
 sidebar: true
 comments: false
@@ -15,7 +15,7 @@ To get Home Assistant installed as a background service, run:
 
 
 ```bash
-$ hass --install-osx
+$ hass --script macos install
 
 Home Assistant has been installed.         Open it here: http://localhost:8123
 ```
@@ -25,7 +25,7 @@ Home Assistant will log to `~/Library/Logs/homeassistant.log`
 To uninstall the service, run:
 
 ```bash
-$ hass --uninstall-osx
+$ hass --script macos uninstall
 
 Home Assistant has been uninstalled.
 ```

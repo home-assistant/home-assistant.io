@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "FireTV"
-description: "Instructions how to integrate Music Player Daemon into Home Assistant."
+description: "Instructions how to integrate FIre-TV into Home Assistant."
 date: 2015-10-23 18:00
 sidebar: true
 comments: false
@@ -10,6 +10,7 @@ footer: true
 logo: firetv.png
 ha_category: Media Player
 ha_release: 0.7.6
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -27,7 +28,7 @@ Steps to configure your Amazon Fire TV stick with Home Assistant:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
 - `pip install firetv[firetv-server]` into a Python 2.x environment
-  - If installed on Debian Jessie then the libssl-dev package is needed. Install it with `apt-get install libssl-dev`
+  - If installed on Debian Jessie then the libssl-dev and python-dev packages are needed. Install them with `apt-get install libssl-dev python-dev`
 - `firetv-server -d <fire tv device IP>:5555`, background the process
 - Configure Home Assistant as follows:
 
@@ -38,19 +39,21 @@ To add FireTV to your installation, add the following to your `configuration.yam
 # Example configuration.yaml entry
 media_player:
   platform: firetv
-  host: localhost:5556
+  host: localhost
+  port: 5556
   device: livingroom-firetv
   name: My Amazon Fire TV
 ```
 
 Configuration variables:
 
-- **host** *Optional*: Where `firetv-server` is running. Default is *localhost:5556*.
-- **device** *Optional*: The device ID, default is *default*.
-- **name** *Optional*: The friendly name of the device, default is 'Amazon Fire TV'.
+- **host** (*Optional*): The host where `firetv-server` is running. Default is localhost.
+- **port** (*Optional*): The port where `firetv-server` is running. Default is 5556.
+- **device** (*Optional*): The device ID. Defaults to `default`.
+- **name** (*Optional*): The friendly name of the device, default is 'Amazon Fire TV'.
 
 
 <p class='note warning'>
-Note that python-firetv has support for multiple Amazon Fire TV devices. If you have more than one configured, be sure to specify the device id used. Run `firetv-server -h` and/or view the source for complete capabilities.
+Note that python-firetv has support for multiple Amazon Fire TV devices. If you have more than one configured, be sure to specify the device ID in `device`. Run `firetv-server -h` and/or view the source for complete capabilities.
 </p>
 

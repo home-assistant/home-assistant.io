@@ -27,12 +27,14 @@ media_player:
   name: Kodi
   user: USERNAME
   password: PASSWORD
+  turn_off_action: shutdown
 ```
 
 Configuration variables:
 
-- **host** *Required*: The host name or address of the device that is running XBMC/Kodi
-- **port** *Required*: The port number, default 8080
-- **name** *Optional*: The name of the device used in the frontend.
-- **username** *Optional*: The XBMC/Kodi HTTP username.
-- **password** *Optional*: The XBMC/Kodi HTTP password.
+- **host** (*Required*): The host name or address of the device that is running XBMC/Kodi
+- **port** (*Optional*): The port number. Defaults to 8080.
+- **name** (*Optional*): The name of the device used in the frontend.
+- **username** (*Optional*): The XBMC/Kodi HTTP username.
+- **password** (*Optional*): The XBMC/Kodi HTTP password.
+- **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`. Default `none`.

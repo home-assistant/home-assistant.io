@@ -8,10 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: proliphix.png
-ha_category: Thermostat
+ha_category: Deprecated
 ha_release: 0.11
 ---
 
+<p class='note warning'>
+**This platform has been deprecated in favor of a "[climate](/components/climate.proliphix/)" platform and will be removed in the future. Please use the climate platform.**
+</p>
 
 The `proliphix` thermostat platform let you control [Proliphix](http://www.proliphix.com) thermostat from Home Assistant.
 
@@ -35,7 +38,6 @@ Configuration variables:
 - **username** (*Required*): Username for the thermostat.
 - **password** (*Required*): Password for the thermostat.
 
-The Proliphix NT Thermostat series are ethernet connected
-thermostats. They have a local HTTP interface that is based on get/set
-of OID values. A complete collection of the API is available in this
-[API documentation](https://github.com/sdague/thermostat.rb/blob/master/docs/PDP_API_R1_11.pdf).
+The Proliphix NT Thermostat series are ethernet connected thermostats. They have a local HTTP interface that is based on get/set
+of OID values. A complete collection of the API is available in this [API documentation](https://github.com/sdague/thermostat.rb/blob/master/docs/PDP_API_R1_11.pdf).
+

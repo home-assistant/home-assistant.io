@@ -8,11 +8,23 @@ comments: false
 sharing: true
 footer: true
 ha_category: Binary Sensor
-ha_release: 0.10
+ha_release: "0.10"
 ---
 
 
 The `rest` binary sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The binary sensor has support for GET and POST requests.
+
+The JSON messages can contain different values like `1`, `"1"`, `TRUE`, `true`, `on`, or `open`. If the value is nested then use a [template](/topics/templating/).
+
+```json
+{
+    "name": "Binary sensor",
+    "state": {
+        "open": "true",
+        "timestamp": "2016-06-20 15:42:52.926733"
+    }
+}
+```
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
@@ -25,6 +37,7 @@ binary_sensor:
   name: REST GET binary sensor
   sensor_class: opening
   value_template: '{% raw %}{{ value_json.state }}{% endraw %}'
+  verify_ssl: False
 ```
 
 or for a POST request:
@@ -49,6 +62,7 @@ Configuration variables:
 - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
+- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.

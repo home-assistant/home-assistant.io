@@ -9,12 +9,12 @@ sharing: true
 footer: true
 logo: aws_sqs.png
 ha_category: Notifications
-ha_release: 0.20
+ha_release: "0.20"
 ---
 
-The AWS SQS notify platform enables publishing to an [AWS SQS](https://aws.amazon.com/sqs/) message queue.
+The `aws_sqs` notification platform enables publishing to an [AWS SQS](https://aws.amazon.com/sqs/) message queue.
 
-### Configuration
+To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,7 +35,7 @@ Configuration variables:
 - **region_name** (*Required*): The region identifier to connect to. The default is `us-east-1`.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
-### Usage
+### {% linkable_title Usage %}
 
 AWS SQS is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will publish a message to the queue for all targets given in the notification payload. A target must be a SQS topic URL. For more information, please see the [SQS docs](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html).
 

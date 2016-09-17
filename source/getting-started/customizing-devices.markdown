@@ -8,31 +8,22 @@ comments: false
 sharing: true
 footer: true
 ---
- 
-By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front 
-page by altering some of these parameters. This can be done by adding the following configuration inside the `homeassistant:` section.
 
-Devices that you don't want to have visible can be hidden with `hidden`.  
-`entity_picture`entries, badges, `device_tracker` pictures, etc. can either be external URLs (e.g. `http://example.com/example.jpg`) or 
-of the form `/local/filename.jpg`, where `/local` represents the directory `www` in the HASS configuration directory. 
-You may have to create the `www` directory yourself as it is not made automatically.
-
-You can also use `icon` and refer to any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com).
-
-For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
-
+By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
 ```yaml
 # Example configuration.yaml entry
 homeassistant:
+  name: Home
+  unit_system: celsius
+  # etc
 
-  # Add this to your existing configuration
-  # Only the `entity_id` is required.  All other options are optional.
   customize:
+    # Only the 'entity_id' is required.  All other options are optional.
     sensor.living_room_motion:
       hidden: true
     thermostat.family_roomfamily_room:
-      entity_picture: https://dl.dropboxusercontent.com/u/12345/images/nest.jpg
+      entity_picture: https://example.com/images/nest.jpg
       friendly_name: Nest
     switch.wemo_switch_1:
       friendly_name: Toaster
@@ -43,5 +34,41 @@ homeassistant:
     switch.rfxtrx_switch:
       assumed_state: false
 ```
+
+### {% linkable_title Possible values %}
+
+| Attribute | Description |
+| --------- | ----------- |
+| friendly_name | Name of the entity
+| hidden    | Set to `true` to hide the entity.
+| entity_picture | Url to use as picture for entity
+| icon | Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com). Prefix name with `mdi:`, ie `mdi:home`.
+| assumed_state | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
+| sensor_class | Sets the class of the sensor, changing the device state and icon that is displayed on the UI (see below).
+
+| sensor_class | Description |
+| ------------ | ----------- |
+| cold | On means cold (or too cold) |
+| connectivity | On meanse connection present, Off means no connection
+| gas | CO, CO2, etc. |
+| heat | On means hot (or too hot) |
+| light | Lightness threshold |
+| moisture | Specifically a wetness sensor |
+| motion | Motion sensor |
+| moving | On means moving, Off means stopped |
+| opening | Door, window, etc. |
+| power | Power, over-current, etc. |
+| safety | On meanse unsafe, Off means safe |
+| smoke | Smoke detector |
+| sound | On means sound detected, Off meanse no sound |
+| vibration | On means vibration detected, Off meanse no vibration |
+
+### {% linkable_title Reloading customize %}
+
+Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant/reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/reload_core_config` and click "Call Service".
+
+<p class='note warning'>
+New customize information will be applied the next time the state of the entity gets updated.
+</p>
 
 ### [Next step: Setting up presence detection &raquo;](/getting-started/presence-detection/)

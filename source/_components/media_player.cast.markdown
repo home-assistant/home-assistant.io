@@ -26,4 +26,4 @@ media_player:
 
 Configuration variables:
 
-- **host** *Optional*: Use only if you don't want to scan for devices.
+- **host** (*Optional*): Use only if you don't want to scan for devices.

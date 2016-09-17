@@ -17,30 +17,14 @@ The `nx584` platform provides integration with GE, Caddx, Interlogix (and other 
 
 Enabling this sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
 
-To enable this, add the following lines to your `configuration.yaml`:
+To enable this feature, add the following lines to your `configuration.yaml`:
 
 ```yaml
+# Example configuration.yaml entry
 binary_sensor:
   platform: nx584
-  host: ADDRESS
-  exclude_zones:
-    - ZONE ...
-  zone_types:
-    ZONE: TYPE
-```
-
-Configuration variables:
-
-- **host** (*Optional*): This is the host connection string (host:port) for the nx584 server process. If unset, it is assumed to be `localhost:5007`, which will work if the server process is running on the same system as home-assistant.
-- **exclude_zones** (*Optional*): This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest, unconnected, etc.
-- **zone_types** (*Optional*): This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. The list of available zone types relevant to alarm zones are: `opening`, `motion`, `gas`, `smoke`, `moisture`, `safety`.
-
-Example configuration:
-
-```yaml
-binary_sensor:
-  platform: nx584
-  host: 192.168.1.10:5007
+  host: 192.168.1.10
+  pport: 5007
   exclude_zones:
     - 3
     - 5
@@ -50,3 +34,11 @@ binary_sensor:
     4: motion
     6: moisture
 ```
+
+Configuration variables:
+
+- **host** (*Optional*): This is the host where the nx584 server process is running. If unset, it is assumed to be `localhost`, which will work if the server process is running on the same system as Home Assistant.
+- **port** (*Optional*): The port where the server process is running. Defaults to `5007`. 
+- **exclude_zones** (*Optional*): This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest, unconnected, etc.
+- **zone_types** (*Optional*): This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. The list of available zone types relevant to alarm zones are: `opening`, `motion`, `gas`, `smoke`, `moisture`, `safety`.
+

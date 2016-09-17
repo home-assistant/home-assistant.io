@@ -15,6 +15,10 @@ ha_iot_class: "Cloud Poll"
 
 The `nest` weather sensor platform let you monitor current weather conditions based on the location of your [Nest](https://nest.com) thermostat.
 
+<p class='note'>
+You must have the [Nest component](/components/nest/) configured to use those sensors.
+</p>
+
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
@@ -37,4 +41,3 @@ Configuration variables:
     - 'wind_speed'
     - 'wind_direction'
 
-<p class='note'>You must have the [Nest component](/components/nest/) configured to use this sensor.</p>
