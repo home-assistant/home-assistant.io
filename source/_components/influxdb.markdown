@@ -38,7 +38,7 @@ influxdb:
 
 Configuration variables:
 
-- **host** (*Required*): IP address of your database host, eg. http://192.168.1.10.
+- **host** (*Optional*): IP address of your database host, eg. http://192.168.1.10. Defaults to localhost.
 - **username** (*Required*): The username of the database user.
 - **password** (*Required*): The password for the database user account.
 - **port** (*Optional*): Port to use. Defaults to 8086.
