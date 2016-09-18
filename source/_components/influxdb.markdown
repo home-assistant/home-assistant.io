@@ -33,7 +33,8 @@ influxdb:
      - entity.id3
      - entity.id4
   tags:
-    - instance: prod
+    instance: prod
+    source: hass
 ```
 
 Configuration variables:
