@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Python API"
-description: "Home Assistant Python API documentation"
+title: "Python Remote API"
+description: "Home Assistant Python Remote API documentation"
 date: 2015-05-11 12:00
 sidebar: true
 comments: false
