@@ -23,6 +23,14 @@ Using the Synology webadmin:
 
 SSH onto your synology & login as admin or root
 
+ - Log in with your own administrator account
+ - Switch to root using:
+
+```bash
+$ sudo -i
+```
+
+
 Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)
 
 ```bash
@@ -174,6 +182,18 @@ Make the daemon file executable:
 ```bash
 $ chmod 777 /volume1/homeassistant/hass-daemon
 ```
+Update your firewall (if it is turned on on the Synology device):
+
+ - Go to your Synology control panel
+ - Go to security 
+ - Go to firewall
+ - Go to Edit Rules
+ - Click Create
+ - Select Custom: Destination port "TCP"
+ - Type "8123" in port
+ - Click on OK
+ - Click on OK again
+
 
 Copy your configuration.yaml file into the config folder
 That's it... you're all set to go
