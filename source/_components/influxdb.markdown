@@ -39,10 +39,10 @@ influxdb:
 Configuration variables:
 
 - **host** (*Required*): IP address of your database host, eg. http://192.168.1.10.
+- **username** (*Required*): The username of the database user.
+- **password** (*Required*): The password for the database user account.
 - **port** (*Optional*): Port to use. Defaults to 8086.
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
-- **username** (*Optional*): The username of the database user.
-- **password** (*Optional*): The password for the database user account.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
 - **blacklist** (*Optional*): List of entities not logged to InfluxDB.
