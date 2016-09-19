@@ -16,7 +16,8 @@ ha_release: 0.24
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.knx) 
+- [Binary Sensor](/components/binary_sensor.knx)
+- [Sensor](/components/sensor.knx)
 - [Switch](/components/switch.knx)
 - [Thermostat](/components/thermostat.knx)
 
