@@ -68,9 +68,12 @@ Configuration variables:
 - **brightness_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's brightness.
 - **rgb_state_topic** (*Optional*): The MQTT topic subscribed to receive RGB state updates.
 - **rgb_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's RGB state.
+- **color_temp_state_topic** (*Optional*): The MQTT topic subscribed to receive color temperature state updates.
+- **color_temp_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's color temperature state.
 - **state_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the state value.
 - **brightness_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the brightness value.
 - **rgb_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the RGB value.
+- **color_temp_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the color temperature value.
 - **brightness_scale** (*Optional*): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
@@ -82,4 +85,3 @@ Configuration variables:
 </p>
 
 A basic example using a nodeMCU board (ESP8266) to control its built-in led (on/off) can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light). [Here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light) is another example to control a RGB led (on/off, brightness and colors).
-
