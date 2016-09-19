@@ -9,22 +9,25 @@ sharing: true
 footer: true
 logo: knx.png
 ha_category: DIY
-ha_release: 0.24
+ha_release: 0.29
 ---
 
-[KNX/EIB](http://www.knx.org) integration for Home Assistant allows you to connect to a KNX bus. The component requires a local KNX/IP interface like the [Weinzierl 730](http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en). Through this it will send and receive commands to and from other devices to the KNX bus.
+The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensors. 
 
-There is currently support for the following KNX Data Point Types
+The `knx` component must be configured correctly, see [KNX Component](/components/knx).
 
- - Temperature: KNX Datapoint Type 9.001 - °C - 2 Byte Float
- - Speed(Wind Speed): KNX Datapoint Type 9.005 - m/s - 2 Byte Float
- - Illuminance(Lux): KNX Datapoint Type 9.004 - Lux - 2 Byte Float
+There is currently support for the following KNX data point types:
 
-The `knx` Component muste be Configured Correctly, see [KNX Component](/components/knx)
+| Condition           | KNX Datapoint Type  | Unit of measurement | Data type    |
+| :-------------------|:--------------------|:--------------------|:-------------|
+| Temperature         | 9.001               | °C                  | 2 Byte Float |
+| Speed (Wind speed)  | 9.005               | m/s                 | 2 Byte Float |
+| Illuminance (Lux)   | 9.004               | Lux                 | 2 Byte Float |
 
-### Sample Configuration ###
+To use your KNX sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   - platform: knx
     name: knxweather_temp
@@ -42,8 +45,11 @@ sensor:
     address: 1/0/1
 ```
 
-### Optional Parameters: ###
- - minimum - Minimum Sensor Value who gets processed
- - maxmimum - Maxmimum Sensor Value who gets processed
+Configuration variables:
 
-If minimum and maximum not defined, hardcoded default values are used
+- **type** (*Required*): The type of the sensor. See table above for available options.
+- **address** (*Required*): The address of the sensor on the bus.
+- **name** (*Optional*): The name to use in the frontend.
+- **minimum** (*Optional*): Minimum sensor value who gets processed. Defaults to a hardcoded default values.
+- **maxmimum** (*Optional*): Maxmimum sensor value who gets processed. Defaults to a hardcoded default.
+
