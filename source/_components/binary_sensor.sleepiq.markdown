@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: sleepiq
 ha_category: Binary Sensor
+ha_release: 0.29
+ha_iot_class: "Local Polling"
 ---
 
 To get your SleepIQ binary sensors working with Home Assistant, follow the instructions for the general [SleepIQ component](/components/sleepiq/).
