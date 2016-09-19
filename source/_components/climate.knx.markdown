@@ -10,6 +10,7 @@ footer: true
 logo: knx.png
 ha_category: DIY
 ha_release: 0.25
+ha_iot_class: "Local Polling"
 ---
 
 

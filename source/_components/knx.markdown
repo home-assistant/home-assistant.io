@@ -10,6 +10,7 @@ footer: true
 logo: knx.png
 ha_category: DIY
 ha_release: 0.24
+ha_iot_class: "Local Polling"
 ---
 
 [KNX/EIB](http://www.knx.org) integration for Home Assistant allows you to connect to a KNX bus. The component requires a local KNX/IP interface like the [Weinzierl 730](http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en). Through this it will send and receive commands to and from other devices to the KNX bus.
