@@ -9,15 +9,16 @@ sharing: true
 footer: true
 ha_category: DIY
 ha_release: 0.29
+ha_iot_class: "Local Polling"
 ---
 
-The Mi Flora plant sensor is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and
-conductivity. 
-As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
+The [Mi Flora plant sensor](https://www.open-homeautomation.com/2016/08/23/reverse-engineering-the-mi-plant-sensor/) is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and
+conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
 
-To use your PM sensor in your installation, add the following to your `configuration.yaml` file:
+To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 sensor
   platform: miflora
   mac: xx:xx:xx:xx:xx:xx
@@ -31,7 +32,7 @@ sensor
    - conductivity
 ```
 
-- **mac** (*Required*): The MAC address of your sensor. You can find this be running "hcitool lescan" from command line.
+- **mac** (*Required*): The MAC address of your sensor. You can find this be running `hcitool lescan` from command line.
 - **name** (*Optional*): The name displayed in the frontend.
 - **force_update** (*Optional*): Sends update events even if the value hasn't changed.
 - **median** (*Optional*): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 
