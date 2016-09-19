@@ -20,6 +20,7 @@ Enabling this sensor platform exposes all of your zones as binary sensors, which
 To enable this, add the following lines to your `configuration.yaml`:
 
 ```yaml
+# Example configuration.yaml entry
 binary_sensor:
   platform: nx584
   host: ADDRESS

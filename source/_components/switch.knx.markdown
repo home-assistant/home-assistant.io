@@ -19,6 +19,7 @@ The `knx` switch component is used as in interface to switching actuators.
 To use your KNX switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 switch:
   - platform: knx
     name: KNX Switch

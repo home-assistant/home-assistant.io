@@ -45,6 +45,7 @@ Once you enter the PIN on the ecobee site, wait approximately 5 minutes and then
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 ecobee:
   api_key: asdfghjklqwertyuiopzxcvbnm 
   hold_temp: True

@@ -24,6 +24,7 @@ There is currently support for the following device types within Home Assistant:
 A `knx` section must be present in the `configuration.yaml` file and contain the following options as required:
 
 ```yaml
+# Example configuration.yaml entry
 knx:
   host: IP_ADDRESS
   port: PORT

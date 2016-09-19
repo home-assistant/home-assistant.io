@@ -21,6 +21,7 @@ KNX thermostats use at least 2 group addresses: one for the current temperature 
 To use your KNX thermostats in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 climate:
   - platform: knx
     name: KNX Thermostat
