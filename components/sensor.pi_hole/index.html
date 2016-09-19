@@ -97,6 +97,8 @@
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pi_hole</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
+    <span class="s">ssl</span><span class="pi">:</span> <span class="s">True</span>
+    <span class="s">verify_ssl</span><span class="pi">:</span> 
 </code></pre>
 </div>
 
@@ -104,6 +106,8 @@
 
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): The IP address of the Pi-Hole system. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): If <code class="highlighter-rouge">true</code>, use SSL/TLS to connect to the Pi-Hole system. Defaults to <code class="highlighter-rouge">False</code>.</li>
+  <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify the certification of the system. Default to True.</li>
 </ul>
 
 

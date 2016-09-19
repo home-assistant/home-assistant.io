@@ -93,7 +93,8 @@
 
 <p>To use your KNX switch in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">KNX Switch</span>
     <span class="s">address</span><span class="pi">:</span> <span class="s">0/0/1</span>
@@ -125,6 +126,9 @@ For switching actuators that are only controlled by a single group address and c
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/knx.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.24
     </div>
