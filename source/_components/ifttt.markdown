@@ -58,7 +58,7 @@ You need to setup a unique trigger for each event you sent to IFTTT.
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  - alias: Startup Notification
+  alias: Startup Notification
   trigger:
     platform: event
     event_type: homeassistant_start
