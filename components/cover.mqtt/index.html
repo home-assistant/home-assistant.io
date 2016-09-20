@@ -109,7 +109,7 @@ state from <code class="highlighter-rouge">state_topic</code>. If these messages
     <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
     <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
     <span class="s">payload_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOAD_OPEN"</span>
-    <span class="s">payload_close</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOD__CLOSE"</span>
+    <span class="s">payload_close</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOAD_CLOSE"</span>
     <span class="s">payload_stop</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOAD_STOP"</span>
     <span class="s">state_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STATE_OPEN"</span>
     <span class="s">state_closed</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STATE_CLOSED"</span>
@@ -138,7 +138,7 @@ state from <code class="highlighter-rouge">state_topic</code>. If these messages
 
 <p>For a quick check you can use the commandline tools shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. Set the state of your sensor manually:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m <span class="s2">"OFF"</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m <span class="s2">"PAYLOAD_CLOSE"</span>
 </code></pre>
 </div>
 
