@@ -23,7 +23,7 @@ To enable those lights, add the following lines to your `configuration.yaml` fil
 # Example configuration.yaml entry
 light:
   - platform: x10
-    lights:
+    devices:
       - name: Living Room Lamp
         id: a2
       - name: Bedroom Lamp
@@ -32,5 +32,5 @@ light:
 
 Configuration variables:
 
-- **id** (*Required*): Device identifier. Composed of house code + unit id.
+- **id** (*Required*): Device identifier. Composed of house code und unit id.
 - **name** (*Optional*): A friendly name for the device. By default *id* from the device is used.
