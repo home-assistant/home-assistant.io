@@ -33,7 +33,7 @@ cover:
     qos: 0
     retain: true
     payload_open: "PAYLOAD_OPEN"
-    payload_close: "PAYLOD__CLOSE"
+    payload_close: "PAYLOAD_CLOSE"
     payload_stop: "PAYLOAD_STOP"
     state_open: "STATE_OPEN"
     state_closed: "STATE_CLOSED"
@@ -60,6 +60,6 @@ Configuration variables:
 For a quick check you can use the commandline tools shipped with `mosquitto` to send MQTT messages. Set the state of your sensor manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m "OFF"
+$  mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m "PAYLOAD_CLOSE"
 ```
 
