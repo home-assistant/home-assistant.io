@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Bureau of Meteorology Australia current weather"
-description: "Instructions on how to integrate Bureau of Meteorology Australia current weather conditions into Home Assistant."
+title: "Weather data by the Bureau of Meteorology Australia"
+description: "Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant."
 date: 2016-09-13 18:00
 sidebar: true
 comments: false
@@ -9,11 +9,10 @@ sharing: true
 footer: true
 logo: bom.png
 ha_category: Weather
-featured: false
 ha_release: 0.29
 ---
 
-The `bom_weather_current` platform allows you to get the current weather conditions from the [Bureau of Meteorology (BOM)](http://www.bom.gov.au/) Australia.
+The `bom` platform allows you to get the current weather conditions from the [Bureau of Meteorology (BOM)](http://www.bom.gov.au/) Australia.
 
 - Each sensor will be given the `device_id` of "bom [optionalname] friendlyname units"
 - Get the station ID for your local BOM station from the BOM website: State -> Observations -> Latest Observations -> Choose the station
