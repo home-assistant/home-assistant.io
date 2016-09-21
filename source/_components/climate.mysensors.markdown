@@ -21,7 +21,11 @@ The following actuator types are supported:
 
 S_TYPE      | V_TYPE
 ------------|-------------
-S_HVAC      | [V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_FLOW_STATE, V_HVAC_FLOW_MODE, V_HVAC_SPEED]
+S_HVAC      | [V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_FLOW_STATE, V_HVAC_SPEED]
+
+Currently humidity, away_mode, aux_heat, swing_mode is not supported. This will be included in later versions as feasible.
+
+Set the target temperature using V_HVAC_SETPOINT_HEAT in Heat mode, and V_HVAC_SETPOINT_COOL in Cool Mode. In case of any Auto Change Over mode you can use V_HVAC_SETPOINT_HEAT as well as V_HVAC_SETPOINT_COOL to set the both the low bound and the high bound temperature of the device.
 
 For more information, visit the [serial api] of MySensors.
 
@@ -35,18 +39,15 @@ For more information, visit the [serial api] of MySensors.
  */
 
 #include <MySensor.h>
-...
-...
-...
+/* Include all the other Necessary code here. The example code is limited to message exchange for mysensors with the controller (ha)*/
 
 #define CHILD_ID_HVAC  0  // childId
 MyMessage msgHVACSetPointC(CHILD_ID_HVAC, V_HVAC_SETPOINT_COOL);
-MyMessage msgHVACSetPointH(CHILD_ID_HVAC, V_HVAC_SETPOINT_COOL);
 MyMessage msgHVACSpeed(CHILD_ID_HVAC, V_HVAC_SPEED);
 MyMessage msgHVACFlowState(CHILD_ID_HVAC, V_HVAC_FLOW_STATE);
-...
-...
-...
+
+/* Include all the other Necessary code here. The example code is limited to message exchange for mysensors with the controller (ha)*/
+
 void setup()
 {
 
@@ -59,7 +60,6 @@ void setup()
         gw.present(CHILD_ID_HVAC, S_HVAC, "Thermostat");
         gw.send(msgHVACFlowState.set("Off"));
         gw.send(msgHVACSetPointC.set(target_temp));
-        gw.send(msgHVACSetPointH.set(target_temp));
         gw.send(msgHVACSpeed.set("Max"));
 }
 
@@ -75,7 +75,6 @@ void incomingMessage(const MyMessage &message) {
                 processHVAC();
                 break;
         case V_HVAC_SETPOINT_COOL:
-        case V_HVAC_SETPOINT_HEAT:
                 target_temp = message.getFloat();
                 processHVAC();
                 break;
