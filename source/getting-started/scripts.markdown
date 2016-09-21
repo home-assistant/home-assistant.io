@@ -50,7 +50,7 @@ state: 'home'
 
 ### {% linkable_title Delay %}
 
-Delays are useful for temporarily suspending your script and start it at a later moment. We support  different syntaxes for a delay as shown below.
+Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
 
 ```yaml
 # Waits 1 hour
@@ -72,7 +72,7 @@ delay:
 ```yaml
 # Waits however many minutes input_slider.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-delay: {% raw %}'00:{{ input_slider.minute_delay | int }}:00'{% endraw %}
+delay: {% raw %}'00:{{ states.input_slider.minute_delay.state | int }}:00'{% endraw %}
 ```
 
 ### {% linkable_title Fire an Event %}
