@@ -52,7 +52,7 @@ input_slider:
     step: 1
 
 # Automation.     
-automation:    
+automation:
   - alias: Bedroom Light - Adjust Brightness
     trigger:
       platform: state
