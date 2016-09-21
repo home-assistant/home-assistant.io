@@ -130,7 +130,7 @@
 
 <h3><a class="title-link" name="delay" href="#delay"></a> Delay</h3>
 
-<p>Delays are useful for temporarily suspending your script and start it at a later moment. We support  different syntaxes for a delay as shown below.</p>
+<p>Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Waits 1 hour</span>
 <span class="s">delay</span><span class="pi">:</span> <span class="s">01:00</span>
@@ -151,7 +151,7 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Waits however many minutes input_slider.minute_delay is set to</span>
 <span class="c1"># Valid formats include HH:MM and HH:MM:SS</span>
-<span class="s">delay</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:{{</span><span class="nv"> </span><span class="s">input_slider.minute_delay</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int</span><span class="nv"> </span><span class="s">}}:00'</span>
+<span class="s">delay</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:{{</span><span class="nv"> </span><span class="s">states.input_slider.minute_delay.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int</span><span class="nv"> </span><span class="s">}}:00'</span>
 </code></pre>
 </div>
 
