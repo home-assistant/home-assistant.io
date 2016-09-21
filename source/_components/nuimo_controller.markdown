@@ -9,27 +9,27 @@ sharing: true
 footer: true
 logo: nuimo.png
 ha_category: Hub
-ha_release: 0.28
+ha_release: 0.29
 ha_iot_class: "Local Poll"
 ---
 
-The `nuimo_controller` component allows you to connect to a [Nuimo](http://www.senic.com/) device for receiving input events and displaying on the led matrix via the [Nuimo SDK for Python on Linux](https://github.com/getSenic/nuimo-linux-python).
+The `nuimo_controller` component allows you to connect to a [Nuimo](http://www.senic.com/) device for receiving input events and displaying on the LED  matrix via the [Nuimo SDK for Python on Linux](https://github.com/getSenic/nuimo-linux-python).
 
 To connect to a Nuimo device add the following section to your `configuration.yaml` file:
 
 ```yaml
 nuimo_controller:
   mac: 'CE:B5:12:25:21:89'
+  name: 
 ```
-
 
 Configuration variables:
 
-- **mac** (*Optional*): skip discovery and connect to this device address 
-- **name** (*Optional*): handle more than one device by names
+- **mac** (*Optional*): Skip discovery and connect to this device address.
+- **name** (*Optional*): To handle more than one device by names, add the name of the device.
 
 
-Example for testing rotation value and sending to led matrix:
+Example for testing rotation value and sending to the LED matrix:
 
 ```yaml
 automation Nuimo_rotate_right:
@@ -63,9 +63,6 @@ Troubleshooting:
 
 - allow non-root user access to Bluetooth LE with `sudo setcap cap_net_raw+eip $(eval readlink -f $(which python))` 
 
-- install the newest version of [pygattlib](https://bitbucket.org/OscarAcena/pygattlib) from 
-the repository, either because there is no binary package for your system or the pip version
-contains errors, with `pip install hg+https://bitbucket.org/OscarAcena/pygattlib --target $HOME/.homeassistant/deps`.
-( dependencies of pygattlib: `sudo apt-get install pkg-config libboost-python-dev 
-libboost-thread-dev libbluetooth-dev libglib2.0-dev python-dev` )
+- install the newest version of [pygattlib](https://bitbucket.org/OscarAcena/pygattlib) from the repository, either because there is no binary package for your system or the pip version contains errors, with `pip install hg+https://bitbucket.org/OscarAcena/pygattlib --target $HOME/.homeassistant/deps`.
+(Dependencies of pygattlib: `sudo apt-get install pkg-config libboost-python-dev libboost-thread-dev libbluetooth-dev libglib2.0-dev python-dev`)
 Then invoke home-assistant with `hass --skip-pip`.
