@@ -153,47 +153,15 @@
 </code></pre>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">name</code></td>
-      <td>Host name or “Unnamed Device”</td>
-      <td>The friendly name of the device</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mac</code></td>
-      <td>None</td>
-      <td>The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">picture</code></td>
-      <td>None</td>
-      <td>A picture that you can use to easily identify the person or device</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gravatar</code></td>
-      <td>None</td>
-      <td>An email address for the device’s owner. If provided, it will override <code class="highlighter-rouge">picture</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">track</code></td>
-      <td>False</td>
-      <td>If  <code class="highlighter-rouge">yes</code>/<code class="highlighter-rouge">on</code>/<code class="highlighter-rouge">true</code> then the device will be tracked. Otherwise its location and state will not update</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">hide_if_away</code></td>
-      <td>False</td>
-      <td>If <code class="highlighter-rouge">yes</code>/<code class="highlighter-rouge">on</code>/<code class="highlighter-rouge">true</code> then the device will be hidden if it is not at home</td>
-    </tr>
-  </tbody>
-</table>
+<p>| Parameter      | Default                       | Description                                                                                             |
+|—————-|——————————-|———————————————————————————————————|
+| <code class="highlighter-rouge">name</code>         | Host name or “Unnamed Device” | The friendly name of the device                                                                         |
+| <code class="highlighter-rouge">mac</code>          | None                          | The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP     |
+| <code class="highlighter-rouge">picture</code>      | None                          | A picture that you can use to easily identify the person or device. You can also save the file in a folder “www” in the same location where you have the configuration.yaml file and just use <code class="highlighter-rouge">picture: /local/favicon-192x192.png</code>                                      |
+| <code class="highlighter-rouge">gravatar</code>     | None                          | An email address for the device’s owner. If provided, it will override <code class="highlighter-rouge">picture</code>                        |
+| <code class="highlighter-rouge">track</code>        | False                         | If  <code class="highlighter-rouge">yes</code>/<code class="highlighter-rouge">on</code>/<code class="highlighter-rouge">true</code> then the device will be tracked. Otherwise its location and state will not update |
+| <code class="highlighter-rouge">hide_if_away</code> | False                         | If <code class="highlighter-rouge">yes</code>/<code class="highlighter-rouge">on</code>/<code class="highlighter-rouge">true</code> then the device will be hidden if it is not at home                                |
+To save the <code class="highlighter-rouge">picture</code> locally, create a folder “www” in the same location where you have the configuration.yaml file and place favicon-192x192.png there. Then, you can use picture: /local/favicon-192x192.png</p>
 
 
 </article>
