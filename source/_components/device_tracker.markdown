@@ -56,7 +56,8 @@ devicename:
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
 | `name`         | Host name or "Unnamed Device" | The friendly name of the device                                                                         |
 | `mac`          | None                          | The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP     |
-| `picture`      | None                          | A picture that you can use to easily identify the person or device                                      |
+| `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the file in a folder "www" in the same location where you have the configuration.yaml file and just use `picture: /local/favicon-192x192.png`                                      |
 | `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`                        |
 | `track`        | False                         | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update |
 | `hide_if_away` | False                         | If `yes`/`on`/`true` then the device will be hidden if it is not at home                                |
+To save the `picture` locally, create a folder "www" in the same location where you have the configuration.yaml file and place favicon-192x192.png there. Then, you can use picture: /local/favicon-192x192.png
