@@ -56,7 +56,8 @@ To upgrade the All-In-One setup manually:
 *  Change to hass user `sudo su -s /bin/bash hass`
 *  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
 *  Update HA `pip3 install --upgrade homeassistant`
-*  Type `exit` to get out of hass user and change to normal user.
+*  Type `exit` to logout the `hass` user and return to the `pi` user.
+
   
 To upgrade with fabric:
 
