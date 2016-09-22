@@ -15,6 +15,8 @@ featured: true
 
 Philips Hue support is integrated into Home Assistant as a light platform. The preferred way to setup the Philips Hue platform is by enabling the [the discovery component](/components/discovery/).
 
+Once discovered, you will need to locate "configurator.philips_hue" in the entities list ( < > ) and add this entiy to a visible group, or configuration.yaml and restart home assistant so that it is visible in your home assistant dashboard. Once home assistant is restarted, locate the configurator and click on it to bring up the intitiation dialog. It will prompt you to press your Hue button and then confirm. After this is complete, the Hue will be registered and the configurator can be removed from the configuration. Restart home assistant again, and the Hue lights that are connected to the bridge should be listed as "light" entities. Add these to your configuration and restart home assistant to complete setup.
+
 If you want to enable the light component directly, add the following lines to your `configuration.yaml`:
 
 ```yaml
