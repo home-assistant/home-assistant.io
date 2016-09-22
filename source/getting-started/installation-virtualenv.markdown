@@ -105,7 +105,7 @@ The [autostart instructions](/getting-started/autostart/) will work just fine, j
 
 ### {% linkable_title Installing python-openzwave %}
 
-If you want to use Z-Wave devices, you will need to install `python-openzwave` in your virtualenv. This requires a small tweak to the instructions on home-assistant.io
+If you want to use Z-Wave devices, you will need to install `python-openzwave` in your virtualenv. This requires a small tweak to the instructions in [the Z-Wave Getting Started documentation](/getting-started/z-wave/)
 
 Install the dependencies as normal (Note: you will need to do this as your normal user, since `hass` isn't a sudoer).
 
