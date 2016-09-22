@@ -26,7 +26,7 @@ To enable your FFmpeg with noise detection in your installation, add the followi
 
 ```yaml
 # Example configuration.yaml entry
-camera:
+binary_sensor:
   - platform: ffmpeg
     tool: noise
     input: FFMPEG_SUPPORTED_INPUT
@@ -63,7 +63,7 @@ To enable your FFmpeg with motion detection in your installation, add the follow
 
 ```yaml
 # Example configuration.yaml entry
-camera:
+binary_sensor:
   - platform: ffmpeg
     tool: motion
     input: FFMPEG_SUPPORTED_INPUT
