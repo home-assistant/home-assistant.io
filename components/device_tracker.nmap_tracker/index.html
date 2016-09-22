@@ -100,6 +100,9 @@
   <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
   <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.1/24</span>
   <span class="s">home_interval</span><span class="pi">:</span> <span class="s">10</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">192.168.1.12</span>
+   <span class="pi">-</span> <span class="s">192.168.1.13</span>
 </code></pre>
 </div>
 
@@ -108,6 +111,7 @@
 <ul>
   <li><strong>hosts</strong> (<em>Required</em>): The network range to scan in CIDR notation, eg. 192.168.1.1/24</li>
   <li><strong>home_interval</strong> (<em>Optional</em>): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.</li>
+  <li><strong>exclude</strong> (<em>Optional</em>): Hosts not to include in nmap scanning.</li>
 </ul>
 
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
