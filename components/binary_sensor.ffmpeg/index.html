@@ -100,7 +100,7 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
 <p>To enable your FFmpeg with noise detection in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">camera</span><span class="pi">:</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ffmpeg</span>
     <span class="s">tool</span><span class="pi">:</span> <span class="s">noise</span>
     <span class="s">input</span><span class="pi">:</span> <span class="s">FFMPEG_SUPPORTED_INPUT</span>
@@ -139,7 +139,7 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
 <p>To enable your FFmpeg with motion detection in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">camera</span><span class="pi">:</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ffmpeg</span>
     <span class="s">tool</span><span class="pi">:</span> <span class="s">motion</span>
     <span class="s">input</span><span class="pi">:</span> <span class="s">FFMPEG_SUPPORTED_INPUT</span>
