@@ -10,7 +10,7 @@ footer: true
 logo: mysensors.png
 ha_category: Climate
 featured: false
-ha_release: 0.28+
+ha_release: 0.29
 ---
 
 Integrates MySensors HVAC into Home Assistant. See the [main component] for configuration instructions.
@@ -26,6 +26,17 @@ S_HVAC      | [V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_FLOW_STATE, V_
 Currently humidity, away_mode, aux_heat, swing_mode is not supported. This will be included in later versions as feasible.
 
 Set the target temperature using V_HVAC_SETPOINT_HEAT in Heat mode, and V_HVAC_SETPOINT_COOL in Cool Mode. In case of any Auto Change Over mode you can use V_HVAC_SETPOINT_HEAT as well as V_HVAC_SETPOINT_COOL to set the both the low bound and the high bound temperature of the device.
+
+V_HVAC_FLOW_STATE is mapped to the state of the Climate component in HA as follows:
+
+Home Assistant State   | MySensors State
+-----------------------|----------------------
+STATE_COOL             | CoolOn
+STATE_HEAT             | HeatOn
+STATE_AUTO             | Off 
+STATE_OFF              | AutoChangeOver
+
+You can use V_HVAC_SPEED to control the Speed setting of the Fan in the HVAC.
 
 For more information, visit the [serial api] of MySensors.
 
