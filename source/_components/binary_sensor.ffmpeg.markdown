@@ -37,7 +37,6 @@ Configuration variables:
 - **input** (*Required*): A ffmpeg compatible input file, stream or feed.
 - **tool** (*Required*): Is fix set to `noise`.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
-- **ffmpeg_bin** (*Optional*): Default `ffmpeg`.
 - **peak** (*Optional*): Default -30. A peak of dB to detect it as noise. 0 is very loud and -100 is low.
 - **duration** (*Optional*): Default 1 seconds. How long need the noise over the peak to trigger the state.
 - **reset** (*Optional*): Defaults to 20 seconds. The time to reset the state after none new noise is over the peak.
@@ -68,7 +67,7 @@ camera:
     # group feature / default not in use
     repeat: 0
     repeat_time: 0
-    
+
 ```
 
 Configuration variables:
@@ -76,7 +75,6 @@ Configuration variables:
 - **input** (*Required*): A ffmpeg compatible input file, stream, or feed.
 - **tool** (*Required*): Is fix set to `motion`.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
-- **ffmpeg_bin** (*Optional*): Default `ffmpeg`.
 - **changes** (*Optional*): Default 10 percent. A lower value is more sensitive. I use 4 / 3.5 on my cameras. It describes how much needs to change between two frames to detect it as motion. See on descripton.
 - **reset** (*Optional*): Default 20 seconds. The time to reset the state after no new motion is detected.
 - **repeat** (*Optional*): Default 0 repeats (deactivate). How many events need to be detected in *repeat_time* in order to trigger a motion.

@@ -12,6 +12,8 @@ ha_category: Hub
 featured: true
 ---
 
+It allow other Home-Assistant components to process video/audio streams. It need a ffmpeg binary in your system path. It support all ffmpeg version since 3.0.0. If you have a older version, please update.
+
 <p class='note'>
 You need a `ffmpeg` binary in your system path. On Debain 8 or Raspbian (Jessie) you can install it from backports. If you want Hardware support on a Raspberry Pi you need to build from source by yourself. Windows binary are avilable on the [FFmpeg](http://www.ffmpeg.org/) website.
 </p>
