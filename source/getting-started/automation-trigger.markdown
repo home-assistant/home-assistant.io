@@ -98,7 +98,7 @@ Template triggers work by evaluating a [template] on each state change. The trig
 automation:
   trigger:
     platform: template
-    value_template: '{% raw %}{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}{% endraw %}'
+    value_template: "{% raw %}{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}{% endraw %}"
 ```
 
 ### {% linkable_title Time trigger %}
