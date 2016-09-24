@@ -10,16 +10,18 @@ comments: true
 categories: Release-Notes
 ---
 
-It's time for 0.29 and this is a big release as we've completely overhauled the internals of Home Assistant. When I initially wrote Home Assistant, still figuring out the ins and outs of Python, I went for an approach that I was familiar with for an application with many moving parts: threads and locks. This approach has served us well over the years but it was slower than it needed to be, especially on limited hardware.
+Last week, September 17 marked our 3 year anniversary. In this time Home Assistant managed to grow from a simple script that turned on my lights when the sun set to a kick ass open source project with the best community an open-source project could wish for. This release contains features, bug fixes and performance tweaks by a total of **50** different people! We have also managed to cross the 1000 forks on GitHub. Talking about momentum!
 
-This all changed when [@bbangert] came around and took on the tough job to migrate the core over to use asynchronous programming. He did an amazing job and I am happy to say that the initial port has been done and is included in this release! On top of that, we have been able to keep our simple and straightforward API at the same time. We are still in the process of migrating more and more components over to the asynchronous API, so expect more speedups and awesome features in the upcoming releases.
+This is a big release as we've completely overhauled the internals of Home Assistant. When I initially wrote Home Assistant, still figuring out the ins and outs of Python, I went for an approach that I was familiar with for an application with many moving parts: threads and locks. This approach has served us well over the years but it was slower than it needed to be, especially on limited hardware.
+
+This all changed when [@bbangert] came around and took on the tough job to migrate the core over to use asynchronous programming. He did an amazing job and I am happy to say that the initial port has been done and is included in this release! On top of that, we have been able to keep our simple and straightforward API at the same time. We are still in the process of migrating more and more components over to the asynchronous API, so expect more speedups and awesome features in the upcoming releases. Big thanks also to [@turbokongen], [@lwis], and [@technicalpickles] for helping out with debugging the segfault issues.
 
 ### {% linkable_title SleepIQ and OpenALPR %}
-There now is support for two new super cool things: Beds and license plates. [SleepIQ] let you monitor the sensor data of your bed. The [OpenALPR] implementation allows one to process license plates from a camera image to automate the opening of a garage door or to trigger other events.
+There now is support for two new super cool things: Beds and license plates. [@technicalpickles] created a [SleepIQ] component that let you monitor the sensor data of your bed. [@pvizeli] has added license plate recognition based on [OpenALPR]! This means that you can now be notified about which car is parked on your driveway or in your garage. I also would like to use this opportunity to give a big shoutout to [@pvizeli] for being such an awesome member of our community. He joined us at the end of June and has helped crush bugs and add awesome features ever since (65 pull requests already!).
 
 ### {% linkable_title Configuration validation %}
 
-On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info.
+On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues. 
 
 ### {% linkable_title All changes %}
 
