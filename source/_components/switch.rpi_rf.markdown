@@ -15,6 +15,8 @@ ha_release: 0.19
 
 The `rpi_rf` switch platform allows you to control devices over 433/315MHz LPD/SRD signals with generic low-cost GPIO RF modules on a [Raspberry Pi](https://www.raspberrypi.org/).
 
+Please note that if you are using the All In One installer for Home Assistant on the RPI, you will need to grant the default user HASS access to the GPIOs.  Run the following command `sudo adduser hass gpio` while in a terminal session on your Pi.  This is a one time configuration change to allow HA access to the GPIOs.
+
 Interoperable with codes sniffed via [the rpi-rf module](https://pypi.python.org/pypi/rpi-rf) or [rc-switch](https://github.com/sui77/rc-switch).
 For more info see the PyPi module description: [rpi-rf](https://pypi.python.org/pypi/rpi-rf).
 
