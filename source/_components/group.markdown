@@ -13,7 +13,7 @@ ha_category: Organization
 
 Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting the `view` option to `yes`. This will make the group available as a new tab in the frontend.
 
-Check the **Set State** page from the **Developer Tools** <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> and browse the **Current entities:** listing for all available entities.
+Check the **Set State** page from the **Developer Tools** ![<>](https://cdn.rawgit.com/Templarian/MaterialDesign/master/icons/svg/code-tags.svg) and browse the **Current entities:** listing for all available entities.
 
 By default, every group appears in the HOME tab. If you name a group `default_view` it will REPLACE the contents of the HOME tab so you can customize it as you wish.
 
