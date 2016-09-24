@@ -2,7 +2,7 @@
 layout: post
 title: "0.29: Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants"
 description: "Move to asynchronous, Support for SleepIQ, OpenALPR, and EmonCMS, and other goodies."
-date: 2016-09-24 08:00:00 +0200
+date: 2016-09-24 08:04:05 +0900
 date_formatted: "September 24, 2016"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
@@ -92,6 +92,7 @@ On the voluptuous front we have also made great progress. We were able to fully 
 [@milaq]: https://github.com/milaq
 [@milas]: https://github.com/milas
 [@mKerix]: https://github.com/mKerix
+[@mxtra]: https://github.com/mxtra
 [@nkgilley]: https://github.com/nkgilley
 [@nvella]: https://github.com/nvella
 [@open-homeautomation]: https://github.com/open-homeautomation
