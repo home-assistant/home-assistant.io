@@ -19,9 +19,9 @@ The following actuator types are supported:
 ##### MySensors version 1.5 and higher
 S_TYPE      | V_TYPE
 ------------|-------------
-S_COVER     | V_UP, V_DOWN, V_STOP, V_PERCENTAGE
+S_COVER     | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS]
 
-The position should be returned by sending `V_PERCENTAGE` with the current position.
+All V_TYPES above are required. Use V_PERCENTAGE if you know the exact position of the cover in percent or V_STATUS if you don't.
 
 For more information, visit the [serial api] of MySensors.
 
@@ -59,18 +59,18 @@ enum State {
 };
 
 static int state = IDLE;
-static int position = 0;
+static int status = 0; // 0=cover is down, 1=cover is up
 MyMessage upMessage(CHILD_ID, V_UP);
 MyMessage downMessage(CHILD_ID, V_DOWN);
 MyMessage stopMessage(CHILD_ID, V_STOP);
-MyMessage positionMessage(CHILD_ID, V_PERCENTAGE);
+MyMessage statusMessage(CHILD_ID, V_STATUS);
 
 void sendState() {
-  // Send current status and position to gateway.
+  // Send current state and status to gateway.
   send(upMessage.set(state == UP));
   send(downMessage.set(state == DOWN));
   send(stopMessage.set(state == IDLE));
-  send(positionMessage.set(position));
+  send(statusMessage.set(status));
 }
 
 void setup() {
@@ -95,8 +95,8 @@ void loop() {
 
   if (state == UP && digitalRead(COVER_UP_SENSOR_PIN) == HIGH) {
     Serial.println("Cover is up.");
-    // Update position and state; send it to the gateway.
-    position = 100;
+    // Update status and state; send it to the gateway.
+    status = 1;
     state = IDLE;
     sendState();
     // Actuators will be disabled in next loop() iteration.
@@ -104,8 +104,8 @@ void loop() {
 
   if (state == DOWN && digitalRead(COVER_DOWN_SENSOR_PIN) == HIGH) {
     Serial.println("Cover is down.");
-    // Update position and state; send it to the gateway.
-    position = 0;
+    // Update status and state; send it to the gateway.
+    status = 0;
     state = IDLE;
     sendState();
     // Actuators will be disabled in next loop() iteration.
@@ -145,4 +145,3 @@ void receive(const MyMessage &message) {
 
 [main component]: /components/mysensors/
 [serial api]: https://www.mysensors.org/download/serial_api_15
-
