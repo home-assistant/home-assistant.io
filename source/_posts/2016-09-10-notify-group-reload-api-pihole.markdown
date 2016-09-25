@@ -94,7 +94,7 @@ The validation of the configuration is still on-going. Approximatly 80 % is done
   - [OctoPrint] component
   - mFi platform ([switch][mfi-switch] and [sensor][mfi-sensor])
   - NX584 Alarm Control Panel
-  - Mediaplayer platforms [FireTV] and [MPD]
+  - Mediaplayer platforms [FireTV], [Kodi] and [MPD]
   - [switch][command-line-switch] and the [cover][command-line-cover] `command_line` platforms
 - Custom components extending `BaseNotificationService` need to be aware that `kwargs.get(ATTR_TITLE)` will now return `None` if a title has not been set, and will need to specify `kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT)` if they always require a title.
 
@@ -155,5 +155,6 @@ The validation of the configuration is still on-going. Approximatly 80 % is done
 [mfi-switch]: /components/switch.mfi/
 [mfi-sensor]: /components/sensor.mfi/
 [FireTV]: /components/media_player.firetv/
+[Kodi]: /components/media_player.kodi/
 [command-line-switch]: /components/switch.command_line/
 [command-line-cover]: /components/cover.command_line/
