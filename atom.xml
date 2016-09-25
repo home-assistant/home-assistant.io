@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-25T16:26:05+00:00</updated>
+  <updated>2016-09-25T20:15:28+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -110,7 +110,7 @@
       <li><a href="https://home-assistant.io/components/octoprint/">OctoPrint</a> component</li>
       <li>mFi platform (<a href="https://home-assistant.io/components/switch.mfi/">switch</a> and <a href="https://home-assistant.io/components/sensor.mfi/">sensor</a>)</li>
       <li>NX584 Alarm Control Panel</li>
-      <li>Mediaplayer platforms <a href="https://home-assistant.io/components/media_player.firetv/">FireTV</a> and <a href="https://home-assistant.io/components/media_player.mpd/">MPD</a></li>
+      <li>Mediaplayer platforms <a href="https://home-assistant.io/components/media_player.firetv/">FireTV</a>, <a href="https://home-assistant.io/components/media_player.kodi/">Kodi</a> and <a href="https://home-assistant.io/components/media_player.mpd/">MPD</a></li>
       <li><a href="https://home-assistant.io/components/switch.command_line/">switch</a> and the <a href="https://home-assistant.io/components/cover.command_line/">cover</a> <code class="highlighter-rouge">command_line</code> platforms</li>
     </ul>
   </li>
