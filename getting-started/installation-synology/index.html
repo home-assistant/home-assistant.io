@@ -107,6 +107,15 @@
 
 <p>SSH onto your synology &amp; login as admin or root</p>
 
+<ul>
+  <li>Log in with your own administrator account</li>
+  <li>Switch to root using:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo -i
+</code></pre>
+</div>
+
 <p>Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /volume1/@appstore/py3k/usr/local/bin
@@ -258,6 +267,20 @@ esac
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod 777 /volume1/homeassistant/hass-daemon
 </code></pre>
 </div>
+
+<p>Update your firewall (if it is turned on on the Synology device):</p>
+
+<ul>
+  <li>Go to your Synology control panel</li>
+  <li>Go to security</li>
+  <li>Go to firewall</li>
+  <li>Go to Edit Rules</li>
+  <li>Click Create</li>
+  <li>Select Custom: Destination port “TCP”</li>
+  <li>Type “8123” in port</li>
+  <li>Click on OK</li>
+  <li>Click on OK again</li>
+</ul>
 
 <p>Copy your configuration.yaml file into the config folder
 That’s it… you’re all set to go</p>
