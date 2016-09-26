@@ -65,6 +65,7 @@ enum State {
 
 static int state = IDLE;
 static int status = 0; // 0=cover is down, 1=cover is up
+static bool initial_state_sent = false;
 MyMessage upMessage(CHILD_ID, V_UP);
 MyMessage downMessage(CHILD_ID, V_DOWN);
 MyMessage stopMessage(CHILD_ID, V_STOP);
@@ -81,9 +82,6 @@ void sendState() {
 void setup() {
   pinMode(COVER_UP_SENSOR_PIN, INPUT);
   pinMode(COVER_DOWN_SENSOR_PIN, INPUT);
-
-  // Send initial values.
-  sendState();
 }
 
 void presentation() {
@@ -93,6 +91,11 @@ void presentation() {
 }
 
 void loop() {
+  if (!initial_state_sent) {
+    sendState();
+    initial_state_sent = true;
+  }
+
   if (state == IDLE) {
     digitalWrite(COVER_UP_ACTUATOR_PIN, LOW);
     digitalWrite(COVER_DOWN_ACTUATOR_PIN, LOW);
