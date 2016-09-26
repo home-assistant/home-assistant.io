@@ -84,6 +84,9 @@ To launch the OZWCP web application:
   Don't check the USB box regardless of using a USB based device.
 </p>
 
+### {% linkable_title Using the GPIOs %}
+Please note that if you are using any components for Home Assistant that would use the GPIOs on the RPI, you will need to grant the default AiO user `hass` access to the GPIOs.  Run the following command `sudo adduser hass gpio` while in a terminal session on your Pi.  This is a one time configuration change to allow All In One Installer based Home Assistant access to the GPIOs.
+
 ### {% linkable_title WinSCP %}
 
 If you are Windows users who is using [WinSCP](https://winscp.net/), please note that after running the installer, you will need to modify settings allowing you to "switch users" to edit your configuration files. The needed change within WinSCP is: **Environment** -> **SCP/Shell** -> **Shell** and set it to `sudo su -`.
