@@ -152,4 +152,4 @@ void receive(const MyMessage &message) {
 ```
 
 [main component]: /components/mysensors/
-[serial api]: https://www.mysensors.org/download/serial_api_15
+[serial api]: https://www.mysensors.org/download/serial_api_20
