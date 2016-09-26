@@ -97,7 +97,7 @@
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'password'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'password'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">validate_api</span><span class="p">(</span><span class="n">api</span><span class="p">))</span>
 </code></pre>
 </div>
@@ -106,7 +106,7 @@
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'password'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'password'</span><span class="p">)</span>
 <span class="n">hass</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">HomeAssistant</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
 <span class="n">hass</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">living_room</span> <span class="o">=</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'group.living_room'</span><span class="p">)</span>
@@ -119,7 +119,7 @@
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'password'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'password'</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="n">api</span><span class="p">))</span>
 </code></pre>
@@ -131,7 +131,7 @@
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s">'-- Available services:'</span><span class="p">)</span>
 <span class="n">services</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_services</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
@@ -156,7 +156,7 @@
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 <span class="n">office_temperature</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'sensor.office_temperature'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s">'{} is {} {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">office_temperature</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s">'friendly_name'</span><span class="p">],</span>
                             <span class="n">office_temperature</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
@@ -176,7 +176,7 @@
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 <span class="n">switch_livingroom</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'switch.livingroom_pin_2'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s">'{} is {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">switch_livingroom</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s">'friendly_name'</span><span class="p">],</span>
                          <span class="n">switch_livingroom</span><span class="o">.</span><span class="n">state</span>
@@ -192,7 +192,7 @@
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 <span class="kn">from</span> <span class="nn">homeassistant.const</span> <span class="kn">import</span> <span class="n">STATE_ON</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 <span class="n">remote</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'sensor.office_temperature'</span><span class="p">,</span> <span class="n">new_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
 <span class="n">remote</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'switch.livingroom_pin_2'</span><span class="p">,</span> <span class="n">new_state</span><span class="o">=</span><span class="n">STATE_ON</span><span class="p">)</span>
 </code></pre>
@@ -207,7 +207,7 @@
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 <span class="n">domain</span> <span class="o">=</span> <span class="s">'switch'</span>
 
 <span class="n">remote</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="s">'turn_on'</span><span class="p">)</span>
@@ -223,7 +223,7 @@
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 <span class="n">domain</span> <span class="o">=</span> <span class="s">'switch'</span>
 <span class="n">switch_name</span> <span class="o">=</span> <span class="s">'switch.livingroom_pin_2'</span>
 
@@ -263,7 +263,7 @@ longer timeout.</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.1.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 <span class="n">domain</span> <span class="o">=</span> <span class="s">'notify'</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">"title"</span><span class="p">:</span><span class="s">"Test"</span><span class="p">,</span> <span class="s">"message"</span><span class="p">:</span><span class="s">"A simple test message from HA."</span><span class="p">}</span>
 
