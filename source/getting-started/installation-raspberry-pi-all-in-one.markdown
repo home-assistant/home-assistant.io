@@ -2,7 +2,7 @@
 layout: page
 title: "Raspberry Pi All-In-One Installer"
 date: 2016-05-12 01:39
-comments: true
+comments: false
 sharing: true
 footer: true
 ---
