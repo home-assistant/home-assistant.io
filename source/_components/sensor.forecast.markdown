@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: forecast.png
-ha_category: Weather
+ha_category: Deprecated
 featured: False
 ha_release: pre 0.7
 ---
