@@ -14,14 +14,14 @@ ha_release: 0.29
 ---
 
 
-The `emoncms` component makes it possible to transfer details collected with Home Assistant to [Emoncms.org](https://emoncms.org/) or your local running Emoncms instance. 
+The `emoncms_history` component makes it possible to transfer details collected with Home Assistant to [Emoncms.org](https://emoncms.org/) or your local running Emoncms instance. 
 It will send the data to a specific input node on emoncms with the entity id's as a key. Afterwards you can create feeds and dashboards in Emoncms with the collected data.
 
 <p class='note warning'>
   The publishing interval is limited to 1 second. This means that it's possible to miss fast changes.
 </p>
 
-To use the `emoncms` component in your installation, add the following to your `configuration.yaml` file:
+To use the `emoncms_history` component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
