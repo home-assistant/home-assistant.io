@@ -43,8 +43,35 @@ Configuration variables:
 - **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://home-assistant.io` will allow requests from `https://home-assistant.io` but __not__ `http://home-assistant.io`.
 - **approved_ips** (*Optional*): A list of approved ips. Then it will be possible to login from given ips without providing a password.
 
+Or alteratively use [Caddy](http://caddyserver.com) with the following template (insert your FQDN/hostname 
+and IP for Home Assistant):
+```
+your.fqdn.org {
+        proxy / 127.0.0.1:8123 {
+                header_upstream Host {host}
+                header_upstream X-Real-IP {remote}
+                header_upstream X-Forwarded-Proto {scheme}
+                header_downstream / -Server
+        }
+        log access.log {
+                size 50
+                age 30
+                keep 30
+        }
+        errors {
+                log error.log {
+                        size 50
+                        age 30
+                        keep 30
+                }
+        }
+}
 
-The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
+```
+This has the added benifit of auto-renewing your letsencrypt certitificate when needed.
+
+The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog 
+post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
 
 On top of the `http` component is a [REST API](/developers/rest_api/) and a [Python API](/developers/python_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/) available.
 
