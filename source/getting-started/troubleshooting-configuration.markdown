@@ -41,7 +41,7 @@ sensor:
 
 Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to `home-assistant.log`. You can have a look at [the various component pages](/components/) for instructions on how to setup the components.
 
-It may also be required to turn on debugging for a certain component. See [logger page](/components/logger/) for instructions on how to enable specific logging levels.
+See the [logger](/components/logger/) component for instructions on how to define the level of logging you require for specific modules.
 
 If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
 
