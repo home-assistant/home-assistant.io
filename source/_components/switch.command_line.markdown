@@ -41,6 +41,8 @@ Configuration variables:
     - **value_template** (*Optional*): If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on.
     - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
 
+NOTE :In case, you used Raspberry Pi All-In-One Installer method to install, then by default installation makes use of a Python Virtualenv. The virtualenv is run under the username: `hass`. Again, by default this `hass` user does not have `sudo` access. Hence, in some cases if you would like to run a command with `sudo` rights, then it will not work. First, you need to add the `hass` user to sudoers group, to make it work.
+
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this switch.
