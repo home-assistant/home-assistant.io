@@ -13,15 +13,15 @@ footer: true
 
 We finally have a Raspberry Pi image! It's been named Hassbian in honor of Raspbian.
 This image comes pre-installed with the dependencies, permissions and so on for Home Assistant. Image is based on the same install instructions as the [Manual installation](/getting-started/installation-raspberry-pi/).  
-It's based of Raspbian Lite and generated with a fork the same [script](https://github.com/home-assistant/pi-gen) that builds the [official Raspbian images](raspberrypi.org/downloads/raspbian/). Please note that this project has no association with the Raspberry Pi foundation or their projects.  
+It's based on Raspbian Lite and generated with a fork of the same [script](https://github.com/home-assistant/pi-gen) that builds the [official Raspbian images](raspberrypi.org/downloads/raspbian/). Please note that this project has no association with the Raspberry Pi foundation or their projects.  
 
-On first boot the latest release of Home Assistant will be installed in a [Virtual Environment](getting-started/installation-virtualenv) at `/srv/homeassistant` and started as a service run by the user `homeassistant`. Since this is done automaticly it's required that the Raspberry Pi is connected to the internet with a ethernet cable. Installation takes about 5 minutes on first boot and after that you can connect to your Raspberry pi on `ipaddress:8123`.
+On first boot the latest release of Home Assistant will be installed in a [Virtual Environment](getting-started/installation-virtualenv) at `/srv/homeassistant` and started as a service run by the user `homeassistant`. Since this is done automatically it's required that the Raspberry Pi is connected to the internet with a ethernet cable. Installation takes about 5 minutes on first boot and after that you can connect to your Raspberry pi on `ipaddress:8123`.
 
 Pre-installed on this image is the MQTT broker [Mosquitto](https://mosquitto.org/), Bluetooth support for none Bluetooth LE and settings for the `homeassistant` user to use the GPIO pins of the Raspberry Pi. Mosquitto is not activated by default.
 
-As it is today there are no pre-compiled Z-Wave support but it can be installed by following the [Getting started instructions for Z-Wave](/getting-started/z-wave/).
+As it is today there is no pre-compiled Z-Wave support but it can be installed by following the [Getting started instructions for Z-Wave](/getting-started/z-wave/).
 
-For Raspberry Pi hardware specific components have a look at our [install guide for the Raspberry Pi](/getting-started/installation-raspberry-pi/#raspberry-pi-hardware-specific-components). Default password for the pi` user is `raspberry` and is highly recommended to be changed. 
+For Raspberry Pi hardware specific components have a look at our [install guide for the Raspberry Pi](/getting-started/installation-raspberry-pi/#raspberry-pi-hardware-specific-components). Default password for the `pi` user is `raspberry` and is highly recommended to be changed. 
 
 ### {% linkable_title Installation %}
 
