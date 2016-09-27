@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Manual installation a Raspberry Pi"
+title: "Manual installation on a Raspberry Pi"
 description: "Instructions to install Home Assistant on a Raspberry Pi runnning Raspbian Lite."
 date: 2016-09-05 16:00
 sidebar: true
