@@ -30,7 +30,9 @@ $ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
 {"free": 203943936}
 ```
 
-To enable the glances sensor, add the following lines to your `configuration.yaml`:
+For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
+
+To enable the Glances sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
