@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-There are several reasons why it makes sense to run Home Assistant in a virtual environment. A [virtualenv](https://virtualenv.pypa.io/en/latest/) encapsulates all aspect of a Python environment within a single directory tree. That means the Python packages you install for Home Assistant won't interact with the rest of your system and vice-versa. It means a random upgrade for some other program on your computer won't break Home Assitant, and it means you don't need to install Python packages as root.
+There are several reasons why it makes sense to run Home Assistant in a virtual environment. A [virtualenv](https://virtualenv.pypa.io/en/latest/) encapsulates all aspect of a Python environment within a single directory tree. That means the Python packages you install for Home Assistant won't interact with the rest of your system and vice-versa. It means a random upgrade for some other program on your computer won't break Home Assistant, and it means you don't need to install Python packages as root.
 
 Virtualenvs are pretty easy to setup. This example will walk through one method of setting one up (there are certainly others). We'll be using Debian in this example (as many Home Assistant users are running Raspbian on a Raspberry Pi), but all of the Python related steps should be the same on just about any platform.
 
