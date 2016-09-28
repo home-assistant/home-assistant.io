@@ -37,5 +37,5 @@ Configuration variables:
 - **port** (*Optional*): The port of your ted gateway. Defaults to 80.
 - **name** (*Optional*): Name of the ted gateway. Defaults to ted.
 - **resources** (*Required*): List the sensors to create,
- up to 2 ('power' and 'voltage') for each mtu, starting with index 1.
+ up to 2 ('power' and 'voltage') for each MTU, starting with index 1.
 
