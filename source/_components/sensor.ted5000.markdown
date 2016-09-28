@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ted.png
 ha_category: Sensor
-ha_release: 0.29
+ha_release: 0.30
 ---
 
 The `ted 5000` monitors electricity consumption/production by connecting to the
