@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-29T15:30:00+00:00</updated>
+  <updated>2016-09-29T16:15:29+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -85,6 +85,12 @@
 <ul>
   <li>InfluxDB config fix (<a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/lwis">@lwis</a>)</li>
   <li>Netatmo config fix (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0293---september-29" href="#hotfix-0293---september-29"></a> Hotfix 0.29.3 - September 29</h3>
+
+<ul>
+  <li>Hue config fix (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
