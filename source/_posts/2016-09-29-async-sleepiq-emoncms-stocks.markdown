@@ -73,6 +73,10 @@ As you might have noticed, this release has been delayed by 5 days. This was due
  - InfluxDB config fix ([@fabaff], [@lwis])
  - Netatmo config fix ([@jabesq])
 
+### {% linkable_title Hotfix 0.29.3 - September 29 %}
+
+ - Hue config fix ([@pvizeli])
+
 ### {% linkable_title Breaking changes %}
 
  - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.
