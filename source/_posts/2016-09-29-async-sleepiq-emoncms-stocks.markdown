@@ -70,6 +70,7 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 
 ### {% linkable_title Breaking changes %}
 
+ - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
  - `ffmpeg` is now a component for manage some things central. All `ffmpeg_bin` options have moved to this compoment from platforms.
  - Config has changed for [X10] lights.
