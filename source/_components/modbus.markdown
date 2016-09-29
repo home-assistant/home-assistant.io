@@ -67,6 +67,6 @@ Configuration variables:
 
 ## {% linkable_title Building on top of Modbus %}
 
+ - [Modbus Binary Sensor](/components/binary_sensor.modbus/)
  - [Modbus Sensor](/components/sensor.modbus/)
  - [Modbus Switch](/components/switch.modbus/)
-

@@ -26,6 +26,7 @@ sensor:
   name: 'Cool device'
   state_topic: 'room_presence'
   timeout: 5
+  away_timeout: 60
 ```
 
 Configuration variables:
@@ -34,6 +35,7 @@ Configuration variables:
 - **name** (*Optional*): The name of the sensor.
 - **state_topic** (*Optional*): The topic that contains all subtopics for the rooms.
 - **timeout** (*Optional*): The time in seconds after which a room presence state is considered old. An example: device1 is reported at scanner1 with a distance of 1. No further updates are sent from scanner1. After 5 secoonds scanner2 reports device with a distance of 2. The old location info is discarded in favor of the new scanner2 information as the timeout has passed.
+- **away_timeout** (*Optional*): The time in seconds after which the state should be set to `away` if there were no updates. `0` disables the check and is the default.
 
 Example JSON that should be published to the room topics:
 

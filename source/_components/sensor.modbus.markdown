@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Modbus Sensor"
+title: Modbus Sensor
 description: "Instructions how to integrate Modbus sensors into Home Assistant."
 date: 2015-08-30 23:38
 sidebar: true
@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ---
 
 
-The `modbus` sensor platform allows you to gather data from your [Modbus](http://www.modbus.org/) sensors.
+The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
 To use your Modbus sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -21,35 +21,33 @@ To use your Modbus sensors in your installation, add the following to your `conf
 # Example configuration.yml entry
 sensor:
   platform: modbus
-  slave: 1
   registers:
-    16:
-      name: My integer sensor
-      unit: C
-    24:
-      bits:
-        0:
-          name: My boolean sensor
-        2:
-          name: My other boolean sensor
-  coils:
-    0:
-      name: My coil switch
+    - name: Sensor1
+      unit_of_measurement: °C
+      slave: 1
+      register: 100
+    - name: Sensor2
+      unit_of_measurement: mg
+      slave: 1
+      register: 110
+      count: 2
+    - name: Sensor3
+      unit_of_measurement: °C
+      slave: 1
+      register: 120
+      scale: 0.01
+      offset: -273.16
+      precision: 2
 ```
 
 Configuration variables:
 
-- **slave** (*Required*): The number of the slave (ignored and can be omitted if not serial Modbus).
 - **registers** array (*Required*): The array contains a list of relevant registers to read from.
-  - **number of register** (*Required*): Listing relevant bits. It must contain a `bits` section.
-    - **bits** array (*Required*): Listing relevant bits. It must contain a `bits` section.
-      - **name** (*Required*): Name of the sensor.
-      - **unit** (*Required*): Unit to attach to value (optional, ignored for boolean sensors).
-- **coils** (*Optional*): A list of relevant coils to read from/write to
-  - **number of coil** array (*Required*): 
-    - **name** (*Required*): Name of the coil.
-
-<p class='note warning'>
-Each named register will create an integer sensor and each named bit will create a boolean sensor.
-</p>
-
+  - **name** (*Required*): Name of the sensor.
+  - **slave** (*Required*): The number of the slave (Optional for tcp and upd Modbus).
+  - **register** (*Required*): Register number.
+  - **unit_of_measurement** (*Optional*): Unit to attach to value.
+  - **count** (*Optional*): Number of registers to read.
+  - **scale** (*Optional*): Scale factor (output = scale * value + offset), default 1
+  - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0
+  - **precision** (*Optional*): Number of valid decimals, default 0
