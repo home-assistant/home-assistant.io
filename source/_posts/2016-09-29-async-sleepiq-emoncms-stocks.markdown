@@ -66,7 +66,12 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 
 ### {% linkable_title Hotfix 0.29.1 - September 29 %}
 
-- Fix typo in Nest climate platform ([@tchellomello])
+- Fix typo in Nest climate platform. [We are still experiencing issues with Nest.][nest-issues] ([@tchellomello])
+
+### {% linkable_title Hotfix 0.29.2 - September 29 %}
+
+ - InfluxDB config fix ([@fabaff], [@lwis])
+ - Netatmo config fix ([@jabesq])
 
 ### {% linkable_title Breaking changes %}
 
@@ -74,10 +79,13 @@ As you might have noticed, this release has been delayed by 5 days. This was due
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
  - `ffmpeg` is now a component for manage some things central. All `ffmpeg_bin` options have moved to this compoment from platforms.
  - Config has changed for [X10] lights.
+ - Wink platforms no longer take in the token. Set it up via the main [Wink component][Wink].
 
 ### {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
+[nest-issues]: https://github.com/home-assistant/home-assistant/issues/3574
+[@jabesq]: https://github.com/jabesq
 [@joyrider3774]: https://github.com/joyrider3774
 [@balloob]: https://github.com/balloob
 [@bbangert]: https://github.com/bbangert
