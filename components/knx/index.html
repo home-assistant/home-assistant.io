@@ -95,6 +95,7 @@
 
 <ul>
   <li><a href="/components/binary_sensor.knx">Binary Sensor</a></li>
+  <li><a href="/components/sensor.knx">Sensor</a></li>
   <li><a href="/components/switch.knx">Switch</a></li>
   <li><a href="/components/thermostat.knx">Thermostat</a></li>
 </ul>
@@ -109,7 +110,7 @@
 </div>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of the KNX/IP interface to use. You can use “0.0.0.0” if your KNX/IP gateway supports discovery.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The IP address of the KNX/IP interface to use. It defaults to <code class="highlighter-rouge">0.0.0.0</code> which will start discovery for your KNX/IP gateway.</li>
   <li><strong>port</strong> (<em>Optional</em>): The UDP port number. Defaults to <code class="highlighter-rouge">3671</code>.</li>
 </ul>
 
@@ -141,6 +142,9 @@
         <li><a href='/components/binary_sensor.knx/'>
           KNX Binary Sensor
         </a></li>
+        <li><a href='/components/sensor.knx/'>
+          KNX Sensor
+        </a></li>
         <li><a href='/components/switch.knx/'>
           KNX Switch
         </a></li>
@@ -171,10 +175,16 @@
             KNX
         </li>
         <li>
+            <a href='/components/sensor.knx/'>KNX Sensor</a>
+        </li>
+        <li>
             <a href='/components/switch.knx/'>KNX Switch</a>
         </li>
         <li>
             <a href='/components/climate.knx/'>KNX Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/sensor.miflora/'>Mi Flora plant sensor</a>
         </li>
         <li>
             <a href='/components/sensor.serial_pm/'>Particulate matter Sensor</a>

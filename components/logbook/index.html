@@ -97,6 +97,35 @@
 <span class="s">logbook</span><span class="pi">:</span>
 </code></pre>
 </div>
+<p>If you want to exclude messages of some entities or domains from the logbook just add the <code class="highlighter-rouge">exclude</code> parameter like:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">logbook</span><span class="pi">:</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.last_boot</span>
+      <span class="pi">-</span> <span class="s">sensor.date</span>
+    <span class="s">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sun</span>
+      <span class="pi">-</span> <span class="s">weblink</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should <strong>not</strong> create logbook enties.</li>
+  <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from creating logbook entries.</li>
+  <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be excluded from creating logbook entries.</li>
+</ul>
+
+<h3><a class="title-link" name="exclude-events" href="#exclude-events"></a> Exclude Events</h3>
+
+<p>Entities customized as hidden are excluded from the logbook by default, but sometimes you want to show the entity in the UI and not in the logbook. For instance you use the <code class="highlighter-rouge">sensor.date</code>to show the current date in the UI, but you do not want an logbook entry for that sensor every day.
+To exclude these entities just add them to the <code class="highlighter-rouge">exclude</code> &gt; <code class="highlighter-rouge">entities</code> list in the configuration of the logbook.</p>
+
+<p>To exclude all events from a whole domain add it to the <code class="highlighter-rouge">exclude</code> &gt; <code class="highlighter-rouge">domain</code> list. For instance you use the <code class="highlighter-rouge">sun</code> domain only to trigger automations on the `azimuth attribute, then you possible are not interested in the logbook entries for sun rise and sun set.</p>
+
+<h3><a class="title-link" name="custom-entries" href="#custom-entries"></a> Custom Entries</h3>
 
 <p>It is possible to add custom entries to the logbook by using the script component to fire an event.</p>
 

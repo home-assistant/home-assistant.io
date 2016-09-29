@@ -93,32 +93,13 @@
 
 <p>Enabling this sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.</p>
 
-<p>To enable this, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<p>To enable this feature, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">nx584</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">ADDRESS</span>
-  <span class="s">exclude_zones</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">ZONE ...</span>
-  <span class="s">zone_types</span><span class="pi">:</span>
-    <span class="s">ZONE</span><span class="pi">:</span> <span class="s">TYPE</span>
-</code></pre>
-</div>
-
-<p>Configuration variables:</p>
-
-<ul>
-  <li><strong>host</strong> (<em>Optional</em>): This is the host connection string (host:port) for the nx584 server process. If unset, it is assumed to be <code class="highlighter-rouge">localhost:5007</code>, which will work if the server process is running on the same system as home-assistant.</li>
-  <li><strong>exclude_zones</strong> (<em>Optional</em>): This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest, unconnected, etc.</li>
-  <li><strong>zone_types</strong> (<em>Optional</em>): This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. The list of available zone types relevant to alarm zones are: <code class="highlighter-rouge">opening</code>, <code class="highlighter-rouge">motion</code>, <code class="highlighter-rouge">gas</code>, <code class="highlighter-rouge">smoke</code>, <code class="highlighter-rouge">moisture</code>, <code class="highlighter-rouge">safety</code>.</li>
-</ul>
-
-<p>Example configuration:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">nx584</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10:5007</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
+  <span class="s">pport</span><span class="pi">:</span> <span class="s">5007</span>
   <span class="s">exclude_zones</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">3</span>
     <span class="pi">-</span> <span class="s">5</span>
@@ -129,6 +110,16 @@
     <span class="s">6</span><span class="pi">:</span> <span class="s">moisture</span>
 </code></pre>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>host</strong> (<em>Optional</em>): This is the host where the nx584 server process is running. If unset, it is assumed to be <code class="highlighter-rouge">localhost</code>, which will work if the server process is running on the same system as Home Assistant.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port where the server process is running. Defaults to <code class="highlighter-rouge">5007</code>.</li>
+  <li><strong>exclude_zones</strong> (<em>Optional</em>): This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest, unconnected, etc.</li>
+  <li><strong>zone_types</strong> (<em>Optional</em>): This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. The list of available zone types relevant to alarm zones are: <code class="highlighter-rouge">opening</code>, <code class="highlighter-rouge">motion</code>, <code class="highlighter-rouge">gas</code>, <code class="highlighter-rouge">smoke</code>, <code class="highlighter-rouge">moisture</code>, <code class="highlighter-rouge">safety</code>.</li>
+</ul>
+
 
 
 </article>
@@ -188,10 +179,16 @@
             <a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.isy994/'>ISY994 Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/binary_sensor.knx/'>KNX Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.modbus/'>Modbus Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.mysensors/'>MySensors Binary Sensor</a>
@@ -210,6 +207,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.rpi_gpio/'>Raspberry PI GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.sleepiq/'>SleepIQ Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.tcp/'>TCP Binary Sensor</a>

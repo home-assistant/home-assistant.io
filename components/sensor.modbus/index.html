@@ -89,63 +89,49 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">modbus</code> sensor platform allows you to gather data from your <a href="http://www.modbus.org/">Modbus</a> sensors.</p>
+  <p>The <code class="highlighter-rouge">modbus</code> sensor allows you to gather data from <a href="http://www.modbus.org/">Modbus</a> registers.</p>
 
 <p>To use your Modbus sensors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">modbus</span>
-  <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
   <span class="s">registers</span><span class="pi">:</span>
-    <span class="s">16</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">My integer sensor</span>
-      <span class="s">unit</span><span class="pi">:</span> <span class="s">C</span>
-    <span class="s">24</span><span class="pi">:</span>
-      <span class="s">bits</span><span class="pi">:</span>
-        <span class="s">0</span><span class="pi">:</span>
-          <span class="s">name</span><span class="pi">:</span> <span class="s">My boolean sensor</span>
-        <span class="s">2</span><span class="pi">:</span>
-          <span class="s">name</span><span class="pi">:</span> <span class="s">My other boolean sensor</span>
-  <span class="s">coils</span><span class="pi">:</span>
-    <span class="s">0</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">My coil switch</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Sensor1</span>
+      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">°C</span>
+      <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="s">register</span><span class="pi">:</span> <span class="s">100</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Sensor2</span>
+      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">mg</span>
+      <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="s">register</span><span class="pi">:</span> <span class="s">110</span>
+      <span class="s">count</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Sensor3</span>
+      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">°C</span>
+      <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="s">register</span><span class="pi">:</span> <span class="s">120</span>
+      <span class="s">scale</span><span class="pi">:</span> <span class="s">0.01</span>
+      <span class="s">offset</span><span class="pi">:</span> <span class="s">-273.16</span>
+      <span class="s">precision</span><span class="pi">:</span> <span class="s">2</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>slave</strong> (<em>Required</em>): The number of the slave (ignored and can be omitted if not serial Modbus).</li>
   <li><strong>registers</strong> array (<em>Required</em>): The array contains a list of relevant registers to read from.
     <ul>
-      <li><strong>number of register</strong> (<em>Required</em>): Listing relevant bits. It must contain a <code class="highlighter-rouge">bits</code> section.
-        <ul>
-          <li><strong>bits</strong> array (<em>Required</em>): Listing relevant bits. It must contain a <code class="highlighter-rouge">bits</code> section.
-            <ul>
-              <li><strong>name</strong> (<em>Required</em>): Name of the sensor.</li>
-              <li><strong>unit</strong> (<em>Required</em>): Unit to attach to value (optional, ignored for boolean sensors).</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>coils</strong> (<em>Optional</em>): A list of relevant coils to read from/write to
-    <ul>
-      <li><strong>number of coil</strong> array (<em>Required</em>):
-        <ul>
-          <li><strong>name</strong> (<em>Required</em>): Name of the coil.</li>
-        </ul>
-      </li>
+      <li><strong>name</strong> (<em>Required</em>): Name of the sensor.</li>
+      <li><strong>slave</strong> (<em>Required</em>): The number of the slave (Optional for tcp and upd Modbus).</li>
+      <li><strong>register</strong> (<em>Required</em>): Register number.</li>
+      <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Unit to attach to value.</li>
+      <li><strong>count</strong> (<em>Optional</em>): Number of registers to read.</li>
+      <li><strong>scale</strong> (<em>Optional</em>): Scale factor (output = scale * value + offset), default 1</li>
+      <li><strong>offset</strong> (<em>Optional</em>): Final offset (output = scale * value + offset), default 0</li>
+      <li><strong>precision</strong> (<em>Optional</em>): Number of valid decimals, default 0</li>
     </ul>
   </li>
 </ul>
-
-<p class="note warning">
-Each named register will create an integer sensor and each named bit will create a boolean sensor.
-</p>
-
 
 
 </article>
@@ -172,6 +158,9 @@ Each named register will create an integer sensor and each named bit will create
         <li><a href='/components/modbus/'>
           Modbus
         </a></li>
+        <li><a href='/components/binary_sensor.modbus/'>
+          Modbus Binary Sensor
+        </a></li>
         <li><a href='/components/switch.modbus/'>
           Modbus Switch
         </a></li>
@@ -196,6 +185,9 @@ Each named register will create an integer sensor and each named bit will create
             <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.enocean/'>EnOcean Sensor</a>
         </li>
         <li>
@@ -211,7 +203,13 @@ Each named register will create an integer sensor and each named bit will create
             <a href='/components/sensor.homematic/'>Homematic Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.imap_email_content/'>IMAP Email Content</a>
+        </li>
+        <li>
             <a href='/components/sensor.imap/'>IMAP Unread E-mail</a>
+        </li>
+        <li>
+            <a href='/components/sensor.isy994/'>ISY994 Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
@@ -245,6 +243,9 @@ Each named register will create an integer sensor and each named bit will create
         </li>
         <li>
             <a href='/components/sensor.rfxtrx/'>RFXtrx Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

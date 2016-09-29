@@ -91,6 +91,107 @@
 
   <p>Home Assistant can give you an interface to control covers such as
 rollershutters and garage doors.</p>
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+
+<h3><a class="title-link" name="cover-control-services" href="#cover-control-services"></a> Cover control services</h3>
+<p>Available services: <code class="highlighter-rouge">cover.open_cover</code>, <code class="highlighter-rouge">cover.close_cover</code>, <code class="highlighter-rouge">cover.stop_cover</code>, <code class="highlighter-rouge">cover.open_cover_tilt</code>, <code class="highlighter-rouge">cover.close_cover_tilt</code>, <code class="highlighter-rouge">cover.stop_cover_tilt</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of covers. Else targets all.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="service-coverset_cover_position" href="#service-coverset_cover_position"></a> Service <code class="highlighter-rouge">cover.set_cover_position</code></h3>
+
+<p>Set cover position of one or multiple covers.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of covers. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">position</code></td>
+      <td>no</td>
+      <td>Integer between 0 and 100.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_position</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.demo</span>
+        <span class="s">position</span><span class="pi">:</span> <span class="s">50</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="service-coverset_cover_tilt_position" href="#service-coverset_cover_tilt_position"></a> Service <code class="highlighter-rouge">cover.set_cover_tilt_position</code></h3>
+
+<p>Set cover tilt position of one or multiple covers.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of covers. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">position</code></td>
+      <td>no</td>
+      <td>Integer between 0 and 100.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_tilt_position</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.demo</span>
+        <span class="s">position</span><span class="pi">:</span> <span class="s">50</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -115,6 +216,9 @@ rollershutters and garage doors.</p>
           <li><a href='/components/cover.homematic/'>
             Homematic Cover
           </a></li>
+          <li><a href='/components/cover.isy994/'>
+            ISY994 Cover
+          </a></li>
           <li><a href='/components/cover.mqtt/'>
             MQTT Cover
           </a></li>
@@ -126,6 +230,9 @@ rollershutters and garage doors.</p>
           </a></li>
           <li><a href='/components/cover.scsgate/'>
             SCSGate Cover
+          </a></li>
+          <li><a href='/components/cover.vera/'>
+            Vera Cover
           </a></li>
           <li><a href='/components/cover.wink/'>
             Wink Cover

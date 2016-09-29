@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">modbus</code> switch platform allows you to control <a href="http://www.modbus.org/">Modbus</a> switches.</p>
+  <p>The <code class="highlighter-rouge">modbus</code> switch platform allows you to control <a href="http://www.modbus.org/">Modbus</a> coils.</p>
 
 <p>To use your Modbus switches in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -97,51 +97,27 @@
 <span class="s">switch</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">modbus</span>
   <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
-  <span class="s">registers</span><span class="pi">:</span>
-    <span class="s">24</span><span class="pi">:</span>
-      <span class="s">bits</span><span class="pi">:</span>
-        <span class="s">0</span><span class="pi">:</span>
-          <span class="s">name</span><span class="pi">:</span> <span class="s">My switch</span>
-        <span class="s">2</span><span class="pi">:</span>
-          <span class="s">name</span><span class="pi">:</span> <span class="s">My other switch</span>
   <span class="s">coils</span><span class="pi">:</span>
-    <span class="s">0</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">My coil switch</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Switch1</span>
+      <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="s">coil</span><span class="pi">:</span> <span class="s">13</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Switch2</span>
+      <span class="s">slave</span><span class="pi">:</span> <span class="s">2</span>
+      <span class="s">coil</span><span class="pi">:</span> <span class="s">14</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>slave</strong> (<em>Required</em>): The number of the slave (ignored and can be omitted if not serial Modbus).</li>
-  <li><strong>registers</strong> array (<em>Required</em>): The array contains a list of relevant registers to read from.
-    <ul>
-      <li><strong>number of register</strong> (<em>Required</em>): Listing relevant bits. It must contain a <code class="highlighter-rouge">bits</code> section.
-        <ul>
-          <li><strong>bits</strong> array (<em>Required</em>): Listing relevant bits. It must contain a <code class="highlighter-rouge">bits</code> section.
-            <ul>
-              <li><strong>name</strong> (<em>Required</em>): Name of the switch.</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
   <li><strong>coils</strong> (<em>Optional</em>): A list of relevant coils to read from/write to
     <ul>
-      <li><strong>number of coil</strong> array (<em>Required</em>):
-        <ul>
-          <li><strong>name</strong> (<em>Required</em>): Name of the coil.</li>
-        </ul>
-      </li>
+      <li><strong>slave</strong> (<em>Required</em>): The number of the slave (can be omitted for tcp and udp Modbus).</li>
+      <li><strong>name</strong> (<em>Required</em>): Name of the sensor</li>
+      <li><strong>coil</strong> (<em>Required</em>): Coil number</li>
     </ul>
   </li>
 </ul>
-
-<p class="note warning">
-Each named bit will create a switch.
-</p>
-
 
 
 </article>
@@ -171,6 +147,9 @@ Each named bit will create a switch.
           <ul class='divided'>
         <li><a href='/components/modbus/'>
           Modbus
+        </a></li>
+        <li><a href='/components/binary_sensor.modbus/'>
+          Modbus Binary Sensor
         </a></li>
         <li><a href='/components/sensor.modbus/'>
           Modbus Sensor
@@ -203,6 +182,9 @@ Each named bit will create a switch.
         </li>
         <li>
             <a href='/components/switch.homematic/'>Homematic Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.isy994/'>ISY994 Switch</a>
         </li>
         <li>
             <a href='/components/switch.mqtt/'>MQTT Switch</a>

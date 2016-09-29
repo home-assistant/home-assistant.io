@@ -105,6 +105,8 @@
   <span class="s">platform</span><span class="pi">:</span> <span class="s">slack</span>
   <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
   <span class="s">default_channel</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#general'</span>
+  <span class="s">icon</span><span class="pi">:</span> <span class="s1">'</span><span class="s">:robot_face:'</span> 
+  <span class="s">username</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Home-Assistant'</span>
 </code></pre>
 </div>
 
@@ -114,6 +116,8 @@
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>api_key</strong> (<em>Required</em>): The slack API token to use for sending slack messages.</li>
   <li><strong>default_channel</strong> (<em>Required</em>): The default channel to post to if no channel is explicitly specified when sending the notification message.</li>
+  <li><strong>username</strong> (<em>Optional</em>): Setting username will allow homeassistant to post to slack using the username specified. By default not setting this will post to slack using the user account or botname that you generated the api_key as.</li>
+  <li><strong>icon</strong> (<em>Optional</em>): Use one of the slack emoji’s as an Icon for the supplied username.  Slack uses the standard emoji sets used <a href="http://www.webpagefx.com/tools/emoji-cheat-sheet/">here</a>.</li>
 </ul>
 
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
@@ -179,6 +183,9 @@
             <a href='/components/notify.joaoapps_join/'>Join Notify</a>
         </li>
         <li>
+            <a href='/components/notify.kodi/'>Kodi</a>
+        </li>
+        <li>
             <a href='/components/notify.webostv/'>LG WebOS TV notifications</a>
         </li>
         <li>
@@ -216,6 +223,9 @@
         </li>
         <li>
             <a href='/components/notify.sendgrid/'>SendGrid</a>
+        </li>
+        <li>
+            <a href='/components/notify.simplepush/'>Simplepush</a>
         </li>
         <li>
             Slack

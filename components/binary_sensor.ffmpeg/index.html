@@ -91,10 +91,6 @@
 
   <p>The <code class="highlighter-rouge">ffmpeg</code> platform allows you to use every video or audio feed with <a href="http://www.ffmpeg.org/">FFmpeg</a> for various sensors in Home Assistant. Available are: <strong>noise</strong>, <strong>motion</strong>. If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sensor will be unavailable.   To restart the instance, use the service <em>binary_sensor.ffmpeg_restart</em>.</p>
 
-<p class="note">
-You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system path. On Debain 8 you can install it from backports. If you want Hardware support on a Raspberry Pi you need to build it from source. Windows binary are avilable on <a href="http://www.ffmpeg.org/">FFmpeg</a> homepage.
-</p>
-
 <h3><a class="title-link" name="noise" href="#noise"></a> Noise</h3>
 
 <p>To enable your FFmpeg with noise detection in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
@@ -105,7 +101,6 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
     <span class="s">tool</span><span class="pi">:</span> <span class="s">noise</span>
     <span class="s">input</span><span class="pi">:</span> <span class="s">FFMPEG_SUPPORTED_INPUT</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">FFmpeg Noise</span>
-    <span class="s">ffmpeg_bin</span><span class="pi">:</span> <span class="s">/usr/bin/ffmpeg</span>
     <span class="s">peak</span><span class="pi">:</span> <span class="s">-30</span>
     <span class="s">duration</span><span class="pi">:</span> <span class="s">1</span>
     <span class="s">reset</span><span class="pi">:</span> <span class="s">20</span>
@@ -118,7 +113,6 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
   <li><strong>input</strong> (<em>Required</em>): A ffmpeg compatible input file, stream or feed.</li>
   <li><strong>tool</strong> (<em>Required</em>): Is fix set to <code class="highlighter-rouge">noise</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
-  <li><strong>ffmpeg_bin</strong> (<em>Optional</em>): Default <code class="highlighter-rouge">ffmpeg</code>.</li>
   <li><strong>peak</strong> (<em>Optional</em>): Default -30. A peak of dB to detect it as noise. 0 is very loud and -100 is low.</li>
   <li><strong>duration</strong> (<em>Optional</em>): Default 1 seconds. How long need the noise over the peak to trigger the state.</li>
   <li><strong>reset</strong> (<em>Optional</em>): Defaults to 20 seconds. The time to reset the state after none new noise is over the peak.</li>
@@ -144,13 +138,12 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
     <span class="s">tool</span><span class="pi">:</span> <span class="s">motion</span>
     <span class="s">input</span><span class="pi">:</span> <span class="s">FFMPEG_SUPPORTED_INPUT</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">FFmpeg Motion</span>
-    <span class="s">ffmpeg_bin</span><span class="pi">:</span> <span class="s">/usr/bin/ffmpeg</span>
     <span class="s">changes</span><span class="pi">:</span> <span class="s">10</span>
     <span class="s">reset</span><span class="pi">:</span> <span class="s">20</span>
     <span class="c1"># group feature / default not in use</span>
     <span class="s">repeat</span><span class="pi">:</span> <span class="s">0</span>
     <span class="s">repeat_time</span><span class="pi">:</span> <span class="s">0</span>
-    
+
 </code></pre>
 </div>
 
@@ -160,7 +153,6 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
   <li><strong>input</strong> (<em>Required</em>): A ffmpeg compatible input file, stream, or feed.</li>
   <li><strong>tool</strong> (<em>Required</em>): Is fix set to <code class="highlighter-rouge">motion</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
-  <li><strong>ffmpeg_bin</strong> (<em>Optional</em>): Default <code class="highlighter-rouge">ffmpeg</code>.</li>
   <li><strong>changes</strong> (<em>Optional</em>): Default 10 percent. A lower value is more sensitive. I use 4 / 3.5 on my cameras. It describes how much needs to change between two frames to detect it as motion. See on descripton.</li>
   <li><strong>reset</strong> (<em>Optional</em>): Default 20 seconds. The time to reset the state after no new motion is detected.</li>
   <li><strong>repeat</strong> (<em>Optional</em>): Default 0 repeats (deactivate). How many events need to be detected in <em>repeat_time</em> in order to trigger a motion.</li>
@@ -174,7 +166,7 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
 </code></pre>
 </div>
 
-<p>If you are running into trouble with this sensor, please refer to this <a href="/components/camera.ffmpeg/#troubleshooting">Troubleshooting section</a>.</p>
+<p>If you are running into trouble with this sensor, please refer to this <a href="/components/ffmpeg/#troubleshooting">Troubleshooting section</a>.</p>
 
 
 </article>
@@ -201,6 +193,9 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
+        <li><a href='/components/ffmpeg/'>
+          FFmpeg
+        </a></li>
         <li><a href='/components/camera.ffmpeg/'>
           FFmpeg Camera
         </a></li>
@@ -234,10 +229,16 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
             <a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.isy994/'>ISY994 Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/binary_sensor.knx/'>KNX Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.modbus/'>Modbus Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.mysensors/'>MySensors Binary Sensor</a>
@@ -256,6 +257,9 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
         </li>
         <li>
             <a href='/components/binary_sensor.rpi_gpio/'>Raspberry PI GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.sleepiq/'>SleepIQ Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.tcp/'>TCP Binary Sensor</a>

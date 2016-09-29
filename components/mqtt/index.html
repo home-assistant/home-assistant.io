@@ -109,13 +109,13 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>broker</strong> (<em>Required</em>): The IP address of your MQTT broker, e.g. 192.168.1.32.</li>
+  <li><strong>broker</strong> (<em>Required</em>): The IP address or hostname of your MQTT broker, e.g. 192.168.1.32.</li>
   <li><strong>port</strong> (<em>Optional</em>): The network port to connect to. Default is 1883.</li>
-  <li><strong>client_id</strong> (<em>Optional</em>): Client ID that Home Assistant will use. Has to be unique on the server. Default is a random generated one.</li>
-  <li><strong>keepalive</strong> (<em>Optional</em>): The keep alive in seconds for this client. Default is 60.</li>
+  <li><strong>client_id</strong> (<em>Optional</em>): The client ID that Home Assistant will use. Has to be unique on the server. Default is a randomly generated one.</li>
+  <li><strong>keepalive</strong> (<em>Optional</em>): The time in seconds between sending keep alive messages for this client. Default is 60.</li>
   <li><strong>username</strong> (<em>Optional</em>): The username to use with your MQTT broker.</li>
   <li><strong>password</strong> (<em>Optional</em>): The corresponding password for the username to use with your MQTT broker.</li>
-  <li><strong>certificate</strong> (<em>Optional</em>): Certificate to use to encrypt communication with the broker.</li>
+  <li><strong>certificate</strong> (<em>Optional</em>): The certificate authority certificate file that is to be treated as trusted by this client. This file should contain the root certificate of the certificate authority that signed your broker’s certificate, but may contain multiple certificates. Example: <code class="highlighter-rouge">/home/user/identrust-root.pem</code></li>
   <li><strong>client_key</strong> (<em>Optional</em>): Client key (example: <code class="highlighter-rouge">/home/user/owntracks/cookie.key</code>)</li>
   <li><strong>client_cert</strong> (<em>Optional</em>): Client certificate (example: <code class="highlighter-rouge">/home/user/owntracks/cookie.crt</code>)</li>
   <li><strong>protocol</strong> (<em>Optional</em>): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.</li>
@@ -127,7 +127,7 @@
 
 <h3><a class="title-link" name="embedded-broker" href="#embedded-broker"></a> Embedded broker</h3>
 
-<p>Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT broker</a> is started and Home Asssistant connects to it. Embedded broker default configuration:</p>
+<p>Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT broker</a> is started and Home Assistant connects to it. Embedded broker default configuration:</p>
 
 <table>
   <thead>
@@ -180,7 +180,7 @@ This broker does not currently work with OwnTracks because of a protocol version
 
 <h3><a class="title-link" name="run-your-own" href="#run-your-own"></a> Run your own</h3>
 
-<p>Most private option but requires a bit more work. There are two free and open-source brokers to pick from: <a href="http://mosquitto.org/">Mosquitto</a> and <a href="http://www.mosca.io/">Mosca</a>.</p>
+<p>This is the most private option but requires a bit more work. There are two free and open-source brokers to pick from: <a href="http://mosquitto.org/">Mosquitto</a> and <a href="http://www.mosca.io/">Mosca</a>.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt</span><span class="pi">:</span>
@@ -199,7 +199,7 @@ There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Speci
 
 <h3><a class="title-link" name="public-broker" href="#public-broker"></a> Public broker</h3>
 
-<p>The Mosquitto project runs a <a href="http://test.mosquitto.org">public broker</a>. Easiest to setup but there is 0 privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.</p>
+<p>The Mosquitto project runs a <a href="http://test.mosquitto.org">public broker</a>. This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">broker</span><span class="pi">:</span> <span class="s">test.mosquitto.org</span>
@@ -215,7 +215,7 @@ There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Speci
 
 <h3><a class="title-link" name="cloudmqtt" href="#cloudmqtt"></a> CloudMQTT</h3>
 
-<p><a href="https://www.cloudmqtt.com">CloudMQTT</a> is a hosted private MQTT instance that is free up to 10 connected devices. This is enough to get started with for example <a href="/components/device_tracker.owntracks/">OwnTracks</a> and give you a taste of what is possible.</p>
+<p><a href="https://www.cloudmqtt.com">CloudMQTT</a> is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example <a href="/components/device_tracker.owntracks/">OwnTracks</a> and give you a taste of what is possible.</p>
 
 <p class="note">
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
@@ -228,8 +228,11 @@ Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
   <li>From the control panel, click on the <em>Details</em> button.</li>
   <li>Create unique users for Home Assistant and each phone to connect<br />(CloudMQTT does not allow two
 connections from the same user)
-  a. Under manage users, fill in username, password and click add
-  b. Under ACLs, select user, topic <code class="highlighter-rouge">#</code>, check ‘read access’ and ‘write access’</li>
+    <ol>
+      <li>Under manage users, fill in username, password and click add</li>
+      <li>Under ACLs, select user, topic <code class="highlighter-rouge">#</code>, check ‘read access’ and ‘write access’</li>
+    </ol>
+  </li>
   <li>Copy the instance info to your configuration.yaml:</li>
 </ol>
 
@@ -294,19 +297,19 @@ Home Assistant will automatically load the correct certificate if you connect to
 
 <h2><a class="title-link" name="testing-your-setup" href="#testing-your-setup"></a> Testing your setup</h2>
 
-<p>The <code class="highlighter-rouge">mosquitto</code> broker package is shipping commandline tools to send and recieve MQTT messages. As an alternative have a look at <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html">hbmqtt_pub</a> and <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html">hbmqtt_sub</a> which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:</p>
+<p>The <code class="highlighter-rouge">mosquitto</code> broker package ships commandline tools to send and recieve MQTT messages. As an alternative have a look at <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html">hbmqtt_pub</a> and <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html">hbmqtt_sub</a> which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m <span class="s2">"Switch is ON"</span>
 </code></pre>
 </div>
 
-<p>If you are using the embeeded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.</p>
+<p>If you are using the embedded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -V mqttv311 -t <span class="s2">"hello"</span> -m world
 </code></pre>
 </div>
 
-<p>or if you are using a API password.</p>
+<p>or if you are using a API password:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -V mqttv311 -u homeassistant -P &lt;your api password&gt; -t <span class="s2">"hello"</span> -m world
 </code></pre>
@@ -333,7 +336,7 @@ Home Assistant will automatically load the correct certificate if you connect to
 </code></pre>
 </div>
 
-<p>For the embeeded MQTT broker the command looks like the sample below.</p>
+<p>For the embedded MQTT broker the command looks like:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_sub -v -V mqttv311 -t <span class="s2">"#"</span>
 </code></pre>
@@ -343,7 +346,7 @@ Home Assistant will automatically load the correct certificate if you connect to
 
 <h2><a class="title-link" name="processing-json" href="#processing-json"></a> Processing JSON</h2>
 
-<p>The MQTT switch and sensor platforms support processing JSON over MQTT messages and parse them using JSONPath. JSONPath allows you to specify where in the JSON the value resides that you want to use. The following examples will always return the value <code class="highlighter-rouge">100</code>.</p>
+<p>The MQTT switch and sensor platforms support processing JSON over MQTT messages and parsing them using JSONPath. JSONPath allows you to specify where in the JSON the value resides that you want to use. The following examples will always return the value <code class="highlighter-rouge">100</code>.</p>
 
 <table>
   <thead>
@@ -461,6 +464,9 @@ Home Assistant will automatically load the correct certificate if you connect to
             <a href='/components/enocean/'>EnOcean</a>
         </li>
         <li>
+            <a href='/components/ffmpeg/'>FFmpeg</a>
+        </li>
+        <li>
             <a href='/components/homematic/'>Homematic</a>
         </li>
         <li>
@@ -488,6 +494,9 @@ Home Assistant will automatically load the correct certificate if you connect to
             <a href='/components/netatmo/'>Netatmo</a>
         </li>
         <li>
+            <a href='/components/nuimo_controller/'>Nuimo controller</a>
+        </li>
+        <li>
             <a href='/components/octoprint/'>OctoPrint</a>
         </li>
         <li>
@@ -501,6 +510,9 @@ Home Assistant will automatically load the correct certificate if you connect to
         </li>
         <li>
             <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/sleepiq/'>SleepIQ</a>
         </li>
         <li>
             <a href='/components/tellstick/'>TellStick</a>
