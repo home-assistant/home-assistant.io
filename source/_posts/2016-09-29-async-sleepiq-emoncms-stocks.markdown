@@ -64,6 +64,10 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 - [OpenALPR] support ([@pvizeli])
 - Minor features and bug fixes by [@fabaff], [@w1ll1am23], [@turbokongen], [@clach04], [@mKeRix], [@pvizeli], [@DavidLP], [@nvella], [@Teagan42], [@ericwclymer], [@wokar], [@kellerza], [@nkgilley], [@jawilson], [@Danielhiversen], [@ej81], [@danieljkemp], [@balloob], [@philhawthorne], [@LinuxChristian], [@milas], [@simonszu], [@Cinntax], [@irvingwa], [@sytone], [@kk7ds], [@robbiet480].
 
+### {% linkable_title Hotfix 0.29.1 - September 29 %}
+
+- Fix typo in Nest climate platform ([@tchellomello])
+
 ### {% linkable_title Breaking changes %}
 
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
