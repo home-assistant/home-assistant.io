@@ -87,7 +87,7 @@
   <div class="meta clearfix">
     <time datetime="2016-09-29T03:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 29, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen & Fabian Affolter</span>
-    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span><i class='icon-time'></i> six minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -167,7 +167,14 @@
 <h3><a class="title-link" name="hotfix-0291---september-29" href="#hotfix-0291---september-29"></a> Hotfix 0.29.1 - September 29</h3>
 
 <ul>
-  <li>Fix typo in Nest climate platform (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Fix typo in Nest climate platform. <a href="https://github.com/home-assistant/home-assistant/issues/3574">We are still experiencing issues with Nest.</a> (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0292---september-29" href="#hotfix-0292---september-29"></a> Hotfix 0.29.2 - September 29</h3>
+
+<ul>
+  <li>InfluxDB config fix (<a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Netatmo config fix (<a href="https://github.com/jabesq">@jabesq</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
@@ -177,6 +184,7 @@
   <li><code class="highlighter-rouge">yahooweather</code> default name is now <code class="highlighter-rouge">yweather</code>. Also min and max temperature are now correctly called <code class="highlighter-rouge">Temperature Min</code> and <code class="highlighter-rouge">Temperature Max</code>.</li>
   <li><code class="highlighter-rouge">ffmpeg</code> is now a component for manage some things central. All <code class="highlighter-rouge">ffmpeg_bin</code> options have moved to this compoment from platforms.</li>
   <li>Config has changed for <a href="/components/light.x10/">X10</a> lights.</li>
+  <li>Wink platforms no longer take in the token. Set it up via the main <a href="/components/wink/">Wink component</a>.</li>
 </ul>
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>

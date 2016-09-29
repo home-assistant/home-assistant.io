@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-29T08:41:28+00:00</updated>
+  <updated>2016-09-29T15:30:00+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -74,7 +74,12 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 
 ### <a class='title-link' name='hotfix-0291---september-29' href='#hotfix-0291---september-29'></a> Hotfix 0.29.1 - September 29 
 
-- Fix typo in Nest climate platform ([@tchellomello])
+- Fix typo in Nest climate platform. [We are still experiencing issues with Nest.][nest-issues] ([@tchellomello])
+
+### <a class='title-link' name='hotfix-0292---september-29' href='#hotfix-0292---september-29'></a> Hotfix 0.29.2 - September 29 
+
+ - InfluxDB config fix ([@fabaff], [@lwis])
+ - Netatmo config fix ([@jabesq])
 
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
@@ -82,10 +87,13 @@ As you might have noticed, this release has been delayed by 5 days. This was due
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
  - `ffmpeg` is now a component for manage some things central. All `ffmpeg_bin` options have moved to this compoment from platforms.
  - Config has changed for [X10] lights.
+ - Wink platforms no longer take in the token. Set it up via the main [Wink component][Wink].
 
 ### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
+[nest-issues]: https://github.com/home-assistant/home-assistant/issues/3574
+[@jabesq]: https://github.com/jabesq
 [@joyrider3774]: https://github.com/joyrider3774
 [@balloob]: https://github.com/balloob
 [@bbangert]: https://github.com/bbangert
