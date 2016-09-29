@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Raspbian Lite on a Raspberry Pi - Home Assistant</title>
+    <title>Manual installation on a Raspberry Pi - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions to install Home Assistant on a Raspberry Pi runnning Raspbian Lite.">
     
@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://home-assistant.io/getting-started/installation-raspberry-pi/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Raspbian Lite on a Raspberry Pi">
+    <meta property="og:title" content="Manual installation on a Raspberry Pi">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/getting-started/installation-raspberry-pi/">
     <meta property="og:type" content="website">
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Raspbian Lite on a Raspberry Pi">
+    <meta name="twitter:title" content="Manual installation on a Raspberry Pi">
     <meta name="twitter:description" content="Instructions to install Home Assistant on a Raspberry Pi runnning Raspbian Lite.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
@@ -83,13 +83,22 @@
   
   <header>
     <h1 class="title indent">
-      Raspbian Lite on a Raspberry Pi
+      Manual Installation on a Raspberry Pi
     </h1>
   </header>
   <hr class="divider">
   
 
   <h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
+
+<p>There’s currently three documented ways to install Home Assistant on a Raspberry Pi.</p>
+<ul>
+  <li><a href="/getting-started/installation-raspberry-pi/#Manual-Installation">Manual installation</a>. Following this guide doing each step manually. This is highly recommended as a first installation since you get a good overview of the installation.</li>
+  <li><a href="/getting-started/installation-raspberry-pi-image">Hassbian image</a>. Basic installation with the same settings as following the manual installation guide. Some additional software is preinstalled to make installation quicker and easier.</li>
+  <li><a href="/getting-started/installation-raspberry-pi-all-in-one/">All-in-One Installer</a>. Fabric based installation script that installs and compiles many of the things an advanced Home Assistant install is likely to need.</li>
+</ul>
+
+<h3><a class="title-link" name="manual-installation" href="#manual-installation"></a> Manual Installation</h3>
 
 <p>This installation of Home Assistant requires the Raspberry Pi to run <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Lite</a>.
 The installation will be installed in a <a href="/getting-started/installation-virtualenv">Virtual Environment</a> with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.</p>
@@ -266,6 +275,7 @@ To enable One Wire support add the following line to the end of <code class="hig
         <ul>
           <li><a class='active' href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
           <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
           <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
           <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
           <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>

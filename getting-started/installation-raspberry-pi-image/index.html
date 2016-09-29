@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Automation Conditions - Home Assistant</title>
+    <title>Hassbian image on a Raspberry Pi - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Automations can test conditions when invoked.">
+    <meta name="description" content="Instructions to install the Home Assistant Hassbian image on a Raspberry Pi.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/automation-condition/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/installation-raspberry-pi-image/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Automation Conditions">
+    <meta property="og:title" content="Hassbian image on a Raspberry Pi">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/automation-condition/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/installation-raspberry-pi-image/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Automations can test conditions when invoked.">
+    <meta property="og:description" content="Instructions to install the Home Assistant Hassbian image on a Raspberry Pi.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Automation Conditions">
-    <meta name="twitter:description" content="Automations can test conditions when invoked.">
+    <meta name="twitter:title" content="Hassbian image on a Raspberry Pi">
+    <meta name="twitter:description" content="Instructions to install the Home Assistant Hassbian image on a Raspberry Pi.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,43 +83,45 @@
   
   <header>
     <h1 class="title indent">
-      Automation Conditions
+      Hassbian Image on a Raspberry Pi
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Conditions are an optional part of an automation rule and be used to prevent an action from happening when triggered. Conditions look very similar to triggers but are very different. A trigger will look at events happening in the system while a condition only looks at how the system looks right now. A trigger can observe that a switch is being turned on. A condition can only see if a switch is currently on or off.</p>
+  <h3><a class="title-link" name="hassbian" href="#hassbian"></a> Hassbian</h3>
 
-<p>If your triggers and conditions are exactly the same, you can use a shortcut to specify conditions. In this case, triggers that are not valid conditions will be ignored.</p>
+<p>We finally have a Raspberry Pi image! It’s been named Hassbian in honor of Raspbian.
+This image comes pre-installed with the dependencies, permissions and so on for Home Assistant. Image is based on the same install instructions as the <a href="/getting-started/installation-raspberry-pi/">Manual installation</a>.<br />
+It’s based on Raspbian Lite and generated with a fork of the same <a href="https://github.com/home-assistant/pi-gen">script</a> that builds the <a href="raspberrypi.org/downloads/raspbian/">official Raspbian images</a>. Please note that this project has no association with the Raspberry Pi foundation or their projects.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
-  <span class="s">condition</span><span class="pi">:</span> <span class="s">use_trigger_values</span>
-</code></pre>
-</div>
+<p>On first boot the latest release of Home Assistant will be installed in a <a href="getting-started/installation-virtualenv">Virtual Environment</a> at <code class="highlighter-rouge">/srv/homeassistant</code> and started as a service run by the user <code class="highlighter-rouge">homeassistant</code>. Since this is done automatically it’s required that the Raspberry Pi is connected to the internet with a ethernet cable. Installation takes about 5 minutes on first boot and after that you can connect to your Raspberry Pi on <code class="highlighter-rouge">ipaddress:8123</code>.</p>
 
-<p>The available conditions for an automation are the same as for the script syntax. So see that page for a <a href="/getting-started/scripts-conditions/">full list of available conditions</a>.</p>
+<p>Pre-installed on this image is the MQTT broker <a href="https://mosquitto.org/">Mosquitto</a>, Bluetooth support for none Bluetooth LE and settings for the <code class="highlighter-rouge">homeassistant</code> user to use the GPIO pins of the Raspberry Pi. Mosquitto is not activated by default.</p>
 
-<p>Example of using condition:</p>
+<p>As it is today there is no pre-compiled Z-Wave support but it can be installed by following the <a href="/getting-started/z-wave/">Getting started instructions for Z-Wave</a>.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Enciende</span><span class="nv"> </span><span class="s">Despacho'</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.mini_despacho</span>
-    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ON'</span>
-  <span class="s">condition</span><span class="pi">:</span>
-    <span class="s">condition</span><span class="pi">:</span> <span class="s">or</span>
-    <span class="s">conditions</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">template</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sun.sun.attributes.elevation</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">4</span><span class="nv"> </span><span class="s">}}'</span>
-      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">template</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.sensorluz_7_0.state</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">}}'</span>
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.DespiertaDespacho</span>
-</code></pre>
-</div>
+<p>For Raspberry Pi hardware specific components have a look at our <a href="/getting-started/installation-raspberry-pi/#raspberry-pi-hardware-specific-components">install guide for the Raspberry Pi</a>. Default password for the <code class="highlighter-rouge">pi</code> user is <code class="highlighter-rouge">raspberry</code> and is highly recommended to be changed.</p>
 
+<h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
+
+<p>The image can be found as a <a href="https://github.com/home-assistant/pi-gen/releases">release</a> in the <a href="https://github.com/home-assistant/pi-gen/">pi-gen repository</a>.</p>
+
+<p>Installation instructions are the same as for Raspbian and it’s recommended to follow <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">these</a>.</p>
+
+<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
+
+<p>If you run into any issues, please see <a href="/getting-started/troubleshooting/">the troubleshooting page</a>. It contains solutions to many of the more commonly encountered issues.</p>
+
+<p>In addition to this site, check out these sources for additional help:</p>
+
+<ul>
+  <li><a href="https://community.home-assistant.io">Forum</a> for Home Assistant discussions and questions.</li>
+  <li><a href="https://gitter.im/home-assistant/home-assistant">Gitter Chat Room</a> for real-time chat about Home Assistant.</li>
+  <li><a href="https://github.com/home-assistant/home-assistant/issues">GitHub Page</a> for issue reporting.</li>
+</ul>
+
+<h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
 
 
 </article>
@@ -133,7 +135,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/automation-condition.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/installation-raspberry-pi-image.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -142,7 +144,7 @@
         <ul>
           <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
           <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
-          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
+          <li><a class='active' href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
           <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
           <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
           <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
@@ -167,7 +169,7 @@
         <ul>
           <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
           <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
-          <li><a class='active' href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
           <li><a  href='/getting-started/automation-action/'>Actions </a></li>
           <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
         </ul>
