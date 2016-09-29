@@ -24,12 +24,12 @@ sensor:
   - platform: pi_hole
     host: 192.168.1.2
     ssl: True
-    verify_ssl: 
+    verify_ssl: False
 ```
 
 Configuration variables:
 
 - **host** (*Optional*): The IP address of the Pi-Hole system. Defaults to `localhost`.
 - **ssl** (*Optional*): If `true`, use SSL/TLS to connect to the Pi-Hole system. Defaults to `False`.
-- **verify_ssl** (*Optional*): Verify the certification of the system. Default to True.
+- **verify_ssl** (*Optional*): Verify the certification of the system. Default to `True`.
 
