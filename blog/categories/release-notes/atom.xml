@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-29T05:00:14+00:00</updated>
+  <updated>2016-09-29T05:20:59+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -71,6 +71,10 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 - [InfluxDB] now allows attaching extra data ([@lwis])
 - [OpenALPR] support ([@pvizeli])
 - Minor features and bug fixes by [@fabaff], [@w1ll1am23], [@turbokongen], [@clach04], [@mKeRix], [@pvizeli], [@DavidLP], [@nvella], [@Teagan42], [@ericwclymer], [@wokar], [@kellerza], [@nkgilley], [@jawilson], [@Danielhiversen], [@ej81], [@danieljkemp], [@balloob], [@philhawthorne], [@LinuxChristian], [@milas], [@simonszu], [@Cinntax], [@irvingwa], [@sytone], [@kk7ds], [@robbiet480].
+
+### <a class='title-link' name='hotfix-0291---september-29' href='#hotfix-0291---september-29'></a> Hotfix 0.29.1 - September 29 
+
+- Fix typo in Nest climate platform ([@tchellomello])
 
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
