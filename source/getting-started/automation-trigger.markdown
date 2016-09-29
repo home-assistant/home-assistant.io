@@ -23,6 +23,7 @@ automation:
     event_data:
       mood: happy
 ```
+For example, to carry out actions when Home Assistant starts, you can use `event_type: homeassistant_start`. See other 'events' supported by Home Assistant [here](https://home-assistant.io/topics/events/).
 
 ### {% linkable_title MQTT trigger %}
 Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.
@@ -97,7 +98,7 @@ Template triggers work by evaluating a [template] on each state change. The trig
 automation:
   trigger:
     platform: template
-    value_template: '{% raw %}{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}{% endraw %}'
+    value_template: "{% raw %}{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}{% endraw %}"
 ```
 
 ### {% linkable_title Time trigger %}

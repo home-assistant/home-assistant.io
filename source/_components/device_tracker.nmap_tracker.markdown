@@ -25,11 +25,15 @@ device_tracker:
   platform: nmap_tracker
   hosts: 192.168.1.1/24
   home_interval: 10
+  exclude:
+   - 192.168.1.12
+   - 192.168.1.13
 ```
 
 Configuration variables:
 
 - **hosts** (*Required*): The network range to scan in CIDR notation, eg. 192.168.1.1/24
 - **home_interval** (*Optional*): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.
+- **exclude** (*Optional*): Hosts not to include in nmap scanning.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

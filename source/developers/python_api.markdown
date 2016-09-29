@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Python API"
-description: "Home Assistant Python API documentation"
+title: "Python Remote API"
+description: "Home Assistant Python Remote API documentation"
 date: 2015-05-11 12:00
 sidebar: true
 comments: false
@@ -18,7 +18,7 @@ First import the module and setup the basics.
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('127.1.0.1', 'password')
+api = remote.API('127.0.0.1', 'password')
 print(remote.validate_api(api))
 ```
 
@@ -27,7 +27,7 @@ This snippets shows how to use the `homeassistant.remote` package in another way
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('127.1.0.1', 'password')
+api = remote.API('127.0.0.1', 'password')
 hass = remote.HomeAssistant(api)
 hass.start()
 living_room = hass.states.get('group.living_room')
@@ -40,7 +40,7 @@ Get the current configuration of a Home Asssitant instance.
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('127.1.0.1', 'password')
+api = remote.API('127.0.0.1', 'password')
 
 print(remote.get_config(api))
 ```
@@ -52,7 +52,7 @@ Similar to the output in the "Developer Tools" of the frontend.
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
+api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 
 print('-- Available services:')
 services = remote.get_services(api)
@@ -77,7 +77,7 @@ To get the details of a single entity the `get_state` method is used.
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
+api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 office_temperature = remote.get_state(api, 'sensor.office_temperature')
 print('{} is {} {}.'.format(office_temperature.attributes['friendly_name'],
                             office_temperature.state,
@@ -97,7 +97,7 @@ The exact same thing is working for a switch. The difference is that both entiti
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
+api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 switch_livingroom = remote.get_state(api, 'switch.livingroom_pin_2')
 print('{} is {}.'.format(switch_livingroom.attributes['friendly_name'],
                          switch_livingroom.state
@@ -113,7 +113,7 @@ Of course, it's possible to set the state.
 import homeassistant.remote as remote
 from homeassistant.const import STATE_ON
 
-api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
+api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 remote.set_state(api, 'sensor.office_temperature', new_state=123)
 remote.set_state(api, 'switch.livingroom_pin_2', new_state=STATE_ON)
 ```
@@ -129,7 +129,7 @@ If you want to turn on all entities of a domain, just use a service which was re
 import time
 import homeassistant.remote as remote
 
-api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
+api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 domain = 'switch'
 
 remote.call_service(api, domain, 'turn_on')
@@ -145,7 +145,7 @@ To turn on or off a single switch. The ID of the entity is needed as attribute.
 import time
 import homeassistant.remote as remote
 
-api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
+api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 domain = 'switch'
 switch_name = 'switch.livingroom_pin_2'
 
@@ -185,7 +185,7 @@ The example uses the jabber notification platform to send a single message to th
 ```python
 import homeassistant.remote as remote
 
-api = remote.API('127.1.0.1', 'YOUR_PASSWORD')
+api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 domain = 'notify'
 data = {"title":"Test", "message":"A simple test message from HA."}
 

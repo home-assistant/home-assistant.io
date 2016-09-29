@@ -39,7 +39,7 @@ print(response.text)
 ```
 
 <p class='note'>
-You can append `?password=YOUR_PASSWORD` to any url to log in automatically.
+You can append `?api_password=YOUR_PASSWORD` to any url to log in automatically.
 </p>
 
 Successful calls will return status code 200 or 201. Other status codes that can return are:

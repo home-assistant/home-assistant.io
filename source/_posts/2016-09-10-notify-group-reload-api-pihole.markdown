@@ -14,7 +14,7 @@ It's already time for 0.28 thanks to our super short release cycles. Now, it' of
 
 ### {% linkable_title Reload automation rules %}
 
-This release brings you a huge improvement of the [automation] and [group] handling. Both can be reloaded without a Home Assistant restart. The automations can be controlled directly from the frontend.
+This release brings you a huge improvement of the [automation] and [group] handling. Both can be reloaded without a Home Assistant restart by calling their new reload services. The automations can be controlled directly from the frontend.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/automation-switches.png' />
@@ -31,22 +31,6 @@ The [Home Assistant API Documentation](https://dev-docs.home-assistant.io/en/dev
 
 ### {% linkable_title Configuration validation %}
 The validation of the configuration is still on-going. Approximatly 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to [@kellerza], [@fabaff], [@Teagan42], and [@pvizeli] for your effort!
-
-### {% linkable_title Templating %}
-`data_template` needs to be present in all notify templates for the future.
-
-```yaml
-action:
-  service: notify.telegram
-  data_template:
-    message: "Test from your Home"
-    data:
-      location:
-        latitude: "{{ state.device_tracker.phone.attributes.latitude }}"
-        longitude: "{{ state.device_tracker.phone.attributes.longitude }}"
-```
-
-Stay tuned for more details.
 
 ### {% linkable_title All changes %}
 
@@ -87,6 +71,22 @@ Stay tuned for more details.
 - Modbus: New `write_registers` [Modbus] service ([@persandstrom])
 - Device tracker: Fix TP-Link Archer C7 long passwords ([@snikch])
 
+### {% linkable_title Hotfix 0.28.1 - September 12 %}
+
+- Fix: Simplisafe alarm control panels accept any string for code ([@tchellomello])
+- Fix: Z-Wave would sometimes not detect all thermostats ([@turbokongen])
+- Fix: Automatic device tracker when 2 or more cars are tracked ([@teagan42])
+- Fix: Group ordering is now based on config again ([@balloob], [@kellerza])
+
+### {% linkable_title Hotfix 0.28.2 - September 13 %}
+
+- Light - pilight: Fix send RF code ([@DavidLP])
+- Recorder: Fix specifying SQLite ([@pvizeli])
+- Wink: Fix garage door detection ([@turbokongen])
+- Climate - Ecobee: Fix inverted high and low temperatures ([@turbokongen])
+- Allow changing covers using scenes ([@nvella])
+- Device tracker - Automatic: Fix polling ([@teagan42])
+
 ### {% linkable_title Breaking changes %}
 
 - [OpenweatherMap] entity IDs are now like `sensor.owm_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.
@@ -94,7 +94,7 @@ Stay tuned for more details.
   - [OctoPrint] component
   - mFi platform ([switch][mfi-switch] and [sensor][mfi-sensor])
   - NX584 Alarm Control Panel
-  - Mediaplayer platforms [FireTV] and [MPD]
+  - Mediaplayer platforms [FireTV], [Kodi] and [MPD]
   - [switch][command-line-switch] and the [cover][command-line-cover] `command_line` platforms
 - Custom components extending `BaseNotificationService` need to be aware that `kwargs.get(ATTR_TITLE)` will now return `None` if a title has not been set, and will need to specify `kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT)` if they always require a title.
 
@@ -102,6 +102,8 @@ Stay tuned for more details.
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant).
 
 
+[@DavidLP]: https://github.com/DavidLP
+[@nvella]: https://github.com/nvella
 [@Ardetus]: https://github.com/Ardetus
 [@arsaboo]: https://github.com/arsaboo
 [@auchter]: https://github.com/auchter
@@ -153,5 +155,6 @@ Stay tuned for more details.
 [mfi-switch]: /components/switch.mfi/
 [mfi-sensor]: /components/sensor.mfi/
 [FireTV]: /components/media_player.firetv/
+[Kodi]: /components/media_player.kodi/
 [command-line-switch]: /components/switch.command_line/
 [command-line-cover]: /components/cover.command_line/

@@ -21,4 +21,5 @@ To add Snapcast to your installation, add the following to your `configuration.y
 # Example configuration.yaml entry
 media_player:
   platform: snapcast
+  host: xxx.xxx.xxx.xxx
 ```

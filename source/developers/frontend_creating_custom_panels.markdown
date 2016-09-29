@@ -27,7 +27,7 @@ The `hello.html` contains the needed building blocks to create the elements insi
   </template>
 </dom-module>
 
-</script>
+<script>
 Polymer({
   is: 'ha-panel-hello',
   properties: {
@@ -67,11 +67,10 @@ Create an entry for the new panel in your `configuration.yaml` file:
 
 ```yaml
 panel_custom:
-  - name: hello_world
+  - name: hello
     sidebar_title: Hello World
     sidebar_icon: mdi:hand-pointing-right
-    url_path: hello_world
-    webcomponent_path: <config dir>/panels/hello.html
+    url_path: hello
 ```
 
 For more examples, see the [Custom panel Examples](/cookbook#custom-panel-examples) on our examples page.
