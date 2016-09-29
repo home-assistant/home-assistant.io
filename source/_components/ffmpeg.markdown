@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: ffmpeg.png
 ha_category: Hub
-featured: true
 ---
 
 It allow other Home-Assistant components to process video/audio streams. It need a ffmpeg binary in your system path. It support all ffmpeg version since 3.0.0. If you have a older version, please update.
