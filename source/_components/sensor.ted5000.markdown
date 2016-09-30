@@ -10,7 +10,6 @@ footer: true
 logo: ted.png
 ha_category: Sensor
 ha_release: 0.30
----
 
 The `ted 5000` monitors electricity consumption/production by connecting to the
 [TED](http://www.theenergydetective.com/home) gateway, itself connected to one
@@ -26,9 +25,6 @@ sensor:
   name: main
   host: 192.168.1.100
   port: 80
-  resources:
-  - power.mtu1
-  - voltage.mtu1
 ```
 
 Configuration variables:
@@ -36,6 +32,10 @@ Configuration variables:
 - **host** (*Required*): The IP address of your ted gateway.
 - **port** (*Optional*): The port of your ted gateway. Defaults to 80.
 - **name** (*Optional*): Name of the ted gateway. Defaults to ted.
-- **resources** (*Required*): List the sensors to create,
- up to 2 ('power' and 'voltage') for each MTU, starting with index 1.
+
+For each plugged MTU, using an index starting at 1, the platorm creates 2 sensors:
+```yaml
+sensor.<name>_mtu<MTU id>_power
+sensor.<name>_mtu<MTU id>_voltage
+```
 
