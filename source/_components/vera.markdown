@@ -22,15 +22,19 @@ vera:
   vera_controller_url: http://192.168.1.161:3480/
 ```
 
+Configuration variables:
+
+- **vera_controller_url** (*Required*): The URL for your Vera device.
+
 <p class='note'>
   It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
 </p>
 
-By default your switches will be added to HA as switches, however if some of them are light switches, you can tell HA this using the optional ```lights``` parameter as shown below.
+By default your switches will be added to Home Assistant as switches, however if some of them are light switches, you can tell Home Assistant this using the optional `lights` parameter as shown below.
 
-Vera imports detailed zwave devices into HA - this can include system devices and other devices that you don't use, you can tell HA not to load these devices using the ```exclude:``` parameter as shown below.
+Vera imports detailed zwave devices into Home Assistant. This can include system devices and other devices that you don't use, you can tell Home Assistant not to load these devices using the `exclude:` parameter as shown below.
 
-You can find the vera device id either by looking at your vera controller - or by checking the ```Vera Device Id``` attribute on each device imported into HA.
+You can find the vera device id either by looking at your vera controller or by checking the `Vera Device Id` attribute on each device imported into Home Assistant.
 
 ```yaml
 vera:

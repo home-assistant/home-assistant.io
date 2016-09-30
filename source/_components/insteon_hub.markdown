@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: insteon.png
 ha_category: Hub
+ha_iot_class: "Cloud Polling"
 ---
 
 The `insteon` component lets you use your [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.

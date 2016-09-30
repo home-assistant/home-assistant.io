@@ -10,6 +10,7 @@ footer: true
 logo: mysensors.png
 ha_category: Hub
 featured: true
+ha_iot_class: "Local Polling"
 ---
 
 The [MySensors](https://www.mysensors.org) project combines Arduino boards with NRF24L01 radio boards to build sensor networks. The component will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done.

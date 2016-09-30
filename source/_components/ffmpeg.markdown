@@ -21,14 +21,12 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 ffmpeg:
-  ffmpeg_bin: /usr/bin/ffmpeg
-  run_test: True
 ```
 
 Configuration variables:
 
-- **ffmpeg_bin** (*Optional*): Default 'ffmpeg'. Set the ffmpeg binary.
-- **run_test** (*Optional*): Default True. Check if `input` is usable by ffmpeg.
+- **ffmpeg_bin** (*Optional*): Set the ffmpeg binary (eg. `/usr/bin/ffmpeg`). Default 'ffmpeg'. 
+- **run_test** (*Optional*):  Check if `input` is usable by ffmpeg. Default True.
 
 ### {% linkable_title Troubleshooting %}
 
