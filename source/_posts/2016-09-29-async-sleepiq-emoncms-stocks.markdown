@@ -70,12 +70,18 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 
 ### {% linkable_title Hotfix 0.29.2 - September 29 %}
 
- - InfluxDB config fix ([@fabaff], [@lwis])
+ - InfluxDB config fix ([@fabaff], reported by [@lwis])
  - Netatmo config fix ([@jabesq])
 
 ### {% linkable_title Hotfix 0.29.3 - September 29 %}
 
  - Hue config fix ([@pvizeli])
+
+### {% linkable_title Hotfix 0.29.4 - September 30 %}
+
+ - Alexa config fix ([@baloob], reported by [@lwis])
+ - Envisalink discovery fix ([@cinntax])
+ - Acer Projector config fix ([@pvizeli])
 
 ### {% linkable_title Breaking changes %}
 
