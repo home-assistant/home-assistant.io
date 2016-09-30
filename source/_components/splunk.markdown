@@ -19,15 +19,12 @@ To use the `splunk` component in your installation, add the following to your `c
 ```yaml
 # Example configuration.yaml entry
 splunk:
-  host: SPLUNK_HOST_IP_ADDRESS_OR_HOST_NAME
-  port: 8088
   token: B4415DFF-683C-5C6C-3994-4F6D4A5DB03A
-  ssl: True
 ```
 
 Configuration variables:
 
+- **token** (*Required*): The HTTP Event Collector Token already created in your Splunk instance.
 - **host** (*Optional*): IP address or host name of your Splunk host, eg. http://192.168.1.10. Will default to `localhost` if not supplied.
 - **port** (*Optional*): Port to use. Defaults to 8088.
-- **token** (*Required*): The HTTP Event Collector Token already created in your Splunk instance.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to False.
