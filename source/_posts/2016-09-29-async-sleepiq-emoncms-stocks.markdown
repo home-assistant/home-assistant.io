@@ -28,6 +28,10 @@ On the voluptuous front we have also made great progress. We were able to fully 
 
 As you might have noticed, this release has been delayed by 5 days. This was due to a rare, difficult to reproduce problem with the Python interpreter. A huuuuge thanks to all the people that have helped countless hours in researching, debugging and fixing this issue: [@bbangert], [@turbokongen], [@lwis], [@kellerza], [@technicalpickles], [@pvizeli], [@persandstrom] and [@joyrider3774]. I am grateful to have all of you as part of the Home Assistant community.
 
+### {% linkable_title Hide automation rules %}
+
+Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend. By default all automation rules are shown. If you want to [hide an automation rule](/getting-started/automation-create-first/), use `hide_entity: True`.
+
 ### {% linkable_title All changes %}
 
 <img src='/images/supported_brands/emoncms.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/sleepiq.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/openalpr.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />

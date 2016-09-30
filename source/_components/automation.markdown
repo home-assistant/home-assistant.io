@@ -19,4 +19,13 @@ Starting with 0.28 your automation rules can be controlled with the frontend.
   <img src='{{site_root}}/images/screenshots/automation-switches.png' />
 </p>
 
-This allows one to reload the automation without restarting Home Assistant itself.
+This allows one to reload the automation without restarting Home Assistant itself. If you don't want to see the automation rule in your frontend use `hide_entity: True` to hide it.
+
+```yaml
+automation:
+  - alias: Door alarm
+    hide_entity: True
+    trigger:
+      - platform: state
+  ...
+```
