@@ -20,8 +20,6 @@ To set it up, add the following information to your `configuration.yaml` file:
 climate:
   platform: honeywell
   username: YOUR_USERNAME
-  password:  YOUR_PASSWORD
-  region: REGION
 ```
 
 Configuration variables:

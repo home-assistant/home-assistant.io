@@ -57,8 +57,15 @@ to the start function of /etc/init.d/hass-daemon.
 ```yaml
 # Example configuration.yaml entry
 climate:
-  platform: eq3btsmart
-  devices:
-    room1:
-      mac: '00:11:22:33:44:55'
+  - platform: eq3btsmart
+    devices:
+      room1:
+        mac: '00:11:22:33:44:55'
 ```
+
+Configuration variables:
+
+- **devices** array (*Required*): List of thermostats.
+  - **[device-name]** (*Required*): The name to use for the thermostat.
+    - **mac** (*Required*): MAC address of the thermostat.
+

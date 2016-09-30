@@ -24,12 +24,9 @@ The underlaying library supports:
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 climate:
   platform: radiotherm
-  host:
-    - 192.168.99.137
-    - 192.168.99.202
-  hold_temp: True
 ```
 
 Configuration variables:
@@ -39,3 +36,12 @@ Configuration variables:
 
 Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to `False` if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.
 
+Multiple thermostats could be assigned by using `host:` if auto-detetion is not used.
+
+```yaml
+climate:
+  platform: radiotherm
+  host:
+    - 192.168.99.137
+    - 192.168.99.202
+```
