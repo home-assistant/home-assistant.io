@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: nest_thermostat.png
 ha_category: Binary Sensor
+ha_release: pre 0.7
 ---
 
 
@@ -22,24 +23,22 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 binary_sensor:
-  platform: nest
-  scan_interval: 60
-  monitored_conditions:
-    - 'fan'
-    - 'hvac_ac_state'
-    - 'hvac_heater_state'
-    - 'hvac_aux_heater_state'
-    - 'hvac_heat_x2_state'
-    - 'hvac_heat_x3_state'
-    - 'hvac_alt_heat_state'
-    - 'hvac_alt_heat_x2_state'
-    - 'hvac_emer_heat_state'
-    - 'online'
+  - platform: nest
+    monitored_conditions:
+      - 'fan'
+      - 'hvac_ac_state'
+       'hvac_heater_state'
+      - 'hvac_aux_heater_state'
+      - 'hvac_heat_x2_state'
+      - 'hvac_heat_x3_state'
+      - 'hvac_alt_heat_state'
+      - 'hvac_alt_heat_x2_state'
+      - 'hvac_emer_heat_state'
+      - 'online'
 ```
 
 Configuration variables:
 
-- **scan_interval** (*Optional*): Interval in seconds to scan.
 - **monitored_conditions** array (*Required*): States to monitor.
   - 'fan'
   - 'hvac_ac_state'
@@ -50,4 +49,5 @@ Configuration variables:
   - 'hvac_alt_heat_x2_state'
   - 'hvac_emer_heat_state'
   - 'online'
+- **scan_interval** (*Optional*): Interval in seconds to scan.
 
