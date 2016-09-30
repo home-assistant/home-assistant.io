@@ -27,8 +27,6 @@ A `knx` section must be present in the `configuration.yaml` file and contain the
 ```yaml
 # Example configuration.yaml entry
 knx:
-  host: IP_ADDRESS
-  port: PORT
 ```
 
 - **host** (*Optional*): The IP address of the KNX/IP interface to use. It defaults to `0.0.0.0` which will start discovery for your KNX/IP gateway.
