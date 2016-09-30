@@ -27,15 +27,7 @@ To enable MQTT fans in your installation, add the following to your `configurati
 # Example configuration.yml entry
 fan:
   platform: mqtt
-  name: Living room 
-  state_topic: "home/living-room/fan"
   command_topic: "home/living-room/fan/set"
-  payload_on: "ON"
-  payload_off: "OFF"
-  optimistic: false
-  qos: 0
-  retain: true
-  value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
 Configuration variables:
