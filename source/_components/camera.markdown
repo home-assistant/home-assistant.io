@@ -10,5 +10,5 @@ footer: true
 ---
 
 
-The camera component allows you to use IP cameras with Home Assistant.
+The camera component allows you to use IP cameras with Home Assistant. With a little additional work you could use [USB cameras](/blog/2016/06/23/usb-webcams-and-home-assistant/) as well.
 
