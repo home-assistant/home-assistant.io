@@ -23,18 +23,13 @@ To enable this camera in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: generic
-  still_image_url: http://194.218.96.92/jpg/image.jpg
-  name: my sample camera
-  username: USERNAME
-  password: PASSWORD
-  authentication: basic
-  limit_refetch_to_url_change: true
+  - platform: generic
+    still_image_url: http://194.218.96.92/jpg/image.jpg
 ```
 
 Configuration variables:
 
-- **still_image_url** (*Required*): The URL your camera serves the image on, eg. http://192.168.1.21:2112/. Can be a [template].
+- **still_image_url** (*Required*): The URL your camera serves the image on, eg. http://192.168.1.21:2112/. Can be a [template](/topics/templating/).
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **username** (*Optional*): The username for accessing your camera.
 - **password** (*Optional*): The password for accessing your camera.
@@ -48,4 +43,3 @@ Configuration variables:
   </a>
 </p>
 
-[template]: /topics/templating/
