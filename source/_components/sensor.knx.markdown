@@ -30,17 +30,16 @@ To use your KNX sensor in your installation, add the following to your `configur
 # Example configuration.yaml entry
 sensor:
   - platform: knx
-    name: knxweather_temp
     type: temperature
     address: 1/0/3
 
   - platform: knx
-    name: knxweather_wind
+    name: Wind speed
     type: speed_ms
     address: 1/0/0
 
   - platform: knx
-    name: knxweather_lux
+    name: Lux
     type: illuminance
     address: 1/0/1
 ```
