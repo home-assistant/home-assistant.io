@@ -24,10 +24,9 @@ To enable those lights, add the following lines to your `configuration.yaml` fil
 light:
   - platform: x10
     devices:
-      - name: Living Room Lamp
-        id: a2
-      - name: Bedroom Lamp
-        id: a3
+      - id: a2
+      - id: a3
+        name: Bedroom Lamp
 ```
 
 Configuration variables:

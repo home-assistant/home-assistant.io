@@ -26,8 +26,6 @@ If you want to enable the light component directly, add the following lines to y
 light:
   platform: hue
   host: DEVICE_IP_ADDRESS
-  allow_unreachable: true
-  filename: my_hue_hub_token.conf
 ```
 
 Configuration variables:
