@@ -23,10 +23,6 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 sensor:
   platform: transmission
   host: IP_ADDRESS
-  port: 9091
-  name: Transmission
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
   monitored_variables:
     - 'current_status'
     - 'download_speed'
@@ -40,7 +36,7 @@ Configuration variables:
 - **name** (*Optional*): The name to use when displaying this Transmission instance.
 - **username** (*Optional*): Your Transmission username, if you use authentication.
 - **password** (*Optional*): Your Transmission password, if you use authentication.
-- **monitored_variables** array: Conditions to display in the frontend.
+- **monitored_variables** array (*Required*): Conditions to display in the frontend.
   - **current_status**: The status of your Transmission daemon.
   - **download_speed**: The current download speed.
   - **upload_speed**: The current upload speed.
