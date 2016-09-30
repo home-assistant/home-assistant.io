@@ -9,8 +9,8 @@ sharing: true
 footer: true
 ---
 
-Home Assistant can give you an interface to control covers such as
-rollershutters and garage doors.
+Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
+
 ## {% linkable_title Services %}
 
 ### {% linkable_title Cover control services %}
