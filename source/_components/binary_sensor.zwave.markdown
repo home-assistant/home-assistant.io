@@ -10,6 +10,7 @@ footer: true
 logo: z-wave.png
 ha_category: Binary Sensor
 ha_release: 0.14
+ha_iot_class: "Local Push"
 ---
 
 To get your Z-Wave binary sensors working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/).

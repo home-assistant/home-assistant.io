@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: ecobee.png
 ha_category: Sensor
+ha_release: 0.9
+ha_iot_class: "Local Push"
 ---
 
 To get your Ecobee binary sensors working with Home Assistant, follow the instructions for the general [Ecobee component](/components/ecobee/).
