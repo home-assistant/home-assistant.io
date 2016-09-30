@@ -21,7 +21,6 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: dte_energy_bridge
     ip: 192.168.1.11
-    name: DTE Energy
 ```
 
 Configuration variables:
