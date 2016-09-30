@@ -87,6 +87,10 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
  - Envisalink discovery fix ([@cinntax])
  - Acer Projector config fix ([@pvizeli])
 
+### {% linkable_title Hotfix 0.29.5 - September 30 %}
+
+ - Fix Climate Nest platform (@tchellomello, @jawilson)
+
 ### {% linkable_title Breaking changes %}
 
  - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.
