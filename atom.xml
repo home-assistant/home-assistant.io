@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-30T02:18:17+00:00</updated>
+  <updated>2016-09-30T06:44:45+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -35,6 +35,10 @@
 <h3><a class="title-link" name="delayed-release" href="#delayed-release"></a> Delayed Release</h3>
 
 <p>As you might have noticed, this release has been delayed by 5 days. This was due to a rare, difficult to reproduce problem with the Python interpreter. A huuuuge thanks to all the people that have helped countless hours in researching, debugging and fixing this issue: <a href="https://github.com/bbangert">@bbangert</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/technicalpickles">@technicalpickles</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/persandstrom">@persandstrom</a> and <a href="https://github.com/joyrider3774">@joyrider3774</a>. I am grateful to have all of you as part of the Home Assistant community.</p>
+
+<h3><a class="title-link" name="hide-automation-rules" href="#hide-automation-rules"></a> Hide automation rules</h3>
+
+<p>Since 0.28 <a href="https://home-assistant.io/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules/">automation rules</a> can be reloaded directly from the frontend. By default all automation rules are shown. If you want to <a href="https://home-assistant.io/getting-started/automation-create-first/">hide an automation rule</a>, use <code class="highlighter-rouge">hide_entity: True</code>.</p>
 
 <h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
 

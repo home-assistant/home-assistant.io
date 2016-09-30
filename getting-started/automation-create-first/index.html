@@ -96,6 +96,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on light when sun sets</span>
+  <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">False</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
     <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
@@ -103,6 +104,8 @@
     <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
 </code></pre>
 </div>
+
+<p>Starting with 0.28 automation rules can be reloaded from the <a href="/components/automation/">frontend</a> and are shown by default. With <a href="/components/automation/"><code class="highlighter-rouge">hide_entity:</code></a> you can control this behaviour. It’s is very handy if you are working on your rules but when a rule is finished and you don’t want to see that rule in your frontend, you can set <code class="highlighter-rouge">hide_entity:</code> to <code class="highlighter-rouge">True</code>.</p>
 
 <p>After a few days of running this automation rule you come to realize that this automation rule is not good enough. It was already dark when the lights went on and the one day you weren’t home, the lights turned on anyway. Time for some tweaking. Let’s add an offset to the sunset trigger and a condition to only turn on the lights if anyone is home.</p>
 
@@ -165,6 +168,7 @@
 
 <span class="s">automation</span><span class="pi">:</span>
   <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on light when sun sets</span>
+  <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">True</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
     <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
