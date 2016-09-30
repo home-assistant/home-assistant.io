@@ -54,3 +54,4 @@ Each client should post the discovered devices in its own subtopic of the config
 Instead of developing your own application, you can also use any of these already existing clients:
 
 - [**room-assistant**](https://github.com/mKeRix/room-assistant): looks for Bluetooth LE beacons, based on Node.js
+- [**Happy Bubbles Presence Server**](https://github.com/happy-bubbles/presence): presence detection server for Happy Bubbles BLE-scanning devices, based on Go
