@@ -83,7 +83,7 @@ As you might have noticed, this release has been delayed by 5 days. This was due
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
  - `ffmpeg` is now a component for manage some things central. All `ffmpeg_bin` options have moved to this compoment from platforms.
  - Config has changed for [X10] lights.
- - Wink platforms no longer take in the token. Set it up via the main [Wink component][Wink].
+ - For Wink, make sure your config only contains the access token as in the [docs][Wink].
 
 ### {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
