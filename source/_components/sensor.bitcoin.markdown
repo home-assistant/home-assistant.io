@@ -22,7 +22,6 @@ To add the Bitcoin sensor to your installation, add a selection of the available
 # Example configuration.yaml entry
 sensor:
   platform: bitcoin
-  currency: YOUR CURRENCY
   display_options:
     - exchangerate
     - trade_volume_btc
