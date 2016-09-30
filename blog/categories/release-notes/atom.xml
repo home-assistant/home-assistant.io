@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-30T07:49:52+00:00</updated>
+  <updated>2016-09-30T18:16:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -106,6 +106,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
  - `ffmpeg` is now a component for manage some things central. All `ffmpeg_bin` options have moved to this compoment from platforms.
  - Config has changed for [X10] lights.
  - For Wink, make sure your config only contains the access token as in the [docs][Wink].
+ - Nest sensor 'mode' has been renamed to 'operation_mode'
 
 ### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
