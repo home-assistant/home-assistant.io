@@ -56,6 +56,7 @@ homeassistant:
 | moisture | Specifically a wetness sensor |
 | motion | Motion sensor |
 | moving | On means moving, Off means stopped |
+| occupancy | On means occupied, Off means not occupied |
 | opening | Door, window, etc. |
 | power | Power, over-current, etc. |
 | safety | On means unsafe, Off means safe |
