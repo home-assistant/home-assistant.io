@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-09-30T01:33:54+00:00</updated>
+  <updated>2016-09-30T02:18:17+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -78,12 +78,18 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 
 ### <a class='title-link' name='hotfix-0292---september-29' href='#hotfix-0292---september-29'></a> Hotfix 0.29.2 - September 29 
 
- - InfluxDB config fix ([@fabaff], [@lwis])
+ - InfluxDB config fix ([@fabaff], reported by [@lwis])
  - Netatmo config fix ([@jabesq])
 
 ### <a class='title-link' name='hotfix-0293---september-29' href='#hotfix-0293---september-29'></a> Hotfix 0.29.3 - September 29 
 
  - Hue config fix ([@pvizeli])
+
+### <a class='title-link' name='hotfix-0294---september-30' href='#hotfix-0294---september-30'></a> Hotfix 0.29.4 - September 30 
+
+ - Alexa config fix ([@baloob], reported by [@lwis])
+ - Envisalink discovery fix ([@cinntax])
+ - Acer Projector config fix ([@pvizeli])
 
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
