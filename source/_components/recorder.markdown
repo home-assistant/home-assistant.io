@@ -23,13 +23,20 @@ To setup the `recorder` component in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 recorder:
-  purge_days: 14
 ```
 
 Configuration variables:
 
 - **purge_days** (*Optional*): Delete events and states older than x days.
 - **db_url** (*Optional*): The URL which point to your database. 
+
+
+```yaml
+# Example configuration.yaml entry
+recorder:
+  purge_days: 5
+  db_url: sqlite:///home/user/.homeassistant/test
+```
 
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
