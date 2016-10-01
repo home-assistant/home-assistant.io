@@ -10,6 +10,7 @@ footer: true
 logo: itunes.png
 ha_category: Media Player
 ha_release: 0.7.3
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -22,10 +23,8 @@ To add iTunes to your installation, add the following to your `configuration.yam
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: itunes
-  name: iTunes
-  host: http://192.168.1.50
-  port: 8181
+  - platform: itunes
+    host: http://192.168.1.50
 ```
 
 Configuration variables:

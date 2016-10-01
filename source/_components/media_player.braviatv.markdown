@@ -10,6 +10,7 @@ footer: true
 logo: bravia.png
 ha_category: Media Player
 ha_release: 0.23
+ha_iot_class: "Local Polling"
 ---
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](http://www.sony.com).
@@ -23,9 +24,8 @@ To add a TV to your installation, add the following to your `configuration.yaml`
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: braviatv
-  host: 192.168.0.10
-  name: Living Room TV
+  - platform: braviatv
+    host: 192.168.0.10
 ```
 
 Configuration variables:

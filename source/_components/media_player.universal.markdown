@@ -49,10 +49,10 @@ media_player:
 
 Configuration variables:
 
-- **name**: The name to assign the player
-- **children**: Ordered list of child media players this entity will control
-- **commands** *Optional*: Commands to be overwritten. Possible entries are *turn_on*, *turn_off*, *volume_up*, *volume_down*, and *volume_mute*.
-- **attributes** *Optional*: Attributes that can be overwritten. Possible entries are *is_volume_muted* and *state*. The values should be an entity id and state attribute separated by a bar (\|). If the entity id's state should be used, then only the entity id should be provided.
+- **name** (*Required*): The name to assign the player
+- **children** (*Required*): Ordered list of child media players this entity will control
+- **commands** (*Optional*): Commands to be overwritten. Possible entries are *turn_on*, *turn_off*, *volume_up*, *volume_down*, and *volume_mute*.
+- **attributes** (*Optional*): Attributes that can be overwritten. Possible entries are *is_volume_muted* and *state*. The values should be an entity id and state attribute separated by a bar (\|). If the entity id's state should be used, then only the entity id should be provided.
 
 The universal media player will primarily imitate one of its *children*. The first child in the list that is active (not idle/off) will be controlled the universal media player. The universal media player will also inherit its state from the first active child. Entities in the *children* list must be media players.
 

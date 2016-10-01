@@ -11,6 +11,7 @@ logo: kodi.png
 ha_category: Media Player
 featured: true
 ha_release: pre 0.7
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -21,13 +22,8 @@ To add Kodi to your installation, add the following to your `configuration.yaml`
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: kodi
-  host: http://192.168.0.123
-  port: 8080
-  name: Kodi
-  username: USERNAME
-  password: PASSWORD
-  turn_off_action: shutdown
+  - platform: kodi
+    host: http://192.168.0.123
 ```
 
 Configuration variables:
