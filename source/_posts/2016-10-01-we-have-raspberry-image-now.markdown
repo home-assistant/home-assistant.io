@@ -10,6 +10,7 @@ categories: Technology
 ---
 
 We finally have a Raspberry Pi image! It's been named Hassbian in honor of Raspbian.
+The image can be found [here](https://github.com/home-assistant/pi-gen/releases).  
 This image comes pre-installed with the dependencies, permissions and so on for Home Assistant.  
 Image is based on the same install instructions as the [Manual installation](/getting-started/installation-raspberry-pi/).  
 It's based on Raspbian Lite and generated with a fork of the same [script](https://github.com/home-assistant/pi-gen) that builds the [official Raspbian images](https://raspberrypi.org/downloads/raspbian/). Please note that this project has no association with the Raspberry Pi foundation or their projects.  
