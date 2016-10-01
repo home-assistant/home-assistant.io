@@ -103,6 +103,8 @@
 
 <p>This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.</p>
 
+<p>As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant.  For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.</p>
+
 <p>An <code class="highlighter-rouge">envisalink</code> section must be present in the <code class="highlighter-rouge">configuration.yaml</code> file and contain the following options as required:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -116,6 +118,7 @@
   <span class="s">evl_version</span><span class="pi">:</span> <span class="s">3</span>
   <span class="s">keepalive_interval</span><span class="pi">:</span> <span class="s">60</span>
   <span class="s">zonedump_interval</span><span class="pi">:</span> <span class="s">30</span>
+  <span class="s">panic_type</span><span class="pi">:</span> <span class="s">Police</span>
   <span class="s">zones</span><span class="pi">:</span>
     <span class="s">11</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Back</span><span class="nv"> </span><span class="s">Door'</span>
@@ -141,6 +144,7 @@
   <li><strong>evl_version</strong> (<em>Optional</em>): 3 for evl3, or 4 for evl4. Default: <code class="highlighter-rouge">3</code></li>
   <li><strong>keepalive_interval</strong> (<em>Optional</em>): This is a periodic heartbeat signal (measured in seconds) sent to your Envisalink board to keep it from restarting.  This is required for DSC and Honeywell systems. Defaults to <code class="highlighter-rouge">60</code> seconds.</li>
   <li><strong>zonedump_interval</strong> (<em>Optional</em>): This is an interval (measured in seconds) where the evl will dump out all zone statuses.  This is required for Honeywell systems, which do not properly send zone closure events.  DSC boards do not technically need this. Default: <code class="highlighter-rouge">30</code></li>
+  <li><strong>panic_type</strong> (<em>Optional</em>): Both DSC and Honeywell boards support a “panic” alarm. This is used when the alarm_trigger service is called in home assistant. This determines which type of panic alarm to raise.  Default = Police. Valid values are: Police, Fire, Ambulance</li>
   <li><strong>zones</strong> (<em>Optional</em>): Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant.  For each zone, at least a name must be given. <em>Note: if no zones are specified, Home Assistant will not load any binary_sensor components.</em></li>
   <li><strong>partitions</strong> (<em>Optional</em>): Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor components are loaded.</li>
 </ul>

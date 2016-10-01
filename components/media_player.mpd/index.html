@@ -91,6 +91,8 @@
 
   <p>The <code class="highlighter-rouge">mpd</code> platform allows you to control a <a href="http://www.musicpd.org/">Music Player Daemon</a> from Home Assistant. Unfortunatly you will not be able to manipulate the playlist (add or delete songs) or add transitions between the songs.</p>
 
+<p>Even though no playlist manipulation is possible, it is possible to use the play_media service to load an existing saved playlist as part of an automation or scene.</p>
+
 <p>To add MPD to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -111,6 +113,23 @@
   <li><strong>location</strong> (<em>Optional</em>): Location of your Music Player Daemon. Defaults to “MPD”.</li>
   <li><strong>password</strong> (<em>Optional</em>): Password for your Music Player Daemon.</li>
 </ul>
+
+<p>Example script to load a saved playlist called “DeckMusic” and set the volume:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">relaxdeck</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.play_media</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.main</span>
+        <span class="s">media_content_type</span><span class="pi">:</span> <span class="s">playlist</span>
+        <span class="s">media_content_id</span><span class="pi">:</span> <span class="s">DeckMusic</span>
+
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.volume_set</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.main</span>
+        <span class="s">volume_level</span><span class="pi">:</span> <span class="s">0.60</span>
+</code></pre>
+</div>
 
 <p>This platform works with <a href="http://www.musicpd.org/">Music Player Daemon</a> and <a href="https://www.mopidy.com/">mopidy</a> with <a href="https://docs.mopidy.com/en/latest/ext/mpd/">Mopidy-MPD</a> as used by <a href="http://www.pimusicbox.com/">Pi MusicBox</a>.</p>
 
