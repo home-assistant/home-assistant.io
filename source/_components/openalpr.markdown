@@ -31,7 +31,7 @@ On a debian system you can use this cmake command to build only the command line
 cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr
 ```
 
-Verify you alpr installation with:
+Verify your alpr installation with:
 ```
 wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```
