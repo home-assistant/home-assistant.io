@@ -28,7 +28,7 @@ If you don't found binarys for you distribution you can compile from source. A d
 
 On a debian system you can use this cmake command to build only the command line tool (which second part on linux build instruction - ubuntu 14.04+):
 ```bash
-cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr
+cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 ```
 
 Verify your alpr installation with:
