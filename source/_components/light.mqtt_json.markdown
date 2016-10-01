@@ -38,6 +38,35 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.
 
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: mqtt_json
+    command_topic: "home/rgb1/set"
+```
+
+Configuration variables:
+
+- **command_topic** (*Required*): The MQTT topic to publish commands to change the light's state.
+- **name** (*Optional*): The name of the light. Default is "MQTT JSON Light."
+- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
+- **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
+- **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
+- **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
+- **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.
+- **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.
+- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+
+<p class='note warning'>
+  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+</p>
+
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Brightness and RGB support %}
+
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -51,6 +80,8 @@ light:
     rgb: true
 ```
 
+### {% linkable_title Brightness and no RGB support %}
+
 To enable a light with brightness (but no color support) in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -63,20 +94,6 @@ light:
     brightness: true
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the light. Default is "MQTT JSON Light."
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **command_topic** (*Required*): The MQTT topic to publish commands to change the light's state.
-- **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
-- **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
-- **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
-- **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.
-- **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
-
-<p class='note warning'>
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-</p>
+### {% linkable_title Implementations %}
 
 A full example of custom lighting using this platform and an ESP8266 microcontroller can be found [here](https://github.com/corbanmailloux/esp-mqtt-rgb-led). It supports on/off, brightness, transitions, RGB colors, and flashing.
