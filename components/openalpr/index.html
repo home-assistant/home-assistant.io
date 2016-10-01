@@ -102,7 +102,7 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
 <p>If you don’t found binarys for you distribution you can compile from source. A documention how to build a openalpr is found <a href="https://github.com/openalpr/openalpr/wiki">here</a>.</p>
 
 <p>On a debian system you can use this cmake command to build only the command line tool (which second part on linux build instruction - ubuntu 14.04+):</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cmake -DWITH_TEST<span class="o">=</span>FALSE -DWITH_BINDING_JAVA<span class="o">=</span>FALSE --DWITH_BINDING_PYTHON<span class="o">=</span>FALSE --DWITH_BINDING_GO<span class="o">=</span>FALSE -DWITH_DAEMON<span class="o">=</span>FALSE -DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/usr
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cmake -DWITH_TEST<span class="o">=</span>FALSE -DWITH_BINDING_JAVA<span class="o">=</span>FALSE --DWITH_BINDING_PYTHON<span class="o">=</span>FALSE --DWITH_BINDING_GO<span class="o">=</span>FALSE -DWITH_DAEMON<span class="o">=</span>FALSE -DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/usr ..
 </code></pre>
 </div>
 
