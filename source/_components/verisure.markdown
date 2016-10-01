@@ -29,13 +29,6 @@ To integrate Verisure with Home Assistant, add the following section to your `co
 verisure:
   username: USERNAME
   password: PASSWORD
-  alarm: 1
-  hygrometers: 0
-  smartplugs: 1
-  thermometers: 0
-  locks: 0
-  mouse: 1
-  code_digits: 4
 ```
 
 Configuration variables:

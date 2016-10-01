@@ -61,6 +61,11 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 | Password | Your API [password](/components/http/)
 | Websocket port | 8080
 
+```yaml
+# Example configuration.yaml entry
+mqtt:
+```
+
 <p class='note'>
 This broker does not currently work with OwnTracks because of a protocol version issue.
 </p>

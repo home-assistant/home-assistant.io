@@ -10,7 +10,7 @@ footer: true
 logo: nuimo.png
 ha_category: Hub
 ha_release: 0.29
-ha_iot_class: "Local Poll"
+ha_iot_class: "Local Polling"
 ---
 
 The `nuimo_controller` component allows you to connect to a [Nuimo](http://www.senic.com/) device for receiving input events and displaying on the LED  matrix via the [Nuimo SDK for Python on Linux](https://github.com/getSenic/nuimo-linux-python).
@@ -18,9 +18,8 @@ The `nuimo_controller` component allows you to connect to a [Nuimo](http://www.s
 To connect to a Nuimo device add the following section to your `configuration.yaml` file:
 
 ```yaml
-nuimo_controller:
-  mac: 'CE:B5:12:25:21:89'
-  name: 
+# Example configuration.yaml entry
+nuimo_controller: 
 ```
 
 Configuration variables:

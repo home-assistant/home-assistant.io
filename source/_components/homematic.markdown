@@ -34,9 +34,6 @@ To set up the component, add the following information to your `configuration.ya
 ```yaml
 homematic:
   local_ip: 127.0.0.1
-  local_port: 8943
-  remote_ip: 127.0.0.1
-  remote_port: 2001
 ```
 
 Configuration variables:
