@@ -20,28 +20,41 @@ To enable notification by e-mail in your installation, add the following to your
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: smtp
-  server: MAIL_SERVER
-  port: YOUR_SMTP_PORT
-  sender: SENDER_EMAIL_ADDRESS
-  starttls: true or false
-  username: YOUR_SMTP_USERNAME
-  password: YOUR_SMTP_PASSWORD
-  recipient: YOUR_RECIPIENT
+  - name: NOTIFIER_NAME
+    platform: smtp
+    server: MAIL_SERVER
+    recipient: YOUR_RECIPIENT
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **server** (*Optional*): SMTP server which is used to end the notifications. For Google Mail, eg. smtp.gmail.com. Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps'). Defaults to `localhost`.
-- **port** (*Optional*): The port that the SMTP server is using, eg. 587 for Google Mail and STARTTLS or 465/993 depending on your SMTP servers.  Defaults to 25.
+- **server** (*Optional*): SMTP server which is used to end the notifications. Defaults to `localhost`.
+- **port** (*Optional*): The port that the SMTP server is using. Defaults to 25.
 - **sender** (*Optional*): E-mail address of the sender.
 - **username** (*Optional*): Username for the SMTP account.
 - **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
 - **recipient** (*Required*): Recipient of the notification.
 - **starttls** (*Optional*): Enables STARTTLS, eg. True or False. Defaults to False.
 - **debug** (*Optional*): Enables Debug, eg. True or False. Defaults to False.
+
+A sample configuration entry for Google Mail.
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - name: NOTIFIER_NAME
+    platform: smtp
+    server: smtp.gmail.com
+    port: 587
+    sender: john@gmail.com
+    starttls: true
+    username: john@gmail.com
+    password: thePassword
+    recipient: james@gmail.com
+```
+
+Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps').
 
 To use the SMTP notification, refer to it in an automation or script like in this example:
 

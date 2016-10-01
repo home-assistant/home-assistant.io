@@ -20,10 +20,10 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: HTML5
-  platform: html5
-  gcm_api_key: 'gcm-sender-key'
-  gcm_sender_id: 'gcm-sender-id'
+  - name: NOTIFIER_NAME
+    platform: html5
+    gcm_api_key: 'gcm-sender-key'
+    gcm_sender_id: 'gcm-sender-id'
 ```
 
 Configuration variables:

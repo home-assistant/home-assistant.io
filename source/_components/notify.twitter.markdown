@@ -22,12 +22,12 @@ To add Twitter to your installation, add the following to your `configuration.ya
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: twitter
-  consumer_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-  consumer_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
-  access_token: ABCDEFGHJKLMNOPQRSTUVXYZ
-  access_token_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
+  - name: NOTIFIER_NAME
+    platform: twitter
+    consumer_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    consumer_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
+    access_token: ABCDEFGHJKLMNOPQRSTUVXYZ
+    access_token_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
 Configuration variables:

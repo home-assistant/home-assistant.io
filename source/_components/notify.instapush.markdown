@@ -22,12 +22,12 @@ To add Instapush to your installation, add the following to your `configuration.
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: instapush
-  api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-  app_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
-  event: ABCDEFGHJKLMNOPQRSTUVXYZ
-  tracker: ABCDEFGHJKLMNOPQRSTUVXYZ
+  - name: NOTIFIER_NAME
+    platform: instapush
+    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    app_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
+    event: ABCDEFGHJKLMNOPQRSTUVXYZ
+    tracker: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
 Configuration variables:
@@ -35,7 +35,7 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **api_key** (*Required*): Your API key for Instapush.
 - **app_secret** (*Required*): The secret for your created application.
-- **event** (*Required*): The event
+- **event** (*Required*): The event to push to.
 - **tracker** (*Required*): The name of tracker inside Instapush.
 
 To retrieve the needed values for existing settings, log into your account at [https://instapush.im](https://instapush.im) and go to your **Dashboard**. Then click the **APPS** tab, choose an app, and check the **Basic Info** section. The *Application ID* is the `api_key` and `app_secret` is the *Application Secret*.

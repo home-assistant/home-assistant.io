@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: webos.png
 ha_category: Notifications
-ha_iot_class: "Local Poll"
+ha_iot_class: "Local Polling"
 ha_release: 0.18
 ---
 
@@ -22,15 +22,15 @@ To add a TV to your installation, add the following to your `configuration.yaml`
 ```yaml
 # Example configuration.yaml entry
 notify:
-  platform: webostv
-  host: 192.168.0.112
-  name: livingroom_tv
+  - platform: webostv
+    host: 192.168.0.112
+    name: livingroom_tv
 ```
 
 Configuration variables:
 
-- **host** *Required*: The IP of the LG WebOS Smart TV, e.g. 192.168.0.10
-- **name** *Required*: The name you would like to give to the LG WebOS Smart TV.
+- **host** (*Required*): The IP of the LG WebOS Smart TV, e.g. 192.168.0.10
+- **name** (*Required*): The name you would like to give to the LG WebOS Smart TV.
 
 A possible automation could be:
 

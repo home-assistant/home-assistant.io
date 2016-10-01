@@ -19,11 +19,11 @@ To use this notification platform in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 notify:
-  platform: twilio_sms
-  name: NOTIFIER_NAME
-  account_sid: ACCOUNT_SID_FROM_TWILIO
-  auth_token: AUTH_TOKEN_FROM_TWILIO
-  from_number: E164_PHONE_NUMBER
+  - name: NOTIFIER_NAME
+    platform: twilio_sms
+    account_sid: ACCOUNT_SID_FROM_TWILIO
+    auth_token: AUTH_TOKEN_FROM_TWILIO
+    from_number: E164_PHONE_NUMBER
 ```
 
 Configuration variables:

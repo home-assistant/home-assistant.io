@@ -19,13 +19,9 @@ To enable the REST notification in your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: rest
-  resource: http://IP_ADDRESS/ENDPOINT
-  method: GET
-  message_param_name: MESSAGE_PARAMETER_NAME
-  title_param_name: TITLE_PARAMETER_NAME
-  target_param_name: TARGET_PARAMETER_NAME
+  - name: NOTIFIER_NAME
+    platform: rest
+    resource: http://IP_ADDRESS/ENDPOINT
 ```
 
 Configuration variables:

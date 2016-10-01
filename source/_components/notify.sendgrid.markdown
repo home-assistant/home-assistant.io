@@ -18,11 +18,11 @@ To enable notification emails via SendGrid in your installation, add the followi
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: sendgrid
-  api_key: API_KEY
-  sender: SENDER_EMAIL_ADDRESS
-  recipient: YOUR_RECIPIENT
+  - name: NOTIFIER_NAME
+    platform: sendgrid
+    api_key: API_KEY
+    sender: SENDER_EMAIL_ADDRESS
+    recipient: YOUR_RECIPIENT
 ```
 
 Configuration variables:

@@ -22,10 +22,10 @@ To use Pushover notifications, add the following to your `configuration.yaml` fi
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: pushover
-  api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-  user_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+  - name: NOTIFIER_NAME
+    platform: pushover
+    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    user_key: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
 Configuration variables:
