@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Hassbian image on a Raspberry Pi"
-description: "Instructions to install the Home Assistant Hassbian image on a Raspberry Pi."
+title: "Hassbian image for Raspberry Pi"
+description: "Instructions to flash the Home Assistant Hassbian image on a Raspberry Pi."
 date: 2016-09-26 21:00
 sidebar: true
 comments: false
@@ -9,25 +9,46 @@ sharing: true
 footer: true
 ---
 
-### {% linkable_title Hassbian %}
+The easiest way to install Home Assistant on your Raspberry Pi is by using Hassbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~5 minutes).
 
-We finally have a Raspberry Pi image! It's been named Hassbian in honor of Raspbian.
-This image comes pre-installed with the dependencies, permissions and so on for Home Assistant. Image is based on the same install instructions as the [Manual installation](/getting-started/installation-raspberry-pi/).  
-It's based on Raspbian Lite and generated with a fork of the same [script](https://github.com/home-assistant/pi-gen) that builds the [official Raspbian images](raspberrypi.org/downloads/raspbian/). Please note that this project has no association with the Raspberry Pi foundation or their projects.  
+ 1. [Download the latest image][image-download]
+ 2. Flash the image to an SD card:
+   - [Windows][flash-windows]
+   - [Linux][flash-linux]
+   - [Mac][flash-macos]
+ 3. Ensure your Raspberry Pi has access to the internet.
+ 4. Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take 5 minutes.
 
-On first boot the latest release of Home Assistant will be installed in a [Virtual Environment](getting-started/installation-virtualenv) at `/srv/homeassistant` and started as a service run by the user `homeassistant`. Since this is done automatically it's required that the Raspberry Pi is connected to the internet with a ethernet cable. Installation takes about 5 minutes on first boot and after that you can connect to your Raspberry Pi on `ipaddress:8123`.
+Home Assistant will now be available by navigating with a browser to `http://ip-address-of-pi:8123`. The default username is `pi` and password is `raspberry` (please change this by running `passwd`)
 
-Pre-installed on this image is the MQTT broker [Mosquitto](https://mosquitto.org/), Bluetooth support for none Bluetooth LE and settings for the `homeassistant` user to use the GPIO pins of the Raspberry Pi. Mosquitto is not activated by default.
+The following extras are included on the image:
 
-As it is today there is no pre-compiled Z-Wave support but it can be installed by following the [Getting started instructions for Z-Wave](/getting-started/z-wave/).
+ - GPIO pins are ready to use.
+ - Mosquitto MQTT broker is installed (not activated by default).
+ - Bluetooth is ready to use (supported models only, no Bluetooth LE).
 
-For Raspberry Pi hardware specific components have a look at our [install guide for the Raspberry Pi](/getting-started/installation-raspberry-pi/#raspberry-pi-hardware-specific-components). Default password for the `pi` user is `raspberry` and is highly recommended to be changed. 
+Some extra tips:
 
-### {% linkable_title Installation %}
+ - Check out the list of [Raspberry Pi hardware specific components][pi-components].
+ - Z-Wave support can be installed by following the [Getting started instructions for Z-Wave](/getting-started/z-wave/).
 
-The image can be found as a [release](https://github.com/home-assistant/pi-gen/releases) in the [pi-gen repository](https://github.com/home-assistant/pi-gen/).
+### {% linkable_title Technical Details %}
 
-Installation instructions are the same as for Raspbian and it's recommended to follow [these](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
+ - Home Assistant is installed in a virtual Python environment at `src/homeassistant`
+ - Home Assistant will be started as a service run by the user `homeassistant`
+
+{% comment %}
+
+  TODO:
+
+  Add instructions:
+
+   - How to login via shell (?) or at least mention how to work with a Pi
+   - How to restart HASS
+   - How to see the logs for config validation
+   - How to update the config
+
+{% endcomment %}
 
 ### {% linkable_title Troubleshooting %}
 
@@ -40,3 +61,9 @@ In addition to this site, check out these sources for additional help:
  - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
 
 ### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)
+
+[image-download]: https://github.com/home-assistant/pi-gen/releases
+[flash-linux]: https://www.raspberrypi.org/documentation/installation/installing-images/linux.md
+[flash-macos]: https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+[flash-windows]: https://www.raspberrypi.org/documentation/installation/installing-images/windows.md
+[pi-components]: /getting-started/installation-raspberry-pi/#raspberry-pi-hardware-specific-components
