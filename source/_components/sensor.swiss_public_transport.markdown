@@ -25,9 +25,9 @@ If the score is 100 ("score":"100" in the response), it is a perfect match. Then
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: swiss_public_transport
-  from: STATION_ID
-  to: STATION_ID
+  - platform: swiss_public_transport
+    from: STATION_ID
+    to: STATION_ID
 ```
 
 Configuration variables:

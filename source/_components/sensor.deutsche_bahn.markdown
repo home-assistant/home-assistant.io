@@ -21,9 +21,9 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: deutsche_bahn
-  from: NAME_OF_START_STATION
-  to: NAME_OF_FINAL_STATION
+  - platform: deutsche_bahn
+    from: NAME_OF_START_STATION
+    to: NAME_OF_FINAL_STATION
 ```
 
 Configuration variables:
