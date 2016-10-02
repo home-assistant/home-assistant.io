@@ -23,11 +23,11 @@ To use Last.fm with your installation, add the following to your `configuration.
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: lastfm
-  api_key: YOUR_API_KEY
-  users:
-    - user1
-    - user2
+  - platform: lastfm
+    api_key: YOUR_API_KEY
+    users:
+      - user1
+      - user2
 ```
 
 Configuration variables:
