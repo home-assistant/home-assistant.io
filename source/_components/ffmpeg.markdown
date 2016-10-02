@@ -28,6 +28,18 @@ Configuration variables:
 - **ffmpeg_bin** (*Optional*): Set the ffmpeg binary (eg. `/usr/bin/ffmpeg`). Default 'ffmpeg'. 
 - **run_test** (*Optional*):  Check if `input` is usable by ffmpeg. Default True.
 
+### {% linkable_title Debian Jessie Installations %}
+To get the binary on Debian Jessie on a RPi you need to perform the following:
+```
+$ sudo apt-get libav-tools
+```
+This will get a forked version of ffmpeg called avconv, once this is installed you need to use the following in the configuration:
+
+```
+ffmpeg:
+  ffmpeg_bin: /usr/bin/avconv
+```
+
 ### {% linkable_title Troubleshooting %}
 
 In most of case, `ffmpeg` autodetect all needed options to read a video/audio stream or file. But it is possible in rare cases that's needed to set a option to help `ffmpeg`. Per default `ffmpeg` use 5 seconds to detect all options or abort.
