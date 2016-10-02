@@ -2,14 +2,14 @@
 layout: page
 title: "MySensors Cover"
 description: "Instructions how to integrate MySensors covers into Home Assistant."
-date: 2016-09-25 11:30 +0100
+date: 2016-10-01 15:00 +0200
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: mysensors.png
 ha_category: Cover
-ha_release: 0.30
+ha_release: "0.30"
 ---
 
 Integrates MySensors covers into Home Assistant. See the [main component] for configuration instructions.
@@ -17,14 +17,16 @@ Integrates MySensors covers into Home Assistant. See the [main component] for co
 The following actuator types are supported:
 
 ##### MySensors version 1.4
-S_TYPE      | V_TYPE
-------------|-------------
-S_COVER     | V_UP, V_DOWN, V_STOP, [V_DIMMER or V_LIGHT]
+
+S_TYPE  | V_TYPE
+--------|--------------------------------------------
+S_COVER | V_UP, V_DOWN, V_STOP, [V_DIMMER or V_LIGHT]
 
 ##### MySensors version 1.5 and higher
-S_TYPE      | V_TYPE
-------------|-------------
-S_COVER     | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS]
+
+S_TYPE  | V_TYPE
+--------|-------------------------------------------------
+S_COVER | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS]
 
 All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent, use V_STATUS (or V_LIGHT) if you don't.
 
