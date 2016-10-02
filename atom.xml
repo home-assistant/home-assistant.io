@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-02T15:59:34+00:00</updated>
+  <updated>2016-10-02T17:39:34+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -31,6 +31,7 @@
 <p>Resources to get started:</p>
 
 <ul>
+  <li><a href="https://hacktoberfest.digitalocean.com/sign_up/register">Sign up for Hacktoberfest</a></li>
   <li><a href="https://github.com/home-assistant/home-assistant/issues?q=is%3Aissue+is%3Aopen+label%3AHacktoberfest">List of entry-level issues for Home Assistant</a></li>
   <li><a href="https://home-assistant.io/developers/development_environment/">Instructions to setup your development environment</a></li>
   <li><a href="https://gitter.im/home-assistant/home-assistant/devs">Home Assistant Development Chat</a></li>
