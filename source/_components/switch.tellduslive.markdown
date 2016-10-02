@@ -12,6 +12,5 @@ ha_category: Switch
 featured: false
 ---
 
-Integrates Telldus Live switches into Home Assistant. See the [main component] for configuration instructions.
+Integrates Telldus Live switches into Home Assistant. See the [main component](/components/tellduslive/) for configuration instructions.
 
-[main component]: /components/tellduslive/

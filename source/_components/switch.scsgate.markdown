@@ -19,11 +19,10 @@ To enable SCSGate switches in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: scsgate
-  devices:
-    living_room:
-      name: Living Room
-      scs_id: XXXXX
+  - platform: scsgate
+    devices:
+      living_room:
+        scs_id: XXXXX
 ```
 
 Configuration variables:

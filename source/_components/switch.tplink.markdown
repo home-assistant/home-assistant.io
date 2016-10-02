@@ -24,14 +24,13 @@ To use your TPLink switch in your installation, add the following to your `confi
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: tplink
-  host: IP_ADRRESS
-  name: TP-Link Switch
+  - platform: tplink
+    host: IP_ADRRESS
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your myStrom switch, eg. http://192.168.1.32
+- **host** (*Required*): The IP address of your myStrom switch, eg. `http://192.168.1.32`.
 - **name** (*Optional*): The name to use when displaying this switch.
 
 
