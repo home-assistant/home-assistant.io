@@ -22,9 +22,9 @@ To add NMA to your installation, add the following to your `configuration.yaml` 
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: nma
-  api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+  - name: NOTIFIER_NAME
+    platform: nma
+    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
 Configuration variables:

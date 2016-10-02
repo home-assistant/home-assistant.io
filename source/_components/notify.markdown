@@ -16,11 +16,9 @@ The `notify` component makes it possible to send notifications to a wide variety
 ```yaml
 # Example configuration.yaml entry
 notify:
-  platform: pushbullet
-  # Optional name for the notify service
-  name: paulus
-  # api_key is a required config key by the pushbullet platform
-  api_key: ABCDEFG
+  - platform: pushbullet
+    name: paulus
+    api_key: ABCDEFG
 ```
 
 The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify/<name>`. The name will default to `notify` if not supplied.
@@ -81,6 +79,4 @@ If the service support sending the location, the data from this sample can be us
   }
 }
 ```
-
-
 
