@@ -26,30 +26,17 @@ To add Yahoo Weather to your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: yweather
-  woeid: YOUR_WOEID
-  forecast: 0 until 5
-  monitored_conditions:
-   - weather
-   - weather_current
-   - temp_min
-   - temp_max
-   - wind_speed
-   - pressure
-   - visibility
-   - humidity
-   - temperature
-
-# Example configuration.yaml entry with forecast
-sensor:
-  platform: yweather
-  woeid: YOUR_WOEID
-  forecast: 3
-  name: OPTIONAL_NAME
-  monitored_conditions:
-   - weather
-   - temp_min
-   - temp_max
+  - platform: yweather
+    monitored_conditions:
+      - weather
+      - weather_current
+      - temp_min
+      - temp_max
+      - wind_speed
+      - pressure
+      - visibility
+      - humidity
+      - temperature
 ```
 
 Configuration variables:

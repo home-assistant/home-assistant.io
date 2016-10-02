@@ -14,8 +14,6 @@ ha_category: Weather
 
 The `netatmo` sensor platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) device.
 
-
-
 To enable the Netatmo sensor, you first have to set up [netatmo](/components/netatmo/), and add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -26,37 +24,15 @@ sensor:
   modules:
     module_name1:
       - temperature
-      - humidity
-      - noise
-      - pressure
-      - co2
-      - rain
-      - sum_rain_1
-      - sum_rain_24
-      - wifi_status
     module_name2:
       - temperature
       - battery_vp
-      - min_temp
-      - max_temp
-    rainmeter_name3:
-      - rain
-      - sum_rain_1
-      - sum_rain_24
-      - battery_vp
-      - rf_status
-    windmodule_name4:
-      - WindAngle
-      - WindStrength
-      - GustAngle
-      - GustStrength
-      - rf_status
 ```
 
 Configuration variables:
 
 - **station** (*Optional*): The name of the weather station. Needed if several stations are associated with the account.
-- **modules** (*Required*): Modules to use. Multiple entries allowed.
+- **modules** (*Required*): Modules to use. Multiple entries allowed. Please checkthe next section about how to retrieve the module names.
   - **module_name** array (*Required*): Name of the module.
     - **temperature**: Current temperature.
     - **co2**: CO2 concentration in ppm.
