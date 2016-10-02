@@ -24,10 +24,6 @@ To enable this component, add the following lines to your `configuration.yaml` f
 ```yaml
 # Example configuration.yaml entry
 device_sun_light_trigger:
-  light_group: group.living_room
-  light_profile: relax
-  device_group: group.my_devices
-  disable_turn_off: 1
 ```
 
 Configuration variables:
@@ -37,3 +33,13 @@ Configuration variables:
 - **device_group** (*Optional*): Specify which group of devices to track.
 - **disable_turn_off** (*Optional*): Disable lights being turned off when everybody leaves the house.
 
+A full configuration example could look like this:
+
+```yaml
+# Example configuration.yaml entry
+device_sun_light_trigger:
+  light_group: group.living_room
+  light_profile: relax
+  device_group: group.my_devices
+  disable_turn_off: 1
+``` 
