@@ -24,7 +24,7 @@ On Windows you can use `python setup.py develop` instead of the setup script.
 
 After following these steps, running `hass` will invoke your local installation.
 
-###Developing on Windows 
+### Developing on Windows 
 If you are using Windows as a development platform ensure you have the correct Microsoft Visual C++ build tools installed. Please check [the Windows Compilers](https://wiki.python.org/moin/WindowsCompilers) section on the [Python website](https://www.python.org/) for details. Validation using `tox` will fail if this is not done correctly. 
 
 Ensure you install or upgrade the Setuptools Python package. It contains compatibility improvements and adds automatic use of compilers: 
