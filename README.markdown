@@ -1,6 +1,6 @@
 # Home Assistant website
 
-The source of the [Home-Assistant.io website](https://home-assistant.io), for the [Home Assistant project](https://github.com/home-assistant/home-assistant)
+This is source for the [Home-Assistant.io website](https://home-assistant.io).
 
 ## Setup
 
