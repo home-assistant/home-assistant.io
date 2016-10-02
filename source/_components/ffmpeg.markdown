@@ -31,7 +31,7 @@ Configuration variables:
 ### {% linkable_title Debian Jessie Installations %}
 To get the binary on Debian Jessie on a RPi you need to perform the following:
 ```
-$ sudo apt-get libav-tools
+$ sudo apt-get install libav-tools
 ```
 This will get a forked version of ffmpeg called avconv, once this is installed you need to use the following in the configuration:
 
