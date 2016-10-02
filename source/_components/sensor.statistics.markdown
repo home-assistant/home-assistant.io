@@ -23,16 +23,13 @@ To enable the statistics sensor, add the following lines to your `configuration.
 sensor:
   - platform: statistics
     entity_id: sensor.cpu
-    name: CPU
-    sampling_size: 10
   - platform: statistics
     entity_id: binary_sensor.movement
-    name: Movement
 ```
 
 Configuration variables:
 
-- **entity_id** (*Required*): The .
+- **entity_id** (*Required*): The entity to monitor.
 - **name** (*Optional*): Name of the sensor to use in the frontend.
-- **sampling_size** (*Optional*): Size of the sampling. If the limit is reached then the values are rotated. Defaults to unlimited.
+- **sampling_size** (*Optional*): Size of the sampling. If the limit is reached then the values are rotated. Defaults to `20`.
 
