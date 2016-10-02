@@ -20,6 +20,7 @@ Why contribute to Home Assistant:
 
 Resources to get started:
 
+ - [Sign up for Hacktoberfest][Hacktoberfest-reg]
  - [List of entry-level issues for Home Assistant][issues]
  - [Instructions to setup your development environment][dev-env]
  - [Home Assistant Development Chat][dev-chat]
@@ -30,6 +31,7 @@ Resources to get started:
 
 [logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
+[Hacktoberfest-reg]: https://hacktoberfest.digitalocean.com/sign_up/register
 [issues]: https://github.com/home-assistant/home-assistant/issues?q=is%3Aissue+is%3Aopen+label%3AHacktoberfest
 [dev-env]: /developers/development_environment/
 [dev-chat]: https://gitter.im/home-assistant/home-assistant/devs
