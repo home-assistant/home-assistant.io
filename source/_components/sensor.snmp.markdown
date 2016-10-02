@@ -21,19 +21,15 @@ To enable this sensor in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: snmp
-  name: Load
-  host: 192.168.1.32
-  port: 161
-  community: public
-  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-  unit_of_measurement: "%"
+  - platform: snmp
+    host: 192.168.1.32
+    baseoid: 1.3.6.1.4.1.2021.10.1.3.1
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your host, eg. 192.168.1.32.
-- **port** (*Option*): The SNMP port of your host. Defaults to 161.
+- **host** (*Required*): The IP address of your host, eg. `192.168.1.32`.
+- **port** (*Option*): The SNMP port of your host. Defaults to `161`.
 - **name** (*Optional*): Name of the SNMP sensor.
 - **community** (*Optional*): The SNMP community which is set for the device. Most devices have a default community set to to `public` with read-only permission (which is sufficient).
 - **baseoid** (*Required*): The OID where the information is located. It's advised to use the numerical notation.

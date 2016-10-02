@@ -20,8 +20,6 @@ To setup a battery sensor to your installation, add the following to your `confi
 # Example configuration.yaml entry
 sensor:
   - platform: linux_battery
-    name: Laptop
-    battery: 1
 ```
 
 Configuration variables:
