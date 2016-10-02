@@ -23,7 +23,6 @@ scene:
         state: on
         xy_color: [0.33, 0.66]
         brightness: 200
-
   - name: Movies
     entities:
       light.tv_back_light:
@@ -31,6 +30,11 @@ scene:
         brightness: 100
       light.ceiling: off
 ```
+
+Configuration variables:
+
+- **name** (*Required*): Friendly name of scene.
+- **entities** (*Required*): Entities to control.
 
 Scenes can be activated using the service `scene.turn_on` (there is no 'scene.turn_off' service).
 
