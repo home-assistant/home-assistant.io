@@ -10,6 +10,7 @@ footer: true
 logo: mysensors.png
 ha_category: Cover
 ha_release: "0.30"
+ha_iot_class: "Local Push"
 ---
 
 Integrates MySensors covers into Home Assistant. See the [main component] for configuration instructions.

@@ -10,6 +10,7 @@ footer: true
 logo: mysensors.png
 ha_category: Light
 ha_release: 0.13
+ha_iot_class: "Local Push"
 ---
 
 Integrates MySensors lights into Home Assistant. See the [main component] for configuration instructions.

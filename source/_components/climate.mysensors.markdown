@@ -10,6 +10,7 @@ footer: true
 logo: mysensors.png
 ha_category: Climate
 ha_release: 0.29
+ha_iot_class: "Local Push"
 ---
 
 Integrates MySensors HVAC into Home Assistant. See the [main component] for configuration instructions.
