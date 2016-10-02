@@ -20,11 +20,10 @@ To use your Raspberry Pi's GPIO in your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: rpi_gpio
-  ports:
-    11: Fan Office
-    12: Light Desk
-  invert_logic: false
+  - platform: rpi_gpio
+    ports:
+      11: Fan Office
+      12: Light Desk
 ```
 
 Configuration variables:

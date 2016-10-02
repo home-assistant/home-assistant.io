@@ -19,11 +19,8 @@ To enable this switch, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: rest
-  resource: http://IP_ADDRESS/ENDPOINT
-  name: "Bedroom Switch"
-  body_on: "ON"
-  body_off: "OFF"
+  - platform: rest
+    resource: http://IP_ADDRESS/ENDPOINT
 ```
 
 Configuration variables:

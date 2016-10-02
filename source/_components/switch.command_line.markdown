@@ -26,9 +26,6 @@ switch:
     kitchen_light:
       command_on: switch_command on kitchen
       command_off: switch_command off kitchen
-      command_state: query_command kitchen
-      value_template: '{% raw %}{{ value == "online" }}{% endraw %}'
-      friendly_name: Kitchen switch
 ```
 
 Configuration variables:
@@ -57,6 +54,9 @@ switch:
     arest_pin4:
       command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
       command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
+      command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
+      value_template: '{% raw %}{{ return_value == "1" }}{% endraw %}'
+      friendly_name: aREST Pin 4
 ```
 
 ### {% linkable_title Shutdown your local host %}

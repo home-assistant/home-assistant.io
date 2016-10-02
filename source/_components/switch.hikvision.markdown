@@ -24,18 +24,14 @@ To use your Hikvision cam in your installation, add the following to your `confi
 ```yaml
 # Example configuration.yaml entry
 switch:
-    platform: hikvisioncam
+  - platform: hikvisioncam
     host: 192.168.1.32
-    port: 80
-    name: Hikvision Cam 1 Motion Detection
-    username: USERNAME
-    password: PASSWORD
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your Hikvision camera, eg. 192.168.1.32
-- **port** (*Optional*): The port to connec to your Hikvision camera. Defaults to 80.
+- **host** (*Required*): The IP address of your Hikvision camera, eg. `192.168.1.32`.
+- **port** (*Optional*): The port to connec to your Hikvision camera. Defaults to `80`.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
-- **username** (*Optional*): The username for accessing your Hikvision camera. Defaults to "admin".
-- **password** (*Optional*): The password to access your Hikvision camera. Defaults to "12345".
+- **username** (*Optional*): The username for accessing your Hikvision camera. Defaults to `admin`.
+- **password** (*Optional*): The password to access your Hikvision camera. Defaults to `12345`.

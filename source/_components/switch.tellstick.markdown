@@ -20,5 +20,5 @@ To use your TellStick device, you first have to set up your [Tellstick hub](http
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: tellstick
+  - platform: tellstick
 ```

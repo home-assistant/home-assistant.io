@@ -27,7 +27,6 @@ switch:
   - platform: template
     switches:
       skylight:
-        friendly_name: 'Skylight'
         value_template: {% raw %}'{{ is_state('sensor.skylight', 'on') }}'{% endraw %}
         turn_on:
           service: switch.turn_on
