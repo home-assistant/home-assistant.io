@@ -37,12 +37,16 @@ sensor:
 Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
-- **method** (*Optional*): The method of the request. Default is GET.
+- **method** (*Optional*): The method of the request. Default is `GET`.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Depends on the service, but usually formed as JSON.
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
+- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to `True`.
+- **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.
+- **username** (*Optional*): The username for accessing the REST endpoint.
+- **password** (*Optional*): The password for accessing the REST endpoint.
+- **headers** (*Optional*): The headers for the requests.
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.
@@ -90,12 +94,36 @@ Add something similar to the entry below to your `configuration.yaml` file:
 
 The Home Assistant [API](/developers/rest_api/) exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
 
-
 ```yaml
   - platform: rest
     resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature
     name: Temperature
     value_template: {% raw %}'{{ value_json.state }}'{% endraw %}
     unit_of_measurement: "°C"
+```
+### {% linkable_title Accessing a HTTP authentication protected endpoint %}
+
+The REST sensor supports HTTP authentication and customized headers.
+
+```yaml
+  - platform: rest
+    resource: http://IP_ADDRESS:5000/sensor
+    username: ha1
+    password: test1
+    authetication: basic
+    headers:
+      User-agent: Home Assistant
+      Content-Type: application/json
+```
+
+The header will contains all relevant details. This will give you the flexibility to access also endpoints wich are protected by Tokens. 
+
+```bash
+Content-Length: 
+Host: IP_ADDRESS1:5000
+Authorization: Basic aGExOnRlc3Qx
+Accept-Encoding: identity
+Content-Type: application/json
+User-Agent: Home Assistant
 ```
 
