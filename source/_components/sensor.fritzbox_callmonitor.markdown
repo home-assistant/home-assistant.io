@@ -24,7 +24,7 @@ To use the Fritz!Box call monitor in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: fritzbox_callmonitor
+  - platform: fritzbox_callmonitor
 ```
 
 Configuration variables:
