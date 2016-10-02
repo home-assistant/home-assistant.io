@@ -10,6 +10,7 @@ footer: true
 logo: mysensors.png
 ha_category: Sensor
 featured: false
+ha_iot_class: "Local Push"
 ---
 
 Integrates MySensors sensors into Home Assistant. See the [main component] for configuration instructions.

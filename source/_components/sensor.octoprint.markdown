@@ -23,12 +23,12 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 sensor:
-  platform: octoprint
-  name: OctoPrint
-  monitored_conditions:
-    - Current State
-    - Temperatures
-    - Job Percentage
+  - platform: octoprint
+    name: OctoPrint
+    monitored_conditions:
+      - Current State
+      - Temperatures
+      - Job Percentage
 ```
 
 Configuration variables:

@@ -21,10 +21,6 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
-  value_template: '{% raw %}{{ value_json.thermostat }}{% endraw %}'
-  method: GET
-  name: REST GET sensor
-  unit_of_measurement: "°C"
 ```
 
 or for a POST request:
@@ -35,11 +31,7 @@ sensor:
   platform: rest
   resource: http://IP_ADDRESS/ENDPOINT
   method: POST
-  value_template: '{% raw %}{{ value_json.thermostat }}{% endraw %}'
   payload: '{ "device" : "heater" }'
-  name: REST POST sensor
-  unit_of_measurement: "°C"
-  verify_ssl: False
 ```
 
 Configuration variables:
