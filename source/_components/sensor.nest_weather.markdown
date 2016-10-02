@@ -23,13 +23,13 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 sensor:
-  platform: nest
-  monitored_conditions:
-    - 'weather_temperature'
-    - 'weather_humidity'
-    - 'weather_condition'
-    - 'wind_speed'
-    - 'wind_direction'
+  - platform: nest
+    monitored_conditions:
+      - 'weather_temperature'
+      - 'weather_humidity'
+      - 'weather_condition'
+      - 'wind_speed'
+      - 'wind_direction'
 ```
 
 Configuration variables:

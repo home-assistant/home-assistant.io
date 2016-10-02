@@ -26,7 +26,6 @@ To add the BOM weather observation to your installation, add the following to yo
 # Example configuration.yaml entry
 sensor:
   - platform: bom
-    name: "optional name"
     zone_id: IDS60801
     wmo_id: 94675
     monitored_conditions:
