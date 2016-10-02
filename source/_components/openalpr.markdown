@@ -26,9 +26,14 @@ If you want process all data local you need the command line tool `alpr` in vers
 
 If you don't found binarys for you distribution you can compile from source. A documention how to build a openalpr is found [here](https://github.com/openalpr/openalpr/wiki).
 
-On a debian system you can use this cmake command to build only the command line tool:
+On a debian system you can use this cmake command to build only the command line tool (which second part on linux build instruction - ubuntu 14.04+):
 ```bash
-cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr
+cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+```
+
+Verify your alpr installation with:
+```
+wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```
 
 ### {% linkable_title Configuration Home Assistant %}

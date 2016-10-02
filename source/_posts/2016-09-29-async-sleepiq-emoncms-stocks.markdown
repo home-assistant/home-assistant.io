@@ -3,7 +3,7 @@ layout: post
 title: "0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants"
 description: "Move to asynchronous, Support for SleepIQ, OpenALPR, and EmonCMS, and other goodies."
 date: 2016-09-29 03:04:05 +0000
-date_formatted: "September 24, 2016"
+date_formatted: "September 29, 2016"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
 comments: true
@@ -27,6 +27,10 @@ On the voluptuous front we have also made great progress. We were able to fully 
 ### {% linkable_title Delayed Release %}
 
 As you might have noticed, this release has been delayed by 5 days. This was due to a rare, difficult to reproduce problem with the Python interpreter. A huuuuge thanks to all the people that have helped countless hours in researching, debugging and fixing this issue: [@bbangert], [@turbokongen], [@lwis], [@kellerza], [@technicalpickles], [@pvizeli], [@persandstrom] and [@joyrider3774]. I am grateful to have all of you as part of the Home Assistant community.
+
+### {% linkable_title Hide automation rules %}
+
+Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend. By default all automation rules are shown. If you want to [hide an automation rule](/getting-started/automation-create-first/), use `hide_entity: True`.
 
 ### {% linkable_title All changes %}
 
@@ -64,15 +68,48 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 - [OpenALPR] support ([@pvizeli])
 - Minor features and bug fixes by [@fabaff], [@w1ll1am23], [@turbokongen], [@clach04], [@mKeRix], [@pvizeli], [@DavidLP], [@nvella], [@Teagan42], [@ericwclymer], [@wokar], [@kellerza], [@nkgilley], [@jawilson], [@Danielhiversen], [@ej81], [@danieljkemp], [@balloob], [@philhawthorne], [@LinuxChristian], [@milas], [@simonszu], [@Cinntax], [@irvingwa], [@sytone], [@kk7ds], [@robbiet480].
 
+### {% linkable_title Hotfix 0.29.1 - September 29 %}
+
+- Fix typo in Nest climate platform. [We are still experiencing issues with Nest.][nest-issues] ([@tchellomello])
+
+### {% linkable_title Hotfix 0.29.2 - September 29 %}
+
+ - InfluxDB config fix ([@fabaff], reported by [@lwis])
+ - Netatmo config fix ([@jabesq])
+
+### {% linkable_title Hotfix 0.29.3 - September 29 %}
+
+ - Hue config fix ([@pvizeli])
+
+### {% linkable_title Hotfix 0.29.4 - September 30 %}
+
+ - Alexa config fix ([@baloob], reported by [@lwis])
+ - Envisalink discovery fix ([@cinntax])
+ - Acer Projector config fix ([@pvizeli])
+
+### {% linkable_title Hotfix 0.29.5 - September 30 %}
+
+ - Fix Climate Nest platform (@tchellomello, @jawilson)
+
+### {% linkable_title Hotfix 0.29.5 - October 1 %}
+
+ - Fix segmentation fault ([@bbangert], fixes #3453) 🎉
+ - Fix nested templates in `data_template` would incorrectly get cached ([@balloob])
+
 ### {% linkable_title Breaking changes %}
 
+ - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
  - `ffmpeg` is now a component for manage some things central. All `ffmpeg_bin` options have moved to this compoment from platforms.
  - Config has changed for [X10] lights.
+ - For Wink, make sure your config only contains the access token as in the [docs][Wink].
+ - Nest sensor 'mode' has been renamed to 'operation_mode'
 
 ### {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
+[nest-issues]: https://github.com/home-assistant/home-assistant/issues/3574
+[@jabesq]: https://github.com/jabesq
 [@joyrider3774]: https://github.com/joyrider3774
 [@balloob]: https://github.com/balloob
 [@bbangert]: https://github.com/bbangert

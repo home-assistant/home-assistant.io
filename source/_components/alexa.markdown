@@ -163,7 +163,7 @@ alexa:
 
 ### {% linkable_title Working With Scenes %}
 
-One of the more useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.
+One of the most useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.
 
 First we will configure Alexa. In the Amazon Interaction module add this to the intent schema:
 

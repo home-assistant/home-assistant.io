@@ -2,7 +2,7 @@
 layout: page
 title: "Envisalink Alarm Control Panel"
 description: "Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an envisalink evl3/evl4 board."
-date: 2016-06-19 22:10
+date: 2016-09-30 22:45
 sidebar: true
 comments: false
 sharing: true
@@ -25,6 +25,8 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
+As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant.  For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+
 An `envisalink` section must be present in the `configuration.yaml` file and contain the following options as required:
 
 ```yaml
@@ -39,6 +41,7 @@ envisalink:
   evl_version: 3
   keepalive_interval: 60
   zonedump_interval: 30
+  panic_type: Police
   zones:
     11:
       name: 'Back Door'
@@ -62,6 +65,7 @@ Configuration variables:
 - **evl_version** (*Optional*): 3 for evl3, or 4 for evl4. Default: `3`
 - **keepalive_interval** (*Optional*): This is a periodic heartbeat signal (measured in seconds) sent to your Envisalink board to keep it from restarting.  This is required for DSC and Honeywell systems. Defaults to `60` seconds.
 - **zonedump_interval** (*Optional*): This is an interval (measured in seconds) where the evl will dump out all zone statuses.  This is required for Honeywell systems, which do not properly send zone closure events.  DSC boards do not technically need this. Default: `30`
+- **panic_type** (*Optional*): Both DSC and Honeywell boards support a "panic" alarm. This is used when the alarm_trigger service is called in home assistant. This determines which type of panic alarm to raise.  Default = Police. Valid values are: Police, Fire, Ambulance
 - **zones** (*Optional*): Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant.  For each zone, at least a name must be given. *Note: if no zones are specified, Home Assistant will not load any binary_sensor components.*
 - **partitions** (*Optional*): Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor components are loaded.
 

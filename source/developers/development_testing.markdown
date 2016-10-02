@@ -13,7 +13,7 @@ Home Assistant enforces strict [PEP8 style](https://www.python.org/dev/peps/pep-
 
 ### {% linkable_title Local testing %}
 
-It's highly recommanded to run `tox` before you create your Pull Request to avoid annoying fixes. Local testing requires `tox` to be installed.
+It's highly recommended to run `tox` before you create your Pull Request to avoid annoying fixes. Local testing requires `tox` to be installed.
 
 ```bash
 $ pip3 install tox
