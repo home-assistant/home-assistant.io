@@ -11,6 +11,7 @@ logo: plex.png
 ha_category: Media Player
 featured: true
 ha_release: 0.7.4
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -33,7 +34,7 @@ If you want to enable the plex platform directly, add the following lines to you
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: plex
+  - platform: plex
 ```
 
 In case [discovery](/components/discovery/) does not work (GDM disabled or non-local plex server), you can create `~/.homeassistant/plex.conf` manually.

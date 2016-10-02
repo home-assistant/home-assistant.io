@@ -11,6 +11,7 @@ logo: mpchc.png
 ha_category: Media Player
 featured: false
 ha_release: 0.25
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -33,10 +34,8 @@ To add MPC-HC to your installation, add the following to your `configuration.yam
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: mpchc
-  host: http://192.168.0.123
-  port: 13579
-  name: MPC-HC
+  - platform: mpchc
+    host: http://192.168.0.123
 ```
 
 Configuration variables:

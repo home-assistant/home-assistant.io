@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: denon.png
 ha_category: Media Player
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -26,9 +27,8 @@ To add a Denon Network Receiver to your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: denon
-  host: IP_ADDRESS
-  name: Music station
+  - platform: denon
+    host: IP_ADDRESS
 ```
 Configuration variables:
 
