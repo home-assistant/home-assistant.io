@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-02T17:50:12+00:00</updated>
+  <updated>2016-10-02T18:21:54+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -32,12 +32,14 @@
 
 <ul>
   <li><a href="https://hacktoberfest.digitalocean.com/sign_up/register">Sign up for Hacktoberfest</a></li>
-  <li><a href="https://github.com/home-assistant/home-assistant/issues?q=is%3Aissue+is%3Aopen+label%3AHacktoberfest">List of entry-level issues for Home Assistant</a></li>
+  <li><a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">List of entry-level issues for Home Assistant</a></li>
   <li><a href="https://home-assistant.io/developers/development_environment/">Instructions to setup your development environment</a></li>
   <li><a href="https://gitter.im/home-assistant/home-assistant/devs">Home Assistant Development Chat</a></li>
   <li><a href="https://community.home-assistant.io/c/development">Home Assistant Development Forums</a></li>
   <li><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a></li>
 </ul>
+
+<p>Are you not a programmer but still want to contribute to Home Assistant? Check out our <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">list of entry-level issues for the Home Assistant website</a>.</p>
 
 <p><a href="https://hacktoberfest.digitalocean.com/"><img src="https://home-assistant.io/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktober fest logo" /></a></p>
 
