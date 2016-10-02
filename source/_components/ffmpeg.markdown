@@ -14,7 +14,7 @@ ha_category: Hub
 The FFmpeg component allows other Home Assistant components to process video and audio streams. This component supports all FFmpeg versions since 3.0.0; if you have a older version, please update.
 
 <p class='note'>
-You need an `ffmpeg` binary in your system path. On Debian 8 or Raspbian (Jessie) you can install it from [debian-backports](https://backports.debian.org/Instructions/). If you want hardware acceleration support on a Raspberry Pi, you will need to build from source by yourself. Windows binaries are avilable on the [FFmpeg](http://www.ffmpeg.org/) website.
+You need the `ffmpeg` binary in your system path. On Debian 8 or Raspbian (Jessie) you can install it from [debian-backports](https://backports.debian.org/Instructions/). If you want hardware acceleration support on a Raspberry Pi, you will need to build from source by yourself. Windows binaries are avilable on the [FFmpeg](http://www.ffmpeg.org/) website.
 </p>
 
 To set it up, add the following information to your `configuration.yaml` file:
@@ -32,7 +32,7 @@ Configuration variables:
 
 ### {% linkable_title Troubleshooting %}
 
-In most cases, `ffmpeg` automatically detects all needed options to read a video or audio stream or file. But it is possible in rare cases that you will need to set an option to help `ffmpeg` out.
+In most cases, `ffmpeg` automatically detects all needed options to read a video or audio stream or file. But it is possible in rare cases that you will need to set options to help `ffmpeg` out.
 
 First check that your stream is playable by `ffmpeg` outside of Home Assistant with (use option `-an` or `-vn` to disable video or audio stream):
 
