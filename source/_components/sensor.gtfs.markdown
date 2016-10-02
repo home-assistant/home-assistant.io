@@ -41,10 +41,10 @@ Your mileage may vary depending on the transit agency used. Most agencies respec
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: gtfs
-  origin: STOP_ID
-  destination: STOP_ID
-  data: DATA_SOURCE
+  - platform: gtfs
+    origin: STOP_ID
+    destination: STOP_ID
+    data: DATA_SOURCE
 ```
 
 Configuration variables:

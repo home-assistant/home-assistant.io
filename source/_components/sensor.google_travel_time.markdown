@@ -22,13 +22,10 @@ A free API Key allows 2500 requests per day. The sensor will update the travel t
 ```yaml
 # Example entry for configuration.yaml
 sensor:
-    platform: google_travel_time
-    name: Google Travel Time
+  - platform: google_travel_time
     api_key: XXXX_XXXXX_XXXXX
     origin: Trondheim, Norway
     destination: Paris, France
-    options:
-      ...
 ```
 
 Configuration variables:
