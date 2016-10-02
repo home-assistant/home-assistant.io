@@ -80,7 +80,7 @@ When you're writing code that is to be executed on the terminal, prefix it with 
 
 ### {% linkable_title HTML %}
 
-The direct usage of HTML is supported but not recommanded. The note boxes are an exception.
+The direct usage of HTML is supported but not recommended. The note boxes are an exception.
 
 ```html
 <p class='note warning'>
