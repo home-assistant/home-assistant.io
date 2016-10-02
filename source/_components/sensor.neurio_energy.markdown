@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: neurio.png
-ha_category: Sensor
+ha_category: Energy
 ha_iot_class: "Cloud Polling"
 ha_release: 0.14
 ---
@@ -24,7 +24,6 @@ sensor:
   platform: neurio_energy
   api_key: API_KEY
   api_secret: API_SECRET
-  sensor_id: "SENSOR_ID"
 ```
 
 Configuration variables:

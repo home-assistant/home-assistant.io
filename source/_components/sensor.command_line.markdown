@@ -21,11 +21,8 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: command_line
-  command: SENSOR_COMMAND
-  name: Command sensor
-  unit_of_measurement: "°C"
-  value_template: '{% raw %}{{ value.x }}{% endraw %}'
+  - platform: command_line
+    command: SENSOR_COMMAND
 ```
 
 Configuration variables:

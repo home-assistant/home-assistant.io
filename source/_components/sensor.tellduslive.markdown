@@ -12,6 +12,5 @@ ha_category: Sensor
 featured: false
 ---
 
-Integrates Telldus Live sensors into Home Assistant. See the [main component] for configuration instructions.
+Integrates Telldus Live sensors into Home Assistant. See the [main component](/components/tellduslive/) for configuration instructions.
 
-[main component]: /components/tellduslive/
