@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>FFmpeg Camera - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate a Video fees with FFmpeg as cameras within Home Assistant.">
+    <meta name="description" content="Instructions on how to integrate a video feed via FFmpeg as a camera within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/camera.ffmpeg/">
@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/camera.ffmpeg/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate a Video fees with FFmpeg as cameras within Home Assistant.">
+    <meta property="og:description" content="Instructions on how to integrate a video feed via FFmpeg as a camera within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="FFmpeg Camera">
-    <meta name="twitter:description" content="Instructions how to integrate a Video fees with FFmpeg as cameras within Home Assistant.">
+    <meta name="twitter:description" content="Instructions on how to integrate a video feed via FFmpeg as a camera within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">ffmpeg</code> platform allows you to use every video feed with <a href="http://www.ffmpeg.org/">FFmpeg</a> as camera in Home Assistant. The input for ffmpeg need to support that could have multiple connection to source (input) in same time. For every user in UI and all 10 seconds (snapshot image) it make a new connection/reading to source. Normally that should never be a trouble only in strange selfmade constructs can be make mistakes.</p>
+  <p>The <code class="highlighter-rouge">ffmpeg</code> platform allows you to use any video feed as a camera in Home Assistant via <a href="http://www.ffmpeg.org/">FFmpeg</a>. This video source must support multiple simultaenous reads, because for every concurrent Home Assistant user, a connection will be made to the source every 10 seconds. Normally this should not be a problem.</p>
 
 <p>To enable your FFmpeg feed in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -105,16 +105,16 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>input</strong> (<em>Required</em>): A ffmpeg compatible input file, stream or feed.</li>
-  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
-  <li><strong>extra_arguments</strong> (<em>Optional</em>): Extra option they will pass to <code class="highlighter-rouge">ffmpeg</code>. i.e. image quality or video filter options.</li>
+  <li><strong>input</strong> (<em>Required</em>): An FFmpeg-compatible input file, stream, or feed.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Override the name of your camera.</li>
+  <li><strong>extra_arguments</strong> (<em>Optional</em>): Extra options to pass to <code class="highlighter-rouge">ffmpeg</code>, e.g. image quality or video filter options.</li>
 </ul>
 
 <h3><a class="title-link" name="image-quality" href="#image-quality"></a> Image quality</h3>
 
 <p>You can control the <code class="highlighter-rouge">image quality</code> with <a href="https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000"><code class="highlighter-rouge">extra_arguments</code></a> <code class="highlighter-rouge">-q:v 2-32</code> or with lossless option <code class="highlighter-rouge">-pred 1</code>.</p>
 
-<p>If you are running into trouble with this sensor, please refer to this <a href="/components/ffmpeg/#troubleshooting">Troubleshooting section</a>.</p>
+<p>If you are running into trouble with this sensor, please refer to the <a href="/components/ffmpeg/#troubleshooting">Troubleshooting section</a>.</p>
 
 
 </article>
