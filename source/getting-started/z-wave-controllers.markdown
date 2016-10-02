@@ -12,7 +12,7 @@ footer: true
 Z-Wave is a popular home automation protocol that is not always straightforward to setup. This page will try to help you make sense of it all.
 
 <p class='note'>
-Upon first run, the `zwave` component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may expidite this proccess.
+Upon first run, the `zwave` component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may expedite this process.
 </p>
 
 ## {% linkable_title Supported Z-Wave USB Sticks & Hardware Modules %}
