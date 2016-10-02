@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-02T15:17:34+00:00</updated>
+  <updated>2016-10-02T15:59:34+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Participating in Hacktoberfest]]></title>
+    <link href="https://home-assistant.io/blog/2016/10/02/hacktoberfest/"/>
+    <updated>2016-10-02T00:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/10/02/hacktoberfest</id>
+    <content type="html"><![CDATA[<p>Home Assistant will join this year for <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a>, an event organised by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features and documentation enhancements and that you, a current or future contributor, will fix them. If you submit four pull-requests during the month of October you will have earned yourself a limited edition Hacktoberfest T-shirt!</p>
+
+<p>Why contribute to Home Assistant:</p>
+
+<ul>
+  <li>Written in Python3 with 94% test coverage</li>
+  <li>Active and helpful community</li>
+  <li>Friendly to new contributors</li>
+</ul>
+
+<p>Resources to get started:</p>
+
+<ul>
+  <li><a href="https://github.com/home-assistant/home-assistant/issues?q=is%3Aissue+is%3Aopen+label%3AHacktoberfest">List of entry-level issues for Home Assistant</a></li>
+  <li><a href="https://home-assistant.io/developers/development_environment/">Instructions to setup your development environment</a></li>
+  <li><a href="https://gitter.im/home-assistant/home-assistant/devs">Home Assistant Development Chat</a></li>
+  <li><a href="https://community.home-assistant.io/c/development">Home Assistant Development Forums</a></li>
+  <li><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a></li>
+</ul>
+
+<p><a href="https://hacktoberfest.digitalocean.com/"><img src="https://home-assistant.io/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktober fest logo" /></a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[We have a Raspberry Pi image now]]></title>
@@ -1851,47 +1881,6 @@ target_dir /tmp
 <ul>
   <li>Insteon Hub lights will load again</li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant at PyCon 2016]]></title>
-    <link href="https://home-assistant.io/blog/2016/06/13/home-assistant-at-pycon-2016/"/>
-    <updated>2016-06-13T01:06:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/06/13/home-assistant-at-pycon-2016</id>
-    <content type="html"><![CDATA[<p>It’s been already almost two weeks ago that a few of the Home Assistant developers headed towards Portland for <a href="https://us.pycon.org/2016/">PyCon 2016</a> - the conference about everything Python. We were there to learn all the nifty tricks to make our code better but most of all, to talk Home Automation.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-06-pycon/crew.jpg" alt="Home Assistant developers" />
-  Couple of Home Assistant devs. Left to right: <a href="https://github.com/balloob/">Paulus (@balloob)</a>, <a href="https://github.com/infamy/">Alex (@infamy)</a>, <a href="https://github.com/rmkraus/">Ryan (@rmkraus)</a>.
-</p>
-
-<p>On Monday I (Paulus) gave a presentation about Home Assistant to an audience of over 400 people! It was a bit scary at first but after a couple of minutes it went all great including some great questions afterwards. Slides can be found <a href="https://docs.google.com/presentation/d/1F1pGOoSf0dD79Dl5dgys0ll7xiuIA4XiQeNeJ-xlqMg/edit">here</a> and the talk is embedded right below:</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/UhccJacWhdM" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-<p>One of the things that really impressed me was the amount of people that approached us to tell how they love Home Assistant, how it has replaced their previous solution, how they enjoyed contributing to Home Assistant and how helpful our community is. It makes me proud of Home Assistant and especially our community.</p>
-
-<!--more-->
-<p>PyCon has a few great concepts that I haven’t seen at other conferences: open spaces and sprints. Open spaces give anyone the opportunity to get a room and host a session for an hour to talk about any topic. Sprints happen after the conference part of PyCon is over. For four days there are rooms available for participants to get together and hack on their favorite open source projects.</p>
-
-<p>My talk had limited time for Q&amp;A so open spaces offered a great opportunity to get all pending questions answered and connect with the commmunity. There was more interest after the first day so we ended up hosting another open space on the second day.</p>
-
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/anschoen">@anschoen</a> <a href="https://twitter.com/home_assistant">@home_assistant</a> I&#39;m located in Detroit. I could facilitate a workshop. What are we talking (group, potential dates, etc)?</p>&mdash; Jonathan Baginski (@jbags81) <a href="https://twitter.com/jbags81/status/739057625636167680">June 4, 2016</a></blockquote>
-
-<p>We’ve had such positive reception on our open spaces that <a href="https://github.com/jbags81/">Jonathan Baginski</a> decided to repeat it online. We will be hosting a free online webinar <a href="https://www.eventbrite.com/e/home-assistant-support-101-getting-around-in-home-assistant-tickets-25943868810">Home Assistant Support 101 - Getting around in Home Assistant</a> later this month. Make sure to RSVP.</p>
-
-<p>After the conference part of PyCon was over we spent one extra day to host a Home Assistant sprint. This allowed us to help people get started with hacking on Home Assistant which lead to some great contributions.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-06-pycon/sprint.jpg" alt="Home Assistant sprint group photo" />
-  Home Assistant sprint group photo.
-</p>
-
-<p>I’ve had a really great time at PyCon. It was awesome to meet everyone in person and I hope to see many of you next year!</p>
 
 ]]></content>
   </entry>
