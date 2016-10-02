@@ -30,4 +30,4 @@ Configuration variables:
 - **username** (*Required*): The username associated with your Volvo On Call account.
 - **password** (*Required*): The password for your given Volvo On Call account.
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions how to configure the cars to be tracked.
