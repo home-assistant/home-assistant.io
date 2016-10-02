@@ -24,16 +24,13 @@ To use an Fritz!Box router in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: fritz
-  host: YOUR_ROUTER_IP
-  username: YOUR_ADMIN_USERNAME
-  password: YOUR_ADMIN_PASSWORD
+  - platform: fritz
 ```
 
 Configuration variables:
 
-- **host** (*Optional*): The IP address of your router, eg. 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
-- **username** (*Optional*: The username of an user with administrative privileges, usually *admin*.
+- **host** (*Optional*): The IP address of your router, eg. `192.168.1.1`. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+- **username** (*Optional*: The username of an user with administrative privileges, usually `admin`.
 - **password** (*Optional*): The password for your given admin account.
 
 <p class='note'>

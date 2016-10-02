@@ -23,8 +23,9 @@ Requires PyBluez. If you are on Raspbian, make sure you first install `bluetooth
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 device_tracker:
-  platform: bluetooth_le_tracker
+  - platform: bluetooth_le_tracker
 ```
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
@@ -35,8 +36,8 @@ BTLE tracking requires root privileges.
 For running Home Assistant as non root user we can give python3 the missing capabilities to access the bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
 ```bash
-sudo apt-get install libcap2-bin
-sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
+$ sudo apt-get install libcap2-bin
+$ sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
 ```
 
 A restart of Home Assistant is required.
