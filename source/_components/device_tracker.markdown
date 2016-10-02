@@ -20,10 +20,10 @@ To get started add the following lines to your `configuration.yaml` (example for
 ```yaml
 # Example configuration.yaml entry for Netgear device
 device_tracker:
-  platform: netgear
-  host: 192.168.1.1
-  username: admin
-  password: YOUR_PASSWORD
+  - platform: netgear
+    host: 192.168.1.1
+    username: admin
+    password: YOUR_PASSWORD
 ```
 
 The following optional parameters can be used with any platform. However device tracker will only look for global settings under the configuration of the first configured platform:
@@ -33,6 +33,19 @@ The following optional parameters can be used with any platform. However device 
 | `track_new_devices` | True    | If new discovered devices are tracked by default                                                                                                                                                                                                                                                                                                                                          |
 | `interval_seconds`  | 12      | Seconds between each scan for new devices                                                                                                                                                                                                                                                                                                                                                 |
 | `consider_home`     | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. |
+
+The extended example from above would look like the following sample:
+
+```yaml
+# Example configuration.yaml entry for Netgear device
+device_tracker:
+  - platform: netgear
+    host: 192.168.1.1
+    username: admin
+    interval_seconds: 10
+    consider_home: 180
+    track_new_devices: yes
+```
 
 Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/) and [Nmap](/components/device_tracker.nmap_scanner/). The state of the device will be determined by the source that reported last.
 

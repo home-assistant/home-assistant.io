@@ -19,11 +19,8 @@ To use a BT Home Hub 5 router in your installation, add the following to your `c
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: bt_home_hub_5
-  host: 192.168.1.254
-  interval_seconds: 10
-  consider_home: 180
-  track_new_devices: yes
+  - platform: bt_home_hub_5
+    host: 192.168.1.254
 ```
 
 Configuration variables:

@@ -18,7 +18,7 @@ To integrate Locative in Home Assistant, add the following section to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: locative
+  - platform: locative
 ```
 
 Install on your smartphone:

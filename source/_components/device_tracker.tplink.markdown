@@ -13,15 +13,15 @@ ha_release: pre 0.7
 ---
 
 
-This platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device. This includes the ArcherC9 line.
+The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device. This includes the ArcherC9 line.
 
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: tplink
-  host: YOUR_ROUTER_IP
-  username: YOUR_ADMIN_USERNAME
-  password: YOUR_ADMIN_PASSWORD
+  - platform: tplink
+    host: YOUR_ROUTER_IP
+    username: YOUR_ADMIN_USERNAME
+    password: YOUR_ADMIN_PASSWORD
 ```
 
 Configuration variables:

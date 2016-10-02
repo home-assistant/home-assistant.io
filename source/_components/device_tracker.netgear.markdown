@@ -21,17 +21,16 @@ To use this device tracker in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: netgear
-  host: YOUR_ROUTER_IP
-  username: YOUR_ADMIN_USERNAME
-  password: YOUR_ADMIN_PASSWORD
-  port: YOUR_ROUTER_PORT
+  - platform: netgear
+    host: YOUR_ROUTER_IP
+    username: YOUR_ADMIN_USERNAME
+    password: YOUR_ADMIN_PASSWORD
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.1.1.
-- **username** (*Required*: The username of an user with administrative privileges, usually *admin*.
+- **host** (*Required*): The IP address of your router, e.g. `192.168.1.1`.
+- **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
 - **password** (*Required*): The password for your given admin account.
 - **port** (*Optional*): The port your router communicates with (defaults to 5000, but 80 is also known to be used on some models)
 
