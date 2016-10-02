@@ -37,7 +37,7 @@ To update Home Assistant to the latest release check the [Updating section](/get
 
 ### {% linkable_title Troubleshooting %}
 
-If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the common encountered issues.
+If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many commonly encountered issues.
 
 In addition to this site, check out these sources for additional help:
 
