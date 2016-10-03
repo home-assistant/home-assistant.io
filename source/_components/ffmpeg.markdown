@@ -28,8 +28,8 @@ Configuration variables:
 - **ffmpeg_bin** (*Optional*): Set the ffmpeg binary (eg. `/usr/bin/ffmpeg`). Default 'ffmpeg'. 
 - **run_test** (*Optional*):  Check if `input` is usable by ffmpeg. Default True.
 
-### {% linkable_title Debian Jessie Installations %}
-To get the binary on Debian Jessie on a RPi you need to perform the following:
+### {% linkable_title Raspbian Debian Jessie Lite Installations %}
+To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:
 ```
 $ sudo apt-get install libav-tools
 ```
