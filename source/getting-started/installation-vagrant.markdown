@@ -46,7 +46,7 @@ $ git config --global core.autocrlf input
 $ vagrant up
 ```
 
-This will download and start a virtual machine using Virtualbox, which will internally setup the development environment necessary to start Home Assistant process and run test suite as well. After the VM has started succesfully, the Home Assistant frontend will be accessible locally from your browser at [http://localhost:8123](http://localhost:8123)
+This will download and start a virtual machine using Virtualbox, which will internally setup the development environment necessary to start Home Assistant process and run test suite as well. After the VM has started successfully, the Home Assistant frontend will be accessible locally from your browser at [http://localhost:8123](http://localhost:8123)
 
 ## {% linkable_title Stopping Vagrant %}
 
