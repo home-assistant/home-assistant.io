@@ -182,16 +182,15 @@ end
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
 <span class="s">automation</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Off on Remote</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-    <span class="s">event_type</span><span class="pi">:</span> <span class="s">ir_command_received</span>
-    <span class="s">event_data</span><span class="pi">:</span>
-      <span class="s">button_name</span><span class="pi">:</span> <span class="s">KEY_0</span>
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.a_lights</span>
-
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Off on Remote</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">ir_command_received</span>
+      <span class="s">event_data</span><span class="pi">:</span>
+        <span class="s">button_name</span><span class="pi">:</span> <span class="s">KEY_0</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.a_lights</span>
 </code></pre>
 </div>
 
