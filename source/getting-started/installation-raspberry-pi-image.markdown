@@ -12,7 +12,7 @@ footer: true
 The easiest way to install Home Assistant on your Raspberry Pi is by using Hassbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~5 minutes).
 
  1. [Download the latest image][image-download]
- 2. Flash the image to an SD card:
+ 2. Flash the image to a Micro SD card:
    - [Windows][flash-windows]
    - [Linux][flash-linux]
    - [Mac][flash-macos]
@@ -21,7 +21,7 @@ The easiest way to install Home Assistant on your Raspberry Pi is by using Hassb
 
 These instructions are also available as a [video](https://www.youtube.com/watch?v=iIz6XqDwHEk).
 
-Home Assistant will now be available by navigating with a browser to `http://ip-address-of-pi:8123`. The default username is `pi` and password is `raspberry` (please change this by running `passwd`)
+Home Assistant will now be available by navigating with a browser to `http://ip-address-of-pi:8123`. The default username is `pi` and password is `raspberry` (please change this by running `passwd` via an SSH connection to your Pi.)
 
 The following extras are included on the image:
 
@@ -39,13 +39,18 @@ Some extra tips:
  - Home Assistant is installed in a virtual Python environment at `src/homeassistant`
  - Home Assistant will be started as a service run by the user `homeassistant`
 
+Accessing Your Raspberry Pi via SSH:
+
+ - Connect using Terminal.app or iTerm.app on a Mac, Putty on Windows, or other Terminal application via entering `ssh pi@XXX.XXX.XXX.XXX` (where X = your Raspberry Pi's local IP address).
+ - Change the default password for the `pi` user by running `passwd` once connected via SSH.
+  
+
 {% comment %}
 
   TODO:
 
   Add instructions:
 
-   - How to login via shell (?) or at least mention how to work with a Pi
    - How to restart HASS
    - How to see the logs for config validation
    - How to update the config
