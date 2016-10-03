@@ -38,7 +38,7 @@ Configuration variables:
 - **ssh_key** (*Optional*): The path to your SSH private key file associated with your given admin account (instead of password).
 
 <p class='note warning'>
-You need to enable telnet on your router if you choose to use `protocol: telnet`. 
+You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`. 
 </p>
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
