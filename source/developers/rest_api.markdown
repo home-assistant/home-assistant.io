@@ -91,6 +91,7 @@ Returns the current configuration as JSON.
     "longitude": 5.5678,
     "unit_system": "metric",
     "time_zone": "Europe/Zurich",
+    "config_dir": "/home/hass/.homeassistant",
     "version": "0.8.0.dev0"
 }
 ```
