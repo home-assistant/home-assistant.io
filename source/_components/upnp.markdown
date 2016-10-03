@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: upnp.png
 ha_category: "Other"
 ha_release: 0.18
 ---
