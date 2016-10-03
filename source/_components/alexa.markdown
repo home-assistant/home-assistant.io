@@ -258,7 +258,7 @@ Now say `Alexa ask homeassistant to run <some script>` and Alexa will run that s
 
 ## {% linkable_title Giving Alexa Some Personality%}
 
-In the examples above, we told Alexa to say `OK` when she succesfully completed the task. This is effective but a little dull! We can again use [templates] to spice things up a little.
+In the examples above, we told Alexa to say `OK` when she successfully completed the task. This is effective but a little dull! We can again use [templates] to spice things up a little.
 
 First create a file called `alexa_confirm.yaml` with something like the following in it (go on, be creative!):
 

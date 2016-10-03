@@ -108,5 +108,5 @@ switch:
       value_template: {% raw %}'{{ value == "1" }}'{% endraw %}
 ```
 
-- Replace admin and password with an "Admin" priviledged Foscam user
+- Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
