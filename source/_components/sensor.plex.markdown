@@ -14,7 +14,7 @@ ha_release: 0.22
 
 The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
 
-If your Plex server is on the same local network as Home Assistant, all you need to provide in the `configuration.yaml` is the host or IP address. If you want to access a remote Plex server, you must provide the Plex username, password, and optionally the server name of the remote Plex server. If no server name is given it will use the first server listed.
+If your Plex server is on the same local network as Home Assistant, all you need to provide in the `configuration.yaml` is the host or IP address. If you want to access a remote Plex server, you must provide the Plex username, password, and optionally the server name of the remote Plex server. If no server name is given it will use the first server listed. If you use the username and password, all servers in that account are monitored. 
 
 If you want to enable the plex sensor, add the following lines to your `configuration.yaml`:
 
