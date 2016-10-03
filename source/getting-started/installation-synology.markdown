@@ -18,7 +18,7 @@ Running these commands will:
 
 Using the Synology webadmin:
 
- - Install python3 using the Synology package centre
+ - Install python3 using the Synology Package Center
  - Create homeassistant user and add to the "users" group
 
 SSH onto your synology & login as admin or root
