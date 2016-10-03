@@ -20,8 +20,7 @@ To add this platform to your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: cpuspeed
-  name: CPU 
+  - platform: cpuspeed
 ```
 
 Configuration variables:

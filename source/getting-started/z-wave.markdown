@@ -9,9 +9,9 @@ sharing: true
 footer: true
 ---
 
-[Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a [supported Z-Wave USB stick](https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List) to be plugged into the host.
+[Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a [supported Z-Wave USB stick or module](https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List) to be plugged into the host.
 
-There is currently support for switches, lights and sensors. All will be picked up automatically after configuring this platform.
+There is currently support for climate, covers, lights, locks, sensors, switches and thermostats. All will be picked up automatically after configuring this platform.
 
 ### {% linkable_title Installation %}
 
@@ -68,13 +68,13 @@ zwave:
 Configuration variables:
 
 - **usb_path** (*Required*): The port where your device is connected to your Home Assistant host.
-- **config_path** (*Optional*): The path to the Python Open Z-Wave configuration files.
-- **autoheal** (*Optional*): Allows disabling auto ZWave heal at midnight. Defaults to True.
+- **config_path** (*Optional*): The path to the Python OpenZWave configuration files.
+- **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **customize** (*Optional*): This attribute contains node-specific override values:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc). If not specified then your device will not be polled.
 
-To find the path of your Z-Wave stick, run:
+To find the path of your Z-Wave USB stick or module, run:
 
 ```bash
 $ ls /dev/ttyUSB*
@@ -84,6 +84,12 @@ Or, on some other systems (such as Raspberry Pi), use:
 
 ```bash
 $ ls /dev/ttyACM*
+```
+
+Or, on some other systems (such as Pine 64), use:
+
+```bash
+$ ls /dev/ttyS*
 ```
 
 Or, on macOS, use:
@@ -98,9 +104,9 @@ Depending on what's plugged into your USB ports, the name found above may change
 
 ### {% linkable_title Adding Security Devices %}
 
-Security Z-Wave devices require a network key before being added to the network using the zwave.add_node_secure service. You must edit the options.xml file, located in your python-openzwave config_path to use a network key before adding these devices.
+Security Z-Wave devices require a network key before being added to the network using the `zwave.add_node_secure` service. You must edit the `options.xml` file, located in your `python-openzwave config_path` to use a network key before adding these devices.
 
-Edit your options.xml file:
+Edit your `options.xml` file:
 
 ```bash
   <!-- <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F 0x10" /> -->
@@ -110,52 +116,52 @@ Uncomment the line:
    <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10" />
 ```
 
-You can replace these values with your own 16 byte network key. For more information on this process see the [Open-Zwave](https://github.com/OpenZWave/open-zwave) wiki article [Adding Security Devices to OZW](https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW)
+You can replace these values with your own 16 byte network key. For more information on this process see the [OpenZwave](https://github.com/OpenZWave/open-zwave) wiki article [Adding Security Devices to OZW](https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW)
 
 ### {% linkable_title Events %}
 
 #### {% linkable_title zwave.network_complete %}
-HomeAssistant will trigger a event when the zwave network is complete. Meaning all of the nodes on the network have been queried. This can take quite som time, depending on wakeup intervals on the battery powered devices on the network.
+Home Assistant will trigger a event when the Z-Wave network is complete. Meaning all of the nodes on the network have been queried. This can take quite som time, depending on wakeup intervals on the battery powered devices on the network.
 
 ```yaml
- - alias: ZWave network is complete
+ - alias: Z-Wave network is complete
    trigger:
      platform: event
      event_type: zwave.network_complete
 ```
 
 #### {% linkable_title zwave.network_ready %}
-HomeAssistant will trigger a event when the zwave network is ready for use. Between `zwave.network_start` and `zwave.network_ready` HomeAssistant will feel sluggish when trying to send commands to zwave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered all awake nodes have been queried and sleeping nodes will be queried when they awake.
+Home Assistant will trigger a event when the Z-Wave network is ready for use. Between `zwave.network_start` and `zwave.network_ready` Home Assistant will feel sluggish when trying to send commands to Z-Wave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered all awake nodes have been queried and sleeping nodes will be queried when they awake.
 
 ```yaml
- - alias: ZWave network is ready
+ - alias: Z-Wave network is ready
    trigger:
      platform: event
      event_type: zwave.network_ready
 ```
 
 #### {% linkable_title zwave.network_start %}
-HomeAssistant will trigger a event when the zwave network is set up to be started.
+Home Assistant will trigger a event when the Z-Wave network is set up to be started.
 
 ```yaml
- - alias: ZWave network is starting
+ - alias: Z-Wave network is starting
    trigger:
      platform: event
      event_type: zwave.network_start
 ```
 
 #### {% linkable_title zwave.network_stop %}
-HomeAssistant will trigger a event when the zwave network stopping.
+Home Assistant will trigger a event when the Z-Wave network stopping.
 
 ```yaml
- - alias: ZWave network is stopping
+ - alias: Z-Wave network is stopping
    trigger:
      platform: event
      event_type: zwave.network_stop
 ```
 
 #### {% linkable_title zwave.node_event %}
-HomeAssistant will trigger a event when command_class_basic changes value on a node.
+Home Assistant will trigger a event when command_class_basic changes value on a node.
 This can be virtually anything, so tests have to be made to determine what value equals what.
 You can use this for automations.
 
@@ -173,7 +179,7 @@ Example:
 
 The *object_id* and *basic_level* of all triggered events can be seen in the console output.
 
-**zwave.scene_activated**
+#### {% linkable_title zwave.scene_activated %}
 Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):
 
 ```yaml
@@ -192,21 +198,22 @@ The *object_id* and *scene_id* of all triggered events can be seen in the consol
 
 ### {% linkable_title Services %}
 
-The Z-Wave component exposes seven services to help maintain the network.
+The `zwave` component exposes ten services to help maintain the network.
 
 | Service | Description |
 | ------- | ----------- |
-| add_node | Put the zwave controller in inclusion mode. Allows one to add a new device to the zwave network.|
-| add_node_secure | Put the zwave controller in secure inclusion mode. Allows one to add a new device with secure communications to the zwave network. |
-| cancel_command | Cancels a running zwave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
-| heal_network | Tells the controller to "heal" the network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
-| remove_node | Put the zwave controller in exclusion mode. Allows one to remove a device from the zwave network.|
+| add_node | Put the Z-Wave controller in inclusion mode. Allows one to add a new device to the Z-Wave network.|
+| add_node_secure | Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network. |
+| cancel_command | Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
+| heal_network | Tells the controller to "heal" the Z-Wave network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
+| remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
+| start_network | Starts the Z-Wave network.|
+| stop_network | Stops the Z-Wave network.|
 | test_network | Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".|
 | rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
 
-The soft_reset and heal_network commands can be used as part of an automation script
-to help keep a zwave network running relliably. For example:
+The `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below.  By default, Home Assistant will run a `heal_network` at midnight.  This is a configuration option for the `zwave` component, the option defaults to `true` but can be disabled by setting `auto_heal` to false.  Using the `soft_reset` function with some Z-Wave controllers can cause the Z-Wave network to hang. If you're having issues with your Z-Wave network try disabling this automation.
 
 ```yaml
 # Example configuration.yaml automation entry

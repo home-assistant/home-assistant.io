@@ -26,14 +26,6 @@ To enable the emulated Hue bridge, add the following to your `configuration.yaml
 ```yaml
 # Example configuration.yaml entry
 emulated_hue:
-  host_ip: 192.168.1.186
-  listen_port: 8300
-  off_maps_to_on_domains:
-    - script
-    - scene
-  expose_by_default: true
-  exposed_domains:
-    - light
 ```
 
 Configuration variables:
@@ -57,6 +49,21 @@ Configuration variables:
   - `group`
   - `input_boolean`
   - `media_player`
+
+A full configuration sample looks like the one below.
+
+```yaml
+# Example configuration.yaml entry
+emulated_hue:
+  host_ip: 192.168.1.186
+  listen_port: 8300
+  off_maps_to_on_domains:
+    - script
+    - scene
+  expose_by_default: true
+  exposed_domains:
+    - light
+```
 
 With additional customization you will be able to specify the behaviour of the existing entities. 
 

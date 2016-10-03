@@ -2,7 +2,7 @@
 layout: page
 title: "Raspberry Pi All-In-One Installer"
 date: 2016-05-12 01:39
-comments: true
+comments: false
 sharing: true
 footer: true
 ---
@@ -56,6 +56,7 @@ To upgrade the All-In-One setup manually:
 *  Change to hass user `sudo su -s /bin/bash hass`
 *  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
 *  Update HA `pip3 install --upgrade homeassistant`
+*  Type `exit` to logout the hass user and return to the `pi` user.
   
 To upgrade with fabric:
 
@@ -67,7 +68,6 @@ After upgrading, you can restart Home Assistant a few different ways:
 
 * Restarting the Raspberry Pi `sudo reboot`
 * Restarting the Home-Assistant Service `sudo systemctl restart home-assistant.service`
-
 
 ### {% linkable_title Using the OZWCP web application %}
 
@@ -83,6 +83,10 @@ To launch the OZWCP web application:
 <p class='note warning'>
   Don't check the USB box regardless of using a USB based device.
 </p>
+
+### {% linkable_title Using the GPIOs %}
+
+Please note that if you are using any components for Home Assistant that would use the GPIOs on the RPI, you will need to grant the default AiO user `hass` access to the GPIOs.  Run the following command `sudo adduser hass gpio` while in a terminal session on your Pi.  This is a one time configuration change to allow All In One Installer based Home Assistant access to the GPIOs.
 
 ### {% linkable_title WinSCP %}
 

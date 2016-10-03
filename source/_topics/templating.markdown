@@ -49,7 +49,7 @@ script:
             {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
               Ha, Paulus is home!
             {% else %}
-              Paulus is at {{ states('device_tracker.paulus')) }}.
+              Paulus is at {{ states('device_tracker.paulus') }}.
             {% endif %}{% endraw %}
 ```
 

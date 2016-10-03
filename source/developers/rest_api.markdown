@@ -39,7 +39,7 @@ print(response.text)
 ```
 
 <p class='note'>
-You can append `?password=YOUR_PASSWORD` to any url to log in automatically.
+You can append `?api_password=YOUR_PASSWORD` to any url to log in automatically.
 </p>
 
 Successful calls will return status code 200 or 201. Other status codes that can return are:
@@ -91,6 +91,7 @@ Returns the current configuration as JSON.
     "longitude": 5.5678,
     "unit_system": "metric",
     "time_zone": "Europe/Zurich",
+    "config_dir": "/home/hass/.homeassistant",
     "version": "0.8.0.dev0"
 }
 ```

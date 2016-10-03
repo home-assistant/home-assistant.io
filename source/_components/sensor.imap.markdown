@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_release: 0.25
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -22,7 +23,6 @@ sensor:
   - platform: imap
     server: imap.gmail.com
     port: 993
-    name: Emails
     username: USERNAME
     password: PASSWORD
 ```

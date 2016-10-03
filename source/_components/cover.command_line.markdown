@@ -26,14 +26,6 @@ cover:
       command_open: move_command up garage
       command_close: move_command down garage
       command_stop: move_command stop garage
-      command_state: state_command garage
-      value_template: {% raw %}>
-        {% if value == 'open' %}
-        100
-        {% elif value == 'closed' %}
-        0
-        {% endif %}
-        {% endraw %}
 ```
 
 Configuration variables:
@@ -46,3 +38,28 @@ Configuration variables:
     - **command_state** (*Optional*): If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
     - **value_template** (*optional - default: '{% raw %}{{ value }}{% endraw%}'*): if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example config above will allow you to translate that into the valid state `100`.
     - **friendly_name** (*Optional*): The name used to display the cover in the frontend.
+
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Full configuration %}
+
+```yaml
+# Example configuration.yaml entry
+cover:
+- platform: command_line
+  covers:
+    garage_door:
+      command_open: move_command up garage
+      command_close: move_command down garage
+      command_stop: move_command stop garage
+      command_state: state_command garage
+      value_template: {% raw %}>
+        {% if value == 'open' %}
+        100
+        {% elif value == 'closed' %}
+        0
+        {% endif %}
+        {% endraw %}
+```

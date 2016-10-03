@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: webos.png
 ha_category: Media Player
-ha_iot_class: "Local Poll"
+ha_iot_class: "Local Polling"
 ha_release: 0.18
 ---
 
@@ -24,12 +24,6 @@ To add a TV to your installation, add the following to your `configuration.yaml`
 media_player:
   - platform: webostv
     host: 192.168.0.10
-    name: Living Room TV
-    customize:
-      sources:
-        - livetv
-        - youtube
-        - makotv
 ```
 
 Configuration variables:
@@ -39,4 +33,19 @@ Configuration variables:
 - **customize** array (*Optional*): List of options to customize.
   - ***sources** array (*Optional*): List of hardware inputs.
 
-If you do not provide a host name, all LG WebOS Smart TV's within your network will be auto-discovered if your TV network name is set to `[LG] webOS TV`
+If you do not provide a host name, all LG WebOS Smart TV's within your network will be auto-discovered if your TV network name is set to `[LG] webOS TV`.
+
+A full configuration example will look like the sample below:
+
+```yaml
+# Example configuration.yaml entry
+media_player:
+  - platform: webostv
+    host: 192.168.0.10
+    name: Living Room TV
+    customize:
+      sources:
+        - livetv
+        - youtube
+        - makotv
+```

@@ -13,7 +13,7 @@ ha_category: Organization
 
 Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting the `view` option to `yes`. This will make the group available as a new tab in the frontend.
 
-Check the **Set State** page from the **Developer Tools** <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> and browse the **Current entities:** listing for all available entities.
+Check the **Set State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
 
 By default, every group appears in the HOME tab. If you name a group `default_view` it will REPLACE the contents of the HOME tab so you can customize it as you wish.
 
@@ -25,7 +25,6 @@ group:
     entities:
       - group.awesome_people
       - group.climate
-
   kitchen:
     name: Kitchen
     entities:
@@ -55,7 +54,7 @@ Example of groups shown as views in the frontend.
 
 If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once.
 
-You can create views (tabs) that contain other groups.  
+You can create views (tabs) that contain other groups.
 Notice in the example below that in order to refer to the group "Living Room", you use `group.living_room` (lowercase and spaces replaced with underscores).
 
 ```yaml
@@ -68,9 +67,9 @@ Notice in the example below that in order to refer to the group "Living Room", y
   Bedroom: light.light_bedroom, switch.sleeping
 
   Rooms:
-    view: yes                                 
+    view: yes
     name: Rooms
     entities:
-      - group.living_room                                 
-      - group.bedroom                                                                                                                                          
+      - group.living_room
+      - group.bedroom
 ``` 

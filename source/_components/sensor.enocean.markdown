@@ -17,7 +17,6 @@ The `enocean` sensor platform currently only allows reading out the power measur
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](../enocean) and then add the following to your `configuration.yaml` file:
 
-
 ```yaml
 # Example configuration.yaml entry
 sensor:

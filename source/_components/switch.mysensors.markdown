@@ -2,7 +2,7 @@
 layout: page
 title: "MySensors Switch"
 description: "Instructions how to integrate MySensors switches into Home Assistant."
-date: 2016-06-12 15:00 +0200
+date: 2016-10-01 15:00 +0200
 sidebar: true
 comments: false
 sharing: true
@@ -10,6 +10,7 @@ footer: true
 logo: mysensors.png
 ha_category: Switch
 featured: false
+ha_iot_class: "Local Push"
 ---
 
 Integrates MySensors switches into Home Assistant. See the [main component] for configuration instructions.
@@ -19,7 +20,7 @@ The following actuator types are supported:
 ##### MySensors version 1.4 and higher
 
 S_TYPE   | V_TYPE
----------|--------------
+---------|-------------------
 S_DOOR   | V_ARMED
 S_MOTION | V_ARMED
 S_SMOKE  | V_ARMED
@@ -30,7 +31,7 @@ S_IR     | V_IR_SEND, V_LIGHT
 ##### MySensors version 1.5 and higher
 
 S_TYPE       | V_TYPE
--------------|------------------
+-------------|----------------------
 S_LIGHT      | V_STATUS
 S_BINARY     | [V_STATUS or V_LIGHT]
 S_SPRINKLER  | V_STATUS
@@ -38,6 +39,12 @@ S_WATER_LEAK | V_ARMED
 S_SOUND      | V_ARMED
 S_VIBRATION  | V_ARMED
 S_MOISTURE   | V_ARMED
+
+##### MySensors version 2.0 and higher
+
+S_TYPE          | V_TYPE
+----------------|---------
+S_WATER_QUALITY | V_STATUS
 
 All V_TYPES for each S_TYPE above are required to activate the actuator for the platform. Use either V_LIGHT or V_STATUS depending on library version for cases where that V_TYPE is required.
 

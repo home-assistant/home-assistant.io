@@ -9,8 +9,9 @@ sharing: true
 footer: true
 logo: ffmpeg.png
 ha_category: Hub
-featured: true
 ---
+
+It allow other Home-Assistant components to process video/audio streams. It need a ffmpeg binary in your system path. It support all ffmpeg version since 3.0.0. If you have a older version, please update.
 
 <p class='note'>
 You need a `ffmpeg` binary in your system path. On Debain 8 or Raspbian (Jessie) you can install it from backports. If you want Hardware support on a Raspberry Pi you need to build from source by yourself. Windows binary are avilable on the [FFmpeg](http://www.ffmpeg.org/) website.
@@ -20,14 +21,12 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 ffmpeg:
-  ffmpeg_bin: /usr/bin/ffmpeg
-  run_test: True
 ```
 
 Configuration variables:
 
-- **ffmpeg_bin** (*Optional*): Default 'ffmpeg'. Set the ffmpeg binary.
-- **run_test** (*Optional*): Default True. Check if `input` is usable by ffmpeg.
+- **ffmpeg_bin** (*Optional*): Set the ffmpeg binary (eg. `/usr/bin/ffmpeg`). Default 'ffmpeg'. 
+- **run_test** (*Optional*):  Check if `input` is usable by ffmpeg. Default True.
 
 ### {% linkable_title Troubleshooting %}
 

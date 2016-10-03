@@ -25,8 +25,6 @@ binary_sensor:
   payload: "r State\n"
   value_on: 1
   timeout: 5
-  value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
-  buffer_size: BUFFER_SIZE
 ```
 
 Configuration options for the a TCP Sensor:

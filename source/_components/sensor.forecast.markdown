@@ -26,34 +26,34 @@ To add Forecast.io to your installation, add the following to your `configuratio
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: forecast
-  api_key: YOUR_APP_KEY
-  monitored_conditions:
-    - summary
-    - icon
-    - nearest_storm_distance
-    - nearest_storm_bearing
-    - precip_type
-    - precip_intensity
-    - precip_probability
-    - temperature
-    - apparent_temperature
-    - dew_point
-    - wind_speed
-    - wind_bearing
-    - cloud_cover
-    - humidity
-    - pressure
-    - visibility
-    - ozone
-    - minutely_summary
-    - hourly_summary
-    - daily_summary
-    - temperature_max
-    - temperature_min
-    - apparent_temperature_max
-    - apparent_temperature_min
-    - precip_intensity_max
+  - platform: forecast
+    api_key: YOUR_APP_KEY
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - nearest_storm_bearing
+      - precip_type
+      - precip_intensity
+      - precip_probability
+      - temperature
+      - apparent_temperature
+      - dew_point
+      - wind_speed
+      - wind_bearing
+      - cloud_cover
+      - humidity
+      - pressure
+      - visibility
+      - ozone
+      - minutely_summary
+      - hourly_summary
+      - daily_summary
+      - temperature_max
+      - temperature_min
+      - apparent_temperature_max
+      - apparent_temperature_min
+      - precip_intensity_max
 ```
 
 Configuration variables:

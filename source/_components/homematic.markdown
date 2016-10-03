@@ -34,9 +34,6 @@ To set up the component, add the following information to your `configuration.ya
 ```yaml
 homematic:
   local_ip: 127.0.0.1
-  local_port: 8943
-  remote_ip: 127.0.0.1
-  remote_port: 2001
 ```
 
 Configuration variables:
@@ -49,6 +46,7 @@ Configuration variables:
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
 - **delay** (*Optional*): <Float> Delay fetching of current state per deivce on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
+- **variables** (*Optional*): True or False if you want use CCU2/Homegear variables. Default False.
 
 To further explain the `resolvenames` option:
 We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won't include non-ASCII characters in entity-names.

@@ -35,6 +35,9 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Automating your Home with Home Assistant](https://www.youtube.com/watch?v=4-6rTwKl6ww&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=2) at OpenIoT 2016 - March 2016
 - [Automating Your Life - Home Automation](http://slides.com/teagan42/life_automation#/) at Develop Denver 2016 - August
 
+### {% linkable_title Site Search %}
+
+There is not currently a site search for Home-Assistant.io but it's in the works.  For now, you can use this [Google link](https://cse.google.com/cse/publicurl?cx=005053695590750500199:dtrfi8yigbi) which will narrow your search to this specific site.
 
 ### {% linkable_title Roadmap %}
 

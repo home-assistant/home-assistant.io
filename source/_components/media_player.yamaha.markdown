@@ -28,15 +28,17 @@ To add a Yamaha Network Receiver to your installation, add the following to your
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: yamaha
-  name: 'Basement Receiver'
+  - platform: yamaha
 ```
 Configuration variables:
 
 - **name** (*Optional*): Name of the device
+- **host** (*Optional*): IP address or hostname of the device
 
 A few notes:
 
-- This will automatically search your network for Yamaha receivers.  It will add a media player device for each one.
+- Not specifying the host variable will result in automatically searching your network for Yamaha Receivers.  It will add a media player device for each one.
+- In some cases, autodiscovery fails due to a known bug in the receiver's firmware. It is possible to manually specify the reveiver's IP address or via it's hostname (if it is discoverably by your DNS) then.
+- Please note: If adding the IP address or hostname manually, you **must** enable network standby on your receiver, or else startup of Home Assistant will hang if you have your receiver switched off.
 - Currently the only controls that are available is Power On/Off, Mute, and Volume control. Other functions such as source select are in progress of being developed.
 

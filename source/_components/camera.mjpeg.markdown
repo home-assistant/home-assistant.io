@@ -22,12 +22,8 @@ To enable this camera in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: mjpeg
-  mjpeg_url: http://192.168.1.92/mjpeg
-  name: my sample camera
-  username: USERNAME
-  password: PASSWORD
-  authentication: basic
+  - platform: mjpeg
+    mjpeg_url: http://192.168.1.92/mjpeg
 ```
 
 Configuration variables:

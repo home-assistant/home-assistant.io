@@ -26,12 +26,10 @@ To enable the slack notification in your installation, add the following to your
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: slack
-  api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-  default_channel: '#general'
-  icon: ':robot_face:' 
-  username: 'Home-Assistant'
+  - name: NOTIFIER_NAME
+    platform: slack
+    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    default_channel: '#general'
 ```
 
 Configuration variables:

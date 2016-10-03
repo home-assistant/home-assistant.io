@@ -22,15 +22,12 @@ To enable your FFmpeg feed in your installation, add the following to your `conf
 camera:
   - platform: ffmpeg
     input: FFMPEG_SUPPORTED_INPUT
-    name: FFmpeg
-    extra_arguments: -q:v 2
 ```
 
 Configuration variables:
 
 - **input** (*Required*): A ffmpeg compatible input file, stream or feed.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
-- **ffmpeg_bin** (*Optional*): Default 'ffmpeg'.
 - **extra_arguments** (*Optional*): Extra option they will pass to `ffmpeg`. i.e. image quality or video filter options.
 
 ### {% linkable_title Image quality %}
@@ -39,4 +36,3 @@ You can control the `image quality` with [`extra_arguments`](https://www.ffmpeg.
 
 
 If you are running into trouble with this sensor, please refer to this [Troubleshooting section](/components/ffmpeg/#troubleshooting).
-

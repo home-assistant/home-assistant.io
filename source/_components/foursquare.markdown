@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: foursquare.png
-featured: true
+featured: false
 ha_category: Social
 ha_release: 0.26
 ha_iot_class: "Cloud Polling and Cloud Push"

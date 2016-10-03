@@ -21,12 +21,8 @@ To use your MQTT sensor in your installation, add the following to your `configu
 ```yaml
 # Example configuration.yml entry
 sensor:
-  platform: mqtt
-  state_topic: "home/bedroom/temperature"
-  name: "MQTT Sensor"
-  qos: 0
-  unit_of_measurement: "°C"
-  value_template: '{% raw %}{{ value.x }}{% endraw %}'
+  - platform: mqtt
+    state_topic: "home/bedroom/temperature"
 ```
 
 Configuration variables:

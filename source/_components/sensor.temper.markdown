@@ -17,11 +17,15 @@ To use your TEMPer sensor in your installation, add the following to your `confi
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: temper
-  name: 'My TEMPer'
-  scale: 1
-  offset: 0
+  - platform: temper
 ```
+
+
+Configuration options for the a TCP Sensor:
+
+- **name** (*Optional*): The name you would like to give the sensor in Home Assistant.
+- **scale** (*Optional*): The scale for the sensor.
+- **offset** (*Optional*): The offset to fix reported vales.
 
 Since some of these sensors consistently show higher temperatures the scale and offset values can be used to fine-tune your sensor.
 The calculation follows the formula `scale * sensor value + offset`.

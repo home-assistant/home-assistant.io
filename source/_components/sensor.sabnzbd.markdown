@@ -22,11 +22,8 @@ To use SABnzbd with your installation, add the following to your `configuration.
 # Example configuration.yaml entry
 sensor:
   platform: sabnzbd
-  name: SAB
-  api_key: YOUR_API_KEY
   host: YOUR_SABNZBD_HOST
-  port: 8080
-  ssl: True
+  api_key: YOUR_API_KEY
   monitored_variables:
     - 'current_status'
     - 'speed'

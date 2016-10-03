@@ -29,7 +29,7 @@ One of the most common problems with Home Assistant is an invalid `configuration
  - You can verify your configuration's yaml structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
  - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
-`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiplte platforms for one component, you can append a [number or string](/getting-started/devices/#style-2-list-each-device-separately) to the name or nest them using [this style](/getting-started/devices/#style-1-collect-every-entity-under-the-parent):
+`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a [number or string](/getting-started/devices/#style-2-list-each-device-separately) to the name or nest them using [this style](/getting-started/devices/#style-1-collect-every-entity-under-the-parent):
 
 ```yaml
 sensor:
@@ -40,6 +40,8 @@ sensor:
 ```
 
 Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to `home-assistant.log`. You can have a look at [the various component pages](/components/) for instructions on how to setup the components.
+
+See the [logger](/components/logger/) component for instructions on how to define the level of logging you require for specific modules.
 
 If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
 

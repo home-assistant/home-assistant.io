@@ -13,8 +13,7 @@ ha_release: 0.21
 ha_iot_class: "Local Push"
 ---
 
-This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55. Other devices will most likely not work without changing the Home-Asisstant code.
-
+This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55. Other devices will most likely not work without changing the Home Asisstant code.
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
 
@@ -23,8 +22,6 @@ To use your EnOcean device, you first have to set up your [EnOcean hub](/compone
 binary_sensor:
   - platform: enocean
     id: [0x01,0x90,0x84,0x3C]
-    name: Door
-    sensor_class: opening
 ```
 
 Configuration variables:

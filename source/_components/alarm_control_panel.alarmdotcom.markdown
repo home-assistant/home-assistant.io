@@ -20,8 +20,6 @@ To enable this, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 alarm_control_panel:
   platform: alarmdotcom
-  name: "HA Alarm"
-  code: PASSCODE
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
 ```

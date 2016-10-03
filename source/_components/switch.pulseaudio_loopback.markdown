@@ -28,11 +28,6 @@ To enable this switch, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 switch:
   - platform: pulseaudio_loopback
-    name: mpd1 -> bedroom
-    host: 127.0.0.1
-    port: 4712
-    source_name: mpd1.monitor
-    sink_name: bedroom
 ```
 
 Configuration variables:

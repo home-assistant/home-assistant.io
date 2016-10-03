@@ -20,8 +20,6 @@ To enable this, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 alarm_control_panel:
   platform: nx584
-  host: IP_ADDRESS
-  port: 5007
 ```
 
 Configuration variables:

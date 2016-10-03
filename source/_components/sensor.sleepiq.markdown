@@ -7,8 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: sleepiq
+logo: sleepiq.png
 ha_category: Sensor
+ha_release: 0.29
+ha_iot_class: "Local Polling"
 ---
 
 To get your SleepIQ sensors working with Home Assistant, follow the instructions for the general [SleepIQ component](/components/sleepiq/).

@@ -33,13 +33,13 @@ mqtt:
 
 Configuration variables:
 
-- **broker** (*Required*): The IP address of your MQTT broker, e.g. 192.168.1.32.
+- **broker** (*Required*): The IP address or hostname of your MQTT broker, e.g. 192.168.1.32.
 - **port** (*Optional*): The network port to connect to. Default is 1883.
-- **client_id** (*Optional*): Client ID that Home Assistant will use. Has to be unique on the server. Default is a random generated one.
-- **keepalive** (*Optional*): The keep alive in seconds for this client. Default is 60.
+- **client_id** (*Optional*): The client ID that Home Assistant will use. Has to be unique on the server. Default is a randomly generated one.
+- **keepalive** (*Optional*): The time in seconds between sending keep alive messages for this client. Default is 60.
 - **username** (*Optional*): The username to use with your MQTT broker.
 - **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
-- **certificate** (*Optional*): Certificate to use to encrypt communication with the broker.
+- **certificate** (*Optional*): The certificate authority certificate file that is to be treated as trusted by this client. This file should contain the root certificate of the certificate authority that signed your broker's certificate, but may contain multiple certificates. Example: `/home/user/identrust-root.pem`
 - **client_key** (*Optional*): Client key (example: `/home/user/owntracks/cookie.key`)
 - **client_cert** (*Optional*): Client certificate (example: `/home/user/owntracks/cookie.crt`)
 - **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.
@@ -50,7 +50,7 @@ The MQTT component needs you to run an MQTT broker for Home Assistant to connect
 
 ### {% linkable_title Embedded broker %}
 
-Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Asssistant connects to it. Embedded broker default configuration:
+Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the [HBMQTT broker](https://pypi.python.org/pypi/hbmqtt) is started and Home Assistant connects to it. Embedded broker default configuration:
 
 | Setting | Value |
 | ------- | ----- |
@@ -60,6 +60,11 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 | User | homeassistant
 | Password | Your API [password](/components/http/)
 | Websocket port | 8080
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+```
 
 <p class='note'>
 This broker does not currently work with OwnTracks because of a protocol version issue.
@@ -77,7 +82,7 @@ mqtt:
 
 ### {% linkable_title Run your own %}
 
-Most private option but requires a bit more work. There are two free and open-source brokers to pick from: [Mosquitto](http://mosquitto.org/) and [Mosca](http://www.mosca.io/).
+This is the most private option but requires a bit more work. There are two free and open-source brokers to pick from: [Mosquitto](http://mosquitto.org/) and [Mosca](http://www.mosca.io/).
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,7 +101,7 @@ There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Speci
 
 ### {% linkable_title Public broker %}
 
-The Mosquitto project runs a [public broker](http://test.mosquitto.org). Easiest to setup but there is 0 privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.
+The Mosquitto project runs a [public broker](http://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.
 
 ```yaml
 mqtt:
@@ -112,7 +117,7 @@ mqtt:
 
 ### {% linkable_title CloudMQTT %}
 
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free up to 10 connected devices. This is enough to get started with for example [OwnTracks](/components/device_tracker.owntracks/) and give you a taste of what is possible.
+[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/components/device_tracker.owntracks/) and give you a taste of what is possible.
 
 <p class='note'>
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
@@ -124,8 +129,8 @@ Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
  3. From the control panel, click on the _Details_ button.
  4. Create unique users for Home Assistant and each phone to connect<br>(CloudMQTT does not allow two
     connections from the same user)
-      a. Under manage users, fill in username, password and click add
-      b. Under ACLs, select user, topic `#`, check 'read access' and 'write access'
+      1. Under manage users, fill in username, password and click add
+      2. Under ACLs, select user, topic `#`, check 'read access' and 'write access'
  5. Copy the instance info to your configuration.yaml:
 
 ```yaml
@@ -186,19 +191,19 @@ logger:
 
 ## {% linkable_title Testing your setup %}
 
-The `mosquitto` broker package is shipping commandline tools to send and recieve MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:
+The `mosquitto` broker package ships commandline tools to send and recieve MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:
 
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
 ```
 
-If you are using the embeeded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.
+If you are using the embedded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.
 
 ```bash
 $ mosquitto_pub -V mqttv311 -t "hello" -m world
 ```
 
-or if you are using a API password.
+or if you are using a API password:
 
 ```bash
 $ mosquitto_pub -V mqttv311 -u homeassistant -P <your api password> -t "hello" -m world
@@ -225,7 +230,7 @@ For reading all messages sent on the topic `home-assistant` to a broker running 
 $ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 ```
 
-For the embeeded MQTT broker the command looks like the sample below.
+For the embedded MQTT broker the command looks like:
 
 ```bash
 $ mosquitto_sub -v -V mqttv311 -t "#"
@@ -235,7 +240,7 @@ Add the username `homeassistant` and your API password if needed.
 
 ## {% linkable_title Processing JSON %}
 
-The MQTT switch and sensor platforms support processing JSON over MQTT messages and parse them using JSONPath. JSONPath allows you to specify where in the JSON the value resides that you want to use. The following examples will always return the value `100`.
+The MQTT switch and sensor platforms support processing JSON over MQTT messages and parsing them using JSONPath. JSONPath allows you to specify where in the JSON the value resides that you want to use. The following examples will always return the value `100`.
 
 | JSONPath query | JSON |
 | -------------- | ---- |

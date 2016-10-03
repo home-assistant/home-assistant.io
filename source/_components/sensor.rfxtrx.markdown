@@ -17,6 +17,7 @@ First you have to set up your [rfxtrx hub](/components/rfxtrx/).
 The easiest way to find your sensors is to add this to your `configuration.yaml`:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   platform: rfxtrx
   automatic_add: True
@@ -32,6 +33,7 @@ Here the name is `0a52080000301004d240259` and you can verify that it works from
 Then you should update your configuration to:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   platform: rfxtrx
   devices:
@@ -42,6 +44,7 @@ sensor:
 If you want to display several data types from one sensor:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   platform: rfxtrx
   devices:

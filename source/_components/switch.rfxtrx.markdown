@@ -18,6 +18,7 @@ First you have to set up your [rfxtrx hub](/components/rfxtrx/).
 The easiest way to find your switches is to add this to your `configuration.yaml`:
 
 ```yaml
+# Example configuration.yaml entry
 switch:
   platform: rfxtrx
   automatic_add: True
@@ -34,6 +35,7 @@ Here the name is `0b11000102ef9f210010f70` and you can verify that it works from
 Then you should update your configuration to:
 
 ```yaml
+# Example configuration.yaml entry
 switch:
   platform: rfxtrx
   devices:

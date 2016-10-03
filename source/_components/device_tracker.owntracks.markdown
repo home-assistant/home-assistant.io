@@ -23,12 +23,7 @@ To integrate Owntracks in Home Assistant, add the following section to your `con
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: owntracks
-  max_gps_accuracy: 200
-  waypoints: True
-  waypoint_whitelist:
-  - jon
-  - ram
+  - platform: owntracks
 ```
 
 Configuration variables:
@@ -36,6 +31,19 @@ Configuration variables:
 - **max_gps_accuracy** (*Optional*): Sometimes Owntracks can report GPS location with a very low accuracy (few kilometers). That can trigger false zoning in your Home Assistant installation. With the parameter, you can filter these GPS reports. The number has to be in meter. For example, if you put 200 only GPS report with an accuracy under 200 will be take in account.
 - **waypoints** (*Optional*): Owntracks users can define [waypoints](http://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `True`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions. Defaults to `True`.
 - **waypoint_whitelist** (*Optional*): A list of user names (as defined for [Owntracks](https://home-assistant.io/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant. Defaults to all users who are connected to Home Assistant via Owntracks.
+
+A full sample configuration for the `owntracks` plaftfrom is shown below:
+
+```yaml
+# Example configuration.yaml entry
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200
+    waypoints: True
+    waypoint_whitelist:
+      - jon
+      - ram
+```
 
 ### {% linkable_title Using Owntracks with other device trackers %}
 Owntracks can also be used with other device trackers, such as [Nmap](/components/device_tracker.nmap_scanner/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the Owntracks entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last. The naming convention for known device list is `<username>_<device-id>` and could be set in app configuration. More details about this config can found in [device tracker](/components/device_tracker/).

@@ -28,10 +28,8 @@ To use your D-Link smart plugs in your installation, add the following to your `
 switch:
   platform: dlink
   host: IP_ADRRESS
-  name: D-Link plug
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  use_legacy_protocol: False
 ```
 
 Configuration variables:
