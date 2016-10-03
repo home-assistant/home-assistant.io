@@ -6,6 +6,7 @@ date: 2016-04-29 16:50
 sidebar: true
 comments: false
 sharing: true
+logo: logentries.png
 footer: true
 ha_category: "History"
 ---
