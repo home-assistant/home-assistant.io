@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you're running a Linux based platform, we suggest to follow the [VirtualEnv Linux instructions] to avoid having to use root.
+Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you're running a Linux-based platform, we suggest to follow the [VirtualEnv Linux instructions] to avoid having to use root.
 
 [Virtualenv Linux instructions]: /getting-started/installation-virtualenv/
 
