@@ -103,6 +103,28 @@ automation:
     entity_id: group.living_room
 ```
 
+One may also want to selectively hide an automation entity from the UI to avoid cluttering and/or exposing sensitive automations (e.g. alarm states, as any user could simply disable the automation for triggering the alarm).
+This is done via setting the `hide_entity` attribute to `True`. This attribute is optional and defaults to `False`, so not setting it explicitly to `True` will show the automation entity in the main UI.
+
+**Note: This only hides the automation entity from the main UI but not from the developer tools panel**
+
+```yaml
+# Example configuration.yaml entry
+- alias: Door alarm
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.contact_door
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: 'armed_away'
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.alarm
+```
+
 ### {% linkable_title Learn more %}
 
  - [Triggers]
