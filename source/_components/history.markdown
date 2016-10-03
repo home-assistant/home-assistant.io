@@ -18,8 +18,33 @@ The `history` component will track everything that is going on within Home Assis
 To enable the history option in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry without any filters
 history:
+
+# Example configuration.yaml entry with exclude
+history:
+  exclude:
+    domains:
+      - automation
+      - sun
+      - weblink
+      - group
+      - updater
+    entities:
+      - sensor.last_boot
+      - sensor.date
+
+# Example configuration.yaml entry with include and exclude
+history:
+  include:
+    domains:
+      - sensor
+      - switch
+      - media_player
+  exclude:
+    entities:
+     - sensor.last_boot
+     - sensor.date
 ```
 
 <p class='img'>
@@ -31,6 +56,21 @@ history:
 <p class='note'>
 Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser. No data is transferred to anyone at any time.
 </p>
+
+
+Configuration variables:
+
+- **exclude** (*Optional*): Configure which components should **not** be displayed. 
+- **include** (*Optional*): Configure which components should be displayed. 
+- **entities** (*Optional*): The list of entity ids to be included/excluded from the history.
+- **domains** (*Optional*): The list of domains to be included/excluded from the history.
+
+Without any `include` or `exclude` configuration the history displays graphs for every entity (well that's not exactly true - for instance `hidden` entities or `scenes` are never shown) on a given date. If you are only interested in some of the entities you several options:
+
+- define domains and entities to `exclude` (aka. blacklist) 
+- define domains and entities to display by using the `include` configuration (aka. whitelist).
+- use the `include` list to define the domains/entities to display, and exclude some of them with in the `exclude` list. This makes sense if you for instance include the sensor domain, but want to exclude some specific sensor like in the example above. 
+
 
 #### {% linkable_title Implementation details %}
 
