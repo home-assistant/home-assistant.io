@@ -43,7 +43,7 @@ http:
 ```
 
 <p class='note warning'>
-If you are planing to expose your Home Assistant instance to the internet and don't set a password then your installation could be accessed by everybody.
+If you are planning to expose your Home Assistant instance to the internet and don't set a password then your installation could be accessed by everybody.
 </p>
 
 See the [HTTP component documentation](/components/http/) for more options like HTTPS encryption.
