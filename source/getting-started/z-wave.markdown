@@ -65,8 +65,8 @@ zwave:
 
 Configuration variables:
 
-- **usb_path** (*Required*): The port where your device is connected to your Home Assistant host.
-- **config_path** (*Optional*): The path to the Python OpenZWave configuration files, eg. `/usr/local/share/python-openzwave/config`.
+- **usb_path** (*Optional*): The port where your device is connected to your Home Assistant host.
+- **config_path** (*Optional*): The path to the Python OpenZWave configuration files. Defaults to the folder `config` in your Python OpenZWave install directory.
 - **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **customize** (*Optional*): This attribute contains node-specific override values:
