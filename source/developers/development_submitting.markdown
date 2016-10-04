@@ -13,7 +13,7 @@ Submit your improvements, fixes, and new features to Home Assistant one at a tim
 
  1. From your fork, create a new branch to hold your changes:
  
-    `git checkout -b some-feature`
+      `git checkout -b some-feature`
     
  2. Make your changes, create a [new platform](/developers/add_new_platform/), develop a [new component](/developers/creating_components/), or fix [issues](https://github.com/home-assistant/home-assistant/issues).
  
@@ -25,7 +25,7 @@ Submit your improvements, fixes, and new features to Home Assistant one at a tim
     
     `git commit -m "Added some-feature"`
     
-   * Consider adding tests to ensure that your code works.
+     * Consider adding tests to ensure that your code works.
    
  5. Push your committed changes back to your fork on GitHub:
  
