@@ -13,7 +13,7 @@ ha_release: 0.14
 ---
 
 
-This platform allows you to detect presence by looking at connected devices to a [Ubiquiti](http://ubnt.com/) [Unifi](https://www.ubnt.com/enterprise/#unifi) controller.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](http://ubnt.com/) [Unifi](https://www.ubnt.com/enterprise/#unifi) controller.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -32,8 +32,8 @@ Configuration variables:
 
 - **host** (*Optional*): The hostname or IP address of your controller. Defaults to localhost.
 - **port** (*Optional*): The port of your controller's web interface. Defaults to 8443.
-- **username** (*Required*: The username of an user with administrative privileges, usually *admin*.
-- **password** (*Required*): The password for your given admin account.
+- **username** (*Required*): The username of an user with administrative privileges, usually *admin*.
+- **password** (*Required*): The password for your admin account.
 - **site_id** (*Optional*): Allows you to specify a site_id for device tracking. Defaults to "default". Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard)
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
