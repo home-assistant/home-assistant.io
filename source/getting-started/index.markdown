@@ -13,7 +13,7 @@ Below you can find the standard instructions. See the sidebar for installation i
 
 [Virtualenv Linux instructions]: /getting-started/installation-virtualenv/
 
-Installing and running Home Assistant on your local machine is easy. Make sure you have [Python 3.4 or higher](https://www.python.org/downloads/) installed and execute the following code in a console:
+Installing and running Home Assistant on your local machine is easy. Make sure you have [Python 3.4 or higher](https://www.python.org/downloads/) and [PIP](https://docs.python.org/3/installing/) installed and execute the following code in a console:
 
 ```bash
 $ pip3 install homeassistant
