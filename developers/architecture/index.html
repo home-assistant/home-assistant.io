@@ -89,7 +89,9 @@
   <hr class="divider">
   
 
-  <p>Before we dive into the Home Assistant architecture, it is important to get a clear overview of the home automation landscape as a whole. This will allow us to show how the different parts of Home Assistant fit in the picture. For a more lengthy discussion about what each part in this overview is responsible for, <a href="/blog/2014/12/26/home-control-home-automation-and-the-smart-home/">check out our blog</a>. A tl;dr version of the blog:</p>
+  <p>Before we dive into the Home Assistant architecture, let’s get a clear overview of the home automation landscape as a whole. This way, we can show how the different parts of Home Assistant fit into the picture.</p>
+
+<p>For more information about each part in this overview, <a href="/blog/2014/12/26/home-control-home-automation-and-the-smart-home/">check out our blog</a>. Here’s the tl;dr version of the blog:</p>
 
 <ul>
   <li>Home Control is responsible for collecting information and controlling devices.</li>
@@ -101,16 +103,16 @@
   <a href="/images/architecture/home_automation_landscape.png" name="landscape">
     <img alt="Home Automation landscape" src="/images/architecture/home_automation_landscape.png" />
   </a>
-  Overview of the home automation landscape.
+  Overview of the home automation landscape
 </p>
 
-<p>The Home Assistant core is responsible for Home Control. It has four parts to make this possible:</p>
+<p>The Home Assistant core is responsible for Home Control. Home Assistant has four parts to make this possible:</p>
 
 <ul>
-  <li>The <strong>Event Bus</strong> facilitates the firing and listening of events. This is the beating heart of Home Assistant.</li>
-  <li>The <strong>State Machine</strong> keeps track of the states of things. It fires a <code class="highlighter-rouge">state_changed</code> event when a state has been changed.</li>
-  <li>The <strong>Service Registry</strong> listens on the event bus for <code class="highlighter-rouge">call_service</code> events and allows other code to register services.</li>
-  <li>The <strong>Timer</strong> will send a <code class="highlighter-rouge">time_changed</code> event every 1 second on the event bus.</li>
+  <li><strong>Event Bus</strong>: facilitates the firing and listening of events–the beating heart of Home Assistant.</li>
+  <li><strong>State Machine</strong>: keeps track of the states of things and fires a <code class="highlighter-rouge">state_changed</code> event when a state has been changed.</li>
+  <li><strong>Service Registry</strong>: listens on the event bus for <code class="highlighter-rouge">call_service</code> events and allows other code to register services.</li>
+  <li><strong>Timer</strong>: sends a <code class="highlighter-rouge">time_changed</code> event every 1 second on the event bus.</li>
 </ul>
 
 <p class="img">
