@@ -9,26 +9,27 @@ sharing: true
 footer: true
 ---
 
-You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.
-Visit the [the Home Assistant repository](https://github.com/home-assistant/home-assistant) first and click fork in the top right.
+You'll need to set up a development environment if you want to develop a new feature or component for Home Assistant. Read on to learn how to set up.
 
-We suggest that you setup a virtual environment using [`venv`](https://docs.python.org/3.4/library/venv.html) before running the setup script.
+1. Visit the [the Home Assistant repository](https://github.com/home-assistant/home-assistant) and click "fork."
 
-```bash
-$ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
-$ cd home-assistant
-$ git remote add upstream https://github.com/home-assistant/home-assistant.git
-$ script/setup
-```
-On Windows you can use `python setup.py develop` instead of the setup script.
+  * Consider setting up a virtual environment using [`venv`](https://docs.python.org/3.4/library/venv.html) before running the setup script.
 
-After following these steps, running `hass` will invoke your local installation.
+  ```bash
+  $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
+  $ cd home-assistant
+  $ git remote add upstream https://github.com/home-assistant/home-assistant.git
+  $ script/setup
+  ```
+  * On Windows, you can use `python setup.py develop` instead of the setup script.
+
+2. Run `hass` to invoke your local installation.
 
 ### Developing on Windows 
-If you are using Windows as a development platform ensure you have the correct Microsoft Visual C++ build tools installed. Please check [the Windows Compilers](https://wiki.python.org/moin/WindowsCompilers) section on the [Python website](https://www.python.org/) for details. Validation using `tox` will fail if this is not done correctly. 
+If you are using Windows as a development platform, make sure that you have the correct Microsoft Visual C++ build tools installed. Check the [Windows Compilers](https://wiki.python.org/moin/WindowsCompilers) section on the [Python website](https://www.python.org/) for details. Validation using `tox` will fail if this is not done correctly. 
 
-Ensure you install or upgrade the Setuptools Python package. It contains compatibility improvements and adds automatic use of compilers: 
-```bash
-pip install --upgrade setuptools
-```
+Also, make sure to install or upgrade the `Setuptools` Python package -- it contains compatibility improvements and adds automatic use of compilers: 
+  ```bash
+  pip install --upgrade setuptools
+  ```
 
