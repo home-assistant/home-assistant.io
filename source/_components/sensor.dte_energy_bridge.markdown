@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: dte.png
 ha_category: Energy
 ha_release: 0.21
 ha_iot_class: "Local Polling"

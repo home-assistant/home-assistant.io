@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: battery.png
 ha_category: System Monitor
 ha_release: 0.28
 ha_iot_class: "Local Polling"
