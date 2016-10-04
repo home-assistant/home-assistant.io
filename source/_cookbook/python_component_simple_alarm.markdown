@@ -43,11 +43,11 @@ DOMAIN = "simple_alarm"
 
 DEPENDENCIES = ['group', 'device_tracker', 'light']
 
-# Attribute to tell which light has to flash whem a known person comes home
+# Attribute to tell which light has to flash when a known person comes home
 # If omitted will flash all.
 CONF_KNOWN_LIGHT = "known_light"
 
-# Attribute to tell which light has to flash whem an unknown person comes home
+# Attribute to tell which light has to flash when an unknown person comes home
 # If omitted will flash all.
 CONF_UNKNOWN_LIGHT = "unknown_light"
 
