@@ -51,3 +51,4 @@ automation:
       target: 'YOUR_TARGET_HERE' #See Pushbullet component for usage
       message: "Home Assistant {{ states.updater.updater.state }} is now available."
 ```
+
