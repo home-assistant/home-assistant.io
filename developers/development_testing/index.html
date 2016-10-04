@@ -89,31 +89,31 @@
   <hr class="divider">
   
 
-  <p>Home Assistant enforces strict <a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style</a> compliance on all code submitted. Every Pull Request is automatically tested with <a href="https://coveralls.io/github/home-assistant/home-assistant">Coveralls</a> and <a href="https://travis-ci.org/home-assistant/home-assistant">Travis CI</a> after it is created.</p>
+  <p>Home Assistant enforces strict <a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style</a> compliance on all code submitted. We automatically test every pull request with <a href="https://coveralls.io/github/home-assistant/home-assistant">Coveralls</a> and <a href="https://travis-ci.org/home-assistant/home-assistant">Travis CI</a>.</p>
 
 <h3><a class="title-link" name="local-testing" href="#local-testing"></a> Local testing</h3>
 
-<p>It’s highly recommended to run <code class="highlighter-rouge">tox</code> before you create your Pull Request to avoid annoying fixes. Local testing requires <code class="highlighter-rouge">tox</code> to be installed.</p>
+<p><strong>Important:</strong> Run tox before you create your pull request to avoid annoying fixes. Local testing requires installing tox.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install tox
 </code></pre>
 </div>
 
-<p>Start the test of your code with <code class="highlighter-rouge">tox</code>.</p>
+<p>Start your code test with <code class="highlighter-rouge">tox</code>.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>tox
 </code></pre>
 </div>
 
-<p>This will run unit tests against python 3.4 and 3.5 (if both are available locally), as well as run a set of tests which validate <code class="highlighter-rouge">pep8</code> and <code class="highlighter-rouge">pylint</code> style of the code.</p>
+<p>This will run unit tests against Python 3.4 and 3.5 (if both are available locally), as well as tests that validate <code class="highlighter-rouge">pep8</code> and <code class="highlighter-rouge">pylint</code> style.</p>
 
 <h4><a class="title-link" name="testing-tips" href="#testing-tips"></a> Testing Tips</h4>
 
-<p>You can optionally run tests on only one tox target using the <code class="highlighter-rouge">-e</code> option to select an environment. For instance <code class="highlighter-rouge">tox -e lint</code> will run the linters only, <code class="highlighter-rouge">tox -e py34</code> will run unit tests only on python 3.4.</p>
+<p>You can run tests on only one tox target – just use <code class="highlighter-rouge">-e</code> to select an environment. For example, <code class="highlighter-rouge">tox -e lint</code> runs the linters only, and <code class="highlighter-rouge">tox -e py34</code> runs unit tests only on Python 3.4.</p>
 
-<p>Tox uses virtual environments under the hood to create isolated testing environments. The Tox virtual environments will get out date when requirements change causing test errors. Run <code class="highlighter-rouge">tox -r</code> to create new Tox virtual environments.</p>
+<p>tox uses virtual environments under the hood to create isolated testing environments. The tox virtual environments will get out-of-date when requirements change, causing test errors. Run <code class="highlighter-rouge">tox -r</code> to create new tox virtual environments.</p>
 
-<p>During development on a specific file, it can speed up your workflow to just run tests and linting related to the file that you’re working on. To run individual files:</p>
+<p>During development on a specific file, speed up your workflow by running tests and linting only for the file that you’re working on. To run individual files:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>flake8 homeassistant/core.py
 <span class="gp">$ </span>pylint homeassistant/core.py
@@ -121,27 +121,26 @@
 </code></pre>
 </div>
 
-<p>You also run linting tests against all changed files, as reported by <code class="highlighter-rouge">git diff upstream/dev --name-only</code> using the <code class="highlighter-rouge">lint</code> script:</p>
+<p>You can also run linting tests against all changed files, as reported by <code class="highlighter-rouge">git diff upstream/dev --name-only</code>, using the <code class="highlighter-rouge">lint</code> script:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">home-assistant$ </span>script/lint --changed
 </code></pre>
 </div>
 
-<h3><a class="title-link" name="prevent-linter-errors" href="#prevent-linter-errors"></a> Prevent Linter Errors</h3>
+<h3><a class="title-link" name="preventing-linter-errors" href="#preventing-linter-errors"></a> Preventing Linter Errors</h3>
 
-<p>You can save yourself the hassle of extra commits just to fix style errors by enabling the flake8 git commit hook. It will check your code when you attempt to commit to the repository. It will block the commit if there are any style issues, giving you a chance to fix it.</p>
+<p>Save yourself the hassle of extra commits just to fix style errors by enabling the Flake8 git commit hook. Flake8 will check your code when you try to commit to the repository and block the commit if there are any style errors, which gives you a chance to fix them!</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install flake8 flake8-docstrings
 <span class="gp">$ </span>flake8 --install-hook<span class="o">=</span>git
 </code></pre>
 </div>
 
-<p>The flake8-docstrings extension will check docstrings according to <a href="https://www.python.org/dev/peps/pep-0257/">PEP257</a> when running flake8.</p>
+<p>The <code class="highlighter-rouge">flake8-docstrings</code> extension will check docstrings according to <a href="https://www.python.org/dev/peps/pep-0257/">PEP257</a> when running Flake8.</p>
 
 <h3><a class="title-link" name="notes-on-pylint-and-pep8-validation" href="#notes-on-pylint-and-pep8-validation"></a> Notes on PyLint and PEP8 validation</h3>
 
-<p>In case a PyLint warning cannot be avoided, add a comment to disable the PyLint check for that line. This can be done using the format <code class="highlighter-rouge"># pylint: disable=YOUR-ERROR-NAME</code>. Example of an unavoidable PyLint warning is if you do not use the passed in datetime if you’re listening for time change.</p>
-
+<p>If you can’t avoid a PyLint warning, add a comment to disable the PyLint check for that line with <code class="highlighter-rouge"># pylint: disable=YOUR-ERROR-NAME</code>. An example of an unavoidable PyLint warning is not using the passed-in datetime if you’re listening for a time change.</p>
 
 
 </article>

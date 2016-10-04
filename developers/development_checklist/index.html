@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Checklist - Home Assistant</title>
+    <title>Development Checklist - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Overview of the requirements for an improvment for Home Assistant.">
+    <meta name="description" content="Overview of the requirements for an improvement for Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/development_checklist/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Checklist">
+    <meta property="og:title" content="Development Checklist">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/developers/development_checklist/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Overview of the requirements for an improvment for Home Assistant.">
+    <meta property="og:description" content="Overview of the requirements for an improvement for Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Checklist">
-    <meta name="twitter:description" content="Overview of the requirements for an improvment for Home Assistant.">
+    <meta name="twitter:title" content="Development Checklist">
+    <meta name="twitter:description" content="Overview of the requirements for an improvement for Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,19 +83,23 @@
   
   <header>
     <h1 class="title indent">
-      Checklist
+      Development Checklist
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>After you finish your work:</p>
+  <p>Before you commit any changes, check your work against these requirements:</p>
 
 <ul>
-  <li>Check that all dependencies are included via the <code class="highlighter-rouge">REQUIREMENTS</code> variable in your platform/component and only imported inside functions that use them.</li>
-  <li>Add any new dependencies to <code class="highlighter-rouge">requirements_all.txt</code> if needed. Use <code class="highlighter-rouge">script/gen_requirements_all.py</code>.</li>
-  <li>Update the <code class="highlighter-rouge">.coveragerc</code> file to exclude your platform if there are no tests available or your new code uses a 3rd party library for communication with the device/service/sensor.</li>
-  <li>Provide some documentation for <a href="https://home-assistant.io/">home-assistant.io</a>. It’s OK to just add a docstring with configuration details (sample entry for <code class="highlighter-rouge">configuration.yaml</code> file and alike) to the file header as a start. Visit the <a href="/developers/website/">website documentation</a> for further information on contributing to <a href="https://github.com/home-assistant/home-assistant.github.io">home-assistant.io</a>.</li>
+  <li>All dependencies are included via the <code class="highlighter-rouge">REQUIREMENTS</code> variable in your platform or component and only imported inside functions that use them</li>
+  <li>New dependencies are added to <code class="highlighter-rouge">requirements_all.txt</code> (if applicable), using <code class="highlighter-rouge">script/gen_requirements_all.py</code></li>
+  <li>The <code class="highlighter-rouge">.coveragerc</code> file is updated to exclude your platform if there are no tests available or your new code uses a third-party library for communication with the device, service, or sensor</li>
+  <li>Documentation is developed for <a href="https://home-assistant.io/">home-assistant.io</a>
+    <ul>
+      <li>It’s OK to start with adding a docstring with configuration details (for example, sample entry for <code class="highlighter-rouge">configuration.yaml</code> file) to the file header. Visit the <a href="/developers/website/">website documentation</a> for more information about contributing to <a href="https://github.com/home-assistant/home-assistant.github.io">home-assistant.io</a>.</li>
+    </ul>
+  </li>
 </ul>
 
 
