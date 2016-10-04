@@ -89,11 +89,11 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">configuration.yaml</code> file contains the configuration options for components and platforms. To ensure that the given configuration provided by the user is valid we use <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> to check it. Certain entries are optional or could be required for the setup of a platform or a component. Others must be of a definied type or out of an already defined list.</p>
+  <p>The <code class="highlighter-rouge">configuration.yaml</code> file contains the configuration options for components and platforms. We use <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> to make sure that the configuration provided by the user is valid. Some entries are optional or could be required to set up a platform or a component. Others must be a defined type or from an already-defined list.</p>
 
-<p>The goal of testing the configuration is to assure that users have a great experience due to notifications if something is wrong with a platform or component setup before Home Assistant is running.</p>
+<p>We test the configuration to ensure that users have a great experience and minimize notifications if something is wrong with a platform or component setup before Home Assistant runs.</p>
 
-<p>Beside the <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> default types are a bunch of custom types available. To get a full overview take a look at the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/config_validation.py">config_validation.py</a> helper.</p>
+<p>Besides <a href="https://pypi.python.org/pypi/voluptuous">voluptuous</a> default types, many custom types are available. For an overview, take a look at the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/config_validation.py">config_validation.py</a> helper.</p>
 
 <ul>
   <li>Types: <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">byte</code>, and <code class="highlighter-rouge">boolean</code></li>
@@ -103,23 +103,23 @@
   <li>Misc: <code class="highlighter-rouge">template</code>, <code class="highlighter-rouge">slug</code>, <code class="highlighter-rouge">temperature_unit</code>, <code class="highlighter-rouge">latitude</code>, <code class="highlighter-rouge">longitude</code>, <code class="highlighter-rouge">isfile</code>, <code class="highlighter-rouge">sun_event</code>, <code class="highlighter-rouge">ensure_list</code>, <code class="highlighter-rouge">port</code>, <code class="highlighter-rouge">url</code>,  and <code class="highlighter-rouge">icon</code></li>
 </ul>
 
-<p>To validate plaforms using <a href="/components/mqtt/">MQTT</a> there are <code class="highlighter-rouge">valid_subscribe_topic</code> and <code class="highlighter-rouge">valid_publish_topic</code> present.</p>
+<p>To validate plaforms using <a href="/components/mqtt/">MQTT</a>, <code class="highlighter-rouge">valid_subscribe_topic</code> and <code class="highlighter-rouge">valid_publish_topic</code> are available.</p>
 
 <p>Some things to keep in mind:</p>
 
 <ul>
-  <li>Use the constants which are definded in <code class="highlighter-rouge">const.py</code>.</li>
-  <li>Import <code class="highlighter-rouge">PLATFORM_SCHEMA</code> from parent component and extend it.</li>
-  <li>Preferred order is <code class="highlighter-rouge">required</code> first, then <code class="highlighter-rouge">optional</code>.</li>
+  <li>Use the constants defined in <code class="highlighter-rouge">const.py</code></li>
+  <li>Import <code class="highlighter-rouge">PLATFORM_SCHEMA</code> from the parent component and extend it</li>
+  <li>Preferred order is <code class="highlighter-rouge">required</code> first and <code class="highlighter-rouge">optional</code> second</li>
 </ul>
 
 <h3><a class="title-link" name="snippets" href="#snippets"></a> Snippets</h3>
 
-<p>This section contains a couple of snippets for the validation we use.</p>
+<p>This section contains snippets for the validation we use.</p>
 
-<h3><a class="title-link" name="default-name" href="#default-name"></a> Default name</h3>
+<h4><a class="title-link" name="default-name" href="#default-name"></a> Default name</h4>
 
-<p>It’s common to set a default for a sensor if the user is not providing a name to use.</p>
+<p>It’s common to set a default for a sensor if the user doesn’t provide a name to use.</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DEFAULT_NAME</span> <span class="o">=</span> <span class="s">'Sensor name'</span>
 
@@ -129,9 +129,9 @@
 </code></pre>
 </div>
 
-<h3><a class="title-link" name="limit-the-values" href="#limit-the-values"></a> Limit the values</h3>
+<h4><a class="title-link" name="limit-the-values" href="#limit-the-values"></a> Limit the values</h4>
 
-<p>In certain cases you want to limit the user’s input to a couple of options.</p>
+<p>You might want to limit the user’s input to a couple of options.</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DEFAULT_METHOD</span> <span class="o">=</span> <span class="s">'GET'</span>
 
@@ -141,9 +141,9 @@
 </code></pre>
 </div>
 
-<h3><a class="title-link" name="port" href="#port"></a> Port</h3>
+<h4><a class="title-link" name="port" href="#port"></a> Port</h4>
 
-<p>As all port numbers are coming out of the range 1 till 65535.</p>
+<p>All port numbers are from a range of 1 to 65535.</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DEFAULT_PORT</span> <span class="o">=</span> <span class="mi">993</span>
 
@@ -153,9 +153,9 @@
 </code></pre>
 </div>
 
-<h3><a class="title-link" name="lists" href="#lists"></a> Lists</h3>
+<h4><a class="title-link" name="lists" href="#lists"></a> Lists</h4>
 
-<p>If a sensor has a pre-defined list of available options it should be tested if the configuration entry matches it.</p>
+<p>If a sensor has a pre-defined list of available options, test to make sure the configuration entry matches the list.</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">SENSOR_TYPES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'article_cache'</span><span class="p">:</span> <span class="p">(</span><span class="s">'Article Cache'</span><span class="p">,</span> <span class="s">'MB'</span><span class="p">),</span>
@@ -168,7 +168,6 @@
         <span class="n">vol</span><span class="o">.</span><span class="n">All</span><span class="p">(</span><span class="n">ensure_list</span><span class="p">,</span> <span class="p">[</span><span class="n">vol</span><span class="o">.</span><span class="n">In</span><span class="p">(</span><span class="n">SENSOR_TYPES</span><span class="p">)]),</span>
 </code></pre>
 </div>
-
 
 
 </article>
