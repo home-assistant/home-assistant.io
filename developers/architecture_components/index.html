@@ -89,30 +89,28 @@
   <hr class="divider">
   
 
-  <p>Home Assistant can be extended by <strong>components</strong>. Each component is responsible for a specific domain within Home Assistant. Components can listen for or trigger events, offer services and maintain states. Components are written in Python and can do all the goodness that Python has to offer. Out of the box, Home Assistant offers a bunch of <a href="/components/">built-in components</a>.</p>
+  <p>Home Assistant can be extended with <strong>components</strong>. Each component is responsible for a specific domain within Home Assistant. Components can listen for or trigger events, offer services, and maintain states. Components are written in Python and can do all the goodness that Python has to offer. Out of the box, Home Assistant offers a bunch of <a href="/components/">built-in components</a>.</p>
 
 <p class="img">
 <img src="/images/architecture/component_interaction.png" alt="Diagram showing interaction between components and the Home Assistant core." />
-Diagram showing interaction between components and the Home Assistant core.
+Diagram showing interaction between components and the Home Assistant core
 </p>
 
-<p>We can differentiate between two different types of components within Home Assistant.</p>
+<p>There are two types of components within Home Assistant: components that interact with an Internet-of-Things domain, and components that respond to events that happen within Home Assistant. Read on to learn about each type!</p>
 
-<h4><a class="title-link" name="components-that-interact-with-an-internet-of-things-domain" href="#components-that-interact-with-an-internet-of-things-domain"></a> Components that interact with an Internet of Things domain</h4>
+<h4><a class="title-link" name="components-that-interact-with-an-internet-of-things-domain" href="#components-that-interact-with-an-internet-of-things-domain"></a> Components that interact with an Internet-of-Things domain</h4>
 
-<p>These components will track devices within a specific domain and consist of a core part and platform-specific logic. These components make their information available via the State Machine and the Event Bus. The component will also register services in the Service Registry to expose control of the devices.</p>
+<p>These components track devices within a specific domain and consist of a core part and platform-specific logic. These components make their information available via the State Machine and the Event Bus. The components also register services in the Service Registry to expose control of the devices.</p>
 
-<p>For example, one of the built-in components is the <a href="/components/switch/"><code class="highlighter-rouge">switch</code> component</a>. This component is responsible for interaction with different types of switches.</p>
+<p>For example, the built-in <a href="/components/switch/"><code class="highlighter-rouge">switch</code> component</a> is responsible for interaction with different types of switches. A platform provides support for a particular kind or brand of device. For example, a switch could use a WeMo or Orvibo platform, and a light component might interact with the Hue or LiFX platform.</p>
 
-<p>A platform provides support for a particular kind/brand of device. For example, a switch could use a WeMo or Orvibo platform, and a light component might interact with the Hue or LiFX platform.</p>
-
-<p>If you are planning to add support for a new platform, please check out the <a href="/developers/add_new_platform/">add new platform section</a>.</p>
+<p>If you want to add support for a new platform, check out the <a href="/developers/add_new_platform/">add new platform section</a>.</p>
 
 <h4><a class="title-link" name="components-that-respond-to-events-that-happen-within-home-assistant" href="#components-that-respond-to-events-that-happen-within-home-assistant"></a> Components that respond to events that happen within Home Assistant</h4>
 
 <p>These components provide small pieces of home automation logic or services that do common tasks within your house.</p>
 
-<p>For example the <a href="/components/device_sun_light_trigger/"><code class="highlighter-rouge">device_sun_light_trigger</code> component</a> tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and there are people home. The component uses logic along the following lines:</p>
+<p>For example, the <a href="/components/device_sun_light_trigger/"><code class="highlighter-rouge">device_sun_light_trigger</code> component</a> tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and people are home. The component uses logic like this:</p>
 
 <pre><code class="language-plain">    In the event that device 'Paulus Nexus 5' changes to the 'Home' state:
       If the sun has set and the lights are not on:
@@ -129,20 +127,20 @@ Diagram showing interaction between components and the Home Assistant core.
         Turn on the lights
 </code></pre>
 
-<p>An extended example of a home automation component can be found <a href="https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py">here</a>.</p>
+<p>Look <a href="https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py">here</a> for an extended example of a home automation component.</p>
 
 <h3><a class="title-link" name="the-full-picture" href="#the-full-picture"></a> The full picture</h3>
 
-<p>When we put all the different pieces of Home Assistant together we see that we match pretty close to the initial sketched home automation overview. The smart home AI is not implemented yet and therefore omitted from the following picture.</p>
+<p>When we put all the different pieces of Home Assistant together, it’s a close match for the initial home automation overview sketch. The smart home AI is not implemented yet, so it’s not included in this picture.</p>
 
 <p class="img">
   <a href="/images/architecture/ha_full_architecture.png">
     <img src="/images/architecture/ha_full_architecture.png" />
   </a>
-  Overview of the full Home Assistant architecture with a couple of loaded components and platforms.
+  Overview of the full Home Assistant architecture with a couple of loaded components and platforms
 </p>
 
-<p>The platform logic for components uses 3rd party Python libraries to communicate with the devices. This is done so that we can leverage great device libraries that are out there in the Python community.</p>
+<p>The platform logic for components uses third-party Python libraries to communicate with the devices so we can leverage the great device libraries in the Python community.</p>
 
 
 </article>

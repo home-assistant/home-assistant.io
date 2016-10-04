@@ -89,28 +89,37 @@
   <hr class="divider">
   
 
-  <p>You will need to set up a development environment if you want to start developing a new feature or component for Home Assistant. Please follow these steps to get setup.
-Visit the <a href="https://github.com/home-assistant/home-assistant">the Home Assistant repository</a> first and click fork in the top right.</p>
+  <p>You’ll need to set up a development environment if you want to develop a new feature or component for Home Assistant. Read on to learn how to set up.</p>
 
-<p>We suggest that you setup a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a> before running the setup script.</p>
+<ol>
+  <li>Visit the <a href="https://github.com/home-assistant/home-assistant">the Home Assistant repository</a> and click “fork.”</li>
+</ol>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
-<span class="gp">$ </span><span class="nb">cd </span>home-assistant
-<span class="gp">$ </span>git remote add upstream https://github.com/home-assistant/home-assistant.git
-<span class="gp">$ </span>script/setup
-</code></pre>
-</div>
-<p>On Windows you can use <code class="highlighter-rouge">python setup.py develop</code> instead of the setup script.</p>
+<ul>
+  <li>Consider setting up a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a> before running the setup script.</li>
+</ul>
 
-<p>After following these steps, running <code class="highlighter-rouge">hass</code> will invoke your local installation.</p>
+<p><code class="highlighter-rouge">bash
+  $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
+  $ cd home-assistant
+  $ git remote add upstream https://github.com/home-assistant/home-assistant.git
+  $ script/setup
+ </code></p>
+<ul>
+  <li>On Windows, you can use <code class="highlighter-rouge">python setup.py develop</code> instead of the setup script.</li>
+</ul>
+
+<ol>
+  <li>Run <code class="highlighter-rouge">hass</code> to invoke your local installation.</li>
+</ol>
 
 <h3>Developing on Windows</h3>
-<p>If you are using Windows as a development platform ensure you have the correct Microsoft Visual C++ build tools installed. Please check <a href="https://wiki.python.org/moin/WindowsCompilers">the Windows Compilers</a> section on the <a href="https://www.python.org/">Python website</a> for details. Validation using <code class="highlighter-rouge">tox</code> will fail if this is not done correctly.</p>
+<p>If you are using Windows as a development platform, make sure that you have the correct Microsoft Visual C++ build tools installed. Check the <a href="https://wiki.python.org/moin/WindowsCompilers">Windows Compilers</a> section on the <a href="https://www.python.org/">Python website</a> for details. Validation using <code class="highlighter-rouge">tox</code> will fail if this is not done correctly.</p>
 
-<p>Ensure you install or upgrade the Setuptools Python package. It contains compatibility improvements and adds automatic use of compilers:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip install --upgrade setuptools
-</code></pre>
-</div>
+<p>Also, make sure to install or upgrade the <code class="highlighter-rouge">Setuptools</code> Python package – it contains compatibility improvements and adds automatic use of compilers: 
+  <code class="highlighter-rouge">bash
+  pip install --upgrade setuptools
+ </code></p>
 
 
 
