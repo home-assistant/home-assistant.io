@@ -14,7 +14,7 @@ ha_release: "0.30"
 ---
 
 
-The `statistics` sensor platform is consuming the state from other sensors. Beside the maximal and the minimal value also the total, the mean, the median, the variance, and the standard deviation are as attributes availalble. If it's a binary sensor then only the state changes are counted.
+The `statistics` sensor platform is consuming the state from other sensors. Beside the maximal and the minimal value also the total, the mean, the median, the variance, and the standard deviation are as attributes available. If it's a binary sensor then only the state changes are counted.
 
 To enable the statistics sensor, add the following lines to your `configuration.yaml`:
 
