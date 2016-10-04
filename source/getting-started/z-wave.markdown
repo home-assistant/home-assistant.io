@@ -118,6 +118,11 @@ Uncomment the line:
 
 You can replace these values with your own 16 byte network key. For more information on this process see the [OpenZwave](https://github.com/OpenZWave/open-zwave) wiki article [Adding Security Devices to OZW](https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW)
 
+An easy script to generate a random key:
+```bash
+cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g'
+```
+
 ### {% linkable_title Events %}
 
 #### {% linkable_title zwave.network_complete %}
