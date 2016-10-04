@@ -33,12 +33,12 @@ Configuration variables:
 - **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
 - **protocol** (*Optional*): The protocol (`ssh` or `telnet`) to use. Defaults to `ssh`.
 - **mode** (*Optional*): The operating mode of the router (`router` or `ap`). Defaults to `router`.
-- **username** (*Required*: The username of an user with administrative privileges, usually *admin*.
-- **password** (*Optional*): The password for your given admin account (use this if no SSH key is given).
+- **username** (*Required*): The username of an user with administrative privileges, usually *admin*.
+- **password** (*Optional*): The password for your admin account (use this if no SSH key is given).
 - **ssh_key** (*Optional*): The path to your SSH private key file associated with your given admin account (instead of password).
 
 <p class='note warning'>
-You need to enable telnet on your router if you choose to use `protocol: telnet`. 
+You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`. 
 </p>
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

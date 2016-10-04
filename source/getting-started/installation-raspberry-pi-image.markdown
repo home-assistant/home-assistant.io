@@ -21,7 +21,7 @@ The easiest way to install Home Assistant on your Raspberry Pi is by using Hassb
 
 These instructions are also available as a [video](https://www.youtube.com/watch?v=iIz6XqDwHEk).
 
-Home Assistant will now be available by navigating with a browser to `http://ip-address-of-pi:8123`. The default username is `pi` and password is `raspberry` (please change this by running `passwd`)
+Home Assistant will now be available by navigating with a browser to `http://ip-address-of-pi:8123`. The default username is `pi` and password is `raspberry` (please change this by running `passwd`). The Home Assistant configuration is located at `/home/homeassistant/.homeassistant/`.
 
 The following extras are included on the image:
 
