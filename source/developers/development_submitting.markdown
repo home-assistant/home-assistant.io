@@ -11,7 +11,7 @@ footer: true
 
 Improvements, fixes, and new features to Home Assistant should be submitted one feature at a time using GitHub [Pull Requests](https://help.github.com/articles/using-pull-requests).
 
- 1. From your fork, create a new branch to hold your changes
+ 1. From your fork's dev branch, create a new branch to hold your changes
     `git checkout -b some-feature`
  2. Make the changes you want, create a [new platform](/developers/add_new_platform/), develop a [new component](/developers/creating_components/), or fix [issues](https://github.com/home-assistant/home-assistant/issues).
  3. [Test your changes](/developers/development_testing/) and check for style violations
