@@ -51,6 +51,11 @@ With this installation, your `config_path` needed below will resemble:
 /usr/local/lib/python3.4/dist-packages/libopenzwave-0.3.0b8-py3.4-linux-x86_64.egg/config
 ```
 
+If you followed along with setting up a virtual environment, your path will be:
+```bash
+/srv/hass/python-openzwave/openzwave/config
+```
+
 
 ### {% linkable_title Configuration %}
 
