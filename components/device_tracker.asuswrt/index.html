@@ -110,13 +110,13 @@
   <li><strong>host</strong> (<em>Required</em>): The IP address of your router, eg. 192.168.1.1.</li>
   <li><strong>protocol</strong> (<em>Optional</em>): The protocol (<code class="highlighter-rouge">ssh</code> or <code class="highlighter-rouge">telnet</code>) to use. Defaults to <code class="highlighter-rouge">ssh</code>.</li>
   <li><strong>mode</strong> (<em>Optional</em>): The operating mode of the router (<code class="highlighter-rouge">router</code> or <code class="highlighter-rouge">ap</code>). Defaults to <code class="highlighter-rouge">router</code>.</li>
-  <li><strong>username</strong> (<em>Required</em>: The username of an user with administrative privileges, usually <em>admin</em>.</li>
-  <li><strong>password</strong> (<em>Optional</em>): The password for your given admin account (use this if no SSH key is given).</li>
+  <li><strong>username</strong> (<em>Required</em>): The username of an user with administrative privileges, usually <em>admin</em>.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The password for your admin account (use this if no SSH key is given).</li>
   <li><strong>ssh_key</strong> (<em>Optional</em>): The path to your SSH private key file associated with your given admin account (instead of password).</li>
 </ul>
 
 <p class="note warning">
-You need to enable telnet on your router if you choose to use <code class="highlighter-rouge">protocol: telnet</code>. 
+You need to <a href="https://www.asus.com/support/faq/1005449/">enable telnet</a> on your router if you choose to use <code class="highlighter-rouge">protocol: telnet</code>. 
 </p>
 
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
