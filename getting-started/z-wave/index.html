@@ -202,6 +202,11 @@ Depending on what’s plugged into your USB ports, the name found above may chan
 
 <p>You can replace these values with your own 16 byte network key. For more information on this process see the <a href="https://github.com/OpenZWave/open-zwave">OpenZwave</a> wiki article <a href="https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW">Adding Security Devices to OZW</a></p>
 
+<p>An easy script to generate a random key:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'0-9A-F'</span> | fold -w 32 | head -n 1 | sed -e <span class="s1">'s/\(..\)/0x\1, /g'</span>
+</code></pre>
+</div>
+
 <h3><a class="title-link" name="events" href="#events"></a> Events</h3>
 
 <h4><a class="title-link" name="zwavenetwork_complete" href="#zwavenetwork_complete"></a> zwave.network_complete</h4>
