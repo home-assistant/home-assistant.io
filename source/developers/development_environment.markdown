@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Setup Development Environment"
-description: "Setup your environment to start developing for Home Assistant."
+title: "Set up Development Environment"
+description: "Set up your environment to start developing for Home Assistant."
 date: 2014-12-21 13:32
 sidebar: true
 comments: false
@@ -13,15 +13,15 @@ You'll need to set up a development environment if you want to develop a new fea
 
 1. Visit the [the Home Assistant repository](https://github.com/home-assistant/home-assistant) and click "fork."
 
-  * Consider setting up a virtual environment using [`venv`](https://docs.python.org/3.4/library/venv.html) before running the setup script.
+   * Consider setting up a virtual environment using [`venv`](https://docs.python.org/3.4/library/venv.html) before running the setup script.
 
-  ```bash
-  $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
-  $ cd home-assistant
-  $ git remote add upstream https://github.com/home-assistant/home-assistant.git
-  $ script/setup
-  ```
-  * On Windows, you can use `python setup.py develop` instead of the setup script.
+    ```bash
+    $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
+    $ cd home-assistant
+    $ git remote add upstream https://github.com/home-assistant/home-assistant.git
+    $ script/setup
+    ```
+   * On Windows, you can use `python setup.py develop` instead of the setup script.
 
 2. Run `hass` to invoke your local installation.
 
