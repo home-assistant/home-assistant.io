@@ -98,7 +98,7 @@
   <li>The <code class="highlighter-rouge">chat_id</code> of an user.</li>
 </ul>
 
-<p>The quickest way to retrieve your <code class="highlighter-rouge">chat_id</code> is visiting <a href="https://api.telegram.org/botYOUR_API_TOKEN/getUpdates">https://api.telegram.org/botYOUR_API_TOKEN/getUpdates</a>.</p>
+<p>The quickest way to retrieve your <code class="highlighter-rouge">chat_id</code> is visiting <a href="https://api.telegram.org/botYOUR_API_TOKEN/getUpdates">https://api.telegram.org/botYOUR_API_TOKEN/getUpdates</a> or to use <code class="highlighter-rouge">$ curl -X GET https://api.telegram.org/botYOUR_API_TOKEN/getUpdates</code>. Replace <code class="highlighter-rouge">YOUR_API_TOKEN</code> with your actual token.</p>
 
 <p>The result set will include your chat ID as <code class="highlighter-rouge">id</code> in the <code class="highlighter-rouge">from</code> section:</p>
 
@@ -107,12 +107,13 @@
 </span></code></pre>
 </div>
 
-<p>Another way to get your chat ID directly is described below:</p>
+<p>Another way to get your chat ID directly is described below. Start your Python interpreter from the command-line:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">telegram</span>
-<span class="n">bot</span> <span class="o">=</span> <span class="n">telegram</span><span class="o">.</span><span class="n">Bot</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s">'YOUR_API_TOKEN'</span><span class="p">)</span>
-<span class="n">chat_id</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">getUpdates</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat_id</span>
-<span class="k">print</span><span class="p">(</span><span class="n">chat_id</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">telegram</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bot</span> <span class="o">=</span> <span class="n">telegram</span><span class="o">.</span><span class="n">Bot</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s">'YOUR_API_TOKEN'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">chat_id</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">getUpdates</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat_id</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">chat_id</span><span class="p">)</span>
 <span class="mi">123456789</span>
 </code></pre>
 </div>
