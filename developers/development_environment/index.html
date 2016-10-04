@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Setup Development Environment - Home Assistant</title>
+    <title>Set up Development Environment - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Setup your environment to start developing for Home Assistant.">
+    <meta name="description" content="Set up your environment to start developing for Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/development_environment/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Setup Development Environment">
+    <meta property="og:title" content="Set up Development Environment">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/developers/development_environment/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Setup your environment to start developing for Home Assistant.">
+    <meta property="og:description" content="Set up your environment to start developing for Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Setup Development Environment">
-    <meta name="twitter:description" content="Setup your environment to start developing for Home Assistant.">
+    <meta name="twitter:title" content="Set up Development Environment">
+    <meta name="twitter:description" content="Set up your environment to start developing for Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,7 +83,7 @@
   
   <header>
     <h1 class="title indent">
-      Setup Development Environment
+      Set Up Development Environment
     </h1>
   </header>
   <hr class="divider">
@@ -92,25 +92,26 @@
   <p>You’ll need to set up a development environment if you want to develop a new feature or component for Home Assistant. Read on to learn how to set up.</p>
 
 <ol>
-  <li>Visit the <a href="https://github.com/home-assistant/home-assistant">the Home Assistant repository</a> and click “fork.”</li>
-</ol>
+  <li>
+    <p>Visit the <a href="https://github.com/home-assistant/home-assistant">the Home Assistant repository</a> and click “fork.”</p>
 
-<ul>
-  <li>Consider setting up a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a> before running the setup script.</li>
-</ul>
+    <ul>
+      <li>Consider setting up a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a> before running the setup script.</li>
+    </ul>
 
-<p><code class="highlighter-rouge">bash
-  $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
-  $ cd home-assistant
-  $ git remote add upstream https://github.com/home-assistant/home-assistant.git
-  $ script/setup
- </code></p>
-<ul>
-  <li>On Windows, you can use <code class="highlighter-rouge">python setup.py develop</code> instead of the setup script.</li>
-</ul>
-
-<ol>
-  <li>Run <code class="highlighter-rouge">hass</code> to invoke your local installation.</li>
+    <p><code class="highlighter-rouge">bash
+ $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
+ $ cd home-assistant
+ $ git remote add upstream https://github.com/home-assistant/home-assistant.git
+ $ script/setup
+</code></p>
+    <ul>
+      <li>On Windows, you can use <code class="highlighter-rouge">python setup.py develop</code> instead of the setup script.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Run <code class="highlighter-rouge">hass</code> to invoke your local installation.</p>
+  </li>
 </ol>
 
 <h3>Developing on Windows</h3>
