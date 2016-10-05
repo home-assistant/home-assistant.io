@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-04T22:23:40+00:00</updated>
+  <updated>2016-10-05T04:29:47+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -99,10 +99,14 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 
  - Fix Climate Nest platform (@tchellomello, @jawilson)
 
-### <a class='title-link' name='hotfix-0295---october-1' href='#hotfix-0295---october-1'></a> Hotfix 0.29.5 - October 1 
+### <a class='title-link' name='hotfix-0296---october-1' href='#hotfix-0296---october-1'></a> Hotfix 0.29.6 - October 1 
 
  - Fix segmentation fault ([@bbangert], fixes #3453) 🎉
  - Fix nested templates in `data_template` would incorrectly get cached ([@balloob])
+
+### <a class='title-link' name='hotfix-0297---october-5' href='#hotfix-0297---october-5'></a> Hotfix 0.29.7 - October 5 
+
+ - Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) ([@pvizeli])
 
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
