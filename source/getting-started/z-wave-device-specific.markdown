@@ -36,7 +36,7 @@ Example entry in dev-service, setting binary report for Aeotec multisensor 6:
 These devices require a network key to be set for the Z-Wave network before they are paired. This key is set in OpenZwave's `options.xml` which is located in OpenZWave's directory. This should also be the same directory as `config_path:` in your `configuration.yaml`. If it's not, make sure you have the same values in all the files you are using.
 The option is commented out by default in `options.xml` and is a default key. Make your own unique key. The key is in Hexadecimals.
 It is best to pair these devices in OpenZWave Control Panel or other Z-wave tool that can show you logs while pairing. Home Assistant show logs from zwave too and it is `OZW.log` in the Home Assistant config directory. 
-You should see communication from the node with lines starting with `info: NONCES` in `OZW.log` when the device is paired secure successfully. If you use Open Zwave Control Panel to Pair, test the device before you save the configuration.
+You should see communication from the node with lines starting with `info: NONCES` in `OZW.log` when the device is paired secure successfully. If you use Open Zwave Control Panel to pair, test the device before you save the configuration.
 Make sure you copy the newly saved `zwcfg_[home_id].xml`into your Home Assistant configuration directory.
 
 
