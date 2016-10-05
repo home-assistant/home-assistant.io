@@ -109,16 +109,36 @@
       <li>Select System &gt; About &gt; Network.</li>
     </ul>
   </li>
-  <li><code class="highlighter-rouge">pip install firetv[firetv-server]</code> into a Python 2.x environment
+  <li>The following commands must be run in a Python 2.x environment. They will allow the component to function in an Ubuntu 16.04/Hassbian enviorment.
     <ul>
-      <li>If installed on Debian Jessie then the libssl-dev and python-dev packages are needed. Install them with <code class="highlighter-rouge">apt-get install libssl-dev python-dev</code></li>
+      <li><code class="highlighter-rouge">apt-get install swig libssl-dev python-dev libusb-1.0-0</code></li>
+      <li><code class="highlighter-rouge">pip install flask</code></li>
+      <li><code class="highlighter-rouge">pip install https://pypi.python.org/packages/source/M/M2Crypto/M2Crypto-0.24.0.tar.gz</code></li>
+      <li><code class="highlighter-rouge">pip install firetv[firetv-server]</code></li>
     </ul>
   </li>
   <li><code class="highlighter-rouge">firetv-server -d &lt;fire tv device IP&gt;:5555</code>, background the process</li>
+  <li>Navigate to http://localhost:5556/devices/list
+    <ul>
+      <li>You will get an output similar to below:
+        <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"devices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nt">"default"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.153:5555"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"play"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li>The <code class="highlighter-rouge">"default"</code> above is the device name you will need to use for your <code class="highlighter-rouge">configuration.yaml</code></li>
   <li>Configure Home Assistant as follows:</li>
 </ul>
 
-<p>To add FireTV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To add FireTV to your installation, Note your device name, and add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
