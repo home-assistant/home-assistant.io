@@ -19,8 +19,8 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: rest
-  resource: http://IP_ADDRESS/ENDPOINT
+  - platform: rest
+    resource: http://IP_ADDRESS/ENDPOINT
 ```
 
 or for a POST request:
@@ -28,10 +28,10 @@ or for a POST request:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: rest
-  resource: http://IP_ADDRESS/ENDPOINT
-  method: POST
-  payload: '{ "device" : "heater" }'
+  - platform: rest
+    resource: http://IP_ADDRESS/ENDPOINT
+    method: POST
+    payload: '{ "device" : "heater" }'
 ```
 
 Configuration variables:
@@ -70,6 +70,7 @@ You can find your external IP address using the service [JSON Test](http://www.j
 To display the IP address, the entry for a sensor in the `configuration.yaml` file will look like this.
 
 ```yaml
+sensor:
   - platform: rest
     resource: http://ip.jsontest.com
     name: External IP
@@ -83,6 +84,7 @@ The [glances](/components/sensor.glances/) sensor is doing the exact same thing 
 Add something similar to the entry below to your `configuration.yaml` file:
 
 ```yaml
+sensor:
   - platform: rest
     resource: http://IP_ADRRESS:61208/api/2/mem/used
     name: Used mem
@@ -95,6 +97,7 @@ Add something similar to the entry below to your `configuration.yaml` file:
 The Home Assistant [API](/developers/rest_api/) exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
 
 ```yaml
+sensor:
   - platform: rest
     resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature
     name: Temperature
@@ -106,6 +109,7 @@ The Home Assistant [API](/developers/rest_api/) exposes the data from your attac
 The REST sensor supports HTTP authentication and customized headers.
 
 ```yaml
+sensor:
   - platform: rest
     resource: http://IP_ADDRESS:5000/sensor
     username: ha1
@@ -125,5 +129,23 @@ Authorization: Basic aGExOnRlc3Qx
 Accept-Encoding: identity
 Content-Type: application/json
 User-Agent: Home Assistant
+```
+
+### {% linkable_title Use GitHub to get the latest release of Home Assistant %}
+
+This sample is very similar to the [`updater`](/components/updater/) component but the information are recieved from GitHub.
+
+```yaml
+sensor:
+  - platform: rest
+    resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
+    username: YOUR_GITHUB_USERNAME
+    password: YOUR_GITHUB_ACCESS_TOKEN
+    authentication: basic
+    value_template: '{% raw %}{{ value_json.tag_name }}{% endraw %}'
+    headers:
+      Accept: application/vnd.github.v3+json
+      Content-Type: application/json
+      User-Agent: Home Assistant REST sensor
 ```
 
