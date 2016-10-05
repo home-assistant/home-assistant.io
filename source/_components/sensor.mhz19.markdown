@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: mhz19.jpg
 ha_category: Sensor
 ha_release: 0.27
 ---
