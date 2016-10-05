@@ -141,10 +141,12 @@
     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus, device_tracker.anne_therese</span>
     <span class="c1"># Optional </span>
-    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">xy'</span>
-    <span class="c1"># or (don't use that with condition: use_trigger_values)</span>
     <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
     <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+
+    <span class="c1"># Alias for 'to'</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+
     <span class="c1"># If given, will trigger when state has been the to state for X time.</span>
     <span class="s">for</span><span class="pi">:</span>
       <span class="s">hours</span><span class="pi">:</span> <span class="s">1</span>
