@@ -92,3 +92,7 @@ $ ffmpeg -i YOUR_INPUT -an -filter:v select=gt(scene\,0.1) -f framemd5 -
 ```
 
 If you are running into trouble with this sensor, please refer to the [troubleshooting section](/components/ffmpeg/#troubleshooting).
+
+#### {% linkable_title Tipps %}
+
+- Use motion only in a customer area with [crop filter](https://ffmpeg.org/ffmpeg-filters.html#crop): ```extra_arguments: -filter:v "crop=100:100:12:34"```
