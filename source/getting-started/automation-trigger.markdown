@@ -62,10 +62,12 @@ automation:
     platform: state
     entity_id: device_tracker.paulus, device_tracker.anne_therese
     # Optional 
-    state: 'xy'
-    # or (don't use that with condition: use_trigger_values)
     from: 'not_home'
     to: 'home'
+
+    # Alias for 'to'
+    state: 'home'
+
     # If given, will trigger when state has been the to state for X time.
     for:
       hours: 1
