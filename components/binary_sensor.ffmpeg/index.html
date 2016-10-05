@@ -172,6 +172,12 @@ If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sens
 
 <p>If you are running into trouble with this sensor, please refer to the <a href="/components/ffmpeg/#troubleshooting">troubleshooting section</a>.</p>
 
+<h4><a class="title-link" name="tipps" href="#tipps"></a> Tipps</h4>
+
+<ul>
+  <li>Use motion only in a customer area with <a href="https://ffmpeg.org/ffmpeg-filters.html#crop">crop filter</a>: <code class="highlighter-rouge">extra_arguments: -filter:v "crop=100:100:12:34"</code></li>
+</ul>
+
 
 </article>
 
