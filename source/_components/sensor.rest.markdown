@@ -110,7 +110,7 @@ The REST sensor supports HTTP authentication and customized headers.
     resource: http://IP_ADDRESS:5000/sensor
     username: ha1
     password: test1
-    authetication: basic
+    authentication: basic
     headers:
       User-agent: Home Assistant
       Content-Type: application/json
