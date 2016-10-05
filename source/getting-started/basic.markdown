@@ -56,11 +56,11 @@ Home Assistant runs as a self-hosted web application and contains support to be 
 
 To make Home Assistant accessible while away from home, you will have to make it accessible.
 
-The common approach is to setup port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching `<Router model> port forwarding instructions`.
+The most common approach is to set up port forwarding from your router to port 8123 on the computer that is hosting Home Assistant. Instructions on how to do this can be found by searching `<Router model> port forwarding instructions`.
 
 The problem with making a port accessible is that some Internet service providers will only offer dynamic IPs. This can cause you to be unable to access Home Assistant while away. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).
 
-Just putting a port up is not secure. You should definitely consider encrypting your traffic if you are accessing your Home Assistant installation from abroad. For details please check the [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post.
+Just putting a port up is not secure. You should definitely consider encrypting your traffic if you are accessing your Home Assistant installation remotely. For details please check the [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post.
 
 If you want the very best security, check out [the instructions how to use Tor to access your home](/cookbook/tor_configuration/).
 
