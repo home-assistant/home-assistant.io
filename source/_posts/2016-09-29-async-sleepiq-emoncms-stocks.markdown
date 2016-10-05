@@ -96,6 +96,10 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
  - Fix segmentation fault ([@bbangert], fixes #3453) 🎉
  - Fix nested templates in `data_template` would incorrectly get cached ([@balloob])
 
+### {% linkable_title Hotfix 0.29.7 - October 5 %}
+
+ - Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) ([@pvizeli])
+
 ### {% linkable_title Breaking changes %}
 
  - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.

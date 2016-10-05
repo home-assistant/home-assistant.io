@@ -54,6 +54,11 @@ With this installation, your `config_path` needed below will resemble:
 /usr/local/lib/python3.4/dist-packages/libopenzwave-0.3.0b8-py3.4-linux-x86_64.egg/config
 ```
 
+If you followed along with setting up a virtual environment, your path will be:
+```bash
+/srv/hass/python-openzwave/openzwave/config
+```
+
 
 ### {% linkable_title Configuration %}
 
@@ -115,6 +120,11 @@ Uncomment the line:
 ```
 
 You can replace these values with your own 16 byte network key. For more information on this process see the [OpenZwave](https://github.com/OpenZWave/open-zwave) wiki article [Adding Security Devices to OZW](https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW)
+
+An easy script to generate a random key:
+```bash
+cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g'
+```
 
 ### {% linkable_title Events %}
 

@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation in Python Examples
 ---
 
-This example component will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notifiy component](/components/notify/). It will also flash a specific light when a known person comes home.
+This example component will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notify component](/components/notify/). It will also flash a specific light when a known person comes home.
 
 This component depends on the components [device_tracker](/components/device_tracker/) and [light](/components/light/) being setup.
 
@@ -43,11 +43,11 @@ DOMAIN = "simple_alarm"
 
 DEPENDENCIES = ['group', 'device_tracker', 'light']
 
-# Attribute to tell which light has to flash whem a known person comes home
+# Attribute to tell which light has to flash when a known person comes home
 # If omitted will flash all.
 CONF_KNOWN_LIGHT = "known_light"
 
-# Attribute to tell which light has to flash whem an unknown person comes home
+# Attribute to tell which light has to flash when an unknown person comes home
 # If omitted will flash all.
 CONF_UNKNOWN_LIGHT = "unknown_light"
 

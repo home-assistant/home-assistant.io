@@ -34,7 +34,7 @@ The second line is the condition part of the automation rule. Conditions are opt
 The third part is the action which will be performed when a rule is triggered and all conditions are met.For example, it can turn a light on, set the temperature on your thermostat or activate a scene.
 
 <p class='note'>
-The difference between a condition and a trigger can be confusing as they are very similar. Triggers are  looking at the actions while conditions look at the result: turning a light on vs a light being on.
+The difference between a condition and a trigger can be confusing as they are very similar. Triggers look at the actions, while conditions look at the results: turning a light on vs a light being on.
 </p>
 
 ### {% linkable_title Exploring the internal state %}

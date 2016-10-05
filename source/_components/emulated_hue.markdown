@@ -41,7 +41,7 @@ Configuration variables:
   - `script`
   - `scene`
 
-- **expose_by_default** (*Optional*): Whether or not entities should be exposed via the bridge by default instead of explicitly (see the 'echo' attribute later on). If not specified, this defaults to true.
+- **expose_by_default** (*Optional*): Whether or not entities should be exposed via the bridge by default instead of explicitly (see the 'emulated_hue' customization below). If not specified, this defaults to true.
 
 - **exposed_domains** (*Optional*): The domains that are exposed by default if `expose_by_default` is set to true. If not specified, this defaults to the following list:
   - `switch`

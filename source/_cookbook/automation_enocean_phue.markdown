@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-Assume that you have an enocean wall switch and some Philips Hue lamps. The enocean wall swtich will fire the event button_pressed and pass along several parameters which is used to turn on/off the lamps.
+Assume that you have an enocean wall switch and some Philips Hue lamps. The enocean wall switch will fire the event button_pressed and pass along several parameters which is used to turn on/off the lamps.
 
 event_data:
 

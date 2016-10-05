@@ -21,30 +21,30 @@ A Universal Media Player is created in `configuration.yaml` as follows.
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: universal
-  name: MEDIA_PLAYER_NAME
-  children:
-    - media_player.CHILD_1_ID
-    - media_player.CHILD_2_ID
-  commands:
-    turn_on:
-       service: SERVICE
-       data: SERVICE_DATA
-    turn_off:
-       service: SERVICE
-       data: SERVICE_DATA
-    volume_up:
-       service: SERVICE
-       data: SERVICE_DATA
-    volume_down:
-       service: SERVICE
-       data: SERVICE_DATA
-    volume_mute:
-       service: SERVICE
-       data: SERVICE_DATA
-  attributes:
-    is_volume_muted: ENTITY_ID|ATTRIBUTE
-    state: ENTITY_ID|ATTRIBUTE
+  - platform: universal
+    name: MEDIA_PLAYER_NAME
+    children:
+      - media_player.CHILD_1_ID
+      - media_player.CHILD_2_ID
+    commands:
+      turn_on:
+        service: SERVICE
+        data: SERVICE_DATA
+      turn_off:
+        service: SERVICE
+        data: SERVICE_DATA
+      volume_up:
+        service: SERVICE
+        data: SERVICE_DATA
+      volume_down:
+        service: SERVICE
+        data: SERVICE_DATA
+      volume_mute:
+        service: SERVICE
+        data: SERVICE_DATA
+    attributes:
+      is_volume_muted: ENTITY_ID|ATTRIBUTE
+      state: ENTITY_ID|ATTRIBUTE
 ```
 
 Configuration variables:
