@@ -27,13 +27,28 @@ Steps to configure your Amazon Fire TV stick with Home Assistant:
 - Find Amazon Fire TV device IP:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
-- `pip install firetv[firetv-server]` into a Python 2.x environment
-  - If installed on Debian Jessie then the libssl-dev and python-dev packages are needed. Install them with `apt-get install libssl-dev python-dev`
+- The following commands must be run in a Python 2.x environment. They will allow the component to function in an Ubuntu 16.04/Hassbian enviorment.
+  - `apt-get install swig libssl-dev python-dev libusb-1.0-0`
+  - `pip install flask`
+  - `pip install https://pypi.python.org/packages/source/M/M2Crypto/M2Crypto-0.24.0.tar.gz`
+  - `pip install firetv[firetv-server]`
 - `firetv-server -d <fire tv device IP>:5555`, background the process
+- Navigate to http://localhost:5556/devices/list
+  - You will get an output similar to below:
+```json
+{
+  "devices": {
+    "default": {
+      "host": "192.168.1.153:5555", 
+      "state": "play"
+    }
+  }
+}
+```
+- The `"default"` above is the device name you will need to use for your `configuration.yaml` 
 - Configure Home Assistant as follows:
 
-
-To add FireTV to your installation, add the following to your `configuration.yaml` file:
+To add FireTV to your installation, Note your device name, and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
