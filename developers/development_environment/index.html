@@ -91,36 +91,40 @@
 
   <p>You’ll need to set up a development environment if you want to develop a new feature or component for Home Assistant. Read on to learn how to set up.</p>
 
-<ol>
+<ul>
   <li>
-    <p>Visit the <a href="https://github.com/home-assistant/home-assistant">the Home Assistant repository</a> and click “fork.”</p>
+    <p>Visit the <a href="https://github.com/home-assistant/home-assistant">Home Assistant repository</a> and click <strong>Fork</strong>.</p>
+  </li>
+  <li>
+    <p>Consider setting up a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a> before running the setup script.</p>
+  </li>
+</ul>
 
-    <ul>
-      <li>Consider setting up a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a> before running the setup script.</li>
-    </ul>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
+<span class="gp">$ </span><span class="nb">cd </span>home-assistant
+<span class="gp">$ </span>git remote add upstream https://github.com/home-assistant/home-assistant.git
+<span class="gp">$ </span>script/setup
+</code></pre>
+</div>
 
-    <p><code class="highlighter-rouge">bash
- $ git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
- $ cd home-assistant
- $ git remote add upstream https://github.com/home-assistant/home-assistant.git
- $ script/setup
-</code></p>
-    <ul>
-      <li>On Windows, you can use <code class="highlighter-rouge">python setup.py develop</code> instead of the setup script.</li>
-    </ul>
+<ul>
+  <li>
+    <p>On Windows, you can use <code class="highlighter-rouge">python setup.py develop</code> instead of the setup script.</p>
   </li>
   <li>
     <p>Run <code class="highlighter-rouge">hass</code> to invoke your local installation.</p>
   </li>
-</ol>
+</ul>
 
-<h3>Developing on Windows</h3>
+<h3><a class="title-link" name="developing-on-windows" href="#developing-on-windows"></a> Developing on Windows</h3>
+
 <p>If you are using Windows as a development platform, make sure that you have the correct Microsoft Visual C++ build tools installed. Check the <a href="https://wiki.python.org/moin/WindowsCompilers">Windows Compilers</a> section on the <a href="https://www.python.org/">Python website</a> for details. Validation using <code class="highlighter-rouge">tox</code> will fail if this is not done correctly.</p>
 
-<p>Also, make sure to install or upgrade the <code class="highlighter-rouge">Setuptools</code> Python package – it contains compatibility improvements and adds automatic use of compilers: 
-  <code class="highlighter-rouge">bash
-  pip install --upgrade setuptools
- </code></p>
+<p>Also, make sure to install or upgrade the <code class="highlighter-rouge">setuptools</code> Python package. It contains compatibility improvements and adds automatic use of compilers:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip install --upgrade setuptools
+</code></pre>
+</div>
 
 
 
