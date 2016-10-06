@@ -34,7 +34,7 @@ Configuration variables:
 
 ### {% linkable_title Getting ready for Chrome %}
 
-Google has [a handy guide](https://developers.google.com/web/fundamentals/getting-started/push-notifications/step-04) that goes into great detail about how to set up for pushing to Chrome. Once you have your GCM API Key and Sender ID in hand, plug them into your configuration as described above.
+Google has [a handy guide](https://developers.google.com/web/fundamentals/getting-started/codelabs/push-notifications/#make_a_project_on_the_google_developer_console) that goes into great detail about how to set up for pushing to Chrome. Once you have your GCM API Key and Sender ID in hand, plug them into your configuration as described above.
 
 ### {% linkable_title Requirements %}
 
