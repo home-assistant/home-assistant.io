@@ -103,6 +103,6 @@ script:
         state: 'on'
       - service: notify.pushover
         data_template:
-          title: "{{ title }}"
-          message: "{{ message }}"
+          title: "{% raw %}{{ title }}{% endraw %}"
+          message: "{% raw %}{{ message }}{% endraw %}"
 ```
