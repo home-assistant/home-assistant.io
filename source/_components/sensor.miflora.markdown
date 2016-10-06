@@ -39,6 +39,9 @@ sensor
   3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes.
   If you never have problems with spikes, median=1 will work fine. 
 - **monitored_conditions** (*Required*): The paramaters that should be monitored.
+- **timeout** (*Optional*): Define the timeout value in seconds when polling (defaults to 10 if not defined)
+- **retries** (*Optional*): Define the number of retries when polling (defaults to 2 if not defined)
+- **cache** (*Optional*): Define cache expiration value in seconds (defaults to 1200 if not defined)
 
 Note that by default the sensor is only polled once every 15 minutes. This means with the median=3 setting, it will take as least 30 minutes before the sensor will report a value after a Home Assistant restart. As the values usually change very slowly, this isn't a big problem. 
 Reducing polling intervals will have a negative effect on the battery life.

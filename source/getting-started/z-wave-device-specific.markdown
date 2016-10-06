@@ -11,15 +11,32 @@ footer: true
 
 ##### {% linkable_title Motion or alarm sensors %}
 
-In order for Home Assistant to recognize well the sensor, you will need to change its configuration from `Basic Set (default)` to `Binary Sensor report` or `Alarm report`. Currently there's no way to do this in Home Assistant but you can use ozwcp (OpenZWave control panel), Domoticz or similar to do it.
+In order for Home Assistant to recognize well the sensor, you will need to change its configuration from `Basic Set (default)` to `Binary Sensor report` or `Alarm report`.
 These devices will either show as a binary sensor or a sensor called `Alarm xxxx` and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.
 
+As of version 0.30 you can set the settings of a Z-Wave device through the dev_service page of Home Assistant with the service: `zwave/set_config_parameter`.
+
+The following parameters can be entered:
+- **entity_id** (*Required*): The entity_id of the device that you are going to set a parameter to. Any entity_id of the node can be used.
+- **parameter** (*Required*): The index number of the parameter to be set. Refer to device manual or zwcfg_[home_id].xml
+- **value** (*Required*): The value to set the parameter to. Refer to device manual or zwcfg_[home_id].xml
+- **size** (*Optional*): The size of the value. It is normally not needed to specify this parameter, but in some cases it's needed. Check OZW.log for details on this.
+You should check OZW.log to see if setting has been set
+Example entry in dev-service, setting binary report for Aeotec multisensor 6:
+```yaml
+# Example entry in dev-service
+{"entity_id": "sensor.aetoec_multisensor_6_luminance_5",
+"parameter": "5",
+"value": "2"
+}
+```
 
 ##### {% linkable_title Locks and other secure devices %}
 
 These devices require a network key to be set for the Z-Wave network before they are paired. This key is set in OpenZwave's `options.xml` which is located in OpenZWave's directory. This should also be the same directory as `config_path:` in your `configuration.yaml`. If it's not, make sure you have the same values in all the files you are using.
 The option is commented out by default in `options.xml` and is a default key. Make your own unique key. The key is in Hexadecimals.
-It is best to pair these devices in OpenZWave Control Panel or other Z-wave tool that can show you logs while pairing. Test the device before you save the configuration.
+It is best to pair these devices in OpenZWave Control Panel or other Z-wave tool that can show you logs while pairing. Home Assistant show logs from zwave too and it is `OZW.log` in the Home Assistant config directory. 
+You should see communication from the node with lines starting with `info: NONCES` in `OZW.log` when the device is paired secure successfully. If you use Open Zwave Control Panel to pair, test the device before you save the configuration.
 Make sure you copy the newly saved `zwcfg_[home_id].xml`into your Home Assistant configuration directory.
 
 

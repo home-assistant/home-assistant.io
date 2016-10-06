@@ -15,7 +15,7 @@ ha_release: pre 0.7
 
 The `pushetta` notify platform uses [Pushetta](http://www.pushetta.com) to delivery notifications from Home Assistant to your devices.
 
-To retrieve the API token, log into your account at (http://www.pushetta.com)[http://www.pushetta.com] and go to your **Dashboard**. Create a new  channel by clicking on **Channels** and then **Add a Channel**.
+To retrieve the API token, log into your account at [http://www.pushetta.com](http://www.pushetta.com) and go to your **Dashboard**. Create a new  channel by clicking on **Channels** and then **Add a Channel**.
 
 To enable Pushetta notifications in your installation, add the following to your `configuration.yaml` file:
 

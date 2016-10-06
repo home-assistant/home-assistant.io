@@ -8,10 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: forecast.png
-ha_category: Weather
-featured: true
+ha_category: Deprecated
+featured: False
 ha_release: pre 0.7
 ---
+
+<p class='note warning'>
+**This platform has been deprecated in favor of the "[dark_sky](/components/sensor.dark_sky/)" platform and will be removed in the future. Please use the "dark_sky" platform.**
+</p>
 
 The `forecast` platform uses the [Forecast.io](https://forecast.io/) web service as a source of meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
 
@@ -84,5 +88,17 @@ Configuration variables:
   - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let forecast.io decide the unit system based on location.
+- **update_inverval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
+  - `update_interval: 'HH:MM:SS'`
+  - `update_interval: 'HH:MM'`
+  - Time period dictionary, e.g.:
+ <pre>update_interval:
+        # At least one of these must be specified:
+        days: 0
+        hours: 0
+        minutes: 3
+        seconds: 30
+        milliseconds: 0
+    </pre>
 
 Details about the API are available in the [Forecast.io documentation](https://developer.forecast.io/docs/v2).

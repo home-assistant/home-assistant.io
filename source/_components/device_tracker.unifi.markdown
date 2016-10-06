@@ -13,7 +13,7 @@ ha_release: 0.14
 ---
 
 
-This platform allows you to detect presence by looking at connected devices to a [Ubiquiti](http://ubnt.com/) [Unifi](https://www.ubnt.com/enterprise/#unifi) controller.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](http://ubnt.com/) [Unifi](https://www.ubnt.com/enterprise/#unifi) controller.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 

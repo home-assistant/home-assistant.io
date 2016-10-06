@@ -15,7 +15,7 @@ By default, all of your devices will be visible and have a default icon determin
 # Example configuration.yaml entry
 homeassistant:
   name: Home
-  unit_system: celsius
+  unit_system: metric
   # etc
 
   customize:
