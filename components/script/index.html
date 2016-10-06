@@ -128,23 +128,60 @@
 </code></pre>
 </div>
 
-<h3><a class="title-link" name="passing-parameters-in-service-calls" href="#passing-parameters-in-service-calls"></a> Passing parameters in service calls</h3>
+<h3><a class="title-link" name="passing-variables-to-scripts" href="#passing-variables-to-scripts"></a> Passing variables to scripts</h3>
 
-<p>As part of the service, parameters can be passed in that will be made available to the script as variables within templates.</p>
+<p>As part of the service, variables can be passed along to a script so they become available within templates in that script.</p>
 
-<p>There are two ways to activate scripts. One is using the generic <code class="highlighter-rouge">script.turn_on</code> service. To pass variables to the script with this service, call it using the following parameters:</p>
+<p>There are two ways to achieve this. One way is using the generic <code class="highlighter-rouge">script.turn_on</code> service. To pass variables to the script with this service, call it with the desired variables:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">{</span>
-  <span class="s2">"</span><span class="s">entity_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">script.wakeup"</span><span class="pi">,</span>
-  <span class="s2">"</span><span class="s">variables"</span><span class="pi">:</span> <span class="pi">{</span>
-    <span class="s2">"</span><span class="s">hello"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">world"</span><span class="pi">,</span>
-    <span class="s2">"</span><span class="s">name"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Paulus"</span>
-  <span class="pi">}</span>
-<span class="pi">}</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.bedroom</span>
+    <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.notify_pushover</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">variables</span><span class="pi">:</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">State</span><span class="nv"> </span><span class="s">change'</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">The</span><span class="nv"> </span><span class="s">light</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">on!'</span>
 </code></pre>
 </div>
 
-<p>If you are calling the script service directly, for example <code class="highlighter-rouge">script.wakeup</code>. All service data will be made available as variables.</p>
+<p>The other way is calling the script as a service directly. In this case, all service data will be made available as variables. If we apply this approach on the script above, it would look like this:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.bedroom</span>
+    <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">script.notify_pushover</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">State</span><span class="nv"> </span><span class="s">change'</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">The</span><span class="nv"> </span><span class="s">light</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">on!'</span>
+</code></pre>
+</div>
+
+<p>Using the variables in the script requires the use of <code class="highlighter-rouge">data_template</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">script</span><span class="pi">:</span>
+  <span class="s">notify_pushover</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.pushover_notifications</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.pushover</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre>
+</div>
 
 
 </article>
