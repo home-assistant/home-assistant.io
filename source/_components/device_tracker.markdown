@@ -11,7 +11,7 @@ footer: true
 
 Home Assistant can get information from your wireless router or third party services like iCloud or OwnTracks to track which devices are connected and considered "in home". Please check the sidebar for a list of  brands of supported wireless routers and services.
 
-There are also trackers available which use different technologies like [MQTT](/components/mqtt/) or [Nmap](/components/device_tracker.nmap_scanner/) to scan the network for devices.
+There are also trackers available which use different technologies like [MQTT](/components/mqtt/) or [Nmap](/components/device_tracker.nmap_tracker/) to scan the network for devices.
 
 # {% linkable_title Configuring a `device_tracker` platform %}
 
@@ -34,7 +34,7 @@ The following optional parameters can be used with any platform. However device 
 | `interval_seconds`  | 12      | Seconds between each scan for new devices                                                                                                                                                                                                                                                                                                                                                 |
 | `consider_home`     | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. |
 
-Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/) and [Nmap](/components/device_tracker.nmap_scanner/). The state of the device will be determined by the source that reported last.
+Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/) and [Nmap](/components/device_tracker.nmap_tracker/). The state of the device will be determined by the source that reported last.
 
 # {% linkable_title `known_devices.yaml` %}
 
