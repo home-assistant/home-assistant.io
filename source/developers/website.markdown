@@ -11,16 +11,16 @@ footer: true
 
 The website you are reading now is the home of Home Assistant: [https://home-assistant.io](https://home-assistant.io). This is the place where we provide documentation and additional details about Home Assistant for end users and developers.
 
-home-assistant.io is built using [Jekyll](http://github.com/mojombo/jekyll) and [those available dependencies](https://pages.github.com/versions/). The pages are written in [markdown](http://daringfireball.net/projects/markdown/); to add a page you don't need to know about HTML or the like.
+home-assistant.io is built using [Jekyll](http://github.com/mojombo/jekyll) and [these available dependencies](https://pages.github.com/versions/). The pages are written in [markdown](http://daringfireball.net/projects/markdown/). To add a page, you don't need to know about HTML.
 
-The link "**Edit this page on GitHub**" allows one to edit pages without creating a fork.
+You can use the "**Edit this page on GitHub**" link to edit pages without creating a fork.
 
-For larger changes, we suggest that you clone the website repository. This has the advantage that you can review your changes locally. The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a pull request.
+For larger changes, we suggest that you clone the website repository. This way, you can review your changes locally. The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a pull request.
 
 To test your changes locally, you need to install the **Ruby** dependencies (gems):
 
 - [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you don't have it already.
-- Install `bundler`, which is a dependency manager for Ruby: `gem install bundler`
+- Install `bundler`, a dependency manager for Ruby: `gem install bundler`
 - In your home-assistant.github.io root directory, run `bundle` to install the gems you need.
 
 Then you can work on the documentation:
