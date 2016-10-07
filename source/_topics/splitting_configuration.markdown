@@ -182,8 +182,8 @@ If you have issues checkout `home-assistant.log` in the configuration directory 
 ### {% linkable_title Debugging multiple configuration files %}
 
 If you have many configuration files, the `check_config` script allows you to see how Home Assistant interprets them:
-- Listing all loaded files: `hass --script --check_config --files`
-- Viewing a component's config: `hass --script --check_config --info light`
+- Listing all loaded files: `hass --script check_config --files`
+- Viewing a component's config: `hass --script check_config --info light`
 - Or all components' config:  `hass --script check_config --info all`
 
 You can get help from the command line using: `hass --script check_config --help`
