@@ -16,6 +16,8 @@ ha_release: "0.30"
 
 The `vasttrafik` sensor will provide you travelling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.
 
+You must create an application [here](https://developer.vasttrafik.se/portal/#/applications) to obtain a `key` and a `secret`.
+
 Add the data to your `configuration.yaml` file as shown in the example:
 
 ```yaml
@@ -34,7 +36,7 @@ sensor:
 Configuration variables:
 
 - **key** (*Required*): The API key to access your Västtrafik account.
-- **secret** (*Required*): The API key to access your Västtrafik account.
+- **secret** (*Required*): The API secret to access your Västtrafik account.
 - **departures** array (*Required*): List of travelling routes.
   - **name** (*Optional*): Name of the route.
   - **from** (*Optional*): The start station.
