@@ -13,7 +13,7 @@ ha_release: 0.29
 ha_iot_class: "Local Push"
 ---
 
-Recieve signals from a keyboard and use it as a remote control.
+Receive signals from a keyboard and use it as a remote control.
 
 This component allows to use a keyboard as remote control. It will
 fire ´keyboard_remote_command_received´ events witch can then be used
