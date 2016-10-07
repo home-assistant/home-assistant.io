@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: serial_pm.png
 ha_category: DIY
 ha_release: 0.26
 ---

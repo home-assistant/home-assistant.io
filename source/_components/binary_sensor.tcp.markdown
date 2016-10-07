@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: tcp_ip.png
 ha_category: Binary Sensor
 ha_release: 0.14
 ---

@@ -7,12 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: simplepush.png
 ha_category: Notifications
 ha_release: 0.29
 ---
 
 
-The `simplepush` platform uses [Simplepush](https://simplepush.io/) to delivery notifications from Home Assistant to your Android device.
+The `simplepush` platform uses [Simplepush](https://simplepush.io/) to delivery notifications from Home Assistant to your Android device. Unlike similar apps the Simplepush app requires no registration.
 
 To add Simplepush to your installation, add the following to your `configuration.yaml` file:
 

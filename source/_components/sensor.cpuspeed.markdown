@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: cpu.png
 ha_category: System Monitor
 ha_release: pre 0.7
 ha_iot_class: "Local Push"

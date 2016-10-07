@@ -52,20 +52,57 @@ script:
           entity_id: group.living_room
 ```
 
-### {% linkable_title Passing parameters in service calls %}
+### {% linkable_title Passing variables to scripts %}
 
-As part of the service, parameters can be passed in that will be made available to the script as variables within templates.
+As part of the service, variables can be passed along to a script so they become available within templates in that script.
 
-There are two ways to activate scripts. One is using the generic `script.turn_on` service. To pass variables to the script with this service, call it using the following parameters:
+There are two ways to achieve this. One way is using the generic `script.turn_on` service. To pass variables to the script with this service, call it with the desired variables:
 
 ```yaml
-{
-  "entity_id": "script.wakeup",
-  "variables": {
-    "hello": "world",
-    "name": "Paulus"
-  }
-}
+# Example configuration.yaml entry
+automation:
+  trigger:
+    platform: state
+    entity_id: light.bedroom
+    from: 'off'
+    to: 'on'
+  action:
+    service: script.turn_on
+    entity_id: script.notify_pushover
+    data:
+      variables:
+        title: 'State change'
+        message: 'The light is on!'
 ```
 
-If you are calling the script service directly, for example `script.wakeup`. All service data will be made available as variables.
+The other way is calling the script as a service directly. In this case, all service data will be made available as variables. If we apply this approach on the script above, it would look like this:
+
+```yaml
+# Example configuration.yaml entry
+automation:
+  trigger:
+    platform: state
+    entity_id: light.bedroom
+    from: 'off'
+    to: 'on'
+  action:
+    service: script.notify_pushover
+    data:
+      title: 'State change'
+      message: 'The light is on!'
+```
+
+Using the variables in the script requires the use of `data_template`:
+```yaml
+# Example configuration.yaml entry
+script:
+  notify_pushover:
+    sequence:
+      - condition: state
+        entity_id: switch.pushover_notifications
+        state: 'on'
+      - service: notify.pushover
+        data_template:
+          title: "{% raw %}{{ title }}{% endraw %}"
+          message: "{% raw %}{{ message }}{% endraw %}"
+```

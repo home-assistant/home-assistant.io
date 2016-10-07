@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: smtp.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
 ha_release: 0.25

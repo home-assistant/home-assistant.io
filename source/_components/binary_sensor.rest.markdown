@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: restful.png
 ha_category: Binary Sensor
 ha_release: "0.10"
 ha_iot_class: "Local Polling"
