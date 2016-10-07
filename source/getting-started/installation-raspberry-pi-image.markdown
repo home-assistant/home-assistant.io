@@ -40,7 +40,7 @@ Some extra tips:
 
 ### {% linkable_title Technical Details %}
 
- - Home Assistant is installed in a virtual Python environment at `src/homeassistant`
+ - Home Assistant is installed in a virtual Python environment at `/srv/homeassistant`
  - Home Assistant will be started as a service run by the user `homeassistant`
 
 {% comment %}
