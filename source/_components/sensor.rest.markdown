@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: restful.png
 ha_category: Sensor
 ha_release: 0.7.4
 ---
