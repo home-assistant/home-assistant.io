@@ -26,39 +26,40 @@ To add Dark Sky to your installation, add the following to your `configuration.y
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: darksky
-  api_key: YOUR_APP_KEY
-  monitored_conditions:
-    - summary
-    - icon
-    - nearest_storm_distance
-    - nearest_storm_bearing
-    - precip_type
-    - precip_intensity
-    - precip_probability
-    - temperature
-    - apparent_temperature
-    - dew_point
-    - wind_speed
-    - wind_bearing
-    - cloud_cover
-    - humidity
-    - pressure
-    - visibility
-    - ozone
-    - minutely_summary
-    - hourly_summary
-    - daily_summary
-    - temperature_max
-    - temperature_min
-    - apparent_temperature_max
-    - apparent_temperature_min
-    - precip_intensity_max
+  - platform: darksky
+    api_key: YOUR_APP_KEY
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - nearest_storm_bearing
+      - precip_type
+      - precip_intensity
+      - precip_probability
+      - temperature
+      - apparent_temperature
+      - dew_point
+      - wind_speed
+      - wind_bearing
+      - cloud_cover
+      - humidity
+      - pressure
+      - visibility
+      - ozone
+      - minutely_summary
+      - hourly_summary
+      - daily_summary
+      - temperature_max
+      - temperature_min
+      - apparent_temperature_max
+      - apparent_temperature_min
+      - precip_intensity_max
 ```
 
 Configuration variables:
 
 - **api_key** (*Required*): Your API key.
+- **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **summary**: A human-readable text summary of the current conditions.
   - **precip_type**: The type of precipitation occurring.
