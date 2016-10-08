@@ -4,7 +4,7 @@ title: "0.30: More Async, HASSbian, Digital Ocean, statistics, REST"
 description: "More asynchronous, HASSbian image, Support for Digital Ocean, statistics, Västtrafik public transport, and Hacktoberfest."
 date: 2016-10-08 03:04:05 +0000
 date_formatted: "October 08, 2016"
-author: Fabian Affolter & Paulus Schoutsen
+author: Fabian Affolter
 author_twitter: fabaff
 comments: true
 categories: Release-Notes
@@ -146,13 +146,13 @@ sensor
 [forecast]: /components/sensor.forecast/
 [forum]: https://community.home-assistant.io/
 [Hacktoberfest]: /blog/2016/10/02/hacktoberfest/
-[hassbian-forum]: https://community.home-assistant.io/c/hassbian
+[hassbian-forum]: https://community.home-assistant.io/c/installation/hassbian
 [mention-bot]: https://github.com/mention-bot
 [mysensors-cover]: /components/cover.mysensors/
 [notebook]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb
 [pi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
 [pushetta]: /components/notify.pushetta/
-[pwrctrl-switch]: /components/switch.pwrctrl/
+[pwrctrl-switch]: /components/switch.anel_pwrctrl/
 [rest-sensor]: /components/sensor.rest/
 [stats-sensor]: /components/sensor.statistics/
 [ted5000]: /components/sensor.ted5000/
