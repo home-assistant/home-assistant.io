@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: paradox.png
 ha_category: Alarm
-ha_release: 0.30
+ha_release: 0.31
 ha_iot_class: "Local Push"
 ---
 
@@ -28,7 +28,7 @@ The platforms operate independently. You therefore only have to specify the ones
 
 This is a fully event-based component. All events reported by the Paradox alarm will be sent to Home Assistant. Home Assistant will only report on the status changes of the zone and partitions/areas specified in the `configuration.yaml` file.
 
-As of version 0.30, no distinction between the different types of arming modes are made. Also zone and partition names do not support spaces yet.
+As of version 0.31, no distinction between the different types of arming modes are made. Also zone and partition names do not support spaces yet.
 
 To enable the hub a `paradox` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -39,19 +39,6 @@ paradox:
   port: /dev/ttyUSB0
   speed: 57600
 
-  zones:
-    11:
-      name: 'BackDoor'
-      type: 'opening'
-    21:
-      name: 'Lounge'
-      type: 'motion'
-
-  partitions:
-    1:
-      name: 'Home'
-    2:
-      name: 'Backyard'
 ```
 
 Configuration variables:
@@ -59,5 +46,3 @@ Configuration variables:
 - **panel_type** (*Required*): `EVO48` or `EVO192`, depending upon which model you have.
 - **port** (*Optional*): Which USB port the PRT3 is connected to. Default: `/dev/ttyUSB0`
 - **speed** (*Optional*): The baud-rate supported by the PRT3. Default: `57600`
-- **zones** (*Optional*): See [Binary Sensor](/components/binary_sensor.paradox/) for details. *Note: if no zones are specified, Home Assistant will not load any binary_sensor components.*
-- **partitions** (*Optional*): See [Alarm Control Panel](/components/alarm_control_panel.paradox/) for details. *Note: If no partition parameter is specified, Home Assistant will not load any alarm control panel components.*

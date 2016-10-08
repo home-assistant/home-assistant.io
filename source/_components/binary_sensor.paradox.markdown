@@ -10,14 +10,14 @@ footer: true
 logo: paradox.png
 ha_category: Binary Sensor
 ha_iot_class: "Local Push"
-ha_release: 0.30
+ha_release: 0.31
 ---
 
-The `paradox` binary sensor platform is a sub module of the [Paradox hub](/components/paradox/) which provides integration with Paradox alarms utilizing the PRT3 module.
+The `paradox` binary sensor platform is a Home Assistant Component of the [Paradox hub](/components/paradox/) which provides integration with Paradox alarm systems utilizing the PRT3 module.
 
-Setting up the hub allows you to enable this sensor platform, which exposes all of your zones as binary sensors. Doing so provides visibility of the zones through the UI as well as the ability to trigger automation actions when something happens like a door opening, or a motion sensor trigger.
+Setting up the hub allows you to enable this sensor platform, which exposes all of your zones as binary sensors. Doing so provides visibility of the zones through the Home Assistant interface as well as the ability to trigger automation actions when something happens like a door opening, or a motion sensor trigger.
 
-The PRT3 module have no way to indicate which zones are actually in use. It has to be controlled via the `configuration.yaml` file. Add only the zones you wish to be visible in the UI. Any zones not specified will simply be ignored.
+The PRT3 module have no way to indicate which zones are actually in use. It has to be controlled via the `configuration.yaml` file. Add only the zones you wish to be visible in the Home Assistant interface. Any zones not specified will simply be ignored.
 
 An example `configuration.yaml` file, making zones 11 and 21 visible in the UI will look something like this:
 
@@ -39,7 +39,9 @@ paradox:
 
 Configuration variables:
 
-- **hub entries** (*Required*): See [Paradox hub](/components/paradox/) for details.
+- **panel_type** (*Required*): `EVO48` or `EVO192`, depending upon which model you have.
+- **port** (*Optional*): Which USB port the PRT3 is connected to. Default: `/dev/ttyUSB0`
+- **speed** (*Optional*): The baud-rate supported by the PRT3. Default: `57600`
 - **zones** (*Optional*): This is a list of the zones in use on the alarm panel that you want to monitor or use for automation in Home Assistant.
 - **[zone]number** (*Required*): This number must match the zone number in use on the alarm panel.
 - **[zone]name** (*Required*): Use this name to specify a name for the zone as you want to see it displayed in Home Assistant. It does not need to match the name of the zone in the alarm panel. 
