@@ -29,8 +29,8 @@ sensor:
 
 Configuration variables:
 
-- **entity_id** (*Required*): The entity to monitor.
-- **name** (*Optional*): Name of the sensor to use in the frontend.
+- **entity_id** (*Required*): The entity to monitor. Only [sensors](/components/sensor/) and [binary sensor](/components/binary_sensor/).
+- **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Stats`.
 - **sampling_size** (*Optional*): Size of the sampling. If the limit is reached then the values are rotated. Defaults to `20`.
 
 <p class='img'>
