@@ -10,10 +10,10 @@ footer: true
 ---
 
 <p class='note warning'>
-This option is only available to built-in components.
+This option is only available for built-in components.
 </p>
 
-Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an `SERVICE_DISCOVERED` event will be fired with the found service and the information. The `discovery` component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the `SERVICE_DISCOVERED` event.
+Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, a `SERVICE_DISCOVERED` event will be fired with the found service and the information. The `discovery` component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the `SERVICE_DISCOVERED` event.
 
 ### {% linkable_title Add discovery instructions %}
 
@@ -23,7 +23,7 @@ To have your device be discovered, you will have to extend the NetDisco library 
 
 ### {% linkable_title Listening to `SERVICE_DISCOVERED` events %}
 
-From your component, you will have to set up the listening for specific services. Below an example how one would listen for discovered Chromecasts:
+From your component, you will have to set up the listening for specific services. Given below is an example how one would listen for discovered Chromecasts:
 
 ```python
 from homeassistant.loader import get_component
