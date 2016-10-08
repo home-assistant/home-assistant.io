@@ -12,10 +12,13 @@ ha_category: Camera
 ha_release: 0.22
 ---
 
+### {% linkable_title Basic Configuration %}
 
 The `netatmo` camera platform is consuming the information provided by a [Netatmo Welcome](https://www.netatmo.com) camera. This component allows you to view the current photo created by the Camera.
 
-To enable the Netatmo camera, you first have to set up [netatmo](/components/netatmo/), this will use discovery to add your camera, nothing else to do.
+To enable the Netatmo camera, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your camera.
+
+### {% linkable_title Advanced configuration %}
 
 If you want to select a specific camera, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
