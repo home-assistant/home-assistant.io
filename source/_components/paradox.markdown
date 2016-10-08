@@ -21,8 +21,8 @@ At the moment the PRT3 module needs to be connected to the same PC on which Home
 
 This is the first and bare minimum implementation providing support for the following platform types within Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.paradox/): Reports on zone status
-- [Alarm Control Panel](/components/alarm_control_panel.paradox/): Reports on partition status only
+- [Binary Sensor](/components/binary_sensor.paradox/): Reports on zone status.
+- [Alarm Control Panel](/components/alarm_control_panel.paradox/): Reports on partition status only.
 
 The platforms operate independently. You therefore only have to specify the ones you require.
 

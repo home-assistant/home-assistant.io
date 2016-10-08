@@ -48,4 +48,3 @@ Configuration variables:
 - **[zone]type** (*Required*): This is used to designate zones as doors, motion sensors, smoke detectors, etc. The list of available zone types relevant to alarm zones are: `opening`, `motion`, `gas`, `smoke`, `moisture`, `safety`. The default type is a door contact, i.e. `opening`. 
 
 Please refer to the [Paradox hub](/components/paradox/) for the functionality currently supported.
-

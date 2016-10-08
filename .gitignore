@@ -2,8 +2,8 @@
 .DS_Store
 .sass-cache
 .gist-cache
-.project
 .pygments-cache
+.project
 public
 sass.old
 source.old

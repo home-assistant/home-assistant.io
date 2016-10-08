@@ -45,5 +45,3 @@ Configuration variables:
 - **[partition]name** (*Required*): Use this name to specify a name for the area/partition as you want to see it displayed in Home Assistant. It does not need to match the name of the area in the alarm panel.
 
 Please refer to the [Paradox hub](/components/paradox/) for the functionality currently supported.
-
-
