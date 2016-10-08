@@ -19,7 +19,7 @@ Setting up the hub allows you to enable this sensor platform, which exposes all 
 
 The PRT3 module have no way to indicate which zones are actually in use. It has to be controlled via the `configuration.yaml` file. Add only the zones you wish to be visible in the Home Assistant interface. Any zones not specified will simply be ignored.
 
-An example `configuration.yaml` file, making zones 11 and 21 visible in the UI will look something like this:
+An example `configuration.yaml` file, making zones 11 and 21 visible in the Home Assistant interface will look something like this:
 
 ```yaml
 # Example Paradox configuration.yaml entry

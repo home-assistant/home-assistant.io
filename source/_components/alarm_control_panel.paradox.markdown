@@ -19,7 +19,7 @@ Setting up the hub allows you to enable this platform, which exposes all of your
 
 The PRT3 module have no way to indicate which areas/partitions are actually in use. It has to be controlled via the `configuration.yaml` file. Add only the areas/partitions you wish to be visible in the Home Assistant interface. Any areas not specified will simply be ignored.
 
-An example `configuration.yaml` file, making area 1 and 2 visible in the UI will look something like this:
+An example `configuration.yaml` file, making area 1 and 2 visible in the Home Assistant interface will look something like this:
 
 
 ```yaml
