@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Apache Configuration - Home Assistant</title>
+    <title>Self-signed certificate for SSL/TLS - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Configure Apache to work with home assistant as a subdomain">
+    <meta name="description" content="Configure a self-signed certificate to use with Home Assistant">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/cookbook/apache_configuration/">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/tls_self_signed_certificate/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Apache Configuration">
+    <meta property="og:title" content="Self-signed certificate for SSL/TLS">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/cookbook/apache_configuration/">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/tls_self_signed_certificate/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Configure Apache to work with home assistant as a subdomain">
+    <meta property="og:description" content="Configure a self-signed certificate to use with Home Assistant">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Apache Configuration">
-    <meta name="twitter:description" content="Configure Apache to work with home assistant as a subdomain">
+    <meta name="twitter:title" content="Self-signed certificate for SSL/TLS">
+    <meta name="twitter:description" content="Configure a self-signed certificate to use with Home Assistant">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,98 +83,34 @@
   
   <header>
     <h1 class="title indent">
-      Apache Configuration
+      Self-signed Certificate for SSL/TLS
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>This is an example about how you can configure Apache to act as a proxy for home assistant.</p>
+  <p>If your Home Assistant instance is only accessible from your local network you can still protect the communication between your browsers and the frontend with SSL/TLS. <a href="blog/2015/12/13/setup-encryption-using-lets-encrypt/">Let’s encrypt</a> will only work if you have a DNS entry and remote access is allowed. The solution is to use a self-signed certificate. As you most likely don’t have a certification authority (CA) your browser will conplain about the security. If you have a CA then this will not be an issue.</p>
 
-<p>This is useful if you want to have:</p>
+<p>To create locally a certificate you need the <a href="https://www.openssl.org/">OpenSSL</a> command-line tool.</p>
 
-<ul>
-  <li>a subdomain redirecting to your home assistant instance</li>
-  <li>several subdomain for several instance</li>
-  <li>HTTPS redirection</li>
-</ul>
+<p>Change to your Home Assistant <a href="/getting-started/configuration/">configuration directory</a> like <code class="highlighter-rouge">~/.homeassistant</code>. This will make it easier to backup your certificate and the key. Run the command shown below.</p>
 
-<h4><a class="title-link" name="subdomain" href="#subdomain"></a> Subdomain</h4>
-
-<p>So you already have a working Apache server available at example.org.
-Your home assistant is correctly working on this web server and available at localhost:8123</p>
-
-<p>To be able to access to your home assistant instance by using https://home.example.org, add to following file into <code class="highlighter-rouge">/etc/httpd/conf/extra/hass.conf</code></p>
-
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>&lt;VirtualHost *:443&gt;
-  ProxyPreserveHost On
-  ProxyRequests Off
-  ServerName home.example.org
-  ProxyPass / http://localhost:8123/
-  ProxyPassReverse / http://localhost:8123/
-&lt;/VirtualHost&gt;
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>openssl req -new -x509 -sha256 -newkey rsa:4096 -nodes -keyout privkey.pem -days 730 -out fullchain.pem
 </code></pre>
 </div>
 
-<p>and make sure that this file is read by apache’s main configiuration file <code class="highlighter-rouge">/etc/httpd/conf/httpd.conf</code></p>
+<p>For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process. At the end you will have two files called <code class="highlighter-rouge">privkey.pem</code> and <code class="highlighter-rouge">fullchain.pem</code>. The key and the certificate.</p>
 
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>...
-Include conf/extra/hass.conf
-...
-</code></pre>
-</div>
-
-<p>If you don’t want HTTPS, you can change <code class="highlighter-rouge">&lt;VirtualHost *:443&gt;</code> to <code class="highlighter-rouge">&lt;VirtualHost *:80&gt;</code> or better consider redirecting all HTTP to HTTPS.</p>
-
-<h4><a class="title-link" name="multiple-instance" href="#multiple-instance"></a> Multiple Instance</h4>
-
-<p>You already have home assistant running on localhost:8123 and available at home.example.org as describe before.
-The configuration file for this home assistant is available in <code class="highlighter-rouge">/home/alice/.homeassistant/configuration.yaml</code></p>
-
-<p>You want another instance available at https://countryside.example.org</p>
-
-<p>You can either :</p>
-<ul>
-  <li>Create a new user, <code class="highlighter-rouge">bob</code>, to hold the configuration file in <code class="highlighter-rouge">/home/bob/.homeassistant/configuration.yaml</code> and run home assistant as this new user</li>
-  <li>Create another configuration directory in <code class="highlighter-rouge">/home/alice/.homeassistan2/configuration.yaml</code> and run home assistant using <code class="highlighter-rouge">hass --config /home/alice/.homeassistant2/</code></li>
-</ul>
-
-<p>In both solution, change port number used by modifying <code class="highlighter-rouge">configuration.yaml</code></p>
+<p>Update the <code class="highlighter-rouge">http:</code> entry in your <code class="highlighter-rouge">configuration.yaml</code> file and let it point to your created files.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
-  <span class="s">server_port</span><span class="pi">:</span> <span class="s">8124</span>
-  <span class="s">...</span>
+  <span class="s">api_password</span><span class="pi">:</span> <span class="s">YOUR_SECRET_PASSWORD</span>
+  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/home/fab/.homeassistant/fullchain.pem</span>
+  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/home/fab/.homeassistant/privkey.pem</span>
 </code></pre>
 </div>
 
-<p>Start home assistant: Now, you have another instance running on localhost:8124</p>
-
-<p>To access this instance by using https://countryside.example.org add to <code class="highlighter-rouge">/etc/httpd/conf/extra/hass.conf</code></p>
-
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>&lt;VirtualHost *:443&gt;
-  ProxyPreserveHost On
-  ProxyRequests Off
-  ServerName countryside.example.org
-  ProxyPass / http://localhost:8124/
-  ProxyPassReverse / http://localhost:8124/
-&lt;/VirtualHost&gt;
-</code></pre>
-</div>
-
-<h4><a class="title-link" name="http-to-https-redirection" href="#http-to-https-redirection"></a> HTTP to HTTPS redirection</h4>
-
-<p>Add to your <code class="highlighter-rouge">/etc/httpd/conf/extra/hass.conf</code></p>
-
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>&lt;VirtualHost *:80&gt;
-  ServerName example.org
-  ServerSignature Off
-
-  RewriteEngine on
-  RewriteCond %{HTTPS} !=on
-  RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [NE,R,L]
-&lt;/VirtualHost&gt;
-</code></pre>
-</div>
+<p>A tutorial “<a href="https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs">Working with SSL Certificates, Private Keys and CSRs</a>” could give you some insight about special cases.</p>
 
 
 </article>
@@ -188,7 +124,7 @@ The configuration file for this home assistant is available in <code class="high
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/apache_configuration.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/tls_self_signed_certificate.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <a href='/cookbook'>Back to the cookbook</a>
   </div>
@@ -196,7 +132,7 @@ The configuration file for this home assistant is available in <code class="high
     <h1 class="title delta">Infrastructure</h1>
     <ul class='divided'>
           <li>
-              Apache Configuration
+              <a href='/cookbook/apache_configuration/'>Apache Configuration</a>
           </li>
           <li>
               <a href='/cookbook/webserver_details/'>Details about the web server</a>
@@ -205,7 +141,7 @@ The configuration file for this home assistant is available in <code class="high
               <a href='/cookbook/owntracks_two_mqtt_broker/'>OwnTracks with two MQTT brokers</a>
           </li>
           <li>
-              <a href='/cookbook/tls_self_signed_certificate/'>Self-signed certificate for SSL/TLS</a>
+              Self-signed certificate for SSL/TLS
           </li>
           <li>
               <a href='/cookbook/tor_configuration/'>Tor Onion Service Configuration</a>

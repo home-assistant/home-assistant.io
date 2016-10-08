@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Service Calls - Home Assistant</title>
+    <title>Securing - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to call services in Home Assistant.">
+    <meta name="description" content="Instructions how to secure your Home Assistant installation.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/scripts-service-calls/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/securing/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Service Calls">
+    <meta property="og:title" content="Securing">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/scripts-service-calls/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/securing/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Instructions how to call services in Home Assistant.">
+    <meta property="og:description" content="Instructions how to secure your Home Assistant installation.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Service Calls">
-    <meta name="twitter:description" content="Instructions how to call services in Home Assistant.">
+    <meta name="twitter:title" content="Securing">
+    <meta name="twitter:description" content="Instructions how to secure your Home Assistant installation.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,82 +83,31 @@
   
   <header>
     <h1 class="title indent">
-      Service Calls
+      Securing
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Various components allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script or via the Amazon Echo.</p>
+  <p>One of the reasons to use Home Assistant is that it’s not depending on cloud services. Even if you are only using Home Assistant in your local network, you should consider to secure your instance.</p>
 
-<p>The configuration options to call a config are the same between all components and are described on this page.</p>
+<h3><a class="title-link" name="checklist" href="#checklist"></a> Checklist</h3>
 
-<p>Examples on this page will be given as part of an automation component configuration but different approaches can be used for other components too.</p>
+<ul>
+  <li><a href="https://home-assistant.io/getting-started/basic/#password-protecting-the-web-interface">Protect your web interface with a password</a></li>
+  <li>Secure your host. Sources could be <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/pdf/Security_Guide/Red_Hat_Enterprise_Linux-7-Security_Guide-en-US.pdf">Red Hat Enterprise Linux 7 Security Guide</a>, <a href="https://benchmarks.cisecurity.org/tools2/linux/CIS_Red_Hat_Enterprise_Linux_7_Benchmark_v1.0.0.pdf">CIS Red Hat Enterprise Linux 7 Benchmark</a>, or the <a href="https://www.debian.org/doc/manuals/securing-debian-howto/index.en.html">Securing Debian Manual</a>.</li>
+  <li>Restrict network access to your device. Set <code class="highlighter-rouge">PermitRootLogin no</code> in your sshd config (usually <code class="highlighter-rouge">/etc/ssh/sshd_config</code>) and to use keys for authentication instead of passwords.</li>
+  <li>Don’t run Home Assistant as root.</li>
+  <li>Keep your <a href="/topics/secrets/">secrets</a> safe.</li>
+</ul>
 
-<p class="note">
-Use the <img src="/images/screenshots/developer-tool-services-icon.png" class="no-shadow" height="38" /> service developer tool in the frontend to discover available services.
-</p>
+<p>Additional points if you want to allow remote access:</p>
 
-<h3><a class="title-link" name="the-basics" href="#the-basics"></a> The basics</h3>
-
-<p>Call the service <code class="highlighter-rouge">homeassistant.turn_on</code> on the entity <code class="highlighter-rouge">group.living_room</code>. This will turn all members of <code class="highlighter-rouge">group.living_room</code> on. You can also omit <code class="highlighter-rouge">entity_id</code> and it will turn on all possible entities.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
-<span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
-</code></pre>
-</div>
-
-<h3><a class="title-link" name="passing-data-to-the-service-call" href="#passing-data-to-the-service-call"></a> Passing data to the service call</h3>
-
-<p>You can also specify other parameters beside the entity to target. For example, the light turn on service allows specifying the brightness.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
-<span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
-<span class="s">data</span><span class="pi">:</span>
-  <span class="s">brightness</span><span class="pi">:</span> <span class="s">120</span>
-  <span class="s">rgb_color</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">255</span><span class="pi">,</span> <span class="nv">0</span><span class="pi">,</span> <span class="nv">0</span><span class="pi">]</span>
-</code></pre>
-</div>
-
-<h3><a class="title-link" name="use-templates-to-decide-which-service-to-call" href="#use-templates-to-decide-which-service-to-call"></a> Use templates to decide which service to call</h3>
-
-<p>You can use <a href="/topics/templating/">templating</a> support to dynamically choose which service to call. For example, you can call a certain service based on if a light is on.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
-  <span class="no">{% if states.sensor.temperature | float &gt; 15 %}</span>
-    <span class="no">switch.turn_on</span>
-  <span class="no">{% else %}</span>
-    <span class="no">switch.turn_off</span>
-  <span class="no">{% endif %}</span>
-<span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.ac</span>
-</code></pre>
-</div>
-
-<h3><a class="title-link" name="using-the-services-developer-tool" href="#using-the-services-developer-tool"></a> Using the Services Developer Tool</h3>
-
-<p>You can use the Services Developer Tool to test data to pass in a service call.
-For example, you may test turning on or off a ‘group’ (See [groups] for more info)</p>
-
-<p>To turn a group on or off, pass the following info:
-Domain: <code class="highlighter-rouge">homeassistant</code>
-Service: <code class="highlighter-rouge">turn_on</code>
-Service Data: <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"group.kitchen"</span><span class="w"> </span><span class="p">}</span></code></p>
-
-<h3><a class="title-link" name="use-templates-to-determine-the-attributes" href="#use-templates-to-determine-the-attributes"></a> Use templates to determine the attributes</h3>
-
-<p>Templates can also be used for the data that you pass to the service call.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">thermostat.set_temperature</span>
-<span class="s">data_template</span><span class="pi">:</span>
-  <span class="s">entity_id</span><span class="pi">:</span> <span class="pi">&gt;</span>
-    <span class="no">{% if is_state('device_tracker.paulus', 'home') %}</span>
-      <span class="no">thermostat.upstairs</span>
-    <span class="no">{% else %}</span>
-      <span class="no">thermostat.downstairs</span>
-    <span class="no">{% endif %}</span>
-  <span class="s">temperature</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">22 - distance(states.device_tracker.paulus)</span> <span class="pi">}}</span>
-</code></pre>
-</div>
+<ul>
+  <li>Protect your communication with <a href="blog/2015/12/13/setup-encryption-using-lets-encrypt/">TLS</a></li>
+  <li>Protect your communication with <a href="/cookbook/tor_configuration/">Tor</a></li>
+  <li>Use a <a href="/cookbook/apache_configuration/">proxy</a></li>
+</ul>
 
 
 
@@ -173,7 +122,7 @@ Service Data: <code class="highlighter-rouge"><span class="p">{</span><span clas
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/scripts-service-calls.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/securing.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -200,7 +149,7 @@ Service Data: <code class="highlighter-rouge"><span class="p">{</span><span clas
           <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
           <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
           <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
-          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
+          <li><a class='active' href='/getting-started/securing/'>Security Check Points </a></li>
         </ul>
       </li>
       <li>
@@ -216,7 +165,7 @@ Service Data: <code class="highlighter-rouge"><span class="p">{</span><span clas
       <li>
         <a  href='/getting-started/scripts/'>Scripts </a>
         <ul>
-          <li><a class='active' href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
           <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
         </ul>
       </li>
