@@ -130,7 +130,7 @@
     <tr>
       <td><code class="highlighter-rouge">consider_home</code></td>
       <td>180</td>
-      <td>Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. <code class="highlighter-rouge">consider_home</code> helps prevent false alarms in presence detection when using IP scanners such as Nmap.</td>
+      <td>Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. <code class="highlighter-rouge">consider_home</code> helps prevent false alarms in presence detection when using IP scanners such as Nmap. <code class="highlighter-rouge">consider_home</code> accepts various time representations, (E.g. the following all represents 3 minutes: <code class="highlighter-rouge">180</code>, <code class="highlighter-rouge">0:03</code>, <code class="highlighter-rouge">0:03:00</code>)</td>
     </tr>
   </tbody>
 </table>
@@ -204,6 +204,11 @@
       <td><code class="highlighter-rouge">hide_if_away</code></td>
       <td>False</td>
       <td>If <code class="highlighter-rouge">yes</code>/<code class="highlighter-rouge">on</code>/<code class="highlighter-rouge">true</code> then the device will be hidden if it is not at home</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">consider_home</code></td>
+      <td>[uses platform setting]</td>
+      <td>Allows you to override the global <code class="highlighter-rouge">consider_home</code> setting from the platform configuration on a per device level</td>
     </tr>
   </tbody>
 </table>
