@@ -97,17 +97,17 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">notify</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.112</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">livingroom_tv</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.112</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">livingroom_tv</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> <em>Required</em>: The IP of the LG WebOS Smart TV, e.g. 192.168.0.10</li>
-  <li><strong>name</strong> <em>Required</em>: The name you would like to give to the LG WebOS Smart TV.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP of the LG WebOS Smart TV, e.g. 192.168.0.10</li>
+  <li><strong>name</strong> (<em>Required</em>): The name you would like to give to the LG WebOS Smart TV.</li>
 </ul>
 
 <p>A possible automation could be:</p>
@@ -143,7 +143,7 @@
       <img src='/images/supported_brands/webos.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Poll
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
     </div>
     <div class='section'>
     Introduced in release: 0.18

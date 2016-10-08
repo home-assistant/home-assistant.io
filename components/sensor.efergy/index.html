@@ -93,15 +93,15 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">efergy</span>
-  <span class="s">app_token</span><span class="pi">:</span> <span class="s">APP_TOKEN</span>
-  <span class="s">utc_offset</span><span class="pi">:</span> <span class="s">UTC_OFFSET</span>
-  <span class="s">monitored_variables</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">instant_readings</span>
-    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">budget</span>
-    <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">cost</span>
-      <span class="s">period</span><span class="pi">:</span> <span class="s">day</span>
-      <span class="s">currency</span><span class="pi">:</span> <span class="s">$</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">efergy</span>
+    <span class="s">app_token</span><span class="pi">:</span> <span class="s">APP_TOKEN</span>
+    <span class="s">utc_offset</span><span class="pi">:</span> <span class="s">UTC_OFFSET</span>
+    <span class="s">monitored_variables</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">instant_readings</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">budget</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">cost</span>
+        <span class="s">period</span><span class="pi">:</span> <span class="s">day</span>
+        <span class="s">currency</span><span class="pi">:</span> <span class="s">$</span>
 </code></pre>
 </div>
 
@@ -138,6 +138,9 @@ negative number of minutes your timezone is ahead/behind UTC time.</li>
       <img src='/images/supported_brands/efergy.png' />
   </div>
     <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
     Introduced in release: pre 0.7
     </div>
     <div class='section'>
@@ -154,6 +157,9 @@ negative number of minutes your timezone is ahead/behind UTC time.</li>
         </li>
         <li>
             <a href='/components/sensor.loop_energy/'>Loop Energy</a>
+        </li>
+        <li>
+            <a href='/components/sensor.neurio_energy/'>Neurio</a>
         </li>
         <li>
             <a href='/components/sensor.ohmconnect/'>OhmConnect</a>

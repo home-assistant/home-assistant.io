@@ -91,14 +91,35 @@
 
   <h5><a class="title-link" name="motion-or-alarm-sensors" href="#motion-or-alarm-sensors"></a> Motion or alarm sensors</h5>
 
-<p>In order for Home Assistant to recognize well the sensor, you will need to change its configuration from <code class="highlighter-rouge">Basic Set (default)</code> to <code class="highlighter-rouge">Binary Sensor report</code> or <code class="highlighter-rouge">Alarm report</code>. Currently there’s no way to do this in Home Assistant but you can use ozwcp (OpenZWave control panel), Domoticz or similar to do it.
+<p>In order for Home Assistant to recognize well the sensor, you will need to change its configuration from <code class="highlighter-rouge">Basic Set (default)</code> to <code class="highlighter-rouge">Binary Sensor report</code> or <code class="highlighter-rouge">Alarm report</code>.
 These devices will either show as a binary sensor or a sensor called <code class="highlighter-rouge">Alarm xxxx</code> and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.</p>
+
+<p>As of version 0.30 you can set the settings of a Z-Wave device through the dev_service page of Home Assistant with the service: <code class="highlighter-rouge">zwave/set_config_parameter</code>.</p>
+
+<p>The following parameters can be entered:</p>
+<ul>
+  <li><strong>entity_id</strong> (<em>Required</em>): The entity_id of the device that you are going to set a parameter to. Any entity_id of the node can be used.</li>
+  <li><strong>parameter</strong> (<em>Required</em>): The index number of the parameter to be set. Refer to device manual or zwcfg_[home_id].xml</li>
+  <li><strong>value</strong> (<em>Required</em>): The value to set the parameter to. Refer to device manual or zwcfg_[home_id].xml</li>
+  <li><strong>size</strong> (<em>Optional</em>): The size of the value. It is normally not needed to specify this parameter, but in some cases it’s needed. Check OZW.log for details on this.
+You should check OZW.log to see if setting has been set
+Example entry in dev-service, setting binary report for Aeotec multisensor 6:
+    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example entry in dev-service</span>
+<span class="pi">{</span><span class="s2">"</span><span class="s">entity_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sensor.aetoec_multisensor_6_luminance_5"</span><span class="pi">,</span>
+<span class="s2">"</span><span class="s">parameter"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">5"</span><span class="pi">,</span>
+<span class="s2">"</span><span class="s">value"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2"</span>
+<span class="pi">}</span>
+</code></pre>
+    </div>
+  </li>
+</ul>
 
 <h5><a class="title-link" name="locks-and-other-secure-devices" href="#locks-and-other-secure-devices"></a> Locks and other secure devices</h5>
 
 <p>These devices require a network key to be set for the Z-Wave network before they are paired. This key is set in OpenZwave’s <code class="highlighter-rouge">options.xml</code> which is located in OpenZWave’s directory. This should also be the same directory as <code class="highlighter-rouge">config_path:</code> in your <code class="highlighter-rouge">configuration.yaml</code>. If it’s not, make sure you have the same values in all the files you are using.
 The option is commented out by default in <code class="highlighter-rouge">options.xml</code> and is a default key. Make your own unique key. The key is in Hexadecimals.
-It is best to pair these devices in OpenZWave Control Panel or other Z-wave tool that can show you logs while pairing. Test the device before you save the configuration.
+It is best to pair these devices in OpenZWave Control Panel or other Z-wave tool that can show you logs while pairing. Home Assistant show logs from zwave too and it is <code class="highlighter-rouge">OZW.log</code> in the Home Assistant config directory. 
+You should see communication from the node with lines starting with <code class="highlighter-rouge">info: NONCES</code> in <code class="highlighter-rouge">OZW.log</code> when the device is paired secure successfully. If you use Open Zwave Control Panel to pair, test the device before you save the configuration.
 Make sure you copy the newly saved <code class="highlighter-rouge">zwcfg_[home_id].xml</code>into your Home Assistant configuration directory.</p>
 
 <h5><a class="title-link" name="aeon-minimote" href="#aeon-minimote"></a> Aeon Minimote</h5>

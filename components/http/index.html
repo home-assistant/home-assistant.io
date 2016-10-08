@@ -98,15 +98,6 @@ It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_p
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">http</span><span class="pi">:</span>
   <span class="s">api_password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
-  <span class="s">server_port</span><span class="pi">:</span> <span class="s">12345</span>
-  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/etc/letsencrypt/live/hass.example.com/fullchain.pem</span>
-  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/etc/letsencrypt/live/hass.example.com/privkey.pem</span>
-  <span class="s">cors_allowed_origins</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">https://google.com</span>
-    <span class="pi">-</span> <span class="s">https://home-assistant.io</span>
-  <span class="s">approved_ips</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">127.0.0.1</span>
-    <span class="pi">-</span> <span class="s">192.168.1.9</span>
 </code></pre>
 </div>
 
@@ -122,6 +113,23 @@ It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_p
   <li><strong>cors_allowed_origins</strong> (<em>Optional</em>): A list of origin domain names to allow <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> requests from. Enabling this will set the <code class="highlighter-rouge">Access-Control-Allow-Origin</code> header to the Origin header if it is found in the list, and the <code class="highlighter-rouge">Access-Control-Allow-Headers</code> header to <code class="highlighter-rouge">Origin, Accept, X-Requested-With, Content-type, X-HA-access</code>. You must provide the exact Origin, i.e. <code class="highlighter-rouge">https://home-assistant.io</code> will allow requests from <code class="highlighter-rouge">https://home-assistant.io</code> but <strong>not</strong> <code class="highlighter-rouge">http://home-assistant.io</code>.</li>
   <li><strong>approved_ips</strong> (<em>Optional</em>): A list of approved ips. Then it will be possible to login from given ips without providing a password.</li>
 </ul>
+
+<p>The sample below shows a configuration entry with possible values:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">http</span><span class="pi">:</span>
+  <span class="s">api_password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+  <span class="s">server_port</span><span class="pi">:</span> <span class="s">12345</span>
+  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/etc/letsencrypt/live/hass.example.com/fullchain.pem</span>
+  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/etc/letsencrypt/live/hass.example.com/privkey.pem</span>
+  <span class="s">cors_allowed_origins</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">https://google.com</span>
+    <span class="pi">-</span> <span class="s">https://home-assistant.io</span>
+  <span class="s">approved_ips</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">127.0.0.1</span>
+    <span class="pi">-</span> <span class="s">192.168.1.9</span>
+</code></pre>
+</div>
 
 <p>The <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Set up encryption using Let’s Encrypt</a> blog post gives you details about the encryption of your traffic using free certificates from <a href="https://letsencrypt.org/">Let’s Encrypt</a>.</p>
 

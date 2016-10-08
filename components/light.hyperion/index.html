@@ -95,12 +95,16 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">hyperion</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.98</span>
-  <span class="c1"># Optional</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">19444</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hyperion</span>
 </code></pre>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>host</strong> (<em>Optional</em>): To enable the automatic addition of lights on startup.</li>
+  <li><strong>port</strong> (<em>Optional</em>): A list of devices with their ip address and a custom name to use in the frontend.</li>
+</ul>
 
 
 </article>

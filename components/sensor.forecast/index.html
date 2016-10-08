@@ -89,7 +89,11 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">forecast</code> platform uses the <a href="https://forecast.io/">Forecast.io</a> web service as a source of meteorological data for your location. The location is based on the <code class="highlighter-rouge">longitude</code> and <code class="highlighter-rouge">latitude</code> coordinates configured in your <code class="highlighter-rouge">configuration.yaml</code> file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using <a href="https://www.google.com/maps">Google Maps</a> and clicking on your home or <a href="http://www.openstreetmap.org/">Openstreetmap</a>.</p>
+  <p class="note warning">
+<strong>This platform has been deprecated in favor of the “<a href="/components/sensor.darksky/">darksky</a>” platform and will be removed in the future. Please use the “darksky” platform.</strong>
+</p>
+
+<p>The <code class="highlighter-rouge">forecast</code> platform uses the <a href="https://forecast.io/">Forecast.io</a> web service as a source of meteorological data for your location. The location is based on the <code class="highlighter-rouge">longitude</code> and <code class="highlighter-rouge">latitude</code> coordinates configured in your <code class="highlighter-rouge">configuration.yaml</code> file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using <a href="https://www.google.com/maps">Google Maps</a> and clicking on your home or <a href="http://www.openstreetmap.org/">Openstreetmap</a>.</p>
 
 <p>You need an API key which is free but requires <a href="https://developer.forecast.io/register">registration</a>. You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.</p>
 
@@ -101,34 +105,34 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">forecast</span>
-  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_APP_KEY</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">summary</span>
-    <span class="pi">-</span> <span class="s">icon</span>
-    <span class="pi">-</span> <span class="s">nearest_storm_distance</span>
-    <span class="pi">-</span> <span class="s">nearest_storm_bearing</span>
-    <span class="pi">-</span> <span class="s">precip_type</span>
-    <span class="pi">-</span> <span class="s">precip_intensity</span>
-    <span class="pi">-</span> <span class="s">precip_probability</span>
-    <span class="pi">-</span> <span class="s">temperature</span>
-    <span class="pi">-</span> <span class="s">apparent_temperature</span>
-    <span class="pi">-</span> <span class="s">dew_point</span>
-    <span class="pi">-</span> <span class="s">wind_speed</span>
-    <span class="pi">-</span> <span class="s">wind_bearing</span>
-    <span class="pi">-</span> <span class="s">cloud_cover</span>
-    <span class="pi">-</span> <span class="s">humidity</span>
-    <span class="pi">-</span> <span class="s">pressure</span>
-    <span class="pi">-</span> <span class="s">visibility</span>
-    <span class="pi">-</span> <span class="s">ozone</span>
-    <span class="pi">-</span> <span class="s">minutely_summary</span>
-    <span class="pi">-</span> <span class="s">hourly_summary</span>
-    <span class="pi">-</span> <span class="s">daily_summary</span>
-    <span class="pi">-</span> <span class="s">temperature_max</span>
-    <span class="pi">-</span> <span class="s">temperature_min</span>
-    <span class="pi">-</span> <span class="s">apparent_temperature_max</span>
-    <span class="pi">-</span> <span class="s">apparent_temperature_min</span>
-    <span class="pi">-</span> <span class="s">precip_intensity_max</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">forecast</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_APP_KEY</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">summary</span>
+      <span class="pi">-</span> <span class="s">icon</span>
+      <span class="pi">-</span> <span class="s">nearest_storm_distance</span>
+      <span class="pi">-</span> <span class="s">nearest_storm_bearing</span>
+      <span class="pi">-</span> <span class="s">precip_type</span>
+      <span class="pi">-</span> <span class="s">precip_intensity</span>
+      <span class="pi">-</span> <span class="s">precip_probability</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">apparent_temperature</span>
+      <span class="pi">-</span> <span class="s">dew_point</span>
+      <span class="pi">-</span> <span class="s">wind_speed</span>
+      <span class="pi">-</span> <span class="s">wind_bearing</span>
+      <span class="pi">-</span> <span class="s">cloud_cover</span>
+      <span class="pi">-</span> <span class="s">humidity</span>
+      <span class="pi">-</span> <span class="s">pressure</span>
+      <span class="pi">-</span> <span class="s">visibility</span>
+      <span class="pi">-</span> <span class="s">ozone</span>
+      <span class="pi">-</span> <span class="s">minutely_summary</span>
+      <span class="pi">-</span> <span class="s">hourly_summary</span>
+      <span class="pi">-</span> <span class="s">daily_summary</span>
+      <span class="pi">-</span> <span class="s">temperature_max</span>
+      <span class="pi">-</span> <span class="s">temperature_min</span>
+      <span class="pi">-</span> <span class="s">apparent_temperature_max</span>
+      <span class="pi">-</span> <span class="s">apparent_temperature_min</span>
+      <span class="pi">-</span> <span class="s">precip_intensity_max</span>
 </code></pre>
 </div>
 
@@ -164,7 +168,22 @@
   </li>
   <li><strong>units</strong> (<em>Optional</em>): Specify the unit system. Default to <code class="highlighter-rouge">si</code> or <code class="highlighter-rouge">us</code> based on the temperature preference in Home Assistant. Other options are <code class="highlighter-rouge">auto</code>, <code class="highlighter-rouge">us</code>, <code class="highlighter-rouge">si</code>, <code class="highlighter-rouge">ca</code>, and <code class="highlighter-rouge">uk2</code>.
 <code class="highlighter-rouge">auto</code> will let forecast.io decide the unit system based on location.</li>
+  <li><strong>update_inverval</strong> (<em>Optional</em>): Minimum time interval between updates. Default is 2 minutes. Supported formats:
+    <ul>
+      <li><code class="highlighter-rouge">update_interval: 'HH:MM:SS'</code></li>
+      <li><code class="highlighter-rouge">update_interval: 'HH:MM'</code></li>
+      <li>Time period dictionary, e.g.:</li>
+    </ul>
+  </li>
 </ul>
+<pre>update_interval:
+        # At least one of these must be specified:
+        days: 0
+        hours: 0
+        minutes: 3
+        seconds: 30
+        milliseconds: 0
+    </pre>
 
 <p>Details about the API are available in the <a href="https://developer.forecast.io/docs/v2">Forecast.io documentation</a>.</p>
 
@@ -188,37 +207,76 @@
     Introduced in release: pre 0.7
     </div>
     <div class='section'>
-    <h1 class="title delta">Category Weather</h1>
+    <h1 class="title delta">Category Deprecated</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/rollershutter.command_line/'>Command line Rollershutter</a>
+        </li>
+        <li>
+            <a href='/components/thermostat.eq3btsmart/'>EQ3 Bluetooth Smart Thermostats</a>
+        </li>
+        <li>
+            <a href='/components/thermostat.ecobee/'>Ecobee Thermostat</a>
+        </li>
         <li>
             Forecast.io
         </li>
         <li>
-            <a href='/components/sensor.nest_weather/'>Nest Weather Sensor</a>
+            <a href='/components/thermostat.heat_control/'>Generic Thermostat</a>
         </li>
         <li>
-            <a href='/components/sensor.netatmo/'>Netatmo Sensor</a>
+            <a href='/components/thermostat.heatmiser/'>Heatmiser Thermostat</a>
         </li>
         <li>
-            <a href='/components/sensor.openweathermap/'>OpenWeatherMap</a>
+            <a href='/components/rollershutter.homematic/'>Homematic Rollershutter</a>
         </li>
         <li>
-            <a href='/components/sun/'>Sun</a>
+            <a href='/components/thermostat.honeywell/'>Honeywell Thermostat</a>
         </li>
         <li>
-            <a href='/components/sensor.swiss_hydrological_data/'>Swiss Hydrological Data</a>
+            <a href='/components/thermostat.knx/'>KNX Thermostat</a>
         </li>
         <li>
-            <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
+            <a href='/components/garage_door.mqtt/'>MQTT Garage door</a>
         </li>
         <li>
-            <a href='/components/sensor.bom/'>Weather data by the Bureau of Meteorology Australia</a>
+            <a href='/components/rollershutter.mqtt/'>MQTT Rollershutter</a>
         </li>
         <li>
-            <a href='/components/sensor.yr/'>YR</a>
+            <a href='/components/thermostat.nest/'>Nest Thermostat</a>
         </li>
         <li>
-            <a href='/components/sensor.yweather/'>Yahoo Weather</a>
+            <a href='/components/thermostat.proliphix/'>Proliphix Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/rollershutter.rfxtrx/'>RFXtrx Rollershutter</a>
+        </li>
+        <li>
+            <a href='/components/thermostat.radiotherm/'>Radiotherm Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/garage_door.rpi_gpio/'>Raspberry Pi Garage door</a>
+        </li>
+        <li>
+            <a href='/components/rollershutter.scsgate/'>SCSGate Rollershutter</a>
+        </li>
+        <li>
+            <a href='/components/garage_door.wink/'>Wink Garage door</a>
+        </li>
+        <li>
+            <a href='/components/rollershutter.wink/'>Wink Rollershutter</a>
+        </li>
+        <li>
+            <a href='/components/garage_door.zwave/'>Z-Wave Garage Door</a>
+        </li>
+        <li>
+            <a href='/components/hvac.zwave/'>Z-Wave HVAC</a>
+        </li>
+        <li>
+            <a href='/components/rollershutter.zwave/'>Z-Wave Rollershutter</a>
+        </li>
+        <li>
+            <a href='/components/thermostat.zwave/'>Z-Wave Thermostat</a>
         </li>
     </ul>
     </div>

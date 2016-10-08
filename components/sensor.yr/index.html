@@ -94,34 +94,9 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
 
 <p>To add YR to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Will show a symbol for the current weather as default:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
-
-<span class="c1"># Will show temperatue and wind direction:</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">temperature</span>
-    <span class="pi">-</span> <span class="s">windDirection</span>
-
-<span class="c1"># Will show all available sensors:</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">temperature</span>
-    <span class="pi">-</span> <span class="s">symbol</span>
-    <span class="pi">-</span> <span class="s">precipitation</span>
-    <span class="pi">-</span> <span class="s">windSpeed</span>
-    <span class="pi">-</span> <span class="s">pressure</span>
-    <span class="pi">-</span> <span class="s">windDirection</span>
-    <span class="pi">-</span> <span class="s">humidity</span>
-    <span class="pi">-</span> <span class="s">fog</span>
-    <span class="pi">-</span> <span class="s">cloudiness</span>
-    <span class="pi">-</span> <span class="s">lowClouds</span>
-    <span class="pi">-</span> <span class="s">mediumClouds</span>
-    <span class="pi">-</span> <span class="s">highClouds</span>
-    <span class="pi">-</span> <span class="s">dewpointTemperature</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
 </code></pre>
 </div>
 
@@ -147,6 +122,27 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
   </li>
 </ul>
 
+<p>A full configuration example can be found below:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">symbol</span>
+      <span class="pi">-</span> <span class="s">precipitation</span>
+      <span class="pi">-</span> <span class="s">windSpeed</span>
+      <span class="pi">-</span> <span class="s">pressure</span>
+      <span class="pi">-</span> <span class="s">windDirection</span>
+      <span class="pi">-</span> <span class="s">humidity</span>
+      <span class="pi">-</span> <span class="s">fog</span>
+      <span class="pi">-</span> <span class="s">cloudiness</span>
+      <span class="pi">-</span> <span class="s">lowClouds</span>
+      <span class="pi">-</span> <span class="s">mediumClouds</span>
+      <span class="pi">-</span> <span class="s">highClouds</span>
+      <span class="pi">-</span> <span class="s">dewpointTemperature</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -171,7 +167,10 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
     <h1 class="title delta">Category Weather</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/sensor.forecast/'>Forecast.io</a>
+            <a href='/components/sensor.bom/'>Bureau of Meteorology (BOM) Australia</a>
+        </li>
+        <li>
+            <a href='/components/sensor.darksky/'>Dark Sky</a>
         </li>
         <li>
             <a href='/components/sensor.nest_weather/'>Nest Weather Sensor</a>
@@ -190,9 +189,6 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
         </li>
         <li>
             <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bom/'>Weather data by the Bureau of Meteorology Australia</a>
         </li>
         <li>
             YR

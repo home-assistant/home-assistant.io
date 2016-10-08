@@ -95,13 +95,10 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mfi</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">PORT</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-  <span class="s">ssl</span><span class="pi">:</span> <span class="s">true</span>
-  <span class="s">verify_ssl</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mfi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
 </code></pre>
 </div>
 
@@ -147,6 +144,9 @@
     <div class='section'>
     <h1 class="title delta">Category Switch</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/switch.anel_pwrctrl/'>ANEL PwrCtrl Switch</a>
+        </li>
         <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
         </li>

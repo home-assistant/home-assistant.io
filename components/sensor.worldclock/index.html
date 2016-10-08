@@ -95,9 +95,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">worldclock</span>
-  <span class="s">time_zone</span><span class="pi">:</span> <span class="s">America/New_York</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">New York</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">worldclock</span>
+    <span class="s">time_zone</span><span class="pi">:</span> <span class="s">America/New_York</span>
 </code></pre>
 </div>
 
@@ -105,7 +104,7 @@
 
 <ul>
   <li><strong>time_zone</strong> (<em>Required</em>): The resource or endpoint that contains the value.</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name of the sensor, eg. the city.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the sensor, eg. the city. Defaults to ‘Worldclock Sensor’.</li>
 </ul>
 
 <p>For valid time zones check the <strong>TZ</strong> column in the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia overview</a>. Or get the full list from the <a href="https://pypi.python.org/pypi/pytz">pytz</a> module.</p>

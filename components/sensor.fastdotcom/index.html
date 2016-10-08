@@ -102,7 +102,7 @@ Currently fast.com only supports measuring download bandwidth. If you want to me
 <p>Once per hour, on the hour (default):</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">fastdotcom</span> 
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">fastdotcom</span> 
 </code></pre>
 </div>
 
@@ -111,10 +111,10 @@ Currently fast.com only supports measuring download bandwidth. If you want to me
 <p>Every half hour of every day:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">fastdotcom</span>
-  <span class="s">minute</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">0</span>
-    <span class="pi">-</span> <span class="s">30</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">fastdotcom</span>
+    <span class="s">minute</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">0</span>
+      <span class="pi">-</span> <span class="s">30</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -151,6 +151,12 @@ Currently fast.com only supports measuring download bandwidth. If you want to me
     <ul class='divided'>
         <li>
             <a href='/components/sensor.cpuspeed/'>CPU speed</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.digital_ocean/'>Digital Ocean Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.digital_ocean/'>Digital Ocean Switch</a>
         </li>
         <li>
             <a href='/components/sensor.fritzbox_callmonitor/'>FRITZ!Box</a>

@@ -95,12 +95,17 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">temper</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">My</span><span class="nv"> </span><span class="s">TEMPer'</span>
-  <span class="s">scale</span><span class="pi">:</span> <span class="s">1</span>
-  <span class="s">offset</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">temper</span>
 </code></pre>
 </div>
+
+<p>Configuration options for the a TCP Sensor:</p>
+
+<ul>
+  <li><strong>name</strong> (<em>Optional</em>): The name you would like to give the sensor in Home Assistant.</li>
+  <li><strong>scale</strong> (<em>Optional</em>): The scale for the sensor.</li>
+  <li><strong>offset</strong> (<em>Optional</em>): The offset to fix reported vales.</li>
+</ul>
 
 <p>Since some of these sensors consistently show higher temperatures the scale and offset values can be used to fine-tune your sensor.
 The calculation follows the formula <code class="highlighter-rouge">scale * sensor value + offset</code>.</p>
@@ -142,9 +147,6 @@ The calculation follows the formula <code class="highlighter-rouge">scale * sens
         </li>
         <li>
             <a href='/components/sensor.dweet/'>Dweet.io</a>
-        </li>
-        <li>
-            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
@@ -192,9 +194,6 @@ The calculation follows the formula <code class="highlighter-rouge">scale * sens
             <a href='/components/sensor.nest/'>Nest Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.neurio_energy/'>Neurio</a>
-        </li>
-        <li>
             <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
         </li>
         <li>
@@ -208,6 +207,9 @@ The calculation follows the formula <code class="highlighter-rouge">scale * sens
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

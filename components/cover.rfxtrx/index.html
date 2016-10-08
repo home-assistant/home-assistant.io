@@ -95,7 +95,8 @@
 
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 
-<h5>Siemens/LightwaveRF</h5>
+<h5><a class="title-link" name="siemenslightwaverf" href="#siemenslightwaverf"></a> Siemens/LightwaveRF</h5>
+
 <p>The easiest way to find your roller shutters is to add this to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">cover</span><span class="pi">:</span>
@@ -104,11 +105,9 @@
 </code></pre>
 </div>
 
-<p>Launch your homeassistant and go the website (e.g http://localhost:8123).
-Push your remote and your device should be added.</p>
+<p>Launch your homeassistant and go the website (e.g http://localhost:8123). Push your remote and your device should be added.</p>
 
-<p>Once added it will show an ID (e.g <code class="highlighter-rouge">0b11000102ef9f210010f70</code>) and you can verify that it works from the frontend.
-Then you should update your configuration to:</p>
+<p>Once added it will show an ID (e.g <code class="highlighter-rouge">0b11000102ef9f210010f70</code>) and you can verify that it works from the frontend. Then you should update your configuration to:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">cover</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
@@ -118,10 +117,12 @@ Then you should update your configuration to:</p>
 </code></pre>
 </div>
 
-<h5>RFY</h5>
+<h5><a class="title-link" name="rfy" href="#rfy"></a> RFY</h5>
+
 <p>The <a href="http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en">RFXtrx433e</a> is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the <a href="http://www.rfxcom.com/downloads.htm">rfxmngr</a> tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id <code class="highlighter-rouge">071a0000[id][unit_code]</code>. Eg, if the id was <code class="highlighter-rouge">0a</code> <code class="highlighter-rouge">00</code> <code class="highlighter-rouge">01</code>, and the unit code was <code class="highlighter-rouge">01</code> then the fully qualified id would be <code class="highlighter-rouge">071a00000a000101</code>.</p>
 
-<h5>Common</h5>
+<h5><a class="title-link" name="common" href="#common"></a> Common</h5>
+
 <p>Example configuration:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -141,7 +142,7 @@ Then you should update your configuration to:</p>
 
 <ul>
   <li><strong>devices</strong> (<em>Required</em>): A list of devices with their name to use in the frontend.</li>
-  <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of new roller shutters (Siemens/LightwaveRF only).</li>
+  <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of new covers (Siemens/LightwaveRF only).</li>
   <li><strong>signal_repetitions</strong> (<em>Optional</em>): Because the rxftrx device sends its actions via radio and from most receivers it’s impossible to know if the signal was received or not. Therefore you can configure the roller shutter to try to send each signal repeatedly.</li>
   <li><strong>fire_event</strong> (<em>Optional</em>): Fires an event even if the state is the same as before. Can be used for automations.</li>
 </ul>
@@ -203,6 +204,9 @@ Then you should update your configuration to:</p>
         </li>
         <li>
             <a href='/components/cover.mqtt/'>MQTT Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.mysensors/'>MySensors Cover</a>
         </li>
         <li>
             <a href='/components/scene.hunterdouglas_powerview/'>PowerView Scenes</a>

@@ -110,7 +110,9 @@
 </div>
 
 <p>Then get the OpenZWave files and switch to the <code class="highlighter-rouge">python3</code> branch:</p>
+
 <p class="note warning">Do not use root to build python-openzwave as it will surely fail.</p>
+
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/OpenZWave/python-openzwave.git
 <span class="gp">$ </span><span class="nb">cd </span>python-openzwave
 <span class="gp">$ </span>git checkout python3
@@ -118,6 +120,7 @@
 <span class="gp">$ </span>sudo <span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="k">$(</span>which python3<span class="k">)</span> make install
 </code></pre>
 </div>
+
 <p class="note">
 Instead of <code class="highlighter-rouge">make install</code>, you can alternatively build your own python-openzwave package which can be easily uninstalled:
 
@@ -141,19 +144,14 @@ Instead of <code class="highlighter-rouge">make install</code>, you can alternat
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">zwave</span><span class="pi">:</span>
   <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
-  <span class="s">config_path</span><span class="pi">:</span> <span class="s">/usr/local/share/python-openzwave/config</span>
-  <span class="s">polling_interval</span><span class="pi">:</span> <span class="s">60000</span>
-  <span class="s">customize</span><span class="pi">:</span>
-    <span class="s">sensor.greenwave_powernode_6_port_energy_10</span><span class="pi">:</span>
-        <span class="s">polling_intensity</span><span class="pi">:</span> <span class="s">1</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>usb_path</strong> (<em>Required</em>): The port where your device is connected to your Home Assistant host.</li>
-  <li><strong>config_path</strong> (<em>Optional</em>): The path to the Python OpenZWave configuration files.</li>
+  <li><strong>usb_path</strong> (<em>Optional</em>): The port where your device is connected to your Home Assistant host.</li>
+  <li><strong>config_path</strong> (<em>Optional</em>): The path to the Python OpenZWave configuration files. Defaults to the folder <code class="highlighter-rouge">config</code> in your Python OpenZWave install directory.</li>
   <li><strong>autoheal</strong> (<em>Optional</em>): Allows disabling auto Z-Wave heal at midnight. Defaults to True.</li>
   <li><strong>polling_interval</strong> (<em>Optional</em>): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.</li>
   <li><strong>customize</strong> (<em>Optional</em>): This attribute contains node-specific override values:
@@ -215,6 +213,7 @@ Depending on what’s plugged into your USB ports, the name found above may chan
 <h3><a class="title-link" name="events" href="#events"></a> Events</h3>
 
 <h4><a class="title-link" name="zwavenetwork_complete" href="#zwavenetwork_complete"></a> zwave.network_complete</h4>
+
 <p>Home Assistant will trigger a event when the Z-Wave network is complete. Meaning all of the nodes on the network have been queried. This can take quite som time, depending on wakeup intervals on the battery powered devices on the network.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is complete</span>
@@ -225,6 +224,7 @@ Depending on what’s plugged into your USB ports, the name found above may chan
 </div>
 
 <h4><a class="title-link" name="zwavenetwork_ready" href="#zwavenetwork_ready"></a> zwave.network_ready</h4>
+
 <p>Home Assistant will trigger a event when the Z-Wave network is ready for use. Between <code class="highlighter-rouge">zwave.network_start</code> and <code class="highlighter-rouge">zwave.network_ready</code> Home Assistant will feel sluggish when trying to send commands to Z-Wave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered all awake nodes have been queried and sleeping nodes will be queried when they awake.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is ready</span>
@@ -235,6 +235,7 @@ Depending on what’s plugged into your USB ports, the name found above may chan
 </div>
 
 <h4><a class="title-link" name="zwavenetwork_start" href="#zwavenetwork_start"></a> zwave.network_start</h4>
+
 <p>Home Assistant will trigger a event when the Z-Wave network is set up to be started.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is starting</span>
@@ -245,6 +246,7 @@ Depending on what’s plugged into your USB ports, the name found above may chan
 </div>
 
 <h4><a class="title-link" name="zwavenetwork_stop" href="#zwavenetwork_stop"></a> zwave.network_stop</h4>
+
 <p>Home Assistant will trigger a event when the Z-Wave network stopping.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is stopping</span>
@@ -274,6 +276,7 @@ You can use this for automations.</p>
 <p>The <em>object_id</em> and <em>basic_level</em> of all triggered events can be seen in the console output.</p>
 
 <h4><a class="title-link" name="zwavescene_activated" href="#zwavescene_activated"></a> zwave.scene_activated</h4>
+
 <p>Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
@@ -321,6 +324,10 @@ You can use this for automations.</p>
     <tr>
       <td>remove_node</td>
       <td>Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.</td>
+    </tr>
+    <tr>
+      <td>set_config_parameter</td>
+      <td>Let’s the user set a config parameter to a node.</td>
     </tr>
     <tr>
       <td>soft_reset</td>

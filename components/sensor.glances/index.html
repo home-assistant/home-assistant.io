@@ -111,33 +111,31 @@ Glances web server started on http://0.0.0.0:61208/
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">glances</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Glances sensor</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">61208</span>
-  <span class="s">resources</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_use_percent'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_use'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_free'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">memory_use_percent'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">memory_use'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">memory_free'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">swap_use_percent'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">swap_use'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">swap_free'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">processor_load'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">process_running'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">process_total'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">process_thread'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">process_sleeping'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">glances</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_use_percent'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_use'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">disk_free'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">memory_use_percent'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">memory_use'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">memory_free'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">swap_use_percent'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">swap_use'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">swap_free'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">processor_load'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">process_running'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">process_total'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">process_thread'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">process_sleeping'</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your host, eg. 192.168.1.32.</li>
-  <li><strong>port</strong> (<em>Option</em>): The network port to connect to. Default is 61208.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of your host, eg. <code class="highlighter-rouge">192.168.1.32</code>.</li>
+  <li><strong>port</strong> (<em>Option</em>): The network port to connect to. Default is <code class="highlighter-rouge">61208</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the Glances sensor.</li>
   <li><strong>resources</strong> (<em>Required</em>): Entries to monitor.
     <ul>
@@ -187,6 +185,12 @@ Glances web server started on http://0.0.0.0:61208/
     <ul class='divided'>
         <li>
             <a href='/components/sensor.cpuspeed/'>CPU speed</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.digital_ocean/'>Digital Ocean Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.digital_ocean/'>Digital Ocean Switch</a>
         </li>
         <li>
             <a href='/components/sensor.fritzbox_callmonitor/'>FRITZ!Box</a>

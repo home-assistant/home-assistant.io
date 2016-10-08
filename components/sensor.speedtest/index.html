@@ -97,42 +97,9 @@
 
 <p>Once per hour, on the hour (default):</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
-  <span class="s">server_id</span><span class="pi">:</span> <span class="s">1234</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">ping</span>
-    <span class="pi">-</span> <span class="s">download</span>
-    <span class="pi">-</span> <span class="s">upload</span>
-</code></pre>
-</div>
-
-<p>More examples:</p>
-
-<p>Every half hour of every day:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
-  <span class="s">minute</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">0</span>
-    <span class="pi">-</span> <span class="s">30</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">ping</span>
-    <span class="pi">-</span> <span class="s">download</span>
-    <span class="pi">-</span> <span class="s">upload</span>
-</code></pre>
-</div>
-
-<p>Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
-  <span class="s">minute</span><span class="pi">:</span> <span class="s">30</span>
-  <span class="s">hour</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">0</span>
-    <span class="pi">-</span> <span class="s">6</span>
-    <span class="pi">-</span> <span class="s">12</span>
-    <span class="pi">-</span> <span class="s">18</span>
   <span class="s">monitored_conditions</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">ping</span>
     <span class="pi">-</span> <span class="s">download</span>
@@ -160,6 +127,47 @@
 
 <p>When Home Assistant first starts up, the values of the speedtest will show as <code class="highlighter-rouge">Unknown</code>. You can use the service <code class="highlighter-rouge">sensor.update_speedtest</code> to run a manual speedtest and populate the data or just wait for the next regularly scheduled test.</p>
 
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>In this section you find some real life examples of how to use this sensor.</p>
+
+<h3><a class="title-link" name="run-periodically" href="#run-periodically"></a> Run periodically</h3>
+
+<p>Every half hour of every day:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
+    <span class="s">minute</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">0</span>
+      <span class="pi">-</span> <span class="s">30</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">ping</span>
+      <span class="pi">-</span> <span class="s">download</span>
+      <span class="pi">-</span> <span class="s">upload</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="run-at-a-specific-time" href="#run-at-a-specific-time"></a> Run at a specific time</h3>
+
+<p>Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
+  <span class="s">minute</span><span class="pi">:</span> <span class="s">30</span>
+  <span class="s">hour</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">0</span>
+    <span class="pi">-</span> <span class="s">6</span>
+    <span class="pi">-</span> <span class="s">12</span>
+    <span class="pi">-</span> <span class="s">18</span>
+  <span class="s">monitored_conditions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ping</span>
+    <span class="pi">-</span> <span class="s">download</span>
+    <span class="pi">-</span> <span class="s">upload</span>
+</code></pre>
+</div>
+
 
 </article>
 
@@ -184,6 +192,12 @@
     <ul class='divided'>
         <li>
             <a href='/components/sensor.cpuspeed/'>CPU speed</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.digital_ocean/'>Digital Ocean Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.digital_ocean/'>Digital Ocean Switch</a>
         </li>
         <li>
             <a href='/components/sensor.fritzbox_callmonitor/'>FRITZ!Box</a>

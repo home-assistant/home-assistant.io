@@ -94,7 +94,8 @@
 <p>First you have to set up your <a href="/components/rfxtrx/">rfxtrx hub</a>.
 The easiest way to find your sensors is to add this to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
   <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
 </code></pre>
@@ -109,7 +110,8 @@ The easiest way to find your sensors is to add this to your <code class="highlig
 <p>Here the name is <code class="highlighter-rouge">0a52080000301004d240259</code> and you can verify that it works from the frontend.
 Then you should update your configuration to:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
   <span class="s">devices</span><span class="pi">:</span>
     <span class="s">0a52080000301004d240259</span><span class="pi">:</span>
@@ -119,7 +121,8 @@ Then you should update your configuration to:</p>
 
 <p>If you want to display several data types from one sensor:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
   <span class="s">devices</span><span class="pi">:</span>
     <span class="s">0a520802060100ff0e0269</span><span class="pi">:</span>
@@ -209,9 +212,6 @@ Then you should update your configuration to:</p>
             <a href='/components/sensor.dweet/'>Dweet.io</a>
         </li>
         <li>
-            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
-        </li>
-        <li>
             <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
         </li>
         <li>
@@ -257,9 +257,6 @@ Then you should update your configuration to:</p>
             <a href='/components/sensor.nest/'>Nest Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.neurio_energy/'>Neurio</a>
-        </li>
-        <li>
             <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
         </li>
         <li>
@@ -273,6 +270,9 @@ Then you should update your configuration to:</p>
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

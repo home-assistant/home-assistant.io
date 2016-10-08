@@ -107,13 +107,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
-  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
-  <span class="s">method</span><span class="pi">:</span> <span class="s">GET</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">REST GET binary sensor</span>
-  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.state</span><span class="nv"> </span><span class="s">}}'</span>
-  <span class="s">verify_ssl</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
 </code></pre>
 </div>
 
@@ -121,13 +116,9 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
-  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
-  <span class="s">method</span><span class="pi">:</span> <span class="s">POST</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">REST POST binary sensor</span>
-  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.state</span><span class="nv"> </span><span class="s">}}'</span>
-  <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">"device"</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">"door"</span><span class="nv"> </span><span class="s">}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
+    <span class="s">method</span><span class="pi">:</span> <span class="s">POST</span>
 </code></pre>
 </div>
 
@@ -147,6 +138,24 @@
 Make sure that the URL matches exactly your endpoint or resource.
 </p>
 
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>In this section you find some real life examples of how to use this sensor.</p>
+
+<h3><a class="title-link" name="arest-sensor" href="#arest-sensor"></a> aREST sensor</h3>
+
+<p>Instead of using an <a href="/components/binary_sensor.arest/">aREST</a> binary sensor could the value of a device supporting aREST directly retrieved with a REST binary sensor.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://192.168.0.5/digital/9</span>
+    <span class="s">method</span><span class="pi">:</span> <span class="s">GET</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Light</span>
+    <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">light</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+</code></pre>
+</div>
+
 
 
 </article>
@@ -164,6 +173,9 @@ Make sure that the URL matches exactly your endpoint or resource.
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/restful.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.10
     </div>
@@ -192,6 +204,9 @@ Make sure that the URL matches exactly your endpoint or resource.
         </li>
         <li>
             <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>

@@ -95,7 +95,32 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">influxdb</span><span class="pi">:</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">DB_HOST_IP_ADDRESS</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>host</strong> (<em>Optional</em>): IP address of your database host, eg. http://192.168.1.10. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): Port to use. Defaults to 8086.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username of the database user.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The password for the database user account.</li>
+  <li><strong>database</strong> (<em>Optional</em>): Name of the database to use. Defaults to <code class="highlighter-rouge">home_assistant</code>. The database must already exist.</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>
+  <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
+  <li><strong>blacklist</strong> (<em>Optional</em>): List of entities not logged to InfluxDB.</li>
+  <li><strong>whitelist</strong> (<em>Optional</em>): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the <strong>blacklist</strong> option will prevail.</li>
+  <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
+</ul>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>In this section you find some real life examples of how to use this component.</p>
+
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">influxdb</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.190</span>
   <span class="s">port</span><span class="pi">:</span> <span class="s">20000</span>
   <span class="s">database</span><span class="pi">:</span> <span class="s">DB_TO_STORE_EVENTS</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">MY_USERNAME</span>
@@ -113,22 +138,6 @@
     <span class="s">source</span><span class="pi">:</span> <span class="s">hass</span>
 </code></pre>
 </div>
-
-<p>Configuration variables:</p>
-
-<ul>
-  <li><strong>host</strong> (<em>Optional</em>): IP address of your database host, eg. http://192.168.1.10. Defaults to localhost.</li>
-  <li><strong>username</strong> (<em>Required</em>): The username of the database user.</li>
-  <li><strong>password</strong> (<em>Required</em>): The password for the database user account.</li>
-  <li><strong>port</strong> (<em>Optional</em>): Port to use. Defaults to 8086.</li>
-  <li><strong>database</strong> (<em>Optional</em>): Name of the database to use. Defaults to <code class="highlighter-rouge">home_assistant</code>. The database must already exist.</li>
-  <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>
-  <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
-  <li><strong>blacklist</strong> (<em>Optional</em>): List of entities not logged to InfluxDB.</li>
-  <li><strong>whitelist</strong> (<em>Optional</em>): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the <strong>blacklist</strong> option will prevail.</li>
-  <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
-</ul>
-
 
 
 </article>

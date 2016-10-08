@@ -98,7 +98,6 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">climate</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">KNX Thermostat</span>
     <span class="s">address</span> <span class="pi">:</span> <span class="s">KNX_ADDRESS</span>
     <span class="s">temperature_address</span><span class="pi">:</span> <span class="s">0/1/1</span>
     <span class="s">setpoint_address</span><span class="pi">:</span> <span class="s">0/1/0</span>
@@ -106,10 +105,10 @@
 </div>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): A name for this devices used within Home assistant</li>
-  <li><strong>address</strong> (<em>Required</em>): The KNX group address that is used to turn on/off this actuator channel</li>
+  <li><strong>address</strong> (<em>Required</em>): The KNX group address that is used to turn on/off this actuator channel.</li>
   <li><strong>temperature_address</strong> (<em>Required</em>): The group address that is used to communicate the current temperature. Data format must be datapoint type 9.001 DPT_Value_Temp (2-Octet float value), check <a href="http://www.knx.org/fileadmin/template/documents/downloads_support_menu/KNX_tutor_seminar_page/Advanced_documentation/05_Interworking_E1209.pdf">details</a>.</li>
   <li><strong>setpoint_address</strong> (<em>Required</em>): The group address that is used to set/read the target temperature. Data format must be datapoint type 9.001 DPT_Value_Temp (2-Octet float value). Make sure, you set the read-flag for the thermostat to allow Home Assistant to read the target temperature.</li>
+  <li><strong>name</strong> (<em>Optional</em>): A name for this devices used within Home Assistant.</li>
 </ul>
 
 <p>With the current version of the module, no advanced KNX thermostat functionalities (e.g. HVAC mode) are supported.</p>

@@ -95,19 +95,16 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">splunk</span><span class="pi">:</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">SPLUNK_HOST_IP_ADDRESS_OR_HOST_NAME</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">8088</span>
   <span class="s">token</span><span class="pi">:</span> <span class="s">B4415DFF-683C-5C6C-3994-4F6D4A5DB03A</span>
-  <span class="s">ssl</span><span class="pi">:</span> <span class="s">True</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
+  <li><strong>token</strong> (<em>Required</em>): The HTTP Event Collector Token already created in your Splunk instance.</li>
   <li><strong>host</strong> (<em>Optional</em>): IP address or host name of your Splunk host, eg. http://192.168.1.10. Will default to <code class="highlighter-rouge">localhost</code> if not supplied.</li>
   <li><strong>port</strong> (<em>Optional</em>): Port to use. Defaults to 8088.</li>
-  <li><strong>token</strong> (<em>Required</em>): The HTTP Event Collector Token already created in your Splunk instance.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to False.</li>
 </ul>
 

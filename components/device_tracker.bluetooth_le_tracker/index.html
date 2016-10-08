@@ -96,10 +96,15 @@ Devices discovered are stored with ‘BLE_’ as the prefix for device mac addre
 Requires PyBluez. If you are on Raspbian, make sure you first install <code class="highlighter-rouge">bluetooth</code> and <code class="highlighter-rouge">libbluetooth-dev</code> by running <code class="highlighter-rouge">sudo apt install bluetooth libbluetooth-dev</code>
 </p>
 
+<p class="note warning">
+Requires gattlib, which is not compatible with windows. This tracker won’t work on windows!
+</p>
+
 <p>To use the Bluetooth tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">bluetooth_le_tracker</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bluetooth_le_tracker</span>
 </code></pre>
 </div>
 
@@ -110,8 +115,8 @@ Some BTLE devices (e.g. fitness trackers) are only visible to the devices that t
 
 <p>For running Home Assistant as non root user we can give python3 the missing capabilities to access the bluetooth stack. Quite like setting the setuid bit (see <a href="http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root">Stack Exchange</a> for more information).</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get install libcap2-bin
-sudo setcap <span class="s1">'cap_net_raw,cap_net_admin+eip'</span> <span class="sb">`</span>readlink -f <span class="se">\`</span>which python3<span class="se">\`</span><span class="sb">`</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libcap2-bin
+<span class="gp">$ </span>sudo setcap <span class="s1">'cap_net_raw,cap_net_admin+eip'</span> <span class="sb">`</span>readlink -f <span class="se">\`</span>which python3<span class="se">\`</span><span class="sb">`</span>
 </code></pre>
 </div>
 
@@ -213,6 +218,9 @@ sudo setcap <span class="s1">'cap_net_raw,cap_net_admin+eip'</span> <span class=
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

@@ -89,9 +89,9 @@
   <hr class="divider">
   
 
-  <p>The Join platform exposes services from <a href="http://joaoapps.com/join">Join</a>.  In Home Assistant, the Join features are divided up in two locations, the Join component, and the Join notify platform.  The notify platform allows us to send messages to Join devices, the the component allows us to access the other special features that Join offers.</p>
+  <p>The Join platform exposes services from <a href="http://joaoapps.com/join">Join</a>. In Home Assistant, the Join features are divided up in two locations, the Join component, and the Join notify platform. The notify platform allows us to send messages to Join devices, the the component allows us to access the other special features that Join offers.</p>
 
-<p>In the configuartion.yaml you need to provide the device id of the target device. If you want to send to a group of devices, you need to provide an api key.  You can find you device id and api key <a href="https://joinjoaomgcd.appspot.com/">here</a>.</p>
+<p>In the <code class="highlighter-rouge">configuration.yaml</code> file you need to provide the device id of the target device. If you want to send to a group of devices, you need to provide an api key.  You can find you device id and api key <a href="https://joinjoaomgcd.appspot.com/">here</a>.</p>
 
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -108,7 +108,14 @@
 </code></pre>
 </div>
 
-<p>The notify service has a few optional parameters such as icon and smallicon.  You can use them like so:</p>
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>device_id</strong> (<em>Required</em>): The Id of your device.</li>
+  <li><strong>api_key</strong> (<em>Required</em>): The API key for Join.</li>
+</ul>
+
+<p>The notify service has a few optional parameters such as icon and small icon.  You can use them like so:</p>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Hello!"</span><span class="p">,</span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"From Hass"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span><span class="nt">"icon"</span><span class="p">:</span><span class="s2">"https://goo.gl/KVqcYi"</span><span class="p">,</span><span class="nt">"smallicon"</span><span class="p">:</span><span class="s2">"http://goo.gl/AU4Wf1"</span><span class="p">}}</span><span class="w">
 </span></code></pre>
@@ -192,6 +199,9 @@
         </li>
         <li>
             <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
         </li>
         <li>
             <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>

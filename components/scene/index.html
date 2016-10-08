@@ -100,7 +100,6 @@
         <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
         <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">0.33</span><span class="pi">,</span> <span class="nv">0.66</span><span class="pi">]</span>
         <span class="s">brightness</span><span class="pi">:</span> <span class="s">200</span>
-
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Movies</span>
     <span class="s">entities</span><span class="pi">:</span>
       <span class="s">light.tv_back_light</span><span class="pi">:</span>
@@ -109,6 +108,13 @@
       <span class="s">light.ceiling</span><span class="pi">:</span> <span class="s">off</span>
 </code></pre>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>name</strong> (<em>Required</em>): Friendly name of scene.</li>
+  <li><strong>entities</strong> (<em>Required</em>): Entities to control.</li>
+</ul>
 
 <p>Scenes can be activated using the service <code class="highlighter-rouge">scene.turn_on</code> (there is no ‘scene.turn_off’ service).</p>
 

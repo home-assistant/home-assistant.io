@@ -99,23 +99,19 @@ Currently works using default https port only.
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">hikvisioncam</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hikvisioncam</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.32</span>
-    <span class="s">port</span><span class="pi">:</span> <span class="s">80</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Hikvision Cam 1 Motion Detection</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your Hikvision camera, eg. 192.168.1.32</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port to connec to your Hikvision camera. Defaults to 80.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of your Hikvision camera, eg. <code class="highlighter-rouge">192.168.1.32</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port to connec to your Hikvision camera. Defaults to <code class="highlighter-rouge">80</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
-  <li><strong>username</strong> (<em>Optional</em>): The username for accessing your Hikvision camera. Defaults to “admin”.</li>
-  <li><strong>password</strong> (<em>Optional</em>): The password to access your Hikvision camera. Defaults to “12345”.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username for accessing your Hikvision camera. Defaults to <code class="highlighter-rouge">admin</code>.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The password to access your Hikvision camera. Defaults to <code class="highlighter-rouge">12345</code>.</li>
 </ul>
 
 
@@ -144,6 +140,9 @@ Currently works using default https port only.
     <div class='section'>
     <h1 class="title delta">Category Switch</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/switch.anel_pwrctrl/'>ANEL PwrCtrl Switch</a>
+        </li>
         <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
         </li>

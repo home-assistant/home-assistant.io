@@ -96,6 +96,7 @@ This device tracker needs SNMP to be enabled on the router.
 </p>
 
 <p>OID examples:</p>
+
 <ul>
   <li>Mikrotik: <code class="highlighter-rouge">1.3.6.1.4.1.14988.1.1.1.2.1.1</code> (confirmed, unknown RouterOS version/model)</li>
   <li>Mikrotik: <code class="highlighter-rouge">1.3.6.1.2.1.4.22.1.2</code> (confirmed, RouterOS 6.x on RB2011)</li>
@@ -110,10 +111,10 @@ This device tracker needs SNMP to be enabled on the router.
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">snmp</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.1</span>
-  <span class="s">community</span><span class="pi">:</span> <span class="s">public</span>
-  <span class="s">baseoid</span><span class="pi">:</span> <span class="s">1.3.6.1.4.1.14988.1.1.1.2.1.1</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">snmp</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.1</span>
+    <span class="s">community</span><span class="pi">:</span> <span class="s">public</span>
+    <span class="s">baseoid</span><span class="pi">:</span> <span class="s">1.3.6.1.4.1.14988.1.1.1.2.1.1</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -225,6 +226,9 @@ This device tracker needs SNMP to be enabled on the router.
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

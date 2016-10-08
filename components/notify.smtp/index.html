@@ -95,15 +95,10 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">notify</span><span class="pi">:</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">smtp</span>
-  <span class="s">server</span><span class="pi">:</span> <span class="s">MAIL_SERVER</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">YOUR_SMTP_PORT</span>
-  <span class="s">sender</span><span class="pi">:</span> <span class="s">SENDER_EMAIL_ADDRESS</span>
-  <span class="s">starttls</span><span class="pi">:</span> <span class="s">true or false</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_SMTP_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_SMTP_PASSWORD</span>
-  <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">smtp</span>
+    <span class="s">server</span><span class="pi">:</span> <span class="s">MAIL_SERVER</span>
+    <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
 </code></pre>
 </div>
 
@@ -111,8 +106,8 @@
 
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
-  <li><strong>server</strong> (<em>Optional</em>): SMTP server which is used to end the notifications. For Google Mail, eg. smtp.gmail.com. Keep in mind that Google has some extra layers of protection which need special attention (Hint: ‘Less secure apps’). Defaults to <code class="highlighter-rouge">localhost</code>.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port that the SMTP server is using, eg. 587 for Google Mail and STARTTLS or 465/993 depending on your SMTP servers.  Defaults to 25.</li>
+  <li><strong>server</strong> (<em>Optional</em>): SMTP server which is used to end the notifications. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port that the SMTP server is using. Defaults to 25.</li>
   <li><strong>sender</strong> (<em>Optional</em>): E-mail address of the sender.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for the SMTP account.</li>
   <li><strong>password</strong> (<em>Optional</em>): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.</li>
@@ -120,6 +115,24 @@
   <li><strong>starttls</strong> (<em>Optional</em>): Enables STARTTLS, eg. True or False. Defaults to False.</li>
   <li><strong>debug</strong> (<em>Optional</em>): Enables Debug, eg. True or False. Defaults to False.</li>
 </ul>
+
+<p>A sample configuration entry for Google Mail.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">smtp</span>
+    <span class="s">server</span><span class="pi">:</span> <span class="s">smtp.gmail.com</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">587</span>
+    <span class="s">sender</span><span class="pi">:</span> <span class="s">john@gmail.com</span>
+    <span class="s">starttls</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">john@gmail.com</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">thePassword</span>
+    <span class="s">recipient</span><span class="pi">:</span> <span class="s">james@gmail.com</span>
+</code></pre>
+</div>
+
+<p>Keep in mind that Google has some extra layers of protection which need special attention (Hint: ‘Less secure apps’).</p>
 
 <p>To use the SMTP notification, refer to it in an automation or script like in this example:</p>
 

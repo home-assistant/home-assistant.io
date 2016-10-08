@@ -89,17 +89,17 @@
   <hr class="divider">
   
 
-  <p>This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. It is not required to pair the devices with each other! 
-Devices discovered are stored with ‘bt_’ as the prefix for device mac addresses in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
+  <p>This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. It is not required to pair the devices with each other! Devices discovered are stored with ‘bt_’ as the prefix for device mac addresses in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
 
 <p>To use the Bluetooth tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">bluetooth_tracker</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bluetooth_tracker</span>
 </code></pre>
 </div>
 
-<p>In some cases it can be that your device is not discovered. In that case let your phone scan for BT devices while you restart HA. Just hit Scan on your phone all the time until HA is fully restarted and the device should appear in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
+<p>In some cases it can be that your device is not discovered. In that case let your phone scan for BT devices while you restart Home Assistant. Just hit <code class="highlighter-rouge">Scan</code> on your phone all the time until Home Assisstant is fully restarted and the device should appear in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
 
 <p>For additional configuration variables check the <a href="/components/device_tracker/">Device tracker page</a>.</p>
 
@@ -120,7 +120,7 @@ Devices discovered are stored with ‘bt_’ as the prefix for device mac addres
       <img src='/images/supported_brands/bluetooth.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Poll
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
     </div>
     <div class='section'>
     Introduced in release: 0.18
@@ -197,6 +197,9 @@ Devices discovered are stored with ‘bt_’ as the prefix for device mac addres
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

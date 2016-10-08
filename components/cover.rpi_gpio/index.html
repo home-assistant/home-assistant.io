@@ -98,19 +98,16 @@
   <li>the <code class="highlighter-rouge">relay_pin</code> will trigger the cover to open or close.</li>
 </ul>
 
-<p>Although you do not need Andrews Hilliday’s software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door &amp; sensors up to your Raspberry Pi, which can be found <a href="https://github.com/andrewshilliday/garage-door-controller#hardware-setup">here</a>.</p>
+<p>Although you do not need Andrews Hilliday’s software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door and sensors up to your Raspberry Pi, which can be found <a href="https://github.com/andrewshilliday/garage-door-controller#hardware-setup">here</a>.</p>
 
 <p>To enable Raspberry Pi Covers in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">cover</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_gpio</span>
-  <span class="s">state_pull_mode</span><span class="pi">:</span> <span class="s">DOWN</span>
-  <span class="s">relay_time</span><span class="pi">:</span> <span class="s">1</span>
   <span class="s">covers</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">10</span>
       <span class="s">state_pin</span><span class="pi">:</span> <span class="s">11</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Left</span><span class="nv"> </span><span class="s">door'</span>
     <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">12</span>
       <span class="s">state_pin</span><span class="pi">:</span> <span class="s">13</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Right</span><span class="nv"> </span><span class="s">door'</span>
@@ -186,6 +183,9 @@
         </li>
         <li>
             <a href='/components/cover.mqtt/'>MQTT Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.mysensors/'>MySensors Cover</a>
         </li>
         <li>
             <a href='/components/scene.hunterdouglas_powerview/'>PowerView Scenes</a>

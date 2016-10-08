@@ -103,11 +103,6 @@ If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sens
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ffmpeg</span>
     <span class="s">tool</span><span class="pi">:</span> <span class="s">noise</span>
-    <span class="s">input</span><span class="pi">:</span> <span class="s">FFMPEG_SUPPORTED_INPUT</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">FFmpeg Noise</span>
-    <span class="s">peak</span><span class="pi">:</span> <span class="s">-30</span>
-    <span class="s">duration</span><span class="pi">:</span> <span class="s">1</span>
-    <span class="s">reset</span><span class="pi">:</span> <span class="s">20</span>
 </code></pre>
 </div>
 
@@ -141,13 +136,6 @@ If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sens
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ffmpeg</span>
     <span class="s">tool</span><span class="pi">:</span> <span class="s">motion</span>
     <span class="s">input</span><span class="pi">:</span> <span class="s">FFMPEG_SUPPORTED_INPUT</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">FFmpeg Motion</span>
-    <span class="s">changes</span><span class="pi">:</span> <span class="s">10</span>
-    <span class="s">reset</span><span class="pi">:</span> <span class="s">20</span>
-    <span class="c1"># group feature / default not in use</span>
-    <span class="s">repeat</span><span class="pi">:</span> <span class="s">0</span>
-    <span class="s">repeat_time</span><span class="pi">:</span> <span class="s">0</span>
-
 </code></pre>
 </div>
 
@@ -222,6 +210,9 @@ If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sens
         </li>
         <li>
             <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>

@@ -100,31 +100,9 @@
   <span class="s">modules</span><span class="pi">:</span>
     <span class="s">module_name1</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">temperature</span>
-      <span class="pi">-</span> <span class="s">humidity</span>
-      <span class="pi">-</span> <span class="s">noise</span>
-      <span class="pi">-</span> <span class="s">pressure</span>
-      <span class="pi">-</span> <span class="s">co2</span>
-      <span class="pi">-</span> <span class="s">rain</span>
-      <span class="pi">-</span> <span class="s">sum_rain_1</span>
-      <span class="pi">-</span> <span class="s">sum_rain_24</span>
-      <span class="pi">-</span> <span class="s">wifi_status</span>
     <span class="s">module_name2</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">temperature</span>
       <span class="pi">-</span> <span class="s">battery_vp</span>
-      <span class="pi">-</span> <span class="s">min_temp</span>
-      <span class="pi">-</span> <span class="s">max_temp</span>
-    <span class="s">rainmeter_name3</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">rain</span>
-      <span class="pi">-</span> <span class="s">sum_rain_1</span>
-      <span class="pi">-</span> <span class="s">sum_rain_24</span>
-      <span class="pi">-</span> <span class="s">battery_vp</span>
-      <span class="pi">-</span> <span class="s">rf_status</span>
-    <span class="s">windmodule_name4</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">WindAngle</span>
-      <span class="pi">-</span> <span class="s">WindStrength</span>
-      <span class="pi">-</span> <span class="s">GustAngle</span>
-      <span class="pi">-</span> <span class="s">GustStrength</span>
-      <span class="pi">-</span> <span class="s">rf_status</span>
 </code></pre>
 </div>
 
@@ -132,7 +110,7 @@
 
 <ul>
   <li><strong>station</strong> (<em>Optional</em>): The name of the weather station. Needed if several stations are associated with the account.</li>
-  <li><strong>modules</strong> (<em>Required</em>): Modules to use. Multiple entries allowed.
+  <li><strong>modules</strong> (<em>Required</em>): Modules to use. Multiple entries allowed. Please checkthe next section about how to retrieve the module names.
     <ul>
       <li><strong>module_name</strong> array (<em>Required</em>): Name of the module.
         <ul>
@@ -199,7 +177,10 @@
     <h1 class="title delta">Category Weather</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/sensor.forecast/'>Forecast.io</a>
+            <a href='/components/sensor.bom/'>Bureau of Meteorology (BOM) Australia</a>
+        </li>
+        <li>
+            <a href='/components/sensor.darksky/'>Dark Sky</a>
         </li>
         <li>
             <a href='/components/sensor.nest_weather/'>Nest Weather Sensor</a>
@@ -218,9 +199,6 @@
         </li>
         <li>
             <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bom/'>Weather data by the Bureau of Meteorology Australia</a>
         </li>
         <li>
             <a href='/components/sensor.yr/'>YR</a>

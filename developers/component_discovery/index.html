@@ -90,10 +90,10 @@
   
 
   <p class="note warning">
-This option is only available to built-in components.
+This option is only available for built-in components.
 </p>
 
-<p>Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, an <code class="highlighter-rouge">SERVICE_DISCOVERED</code> event will be fired with the found service and the information. The <code class="highlighter-rouge">discovery</code> component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the <code class="highlighter-rouge">SERVICE_DISCOVERED</code> event.</p>
+<p>Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, a <code class="highlighter-rouge">SERVICE_DISCOVERED</code> event will be fired with the found service and the information. The <code class="highlighter-rouge">discovery</code> component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the <code class="highlighter-rouge">SERVICE_DISCOVERED</code> event.</p>
 
 <h3><a class="title-link" name="add-discovery-instructions" href="#add-discovery-instructions"></a> Add discovery instructions</h3>
 
@@ -103,7 +103,7 @@ This option is only available to built-in components.
 
 <h3><a class="title-link" name="listening-to-service_discovered-events" href="#listening-to-service_discovered-events"></a> Listening to <code class="highlighter-rouge">SERVICE_DISCOVERED</code> events</h3>
 
-<p>From your component, you will have to set up the listening for specific services. Below an example how one would listen for discovered Chromecasts:</p>
+<p>From your component, you will have to set up the listening for specific services. Given below is an example how one would listen for discovered Chromecasts:</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.loader</span> <span class="kn">import</span> <span class="n">get_component</span>
 

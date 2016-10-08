@@ -97,10 +97,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">itunes</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">iTunes</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.1.50</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">8181</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">itunes</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.1.50</span>
 </code></pre>
 </div>
 
@@ -127,6 +125,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/itunes.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.7.3
     </div>

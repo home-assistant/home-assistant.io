@@ -102,16 +102,15 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">tplink</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADRRESS</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">TP-Link Switch</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">tplink</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADRRESS</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your myStrom switch, eg. http://192.168.1.32</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of your myStrom switch, eg. <code class="highlighter-rouge">http://192.168.1.32</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this switch.</li>
 </ul>
 
@@ -147,6 +146,9 @@
     <div class='section'>
     <h1 class="title delta">Category Switch</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/switch.anel_pwrctrl/'>ANEL PwrCtrl Switch</a>
+        </li>
         <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
         </li>

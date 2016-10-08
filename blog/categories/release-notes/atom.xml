@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-07T20:22:17+00:00</updated>
+  <updated>2016-10-08T18:25:19+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,165 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.30: More Async, HASSbian, Digital Ocean, statistics, REST]]></title>
+    <link href="https://home-assistant.io/blog/2016/10/08/hassbian-rest-digital-ocean/"/>
+    <updated>2016-10-08T03:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/10/08/hassbian-rest-digital-ocean</id>
+    <content type="html"><![CDATA[Yes, after only nine days comes 0.30. Don't worry, we will try to keep our usual release cycle and not start to release every day.
+
+We guess that you already know: The [Raspberry Pi image][pi-image] is available now. For Hassbian, [@Landrash] has combined the most essential parts for a Home Assistant setup in an easy-to-use image for the Raspberry Pi device family. Hassbian is quite young, thus we are looking forward to recieve [feedback][hassbian-forum], [issue report][hassbian-forum], and [suggestions][hassbian-forum] to improve it. 
+
+A large amount of resources of the development are still focusing on the effort to move Home Assistant further to asynchronous programming. It's a labor-intensive task, comes with segmentation faults, and unstable instances when certain combinations of sensors are used. The benefit will be more speed in the near future.
+
+To reduce the run-time of your tests, [@balloob] did a lot of tweaking. For now the RFXtrx tests are excluded which cut the needed time for running on your Pull Request in half. 
+
+### <a class='title-link' name='documentation' href='#documentation'></a> Documentation 
+
+All configuration sample entries are now minimized. This should help to avoid problem for starters and newbies as they only get what's needed and not a full sample with all optional entries. If there is an issue with an entry in your `configuration.yaml` file the error message will provide you an URL that point to the documentation.
+
+<p class='img'>
+  <img src='/images/screenshots/config-validation-url.png' />
+</p>
+
+As soon as the [Hacktoberfest] started there were a lot of incoming Pull Requests for the documentation. A huge "Thank you" to all participants. Especially, we would like to give a cookie to [@hillaryfraley]. She created around a dozen Pull Requests so far and didn't only fix typos but complete sections. The [Hacktoberfest] is still on-going and we are looking forward to get more Pull Requests.
+
+### <a class='title-link' name='statistics' href='#statistics'></a> Statistics 
+
+With the [statistics sensor][stats-sensor] we would like to introduce a new sensor that is similar to the [template sensor][template-sensor] or the [trend sensor][trend-sensor]. This sensor is consuming values from another sensor and is doing some statistical analysis of the data. Over a group of samples is the average/mean, the min/max, the total, the standard deviation, and the variance calculated which can be used in your automation rules. If the source is a binary sensor then the state changes are counted.
+
+<p class='img'>
+  <img src='/images/screenshots/stats-sensor.png' />
+</p>
+
+As the results are processed on-the-fly you still need to use the data from your database for a in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
+
+### <a class='title-link' name='rest-we-dont' href='#rest-we-dont'></a> REST! We don't... 
+
+There was a lot of work done on our implementation which are working with RESTful APIs. [@w1ll1am23] extended the [aREST] platforms to display if an aREST unit is available or not. The aREST is now covered by the configuration check as well. Please check the Breaking changes section for more details.
+
+The [REST sensor][rest-sensor] supports now HTTP authentication (basic and digest) and custom header. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.
+
+```yaml
+sensor
+  - platform: rest
+    resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
+    username: YOUR_GITHUB_USERNAME
+    password: YOUR_GITHUB_ACCESS_TOKEN
+    authentication: basic
+    value_template: '{{ value_json.tag_name }}'
+    headers:
+      Accept: application/vnd.github.v3+json
+      Content-Type: application/json
+      User-Agent: Home Assistant REST sensor
+```
+
+### <a class='title-link' name='misc' href='#misc'></a> Misc 
+
+- GitHub released with a recent update a review feature. This will give you more control over your comments while you review an open Pull Request.
+- Thanks to [@robbiet480] we are now running [mention-bot]. It will help you when you create a new Pull Request to identify potential reviewers.
+- The [Home Assistant Community Forum][forum] has now an additional section called "Installation".
+
+### <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
+
+<img src='https://home-assistant.io/images/supported_brands/digital_ocean.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/volvo.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/dark_sky.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/vasttrafik.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+
+- Core: A lot of stuff is now async ([@balloob])
+- Nest: Support for operation modes ([@jawilson])
+- Z-Wave: Massive update for command classes and device classes  ([@turbokongen])
+- Digital Ocean: New [switch][do-switch] to control and [binary sensor][do-bin-sensor] to monitor droplets ([@fabaff])
+- Cover: Support for [MySensors cover][mysensors-cover] ([@OttoWinter])
+- Wink: Support for oAuth2 and relay sensors ([@w1ll1am23])
+- Sensor: [Forecast][darksky] update interval is now configurable ([@KlaasH])
+- Core: Failed login attempts are reported as persistent notifications ([@fabaff])
+- Climate: Temperature convert now available in the Climate object ([@pvizeli])
+- Notify: Update to accept a list ([@robbiet480]) 
+- Device tracker: Support for tracking of your [Volvo] ([@molobrakos])
+- Switch: Flux improvements ([@jawilson])
+- InfluxDB: Time-out for connections ([@simonszu])
+- Sensor: New MySensors types available ([@MartinHjelmare])
+- Switch: [ANEL PwrCtrl][pwrctrl-switch] devices are now supported ([@mweinelt])
+- Frontend: Path of the configuration file now visible on the frontend ([@justweb1])
+- Homematic:  Extended device support (RF, IP and wired devices) ([@pvizeli], [@danielperna84])
+- Sensor: New sensor for [statistical analysis][stats-sensor] ([@fabaff])
+- Sensor: Support for headers and HTTP authentication for [REST sensors][rest-sensor] ([@fabaff])
+- Device tracker: Support for encrypted Owntracks payload ([@molobrakos])
+- Tests: Improvement of the HTML5 notify tests ([@capellini])
+- Wink: Support for Wink Smoke and CO detectors ([@w1ll1am23])
+- Sensor: [TED5000][ted5000] sensor was included ([@gwendalg])
+- Sensor: Support for [Västtrafik][vasttrafik] public transport ([@persandstrom])
+- Notify: [Pushetta][pushetta] no longer sends message on start up ([@Danielhiversen])
+- Sensor: [Forecast.io][forecast] sensor was replaced by [Dark Sky][darksky] ([@fabaff])
+- Device Tracker: The `known_device.yaml` file is now validated ([@kellerza]) 
+- Minor features and bug fixes by [@tchellomello], [@pavoni], [@fabaff], [@pvizeli], [@lwis], [@turbokongen], [@Danielhiversen], [@persandstrom], [@balloob], [@robbiet480], [@sam-io], [@bbangert], and you if you are missing here.
+
+### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
+
+- All deprecated condition options from `automation` have been removed (deprecated since May and have printed warnings to your console):
+  - `use_trigger_values` is gone. You have to copy your triggers to conditions and adjust for the correct config.
+  - `condition_type` is gone. Use `condition: or` instead.
+  - To specify the type of a condition, use `condition:` instead of `platform:`. 
+- The [Forecast.io][forecast] was renamed to [Dark Sky][darksky]. Replace your `- platform: forecast` with `- platform: darksky`.
+- The [aREST][arest] configuration between the [sensor][arest-sensor] and the [switch][arest-switch] platform was aligned. 
+
+### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
+
+[@balloob]: https://github.com/balloob
+[@bbangert]: https://github.com/bbangert
+[@capellini]: https://github.com/capellini
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@danielperna84]: https://github.com/danielperna84
+[@fabaff]: https://github.com/fabaff
+[@gwendalg]: https://github.com/gwendalg
+[@hillaryfraley]: https://github.com/hillaryfraley
+[@jawilson]: https://github.com/jawilson
+[@justweb1]: https://github.com/justweb1
+[@kellerza]: https://github.com/kellerza
+[@KlaasH]: https://github.com/KlaasH
+[@Landrash]: https://github.com/Landrash
+[@lwis]: https://github.com/lwis
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@molobrakos]: https://github.com/molobrakos
+[@mweinelt]: https://github.com/mweinelt
+[@OttoWinter]: https://github.com/OttoWinter
+[@pavoni]: https://github.com/pavoni
+[@persandstrom]: https://github.com/persandstrom
+[@pvizeli]: https://github.com/pvizeli
+[@robbiet480]: https://github.com/robbiet480
+[@sam-io]: https://github.com/sam-io
+[@simonszu]: https://github.com/simonszu
+[@tchellomello]: https://github.com/tchellomello
+[@turbokongen]: https://github.com/turbokongen
+[@w1ll1am23]: https://github.com/w1ll1am23
+
+[arest]: https://arest.io/
+[arest-sensor]: /components/sensor.arest/
+[arest-switch]: /components/switch.arest/
+[darksky]: /components/sensor.darksky/
+[do-bin-sensor]: /components/binary_sensor.digital_ocean/
+[do-switch]: /components/switch.digital_ocean/
+[forecast]: /components/sensor.forecast/
+[forum]: https://community.home-assistant.io/
+[Hacktoberfest]: /blog/2016/10/02/hacktoberfest/
+[hassbian-forum]: https://community.home-assistant.io/c/installation/hassbian
+[mention-bot]: https://github.com/mention-bot
+[mysensors-cover]: /components/cover.mysensors/
+[notebook]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb
+[pi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
+[pushetta]: /components/notify.pushetta/
+[pwrctrl-switch]: /components/switch.anel_pwrctrl/
+[rest-sensor]: /components/sensor.rest/
+[stats-sensor]: /components/sensor.statistics/
+[ted5000]: /components/sensor.ted5000/
+[template-sensor]: /components/sensor.template/
+[trend-sensor]: /components/binary_sensor.trend/
+[vasttrafik]: /components/sensor.vasttrafik/
+[Volvo]: /components/device_tracker.volvooncall/
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants]]></title>
@@ -735,132 +894,6 @@ homeassistant:
 [Plex]: /components/media_player.plex/
 [Honeywell]: /components/thermostat.honeywell/
 [Secrets]: /topics/secrets/
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.25: Custom frontend panels, Jupyter notebooks, DirecTV.]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/"/>
-    <updated>2016-07-30T12:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/30/custom-frontend-panels--jupyter-notebooks--directv</id>
-    <content type="html"><![CDATA[When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!
-
-Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can [add it's own page to the frontend][custom-panels]. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you'll come up with!
-
-We have also seen an exciting trend of people starting to visualize their Internet of Things data using [Jupyter] Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the [blog] post by [@kireyeu] shows an advanced usecase while our [Notebooks][jupyter-notebooks] in the [Home Assistant Notebooks repository][jupyter-repo] cover the basics.
-
-This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant can talk to 26 different media players!
-
-The brand-new [iFrame panel component][iframe_panel] allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.
-
-I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] data ([PEP484]) to the Home Assistant core. This will help us identify issues before they are released.
-
-<img src='https://home-assistant.io/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://home-assistant.io/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
-
-- Frontend: Support for [iFrame panels][iframe_panel] to adding other sites to sidebar ([@balloob])
-- Allow components to register [custom frontend panels][custom-panels] ([@balloob])
-- Add example custom_component [react_panel][react-panel] showing custom panels ([@balloob])
-- Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
-- Script: Specify a delay [using templates][script] ([@Teagan42])
-- Media player: [Russound RNET][Russound] integration ([@laf]) 
-- Remote: Option specifying custom timeout when calling Home Assistant API ([@n8henrie])
-- Thermostat: Integration of [KNX] thermostats ([@open-homeautomation])
-- Thermostat: Support for HVAC mode of [Nest] devices ([@vladonemo])
-- InfluxDB: Option to specify additional [tags] ([@open-homeautomation])
-- Input slider: Support for float value ([@ngraziano])
-- Template: New [filters] (`timestamp_local` and `timestamp_utc`) ([@fabaff])
-- Binary sensor - Wink: Water leak sensor support added ([@w1ll1am23])
-- Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor ([@PetitCircuitLab])
-- Switch - RPi GPIO: Fix when inverted logic ([@zeroDenial])
-- Z-Wave: Rollershutter update ([@turbokongen])
-- RFXtrx: Fire events when receiving signals from sensors and tests added ([@Danielhiversen])
-- Core: Add [type][typing] checking using mypy to the core ([@fabianhjr])
-- Remote: Support for getting the [Configuration] through the Python API ([@fabaff])
-- Media player: Support for [DirecTV] ([@cbulock])
-- Use browser timezone for frontend logbook and history dates ([@armills])
-- Light: New support for [X10] lights ([@fotoetienne])
-- Sensor: Support for observing [IMAP] accounts ([@danieljkemp])
-- Media Player: Integration for [MPC-HC] (Media Player Classic - Home Cinema) mediaplayer ([@abcminiuser])
-- Notify: `location` extension for [Telegram] and photo bug fixed ([@keatontaylor] and [@pvizeli])
-- Groups: Lock states will now be properly grouped ([@jwl17330536])
-- Media Player: Added tests for Sonos to improve code quality ([@americanwookie])
-- Device Tracker: iCloud stability fixes ([@kellerza])
-- Sensor: Speedtest with improved error handling and state restoring ([@nkgilley])
-- Recorder: Stability fixes ([@kellerza])
-- Qwikswitch: Stability fixes ([@kellerza])
-- Light: [Hyperion] keeps now track of active color ([@schneefux])
-
-### <a class='title-link' name='hotfix-0251---august-1' href='#hotfix-0251---august-1'></a> Hotfix 0.25.1 - August 1 
-
-- Light - Z-Wave: Bring back delayed value update behavior ([@jnewland])
-- Recorder: Properly close session after execute ([@kellerza])
-- Media Player - Kodi: No longer block startup if connecting to wrong port ([@shoekstra])
-- Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some ([@balloob])
-
-### <a class='title-link' name='hotfix-0252---august-2' href='#hotfix-0252---august-2'></a> Hotfix 0.25.2 - August 2 
-
-- Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.
-
-### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
-
-- Google Voice SMS notification support was removed.
-
-[@nkgilley]: https://github.com/nkgilley
-[@abcminiuser]: https://github.com/abcminiuser
-[@americanwookie]: https://github.com/americanwookie
-[@armills]: https://github.com/armills
-[@balloob]: https://github.com/balloob
-[@cbulock]: https://github.com/cbulock
-[@Danielhiversen]: https://github.com/Danielhiversen
-[@danieljkemp]: https://github.com/danieljkemp
-[@fabaff]: https://github.com/fabaff
-[@fabianhjr]: https://github.com/fabianhjr
-[@fotoetienne]: https://github.com/fotoetienne
-[@jwl17330536]: https://github.com/jwl17330536
-[@keatontaylor]: https://github.com/keatontaylor
-[@kellerza]: https://github.com/kellerza
-[@kireyeu]: https://github.com/kireyeu
-[@laf]: https://github.com/laf
-[@n8henrie]: https://github.com/n8henrie
-[@ngraziano]: https://github.com/ngraziano
-[@open-homeautomation]: https://github.com/open-homeautomation
-[@PetitCircuitLab]: https://github.com/PetitCircuitLab
-[@pvizeli]: https://github.com/pvizeli
-[@schneefux]: https://github.com/schneefux
-[@Teagan42]: https://github.com/Teagan42
-[@turbokongen]: https://github.com/turbokongen
-[@usul27]: https://github.com/usul27
-[@vladonemo]: https://github.com/vladonemo
-[@w1ll1am23]: https://github.com/w1ll1am23
-[@zeroDenial]: https://github.com/zeroDenial
-[@jnewland]: https://github.com/jnewland
-[@shoekstra]: https://github.com/shoekstra
-
-[custom-panels]: /developers/frontend_creating_custom_panels/
-[iframe_panel]: /components/panel_iframe/
-[custom]: /cookbook/custom_panel_using_react/
-[flux]: /components/light.flux_led/
-[script]: /getting-started/scripts/#delay
-[Russound]: /components/media_player.russound_rnet/
-[tags]: /components/influxdb/
-[filter]: /topics/templating/
-[jupyter-notebooks]: /cookbook/#jupyter-notebooks
-[jupyter-repo]: https://github.com/home-assistant/home-assistant-notebooks
-[Jupyter]: http://jupyter.org/
-[blog]: /blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/
-[DirecTV]: /components/media_player.directv/
-[Configuration]: /developers/python_api/#get-configuration
-[X10]: /components/light.x10/
-[IMAP]: /components/sensor.imap/
-[typing]: https://docs.python.org/3/library/typing.html
-[PEP484]: https://www.python.org/dev/peps/pep-0484/
-[MPC-HC]: /components/media_player.mpchc/
-[Telegram]: /components/notify.telegram/
-[react-panel]: /cookbook/custom_panel_using_react/
-[KNX]: /components/thermostat.knx/
-[Nest]: /components/thermostat.nest/
-[filters]: /topics/templating/#home-assistant-template-extensions
-[Hyperion]: /components/light.hyperion/
 ]]></content>
   </entry>
   

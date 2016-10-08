@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p><code class="highlighter-rouge">limitlessled</code> can control your <a href="http://www.limitlessled.com/">LimitlessLED</a> lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight or iLight.</p>
+  <p><code class="highlighter-rouge">limitlessled</code> can control your <a href="http://www.limitlessled.com/">LimitlessLED</a> lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.</p>
 
 <h3><a class="title-link" name="setup" href="#setup"></a> Setup</h3>
 
@@ -102,22 +102,15 @@
   <span class="s">platform</span><span class="pi">:</span> <span class="s">limitlessled</span>
   <span class="s">bridges</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
-      <span class="s">version</span><span class="pi">:</span> <span class="s">5</span>
-      <span class="s">port</span><span class="pi">:</span> <span class="s">8899</span>
       <span class="s">groups</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">number</span><span class="pi">:</span> <span class="s">1</span>
-        <span class="s">type</span><span class="pi">:</span> <span class="s">rgbw</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">Bedroom</span>
-      <span class="pi">-</span> <span class="s">number</span><span class="pi">:</span> <span class="s">2</span>
-        <span class="s">type</span><span class="pi">:</span> <span class="s">white</span>
-        <span class="s">name</span><span class="pi">:</span> <span class="s">Craft Room</span>
       <span class="pi">-</span> <span class="s">number</span><span class="pi">:</span> <span class="s">2</span>
         <span class="s">type</span><span class="pi">:</span> <span class="s">rgbw</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">Bathroom</span>
     <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.11</span>
       <span class="s">groups</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">number</span><span class="pi">:</span> <span class="s">1</span>
-        <span class="s">type</span><span class="pi">:</span> <span class="s">rgbw</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room &amp; Hall</span>
 </code></pre>
 </div>

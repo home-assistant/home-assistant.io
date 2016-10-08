@@ -95,21 +95,17 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">snmp</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Load</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.32</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">161</span>
-  <span class="s">community</span><span class="pi">:</span> <span class="s">public</span>
-  <span class="s">baseoid</span><span class="pi">:</span> <span class="s">1.3.6.1.4.1.2021.10.1.3.1</span>
-  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%"</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">snmp</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.32</span>
+    <span class="s">baseoid</span><span class="pi">:</span> <span class="s">1.3.6.1.4.1.2021.10.1.3.1</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your host, eg. 192.168.1.32.</li>
-  <li><strong>port</strong> (<em>Option</em>): The SNMP port of your host. Defaults to 161.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of your host, eg. <code class="highlighter-rouge">192.168.1.32</code>.</li>
+  <li><strong>port</strong> (<em>Option</em>): The SNMP port of your host. Defaults to <code class="highlighter-rouge">161</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the SNMP sensor.</li>
   <li><strong>community</strong> (<em>Optional</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code class="highlighter-rouge">public</code> with read-only permission (which is sufficient).</li>
   <li><strong>baseoid</strong> (<em>Required</em>): The OID where the information is located. It’s advised to use the numerical notation.</li>
@@ -167,6 +163,12 @@ laLoad.1 <span class="o">=</span> STRING: 0.19
     <ul class='divided'>
         <li>
             <a href='/components/sensor.cpuspeed/'>CPU speed</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.digital_ocean/'>Digital Ocean Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.digital_ocean/'>Digital Ocean Switch</a>
         </li>
         <li>
             <a href='/components/sensor.fritzbox_callmonitor/'>FRITZ!Box</a>

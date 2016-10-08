@@ -104,9 +104,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">denon</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Music station</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">denon</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -142,6 +141,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/denon.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/media_player/'>the Media Player component</a>.

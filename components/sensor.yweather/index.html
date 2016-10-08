@@ -101,30 +101,17 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
-  <span class="s">woeid</span><span class="pi">:</span> <span class="s">YOUR_WOEID</span>
-  <span class="s">forecast</span><span class="pi">:</span> <span class="s">0 until 5</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-   <span class="pi">-</span> <span class="s">weather</span>
-   <span class="pi">-</span> <span class="s">weather_current</span>
-   <span class="pi">-</span> <span class="s">temp_min</span>
-   <span class="pi">-</span> <span class="s">temp_max</span>
-   <span class="pi">-</span> <span class="s">wind_speed</span>
-   <span class="pi">-</span> <span class="s">pressure</span>
-   <span class="pi">-</span> <span class="s">visibility</span>
-   <span class="pi">-</span> <span class="s">humidity</span>
-   <span class="pi">-</span> <span class="s">temperature</span>
-
-<span class="c1"># Example configuration.yaml entry with forecast</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
-  <span class="s">woeid</span><span class="pi">:</span> <span class="s">YOUR_WOEID</span>
-  <span class="s">forecast</span><span class="pi">:</span> <span class="s">3</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">OPTIONAL_NAME</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-   <span class="pi">-</span> <span class="s">weather</span>
-   <span class="pi">-</span> <span class="s">temp_min</span>
-   <span class="pi">-</span> <span class="s">temp_max</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">weather</span>
+      <span class="pi">-</span> <span class="s">weather_current</span>
+      <span class="pi">-</span> <span class="s">temp_min</span>
+      <span class="pi">-</span> <span class="s">temp_max</span>
+      <span class="pi">-</span> <span class="s">wind_speed</span>
+      <span class="pi">-</span> <span class="s">pressure</span>
+      <span class="pi">-</span> <span class="s">visibility</span>
+      <span class="pi">-</span> <span class="s">humidity</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
 </code></pre>
 </div>
 
@@ -175,7 +162,10 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
     <h1 class="title delta">Category Weather</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/sensor.forecast/'>Forecast.io</a>
+            <a href='/components/sensor.bom/'>Bureau of Meteorology (BOM) Australia</a>
+        </li>
+        <li>
+            <a href='/components/sensor.darksky/'>Dark Sky</a>
         </li>
         <li>
             <a href='/components/sensor.nest_weather/'>Nest Weather Sensor</a>
@@ -194,9 +184,6 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
         </li>
         <li>
             <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bom/'>Weather data by the Bureau of Meteorology Australia</a>
         </li>
         <li>
             <a href='/components/sensor.yr/'>YR</a>

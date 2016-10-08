@@ -95,13 +95,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.0.123</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">8080</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Kodi</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-  <span class="s">turn_off_action</span><span class="pi">:</span> <span class="s">shutdown</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.0.123</span>
 </code></pre>
 </div>
 
@@ -132,6 +127,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/kodi.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: pre 0.7
     </div>

@@ -97,17 +97,16 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">camera</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">local_file</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Local File</span>
-  <span class="s">file_path</span><span class="pi">:</span> <span class="s">/tmp/image.jpg</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">local_file</span>
+    <span class="s">file_path</span><span class="pi">:</span> <span class="s">/tmp/image.jpg</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the camera</li>
   <li><strong>file_path</strong> (<em>Required</em>): File to serve as the camera.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the camera</li>
 </ul>
 
 <p class="note">

@@ -122,9 +122,6 @@ Escape character is <span class="s1">'^]'</span>.
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">senosr</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">gpsd</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
-    <span class="s">port</span><span class="pi">:</span> <span class="s">2947</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">GPS USB</span>
 </code></pre>
 </div>
 
@@ -132,7 +129,7 @@ Escape character is <span class="s1">'^]'</span>.
 
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): The host where GPSD is running. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port which GPSD is using. Defaults to 2947.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port which GPSD is using. Defaults to <code class="highlighter-rouge">2947</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): Friendly name to use for the frontend. Default to GPS.</li>
 </ul>
 
@@ -172,9 +169,6 @@ Escape character is <span class="s1">'^]'</span>.
         </li>
         <li>
             <a href='/components/sensor.dweet/'>Dweet.io</a>
-        </li>
-        <li>
-            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
@@ -222,9 +216,6 @@ Escape character is <span class="s1">'^]'</span>.
             <a href='/components/sensor.nest/'>Nest Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.neurio_energy/'>Neurio</a>
-        </li>
-        <li>
             <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
         </li>
         <li>
@@ -238,6 +229,9 @@ Escape character is <span class="s1">'^]'</span>.
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

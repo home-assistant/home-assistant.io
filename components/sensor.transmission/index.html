@@ -97,10 +97,6 @@
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">transmission</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">9091</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Transmission</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
   <span class="s">monitored_variables</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s1">'</span><span class="s">current_status'</span>
     <span class="pi">-</span> <span class="s1">'</span><span class="s">download_speed'</span>
@@ -116,7 +112,7 @@
   <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this Transmission instance.</li>
   <li><strong>username</strong> (<em>Optional</em>): Your Transmission username, if you use authentication.</li>
   <li><strong>password</strong> (<em>Optional</em>): Your Transmission password, if you use authentication.</li>
-  <li><strong>monitored_variables</strong> array: Conditions to display in the frontend.
+  <li><strong>monitored_variables</strong> array (<em>Required</em>): Conditions to display in the frontend.
     <ul>
       <li><strong>current_status</strong>: The status of your Transmission daemon.</li>
       <li><strong>download_speed</strong>: The current download speed.</li>

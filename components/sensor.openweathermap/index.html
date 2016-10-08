@@ -97,18 +97,17 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">openweathermap</span>
-  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
-  <span class="s">forecast</span><span class="pi">:</span> <span class="s">0 or 1</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">weather</span>
-    <span class="pi">-</span> <span class="s">temperature</span>
-    <span class="pi">-</span> <span class="s">wind_speed</span>
-    <span class="pi">-</span> <span class="s">humidity</span>
-    <span class="pi">-</span> <span class="s">pressure</span>
-    <span class="pi">-</span> <span class="s">clouds</span>
-    <span class="pi">-</span> <span class="s">rain</span>
-    <span class="pi">-</span> <span class="s">snow</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">openweathermap</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">weather</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">wind_speed</span>
+      <span class="pi">-</span> <span class="s">humidity</span>
+      <span class="pi">-</span> <span class="s">pressure</span>
+      <span class="pi">-</span> <span class="s">clouds</span>
+      <span class="pi">-</span> <span class="s">rain</span>
+      <span class="pi">-</span> <span class="s">snow</span>
 </code></pre>
 </div>
 
@@ -159,7 +158,10 @@
     <h1 class="title delta">Category Weather</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/sensor.forecast/'>Forecast.io</a>
+            <a href='/components/sensor.bom/'>Bureau of Meteorology (BOM) Australia</a>
+        </li>
+        <li>
+            <a href='/components/sensor.darksky/'>Dark Sky</a>
         </li>
         <li>
             <a href='/components/sensor.nest_weather/'>Nest Weather Sensor</a>
@@ -178,9 +180,6 @@
         </li>
         <li>
             <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bom/'>Weather data by the Bureau of Meteorology Australia</a>
         </li>
         <li>
             <a href='/components/sensor.yr/'>YR</a>

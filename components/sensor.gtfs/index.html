@@ -117,10 +117,10 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">gtfs</span>
-  <span class="s">origin</span><span class="pi">:</span> <span class="s">STOP_ID</span>
-  <span class="s">destination</span><span class="pi">:</span> <span class="s">STOP_ID</span>
-  <span class="s">data</span><span class="pi">:</span> <span class="s">DATA_SOURCE</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">gtfs</span>
+    <span class="s">origin</span><span class="pi">:</span> <span class="s">STOP_ID</span>
+    <span class="s">destination</span><span class="pi">:</span> <span class="s">STOP_ID</span>
+    <span class="s">data</span><span class="pi">:</span> <span class="s">DATA_SOURCE</span>
 </code></pre>
 </div>
 
@@ -176,6 +176,9 @@
         </li>
         <li>
             <a href='/components/sensor.uber/'>Uber</a>
+        </li>
+        <li>
+            <a href='/components/sensor.vasttrafik/'>Västtrafik Public Transport</a>
         </li>
     </ul>
     </div>

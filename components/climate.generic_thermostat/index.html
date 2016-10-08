@@ -93,20 +93,10 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">climate</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">generic_thermostat</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Study</span>
-  <span class="s">heater</span><span class="pi">:</span> <span class="s">switch.study_heater</span>
-  <span class="s">target_sensor</span><span class="pi">:</span> <span class="s">sensor.study_temperature</span>
-  <span class="s">min_temp</span><span class="pi">:</span> <span class="s">15</span>
-  <span class="s">max_temp</span><span class="pi">:</span> <span class="s">21</span>
-  <span class="s">target_temp</span><span class="pi">:</span> <span class="s">15</span>
-  <span class="s">min_cycle_duration</span><span class="pi">:</span>
-  <span class="c1"># At least one of these must be specified:</span>
-     <span class="s">days</span><span class="pi">:</span> <span class="s">2</span>
-     <span class="s">hours</span><span class="pi">:</span> <span class="s">1</span>
-     <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
-     <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
-     <span class="s">milliseconds</span><span class="pi">:</span> <span class="s">20</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">generic_thermostat</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Study</span>
+    <span class="s">heater</span><span class="pi">:</span> <span class="s">switch.study_heater</span>
+    <span class="s">target_sensor</span><span class="pi">:</span> <span class="s">sensor.study_temperature</span>
 </code></pre>
 </div>
 
@@ -114,7 +104,7 @@
 
 <ul>
   <li><strong>name</strong> (<em>Required</em>): Name of thermostat</li>
-  <li><strong>heater</strong> (<em>Required</em>: <code class="highlighter-rouge">entity_id</code> for heater switch, must be a toggle device.</li>
+  <li><strong>heater</strong> (<em>Required</em>): <code class="highlighter-rouge">entity_id</code> for heater switch, must be a toggle device.</li>
   <li><strong>target_sensor</strong> (<em>Required</em>): <code class="highlighter-rouge">entity_id</code> for a temperature sensor, target_sensor.state must be temperature.</li>
   <li><strong>min_temp</strong> (<em>Optional</em>): Set minimum set point available (default: 7)</li>
   <li><strong>max_temp</strong> (<em>Optional</em>): Set maximum set point available (default: 35)</li>
@@ -122,6 +112,22 @@
   <li><strong>ac_mode</strong> (<em>Optional</em>): Set the switch specified in the <em>heater</em> option to be treated as a cooling device instead of a heating device.</li>
   <li><strong>min_cycle_duration</strong> (<em>Optional</em>): Set a minimum amount of time that the switch specified in the <em>heater</em> option must be in it’s current state prior to being switched either off or on.</li>
 </ul>
+
+<p>A full configuration example looks like the one below. <code class="highlighter-rouge">min_cycle_duration</code> must contains at least one of the following entries: <code class="highlighter-rouge">days:</code>, <code class="highlighter-rouge">hours:</code>, <code class="highlighter-rouge">minutes:</code>, <code class="highlighter-rouge">seconds:</code> or <code class="highlighter-rouge">milliseconds:</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Full example configuration.yaml entry</span>
+<span class="s">climate</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">generic_thermostat</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Study</span>
+    <span class="s">heater</span><span class="pi">:</span> <span class="s">switch.study_heater</span>
+    <span class="s">target_sensor</span><span class="pi">:</span> <span class="s">sensor.study_temperature</span>
+    <span class="s">min_temp</span><span class="pi">:</span> <span class="s">15</span>
+    <span class="s">max_temp</span><span class="pi">:</span> <span class="s">21</span>
+    <span class="s">target_temp</span><span class="pi">:</span> <span class="s">17</span>
+    <span class="s">min_cycle_duration</span><span class="pi">:</span>
+      <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -139,6 +145,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/heat-control.png' />
   </div>
+    <div class='section'>
+    Introduced in release: pre 0.7
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/climate/'>the Climate component</a>.

@@ -89,18 +89,14 @@
   <hr class="divider">
   
 
-  <p>The Squeezebox platform allows you to control a <a href="https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29">Logitech Squeezebox</a> music player from Home Assistant.
-This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like <a href="http://softsqueeze.sourceforge.net/">SoftSqueeze</a>, <a href="https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer">SqueezePlayer</a> and <a href="http://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released">SqueezeSlave</a>.</p>
+  <p>The <code class="highlighter-rouge">squeezebox</code> platform allows you to control a <a href="https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29">Logitech Squeezebox</a> music player from Home Assistant. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like <a href="http://softsqueeze.sourceforge.net/">SoftSqueeze</a>, <a href="https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer">SqueezePlayer</a> and <a href="http://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released">SqueezeSlave</a>.</p>
 
 <p>To add your Squeezebox player to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">squeezebox</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">9090</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">squeezebox</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
 </code></pre>
 </div>
 
@@ -108,7 +104,7 @@ This lets you control Squeezebox hardware like the Classic, Transporter, Duet, B
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The host name or address of the Logitech Media Server, eg. 192.168.1.21.</li>
-  <li><strong>port</strong> (<em>Optional</em>): Telnet port to Logitech Media Server, default 9090.</li>
+  <li><strong>port</strong> (<em>Optional</em>): Telnet port to Logitech Media Server. Defaults to 9090.</li>
   <li><strong>username</strong> (<em>Optional</em>): The username, if password protection is enabled.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password, if password protection is enabled.</li>
 </ul>
@@ -129,6 +125,9 @@ This lets you control Squeezebox hardware like the Classic, Transporter, Duet, B
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/logitech.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: pre 0.7
     </div>

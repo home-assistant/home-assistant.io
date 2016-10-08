@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>A <code class="highlighter-rouge">zigbee</code> binary sha_release: 0.13ensor in this context is a device connected to one of the digital input pins on a <a href="http://www.zigbee.org/">ZigBee</a> module. The states reported by such a device are limited to <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">off</code>. By default, a binary sensor is considered <code class="highlighter-rouge">on</code> when the ZigBee device’s digital input pin is held ‘high’ and considered <code class="highlighter-rouge">off</code> when it is held <code class="highlighter-rouge">low</code>. This behaviour can be inverted by setting the <code class="highlighter-rouge">on_state</code> configuration variable to <code class="highlighter-rouge">low</code>.</p>
+  <p>A <code class="highlighter-rouge">zigbee</code> binary sensor in this context is a device connected to one of the digital input pins on a <a href="http://www.zigbee.org/">ZigBee</a> module. The states reported by such a device are limited to <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">off</code>. By default, a binary sensor is considered <code class="highlighter-rouge">on</code> when the ZigBee device’s digital input pin is held ‘high’ and considered <code class="highlighter-rouge">off</code> when it is held <code class="highlighter-rouge">low</code>. This behaviour can be inverted by setting the <code class="highlighter-rouge">on_state</code> configuration variable to <code class="highlighter-rouge">low</code>.</p>
 
 <p>To enable a digital input pin as binary sensor in your installation, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
@@ -98,8 +98,6 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">zigbee</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Hallway PIR Sensor</span>
     <span class="s">pin</span><span class="pi">:</span> <span class="s">0</span>
-    <span class="s">address</span><span class="pi">:</span> <span class="s">0013A20040892FA2</span>
-    <span class="s">on_state</span><span class="pi">:</span> <span class="s">low</span>
 </code></pre>
 </div>
 
@@ -108,8 +106,8 @@
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The name you wouldd like to give the binary sensor in Home Assistant.</li>
   <li><strong>pin</strong> (<em>Required</em>): The number identifying which pin to use.</li>
-  <li><strong>address</strong>: The long 64bit address of the remote ZigBee device whose digital input pin you’d like to sample. Do not include this variable if you want to sample the local ZigBee device’s pins.</li>
-  <li><strong>on_state</strong>: Either <code class="highlighter-rouge">high</code> (default) or <code class="highlighter-rouge">low</code>, depicting whether the binary sensor is considered <code class="highlighter-rouge">on</code> when the pin is <code class="highlighter-rouge">high</code> or <code class="highlighter-rouge">low</code>.</li>
+  <li><strong>address</strong> (<em>Optional</em>): The long 64bit address of the remote ZigBee device whose digital input pin you’d like to sample. Do not include this variable if you want to sample the local ZigBee device’s pins.</li>
+  <li><strong>on_state</strong> (<em>Optional</em>): Either <code class="highlighter-rouge">high</code> (default) or <code class="highlighter-rouge">low</code>, depicting whether the binary sensor is considered <code class="highlighter-rouge">on</code> when the pin is <code class="highlighter-rouge">high</code> or <code class="highlighter-rouge">low</code>.</li>
 </ul>
 
 
@@ -163,6 +161,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>

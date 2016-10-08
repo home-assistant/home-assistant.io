@@ -102,12 +102,9 @@
 
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">climate</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">climate</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">radiotherm</span>
-  <span class="s">host</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">192.168.99.137</span>
-    <span class="pi">-</span> <span class="s">192.168.99.202</span>
-  <span class="s">hold_temp</span><span class="pi">:</span> <span class="s">True</span>
 </code></pre>
 </div>
 
@@ -120,6 +117,15 @@
 
 <p>Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to <code class="highlighter-rouge">False</code> if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.</p>
 
+<p>Multiple thermostats could be assigned by using <code class="highlighter-rouge">host:</code> if auto-detetion is not used.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">climate</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">radiotherm</span>
+  <span class="s">host</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">192.168.99.137</span>
+    <span class="pi">-</span> <span class="s">192.168.99.202</span>
+</code></pre>
+</div>
 
 
 </article>

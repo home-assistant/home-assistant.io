@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>This platform allows you to detect presence by looking at connected devices to a <a href="https://www.tp-link.com">TP-Link</a> device. This includes the ArcherC9 line.</p>
+  <p>The <code class="highlighter-rouge">tplink</code> platform allows you to detect presence by looking at connected devices to a <a href="https://www.tp-link.com">TP-Link</a> device. This includes the ArcherC9 line.</p>
 
 <p class="note">
 TP-Link devices typically only allow one login at a time to the admin console.  This component will count torwards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant (and waiting a few minutes for the session to timeout) before you’ll be able to login.
@@ -97,10 +97,10 @@ TP-Link devices typically only allow one login at a time to the admin console.  
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">tplink</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ROUTER_IP</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">tplink</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ROUTER_IP</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
 </code></pre>
 </div>
 
@@ -224,6 +224,9 @@ TP-Link devices typically only allow one login at a time to the admin console.  
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

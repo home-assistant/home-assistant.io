@@ -99,7 +99,6 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">recorder</span><span class="pi">:</span>
-  <span class="s">purge_days</span><span class="pi">:</span> <span class="s">14</span>
 </code></pre>
 </div>
 
@@ -109,6 +108,13 @@
   <li><strong>purge_days</strong> (<em>Optional</em>): Delete events and states older than x days.</li>
   <li><strong>db_url</strong> (<em>Optional</em>): The URL which point to your database.</li>
 </ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">recorder</span><span class="pi">:</span>
+  <span class="s">purge_days</span><span class="pi">:</span> <span class="s">5</span>
+  <span class="s">db_url</span><span class="pi">:</span> <span class="s">sqlite:///home/user/.homeassistant/test</span>
+</code></pre>
+</div>
 
 <table>
   <thead>

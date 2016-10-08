@@ -133,10 +133,10 @@ file
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">ubus</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">ROUTER_IP_ADDRESS</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ubus</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">ROUTER_IP_ADDRESS</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
 </code></pre>
 </div>
 
@@ -241,6 +241,9 @@ file
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

@@ -150,67 +150,72 @@
 <h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
 
 <div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
- *
- */</span>
+* Documentation: http://www.mysensors.org
+* Support Forum: http://forum.mysensors.org
+*/</span>
 
 <span class="cp">#include &lt;MySensor.h&gt;
-</span><span class="cm">/* Include all the other Necessary code here. The example code is limited to message exchange for mysensors with the controller (ha)*/</span>
+</span><span class="cm">/*
+* Include all the other Necessary code here.
+* The example code is limited to message exchange for mysensors
+* with the controller (ha).
+*/</span>
 
 <span class="cp">#define CHILD_ID_HVAC  0  // childId
 </span><span class="n">MyMessage</span> <span class="n">msgHVACSetPointC</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">V_HVAC_SETPOINT_COOL</span><span class="p">);</span>
 <span class="n">MyMessage</span> <span class="n">msgHVACSpeed</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">V_HVAC_SPEED</span><span class="p">);</span>
 <span class="n">MyMessage</span> <span class="n">msgHVACFlowState</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">V_HVAC_FLOW_STATE</span><span class="p">);</span>
 
-<span class="cm">/* Include all the other Necessary code here. The example code is limited to message exchange for mysensors with the controller (ha)*/</span>
+<span class="cm">/*
+* Include all the other Necessary code here.
+* The example code is limited to message exchange for mysensors
+* with the controller (ha).
+*/</span>
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
 <span class="p">{</span>
+  <span class="c1">// Startup and initialize MySensors library.
+</span>  <span class="c1">// Set callback for incoming messages.
+</span>  <span class="n">gw</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">incomingMessage</span><span class="p">);</span>
 
-        <span class="c1">// Startup and initialize MySensors library. Set callback for incoming messages.
-</span>        <span class="n">gw</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">incomingMessage</span><span class="p">);</span>
+  <span class="c1">// Send the sketch version information to the gateway and Controller
+</span>  <span class="n">gw</span><span class="p">.</span><span class="n">sendSketchInfo</span><span class="p">(</span><span class="s">"HVAC"</span><span class="p">,</span> <span class="s">"0.1"</span><span class="p">);</span>
 
-        <span class="c1">// Send the sketch version information to the gateway and Controller
-</span>        <span class="n">gw</span><span class="p">.</span><span class="n">sendSketchInfo</span><span class="p">(</span><span class="s">"HVAC"</span><span class="p">,</span> <span class="s">"0.1"</span><span class="p">);</span>
-
-        <span class="n">gw</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">S_HVAC</span><span class="p">,</span> <span class="s">"Thermostat"</span><span class="p">);</span>
-        <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgHVACFlowState</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">"Off"</span><span class="p">));</span>
-        <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgHVACSetPointC</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">target_temp</span><span class="p">));</span>
-        <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgHVACSpeed</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">"Max"</span><span class="p">));</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">incomingMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">String</span> <span class="n">recvData</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
-        <span class="n">recvData</span><span class="p">.</span><span class="n">trim</span><span class="p">();</span>
-        <span class="k">switch</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">case</span> <span class="n">V_HVAC_SPEED</span><span class="p">:</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"auto"</span><span class="p">))</span> <span class="n">fan_speed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"min"</span><span class="p">))</span> <span class="n">fan_speed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"normal"</span><span class="p">))</span> <span class="n">fan_speed</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"max"</span><span class="p">))</span> <span class="n">fan_speed</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-                <span class="n">processHVAC</span><span class="p">();</span>
-                <span class="k">break</span><span class="p">;</span>
-        <span class="k">case</span> <span class="n">V_HVAC_SETPOINT_COOL</span><span class="p">:</span>
-                <span class="n">target_temp</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">getFloat</span><span class="p">();</span>
-                <span class="n">processHVAC</span><span class="p">();</span>
-                <span class="k">break</span><span class="p">;</span>
-        <span class="k">case</span> <span class="n">V_HVAC_FLOW_STATE</span><span class="p">:</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"coolon"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">!</span><span class="n">Present_Power_On</span> <span class="p">)){</span>
-                  <span class="n">togglePower</span><span class="p">();</span>
-                <span class="p">}</span>
-                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"off"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">Present_Power_On</span> <span class="p">){</span>
-                  <span class="n">togglePower</span><span class="p">();</span>
-                <span class="p">}</span>
-                <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">S_HVAC</span><span class="p">,</span> <span class="s">"Thermostat"</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgHVACFlowState</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">"Off"</span><span class="p">));</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgHVACSetPointC</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">target_temp</span><span class="p">));</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgHVACSpeed</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">"Max"</span><span class="p">));</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Process incoming messages (like config from server)
+</span>  <span class="n">gw</span><span class="p">.</span><span class="n">process</span><span class="p">();</span>
+<span class="p">}</span>
 
-        <span class="c1">// Process incoming messages (like config from server)
-</span>        <span class="n">gw</span><span class="p">.</span><span class="n">process</span><span class="p">();</span>
-
+<span class="kt">void</span> <span class="nf">incomingMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">String</span> <span class="n">recvData</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+  <span class="n">recvData</span><span class="p">.</span><span class="n">trim</span><span class="p">();</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">V_HVAC_SPEED</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"auto"</span><span class="p">))</span> <span class="n">fan_speed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"min"</span><span class="p">))</span> <span class="n">fan_speed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"normal"</span><span class="p">))</span> <span class="n">fan_speed</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"max"</span><span class="p">))</span> <span class="n">fan_speed</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">processHVAC</span><span class="p">();</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">V_HVAC_SETPOINT_COOL</span><span class="p">:</span>
+    <span class="n">target_temp</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">getFloat</span><span class="p">();</span>
+    <span class="n">processHVAC</span><span class="p">();</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">V_HVAC_FLOW_STATE</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"coolon"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">!</span><span class="n">Present_Power_On</span> <span class="p">)){</span>
+      <span class="n">togglePower</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"off"</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">Present_Power_On</span> <span class="p">){</span>
+      <span class="n">togglePower</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 </div>
@@ -233,6 +238,9 @@
       <img src='/images/supported_brands/mysensors.png' />
   </div>
     <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
     Introduced in release: 0.29
     </div>
     <div class='section'>
@@ -247,6 +255,9 @@
         </a></li>
         <li><a href='/components/binary_sensor.mysensors/'>
           MySensors Binary Sensor
+        </a></li>
+        <li><a href='/components/cover.mysensors/'>
+          MySensors Cover
         </a></li>
         <li><a href='/components/light.mysensors/'>
           MySensors Light

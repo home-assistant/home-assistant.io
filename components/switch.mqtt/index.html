@@ -101,16 +101,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">Switch"</span>
-  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1"</span>
-  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1/set"</span>
-  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
-  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
-  <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
-  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
-  <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1/set"</span>
 </code></pre>
 </div>
 
@@ -131,6 +123,34 @@
 <p class="note warning">
 Make sure that your topic match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>In this section you find some real life examples of how to use this sensor.</p>
+
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+
+<p>The example below shows a full configuration for a switch.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">Switch"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1"</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1/set"</span>
+    <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
+    <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
+    <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<p>For a check you can use the command line tools <code class="highlighter-rouge">mosquitto_pub</code> shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. This allows you to operate your cover manually:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1set -m <span class="s2">"ON"</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -202,6 +222,9 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
     <div class='section'>
     <h1 class="title delta">Category Switch</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/switch.anel_pwrctrl/'>ANEL PwrCtrl Switch</a>
+        </li>
         <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
         </li>

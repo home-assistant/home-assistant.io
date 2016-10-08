@@ -98,7 +98,6 @@
   <span class="s">platform</span><span class="pi">:</span> <span class="s">dht</span>
   <span class="s">sensor</span><span class="pi">:</span> <span class="s">DHT22</span>
   <span class="s">pin</span><span class="pi">:</span> <span class="s">23</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room</span>
   <span class="s">monitored_conditions</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">temperature</span>
     <span class="pi">-</span> <span class="s">humidity</span>
@@ -111,15 +110,8 @@
   <li><strong>sensor</strong> (<em>Required</em>): The sensor type, supported devices are DHT11, DHT22, and AM2302</li>
   <li><strong>pin</strong> (<em>Required</em>): The pin the sensor is connected to.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the sensor</li>
-  <li><strong>monitored_conditions</strong> array: Conditions to monitor.
-    <ul>
-      <li><strong>temperature</strong>:</li>
-      <li><strong>humidity</strong>:</li>
-    </ul>
-  </li>
+  <li><strong>monitored_conditions</strong> array  (<em>Required</em>): Conditions to monitor. Available conditions are only <em>temperature</em> and <em>humidity</em>.</li>
 </ul>
-
-<p>Available conditions are only <em>temperature</em> and <em>humidity</em>.</p>
 
 <p>The name of the pin to which the sensor is connected has different names on different platforms. ‘P8_11’ for Beaglebone, ‘23’ for Raspberry Pi.</p>
 

@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">trend</code> platform allows you to create sensors which show the trend of numeric <code class="highlighter-rouge">state</code> or<code class="highlighter-rouge">state_attributes</code> from other entities. This sensor requires two updates of the underlying sensor to establish a trend - so it can take some time to show an accurate state. It can be useful as part of automations, where you want to base an action on a trend.</p>
+  <p>The <code class="highlighter-rouge">trend</code> platform allows you to create sensors which show the trend of numeric <code class="highlighter-rouge">state</code> or<code class="highlighter-rouge">state_attributes</code> from other entities. This sensor requires two updates of the underlying sensor to establish a trend. Thus it can take some time to show an accurate state. It can be useful as part of automations, where you want to base an action on a trend.</p>
 
 <p>To enable Trend binary sensors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -98,10 +98,7 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">trend</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">solar_angle</span><span class="pi">:</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Sun</span><span class="nv"> </span><span class="s">rising'</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
-        <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">light</span>
-        <span class="s">attribute</span><span class="pi">:</span> <span class="s">elevation</span>
 </code></pre>
 </div>
 
@@ -113,7 +110,7 @@
       <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
       <li><strong>sensor_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
       <li><strong>entity_id</strong> (<em>Required</em>): The entity that this sensor tracks.</li>
-      <li><strong>attribute</strong> (<em>Optional</em>): The attribute of the entity that this sensor tracks. If no attribute is specified - the sensor will track the state.</li>
+      <li><strong>attribute</strong> (<em>Optional</em>): The attribute of the entity that this sensor tracks. If no attribute is specified then the sensor will track the state.</li>
       <li><strong>invert</strong> (<em>Optional</em>): Invert the result (so <code class="highlighter-rouge">true</code> means decending rather than ascending)</li>
     </ul>
   </li>
@@ -125,7 +122,7 @@
 
 <h3><a class="title-link" name="temperature-trend" href="#temperature-trend"></a> Temperature trend</h3>
 
-<p>This example indicates true if the temperture is rising:</p>
+<p>This example indicates <code class="highlighter-rouge">true</code> if the temperture is rising:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">trend</span>
@@ -137,7 +134,7 @@
 </code></pre>
 </div>
 
-<p>And this one indicates true if the temperture is falling:</p>
+<p>And this one indicates <code class="highlighter-rouge">true</code> if the temperture is falling:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">trend</span>
@@ -183,6 +180,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>

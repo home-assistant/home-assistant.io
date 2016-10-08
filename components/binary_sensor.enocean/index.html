@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55. Other devices will most likely not work without changing the Home-Asisstant code.</p>
+  <p>This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55. Other devices will most likely not work without changing the Home Asisstant code.</p>
 
 <p>To use your EnOcean device, you first have to set up your <a href="/components/enocean/">EnOcean hub</a> and then add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -97,8 +97,6 @@
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">enocean</span>
     <span class="s">id</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">0x01</span><span class="pi">,</span><span class="nv">0x90</span><span class="pi">,</span><span class="nv">0x84</span><span class="pi">,</span><span class="nv">0x3C</span><span class="pi">]</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Door</span>
-    <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
 </code></pre>
 </div>
 
@@ -160,6 +158,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             EnOcean Binary Sensor

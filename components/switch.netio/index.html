@@ -97,9 +97,8 @@
 <span class="s">switch</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">netio</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.43</span>
-    <span class="s">port</span><span class="pi">:</span> <span class="s">1234</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">user</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">pwd</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
     <span class="s">outlets</span><span class="pi">:</span>
       <span class="s">1</span><span class="pi">:</span> <span class="s">Free</span>
       <span class="s">2</span><span class="pi">:</span> <span class="s">TV</span>
@@ -110,7 +109,7 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your Netio plug, eg. http://192.168.1.32</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of your Netio plug, eg. <code class="highlighter-rouge">http://192.168.1.32</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port to communicate with the switch. Defaults to <code class="highlighter-rouge">1234</code>.</li>
   <li><strong>username</strong> (<em>Required</em>): The username for your plug.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your plug.</li>
@@ -121,8 +120,7 @@
   </li>
 </ul>
 
-<p>To get pushed updates from the Netio devices, one can add this Lua code in the device interface as an action triggered on “Netio” “System variables updated”
-with an ‘Always’ schedule:</p>
+<p>To get pushed updates from the Netio devices, one can add this Lua code in the device interface as an action triggered on “Netio” “System variables updated” with an ‘Always’ schedule:</p>
 
 <div class="language-lua highlighter-rouge"><pre class="highlight"><code><span class="c1">-- this will send socket and consumption status updates via CGI</span>
 <span class="c1">-- to given address. Associate with 'System variables update' event</span>
@@ -143,27 +141,6 @@ with an ‘Always’ schedule:</p>
 <span class="kd">local</span> <span class="n">qs</span> <span class="o">=</span> <span class="nb">table.concat</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s1">'&amp;'</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">url</span> <span class="o">=</span> <span class="nb">string.format</span><span class="p">(</span><span class="s1">'http://%s%s?%s'</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">qs</span><span class="p">)</span>
 <span class="n">devices</span><span class="p">.</span><span class="n">system</span><span class="p">.</span><span class="n">CustomCGI</span><span class="p">{</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">}</span>
-</code></pre>
-</div>
-
-<p>The <code class="highlighter-rouge">dlink</code> switch platform allows you to control the state of your <a href="http://us.dlink.com/product-category/home-solutions/connected-home/smart-plugs/">D-Link Wi-Fi Smart Plugs</a>.</p>
-
-<p>Supported devices (tested):</p>
-
-<ul>
-  <li>DSP-W215</li>
-  <li>DSP-W110</li>
-</ul>
-
-<p>To use your D-Link smart plugs in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">dlink</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADRRESS</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">D-Link plug</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
 </code></pre>
 </div>
 
@@ -197,6 +174,9 @@ with an ‘Always’ schedule:</p>
     <div class='section'>
     <h1 class="title delta">Category Switch</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/switch.anel_pwrctrl/'>ANEL PwrCtrl Switch</a>
+        </li>
         <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
         </li>

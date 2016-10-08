@@ -107,10 +107,9 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">onewire</span>
-  <span class="s">names</span><span class="pi">:</span>
-    <span class="s">some_id</span><span class="pi">:</span> <span class="s">your name</span>
-  <span class="s">mount_dir</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/mnt/1wire"</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">onewire</span>
+    <span class="s">names</span><span class="pi">:</span>
+      <span class="s">some_id</span><span class="pi">:</span> <span class="s">your name</span>
 </code></pre>
 </div>
 
@@ -155,9 +154,6 @@
         </li>
         <li>
             <a href='/components/sensor.dweet/'>Dweet.io</a>
-        </li>
-        <li>
-            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
@@ -205,9 +201,6 @@
             <a href='/components/sensor.nest/'>Nest Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.neurio_energy/'>Neurio</a>
-        </li>
-        <li>
             <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
         </li>
         <li>
@@ -221,6 +214,9 @@
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

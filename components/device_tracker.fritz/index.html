@@ -99,18 +99,15 @@ It might be necessary to install additional packages: <code>$ sudo apt-get insta
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">fritz</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ROUTER_IP</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">fritz</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): The IP address of your router, eg. 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.</li>
-  <li><strong>username</strong> (<em>Optional</em>: The username of an user with administrative privileges, usually <em>admin</em>.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The IP address of your router, eg. <code class="highlighter-rouge">192.168.1.1</code>. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.</li>
+  <li><strong>username</strong> (<em>Optional</em>: The username of an user with administrative privileges, usually <code class="highlighter-rouge">admin</code>.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password for your given admin account.</li>
 </ul>
 
@@ -212,6 +209,9 @@ It seems that it is not necessary to use it in current generation Fritz!Box rout
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

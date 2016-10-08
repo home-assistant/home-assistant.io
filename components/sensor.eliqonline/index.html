@@ -95,10 +95,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">eliqonline</span>
-  <span class="s">access_token</span><span class="pi">:</span> <span class="s">ACCESS_TOKEN</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Power consumption</span> 
-  <span class="s">channel_id</span><span class="pi">:</span> <span class="s">CHANNEL_ID</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">eliqonline</span>
+    <span class="s">access_token</span><span class="pi">:</span> <span class="s">ACCESS_TOKEN</span>
 </code></pre>
 </div>
 
@@ -130,6 +128,9 @@
       <img src='/images/supported_brands/eliq.png' />
   </div>
     <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
     Introduced in release: 0.10
     </div>
     <div class='section'>
@@ -146,6 +147,9 @@
         </li>
         <li>
             <a href='/components/sensor.loop_energy/'>Loop Energy</a>
+        </li>
+        <li>
+            <a href='/components/sensor.neurio_energy/'>Neurio</a>
         </li>
         <li>
             <a href='/components/sensor.ohmconnect/'>OhmConnect</a>

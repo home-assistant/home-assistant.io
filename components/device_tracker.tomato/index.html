@@ -89,17 +89,17 @@
   <hr class="divider">
   
 
-  <p>Tomato requires an extra config variable called <code class="highlighter-rouge">http_id</code>. The value can be obtained by logging in to the Tomato admin interface and search for <code class="highlighter-rouge">http_id</code> in the page source code.</p>
+  <p>The <code class="highlighter-rouge">tomato</code> platform requires an extra config variable called <code class="highlighter-rouge">http_id</code>. The value can be obtained by logging in to the Tomato admin interface and search for <code class="highlighter-rouge">http_id</code> in the page source code.</p>
 
 <p>To use this device tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">tomato</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ROUTER_IP_ADDRESS</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span>  <span class="s">YOUR_ADMIN_PASSWORD</span>
-  <span class="s">http_id</span><span class="pi">:</span> <span class="s">YOUR_HTTP_ID</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">tomato</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_ROUTER_IP_ADDRESS</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span>  <span class="s">YOUR_ADMIN_PASSWORD</span>
+    <span class="s">http_id</span><span class="pi">:</span> <span class="s">YOUR_HTTP_ID</span>
 </code></pre>
 </div>
 
@@ -133,6 +133,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/tomato.png' />
   </div>
+    <div class='section'>
+    Introduced in release: pre 0.7
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/device_tracker/'>the Device Tracker component</a>.
@@ -205,6 +208,9 @@
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

@@ -95,14 +95,14 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">automatic</span>
-  <span class="s">client_id</span><span class="pi">:</span> <span class="s">1234567</span>
-  <span class="s">secret</span><span class="pi">:</span> <span class="s">0987654321</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">your@email.com</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">your_password</span>
-  <span class="s">devices</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">2007 Honda Element</span>
-    <span class="pi">-</span> <span class="s">2004 Subaru Impreza</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">automatic</span>
+    <span class="s">client_id</span><span class="pi">:</span> <span class="s">1234567</span>
+    <span class="s">secret</span><span class="pi">:</span> <span class="s">0987654321</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">your@email.com</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">your_password</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">2007 Honda Element</span>
+      <span class="pi">-</span> <span class="s">2004 Subaru Impreza</span>
 </code></pre>
 </div>
 
@@ -110,13 +110,13 @@
 
 <ul>
   <li><strong>client_id</strong> (<em>Required</em>): The OAuth client id (get from https://developer.automatic.com/).</li>
-  <li><strong>secret</strong> (<em>Require</em>): The OAuth client secret (get from https://developer.automatic.com/).</li>
+  <li><strong>secret</strong> (<em>Required</em>): The OAuth client secret (get from https://developer.automatic.com/).</li>
   <li><strong>username</strong> (<em>Required</em>): The username associated with your ODB reader.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given ODB reader account.</li>
   <li><strong>devices</strong> (<em>Optional</em>): The list of vehicle display names you wish to track. If not provided, all vehicles will be tracked.</li>
 </ul>
 
-<p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
+<p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the cars to be tracked.</p>
 
 
 </article>
@@ -209,6 +209,9 @@
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

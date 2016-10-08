@@ -106,15 +106,6 @@ state from <code class="highlighter-rouge">state_topic</code>. If these messages
     <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Cover"</span>
     <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/cover"</span>
     <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/cover/set"</span>
-    <span class="s">payload_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOAD_OPEN"</span>
-    <span class="s">payload_close</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOAD_CLOSE"</span>
-    <span class="s">payload_stop</span><span class="pi">:</span> <span class="s2">"</span><span class="s">PAYLOAD_STOP"</span>
-    <span class="s">state_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STATE_OPEN"</span>
-    <span class="s">state_closed</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STATE_CLOSED"</span>
-    <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
-    <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
-    <span class="s">retain</span><span class="pi">:</span> <span class="s">false</span>
-    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 
@@ -135,9 +126,36 @@ state from <code class="highlighter-rouge">state_topic</code>. If these messages
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
 </ul>
 
-<p>For a quick check you can use the commandline tools shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. Set the state of your sensor manually:</p>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m <span class="s2">"PAYLOAD_CLOSE"</span>
+<p>In this section you find some real life examples of how to use this sensor.</p>
+
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+
+<p>The example below shows a full configuration for a cover.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/cover"</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/cover/set"</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Cover"</span>
+    <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">payload_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OPEN"</span>
+    <span class="s">payload_close</span><span class="pi">:</span> <span class="s2">"</span><span class="s">CLOSE"</span>
+    <span class="s">payload_stop</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STOP"</span>
+    <span class="s">state_open</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OPEN"</span>
+    <span class="s">state_closed</span><span class="pi">:</span> <span class="s2">"</span><span class="s">STATE"</span>
+    <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">retain</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
+</div>
+
+<p>For a check you can use the command line tools <code class="highlighter-rouge">mosquitto_pub</code> shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. This allows you to operate your cover manually:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m <span class="s2">"CLOSE"</span>
 </code></pre>
 </div>
 
@@ -219,6 +237,9 @@ state from <code class="highlighter-rouge">state_topic</code>. If these messages
         </li>
         <li>
             MQTT Cover
+        </li>
+        <li>
+            <a href='/components/cover.mysensors/'>MySensors Cover</a>
         </li>
         <li>
             <a href='/components/scene.hunterdouglas_powerview/'>PowerView Scenes</a>

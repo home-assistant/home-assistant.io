@@ -89,11 +89,11 @@
   <hr class="divider">
   
 
-  <p>Binary sensors are gathering information about state of switches, contacts, pins, and alike. The return value of those sensors is usually digital (1/0). This means that those sensors knows only two states: <strong>off/low/open</strong> and <strong>on/high/closed</strong>.</p>
+  <p>Binary sensors are gathering information about state of switches, contacts, pins, and alike. The return value of those sensors is usually digital (1/0). This means that those sensors knows only two states: <strong>0/off/low/open/false</strong> and <strong>1/on/high/closed/true</strong>.</p>
 
 <p>Knowing that there are only two states allows Home Assistant to represent the sensor better in the frontend.</p>
 
-<p>Most binary sensors support the <code class="highlighter-rouge">SENSOR_CLASSES</code> which let you specify the type of your sensor. The following types are supported:</p>
+<p>Most binary sensors support the <code class="highlighter-rouge">sensor_class:</code>  which let you specify the type of your sensor. The following types are supported:</p>
 
 <ul>
   <li><strong>None</strong>: Generic on/off</li>
@@ -141,6 +141,9 @@
           </a></li>
           <li><a href='/components/binary_sensor.command_line/'>
             Command line Binary Sensor
+          </a></li>
+          <li><a href='/components/binary_sensor.digital_ocean/'>
+            Digital Ocean Binary Sensor
           </a></li>
           <li><a href='/components/binary_sensor.ecobee/'>
             Ecobee Binary Sensor

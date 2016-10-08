@@ -95,23 +95,20 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">unifi</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">CONTROLLER</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">PORT</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
-  <span class="s">site_id</span><span class="pi">:</span> <span class="s">SITE_ID</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">unifi</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): The hostname or IP address of your controller. Defaults to localhost.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port of your controller’s web interface. Defaults to 8443.</li>
-  <li><strong>username</strong> (<em>Required</em>): The username of an user with administrative privileges, usually <em>admin</em>.</li>
-  <li><strong>password</strong> (<em>Required</em>): The password for your admin account.</li>
-  <li><strong>site_id</strong> (<em>Optional</em>): Allows you to specify a site_id for device tracking. Defaults to “default”. Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard)</li>
+  <li><strong>host</strong> (<em>Optional</em>): The hostname or IP address of your controller. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port of your controller’s web interface. Defaults to <code class="highlighter-rouge">8443</code>.</li>
+  <li><strong>username</strong> (<em>Required</em>: The username of an user with administrative privileges, usually <code class="highlighter-rouge">admin</code>.</li>
+  <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
+  <li><strong>site_id</strong> (<em>Optional</em>): Allows you to specify a <code class="highlighter-rouge">site_id</code> for device tracking. Defaults to <code class="highlighter-rouge">default</code>. Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard)</li>
 </ul>
 
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
@@ -207,6 +204,9 @@
         </li>
         <li>
             Ubiquiti Unifi WAP
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

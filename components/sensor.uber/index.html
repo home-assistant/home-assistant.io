@@ -97,27 +97,38 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">uber</span>
-  <span class="s">start_latitude</span><span class="pi">:</span> <span class="s">37.8116380</span>
-  <span class="s">start_longitude</span><span class="pi">:</span> <span class="s">-122.2648050</span>
-  <span class="s">end_latitude</span><span class="pi">:</span> <span class="s">37.7768520</span>
-  <span class="s">end_longitude</span><span class="pi">:</span> <span class="s">-122.4155500</span>
-  <span class="s">server_token</span><span class="pi">:</span> <span class="s1">'</span><span class="s">BeAPPTDsWZSHLf7fd9OWjZkIezweRw18Q8NltY27'</span>
-  <span class="s">product_ids</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">04a497f5-380d-47f2-bf1b-ad4cfdcb51f2'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">uber</span>
+    <span class="s">server_token</span><span class="pi">:</span> <span class="s1">'</span><span class="s">BeAPPTDsWZSHLf7fd9OWjZkIezweRw18Q8NltY27'</span>
+    <span class="s">start_latitude</span><span class="pi">:</span> <span class="s">37.8116380</span>
+    <span class="s">start_longitude</span><span class="pi">:</span> <span class="s">-122.2648050</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
+  <li><strong>server_token</strong> (<em>Required</em>): A server token obtained from <a href="https://developer.uber.com">developer.uber.com</a> after <a href="https://developer.uber.com/dashboard/create">creating an app</a>.</li>
   <li><strong>start_latitude</strong> (<em>Required</em>): The starting latitude for a trip.</li>
   <li><strong>start_longitude</strong> (<em>Required</em>): The starting longitude for a trip.</li>
   <li><strong>end_latitude</strong> (<em>Optional</em>): The ending latitude for a trip. While <code class="highlighter-rouge">end_latitude</code> is optional, it is strongly recommended to provide an <code class="highlighter-rouge">end_latitude</code>/<code class="highlighter-rouge">end_longitude</code> when possible as you will get more accurate price and time estimates.</li>
   <li><strong>end_longitude</strong> (<em>Optional</em>): The ending longitude for a trip. While <code class="highlighter-rouge">end_longitude</code> is optional, it is strongly recommended to provide an <code class="highlighter-rouge">end_latitude</code>/<code class="highlighter-rouge">end_longitude</code> when possible as you will get more accurate price and time estimates.</li>
-  <li><strong>server_token</strong> (<em>Required</em>): A server token obtained from <a href="https://developer.uber.com">developer.uber.com</a> after <a href="https://developer.uber.com/dashboard/create">creating an app</a>.</li>
   <li><strong>product_ids</strong> (<em>Options</em>): A list of Uber product UUIDs. If provided, sensors will only be created for the given product IDs. Please note that product IDs are region and some times even more specific geographies based. The easiest way to find a UUID is to click on a sensor in the Home Assistant frontend and look for “Product ID” in the attributes.</li>
 </ul>
+
+<p>A full configuration entry could look like the sample below:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">uber</span>
+    <span class="s">start_latitude</span><span class="pi">:</span> <span class="s">37.8116380</span>
+    <span class="s">start_longitude</span><span class="pi">:</span> <span class="s">-122.2648050</span>
+    <span class="s">end_latitude</span><span class="pi">:</span> <span class="s">37.7768520</span>
+    <span class="s">end_longitude</span><span class="pi">:</span> <span class="s">-122.4155500</span>
+    <span class="s">server_token</span><span class="pi">:</span> <span class="s1">'</span><span class="s">BeAPPTDsWZSHLf7fd9OWjZkIezweRw18Q8NltY27'</span>
+    <span class="s">product_ids</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">04a497f5-380d-47f2-bf1b-ad4cfdcb51f2'</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -161,6 +172,9 @@
         </li>
         <li>
             Uber
+        </li>
+        <li>
+            <a href='/components/sensor.vasttrafik/'>Västtrafik Public Transport</a>
         </li>
     </ul>
     </div>

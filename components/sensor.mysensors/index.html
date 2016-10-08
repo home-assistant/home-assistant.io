@@ -215,6 +215,35 @@
   </tbody>
 </table>
 
+<h5>MySensors version 2.0 and higher</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>S_TYPE</th>
+      <th>V_TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S_INFO</td>
+      <td>V_TEXT</td>
+    </tr>
+    <tr>
+      <td>S_GAS</td>
+      <td>V_FLOW, V_VOLUME</td>
+    </tr>
+    <tr>
+      <td>S_GPS</td>
+      <td>V_POSITION</td>
+    </tr>
+    <tr>
+      <td>S_WATER_QUALITY</td>
+      <td>V_TEMP, V_PH, V_ORP, V_EC</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3><a class="title-link" name="custom-unit-of-measurement" href="#custom-unit-of-measurement"></a> Custom unit of measurement</h3>
 
 <p>Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, dust, sound, vibration etc.</p>
@@ -288,6 +317,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/mysensors.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
@@ -296,6 +328,9 @@
         </a></li>
         <li><a href='/components/binary_sensor.mysensors/'>
           MySensors Binary Sensor
+        </a></li>
+        <li><a href='/components/cover.mysensors/'>
+          MySensors Cover
         </a></li>
         <li><a href='/components/climate.mysensors/'>
           MySensors HVAC
@@ -322,9 +357,6 @@
         </li>
         <li>
             <a href='/components/sensor.dweet/'>Dweet.io</a>
-        </li>
-        <li>
-            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
@@ -372,9 +404,6 @@
             <a href='/components/sensor.nest/'>Nest Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.neurio_energy/'>Neurio</a>
-        </li>
-        <li>
             <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
         </li>
         <li>
@@ -388,6 +417,9 @@
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

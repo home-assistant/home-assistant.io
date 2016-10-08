@@ -101,14 +101,6 @@
       <span class="s">command_open</span><span class="pi">:</span> <span class="s">move_command up garage</span>
       <span class="s">command_close</span><span class="pi">:</span> <span class="s">move_command down garage</span>
       <span class="s">command_stop</span><span class="pi">:</span> <span class="s">move_command stop garage</span>
-      <span class="s">command_state</span><span class="pi">:</span> <span class="s">state_command garage</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
-        <span class="no">{% if value == 'open' %}</span>
-        <span class="no">100</span>
-        <span class="no">{% elif value == 'closed' %}</span>
-        <span class="no">0</span>
-        <span class="no">{% endif %}</span>
-        
 </code></pre>
 </div>
 
@@ -130,6 +122,31 @@
     </ul>
   </li>
 </ul>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>In this section you find some real life examples of how to use this sensor.</p>
+
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">cover</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+  <span class="s">covers</span><span class="pi">:</span>
+    <span class="s">garage_door</span><span class="pi">:</span>
+      <span class="s">command_open</span><span class="pi">:</span> <span class="s">move_command up garage</span>
+      <span class="s">command_close</span><span class="pi">:</span> <span class="s">move_command down garage</span>
+      <span class="s">command_stop</span><span class="pi">:</span> <span class="s">move_command stop garage</span>
+      <span class="s">command_state</span><span class="pi">:</span> <span class="s">state_command garage</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">{% if value == 'open' %}</span>
+        <span class="no">100</span>
+        <span class="no">{% elif value == 'closed' %}</span>
+        <span class="no">0</span>
+        <span class="no">{% endif %}</span>
+        
+</code></pre>
+</div>
 
 
 </article>
@@ -191,6 +208,9 @@
         </li>
         <li>
             <a href='/components/cover.mqtt/'>MQTT Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.mysensors/'>MySensors Cover</a>
         </li>
         <li>
             <a href='/components/scene.hunterdouglas_powerview/'>PowerView Scenes</a>

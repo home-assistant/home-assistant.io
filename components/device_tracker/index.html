@@ -99,10 +99,10 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for Netgear device</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">netgear</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.1</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">admin</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">netgear</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.1</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">admin</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
 </code></pre>
 </div>
 
@@ -134,6 +134,19 @@
     </tr>
   </tbody>
 </table>
+
+<p>The extended example from above would look like the following sample:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for Netgear device</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">netgear</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.1</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">admin</span>
+    <span class="s">interval_seconds</span><span class="pi">:</span> <span class="s">10</span>
+    <span class="s">consider_home</span><span class="pi">:</span> <span class="s">180</span>
+    <span class="s">track_new_devices</span><span class="pi">:</span> <span class="s">yes</span>
+</code></pre>
+</div>
 
 <p>Multiple device trackers can be used in parallel, such as <a href="/components/device_tracker.owntracks/">Owntracks</a> and <a href="/components/device_tracker.nmap_tracker/">Nmap</a>. The state of the device will be determined by the source that reported last.</p>
 
@@ -274,6 +287,9 @@
           </a></li>
           <li><a href='/components/device_tracker.unifi/'>
             Ubiquiti Unifi WAP
+          </a></li>
+          <li><a href='/components/device_tracker.volvooncall/'>
+            Volvo On Call
           </a></li>
           <li><a href='/components/device_tracker.icloud/'>
             iCloud

@@ -95,15 +95,14 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">roku</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">roku</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> <em>Optional</em>: Use only if you don’t want to scan for devices.</li>
+  <li><strong>host</strong> (<em>Optional</em>): Use only if you don’t want to scan for devices.</li>
 </ul>
 
 
@@ -122,6 +121,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/roku.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.20
     </div>

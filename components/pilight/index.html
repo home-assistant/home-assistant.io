@@ -101,12 +101,6 @@
 <span class="s">pilight</span><span class="pi">:</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
   <span class="s">port</span><span class="pi">:</span> <span class="s">5000</span>
-  <span class="s">whitelist</span><span class="pi">:</span>  <span class="c1"># optional</span>
-    <span class="s">protocol</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">daycom</span>
-      <span class="pi">-</span> <span class="s">intertechno</span>
-    <span class="s">id</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">42</span>
 </code></pre>
 </div>
 
@@ -119,6 +113,21 @@
 </ul>
 
 <p>In this example only received RF codes using a daycom or intertechno protocol are put on the event bus and only when the device id is 42. For more possible settings please look at the receiver section of the pilight <a href="https://www.pilight.org/development/api/">API</a>.</p>
+
+<p>A full configuration sample could look like the sample below:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">pilight</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">5000</span>
+  <span class="s">whitelist</span><span class="pi">:</span>  <span class="c1"># optional</span>
+    <span class="s">protocol</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">daycom</span>
+      <span class="pi">-</span> <span class="s">intertechno</span>
+    <span class="s">id</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">42</span>
+</code></pre>
+</div>
 
 <h2><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h2>
 
@@ -174,6 +183,9 @@
         </li>
         <li>
             <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
         </li>
         <li>
             <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>

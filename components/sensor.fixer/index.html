@@ -97,19 +97,17 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">fixer</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">EUR</span>
-  <span class="s">base</span><span class="pi">:</span> <span class="s">EUR</span>
-  <span class="s">target</span><span class="pi">:</span> <span class="s">CHF</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">fixer</span>
+    <span class="s">target</span><span class="pi">:</span> <span class="s">CHF</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
+  <li><strong>target</strong> (<em>Required</em>): The symbol of the target currency.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name to use in the frontend.</li>
   <li><strong>base</strong> (<em>Optional</em>): The symbol of the base currency. Default to USD</li>
-  <li><strong>target</strong> (<em>Required</em>): The symbol of the target currency.</li>
 </ul>
 
 

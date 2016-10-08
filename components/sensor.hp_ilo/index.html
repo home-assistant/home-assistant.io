@@ -105,46 +105,45 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">hp_ilo</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS or HOSTNAME</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">PORT</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-  <span class="s">monitored_variables</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">server_name</span>
-    <span class="pi">-</span> <span class="s">server_fqdn</span>
-    <span class="pi">-</span> <span class="s">server_host_data</span>
-    <span class="pi">-</span> <span class="s">server_oa_info</span>
-    <span class="pi">-</span> <span class="s">server_power_status</span>
-    <span class="pi">-</span> <span class="s">server_power_readings</span>
-    <span class="pi">-</span> <span class="s">server_power_on_time</span>
-    <span class="pi">-</span> <span class="s">server_asset_tag</span>
-    <span class="pi">-</span> <span class="s">server_uid_status</span>
-    <span class="pi">-</span> <span class="s">server_health</span>
-    <span class="pi">-</span> <span class="s">network_settings</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hp_ilo</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS or HOSTNAME</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+    <span class="s">monitored_variables</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">server_name</span>
+      <span class="pi">-</span> <span class="s">server_fqdn</span>
+      <span class="pi">-</span> <span class="s">server_host_data</span>
+      <span class="pi">-</span> <span class="s">server_oa_info</span>
+      <span class="pi">-</span> <span class="s">server_power_status</span>
+      <span class="pi">-</span> <span class="s">server_power_readings</span>
+      <span class="pi">-</span> <span class="s">server_power_on_time</span>
+      <span class="pi">-</span> <span class="s">server_asset_tag</span>
+      <span class="pi">-</span> <span class="s">server_uid_status</span>
+      <span class="pi">-</span> <span class="s">server_health</span>
+      <span class="pi">-</span> <span class="s">network_settings</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The hostname or IP address on which the ILO can be reached</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port on which the ILO can be reached, defaults to port 443</li>
-  <li><strong>username</strong> (<em>Required</em>): The username used to connect to the ILO</li>
-  <li><strong>password</strong> (<em>Required</em>): The password used to connect to the ILO</li>
-  <li><strong>monitored_variables</strong> array (<em>Optional</em>): Information to be collected from the ILO, defaults to <code class="highlighter-rouge">server_name</code>
+  <li><strong>host</strong> (<em>Required</em>): The hostname or IP address on which the ILO can be reached.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port on which the ILO can be reached, defaults to port <code class="highlighter-rouge">443</code>.</li>
+  <li><strong>username</strong> (<em>Required</em>): The username used to connect to the ILO.</li>
+  <li><strong>password</strong> (<em>Required</em>): The password used to connect to the ILO.</li>
+  <li><strong>monitored_variables</strong> array (<em>Optional</em>): Information to be collected from the ILO, defaults to <code class="highlighter-rouge">server_name</code>.
     <ul>
-      <li><strong>server_name</strong>: Get the name of the server this iLO is managing</li>
-      <li><strong>server_fqdn</strong>: Get the fqdn of the server this iLO is managing</li>
-      <li><strong>server_host_data</strong>: Get SMBIOS records that describe the host</li>
-      <li><strong>server_oa_info</strong>: Get information about the Onboard Administrator of the enclosing chassis</li>
-      <li><strong>server_power_status</strong>: Whether the server is powered on or not</li>
-      <li><strong>server_power_readings</strong>: Get current, min, max and average power readings</li>
-      <li><strong>server_power_on_time</strong>: How many minutes ago has the server been powered on</li>
-      <li><strong>server_asset_tag</strong>: Gets the server asset tag</li>
-      <li><strong>server_uid_status</strong>: Get the status of the UID light</li>
-      <li><strong>server_health</strong>: Get server health information</li>
-      <li><strong>network_settings</strong>: Get the iLO network settings</li>
+      <li><strong>server_name</strong>: Get the name of the server this iLO is managing.</li>
+      <li><strong>server_fqdn</strong>: Get the fqdn of the server this iLO is managing.</li>
+      <li><strong>server_host_data</strong>: Get SMBIOS records that describe the host.</li>
+      <li><strong>server_oa_info</strong>: Get information about the Onboard Administrator of the enclosing chassis.</li>
+      <li><strong>server_power_status</strong>: Whether the server is powered on or not.</li>
+      <li><strong>server_power_readings</strong>: Get current, min, max and average power readings.</li>
+      <li><strong>server_power_on_time</strong>: How many minutes ago has the server been powered on.</li>
+      <li><strong>server_asset_tag</strong>: Gets the server asset tag.</li>
+      <li><strong>server_uid_status</strong>: Get the status of the UID light.</li>
+      <li><strong>server_health</strong>: Get server health information.</li>
+      <li><strong>network_settings</strong>: Get the iLO network settings.</li>
     </ul>
   </li>
 </ul>
@@ -176,6 +175,12 @@
     <ul class='divided'>
         <li>
             <a href='/components/sensor.cpuspeed/'>CPU speed</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.digital_ocean/'>Digital Ocean Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.digital_ocean/'>Digital Ocean Switch</a>
         </li>
         <li>
             <a href='/components/sensor.fritzbox_callmonitor/'>FRITZ!Box</a>

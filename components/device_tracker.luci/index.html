@@ -95,7 +95,7 @@
 
 <p>Before this scanner can be used you have to install the luci RPC package on OpenWRT:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>opkg install luci-mod-rpc
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># opkg install luci-mod-rpc</span>
 </code></pre>
 </div>
 
@@ -103,18 +103,18 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">luci</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">ROUTER_IP_ADDRESS</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">luci</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">ROUTER_IP_ADDRESS</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your router, e.g. 192.168.1.1.</li>
-  <li><strong>username</strong> (<em>Required</em>): The username of an user with administrative privileges, usually <em>admin</em>.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of your router, e.g. <code class="highlighter-rouge">192.168.1.1</code>.</li>
+  <li><strong>username</strong> (<em>Required</em>): The username of an user with administrative privileges, usually <code class="highlighter-rouge">admin</code>.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
 </ul>
 
@@ -141,6 +141,9 @@ Some installations have <a href="https://github.com/openwrt/luci/issues/576">a s
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/openwrt.png' />
   </div>
+    <div class='section'>
+    Introduced in release: pre 0.7
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/device_tracker/'>the Device Tracker component</a>.
@@ -213,6 +216,9 @@ Some installations have <a href="https://github.com/openwrt/luci/issues/576">a s
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

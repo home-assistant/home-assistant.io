@@ -93,12 +93,11 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">notify</span><span class="pi">:</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">xmpp</span>
-  <span class="s">sender</span><span class="pi">:</span> <span class="s">YOUR_JID</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_JABBER_ACCOUNT_PASSWORD</span>
-  <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
-  <span class="s">tls</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">xmpp</span>
+    <span class="s">sender</span><span class="pi">:</span> <span class="s">YOUR_JID</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_JABBER_ACCOUNT_PASSWORD</span>
+    <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
 </code></pre>
 </div>
 
@@ -109,7 +108,7 @@
   <li><strong>sender</strong> (<em>Required</em>): The Jabber ID (JID) that will act as origin of the messages. Add your JID including the domain, eg. your_name@jabber.org.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given Jabber account.</li>
   <li><strong>recipient</strong> (<em>Required</em>): The Jabber ID (JID) that will receive the messages.</li>
-  <li><strong>tls</strong> (<em>Optional</em>): Allow to disable TLS. Defaults to true.</li>
+  <li><strong>tls</strong> (<em>Optional</em>): Allow to disable TLS. Defaults to <code class="highlighter-rouge">true</code>.</li>
 </ul>
 
 <p>All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.</p>

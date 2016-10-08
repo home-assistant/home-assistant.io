@@ -95,11 +95,10 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">qos</span><span class="pi">:</span> <span class="s">1</span>
-  <span class="s">devices</span><span class="pi">:</span>
-    <span class="s">paulus_oneplus</span><span class="pi">:</span> <span class="s">/location/paulus</span>
-    <span class="s">annetherese_n4</span><span class="pi">:</span> <span class="s">/location/annetherese</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">paulus_oneplus</span><span class="pi">:</span> <span class="s">/location/paulus</span>
+      <span class="s">annetherese_n4</span><span class="pi">:</span> <span class="s">/location/annetherese</span>
 </code></pre>
 </div>
 
@@ -248,6 +247,9 @@
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

@@ -102,14 +102,6 @@ entities. The driving use case behind this functionality is to allow Home Assist
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">emulated_hue</span><span class="pi">:</span>
-  <span class="s">host_ip</span><span class="pi">:</span> <span class="s">192.168.1.186</span>
-  <span class="s">listen_port</span><span class="pi">:</span> <span class="s">8300</span>
-  <span class="s">off_maps_to_on_domains</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">script</span>
-    <span class="pi">-</span> <span class="s">scene</span>
-  <span class="s">expose_by_default</span><span class="pi">:</span> <span class="s">true</span>
-  <span class="s">exposed_domains</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">light</span>
 </code></pre>
 </div>
 
@@ -143,6 +135,21 @@ entities. The driving use case behind this functionality is to allow Home Assist
     </ul>
   </li>
 </ul>
+
+<p>A full configuration sample looks like the one below.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">emulated_hue</span><span class="pi">:</span>
+  <span class="s">host_ip</span><span class="pi">:</span> <span class="s">192.168.1.186</span>
+  <span class="s">listen_port</span><span class="pi">:</span> <span class="s">8300</span>
+  <span class="s">off_maps_to_on_domains</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">script</span>
+    <span class="pi">-</span> <span class="s">scene</span>
+  <span class="s">expose_by_default</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">exposed_domains</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">light</span>
+</code></pre>
+</div>
 
 <p>With additional customization you will be able to specify the behaviour of the existing entities.</p>
 
@@ -201,6 +208,9 @@ entities. The driving use case behind this functionality is to allow Home Assist
         </li>
         <li>
             <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
         </li>
         <li>
             Emulated Hue Bridge

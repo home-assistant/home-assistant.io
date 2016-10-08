@@ -112,6 +112,37 @@
 
 <p>Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.</p>
 
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt_json</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/rgb1/set"</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the light’s state.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the light. Default is “MQTT JSON Light.”</li>
+  <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
+  <li><strong>brightness</strong> (<em>Optional</em>): Flag that defines if the light supports brightness. Default is false.</li>
+  <li><strong>rgb</strong> (<em>Optional</em>): Flag that defines if the light supports RGB colors. Default is false.</li>
+  <li><strong>flash_time_short</strong> (<em>Optional</em>): The duration, in seconds, of a “short” flash. Default is 2.</li>
+  <li><strong>flash_time_long</strong> (<em>Optional</em>): The duration, in seconds, of a “long” flash. Default is 10.</li>
+  <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.</li>
+  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
+</ul>
+
+<p class="note warning">
+  Make sure that your topics match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
+</p>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>In this section you find some real life examples of how to use this sensor.</p>
+
+<h3><a class="title-link" name="brightness-and-rgb-support" href="#brightness-and-rgb-support"></a> Brightness and RGB support</h3>
+
 <p>To enable a light with brightness and RGB support in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -125,6 +156,8 @@
 </code></pre>
 </div>
 
+<h3><a class="title-link" name="brightness-and-no-rgb-support" href="#brightness-and-no-rgb-support"></a> Brightness and no RGB support</h3>
+
 <p>To enable a light with brightness (but no color support) in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -137,23 +170,7 @@
 </code></pre>
 </div>
 
-<p>Configuration variables:</p>
-
-<ul>
-  <li><strong>name</strong> (<em>Optional</em>): The name of the light. Default is “MQTT JSON Light.”</li>
-  <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
-  <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the light’s state.</li>
-  <li><strong>brightness</strong> (<em>Optional</em>): Flag that defines if the light supports brightness. Default is false.</li>
-  <li><strong>rgb</strong> (<em>Optional</em>): Flag that defines if the light supports RGB colors. Default is false.</li>
-  <li><strong>flash_time_short</strong> (<em>Optional</em>): The duration, in seconds, of a “short” flash. Default is 2.</li>
-  <li><strong>flash_time_long</strong> (<em>Optional</em>): The duration, in seconds, of a “long” flash. Default is 10.</li>
-  <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.</li>
-  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
-</ul>
-
-<p class="note warning">
-  Make sure that your topics match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
-</p>
+<h3><a class="title-link" name="implementations" href="#implementations"></a> Implementations</h3>
 
 <p>A full example of custom lighting using this platform and an ESP8266 microcontroller can be found <a href="https://github.com/corbanmailloux/esp-mqtt-rgb-led">here</a>. It supports on/off, brightness, transitions, RGB colors, and flashing.</p>
 

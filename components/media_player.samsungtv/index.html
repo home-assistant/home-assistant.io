@@ -97,18 +97,15 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">samsungtv</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">55000</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
-  <span class="s">timeout</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">samsungtv</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP of the Samsung Smart TV, eg. 192.168.0.10</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP of the Samsung Smart TV, eg. `192.168.0.10^.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port of the Samsung Smart TV. Defaults to 55000.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the Samsung Smart TV.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): The time-out for the communication with the TV. Defaults to 0.</li>
@@ -128,17 +125,18 @@
   <li>F6400AF</li>
 </ul>
 
-<p>If your model is not on the list then give it a test, if everything works correctly then add it to the list on <a href="https://github.com/home-assistant/home-assistant.io">GitHub</a>.
-The two letters at the beginning of the model number represent the region, UE is Europe, UN is North America and UA is Asia &amp; Australia. The two numbers following that represent the screen size. If you add your model remember to remove these before adding them to the list.</p>
-
-<p>There’s currently a <a href="https://github.com/home-assistant/home-assistant/issues/2098">known issue</a> with some TV’s receiving a <em>Key press UP</em> that can interrupt certain applications.</p>
-
 <p>Currently tested but not working models:</p>
 
 <ul>
   <li>KU6300 - Shows in GUI but unable to control.</li>
-  <li>UE75H6400 - Shows in GUI but unable to control.</li>
+  <li>H6400 - Shows in GUI but unable to control.</li>
 </ul>
+
+<p>If your model is not on the list then give it a test, if everything works correctly then add it to the list on <a href="https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown">GitHub</a>.
+The first letter (U, P, L, H &amp; K) represent the screen type, e.g. LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia &amp; Australia. The two numbers following that represent the screen size.
+If you add your model remember to remove these before adding them to the list.</p>
+
+<p>There’s currently a <a href="https://github.com/home-assistant/home-assistant/issues/2098">known issue</a> with some TV’s receiving a <em>Key press UP</em> that can interrupt certain applications.</p>
 
 
 </article>
@@ -156,6 +154,9 @@ The two letters at the beginning of the model number represent the region, UE is
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/samsung.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.13
     </div>

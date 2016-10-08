@@ -89,7 +89,14 @@
   <hr class="divider">
   
 
-  <p>The updater component will check for new releases at startup and everyday at noon and midnight. It will show a badge in the frontend if a new version has been detected.</p>
+  <p>The <code class="highlighter-rouge">updater</code> component will check for new releases at startup and everyday at noon and midnight. It will show a badge in the frontend if a new version has been detected.</p>
+
+<p>To integrate this into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">updater</span><span class="pi">:</span>
+</code></pre>
+</div>
 
 <p>For an added bonus, an automation component can be created to send a message with a notifier when that state of this component’s entity changes.</p>
 

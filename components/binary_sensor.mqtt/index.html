@@ -95,14 +95,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/window/contact"</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MQTT</span><span class="nv"> </span><span class="s">Sensor"</span>
-  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
-  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
-  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
-  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/window/contact"</span>
 </code></pre>
 </div>
 
@@ -118,9 +112,24 @@
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
 </ul>
 
-<p>For a quick check you can use the commandline tools shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. Set the state of your sensor manually:</p>
+<p>For a quick check you can use the commandline tools shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. Set the state of a sensor manually:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m <span class="s2">"OFF"</span>
+</code></pre>
+</div>
+
+<p>An extended configuration for the same sensor could look like this if you want/need to be more specific.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/window/contact"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Windows</span><span class="nv"> </span><span class="s">contact"</span>
+  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1"</span>
+  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0"</span>
+  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 
@@ -141,6 +150,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/mqtt.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Depends
+    </div>
     <div class='section'>
     Introduced in release: 0.9
     </div>
@@ -196,6 +208,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>

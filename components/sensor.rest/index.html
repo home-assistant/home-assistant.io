@@ -95,12 +95,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
-  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.thermostat</span><span class="nv"> </span><span class="s">}}'</span>
-  <span class="s">method</span><span class="pi">:</span> <span class="s">GET</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">REST GET sensor</span>
-  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
 </code></pre>
 </div>
 
@@ -108,14 +104,10 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
-  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
-  <span class="s">method</span><span class="pi">:</span> <span class="s">POST</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.thermostat</span><span class="nv"> </span><span class="s">}}'</span>
-  <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">"device"</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">"heater"</span><span class="nv"> </span><span class="s">}'</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">REST POST sensor</span>
-  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
-  <span class="s">verify_ssl</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/ENDPOINT</span>
+    <span class="s">method</span><span class="pi">:</span> <span class="s">POST</span>
+    <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">"device"</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">"heater"</span><span class="nv"> </span><span class="s">}'</span>
 </code></pre>
 </div>
 
@@ -123,12 +115,16 @@
 
 <ul>
   <li><strong>resource</strong> (<em>Required</em>): The resource or endpoint that contains the value.</li>
-  <li><strong>method</strong> (<em>Optional</em>): The method of the request. Default is GET.</li>
+  <li><strong>method</strong> (<em>Optional</em>): The method of the request. Default is <code class="highlighter-rouge">GET</code>.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the value.</li>
   <li><strong>payload</strong> (<em>Optional</em>): The payload to send with a POST request. Depends on the service, but usually formed as JSON.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the REST sensor.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
-  <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify the certification of the endpoint. Default to True.</li>
+  <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify the certification of the endpoint. Default to <code class="highlighter-rouge">True</code>.</li>
+  <li><strong>authentication</strong> (<em>Optional</em>): Type of the HTTP authentication. <code class="highlighter-rouge">basic</code> or <code class="highlighter-rouge">digest</code>.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username for accessing the REST endpoint.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The password for accessing the REST endpoint.</li>
+  <li><strong>headers</strong> (<em>Optional</em>): The headers for the requests.</li>
 </ul>
 
 <p class="note warning">
@@ -152,7 +148,8 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 <p>To display the IP address, the entry for a sensor in the <code class="highlighter-rouge">configuration.yaml</code> file will look like this.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
     <span class="s">resource</span><span class="pi">:</span> <span class="s">http://ip.jsontest.com</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">External IP</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.ip</span><span class="nv"> </span><span class="s">}}'</span>
@@ -165,7 +162,8 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 <p>Add something similar to the entry below to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
     <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADRRESS:61208/api/2/mem/used</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Used mem</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.used|</span><span class="nv"> </span><span class="s">multiply(0.000000954)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(0)</span><span class="nv"> </span><span class="s">}}'</span>
@@ -177,11 +175,56 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 <p>The Home Assistant <a href="/developers/rest_api/">API</a> exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not <a href="/developers/architecture/#multiple-connected-instances">connected</a> you can still get information from them.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
     <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS:8123/api/states/sensor.weather_temperature</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Temperature</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.state</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="accessing-a-http-authentication-protected-endpoint" href="#accessing-a-http-authentication-protected-endpoint"></a> Accessing a HTTP authentication protected endpoint</h3>
+
+<p>The REST sensor supports HTTP authentication and customized headers.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS:5000/sensor</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">ha1</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">test1</span>
+    <span class="s">authentication</span><span class="pi">:</span> <span class="s">basic</span>
+    <span class="s">headers</span><span class="pi">:</span>
+      <span class="s">User-agent</span><span class="pi">:</span> <span class="s">Home Assistant</span>
+      <span class="s">Content-Type</span><span class="pi">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<p>The header will contains all relevant details. This will give you the flexibility to access also endpoints wich are protected by Tokens.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Content-Length: 
+Host: IP_ADDRESS1:5000
+Authorization: Basic aGExOnRlc3Qx
+Accept-Encoding: identity
+Content-Type: application/json
+User-Agent: Home Assistant
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="use-github-to-get-the-latest-release-of-home-assistant" href="#use-github-to-get-the-latest-release-of-home-assistant"></a> Use GitHub to get the latest release of Home Assistant</h3>
+
+<p>This sample is very similar to the <a href="/components/updater/"><code class="highlighter-rouge">updater</code></a> component but the information are recieved from GitHub.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">https://api.github.com/repos/home-assistant/home-assistant/releases/latest</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_GITHUB_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_GITHUB_ACCESS_TOKEN</span>
+    <span class="s">authentication</span><span class="pi">:</span> <span class="s">basic</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.tag_name</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">headers</span><span class="pi">:</span>
+      <span class="s">Accept</span><span class="pi">:</span> <span class="s">application/vnd.github.v3+json</span>
+      <span class="s">Content-Type</span><span class="pi">:</span> <span class="s">application/json</span>
+      <span class="s">User-Agent</span><span class="pi">:</span> <span class="s">Home Assistant REST sensor</span>
 </code></pre>
 </div>
 
@@ -235,9 +278,6 @@ Make sure that the URL matches exactly your endpoint or resource.
             <a href='/components/sensor.dweet/'>Dweet.io</a>
         </li>
         <li>
-            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
-        </li>
-        <li>
             <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
         </li>
         <li>
@@ -283,9 +323,6 @@ Make sure that the URL matches exactly your endpoint or resource.
             <a href='/components/sensor.nest/'>Nest Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.neurio_energy/'>Neurio</a>
-        </li>
-        <li>
             <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
         </li>
         <li>
@@ -299,6 +336,9 @@ Make sure that the URL matches exactly your endpoint or resource.
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

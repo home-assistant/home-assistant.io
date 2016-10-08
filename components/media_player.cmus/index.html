@@ -91,31 +91,28 @@
 
   <p>The <code class="highlighter-rouge">cmus</code> platform allows you to control a <a href="https://cmus.github.io/">cmus</a> music player on a remote or local machine from Home Assistant.</p>
 
-<p>To add cmus to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file if cmus is running on a remote server:</p>
+<p>To add cmus to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file if running locally it will look like:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">cmus</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">3000</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Desktop Computer Music Player</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">cmus</span>
 </code></pre>
 </div>
 
-<p>if running locally it will look like:</p>
+<p>if cmus is running on a remote server:</p>
+
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">cmus</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Local Music Player</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">cmus</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> Hostname or IP address of the machine running cmus. Note if a remote
-cmus is configured that instance must be configured to listen to remote connections, which also requires a password to be set.</li>
+  <li><strong>host</strong> (<em>Optional</em>):  Hostname or IP address of the machine running cmus. Note if a remote cmus is configured that instance must be configured to listen to remote connections, which also requires a password to be set.</li>
   <li><strong>password</strong> (<em>Required if host is set</em>): Password for your cmus player.</li>
   <li><strong>port</strong> (<em>Optional</em>): Port of the cmus socket, defaults to 3000.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you’d like to give the cmus player in Home Assistant</li>
@@ -136,6 +133,9 @@ cmus is configured that instance must be configured to listen to remote connecti
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.cmus.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/media_player/'>the Media Player component</a>.

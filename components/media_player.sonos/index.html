@@ -95,7 +95,7 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry using Sonos discovery</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">sonos</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sonos</span>
 </code></pre>
 </div>
 
@@ -103,8 +103,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry using Sonos discovery on a specific interface</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">sonos</span>
-  <span class="s">interface_addr</span><span class="pi">:</span> <span class="s">192.0.2.1</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sonos</span>
+    <span class="s">interface_addr</span><span class="pi">:</span> <span class="s">192.0.2.1</span>
 </code></pre>
 </div>
 
@@ -112,8 +112,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with manually specified addresses</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">sonos</span>
-  <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.0.2.25</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sonos</span>
+    <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.0.2.25</span>
 </code></pre>
 </div>
 
@@ -121,11 +121,11 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with manually specified addresses</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">sonos</span>
-  <span class="s">hosts</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">192.0.2.25</span>
-    <span class="pi">-</span> <span class="s">192.0.2.26</span>
-    <span class="pi">-</span> <span class="s">192.0.2.27</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sonos</span>
+    <span class="s">hosts</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">192.0.2.25</span>
+      <span class="pi">-</span> <span class="s">192.0.2.26</span>
+      <span class="pi">-</span> <span class="s">192.0.2.27</span>
 </code></pre>
 </div>
 
@@ -230,6 +230,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/sonos.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.7.3
     </div>

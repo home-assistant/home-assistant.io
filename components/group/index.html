@@ -102,7 +102,6 @@
     <span class="s">entities</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">group.awesome_people</span>
       <span class="pi">-</span> <span class="s">group.climate</span>
-
   <span class="s">kitchen</span><span class="pi">:</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen</span>
     <span class="s">entities</span><span class="pi">:</span>
@@ -135,7 +134,7 @@ Example of groups shown as views in the frontend.
 
 <p>If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once.</p>
 
-<p>You can create views (tabs) that contain other groups.<br />
+<p>You can create views (tabs) that contain other groups.
 Notice in the example below that in order to refer to the group “Living Room”, you use <code class="highlighter-rouge">group.living_room</code> (lowercase and spaces replaced with underscores).</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry that shows two groups, referred to in a view group (tab)</span>
@@ -147,11 +146,11 @@ Notice in the example below that in order to refer to the group “Living Room�
   <span class="s">Bedroom</span><span class="pi">:</span> <span class="s">light.light_bedroom, switch.sleeping</span>
 
   <span class="s">Rooms</span><span class="pi">:</span>
-    <span class="s">view</span><span class="pi">:</span> <span class="s">yes</span>                                 
+    <span class="s">view</span><span class="pi">:</span> <span class="s">yes</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Rooms</span>
     <span class="s">entities</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">group.living_room</span>                                 
-      <span class="pi">-</span> <span class="s">group.bedroom</span>                                                                                                                                          
+      <span class="pi">-</span> <span class="s">group.living_room</span>
+      <span class="pi">-</span> <span class="s">group.bedroom</span>
 </code></pre>
 </div>
 

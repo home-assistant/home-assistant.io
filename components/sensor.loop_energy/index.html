@@ -89,9 +89,7 @@
   <hr class="divider">
   
 
-  <p>Integrate your <a href="https://www.your-loop.com/">Loop Energy</a> meter information into Home Assistant.</p>
-
-<p>To use this sensor you need the the client serial number and secret keys for your devices.</p>
+  <p>Integrate your <a href="https://www.your-loop.com/">Loop Energy</a> meter information into Home Assistant. To use this sensor you need the the client serial number and secret keys for your devices.</p>
 
 <p>The library used to get the data isn’t officially supported and the only way to get the keys is to log into loop energy’s website and type a command into your browser console.</p>
 
@@ -126,8 +124,6 @@
     <span class="s">gas</span><span class="pi">:</span>
       <span class="s">gas_serial</span><span class="pi">:</span> <span class="s1">'</span><span class="s">GAS_SERIAL'</span>
       <span class="s">gas_secret</span><span class="pi">:</span> <span class="s1">'</span><span class="s">GAS_SECRET'</span>
-      <span class="s">gas_type</span><span class="pi">:</span> <span class="s">imperial</span>
-      <span class="s">gas_calorific</span><span class="pi">:</span> <span class="s">38.2</span>
 </code></pre>
 </div>
 
@@ -163,6 +159,9 @@
       <img src='/images/supported_brands/loop.png' />
   </div>
     <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
     Introduced in release: 0.17
     </div>
     <div class='section'>
@@ -179,6 +178,9 @@
         </li>
         <li>
             Loop Energy
+        </li>
+        <li>
+            <a href='/components/sensor.neurio_energy/'>Neurio</a>
         </li>
         <li>
             <a href='/components/sensor.ohmconnect/'>OhmConnect</a>

@@ -93,9 +93,8 @@
 
 <p>To connect to a Nuimo device add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">nuimo_controller</span><span class="pi">:</span>
-  <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">CE:B5:12:25:21:89'</span>
-  <span class="s">name</span><span class="pi">:</span> 
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">nuimo_controller</span><span class="pi">:</span> 
 </code></pre>
 </div>
 
@@ -167,7 +166,7 @@ Then invoke home-assistant with <code class="highlighter-rouge">hass --skip-pip<
       <img src='/images/supported_brands/nuimo.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Poll
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
     </div>
     <div class='section'>
     Introduced in release: 0.29
@@ -183,6 +182,9 @@ Then invoke home-assistant with <code class="highlighter-rouge">hass --skip-pip<
         </li>
         <li>
             <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
         </li>
         <li>
             <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>

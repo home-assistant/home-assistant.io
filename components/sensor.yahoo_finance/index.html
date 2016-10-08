@@ -96,8 +96,6 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yahoo_finance</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Red Hat Inc.</span>
-    <span class="s">symbol</span><span class="pi">:</span> <span class="s">RHT</span>
 </code></pre>
 </div>
 
@@ -108,19 +106,28 @@
   <li><strong>symbol</strong> (<em>Optional</em>): The stock market symbol for a given company. If not specified, it defaults to <em>Yahoo (YHOO)</em>.</li>
 </ul>
 
-<p>Example configuration:</p>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
+<p>In this section you find some real life examples of how to use this sensor.</p>
+
+<h3><a class="title-link" name="red-hat" href="#red-hat"></a> Red Hat</h3>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yahoo_finance</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Red Hat Inc.</span>
     <span class="s">symbol</span><span class="pi">:</span> <span class="s">RHT</span>
+</code></pre>
+</div>
 
+<h3><a class="title-link" name="google" href="#google"></a> Google</h3>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yahoo_finance</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Google</span>
     <span class="s">symbol</span><span class="pi">:</span> <span class="s">GOOGL</span>
 </code></pre>
 </div>
+
 
 
 </article>

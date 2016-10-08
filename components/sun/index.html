@@ -92,12 +92,7 @@
   <p>The sun component will use your current location to track if the sun is above or below the horizon.The sun can be used within automation as <a href="/getting-started/automation-trigger/#sun-trigger">a trigger with an optional offset to simulate dawn/dusk</a>.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">homeassistant</span><span class="pi">:</span>
-  <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.87336</span>
-  <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.22743</span>
-
 <span class="s">sun</span><span class="pi">:</span>
-  <span class="s">elevation</span><span class="pi">:</span> <span class="s">102</span>
 </code></pre>
 </div>
 
@@ -194,7 +189,10 @@
     <h1 class="title delta">Category Weather</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/sensor.forecast/'>Forecast.io</a>
+            <a href='/components/sensor.bom/'>Bureau of Meteorology (BOM) Australia</a>
+        </li>
+        <li>
+            <a href='/components/sensor.darksky/'>Dark Sky</a>
         </li>
         <li>
             <a href='/components/sensor.nest_weather/'>Nest Weather Sensor</a>
@@ -213,9 +211,6 @@
         </li>
         <li>
             <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bom/'>Weather data by the Bureau of Meteorology Australia</a>
         </li>
         <li>
             <a href='/components/sensor.yr/'>YR</a>

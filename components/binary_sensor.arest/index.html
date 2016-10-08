@@ -95,10 +95,9 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
-  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Office Switch</span>
-  <span class="s">pin</span><span class="pi">:</span> <span class="s">8</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS</span>
+    <span class="s">pin</span><span class="pi">:</span> <span class="s">8</span>
 </code></pre>
 </div>
 
@@ -106,14 +105,25 @@
 
 <ul>
   <li><strong>resource</strong> (<em>Required</em>): IP address and schema of the device that is exposing an aREST API, e.g. http://192.168.1.10.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Let you overwrite the the name of the device. By default <em>name</em> from the device is used.</li>
   <li><strong>pin</strong> (<em>Required</em>): Number of the pin to monitor.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Let you overwrite the the name of the device. By default <em>name</em> from the device is used.</li>
 </ul>
 
 <p>Accessing the URL http://IP_ADDRESS/digital/PIN_NUMBER should give you the state of the pin inside a JSON response as <code class="highlighter-rouge">return_value</code>.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET http://10.100.0.157/digital/9
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET http://192.168.0.5/digital/9
 <span class="o">{</span><span class="s2">"return_value"</span>: 0, <span class="s2">"id"</span>: <span class="s2">"office1"</span>, <span class="s2">"name"</span>: <span class="s2">"Office"</span>, <span class="s2">"connected"</span>: <span class="nb">true</span><span class="o">}</span>
+</code></pre>
+</div>
+
+<p>An example for Pin 9 inspired by the command above could look like this:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://192.168.0.5/digital/9</span>
+    <span class="s">pin</span><span class="pi">:</span> <span class="s">9</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Office</span>
 </code></pre>
 </div>
 
@@ -165,6 +175,9 @@ This sensor is not suitable for fast state changes because there is a high possi
         </li>
         <li>
             <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>

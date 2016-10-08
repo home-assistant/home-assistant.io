@@ -100,9 +100,6 @@
     <span class="s">kitchen_light</span><span class="pi">:</span>
       <span class="s">command_on</span><span class="pi">:</span> <span class="s">switch_command on kitchen</span>
       <span class="s">command_off</span><span class="pi">:</span> <span class="s">switch_command off kitchen</span>
-      <span class="s">command_state</span><span class="pi">:</span> <span class="s">query_command kitchen</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"online"</span><span class="nv"> </span><span class="s">}}'</span>
-      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kitchen switch</span>
 </code></pre>
 </div>
 
@@ -139,6 +136,9 @@
     <span class="s">arest_pin4</span><span class="pi">:</span>
       <span class="s">command_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/1"</span>
       <span class="s">command_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/0"</span>
+      <span class="s">command_state</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4"</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">return_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"1"</span><span class="nv"> </span><span class="s">}}'</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">aREST Pin 4</span>
 </code></pre>
 </div>
 
@@ -243,6 +243,9 @@ This switch will shutdown your host immediately, there will be no confirmation.
     <div class='section'>
     <h1 class="title delta">Category Switch</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/switch.anel_pwrctrl/'>ANEL PwrCtrl Switch</a>
+        </li>
         <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
         </li>

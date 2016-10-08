@@ -104,18 +104,16 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">panasonic_viera</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">55000</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">panasonic_viera</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP of the Panasonic Viera TV, e.g. <code class="highlighter-rouge">192.168.0.10</code></li>
-  <li><strong>port</strong> (<em>Optional</em>): The port of your Panasonic Viera TV. Defaults to <code class="highlighter-rouge">55000</code></li>
+  <li><strong>host</strong> (<em>Required</em>): The IP of the Panasonic Viera TV, e.g. <code class="highlighter-rouge">192.168.0.10</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port of your Panasonic Viera TV. Defaults to <code class="highlighter-rouge">55000</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the Panasonic Viera TV.</li>
 </ul>
 
@@ -135,6 +133,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/panasonic.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.17
     </div>

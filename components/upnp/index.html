@@ -91,7 +91,6 @@
 
   <p>The <code class="highlighter-rouge">upnp</code> component automatically creates port forwarding mappings on your router for Home Assistant. UPnP or NAT-PMP needs to be enabled on your router for this component to work.</p>
 
-<h1>Installation</h1>
 <p>You need to install <a href="https://github.com/miniupnp/miniupnp/tree/master/miniupnpc">miniupnpc</a> before using the UPnP component:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/miniupnp/miniupnp.git
@@ -102,7 +101,7 @@
 </code></pre>
 </div>
 
-<h1>Configuration</h1>
+<p>To integrate this into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">upnp</span><span class="pi">:</span>

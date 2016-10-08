@@ -95,11 +95,8 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">bt_home_hub_5</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.254</span>
-  <span class="s">interval_seconds</span><span class="pi">:</span> <span class="s">10</span>
-  <span class="s">consider_home</span><span class="pi">:</span> <span class="s">180</span>
-  <span class="s">track_new_devices</span><span class="pi">:</span> <span class="s">yes</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bt_home_hub_5</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.254</span>
 </code></pre>
 </div>
 
@@ -199,6 +196,9 @@
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

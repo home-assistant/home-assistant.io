@@ -98,13 +98,13 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_temperature'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_humidity'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_condition'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">wind_speed'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">wind_direction'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_temperature'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_humidity'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">weather_condition'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">wind_speed'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">wind_direction'</span>
 </code></pre>
 </div>
 
@@ -146,7 +146,10 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
     <h1 class="title delta">Category Weather</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/sensor.forecast/'>Forecast.io</a>
+            <a href='/components/sensor.bom/'>Bureau of Meteorology (BOM) Australia</a>
+        </li>
+        <li>
+            <a href='/components/sensor.darksky/'>Dark Sky</a>
         </li>
         <li>
             Nest Weather Sensor
@@ -165,9 +168,6 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
         </li>
         <li>
             <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bom/'>Weather data by the Bureau of Meteorology Australia</a>
         </li>
         <li>
             <a href='/components/sensor.yr/'>YR</a>

@@ -107,10 +107,8 @@ The MPC-HC web interface is highly insecure, and allows remote clients full play
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mpchc</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.0.123</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">13579</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">MPC-HC</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mpchc</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.0.123</span>
 </code></pre>
 </div>
 
@@ -138,6 +136,9 @@ The MPC-HC web interface is highly insecure, and allows remote clients full play
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/mpchc.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.25
     </div>

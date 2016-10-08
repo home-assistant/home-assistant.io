@@ -95,13 +95,23 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mold_indicator</span>
-  <span class="s">indoor_temp_sensor</span><span class="pi">:</span> <span class="s">sensor.temp</span>
-  <span class="s">indoor_humidity_sensor</span><span class="pi">:</span> <span class="s">sensor.humidity</span>
-  <span class="s">outdoor_temp_sensor</span><span class="pi">:</span> <span class="s">sensor.weather_temperature</span>
-  <span class="s">calibration_factor</span><span class="pi">:</span> <span class="s">2.0</span>       <span class="c1"># Needs to be calibrated to the critical point in the room</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mold_indicator</span>
+    <span class="s">indoor_temp_sensor</span><span class="pi">:</span> <span class="s">sensor.temp</span>
+    <span class="s">indoor_humidity_sensor</span><span class="pi">:</span> <span class="s">sensor.humidity</span>
+    <span class="s">outdoor_temp_sensor</span><span class="pi">:</span> <span class="s">sensor.weather_temperature</span>
+    <span class="s">calibration_factor</span><span class="pi">:</span> <span class="s">2.0</span>
 </code></pre>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>indoor_temp_sensor</strong> (<em>Required</em>): The enditiy ID of the indoor temperature sensor.</li>
+  <li><strong>indoor_humidity_sensor</strong> (<em>Required</em>): The enditiy ID of the indoor humidity sensor.</li>
+  <li><strong>outdoor_temp_sensor</strong> (<em>Required</em>): The enditiy ID of the outdoor temperature sensor.</li>
+  <li><strong>calibration_factor</strong> (<em>Required</em>): Needs to be calibrated to the critical point in the room.</li>
+</ul>
+
 <p>In this case, the weather forecast temperature sensor is used for the outside temperature.</p>
 
 <h2><a class="title-link" name="calibration" href="#calibration"></a> Calibration</h2>
@@ -150,9 +160,6 @@ With the three measured temperatures (in Celsius or Fahrenheit), the calibration
             <a href='/components/sensor.dweet/'>Dweet.io</a>
         </li>
         <li>
-            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
-        </li>
-        <li>
             <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
         </li>
         <li>
@@ -198,9 +205,6 @@ With the three measured temperatures (in Celsius or Fahrenheit), the calibration
             <a href='/components/sensor.nest/'>Nest Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.neurio_energy/'>Neurio</a>
-        </li>
-        <li>
             <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
         </li>
         <li>
@@ -214,6 +218,9 @@ With the three measured temperatures (in Celsius or Fahrenheit), the calibration
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

@@ -99,9 +99,8 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">wunderground</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">wunderground</span>
     <span class="s">api_key</span><span class="pi">:</span> <span class="s">your_api_key</span>
-    <span class="s">pws_id</span><span class="pi">:</span> <span class="s">enter_pws_id</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">weather</span>
       <span class="pi">-</span> <span class="s">temp_f</span>
@@ -136,8 +135,8 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
 
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>api_key</strong> (Required): See above</li>
-  <li><strong>pws_id</strong> (Optional): You can enter a Personal Weather Station id. The current list of Wunderground PWS stations is available <a href="https://www.wunderground.com/weatherstation/ListStations.asp">here</a>. If you do not enter a PWS ID, the current location information (latitude and longitude) from your <code class="highlighter-rouge">configuration.yaml</code> will be used to display weather conditions.</li>
+  <li><strong>api_key</strong> (Required): See above.</li>
+  <li><strong>pws_id</strong> (Optional): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available <a href="https://www.wunderground.com/weatherstation/ListStations.asp">here</a>. If you do not enter a PWS ID, the current location information (latitude and longitude) from your <code class="highlighter-rouge">configuration.yaml</code> will be used to display weather conditions.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend. The following conditions can be monitored.
     <ul>
       <li><strong>weather</strong>: A human-readable text summary with picture from Wunderground.</li>
@@ -200,7 +199,10 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
     <h1 class="title delta">Category Weather</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/sensor.forecast/'>Forecast.io</a>
+            <a href='/components/sensor.bom/'>Bureau of Meteorology (BOM) Australia</a>
+        </li>
+        <li>
+            <a href='/components/sensor.darksky/'>Dark Sky</a>
         </li>
         <li>
             <a href='/components/sensor.nest_weather/'>Nest Weather Sensor</a>
@@ -219,9 +221,6 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
         </li>
         <li>
             Weather Underground (WUnderground)
-        </li>
-        <li>
-            <a href='/components/sensor.bom/'>Weather data by the Bureau of Meteorology Australia</a>
         </li>
         <li>
             <a href='/components/sensor.yr/'>YR</a>

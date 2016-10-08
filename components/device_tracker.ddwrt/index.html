@@ -95,18 +95,18 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">ddwrt</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">ROUTER_IP_ADDRESS</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ddwrt</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">ROUTER_IP_ADDRESS</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_ADMIN_PASSWORD</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your router, e.g. 192.168.1.1.</li>
-  <li><strong>username</strong> (<em>Required</em>: The username of an user with administrative privileges, usually <em>admin</em>.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of your router, e.g. <code class="highlighter-rouge">192.168.1.1</code>.</li>
+  <li><strong>username</strong> (<em>Required</em>: The username of an user with administrative privileges, usually <code class="highlighter-rouge">admin</code>.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
 </ul>
 
@@ -203,6 +203,9 @@
         </li>
         <li>
             <a href='/components/device_tracker.unifi/'>Ubiquiti Unifi WAP</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.volvooncall/'>Volvo On Call</a>
         </li>
         <li>
             <a href='/components/device_tracker.icloud/'>iCloud</a>

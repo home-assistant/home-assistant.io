@@ -110,6 +110,28 @@
 </code></pre>
 </div>
 
+<p>You can use <a href="/topics/templating/">templates</a> to include the release number of Home Assistant if you prefer. The following example sends a notification via <a href="/components/notify.pushbullet/">Pushbullet</a> with the Home Assistant version in the message.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">pushbullet</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s1">'</span><span class="s">YOUR_KEY_HERE'</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">pushbullet</span>
+
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Update notifications</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">updater.updater</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.pushbullet</span>
+    <span class="s">data</span><span class="pi">:</span> 
+      <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">New</span><span class="nv"> </span><span class="s">Home</span><span class="nv"> </span><span class="s">Assistant</span><span class="nv"> </span><span class="s">Release'</span>
+      <span class="s">target</span><span class="pi">:</span> <span class="s1">'</span><span class="s">YOUR_TARGET_HERE'</span> <span class="c1">#See Pushbullet component for usage</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Home</span><span class="nv"> </span><span class="s">Assistant</span><span class="nv">  </span><span class="s">is</span><span class="nv"> </span><span class="s">now</span><span class="nv"> </span><span class="s">available."</span>
+</code></pre>
+</div>
+
+
 
 </article>
 

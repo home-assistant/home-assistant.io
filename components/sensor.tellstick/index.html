@@ -95,24 +95,36 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">tellstick</span>
-  <span class="s">135</span><span class="pi">:</span> <span class="s">Outside</span>
-  <span class="s">21</span><span class="pi">:</span> <span class="s">Inside</span>
-  <span class="s">only_named</span><span class="pi">:</span> <span class="s">True</span>
-  <span class="s">temperature_scale</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
-  <span class="s">datatype_mask</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">tellstick</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>ID: Name</strong> <em>Optional</em>: Entry for a sensor with the name for it and its ID.</li>
-  <li><strong>only_named</strong> <em>Optional</em>: Only show the named sensors. Set to <code class="highlighter-rouge">True</code> to hide sensors.</li>
-  <li><strong>temperature_scale</strong> <em>Optional</em>: The scale of the temperature value.</li>
-  <li><strong>datatype_mask</strong> <em>Optional</em>: Mask to determine which sensor values to show based on. Please check the <a href="https://tellcore-py.readthedocs.org/en/v1.1.2/constants.html#module-tellcore.constants">TellCore tellcore.constants documentation</a> for details.</li>
+  <li><strong>ID: Name</strong> (<em>Optional</em>): Entry for a sensor with the name for it and its ID.</li>
+  <li><strong>only_named</strong> (<em>Optional</em>): Only show the named sensors. Set to <code class="highlighter-rouge">True</code> to hide sensors.</li>
+  <li><strong>temperature_scale</strong> (<em>Optional</em>): The scale of the temperature value.</li>
+  <li><strong>datatype_mask</strong> (<em>Optional</em>): Mask to determine which sensor values to show based on. Please check the <a href="https://tellcore-py.readthedocs.org/en/v1.1.2/constants.html#module-tellcore.constants">TellCore tellcore.constants documentation</a> for details.</li>
 </ul>
 
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>In this section you find some real life examples of how to use this sensor.</p>
+
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+
+<p>```yaml</p>
+<h1>Example configuration.yaml entry</h1>
+<p>sensor:</p>
+<ul>
+  <li>platform: tellstick
+135: Outside
+21: Inside
+only_named: True
+temperature_scale: “°C”
+datatype_mask: 1</li>
+</ul>
 
 
 </article>
@@ -160,9 +172,6 @@
             <a href='/components/sensor.dweet/'>Dweet.io</a>
         </li>
         <li>
-            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
-        </li>
-        <li>
             <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
         </li>
         <li>
@@ -208,9 +217,6 @@
             <a href='/components/sensor.nest/'>Nest Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.neurio_energy/'>Neurio</a>
-        </li>
-        <li>
             <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
         </li>
         <li>
@@ -224,6 +230,9 @@
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

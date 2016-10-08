@@ -99,12 +99,6 @@
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
-    <span class="s">customize</span><span class="pi">:</span>
-      <span class="s">sources</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">livetv</span>
-        <span class="pi">-</span> <span class="s">youtube</span>
-        <span class="pi">-</span> <span class="s">makotv</span>
 </code></pre>
 </div>
 
@@ -120,7 +114,22 @@
   </li>
 </ul>
 
-<p>If you do not provide a host name, all LG WebOS Smart TV’s within your network will be auto-discovered if your TV network name is set to <code class="highlighter-rouge">[LG] webOS TV</code></p>
+<p>If you do not provide a host name, all LG WebOS Smart TV’s within your network will be auto-discovered if your TV network name is set to <code class="highlighter-rouge">[LG] webOS TV</code>.</p>
+
+<p>A full configuration example will look like the sample below:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+    <span class="s">customize</span><span class="pi">:</span>
+      <span class="s">sources</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">livetv</span>
+        <span class="pi">-</span> <span class="s">youtube</span>
+        <span class="pi">-</span> <span class="s">makotv</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -139,7 +148,7 @@
       <img src='/images/supported_brands/webos.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Poll
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
     </div>
     <div class='section'>
     Introduced in release: 0.18
