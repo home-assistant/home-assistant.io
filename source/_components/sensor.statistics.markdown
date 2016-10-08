@@ -22,6 +22,7 @@ To enable the statistics sensor, add the following lines to your `configuration.
 # Example configuration.yaml entry
 sensor:
   - platform: statistics
+    name: CPU
     entity_id: sensor.cpu
   - platform: statistics
     entity_id: binary_sensor.movement
