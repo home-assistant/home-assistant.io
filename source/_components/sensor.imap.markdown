@@ -24,7 +24,6 @@ sensor:
   - platform: imap
     server: imap.gmail.com
     port: 993
-    name: Emails
     username: USERNAME
     password: PASSWORD
 ```

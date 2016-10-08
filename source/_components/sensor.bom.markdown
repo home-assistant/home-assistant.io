@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Weather data by the Bureau of Meteorology Australia"
+title: "Bureau of Meteorology (BOM) Australia"
 description: "Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant."
 date: 2016-09-13 18:00
 sidebar: true
@@ -38,7 +38,6 @@ To add the BOM weather observation to your installation, add the following to yo
 # Example configuration.yaml entry
 sensor:
   - platform: bom
-    name: "optional name"
     zone_id: IDS60801
     wmo_id: 94675
     monitored_conditions:

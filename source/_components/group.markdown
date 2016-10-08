@@ -25,7 +25,6 @@ group:
     entities:
       - group.awesome_people
       - group.climate
-
   kitchen:
     name: Kitchen
     entities:
@@ -55,7 +54,7 @@ Example of groups shown as views in the frontend.
 
 If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once.
 
-You can create views (tabs) that contain other groups.  
+You can create views (tabs) that contain other groups.
 Notice in the example below that in order to refer to the group "Living Room", you use `group.living_room` (lowercase and spaces replaced with underscores).
 
 ```yaml
@@ -68,9 +67,9 @@ Notice in the example below that in order to refer to the group "Living Room", y
   Bedroom: light.light_bedroom, switch.sleeping
 
   Rooms:
-    view: yes                                 
+    view: yes
     name: Rooms
     entities:
-      - group.living_room                                 
-      - group.bedroom                                                                                                                                          
+      - group.living_room
+      - group.bedroom
 ``` 

@@ -20,7 +20,7 @@ To enable this switch in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: thinkingcleaner
+  - platform: thinkingcleaner
 ```
 
 This will automatically add switches for each Thinking Cleaner in your network.

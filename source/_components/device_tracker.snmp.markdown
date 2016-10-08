@@ -20,6 +20,7 @@ This device tracker needs SNMP to be enabled on the router.
 </p>
 
 OID examples:
+
 - Mikrotik: `1.3.6.1.4.1.14988.1.1.1.2.1.1` (confirmed, unknown RouterOS version/model)
 - Mikrotik: `1.3.6.1.2.1.4.22.1.2` (confirmed, RouterOS 6.x on RB2011)
 - Aruba: `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2` (untested)
@@ -33,10 +34,10 @@ To use the SNMP platform in your installation, add the following to your `config
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: snmp
-  host: 192.168.1.1
-  community: public
-  baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
+  - platform: snmp
+    host: 192.168.1.1
+    community: public
+    baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 Configuration variables:
 

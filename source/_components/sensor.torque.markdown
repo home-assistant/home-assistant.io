@@ -40,9 +40,8 @@ Add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: torque
-  name: Your Vehicle Name
-  email: your_configured@email.com
+  - platform: torque
+    email: your_configured@email.com
 ```
 
 Configuration variables:

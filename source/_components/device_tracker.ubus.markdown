@@ -57,10 +57,10 @@ After this is done, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: ubus
-  host: ROUTER_IP_ADDRESS
-  username: YOUR_ADMIN_USERNAME
-  password: YOUR_ADMIN_PASSWORD
+  - platform: ubus
+    host: ROUTER_IP_ADDRESS
+    username: YOUR_ADMIN_USERNAME
+    password: YOUR_ADMIN_PASSWORD
 ```
 
 Configuration variables:

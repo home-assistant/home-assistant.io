@@ -19,8 +19,8 @@ To use this notification platform in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: ecobee
+  - name: NOTIFIER_NAME
+    platform: ecobee
 ```
 
 Configuration variables:

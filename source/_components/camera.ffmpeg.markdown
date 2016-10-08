@@ -22,8 +22,6 @@ To enable your FFmpeg feed in your installation, add the following to your `conf
 camera:
   - platform: ffmpeg
     input: FFMPEG_SUPPORTED_INPUT
-    name: FFmpeg
-    extra_arguments: -q:v 2
 ```
 
 Configuration variables:

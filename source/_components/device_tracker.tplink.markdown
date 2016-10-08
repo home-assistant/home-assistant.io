@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ---
 
 
-This platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device. This includes the ArcherC9 line.
+The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device. This includes the ArcherC9 line.
 
 <p class='note'>
 TP-Link devices typically only allow one login at a time to the admin console.  This component will count torwards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant (and waiting a few minutes for the session to timeout) before you'll be able to login.
@@ -23,10 +23,10 @@ TP-Link devices typically only allow one login at a time to the admin console.  
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: tplink
-  host: YOUR_ROUTER_IP
-  username: YOUR_ADMIN_USERNAME
-  password: YOUR_ADMIN_PASSWORD
+  - platform: tplink
+    host: YOUR_ROUTER_IP
+    username: YOUR_ADMIN_USERNAME
+    password: YOUR_ADMIN_PASSWORD
 ```
 
 Configuration variables:

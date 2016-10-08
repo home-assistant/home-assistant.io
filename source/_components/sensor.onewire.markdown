@@ -29,10 +29,9 @@ To enable One wire sensors in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: onewire
-  names:
-    some_id: your name
-  mount_dir: "/mnt/1wire"
+  - platform: onewire
+    names:
+      some_id: your name
 ```
 
 Configuration variables:

@@ -23,10 +23,8 @@ To enable this switch in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yml entry
 switch:
-  platform: wake_on_lan
-  mac_address: "00-01-02-03-04-05"
-  name: "WOL"
-  host: "192.168.1.1"
+  - platform: wake_on_lan
+    mac_address: "00-01-02-03-04-05"
 ```
 
 Configuration variables:

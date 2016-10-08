@@ -19,9 +19,6 @@ To enable this component, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 graphite:
-  host: IP_ADDRESS
-  port: 2003
-  prefix: ha
 ```
 
 Configuration variables:

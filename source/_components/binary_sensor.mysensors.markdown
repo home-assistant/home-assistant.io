@@ -10,6 +10,7 @@ footer: true
 logo: mysensors.png
 ha_category: Binary Sensor
 ha_release: 0.14
+ha_iot_class: "Local Push"
 ---
 
 Integrates MySensors binary sensors into Home Assistant. See the [main component] for configuration instructions.

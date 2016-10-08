@@ -24,21 +24,32 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: uber
-  start_latitude: 37.8116380
-  start_longitude: -122.2648050
-  end_latitude: 37.7768520
-  end_longitude: -122.4155500
-  server_token: 'BeAPPTDsWZSHLf7fd9OWjZkIezweRw18Q8NltY27'
-  product_ids:
-    - '04a497f5-380d-47f2-bf1b-ad4cfdcb51f2'
+  - platform: uber
+    server_token: 'BeAPPTDsWZSHLf7fd9OWjZkIezweRw18Q8NltY27'
+    start_latitude: 37.8116380
+    start_longitude: -122.2648050
 ```
 
 Configuration variables:
 
+- **server_token** (*Required*): A server token obtained from [developer.uber.com](https://developer.uber.com) after [creating an app](https://developer.uber.com/dashboard/create).
 - **start_latitude** (*Required*): The starting latitude for a trip.
 - **start_longitude** (*Required*): The starting longitude for a trip.
 - **end_latitude** (*Optional*): The ending latitude for a trip. While `end_latitude` is optional, it is strongly recommended to provide an `end_latitude`/`end_longitude` when possible as you will get more accurate price and time estimates.
 - **end_longitude** (*Optional*): The ending longitude for a trip. While `end_longitude` is optional, it is strongly recommended to provide an `end_latitude`/`end_longitude` when possible as you will get more accurate price and time estimates.
-- **server_token** (*Required*): A server token obtained from [developer.uber.com](https://developer.uber.com) after [creating an app](https://developer.uber.com/dashboard/create).
 - **product_ids** (*Options*): A list of Uber product UUIDs. If provided, sensors will only be created for the given product IDs. Please note that product IDs are region and some times even more specific geographies based. The easiest way to find a UUID is to click on a sensor in the Home Assistant frontend and look for "Product ID" in the attributes.
+
+A full configuration entry could look like the sample below: 
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: uber
+    start_latitude: 37.8116380
+    start_longitude: -122.2648050
+    end_latitude: 37.7768520
+    end_longitude: -122.4155500
+    server_token: 'BeAPPTDsWZSHLf7fd9OWjZkIezweRw18Q8NltY27'
+    product_ids:
+      - '04a497f5-380d-47f2-bf1b-ad4cfdcb51f2'
+```

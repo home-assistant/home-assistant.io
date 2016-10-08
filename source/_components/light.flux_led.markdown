@@ -31,12 +31,6 @@ To enable those lights, add the following lines to your `configuration.yaml` fil
 # Example configuration.yaml entry
 light:
   - platform: flux_led
-    automatic_add: BOOLEAN
-    devices:
-      IP_ADDR_1:
-        name: CUSTOM_NAME_1
-      IP_ADDR_2:
-        name: CUSTOM_NAME_2
 ```
 
 Configuration variables:
@@ -44,7 +38,8 @@ Configuration variables:
 - **automatic_add** (*Optional*): To enable the automatic addition of lights on startup.
 - **devices** (*Optional*): A list of devices with their ip address and a custom name to use in the frontend.
 
-Example configuration:
+
+### {% linkable_title Example configuration %}
 
 Will automatically search and add all lights on start up:
 

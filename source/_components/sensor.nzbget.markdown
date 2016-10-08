@@ -22,9 +22,6 @@ To use NZBGet with your installation, add the following to your `configuration.y
 sensor:
   platform: nzbget
   host: YOUR_NZBGET_HOST
-  port: 6789
-  username: apiuser
-  password: apipass
   monitored_variables:
     - article_cache
     - download_rate

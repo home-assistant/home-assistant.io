@@ -10,6 +10,7 @@ footer: true
 logo: octoprint.png
 ha_category: Binary Sensor
 ha_release: 0.19
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -23,17 +24,15 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 binary_sensor:
-  platform: octoprint
-  name: OctoPrint
-  monitored_conditions:
-    - Printing
-    - Printing Error
+  - platform: octoprint
+    monitored_conditions:
+      - Printing
+      - Printing Error
 ```
 
 Configuration variables:
 
-- **name** (*Optional*): The name of the sensor. Default is 'OctoPrint'.
 - **monitored_conditions** array (*Required*): States to monitor.
   - **Printing**: State of the printer.
   - **Printing Error**: Error while printing.
-
+- **name** (*Optional*): The name of the sensor. Default is 'OctoPrint'.

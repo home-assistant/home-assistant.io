@@ -10,6 +10,7 @@ footer: true
 logo: mpd.png
 ha_category: Media Player
 ha_release: pre 0.7
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -22,11 +23,8 @@ To add MPD to your installation, add the following to your `configuration.yaml` 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: mpd
-  host: IP_ADDRESS
-  port: 6600
-  location: bedroom
-  password: PASSWORD
+  - platform: mpd
+    host: IP_ADDRESS
 ```
 
 Configuration variables:

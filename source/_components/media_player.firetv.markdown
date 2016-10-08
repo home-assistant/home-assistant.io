@@ -53,11 +53,7 @@ To add FireTV to your installation, Note your device name, and add the following
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: firetv
-  host: localhost
-  port: 5556
-  device: livingroom-firetv
-  name: My Amazon Fire TV
+  - platform: firetv
 ```
 
 Configuration variables:

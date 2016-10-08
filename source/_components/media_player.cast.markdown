@@ -10,6 +10,8 @@ footer: true
 logo: google_cast.png
 ha_category: Media Player
 featured: true
+ha_release: pre 0.7
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -20,8 +22,7 @@ Chromecast platform can also be forced to load by adding the following lines to 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: cast
-  host: 192.168.1.9
+  - platform: cast
 ```
 
 Configuration variables:

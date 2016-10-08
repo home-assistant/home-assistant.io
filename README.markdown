@@ -1,6 +1,6 @@
 # Home Assistant website
 
-This is the source for the [Home-Assistant.io website](https://home-assistant.io) for the [Home Assistant project](https://github.com/home-assistant/home-assistant)
+This is the source for the [Home-Assistant.io website](https://home-assistant.io).
 
 ## Setup
 
@@ -8,15 +8,14 @@ Setting up to contribute to documentation and the process for submitting pull re
 
 ## Site preview
 
+In order to make the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000), use the command as follows:
+
 ```bash
 $ rake preview
 ```
 
-This makes the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000).
-
-
 ### Setup on Fedora and CentOS
-On Fedora > 22 or CentOS 7.1.1503 Ruby is not available by default. Please take the notes here as a little guide for the Ruby installation process. 
+On Fedora 22 and later or CentOS 7.1.1503, Ruby is not available by default. Please take the notes here as a little guide for the Ruby installation process. 
 
 ```bash
 $ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -

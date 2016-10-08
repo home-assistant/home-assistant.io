@@ -22,6 +22,7 @@ You must have the [Nest component](/components/nest/) configured to use those se
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   platform: nest
   monitored_conditions:

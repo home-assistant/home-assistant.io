@@ -15,22 +15,20 @@ ha_release: 0.28
 
 The Xbox Live component is able to track [Xbox](http://xbox.com/) profiles.
 
-To use this sensor you need a free API key from [XboxAPI.com](http://xboxapi.com). 
-Please also make sure to connect your Xbox account on that site.
+To use this sensor you need a free API key from [XboxAPI.com](http://xboxapi.com). Please also make sure to connect your Xbox account on that site.
 
-The configuration requires you to specify XUIDs which are the unique identifiers for profiles.
-These can be determined on [XboxAPI.com](http://xboxapi.com) by either looking at your own profile page or using their interactive documentation to search for gamertags.
+The configuration requires you to specify XUIDs which are the unique identifiers for profiles. These can be determined on [XboxAPI.com](http://xboxapi.com) by either looking at your own profile page or using their interactive documentation to search for gamertags.
 
 To use the Xbox Live sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: xbox_live
-  api_key: YOUR_API_KEY
-  xuid:
-    - account1
-    - account2
+  - platform: xbox_live
+    api_key: YOUR_API_KEY
+    xuid:
+      - account1
+      - account2
 ```
 
 Configuration variables:

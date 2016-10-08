@@ -10,6 +10,8 @@ footer: true
 logo: ecobee.png
 ha_category: Hub
 featured: true
+ha_release: 0.9
+ha_iot_class: "Cloud Push"
 ---
 
 
@@ -48,7 +50,6 @@ To set it up, add the following information to your `configuration.yaml` file:
 # Example configuration.yaml entry
 ecobee:
   api_key: asdfghjklqwertyuiopzxcvbnm 
-  hold_temp: True
 ```
 
 Configuration variables:

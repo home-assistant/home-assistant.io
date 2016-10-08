@@ -23,15 +23,13 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: fixer
-  name: EUR
-  base: EUR
-  target: CHF
+  - platform: fixer
+    target: CHF
 ```
 
 Configuration variables:
 
+- **target** (*Required*): The symbol of the target currency.
 - **name** (*Optional*): Name to use in the frontend.
 - **base** (*Optional*): The symbol of the base currency. Default to USD 
-- **target** (*Required*): The symbol of the target currency.
 

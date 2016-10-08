@@ -21,16 +21,7 @@ To enable this camera in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: rpi_camera
-  name: Raspberry Pi Camera
-  image_width: 640
-  image_height: 480
-  image_quality: 7
-  image_rotation: 0
-  timelapse: 1000
-  horizontal_flip: 0
-  vertical_flip: 0
-  file_path: /tmp/image.jpg
+  - platform: rpi_camera
 ```
 
 Configuration variables:

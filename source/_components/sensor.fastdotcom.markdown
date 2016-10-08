@@ -27,7 +27,7 @@ Once per hour, on the hour (default):
 
 ```yaml
 sensor:
-  platform: fastdotcom 
+  - platform: fastdotcom 
 ```
 
 More examples:
@@ -36,10 +36,10 @@ Every half hour of every day:
 
 ```yaml
 sensor:
-  platform: fastdotcom
-  minute:
-    - 0
-    - 30
+  - platform: fastdotcom
+    minute:
+      - 0
+      - 30
 ```
 Configuration variables:
 

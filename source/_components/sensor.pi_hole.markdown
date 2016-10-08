@@ -22,9 +22,6 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: pi_hole
-    host: 192.168.1.2
-    ssl: True
-    verify_ssl: False
 ```
 
 Configuration variables:

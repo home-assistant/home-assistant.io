@@ -29,11 +29,6 @@ To add FFmpeg with noise detection to your installation, add the following to yo
 binary_sensor:
   - platform: ffmpeg
     tool: noise
-    input: FFMPEG_SUPPORTED_INPUT
-    name: FFmpeg Noise
-    peak: -30
-    duration: 1
-    reset: 20
 ```
 
 Configuration variables:
@@ -65,13 +60,6 @@ binary_sensor:
   - platform: ffmpeg
     tool: motion
     input: FFMPEG_SUPPORTED_INPUT
-    name: FFmpeg Motion
-    changes: 10
-    reset: 20
-    # group feature / default not in use
-    repeat: 0
-    repeat_time: 0
-
 ```
 
 Configuration variables:

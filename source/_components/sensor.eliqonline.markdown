@@ -10,6 +10,7 @@ footer: true
 logo: eliq.png
 ha_category: Energy
 ha_release: "0.10"
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -20,10 +21,8 @@ To enable this sensor in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: eliqonline
-  access_token: ACCESS_TOKEN
-  name: Power consumption 
-  channel_id: CHANNEL_ID
+  - platform: eliqonline
+    access_token: ACCESS_TOKEN
 ```
 
 Configuration variables:

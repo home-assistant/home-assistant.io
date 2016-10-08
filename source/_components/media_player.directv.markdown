@@ -20,10 +20,7 @@ The `directv` media player platform can also be forced to load by adding the fol
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: directv
-  host: 192.168.1.10
-  port: 8080
-  name: DirecTV Living Room
+  - platform: directv
 ```
 
 Configuration variables:

@@ -20,8 +20,8 @@ To use GNTP notifications, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFER_NAME
-  platform: gntp
+  - name: NOTIFER_NAME
+    platform: gntp
 ```
 
 GNTP will attempt to connect to a local server running on port 23053 if no `hostname` is provided.

@@ -21,11 +21,8 @@ To use your Acer Projector in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: acer_projector
-  filename: /dev/ttyUSB0
-  name: Projector
-  timeout: 1
-  write_timeout: 1
+  - platform: acer_projector
+    filename: /dev/ttyUSB0
 ```
 
 Configuration variables:

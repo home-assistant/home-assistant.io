@@ -19,34 +19,9 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
 To add YR to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Will show a symbol for the current weather as default:
+# Example configuration.yaml entry
 sensor:
-  platform: yr
-
-# Will show temperatue and wind direction:
-sensor:
-  platform: yr
-  monitored_conditions:
-    - temperature
-    - windDirection
-
-# Will show all available sensors:
-sensor:
-  platform: yr
-  monitored_conditions:
-    - temperature
-    - symbol
-    - precipitation
-    - windSpeed
-    - pressure
-    - windDirection
-    - humidity
-    - fog
-    - cloudiness
-    - lowClouds
-    - mediumClouds
-    - highClouds
-    - dewpointTemperature
+  - platform: yr
 ```
 
 Configuration variables:
@@ -66,3 +41,24 @@ Configuration variables:
   - **mediumClouds**: Medium cloud level.
   - **highClouds**: High cloud level.
 
+A full configuration example can be found below:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: yr
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+      - lowClouds
+      - mediumClouds
+      - highClouds
+      - dewpointTemperature
+```

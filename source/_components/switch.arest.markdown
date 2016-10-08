@@ -20,14 +20,13 @@ To use your aREST enabled device with pins in your installation, add the followi
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: arest
-  resource: http://IP_ADDRESS
-  name: Office
-  pins:
-    11:
-      name: Fan
-    12:
-      name: Light Desk
+  - platform: arest
+    resource: http://IP_ADDRESS
+    pins:
+      11:
+        name: Fan
+      12:
+        name: Light Desk
 ```
 
 If you want to use custom functions, then add the following to your `configuration.yaml` file:
@@ -35,14 +34,14 @@ If you want to use custom functions, then add the following to your `configurati
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: arest
-  resource: http://IP_ADDRESS
-  name: Office
-  functions:
-    function1:
-      name: 
-    function2:
-      name: Light Desk
+  - platform: arest
+    resource: http://IP_ADDRESS
+    name: Office
+    functions:
+      function1:
+        name: 
+      function2:
+        name: Light Desk
 ```
 
 Configuration variables:

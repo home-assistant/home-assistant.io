@@ -19,9 +19,9 @@ To enable those notifications in your installation, add the following to your `c
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: command_line
-  command: "espeak -vmb/mb-us1"
+  - name: NOTIFIER_NAME
+    platform: command_line
+    command: "espeak -vmb/mb-us1"
 ```
 
 Configuration variables:

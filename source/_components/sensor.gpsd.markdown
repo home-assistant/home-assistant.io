@@ -47,13 +47,10 @@ To setup a GPSD sensor in your installation, add the following to your `configur
 # Example configuration.yaml entry
 senosr:
   - platform: gpsd
-    host: 127.0.0.1
-    port: 2947
-    name: GPS USB
 ```
 
 Configuration variables:
 
 - **host** (*Optional*): The host where GPSD is running. Defaults to `localhost`.
-- **port** (*Optional*): The port which GPSD is using. Defaults to 2947. 
+- **port** (*Optional*): The port which GPSD is using. Defaults to `2947`. 
 - **name** (*Optional*): Friendly name to use for the frontend. Default to GPS.

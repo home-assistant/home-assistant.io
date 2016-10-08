@@ -25,11 +25,11 @@ switch:
     11:
       name: Fan Office
       type: digital
-      default: on
-      negate: true
     12:
       name: Light Desk
       type: digital
+      default: on
+      negate: true
 ```
 
 Configuration variables:

@@ -19,9 +19,16 @@ To enable the logbook in your installation, add the following to your `configura
 # Example configuration.yaml entry
 logbook:
 ```
+
+Configuration variables:
+
+- **exclude** (*Optional*): Configure which components should **not** create logbook enties. 
+- **entities** (*Optional*): The list of entity ids to be excluded from creating logbook entries.
+- **domains** (*Optional*): The list of domains to be excluded from creating logbook entries.
+
 If you want to exclude messages of some entities or domains from the logbook just add the `exclude` parameter like: 
+
 ```yaml
-# Example configuration.yaml entry
 logbook:
   exclude:
     entities:
@@ -31,12 +38,6 @@ logbook:
       - sun
       - weblink
 ```
-
-Configuration variables:
-
-- **exclude** (*Optional*): Configure which components should **not** create logbook enties. 
-- **entities** (*Optional*): The list of entity ids to be excluded from creating logbook entries.
-- **domains** (*Optional*): The list of domains to be excluded from creating logbook entries.
 
 ### {% linkable_title Exclude Events %}
 

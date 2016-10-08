@@ -22,10 +22,10 @@ To add Automate to your installation, add the following to your `configuration.y
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: llamalab_automate
-  api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-  to: example@gmail.com
+  - name: NOTIFIER_NAME
+    platform: llamalab_automate
+    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    to: example@gmail.com
 ```
 
 Configuration variables:

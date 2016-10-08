@@ -24,7 +24,6 @@ switch:
   - platform: knx
     name: KNX Switch
     address: 0/0/1
-    state_address: 0/0/3
 ```
 
 - **name** (*Optional*): A name for this devices used within Home assistant

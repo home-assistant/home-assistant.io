@@ -22,42 +22,9 @@ To add a Speedtest.net sensor to your installation, add the following to your `c
 Once per hour, on the hour (default):
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   platform: speedtest
-  server_id: 1234
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-```
-
-More examples:
-
-Every half hour of every day:
-
-```yaml
-sensor:
-  platform: speedtest
-  minute:
-    - 0
-    - 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-```
-
-Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
-
-```yaml
-sensor:
-  platform: speedtest
-  minute: 30
-  hour:
-    - 0
-    - 6
-    - 12
-    - 18
   monitored_conditions:
     - ping
     - download
@@ -78,3 +45,44 @@ Configuration variables:
 This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.  Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.
 
 When Home Assistant first starts up, the values of the speedtest will show as `Unknown`. You can use the service `sensor.update_speedtest` to run a manual speedtest and populate the data or just wait for the next regularly scheduled test.
+
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Run periodically %}
+
+Every half hour of every day:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: speedtest
+    minute:
+      - 0
+      - 30
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+```
+
+### {% linkable_title Run at a specific time %}
+
+Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  platform: speedtest
+  minute: 30
+  hour:
+    - 0
+    - 6
+    - 12
+    - 18
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+```

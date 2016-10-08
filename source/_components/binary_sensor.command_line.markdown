@@ -21,13 +21,8 @@ To use your Command binary sensor in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: command_line
-  command: cat /proc/sys/net/ipv4/ip_forward
-  name: 'IP4 forwarding'
-  sensor_class: opening
-  payload_on: "1"
-  payload_off: "0"
-  value_template: '{% raw %}{{ value.x }}{% endraw %}'
+  - platform: command_line
+    command: cat /proc/sys/net/ipv4/ip_forward
 ```
 
 Configuration variables:
@@ -50,11 +45,12 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  platform: command_line
-  command: netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")
-  name: 'sickragerunning'
-  payload_on: "Running"
-  payload_off: "Not running"
+  - platform: command_line
+    command: netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")
+    name: 'sickragerunning'
+    sensor_class: moving
+    payload_on: "Running"
+    payload_off: "Not running"
 ```
 
 ### {% linkable_title Check RasPlex %}
@@ -63,11 +59,12 @@ Check if [RasPlex](http://www.rasplex.com/) is `online`.
 
 ```yaml
 binary_sensor:
-  platform: command_line
-  command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
-  name: 'is_rasplex_online'
-  payload_on: 1
-  payload_off: 0
+  - platform: command_line
+    command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
+    name: 'is_rasplex_online'
+    sensor_class: connectivity
+    payload_on: 1
+    payload_off: 0
 ```
 
 An alternative solution could look like this:
@@ -77,6 +74,7 @@ binary_sensor:
   platform: command_line
   name: Printer
   command: ping -c 1 192.168.1.10 &> /dev/null && echo success || echo fail
+  sensor_class: connectivity
   payload_on: "success"
   payload_off: "fail"
 ```

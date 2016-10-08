@@ -10,6 +10,7 @@ footer: true
 logo: ecobee.png
 ha_category: Climate
 ha_release: 0.9
+ha_iot_class: "Cloud Push"
 ---
 
 To get your Ecobee thermostats working with Home Assistant, follow the instructions for the general [Ecobee component](/components/ecobee/).

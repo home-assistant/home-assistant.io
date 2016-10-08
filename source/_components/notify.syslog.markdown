@@ -19,11 +19,8 @@ To enable syslog notifications in your installation, add the following to your `
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: syslog
-  facility: SYSLOG_FACILITY
-  option: SYSLOG_LOG_OPTION
-  priority: SYSLOG_PRIORITY
+  - name: NOTIFIER_NAME
+    platform: syslog
 ```
 
 Configuration variables:

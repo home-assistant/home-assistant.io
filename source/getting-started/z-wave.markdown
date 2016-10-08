@@ -30,7 +30,9 @@ $ sudo pip3 install --upgrade cython
 ```
 
 Then get the OpenZWave files and switch to the `python3` branch:
+
 <p class='note warning'>Do not use root to build python-openzwave as it will surely fail.</p>
+
 ```bash
 $ git clone https://github.com/OpenZWave/python-openzwave.git
 $ cd python-openzwave
@@ -38,6 +40,7 @@ $ git checkout python3
 $ PYTHON_EXEC=$(which python3) make build
 $ sudo PYTHON_EXEC=$(which python3) make install
 ```
+
 <p class='note'>
 Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
 
@@ -63,17 +66,12 @@ If you followed along with setting up a virtual environment, your path will be:
 # Example configuration.yaml entry
 zwave:
   usb_path: /dev/ttyUSB0
-  config_path: /usr/local/share/python-openzwave/config
-  polling_interval: 60000
-  customize:
-    sensor.greenwave_powernode_6_port_energy_10:
-        polling_intensity: 1
 ```
 
 Configuration variables:
 
-- **usb_path** (*Required*): The port where your device is connected to your Home Assistant host.
-- **config_path** (*Optional*): The path to the Python OpenZWave configuration files.
+- **usb_path** (*Optional*): The port where your device is connected to your Home Assistant host.
+- **config_path** (*Optional*): The path to the Python OpenZWave configuration files. Defaults to the folder `config` in your Python OpenZWave install directory.
 - **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **customize** (*Optional*): This attribute contains node-specific override values:
@@ -131,6 +129,7 @@ cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0
 ### {% linkable_title Events %}
 
 #### {% linkable_title zwave.network_complete %}
+
 Home Assistant will trigger a event when the Z-Wave network is complete. Meaning all of the nodes on the network have been queried. This can take quite som time, depending on wakeup intervals on the battery powered devices on the network.
 
 ```yaml
@@ -141,6 +140,7 @@ Home Assistant will trigger a event when the Z-Wave network is complete. Meaning
 ```
 
 #### {% linkable_title zwave.network_ready %}
+
 Home Assistant will trigger a event when the Z-Wave network is ready for use. Between `zwave.network_start` and `zwave.network_ready` Home Assistant will feel sluggish when trying to send commands to Z-Wave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered all awake nodes have been queried and sleeping nodes will be queried when they awake.
 
 ```yaml
@@ -151,6 +151,7 @@ Home Assistant will trigger a event when the Z-Wave network is ready for use. Be
 ```
 
 #### {% linkable_title zwave.network_start %}
+
 Home Assistant will trigger a event when the Z-Wave network is set up to be started.
 
 ```yaml
@@ -161,6 +162,7 @@ Home Assistant will trigger a event when the Z-Wave network is set up to be star
 ```
 
 #### {% linkable_title zwave.network_stop %}
+
 Home Assistant will trigger a event when the Z-Wave network stopping.
 
 ```yaml
@@ -190,6 +192,7 @@ Example:
 The *object_id* and *basic_level* of all triggered events can be seen in the console output.
 
 #### {% linkable_title zwave.scene_activated %}
+
 Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):
 
 ```yaml
@@ -217,6 +220,7 @@ The `zwave` component exposes ten services to help maintain the network.
 | cancel_command | Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
 | heal_network | Tells the controller to "heal" the Z-Wave network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
+| set_config_parameter | Let's the user set a config parameter to a node.
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | start_network | Starts the Z-Wave network.|
 | stop_network | Stops the Z-Wave network.|

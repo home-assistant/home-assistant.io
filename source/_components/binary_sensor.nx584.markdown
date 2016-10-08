@@ -23,16 +23,6 @@ To enable this feature, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 binary_sensor:
   platform: nx584
-  host: 192.168.1.10
-  pport: 5007
-  exclude_zones:
-    - 3
-    - 5
-  zone_types:
-    1: opening
-    2: opening
-    4: motion
-    6: moisture
 ```
 
 Configuration variables:
@@ -42,3 +32,19 @@ Configuration variables:
 - **exclude_zones** (*Optional*): This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest, unconnected, etc.
 - **zone_types** (*Optional*): This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. The list of available zone types relevant to alarm zones are: `opening`, `motion`, `gas`, `smoke`, `moisture`, `safety`.
 
+An extended configuration entry could look like this:
+
+```yaml
+# Full example configuration.yaml entry
+binary_sensor:
+  platform: nx584
+  host: 192.168.1.10
+  port: 5007
+  exclude_zones:
+    - 3
+    - 5
+  zone_types:
+    1: opening
+    2: opening
+    4: motion
+    6: moisture

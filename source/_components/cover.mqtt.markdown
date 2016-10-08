@@ -30,15 +30,6 @@ cover:
     name: "MQTT Cover"
     state_topic: "home-assistant/cover"
     command_topic: "home-assistant/cover/set"
-    payload_open: "PAYLOAD_OPEN"
-    payload_close: "PAYLOAD_CLOSE"
-    payload_stop: "PAYLOAD_STOP"
-    state_open: "STATE_OPEN"
-    state_closed: "STATE_CLOSED"
-    optimistic: false
-    qos: 0
-    retain: false
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
 Configuration variables:
@@ -56,8 +47,35 @@ Configuration variables:
 - **retain** (*Optional*): If the published message should have the retain flag on or not. Default is `false`.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
-For a quick check you can use the commandline tools shipped with `mosquitto` to send MQTT messages. Set the state of your sensor manually:
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Full configuration %}
+
+The example below shows a full configuration for a cover.
+
+```yaml
+# Example configuration.yml entry
+cover:
+  - platform: mqtt
+    state_topic: "home-assistant/cover"
+    command_topic: "home-assistant/cover/set"
+    name: "MQTT Cover"
+    qos: 0
+    retain: true
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STOP"
+    state_open: "OPEN"
+    state_closed: "STATE"
+    optimistic: false
+    retain: false
+    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+```
+
+For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your cover manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m "PAYLOAD_CLOSE"
+$  mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m "CLOSE"
 ```

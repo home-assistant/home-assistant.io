@@ -22,7 +22,6 @@ To use this sensor in your installation, add the following to your `configuratio
 sensor:
   - platform: mhz19
     serial_device: /dev/tty.SLAB_USBtoUART
-    name: CO2
 ```
 
 - **serial_device** (*Required*): The serial port to use. On *nix systems, it can often be identified by `$ ls /dev/tty*`

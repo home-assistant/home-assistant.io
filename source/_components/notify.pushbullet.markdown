@@ -19,9 +19,9 @@ To enable Pushbullet notifications in your installation, add the following to yo
 ```yaml
 # Example configuration.yaml entry
 notify:
-  platform: pushbullet
-  api_key: YOUR_API_KEY
-  name: NOTIFIER_NAME
+  - name: NOTIFIER_NAME
+    platform: pushbullet
+    api_key: YOUR_API_KEY
 ```
 
 Configuration variables:

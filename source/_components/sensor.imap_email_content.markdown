@@ -24,12 +24,10 @@ sensor:
   - platform: imap_email_content
     server: imap.gmail.com
     port: 993
-    name: Emails
     username: USERNAME
     password: PASSWORD
     senders:
       - example@gmail.com
-    value_template: TEMPLATE
 ```
 
 Configuration variables:

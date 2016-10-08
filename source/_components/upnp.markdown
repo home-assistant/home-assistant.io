@@ -14,7 +14,6 @@ ha_release: 0.18
 
 The `upnp` component automatically creates port forwarding mappings on your router for Home Assistant. UPnP or NAT-PMP needs to be enabled on your router for this component to work.
 
-# Installation
 You need to install [miniupnpc](https://github.com/miniupnp/miniupnp/tree/master/miniupnpc) before using the UPnP component:
 
 ```bash
@@ -25,7 +24,7 @@ $ make pythonmodule3
 $ sudo make installpythonmodule3
 ```
 
-# Configuration
+To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

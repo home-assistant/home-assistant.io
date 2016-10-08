@@ -10,6 +10,7 @@ footer: true
 logo: modbus.png
 ha_category: Binary Sensor
 ha_release: 0.28
+ha_iot_class: "Local Push"
 ---
 
 The `modbus` binary sensor allows you to gather data from [Modbus](http://www.modbus.org/) coils.
@@ -19,14 +20,14 @@ To use your Modbus binary sensors in your installation, add the following to you
 ```yaml
 # Example configuration.yml entry
 binary_sensor:
-  platform: modbus
-  coils:
-    - name: Sensor1
-      slave: 1
-      coil: 100
-    - name: Sensor2
-      slave: 1
-      coil: 110
+  - platform: modbus
+    coils:
+      - name: Sensor1
+        slave: 1
+        coil: 100
+      - name: Sensor2
+        slave: 1
+        coil: 110
 ```
 
 Configuration variables:

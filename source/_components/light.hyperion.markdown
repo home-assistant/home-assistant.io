@@ -19,8 +19,10 @@ Hyperion is an opensource Ambilight implementation which runs on many platforms.
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: hyperion
-  host: 192.168.1.98
-  # Optional
-  port: 19444
+  - platform: hyperion
 ```
+
+Configuration variables:
+
+- **host** (*Optional*): To enable the automatic addition of lights on startup.
+- **port** (*Optional*): A list of devices with their ip address and a custom name to use in the frontend.

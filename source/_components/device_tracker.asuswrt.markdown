@@ -20,21 +20,18 @@ To use an ASUSWRT router in your installation, add the following to your `config
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: asuswrt
-  host: YOUR_ROUTER_IP
-  protocol: telnet
-  mode: router
-  username: YOUR_ADMIN_USERNAME
-  password: YOUR_ADMIN_PASSWORD
+  - platform: asuswrt
+    host: YOUR_ROUTER_IP
+    username: YOUR_ADMIN_USERNAME
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
+- **host** (*Required*): The IP address of your router, eg. `192.168.1.1`.
+- **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
+- **password** (*Optional*): The password for your given admin account (use this if no SSH key is given).
 - **protocol** (*Optional*): The protocol (`ssh` or `telnet`) to use. Defaults to `ssh`.
 - **mode** (*Optional*): The operating mode of the router (`router` or `ap`). Defaults to `router`.
-- **username** (*Required*): The username of an user with administrative privileges, usually *admin*.
-- **password** (*Optional*): The password for your admin account (use this if no SSH key is given).
 - **ssh_key** (*Optional*): The path to your SSH private key file associated with your given admin account (instead of password).
 
 <p class='note warning'>

@@ -20,20 +20,17 @@ To use this device tracker in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: unifi
-  host: CONTROLLER
-  port: PORT
-  username: YOUR_ADMIN_USERNAME
-  password: YOUR_ADMIN_PASSWORD
-  site_id: SITE_ID
+  - platform: unifi
+    username: YOUR_ADMIN_USERNAME
+    password: YOUR_ADMIN_PASSWORD
 ```
 
 Configuration variables:
 
-- **host** (*Optional*): The hostname or IP address of your controller. Defaults to localhost.
-- **port** (*Optional*): The port of your controller's web interface. Defaults to 8443.
-- **username** (*Required*): The username of an user with administrative privileges, usually *admin*.
-- **password** (*Required*): The password for your admin account.
-- **site_id** (*Optional*): Allows you to specify a site_id for device tracking. Defaults to "default". Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard)
+- **host** (*Optional*): The hostname or IP address of your controller. Defaults to `localhost`.
+- **port** (*Optional*): The port of your controller's web interface. Defaults to `8443`.
+- **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
+- **password** (*Required*): The password for your given admin account.
+- **site_id** (*Optional*): Allows you to specify a `site_id` for device tracking. Defaults to `default`. Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard)
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

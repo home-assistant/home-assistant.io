@@ -21,8 +21,6 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 ffmpeg:
-  ffmpeg_bin: /usr/bin/ffmpeg
-  run_test: True
 ```
 
 Configuration variables:

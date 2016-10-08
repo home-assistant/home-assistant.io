@@ -20,8 +20,6 @@ To enable RFXtrx in your installation, add the following to your `configuration.
 # Example configuration.yaml entry
 rfxtrx:
   device: PATH_TO_DEVICE
-  debug: True
-  dummy: False
 ```
 
 Configuration variables:

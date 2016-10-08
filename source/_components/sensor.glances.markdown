@@ -37,31 +37,29 @@ To enable the Glances sensor, add the following lines to your `configuration.yam
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: glances
-  name: Glances sensor
-  host: IP_ADDRESS
-  port: 61208
-  resources:
-    - 'disk_use_percent'
-    - 'disk_use'
-    - 'disk_free'
-    - 'memory_use_percent'
-    - 'memory_use'
-    - 'memory_free'
-    - 'swap_use_percent'
-    - 'swap_use'
-    - 'swap_free'
-    - 'processor_load'
-    - 'process_running'
-    - 'process_total'
-    - 'process_thread'
-    - 'process_sleeping'
+  - platform: glances
+    host: IP_ADDRESS
+    resources:
+      - 'disk_use_percent'
+      - 'disk_use'
+      - 'disk_free'
+      - 'memory_use_percent'
+      - 'memory_use'
+      - 'memory_free'
+      - 'swap_use_percent'
+      - 'swap_use'
+      - 'swap_free'
+      - 'processor_load'
+      - 'process_running'
+      - 'process_total'
+      - 'process_thread'
+      - 'process_sleeping'
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your host, eg. 192.168.1.32.
-- **port** (*Option*): The network port to connect to. Default is 61208.
+- **host** (*Required*): The IP address of your host, eg. `192.168.1.32`.
+- **port** (*Option*): The network port to connect to. Default is `61208`.
 - **name** (*Optional*): Name of the Glances sensor.
 - **resources** (*Required*): Entries to monitor.
   - **disk_use_percent**: Used disk space in percent

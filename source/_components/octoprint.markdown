@@ -11,6 +11,7 @@ logo: octoprint.png
 ha_category: Hub
 featured: false
 ha_release: 0.19
+ha_iot_class: "Local Polling"
 ---
 
 [OctoPrint](http://octoprint.org/) is a web interface for your 3D printer. This is the main component to integrate OctoPrint sensors, you will have to setup sensors and binary sensors separately.

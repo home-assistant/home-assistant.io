@@ -21,10 +21,6 @@ To enable the Netatmo camera, you first have to set up [netatmo](/components/net
 # Example configuration.yaml entry
 camera:
   platform: netatmo
-  home: home_name
-  cameras:
-    - camera_name1
-    - camera_name2
 ```
 
 Configuration variables:
@@ -33,5 +29,14 @@ Configuration variables:
 - **cameras** array (*Optional*): Cameras to use. Multiple enties allowed.
     - **camera_name**: Name of the camera to display.
 
-If **home** and **cameras** is not provided, all cameras will be displayed.
+If **home** and **cameras** are not provided, all cameras will be displayed. For more control over your cameras check the configuration sample below.
 
+```yaml
+# Example configuration.yaml entry
+camera:
+  platform: netatmo
+  home: home_name
+  cameras:
+    - camera_name1
+    - camera_name2
+```
