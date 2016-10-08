@@ -33,3 +33,6 @@ Configuration variables:
 - **name** (*Optional*): Name of the sensor to use in the frontend.
 - **sampling_size** (*Optional*): Size of the sampling. If the limit is reached then the values are rotated. Defaults to `20`.
 
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
+</p>
