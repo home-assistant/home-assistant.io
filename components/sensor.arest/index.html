@@ -94,23 +94,14 @@
 <p>To use your aREST enabled device in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
-  <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Office</span>
-  <span class="s">monitored_variables</span><span class="pi">:</span>
-    <span class="s">temperature</span><span class="pi">:</span>
-      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(1)</span><span class="nv"> </span><span class="s">}}'</span>
-    <span class="s">humidity</span><span class="pi">:</span>
-      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
-  <span class="s">pins</span><span class="pi">:</span>
-    <span class="s">A0</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Pin 0 analog</span>
-      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ca"</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.light</span><span class="nv"> </span><span class="s">}}'</span>
-    <span class="s">3</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Pin 3 digital</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://10.100.0.117</span>
+    <span class="s">monitored_variables</span><span class="pi">:</span>
+      <span class="s">temperature</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">temperature</span>
+    <span class="s">pins</span><span class="pi">:</span>
+      <span class="s">A0</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Pin 0 analog</span>
 </code></pre>
 </div>
 
