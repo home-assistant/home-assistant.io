@@ -13,7 +13,7 @@ ha_release: 0.17
 ---
 
 
-To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/).
+To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow the instructions for the general [Z-Wave component](/getting-started/z-wave/).
 
 <p class='note'>
 Thermostats with support for fan modes or different operating modes, will be handled like a HVAC device and will also be detected as one. 
