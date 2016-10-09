@@ -19,23 +19,14 @@ To use your aREST enabled device in your installation, add the following to your
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  platform: arest
-  resource: http://IP_ADDRESS
-  name: Office
-  monitored_variables:
-    temperature:
-      unit_of_measurement: '°C'
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
-    humidity:
-      unit_of_measurement: '%'
-  pins:
-    A0:
-      name: Pin 0 analog
-      unit_of_measurement: "ca"
-      value_template: '{% raw %}{{ value_json.light }}{% endraw %}'
-    3:
-      name: Pin 3 digital
+  - platform: arest
+    resource: http://10.100.0.117
+    monitored_variables:
+      temperature:
+        name: temperature
+    pins:
+      A0:
+        name: Pin 0 analog
 ```
 
 Configuration variables:
