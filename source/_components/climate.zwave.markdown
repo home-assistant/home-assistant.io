@@ -18,7 +18,7 @@ To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow t
 <p class='note'>
 Thermostats with support for fan modes or different operating modes, will be handled like a HVAC device and will also be detected as one. 
 
-If the thermostat support different operationg modes, you will get one thermostat entity for each mode. These can be hidden with settings using the customize setting in the `configuration.yaml` file.
+If the thermostat support different operating modes, you will get one thermostat entity for each mode. These can be hidden with settings using the customize setting in the `configuration.yaml` file.
 </p>
 
 To enable the climate component for your Z-Wave network, add the following to your `configuration.yaml` file.
