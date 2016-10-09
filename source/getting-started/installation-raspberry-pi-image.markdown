@@ -23,6 +23,16 @@ These instructions are also available as a [video](https://www.youtube.com/watch
 
 Home Assistant will now be available by navigating with a browser to `http://ip-address-of-pi:8123`. The default username is `pi` and password is `raspberry` (please change this by running `passwd`). The Home Assistant configuration is located at `/home/homeassistant/.homeassistant/`.
 
+### {% linkable_title Upgrading %}
+
+To upgrade Hassbian:
+
+*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+*  Change to homeassistant user `sudo su -s /bin/bash homeassistant`
+*  Change to virtual enviroment `source /srv/homeassistant/bin/activate`
+*  Update HA `pip3 install --upgrade homeassistant`
+*  Type `exit` to logout the hass user and return to the `pi` user.
+
 The following extras are included on the image:
 
  - GPIO pins are ready to use.
