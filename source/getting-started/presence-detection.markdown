@@ -44,7 +44,7 @@ Home Assistant will know the location of your device if you are using OwnTracks.
 ### [Next step: Setting up automation &raquo;](/getting-started/automation/)
 
 [routers]: /components/#presence-detection
-[nmap]: /components/device_tracker.nmap_scanner/
+[nmap]: /components/device_tracker.nmap_tracker/
 [ha-owntracks]: /components/device_tracker.owntracks/
 [ha-locative]: /components/device_tracker.locative/
 [mqtt-self]: /components/mqtt/#run-your-own
