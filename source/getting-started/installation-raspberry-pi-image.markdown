@@ -23,18 +23,6 @@ These instructions are also available as a [video](https://www.youtube.com/watch
 
 Home Assistant will now be available by navigating with a browser to `http://ip-address-of-pi:8123`. The default username is `pi` and password is `raspberry` (please change this by running `passwd`). The Home Assistant configuration is located at `/home/homeassistant/.homeassistant/`.
 
-### {% linkable_title Upgrading %}
-
-To upgrade Hassbian:
-
-*  Stop Home Assistant using `sudo systemctl stop home-assistant.service`
-*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
-*  Change to homeassistant user `sudo su -s /bin/bash homeassistant`
-*  Change to virtual enviroment `source /srv/homeassistant/bin/activate`
-*  Update HA `pip3 install --upgrade homeassistant`
-*  Type `exit` to logout the hass user and return to the `pi` user.
-*  Start Home Assistant using `sudo systemctl start home-assistant.service`
-
 The following extras are included on the image:
 
  - GPIO pins are ready to use.
@@ -50,6 +38,18 @@ Some extra tips:
 
  - Home Assistant is installed in a virtual Python environment at `src/homeassistant`
  - Home Assistant will be started as a service run by the user `homeassistant`
+ 
+### {% linkable_title Upgrading %}
+
+To upgrade Hassbian:
+
+*  Stop Home Assistant using `sudo systemctl stop home-assistant.service`
+*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+*  Change to homeassistant user `sudo su -s /bin/bash homeassistant`
+*  Change to virtual enviroment `source /srv/homeassistant/bin/activate`
+*  Update HA `pip3 install --upgrade homeassistant`
+*  Type `exit` to logout the hass user and return to the `pi` user.
+*  Start Home Assistant using `sudo systemctl start home-assistant.service`
 
 {% comment %}
 
