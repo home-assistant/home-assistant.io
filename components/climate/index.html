@@ -99,6 +99,310 @@
 </code></pre>
 </div>
 
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+
+<h3><a class="title-link" name="climate-control-services" href="#climate-control-services"></a> Climate control services</h3>
+<p>Available services: <code class="highlighter-rouge">climate.set_aux_heat</code>, <code class="highlighter-rouge">climate.set_away_mode</code>, <code class="highlighter-rouge">climate.set_temperature</code>, <code class="highlighter-rouge">climate.set_humidity</code>, <code class="highlighter-rouge">climate.set_fan_mode</code>, <code class="highlighter-rouge">climate.set_operation_mode</code>, <code class="highlighter-rouge">climate.set_swing_mode</code></p>
+
+<p class="note">
+Not all climate services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong>.
+</p>
+
+<h3><a class="title-link" name="service-climateset_aux_heat" href="#service-climateset_aux_heat"></a> Service <code class="highlighter-rouge">climate.set_aux_heat</code></h3>
+
+<p>Turn auxiliary heater on/off for climate device</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">aux_heat</code></td>
+      <td>no</td>
+      <td>New value of auxiliary heater.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_aux_heat</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.kitchen</span>
+        <span class="s">aux_heat</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="service-climateset_away_mode" href="#service-climateset_away_mode"></a> Service <code class="highlighter-rouge">climate.set_away_mode</code></h3>
+
+<p>Turn away mode on/off for climate device</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">away_mode</code></td>
+      <td>no</td>
+      <td>New value of away mode.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_away_mode</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.kitchen</span>
+        <span class="s">away_mode</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="service-climateset_temperature" href="#service-climateset_temperature"></a> Service <code class="highlighter-rouge">climate.set_temperature</code></h3>
+
+<p>Set target temperature of climate device</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">temperature</code></td>
+      <td>no</td>
+      <td>New target temperature for hvac</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target_temp_high</code></td>
+      <td>yes</td>
+      <td>New target high temperature for hvac</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target_temp_low</code></td>
+      <td>yes</td>
+      <td>New target low temperature for hvac</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">operation_mode</code></td>
+      <td>yes</td>
+      <td>Operation mode to set temperature to. This defaults to current_operation mode if not set, or set incorrectly.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_temperature</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.kitchen</span>
+        <span class="s">temperature</span><span class="pi">:</span> <span class="s">24</span>
+        <span class="s">operation_mode</span><span class="pi">:</span> <span class="s">Heat</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="service-climateset_humidity" href="#service-climateset_humidity"></a> Service <code class="highlighter-rouge">climate.set_humidity</code></h3>
+
+<p>Set target humidity of climate device</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">humidity</code></td>
+      <td>no</td>
+      <td>New target humidity for climate device</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_humidity</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.kitchen</span>
+        <span class="s">humidity</span><span class="pi">:</span> <span class="s">60</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="service-climateset_fan_mode" href="#service-climateset_fan_mode"></a> Service <code class="highlighter-rouge">climate.set_fan_mode</code></h3>
+
+<p>Set fan operation for climate device</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fan_mode</code></td>
+      <td>no</td>
+      <td>New value of fan mode</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_fan_mode</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.kitchen</span>
+        <span class="s">fan_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">On</span><span class="nv"> </span><span class="s">Low'</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="service-climateset_operation_mode" href="#service-climateset_operation_mode"></a> Service <code class="highlighter-rouge">climate.set_operation_mode</code></h3>
+
+<p>Set operation mode for climate device</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">operation_mode</code></td>
+      <td>no</td>
+      <td>New value of operation mode</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_operation_mode</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.kitchen</span>
+        <span class="s">operation_mode</span><span class="pi">:</span> <span class="s">Heat</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="service-climateset_swing_mode" href="#service-climateset_swing_mode"></a> Service <code class="highlighter-rouge">climate.set_swing_mode</code></h3>
+
+<p>Set operation mode for climate device</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">swing_mode</code></td>
+      <td>no</td>
+      <td>New value of swing mode</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_swing_mode</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.kitchen</span>
+        <span class="s">swing_mode</span><span class="pi">:</span> <span class="s">1</span>
+</code></pre>
+</div>
 
 
 </article>
