@@ -24,10 +24,10 @@ sensor:
   resource: http://IP_ADDRESS
   name: Office
   monitored_variables:
-    - name: temperature
+    temperature:
       unit_of_measurement: '°C'
       value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
-    - name: humidity
+    humidity:
       unit_of_measurement: '%'
   pins:
     A0:
