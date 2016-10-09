@@ -89,13 +89,77 @@
   <hr class="divider">
   
 
-  <p>To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow the instructions for the general <a href="/components/zwave/">Z-Wave component</a>.</p>
+  <p>To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow the instructions for the general <a href="/getting-started/z-wave/">Z-Wave component</a>.</p>
 
 <p class="note">
 Thermostats with support for fan modes or different operating modes, will be handled like a HVAC device and will also be detected as one. 
 
-If the thermostat support different operationg modes, you will get one thermostat entity for each mode. These can be hidden with settings using the customize setting in the <code class="highlighter-rouge">configuration.yaml</code> file.
+If the thermostat support different operating modes, you will get one thermostat entity for each mode. These can be hidden with settings using the customize setting in the <code class="highlighter-rouge">configuration.yaml</code> file.
 </p>
+
+<p>To enable the climate component for your Z-Wave network, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">climate</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">zwave</span>
+</code></pre>
+</div>
+
+<p>Once enabled, any Z-Wave climate devices will be available to Home Assistant. Multiple entities may be created. The following entities are created for a Remotec ZXT-120.</p>
+
+<ul>
+  <li><strong>climate.remotec_zxt120_heating_1_id</strong> Allows you to control the connected device. See below for examples.</li>
+  <li><strong>sensor.remotec_zxt120_temperature_38</strong> A sensor which returns the current temperature set on the attached device.</li>
+</ul>
+
+<h3><a class="title-link" name="automating-z-wave-climate-devices" href="#automating-z-wave-climate-devices"></a> Automating Z-Wave Climate Devices</h3>
+
+<p>The following examples will instruct a Remotec ZXT-120 to turn the attached device mode to Heating, and set the temperature at 24 degrees after 8pm. Add it to <code class="highlighter-rouge">automation.yaml</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on Heater at 8pm</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">20:00:00"</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_operation_mode</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.remotec_zxt120_heating_1_id</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">operation_mode</span><span class="pi">:</span> <span class="s">Heat</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_temperature</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.remotec_zxt120_heating_1_39</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">temperature</span><span class="pi">:</span> <span class="s">24</span>
+</code></pre>
+</div>
+
+<p>Generally in Home Assistant you can use the <code class="highlighter-rouge">homeassistant/turn_off</code> service to turn devices off. For the Remotec ZXT-120, you must instead make a service call like the following.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn off Heater at 9pm</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">21:00:00"</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_operation_mode</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.remotec_zxt120_heating_1_id</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">operation_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Off'</span>
+</code></pre>
+</div>
+
+<p><strong>Note:</strong> In the example above, the word <code class="highlighter-rouge">Off</code> is encased in single quotes to be valid YAML.</p>
+
+<h3><a class="title-link" name="test-if-it-works" href="#test-if-it-works"></a> Test if it works</h3>
+
+<p>A simple way to test if your Z-Wave climate device is working is to use <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong>. Choose the applicable Climate service from the list of <strong>Available services:</strong> and enter something like the sample below into  the <strong>Service Data</strong> field and then press <strong>CALL SERVICE</strong>.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"climate.remotec_zxt120_heating_1_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"operation_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Heat"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
 
 
 </article>
