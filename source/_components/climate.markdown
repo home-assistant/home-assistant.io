@@ -23,8 +23,7 @@ climate:
 ## {% linkable_title Services %}
 
 ### {% linkable_title Climate control services %}
-Available services: `climate.set_aux_heat`, `climate.set_away_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_operation_mode`, `climate.
-set_swing_mode`
+Available services: `climate.set_aux_heat`, `climate.set_away_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_operation_mode`, `climate.set_swing_mode`
 
 <p class='note'>
 Not all climate services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
@@ -32,12 +31,12 @@ Not all climate services may be available for your platform. Be sure to check th
 
 ### {% linkable_title Service `climate.set_aux_heat` %}
 
-Turn auxillary heater on/off for climate device
+Turn auxiliary heater on/off for climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `aux_heat` | no | New value of axillary heater.
+| `aux_heat` | no | New value of auxiliary heater.
 
 #### {% linkable_title Automation example  %}
 
@@ -84,7 +83,7 @@ Set target temperature of climate device
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `temperature` | no | New target temperature for hvac
-| `target_temp_high` | yes | New target high tempereature for hvac
+| `target_temp_high` | yes | New target high temperature for hvac
 | `target_temp_low` | yes | New target low temperature for hvac
 | `operation_mode` | yes | Operation mode to set temperature to. This defaults to current_operation mode if not set, or set incorrectly.
 
