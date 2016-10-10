@@ -126,11 +126,11 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">owntracks/tablet/tablet"</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Battery</span><span class="nv"> </span><span class="s">Tablet"</span>
-  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%"</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.batt</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">owntracks/tablet/tablet"</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Battery</span><span class="nv"> </span><span class="s">Tablet"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%"</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.batt</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 
@@ -149,19 +149,17 @@
 <p>Then use this configuration example to extract the data from the payload:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
-<span class="s">sensor 1</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">state_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/sensor1'</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temperature'</span>
-  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
-
-<span class="s">sensor 2</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">state_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/sensor1'</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidity'</span>
-  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/sensor1'</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temperature'</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.temperature</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/sensor1'</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidity'</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.humidity</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 
