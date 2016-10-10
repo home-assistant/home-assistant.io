@@ -17,7 +17,7 @@ These devices will either show as a binary sensor or a sensor called `Alarm xxxx
 As of version 0.30 you can set the settings of a Z-Wave device through the dev_service page of Home Assistant with the service: `zwave/set_config_parameter`.
 
 The following parameters can be entered:
-- **entity_id** (*Required*): The entity_id of the device that you are going to set a parameter to. Any entity_id of the node can be used.
+- **node_id** (*Required*): The node_id of the device that you are going to set a parameter to.
 - **parameter** (*Required*): The index number of the parameter to be set. Refer to device manual or zwcfg_[home_id].xml
 - **value** (*Required*): The value to set the parameter to. Refer to device manual or zwcfg_[home_id].xml
 - **size** (*Optional*): The size of the value. It is normally not needed to specify this parameter, but in some cases it's needed. Check OZW.log for details on this.
