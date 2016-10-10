@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: digital_ocean.png
-ha_category: System Monitor
+ha_category: Switch
 ha_release: "0.30"
 ha_iot_class: "Local Polling"
 ---
