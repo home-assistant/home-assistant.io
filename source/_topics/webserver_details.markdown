@@ -1,9 +1,9 @@
 ---
 layout: page
 title: "Details about the web server"
-description: "Use nmap to scan your Home Assistant instance"
+description: "Use nmap to scan your Home Assistant instance."
 date: 2016-10-06 08:00
-sidebar: true
+sidebar: false
 comments: false
 sharing: true
 footer: true
