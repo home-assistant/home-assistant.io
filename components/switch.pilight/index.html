@@ -89,62 +89,89 @@
   <hr class="divider">
   
 
-  <p>A switch platform that issues 433 MHz commands using <a href="https://www.pilight.org/">pilight</a> to turn a 433 MHz device on or off. The pilight HA hub has to be set up.</p>
+  <p>The <code class="highlighter-rouge">pilight</code> switch platform is issuing 433 MHz commands using <a href="https://www.pilight.org/">pilight</a> to turn a 433 MHz device on or off. The Pilight Home Assistant hub has to be set up.</p>
 
-<p>Additionally RF commands can be defined that trigger this switch to turn on and off. This allows you to also use the remote shipped with your 433 MHz switch without mixing up the HA states. You can even define several on/off commands, thus several RF remotes to toggle this switch.</p>
+<p>Additionally RF commands can be defined that trigger this switch to turn on and off. This allows you to also use the remote shipped with your 433 MHz switch without mixing up the Home Assistant states. You can even define several on/off commands, thus several RF remotes to toggle this switch.</p>
 
-<p>To be really sure that HA knows the actual state of your device it is recommended to use the RF remote with codes unknown to any of your 433 MHz devices. Thus you use the remote to trigger this switch to send the correct RF code to the device.</p>
+<p>To be really sure that Home Assistant knows the actual state of your device it is recommended to use the RF remote with codes unknown to any of your 433 MHz devices. Thus you use the remote to trigger this switch to send the correct RF code to the device.</p>
 
-<p>To define a pilight switch, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<p>To define a Pilight switch, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
-  <span class="s">switches</span><span class="pi">:</span>
-    <span class="s">Bed light</span><span class="pi">:</span>
-      <span class="s">on_code</span><span class="pi">:</span>
-        <span class="s">protocol</span><span class="pi">:</span> <span class="s">intertechno_old</span>  <span class="c1"># protocol has to be defined</span>
-        <span class="s">unit</span><span class="pi">:</span> <span class="s">3</span>  <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s">id</span><span class="pi">:</span> <span class="s">4</span>    <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s1">'</span><span class="s">on'</span><span class="pi">:</span> <span class="s">1</span>  <span class="c1"># on has to be in apostrophes to be parsed correctly</span>
-      <span class="s">off_code</span><span class="pi">:</span>
-        <span class="s">protocol</span><span class="pi">:</span> <span class="s">intertechno_old</span>   <span class="c1"># protocol has to be defined</span>
-        <span class="s">unit</span><span class="pi">:</span> <span class="s">3</span>  <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s">id</span><span class="pi">:</span> <span class="s">4</span>  <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s1">'</span><span class="s">off'</span><span class="pi">:</span> <span class="s">1</span>  <span class="c1"># off has to be in apostrophes to be parsed correctly</span>
-      <span class="s">on_code_receive</span><span class="pi">:</span>  <span class="c1"># optional</span>
-        <span class="s">protocol</span><span class="pi">:</span> <span class="s">daycom</span>   <span class="c1"># protocol has to be defined</span>
-        <span class="s">systemcode</span><span class="pi">:</span> <span class="s">14462</span>  <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s">unit</span><span class="pi">:</span> <span class="s">6</span>  <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s">id</span><span class="pi">:</span> <span class="s">34</span>  <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>  <span class="c1"># off has to be in apostrophes to be parsed correctly</span>
-      <span class="s">off_code_receive</span><span class="pi">:</span>  <span class="c1"># optional</span>
-        <span class="s">protocol</span><span class="pi">:</span> <span class="s">daycom</span>   <span class="c1"># protocol has to be defined</span>
-        <span class="s">systemcode</span><span class="pi">:</span> <span class="s">14462</span>  <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s">unit</span><span class="pi">:</span> <span class="s">6</span>  <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s">id</span><span class="pi">:</span> <span class="s">34</span>  <span class="c1"># these entries are protocol specific and can differ</span>
-        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>  <span class="c1"># on has to be in apostrophes to be parsed correctly</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">Bed light</span><span class="pi">:</span>
+        <span class="s">on_code</span><span class="pi">:</span>
+          <span class="s">protocol</span><span class="pi">:</span> <span class="s">intertechno_old</span>
+          <span class="s1">'</span><span class="s">on'</span><span class="pi">:</span> <span class="s">1</span>
+        <span class="s">off_code</span><span class="pi">:</span>
+          <span class="s">protocol</span><span class="pi">:</span> <span class="s">intertechno_old</span>
+          <span class="s1">'</span><span class="s">off'</span><span class="pi">:</span> <span class="s">1</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>switches</strong> (<em>Required</em>): The array that contains all command switches.
+  <li><strong>switches</strong> array (<em>Required</em>): The list that contains all command switches.
     <ul>
-      <li><strong>entry</strong> (<em>Required</em>): Name of the command switch. Multiple entries are possible.
+      <li><strong>[entry]</strong> (<em>Required</em>): Name of the command switch. Multiple entries are possible.
         <ul>
           <li><strong>on_code</strong> (<em>Required</em>): The code to turn the device on.</li>
           <li><strong>off_code</strong> (<em>Required</em>): The code to turn the device off.</li>
-          <li><strong>on_code_receive</strong> (<em>Optional</em>): If given, this command will turn the switch on if it is received by pilight.</li>
-          <li><strong>off_code_receive</strong> (<em>Optional</em>): If given, this command will turn the switch off if it is received by pilight.</li>
+          <li><strong>on_code_receive</strong> (<em>Optional</em>): If given, this command will turn the switch on if it is received by Pilight.</li>
+          <li><strong>off_code_receive</strong> (<em>Optional</em>): If given, this command will turn the switch off if it is received by Pilight.</li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
 
+<p>Variables for the different codes:</p>
+
+<ul>
+  <li><strong>protocol</strong> (<em>Optional</em>): Protocol to use, eg. <code class="highlighter-rouge">intertechno_old</code> or <code class="highlighter-rouge">daycom</code>.</li>
+  <li><strong>systemcode</strong> (<em>Optional</em>): The systemcode of the device.</li>
+  <li><strong>unit</strong> (<em>Optional</em>): The unit to use.</li>
+  <li><strong>id</strong> (<em>Optional</em>): ID of the device</li>
+  <li><strong>state</strong> (<em>Optional</em>): <code class="highlighter-rouge">'on'</code> or <code class="highlighter-rouge">'off'</code> has to be in apostrophes to be parsed correctly.</li>
+  <li><strong>‘off’</strong> (<em>Optional</em>): <code class="highlighter-rouge">1</code> or <code class="highlighter-rouge">0</code></li>
+  <li><strong>‘on’</strong> (<em>Optional</em>): <code class="highlighter-rouge">1</code> or <code class="highlighter-rouge">0</code></li>
+</ul>
+
 <p>For possible code entries look at the <a href="https://www.pilight.org/development/api/">pilight API</a>. All commands allowed by <a href="https://wiki.pilight.org/doku.php/psend">pilight-send</a> can be used.</p>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">Bed light</span><span class="pi">:</span>
+        <span class="s">on_code</span><span class="pi">:</span>
+          <span class="s">protocol</span><span class="pi">:</span> <span class="s">intertechno_old</span>
+          <span class="s">unit</span><span class="pi">:</span> <span class="s">3</span>
+          <span class="s">id</span><span class="pi">:</span> <span class="s">4</span>
+          <span class="s1">'</span><span class="s">on'</span><span class="pi">:</span> <span class="s">1</span>
+        <span class="s">off_code</span><span class="pi">:</span>
+          <span class="s">protocol</span><span class="pi">:</span> <span class="s">intertechno_old</span>
+          <span class="s">unit</span><span class="pi">:</span> <span class="s">3</span>
+          <span class="s">id</span><span class="pi">:</span> <span class="s">4</span>
+          <span class="s1">'</span><span class="s">off'</span><span class="pi">:</span> <span class="s">1</span>
+        <span class="s">on_code_receive</span><span class="pi">:</span>
+          <span class="s">protocol</span><span class="pi">:</span> <span class="s">daycom</span>
+          <span class="s">systemcode</span><span class="pi">:</span> <span class="s">14462</span>
+          <span class="s">unit</span><span class="pi">:</span> <span class="s">6</span>
+          <span class="s">id</span><span class="pi">:</span> <span class="s">34</span>
+          <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+        <span class="s">off_code_receive</span><span class="pi">:</span>
+          <span class="s">protocol</span><span class="pi">:</span> <span class="s">daycom</span>
+          <span class="s">systemcode</span><span class="pi">:</span> <span class="s">14462</span>
+          <span class="s">unit</span><span class="pi">:</span> <span class="s">6</span>
+          <span class="s">id</span><span class="pi">:</span> <span class="s">34</span>
+          <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+</code></pre>
+</div>
 
 
 </article>
