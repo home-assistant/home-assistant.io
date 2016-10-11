@@ -165,7 +165,7 @@
 <span class="n">PLATFORM_SCHEMA</span> <span class="o">=</span> <span class="n">PLATFORM_SCHEMA</span><span class="o">.</span><span class="n">extend</span><span class="p">({</span>
     <span class="o">...</span>
     <span class="n">vol</span><span class="o">.</span><span class="n">Optional</span><span class="p">(</span><span class="n">CONF_MONITORED_VARIABLES</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[]):</span>
-        <span class="n">vol</span><span class="o">.</span><span class="n">All</span><span class="p">(</span><span class="n">ensure_list</span><span class="p">,</span> <span class="p">[</span><span class="n">vol</span><span class="o">.</span><span class="n">In</span><span class="p">(</span><span class="n">SENSOR_TYPES</span><span class="p">)]),</span>
+        <span class="n">vol</span><span class="o">.</span><span class="n">All</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">ensure_list</span><span class="p">,</span> <span class="p">[</span><span class="n">vol</span><span class="o">.</span><span class="n">In</span><span class="p">(</span><span class="n">SENSOR_TYPES</span><span class="p">)]),</span>
 </code></pre>
 </div>
 
