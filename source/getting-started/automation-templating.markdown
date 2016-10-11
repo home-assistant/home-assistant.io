@@ -11,7 +11,7 @@ footer: true
 
 In Home Assistant 0.19 we introduced a new powerful feature: variables in scripts and automations. This makes it possible to adjust your condition and action based on the information of the trigger.
 
-The trigger data made is available during template rendering as the `trigger` variable.
+The trigger data made is available during [template](/topics/templating/) rendering as the `trigger` variable.
 
 ```yaml
 # Example configuration.yaml entries
