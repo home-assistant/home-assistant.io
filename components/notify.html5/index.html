@@ -193,6 +193,22 @@
 </span></code></pre>
 </div>
 
+<p>Example of adding a tag to your configuration. This won’t create new notification if there already exists one with the same tag.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Push/update notification of sensor state with tag</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.sensor</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.html5</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Last</span><span class="nv"> </span><span class="s">known</span><span class="nv"> </span><span class="s">sensor</span><span class="nv"> </span><span class="s">state</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">states('sensor.sensor')</span><span class="nv"> </span><span class="s">}}."</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">tag</span><span class="pi">:</span> <span class="s1">'</span><span class="s">notification-about-sensor'</span>
+</code></pre>
+</div>
+
 <h4><a class="title-link" name="targets" href="#targets"></a> Targets</h4>
 
 <p>If you do not provide a <code class="highlighter-rouge">target</code> parameter in the notify payload a notification will be sent to all registered targets as listed in <code class="highlighter-rouge">html5_push_registrations.conf</code>. You can provide a <code class="highlighter-rouge">target</code> parameter like so:</p>
