@@ -47,7 +47,7 @@ Configuration variables:
 
 Variables for the different codes:
 
-- **protocol** (*Optional*): Protocol to use, eg. `intertechno_old` or `daycom`.
+- **protocol** (*Required*): Protocol to use, eg. `intertechno_old` or `daycom`.
 - **systemcode** (*Optional*): The systemcode of the device.
 - **unit** (*Optional*): The unit to use.
 - **id** (*Optional*): ID of the device
