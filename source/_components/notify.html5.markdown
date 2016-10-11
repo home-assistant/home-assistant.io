@@ -111,6 +111,22 @@ By default, every notification sent has a randomly generated UUID (v4) set as it
 }
 ```
 
+Example of adding a tag to your configuration. This won't create new notification if there already exists one with the same tag.
+
+```yaml
+  - alias: Push/update notification of sensor state with tag
+    trigger:
+      - platform: state
+        entity_id: sensor.sensor
+    action:
+      service: notify.html5
+      data_template:
+        message: "Last known sensor state is {{ states('sensor.sensor') }}."
+      data:
+        data:
+          tag: 'notification-about-sensor'
+```
+
 #### {% linkable_title Targets %}
 
 If you do not provide a `target` parameter in the notify payload a notification will be sent to all registered targets as listed in `html5_push_registrations.conf`. You can provide a `target` parameter like so:
