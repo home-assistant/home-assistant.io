@@ -72,8 +72,6 @@ You can use the default markdown syntax to generate syntax highlighted code. For
  ```{% endraw %}
 ```
 
-If you are using templates then those parts needs to be [escaped](http://stackoverflow.com/a/24102537). Otherwise they will be rendered and appear blank on the website.
-
 Note that you can replace `yaml` next to \`\`\` with the language that is within the block.
 
 When you're writing code that is to be executed on the terminal, prefix it with `$`.
@@ -82,7 +80,7 @@ When you're writing code that is to be executed on the terminal, prefix it with 
 
 For the [configuration templating](/topics/templating/) is [Jinja](http://jinja.pocoo.org/) used. 
 
-You need to embed all templates with `{% raw %}...{% endraw %}` otherwise they will be rendered and this result in an empty output.
+If you are using templates then those parts needs to be [escaped](http://stackoverflow.com/a/24102537). Otherwise they will be rendered and appear blank on the website.
 
 ### {% linkable_title HTML %}
 
