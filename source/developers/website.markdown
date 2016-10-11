@@ -78,6 +78,12 @@ Note that you can replace `yaml` next to \`\`\` with the language that is within
 
 When you're writing code that is to be executed on the terminal, prefix it with `$`.
 
+### {% linkable_title Templates %}
+
+For the [configuration templating](/topics/templating/) is [Jinja](http://jinja.pocoo.org/) used. 
+
+You need to embed all templates with `{% raw %}...{% endraw %}` otherwise they will be rendered and this result in an empty output.
+
 ### {% linkable_title HTML %}
 
 The direct usage of HTML is supported but not recommended. The note boxes are an exception.
