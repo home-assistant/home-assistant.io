@@ -121,7 +121,7 @@ Example of adding a tag to your configuration. This won't create new notificatio
     action:
       service: notify.html5
       data_template:
-        message: "Last known sensor state is {{ states('sensor.sensor') }}."
+        message: "Last known sensor state is {% raw %}{{ states('sensor.sensor') }}{% endraw %}."
       data:
         data:
           tag: 'notification-about-sensor'
