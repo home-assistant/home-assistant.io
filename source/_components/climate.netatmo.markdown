@@ -12,10 +12,13 @@ ha_category: Climate
 ha_release: 0.31
 ---
 
+### {% linkable_title Basic Configuration %}
 
 The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) thermostat. This component allows you to view the current temperature and setpoint.
 
-To enable the Netatmo thermostat, you first have to set up [netatmo](/components/netatmo/), this will use discovery to add your camera.
+To enable the Netatmo thermostat, you first have to set up [netatmo](/components/netatmo/), this will use discovery to add your thermostat.
+
+### {% linkable_title Basic Configuration %}
 
 If you want to select a specific thermostat, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
