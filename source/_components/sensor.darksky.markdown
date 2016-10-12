@@ -86,6 +86,8 @@ Configuration variables:
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let forecast.io decide the unit system based on location.
 
+<p class='note warning'>
 Note: While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
+</p>
 
 Details about the API are available in the [Dark Sky documentation](https://darksky.net/dev/docs).
