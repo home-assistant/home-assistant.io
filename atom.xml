@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-11T13:50:30+00:00</updated>
+  <updated>2016-10-12T05:36:00+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -115,6 +115,18 @@
   <li>Device Tracker <code class="highlighter-rouge">known_devices.yaml</code> validation is now more accepting (<a href="https://github.com/kellerza">@kellerza</a>)</li>
   <li>Handle X10 light numbers greater than 9 (<a href="https://github.com/mtl010957">@mtl010957</a>)</li>
   <li>Fix command line covers without a template (<a href="https://github.com/roidayan">@roidayan</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0302---october-12" href="#release-0302---october-12"></a> Release 0.30.2 - October 12</h3>
+
+<ul>
+  <li>Handle Volvo’s with dashes in their name (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Fix some html5 push notification configuration options were discarded after first use (<a href="https://github.com/T3m3z">@T3m3z</a>)</li>
+  <li>Fix Homematic device name with autodiscovery (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Make ‘pin’ optional for zigbee device config (<a href="https://github.com/flyte">@flyte</a>)</li>
+  <li>Fix when sending a notification to a service with target attached (i.e. <code class="highlighter-rouge">notify.html5_unnamed_device_2</code>) the target was not submitted to the platform as a list causing iteration over every character in the string. (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Fix for Slack targets (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Fix for Pushover targets (<a href="https://github.com/Nixon506E">@Nixon506E</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
