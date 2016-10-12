@@ -37,7 +37,7 @@ Configuration variables:
 - **secret_key** (*Required*): Your netatmo secret key
 - **username** (*Required*): Username for the netatmo account.
 - **password** (*Required*): Password for the netatmo account.
-- **devices** (*Required*): Wich off the Netatmo devices you use.
+- **devices** (*Optional*): Which off the Netatmo devices you use.
 - **discovery** (*Optional)*: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).
 
 ### {% linkable_title Get API and Secret Key %}
