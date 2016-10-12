@@ -13,7 +13,7 @@ ha_release: "0.20"
 ---
 
 
-The `netatmo` component platform is the main component to integrate all Netatmo related platforms. Besides this component you will have to setup any connected sensors separately.
+The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
 
 To enable the Netatmo component, add the following lines to your `configuration.yaml`:
 
@@ -24,6 +24,11 @@ netatmo:
   secret_key: YOUR_SECRET_KEY
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
+  devices:
+    - camera
+    - sensor
+    - binary_sensor
+    - climate
 ```
 
 Configuration variables:
@@ -32,6 +37,8 @@ Configuration variables:
 - **secret_key** (*Required*): Your netatmo secret key
 - **username** (*Required*): Username for the netatmo account.
 - **password** (*Required*): Password for the netatmo account.
+- **devices** (*Required*): Wich off the Netatmo devices you use.
+- **discovery** (*Optional)*: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).
 
 ### {% linkable_title Get API and Secret Key %}
 
