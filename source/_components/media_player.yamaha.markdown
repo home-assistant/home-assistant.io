@@ -29,16 +29,23 @@ To add a Yamaha Network Receiver to your installation, add the following to your
 # Example configuration.yaml entry
 media_player:
   - platform: yamaha
+    source_ignore:
+      - "AUX"
+      - "HDMI6"
+    source_names:
+      - HDMI1: "ChromeCast"
+      - AV4: "Vinyl"
 ```
 Configuration variables:
 
 - **name** (*Optional*): Name of the device
 - **host** (*Optional*): IP address or hostname of the device
+- **source_ignore** (*Optional*): List of sources to hide in the front-end
+- **source_names** (*Optional*): Mapping of internal AVR source names to custom ones, allowing to rename e.g. `HDMI1` to `ChromeCast`
 
 A few notes:
 
 - Not specifying the host variable will result in automatically searching your network for Yamaha Receivers.  It will add a media player device for each one.
 - In some cases, autodiscovery fails due to a known bug in the receiver's firmware. It is possible to manually specify the reveiver's IP address or via it's hostname (if it is discoverably by your DNS) then.
 - Please note: If adding the IP address or hostname manually, you **must** enable network standby on your receiver, or else startup of Home Assistant will hang if you have your receiver switched off.
-- Currently the only controls that are available is Power On/Off, Mute, and Volume control. Other functions such as source select are in progress of being developed.
-
+- Currently, this component supports powering on/off, mute, volume control and source selection.
