@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Scrape Sensor"
-description: "Instructions how to integrate Web scrap sensors into Home Assistant."
+description: "Instructions how to integrate Web scrape sensors into Home Assistant."
 date: 2016-10-12 09:10
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: 0.31
 ---
 
 
-The `scrape` sensor platform is scraping information from websites. The sensor loads the body of a HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/) it will most likely only works with simple webpage and it can be time-consuming to get the right section.
+The `scrape` sensor platform is scraping information from websites. The sensor loads a HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/). It will most likely only works with simple webpage and it can be time-consuming to get the right section.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -22,22 +22,22 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: scrape
     resource: https://home-assistant.io
-    filter: h1
+    select: ".current-version h1"
 ```
 
 Configuration variables:
 
-- **resource** (*Required*): The URl to the website that contains the value.
-- **filter** (*Required*): Defines the HTML tag to filter for, eg. `h1`, `span`, etc.
+- **resource** (*Required*): The URL to the website that contains the value.
+- **select** (*Required*): Defines the HTML tag to search for. Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details.
 - **name** (*Optional*): Name of the sensor.
 - **element** (*Optional*): Number of the element in the output.
-- **before** (*Optional*): Count of chars to remove before the value.
-- **after** (*Optional*): Count of chars to remove after the value.
+- **before** (*Optional*): Count of characters to remove before the value.
+- **after** (*Optional*): Count of characters to remove after the value.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real life examples of how to use this sensor. There is also a Jupyter notebook available for this example to give you a bit more insight.
 
 ### {% linkable_title Home Assistant %}
 
@@ -49,28 +49,24 @@ sensor:
   - platform: scrape
     resource: https://home-assistant.io
     name: Release
-    filter: h1
-    element: 1
+    select: ".current-version h1"
     before: 17
-    after: 25
 ```
 
-### {% linkable_title Users in our from Github %}
+### {% linkable_title Available implementations %}
 
-Check how many user in our main [Gitter chatroom](https://gitter.im/home-assistant/home-assistant) are.
+Get the counter for all our implementations from the [Component overview](/components/) page.
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: scrape
-    resource: https://gitter.im/home-assistant/home-assistant
-    filter: '#text'
-    element: 9
-    before: 2059
-    after: 2063
+    resource: https://home-assistant.io/components/
+    name: Home Assistant impl.
+    select: 'a[href="#all"]'
+    before: 5
+    after: 8
 ```
-
-There is also a Jupyther notebook available for this example to give you a bit more insight.
 
 ### {% linkable_title Get a value out of a tag %}
 
@@ -82,7 +78,7 @@ sensor:
   - platform: scrape
     resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
     name: Coast Ostsee
-    filter: 'p'
-    element: 14
+    select: 'p'
+    element: 18
     unit_of_measurement: 'UV Index'
 ```
