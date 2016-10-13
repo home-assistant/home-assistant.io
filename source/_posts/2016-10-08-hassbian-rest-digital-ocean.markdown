@@ -97,6 +97,12 @@ sensor
 - Device Tracker: The `known_device.yaml` file is now validated ([@kellerza]) 
 - Minor features and bug fixes by [@tchellomello], [@pavoni], [@fabaff], [@pvizeli], [@lwis], [@turbokongen], [@Danielhiversen], [@persandstrom], [@balloob], [@robbiet480], [@sam-io], [@bbangert], and you if you are missing here.
 
+### {% linkable_title Release 0.30.1 - October 8 %}
+
+ - Device Tracker `known_devices.yaml` validation is now more accepting ([@kellerza])
+ - Handle X10 light numbers greater than 9 ([@mtl010957])
+ - Fix command line covers without a template ([@roidayan])
+
 ### {% linkable_title Breaking changes %}
 
 - All deprecated condition options from `automation` have been removed (deprecated since May and have printed warnings to your console):
@@ -136,6 +142,8 @@ sensor
 [@tchellomello]: https://github.com/tchellomello
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
+[@mtl010957]: https://github.com/mtl010957
+[@roidayan]: https://github.com/roidayan
 
 [arest]: https://arest.io/
 [arest-sensor]: /components/sensor.arest/
