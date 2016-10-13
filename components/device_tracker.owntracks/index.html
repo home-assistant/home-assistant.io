@@ -126,16 +126,16 @@
 <p>Owntracks can also be used with other device trackers, such as <a href="/components/device_tracker.nmap_scanner/">Nmap</a> or <a href="/components/device_tracker.netgear/">Netgear</a>. To do this, fill in the <code class="highlighter-rouge">mac</code> field to the Owntracks entry in <code class="highlighter-rouge">known_devices.yaml</code> with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last. The naming convention for known device list is <code class="highlighter-rouge">&lt;username&gt;_&lt;device-id&gt;</code> and could be set in app configuration. More details about this config can found in <a href="/components/device_tracker/">device tracker</a>.</p>
 
 <h3><a class="title-link" name="using-owntracks-regions" href="#using-owntracks-regions"></a> Using Owntracks regions</h3>
-<p>Owntracks can track regions, and send region entry and exit information to Home Assistant(HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the <code class="highlighter-rouge">share</code> option for the region in the owntracks app. Please see the <a href="http://owntracks.org/booklet/guide/waypoints/">owntracks documentation</a></p>
+<p>Owntracks can track regions, and send region entry and exit information to Home Assistant (HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the <code class="highlighter-rouge">share</code> option for the region in the owntracks app. Please see the <a href="http://owntracks.org/booklet/guide/waypoints/">owntracks documentation</a>.</p>
 
 <p>Home Assistant will use the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.</p>
 
 <p>When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS co-ordinates), you may want to set your Zone radius in HA to be slightly smaller that the Owntracks region radius.</p>
 
 <h3><a class="title-link" name="using-owntracks-regions---forcing-owntracks-to-update-using" href="#using-owntracks-regions---forcing-owntracks-to-update-using"></a> Using Owntracks regions - forcing Owntracks to update using  iBeacons</h3>
-<p>When run in the usual <code class="highlighter-rouge">significant changes mode</code> (which is kind to your phone battery), Owntracks sometimes doesn’t update your location as quickly as you’d like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.</p>
+<p>When run in the usual <em>significant changes mode</em> (which is kind to your phone battery), Owntracks sometimes doesn’t update your location as quickly as you’d like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.</p>
 
-<p>iBeacons are simple bluetooth devices that send out an “I’m here” message. They are supported by IOS and some Android devices. Owntracks explain more <a href="http://owntracks.org/booklet/guide/beacons/">here</a></p>
+<p>iBeacons are simple bluetooth devices that send out an “I’m here” message. They are supported by IOS and some Android devices. Owntracks explain more <a href="http://owntracks.org/booklet/guide/beacons/">here</a>.</p>
 
 <p>When you enter an iBeacon region, Owntracks will send a <code class="highlighter-rouge">region enter</code> message to HA as described above. So if you want to have an event triggered when you arrive home, you can put an iBeacon outside your front door. If you set up an OwnTracks iBeacon region called <code class="highlighter-rouge">home</code> then getting close to the beacon will trigger an update to HA that will set your zone to be <code class="highlighter-rouge">home</code>.</p>
 
@@ -150,13 +150,13 @@
 
 <p>To use mobile iBeacons with HA, you just set up a region that doesn’t match your Zone names. If HA sees an entry event for a iBeacon region that doesn’t match a Zone name (say <code class="highlighter-rouge">keys</code>) - it will start tracking it, calling the device <code class="highlighter-rouge">device_tracker.beacon_keys</code>).</p>
 
-<p>This allows you to write zone automations for devices that can’t track themselves (for example <code class="highlighter-rouge">alert me if I leave the house and my keys are still at home</code>). Another example would be <code class="highlighter-rouge">open the gates if my car arrives home</code>.</p>
+<p>This allows you to write zone automations for devices that can’t track themselves (for example <em>alert me if I leave the house and my keys are still at home</em>). Another example would be <em>open the gates if my car arrives home</em>.</p>
 
 <h3><a class="title-link" name="using-mobile-and-fixed-ibeacons-together" href="#using-mobile-and-fixed-ibeacons-together"></a> Using mobile and fixed iBeacons together</h3>
 <p>You can use iBeacons of both types together, so if you have a Zone <code class="highlighter-rouge">drive</code> with an iBeacon region called <code class="highlighter-rouge">-drive</code> and you arrive home with a mobile iBeacon called <code class="highlighter-rouge">-car</code>, then <code class="highlighter-rouge">device_tracker.beacon_car</code> will be set to a state of <code class="highlighter-rouge">drive</code>.</p>
 
 <h3><a class="title-link" name="importing-owntracks-waypoints-as-zones" href="#importing-owntracks-waypoints-as-zones"></a> Importing Owntracks waypoints as zones</h3>
-<p>By default, any Owntracks user connected to Home Assistant can export their waypoint definitions (from the <code class="highlighter-rouge">Export - Export to Endpoint</code> menu item) which will then be translated to zone definitions in Home Assistant. The zones will be named <code class="highlighter-rouge">&lt;user&gt;-&lt;device&gt; - &lt;waypoint name&gt;</code>. This functionality can be controlled in 2 ways:</p>
+<p>By default, any Owntracks user connected to Home Assistant can export their waypoint definitions (from the <em>Export - Export to Endpoint</em> menu item) which will then be translated to zone definitions in Home Assistant. The zones will be named <code class="highlighter-rouge">&lt;user&gt;-&lt;device&gt; - &lt;waypoint name&gt;</code>. This functionality can be controlled in 2 ways:</p>
 
 <ol>
   <li>The configuration variable <code class="highlighter-rouge">waypoints</code> can be set to <code class="highlighter-rouge">False</code> which will disable importing waypoints for all users.</li>
