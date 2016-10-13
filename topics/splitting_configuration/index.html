@@ -139,10 +139,6 @@
   <span class="s">config_path</span><span class="pi">:</span> <span class="s">/usr/local/share/python-openzwave/config</span>
   <span class="s">polling_interval</span><span class="pi">:</span> <span class="s">10000</span>
 
-<span class="c1">#zigbee:</span>
-<span class="c1">#  device: /dev/ttyUSB1</span>
-<span class="c1">#  baud: 115200</span>
-
 <span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">broker</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
 </code></pre>
@@ -196,10 +192,7 @@ customize.yaml
 <p>This (large) sensor configuration gives us another example:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">### sensors.yaml</span>
-<span class="c1">##############################################################</span>
-<span class="c1">### METEOBRIDGE                                           ####</span>
-<span class="c1">##############################################################</span>
-
+<span class="c1">### METEOBRIDGE #############################################</span>
 <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">tcp</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Outdoor</span><span class="nv"> </span><span class="s">Temp</span><span class="nv"> </span><span class="s">(Meteobridge)'</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.2.82</span>
@@ -215,27 +208,14 @@ customize.yaml
   <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Content-type:</span><span class="nv"> </span><span class="s">text/xml;</span><span class="nv"> </span><span class="s">charset=UTF-8</span><span class="se">\n\n</span><span class="s">"</span>
   <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{value.split</span><span class="nv"> </span><span class="s">('</span><span class="nv"> </span><span class="s">')[3]}}"</span>
   <span class="s">unit</span><span class="pi">:</span> <span class="s">Percent</span>
-<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">tcp</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Outdoor</span><span class="nv"> </span><span class="s">Dewpoint</span><span class="nv"> </span><span class="s">(Meteobridge)'</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.2.82</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">5556</span>
-  <span class="s">timeout</span><span class="pi">:</span> <span class="s">6</span>
-  <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Content-type:</span><span class="nv"> </span><span class="s">text/xml;</span><span class="nv"> </span><span class="s">charset=UTF-8</span><span class="se">\n\n</span><span class="s">"</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{value.split</span><span class="nv"> </span><span class="s">('</span><span class="nv"> </span><span class="s">')[4]</span><span class="nv"> </span><span class="s">}}"</span>
-  <span class="s">unit</span><span class="pi">:</span> <span class="s">C</span>
-<span class="c1">###################################</span>
-<span class="c1">#### STEAM FRIENDS            ####</span>
-<span class="c1">##################################</span>
 
+<span class="c1">#### STEAM FRIENDS ##################################</span>
 <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">steam_online</span>
   <span class="s">api_key</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">not telling</span><span class="pi">]</span>
   <span class="s">accounts</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">76561198012067051</span>
 
-<span class="c1">##################################</span>
-<span class="c1">####     TIME/DATE            ####</span>
-<span class="c1">##################################</span>
-
+<span class="c1">#### TIME/DATE ##################################</span>
 <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time_date</span>
   <span class="s">display_options</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s1">'</span><span class="s">time'</span>
@@ -243,12 +223,6 @@ customize.yaml
 <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">worldclock</span>
   <span class="s">time_zone</span><span class="pi">:</span> <span class="s">Etc/UTC</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">UTC'</span>
-<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">worldclock</span>
-  <span class="s">time_zone</span><span class="pi">:</span> <span class="s">America/New_York</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Ann</span><span class="nv"> </span><span class="s">Arbor'</span>
-<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">worldclock</span>
-  <span class="s">time_zone</span><span class="pi">:</span> <span class="s">Europe/Vienna</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Innsbruck'</span>
 <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">worldclock</span>
   <span class="s">time_zone</span><span class="pi">:</span> <span class="s">America/New_York</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Ann</span><span class="nv"> </span><span class="s">Arbor'</span>
