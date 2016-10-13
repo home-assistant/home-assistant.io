@@ -27,7 +27,7 @@ To add Dark Sky to your installation, add the following to your `configuration.y
 # Example configuration.yaml entry
 sensor:
   - platform: darksky
-    api_key: YOUR_APP_KEY
+    api_key: YOUR_API_KEY
     monitored_conditions:
       - summary
       - icon
