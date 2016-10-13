@@ -23,37 +23,8 @@ Sending IR commands is not supported in this component (yet), but can be accompl
 To allow Home Assistant to talk to your IR receiver, you need to first make sure you have the correct dependencies installed:
 
 ```bash
-$ sudo apt-get install lirc python3-lirc
+$ sudo apt-get install lirc liblircclient-dev
 ```
-
-Check the version of `python3-lirc`:
-
-```bash
-$ apt-cache show python3-lirc
-Package: python3-lirc
-Source: python-lirc
-Version: 1.2.1-2
-```
-
-If you do not have this version or you are running in a virtual environment, then your system will completely freeze with this component active. You will need to build `python3-lirc` from source. The version of this library in the Python package index is also broken, so the typical dependency system cannot fix this. Build it from source like this:
-
-As regular user:
-
-```bash
-sudo apt-get install liblircclient-dev
-```
-
-As the user that runs hass:
-
-```bash
-(hass) $  git clone https://github.com/tompreston/python-lirc.git
-(hass) $  cd python-lirc
-(hass) $  make py3
-(hass) $  python3 setup.py build
-(hass) $  python3 setup.py install
-```
-
-If you are not using a virtual environment setup, then you'll need a `sudo` before the install line above. 
 
 
 <p class='note'>
