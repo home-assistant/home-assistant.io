@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-One of the reasons to use Home Assistant is that it's not depending on cloud services. Even if you are only using Home Assistant in your local network, you should consider to secure your instance.
+One of the reasons to use Home Assistant is that it's not depending on cloud services. Even if you are only using Home Assistant in your local network, you should consider securing your instance.
 
 ### {% linkable_title Checklist %}
 
