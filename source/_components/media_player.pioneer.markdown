@@ -23,10 +23,12 @@ To add a Pioneer receiver to your installation, add the following to your `confi
 media_player:
   - platform: pioneer
     host: 192.168.0.10
+    port: 23
 ```
 
 Configuration variables:
 
 - **host** (*Required*): The IP of the Pioneer device,  eg. `192.168.0.10`
 - **name** (*Optional*): The name you would like to give to the receiver.
+- **port** (*Optional*): The port on which the Pioneer device listens, e.g. `23`(default) or `8102`
 
