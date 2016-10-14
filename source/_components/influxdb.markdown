@@ -21,28 +21,7 @@ The default InfluxDB configuration doesn't enforce authentication. If you have i
 influxdb:
 ```
 
-You will still need to create a database named `home_assistant` via InfluxDB's web interface or command line. 
-
-From the command line:
-```bash
-$ influx
-Visit https://enterprise.influxdata.com to register for updates, InfluxDB server management, and monitoring.
-Connected to http://localhost:8086 version 1.0.2
-InfluxDB shell version: 1.0.2
-> CREATE DATABASE "home_assistant"
-```
-
-From the web interface:
-
-1. Open http://localhost:8083 in your browser
-2. In the `Query` field enter:
-```
-CREATE DATABASE "home_assistant"
-``` 
-
-<p class='img'>
-  <img src='/images/blog/2015-12-influxdb/influxdb-frontend.png' />
-</p>
+You will still need to create a database named `home_assistant` via InfluxDB's web interface or command line. For instructions how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
 
 Configuration variables:
 
