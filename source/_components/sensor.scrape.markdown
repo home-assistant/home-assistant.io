@@ -82,3 +82,18 @@ sensor:
     element: 18
     unit_of_measurement: 'UV Index'
 ```
+
+### {% linkable_title IFTTT status %}
+
+If you make heavy use of the [IFTTT](/components/ifttt/) web service for your automations and are curious about the [status of IFTTT](http://status.ifttt.com/) then you can display the current state of IFTTT in your frontend.
+
+```yaml
+sensor:
+# Example configuration.yaml entry
+  - platform: scrape
+    resource: http://status.ifttt.com/
+    name: IFTTT status
+    select: '.component-status'
+    before: 6
+```
+
