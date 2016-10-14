@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: synology.png
 ha_category: Camera
+ha_release: 0.31
+
 ---
 
 　
@@ -27,11 +29,11 @@ camera:
 
 Configuration variables:
 
-- **url** (*Required*): The url to your synology, including port.
+- **url** (*Required*): The URL to your synology, including port.
 - **username** (*Required*): The username for accessing surveillance station.
 - **password** (*Required*): The password for accessing surveillance station.
 - **whitelist** (*Optional*): A list of which cameras you want to add, the names must be the same as in Surveillance Station.  If omited all cameras are added.
-- **verify_ssl** (*Optional*): True to require a valid certificate, False to disable certificate checking.
+- **verify_ssl** (*Optional*): True to require a valid certificate, False to disable certificate checking. Defaults to `True`.
 
 A full sample configuration for the `synology` platform is shown below:
 
@@ -46,5 +48,5 @@ camera:
 ```
 
 <p class='note'>
-Most users will need to set valid_ssl to false unless they have installed a valid SSL certificate in place of the built in self signed certificate.
+Most users will need to set `valid_ssl` to false unless they have installed a valid SSL certificate in place of the built in self-signed certificate.
 </p>
