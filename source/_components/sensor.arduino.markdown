@@ -10,6 +10,7 @@ footer: true
 logo: arduino.png
 ha_category: DIY
 ha_release: pre 0.7
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -24,17 +25,16 @@ sensor:
   pins:
     1:
       name: Door switch
-      type: analog
     0:
       name: Brightness
-      type: analog
+
 ```
 
 Configuration variables:
 
-- **pins** (*Required*): Array of pins to use. The number corresponds with the pin numbering schema of your board.
-  - **name**: Name that will be used in the frontend for the pin.
-  - **type**: The type of the pin. At the moment only 'analog' is supported.
+- **pins** array (*Required*): Array of pins to use.
+  - **[number]** (*Required*): The pin number that corresponds with the pin numbering schema of your board.
+    - **name** (*Optional*): Name that will be used in the frontend for the pin.
 
 The 6 analog pins of an Arduino UNO are numbered from A0 to A5.
 
