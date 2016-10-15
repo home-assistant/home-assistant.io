@@ -10,7 +10,7 @@ footer: true
 logo: emoncms.png
 ha_category: History
 featured: false
-ha_release: 0.30
+ha_release: 0.31
 ---
 
 
@@ -40,3 +40,4 @@ Configuration variables:
 - **url** (*Required*): The root url of your emoncms installation. (Use https://emoncms.org for the cloud based version)
 - **inputnode** (*Required*): Input node that will be used inside emoncms. Please make sure you use a dedicated, not used before, node for this component!
 - **whitelist** (*Required*): List of entity ID's you want to publish.
+- **scan_interval** (*Optional*): Defines, in seconds, how reguarly the states of the whitelisted entities are being gathered and send to emoncms. Default is 30 seconds.
