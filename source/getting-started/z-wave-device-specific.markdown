@@ -11,7 +11,7 @@ footer: true
 
 ##### {% linkable_title Motion or alarm sensors %}
 
-In order for Home Assistant to recognize well the sensor, you will need to change its configuration from `Basic Set (default)` to `Binary Sensor report` or `Alarm report`.
+In order for Home Assistant to recognize the sensor properly, you will need to change its configuration from `Basic Set (default)` to `Binary Sensor report` or `Alarm report`.
 These devices will either show as a binary sensor or a sensor called `Alarm xxxx` and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.
 
 As of version 0.30 you can set the settings of a Z-Wave device through the dev_service page of Home Assistant with the service: `zwave/set_config_parameter`.
