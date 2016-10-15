@@ -69,3 +69,11 @@ Configuration variables:
 - **zones** (*Optional*): Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant.  For each zone, at least a name must be given. *Note: if no zones are specified, Home Assistant will not load any binary_sensor components.*
 - **partitions** (*Optional*): Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor components are loaded.
 
+Supported services:
+
+- **alarm_disarm**
+- **alarm_arm_home**
+- **alarm_arm_away**
+- **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+- **alarm_keypress**: Sends a string of up to 6 characters to the alarm.
+- **alarm_output_control**: Activates the specified programmable output on the alarm to control a connected device.
