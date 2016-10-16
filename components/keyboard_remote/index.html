@@ -91,11 +91,9 @@
 
   <p>Receive signals from a keyboard and use it as a remote control.</p>
 
-<p>This component allows to use a keyboard as remote control. It will fire <code class="highlighter-rouge">keyboard_remote_command_received</code> events witch can then be used
-in automation rules.</p>
+<p>This component allows you to use a keyboard as remote control. It will fire <code class="highlighter-rouge">keyboard_remote_command_received</code> events which can then be used in automation rules.</p>
 
-<p>The <code class="highlighter-rouge">evdev</code> package is used to interface with the keyboard and thus this is Linux only. It also means you can’t use your normal keyboard for this,
-because <code class="highlighter-rouge">evdev</code> will block it.</p>
+<p>The <code class="highlighter-rouge">evdev</code> package is used to interface with the keyboard and thus this is Linux only. It also means you can’t use your normal keyboard for this because <code class="highlighter-rouge">evdev</code> will block it.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">keyboard_remote</span><span class="pi">:</span>
@@ -111,10 +109,10 @@ because <code class="highlighter-rouge">evdev</code> will block it.</p>
   <li><strong>key_value</strong> (<em>Required</em>): Possible values are <code class="highlighter-rouge">key_up</code>, <code class="highlighter-rouge">key_down</code>, and <code class="highlighter-rouge">key_hold</code>. Be careful, <code class="highlighter-rouge">key_hold</code> will fire a lot of events.</li>
 </ul>
 
-<p>And an automation rule to bring breath live into it.</p>
+<p>And an automation rule to breathe life into it:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
-  <span class="s">alias</span><span class="pi">:</span> <span class="s">Keyboard All light on</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">Keyboard all lights on</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
     <span class="s">event_type</span><span class="pi">:</span> <span class="s">keyboard_remote_command_received</span>
