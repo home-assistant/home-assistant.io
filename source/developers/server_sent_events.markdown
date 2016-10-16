@@ -22,7 +22,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" http://localhost:8123/api/stream
 ```
 
-For more comfort put the HTML snippet below in a file `sse.html` in your `www` folder of your Home Assistant configuration directory (`.homeassistant`)
+You can create a convenient view for this by creating an HTML file (`sse.html`) in the `www` folder of your Home Assistant configuration directory (`.homeassistant`). Paste this snippet into the file:
 
 ```html
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ Visit [http://localhost:8123/local/sse.html](http://localhost:8123/local/sse.htm
 
 ## {% linkable_title Examples %}
 
-A simplest way to consume server-sent events is `httpie`.
+A simple way to consume server-sent events is to use a command-line http client like [httpie][https://httpie.org/]. Installation info is on the site (if you use Homebrew, it's `brew install httpie`). Once installed, run this snippet from your terminal:
 
 ```bash
 $ http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD content-type:application/json
@@ -52,17 +52,17 @@ $ http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD conte
 
 ### {% linkable_title Website %}
 
-The [home-assistant-sse](https://github.com/fabaff/home-assistant-sse) repository contains an more advanced example.
+The [home-assistant-sse](https://github.com/fabaff/home-assistant-sse) repository contains a more advanced example.
 
 ### {% linkable_title Python %}
 
-If you want test the server-sent events without creating a website then the Python module [`sseclient` ](https://pypi.python.org/pypi/sseclient/) can help. Install it first:
+If you want to test the server-sent events without creating a website, the Python module [`sseclient` ](https://pypi.python.org/pypi/sseclient/) can help. To install (assuming Python and pip3 are already installed):
 
 ```bash
 $ pip3 install sseclient
 ```
 
-The simplest script to consume the SSE looks like the following snipplet.
+The simplest script to consume the SSE in Python looks like this:
 
 ```python
 from sseclient import SSEClient
