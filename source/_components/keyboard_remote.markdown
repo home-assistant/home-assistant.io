@@ -15,11 +15,9 @@ ha_iot_class: "Local Push"
 
 Receive signals from a keyboard and use it as a remote control.
 
-This component allows to use a keyboard as remote control. It will fire `keyboard_remote_command_received` events witch can then be used
-in automation rules. 
+This component allows you to use a keyboard as remote control. It will fire `keyboard_remote_command_received` events which can then be used in automation rules. 
 
-The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this,
-because `evdev` will block it.
+The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this because `evdev` will block it.
 
 
 ```yaml
@@ -34,11 +32,11 @@ Configuration variables:
 - **device_descriptor** (*Required*): List of URLS for your feeds.
 - **key_value** (*Required*): Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.
 
-And an automation rule to bring breath live into it.
+And an automation rule to breathe life into it:
 
 ```yaml
 automation:
-  alias: Keyboard All light on
+  alias: Keyboard all lights on
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
