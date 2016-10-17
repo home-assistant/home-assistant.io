@@ -102,7 +102,7 @@
 </code></pre>
 </div>
 
-<p>For more comfort put the HTML snippet below in a file <code class="highlighter-rouge">sse.html</code> in your <code class="highlighter-rouge">www</code> folder of your Home Assistant configuration directory (<code class="highlighter-rouge">.homeassistant</code>)</p>
+<p>You can create a convenient view for this by creating an HTML file (<code class="highlighter-rouge">sse.html</code>) in the <code class="highlighter-rouge">www</code> folder of your Home Assistant configuration directory (<code class="highlighter-rouge">.homeassistant</code>). Paste this snippet into the file:</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
@@ -124,7 +124,7 @@
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
-<p>A simplest way to consume server-sent events is <code class="highlighter-rouge">httpie</code>.</p>
+<p>A simple way to consume server-sent events is to use a command-line http client like [httpie][https://httpie.org/]. Installation info is on the site (if you use Homebrew, it’s <code class="highlighter-rouge">brew install httpie</code>). Once installed, run this snippet from your terminal:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD content-type:application/json
 </code></pre>
@@ -132,17 +132,17 @@
 
 <h3><a class="title-link" name="website" href="#website"></a> Website</h3>
 
-<p>The <a href="https://github.com/fabaff/home-assistant-sse">home-assistant-sse</a> repository contains an more advanced example.</p>
+<p>The <a href="https://github.com/fabaff/home-assistant-sse">home-assistant-sse</a> repository contains a more advanced example.</p>
 
 <h3><a class="title-link" name="python" href="#python"></a> Python</h3>
 
-<p>If you want test the server-sent events without creating a website then the Python module <a href="https://pypi.python.org/pypi/sseclient/"><code class="highlighter-rouge">sseclient</code> </a> can help. Install it first:</p>
+<p>If you want to test the server-sent events without creating a website, the Python module <a href="https://pypi.python.org/pypi/sseclient/"><code class="highlighter-rouge">sseclient</code> </a> can help. To install (assuming Python and pip3 are already installed):</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install sseclient
 </code></pre>
 </div>
 
-<p>The simplest script to consume the SSE looks like the following snipplet.</p>
+<p>The simplest script to consume the SSE in Python looks like this:</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sseclient</span> <span class="kn">import</span> <span class="n">SSEClient</span>
 
