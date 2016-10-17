@@ -14,12 +14,14 @@ ha_release: 0.9
 
 The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. For more details, [see the blog post on InfluxDB](/blog/2015/12/07/influxdb-and-grafana/).
 
-To use the `influxdb` component in your installation, add the following to your `configuration.yaml` file:
+The default InfluxDB configuration doesn't enforce authentication. If you have installed InfluxDB on the same host where Home Assistant is running and haven't made any configuration changes, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 influxdb:
 ```
+
+You will still need to create a database named `home_assistant` via InfluxDB's web interface or command line. For instructions how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
 
 Configuration variables:
 
@@ -37,7 +39,6 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this component.
 
 ### {% linkable_title Full configuration %}
 
