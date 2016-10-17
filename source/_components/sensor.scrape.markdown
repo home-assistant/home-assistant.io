@@ -30,9 +30,6 @@ Configuration variables:
 - **resource** (*Required*): The URL to the website that contains the value.
 - **select** (*Required*): Defines the HTML tag to search for. Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details.
 - **name** (*Optional*): Name of the sensor.
-- **element** (*Optional*): Number of the element in the output.
-- **before** (*Optional*): Count of characters to remove before the value.
-- **after** (*Optional*): Count of characters to remove after the value.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
 
 ## {% linkable_title Examples %}
@@ -50,7 +47,7 @@ sensor:
     resource: https://home-assistant.io
     name: Release
     select: ".current-version h1"
-    before: 17
+    value_template: '{{ value.split(":")[1] }}'
 ```
 
 ### {% linkable_title Available implementations %}
@@ -64,8 +61,7 @@ sensor:
     resource: https://home-assistant.io/components/
     name: Home Assistant impl.
     select: 'a[href="#all"]'
-    before: 5
-    after: 8
+    value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
 
 ### {% linkable_title Get a value out of a tag %}
@@ -78,8 +74,7 @@ sensor:
   - platform: scrape
     resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
     name: Coast Ostsee
-    select: 'p'
-    element: 18
+    select: 'p:nth-of-type(19)'
     unit_of_measurement: 'UV Index'
 ```
 
@@ -94,6 +89,5 @@ sensor:
     resource: http://status.ifttt.com/
     name: IFTTT status
     select: '.component-status'
-    before: 6
 ```
 
