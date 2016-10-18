@@ -14,9 +14,9 @@ ha_iot_class: depends
 ---
 
 
-This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g. _uuid_) can be set to distinguish between multile pilight devices. The pilight HA hub has to set up.
+This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g. _uuid_) can be set to distinguish between multile pilight devices. To use a pilight sensor the pilight home assistant hub has to be set up.
 
-To use your sensor via pilight, add the following to your `configuration.yaml` file:
+To use your sensor via pilight, make sure it is [supported](https://wiki.pilight.org/doku.php/protocols)	 and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yml entry
@@ -41,27 +41,23 @@ This section shows a real life example how to use values of a weather station.
 
 ```yaml
 # Example configuration.yml entry
-sensor 1:
-  platform: pilight
-  name: 'Temperature'
-  variable: 'temperature'
-  payload:
-    uuid: 0000-b8-27-eb-f1f72e
-  unit_of_measurement: '°C'
-
-sensor 2:
-  platform: pilight
-  name: 'Humidity'
-  variable: 'humidity'
-  payload:
-    uuid: 0000-b8-27-eb-f1f72e
-  unit_of_measurement: '%'
-  
-sensor 3:
-  platform: pilight
-  name: 'Battery'
-  variable: 'battery'
-  payload:
-    uuid: 0000-b8-27-eb-f1f72e
-  unit_of_measurement: '%'
+sensor:
+  - platform: pilight
+    name: 'Temperature'
+    variable: 'temperature'
+    payload:
+      uuid: 0000-b8-27-eb-f1f72e
+    unit_of_measurement: '°C'
+  - platform: pilight
+    name: 'Humidity'
+    variable: 'humidity'
+    payload:
+      uuid: 0000-b8-27-eb-f1f72e
+    unit_of_measurement: '%'
+  - platform: pilight
+    name: 'Battery'
+    variable: 'battery'
+    payload:
+      uuid: 0000-b8-27-eb-f1f72e
+    unit_of_measurement: '%'
 ```
