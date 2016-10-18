@@ -18,14 +18,14 @@ The ZoneMinder component is the main component to integrate all the sensors and 
 # Example configuration.yaml entry
 zoneminder:
   host: ZM_HOST
-  url: ZM_PATH
+  path: ZM_PATH
   username: USERNAME
   password: PASSWORD
 ```
 
 Configuration variables:
 - **host** (*Required*): Your ZoneMinder server.
-- **url** (*Optional*): Path to your ZoneMinder install (default: /zm/)
+- **path** (*Optional*): Path to your ZoneMinder install (default: /zm/)
 - **username** (*Optional*): Your ZoneMinder username.
 - **password** (*Optional*): Your ZoneMinder password.
 
