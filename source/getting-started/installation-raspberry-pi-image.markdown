@@ -33,10 +33,14 @@ Some extra tips:
 
  - Check out the list of [Raspberry Pi hardware specific components][pi-components].
  - Z-Wave support can be installed by following the [Getting started instructions for Z-Wave](/getting-started/z-wave/).
+ - Change the hostname of your Pi
+   - run `sudo raspi-config`
+   - `9 Advanced Options` then `A2 Hostname`.
+   
 
 ### {% linkable_title Technical Details %}
 
- - Home Assistant is installed in a virtual Python environment at `src/homeassistant`
+ - Home Assistant is installed in a virtual Python environment at `/srv/homeassistant`
  - Home Assistant will be started as a service run by the user `homeassistant`
 
 {% comment %}
