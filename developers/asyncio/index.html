@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Little online helpers - Home Assistant</title>
+    <title>Asynchronous Programming - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="The little helpers for the development of Home Assistant.">
+    <meta name="description" content="Introduction to the asynchronous core of Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/helpers/">
+    <link rel="canonical" href="https://home-assistant.io/developers/asyncio/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Little online helpers">
+    <meta property="og:title" content="Asynchronous Programming">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/helpers/">
+    <meta property="og:url" content="https://home-assistant.io/developers/asyncio/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="The little helpers for the development of Home Assistant.">
+    <meta property="og:description" content="Introduction to the asynchronous core of Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Little online helpers">
-    <meta name="twitter:description" content="The little helpers for the development of Home Assistant.">
+    <meta name="twitter:title" content="Asynchronous Programming">
+    <meta name="twitter:description" content="Introduction to the asynchronous core of Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,21 +83,25 @@
   
   <header>
     <h1 class="title indent">
-      Little Online Helpers
+      Asynchronous Programming
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>There are a bunch of online services which can help you if you are developing for Home Assistant or maintaining platforms/components. Some are directly connected to Pull Requests and the repositories itself, others are only publishing details and updates in our <a href="https://gitter.im/home-assistant/home-assistant/devs">gitter.im</a> chatroom.</p>
+  <p>On September 29, 2016 we released <a href="https://home-assistant.io/blog/2016/09/29/async-sleepiq-emoncms-stocks/">Home Assistant 0.29</a> as part of our bi-weekly release schedule. This release introduced a complete overhaul of the core spearheaded by <a href="https://github.com/bbangert/">Ben Bangert</a>.</p>
 
-<ul>
-  <li><a href="https://coveralls.io/github/home-assistant/home-assistant">Coveralls</a></li>
-  <li><a href="https://travis-ci.org/home-assistant/home-assistant">Travis CI</a></li>
-  <li><a href="https://gemnasium.com/github.com/home-assistant/home-assistant">gemnasium</a></li>
-  <li><a href="https://requires.io/github/home-assistant/home-assistant/requirements/?branch=dev">Requires.io</a></li>
-  <li><a href="https://www.pivotaltracker.com/n/projects/1250084">Pivotal Tracker</a></li>
-</ul>
+<p>The old core was set up like a “traditional” threaded application. Each resource that was not thread safe (ie. the state of entities) would be protected by a lock. This caused a lot of waiting and potential inconsistency because a task could now end up waiting halfway through it’s job until some resource got freed.</p>
+
+<p>Our new core is based on an Python’s built-in asyncio module. Instead of having all threads have access to the core API objects, access is now limited to a special thread called the event loop. All components will now schedule themselves as a task to be executed by the event loop. This gives us the guarantee that only one task is executed at once, meaning we no longer need any locks.</p>
+
+<p>The only problem with running everything inside the event loop is when a task is doing blocking I/O, what most third-party Python libraries are doing. For example while requesting new information from a device, the core will stop running until we get a response from the device. To handle this, a task is able to suspend itself until the response is available after which it will be enqueued for the event loop to process the result.</p>
+
+<p>For a task to be able to suspend itself, all code that it calls has to have this capability added. This means in practice that each device integration will need a full rewrite of the library that offers the integration! As this is not something that can be achieved, ever, a 100% backwards compatible API has been added so that no platform will require updating.</p>
+
+<p>The backwards compatible API works by scheduling a task from a different thread and blocking that thread until the task has been processed by the event loop.</p>
+
+<h3><a href="/developers/asyncio_categorizing_functions/">Next step: Categorizing Functions »</a></h3>
 
 
 
@@ -112,7 +116,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/helpers.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/asyncio.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -155,7 +159,7 @@
         </ul>
       </li>
       <li>
-        <a  href='/developers/asyncio/'>Asynchronous Programming </a>
+        <a class='active' href='/developers/asyncio/'>Asynchronous Programming </a>
         <ul>
           <li><a  href='/developers/asyncio_categorizing_functions/'>Categorizing Functions </a></li>
           <li><a  href='/developers/asyncio_working_with_async/'>Working with Async </a></li>
@@ -179,7 +183,7 @@
           <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
         </ul>
       </li>
-      <li><a class='active' href='/developers/helpers/'>Online helpers </a></li>
+      <li><a  href='/developers/helpers/'>Online helpers </a></li>
       <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
       <li><a  href='/developers/website/'>Home-Assistant.io </a></li>
       <li><a  href='/developers/credits/'>Credits </a></li>

@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Little online helpers - Home Assistant</title>
+    <title>Miscellaneous Async - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="The little helpers for the development of Home Assistant.">
+    <meta name="description" content="A collection of miscellaneous topics about async that didn't fit on the other pages.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/helpers/">
+    <link rel="canonical" href="https://home-assistant.io/developers/asyncio_misc/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Little online helpers">
+    <meta property="og:title" content="Miscellaneous Async">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/helpers/">
+    <meta property="og:url" content="https://home-assistant.io/developers/asyncio_misc/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="The little helpers for the development of Home Assistant.">
+    <meta property="og:description" content="A collection of miscellaneous topics about async that didn't fit on the other pages.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Little online helpers">
-    <meta name="twitter:description" content="The little helpers for the development of Home Assistant.">
+    <meta name="twitter:title" content="Miscellaneous Async">
+    <meta name="twitter:description" content="A collection of miscellaneous topics about async that didn't fit on the other pages.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,21 +83,20 @@
   
   <header>
     <h1 class="title indent">
-      Little Online Helpers
+      Miscellaneous Async
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>There are a bunch of online services which can help you if you are developing for Home Assistant or maintaining platforms/components. Some are directly connected to Pull Requests and the repositories itself, others are only publishing details and updates in our <a href="https://gitter.im/home-assistant/home-assistant/devs">gitter.im</a> chatroom.</p>
+  <h2><a class="title-link" name="what-about-async-and-await-syntax" href="#what-about-async-and-await-syntax"></a> What about ‘async’ and ‘await’ syntax?</h2>
+<p>Python 3.5 introduced new syntax to formalize the asynchronous pattern. This is however not compatible with Python 3.4. The minimum required Python version for Home Assistant is based on the Python version shipped with Debian stable, which is currently 3.4.2.</p>
 
-<ul>
-  <li><a href="https://coveralls.io/github/home-assistant/home-assistant">Coveralls</a></li>
-  <li><a href="https://travis-ci.org/home-assistant/home-assistant">Travis CI</a></li>
-  <li><a href="https://gemnasium.com/github.com/home-assistant/home-assistant">gemnasium</a></li>
-  <li><a href="https://requires.io/github/home-assistant/home-assistant/requirements/?branch=dev">Requires.io</a></li>
-  <li><a href="https://www.pivotaltracker.com/n/projects/1250084">Pivotal Tracker</a></li>
-</ul>
+<p>For more information, Brett Cannon wrote <a href="http://www.snarky.ca/how-the-heck-does-async-await-work-in-python-3-5">an excellent breakdown</a> on ‘async’ and ‘await’ syntax and how asynchronous programming works.</p>
+
+<h2><a class="title-link" name="acknowledgements" href="#acknowledgements"></a> Acknowledgements</h2>
+
+<p>Huge thanks to <a href="https://github.com/bbangert/">Ben Bangert</a> for starting the conversion of the core to async, guiding other contributors while taking their first steps with async programming and peer reviewing this documentation.</p>
 
 
 
@@ -112,7 +111,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/helpers.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/asyncio_misc.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -159,7 +158,7 @@
         <ul>
           <li><a  href='/developers/asyncio_categorizing_functions/'>Categorizing Functions </a></li>
           <li><a  href='/developers/asyncio_working_with_async/'>Working with Async </a></li>
-          <li><a  href='/developers/asyncio_misc/'>Miscellaneous </a></li>
+          <li><a class='active' href='/developers/asyncio_misc/'>Miscellaneous </a></li>
         </ul>
       </li>
       <li>
@@ -179,7 +178,7 @@
           <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
         </ul>
       </li>
-      <li><a class='active' href='/developers/helpers/'>Online helpers </a></li>
+      <li><a  href='/developers/helpers/'>Online helpers </a></li>
       <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
       <li><a  href='/developers/website/'>Home-Assistant.io </a></li>
       <li><a  href='/developers/credits/'>Credits </a></li>
