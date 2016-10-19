@@ -333,7 +333,7 @@ Expects a JSON object that has at least a state attribute:
 }
 ```
 
-Return code is 200 if the entity existed, 201 if the state of a new entity was set. A location header will be returned with the url of the new resource. The response body will contain a JSON encoded State object.
+The return code is 200 if the entity existed, 201 if the state of a new entity was set. A location header will be returned with the URL of the new resource. The response body will contain a JSON encoded State object.
 
 ```json
 {
@@ -476,7 +476,7 @@ Requires a JSON object that represents the API to cancel forwarding to.
 }
 ```
 
-It will return a message if event forwarding was cancelled successful.
+It will return a message if event forwarding was cancelled successfully.
 
 ```json
 {
