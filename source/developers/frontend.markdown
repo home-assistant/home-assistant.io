@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant uses [Polymer](https://www.polymer-project.org/) for the UI and [NuclearJS](http://optimizely.github.io/nuclear-js/) for maintaing the app state.
+Home Assistant uses [Polymer](https://www.polymer-project.org/) for the UI and [NuclearJS](http://optimizely.github.io/nuclear-js/) for maintaining the app state.
 
  * Polymer allows building encapsulated custom HTML elements.
    [Home-Assistant-Polymer source code on GitHub.](https://github.com/home-assistant/home-assistant-polymer)
@@ -29,7 +29,7 @@ http:
   development: 1
 ```
 
-As everything is compiled into the file `frontend.html` you do not want to work with the compiled version but with the seperate files during development.
+As everything is compiled into the file `frontend.html` you do not want to work with the compiled version but with the separate files during development.
 
 Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running:
 
