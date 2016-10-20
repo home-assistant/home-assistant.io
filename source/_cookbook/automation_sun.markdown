@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Turn on the living room lights 45 minutes before sunset if anyone home  %}
+#### {% linkable_title Turn on the living room lights 45 minutes before sunset if anyone is at home  %}
 
 ```yaml
 automation:
