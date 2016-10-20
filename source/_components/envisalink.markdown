@@ -70,6 +70,7 @@ Configuration variables:
 - **partitions** (*Optional*): Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor components are loaded.
 
 Supported services:
+
 The following services are supported by Envisalink and can be used to script or automate the alarm.
 
 - **alarm_disarm**: Disarms the alarm with the user code provided, or the code specified in the configuration.
