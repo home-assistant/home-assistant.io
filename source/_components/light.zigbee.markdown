@@ -26,7 +26,7 @@ light:
 
 Configuration variables:
 
-- **name** (*Required*): The name you' would like to give the light in Home Assistant.
+- **name** (*Required*): The name you would like to give the light in Home Assistant.
 - **pin** (*Required*): The number identifying which pin to use.
 - **address** (*Optional*): The long 64 bit address of the remote ZigBee device whose digital output pin you wouldd like to switch. Do not include this variable if you want to switch the local ZigBee device's pins.
 - **on_state** (*Optional*): Either `high` (default) or `low`, depicting whether the digital output pin is pulled `high` or `low` when the light is turned on.
