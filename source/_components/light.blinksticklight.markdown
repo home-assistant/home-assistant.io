@@ -13,7 +13,7 @@ ha_release: 0.7.5
 ---
 
 
-The `blinkstick` platform let you can control your [Blinkstick](https://www.blinkstick.com/) lights from within Home Assistant.
+The `blinkstick` platform lets you control your [Blinkstick](https://www.blinkstick.com/) lights from within Home Assistant.
 
 To add blinkstick to your installation, add the following to your `configuration.yaml` file:
 
