@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Emoncms Sensor - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions on how to integrate emoncms feeds as sensors into Home Assistant.">
+    <meta name="description" content="Instructions on how to integrate Emoncms feeds as sensors into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/sensor.emoncms/">
@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/sensor.emoncms/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions on how to integrate emoncms feeds as sensors into Home Assistant.">
+    <meta property="og:description" content="Instructions on how to integrate Emoncms feeds as sensors into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="Emoncms Sensor">
-    <meta name="twitter:description" content="Instructions on how to integrate emoncms feeds as sensors into Home Assistant.">
+    <meta name="twitter:description" content="Instructions on how to integrate Emoncms feeds as sensors into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -89,14 +89,14 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">emoncms</code> sensor platform creates sensors for the feeds available in your local or cloud based version of <a href="https://emoncms.org">emoncms</a>.</p>
+  <p>The <code class="highlighter-rouge">emoncms</code> sensor platform creates sensors for the feeds available in your local or cloud based version of <a href="https://emoncms.org">Emoncms</a>.</p>
 
 <p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>, it will list all feeds as a sensor:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry using cloud based emoncms</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry using cloud based Emoncms</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
-  <span class="s">api_key</span><span class="pi">:</span> <span class="s">put your emoncms read api key here</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
   <span class="s">url</span><span class="pi">:</span> <span class="s">https://emoncms.org</span>
   <span class="s">id</span><span class="pi">:</span> <span class="s">1</span>
 </code></pre>
@@ -105,12 +105,12 @@
 <h2><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration variables</h2>
 
 <ul>
-  <li><strong>api_key</strong> (<em>Required</em>): The read api key for your emoncms user.</li>
-  <li><strong>url</strong> (<em>Required</em>): The base url of emoncms, use “https://emoncms.org” for the cloud based version.</li>
-  <li><strong>id</strong> (<em>Required</em>): Positive Integer identifier for the sensor. Must be unique if you specify multiple emoncms sensors.</li>
-  <li><strong>include_only_feed_id</strong> (<em>optional</em>): Positive integer list of emoncms feed id’s. Only the feeds with feed id’s specified here will be displayed. Can not be specified if <code class="highlighter-rouge">exclude_feed_id</code> is specified.</li>
-  <li><strong>exclude_feed_id</strong> (<em>optional</em>): Positive integer list of emoncms feed id’s. All the feeds will be displayed as sensors except the ones listed here. Can not be specified if <code class="highlighter-rouge">include_only_feed_id</code> is specified.</li>
-  <li><strong>sensor_names</strong> (<em>optional</em>): Dictionary of names for the sensors created that are created based on feedid. The dictionary consists of feedid:name pairs. Sensors for feeds with their feedid mentioned here will get the chosen name instead of the default name</li>
+  <li><strong>api_key</strong> (<em>Required</em>): The read API key for your Emoncms user.</li>
+  <li><strong>url</strong> (<em>Required</em>): The base URL of Emoncms, use “https://emoncms.org” for the cloud based version.</li>
+  <li><strong>id</strong> (<em>Required</em>): Positive integer identifier for the sensor. Must be unique if you specify multiple Emoncms sensors.</li>
+  <li><strong>include_only_feed_id</strong> (<em>Optional</em>): Positive integer list of Emoncms feed IDs. Only the feeds with feed IDs specified here will be displayed. Can not be specified if <code class="highlighter-rouge">exclude_feed_id</code> is specified.</li>
+  <li><strong>exclude_feed_id</strong> (<em>Optional</em>): Positive integer list of Emoncms feed IDs. All the feeds will be displayed as sensors except the ones listed here. Can not be specified if <code class="highlighter-rouge">include_only_feed_id</code> is specified.</li>
+  <li><strong>sensor_names</strong> (<em>Optional</em>): Dictionary of names for the sensors created that are created based on feed ID. The dictionary consists of <code class="highlighter-rouge">feedid: name</code> pairs. Sensors for feeds with their feed ID mentioned here will get the chosen name instead of the default name</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to alter the feed value.</li>
   <li><strong>scan_interval</strong> (<em>Optional</em>): Defines the update interval of the sensor in seconds.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of for all the sensors. default is “W”.</li>
@@ -118,71 +118,68 @@
 
 <h2><a class="title-link" name="default-naming-scheme" href="#default-naming-scheme"></a> Default naming scheme</h2>
 
-<p>The names of the sensors created by this component, will be a combination of static text, <code class="highlighter-rouge">id</code> from the config and <code class="highlighter-rouge">feedid</code> from the emoncms feed, unless <code class="highlighter-rouge">sensor_names</code> is used.
-An example name would be “emoncms1_feedid_10”</p>
+<p>The names of the sensors created by this component, will be a combination of static text, <code class="highlighter-rouge">id</code> from the config and <code class="highlighter-rouge">feedid</code> from the Emoncms feed, unless <code class="highlighter-rouge">sensor_names</code> is used. An example name would be <code class="highlighter-rouge">emoncms1_feedid_10</code>.</p>
 
-<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<h3><a class="title-link" name="examples" href="#examples"></a> Examples</h3>
 
 <p>In this section you find some more examples of how this sensor can be used.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Display only feeds with their feed id's specified in "include_only_feed_id"</span>
+<p>Display only feeds with their feed IDs specified in <code class="highlighter-rouge">include_only_feed_id</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
-    <span class="s">api_key</span><span class="pi">:</span> <span class="s">put your emoncms read api key here</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
     <span class="s">url</span><span class="pi">:</span> <span class="s">https://emoncms.org</span>
     <span class="s">id</span><span class="pi">:</span> <span class="s">1</span>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">W"</span>
     <span class="s">include_only_feed_id</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">107</span>
-      <span class="pi">-</span> <span class="s">106</span>
       <span class="pi">-</span> <span class="s">105</span>
 </code></pre>
 </div>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Display all feeds except feeds with their feed id specified in "exclude_feed_id" </span>
+<p>Display all feeds except feeds with their feed id specified in <code class="highlighter-rouge">exclude_feed_id</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
-    <span class="s">api_key</span><span class="pi">:</span> <span class="s">put your emoncms read api key here</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
     <span class="s">url</span><span class="pi">:</span> <span class="s">https://emoncms.org</span>
     <span class="s">id</span><span class="pi">:</span> <span class="s">1</span>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">KWH"</span> 
     <span class="s">exclude_feed_id</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">107</span>
-      <span class="pi">-</span> <span class="s">106</span>
       <span class="pi">-</span> <span class="s">105</span>
 </code></pre>
 </div>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Display only feeds with their feed id's specified in "include_only_feed_id" and give the feed sensors a name using "sensor_names". You don't have to specify all feeds names in "sensor_names", the remaining sensor names will be chosen based on "id" and the emoncms feedid</span>
+<p>Display only feeds with their feed id’s specified in <code class="highlighter-rouge">include_only_feed_id</code> and give the feed sensors a name using “sensor_names”. You don’t have to specify all feeds names in “sensor_names”, the remaining sensor names will be chosen based on “id” and the Emoncms <code class="highlighter-rouge">feedid</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
-    <span class="s">api_key</span><span class="pi">:</span> <span class="s">put your emoncms read api key here</span>
-    <span class="s">url</span><span class="pi">:</span> <span class="s">https://emoncms.org</span>   
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s">https://emoncms.org</span>
     <span class="s">id</span><span class="pi">:</span> <span class="s">1</span>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">KW"</span> 
     <span class="s">include_only_feed_id</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">5</span>
-      <span class="pi">-</span> <span class="s">18</span>
-      <span class="pi">-</span> <span class="s">29</span>
-      <span class="pi">-</span> <span class="s">48</span>
-      <span class="pi">-</span> <span class="s">61</span>
-      <span class="pi">-</span> <span class="s">110</span>
-      <span class="pi">-</span> <span class="s">116</span>
       <span class="pi">-</span> <span class="s">120</span>
     <span class="s">sensor_names</span><span class="pi">:</span>
       <span class="s">5</span><span class="pi">:</span> <span class="s2">"</span><span class="s">feed</span><span class="nv"> </span><span class="s">1"</span>
-      <span class="s">18</span><span class="pi">:</span> <span class="s2">"</span><span class="s">feed</span><span class="nv"> </span><span class="s">2"</span>
-      <span class="s">29</span><span class="pi">:</span> <span class="s2">"</span><span class="s">feed</span><span class="nv"> </span><span class="s">3"</span>
       <span class="s">48</span><span class="pi">:</span> <span class="s2">"</span><span class="s">kwh</span><span class="nv"> </span><span class="s">feed"</span>
       <span class="s">61</span><span class="pi">:</span> <span class="s2">"</span><span class="s">amp</span><span class="nv"> </span><span class="s">feed"</span>
       <span class="s">110</span><span class="pi">:</span> <span class="s2">"</span><span class="s">watt</span><span class="nv"> </span><span class="s">feed"</span>
 </code></pre>
 </div>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Use a "value_template" to add 1500 to the feed value for all specified feed id's in "include_feed_id"</span>
+<p>Use a <code class="highlighter-rouge">value_template</code> to add 1500 to the feed value for all specified feed IDs in <code class="highlighter-rouge">include_feed_id</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
-    <span class="s">api_key</span><span class="pi">:</span> <span class="s">put your emoncms read api key here</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
     <span class="s">url</span><span class="pi">:</span> <span class="s">https://emoncms.org</span>
     <span class="s">scan_interval</span><span class="pi">:</span> <span class="s">15</span>
     <span class="s">id</span><span class="pi">:</span> <span class="s">1</span>
@@ -190,15 +187,15 @@ An example name would be “emoncms1_feedid_10”</p>
     <span class="s">include_only_feed_id</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">107</span>
       <span class="pi">-</span> <span class="s">106</span>
-      <span class="pi">-</span> <span class="s">105</span>
-      <span class="pi">-</span> <span class="s">61</span>
 </code></pre>
 </div>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Display feeds from the same emoncms instance with 2 groups of feeds, diffrent scan_interval and a diffrent unit_of_measurement</span>
+<p>Display feeds from the same Emoncms instance with 2 groups of feeds, diffrent <code class="highlighter-rouge">scan_interval</code> and a diffrent <code class="highlighter-rouge">unit_of_measurement</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
-    <span class="s">api_key</span><span class="pi">:</span> <span class="s">put your emoncms read api key here</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
     <span class="s">url</span><span class="pi">:</span> <span class="s">https://emoncms.org</span>
     <span class="s">scan_interval</span><span class="pi">:</span> <span class="s">30</span>
     <span class="s">id</span><span class="pi">:</span> <span class="s">1</span>
@@ -206,7 +203,6 @@ An example name would be “emoncms1_feedid_10”</p>
     <span class="s">include_only_feed_id</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">107</span>
       <span class="pi">-</span> <span class="s">106</span>
-      <span class="pi">-</span> <span class="s">105</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
     <span class="s">api_key</span><span class="pi">:</span>  <span class="s">put your emoncms read api key here</span>
     <span class="s">url</span><span class="pi">:</span> <span class="s">https://emoncms.org</span>
@@ -215,8 +211,6 @@ An example name would be “emoncms1_feedid_10”</p>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">A"</span> 
     <span class="s">include_only_feed_id</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">108</span>
-      <span class="pi">-</span> <span class="s">109</span>
-      <span class="pi">-</span> <span class="s">110</span>
       <span class="pi">-</span> <span class="s">61</span>
 </code></pre>
 </div>
