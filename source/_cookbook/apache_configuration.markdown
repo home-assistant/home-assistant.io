@@ -10,7 +10,7 @@ footer: true
 ha_category: Infrastructure
 ---
 
-This is an example about how you can configure Apache to act as a proxy for home assistant.
+This example demonstrates how you can configure Apache to act as a proxy for home assistant.
 
 This is useful if you want to have:
 
