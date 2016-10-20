@@ -11,12 +11,11 @@ logo: home-assistant.png
 ha_category: Other
 ---
 
-The `updater` component will check for new releases at startup and everyday at noon and midnight. It will show a badge in the frontend if a new version has been detected.
+The `updater` component will check daily for new releases. It will show a badge in the frontend if a new version was found.
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
 updater:
 ```
 
@@ -34,3 +33,7 @@ automation:
     data:
       message: 'Update for Home Assistant is available.'
 ```
+
+The updater component will collect basic information about Home Assistant and it's environment. The information includes the current Home Assistant version, the timezone, Python version and operating system infomation. No identifyable information (i.e. IP, GPS coordinates) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91).
+
+If you choose not to share any information when checking for updates, you can add `opt_out: True` to the updater section of your configuration.
