@@ -56,13 +56,13 @@ The [home-assistant-sse](https://github.com/fabaff/home-assistant-sse) repositor
 
 ### {% linkable_title Python %}
 
-If you want test the server-sent events without creating a website then the Python module [`sseclient` ](https://pypi.python.org/pypi/sseclient/) can help. Install it first:
+If you want to test the server-sent events without creating a website then the Python module [`sseclient` ](https://pypi.python.org/pypi/sseclient/) can help. Install it first:
 
 ```bash
 $ pip3 install sseclient
 ```
 
-The simplest script to consume the SSE looks like the following snipplet.
+The simplest script to consume the SSE looks like the following snippet.
 
 ```python
 from sseclient import SSEClient

@@ -13,7 +13,7 @@ In the package [`homeassistant.remote`](https://github.com/home-assistant/home-a
 
 This page is not a full documentation it's more a collection of some example. A simple way to get all current entities is to visit the "Set State" page in the "Developer Tools". For the examples below just choose one from the available entries. Here the sensor `sensor.office_temperature` and the switch `switch.livingroom_pin_2` are used. 
 
-First import the module and setup the basics.
+First, import the module and setup the basics.
 
 ```python
 import homeassistant.remote as remote
@@ -22,7 +22,7 @@ api = remote.API('127.0.0.1', 'password')
 print(remote.validate_api(api))
 ```
 
-This snippets shows how to use the `homeassistant.remote` package in another way.
+This snippet shows how to use the `homeassistant.remote` package in another way.
 
 ```python
 import homeassistant.remote as remote
@@ -35,7 +35,7 @@ living_room = hass.states.get('group.living_room')
 
 ### {% linkable_title Get configuration %}
 
-Get the current configuration of a Home Asssitant instance.
+Get the current configuration of a Home Assistant instance.
 
 ```python
 import homeassistant.remote as remote
@@ -120,7 +120,7 @@ remote.set_state(api, 'switch.livingroom_pin_2', new_state=STATE_ON)
 
 The state will be set to those value until the next update occurs.
 
-### {% linkable_title Blinking all entites of a domain %}
+### {% linkable_title Blinking all entities of a domain %}
 
 If you want to turn on all entities of a domain, just use a service which was retrieved by `get_services`.
 
@@ -139,7 +139,7 @@ remote.call_service(api, domain, 'turn_off')
 
 ### {% linkable_title Control a single entity %}
 
-To turn on or off a single switch. The ID of the entity is needed as attribute.
+To turn on or off a single switch. The ID of the entity is needed as an attribute.
 
 ```python
 import time
