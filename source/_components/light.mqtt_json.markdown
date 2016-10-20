@@ -14,7 +14,7 @@ ha_release: 0.26
 ---
 
 
-The `mqtt_json` light platform let you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
+The `mqtt_json` light platform lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
 This platform supports on/off, brightness, RGB colors, transitions, and short/long flashing. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed:
 
@@ -32,9 +32,9 @@ This platform supports on/off, brightness, RGB colors, transitions, and short/lo
 ```
 
 
-In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the light will be off.
+In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the light will be off.
 
-When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from device (message from `state_topic`).
+When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`).
 
 Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.
 
