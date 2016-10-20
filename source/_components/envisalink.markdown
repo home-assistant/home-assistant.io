@@ -70,10 +70,11 @@ Configuration variables:
 - **partitions** (*Optional*): Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor components are loaded.
 
 Supported services:
+The following services are supported by Envisalink and can be used to script or automate the alarm.
 
-- **alarm_disarm**
-- **alarm_arm_home**
-- **alarm_arm_away**
+- **alarm_disarm**: Disarms the alarm with the user code provided, or the code specified in the configuration.
+- **alarm_arm_home**: Arms the alarm in home mode.
+- **alarm_arm_away**: Arms the alarm in standard away mode.
 - **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
-- **alarm_keypress**: Sends a string of up to 6 characters to the alarm.
-- **alarm_output_control**: Activates the specified programmable output on the alarm to control a connected device.
+- **alarm_keypress**: Sends a string of up to 6 characters to the alarm. *DSC alarms only*
+- **alarm_output_control**: Activates the specified programmable output on the alarm to control a connected device. *DSC alarms only*
