@@ -44,7 +44,7 @@ Some extra tips:
 #### {% linkable_title Login to HASSbian on the Raspberry Pi %}
 To login to your Raspberry Pi running HASSbian your going to be using a ssh client. Depending on your platform there are several alternatives for doing this. Linux and Max OS generally have a ssh client installed. Windows users are recommended to download and install the ssh client [Putty][ssh-putty].
 
-Connect to the Raspberry Pi over ssh. Default user name is `pi` and password is `raspberry`.
+Connect to the Raspberry Pi over ssh. Default user name is `pi` and password is `raspberry`.  
 Linux and Mac OS users execute the following command in a terminal.
 ```bash
 $ ssh pi@ip-address-of-pi
@@ -57,6 +57,7 @@ Log in as the `pi` account account and execute the following commands:
 sudo systemctl stop home-assistant@homeassistant.service 
 ```
 Replace `stop` with `start` or `restart` to get the desired functionality.
+To get the current state of the `homeassistant.service` replace `stop` with `status`. 
 
 #### {% linkable_title Update Home Assistant on HASSbian %}
 Log in as the `pi` account and execute the following commands:
@@ -105,6 +106,12 @@ This will in order do the following:
 - Open a shell as the `homeassistant` user.
 - Change directory to the Home Assistant configuration directory.
 - Open the log file in the nano editor.
+
+Optionaly, you can also view the log with `journalctl`.  
+Log in as the `pi` account and execute the following commands:
+```bash
+sudo journalctl -fu home-assistant@homeassistant.service
+```
 
 #### {% linkable_title Edit the Home Assistant configuration on HASSbian %}
 Log in as the `pi` account and execute the following commands:
