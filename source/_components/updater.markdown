@@ -34,6 +34,6 @@ automation:
       message: 'Update for Home Assistant is available.'
 ```
 
-The updater component will collect basic information about Home Assistant and it's environment. The information includes the current Home Assistant version, the timezone, Python version and operating system infomation. No identifyable information (i.e. IP, GPS coordinates) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91).
+The updater component will collect basic information about Home Assistant and it's environment. The information includes the current Home Assistant version, the timezone, Python version and operating system infomation. No identifiable information (i.e. IP, GPS coordinates) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91).
 
-If you choose not to share any information when checking for updates, you can add `opt_out: True` to the updater section of your configuration.
+If you choose not to share any information when checking for updates, you can add `reporting: False` to the updater section of your configuration.
