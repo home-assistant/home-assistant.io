@@ -54,6 +54,6 @@ media_player:
       - "AUX"
       - "HDMI6"
     source_names:
-      - HDMI1: "ChromeCast"
-      - AV4: "Vinyl"
+      HDMI1: "ChromeCast"
+      AV4: "Vinyl"
 ```
