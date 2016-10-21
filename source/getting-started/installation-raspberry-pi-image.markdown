@@ -38,6 +38,18 @@ Some extra tips:
 
  - Home Assistant is installed in a virtual Python environment at `src/homeassistant`
  - Home Assistant will be started as a service run by the user `homeassistant`
+ 
+### {% linkable_title Upgrading %}
+
+To upgrade Hassbian:
+
+*  Login to your Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+*  Stop Home Assistant using `sudo systemctl stop home-assistant.service`
+*  Change to homeassistant account `sudo su -s /bin/bash homeassistant`
+*  Change to virtual enviroment `source /srv/homeassistant/bin/activate`
+*  Update Home Assistant `pip3 install --upgrade homeassistant`
+*  Type `exit` to logout the `homeassistant` user and return to the `pi` user.
+*  Start Home Assistant using `sudo systemctl start home-assistant.service`
 
 {% comment %}
 
