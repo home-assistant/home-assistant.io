@@ -13,11 +13,17 @@ ha_category: Other
 
 The `updater` component will check daily for new releases. It will show a badge in the frontend if a new version was found.
 
+The updater component will also collect basic information about Home Assistant and its environment. The information includes the current Home Assistant version, the timezone, Python version and operating system infomation. No identifiable information (i.e. IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91).
+
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 updater:
 ```
+
+If you choose not to share any information when checking for updates, you can add `reporting: False`.
+
+### {% linkable_title Notification %}
 
 For an added bonus, an automation component can be created to send a message with a notifier when that state of this component's entity changes.
 
@@ -34,6 +40,3 @@ automation:
       message: 'Update for Home Assistant is available.'
 ```
 
-The updater component will collect basic information about Home Assistant and it's environment. The information includes the current Home Assistant version, the timezone, Python version and operating system infomation. No identifiable information (i.e. IP, GPS coordinates) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91).
-
-If you choose not to share any information when checking for updates, you can add `reporting: False` to the updater section of your configuration.
