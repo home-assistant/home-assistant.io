@@ -40,7 +40,7 @@ device_tracker:
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
-If you want to use encryption, you must enable SNMP version 3 by adding authkey and privkey variables and enabling SNMP version 3 on your router. Currently only SHA1 is supported for authentication and AES for encryption. Example of SNMPv3 configuration:
+If you want to use encryption, you must enable SNMP version 3 by adding `authkey` and `privkey` variables and enabling SNMP version 3 on your router. Currently only SHA1 is supported for authentication and AES for encryption. Example of SNMPv3 configuration:
 
 ```yaml
 # Example configuration.yaml entry for SNMP version 3
