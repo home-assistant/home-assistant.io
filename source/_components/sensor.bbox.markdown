@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Bbox"
-description: "How to integrate Bbox Bandwidth measure within Home Assistant."
+title: "Bbox Sensor"
+description: "How to integrate Bbox Bandwidth measuring within Home Assistant."
 date: 2016-10-22 01:00
 sidebar: true
 comments: false
@@ -12,12 +12,10 @@ ha_category: Sensor
 ha_release: 0.31
 ---
 
-The `bbox` platform uses the [Bbox Modem Router](https://fr.wikipedia.org/wiki/Bbox/) from the French Internet provider Bouygues Telecom.
-Sensors are mainly bandwidth measures (Details below)
+The `bbox` platform uses the [Bbox Modem Router](https://fr.wikipedia.org/wiki/Bbox/) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
 
 <p class='note warning'>
-Due to third party limitation, the sensors will only be available if the HomeAssistant and the Bbox are on the same local area network.
-You can check this by going on the 192.168.1.254 address with your internet browser
+Due to third party limitation, the sensors will only be available if Home Assistant and the Bbox are on the same local area network. You can check this by going to 192.168.1.254 with your web browser.
 </p>
 
 To add Bbox sensors to your installation, add the following to your `configuration.yaml` file:
@@ -25,20 +23,19 @@ To add Bbox sensors to your installation, add the following to your `configurati
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: bbox
-  monitored_variables:
-    - down_max_bandwidth
-    - up_max_bandwidth
-    - current_down_bandwidth
-    - current_up_bandwidth
+  - platform: bbox
+    monitored_variables:
+      - down_max_bandwidth
+      - up_max_bandwidth
+      - current_down_bandwidth
+      - current_up_bandwidth
 ```
 
 Configuration variables:
 
 - **monitored_variables** array (*Required*): Sensors to display in the frontend.
-  - **down_max_bandwidth**: Maximum bandwidth you can use for downloading.
-  - **up_max_bandwidth**: Maximum bandwidth you can use for uploadinf.
+  - **down_max_bandwidth**: Maximum bandwidth available for download.
+  - **up_max_bandwidth**: Maximum bandwidth available for upload.
   - **current_down_bandwidth**: Instant measure of the current used bandwidth for download.
   - **current_up_bandwidth**: Instant measure of the current used bandwidthfor upload.
-
 
