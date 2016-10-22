@@ -3,7 +3,7 @@ layout: page
 title: "Entity component platform options"
 description: "Shows how to customize polling interval for any component via configuration.yaml."
 date: 2016-02-12 23:17 -0800
-sidebar: true
+sidebar: false
 comments: false
 sharing: true
 footer: true

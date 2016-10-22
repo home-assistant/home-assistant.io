@@ -58,10 +58,6 @@ zwave:
   config_path: /usr/local/share/python-openzwave/config
   polling_interval: 10000
 
-#zigbee:
-#  device: /dev/ttyUSB1
-#  baud: 115200
-
 mqtt:
   broker: 127.0.0.1
 ```
@@ -115,10 +111,7 @@ This (large) sensor configuration gives us another example:
 
 ```yaml
 ### sensors.yaml
-##############################################################
-### METEOBRIDGE                                           ####
-##############################################################
-
+### METEOBRIDGE #############################################
 - platform: tcp
   name: 'Outdoor Temp (Meteobridge)'
   host: 192.168.2.82
@@ -134,27 +127,14 @@ This (large) sensor configuration gives us another example:
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
   value_template: "{% raw %}{{value.split (' ')[3]}}{% endraw %}"
   unit: Percent
-- platform: tcp
-  name: 'Outdoor Dewpoint (Meteobridge)'
-  host: 192.168.2.82
-  port: 5556
-  timeout: 6
-  payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[4] }}{% endraw %}"
-  unit: C
-###################################
-#### STEAM FRIENDS            ####
-##################################
 
+#### STEAM FRIENDS ##################################
 - platform: steam_online
   api_key: [not telling]
   accounts:
       - 76561198012067051
 
-##################################
-####     TIME/DATE            ####
-##################################
-
+#### TIME/DATE ##################################
 - platform: time_date
   display_options:
       - 'time'
@@ -162,12 +142,6 @@ This (large) sensor configuration gives us another example:
 - platform: worldclock
   time_zone: Etc/UTC
   name: 'UTC'
-- platform: worldclock
-  time_zone: America/New_York
-  name: 'Ann Arbor'
-- platform: worldclock
-  time_zone: Europe/Vienna
-  name: 'Innsbruck'
 - platform: worldclock
   time_zone: America/New_York
   name: 'Ann Arbor'

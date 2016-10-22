@@ -11,9 +11,11 @@ footer: true
 
 In the package [`homeassistant.remote`](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found.
 
-This page is not a full documentation it's more a collection of some example. A simple way to get all current entities is to visit the "Set State" page in the "Developer Tools". For the examples below just choose one from the available entries. Here the sensor `sensor.office_temperature` and the switch `switch.livingroom_pin_2` are used. 
+Note: This page is not full documentation for this API, but a collection of examples showing its use.
 
-First, import the module and setup the basics.
+A simple way to get all current entities is to visit the "Set State" page in the "Developer Tools". For the examples below just choose one from the available entries. Here the sensor `sensor.office_temperature` and the switch `switch.livingroom_pin_2` are used.
+
+First import the module and setup the basics:
 
 ```python
 import homeassistant.remote as remote
@@ -22,7 +24,7 @@ api = remote.API('127.0.0.1', 'password')
 print(remote.validate_api(api))
 ```
 
-This snippet shows how to use the `homeassistant.remote` package in another way.
+Here's another way to use the `homeassistant.remote` package:
 
 ```python
 import homeassistant.remote as remote
@@ -35,7 +37,7 @@ living_room = hass.states.get('group.living_room')
 
 ### {% linkable_title Get configuration %}
 
-Get the current configuration of a Home Assistant instance.
+Get the current configuration of a Home Assistant instance:
 
 ```python
 import homeassistant.remote as remote
@@ -47,7 +49,7 @@ print(remote.get_config(api))
 
 ### {% linkable_title Get details about services, events, and entitites %}
 
-Similar to the output in the "Developer Tools" of the frontend.
+The output from this is similar to the output you'd find via the frontend, using the DevTools console.
 
 ```python
 import homeassistant.remote as remote
@@ -72,7 +74,7 @@ for entity in entities:
 
 ### {% linkable_title Get the state of an entity %}
 
-To get the details of a single entity the `get_state` method is used. 
+To get the details of a single entity, use `get_state`: 
 
 ```python
 import homeassistant.remote as remote
@@ -86,13 +88,13 @@ print('{} is {} {}.'.format(office_temperature.attributes['friendly_name'],
       )
 ```
 
-The output is composed out of the details which are stored for this entity.
+This outputs the details which are stored for this entity, ie:
 
 ```bash
 Office Temperature is 19 °C.
 ```
 
-The exact same thing is working for a switch. The difference is that both entities have different attributes.
+Switches work the same way. The only difference is that both entities have different attributes.
 
 ```python
 import homeassistant.remote as remote
@@ -107,7 +109,7 @@ print('{} is {}.'.format(switch_livingroom.attributes['friendly_name'],
 
 ### {% linkable_title Set the state of an entity %}
 
-Of course, it's possible to set the state.
+Of course, it's possible to set the state as well:
 
 ```python
 import homeassistant.remote as remote
@@ -118,11 +120,11 @@ remote.set_state(api, 'sensor.office_temperature', new_state=123)
 remote.set_state(api, 'switch.livingroom_pin_2', new_state=STATE_ON)
 ```
 
-The state will be set to those value until the next update occurs.
+The state will be set to the new values until the next update occurs.
 
 ### {% linkable_title Blinking all entities of a domain %}
 
-If you want to turn on all entities of a domain, just use a service which was retrieved by `get_services`.
+If you want to turn on all entities of a domain, retrieve the service via `get_services` and act on that:
 
 
 ```python
@@ -139,7 +141,7 @@ remote.call_service(api, domain, 'turn_off')
 
 ### {% linkable_title Control a single entity %}
 
-To turn on or off a single switch. The ID of the entity is needed as an attribute.
+To turn on or off a single switch, pass the ID of the entity:
 
 ```python
 import time
@@ -156,9 +158,9 @@ remote.call_service(api, domain, 'turn_off', {'entity_id': '{}'.format(switch_na
 
 ### {% linkable_title Specify a timeout %}
 
-The default timeout for an API call with `call_service` is 5 seconds. Service
+The default timeout for an API call with `call_service` is 5 seconds. Services
 taking longer than this to return will raise
-`homeassistant.exceptions.HomeAssistantError: Timeout` unless provided with a
+`homeassistant.exceptions.HomeAssistantError: Timeout`, unless provided with a
 longer timeout.
 
 ```python
@@ -180,7 +182,7 @@ remote.call_service(api, domain, 'turn_on', {'entity_id': switch_name},
 
 ### {% linkable_title Send a notification %}
 
-The example uses the jabber notification platform to send a single message to the given recipient in the `configuration.yaml` file. 
+The example uses the Jabber notification platform to send a single message to the given recipient in the `configuration.yaml` file: 
 
 ```python
 import homeassistant.remote as remote
@@ -192,4 +194,4 @@ data = {"title":"Test", "message":"A simple test message from HA."}
 remote.call_service(api, domain, 'jabber', data)
 ```
 
-For more details please check the source of [homeassistant.remote](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py).
+For more details, please check the source of [homeassistant.remote](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py).

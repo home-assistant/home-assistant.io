@@ -3,7 +3,7 @@ layout: page
 title: "Talking points"
 description: "Talking points for your Home Assistant talk or presentation."
 date: 2016-10-06 06:00
-sidebar: true
+sidebar: false
 comments: false
 sharing: true
 footer: true

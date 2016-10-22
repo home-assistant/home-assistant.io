@@ -82,5 +82,5 @@ SENSOR_TYPES = {
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     ...
     vol.Optional(CONF_MONITORED_VARIABLES, default=[]):
-        vol.All(ensure_list, [vol.In(SENSOR_TYPES)]),
+        vol.All(cv.ensure_list, [vol.In(SENSOR_TYPES)]),
 ```

@@ -23,7 +23,7 @@ Example of bulbs:
 - [Flux WiFi Smart LED Light Bulb4](http://smile.amazon.com/Flux-WiFi-Smart-Light-Bulb/dp/B01A6GHHTE)
 - [WIFI smart LED light Bulb1](http://smile.amazon.com/gp/product/B01CS1EZYK)
 
-The chances are high that you bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.
+The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
 

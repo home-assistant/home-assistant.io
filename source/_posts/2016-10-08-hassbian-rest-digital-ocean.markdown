@@ -97,6 +97,22 @@ sensor
 - Device Tracker: The `known_device.yaml` file is now validated ([@kellerza]) 
 - Minor features and bug fixes by [@tchellomello], [@pavoni], [@fabaff], [@pvizeli], [@lwis], [@turbokongen], [@Danielhiversen], [@persandstrom], [@balloob], [@robbiet480], [@sam-io], [@bbangert], and you if you are missing here.
 
+### {% linkable_title Release 0.30.1 - October 8 %}
+
+ - Device Tracker `known_devices.yaml` validation is now more accepting ([@kellerza])
+ - Handle X10 light numbers greater than 9 ([@mtl010957])
+ - Fix command line covers without a template ([@roidayan])
+
+### {% linkable_title Release 0.30.2 - October 12 %}
+
+- Handle Volvo's with dashes in their name ([@molobrakos])
+- Fix some html5 push notification configuration options were discarded after first use ([@T3m3z])
+- Fix Homematic device name with autodiscovery ([@pvizeli])
+- Make 'pin' optional for zigbee device config ([@flyte])
+- Fix when sending a notification to a service with target attached (i.e. `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
+- Fix for Slack targets ([@fabaff])
+- Fix for Pushover targets ([@Nixon506E])
+
 ### {% linkable_title Breaking changes %}
 
 - All deprecated condition options from `automation` have been removed (deprecated since May and have printed warnings to your console):
@@ -136,6 +152,11 @@ sensor
 [@tchellomello]: https://github.com/tchellomello
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
+[@mtl010957]: https://github.com/mtl010957
+[@roidayan]: https://github.com/roidayan
+[@T3m3z]: https://github.com/T3m3z
+[@flyte]: https://github.com/flyte
+[@Nixon506E]: https://github.com/Nixon506E
 
 [arest]: https://arest.io/
 [arest-sensor]: /components/sensor.arest/

@@ -10,7 +10,7 @@ footer: true
 ---
 
 <p class='note warning'>
-**This component has been deprecated in favor of the "[climate](/components/climate/)" component and will be removed in the future. Please use cover.**
+**This component has been deprecated in favor of the "[climate](/components/climate/)" component and will be removed in the future. Please use climate.**
 </p>
 
 Thermostats offer Home Assistant a peek into the current and target temperature in a house. Some thermostats will also offer an away mode that will lower use of heating/cooling.
