@@ -212,7 +212,7 @@ The *object_id* and *scene_id* of all triggered events can be seen in the consol
 
 ### {% linkable_title Services %}
 
-The `zwave` component exposes ten services to help maintain the network.
+The `zwave` component exposes multiple services to help maintain the network.
 
 | Service | Description |
 | ------- | ----------- |
