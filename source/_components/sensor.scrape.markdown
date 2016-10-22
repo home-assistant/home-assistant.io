@@ -47,7 +47,7 @@ sensor:
     resource: https://home-assistant.io
     name: Release
     select: ".current-version h1"
-    value_template: '{{ value.split(":")[1] }}'
+    value_template: '{% raw %}{{ value.split(":")[1] }}{% endraw %}'
 ```
 
 ### {% linkable_title Available implementations %}
@@ -61,7 +61,7 @@ sensor:
     resource: https://home-assistant.io/components/
     name: Home Assistant impl.
     select: 'a[href="#all"]'
-    value_template: '{{ value.split("(")[1].split(")")[0] }}'
+    value_template: '{% raw %}{{ value.split("(")[1].split(")")[0] }}{% endraw %}'
 ```
 
 ### {% linkable_title Get a value out of a tag %}
