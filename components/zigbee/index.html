@@ -102,32 +102,17 @@
 
 <p>The local ZigBee device (assuming XBee) must have an up to date Router or Coordinator API firmware installed.</p>
 
-<h2>Configuration</h2>
-
 <p>A <code class="highlighter-rouge">zigbee</code> section must be present in the <code class="highlighter-rouge">configuration.yaml</code> file and contain the following options as required:</p>
 
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">zigbee</span><span class="pi">:</span>
+</code></pre>
+</div>
+
 <ul>
-  <li>
-    <p><strong>device</strong>: The serial port to which the local ZigBee device is connected. Default: <code class="highlighter-rouge">/dev/ttyUSB0</code></p>
-  </li>
-  <li>
-    <p><strong>baud</strong>: The baud rate at which to communicate with the local ZigBee device. Default: <code class="highlighter-rouge">9600</code></p>
-  </li>
+  <li><strong>device</strong> (<em>Optional</em>): The serial port to which the local ZigBee device is connected. Defaults to <code class="highlighter-rouge">/dev/ttyUSB0</code></li>
+  <li><strong>baud</strong> (<em>Optional</em>): The baud rate at which to communicate with the local ZigBee device. Defaults to <code class="highlighter-rouge">9600</code></li>
 </ul>
-
-<h4>Example</h4>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zigbee</span><span class="pi">:</span>
-  <span class="s">device</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
-  <span class="s">baud</span><span class="pi">:</span> <span class="s">115200</span>
-</code></pre>
-</div>
-
-<p>Or to simply use the defaults:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zigbee</span><span class="pi">:</span>
-</code></pre>
-</div>
 
 <p>To find the possible serial port names of your device, run:</p>
 
@@ -138,6 +123,15 @@
 <p class="note">
 The port may also appear as /dev/ttyACM* if you’re communicating with the ZigBee device through an Arduino.
 </p>
+
+<h3><a class="title-link" name="example" href="#example"></a> Example</h3>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">zigbee</span><span class="pi">:</span>
+  <span class="s">device</span><span class="pi">:</span> <span class="s">/dev/ttyACM1</span>
+  <span class="s">baud</span><span class="pi">:</span> <span class="s">115200</span>
+</code></pre>
+</div>
 
 
 </article>

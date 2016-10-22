@@ -101,14 +101,24 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should <strong>not</strong> create logbook enties.</li>
-  <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from creating logbook entries.</li>
-  <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be excluded from creating logbook entries.</li>
+  <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should <strong>not</strong> create logbook entries.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from creating logbook entries.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be excluded from creating logbook entries.</li>
+    </ul>
+  </li>
+  <li><strong>include</strong> (<em>Optional</em>): Configure which components should create logbook entries.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be included from creating logbook entries.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be included from creating logbook entries.</li>
+    </ul>
+  </li>
 </ul>
 
 <p>If you want to exclude messages of some entities or domains from the logbook just add the <code class="highlighter-rouge">exclude</code> parameter like:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">logbook</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example of excluding domains and entities from the logbook</span>
+<span class="s">logbook</span><span class="pi">:</span>
   <span class="s">exclude</span><span class="pi">:</span>
     <span class="s">entities</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">sensor.last_boot</span>
@@ -116,6 +126,34 @@
     <span class="s">domains</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">sun</span>
       <span class="pi">-</span> <span class="s">weblink</span>
+</code></pre>
+</div>
+
+<p>In case you just want to see messages from some specific entities or domains use the <code class="highlighter-rouge">include</code> configuration:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example to show how to include only the listed domains and entities in the logbook</span>
+<span class="s">logbook</span><span class="pi">:</span>
+  <span class="s">include</span><span class="pi">:</span>
+    <span class="s">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor</span>
+      <span class="pi">-</span> <span class="s">switch</span>
+      <span class="pi">-</span> <span class="s">media_player</span>
+</code></pre>
+</div>
+
+<p>You can also use the <code class="highlighter-rouge">include</code> list and filter out some entities or domains with an <code class="highlighter-rouge">exclude</code> list. Usually this makes sense if you define domains on the include side and filter out some specific entities.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example of combining include and exclude configurations</span>
+<span class="s">logbook</span><span class="pi">:</span>
+  <span class="s">include</span><span class="pi">:</span>
+    <span class="s">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor</span>
+      <span class="pi">-</span> <span class="s">switch</span>
+      <span class="pi">-</span> <span class="s">media_player</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.last_boot</span>
+      <span class="pi">-</span> <span class="s">sensor.date</span>
 </code></pre>
 </div>
 
@@ -166,6 +204,9 @@ To exclude these entities just add them to the <code class="highlighter-rouge">e
     <ul class='divided'>
         <li>
             <a href='/components/dweet/'>Dweet.io</a>
+        </li>
+        <li>
+            <a href='/components/emoncms_history/'>Emoncms history</a>
         </li>
         <li>
             <a href='/components/graphite/'>Graphite</a>

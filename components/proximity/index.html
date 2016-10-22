@@ -121,16 +121,13 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">proximity</span><span class="pi">:</span>
-  <span class="s">zone</span><span class="pi">:</span> <span class="s">home</span>
-  <span class="s">ignored_zones</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">twork</span>
-    <span class="pi">-</span> <span class="s">elschool</span>
-  <span class="s">devices</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">device_tracker.nwaring_nickmobile</span>
-    <span class="pi">-</span> <span class="s">device_tracker.eleanorsiphone</span>
-    <span class="pi">-</span> <span class="s">device_tracker.tsiphone</span>
-  <span class="s">tolerance</span><span class="pi">:</span> <span class="s">50</span>
-  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">mi</span>
+  <span class="s">home</span><span class="pi">:</span> 
+    <span class="s">ignored_zones</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">twork</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">device_tracker.nwaring_nickmobile</span>
+    <span class="s">tolerance</span><span class="pi">:</span> <span class="s">50</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">mi</span>
 </code></pre>
 </div>
 
@@ -139,7 +136,7 @@
 <ul>
   <li><strong>zone</strong> (<em>Optional</em>): The zone to which this component is measuring the distance to. Default is the home zone.</li>
   <li><strong>ignored_zones</strong> array (<em>Optional</em>): Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g. work or school).</li>
-  <li><strong>devices</strong> array (<em>Optional</em>):  A list of devices to compare location against to check closeness to the configured zone.</li>
+  <li><strong>devices</strong> array (<em>Optional</em>): A list of devices to compare location against to check closeness to the configured zone.</li>
   <li><strong>tolerance</strong> (<em>Optional</em>): The tolerance used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): The unit of measurement for distance. Valid values are (km, m, mi, ft) [kilometers, meters, miles and feet respectfully]. The default value is kilometers.</li>
 </ul>
@@ -148,11 +145,21 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">proximity</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">zone</span><span class="pi">:</span> <span class="s">home</span>
+  <span class="s">home</span><span class="pi">:</span>
+    <span class="s">ignored_zones</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">twork</span>
+      <span class="pi">-</span> <span class="s">elschool</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">device_tracker.nwaring_nickmobile</span>
+      <span class="pi">-</span> <span class="s">device_tracker.eleanorsiphone</span>
+      <span class="pi">-</span> <span class="s">device_tracker.tsiphone</span>
+    <span class="s">tolerance</span><span class="pi">:</span> <span class="s">50</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">mi</span>
+  <span class="s">home3</span><span class="pi">:</span>
     <span class="s">devices</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">device_tracker.tsiphone</span>
     <span class="s">tolerance</span><span class="pi">:</span> <span class="s">50</span>
-  <span class="pi">-</span> <span class="s">zone</span><span class="pi">:</span> <span class="s">work</span>
+  <span class="s">work</span><span class="pi">:</span>
     <span class="s">devices</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">device_tracker.elanorsiphone</span>
     <span class="s">tolerance</span><span class="pi">:</span> <span class="s">10</span>

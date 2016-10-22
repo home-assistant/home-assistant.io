@@ -89,9 +89,15 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">netatmo</code> camera platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo Welcome</a> camera. This component allows you to view the current photo created by the Camera.</p>
+  <h3><a class="title-link" name="basic-configuration" href="#basic-configuration"></a> Basic Configuration</h3>
 
-<p>To enable the Netatmo camera, you first have to set up <a href="/components/netatmo/">netatmo</a>, and add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<p>The <code class="highlighter-rouge">netatmo</code> camera platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo Welcome</a> camera. This component allows you to view the current photo created by the Camera.</p>
+
+<p>To enable the Netatmo camera, you have to set up <a href="/components/netatmo/">netatmo</a>, this will use discovery to add your camera.</p>
+
+<h3><a class="title-link" name="advanced-configuration" href="#advanced-configuration"></a> Advanced configuration</h3>
+
+<p>If you want to select a specific camera, set discovery to False for <a href="/components/netatmo/">netatmo</a> and add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">camera</span><span class="pi">:</span>
@@ -151,6 +157,9 @@
         <li><a href='/components/netatmo/'>
           Netatmo
         </a></li>
+        <li><a href='/components/binary_sensor.netatmo/'>
+          Netatmo Binary Sensor
+        </a></li>
         <li><a href='/components/sensor.netatmo/'>
           Netatmo Sensor
         </a></li>
@@ -187,7 +196,16 @@
             <a href='/components/camera.rpi_camera/'>Raspberry Pi Camera</a>
         </li>
         <li>
+            <a href='/components/camera.synology/'>Synology Camera</a>
+        </li>
+        <li>
             <a href='/components/camera.uvc/'>UniFi Video Camera</a>
+        </li>
+        <li>
+            <a href='/components/camera.verisure/'>Verisure Camera</a>
+        </li>
+        <li>
+            <a href='/components/zoneminder/'>ZoneMinder</a>
         </li>
     </ul>
     </div>

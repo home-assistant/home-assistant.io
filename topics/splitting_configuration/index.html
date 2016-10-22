@@ -256,6 +256,23 @@ customize.yaml
   <li><code class="highlighter-rouge">!include_dir_merge_named</code> will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.</li>
 </ul>
 
+<p>These work recursively. As an example using <code class="highlighter-rouge">!include_dir_* automation</code>, will include all 6 files shown below:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>.
+└── .homeassistant
+    ├── automation
+    │   ├── lights
+    │   │   ├── turn_light_off_bedroom.yaml
+    │   │   ├── turn_light_off_lounge.yaml
+    │   │   ├── turn_light_on_bedroom.yaml
+    │   │   └── turn_light_on_lounge.yaml
+    │   ├── say_hello.yaml
+    │   └── sensors
+    │       └── react.yaml
+    └── configuration.yaml <span class="o">(</span>not included<span class="o">)</span>
+</code></pre>
+</div>
+
 <h4><a class="title-link" name="example-include_dir_list" href="#example-include_dir_list"></a> Example: <code class="highlighter-rouge">!include_dir_list</code></h4>
 
 <p><code class="highlighter-rouge">configuration.yaml</code></p>
@@ -435,7 +452,6 @@ customize.yaml
   <span class="s">action</span><span class="pi">:</span>
     <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.entryway</span>
-    
 <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Automation 2</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>

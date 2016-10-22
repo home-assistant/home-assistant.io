@@ -93,6 +93,8 @@
 
 <p>If you’re on Debian or Ubuntu, you might have to install the packages for <code class="highlighter-rouge">arp</code> and <code class="highlighter-rouge">nmap</code>. Do so by running <code class="highlighter-rouge">$ sudo apt-get install net-tools nmap</code>. On a Fedora host run <code class="highlighter-rouge">$ sudo dnf -y install nmap</code>.</p>
 
+<p>Host detection is done via Nmap’s “fast scan” (<code class="highlighter-rouge">-F</code>) of the most frequently used 100 ports, with a host timeout of 5 seconds.</p>
+
 <p>To use this device tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -105,7 +107,7 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>hosts</strong> (<em>Required</em>): The network range to scan in CIDR notation, eg. <code class="highlighter-rouge">192.168.1.1/24</code>.</li>
+  <li><strong>hosts</strong> (<em>Required</em>): The network address to scan (in any supported NMap format). Mixing subnets and IPs is possible.</li>
   <li><strong>home_interval</strong> (<em>Optional</em>): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.</li>
   <li><strong>exclude</strong> (<em>Optional</em>): Hosts not to include in nmap scanning.</li>
 </ul>
@@ -113,6 +115,7 @@
 <p>A full example for the <code class="highlighter-rouge">nmap</code> tracker could look like the following sample:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for nmap</span>
+<span class="c1"># One whole subnet, and skipping two specific IPs.</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
     <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.1/24</span>
@@ -120,6 +123,17 @@
     <span class="s">exclude</span><span class="pi">:</span>
      <span class="pi">-</span> <span class="s">192.168.1.12</span>
      <span class="pi">-</span> <span class="s">192.168.1.13</span>
+</code></pre>
+</div>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml for nmap</span>
+<span class="c1"># One subnet, and two specific IPs in another subnet.</span>
+<span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
+    <span class="s">hosts</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">192.168.1.1/24</span>
+      <span class="pi">-</span> <span class="s">10.0.0.2</span>
+      <span class="pi">-</span> <span class="s">10.0.0.15</span>
 </code></pre>
 </div>
 
@@ -162,6 +176,9 @@
         </li>
         <li>
             <a href='/components/device_tracker.bt_home_hub_5/'>BT Home Hub 5</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.bbox/'>Bbox</a>
         </li>
         <li>
             <a href='/components/device_tracker.bluetooth_le_tracker/'>Bluetooth LE Tracker</a>

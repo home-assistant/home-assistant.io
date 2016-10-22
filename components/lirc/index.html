@@ -97,38 +97,9 @@
 
 <p>To allow Home Assistant to talk to your IR receiver, you need to first make sure you have the correct dependencies installed:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install lirc python3-lirc
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install lirc liblircclient-dev
 </code></pre>
 </div>
-
-<p>Check the version of <code class="highlighter-rouge">python3-lirc</code>:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>apt-cache show python3-lirc
-Package: python3-lirc
-Source: python-lirc
-Version: 1.2.1-2
-</code></pre>
-</div>
-
-<p>If you do not have this version or you are running in a virtual environment, then your system will completely freeze with this component active. You will need to build <code class="highlighter-rouge">python3-lirc</code> from source. The version of this library in the Python package index is also broken, so the typical dependency system cannot fix this. Build it from source like this:</p>
-
-<p>As regular user:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get install liblircclient-dev
-</code></pre>
-</div>
-
-<p>As the user that runs hass:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> git clone https://github.com/tompreston/python-lirc.git
-<span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> <span class="nb">cd </span>python-lirc
-<span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> make py3
-<span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> python3 setup.py build
-<span class="o">(</span>hass<span class="o">)</span> <span class="nv">$ </span> python3 setup.py install
-</code></pre>
-</div>
-
-<p>If you are not using a virtual environment setup, then you’ll need a <code class="highlighter-rouge">sudo</code> before the install line above.</p>
 
 <p class="note">
 If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations <a href="http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/">here</a>. Consider following these.

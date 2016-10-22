@@ -89,7 +89,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">netatmo</code> component platform is the main component to integrate all Netatmo related platforms. Besides this component you will have to setup any connected sensors separately.</p>
+  <p>The <code class="highlighter-rouge">netatmo</code> component platform is the main component to integrate all Netatmo related platforms.</p>
 
 <p>To enable the Netatmo component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
@@ -109,6 +109,7 @@
   <li><strong>secret_key</strong> (<em>Required</em>): Your netatmo secret key</li>
   <li><strong>username</strong> (<em>Required</em>): Username for the netatmo account.</li>
   <li><strong>password</strong> (<em>Required</em>): Password for the netatmo account.</li>
+  <li><strong>discovery</strong> (<em>Optional)</em>: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).</li>
 </ul>
 
 <h3><a class="title-link" name="get-api-and-secret-key" href="#get-api-and-secret-key"></a> Get API and Secret Key</h3>
@@ -132,7 +133,7 @@ Click on ‘Create an App’ at the top of the page.</p>
 </p>
 
 <p class="note">
-The Home Assistant NetAtmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
+The Home Assistant Netatmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
 </p>
 
 
@@ -157,6 +158,9 @@ The Home Assistant NetAtmo platform has only be tested with the classic indoor, 
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
+        <li><a href='/components/binary_sensor.netatmo/'>
+          Netatmo Binary Sensor
+        </a></li>
         <li><a href='/components/camera.netatmo/'>
           Netatmo Camera
         </a></li>

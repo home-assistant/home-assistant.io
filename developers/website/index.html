@@ -111,7 +111,7 @@
   <li>Fork home-assistant.io <a href="https://github.com/home-assistant/home-assistant.github.io">git repository</a>.</li>
   <li>Create/edit/update a page in the directory <code class="highlighter-rouge">source/_components/</code> for your platform/component.</li>
   <li>Test your changes to home-assistant.io locally: run <code class="highlighter-rouge">rake preview</code> and navigate to <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a></li>
-  <li>Create a Pull Request (PR) against the <strong>next</strong> branch of home-assistant.github.io if your documentation is for a new feature, platform, or component.</li>
+  <li>Create a Pull Request (PR) against the <strong>next</strong> branch of home-assistant.github.io if your documentation is a new feature, platform, or component.</li>
   <li>Create a Pull Request (PR) against the <strong>current</strong> branch of home-assistant.github.io if you fix stuff, create Cookbook entries, or expand existing documentation.</li>
 </ul>
 
@@ -123,7 +123,7 @@ It could be necessary that you run <code class="highlighter-rouge">rake generate
 
 <p>For a platform page, the fastest way is to make a copy of an existing page and edit it. The <a href="/components/">Component overview</a> and the <a href="/cookbook/">Examples section</a> are generated automatically, so there is no need to add a link to those pages.</p>
 
-<p>If you start from scratch with a page, you need to add a header. Different sections of the doumentation may need different headers.</p>
+<p>If you start from scratch with a page, you need to add a header. Different sections of the documentation may need different headers.</p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>---
 layout: page
@@ -143,11 +143,11 @@ Content...Written in markdown.
 </code></pre>
 </div>
 
-<p>There are <a href="https://jekyllrb.com/docs/variables/">pre-definied variables</a> available but usually it’s not necessary to use them when writing documentation.</p>
+<p>There are <a href="https://jekyllrb.com/docs/variables/">pre-definied variables</a> available but usually, it’s not necessary to use them when writing documentation.</p>
 
 <h3><a class="title-link" name="embedding-code" href="#embedding-code"></a> Embedding Code</h3>
 
-<p>You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in `. For multi line syntax wrap your code as shown below.</p>
+<p>You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in `. For multi-line, syntax wrap your code as shown below.</p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code> ```yaml
  sensor:

@@ -91,7 +91,7 @@
 
   <p>The Fitbit sensor allows you to expose data from <a href="http://fitbit.com">Fitbit</a> to Home Assistant.</p>
 
-<p>Enable the sensor by adding the following to your configuration:</p>
+<p>Enable the sensor by adding the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -110,7 +110,7 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>monitored_resources</strong> (<em>Required</em>): Resource to monitor.</li>
+  <li><strong>monitored_resources</strong> (<em>Optional</em>): Resource to monitor. Defaults to <code class="highlighter-rouge">activities/steps</code>.</li>
 </ul>
 
 <p>Below is the list of resources that you can add to <code class="highlighter-rouge">monitored_resources</code>. One sensor is exposed for every resource.</p>

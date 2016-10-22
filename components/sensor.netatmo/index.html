@@ -89,7 +89,17 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">netatmo</code> sensor platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo</a> device.</p>
+  <h3><a class="title-link" name="basic-configuration" href="#basic-configuration"></a> Basic Configuration</h3>
+
+<p>The <code class="highlighter-rouge">netatmo</code> sensor platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo</a> device.</p>
+
+<p>To enable the Netatmo sensor, you have to set up <a href="/components/netatmo/">netatmo</a>, this will use discovery to add your sensor.</p>
+
+<h3><a class="title-link" name="advanced-configuration" href="#advanced-configuration"></a> Advanced configuration</h3>
+
+<p>If you want to select a specific sensor, set discovery to False for <a href="/components/netatmo/">netatmo</a> and add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<p>The <code class="highlighter-rouge">netatmo</code> sensor platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo</a> device.</p>
 
 <p>To enable the Netatmo sensor, you first have to set up <a href="/components/netatmo/">netatmo</a>, and add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
@@ -167,6 +177,9 @@
           <ul class='divided'>
         <li><a href='/components/netatmo/'>
           Netatmo
+        </a></li>
+        <li><a href='/components/binary_sensor.netatmo/'>
+          Netatmo Binary Sensor
         </a></li>
         <li><a href='/components/camera.netatmo/'>
           Netatmo Camera

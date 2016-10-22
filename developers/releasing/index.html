@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Releasing - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Steps involved to publish a new Home Assistant release.">
+    <meta name="description" content="Steps involved publishing a new Home Assistant release.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/releasing/">
@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/developers/releasing/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Steps involved to publish a new Home Assistant release.">
+    <meta property="og:description" content="Steps involved publishing a new Home Assistant release.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="Releasing">
-    <meta name="twitter:description" content="Steps involved to publish a new Home Assistant release.">
+    <meta name="twitter:description" content="Steps involved publishing a new Home Assistant release.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -94,22 +94,22 @@
 <h3><a class="title-link" name="github" href="#github"></a> GitHub</h3>
 
 <ol>
-  <li>Create a pull request from <code class="highlighter-rouge">dev</code> to <code class="highlighter-rouge">master</code> with the upcoming release number as title.</li>
-  <li>Merge <code class="highlighter-rouge">master</code> into <code class="highlighter-rouge">dev</code> to make the PR mergable. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author.</li>
-  <li>Update <code class="highlighter-rouge">homeassistant/const.py</code> with the correct version number (remove the the <code class="highlighter-rouge">dev</code> tag) and push that commit.</li>
+  <li>Create a pull request from <code class="highlighter-rouge">dev</code> to <code class="highlighter-rouge">master</code> with the upcoming release number as the title.</li>
+  <li>Merge <code class="highlighter-rouge">master</code> into <code class="highlighter-rouge">dev</code> to make the PR mergeable. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author.</li>
+  <li>Update <code class="highlighter-rouge">homeassistant/const.py</code> with the correct version number (remove the <code class="highlighter-rouge">dev</code> tag) and push that commit.</li>
   <li>Merge pull request (DO NOT SQUASH!).</li>
-  <li>Then, after merged, push another update to <code class="highlighter-rouge">dev</code> of <code class="highlighter-rouge">homeassistant/const.py</code> that includes the next version with the <code class="highlighter-rouge">dev</code> tag. Add a meaningful commit message like “Version bump to X”. This commit acts as marker for the next release.</li>
+  <li>Then, after merged, push another update to <code class="highlighter-rouge">dev</code> of <code class="highlighter-rouge">homeassistant/const.py</code> that includes the next version with the <code class="highlighter-rouge">dev</code> tag. Add a meaningful commit message like “Version bump to X”. This commit acts as a marker for the next release.</li>
   <li>Go to <a href="https://github.com/home-assistant/home-assistant/releases">releases</a> and tag a new release on the <code class="highlighter-rouge">master</code> branch. “Tag version” and “Release title” are the version number (<code class="highlighter-rouge">O.x</code> for major version, <code class="highlighter-rouge">0.x.y</code> for minor and bug fix releases). Release description is the text from PR. Press “Publish release” to finish the process.</li>
 </ol>
 
 <h3><a class="title-link" name="website" href="#website"></a> Website</h3>
 
 <ol>
-  <li>Create a blog post in <code class="highlighter-rouge">next</code> and base it on the text of the PR in the main repository. Add images, additional text, links, etc. if it adds value. Tag each platform/component in message to documentation.</li>
+  <li>Create a blog post in <code class="highlighter-rouge">next</code> and base it on the text of the PR in the main repository. Add images, additional text, links, etc. if it adds value. Tag each platform/component in a message to documentation.</li>
   <li>Create missing documentation as stumbs in <code class="highlighter-rouge">next</code>.</li>
   <li>Update the link on the frontpage (<code class="highlighter-rouge">source/index.html</code>) to link to the new release blog post and version number.</li>
-  <li>Create a pull request from <code class="highlighter-rouge">next</code> to <code class="highlighter-rouge">current</code> with the upcoming release number as title.</li>
-  <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code> (<code class="highlighter-rouge">$ git checkout next &amp;&amp; git merge current</code>) to make the PR mergable.</li>
+  <li>Create a pull request from <code class="highlighter-rouge">next</code> to <code class="highlighter-rouge">current</code> with the upcoming release number as the title.</li>
+  <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code> (<code class="highlighter-rouge">$ git checkout next &amp;&amp; git merge current</code>) to make the PR mergeable.</li>
   <li>Merge pull request (blog post, updated frontpage, and all new documentation) to <code class="highlighter-rouge">current</code>.</li>
 </ol>
 

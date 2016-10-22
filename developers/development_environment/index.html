@@ -116,6 +116,15 @@
   </li>
 </ul>
 
+<h3><a class="title-link" name="logging" href="#logging"></a> Logging</h3>
+
+<p>By default logging in home-assistant is tuned for operating in
+production (set to INFO by default, with some modules set to even less
+verbose logging levels).</p>
+
+<p>You can use the <a href="/components/logger/">logger</a> component to adjust
+logging to DEBUG to see even more details about what is going on.</p>
+
 <h3><a class="title-link" name="developing-on-windows" href="#developing-on-windows"></a> Developing on Windows</h3>
 
 <p>If you are using Windows as a development platform, make sure that you have the correct Microsoft Visual C++ build tools installed. Check the <a href="https://wiki.python.org/moin/WindowsCompilers">Windows Compilers</a> section on the <a href="https://www.python.org/">Python website</a> for details. Validation using <code class="highlighter-rouge">tox</code> will fail if this is not done correctly.</p>
@@ -125,7 +134,6 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip install --upgrade setuptools
 </code></pre>
 </div>
-
 
 
 </article>

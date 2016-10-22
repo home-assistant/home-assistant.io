@@ -93,7 +93,7 @@
 
 <p>To enable the history option in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Basic configuration.yaml entry</span>
 <span class="s">history</span><span class="pi">:</span>
 </code></pre>
 </div>
@@ -107,6 +107,70 @@
 <p class="note">
 Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser. No data is transferred to anyone at any time.
 </p>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should <strong>not</strong> be displayed.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from the history.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be excluded from the history.</li>
+    </ul>
+  </li>
+  <li><strong>include</strong> (<em>Optional</em>): Configure which components should be displayed.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be included from the history.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be included from the history.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Without any <code class="highlighter-rouge">include</code> or <code class="highlighter-rouge">exclude</code> configuration the history displays graphs for every entity (well that’s not exactly true - for instance <code class="highlighter-rouge">hidden</code> entities or <code class="highlighter-rouge">scenes</code> are never shown) on a given date. If you are only interested in some of the entities you several options:</p>
+
+<ul>
+  <li>Define domains and entities to <code class="highlighter-rouge">exclude</code> (aka. blacklist). This is convenient when you are basically happy with the information displayed, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like <code class="highlighter-rouge">weblink</code>) or rarely change (<code class="highlighter-rouge">updater</code> or <code class="highlighter-rouge">automation</code>).
+    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with exclude</span>
+<span class="s">history</span><span class="pi">:</span>
+<span class="s">exclude</span><span class="pi">:</span>
+  <span class="s">domains</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">automation</span>
+    <span class="pi">-</span> <span class="s">weblink</span>
+    <span class="pi">-</span> <span class="s">updater</span>
+  <span class="s">entities</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">sensor.last_boot</span>
+    <span class="pi">-</span> <span class="s">sensor.date</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Define domains and entities to display by using the <code class="highlighter-rouge">include</code> configuration (aka. whitelist). If you have a lot of entities in your system and your <code class="highlighter-rouge">exclude</code> lists possibly get very large, it might be better just to define the entities or domains to display.
+    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with include</span>
+<span class="s">history</span><span class="pi">:</span>
+<span class="s">include</span><span class="pi">:</span>
+  <span class="s">domains</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">sensor</span>
+    <span class="pi">-</span> <span class="s">switch</span>
+    <span class="pi">-</span> <span class="s">media_player</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Use the <code class="highlighter-rouge">include</code> list to define the domains/entities to display, and exclude some of them with in the <code class="highlighter-rouge">exclude</code> list. This makes sense if you for instance include the <code class="highlighter-rouge">sensor</code> domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the <code class="highlighter-rouge">include</code> <code class="highlighter-rouge">entities</code> list just include the <code class="highlighter-rouge">sensor</code> domain and exclude the sensor entities you are not interested in.
+```yaml
+    <h1>Example configuration.yaml entry with include and exclude</h1>
+    <p>history:
+include:
+  domains:
+    - sensor
+    - switch
+    - media_player
+exclude:
+  entities:</p>
+    <ul>
+      <li>sensor.last_boot</li>
+      <li>sensor.date
+```</li>
+    </ul>
+  </li>
+</ul>
 
 <h4><a class="title-link" name="implementation-details" href="#implementation-details"></a> Implementation details</h4>
 
@@ -166,6 +230,9 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
     <ul class='divided'>
         <li>
             <a href='/components/dweet/'>Dweet.io</a>
+        </li>
+        <li>
+            <a href='/components/emoncms_history/'>Emoncms history</a>
         </li>
         <li>
             <a href='/components/graphite/'>Graphite</a>

@@ -156,7 +156,8 @@ Instead of <code class="highlighter-rouge">make install</code>, you can alternat
   <li><strong>polling_interval</strong> (<em>Optional</em>): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.</li>
   <li><strong>customize</strong> (<em>Optional</em>): This attribute contains node-specific override values:
     <ul>
-      <li><strong>polling_intensity</strong> (<em>Optional</em>): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc). If not specified then your device will not be polled.</li>
+      <li><strong>polling_intensity</strong> (<em>Optional</em>): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.</li>
+      <li><strong>ignored</strong> (<em>Optional</em>): Ignore this entitiy completely. It won’t be shown in the Web Interface and no events are generated for it.</li>
     </ul>
   </li>
 </ul>
@@ -295,7 +296,7 @@ You can use this for automations.</p>
 
 <h3><a class="title-link" name="services" href="#services"></a> Services</h3>
 
-<p>The <code class="highlighter-rouge">zwave</code> component exposes ten services to help maintain the network.</p>
+<p>The <code class="highlighter-rouge">zwave</code> component exposes multiple services to help maintain the network.</p>
 
 <table>
   <thead>
@@ -312,6 +313,10 @@ You can use this for automations.</p>
     <tr>
       <td>add_node_secure</td>
       <td>Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network.</td>
+    </tr>
+    <tr>
+      <td>association</td>
+      <td>Add or remove an association in th Z-Wave network</td>
     </tr>
     <tr>
       <td>cancel_command</td>

@@ -108,6 +108,18 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
   <li><strong>run_test</strong> (<em>Optional</em>): Default True. Check if <code class="highlighter-rouge">input</code> is usable by ffmpeg.</li>
 </ul>
 
+<h3><a class="title-link" name="raspbian-debian-jessie-lite-installations" href="#raspbian-debian-jessie-lite-installations"></a> Raspbian Debian Jessie Lite Installations</h3>
+<p>To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo apt-get install libav-tools
+</code></pre>
+</div>
+<p>This will get a forked version of ffmpeg called avconv, once this is installed you need to use the following in the configuration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg:
+  ffmpeg_bin: /usr/bin/avconv
+</code></pre>
+</div>
+
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
 
 <p>In most cases, <code class="highlighter-rouge">ffmpeg</code> automatically detects all needed options to read a video or audio stream or file. But it is possible in rare cases that you will need to set options to help <code class="highlighter-rouge">ffmpeg</code> out.</p>

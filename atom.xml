@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-22T19:15:15+00:00</updated>
+  <updated>2016-10-22T22:35:39+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,332 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change]]></title>
+    <link href="https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest/"/>
+    <updated>2016-10-22T20:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest</id>
+    <content type="html"><![CDATA[<p>Hello again friend,</p>
+
+<p>How are you? Having a good day? We sure are. If you aren’t having a good day, this might cheer you up…</p>
+
+<p>Every other weekend around here gets a little hectic leading to a big sigh of relief as we release a new version of Home Assistant to the world. And this time is no different. Our developer community has once again built us a beautiful new release with lots of new features and improvements. We hope you like it.</p>
+
+<p>One last thing before we get going though, I should warn you… <a href="https://github.com/balloob">@balloob</a> got a bit lazy this week and let me (<a href="https://github.com/robbiet480">@robbiet480</a>) step up to the plate again to write the blog post and do the release. I guess I didn’t do such a bad job in <a href="https://home-assistant.io/blog/2016/08/28/notifications-hue-fake-unification/">0.27</a>. You’ll never know what surprises I have in store. Now that i’ve got all that stuff out of the way, let’s get started…</p>
+
+<h2><a class="title-link" name="stats-update" href="#stats-update"></a> Stats Update</h2>
+<p>Sadly, no big amazing stats to update you with this time, but we did recently pass 7,000 commits! This release featured submissions from 45 contributors. Hopefully with the new updater component we will be able to give you some really good stats in the 0.32 blog post.</p>
+
+<h2><a class="title-link" name="hacktoberfest" href="#hacktoberfest"></a> Hacktoberfest</h2>
+
+<p><img src="https://home-assistant.io/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktoberfest logo" /></p>
+
+<p>October means Hacktoberfest time and our community has really come through with some excellent improvements and additions. As of this writing, we have 194 merged and 41 open pull requests to the <a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">home-assistant repository</a> and 209 merged/28 open pull requests submitted to the <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">home-assistant.github.io repository</a>. If you want to get in on the fun check out our <a href="https://home-assistant.io/blog/2016/10/02/hacktoberfest/">Hacktoberfest</a> blog post or the <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a>. You get an awesome t-shirt for free if you have 4 pull requests merged in the month of October! We even have tasks that a non-developer can easily accomplish with a tiny bit of work. Better hurry up though, only 9 days left and most of the easy tasks are gone!</p>
+
+<h2><a class="title-link" name="-a-greatly-improved-updater-component-please-read-this-" href="#-a-greatly-improved-updater-component-please-read-this-"></a> ⚠️ A greatly improved updater component (Please read this!) ⚠️</h2>
+
+<p>This release includes an update to our <a href="https://home-assistant.io/components/updater/">updater</a> component. The responsibility of the updater component is to check if a new version is available and notify the user if this is the case.</p>
+
+<p>It used to be that this component would check with <a href="https://pypi.python.org/pypi">PyPi</a> (the Python package manager) to see if a new update was available. This had a couple of problems:</p>
+
+<ol>
+  <li>We are unable to do a slow rollout</li>
+  <li>We are unable to show the user extra information (like a link to a changelog or the release date)</li>
+  <li>We are unable to warn users for critical security updates</li>
+</ol>
+
+<p>So to work around these problems, we decided to start hosting the version check service ourselves. Since we had to get some infrastructure spun up anyway, we figured we would take it a step further. Which leads me to this bit of the update (the most important part):</p>
+
+<h3><a class="title-link" name="what-you-need-to-know-the-important-bit" href="#what-you-need-to-know-the-important-bit"></a> What you need to know (the important bit!)</h3>
+
+<p>Remember how I mentioned that up there in the title that there is some serious business in this release? Well, we also added some basic analytics to the updater component which get sent to the server and stored so that we get a better idea of our user base.</p>
+
+<p>Each Home Assistant instance running the updater component will generate a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">unique ID</a> (based on UUIDv4) that will be used for the updater to be able to differentiate between instances. This UUID will be stored in your config directory in a file called <code class="highlighter-rouge">.uuid</code>.</p>
+
+<h4>Opting out</h4>
+
+<p>There are two ways to opt-out. The first way is by using the new <code class="highlighter-rouge">opt_out</code> option for the updater. This way the updater will continue to check for updates, but no information about your system will be shared with us.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">updater</span><span class="pi">:</span>
+  <span class="s">reporting</span><span class="pi">:</span> <span class="s">no</span>
+</code></pre>
+</div>
+
+<p>You can also disable the updater component entirely by removing <code class="highlighter-rouge">updater:</code> from your <code class="highlighter-rouge">configuration.yaml</code> although <strong>we would not suggest you do this</strong> as you would miss any critical updates.</p>
+
+<p>Finally, you can also reset your unique identifier by deleting the <code class="highlighter-rouge">.uuid</code> file and restarting Home Assistant.</p>
+
+<h4>Data stored on the Home Assistant update server</h4>
+
+<p>Here is what my production Home Assistant instance looks like from the server side:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Data Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">arch</code></td>
+      <td>CPU Architecture</td>
+      <td><code class="highlighter-rouge">x86_64</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">distribution</code></td>
+      <td>Linux Distribution name (only Linux)</td>
+      <td><code class="highlighter-rouge">Ubuntu</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">docker</code></td>
+      <td>True if running inside Docker</td>
+      <td><code class="highlighter-rouge">false</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">first_seen_datetime</code></td>
+      <td>First time instance ID was submitted</td>
+      <td><code class="highlighter-rouge">2016-10-22T19:56:03.542Z</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_city</code></td>
+      <td>GeoIP determined city</td>
+      <td><code class="highlighter-rouge">Oakland</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_country_code</code></td>
+      <td>GeoIP determined country code</td>
+      <td><code class="highlighter-rouge">US</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_country_name</code></td>
+      <td>GeoIP determined country name</td>
+      <td><code class="highlighter-rouge">United States</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_latitude</code></td>
+      <td>GeoIP determined latitude</td>
+      <td><code class="highlighter-rouge">37.8047</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_longitude</code></td>
+      <td>GeoIP determined longitude</td>
+      <td><code class="highlighter-rouge">-122.2124</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_metro_code</code></td>
+      <td>GeoIP determined metro code</td>
+      <td><code class="highlighter-rouge">807</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_region_code</code></td>
+      <td>GeoIP determined region code</td>
+      <td><code class="highlighter-rouge">CA</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_region_name</code></td>
+      <td>GeoIP determined region name</td>
+      <td><code class="highlighter-rouge">California</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_time_zone</code></td>
+      <td>GeoIP determined time zone</td>
+      <td><code class="highlighter-rouge">America/Los_Angeles</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_zip_code</code></td>
+      <td>GeoIP determined zip code</td>
+      <td><code class="highlighter-rouge">94602</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">last_seen_datetime</code></td>
+      <td>Most recent time instance ID was submitted</td>
+      <td><code class="highlighter-rouge">2016-10-22T19:56:03.542Z</code></td>
+      <td>Update Server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">os_name</code></td>
+      <td>Operating system name</td>
+      <td><code class="highlighter-rouge">Darwin</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">os_version</code></td>
+      <td>Operating system version</td>
+      <td><code class="highlighter-rouge">10.12</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">python_version</code></td>
+      <td>Python version</td>
+      <td><code class="highlighter-rouge">3.5.2</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timezone</code></td>
+      <td>Timezone</td>
+      <td><code class="highlighter-rouge">America/Los_Angeles</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">user_agent</code></td>
+      <td>User agent used to submit analytics</td>
+      <td><code class="highlighter-rouge">python-requests/2.11.1</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">uuid</code></td>
+      <td>Unique identifier</td>
+      <td><code class="highlighter-rouge">10321ee6094d4a2ebb5ed55c675d5f5e</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">version</code></td>
+      <td>Home Assistant version</td>
+      <td><code class="highlighter-rouge">0.31.0</code></td>
+      <td>Local Instance</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">virtualenv</code></td>
+      <td>True if running inside virtualenv</td>
+      <td><code class="highlighter-rouge">true</code></td>
+      <td>Local Instance</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In addition to the above collected data, the server will also use your IP address to do a geographic IP address lookup to determine a general geographic area that your address is located in. To be extremely, extremely clear about this bit: <strong>The Home Assistant updater does not: store your IP address in a database and also does not submit the location information from your <code class="highlighter-rouge">configuration.yaml</code>.</strong> Our tests show that at best, we get 4 digits of accuracy on your IP address location which is a 5 mile radius of your actual IP location, assuming that it is even correct in the first place (geo IP look ups are very hit or miss). Here’s what the accuracy looks like for my data above: <img src="https://home-assistant.io/images/blog/2016-10-flash-briefing-updater-hacktoberfest/map.png" alt="Robbie's GeoIP accuracy level" /></p>
+
+<p>The server also adds two timestamps to the data: the original date your instance UUID was first seen and the timestamp of the last time we have seen your instance.</p>
+
+<p>This data is held in the highest security. The update system runs in a secured Amazon Web Services account owned by me (<a href="https://github.com/robbiet480">@robbiet480</a>). I personally have 5 years of experience with complex AWS deployments and have an extensive security background. I have audited the entire system and made sure to take every step to protect the data, including limiting who has access (just <a href="https://github.com/balloob">@balloob</a> and myself). While not directly personally identifiable we absolutely understand some users hesistance to giving this information out. Please understand that we are only collecting this information to better understand our user base to provide better long term support and feature development then is currently possible.</p>
+
+<p>We currently have no plans to publicly expose any of this information. If we did do such a thing in the future we would of course notify you in advance. It must also be stated that we will never sell or allow the use of this information for non-Home Assistant purposes.</p>
+
+<p>We thank you for understanding why we are collecting this data and hope that you leave the feature enabled but fully understand if you feel uncomfortable with this.</p>
+
+<p>Now, back to the fun stuff…</p>
+
+<h2><a class="title-link" name="good-evening-im-ron-burgundy-and-heres-what-happening-in-your-world-tonight" href="#good-evening-im-ron-burgundy-and-heres-what-happening-in-your-world-tonight"></a> Good evening. I’m Ron Burgundy and here’s what happening in your world tonight.</h2>
+
+<p>Home Assistant got a crazy idea recently that it couldn’t do enough already and wanted to challenge itself even more. I really don’t understand how it came up with this kooky idea, but it now thinks that its newest hobby should be a minor career in journalism.</p>
+
+<p>0.31 adds support for the brand spanking new <a href="https://developer.amazon.com/alexa-skills-kit/flash-briefing">Alexa Flash Briefing API</a>, allowing you to get updates from Home Assistant anytime you ask Alexa to read your flash briefing. What’s the use case you ask? Well, now when I wake up in the morning and get my flash briefing, Home Assistant adds this to the end of it for me:</p>
+
+<blockquote>
+  <p>Drive time with traffic is 35 minutes. There is an UberPOOL that will cost $11.52, estimated to be 2 minutes away, for a total of 37 minutes. BART is currently estimated to take 29 minutes. You should take BART, as it is estimated to be faster by 8 minutes.</p>
+</blockquote>
+
+<p>Now I know how to best get to <a href="https://runway.is">my real job</a> (no, Home Assistant is <em>not</em> my real job, it does seem like it sometimes though) every morning. Obviously not the best home automation example, but I think you get the idea. I could see this being used to tell you any major events that happened in your home overnight or reading you your hyperlocal weather report. Thanks to the audio support you could even replace all of the default Alexa Flash Briefing sources with your own news feeds. Home Assistant supports both text and audio content as well as displaying data in the Alexa app. I also want to point out that unlike the existing Skill integration, the Flash Briefing API does <em>not</em> require HTTPS (<em>but you should still be using HTTPS if possible</em>). For more information, check out the new <a href="https://home-assistant.io/components/alexa/">docs</a>.</p>
+
+<p><img src="https://home-assistant.io/images/blog/2016-10-flash-briefing-updater-hacktoberfest/stay-classy.jpg" alt="You stay classy, San Diego. (It's funny, because balloob lives in San Diego))" /></p>
+
+<h2><a class="title-link" name="major-breaking-z-wave-changes-ahead" href="#major-breaking-z-wave-changes-ahead"></a> Major breaking Z-Wave changes ahead</h2>
+
+<p>A rather nasty Z-Wave <a href="https://github.com/home-assistant/home-assistant/pull/3759">issue</a> was discovered recently by <a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>. There was a somewhat large chance that if you had multiple of the same model Z-Wave device they may both try to use the same entity IDs. To fix the issue the internal Z-Wave index is now appended to the end of all Z-Wave entity IDs.</p>
+
+<p>What this means for all you Z-Wave users is that you will need to update your configurations to reflect the change. I personally have quite a few (17) Z-Wave devices and went through the process this week. Here’s what I had to do:</p>
+
+<ul>
+  <li>Update customizations</li>
+  <li>Update groups</li>
+  <li>Update my <code class="highlighter-rouge">zwave.customize</code> section</li>
+  <li>Update my Alexa skills that used old entity IDs</li>
+  <li>Because I use <code class="highlighter-rouge">emulated_hue</code> with Alexa and <code class="highlighter-rouge">emulated_hue</code> uses the entity ID as a unique identifier I also had to remove all Z-Wave devices from Alexa and re-add them.</li>
+</ul>
+
+<p>Your todo list may be a little different from mine, I just wanted to outline the steps I took to give you an idea of what you need to think about. It’s not a very hard process, especially when using global find and replace in Sublime Text but did take me about 20 minutes to complete.</p>
+
+<p>This is super annoying, I know, especially since we had said in <a href="https://home-assistant.io/blog/2016/01/30/insteon-lifx-twitter-and-zigbee/#backwards-incompatible-changes/">0.12</a> that Z-Wave IDs should hopefully never change again, but we are now forced to eat those words. I will state again that Z-Wave IDs shouldn’t change in the future but obviously we see how that went. To sum up on this section… sorry but it had to happen.</p>
+
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+
+<ul>
+  <li><a href="https://home-assistant.io/components/updater/">Updater</a> component (<a href="https://github.com/infamy">@infamy</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Continue to setup other platforms when 1 platform config is invalid (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Create <a href="https://home-assistant.io/components/persistent_notification/">persistent notifications</a> when a platform contains invalid config (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Logbook: Allow <a href="https://home-assistant.io/components/logbook/">filtering</a> domains and entities to be shown (<a href="https://github.com/wokar">@wokar</a>)</li>
+  <li>HTTP: Change <code class="highlighter-rouge">approved_ips</code> from string to CIDR validation (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Persistent Notifications: Allow using <a href="https://home-assistant.io/components/persistent_notification/">markdown</a> (<a href="https://github.com/justweb1">@justweb1</a>)</li>
+  <li>Netatmo: Add <a href="https://home-assistant.io/components/netatmo/">discovery</a> support (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Netatmo Welcome camera: Add <a href="https://home-assistant.io/components/binary_sensor.netatmo/">binary sensor</a> (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Support added for <a href="https://home-assistant.io/components/sensor.haveibeenpwned/">HaveIBeenPwned</a> (<a href="https://github.com/joyrider3774">@joyrider3774</a>)</li>
+  <li>Device tracker: <code class="highlighter-rouge">known_devices.yaml</code> reading and writing tweaks and fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Fix climate platforms showing the wrong temperature unit (<a href="https://github.com/rcloran">@rcloran</a>)</li>
+  <li>Lots of voluptuous love (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Ensure proper attribution for weather platforms (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Fix Telegram in Docker (<a href="https://github.com/jeanregisser">@jeanregisser</a>)</li>
+  <li>Support recursive config inclusions in YAML (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Camera: <a href="https://home-assistant.io/components/camera.synology/">Synology</a> SS cameras now supported (<a href="https://github.com/jgriff2">@jgriff2</a>)</li>
+  <li>History: Allow filtering domains and entities to be shown (<a href="https://github.com/wokar">@wokar</a>)</li>
+  <li>Media Player - Squeezebox: Now able to show artist and album (<a href="https://github.com/ih8gates">@ih8gates</a>)</li>
+  <li>Alexa: Flash Briefing skill support added (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Device Tracker: Add support for Bbox Modem Router (<a href="https://github.com/HydrelioxGithub">@HydrelioxGithub</a>)</li>
+  <li>Sensor: Add support for Bbox Modem Router (<a href="https://github.com/HydrelioxGithub">@HydrelioxGithub</a>)</li>
+  <li>Input select: Services added to pick next and prev option (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.arwn/">ARWN</a> now supported (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Pushbullet: Push an URL note if an url is provided inside data (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Z-Wave: Allow certain devices to be not added to Home Assistant (<a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>)</li>
+  <li>New support for <a href="https://home-assistant.io/components/zoneminder/">Zoneminder</a> added (<a href="https://github.com/Khabi">@Khabi</a>)</li>
+  <li>Weather: Allow tracking severe weather alerts with <a href="https://home-assistant.io/components/sensor.wunderground/">WUnderground</a> (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Sensor: New support added to track <a href="https://home-assistant.io/components/sensor.min_max/">min/max/mean</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Convert EntityComponent to be async (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Z-Wave: Add assocation service (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Frontend - Services dev tool: persist state and tweak UI (<a href="https://github.com/justweb1">@justweb1</a>)</li>
+  <li>Sensor: Support added for <a href="https://home-assistant.io/components/sensor.scrape/">scraping</a> websites (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Clean up of tests (<a href="https://github.com/capellini">@capellini</a>)</li>
+  <li>New <code class="highlighter-rouge">fail</code> filter added to templates to raise on UndefinedError (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Support added for <a href="https://home-assistant.io//components/emoncms_history/">Emoncms history</a> (<a href="https://github.com/joyrider3774">@joyrider3774</a>)</li>
+  <li>Support for <a href="https://home-assistant.io/components/notify.apns/">Apple Push Notifications Service</a> (<a href="https://github.com/sam-io">@sam-io</a>)</li>
+  <li>Thermostat: Netatmo now supported (<a href="https://github.com/gieljnssns">@gieljnssns</a>)</li>
+  <li>Alarm control panel: <a href="https://home-assistant.io/components/alarm_control_panel.concord232/">Concord232</a> now supported (<a href="https://github.com/JasonCarter80">@JasonCarter80</a>)</li>
+  <li>Notify: <a href="https://home-assistant.io//components/notify.matrix/">Matrix</a> support added (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Device tracker - nmap: Allow specifying multiple inputs for <a href="https://home-assistant.io/components/device_tracker.nmap_tracker/">nmap</a> (<a href="https://github.com/hcooper">@hcooper</a>)</li>
+  <li>Device Tracker - snmp: SNMPv3 now supported (<a href="https://github.com/T3m3z">@T3m3z</a>)</li>
+  <li>Notify: <a href="https://home-assistant.io/components/notify.telstra/">Telstra</a> SMS now supported (<a href="https://github.com/nvella">@nvella</a>)</li>
+  <li>Camera: <a href="https://home-assistant.io/components/camera.verisure/">Verisure</a> now supported (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Support added for <a href="https://home-assistant.io/components/switch.neato/">Neato</a> Connected Robot (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Media player: More options for <a href="https://home-assistant.io/components/media_player.yamaha/">Yamaha</a> AVR (<a href="https://github.com/ehagan">@ehagan</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.pilight/">Pilight</a> sensor (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
+  <li>iOS support (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Minor features and bug fixes by <a href="https://github.com/mtl010957">@mtl010957</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/flyte">@flyte</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/phardy">@phardy</a>, <a href="https://github.com/sander76">@sander76</a>, <a href="https://github.com/T3m3z">@T3m3z</a>, <a href="https://github.com/c-w">@c-w</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/StaticCube">@StaticCube</a>, <a href="https://github.com/vittoriom">@vittoriom</a>, <a href="https://github.com/hartmms">@hartmms</a>, <a href="https://github.com/kirichkov">@kirichkov</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/ishults">@ishults</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a> and <a href="https://github.com/tchellomello">@tchellomello</a>.</li>
+</ul>
+
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
+<ul>
+  <li>The <a href="https://home-assistant.io/components/http/">HTTP</a> component now takes a different format for authenticating IPs</li>
+  <li>Config format has changed for <a href="https://home-assistant.io/components/proximity/">Proximity</a></li>
+  <li>The Z-Wave entity ID change mentioned above</li>
+</ul>
+
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
+
+<h2><a class="title-link" name="until-next-time" href="#until-next-time"></a> Until next time</h2>
+
+<p>Thanks for reading all of the above, especially since this week was a pretty long post. We should be back with a new post around November 5th announcing the arrival of 0.32.</p>
+
+<p>– Robbie</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.30: More Async, HASSbian, Digital Ocean, statistics, REST]]></title>
@@ -1846,123 +2172,6 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
 <ul>
   <li><code class="highlighter-rouge">elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code class="highlighter-rouge">[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using USB webcams with Home Assistant]]></title>
-    <link href="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/"/>
-    <updated>2016-06-23T06:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
-In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
-
-<p>In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
-
-<!--more-->
-
-<p>Check first if the your operating system lists your cameras.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>lsusb
-<span class="o">[</span>...]
-Bus 002 Device 016: ID 046d:08cc Logitech, Inc. Mic <span class="o">(</span>PTZ<span class="o">)</span>
-<span class="o">[</span>...]
-</code></pre>
-</div>
-
-<p>The camera we are going to use is available at <code class="highlighter-rouge">/dev/video1</code>. The C270 is the one on <code class="highlighter-rouge">/dev/video0</code>.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls -al /dev/video<span class="k">*</span>
-crw-rw----+ 1 root video 81, 0 Jun 23 08:05 /dev/video0
-crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
-</code></pre>
-</div>
-
-<p>We need an additional software part to handle the cameras. <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations. Make sure that you have the <a href="http://rpmfusion.org/">RPM Fusion respository</a> enabled.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install motion
-</code></pre>
-</div>
-
-<p>For our setup we need to modify the file <code class="highlighter-rouge">/etc/motion/motion.conf</code>. For now the most important parameters are <code class="highlighter-rouge">videodevice</code>, <code class="highlighter-rouge">snapshot_interval</code>, and <code class="highlighter-rouge">target_dir</code>. The other settings can be left to their defaults. We are going to use the device <code class="highlighter-rouge">/dev/video1</code>, use a 30 seconds interval, and set the path to <code class="highlighter-rouge">/tmp</code>.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>...]
-<span class="c">###########################################################</span>
-<span class="c"># Capture device options</span>
-<span class="c">############################################################</span>
-
-<span class="c"># Videodevice to be used for capturing  (default /dev/video0)</span>
-<span class="c"># for FreeBSD default is /dev/bktr0</span>
-videodevice /dev/video1
-
-<span class="o">[</span>..]
-<span class="c">############################################################</span>
-<span class="c"># Snapshots (Traditional Periodic Webcam File Output)</span>
-<span class="c">############################################################</span>
-
-<span class="c"># Make automated snapshot every N seconds (default: 0 = disabled)</span>
-snapshot_interval 30
-
-<span class="o">[</span>...]
-<span class="c">############################################################</span>
-<span class="c"># Target Directories and filenames For Images And Films</span>
-<span class="c"># For the options snapshot_, picture_, movie_ and timelapse_filename</span>
-<span class="c"># you can use conversion specifiers</span>
-<span class="c"># %Y = year, %m = month, %d = date,</span>
-<span class="c"># %H = hour, %M = minute, %S = second,</span>
-<span class="c"># %v = event, %q = frame number, %t = thread (camera) number,</span>
-<span class="c"># %D = changed pixels, %N = noise level,</span>
-<span class="c"># %i and %J = width and height of motion area,</span>
-<span class="c"># %K and %L = X and Y coordinates of motion center</span>
-<span class="c"># %C = value defined by text_event</span>
-<span class="c"># Quotation marks round string are allowed.</span>
-<span class="c">############################################################</span>
-
-<span class="c"># Target base directory for pictures and films</span>
-<span class="c"># Recommended to use absolute path. (Default: current working directory)</span>
-target_dir /tmp
-
-<span class="o">[</span>...]
-</code></pre>
-</div>
-
-<p>It’s suggested that you adjust at least <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code> to get a bigger image from your camera. If you are done, fire up <code class="highlighter-rouge">motion</code>.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo motion
-<span class="o">[</span>0] <span class="o">[</span>NTC] <span class="o">[</span>ALL] conf_load: Processing thread 0 - config file /etc/motion/motion.conf
-<span class="o">[</span>0] <span class="o">[</span>ALR] <span class="o">[</span>ALL] conf_cmdparse: Unknown config option <span class="s2">"sdl_threadnr"</span>
-<span class="o">[</span>0] <span class="o">[</span>NTC] <span class="o">[</span>ALL] motion_startup: Motion 3.3.0 Started
-<span class="o">[</span>0] <span class="o">[</span>NTC] <span class="o">[</span>ALL] motion_startup: Logging to file <span class="o">(</span>/var/log/motion.log<span class="o">)</span>
-</code></pre>
-</div>
-
-<p>Your <code class="highlighter-rouge">target_dir</code> will start filling up with images from your camera. <code class="highlighter-rouge">motion</code> will create a symlink called <code class="highlighter-rouge">lastsnap.jpg</code> which always point to the latest snapshot. We will setup the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> to use this file.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">local_file</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Cranberry cam</span>
-    <span class="s">file_path</span><span class="pi">:</span> <span class="s">/tmp/lastsnap.jpg</span>
-</code></pre>
-</div>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-06-cranberry/cam.png" />
-  The “Cranberry cam” in action
-</p>
-
-<p>The machine with the attached USB camera will become a webcam server as well because <code class="highlighter-rouge">motion</code>’s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run <code class="highlighter-rouge">motion</code> there, adjust your firewall rules, and use Home Assistant to display the videos. Just check http://[IP of your webcam host]:8081/ to see the stream. This required more powerful hardware than using snapshots, of course.</p>
-
-<p>In a scenario like this needs a <a href="https://home-assistant.io/components/camera.mjpeg/">Generic MJPEG IP Camera </a> in your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mjpeg</span>
-    <span class="s">mjpeg_url</span><span class="pi">:</span> <span class="s">http://[IP of your webcam host]:8081</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Cranberry Live cam</span>
-</code></pre>
-</div>
-
-<p><a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is a powerful tool and this blog post only showed two very simple use cases. Take a look at the <a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide">documentation</a> of <code class="highlighter-rouge">motion</code> to unleash its potential.</p>
 
 ]]></content>
   </entry>

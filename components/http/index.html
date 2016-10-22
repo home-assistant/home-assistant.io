@@ -111,7 +111,7 @@ It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_p
   <li><strong>ssl_certificate</strong> (<em>Optional</em>): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.</li>
   <li><strong>ssl_key</strong> (<em>Optional</em>): Path to your TLS/SSL key to serve Home Assistant over a secure connection.</li>
   <li><strong>cors_allowed_origins</strong> (<em>Optional</em>): A list of origin domain names to allow <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> requests from. Enabling this will set the <code class="highlighter-rouge">Access-Control-Allow-Origin</code> header to the Origin header if it is found in the list, and the <code class="highlighter-rouge">Access-Control-Allow-Headers</code> header to <code class="highlighter-rouge">Origin, Accept, X-Requested-With, Content-type, X-HA-access</code>. You must provide the exact Origin, i.e. <code class="highlighter-rouge">https://home-assistant.io</code> will allow requests from <code class="highlighter-rouge">https://home-assistant.io</code> but <strong>not</strong> <code class="highlighter-rouge">http://home-assistant.io</code>.</li>
-  <li><strong>approved_ips</strong> (<em>Optional</em>): A list of approved ips. Then it will be possible to login from given ips without providing a password.</li>
+  <li><strong>trusted_networks</strong> (<em>Optional</em>): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.</li>
 </ul>
 
 <p>The sample below shows a configuration entry with possible values:</p>
@@ -125,9 +125,11 @@ It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_p
   <span class="s">cors_allowed_origins</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">https://google.com</span>
     <span class="pi">-</span> <span class="s">https://home-assistant.io</span>
-  <span class="s">approved_ips</span><span class="pi">:</span>
+  <span class="s">trusted_networks</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">127.0.0.1</span>
-    <span class="pi">-</span> <span class="s">192.168.1.9</span>
+    <span class="pi">-</span> <span class="s">::1</span>
+    <span class="pi">-</span> <span class="s">192.168.0.0/24</span>
+    <span class="pi">-</span> <span class="s">2001:DB8:ABCD::/48</span>
 </code></pre>
 </div>
 

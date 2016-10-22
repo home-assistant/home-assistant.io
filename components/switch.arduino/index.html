@@ -99,11 +99,10 @@
   <span class="s">pins</span><span class="pi">:</span>
     <span class="s">11</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s">Fan Office</span>
-      <span class="s">type</span><span class="pi">:</span> <span class="s">digital</span>
     <span class="s">12</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s">Light Desk</span>
       <span class="s">type</span><span class="pi">:</span> <span class="s">digital</span>
-      <span class="s">default</span><span class="pi">:</span> <span class="s">on</span>
+      <span class="s">initial</span><span class="pi">:</span> <span class="s">true</span>
       <span class="s">negate</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
@@ -111,17 +110,20 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>pins</strong> (<em>Required</em>): Array of pins to use. The number corresponds with the pin numbering schema of your board.
+  <li><strong>pins</strong> array (<em>Required</em>): List of pins to use.
     <ul>
-      <li><strong>name</strong>: Name that will be used in the frontend for the pin.</li>
-      <li><strong>type</strong>: The type of the pin. At the moment only ‘digital’ is supported.</li>
-      <li><strong>default</strong>: The initial value for this port.</li>
-      <li><strong>negate</strong>: If this pin should be inverted.</li>
+      <li><strong>[number]</strong> (<em>Required</em>): The pin number that corresponds with the pin numbering schema of your board.
+        <ul>
+          <li><strong>name</strong> (<em>Required</em>): Name that will be used in the frontend for the pin.</li>
+          <li><strong>initial</strong> (<em>Optional</em>): The initial value for this port. Defaults to <code class="highlighter-rouge">False</code> .</li>
+          <li><strong>negate</strong> (<em>Optional</em>): If this pin should be inverted. Defaults to <code class="highlighter-rouge">False</code>.</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
 
-<p>The digital pins are numbered from 0 to 13. The available pins are 2 till 13. For testing purposes you can use pin 13 because with that pin you can control the internal LED.</p>
+<p>The digital pins are numbered from 0 to 13 on a Arduino UNO. The available pins are 2 till 13. For testing purposes you can use pin 13 because with that pin you can control the internal LED.</p>
 
 
 
@@ -140,6 +142,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/arduino.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: pre 0.7
     </div>

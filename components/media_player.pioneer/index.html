@@ -105,8 +105,16 @@
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP of the Pioneer device,  eg. <code class="highlighter-rouge">192.168.0.10</code></li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the receiver.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port on which the Pioneer device listens, e.g. <code class="highlighter-rouge">23</code> (default) or <code class="highlighter-rouge">8102</code></li>
+  <li><strong>timeout</strong> (<em>Optional</em>): Number of seconds (float) to wait for blocking operations like connect, write, and read.</li>
 </ul>
 
+<p>Notes:</p>
+
+<ul>
+  <li>Some Pioneer AVRs use the port 23 default and some are reported to use 8102.</li>
+  <li><code class="highlighter-rouge">timeout</code> is a socket level option and should only be configured if you know what you are doing.</li>
+</ul>
 
 
 </article>
