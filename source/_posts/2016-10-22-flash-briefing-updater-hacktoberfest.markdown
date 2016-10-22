@@ -271,7 +271,7 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [netatmo-discovery]: https://home-assistant.io/components/netatmo/
 [nmap]: https://home-assistant.io/components/device_tracker.nmap_tracker/
 [pers-notify]: https://home-assistant.io/components/persistent_notification/
-[runway]: https://runway.is
+[runway]: http://runway.is
 [scrape]: https://home-assistant.io/components/sensor.scrape/
 [updater]: https://home-assistant.io/components/updater/
 [z-wave-issue]: https://github.com/home-assistant/home-assistant/pull/3759
