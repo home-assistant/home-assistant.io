@@ -13,7 +13,7 @@ ha_release: "0.20"
 ---
 
 
-The `netatmo` component platform is the main component to integrate all Netatmo related platforms. Besides this component you will have to setup any connected sensors separately.
+The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
 
 To enable the Netatmo component, add the following lines to your `configuration.yaml`:
 
@@ -32,6 +32,7 @@ Configuration variables:
 - **secret_key** (*Required*): Your netatmo secret key
 - **username** (*Required*): Username for the netatmo account.
 - **password** (*Required*): Password for the netatmo account.
+- **discovery** (*Optional)*: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).
 
 ### {% linkable_title Get API and Secret Key %}
 
@@ -54,5 +55,5 @@ That's it. You can copy and paste your new API and secret keys in your Home Assi
 </p>
 
 <p class='note'>
-The Home Assistant NetAtmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
+The Home Assistant Netatmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
 </p>

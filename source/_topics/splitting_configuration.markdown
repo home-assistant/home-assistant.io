@@ -105,7 +105,7 @@ Let's look at the `device_tracker.yaml` file from our example:
   consider_home: 120
 ```
 
-This small example illustrates how the "split" files work. In this case, we start with a "comment block" identifying the file followed by two (2) device tracker entries (`owntracks` and `nmap`). These files follow ["style 1"](/getting-started/devices/#style-2-list-each-device-separately) that is to say a fully left aligned leading entry (`- platform: owntracks`) followed by the parameter entries indented two (2) spaces. 
+This small example illustrates how the "split" files work. In this case, we start with a "comment block" identifying the file followed by two (2) device tracker entries (`owntracks` and `nmap`). These files follow ["style 1"](/getting-started/devices/#style-2-list-each-device-separately) that is to say a fully left aligned leading entry (`- platform: owntracks`) followed by the parameter entries indented two (2) spaces.
 
 This (large) sensor configuration gives us another example:
 
@@ -169,6 +169,23 @@ We offer four advanced options to include whole directories at once.
 - `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
 - `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
 - `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
+
+These work recursively. As an example using `!include_dir_* automation`, will include all 6 files shown below:
+
+```bash
+.
+└── .homeassistant
+    ├── automation
+    │   ├── lights
+    │   │   ├── turn_light_off_bedroom.yaml
+    │   │   ├── turn_light_off_lounge.yaml
+    │   │   ├── turn_light_on_bedroom.yaml
+    │   │   └── turn_light_on_lounge.yaml
+    │   ├── say_hello.yaml
+    │   └── sensors
+    │       └── react.yaml
+    └── configuration.yaml (not included)
+```
 
 #### {% linkable_title Example: `!include_dir_list` %}
 
@@ -350,7 +367,6 @@ automation: !include_dir_merge_list automation/
   action:
     service: light.turn_on
     entity_id: light.entryway
-    
 - alias: Automation 2
   trigger:
     platform: state

@@ -75,7 +75,8 @@ Configuration variables:
 - **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **customize** (*Optional*): This attribute contains node-specific override values:
-  - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2-every other time, etc). If not specified then your device will not be polled.
+  - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
+  - **ignored** (*Optional*): Ignore this entitiy completely. It won't be shown in the Web Interface and no events are generated for it.
 
 To find the path of your Z-Wave USB stick or module, run:
 
@@ -211,12 +212,13 @@ The *object_id* and *scene_id* of all triggered events can be seen in the consol
 
 ### {% linkable_title Services %}
 
-The `zwave` component exposes ten services to help maintain the network.
+The `zwave` component exposes multiple services to help maintain the network.
 
 | Service | Description |
 | ------- | ----------- |
 | add_node | Put the Z-Wave controller in inclusion mode. Allows one to add a new device to the Z-Wave network.|
 | add_node_secure | Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network. |
+| association | Add or remove an association in th Z-Wave network
 | cancel_command | Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
 | heal_network | Tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|

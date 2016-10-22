@@ -11,9 +11,9 @@ footer: true
 
 In the package [`homeassistant.remote`](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found.
 
-Note: This page is not full documentation for this API, but a collection of examples showing its use. 
+Note: This page is not full documentation for this API, but a collection of examples showing its use.
 
-A simple way to get all current entities is to visit the "Set State" page in the "Developer Tools". For the examples below just choose one from the available entries. Here the sensor `sensor.office_temperature` and the switch `switch.livingroom_pin_2` are used. 
+A simple way to get all current entities is to visit the "Set State" page in the "Developer Tools". For the examples below just choose one from the available entries. Here the sensor `sensor.office_temperature` and the switch `switch.livingroom_pin_2` are used.
 
 First import the module and setup the basics:
 
@@ -122,7 +122,7 @@ remote.set_state(api, 'switch.livingroom_pin_2', new_state=STATE_ON)
 
 The state will be set to the new values until the next update occurs.
 
-### {% linkable_title Blinking all entites of a domain %}
+### {% linkable_title Blinking all entities of a domain %}
 
 If you want to turn on all entities of a domain, retrieve the service via `get_services` and act on that:
 

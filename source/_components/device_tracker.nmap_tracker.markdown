@@ -17,6 +17,8 @@ As an alternative to the router-based device tracking, it is possible to directl
 
 If you're on Debian or Ubuntu, you might have to install the packages for `arp` and `nmap`. Do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`. 
 
+Host detection is done via Nmap's "fast scan" (`-F`) of the most frequently used 100 ports, with a host timeout of 5 seconds.
+
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -28,7 +30,7 @@ device_tracker:
 
 Configuration variables:
 
-- **hosts** (*Required*): The network range to scan in CIDR notation, eg. `192.168.1.1/24`.
+- **hosts** (*Required*): The network address to scan (in any supported NMap format). Mixing subnets and IPs is possible.
 - **home_interval** (*Optional*): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.
 - **exclude** (*Optional*): Hosts not to include in nmap scanning.
 
@@ -36,6 +38,7 @@ A full example for the `nmap` tracker could look like the following sample:
 
 ```yaml
 # Example configuration.yaml entry for nmap
+# One whole subnet, and skipping two specific IPs.
 device_tracker:
   - platform: nmap_tracker
     hosts: 192.168.1.1/24
@@ -43,6 +46,17 @@ device_tracker:
     exclude:
      - 192.168.1.12
      - 192.168.1.13
+```
+
+```yaml
+# Example configuration.yaml for nmap
+# One subnet, and two specific IPs in another subnet.
+device_tracker:
+  - platform: nmap_tracker
+    hosts:
+      - 192.168.1.1/24
+      - 10.0.0.2
+      - 10.0.0.15
 ```
 
 

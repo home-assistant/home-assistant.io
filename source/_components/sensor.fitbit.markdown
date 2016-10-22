@@ -15,7 +15,7 @@ ha_release: 0.19
 
 The Fitbit sensor allows you to expose data from [Fitbit](http://fitbit.com) to Home Assistant.
 
-Enable the sensor by adding the following to your configuration:
+Enable the sensor by adding the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -33,7 +33,7 @@ The unit system that the sensor will use is based on the country you set in your
 
 Configuration variables:
 
-- **monitored_resources** (*Required*): Resource to monitor.
+- **monitored_resources** (*Optional*): Resource to monitor. Defaults to `activities/steps`.
 
 Below is the list of resources that you can add to `monitored_resources`. One sensor is exposed for every resource.
 
