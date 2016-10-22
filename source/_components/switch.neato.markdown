@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: neato.png
 ha_category: Switch
-ha_release: 0.3X
+ha_release: 0.31
 ---
 
 The `neato` switch platform allows you to control your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
@@ -21,7 +21,7 @@ To enable this switch in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 switch:
-    platform: neato
+  - platform: neato
     username: USERNAME
     password: PASSWORD
 ```
