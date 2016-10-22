@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Notifications for Android TV / FireTV"
-description: "Instructions how to add user notifications to Home Assistant."
+description: "Notifications for Android TV / FireTV"
 date: 2016-10-21 13:00
 sidebar: true
 comments: false
@@ -25,9 +25,6 @@ notify:
 - platform: nfandroidtv
   name: Kitchen
   ip: 192.168.1.12
-  duration: 10
-  position: top-left
-  transparency: 50%
 ```
 
 Configuration variables:
