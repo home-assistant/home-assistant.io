@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-22T22:35:39+00:00</updated>
+  <updated>2016-10-22T22:59:00+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -279,7 +279,7 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [netatmo-discovery]: https://home-assistant.io/components/netatmo/
 [nmap]: https://home-assistant.io/components/device_tracker.nmap_tracker/
 [pers-notify]: https://home-assistant.io/components/persistent_notification/
-[runway]: https://runway.is
+[runway]: http://runway.is
 [scrape]: https://home-assistant.io/components/sensor.scrape/
 [updater]: https://home-assistant.io/components/updater/
 [z-wave-issue]: https://github.com/home-assistant/home-assistant/pull/3759
