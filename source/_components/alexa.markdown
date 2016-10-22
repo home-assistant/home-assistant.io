@@ -327,7 +327,7 @@ alexa:
           {%- else -%}
             Anne Therese is at {{ states("device_tracker.anne_therese") }}
             and Paulus is at {{ states("device_tracker.paulus") }}
-          {% endif %}
+          {% endif %}{% endraw %}
 ```
 
 You can add multiple items for a feed if you want. The Amazon required uid and timestamp will be randomly generated at startup and change at every restart of Home Assistant.
