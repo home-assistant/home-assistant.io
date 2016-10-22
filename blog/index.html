@@ -142,9 +142,9 @@
 
 <h3><a class="title-link" name="rest-we-dont" href="#rest-we-dont"></a> REST! We don’t…</h3>
 
-<p>There was a lot of work done on our implementation which are working with RESTful APIs. <a href="https://github.com/w1ll1am23">@w1ll1am23</a> extended the <a href="https://arest.io/">aREST</a> platforms to display if an aREST unit is available or not. The aREST is now covered by the configuration check as well. Please check the Breaking changes section for more details.</p>
+<p>There was a lot of work done on our implementation which are working with RESTful APIs. <a href="https://github.com/w1ll1am23">@w1ll1am23</a> extended the <a href="https://arest.io/">aREST</a> platforms to display if an aREST unit is available or not. The aREST implementations are now covered by the configuration check as well. Please check the Breaking changes section for more details.</p>
 
-<p>The <a href="/components/sensor.rest/">REST sensor</a> supports now HTTP authentication (basic and digest) and custom header. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.</p>
+<p>The <a href="/components/sensor.rest/">REST sensor</a> supports now HTTP authentication (basic and digest) and custom headers. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span>
   <span class="s">- platform</span><span class="pi">:</span> <span class="s">rest</span>
@@ -487,7 +487,7 @@
 <h3><a class="title-link" name="hotfix-0294---september-30" href="#hotfix-0294---september-30"></a> Hotfix 0.29.4 - September 30</h3>
 
 <ul>
-  <li>Alexa config fix ([@baloob], reported by <a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Alexa config fix (<a href="https://github.com/balloob">@balloob</a>, reported by <a href="https://github.com/lwis">@lwis</a>)</li>
   <li>Envisalink discovery fix (<a href="https://github.com/Cinntax">@cinntax</a>)</li>
   <li>Acer Projector config fix (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
 </ul>
@@ -495,13 +495,13 @@
 <h3><a class="title-link" name="hotfix-0295---september-30" href="#hotfix-0295---september-30"></a> Hotfix 0.29.5 - September 30</h3>
 
 <ul>
-  <li>Fix Climate Nest platform (@tchellomello, @jawilson)</li>
+  <li>Fix Climate Nest platform (<a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/jawilson">@jawilson</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="hotfix-0296---october-1" href="#hotfix-0296---october-1"></a> Hotfix 0.29.6 - October 1</h3>
 
 <ul>
-  <li>Fix segmentation fault (<a href="https://github.com/bbangert">@bbangert</a>, fixes #3453) 🎉</li>
+  <li>Fix segmentation fault (<a href="https://github.com/bbangert">@bbangert</a>) 🎉</li>
   <li>Fix nested templates in <code class="highlighter-rouge">data_template</code> would incorrectly get cached (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
 
