@@ -14,7 +14,7 @@ Hello again friend,
 
 How are you? Having a good day? We sure are. If you aren't having a good day, this might cheer you up...
 
-Saturdays around here are always hectic leading to a big sigh of relief as we release a new version of Home Assistant to the world. And this week is no different. Our developer community has once again built us a beautiful new release with lots of new features and improvements. We hope you like it.
+Every other weekend around here gets a little hectic leading to a big sigh of relief as we release a new version of Home Assistant to the world. And this time is no different. Our developer community has once again built us a beautiful new release with lots of new features and improvements. We hope you like it.
 
 One last thing before we get going though, I should warn you... [@balloob] got a bit lazy this week and let me ([@robbiet480]) step up to the plate again to write the blog post and do the release. I guess I didn't do such a bad job in [0.27][zero-two-seven-release]. You'll never know what surprises I have in store. Now that i've got all that stuff out of the way, let's get started...
 
@@ -54,7 +54,7 @@ updater:
   reporting: no
 ```
 
-You can also disable the updater component entirely by removing `updater:` from your `configuration.yaml` although **we would not suggest you do this** as you would miss any emergency security updates.
+You can also disable the updater component entirely by removing `updater:` from your `configuration.yaml` although **we would not suggest you do this** as you would miss any critical updates.
 
 Finally, you can also reset your unique identifier by deleting the `.uuid` file and restarting Home Assistant.
 
