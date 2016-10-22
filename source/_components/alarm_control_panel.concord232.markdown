@@ -7,19 +7,19 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: networx.png
+logo: interlogix.png
 ha_category: Alarm
-ha_release: 0.13
+ha_release: 0.31
 ---
 
-The `concord232` platform provides integration with GE,  Interlogix (and other brands) alarm panels that support the RS-232 Automation Control Panel interface module (or have it built in). Supported panels include Concord 4. Actual integration is done through [concord232](http://github.com/JasonCarter80/concord232) which is required for this to work.
+The `concord232` platform provides integration with GE, Interlogix (and other brands) alarm panels that support the RS-232 Automation Control Panel interface module (or have it built in). Supported panels include Concord 4.
 
 To enable this, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 alarm_control_panel:
-  platform: concord232
+  - platform: concord232
 ```
 
 Configuration variables:
