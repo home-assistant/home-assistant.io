@@ -35,6 +35,23 @@ WantedBy=multi-user.target
 EOF'
 ```
 
+If you've setup `hass` in virtualenv following the guide the following template should work for you.
+
+```
+[Unit]
+Description=Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=hass
+ExecStartPre=source source /srv/hass/bin/activate
+ExecStart=/srv/hass/bin/hass -c "/home/hass/.homeassistant"
+
+[Install]
+WantedBy=multi-user.target
+```
+
 There is also another [sample service file](https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service) available. To use this one, just download it.
 
 ```bash
