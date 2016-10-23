@@ -34,8 +34,7 @@ Then get the OpenZWave files and switch to the `python3` branch:
 ```bash
 $ git clone https://github.com/OpenZWave/python-openzwave.git
 $ cd python-openzwave
-$ git 
-out python3
+$ git checkout python3
 $ PYTHON_EXEC=$(which python3) make build
 $ sudo PYTHON_EXEC=$(which python3) make install
 ```
