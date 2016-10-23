@@ -22,13 +22,17 @@ logbook:
 
 Configuration variables:
 
-- **exclude** (*Optional*): Configure which components should **not** create logbook enties. 
-- **entities** (*Optional*): The list of entity ids to be excluded from creating logbook entries.
-- **domains** (*Optional*): The list of domains to be excluded from creating logbook entries.
+- **exclude** (*Optional*): Configure which components should **not** create logbook entries. 
+  - **entities** (*Optional*): The list of entity ids to be excluded from creating logbook entries.
+  - **domains** (*Optional*): The list of domains to be excluded from creating logbook entries.
+- **include** (*Optional*): Configure which components should create logbook entries. 
+  - **entities** (*Optional*): The list of entity ids to be included from creating logbook entries.
+  - **domains** (*Optional*): The list of domains to be included from creating logbook entries.
 
 If you want to exclude messages of some entities or domains from the logbook just add the `exclude` parameter like: 
 
 ```yaml
+# Example of excluding domains and entities from the logbook
 logbook:
   exclude:
     entities:
@@ -37,6 +41,34 @@ logbook:
     domains:
       - sun
       - weblink
+```
+
+In case you just want to see messages from some specific entities or domains use the `include` configuration:
+
+```yaml
+# Example to show how to include only the listed domains and entities in the logbook
+logbook:
+  include:
+    domains:
+      - sensor
+      - switch
+      - media_player
+```
+
+You can also use the `include` list and filter out some entities or domains with an `exclude` list. Usually this makes sense if you define domains on the include side and filter out some specific entities.   
+
+```yaml
+# Example of combining include and exclude configurations
+logbook:
+  include:
+    domains:
+      - sensor
+      - switch
+      - media_player
+  exclude:
+    entities:
+      - sensor.last_boot
+      - sensor.date
 ```
 
 ### {% linkable_title Exclude Events %}

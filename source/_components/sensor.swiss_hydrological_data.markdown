@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: swiss-hydrological-data.png
 ha_category: Weather
 ha_iot_class: "Cloud Polling"
 ha_release: 0.22

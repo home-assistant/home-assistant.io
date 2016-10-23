@@ -20,6 +20,10 @@ Devices discovered are stored with 'BLE_' as the prefix for device mac addresses
 Requires PyBluez. If you are on Raspbian, make sure you first install `bluetooth` and `libbluetooth-dev` by running `sudo apt install bluetooth libbluetooth-dev`
 </p>
 
+<p class='note warning'>
+Requires gattlib, which is not compatible with windows. This tracker won't work on windows!
+</p>
+
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

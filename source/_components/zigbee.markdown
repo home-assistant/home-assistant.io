@@ -24,27 +24,15 @@ There is currently support for the following device types within Home Assistant:
 
 The local ZigBee device (assuming XBee) must have an up to date Router or Coordinator API firmware installed.
 
-## Configuration
-
 A `zigbee` section must be present in the `configuration.yaml` file and contain the following options as required:
 
-- **device**: The serial port to which the local ZigBee device is connected. Default: `/dev/ttyUSB0`
-
-- **baud**: The baud rate at which to communicate with the local ZigBee device. Default: `9600`
-
-#### Example
-
 ```yaml
-zigbee:
-  device: /dev/ttyUSB0
-  baud: 115200
-```
-
-Or to simply use the defaults:
-
-```yaml
+# Example configuration.yaml entry
 zigbee:
 ```
+
+- **device** (*Optional*): The serial port to which the local ZigBee device is connected. Defaults to `/dev/ttyUSB0`
+- **baud** (*Optional*): The baud rate at which to communicate with the local ZigBee device. Defaults to `9600`
 
 To find the possible serial port names of your device, run:
 
@@ -55,3 +43,12 @@ $ ls /dev/ttyUSB*
 <p class='note'>
 The port may also appear as /dev/ttyACM* if you're communicating with the ZigBee device through an Arduino.
 </p>
+
+### {% linkable_title Example %}
+
+```yaml
+# Example configuration.yaml entry
+zigbee:
+  device: /dev/ttyACM1
+  baud: 115200
+```

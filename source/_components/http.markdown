@@ -32,7 +32,7 @@ Configuration variables:
 - **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
 - **ssl_key** (*Optional*): Path to your TLS/SSL key to serve Home Assistant over a secure connection.
 - **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://home-assistant.io` will allow requests from `https://home-assistant.io` but __not__ `http://home-assistant.io`.
-- **approved_ips** (*Optional*): A list of approved ips. Then it will be possible to login from given ips without providing a password.
+- **trusted_networks** (*Optional*): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.
 
 The sample below shows a configuration entry with possible values: 
 
@@ -46,9 +46,11 @@ http:
   cors_allowed_origins:
     - https://google.com
     - https://home-assistant.io
-  approved_ips:
+  trusted_networks:
     - 127.0.0.1
-    - 192.168.1.9
+    - ::1
+    - 192.168.0.0/24
+    - 2001:DB8:ABCD::/48
 ```
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).

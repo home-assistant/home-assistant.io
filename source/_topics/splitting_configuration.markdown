@@ -58,10 +58,6 @@ zwave:
   config_path: /usr/local/share/python-openzwave/config
   polling_interval: 10000
 
-#zigbee:
-#  device: /dev/ttyUSB1
-#  baud: 115200
-
 mqtt:
   broker: 127.0.0.1
 ```
@@ -109,16 +105,13 @@ Let's look at the `device_tracker.yaml` file from our example:
   consider_home: 120
 ```
 
-This small example illustrates how the "split" files work. In this case, we start with a "comment block" identifying the file followed by two (2) device tracker entries (`owntracks` and `nmap`). These files follow ["style 1"](/getting-started/devices/#style-2-list-each-device-separately) that is to say a fully left aligned leading entry (`- platform: owntracks`) followed by the parameter entries indented two (2) spaces. 
+This small example illustrates how the "split" files work. In this case, we start with a "comment block" identifying the file followed by two (2) device tracker entries (`owntracks` and `nmap`). These files follow ["style 1"](/getting-started/devices/#style-2-list-each-device-separately) that is to say a fully left aligned leading entry (`- platform: owntracks`) followed by the parameter entries indented two (2) spaces.
 
 This (large) sensor configuration gives us another example:
 
 ```yaml
 ### sensors.yaml
-##############################################################
-### METEOBRIDGE                                           ####
-##############################################################
-
+### METEOBRIDGE #############################################
 - platform: tcp
   name: 'Outdoor Temp (Meteobridge)'
   host: 192.168.2.82
@@ -134,27 +127,14 @@ This (large) sensor configuration gives us another example:
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
   value_template: "{% raw %}{{value.split (' ')[3]}}{% endraw %}"
   unit: Percent
-- platform: tcp
-  name: 'Outdoor Dewpoint (Meteobridge)'
-  host: 192.168.2.82
-  port: 5556
-  timeout: 6
-  payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[4] }}{% endraw %}"
-  unit: C
-###################################
-#### STEAM FRIENDS            ####
-##################################
 
+#### STEAM FRIENDS ##################################
 - platform: steam_online
   api_key: [not telling]
   accounts:
       - 76561198012067051
 
-##################################
-####     TIME/DATE            ####
-##################################
-
+#### TIME/DATE ##################################
 - platform: time_date
   display_options:
       - 'time'
@@ -162,12 +142,6 @@ This (large) sensor configuration gives us another example:
 - platform: worldclock
   time_zone: Etc/UTC
   name: 'UTC'
-- platform: worldclock
-  time_zone: America/New_York
-  name: 'Ann Arbor'
-- platform: worldclock
-  time_zone: Europe/Vienna
-  name: 'Innsbruck'
 - platform: worldclock
   time_zone: America/New_York
   name: 'Ann Arbor'
@@ -182,8 +156,8 @@ If you have issues checkout `home-assistant.log` in the configuration directory 
 ### {% linkable_title Debugging multiple configuration files %}
 
 If you have many configuration files, the `check_config` script allows you to see how Home Assistant interprets them:
-- Listing all loaded files: `hass --script --check_config --files`
-- Viewing a component's config: `hass --script --check_config --info light`
+- Listing all loaded files: `hass --script check_config --files`
+- Viewing a component's config: `hass --script check_config --info light`
 - Or all components' config:  `hass --script check_config --info all`
 
 You can get help from the command line using: `hass --script check_config --help`
@@ -196,6 +170,22 @@ We offer four advanced options to include whole directories at once.
 - `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
 - `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
 
+These work recursively. As an example using `!include_dir_* automation`, will include all 6 files shown below:
+
+```bash
+.
+└── .homeassistant
+    ├── automation
+    │   ├── lights
+    │   │   ├── turn_light_off_bedroom.yaml
+    │   │   ├── turn_light_off_lounge.yaml
+    │   │   ├── turn_light_on_bedroom.yaml
+    │   │   └── turn_light_on_lounge.yaml
+    │   ├── say_hello.yaml
+    │   └── sensors
+    │       └── react.yaml
+    └── configuration.yaml (not included)
+```
 
 #### {% linkable_title Example: `!include_dir_list` %}
 
@@ -377,7 +367,6 @@ automation: !include_dir_merge_list automation/
   action:
     service: light.turn_on
     entity_id: light.entryway
-    
 - alias: Automation 2
   trigger:
     platform: state

@@ -53,3 +53,22 @@ If using targets, your own account's email address functions as 'send to all dev
   ]
 }
 ```
+
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+### {% linkable_title URL support %}
+
+```yaml
+...
+
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: Send URL
+    message: This is an url
+    data:
+      url: google.com
+```
+
+- **url** (*Required*): Page URL to send with pushbullet.
+
