@@ -124,13 +124,13 @@
 
 <p>Install PIP (Python’s package management system)</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python -m ensurepip
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./python3 -m ensurepip
 </code></pre>
 </div>
 
 <p>Use PIP to install Homeassistant package</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install homeassistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./python3 pip install homeassistant
 </code></pre>
 </div>
 
@@ -161,7 +161,7 @@
 
 start_daemon ()
 {
-    su </span><span class="k">${</span><span class="nv">USER</span><span class="k">}</span><span class="s2"> -s /bin/sh -c "</span><span class="nv">$PYTHON</span> <span class="nv">$HASS</span> <span class="nv">$FLAGS</span> <span class="nv">$REDIRECT</span>;<span class="s2">"
+    sudo -u </span><span class="k">${</span><span class="nv">USER</span><span class="k">}</span><span class="s2"> /bin/sh -c "</span><span class="nv">$PYTHON</span> <span class="nv">$HASS</span> <span class="nv">$FLAGS</span> <span class="nv">$REDIRECT</span>;<span class="s2">"
 }
 
 stop_daemon ()
@@ -291,7 +291,7 @@ That’s it… you’re all set to go</p>
   <li>Start Home Assistant:</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sh hass-daemon start
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo /volume1/homeassistant/hass-daemon start
 </code></pre>
 </div>
 
@@ -299,7 +299,7 @@ That’s it… you’re all set to go</p>
   <li>Stop Home Assistant:</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sh hass-daemon stop
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo /volume1/homeassistant/hass-daemon stop
 </code></pre>
 </div>
 
@@ -307,7 +307,7 @@ That’s it… you’re all set to go</p>
   <li>Restart Home Assistant:</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sh hass-daemon restart
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo /volume1/homeassistant/hass-daemon restart
 </code></pre>
 </div>
 
@@ -315,7 +315,7 @@ That’s it… you’re all set to go</p>
   <li>Upgrade Home Assistant::</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m pip install --upgrade homeassistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>/volume1/@appstore/py3k/usr/local/bin/python3 -m pip install --upgrade homeassistant
 </code></pre>
 </div>
 
