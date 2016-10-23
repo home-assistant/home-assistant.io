@@ -34,14 +34,18 @@ Then get the OpenZWave files and switch to the `python3` branch:
 ```bash
 $ git clone https://github.com/OpenZWave/python-openzwave.git
 $ cd python-openzwave
-$ git checkout python3
+$ git 
+out python3
 $ PYTHON_EXEC=$(which python3) make build
 $ sudo PYTHON_EXEC=$(which python3) make install
 ```
 <p class='note'>
 Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
 
-```$ sudo apt-get install -y checkinstall && sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave```
+```bash
+$ sudo apt-get install -y checkinstall
+$ sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave
+```
 
 </p>
 
