@@ -24,13 +24,13 @@ To enable the notification platform, add the following to your `configuration.ya
 notify:
 - platform: nfandroidtv
   name: Kitchen
-  ip: 192.168.1.12
+  host: 192.168.1.12
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **ip** (*Required*): IP address of the Android TV / FireTV device.
+- **host** (*Required*): IP address of the Android TV / FireTV device.
 - **duration** (*Optional*): The duration in seconds for which the notification will be displayed. Default is 5 seconds.
 - **position** (*Optional*): Has to be one of: bottom-right (default), bottom-left, top-right, top-left, center
 - **color** (*Optional*): Has to be one of: grey (default), black, indigo, green, red, cyan, teal, amber, pink
