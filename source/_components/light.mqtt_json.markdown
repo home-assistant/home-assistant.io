@@ -54,8 +54,8 @@ Configuration variables:
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
 - **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
 - **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
-- **rgb_value_template** (*Optional*): Template to extract the color in the format 'R,G,B' from the state topic JSON. Defaults to `{{ value_json.color.r }},{{ value_json.color.g }},{{ value_json.color.b }}`.
-- **rgb_set_template** (*Optional*): Template to render the color code to JSON in the command topic. Defaults to `{"color":{"r":{{ value_json.r }},"g":{{ value_json.g }},"b":{{ value_json.b }}}}`.
+- **rgb_value_template** (*Optional*): Template to extract the color in the format 'R,G,B' from the state topic JSON. Defaults to `{% raw %}{{ value_json.color.r }},{{ value_json.color.g }},{{ value_json.color.b }}{% endraw %}`.
+- **rgb_set_template** (*Optional*): Template to render the color code to JSON in the command topic. Defaults to `{% raw %}{"color":{"r":{{ value_json.r }},"g":{{ value_json.g }},"b":{{ value_json.b }}}}{% endraw %}`.
 - **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
 - **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.
 - **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.
