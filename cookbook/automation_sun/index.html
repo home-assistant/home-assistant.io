@@ -167,7 +167,7 @@
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
-    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.attributes.elevation</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">raw</span><span class="nv"> </span><span class="s">%}'</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.attributes.elevation</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">below</span><span class="pi">:</span> <span class="s">1.5</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
@@ -177,7 +177,7 @@
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
-    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">raw</span><span class="nv"> </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">state.attributes.elevation</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.attributes.elevation</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">below</span><span class="pi">:</span> <span class="s">-2.5</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_off</span>
