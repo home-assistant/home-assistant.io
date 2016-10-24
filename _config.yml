@@ -123,3 +123,7 @@ social:
 
   twitter:
     account: home_assistant
+
+current_major_version: 0
+current_minor_version: 31
+current_patch_version: 1
