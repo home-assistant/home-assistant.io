@@ -105,9 +105,10 @@ These devices will either show as a binary sensor or a sensor called <code class
 You should check OZW.log to see if your new setting has been set
 Example entry in dev-service, setting binary reports for an Aeotec Multisensor 6:
     <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example entry in dev-service</span>
-<span class="pi">{</span><span class="s2">"</span><span class="s">entity_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sensor.aetoec_multisensor_6_luminance_5"</span><span class="pi">,</span>
-<span class="s2">"</span><span class="s">parameter"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">5"</span><span class="pi">,</span>
-<span class="s2">"</span><span class="s">value"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2"</span>
+<span class="pi">{</span>
+<span class="s2">"</span><span class="s">node_id"</span><span class="pi">:</span> <span class="nv">42</span><span class="pi">,</span>
+<span class="s2">"</span><span class="s">parameter"</span><span class="pi">:</span> <span class="nv">5</span><span class="pi">,</span>
+<span class="s2">"</span><span class="s">value"</span><span class="pi">:</span> <span class="nv">2</span>
 <span class="pi">}</span>
 </code></pre>
     </div>
