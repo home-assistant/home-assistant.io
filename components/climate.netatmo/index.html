@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Generic Thermostat - Home Assistant</title>
+    <title>Netatmo Thermostat - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Turn Home Assistant into a thermostat">
+    <meta name="description" content="Instructions how to integrate Netatmo thermostat into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/climate.generic_thermostat/">
+    <link rel="canonical" href="https://home-assistant.io/components/climate.netatmo/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Generic Thermostat">
+    <meta property="og:title" content="Netatmo Thermostat">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/climate.generic_thermostat/">
+    <meta property="og:url" content="https://home-assistant.io/components/climate.netatmo/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Turn Home Assistant into a thermostat">
+    <meta property="og:description" content="Instructions how to integrate Netatmo thermostat into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Generic Thermostat">
-    <meta name="twitter:description" content="Turn Home Assistant into a thermostat">
+    <meta name="twitter:title" content="Netatmo Thermostat">
+    <meta name="twitter:description" content="Instructions how to integrate Netatmo thermostat into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -83,49 +83,43 @@
   
   <header>
     <h1 class="title indent">
-      Generic Thermostat
+      Netatmo Thermostat
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">generic_thermostat</code> climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater under the hood. If the measured temperature is cooler then the target temperature, the heater will be turned on and turned off when required temperature is reached.</p>
+  <p>The <code class="highlighter-rouge">netatmo</code> thermostat platform is consuming the information provided by a <a href="https://www.netatmo.com/product/energy/thermostat">Netatmo Smart Thermostat</a> thermostat. This component allows you to view the current temperature and setpoint.</p>
+
+<p>To enable the Netatmo thermostat, you first have to set up <a href="/components/netatmo/">netatmo</a>, this will use discovery to add your thermostat.</p>
+
+<p>If you want to select a specific thermostat, set discovery to False for <a href="/components/netatmo/">netatmo</a> and add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">climate</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">generic_thermostat</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Study</span>
-    <span class="s">heater</span><span class="pi">:</span> <span class="s">switch.study_heater</span>
-    <span class="s">target_sensor</span><span class="pi">:</span> <span class="s">sensor.study_temperature</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">netatmo</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Required</em>): Name of thermostat</li>
-  <li><strong>heater</strong> (<em>Required</em>): <code class="highlighter-rouge">entity_id</code> for heater switch, must be a toggle device.</li>
-  <li><strong>target_sensor</strong> (<em>Required</em>): <code class="highlighter-rouge">entity_id</code> for a temperature sensor, target_sensor.state must be temperature.</li>
-  <li><strong>min_temp</strong> (<em>Optional</em>): Set minimum set point available (default: 7)</li>
-  <li><strong>max_temp</strong> (<em>Optional</em>): Set maximum set point available (default: 35)</li>
-  <li><strong>target_temp</strong> (<em>Optional</em>): Set intital target temperature. Failure to set this variable will result in target temperature being set to null on startup.</li>
-  <li><strong>ac_mode</strong> (<em>Optional</em>): Set the switch specified in the <em>heater</em> option to be treated as a cooling device instead of a heating device.</li>
-  <li><strong>min_cycle_duration</strong> (<em>Optional</em>): Set a minimum amount of time that the switch specified in the <em>heater</em> option must be in it’s current state prior to being switched either off or on.</li>
+  <li><strong>relay</strong> (<em>Optional</em>): Will display the thermostats of this relay only.</li>
+  <li><strong>thermostat</strong> array (<em>Optional</em>): Thermostat to use.
+    <ul>
+      <li><strong>thermostat_name</strong>: Name of the thermostat to display.</li>
+    </ul>
+  </li>
 </ul>
 
-<p>A full configuration example looks like the one below. <code class="highlighter-rouge">min_cycle_duration</code> must contains at least one of the following entries: <code class="highlighter-rouge">days:</code>, <code class="highlighter-rouge">hours:</code>, <code class="highlighter-rouge">minutes:</code>, <code class="highlighter-rouge">seconds:</code> or <code class="highlighter-rouge">milliseconds:</code>.</p>
+<p>If <strong>relay</strong> and <strong>thermostat</strong> are not provided, all thermostats will be displayed.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Full example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">climate</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">generic_thermostat</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Study</span>
-    <span class="s">heater</span><span class="pi">:</span> <span class="s">switch.study_heater</span>
-    <span class="s">target_sensor</span><span class="pi">:</span> <span class="s">sensor.study_temperature</span>
-    <span class="s">min_temp</span><span class="pi">:</span> <span class="s">15</span>
-    <span class="s">max_temp</span><span class="pi">:</span> <span class="s">21</span>
-    <span class="s">target_temp</span><span class="pi">:</span> <span class="s">17</span>
-    <span class="s">min_cycle_duration</span><span class="pi">:</span>
-      <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">netatmo</span>
+  <span class="s">relay</span><span class="pi">:</span> <span class="s">relay_name</span>
+  <span class="s">thermostat</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">thermostat_name</span>
 </code></pre>
 </div>
 
@@ -141,16 +135,33 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/climate.generic_thermostat.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/climate.netatmo.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/heat-control.png' />
+      <img src='/images/supported_brands/netatmo.png' />
   </div>
     <div class='section'>
-    Introduced in release: pre 0.7
+    Introduced in release: 0.31
     </div>
     <div class='section'>
       This is a platform for
       <a href='/components/climate/'>the Climate component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/netatmo/'>
+          Netatmo
+        </a></li>
+        <li><a href='/components/binary_sensor.netatmo/'>
+          Netatmo Binary Sensor
+        </a></li>
+        <li><a href='/components/camera.netatmo/'>
+          Netatmo Camera
+        </a></li>
+        <li><a href='/components/sensor.netatmo/'>
+          Netatmo Sensor
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Climate</h1>
@@ -162,7 +173,7 @@
             <a href='/components/climate.ecobee/'>Ecobee Thermostat</a>
         </li>
         <li>
-            Generic Thermostat
+            <a href='/components/climate.generic_thermostat/'>Generic Thermostat</a>
         </li>
         <li>
             <a href='/components/climate.heatmiser/'>Heatmiser Thermostat</a>
@@ -180,7 +191,7 @@
             <a href='/components/climate.nest/'>Nest Thermostat</a>
         </li>
         <li>
-            <a href='/components/climate.netatmo/'>Netatmo Thermostat</a>
+            Netatmo Thermostat
         </li>
         <li>
             <a href='/components/climate.proliphix/'>Proliphix Thermostat</a>
