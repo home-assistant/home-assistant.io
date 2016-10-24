@@ -4,7 +4,7 @@ title: "0.31: Reading you the news, some serious business, spooky hackery and a 
 description: "Alexa Flash Briefing API support, Markdown in persistent notifications, a new updater component, Hacktoberfest and breaking Z-Wave changes."
 date: 2016-10-22 13:00:00 -0700
 date_formatted: "October 22, 2016"
-release_date: 2016-10-24 21:57:00 -0700
+release_date: 2016-10-23 21:57:00 -0700
 author: Robbie Trencheny
 author_twitter: robbie
 comments: true
