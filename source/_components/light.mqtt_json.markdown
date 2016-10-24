@@ -111,8 +111,8 @@ light:
     command_topic: "home/rgb1/set"
     brightness: true
     rgb: true
-    rgb_value_template: "{{ value_json.color[0] }},{{ value_json.color[1] }},{{ value_json.color[2] }}"
-    rgb_set_template: '{"color": [{{ value_json.r }},{{ value_json.g}},{{ value_json.b }}]}'
+    rgb_value_template: "{% raw %}{{ value_json.color[0] }},{{ value_json.color[1] }},{{ value_json.color[2] }}{% endraw %}"
+    rgb_set_template: '{% raw %}{"color": [{{ value_json.r }},{{ value_json.g}},{{ value_json.b }}]}{% endraw %}'
 ```
 
 This will allow the color to be set as array instead of JSON object:
