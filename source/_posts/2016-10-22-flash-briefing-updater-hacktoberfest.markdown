@@ -196,6 +196,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 
  - Identify special character encoding error in YAML files ([@kellerza], [@lwis])
  - iOS app component bug fixes ([@robbiet480])
+ - Fix a spelling problem on user-facing error ([@robbiet480])
 
 ## {% linkable_title Breaking changes %}
  - The [HTTP] component now takes a different format for authenticating IPs
