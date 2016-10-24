@@ -192,13 +192,15 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 - iOS support ([@robbiet480])
 - Minor features and bug fixes by [@mtl010957], [@molobrakos], [@flyte], [@fabaff], [@phardy], [@sander76], [@T3m3z], [@c-w], [@balloob], [@robbiet480], [@StaticCube], [@vittoriom], [@hartmms], [@kirichkov], [@mezz64], [@ishults], [@Danielhiversen] and [@tchellomello].
 
-### {% linkable_title Release 0.30.1 - October 24 %}
+### {% linkable_title Release 0.31.1 - October 24 %}
 
  - Identify special character encoding error in YAML files ([@kellerza], [@lwis])
  - iOS app component bug fixes ([@robbiet480])
  - Fix a spelling problem on user-facing error ([@robbiet480])
+ - YAML includes will ignore dirs/files prefixed with . ([@lwis])
 
 ## {% linkable_title Breaking changes %}
+
  - The [HTTP] component now takes a different format for authenticating IPs
  - Config format has changed for [Proximity]
  - The Z-Wave entity ID change mentioned above
