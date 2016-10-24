@@ -172,7 +172,6 @@
       <th>Name</th>
       <th>Description</th>
       <th>Example</th>
-      <th>Data Source</th>
     </tr>
   </thead>
   <tbody>
@@ -180,152 +179,148 @@
       <td><code class="highlighter-rouge">arch</code></td>
       <td>CPU Architecture</td>
       <td><code class="highlighter-rouge">x86_64</code></td>
-      <td>Local Instance</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">distribution</code></td>
       <td>Linux Distribution name (only Linux)</td>
       <td><code class="highlighter-rouge">Ubuntu</code></td>
-      <td>Local Instance</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">docker</code></td>
       <td>True if running inside Docker</td>
       <td><code class="highlighter-rouge">false</code></td>
-      <td>Local Instance</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">first_seen_datetime</code></td>
-      <td>First time instance ID was submitted</td>
-      <td><code class="highlighter-rouge">2016-10-22T19:56:03.542Z</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_city</code></td>
-      <td>GeoIP determined city</td>
-      <td><code class="highlighter-rouge">Oakland</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_country_code</code></td>
-      <td>GeoIP determined country code</td>
-      <td><code class="highlighter-rouge">US</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_country_name</code></td>
-      <td>GeoIP determined country name</td>
-      <td><code class="highlighter-rouge">United States</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_latitude</code></td>
-      <td>GeoIP determined latitude</td>
-      <td><code class="highlighter-rouge">37.8047</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_longitude</code></td>
-      <td>GeoIP determined longitude</td>
-      <td><code class="highlighter-rouge">-122.2124</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_metro_code</code></td>
-      <td>GeoIP determined metro code</td>
-      <td><code class="highlighter-rouge">807</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_region_code</code></td>
-      <td>GeoIP determined region code</td>
-      <td><code class="highlighter-rouge">CA</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_region_name</code></td>
-      <td>GeoIP determined region name</td>
-      <td><code class="highlighter-rouge">California</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_time_zone</code></td>
-      <td>GeoIP determined time zone</td>
-      <td><code class="highlighter-rouge">America/Los_Angeles</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">geo_zip_code</code></td>
-      <td>GeoIP determined zip code</td>
-      <td><code class="highlighter-rouge">94602</code></td>
-      <td>Update Server</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">last_seen_datetime</code></td>
-      <td>Most recent time instance ID was submitted</td>
-      <td><code class="highlighter-rouge">2016-10-22T19:56:03.542Z</code></td>
-      <td>Update Server</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">os_name</code></td>
       <td>Operating system name</td>
       <td><code class="highlighter-rouge">Darwin</code></td>
-      <td>Local Instance</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">os_version</code></td>
       <td>Operating system version</td>
       <td><code class="highlighter-rouge">10.12</code></td>
-      <td>Local Instance</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">python_version</code></td>
       <td>Python version</td>
       <td><code class="highlighter-rouge">3.5.2</code></td>
-      <td>Local Instance</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">timezone</code></td>
       <td>Timezone</td>
       <td><code class="highlighter-rouge">America/Los_Angeles</code></td>
-      <td>Local Instance</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">user_agent</code></td>
       <td>User agent used to submit analytics</td>
       <td><code class="highlighter-rouge">python-requests/2.11.1</code></td>
-      <td>Local Instance</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">uuid</code></td>
       <td>Unique identifier</td>
       <td><code class="highlighter-rouge">10321ee6094d4a2ebb5ed55c675d5f5e</code></td>
-      <td>Local Instance</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">version</code></td>
       <td>Home Assistant version</td>
       <td><code class="highlighter-rouge">0.31.0</code></td>
-      <td>Local Instance</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">virtualenv</code></td>
       <td>True if running inside virtualenv</td>
       <td><code class="highlighter-rouge">true</code></td>
-      <td>Local Instance</td>
     </tr>
   </tbody>
 </table>
 
-<p>In addition to the above collected data, the server will also use your IP address to do a geographic IP address lookup to determine a general geographic area that your address is located in. To be extremely, extremely clear about this bit: <strong>The Home Assistant updater does not: store your IP address in a database and also does not submit the location information from your <code class="highlighter-rouge">configuration.yaml</code>.</strong> Our tests show that at best, we get 4 digits of accuracy on your IP address location which is a 5 mile radius of your actual IP location, assuming that it is even correct in the first place (geo IP look ups are very hit or miss). Here’s what the accuracy looks like for my data above: <img src="/images/blog/2016-10-flash-briefing-updater-hacktoberfest/map.png" alt="Robbie's GeoIP accuracy level" /></p>
+<p>In addition to the above collected data, the server will also use your IP address to do a geographic IP address lookup to determine the city that you are from. To be extremely, extremely clear about this bit: <strong>The Home Assistant updater does not: store your IP address in a database and also does not submit the location information from your <code class="highlighter-rouge">configuration.yaml</code>.</strong></p>
 
-<p>The server also adds two timestamps to the data: the original date your instance UUID was first seen and the timestamp of the last time we have seen your instance.</p>
+<p class="img">
+  <img src="/images/blog/2016-10-flash-briefing-updater-hacktoberfest/map.png" />
+  Geo-lookup on my IP resolves to Oakland with latitude/longitude pointing at the geographical center of the city.
+</p>
+
+<p>The server also adds two timestamps to the data: the original date your instance UUID was first seen and the timestamp of the last time we have seen your instance. This gives us the following extra data:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">first_seen_datetime</code></td>
+      <td>First time instance ID was submitted</td>
+      <td><code class="highlighter-rouge">2016-10-22T19:56:03.542Z</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_city</code></td>
+      <td>GeoIP determined city</td>
+      <td><code class="highlighter-rouge">Oakland</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_country_code</code></td>
+      <td>GeoIP determined country code</td>
+      <td><code class="highlighter-rouge">US</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_country_name</code></td>
+      <td>GeoIP determined country name</td>
+      <td><code class="highlighter-rouge">United States</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_latitude</code></td>
+      <td>GeoIP determined latitude (of the city)</td>
+      <td><code class="highlighter-rouge">37.8047</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_longitude</code></td>
+      <td>GeoIP determined longitude (of the city)</td>
+      <td><code class="highlighter-rouge">-122.2124</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_metro_code</code></td>
+      <td>GeoIP determined metro code</td>
+      <td><code class="highlighter-rouge">807</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_region_code</code></td>
+      <td>GeoIP determined region code</td>
+      <td><code class="highlighter-rouge">CA</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_region_name</code></td>
+      <td>GeoIP determined region name</td>
+      <td><code class="highlighter-rouge">California</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_time_zone</code></td>
+      <td>GeoIP determined time zone</td>
+      <td><code class="highlighter-rouge">America/Los_Angeles</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_zip_code</code></td>
+      <td>GeoIP determined zip code</td>
+      <td><code class="highlighter-rouge">94602</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">last_seen_datetime</code></td>
+      <td>Most recent time instance ID was submitted</td>
+      <td><code class="highlighter-rouge">2016-10-22T19:56:03.542Z</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>This data is held in the highest security. The update system runs in a secured Amazon Web Services account owned by me (<a href="https://github.com/robbiet480">@robbiet480</a>). I personally have 5 years of experience with complex AWS deployments and have an extensive security background. I have audited the entire system and made sure to take every step to protect the data, including limiting who has access (just <a href="https://github.com/balloob">@balloob</a> and myself). While not directly personally identifiable we absolutely understand some users hesistance to giving this information out. Please understand that we are only collecting this information to better understand our user base to provide better long term support and feature development then is currently possible.</p>
 
 <p>We currently have no plans to publicly expose any of this information. If we did do such a thing in the future we would of course notify you in advance. It must also be stated that we will never sell or allow the use of this information for non-Home Assistant purposes.</p>
 
 <p>We thank you for understanding why we are collecting this data and hope that you leave the feature enabled but fully understand if you feel uncomfortable with this.</p>
+
+<p><em>This section was updated on October 24 to be more clear about geo-lookups being on the city level. <a href="https://github.com/home-assistant/home-assistant.github.io/blob/c937242d154e509d2d84d10c51f654e20556fa21/source/_posts/2016-10-22-flash-briefing-updater-hacktoberfest.markdown">See original version.</a></em></p>
 
 <p>Now, back to the fun stuff…</p>
 
@@ -341,7 +336,10 @@
 
 <p>Now I know how to best get to <a href="http://runway.is">my real job</a> (no, Home Assistant is <em>not</em> my real job, it does seem like it sometimes though) every morning. Obviously not the best home automation example, but I think you get the idea. I could see this being used to tell you any major events that happened in your home overnight or reading you your hyperlocal weather report. Thanks to the audio support you could even replace all of the default Alexa Flash Briefing sources with your own news feeds. Home Assistant supports both text and audio content as well as displaying data in the Alexa app. I also want to point out that unlike the existing Skill integration, the Flash Briefing API does <em>not</em> require HTTPS (<em>but you should still be using HTTPS if possible</em>). For more information, check out the new <a href="https://home-assistant.io/components/alexa/">docs</a>.</p>
 
-<p><img src="/images/blog/2016-10-flash-briefing-updater-hacktoberfest/stay-classy.jpg" alt="You stay classy, San Diego. (It's funny, because balloob lives in San Diego))" /></p>
+<p class="img">
+  <img src="/images/blog/2016-10-flash-briefing-updater-hacktoberfest/stay-classy.jpg" />
+  You stay classy, San Diego. (It’s funny, because balloob lives in San Diego))
+</p>
 
 <h2><a class="title-link" name="major-breaking-z-wave-changes-ahead" href="#major-breaking-z-wave-changes-ahead"></a> Major breaking Z-Wave changes ahead</h2>
 
