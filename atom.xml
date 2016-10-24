@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-24T02:29:02+00:00</updated>
+  <updated>2016-10-24T03:43:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -323,6 +323,7 @@
 <ul>
   <li>Identify special character encoding error in YAML files (<a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/lwis">@lwis</a>)</li>
   <li>iOS app component bug fixes (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Fix a spelling problem on user-facing error (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
 </ul>
 
 <h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>

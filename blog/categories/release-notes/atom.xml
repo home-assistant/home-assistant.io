@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-24T02:29:02+00:00</updated>
+  <updated>2016-10-24T03:43:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -204,6 +204,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 
  - Identify special character encoding error in YAML files ([@kellerza], [@lwis])
  - iOS app component bug fixes ([@robbiet480])
+ - Fix a spelling problem on user-facing error ([@robbiet480])
 
 ## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
  - The [HTTP] component now takes a different format for authenticating IPs
