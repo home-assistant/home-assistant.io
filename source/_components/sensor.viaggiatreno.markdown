@@ -10,11 +10,10 @@ footer: true
 ha_category: Transport
 logo: db.png
 ha_iot_class: "Cloud Polling"
-ha_release: 0.31
+ha_release: 0.32
 ---
 
-The `viaggiatreno` sensor can be used to check specific train delay at certain stop. It needs the
-train number as well as the station name (as displayed in http://viaggiatreno.it)
+The `viaggiatreno` sensor can be used to check specific train delay at certain stop. It needs the train number as well as the station name (as displayed in http://viaggiatreno.it)
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -32,7 +31,7 @@ Configuration variables:
 - **train_no** (*Required*): Train number as displayed in http://viaggiatreno.it
 - **origin_station** (*Optional*): Departure station ID (if not provided can be calculated)
 
-The sensor provides (at the moment) just the delay expressed in minutes. If the specified train
-has already passed the station it returns None
+The sensor provides (at the moment) just the delay expressed in minutes. If the specified train has already passed the station it returns None.
+If not provided the **origin_station** ID is get from the **train_no** using the Viaggiatreno API.
 
 The data is coming from the [Viaggiatreno.it](http://viaggiatreno.it) website.
