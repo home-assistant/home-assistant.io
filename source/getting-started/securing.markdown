@@ -21,7 +21,7 @@ One of the reasons to use Home Assistant is that it's not depending on cloud ser
 
 Additional points if you want to allow remote access:
 
-- Protect your communication with [TLS](blog/2015/12/13/setup-encryption-using-lets-encrypt/)
+- Protect your communication with [TLS](/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
 - Protect your communication with [Tor](/cookbook/tor_configuration/)
 - Use a [proxy](/cookbook/apache_configuration/)
 
