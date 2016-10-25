@@ -2,16 +2,16 @@
 layout: page
 title: "Mipow Color"
 description: "Instructions how to setup Mipow color BT le bulb within Home Assistant."
-date: 2015-07-17 20:09
+date: 2015-10-25
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: magic_light.png
+logo: mipow.png
 ha_category: Light
 ha_iot_class: "Local Polling"
 featured: false
-ha_release: 0.25
+ha_release: xx
 ---
 
 The `Mipow color` support is integrated into Home Assistant as a light platform. Please note that this will only work on linux and requires a bluetooth adapter with LE support!
