@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: openweathermap.png
 ha_category: Weather
-ha_release: "0.30"
+ha_release: 0.32
 ---
-
 
 The `openweathermap` weather platform uses [OpenWeatherMap](http://openweathermap.org/) as an source for current meteorological data for your location.
 
@@ -34,5 +33,6 @@ Configuration variables:
 - **latitude** (*Optional*): Latitude of the location to display the weather. Defaults to the latitude in your your `configuration.yaml` file. 
 - **longitude** (*Optional*): Longitude of the location to display the weather. Defaults to the longitude in your `configuration.yaml` file.
 
-Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).
-
+<p class='note'>
+This platform is an alternative to the [`openweathermap`](/components/sensor.openweathermap/) sensor. 
+</p>
