@@ -83,17 +83,17 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 
 ### {% linkable_title Hotfix 0.29.4 - September 30 %}
 
- - Alexa config fix ([@baloob], reported by [@lwis])
+ - Alexa config fix ([@balloob], reported by [@lwis])
  - Envisalink discovery fix ([@cinntax])
  - Acer Projector config fix ([@pvizeli])
 
 ### {% linkable_title Hotfix 0.29.5 - September 30 %}
 
- - Fix Climate Nest platform (@tchellomello, @jawilson)
+ - Fix Climate Nest platform ([@tchellomello], [@jawilson])
 
 ### {% linkable_title Hotfix 0.29.6 - October 1 %}
 
- - Fix segmentation fault ([@bbangert], fixes #3453) 🎉
+ - Fix segmentation fault ([@bbangert]) 🎉
  - Fix nested templates in `data_template` would incorrectly get cached ([@balloob])
 
 ### {% linkable_title Hotfix 0.29.7 - October 5 %}
