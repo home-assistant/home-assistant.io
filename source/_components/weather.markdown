@@ -9,7 +9,8 @@ sharing: true
 footer: true
 ---
 
-Weather platforms are gathering meteorological information from web services and displays the conditions and other details about the weather at the given location. 
+The `weather` platforms are gathering meteorological information from web services and displays the conditions and other details about the weather at the given location. 
 
-Home Assistant currently supports a free web services and such which requires a registration. Please check the sidebar for a full list of supported sensor platforms.
+Home Assistant currently supports free web services and such which requires a registration. Please check the sidebar for a full list of supported `weather` platforms.
+
 
