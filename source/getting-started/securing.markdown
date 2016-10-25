@@ -23,6 +23,7 @@ Additional points if you want to allow remote access:
 
 - Protect your communication with [TLS](/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
 - Protect your communication with [Tor](/cookbook/tor_configuration/)
+- Protect your communication with a [self-signed certificate](/cookbook/tls_self_signed_certificate/)
 - Use a [proxy](/cookbook/apache_configuration/)
 
 
