@@ -16,19 +16,19 @@ Home Assistant can be extended with **components**. Each component is responsibl
 Diagram showing interaction between components and the Home Assistant core
 </p>
 
-There are two types of components within Home Assistant: components that interact with an Internet-of-Things domain, and components that respond to events that happen within Home Assistant. Read on to learn about each type!
+There are two types of components within Home Assistant: components that interact with an Internet of Things domain, and components that respond to events that happen within Home Assistant. Read on to learn about each type!
 
 #### {% linkable_title Components that interact with an Internet-of-Things domain %}
 
 These components track devices within a specific domain and consist of a core part and platform-specific logic. These components make their information available via the State Machine and the Event Bus. The components also register services in the Service Registry to expose control of the devices.
 
-For example, the built-in [`switch` component](/components/switch/) is responsible for interaction with different types of switches. A platform provides support for a particular kind or brand of device. For example, a switch could use a WeMo or Orvibo platform, and a light component might interact with the Hue or LiFX platform.
+For example, the built-in [`switch` component](/components/switch/) is responsible for interaction with different types of switches. A platform provides support for a particular kind or brand of device. For example, a switch could use a WeMo or Orvibo platform and a light component might interact with the Hue or LIFX platform.
 
 If you want to add support for a new platform, check out the [add new platform section](/developers/add_new_platform/).
 
 #### {% linkable_title Components that respond to events that happen within Home Assistant %}
 
-These components provide small pieces of home automation logic or services that do common tasks within your house.
+These components provide small pieces of home automation logic or involve services that do common tasks within your house.
 
 For example, the [`device_sun_light_trigger` component](/components/device_sun_light_trigger/) tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and people are home. The component uses logic like this:
 
@@ -50,11 +50,11 @@ For example, the [`device_sun_light_trigger` component](/components/device_sun_l
         Turn on the lights
 ```
 
-Look [here](https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py) for an extended example of a home automation component.
+Look [here](https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py) for a comprehensive example of a home automation component.
 
 ### {% linkable_title The full picture %}
 
-When we put all the different pieces of Home Assistant together, it's a close match for the initial home automation overview sketch. The smart home AI is not implemented yet, so it's not included in this picture.
+When we put all the different pieces of Home Assistant together, it's a close match for the initial home automation overview sketch. The smart home AI has not been implemented yet, so it's not included in this picture.
 
 <p class='img'>
   <a href='/images/architecture/ha_full_architecture.png'>
@@ -63,4 +63,4 @@ When we put all the different pieces of Home Assistant together, it's a close ma
   Overview of the full Home Assistant architecture with a couple of loaded components and platforms
 </p>
 
-The platform logic for components uses third-party Python libraries to communicate with the devices so we can leverage the great device libraries in the Python community.
+The platform logic for components uses third-party Python libraries to communicate with the devices. Through this, we can leverage some of the best libraries in the Python community.
