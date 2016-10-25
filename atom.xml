@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-24T15:41:02+00:00</updated>
+  <updated>2016-10-25T04:38:50+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Explaining the Updater]]></title>
+    <link href="https://home-assistant.io/blog/2016/10/25/explaining-the-updater/"/>
+    <updated>2016-10-25T04:30:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/10/25/explaining-the-updater</id>
+    <content type="html"><![CDATA[<p>On Saturday, we released <a href="https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest/#comment-2965607849/">Home Assistant 0.31</a> which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.</p>
+
+<h2><a class="title-link" name="why-we-changed-the-updater" href="#why-we-changed-the-updater"></a> Why we changed the updater</h2>
+<p>This change was driven by two important factors.</p>
+
+<h3><a class="title-link" name="improving-the-security-of-the-users" href="#improving-the-security-of-the-users"></a> Improving the security of the users.</h3>
+
+<p>As a user, you will be able to be notified if you are running a Home Assistant version that includes components that have known security flaws.</p>
+
+<p>Although we hope to not have to use this feature often, it is important for us to be able to reach out to impacted users. We had the need for such a feature once in the past. Due to a bug the forecast.io sensor was making a huge amount of API requests causing some of our users to get charged because they went over the free quota.</p>
+
+<p>Please note that this functionality is not done yet but will be available in a future release.</p>
+
+<h3><a class="title-link" name="focusing-our-resources-where-it-matters" href="#focusing-our-resources-where-it-matters"></a> Focusing our resources where it matters</h3>
+
+<p>As developers of Home Assistant, we will be able to see in what kind of environments Home Assistant is running. Here’s a few data points we didn’t have until now:</p>
+
+<ul>
+  <li>Total number of instances</li>
+  <li>Which operating systems versions and flavors are in use</li>
+  <li>Python version</li>
+  <li>What option is more popular: Docker, Virtualenv or bare metal installs?</li>
+  <li>How popular is our new <a href="https://home-assistant.io/blog/2016/10/01/we-have-raspberry-image-now/">Raspberry Pi image</a>?</li>
+</ul>
+
+<h2><a class="title-link" name="why-we-look-up-your-ip-address-with-geoip" href="#why-we-look-up-your-ip-address-with-geoip"></a> Why we look up your IP address with GeoIP</h2>
+<p>We store the city so that we can see where our users are from. This information will be used to give us a better insight in where our users are from. This will help us gather data to see if we should for example prioritize internationalization. In addition, we previously had a nasty bug with the <code class="highlighter-rouge">sun</code> component in which users above a certain latitude were having crashes multiple times a day. Had the updater component been in place we could have targeted a special priority update notification only to them.</p>
+
+<p>As stated in the release blog post, the location information is <em>not</em> provided by your local Home Assistant installation but is instead gathered by comparing your IP address against the <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/">GeoLite2 data created by MaxMind</a>. From their documentation:</p>
+
+<blockquote>
+  <p>IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household.</p>
+</blockquote>
+
+<h2><a class="title-link" name="why-is-it-enabled-by-default" href="#why-is-it-enabled-by-default"></a> Why is it enabled by default</h2>
+<p>We decided to have it enabled by default because we consider the information that is gathered not harmful. We understand that not everyone will agree with us and so we have provided <a href="https://home-assistant.io/components/updater/">multiple ways to opt out</a>.</p>
+
+<p>It is in our short-term planning to add an option to control this to our frontend.</p>
+
+<h2><a class="title-link" name="source-code" href="#source-code"></a> Source Code</h2>
+<p>The source code of our updater AWS Lambda function is now available <a href="https://github.com/home-assistant/Analytics-Receiver">here</a>.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change]]></title>
@@ -2116,70 +2166,6 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
 </p>
 
 <p>Well, with PocketCHIP and Home Assistant you could run your home automation on a 49 USD device with a touchscreen, an integrated USP, and a keyboard. With the GPIO available on top of the display you could even connect your PocketCHIP directly to sensors and actuators.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.23: Envisalink, Homematic, HDMI-CEC and Sony Bravia TV]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv/"/>
-    <updated>2016-07-01T00:31:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv</id>
-    <content type="html"><![CDATA[<p>It’s time for Home Assistant 0.23 and it’s full of goodies. It’s also the release that bumps us over a 1000 tests and to 94% test coverage! Also our install issues on the Raspberry Pi and Synology have been resolved.</p>
-
-<p>This release brings support for two new ecosystems: <a href="https://home-assistant.io/components/envisalink/">Envisalink</a> and <a href="https://home-assistant.io/components/homematic/">Homematic</a>. We can now also control your TV via HDMI using <a href="https://home-assistant.io/components/hdmi_cec/">HDMI-CEC</a> (which works on the Pi!) and another cool feature is the <a href="https://home-assistant.io/components/persistent_notification/">persistent notifications</a> which allow you to add a notification to the frontend till dismissed.</p>
-
-<p><a href="https://home-assistant.io/components/wink/">Wink</a> support has been dramatically improved by migrating to the PubNub API. This allows Wink to push changes from their system to Home Assistant. This change came just in time as somehow our Wink integration was causing a lot of requests to their servers. Thanks to Wink for letting us know so we could solve it instead of blocking us.</p>
-
-<p>On the config side, you can now <a href="https://home-assistant.io/topics/secrets/">store your passwords</a> in your OS keyring or just in a standalone file. We also got a new service to reload the core config so no reboots needed anymore after changing customize settings!</p>
-
-<p><img src="https://home-assistant.io/images/supported_brands/bravia.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/eyezon.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/homematic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/openexchangerates.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Support for <a href="https://home-assistant.io/components/envisalink/">Envisalink</a> added (<a href="https://home-assistant.io/components/alarm_control_panel.envisalink/">alarm control panel</a>, <a href="https://home-assistant.io/components/binary_sensor.envisalink/">binary sensor</a>, <a href="https://home-assistant.io/components/sensor.envisalink/">sensor</a>) (<a href="https://github.com/cinntax/">@cinntax</a>)</li>
-  <li>Support for <a href="https://home-assistant.io/components/homematic/">Homematic</a> added (<a href="https://home-assistant.io/components/binary_sensor.homematic/">binary sensor</a>, <a href="https://home-assistant.io/components/light.homematic/">light</a>, <a href="https://home-assistant.io/components/rollershutter.homematic/">rollershutter</a>, <a href="https://home-assistant.io/components/sensor.homematic/">sensor</a>, <a href="https://home-assistant.io/components/switch.homematic/">switch</a>) (<a href="https://github.com/pvizeli/">@pvizeli</a>, <a href="https://github.com/danielperna84/">@danielperna84</a>)</li>
-  <li>New <a href="https://home-assistant.io/components/hdmi_cec/">HDMI-CEC</a> component (<a href="https://github.com/happyleavesaoc/">@happyleavesaoc</a>, <a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>)</li>
-  <li>Major rewrite of <a href="https://home-assistant.io/components/wink/">Wink</a> which now pushes changes to Home Assistant (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
-  <li>Core: new add <a href="https://home-assistant.io/getting-started/customizing-devices/#reloading-customize/">reload core config service</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Support for <a href="https://home-assistant.io/components/persistent_notification/">persistent notifications</a> added (<a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Garage door: <a href="https://home-assistant.io/components/garage_door.zwave/">Z-Wave</a> support added (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li>Rollershutter: <a href="https://home-assistant.io/components/rollershutter.zwave/">Z-Wave</a> support added (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li>Media Player: <a href="https://home-assistant.io/components/media_player.braviatv/">Sony Bravia TV</a> now supported (<a href="https://github.com/aparraga/">@aparraga</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.fixer/">Fixer.io</a> now supported (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
-  <li>Garage door: Control any garage door using <a href="https://home-assistant.io/components/garage_door.rpi_gpio/">Raspberry Pi GPIO pins</a> (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.openexchangerates/">OpenExchangeRates</a> support added (<a href="https://github.com/arsaboo/">@arsaboo</a>)</li>
-  <li>Notify: <a href="https://home-assistant.io/components/notify.pushover/">Pushover</a> now supports target device, sound, url and priority (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.netatmo/">Netatmo</a> now supports wind, battery and radio signals (<a href="https://github.com/Jypy/">@Jypy</a>)</li>
-  <li>Log successful and failed login attemps (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
-  <li>Config: allow <a href="https://home-assistant.io/topics/secrets/">extracting account info</a> into OS keyring or separate YAML file (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
-  <li>Core: add option to not filter out duplicate states per entity (<a href="https://github.com/philipbl/">@philipbl</a>)</li>
-  <li>HTTP: Follow Mozilla SSL recommendations (<a href="https://github.com/danieljkemp/">@danieljkemp</a>, <a href="https://github.com/AlucardZero/">@AlucardZero</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/light.zwave/">Z-Wave colorbulb</a> support added (<a href="https://github.com/armills/">@armills</a>)</li>
-  <li>Core: new elevation config option added (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.onewire/">OneWire</a> support extended with support for DS18S20, DS1822, DS1825 and DS28EA00 temperature sensors + support for bus masters which use fuse to mount device tree. (<a href="https://github.com/Ardetus/">@Ardetus</a>)</li>
-  <li>Lock: <a href="https://home-assistant.io/components/lock.vera/">Vera</a> now supported (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
-  <li>HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems (<a href="https://github.com/balloob/">@balloob</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li>Homematic thermostat configuration has changed and now depends on the new <a href="https://home-assistant.io/components/homematic/">Homematic</a> component.</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0231---july-2" href="#hotfix-0231---july-2"></a> Hotfix 0.23.1 - July 2</h3>
-
-<ul>
-  <li>Bump PyVera to 0.2.13 to fix traceback and pyvera thread dying related to bug (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
-  <li>HTTP - SSL: Check for OP_NO_COMPRESSION support before trying to use it (<a href="https://github.com/AlucardZero/">@AlucardZero</a>)</li>
-  <li>Wink: Downgraded pubnub to work around pycryptodome conflicts (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="faq" href="#faq"></a> FAQ</h3>
-
-<ul>
-  <li><code class="highlighter-rouge">elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code class="highlighter-rouge">[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
-</ul>
 
 ]]></content>
   </entry>
