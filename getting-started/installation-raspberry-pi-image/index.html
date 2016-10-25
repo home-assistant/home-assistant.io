@@ -137,30 +137,38 @@
 
 <p>Connect to the Raspberry Pi over ssh. Default user name is <code class="highlighter-rouge">pi</code> and password is <code class="highlighter-rouge">raspberry</code>.<br />
 Linux and Mac OS users execute the following command in a terminal.</p>
+
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ssh pi@ip-address-of-pi
 </code></pre>
 </div>
+
 <p>Windows users start <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a>, enter the IP address of the Raspberry Pi in the <em>Host name</em> field and port 22 in the <em>Port</em> field. Then click <em>Open</em> and a terminal window will open. Enter the credentials. Default user name is <code class="highlighter-rouge">pi</code> and password is <code class="highlighter-rouge">raspberry</code>.</p>
 
 <h4><a class="title-link" name="startstoprestart-home-assistant-on-hassbian" href="#startstoprestart-home-assistant-on-hassbian"></a> Start/Stop/Restart Home Assistant on HaSSbian</h4>
 <p>Log in as the <code class="highlighter-rouge">pi</code> account account and execute the following commands:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo systemctl stop home-assistant@homeassistant.service 
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl stop home-assistant@homeassistant.service 
 </code></pre>
 </div>
+
 <p>Replace <code class="highlighter-rouge">stop</code> with <code class="highlighter-rouge">start</code> or <code class="highlighter-rouge">restart</code> to get the desired functionality.
 To get the current state of the <code class="highlighter-rouge">homeassistant.service</code> replace <code class="highlighter-rouge">stop</code> with <code class="highlighter-rouge">status</code>.</p>
 
 <h4><a class="title-link" name="update-home-assistant-on-hassbian" href="#update-home-assistant-on-hassbian"></a> Update Home Assistant on HASSbian</h4>
+
 <p>Log in as the <code class="highlighter-rouge">pi</code> account and execute the following commands:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo systemctl stop home-assistant@homeassistant.service 
-sudo su -s /bin/bash homeassistant
-<span class="nb">source</span> /srv/homeassistant/bin/activate
-pip3 install --upgrade homeassistant
-<span class="nb">exit
-</span>sudo systemctl start home-assistant@homeassistant.service
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl stop home-assistant@homeassistant.service 
+<span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$  </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+<span class="gp">$ </span>pip3 install --upgrade homeassistant
+<span class="gp">$ </span><span class="nb">exit</span>
+<span class="gp">$ </span>sudo systemctl start home-assistant@homeassistant.service
 </code></pre>
 </div>
+
 <p>This will in order do the following:</p>
+
 <ul>
   <li>Stop the Home Assistant service running on HASSbian</li>
   <li>Open a shell as the <code class="highlighter-rouge">homeassistant</code> user running the Homeassistant service and that has ownership over the Home Assistant installation.</li>
@@ -172,64 +180,78 @@ pip3 install --upgrade homeassistant
 
 <h4><a class="title-link" name="manually-launch-home-assistant-on-hassbian" href="#manually-launch-home-assistant-on-hassbian"></a> Manually launch Home Assistant on HASSbian</h4>
 <p>Log in as the <code class="highlighter-rouge">pi</code> account and execute the following commands:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo su -s /bin/bash homeassistant
-<span class="nb">source</span> /srv/homeassistant/bin/activate
-hass
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+<span class="gp">$ </span>hass
 </code></pre>
 </div>
+
 <p>This will start Home Assistant in your shell and output anything that ends up in the log and more into the console. This will fail if the Home Assistant service is already running so don’t forget to <a href="/getting-started/installation-raspberry-pi-image/#startstoprestart-home-assistant-on-hassbian">stop</a> it first.</p>
 
 <h4><a class="title-link" name="check-your-configuration-on-hassbian" href="#check-your-configuration-on-hassbian"></a> Check your configuration on HASSbian</h4>
 <p>Log in as the <code class="highlighter-rouge">pi</code> account and execute the following commands:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo su -s /bin/bash homeassistant
-<span class="nb">source</span> /srv/homeassistant/bin/activate
-hass --script check_config
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+<span class="gp">$ </span>hass --script check_config
 </code></pre>
 </div>
+
 <p>This will output any errors in your configuration files to console.</p>
 
 <h4><a class="title-link" name="read-the-home-assistant-log-file-on-hassbian" href="#read-the-home-assistant-log-file-on-hassbian"></a> Read the Home Assistant log file on HASSbian</h4>
 <p>Log in as the <code class="highlighter-rouge">pi</code> account and execute the following commands:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo su -s /bin/bash homeassistant
-<span class="nb">cd</span> /home/homeassistant/.homeassistant
-nano homeassistant.log
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$ </span><span class="nb">cd</span> /home/homeassistant/.homeassistant
+<span class="gp">$ </span>nano homeassistant.log
 </code></pre>
 </div>
+
 <p>This will in order do the following:</p>
+
 <ul>
   <li>Open a shell as the <code class="highlighter-rouge">homeassistant</code> user.</li>
   <li>Change directory to the Home Assistant configuration directory.</li>
   <li>Open the log file in the nano editor.</li>
 </ul>
 
-<p>Optionaly, you can also view the log with <code class="highlighter-rouge">journalctl</code>.<br />
+<p>Optionaly, you can also view the log with <code class="highlighter-rouge">journalctl</code>.
 Log in as the <code class="highlighter-rouge">pi</code> account and execute the following commands:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo journalctl -fu home-assistant@homeassistant.service
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo journalctl -fu home-assistant@homeassistant.service
 </code></pre>
 </div>
 
 <h4><a class="title-link" name="edit-the-home-assistant-configuration-on-hassbian" href="#edit-the-home-assistant-configuration-on-hassbian"></a> Edit the Home Assistant configuration on HASSbian</h4>
 <p>Log in as the <code class="highlighter-rouge">pi</code> account and execute the following commands:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo su -s /bin/bash homeassistant
-<span class="nb">cd</span> /home/homeassistant/.homeassistant
-nano configuration.yaml
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$ </span><span class="nb">cd</span> /home/homeassistant/.homeassistant
+<span class="gp">$ </span>nano configuration.yaml
 </code></pre>
 </div>
+
 <p>This will in order do the following:</p>
+
 <ul>
   <li>Open a shell as the <code class="highlighter-rouge">homeassistant</code> user.</li>
   <li>Change directory to the Home Assistant configuration directory.</li>
-  <li>Open the configuration file in the nano editor.
-It’s generally recommended that you read the <a href="/getting-started/configuration/">Getting started</a> guide for how to configure Home Assistant.</li>
+  <li>Open the configuration file in the nano editor.</li>
 </ul>
+
+<p>It’s generally recommended that you read the <a href="/getting-started/configuration/">Getting started</a> guide for how to configure Home Assistant.</p>
 
 <h4><a class="title-link" name="upgrade-and-update-hassbian" href="#upgrade-and-update-hassbian"></a> Upgrade and update HASSbian</h4>
 <p>HASSbian is based on Raspbian and uses the same repositories. Any changes to Raspbian will be reflected in HASSbian. To update and upgrade system packages and installed software (excluding Home Assistant) do the following.
 Log in as the <code class="highlighter-rouge">pi</code> account and execute the following commands:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get update
-sudo apt-get upgrade
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get update
+<span class="gp">$ </span>sudo apt-get upgrade
 </code></pre>
 </div>
+
 <p>Press <code class="highlighter-rouge">Y</code> to confirm that you would like to continue.</p>
 
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
