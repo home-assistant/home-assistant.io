@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant is not available on the Play Store or App Store. Instead, Home Assistant leverages the new W3C [manifest.json] support (https://w3c.github.io/manifest/), allowing mobile devices to add the "web app" to your homescreen as if it was native.
+Home Assistant is not available on the Play Store or App Store. Instead, Home Assistant leverages the new W3C [manifest.json](https://w3c.github.io/manifest/) support, allowing mobile devices to add the "web app" to your homescreen as if it was native.
 
 On Android:
 
