@@ -10,4 +10,4 @@ footer: true
 hide_github_edit: true
 ---
 
-Ecosystem includes documentation for related tools and projects that extend Home Assistant to new platforms and systems.
+Ecosystem includes documentation for related tools and projects that extend Home Assistant to new platforms and systems. Use the sidebar to discover documentation for projects.
