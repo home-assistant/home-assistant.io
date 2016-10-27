@@ -92,5 +92,7 @@ Configuration variables:
   - **solarradiation**: Current levels of solar radiation
   - **alerts**: Current severe weather advisories
 
+All the conditions listed above will be updated each 5 minutes with exception of `alerts` that will be updated each 15 minutes by default.
+
 Additional details about the API are available [here](https://www.wunderground.com/weather/api/d/docs).
 
