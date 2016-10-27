@@ -12,7 +12,7 @@ ha_category: Sensor
 ha_release: 0.32
 ---
 
-The `InfluxDB` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state.
+The `InfluxDB` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be use to present statistic about home_assistant sensors if used with the `influxdb` history component. It can also be used with an external data source.
 
 To configure this sensor, you need to define the sensor connection variables and a list of queries to  your `configuration.yaml` file. A sensor will be created for each query:
 
@@ -22,7 +22,6 @@ sensor:
   - platform: influxdb
     queries:
       - name: mean value of foo
-        unit_of_measurement: °C
         where: '"name" = ''foo'''
         measurement: '"°C"'
 ```
@@ -38,7 +37,7 @@ Configuration variables for the server:
 - **verify_ssl** (*Optional*): Verify SSL certificate for `https` request. Defaults to `false`.
 - **queries** array (*Required*): List of queries
   - **name** (*Required*): The name of the sensor.
-  - **unit_of_measurement** (*Required*): Defines the units of measurement of the sensor.
+  - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **measurement** (*Required*):  Defines the measurement name in InfluxDB (the from clause of the query).
   - **where** (*Required*): Defines the data selection clause (the where clause of the query).
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
