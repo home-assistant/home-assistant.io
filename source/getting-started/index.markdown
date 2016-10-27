@@ -25,7 +25,7 @@ Running these commands will:
  - Install Home Assistant
  - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
 
-If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has made some great ones.
+If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has made some great ones:
 
  - [Windows 10](https://www.youtube.com/watch?v=X27eVvuqwnY)
  - [Mac OS X](https://www.youtube.com/watch?v=hej6ipN86ls)
@@ -41,9 +41,9 @@ If you run into any issues, please see [the troubleshooting page](/getting-start
 
 In addition to this site, check out these sources for additional help:
 
- - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
- - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant.
- - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
+ - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions
+ - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant
+ - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting
 
 ### {% linkable_title What's next? %}
 
