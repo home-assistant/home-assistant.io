@@ -89,19 +89,19 @@
   <hr class="divider">
   
 
-  <p>One of the reasons to use Home Assistant is that it’s not depending on cloud services. Even if you are only using Home Assistant in your local network, you should consider securing your instance.</p>
+  <p>One major advantage of Home Assistant is that it’s not dependent on cloud services. Even if you’re only using Home Assistant on a local network, you should take steps to secure your instance.</p>
 
 <h3><a class="title-link" name="checklist" href="#checklist"></a> Checklist</h3>
 
 <ul>
   <li><a href="https://home-assistant.io/getting-started/basic/#password-protecting-the-web-interface">Protect your web interface with a password</a></li>
   <li>Secure your host. Sources could be <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/pdf/Security_Guide/Red_Hat_Enterprise_Linux-7-Security_Guide-en-US.pdf">Red Hat Enterprise Linux 7 Security Guide</a>, <a href="https://benchmarks.cisecurity.org/tools2/linux/CIS_Red_Hat_Enterprise_Linux_7_Benchmark_v1.0.0.pdf">CIS Red Hat Enterprise Linux 7 Benchmark</a>, or the <a href="https://www.debian.org/doc/manuals/securing-debian-howto/index.en.html">Securing Debian Manual</a>.</li>
-  <li>Restrict network access to your device. Set <code class="highlighter-rouge">PermitRootLogin no</code> in your sshd config (usually <code class="highlighter-rouge">/etc/ssh/sshd_config</code>) and to use keys for authentication instead of passwords.</li>
-  <li>Don’t run Home Assistant as root.</li>
+  <li>Restrict network access to your devices. Set <code class="highlighter-rouge">PermitRootLogin no</code> in your sshd config (usually <code class="highlighter-rouge">/etc/ssh/sshd_config</code>) and to use SSH keys for authentication instead of passwords.</li>
+  <li>Don’t run Home Assistant as root – consider the Principle of Least Privilege.</li>
   <li>Keep your <a href="/topics/secrets/">secrets</a> safe.</li>
 </ul>
 
-<p>Additional points if you want to allow remote access:</p>
+<p>If you want to allow remote access, consider these additional points:</p>
 
 <ul>
   <li>Protect your communication with <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">TLS</a></li>

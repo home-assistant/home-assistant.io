@@ -97,17 +97,17 @@
 
 <p>Different installation methods as <a href="/getting-started/installation-raspberry-pi-image/#update-home-assistant-on-hassbian">HASSbian</a>, <a href="/getting-started/installation-raspberry-pi-all-in-one/#upgrading">Raspberry Pi All-In-One Installer</a>, <a href="/getting-started/installation-vagrant/">Vagrant</a>, or <a href="/getting-started/installation-virtualenv/#upgrading-home-assistant">Virtualenv</a> may have an alternative way for updating Home Assistant.</p>
 
-<p>After updating, restart Home Assistant for the changes to take effect. This means that you have to restart <code class="highlighter-rouge">hass</code> itself or the <a href="/getting-started/autostart/">autostarting</a> daemon if you use any.</p>
+<p>After updating, you must restart Home Assistant for the changes to take effect. This means that you will have to restart <code class="highlighter-rouge">hass</code> itself or the <a href="/getting-started/autostart/">autostarting</a> daemon (if applicable)</p>
 
 <p class="note note">
-  The upgrade needs to be run as the same user as the installation was done to avoid permission errors.
+  To avoid permission errors, the upgrade must be run as the same user as the installation was completed.
 </p>
 
 <p><a href="http://www.bruhautomation.com">BRUH automation</a> has created <a href="https://www.youtube.com/watch?v=tuG2rs1Cl2Y">a tutorial video</a> explaining how to upgrade Home Assistant.</p>
 
 <h4><a class="title-link" name="run-a-specific-version" href="#run-a-specific-version"></a> Run a specific version</h4>
 
-<p>It can happen that a version doesn’t play well with your hardware setup. If that’s the case you can downgrade to a previous release.</p>
+<p>In the event that a Home Assistant version doesn’t play well with your hardware setup, you can downgrade to a previous release:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install <span class="nv">homeassistant</span><span class="o">==</span>0.XX.X
 </code></pre>
@@ -115,10 +115,10 @@
 
 <h4><a class="title-link" name="run-the-development-version" href="#run-the-development-version"></a> Run the development version</h4>
 
-<p>If you want to stay on top of the development of Home Assistant then you can upgrade to the <code class="highlighter-rouge">dev</code> branch.</p>
+<p>If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to <code class="highlighter-rouge">dev</code>.</p>
 
 <p class="note warning">
-  This can result in an unstable system, loss of data, etc. etc.
+  The “dev” branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
 </p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
