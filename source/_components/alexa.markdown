@@ -337,19 +337,24 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 ### {% linkable_title Configuring your Flash Briefing skill %}
 
 - Log in to [Amazon developer console][amazon-dev-console]
-- Click the Alexa button at the top of the console
+- Click the Alexa navigation tab at the top of the console
+- Click on the "Get Started >" button under "Alexa Skills Kit"
 - Click the yellow "Add a new skill" button in the top right
   - Skill Information
-    - For Skill Type select Flash Briefing Skill API
+    - For Skill Type select "Flash Briefing Skill API"
     - You can enter whatever name you want
-    - Hit next
+    - Hit "Next"
   - Interaction Model
     - Nothing to do here
   - Configuration
     - Add new feed
-      - For URL, enter `https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID?api_password=YOUR_API_PASSWORD` where `BRIEFING_ID` is the key you entered in your configuration (such as `whoishome` in the above example)
+      - For URL, enter `https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID` where `BRIEFING_ID` is the key you entered in your configuration (such as `whoishome` in the above example). **NOTE:** Do not use a non-standard http or https port, AWS will not connect to it.
       - You can use this [specially sized Home Assistant logo][large-icon] as the Feed Icon
       - All other settings are up to you
+      - Hit "Next"
+  - Test
+      - Having passed all validations to reach this screen you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.  
+- To invoke your flash briefing, open the Alexa app on your phone or go to [Alexa|http://alexa.amazon.com/], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com
 [flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing
