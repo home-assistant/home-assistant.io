@@ -19,6 +19,7 @@ The ZoneMinder component is the main component to integrate all the sensors and 
 zoneminder:
   host: ZM_HOST
   path: ZM_PATH
+  ssl: False
   username: USERNAME
   password: PASSWORD
 ```
@@ -26,6 +27,7 @@ zoneminder:
 Configuration variables:
 - **host** (*Required*): Your ZoneMinder server.
 - **path** (*Optional*): Path to your ZoneMinder install (default: /zm/)
+- **ssl** (*Optional*): Set to True if your ZoneMinder install is using SSL (default: False)
 - **username** (*Optional*): Your ZoneMinder username.
 - **password** (*Optional*): Your ZoneMinder password.
 
