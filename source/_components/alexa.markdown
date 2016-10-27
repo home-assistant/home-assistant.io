@@ -348,7 +348,7 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
     - Nothing to do here
   - Configuration
     - Add new feed
-      - For URL, enter `https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID` where `BRIEFING_ID` is the key you entered in your configuration (such as `whoishome` in the above example). **NOTE:** Do not use a non-standard http or https port, AWS will not connect to it.
+      - For URL, enter `https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID?api_password=YOUR_API_PASSWORD` where `BRIEFING_ID` is the key you entered in your configuration (such as `whoishome` in the above example). **NOTE:** Do not use a non-standard http or https port, AWS will not connect to it.
       - You can use this [specially sized Home Assistant logo][large-icon] as the Feed Icon
       - All other settings are up to you
       - Hit "Next"
