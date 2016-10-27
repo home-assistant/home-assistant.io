@@ -35,9 +35,9 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Firefox]             | 47.0           | works      |                          |
+| [Firefox]             | 49.0           | works      |                          |
 | [Midori]              | 0.5.11         | works      |                          |
-| [Chromium]            | 50.0.2661.102  | works      |                          |
+| [Chromium]            | 53.0.2785.143  | works      |                          |
 | [Conkeror]            | 1.0.2          | works      |                          |
 | [Konqueror]           |                | unknown    |                          |
 | [Uzbl]                | 0.9.0          | works      |                          |
