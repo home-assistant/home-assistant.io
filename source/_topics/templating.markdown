@@ -85,7 +85,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 ## {% linkable_title Examples %}
 
 ### {% linkable_title States %}
-Next two statements result in same value if state exists. Second one will result in an error if state does not exist.
+The next two statements result in same value if state exists. The second one will result in an error if state does not exist.
 
 ```text
 {% raw %}{{ states('device_tracker.paulus') }}
@@ -134,7 +134,7 @@ Print out a list of all the sensor states.
 
 ### {% linkable_title Distance examples %}
 
-If only 1 location is passed in will measure the distance from home.
+If only 1 location is passed in, Home Assistant will measure the distance from home.
 
 ```text
 {% raw %}Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
@@ -166,7 +166,7 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}{% endr
 ```
 
 ### {% linkable_title Combined %}
-Since closest returns a state, we can combine it with distance too
+Since closest returns a state, we can combine it with distance too.
 
 ```text
 {% raw %}{{ closest(states).name }} is {{ distance(closest(states)) }} meters away.{% endraw %}
@@ -176,7 +176,7 @@ Since closest returns a state, we can combine it with distance too
 
 The other part of templating is processing incoming data. It will allow you to modify incoming data and extract only the data you care about. This will work only for platforms and components that mentioned support for this in their documentation.
 
-It depends per component or platform but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
+It depends per component or platform, but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
 
 | Variable     | Description                            |
 | ------------ | -------------------------------------- |
