@@ -164,7 +164,7 @@ The frontend has a template editor developer tool to help develop and debug temp
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
 <h3><a class="title-link" name="states" href="#states"></a> States</h3>
-<p>Next two statements result in same value if state exists. Second one will result in an error if state does not exist.</p>
+<p>The next two statements result in same value if state exists. The second one will result in an error if state does not exist.</p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>{{ states('device_tracker.paulus') }}
 {{ states.device_tracker.paulus.state }}
@@ -213,7 +213,7 @@ The frontend has a template editor developer tool to help develop and debug temp
 
 <h3><a class="title-link" name="distance-examples" href="#distance-examples"></a> Distance examples</h3>
 
-<p>If only 1 location is passed in will measure the distance from home.</p>
+<p>If only 1 location is passed in, Home Assistant will measure the distance from home.</p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
 
@@ -245,7 +245,7 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 </div>
 
 <h3><a class="title-link" name="combined" href="#combined"></a> Combined</h3>
-<p>Since closest returns a state, we can combine it with distance too</p>
+<p>Since closest returns a state, we can combine it with distance too.</p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>{{ closest(states).name }} is {{ distance(closest(states)) }} meters away.
 </code></pre>
@@ -255,7 +255,7 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 
 <p>The other part of templating is processing incoming data. It will allow you to modify incoming data and extract only the data you care about. This will work only for platforms and components that mentioned support for this in their documentation.</p>
 
-<p>It depends per component or platform but it is common to be able to define a template using the <code class="highlighter-rouge">value_template</code> configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:</p>
+<p>It depends per component or platform, but it is common to be able to define a template using the <code class="highlighter-rouge">value_template</code> configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:</p>
 
 <table>
   <thead>
