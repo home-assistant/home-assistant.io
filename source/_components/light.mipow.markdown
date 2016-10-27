@@ -49,3 +49,14 @@ light:
   serial: '55:37:4B:12:AC:E6'
 ```
 
+Available effects: Colorloop
+NOTE: 2 flash settings available, slow and little faster, you HAVE to supply either rgb_color or brightness together with flash or it wont work. also, while they are called long and short, neither one of them will stop until new setting is sent
+
+Example: Flash red
+```json
+{
+ "flash":"long",
+ "rgb_color":[255,0,0]
+ }
+ ```
+ 
