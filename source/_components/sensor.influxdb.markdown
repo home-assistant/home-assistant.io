@@ -18,7 +18,7 @@ To configure this sensor, you need to define the sensor connection variables and
 
 Configuration variables for the server:
 
-- **host** (*Optional*): IP address of your database host, eg. http://192.168.1.10. Defaults to `localhost`.
+- **host** (*Optional*): IP address of your database host, eg. 192.168.1.10. Defaults to `localhost`.
 - **port** (*Optional*): Port to use. Defaults to 8086.
 - **username** (*Optional*): The username of the database user.
 - **password** (*Optional*): The password for the database user account.
@@ -37,7 +37,18 @@ Configuration variables for the queries:
 - **field** (*Optional*): The field name to select, default to value.
 
 ## {% linkable_title Examples %}
-
+### {% linkable_title Minimal configuration %}
+The example configuration below will create a request to influx db to the default database (`home_assistant`) to get the mean value of `foo` in measurement `°C`
+ 
+```yaml
+sensor:
+  - platform: influxdb
+    queries:
+      - name: mean value of foo
+        unit_of_measurement: °C
+        where: '"name" = ''foo'''
+        measurement: '"°C"'
+```
 
 ### {% linkable_title Full configuration %}
 The example configuration entry bellow create two request to influx db, one to the database db1, the other to db2 :
