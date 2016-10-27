@@ -7,11 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
-ha_category: Hub
-featured: true
-ha_release: 0.31
-ha_iot_class: "Local Push"
 ---
 
 The `ios` component is the companion component for the Home Assistant iOS app. While not required, adding the `ios` component to your setup will greatly enhance the iOS app with new notification, location and sensor functions not possible with a standalone app.
