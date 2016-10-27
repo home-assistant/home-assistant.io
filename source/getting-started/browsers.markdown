@@ -25,7 +25,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Firefox]                 | 43.0.1         | works      |                          |
 | [Iridium]                 | 48.2           | works      |                          |
 
-## {% linkable_title MacOS %}
+## {% linkable_title macOS %}
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
