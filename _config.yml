@@ -74,6 +74,8 @@ collections:
     output: true
   ecosystem:
     output: true
+  details:
+    output: true
   topics:
     output: true
 
