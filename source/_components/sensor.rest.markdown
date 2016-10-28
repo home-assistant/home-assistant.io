@@ -97,6 +97,8 @@ sensor:
 
 The Home Assistant [API](/developers/rest_api/) exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
 
+If the Home Assistant instance in the resource variable is protected by an API password, you can append `?api_password=YOUR_PASSWORD` to the resource url to authenticate.
+
 ```yaml
 sensor:
   - platform: rest
