@@ -46,7 +46,7 @@ After=network.target
 Type=simple
 User=hass
 ExecStartPre=source /srv/hass/bin/activate
-ExecStart=/srv/hass/bin/hass "/home/hass/.homeassistant"
+ExecStart=/srv/hass/bin/hass -c "/home/hass/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target
