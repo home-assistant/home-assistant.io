@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-10-28T06:20:29+00:00</updated>
+  <updated>2016-10-28T06:35:39+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -210,7 +210,8 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 ## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
  - The [HTTP] component now takes a different format for authenticating IPs
- - Config format has changed for [Proximity]
+ - Configuration format has changed for [Proximity]
+ - The [Arduino] platform are now covered by the configuration check. Please check the documentation to see how. 
  - The Z-Wave entity ID change mentioned above
 
 ## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
@@ -270,6 +271,7 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [@vittoriom]: https://github.com/vittoriom
 [@wokar]: https://github.com/wokar
 
+[Arduino]: https://home-assistant.io/components/arduino/
 [APNS]: https://home-assistant.io/components/notify.apns/
 [ARWN]: https://home-assistant.io/components/sensor.arwn/
 [Concord232]: https://home-assistant.io/components/alarm_control_panel.concord232/
