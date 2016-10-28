@@ -12,6 +12,7 @@ footer: true
 The `ios` notify platform enables sending push notifications to the Home Assistant iOS app.
 
 ## {% linkable_title Setup %}
+
 ```yaml
 # Example configuration.yaml entry
 notify:
@@ -20,4 +21,4 @@ notify:
 
 Configuration variables:
 
-- **name** (*Optional*): The name of the service. Not recommended to add this.
+- **name** (*Optional*): The name of the service.

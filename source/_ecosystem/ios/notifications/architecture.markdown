@@ -9,4 +9,7 @@ sharing: true
 footer: true
 ---
 
-![Architecture](/images/ios/PushNotificationLayout.png)
+<p class='img'>
+  <img src='/images/ios/PushNotificationLayout.png' />
+  The push notification infrastructure layout
+</p>

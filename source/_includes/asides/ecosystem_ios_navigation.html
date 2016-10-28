@@ -5,13 +5,14 @@
     <ul class="divided sidebar-menu">
       <li>
         {% active_link /ecosystem/ios/ General %}
+        {% comment %}
         <ul>
           <li>{% active_link /ecosystem/ios/requirements/ Requirements %}</li>
           <li>{% active_link /ecosystem/ios/getting_started/ Getting Started %}</li>
-          <li>{% active_link /ecosystem/ios/security/ Security %}</li>
           <li>{% active_link /ecosystem/ios/features/ Features %}</li>
           <li>{% active_link /ecosystem/ios/devices_file/ ios.conf %}</li>
         </ul>
+        {% endcomment %}
       </li>
       <li>
         {% active_link /ecosystem/ios/notifications/ Push Notifications %}
@@ -31,7 +32,7 @@
         </ul>
       </li>
       <li>{% active_link /ecosystem/ios/location/ Location Tracking %}</li>
-      <li>{% active_link /ecosystem/ios/sensor/ Battery Sensors %}</li>
+      {% comment %}<li>{% active_link /ecosystem/ios/sensor/ Battery Sensors %}</li>{% endcomment %}
       <li>{% active_link /ecosystem/ios/integration/ Integration with other apps %}</li>
     </ul>
   </div>

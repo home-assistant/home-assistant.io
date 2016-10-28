@@ -27,7 +27,11 @@ data:
       longitude: -73.968285
 ```
 
-![Map content extension](/images/ios/map.png)
+<p class='img'>
+  <img src='/images/ios/map.png' />
+  An example of the map dynamic content.
+</p>
+
 
 # Camera Stream
 

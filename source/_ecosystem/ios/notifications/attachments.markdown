@@ -37,8 +37,15 @@ Notes:
 
 ## Example
 
-![Attachment](/images/ios/attachment.png)
-![Expanded Attachment](/images/ios/expanded_attachment.png)
+<p class='img'>
+  <img src='/images/ios/attachment.png' />
+  An unexpanded push notification with an attachment.
+</p>
+
+<p class='img'>
+  <img src='/images/ios/expanded_attachment.png' />
+  The same notification but expanded to show the full size attachment
+</p>
 
 ## Supported media types
 

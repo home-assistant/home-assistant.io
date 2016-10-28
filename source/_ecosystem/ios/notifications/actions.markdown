@@ -17,7 +17,10 @@ Examples of actionable notifications:
 - Someone rings your front door bell. You can send an action to lock or unlock your front door. When tapped, a notification is sent back to Home Assistant upon which you can build automations.
 - Send a notification whenever your garage door opens with actions to open and close the garage.
 
-![Actions example](/images/ios/actions.png)
+<p class='img'>
+  <img src='/images/ios/actions.png' />
+  Actionable notifications allow the user to send a command back to Home Assistant.
+</p>
 
 ## Overview of how actionable notifications work
 
@@ -34,7 +37,10 @@ When sending a notification:
 3. Action tapped
 4. Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
 
-![Notification action layout](/images/ios/NotificationActionFlow.png)
+<p class='img'>
+  <img src='/images/ios/NotificationActionFlow.png' />
+  How the iOS device and Home Assistant work together to enable actionable notifications.
+</p>
 
 ## Definitions
 - Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions. A categories parameters include:
