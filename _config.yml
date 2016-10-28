@@ -72,6 +72,8 @@ collections:
     output: true
   cookbook:
     output: true
+  ecosystem:
+    output: true
   topics:
     output: true
 
