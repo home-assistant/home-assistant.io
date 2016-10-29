@@ -343,7 +343,7 @@ The return code is 200 if the entity existed, 201 if the state of a new entity w
     },
     "entity_id": "sun.sun",
     "last_changed": "2016-05-30T21:43:29.204838+00:00",
-    "last_updated": "2016-05-30T21:47:30.533530+00:00"
+    "last_updated": "2016-05-30T21:47:30.533530+00:00",
     "state": "below_horizon"
 }
 ```
