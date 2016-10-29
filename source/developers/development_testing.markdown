@@ -44,7 +44,7 @@ $ py.test tests/test_core.py
 You can also run linting tests against all changed files, as reported by `git diff upstream/dev --name-only`, using the `lint` script:
 
 ```bash
-home-assistant$ script/lint --changed
+$ script/lint --changed
 ```
 
 ### {% linkable_title Preventing Linter Errors %}
