@@ -176,6 +176,8 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 <p>The Home Assistant <a href="/developers/rest_api/">API</a> exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not <a href="/developers/architecture/#multiple-connected-instances">connected</a> you can still get information from them.</p>
 
+<p>If the Home Assistant instance in the resource variable is protected by an API password, you can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code> to the resource url to authenticate.</p>
+
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
     <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS:8123/api/states/sensor.weather_temperature</span>

@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>This requires a <a href="/components/sensor.forecast/">forecast.io</a> sensor with the condition <code class="highlighter-rouge">weather_precip</code> that tells if it’s raining or not.</p>
+  <p>This requires a <a href="/components/sensor.darksky/">Dark Sky</a> sensor with the condition <code class="highlighter-rouge">precip_intensity</code> that tells if it’s raining or not. You could also experiment with other attributes such as <code class="highlighter-rouge">cloud_cover</code>.</p>
 
 <p>Turn on a light in the living room when it starts raining, someone is home, and it’s afternoon or later.</p>
 
@@ -99,7 +99,7 @@
 
   <span class="s">trigger</span><span class="pi">:</span>
        <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.weather_precip</span>
+         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.precip_intensity</span>
          <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">rain'</span>
        <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
@@ -122,7 +122,7 @@
   <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Rain</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">over'</span>
   <span class="s">trigger</span><span class="pi">:</span>
        <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.weather_precip</span>
+         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.precip_intensity</span>
          <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">None'</span>
        <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
          <span class="s">event</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sunset'</span>
