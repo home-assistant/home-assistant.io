@@ -129,10 +129,10 @@
 </ul>
 
 <p class="note warning">
-Make sure that the URL matches exactly your endpoint or resource.
+Make sure that the URL exactly matches your endpoint or resource.
 </p>
 
-<p><code class="highlighter-rouge">curl</code> could help you with the identification of the variable you want to display in your Home Assistant frontend. The example below show the JSON response of a device that is running with <a href="http://arest.io/">aREST</a>.</p>
+<p><code class="highlighter-rouge">curl</code> can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with <a href="http://arest.io/">aREST</a>.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET http://192.168.1.31/temperature/
 <span class="o">{</span><span class="s2">"temperature"</span>: 77, <span class="s2">"id"</span>: <span class="s2">"sensor02"</span>, <span class="s2">"name"</span>: <span class="s2">"livingroom"</span>, <span class="s2">"connected"</span>: <span class="nb">true</span><span class="o">}</span>
@@ -198,14 +198,14 @@ Make sure that the URL matches exactly your endpoint or resource.
     <span class="s">password</span><span class="pi">:</span> <span class="s">test1</span>
     <span class="s">authentication</span><span class="pi">:</span> <span class="s">basic</span>
     <span class="s">headers</span><span class="pi">:</span>
-      <span class="s">User-agent</span><span class="pi">:</span> <span class="s">Home Assistant</span>
+      <span class="s">User-Agent</span><span class="pi">:</span> <span class="s">Home Assistant</span>
       <span class="s">Content-Type</span><span class="pi">:</span> <span class="s">application/json</span>
 </code></pre>
 </div>
 
-<p>The header will contains all relevant details. This will give you the flexibility to access also endpoints wich are protected by Tokens.</p>
+<p>The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Content-Length: 
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Content-Length: 1024
 Host: IP_ADDRESS1:5000
 Authorization: Basic aGExOnRlc3Qx
 Accept-Encoding: identity
@@ -216,7 +216,7 @@ User-Agent: Home Assistant
 
 <h3><a class="title-link" name="use-github-to-get-the-latest-release-of-home-assistant" href="#use-github-to-get-the-latest-release-of-home-assistant"></a> Use GitHub to get the latest release of Home Assistant</h3>
 
-<p>This sample is very similar to the <a href="/components/updater/"><code class="highlighter-rouge">updater</code></a> component but the information are recieved from GitHub.</p>
+<p>This sample is very similar to the <a href="/components/updater/"><code class="highlighter-rouge">updater</code></a> component but the information is recieved from GitHub.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>

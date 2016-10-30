@@ -133,10 +133,14 @@
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the value.</li>
   <li><strong>payload</strong> (<em>Optional</em>): The payload to send with a POST request. Usualy formed as a dictionary.</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify the certification of the endpoint. Default to True.</li>
+  <li><strong>authentication</strong> (<em>Optional</em>): Type of the HTTP authentication. <code class="highlighter-rouge">basic</code> or <code class="highlighter-rouge">digest</code>.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username for accessing the REST endpoint.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The password for accessing the REST endpoint.</li>
+  <li><strong>headers</strong> (<em>Optional</em>): The headers for the requests.</li>
 </ul>
 
 <p class="note warning">
-Make sure that the URL matches exactly your endpoint or resource.
+Make sure that the URL exactly matches your endpoint or resource.
 </p>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
@@ -145,7 +149,7 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 <h3><a class="title-link" name="arest-sensor" href="#arest-sensor"></a> aREST sensor</h3>
 
-<p>Instead of using an <a href="/components/binary_sensor.arest/">aREST</a> binary sensor could the value of a device supporting aREST directly retrieved with a REST binary sensor.</p>
+<p>Instead of using an <a href="/components/binary_sensor.arest/">aREST</a> binary sensor, you could retrieve the value of a device supporting aREST directly with a REST binary sensor.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
@@ -153,10 +157,35 @@ Make sure that the URL matches exactly your endpoint or resource.
     <span class="s">method</span><span class="pi">:</span> <span class="s">GET</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Light</span>
     <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">light</span>
-    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.return_value</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 
+<h3><a class="title-link" name="accessing-an-http-authentication-protected-endpoint" href="#accessing-an-http-authentication-protected-endpoint"></a> Accessing an HTTP authentication protected endpoint</h3>
+
+<p>The REST sensor supports HTTP authentication and customized headers.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS:5000/binary_sensor</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">ha1</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">test1</span>
+    <span class="s">authentication</span><span class="pi">:</span> <span class="s">basic</span>
+    <span class="s">headers</span><span class="pi">:</span>
+      <span class="s">User-Agent</span><span class="pi">:</span> <span class="s">Home Assistant</span>
+      <span class="s">Content-Type</span><span class="pi">:</span> <span class="s">application/json</span>
+</code></pre>
+</div>
+
+<p>The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens.</p>
+
+<p>```bash
+Content-Length: 1024
+Host: IP_ADDRESS1:5000
+Authorization: Basic aGExOnRlc3Qx
+Accept-Encoding: identity
+Content-Type: application/json
+User-Agent: Home Assistant</p>
 
 
 </article>
