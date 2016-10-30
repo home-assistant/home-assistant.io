@@ -166,6 +166,8 @@ You need to setup a unique trigger for each event you sent to IFTTT.
 
 <p>To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web. This can be achieved by forwarding port 8123 from your router to the device running Home Assistant. If your ISP is giving you a new IP address from time to time, consider using <a href="https://duckdns.org">DuckDNS</a>.</p>
 
+<p>In the URL field, you can then put an <a href="https://home-assistant.io/developers/rest_api/">API URL</a>. You probably want to use a POST action, so select <code class="highlighter-rouge">POST</code> as method. After your request line, you need to add your Home Assistant password, which you defined in the <a href="https://home-assistant.io/getting-started/basic/#password-protecting-the-web-interface">http section of your config</a>, in the form off <code class="highlighter-rouge">?api_password=&lt;your_password&gt;</code>. For the message body, refer to the API page linked above.</p>
+
 <p class="img">
 <img src="/images/components/ifttt/IFTTT_to_HA.png" />
 </p>
