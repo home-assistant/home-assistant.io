@@ -289,18 +289,18 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
             </span><span class="p">},</span><span class="w">
             </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor.weather_temperature"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-06T22:15:00+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-06T22:15:00+00:00"",
-            "</span><span class="err">state</span><span class="s2">": "</span><span class="mf">-3.9</span><span class="s2">"
-        },
-        {
-            "</span><span class="err">attributes</span><span class="s2">": {
-                "</span><span class="err">friendly_name</span><span class="s2">": "</span><span class="err">Weather</span><span class="w"> </span><span class="err">Temperature</span><span class="s2">",
-                "</span><span class="err">unit_of_measurement</span><span class="s2">": "</span><span class="err">\u</span><span class="mi">00</span><span class="err">b</span><span class="mi">0</span><span class="err">C</span><span class="s2">"
-            },
-            "</span><span class="err">entity_id</span><span class="s2">": "</span><span class="err">sensor.weather_temperature</span><span class="s2">",
-            "</span><span class="err">last_changed</span><span class="s2">": "</span><span class="mi">2016-02-06</span><span class="err">T</span><span class="mi">22</span><span class="err">:</span><span class="mi">15</span><span class="err">:</span><span class="mi">00</span><span class="err">+</span><span class="mi">00</span><span class="err">:</span><span class="mi">00</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-06T22:15:00+00:00"",
-            "</span><span class="err">state</span><span class="s2">": "</span><span class="mf">-1.9</span><span class="err">"</span><span class="w">
+            </span><span class="nt">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-06T22:15:00+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-3.9"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"friendly_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weather Temperature"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"unit_of_measurement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\u00b0C"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor.weather_temperature"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-06T22:15:00+00:00"",
+            "</span><span class="err">last_updated</span><span class="s2">": "</span><span class="mi">2016-02-06</span><span class="err">T</span><span class="mi">22</span><span class="err">:</span><span class="mi">15</span><span class="err">:</span><span class="mi">00</span><span class="err">+</span><span class="mi">00</span><span class="err">:</span><span class="mi">00</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1.9"</span><span class="w">
         </span><span class="p">},</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -448,7 +448,7 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 <p>You can pass an optional JSON object to be used as <code class="highlighter-rouge">event_data</code>.</p>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="err">next_rising</span><span class="nt">":"</span><span class="err">2016-05-31T03</span><span class="p">:</span><span class="mi">39</span><span class="err">:</span><span class="mi">14</span><span class="err">+</span><span class="mi">00</span><span class="err">:</span><span class="mi">00</span><span class="err">"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"next_rising"</span><span class="p">:</span><span class="s2">"2016-05-31T03:39:14+00:00"</span><span class="p">,</span><span class="w">
 </span><span class="err">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -532,12 +532,12 @@ The result will include any states that changed while the service was being exec
 
 <p>Requires a JSON object that represents the API to forward to.</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"machine"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"api_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_super_secret_password"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8880</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">optional</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"host"</span><span class="err">:</span> <span class="s2">"machine"</span><span class="p">,</span>
+    <span class="s2">"api_password"</span><span class="err">:</span> <span class="s2">"my_super_secret_password"</span><span class="p">,</span>
+    <span class="s2">"port"</span><span class="err">:</span> <span class="mi">8880</span> <span class="c1">// optional</span>
+<span class="p">}</span>
+</code></pre>
 </div>
 
 <p>It will return a message if event forwarding was set up successfully.</p>
@@ -553,12 +553,12 @@ The result will include any states that changed while the service was being exec
 
 <p>Requires a JSON object that represents the API to cancel forwarding to.</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"machine"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"api_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_super_secret_password"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8880</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">optional</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"host"</span><span class="err">:</span> <span class="s2">"machine"</span><span class="p">,</span>
+    <span class="s2">"api_password"</span><span class="err">:</span> <span class="s2">"my_super_secret_password"</span><span class="p">,</span>
+    <span class="s2">"port"</span><span class="err">:</span> <span class="mi">8880</span> <span class="c1">// optional</span>
+<span class="p">}</span>
+</code></pre>
 </div>
 
 <p>It will return a message if event forwarding was cancelled successfully.</p>
