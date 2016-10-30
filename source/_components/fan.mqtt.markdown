@@ -32,15 +32,27 @@ fan:
 
 Configuration variables:
 
-- **name** (*Optional*): The name of the lock. Default is 'MQTT Lock'.
+- **command_topic** (*Required*): The MQTT topic to publish commands to change the fan state.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **command_topic** (*Required*): The MQTT topic to publish commands to change the lock state.
+- **name** (*Optional*): The name of the fan. Default is 'MQTT Fan'.
 - **payload_on** (*Optional*): The payload that represents the running state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents the stop state. Default is "OFF".
 - **optimistic** (*Optional*): Flag that defines if lock works in optimistic mode. Default is `true` if no state topic defined, else `false`.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **state_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the state.
+- **speed_state_topic** (*Optional*): The MQTT topic subscribed to receive speed updates.
+- **speed_command_topic** (*Optional*): The MQTT topic to publish commands to change the fan speed.
+- **speed_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the speed.
+- **oscillation_state_topic** (*Optional*): The MQTT topic subscribed to receive oscillation updates.
+- **oscillation_command_topic** (*Optional*): The MQTT topic to publish commands to change the fan oscillation.
+- **oscillation_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the oscillation.
+- **payload_oscillation_on** (*Optional*): The payload that represents the oscillation state. Default is "ON".
+- **payload_oscillation_off** (*Optional*): The payload that represents the oscillation state. Default is "OFF".
+- **payload_low_speed** (*Optional*): The payload that represents the low speed state. Default is "low".
+- **payload_medium_speed** (*Optional*): The payload that represents the low speed state. Default is "med".
+- **payload_high_speed** (*Optional*): The payload that represents the low speed state. Default is "high".
+- **speeds** array (*Optional*): Valid entries for the list are `off`, `low`, `med`, and `high`.
 
 <p class='note warning'>
 Make sure that your topic match exact. `some-topic/` and `some-topic` are different topics.
