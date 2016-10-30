@@ -427,14 +427,15 @@ Custom slot type for script support.
 
 <ul>
   <li>Log in to <a href="https://developer.amazon.com">Amazon developer console</a></li>
-  <li>Click the Alexa button at the top of the console</li>
+  <li>Click the Alexa navigation tab at the top of the console</li>
+  <li>Click on the “Get Started &gt;” button under “Alexa Skills Kit”</li>
   <li>Click the yellow “Add a new skill” button in the top right
     <ul>
       <li>Skill Information
         <ul>
-          <li>For Skill Type select Flash Briefing Skill API</li>
+          <li>For Skill Type select “Flash Briefing Skill API”</li>
           <li>You can enter whatever name you want</li>
-          <li>Hit next</li>
+          <li>Hit “Next”</li>
         </ul>
       </li>
       <li>Interaction Model
@@ -446,14 +447,30 @@ Custom slot type for script support.
         <ul>
           <li>Add new feed
             <ul>
-              <li>For URL, enter <code class="highlighter-rouge">https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID?api_password=YOUR_API_PASSWORD</code> where <code class="highlighter-rouge">BRIEFING_ID</code> is the key you entered in your configuration (such as <code class="highlighter-rouge">whoishome</code> in the above example)</li>
+              <li>For URL, enter <code class="highlighter-rouge">https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID?api_password=YOUR_API_PASSWORD</code> where <code class="highlighter-rouge">BRIEFING_ID</code> is the key you entered in your configuration (such as <code class="highlighter-rouge">whoishome</code> in the above example). <strong>NOTE:</strong> Do not use a non-standard http or https port, AWS will not connect to it.</li>
               <li>You can use this <a href="/images/components/alexa/alexa-512x512.png">specially sized Home Assistant logo</a> as the Feed Icon</li>
               <li>All other settings are up to you</li>
+              <li>Hit “Next”</li>
             </ul>
           </li>
         </ul>
       </li>
+      <li>Test
+        <ul>
+          <li>Having passed all validations to reach this screen you can now click on “&lt; Back to All Skills” as your flash briefing is now available as in “Development” service.</li>
+        </ul>
+      </li>
     </ul>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>To invoke your flash briefing, open the Alexa app on your phone or go to [Alexa</td>
+          <td>http://alexa.amazon.com/], open the “Skills” configuration section, select “Your Skills”, scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your “news”,”flash briefing”, or “briefing”.</td>
+        </tr>
+      </tbody>
+    </table>
   </li>
 </ul>
 
