@@ -15,6 +15,10 @@ ha_release: 0.26
 
 The `fastdotcom` sensor component uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
 
+<p class='note'>
+Currently fast.com only supports measuring download bandwidth. If you want to measure bandwidth metrics other then download such as ping and upload, utilize the [speedtest](/components/sensor.speedtest) component.
+</p>
+
 By default, it will run every hour.  The user can change the update frequency in the config by defining the minute, hour, and day for a speedtest to run.
 
 To add a Fast.com sensor to your installation, add the following to your `configuration.yaml` file:
@@ -23,7 +27,7 @@ Once per hour, on the hour (default):
 
 ```yaml
 sensor:
-  platform: fastdotcom 
+  - platform: fastdotcom 
 ```
 
 More examples:
@@ -32,10 +36,10 @@ Every half hour of every day:
 
 ```yaml
 sensor:
-  platform: fastdotcom
-  minute:
-    - 0
-    - 30
+  - platform: fastdotcom
+    minute:
+      - 0
+      - 30
 ```
 Configuration variables:
 

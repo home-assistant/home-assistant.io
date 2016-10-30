@@ -19,8 +19,6 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 apcupsd:
-  host: IP_ADDRESS
-  port: PORT
 ```
 
 Configuration variables:

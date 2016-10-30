@@ -10,12 +10,11 @@ footer: true
 logo: loop.png
 ha_category: Energy
 ha_release: 0.17
+ha_iot_class: "Local Polling"
 ---
 
 
-Integrate your [Loop Energy](https://www.your-loop.com/) meter information into Home Assistant.
-
-To use this sensor you need the the client serial number and secret keys for your devices.
+Integrate your [Loop Energy](https://www.your-loop.com/) meter information into Home Assistant. To use this sensor you need the the client serial number and secret keys for your devices.
 
 The library used to get the data isn't officially supported and the only way to get the keys is to log into loop energy's website and type a command into your browser console.
 
@@ -51,8 +50,6 @@ sensor:
     gas:
       gas_serial: 'GAS_SERIAL'
       gas_secret: 'GAS_SECRET'
-      gas_type: imperial
-      gas_calorific: 38.2
 ```
 
 Configuration variables:

@@ -22,9 +22,9 @@ To integrate iCloud in Home Assistant, add the following section to your `config
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: icloud
-  username: USERNAME
-  password: PASSWORD
+  - platform: icloud
+    username: USERNAME
+    password: PASSWORD
 ```
 
 Configuration variables:

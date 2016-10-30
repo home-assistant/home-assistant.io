@@ -19,10 +19,9 @@ To enable MessageBird notifications in your installation, add the following to y
 ```yaml
 # Example configuration.yaml entry
 notify:
-  platform: message_bird
-  api_key: YOUR_API_KEY
-  name: NOTIFIER_NAME
-  sender: SENDER_NAME
+  - name: NOTIFIER_NAME
+    platform: message_bird
+    api_key: YOUR_API_KEY
 ```
 
 Configuration variables:

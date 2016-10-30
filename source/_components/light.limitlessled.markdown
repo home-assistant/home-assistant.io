@@ -8,12 +8,13 @@ layout: page
 comments: false
 sharing: true
 footer: true
+logo: limitlessled_logo.png
 ha_category: Light
 ha_iot_class: "Assumed State"
 ha_release: pre 0.7
 ---
 
-`limitlessled` can control your [LimitlessLED](http://www.limitlessled.com/) lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight or iLight.
+`limitlessled` can control your [LimitlessLED](http://www.limitlessled.com/) lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
 
 ### {% linkable_title Setup %}
 
@@ -27,22 +28,15 @@ light:
   platform: limitlessled
   bridges:
     - host: 192.168.1.10
-      version: 5
-      port: 8899
       groups:
       - number: 1
-        type: rgbw
         name: Bedroom
-      - number: 2
-        type: white
-        name: Craft Room
       - number: 2
         type: rgbw
         name: Bathroom
     - host: 192.168.1.11
       groups:
       - number: 1
-        type: rgbw
         name: Living Room & Hall
 ```
 

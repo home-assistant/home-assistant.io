@@ -22,15 +22,14 @@ To enable this camera in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: local_file
-  name: Local File
-  file_path: /tmp/image.jpg
+  - platform: local_file
+    file_path: /tmp/image.jpg
 ```
 
 Configuration variables:
 
- - **name** (*Optional*): Name of the camera
  - **file_path** (*Required*): File to serve as the camera.
+ - **name** (*Optional*): Name of the camera
 
 <p class='note'>
 The given `file_path` must be an existing file because the camera platform setup make a readable check on it.

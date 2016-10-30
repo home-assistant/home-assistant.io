@@ -19,7 +19,7 @@ It uses two pins on the Raspberry Pi.
 - The `state_pin` will detect if the cover is closed, and
 - the `relay_pin` will trigger the cover to open or close.
 
-Although you do not need Andrews Hilliday's software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door & sensors up to your Raspberry Pi, which can be found [here](https://github.com/andrewshilliday/garage-door-controller#hardware-setup).
+Although you do not need Andrews Hilliday's software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door and sensors up to your Raspberry Pi, which can be found [here](https://github.com/andrewshilliday/garage-door-controller#hardware-setup).
 
 To enable Raspberry Pi Covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -27,12 +27,9 @@ To enable Raspberry Pi Covers in your installation, add the following to your `c
 # Example configuration.yaml entry
 cover:
   platform: rpi_gpio
-  state_pull_mode: DOWN
-  relay_time: 1
   covers:
     - relay_pin: 10
       state_pin: 11
-      name: 'Left door'
     - relay_pin: 12
       state_pin: 13
       name: 'Right door'

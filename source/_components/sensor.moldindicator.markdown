@@ -19,12 +19,20 @@ The sensor data may be used e.g. to signal bad air quality (too high air humidit
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: mold_indicator
-  indoor_temp_sensor: sensor.temp
-  indoor_humidity_sensor: sensor.humidity
-  outdoor_temp_sensor: sensor.weather_temperature
-  calibration_factor: 2.0       # Needs to be calibrated to the critical point in the room
+  - platform: mold_indicator
+    indoor_temp_sensor: sensor.temp
+    indoor_humidity_sensor: sensor.humidity
+    outdoor_temp_sensor: sensor.weather_temperature
+    calibration_factor: 2.0
 ```
+
+Configuration variables:
+
+- **indoor_temp_sensor** (*Required*): The enditiy ID of the indoor temperature sensor.
+- **indoor_humidity_sensor** (*Required*): The enditiy ID of the indoor humidity sensor.
+- **outdoor_temp_sensor** (*Required*): The enditiy ID of the outdoor temperature sensor.
+- **calibration_factor** (*Required*): Needs to be calibrated to the critical point in the room.
+
 In this case, the weather forecast temperature sensor is used for the outside temperature.
 
 ## {% linkable_title Calibration %}

@@ -11,6 +11,7 @@ logo: pandora.png
 ha_category: Media Player
 featured: false
 ha_release: 0.22
+ha_iot_class: "Local Polling"
 ---
 
 If you have a Pandora account, you can control it from Home Assistant with this media player. 
@@ -51,7 +52,7 @@ The Pandora player can be loaded by adding the following lines to your `configur
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: pandora
+  - platform: pandora
 ```
 
 That's it! Now you will find a media player. If you click it you will find all your stations listed as different sources. If you switch to one, the station will begin playing. 

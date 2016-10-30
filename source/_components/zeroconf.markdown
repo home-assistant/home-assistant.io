@@ -7,11 +7,14 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: avahi.png
 ha_category: "Other"
 ha_release: 0.18
 ---
 
 The `zeroconf` component exposes your Home Assistant to the local network using [Zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking). Zeroconf is also sometimes known as Bonjour, Rendezvous and Avahi.
+
+To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

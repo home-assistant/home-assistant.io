@@ -21,15 +21,14 @@ To enable this sensor in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: worldclock
-  time_zone: America/New_York
-  name: New York
+  - platform: worldclock
+    time_zone: America/New_York
 ```
 
 Configuration variables:
 
 - **time_zone** (*Required*): The resource or endpoint that contains the value.
-- **name** (*Optional*): The name of the sensor, eg. the city.
+- **name** (*Optional*): The name of the sensor, eg. the city. Defaults to 'Worldclock Sensor'.
 
 For valid time zones check the **TZ** column in the [Wikipedia overview](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Or get the full list from the [pytz](https://pypi.python.org/pypi/pytz) module.
 

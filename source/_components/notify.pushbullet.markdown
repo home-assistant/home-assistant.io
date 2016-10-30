@@ -19,9 +19,9 @@ To enable Pushbullet notifications in your installation, add the following to yo
 ```yaml
 # Example configuration.yaml entry
 notify:
-  platform: pushbullet
-  api_key: YOUR_API_KEY
-  name: NOTIFIER_NAME
+  - name: NOTIFIER_NAME
+    platform: pushbullet
+    api_key: YOUR_API_KEY
 ```
 
 Configuration variables:
@@ -53,3 +53,22 @@ If using targets, your own account's email address functions as 'send to all dev
   ]
 }
 ```
+
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+### {% linkable_title URL support %}
+
+```yaml
+...
+
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: Send URL
+    message: This is an url
+    data:
+      url: google.com
+```
+
+- **url** (*Required*): Page URL to send with pushbullet.
+

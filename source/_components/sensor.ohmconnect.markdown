@@ -24,8 +24,8 @@ You can find your OhmConnect ID under "Open Source Projects" on the [settings pa
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: ohmconnect
-  id: AbCd1e
+  - platform: ohmconnect
+    id: AbCd1e
 ```
 
 Configuration variables:

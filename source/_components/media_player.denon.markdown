@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: denon.png
 ha_category: Media Player
+ha_iot_class: "Local Polling"
+ha_release: 0.7.2
 ---
 
 
@@ -26,9 +28,8 @@ To add a Denon Network Receiver to your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: denon
-  host: IP_ADDRESS
-  name: Music station
+  - platform: denon
+    host: IP_ADDRESS
 ```
 Configuration variables:
 
@@ -38,7 +39,7 @@ Configuration variables:
 A few notes:
 
 - The receiver handles only one telnet connection and refuses others.
-- Be careful with the volume. 50% or even 100% are very loud.
+- Be careful with the volume. 100% or even 50% is very loud.
 - To be able to wake up the receiver, activate the "remote" setting in the receiver's settings.
 - Play and pause are supported, toggling is not possible.
 - Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.

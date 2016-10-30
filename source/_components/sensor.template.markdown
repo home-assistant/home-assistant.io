@@ -35,7 +35,7 @@ Configuration variables:
 - **sensors** array (*Required*): List of your sensors.
   - **friendly_name** (*Optional*): Name to use in the Frontend.
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+  - **value_template** (*Required*): Defines a [template](/topics/templating/) to extract a value from the event bus.
   - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
 
 

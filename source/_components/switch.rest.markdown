@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: restful.png
 ha_category: Switch
 ha_release: 0.7.6
 ---
@@ -19,19 +20,18 @@ To enable this switch, add the following lines to your `configuration.yaml` file
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: rest
-  resource: http://IP_ADDRESS/ENDPOINT
-  name: "Bedroom Switch"
-  body_on: "ON"
-  body_off: "OFF"
+  - platform: rest
+    resource: http://IP_ADDRESS/ENDPOINT
 ```
 
 Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **name** (*Optional*): Name of the REST switch.
-- **body_on** (*Optional*): The body that represents enabled state. Default is "ON".
-- **body_off** (*Optional*):The body that represents disabled state. Default is "OFF".
+- **body_on** (*Optional*): The body of the POST request that commands the switch to become enabled. Default is "ON". This value can be a [template](/topics/templating/), which is useful if the POST request needs to depend on the state of the system. For example, to enable remote-temperature-sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. On can achieve this using the template `'{"rem_temp":{{states.sensor.bedroom_temp.state}}}'`.
+- **body_off** (*Optional*): The body of the POST request that commands the switch to become disabled. Default is "OFF". This value can also be a template.
+- **is_on_template** (*Optional*): A [template](/topics/templating/) that determines the state of the switch from the value returned by the GET request on the resource url. This template should compute to a boolean (True or False). Default is equivalent to `'{{ value.json == body_on }}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches `body_on`.
+
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.

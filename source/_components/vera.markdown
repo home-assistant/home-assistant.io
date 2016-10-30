@@ -13,7 +13,7 @@ ha_category: Hub
 
 The [Vera](http://getvera.com) hub is a controller mainly connecting to Z-Wave devices.
 
-Switches, Lights (inc Dimmers), Locks, Sensors and Binary sensors are supported - and will be automaticaly added when HA connects to your Vera controller.
+Switches, Lights (inc Dimmers), Locks, Sensors and Binary sensors are supported - and will be automatically added when HA connects to your Vera controller.
 
 To use  Vera devices in your installation, add the following to your configuration.yaml file using the IP and port number of your Vera controller:
 
@@ -22,11 +22,19 @@ vera:
   vera_controller_url: http://192.168.1.161:3480/
 ```
 
-By default your switches will be added to HA as switches, however if some of them are light switches, you can tell HA this using the optional ```lights``` parameter as shown below.
+Configuration variables:
 
-Vera imports detailed zwave devices into HA - this can include system devices and other devices that you don't use, you can tell HA not to load these devices using the ```exclude:``` parameter as shown below.
+- **vera_controller_url** (*Required*): The URL for your Vera device.
 
-You can find the vera device id either by looking at your vera controller - or by checking the ```Vera Device Id``` attribute on each device imported into HA.
+<p class='note'>
+  It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
+</p>
+
+By default your switches will be added to Home Assistant as switches, however if some of them are light switches, you can tell Home Assistant this using the optional `lights` parameter as shown below.
+
+Vera imports detailed zwave devices into Home Assistant. This can include system devices and other devices that you don't use, you can tell Home Assistant not to load these devices using the `exclude:` parameter as shown below.
+
+You can find the vera device id either by looking at your vera controller or by checking the `Vera Device Id` attribute on each device imported into Home Assistant.
 
 ```yaml
 vera:

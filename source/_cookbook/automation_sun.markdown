@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Turn on the living room lights 45 minutes before sunset if anyone home  %}
+#### {% linkable_title Turn on the living room lights 45 minutes before sunset if anyone is at home  %}
 
 ```yaml
 automation:
@@ -46,7 +46,7 @@ automation:
 
 #### {% linkable_title Send sun rise/sun set notifications %}
 
-Notifications send through [PushBullet](/components/notify.pushbullet/) when the sun state is changed.
+Send notifications through [PushBullet](/components/notify.pushbullet/) when the sun state is changed.
 
 ```yaml
 automation:
@@ -89,7 +89,7 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{% raw %}{{ state.attributes.elevation }}{% end raw %}'
+    value_template: '{% raw %}{{ state.attributes.elevation }}{% endraw %}'
     below: 1.5
   action:
     service: scene.turn_on

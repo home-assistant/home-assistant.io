@@ -10,6 +10,7 @@ footer: true
 logo: efergy.png
 ha_category: Energy
 ha_release: pre 0.7
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -18,15 +19,15 @@ Integrate your [Efergy](https://efergy.com) meter information into Home Assistan
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: efergy
-  app_token: APP_TOKEN
-  utc_offset: UTC_OFFSET
-  monitored_variables:
-    - type: instant_readings
-    - type: budget
-    - type: cost
-      period: day
-      currency: $
+  - platform: efergy
+    app_token: APP_TOKEN
+    utc_offset: UTC_OFFSET
+    monitored_variables:
+      - type: instant_readings
+      - type: budget
+      - type: cost
+        period: day
+        currency: $
 ```
 
 Configuration variables:

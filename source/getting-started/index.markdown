@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you're running a Linux based platform, we suggest to follow the [VirtualEnv Linux instructions] to avoid having to use root.
+Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you're running a Linux-based platform, we suggest you follow the [VirtualEnv Linux instructions] to avoid using root.
 
 [Virtualenv Linux instructions]: /getting-started/installation-virtualenv/
 
@@ -37,7 +37,7 @@ To update Home Assistant to the latest release check the [Updating section](/get
 
 ### {% linkable_title Troubleshooting %}
 
-If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the common encountered issues.
+If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many commonly encountered issues.
 
 In addition to this site, check out these sources for additional help:
 

@@ -10,7 +10,7 @@ footer: true
 ha_category: Infrastructure
 ---
 
-This is an example about how you can configure Apache to act as a proxy for home assistant.
+This example demonstrates how you can configure Apache to act as a proxy for home assistant.
 
 This is useful if you want to have:
 
@@ -35,7 +35,7 @@ To be able to access to your home assistant instance by using https://home.examp
 </VirtualHost>
 ```
 
-and make sure that this file is read by apache's main configiuration file `/etc/httpd/conf/httpd.conf`
+and make sure that this file is read by Apache's main configuration file `/etc/httpd/conf/httpd.conf`
 
 ```text
 ...

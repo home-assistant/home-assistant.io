@@ -19,11 +19,10 @@ To use this device tracker in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: mqtt
-  qos: 1
-  devices:
-    paulus_oneplus: /location/paulus
-    annetherese_n4: /location/annetherese
+  - platform: mqtt
+    devices:
+      paulus_oneplus: /location/paulus
+      annetherese_n4: /location/annetherese
 ```
 
 Configuration variables:

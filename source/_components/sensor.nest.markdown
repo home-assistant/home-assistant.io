@@ -22,24 +22,17 @@ You must have the [Nest component](/components/nest/) configured to use those se
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   platform: nest
   monitored_conditions:
     - 'temperature'
     - 'target'
     - 'humidity'
-    - 'mode'
-    - 'last_ip'
-    - 'local_ip'
+    - 'operation_mode'
     - 'last_connection'
-    - 'battery_level'
-    - 'weather_condition'
-    - 'weather_temperature'
-    - 'weather_humidity'
-    - 'wind_speed'
-    - 'wind_direction'
-    - 'co_status'
-    - 'smoke_status'
+    - 'co_status' # Nest Protect only
+    - 'smoke_status' # Nest Protect only
 ```
 
 Configuration variables:
@@ -48,7 +41,7 @@ Configuration variables:
   - 'temperature'
   - 'target'
   - 'humidity'
-  - 'mode'
+  - 'operation_mode'
   - 'last_ip'
   - 'local_ip'
   - 'last_connection'

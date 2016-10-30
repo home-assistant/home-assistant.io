@@ -22,10 +22,11 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: pi_hole
-    host: 192.168.1.2
 ```
 
 Configuration variables:
 
 - **host** (*Optional*): The IP address of the Pi-Hole system. Defaults to `localhost`.
+- **ssl** (*Optional*): If `true`, use SSL/TLS to connect to the Pi-Hole system. Defaults to `False`.
+- **verify_ssl** (*Optional*): Verify the certification of the system. Default to `True`.
 

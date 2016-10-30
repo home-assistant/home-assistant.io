@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: coinmarketcap.png
 ha_category: Finance
 ha_release: 0.28
 ha_iot_class: "Cloud Polling"
@@ -21,7 +22,6 @@ To add the CoinMarketCap sensor to your installation, add the following lines to
 # Example configuration.yaml entry
 sensor:
   - platform: coinmarketcap
-    currency: bitcoin
 ```
 
 Configuration variables:

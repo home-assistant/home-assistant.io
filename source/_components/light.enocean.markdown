@@ -12,7 +12,7 @@ ha_category: Light
 ha_release: 0.21
 ---
 
-An EnOcean light can take many formes. Currently only one type has been tested: Eltako FUD61 dimmer.
+An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.
 
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
@@ -21,7 +21,6 @@ To use your EnOcean device, you first have to set up your [EnOcean hub](/compone
 # Example configuration.yaml entry
 light:
   - platform: enocean
-    name: Living_room
     id: [0x01,0x90,0x84,0x3C]
     sender_id: [0xFF,0xC6,0xEA,0x04]
 ```

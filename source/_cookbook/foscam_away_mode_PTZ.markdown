@@ -18,7 +18,7 @@ The following outlines examples of the switch, services, and scripts required to
 The `switch.foscam_motion` will control whether the motion detection is on or off. This switch supports `statecmd`, which checks the current state of motion detection.
 
 ```yaml
-# Replace admin and password with an "Admin" priviledged Foscam user
+# Replace admin and password with an "Admin" privileged Foscam user
 # Replace ipaddress with the local IP address of your Foscam
 switch:
  platform: command_line

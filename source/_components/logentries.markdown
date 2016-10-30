@@ -6,6 +6,7 @@ date: 2016-04-29 16:50
 sidebar: true
 comments: false
 sharing: true
+logo: logentries.png
 footer: true
 ha_category: "History"
 ---
@@ -17,9 +18,9 @@ To use the `logentries` component in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 logentries:
-  token: your-log-token-here
+  token: TOKEN
 ```
 
 Configuration variables:
 
-- **token** (*Required*): Your Logentries log token
+- **token** (*Required*): Your Logentries log token.

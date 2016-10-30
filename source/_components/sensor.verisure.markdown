@@ -12,13 +12,11 @@ ha_category: Sensor
 featured: false
 ---
 
-Integrates Verisure sensors into Home Assistant. See the [main component] for configuration instructions.
+Integrates Verisure sensors into Home Assistant. See the [main component](/components/verisure/) for configuration instructions.
 
 The following sensor types are supported:
 
  * Thermometers
  * Hygrometers
  * Mouse detectors
-
-
-[main component]: /components/verisure/
+ 

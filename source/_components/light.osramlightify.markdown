@@ -17,10 +17,10 @@ The `osramlightify` platform allows you to integrate your [Osram Lightify](http:
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: osramlightify
-  host: 192.168.0.50
+  - platform: osramlightify
+    host: 192.168.0.50
 ```
 Configuration variables:
 
-- **host** (*Required*): IP address of the Osram Lightify bridge, eg. `192.168.1.50`
+- **host** (*Required*): IP address of the Osram Lightify bridge, eg. `192.168.1.50`.
 

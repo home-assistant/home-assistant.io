@@ -10,7 +10,7 @@ footer: true
 logo: pilight.png
 ha_category: Hub
 ha_release: 0.26
-ha_iot_class: Local Push
+ha_iot_class: "Local Push"
 ---
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://wiki.pilight.org/doku.php/protocols) are already available.
@@ -26,12 +26,6 @@ To integrate pilight into Home Assistant, add the following section to your `con
 pilight:
   host: 127.0.0.1
   port: 5000
-  whitelist:  # optional
-    protocol:
-      - daycom
-      - intertechno
-    id:
-      - 42
 ```
 
 Configuration variables:
@@ -41,6 +35,21 @@ Configuration variables:
 - **whitelist** (*Optional*): You can define a whitelist to prevent that too many unwanted RF codes (e.g. the neighbours weather station) are put on your HA event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
 
 In this example only received RF codes using a daycom or intertechno protocol are put on the event bus and only when the device id is 42. For more possible settings please look at the receiver section of the pilight [API](https://www.pilight.org/development/api/).
+
+A full configuration sample could look like the sample below:
+
+```yaml
+# Example configuration.yaml entry
+pilight:
+  host: 127.0.0.1
+  port: 5000
+  whitelist:  # optional
+    protocol:
+      - daycom
+      - intertechno
+    id:
+      - 42
+```
 
 ## {% linkable_title Troubleshooting %}
 

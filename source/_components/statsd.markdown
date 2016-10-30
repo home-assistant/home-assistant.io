@@ -6,6 +6,7 @@ date: 2016-01-25 08:00
 sidebar: true
 comments: false
 sharing: true
+logo: statsd.png
 footer: true
 ha_category: "History"
 ha_release: 0.12
@@ -18,11 +19,6 @@ To use the `statsd` component in your installation, add the following to your `c
 ```yaml
 # Example configuration.yaml entry
 statsd:
-  host: DB_HOST_IP_ADDRESS
-  port: 20000
-  prefix: DB_TO_STORE_EVENTS
-  rate: 1
-  log_attributes: true
 ```
 
 Configuration variables:

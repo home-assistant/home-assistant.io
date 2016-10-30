@@ -22,23 +22,23 @@ To add OpenWeatherMap to your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: openweathermap
-  api_key: YOUR_API_KEY
-  forecast: 0 or 1
-  monitored_conditions:
-    - weather
-    - temperature
-    - wind_speed
-    - humidity
-    - pressure
-    - clouds
-    - rain
-    - snow
+  - platform: openweathermap
+    api_key: YOUR_API_KEY
+    monitored_conditions:
+      - weather
+      - temperature
+      - wind_speed
+      - humidity
+      - pressure
+      - clouds
+      - rain
+      - snow
 ```
 
 Configuration variables:
 
 - **api_key** (*Required*): Your API key for http://openweathermap.org/.
+- **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **forecast** (*Optional*): Enables the forecast. The default is to display the current conditions.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **weather**: A human-readable text summary.

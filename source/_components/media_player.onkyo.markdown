@@ -10,6 +10,7 @@ footer: true
 logo: onkyo.png
 ha_category: Media Player
 ha_release: 0.17
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -20,21 +21,21 @@ To add an Onkyo receiver to your installation, add the following to your `config
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: onkyo
-  host: 192.168.1.2
-  name: receiver
-  sources:
-    pc: 'HTPC'
-    aux1: 'Chromecast'
-    bd: 'Bluray'
-    game: 'Wii U'
+  - platform: onkyo
+    host: 192.168.1.2
+    name: receiver
+    sources:
+      pc: 'HTPC'
 ```
+
 Configuration variables:
-- **host** (*Optional*): IP address of the device. Example:`192.168.1.2` If not specified, the platform will load any discovered receivers.
-- **name** (*Required if host is specified*): Name of the device
+
+- **host** (*Optional*): IP address of the device. Example:`192.168.1.2`. If not specified, the platform will load any discovered receivers.
+- **name** (*Required if host is specified*): Name of the device.
 - **sources** (*Optional*): A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
 
 List of source names:
+
 - video1
 - video2
 - video3

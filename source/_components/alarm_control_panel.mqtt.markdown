@@ -32,12 +32,6 @@ alarm_control_panel:
   platform: mqtt
   state_topic: "home/alarm"
   command_topic: "home/alarm/set"
-  name: "MQTT Alarm"
-  qos: 0
-  payload_disarm: "DISARM"
-  payload_arm_home: "ARM_HOME"
-  payload_arm_away: "ARM_AWAY"
-  code: "mySecretCode"
 ```
 
 Configuration variables:

@@ -25,9 +25,8 @@ To add Wunderground to your installation, add the following to your `configurati
 ```yaml
 # Example configuration.yaml entry
 sensor:
-    platform: wunderground
+  - platform: wunderground
     api_key: your_api_key
-    pws_id: enter_pws_id
     monitored_conditions:
       - weather
       - temp_f
@@ -56,12 +55,13 @@ sensor:
       - precip_today_metric
       - precip_today_string
       - solarradiation
+      - alerts
 
 ```
 
 Configuration variables:
-- **api_key** (Required): See above
-- **pws_id** (Optional): You can enter a Personal Weather Station id. The current list of Wunderground PWS stations is available [here](https://www.wunderground.com/weatherstation/ListStations.asp). If you do not enter a PWS ID, the current location information (latitude and longitude) from your `configuration.yaml` will be used to display weather conditions. 
+- **api_key** (Required): See above.
+- **pws_id** (Optional): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available [here](https://www.wunderground.com/weatherstation/ListStations.asp). If you do not enter a PWS ID, the current location information (latitude and longitude) from your `configuration.yaml` will be used to display weather conditions. 
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
   - **weather**: A human-readable text summary with picture from Wunderground.
   - **temp_f**: Current temperature in Fahrenheit
@@ -90,6 +90,9 @@ Configuration variables:
   - **precip_today_metric**: Total precipitation in metric units
   - **precip_today_string**: Text summary of precipitation today
   - **solarradiation**: Current levels of solar radiation
+  - **alerts**: Current severe weather advisories
+
+All the conditions listed above will be updated each 5 minutes with exception of `alerts` that will be updated each 15 minutes by default.
 
 Additional details about the API are available [here](https://www.wunderground.com/weather/api/d/docs).
 

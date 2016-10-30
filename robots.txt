@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://balloob.github.io/home-assistant/sitemap.xml 

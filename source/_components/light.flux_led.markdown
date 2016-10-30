@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: magic_light.png
 ha_category: Light
 ha_iot_class: "Local Polling"
 featured: false
@@ -22,7 +23,7 @@ Example of bulbs:
 - [Flux WiFi Smart LED Light Bulb4](http://smile.amazon.com/Flux-WiFi-Smart-Light-Bulb/dp/B01A6GHHTE)
 - [WIFI smart LED light Bulb1](http://smile.amazon.com/gp/product/B01CS1EZYK)
 
-The chances are high that you bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.
+The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
 
@@ -30,12 +31,6 @@ To enable those lights, add the following lines to your `configuration.yaml` fil
 # Example configuration.yaml entry
 light:
   - platform: flux_led
-    automatic_add: BOOLEAN
-    devices:
-      IP_ADDR_1:
-        name: CUSTOM_NAME_1
-      IP_ADDR_2:
-        name: CUSTOM_NAME_2
 ```
 
 Configuration variables:
@@ -43,7 +38,8 @@ Configuration variables:
 - **automatic_add** (*Optional*): To enable the automatic addition of lights on startup.
 - **devices** (*Optional*): A list of devices with their ip address and a custom name to use in the frontend.
 
-Example configuration:
+
+### {% linkable_title Example configuration %}
 
 Will automatically search and add all lights on start up:
 

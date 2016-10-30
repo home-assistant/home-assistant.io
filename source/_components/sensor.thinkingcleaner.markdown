@@ -20,7 +20,7 @@ To enable this sensor in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: thinkingcleaner
+  - platform: thinkingcleaner
 ```
 
 This will automatically add sensors for each Thinking Cleaner in your network.

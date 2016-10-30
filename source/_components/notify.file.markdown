@@ -20,16 +20,15 @@ To enable file notifications in your installation, add the following to your `co
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: NOTIFIER_NAME
-  platform: file
-  filename: FILENAME
-  timestamp: true or false
+  - name: NOTIFIER_NAME
+    platform: file
+    filename: FILENAME
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **filename** (*Required*): Name of the file to use. The file will be created if it doesn't exist and saved in your `config/` folder.
-- **timestamp** (*Optional*): Setting `timestamp` to True adds a timestamp to every entry.
+- **timestamp** (*Optional*): Setting `timestamp` to `True` adds a timestamp to every entry.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

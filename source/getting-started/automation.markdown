@@ -31,10 +31,10 @@ The first line is the trigger of the automation rule. Triggers describe events t
 
 The second line is the condition part of the automation rule. Conditions are optional tests that can limit an automation rule to only work in your specific use cases. A condition will test against the current state of the system. This includes the current time, devices, people and other things like the sun. In this case we only want to act when the sun has set.
 
-The third part is the action which will be performed when a rule is triggered and all conditions are met.For example, it can turn a light on, set the temperature on your thermostat or activate a scene.
+The third part is the action which will be performed when a rule is triggered and all conditions are met. For example, it can turn a light on, set the temperature on your thermostat or activate a scene.
 
 <p class='note'>
-The difference between a condition and a trigger can be confusing as they are very similar. Triggers are  looking at the actions while conditions look at the result: turning a light on vs a light being on.
+The difference between a condition and a trigger can be confusing as they are very similar. Triggers look at the actions, while conditions look at the results: turning a light on vs a light being on.
 </p>
 
 ### {% linkable_title Exploring the internal state %}

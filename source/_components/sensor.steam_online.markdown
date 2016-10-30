@@ -25,11 +25,11 @@ To use Steam in your installation, add the following to your `configuration.yaml
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: steam_online
-  api_key: YOUR_API_KEY
-  accounts:
-    - account1
-    - account2
+  - platform: steam_online
+    api_key: YOUR_API_KEY
+    accounts:
+      - account1
+      - account2
 ```
 
 Configuration variables:

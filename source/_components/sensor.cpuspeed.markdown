@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: cpu.png
 ha_category: System Monitor
 ha_release: pre 0.7
 ha_iot_class: "Local Push"
@@ -20,8 +21,7 @@ To add this platform to your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: cpuspeed
-  name: CPU 
+  - platform: cpuspeed
 ```
 
 Configuration variables:

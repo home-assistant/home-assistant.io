@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: tcp_ip.png
 ha_category: Sensor
 ha_release: 0.14
 ---
@@ -16,16 +17,12 @@ The TCP component allows the integration of some services for which a specific H
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
-sensor:
 # Example configuration.yaml entry
-  platform: tcp
-  name: Central Heating Pressure
-  host: IP_ADDRESS
-  port: PORT
-  timeout: 5
-  payload: PAYLOAD
-  value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
-  unit: UNIT_OF_MEASUREMENT
+sensor:
+  - platform: tcp
+    host: IP_ADDRESS
+    port: PORT
+    payload: PAYLOAD
 ```
 
 Configuration options for the a TCP Sensor:

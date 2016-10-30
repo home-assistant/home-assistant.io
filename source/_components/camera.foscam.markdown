@@ -21,8 +21,6 @@ To enable your Foscam IP camera in your installation, add the following to your 
 camera:
   platform: foscam
   ip: IP_ADDRESS
-  name: Door Camera
-  port: 88
   username: USERNAME
   password: PASSWORD
 ```
@@ -31,9 +29,9 @@ Configuration variables:
 
 - **ip** (*Required*): The IP address your camera.
 - **port** (*Optional*): The port that the camera is running on. The default is 88. 
-- **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **username** (*Required*): The username for accessing your camera.
 - **password** (*Required*): The password for accessing your camera.
+- **name** (*Optional*): This parameter allows you to override the name of your camera.
 
 <p class='note'>
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.

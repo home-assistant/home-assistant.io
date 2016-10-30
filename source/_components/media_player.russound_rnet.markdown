@@ -10,6 +10,7 @@ footer: true
 logo: russound.png
 ha_category: Media Player
 ha_release: 0.25
+ha_iot_class: "Local Polling"
 ---
 
 The `russound_rnet` platform allows you to control Russound devices that make use of the RNET protocol.
@@ -23,30 +24,26 @@ To add a device to your installation, add the following to your `configuration.y
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: russound_rnet
-  host: 192.168.1.10
-  port: 1337
-  name: Russound
-  zones:
-    1:
-      name: Main Bedroom
-    2:
-      name: Living Room
-    3:
-      name: Kitchen
-    4:
-      name: Bathroom
-    5:
-      name: Dining Room
-    6:
-      name: Guest Bedroom
-  sources:
-    - name: Sonos
-    - name: Sky+
-    - name: iPod
-    - name: Unused 1
-    - name: Unused 2
-    - name: Kodi
+  - platform: russound_rnet
+    host: 192.168.1.10
+    port: 1337
+    name: Russound
+    zones:
+      1:
+        name: Main Bedroom
+      2:
+        name: Living Room
+      3:
+        name: Kitchen
+      4:
+        name: Bathroom
+      5:
+        name: Dining Room
+      6:
+        name: Guest Bedroom
+    sources:
+      - name: Sonos
+      - name: Sky+
 ```
 
 Configuration variables:

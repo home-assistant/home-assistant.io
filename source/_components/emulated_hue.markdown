@@ -26,14 +26,6 @@ To enable the emulated Hue bridge, add the following to your `configuration.yaml
 ```yaml
 # Example configuration.yaml entry
 emulated_hue:
-  host_ip: 192.168.1.186
-  listen_port: 8300
-  off_maps_to_on_domains:
-    - script
-    - scene
-  expose_by_default: true
-  exposed_domains:
-    - light
 ```
 
 Configuration variables:
@@ -49,7 +41,7 @@ Configuration variables:
   - `script`
   - `scene`
 
-- **expose_by_default** (*Optional*): Whether or not entities should be exposed via the bridge by default instead of explicitly (see the 'echo' attribute later on). If not specified, this defaults to true.
+- **expose_by_default** (*Optional*): Whether or not entities should be exposed via the bridge by default instead of explicitly (see the 'emulated_hue' customization below). If not specified, this defaults to true.  Warning: If you have a lot of devices (more than 49 total across all exposed domains), you should be careful with this opton.  Exposing more devices than Alexa supports can result in it not seeing any of them.  If you are having trouble getting any devices to show up, try disabling this, and explicitly exposing just a few devices at a time to see if that fixes it.
 
 - **exposed_domains** (*Optional*): The domains that are exposed by default if `expose_by_default` is set to true. If not specified, this defaults to the following list:
   - `switch`
@@ -57,6 +49,21 @@ Configuration variables:
   - `group`
   - `input_boolean`
   - `media_player`
+
+A full configuration sample looks like the one below.
+
+```yaml
+# Example configuration.yaml entry
+emulated_hue:
+  host_ip: 192.168.1.186
+  listen_port: 8300
+  off_maps_to_on_domains:
+    - script
+    - scene
+  expose_by_default: true
+  exposed_domains:
+    - light
+```
 
 With additional customization you will be able to specify the behaviour of the existing entities. 
 

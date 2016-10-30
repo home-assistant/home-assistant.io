@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: supervisord.png
 ha_category: System Monitor
 ha_release: "0.20"
 ---
@@ -18,8 +19,7 @@ To use this sensor in your installation, add the following to your `configuratio
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: supervisord
-  url: http://192.168.1.1:9001/RPC2
+  - platform: supervisord
 ```
 
 Configuration variables:

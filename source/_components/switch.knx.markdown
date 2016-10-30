@@ -10,6 +10,7 @@ footer: true
 logo: knx.png
 ha_category: DIY
 ha_release: 0.24
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -18,11 +19,11 @@ The `knx` switch component is used as in interface to switching actuators.
 To use your KNX switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 switch:
   - platform: knx
     name: KNX Switch
     address: 0/0/1
-    state_address: 0/0/3
 ```
 
 - **name** (*Optional*): A name for this devices used within Home assistant

@@ -9,31 +9,31 @@ sharing: true
 footer: true
 ---
 
-Home Assistant enforces strict [PEP8 style](https://www.python.org/dev/peps/pep-0008/) compliance on all code submitted. Every Pull Request is automatically tested with [Coveralls](https://coveralls.io/github/home-assistant/home-assistant) and [Travis CI](https://travis-ci.org/home-assistant/home-assistant) after it is created.
+Home Assistant enforces strict [PEP8 style](https://www.python.org/dev/peps/pep-0008/) compliance on all code submitted. We automatically test every pull request with [Coveralls](https://coveralls.io/github/home-assistant/home-assistant) and [Travis CI](https://travis-ci.org/home-assistant/home-assistant).
 
 ### {% linkable_title Local testing %}
 
-It's highly recommanded to run `tox` before you create your Pull Request to avoid annoying fixes. Local testing requires `tox` to be installed.
+**Important:** Run tox before you create your pull request to avoid annoying fixes. Local testing requires installing tox.
 
 ```bash
 $ pip3 install tox
 ```
 
-Start the test of your code with `tox`.
+Start your code test with `tox`.
 
 ```bash
 $ tox
 ```
 
-This will run unit tests against python 3.4 and 3.5 (if both are available locally), as well as run a set of tests which validate `pep8` and `pylint` style of the code.
+This will run unit tests against Python 3.4 and 3.5 (if both are available locally), as well as tests that validate `pep8` and `pylint` style.
 
 #### {% linkable_title Testing Tips %}
 
-You can optionally run tests on only one tox target using the `-e` option to select an environment. For instance `tox -e lint` will run the linters only, `tox -e py34` will run unit tests only on python 3.4.
+You can run tests on only one tox target -- just use `-e` to select an environment. For example, `tox -e lint` runs the linters only, and `tox -e py34` runs unit tests only on Python 3.4.
 
-Tox uses virtual environments under the hood to create isolated testing environments. The Tox virtual environments will get out date when requirements change causing test errors. Run `tox -r` to create new Tox virtual environments.
+tox uses virtual environments under the hood to create isolated testing environments. The tox virtual environments will get out-of-date when requirements change, causing test errors. Run `tox -r` to create new tox virtual environments.
 
-During development on a specific file, it can speed up your workflow to just run tests and linting related to the file that you're working on. To run individual files:
+During development on a specific file, speed up your workflow by running tests and linting only for the file that you're working on. To run individual files:
 
 ```bash
 $ flake8 homeassistant/core.py
@@ -41,24 +41,23 @@ $ pylint homeassistant/core.py
 $ py.test tests/test_core.py
 ```
 
-You also run linting tests against all changed files, as reported by `git diff upstream/dev --name-only` using the `lint` script:
+You can also run linting tests against all changed files, as reported by `git diff upstream/dev --name-only`, using the `lint` script:
 
 ```bash
-home-assistant$ script/lint --changed
+$ script/lint --changed
 ```
 
-### {% linkable_title Prevent Linter Errors %}
+### {% linkable_title Preventing Linter Errors %}
  
-You can save yourself the hassle of extra commits just to fix style errors by enabling the flake8 git commit hook. It will check your code when you attempt to commit to the repository. It will block the commit if there are any style issues, giving you a chance to fix it.
+Save yourself the hassle of extra commits just to fix style errors by enabling the Flake8 git commit hook. Flake8 will check your code when you try to commit to the repository and block the commit if there are any style errors, which gives you a chance to fix them!
 
 ```bash
 $ pip3 install flake8 flake8-docstrings
 $ flake8 --install-hook=git
 ```
 
-The flake8-docstrings extension will check docstrings according to [PEP257](https://www.python.org/dev/peps/pep-0257/) when running flake8.
+The `flake8-docstrings` extension will check docstrings according to [PEP257](https://www.python.org/dev/peps/pep-0257/) when running Flake8.
 
 ### {% linkable_title Notes on PyLint and PEP8 validation %}
 
-In case a PyLint warning cannot be avoided, add a comment to disable the PyLint check for that line. This can be done using the format `# pylint: disable=YOUR-ERROR-NAME`. Example of an unavoidable PyLint warning is if you do not use the passed in datetime if you're listening for time change.
-
+If you can't avoid a PyLint warning, add a comment to disable the PyLint check for that line with `# pylint: disable=YOUR-ERROR-NAME`. An example of an unavoidable PyLint warning is not using the passed-in datetime if you're listening for a time change.

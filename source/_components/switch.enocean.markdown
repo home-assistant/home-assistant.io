@@ -21,7 +21,6 @@ To use your EnOcean device, you first have to set up your [EnOcean hub](/compone
 # Example configuration.yaml entry
 switch:
   - platform: enocean
-    name: Front door
     id: [0x01,0x90,0x84,0x3C]
 ```
 

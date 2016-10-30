@@ -11,8 +11,9 @@ logo: gpmdp.png
 ha_category: Media Player
 ha_iot_class: "Local Polling"
 ha_release: "0.20"
-
+ha_iot_class: "Local Polling"
 ---
+
 
 The `gpmdp` media player platform allows you to control a [GPMDP](http://www.googleplaymusicdesktopplayer.com/) instance running on a computer from Home Assistant.
 
@@ -23,13 +24,12 @@ Then just add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  platform: gpmdp
-  address: IP_ADDRESS
-  name: NAME
+  - platform: gpmdp
+    host: IP_ADDRESS
 ```
 
 Configuration variables:
 
-- **address** (*Required*): IP address of the computer running GPMDP
-- **name** (*Optional*): Name of the player
+- **host** (*Required*): IP address of the computer running GPMDP.
+- **name** (*Optional*): Name of the player.
 

@@ -26,16 +26,8 @@ To enable this switch in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yml entry
 switch:
-  platform: mqtt
-  name: "Bedroom Switch"
-  state_topic: "home/bedroom/switch1"
-  command_topic: "home/bedroom/switch1/set"
-  payload_on: "ON"
-  payload_off: "OFF"
-  optimistic: false
-  qos: 0
-  retain: true
-  value_template: '{% raw %}{{ value.x }}{% endraw %}'
+  - platform: mqtt
+    command_topic: "home/bedroom/switch1/set"
 ```
 
 Configuration variables:
@@ -53,3 +45,31 @@ Configuration variables:
 <p class='note warning'>
 Make sure that your topic match exact. `some-topic/` and `some-topic` are different topics.
 </p>
+
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Full configuration %}
+
+The example below shows a full configuration for a switch.
+
+```yaml
+# Example configuration.yml entry
+switch:
+  - platform: mqtt
+    name: "Bedroom Switch"
+    state_topic: "home/bedroom/switch1"
+    command_topic: "home/bedroom/switch1/set"
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
+    qos: 0
+    retain: true
+```
+
+For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your cover manually:
+
+```bash
+$  mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1set -m "ON"
+```

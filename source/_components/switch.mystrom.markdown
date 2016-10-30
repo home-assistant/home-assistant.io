@@ -19,14 +19,13 @@ To use your myStrom switch in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: mystrom
-  host: IP_ADRRESS
-  name: MyStrom Switch
+  - platform: mystrom
+    host: IP_ADRRESS
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your myStrom switch, eg. http://192.168.1.32
+- **host** (*Required*): The IP address of your myStrom switch, eg. `http://192.168.1.32`.
 - **name** (*Optional*): The name to use when displaying this switch.
 
 Check if you are able to access the device located at `http://IP_ADRRESS`. The details about your switch is provided as a JSON response.

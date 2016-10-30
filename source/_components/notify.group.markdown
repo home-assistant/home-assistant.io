@@ -19,13 +19,13 @@ To use this notification platform in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 notify:
-  name: MyDevices
-  platform: group
-  services:
-    - service: html5
-      data:
-        target: "macbook"
-    - service: html5_nexus
+  - name: NOTIFIER_NAME
+    platform: group
+    services:
+      - service: html5
+        data:
+          target: "macbook"
+      - service: html5_nexus
 ```
 
 Configuration variables:

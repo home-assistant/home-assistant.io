@@ -9,26 +9,28 @@ sharing: true
 footer: true
 ---
 
-Before we dive into the Home Assistant architecture, it is important to get a clear overview of the home automation landscape as a whole. This will allow us to show how the different parts of Home Assistant fit in the picture. For a more lengthy discussion about what each part in this overview is responsible for, <a href='/blog/2014/12/26/home-control-home-automation-and-the-smart-home/'>check out our blog</a>. A tl;dr version of the blog:
+Before we dive into the Home Assistant architecture, let's get a clear overview of the home automation landscape as a whole. This way, we can show how the different parts of Home Assistant fit into the picture.
 
- * Home Control is responsible for collecting information on- and controlling devices.
- * Home Automation triggers commands based on user configurations.
- * Smart Home triggers commands based on previous behavior.
+For more information about each part in this overview, <a href='/blog/2014/12/26/home-control-home-automation-and-the-smart-home/'>check out our blog</a>. Here's the tl;dr version of the blog:
+
+ * Home Control is responsible for collecting information and controlling devices.
+ * Home Automation triggers command based on user configurations.
+ * Smart Home triggers commands based on previous behaviour.
 
 <p class='img'>
   <a href='{{site_root}}/images/architecture/home_automation_landscape.png' name='landscape'>
     <img alt='Home Automation landscape'
          src='{{site_root}}/images/architecture/home_automation_landscape.png' />
   </a>
-  Overview of the home automation landscape.
+  Overview of the home automation landscape
 </p>
 
-The Home Assistant core is responsible for Home Control. It has four parts to make this possible:
+The Home Assistant core is responsible for Home Control. Home Assistant has four parts to make this possible:
 
- * The **Event Bus** facilitates the firing and listening of events. This is the beating heart of Home Assistant.
- * The **State Machine** keeps track of the states of things. Fires a `state_changed` event when a state has been changed.
- * The **Service Registry** listens on the event bus for `call_service` events and allows other code to register services.
- * The **Timer** will send a `time_changed` event every 1 second on the event bus.
+ * **Event Bus**: facilitates the firing and listening of events--the beating heart of Home Assistant.
+ * **State Machine**: keeps track of the states of things and fires a `state_changed` event when a state has been changed.
+ * **Service Registry**: listens on the event bus for `call_service` events and allows other code to register services.
+ * **Timer**: sends a `time_changed` event every 1 second on the event bus.
 
 <p class='img'>
   <a href='/images/architecture/ha_architecture.png' name='architecture'>

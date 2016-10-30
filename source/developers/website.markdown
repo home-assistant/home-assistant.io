@@ -11,16 +11,16 @@ footer: true
 
 The website you are reading now is the home of Home Assistant: [https://home-assistant.io](https://home-assistant.io). This is the place where we provide documentation and additional details about Home Assistant for end users and developers.
 
-home-assistant.io is built using [Jekyll](http://github.com/mojombo/jekyll) and [those available dependencies](https://pages.github.com/versions/). The pages are written in [markdown](http://daringfireball.net/projects/markdown/); to add a page you don't need to know about HTML or the like.
+home-assistant.io is built using [Jekyll](http://github.com/mojombo/jekyll) and [these available dependencies](https://pages.github.com/versions/). The pages are written in [markdown](http://daringfireball.net/projects/markdown/). To add a page, you don't need to know about HTML.
 
-The link "**Edit this page on GitHub**" allows one to edit pages without creating a fork.
+You can use the "**Edit this page on GitHub**" link to edit pages without creating a fork.
 
-For larger changes, we suggest that you clone the website repository. This has the advantage that you can review your changes locally. The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a pull request.
+For larger changes, we suggest that you clone the website repository. This way, you can review your changes locally. The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a pull request.
 
 To test your changes locally, you need to install the **Ruby** dependencies (gems):
 
 - [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you don't have it already.
-- Install `bundler`, which is a dependency manager for Ruby: `gem install bundler`
+- Install `bundler`, a dependency manager for Ruby: `gem install bundler`
 - In your home-assistant.github.io root directory, run `bundle` to install the gems you need.
 
 Then you can work on the documentation:
@@ -28,7 +28,7 @@ Then you can work on the documentation:
 - Fork home-assistant.io [git repository](https://github.com/home-assistant/home-assistant.github.io).
 - Create/edit/update a page in the directory `source/_components/` for your platform/component.
 - Test your changes to home-assistant.io locally: run `rake preview` and navigate to [http://127.0.0.1:4000](http://127.0.0.1:4000)
-- Create a Pull Request (PR) against the **next** branch of home-assistant.github.io if your documentation is for a new feature, platform, or component.
+- Create a Pull Request (PR) against the **next** branch of home-assistant.github.io if your documentation is a new feature, platform, or component.
 - Create a Pull Request (PR) against the **current** branch of home-assistant.github.io if you fix stuff, create Cookbook entries, or expand existing documentation.
 
 <p class='note'>
@@ -39,7 +39,7 @@ It could be necessary that you run `rake generate` prior to `rake preview` for t
 
 For a platform page, the fastest way is to make a copy of an existing page and edit it. The [Component overview](/components/) and the [Examples section](/cookbook/) are generated automatically, so there is no need to add a link to those pages.
 
-If you start from scratch with a page, you need to add a header. Different sections of the doumentation may need different headers.
+If you start from scratch with a page, you need to add a header. Different sections of the documentation may need different headers.
 
 ```text
 ---
@@ -59,11 +59,11 @@ Content...Written in markdown.
 ...
 ```
 
-There are [pre-definied variables](https://jekyllrb.com/docs/variables/) available but usually it's not necessary to use them when writing documentation.
+There are [pre-definied variables](https://jekyllrb.com/docs/variables/) available but usually, it's not necessary to use them when writing documentation.
 
 ### {% linkable_title Embedding Code %}
 
-You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in \`. For multi line syntax wrap your code as shown below.
+You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in \`. For multi-line, syntax wrap your code as shown below.
 
 ```text
 {% raw %} ```yaml
@@ -72,15 +72,19 @@ You can use the default markdown syntax to generate syntax highlighted code. For
  ```{% endraw %}
 ```
 
-If you are using templates then those parts needs to be [escaped](http://stackoverflow.com/a/24102537). Otherwise they will be rendered and appear blank on the website.
-
 Note that you can replace `yaml` next to \`\`\` with the language that is within the block.
 
 When you're writing code that is to be executed on the terminal, prefix it with `$`.
 
+### {% linkable_title Templates %}
+
+For the [configuration templating](/topics/templating/) is [Jinja](http://jinja.pocoo.org/) used.
+
+If you are using templates then those parts needs to be [escaped](http://stackoverflow.com/a/24102537). Otherwise they will be rendered and appear blank on the website.
+
 ### {% linkable_title HTML %}
 
-The direct usage of HTML is supported but not recommanded. The note boxes are an exception.
+The direct usage of HTML is supported but not recommended. The note boxes are an exception.
 
 ```html
 <p class='note warning'>

@@ -25,7 +25,7 @@ Example configuration:
 ```yaml
 # Example configuration.yaml entry
 qwikswitch:
-   url: 'http://127.0.0.1:2020'
+   url: http://127.0.0.1:2020
 ```
 
 Configuration variables:

@@ -16,7 +16,7 @@ The default way to update Home Assistant to the latest release, when available, 
 $ pip3 install --upgrade homeassistant
 ```
 
-Different installation methods as [Raspberry Pi All-In-One Installer](/getting-started/installation-raspberry-pi-all-in-one/#upgrading), [Vagrant](/getting-started/installation-vagrant/), or [Virtualenv](/getting-started/installation-virtualenv/#upgrading-home-assistant) may have an alternative way for updating Home Assistant. 
+Different installation methods as [HASSbian](/getting-started/installation-raspberry-pi-image/#update-home-assistant-on-hassbian), [Raspberry Pi All-In-One Installer](/getting-started/installation-raspberry-pi-all-in-one/#upgrading), [Vagrant](/getting-started/installation-vagrant/), or [Virtualenv](/getting-started/installation-virtualenv/#upgrading-home-assistant) may have an alternative way for updating Home Assistant. 
 
 After updating, restart Home Assistant for the changes to take effect. This means that you have to restart `hass` itself or the [autostarting](/getting-started/autostart/) daemon if you use any.
 
@@ -27,7 +27,16 @@ After updating, restart Home Assistant for the changes to take effect. This mean
 
 [BRUH automation](http://www.bruhautomation.com) has created [a tutorial video](https://www.youtube.com/watch?v=tuG2rs1Cl2Y) explaining how to upgrade Home Assistant.
 
+#### {% linkable_title Run a specific version %}
+
+It can happen that a version doesn't play well with your hardware setup. If that's the case you can downgrade to a previous release.
+
+```bash
+$ pip3 install homeassistant==0.XX.X
+```
+
 #### {% linkable_title Run the development version %}
+
 If you want to stay on top of the development of Home Assistant then you can upgrade to the `dev` branch. 
 
 <p class='note warning'>
