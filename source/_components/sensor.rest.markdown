@@ -50,10 +50,10 @@ Configuration variables:
 - **headers** (*Optional*): The headers for the requests.
 
 <p class='note warning'>
-Make sure that the URL matches exactly your endpoint or resource.
+Make sure that the URL exactly matches your endpoint or resource.
 </p>
 
-`curl` could help you with the identification of the variable you want to display in your Home Assistant frontend. The example below show the JSON response of a device that is running with [aREST](http://arest.io/).
+`curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](http://arest.io/).
 
 ```bash
 $ curl -X GET http://192.168.1.31/temperature/
@@ -120,14 +120,14 @@ sensor:
     password: test1
     authentication: basic
     headers:
-      User-agent: Home Assistant
+      User-Agent: Home Assistant
       Content-Type: application/json
 ```
 
-The header will contains all relevant details. This will give you the flexibility to access also endpoints wich are protected by Tokens. 
+The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens. 
 
 ```bash
-Content-Length: 
+Content-Length: 1024
 Host: IP_ADDRESS1:5000
 Authorization: Basic aGExOnRlc3Qx
 Accept-Encoding: identity
@@ -137,7 +137,7 @@ User-Agent: Home Assistant
 
 ### {% linkable_title Use GitHub to get the latest release of Home Assistant %}
 
-This sample is very similar to the [`updater`](/components/updater/) component but the information are recieved from GitHub.
+This sample is very similar to the [`updater`](/components/updater/) component but the information is recieved from GitHub.
 
 ```yaml
 sensor:
