@@ -71,7 +71,11 @@ automation:
 
 To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web. This can be achieved by forwarding port 8123 from your router to the device running Home Assistant. If your ISP is giving you a new IP address from time to time, consider using [DuckDNS][duck-dns].
 
+In the URL field, you can then put an [API URL][rest-api]. You probably want to use a POST action, so select `POST` as method. After your request line, you need to add your HomeAssistant password which you defined in the [http section of your config][http-configuration] in the form off `?api_password=<your_password>`. For the message body, refer to the API page linked above.
+
 [duck-dns]: https://duckdns.org
+[rest-api]: https://home-assistant.io/developers/rest_api/
+[http-configuration]: https://home-assistant.io/getting-started/basic/#password-protecting-the-web-interface
 
 <p class='img'>
 <img src='/images/components/ifttt/IFTTT_to_HA.png' />
