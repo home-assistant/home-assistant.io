@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: mqtt.png
+logo: synologydsm.png
 ha_category: Sensor
 ha_release: 0.31.1
 ha_iot_class: depends
