@@ -110,15 +110,27 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): The name of the lock. Default is ‘MQTT Lock’.</li>
+  <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the fan state.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
-  <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the lock state.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the fan. Default is ‘MQTT Fan’.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents the running state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents the stop state. Default is “OFF”.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if lock works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no state topic defined, else <code class="highlighter-rouge">false</code>.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
-  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
+  <li><strong>state_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the state.</li>
+  <li><strong>speed_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive speed updates.</li>
+  <li><strong>speed_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the fan speed.</li>
+  <li><strong>speed_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the speed.</li>
+  <li><strong>oscillation_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive oscillation updates.</li>
+  <li><strong>oscillation_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the fan oscillation.</li>
+  <li><strong>oscillation_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the oscillation.</li>
+  <li><strong>payload_oscillation_on</strong> (<em>Optional</em>): The payload that represents the oscillation state. Default is “ON”.</li>
+  <li><strong>payload_oscillation_off</strong> (<em>Optional</em>): The payload that represents the oscillation state. Default is “OFF”.</li>
+  <li><strong>payload_low_speed</strong> (<em>Optional</em>): The payload that represents the low speed state. Default is “low”.</li>
+  <li><strong>payload_medium_speed</strong> (<em>Optional</em>): The payload that represents the low speed state. Default is “med”.</li>
+  <li><strong>payload_high_speed</strong> (<em>Optional</em>): The payload that represents the low speed state. Default is “high”.</li>
+  <li><strong>speeds</strong> array (<em>Optional</em>): Valid entries for the list are <code class="highlighter-rouge">off</code>, <code class="highlighter-rouge">low</code>, <code class="highlighter-rouge">med</code>, and <code class="highlighter-rouge">high</code>.</li>
 </ul>
 
 <p class="note warning">
