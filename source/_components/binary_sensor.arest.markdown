@@ -45,7 +45,7 @@ An example for Pin 9 inspired by the command above could look like this:
 # Example configuration.yaml entry
 binary_sensor:
   - platform: arest
-    resource: http://192.168.0.5/digital/9
+    resource: http://192.168.0.5
     pin: 9
     name: Office
 ```
