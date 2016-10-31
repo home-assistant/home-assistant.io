@@ -30,7 +30,7 @@ $ cd scenegen
 
 ## Install Prereqs
 
-Before running `AppDaemon` you will need to add some python prerequisites:
+Before running `SceneGen` you will need to add some python prerequisites:
 
 ```bash
 $ sudo pip3 install configparser
@@ -166,7 +166,7 @@ The intended use of the mapfile and filter is that you create a map of all your 
 To update SceneGen after a new version is released, just run the following command to update your copy:
 
 ```bash
-$ git pull origin
+$ git pull
 ```
 
 ## Release Notes
