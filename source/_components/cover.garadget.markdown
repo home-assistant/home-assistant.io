@@ -22,11 +22,11 @@ To enable Garadget Covers in your installation, add the following to your `confi
 cover:
   platform: garadget
   covers:
-      - device: 190028001947343412342341
+      190028001947343412342341:
         username:  UseYourLogin@garadget.com
         password:  abc123
         name:  Left Garage Door
-      - device: 4c003f001151353432134214
+      4c003f001151353432134214:
         access_token: df4cc785ff818f2b01396c44142342fccdef
 ```
 
