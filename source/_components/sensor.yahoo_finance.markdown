@@ -27,27 +27,19 @@ sensor:
 Configuration variables:
 
 - **name** (*Optional*): The name of the sensor. If not specified, it defaults to *Yahoo Stock*.
-- **symbol** (*Optional*): The stock market symbol for a given company. If not specified, it defaults to *Yahoo (YHOO)*.
+- **symbols** array (*Optional*): List of stock market symbols for given companies. If not specified, it defaults to *Yahoo (YHOO)*.
 
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this sensor.
 
-### {% linkable_title Red Hat %}
+### {% linkable_title Red Hat and Google %}
 
 ```yaml
 sensor:
   - platform: yahoo_finance
-    name: Red Hat Inc.
-    symbol: RHT
-```
-
-### {% linkable_title Google %}
-
-```yaml
-sensor:
-  - platform: yahoo_finance
-    name: Google
-    symbol: GOOGL
+    symbols:
+      - RHT
+      - GOOGL
 ```
 
