@@ -38,6 +38,7 @@ During development on a specific file, speed up your workflow by running tests a
 ```bash
 $ flake8 homeassistant/core.py
 $ pylint homeassistant/core.py
+$ pydocstyle homeassistant/core.py
 $ py.test tests/test_core.py
 ```
 
