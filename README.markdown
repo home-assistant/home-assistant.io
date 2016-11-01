@@ -27,7 +27,7 @@ $ rvm use ruby-2.2.3 --default
 $ ruby -v
 ```
 
-The last command will give you something like this `ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-linux]`. Then install `bundler`.
+The last command will give you something like this: `ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-linux]`. Then install `bundler`.
 
 ```bash
 $ gem install bundler
