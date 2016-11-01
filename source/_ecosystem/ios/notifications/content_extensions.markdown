@@ -58,4 +58,4 @@ data:
 
 # Combining with actionable notifications
 
-As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](http://localhost:4000/ecosystem/ios/notifications/actions/) to add actions to the content extension.
+As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](/ecosystem/ios/notifications/actions/) to add actions to the content extension.
