@@ -29,7 +29,7 @@ sensor:
     - 'temperature'
     - 'target'
     - 'humidity'
-    - 'operation_mode'
+    - 'mode'
     - 'last_connection'
     - 'co_status' # Nest Protect only
     - 'smoke_status' # Nest Protect only
@@ -41,7 +41,7 @@ Configuration variables:
   - 'temperature'
   - 'target'
   - 'humidity'
-  - 'operation_mode'
+  - 'mode'
   - 'last_ip'
   - 'local_ip'
   - 'last_connection'
