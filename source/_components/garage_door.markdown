@@ -10,7 +10,7 @@ footer: true
 ---
 
 <p class='note warning'>
-**This component has been deprecated in favor of the "[cover](/component/cover/)" component and will be removed in the future. Please use cover.**
+**This component has been deprecated in favor of the "[cover](/components/cover/)" component and will be removed in the future. Please use cover.**
 </p>
 
 Home Assistant can give you an interface to control any garage door.
