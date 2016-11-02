@@ -121,7 +121,35 @@ Then you should update your configuration to:</p>
 </code></pre>
 </div>
 
-<p>Example configuration:</p>
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>devices</strong> (<em>Required</em>): A list of devices with their name to use in the frontend.</li>
+  <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of new switches.</li>
+  <li><strong>signal_repetitions</strong> (<em>Optional</em>): Because the rxftrx device sends its actions via radio and from most receivers it’s impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.</li>
+  <li><strong>fire_event</strong> (<em>Optional</em>): Fires an event even if the state is the same as before, for example a doorbell switch. Can also be used for automations.</li>
+</ul>
+
+<p>Generate codes:</p>
+
+<p>If you need to generate codes for switches you can use a template (usefull for example COCO switches).</p>
+
+<ul>
+  <li>Go to home-assistant-IP:8123/dev-template</li>
+  <li>Use this code to generate a code:
+    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">0b11000bc0cfe0010f70</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Use this code to add a new switch in your configuration.yaml</li>
+  <li>Launch your homeassistant and go the website.</li>
+  <li>Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)</li>
+  <li>Toggle your new switch in the homeassisant interface</li>
+</ul>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>Basic configuration with 3 devices:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
@@ -139,14 +167,71 @@ Then you should update your configuration to:</p>
 </code></pre>
 </div>
 
-<p>Configuration variables:</p>
+<p>Doorbell configuration:</p>
 
-<ul>
-  <li><strong>devices</strong> (<em>Required</em>): A list of devices with their name to use in the frontend.</li>
-  <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of new switches.</li>
-  <li><strong>signal_repetitions</strong> (<em>Optional</em>): Because the rxftrx device sends its actions via radio and from most receivers it’s impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.</li>
-  <li><strong>fire_event</strong> (<em>Optional</em>): Fires an event even if the state is the same as before. Can be used for automations.</li>
-</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">0710014c440f0160</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Hall</span>
+    <span class="s">0710010244080780</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Door</span>
+      <span class="s">fire_event</span><span class="pi">:</span> <span class="s">true</span>
+      
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Switch light on when door bell rings if sun is below horizon and light was off</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">button_pressed</span>
+      <span class="s">event_data</span><span class="pi">:</span> <span class="pi">{</span><span class="s2">"</span><span class="s">entity_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">switch.door"</span><span class="pi">}</span>
+    <span class="s">condition</span><span class="pi">:</span>
+      <span class="s">condition</span><span class="pi">:</span> <span class="s">and</span>
+      <span class="s">conditions</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
+          <span class="s">state</span><span class="pi">:</span> <span class="s2">"</span><span class="s">below_horizon"</span>
+        <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.hall</span>
+          <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.hall</span>
+</code></pre>
+</div>
+
+<p>Use remote to enable scene:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">0b1100ce3213c7f210010f70</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Light1</span>
+    <span class="s">0b11000a02ef2gf210010f50</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Light2</span>
+    <span class="s">0b1111e003af16aa10000060</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Keychain remote</span>
+      <span class="s">fire_event</span><span class="pi">:</span> <span class="s">true</span>
+<span class="s">scene</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Livingroom</span>
+  <span class="s">entities</span><span class="pi">:</span>
+    <span class="s">switch.light1</span><span class="pi">:</span> <span class="s">on</span>
+    <span class="s">switch.light2</span><span class="pi">:</span> <span class="s">on</span>
+    
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Use remote to enable scene</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">button_pressed</span>
+      <span class="s">event_data</span><span class="pi">:</span> <span class="pi">{</span><span class="s2">"</span><span class="s">state"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">on"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">entity_id"</span><span class="pi">:</span> <span class="s2">"</span><span class="s">switch.keychain_remote"</span><span class="pi">}</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.livingroom</span>
+</code></pre>
+</div>
 
 
 </article>
