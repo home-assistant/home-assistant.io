@@ -25,9 +25,7 @@ To use an Internet-Box router in your installation, add the following to your `c
 # Example configuration.yaml entry
 device_tracker:
   platform: swisscom
-  host: "192.168.1.1"
-  username: admin
-  password: 
+  host: "192.168.1.1" # only required if not 192.168.1.1
 ```
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
