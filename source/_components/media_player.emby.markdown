@@ -22,12 +22,13 @@ To add Emby to your installation, add the following to your `configuration.yaml`
 # Example configuration.yaml entry
 media_player:
   - platform: emby
-    host: http://192.168.11.5
+    host: 192.168.11.5
     api_key: "emby_api_key"
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The host name or address of the device that is running Emby, either http or https.
+- **host** (*Required*): The host name or address of the device that is running Emby.
 - **api_key** (*Requred*): The api-key you would like home-assistant to use to authenticate.
+- **ssl** (*Optional*): True if you want to connect with https. Be sure to set the port also.
 - **port** (*Optional*): The port number. Defaults to 8096.
