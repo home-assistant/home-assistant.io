@@ -101,6 +101,7 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">icloud</span>
     <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+    <span class="s">account_name</span><span class="pi">:</span> <span class="s">accountname</span>
 </code></pre>
 </div>
 
@@ -109,6 +110,7 @@
 <ul>
   <li><strong>username</strong> (<em>Required</em>): The username for the iCloud account.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given username.</li>
+  <li><strong>account_name</strong> (<em>Optional</em>): The friendly name for the account_name. If this isn’t given, it will use the account_name of the username (so the part before the <code class="highlighter-rouge">@</code> in the email address).</li>
 </ul>
 
 <p class="note warning">
@@ -119,10 +121,17 @@ This may cause battery drainage as it wakes up your device to get the current lo
 You may receive an email from Apple stating that someone has logged into your account.
 </p>
 
-<p class="note warning">
-If you have two-factor authentication enabled on your iCloud account you will not be able to use this presence detection in HA, even with an app-specific password.
-</p>
+<p>To disable the drainage of the battery, a dynamic interval is being used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.</p>
 
+<p>2 Factor Authentication is enabled for iCloud. The component will ask which device you want to use as Trusted Device and then you can enter the code that has been sent to that device. The duration of this authentication is determined by Apple, but is now at 2 months, so you will only need to verify your account each two months, even after restarting Home Assistant.</p>
+
+<p>4 services are available for this component:</p>
+<ul>
+  <li><strong>icloud_update</strong>: This service can be used to ask for an update of a certain iDevice. The <code class="highlighter-rouge">account_name</code> and <code class="highlighter-rouge">device_name</code> are optional.</li>
+  <li><strong>icloud_lost_iphone</strong>: This service will play the Lost iPhone sound on a certain iDevice. The <code class="highlighter-rouge">account_name</code> and <code class="highlighter-rouge">device_name</code> are optional.</li>
+  <li><strong>icloud_set_interval</strong>: This service will change the dynamic interval of an iDevice. The <code class="highlighter-rouge">account_name</code> and <code class="highlighter-rouge">device_name</code> are optional. If <code class="highlighter-rouge">interval</code> is used in the service_data, the iDevice will be updated with that new interval. That interval will be fixed until the iDevice changes zone or if this service is called again. If <code class="highlighter-rouge">interval</code> isn’t used in the service_data, the interval for that iDevice will revert back to it’s default dynamic interval based on it’s current zone, it’s distance towards home and it’s battery level.</li>
+  <li><strong>icloud_reset_account</strong>: This service can be used to reset an iCloud account. This is helpful when not all devices are being found by the component or if you have added a new iDevice to your account. The <code class="highlighter-rouge">account_name</code> is optional.</li>
+</ul>
 
 
 </article>
