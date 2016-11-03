@@ -13,6 +13,8 @@ Home Assistant can get information from your wireless router or third party serv
 
 There are also trackers available which use different technologies like [MQTT](/components/mqtt/) or [Nmap](/components/device_tracker.nmap_tracker/) to scan the network for devices.
 
+An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time. 
+
 # {% linkable_title Configuring a `device_tracker` platform %}
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
