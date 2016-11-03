@@ -19,6 +19,16 @@ This page contains a list of people who have contributed in one way or another t
 
 (in alphabetical order)
 
+- [Jon Caruana](https://github.com/joncar)
+- [Jan Losinski](https://github.com/janLo)
+- [Ferry van Zeelst](https://github.com/StaticCube)
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
 - [Abhishek Anand](https://github.com/aa755)
 - [Adam Mills](https://github.com/armills)
 - [Adrien Brault](https://github.com/adrienbrault)
