@@ -57,7 +57,7 @@ If you need to generate codes for switches you can use a template (usefull for e
 - Go to home-assistant-IP:8123/dev-template
 - Use this code to generate a code:
 
-<code>0b11000{{ range(0,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70</code>
+{% raw %}0b11000{{ range(0,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70{% endraw %}
 
 - Use this code to add a new switch in your configuration.yaml
 - Launch your homeassistant and go the website.
