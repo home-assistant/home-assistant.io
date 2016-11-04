@@ -54,7 +54,7 @@ Successful calls will return status code 200 or 201. Other status codes that can
 The API supports the following actions:
 
 #### {% linkable_title GET /api/ %}
-Returns message if API is up and running.
+Returns a message if the API is up and running.
 
 ```json
 {
@@ -142,7 +142,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/events %}
-Returns an array of event objects. Each event object contain event name and listener count.
+Returns an array of event objects. Each event object contains event name and listener count.
 
 ```json
 [
@@ -193,7 +193,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title GET /api/history %}
-Returns an array of state changes in the past. Each object contains further detail for the entities.
+Returns an array of state changes in the past. Each object contains further details for the entities.
 
 ```json
 [
@@ -333,7 +333,7 @@ Expects a JSON object that has at least a state attribute:
 }
 ```
 
-Return code is 200 if the entity existed, 201 if the state of a new entity was set. A location header will be returned with the url of the new resource. The response body will contain a JSON encoded State object.
+The return code is 200 if the entity existed, 201 if the state of a new entity was set. A location header will be returned with the URL of the new resource. The response body will contain a JSON encoded State object.
 
 ```json
 {
@@ -377,7 +377,7 @@ Returns a message if successful.
 ```
 
 #### {% linkable_title POST /api/services/&lt;domain>/&lt;service> %}
-Calls a service within a specific domain. Will return when the service has been executed or 10 seconds has past, whichever comes first.
+Calls a service within a specific domain. Will return when the service has been executed or after 10 seconds, whichever comes first.
 
 You can pass an optional JSON object to be used as `service_data`.
 
@@ -416,7 +416,7 @@ $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 <p class='note'>
-The result will include any changed states that changed while the service was being executed, even if their change was the result of something else happening in the system.
+The result will include any states that changed while the service was being executed, even if their change was the result of something else happening in the system.
 </p>
 
 #### {% linkable_title POST /api/template %}
@@ -443,7 +443,7 @@ $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
 ```
 
 #### {% linkable_title POST /api/event_forwarding %}
-Setup event forwarding to another Home Assistant instance.
+Set up event forwarding to another Home Assistant instance.
 
 Requires a JSON object that represents the API to forward to.
 
@@ -455,7 +455,7 @@ Requires a JSON object that represents the API to forward to.
 }
 ```
 
-It will return a message if event forwarding was setup successful.
+It will return a message if event forwarding was set up successfully.
 
 ```json
 {
@@ -476,7 +476,7 @@ Requires a JSON object that represents the API to cancel forwarding to.
 }
 ```
 
-It will return a message if event forwarding was cancelled successful.
+It will return a message if event forwarding was cancelled successfully.
 
 ```json
 {

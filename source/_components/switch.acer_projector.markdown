@@ -27,7 +27,7 @@ switch:
 
 Configuration variables:
 
-- **filename** (*Required*): The pipe where the projector is connected to
+- **filename** (*Required*): The pipe where the projector is connected to.
 - **name** (*Optional*): The name to use when displaying this switch.
 - **timeout** (*Optional*): Timeout for the connection in seconds.
 - **write_timeout** (*Optional*): Write timeout in seconds.

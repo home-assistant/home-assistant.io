@@ -33,8 +33,13 @@ Configuration variables:
 - **gcm_sender_id** (*Required if pushing to Chrome*): The sender ID provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.
 
 ### {% linkable_title Getting ready for Chrome %}
+Create new project at https://console.cloud.google.com/home/dashboard
+Go to https://console.cloud.google.com/apis/credentials/domainverification and verify your domain 
+After that, go to https://console.firebase.google.com and select import Google project, select the project you created
+Then, click the clogwheel on top left and select Project settings
+Select Cloud messaging tab
+if under server key is button Regenerate key, click that
 
-Google has [a handy guide](https://developers.google.com/web/fundamentals/getting-started/codelabs/push-notifications/#make_a_project_on_the_google_developer_console) that goes into great detail about how to set up for pushing to Chrome. Once you have your GCM API Key and Sender ID in hand, plug them into your configuration as described above.
 
 ### {% linkable_title Requirements %}
 
@@ -109,6 +114,22 @@ By default, every notification sent has a randomly generated UUID (v4) set as it
     "tag": "front-door-notification"
   }
 }
+```
+
+Example of adding a tag to your configuration. This won't create new notification if there already exists one with the same tag.
+
+```yaml
+  - alias: Push/update notification of sensor state with tag
+    trigger:
+      - platform: state
+        entity_id: sensor.sensor
+    action:
+      service: notify.html5
+      data_template:
+        message: "Last known sensor state is {% raw %}{{ states('sensor.sensor') }}{% endraw %}."
+      data:
+        data:
+          tag: 'notification-about-sensor'
 ```
 
 #### {% linkable_title Targets %}

@@ -28,6 +28,18 @@ Configuration variables:
 - **ffmpeg_bin** (*Optional*): Default 'ffmpeg'. The name or path to the `ffmpeg` binary.
 - **run_test** (*Optional*): Default True. Check if `input` is usable by ffmpeg.
 
+### {% linkable_title Raspbian Debian Jessie Lite Installations %}
+To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:
+```
+$ sudo apt-get install libav-tools
+```
+This will get a forked version of ffmpeg called avconv, once this is installed you need to use the following in the configuration:
+
+```
+ffmpeg:
+  ffmpeg_bin: /usr/bin/avconv
+```
+
 ### {% linkable_title Troubleshooting %}
 
 In most cases, `ffmpeg` automatically detects all needed options to read a video or audio stream or file. But it is possible in rare cases that you will need to set options to help `ffmpeg` out.

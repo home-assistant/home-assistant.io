@@ -15,7 +15,7 @@ ha_release: pre 0.7
 
 The `nma` platform uses [Notify My Android (NMA)](http://www.notifymyandroid.com/) to delivery notifications from Home Assistant to your Android device.
 
-Go to the [NMA website](https://www.notifymyandroid.com) and create a new API key. If you are using the trial offer then keep in mind that your limit is five (5) message per day.
+Go to the [NMA website](https://www.notifymyandroid.com) and create a new API key. If you are using the trial offer then keep in mind that your limit is five messages per day.
 
 To add NMA to your installation, add the following to your `configuration.yaml` file:
 

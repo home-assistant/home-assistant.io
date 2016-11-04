@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: tp-link.png
 ha_category: Switch
+ha_iot_class: "Local Polling"
+ha_release: "0.24"
 ---
 
 
@@ -18,6 +20,7 @@ Supported units:
 
 - HS100
 - HS110
+- HS200
 
 To use your TPLink switch in your installation, add the following to your `configuration.yaml` file:
 

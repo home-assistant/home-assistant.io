@@ -44,7 +44,10 @@ $ sudo PYTHON_EXEC=$(which python3) make install
 <p class='note'>
 Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
 
-```$ sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave```
+```bash
+$ sudo apt-get install -y checkinstall
+$ sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave
+```
 
 </p>
 
@@ -131,7 +134,7 @@ cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0
 
 #### {% linkable_title zwave.network_complete %}
 
-Home Assistant will trigger a event when the Z-Wave network is complete. Meaning all of the nodes on the network have been queried. This can take quite som time, depending on wakeup intervals on the battery powered devices on the network.
+Home Assistant will trigger a event when the Z-Wave network is complete. Meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery powered devices on the network.
 
 ```yaml
  - alias: Z-Wave network is complete
@@ -212,14 +215,15 @@ The *object_id* and *scene_id* of all triggered events can be seen in the consol
 
 ### {% linkable_title Services %}
 
-The `zwave` component exposes ten services to help maintain the network.
+The `zwave` component exposes multiple services to help maintain the network.
 
 | Service | Description |
 | ------- | ----------- |
 | add_node | Put the Z-Wave controller in inclusion mode. Allows one to add a new device to the Z-Wave network.|
 | add_node_secure | Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network. |
+| change_association | Add or remove an association in th Z-Wave network
 | cancel_command | Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
-| heal_network | Tells the controller to "heal" the Z-Wave network. Bascially asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
+| heal_network | Tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
 | set_config_parameter | Let's the user set a config parameter to a node.
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
