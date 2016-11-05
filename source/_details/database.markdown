@@ -1,9 +1,9 @@
 ---
 layout: page
-title: "Home Assistant Database"
+title: "Database"
 description: "Details about the database which Home Assistant is using."
 date: 2016-10-10 10:00
-sidebar: true
+sidebar: false
 comments: false
 sharing: true
 footer: true

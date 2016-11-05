@@ -37,7 +37,7 @@ Onion sites are websites that run on a Tor Hidden Service node. "dot onion" site
 
 #### {% linkable_title Setting up Tor on your Home Assistant %}
 
-First, install Tor. On a Debain-based system, you can install the package easily:
+First, install Tor. On a Debian-based system, you can install the package easily:
 
 ```bash
 $ sudo apt-get install tor
@@ -104,7 +104,7 @@ On iOS, we have not fully tested this yet, but you should be able to add custom 
 
 With this configuration, only you can access your Home Assistant instance Onion site through Tor, and no one else. You can share the authentication cookie with multiple devices and users, or you can generate a unique one for each - up to you! If you have multiple, say for an industrial, business or corporate configuration, this would provide an easy way to revoke access to a specific user or device.
 
-If you always access your Home Assistant instance via Tor, you can easily run this on an isolated "IoT" network segment at your install site, keeping your internal home network traffic seperate from any potentially compromised devices (like cheap "smart" lightbulbs with backdoors!). 
+If you always access your Home Assistant instance via Tor, you can easily run this on an isolated "IoT" network segment at your install site, keeping your internal home network traffic separate from any potentially compromised devices (like cheap "smart" lightbulbs with backdoors!). 
 
 You could also use Tor as a means to connect your Home Assistant instance to a remote device, sensor or other service that you do not want to or connect provide a direct, open IP connection to. Again, Tor provides authenticated and confidential routing (aka "privacy and encryption") by default, without having to setup TLS/SSL or VPN. It is just important to secure IoT nodes within your network, as it is to secure remote access!
 

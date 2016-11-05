@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: interlogix.png
-ha_category: Binary sensor
+ha_category: Binary Sensor
 ha_release: 0.31
 ---
 

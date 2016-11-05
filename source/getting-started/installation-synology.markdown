@@ -46,7 +46,7 @@ $ ./python3 -m ensurepip
 Use PIP to install Homeassistant package
 
 ```bash
-$ ./python3 pip install homeassistant
+$ ./python3 -m pip install homeassistant
 ```
 
 Create homeassistant config directory & switch to it

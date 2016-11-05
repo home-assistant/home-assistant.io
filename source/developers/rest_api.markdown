@@ -205,7 +205,7 @@ Returns an array of state changes in the past. Each object contains further deta
             },
             "entity_id": "sensor.weather_temperature",
             "last_changed": "2016-02-06T22:15:00+00:00",
-            "last_updated": "2016-02-06T22:15:00+00:00"",
+            "last_updated": "2016-02-06T22:15:00+00:00",
             "state": "-3.9"
         },
         {
@@ -343,7 +343,7 @@ The return code is 200 if the entity existed, 201 if the state of a new entity w
     },
     "entity_id": "sun.sun",
     "last_changed": "2016-05-30T21:43:29.204838+00:00",
-    "last_updated": "2016-05-30T21:47:30.533530+00:00"
+    "last_updated": "2016-05-30T21:47:30.533530+00:00",
     "state": "below_horizon"
 }
 ```
@@ -364,7 +364,7 @@ You can pass an optional JSON object to be used as `event_data`.
 
 ```json
 {
-    next_rising":"2016-05-31T03:39:14+00:00",
+    "next_rising":"2016-05-31T03:39:14+00:00",
 }
 ```
 
@@ -447,7 +447,7 @@ Set up event forwarding to another Home Assistant instance.
 
 Requires a JSON object that represents the API to forward to.
 
-```json
+```javascript
 {
     "host": "machine",
     "api_password": "my_super_secret_password",
@@ -468,7 +468,7 @@ Cancel event forwarding to another Home Assistant instance.<br>
 
 Requires a JSON object that represents the API to cancel forwarding to.
 
-```json
+```javascript
 {
     "host": "machine",
     "api_password": "my_super_secret_password",
