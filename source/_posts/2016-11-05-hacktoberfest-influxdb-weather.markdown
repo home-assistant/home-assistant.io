@@ -30,7 +30,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 
 ### {% linkable_title All changes %}
 
-<img src='/images/supported_brands/currencylayer.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/synologydsm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+<img src='/images/supported_brands/icloud.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/synologydsm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
 - Config: Exclude dirs/files prefixed with . ([@lwis])
 - Add mochad component ([@mtreinish])
@@ -45,7 +45,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Sensor: Support for [InfluxDB sensors][influx-sensor] ([@bestlibre])
 - Sensor: New support [HDDTemp sensors][hddtemp-sensor] ([@fabaff])
 - Camera: Improvements to [RPi camera][rpi-camera] ([@postlund])
-- ThingSpeak component ([@simonszu])
+- [ThingSpeak][thingspeak] component ([@simonszu])
 - Core: New property `hass.data`  to store internal data ([@balloob])
 - Switch: Templating and configurable timeout for [REST][rest-switch] ([@aa755])
 - Light: [Yeelight][yeelight] Wifi bulbs are now supported ([@HydrelioxGitHub])
@@ -148,3 +148,4 @@ Our website has now an additional category called "Ecosystem". This will become 
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
 [req-insteon]: https://github.com/home-assistant/home-assistant/issues/3811
 [updater]: https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+[thingspeak]: https://home-assistant.io/components/thingspeak/
