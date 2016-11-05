@@ -1,3 +1,16 @@
+---
+layout: post
+title: "0.32: Hacktoberfest, InfluxDB sensor, Error reporting, and Weather"
+description: "Hacktoberfest is over, new InfluxDB sensor, CUPS sensor, and ThingSpeak."
+date: 2016-11-05 03:04:05 +0000
+date_formatted: "November 05, 2016"
+author: Fabian Affolter
+author_twitter: fabaff
+comments: true
+categories: Release-Notes
+---
+
+
 Another two weeks have passed and we are pleased to present Home Assistant 0.32.
 
 ### {% linkable_title Hacktoberfest %}
