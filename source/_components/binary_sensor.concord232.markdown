@@ -24,6 +24,6 @@ binary_sensor:
 
 Configuration variables:
 
-- **host** (*Optional*): The host where the concord232 server process is running. Defaults to localhost.
+- **host** (*Optional*): The host where the concord232 server process is running. Defaults to `localhost`.
 - **port** (*Optional*): The port where the Alarm panel ist listening. Defaults to 5007.
 
