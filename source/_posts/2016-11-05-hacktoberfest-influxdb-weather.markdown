@@ -1,6 +1,4 @@
-Another two weeks have passed and we are pleased to present Home Assistant 0.32. This is the 74th release Home Assistant release so far and the first release after the new [updater] was implemented.
-
-We would like to share one number: **Installation 3.97 k** 
+Another two weeks have passed and we are pleased to present Home Assistant 0.32.
 
 ### {% linkable_title Hacktoberfest %}
 The [Hacktoberfest] is over now. Home Assistant made the 2nd and the 3rd place out of almost 30'000 participating repositories with a total of 528 pull requests closed - that's an average of 17 pull requests a day! Thanks to all the contributors but also to the team of reviewers. This wouldn't been possible without you 👏 .
