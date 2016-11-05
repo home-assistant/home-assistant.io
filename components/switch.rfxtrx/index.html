@@ -137,7 +137,7 @@ Then you should update your configuration to:</p>
 <ul>
   <li>Go to home-assistant-IP:8123/dev-template</li>
   <li>Use this code to generate a code:
-    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">0b11000bc0cfe0010f70</span>
+    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">0b11000{{ range(0,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70</span>
 </code></pre>
     </div>
   </li>
@@ -268,9 +268,6 @@ Then you should update your configuration to:</p>
         <li><a href='/components/light.rfxtrx/'>
           RFXtrx Light
         </a></li>
-        <li><a href='/components/rollershutter.rfxtrx/'>
-          RFXtrx Rollershutter
-        </a></li>
         <li><a href='/components/sensor.rfxtrx/'>
           RFXtrx Sensor
         </a></li>
@@ -313,7 +310,13 @@ Then you should update your configuration to:</p>
             <a href='/components/switch.isy994/'>ISY994 Switch</a>
         </li>
         <li>
+            <a href='/components/switch.litejet/'>LiteJet Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.mqtt/'>MQTT Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.mochad/'>Mochad Switch</a>
         </li>
         <li>
             <a href='/components/switch.modbus/'>Modbus Switch</a>

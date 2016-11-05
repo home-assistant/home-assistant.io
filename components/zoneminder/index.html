@@ -95,20 +95,29 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">zoneminder</span><span class="pi">:</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">ZM_HOST</span>
-  <span class="s">path</span><span class="pi">:</span> <span class="s">ZM_PATH</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): Your ZoneMinder server.</li>
-  <li><strong>path</strong> (<em>Optional</em>): Path to your ZoneMinder install (default: /zm/)</li>
+  <li><strong>path</strong> (<em>Optional</em>): Path to your ZoneMinder install. Defaults to <code class="highlighter-rouge">/zm/</code>.</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">True</code> if your ZoneMinder installation is using SSL. Default to <code class="highlighter-rouge">False</code>.</li>
   <li><strong>username</strong> (<em>Optional</em>): Your ZoneMinder username.</li>
   <li><strong>password</strong> (<em>Optional</em>): Your ZoneMinder password.</li>
 </ul>
 
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">zoneminder</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">ZM_HOST</span>
+  <span class="s">path</span><span class="pi">:</span> <span class="s">ZM_PATH</span>
+  <span class="s">ssl</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -126,6 +135,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/zoneminder.png' />
   </div>
+    <div class='section'>
+    Introduced in release: 0.31
+    </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>

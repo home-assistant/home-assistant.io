@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">ZoneMinder</code> sensor platform let you monitor the current state of your zoneminder install including the number of events and the current state of the cameras.</p>
+  <p>The <code class="highlighter-rouge">zoneminder</code> sensor platform let you monitor the current state of your zoneminder install including the number of events and the current state of the cameras.</p>
 
 <p class="note">
 You must have the <a href="/components/zoneminder/">ZoneMinder component</a> configured to use those sensors.
@@ -100,7 +100,7 @@ You must have the <a href="/components/zoneminder/">ZoneMinder component</a> con
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">zoneminder</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">zoneminder</span>
 </code></pre>
 </div>
 
@@ -120,6 +120,9 @@ You must have the <a href="/components/zoneminder/">ZoneMinder component</a> con
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/zoneminder.png' />
   </div>
+    <div class='section'>
+    Introduced in release: 0.31
+    </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
@@ -183,6 +186,9 @@ You must have the <a href="/components/zoneminder/">ZoneMinder component</a> con
             <a href='/components/sensor.isy994/'>ISY994 Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
         </li>
         <li>
@@ -219,6 +225,9 @@ You must have the <a href="/components/zoneminder/">ZoneMinder component</a> con
             <a href='/components/sensor.rfxtrx/'>RFXtrx Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.random/'>Random Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>
         </li>
         <li>
@@ -226,6 +235,9 @@ You must have the <a href="/components/zoneminder/">ZoneMinder component</a> con
         </li>
         <li>
             <a href='/components/sensor.statistics/'>Statistics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.synologydsm/'>SynologyDSM Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>

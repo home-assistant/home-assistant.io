@@ -94,16 +94,16 @@
 
 <p>In an ideal scenario, the MQTT device will have a <code class="highlighter-rouge">state_topic</code> to publish state changes. If these messages are published with <code class="highlighter-rouge">RETAIN</code> flag, the MQTT fan will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the fan will be <code class="highlighter-rouge">false</code>.</p>
 
-<p>When a <code class="highlighter-rouge">state_topic</code> is not available, the fan will work in optimistic mode. In this mode, the fan will immediately change state after every command. Otherwise, the fan will wait for state confirmation from device (message from <code class="highlighter-rouge">state_topic</code>).</p>
+<p>When a <code class="highlighter-rouge">state_topic</code> is not available, the fan will work in optimistic mode. In this mode, the fan will immediately change state after every command. Otherwise, the fan will wait for state confirmation from the device (message from <code class="highlighter-rouge">state_topic</code>).</p>
 
-<p>Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect fan operation.</p>
+<p>Optimistic mode can be forced even if a <code class="highlighter-rouge">state_topic</code> is available. Try to enable it if you are experiencing incorrect fan operation.</p>
 
 <p>To enable MQTT fans in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">fan</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/living-room/fan/set"</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">bedroom_fan/on/set"</span>
 </code></pre>
 </div>
 
@@ -113,29 +113,63 @@
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the fan state.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the fan. Default is ‘MQTT Fan’.</li>
+  <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents the running state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents the stop state. Default is “OFF”.</li>
-  <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if lock works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no state topic defined, else <code class="highlighter-rouge">false</code>.</li>
-  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
-  <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
   <li><strong>state_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the state.</li>
-  <li><strong>speed_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive speed updates.</li>
-  <li><strong>speed_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the fan speed.</li>
-  <li><strong>speed_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the speed.</li>
-  <li><strong>oscillation_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive oscillation updates.</li>
-  <li><strong>oscillation_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the fan oscillation.</li>
+  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
+  <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if lock works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no state topic defined, else <code class="highlighter-rouge">false</code>.</li>
+  <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
+  <li><strong>oscillation_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive oscillation state updates.</li>
+  <li><strong>oscillation_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the oscillation state.</li>
+  <li><strong>payload_oscillation_on</strong> (<em>Optional</em>): The payload that represents the oscillation on state. Default is “oscillate_on”.</li>
+  <li><strong>payload_oscillation_off</strong> (<em>Optional</em>): The payload that presents the oscillation off state. Default is “oscillate_off”.</li>
   <li><strong>oscillation_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the oscillation.</li>
-  <li><strong>payload_oscillation_on</strong> (<em>Optional</em>): The payload that represents the oscillation state. Default is “ON”.</li>
-  <li><strong>payload_oscillation_off</strong> (<em>Optional</em>): The payload that represents the oscillation state. Default is “OFF”.</li>
-  <li><strong>payload_low_speed</strong> (<em>Optional</em>): The payload that represents the low speed state. Default is “low”.</li>
-  <li><strong>payload_medium_speed</strong> (<em>Optional</em>): The payload that represents the low speed state. Default is “med”.</li>
-  <li><strong>payload_high_speed</strong> (<em>Optional</em>): The payload that represents the low speed state. Default is “high”.</li>
+  <li><strong>speed_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive speed state updates.</li>
+  <li><strong>speed_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change speed state.</li>
+  <li><strong>payload_low_speed</strong> (<em>Optional</em>): The payload that represents the fan’s low speed.</li>
+  <li><strong>payload_medium_speed</strong> (<em>Optional</em>): The payload that represents the fan’s medium speed.</li>
+  <li><strong>payload_high_speed</strong> (<em>Optional</em>): The payload that represents the fan’s high speed.</li>
+  <li><strong>speed_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the speed payload.</li>
   <li><strong>speeds</strong> array (<em>Optional</em>): Valid entries for the list are <code class="highlighter-rouge">off</code>, <code class="highlighter-rouge">low</code>, <code class="highlighter-rouge">med</code>, and <code class="highlighter-rouge">high</code>.</li>
 </ul>
 
 <p class="note warning">
-Make sure that your topic match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
+Make sure that your topic is an exact match. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>In this section you find some real life examples of how to use this fan.</p>
+
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+
+<p>The example below shows a full configuration for a MQTT fan.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">fan</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">Fan"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">bedroom_fan/on/state"</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">bedroom_fan/on/set"</span>
+    <span class="s">oscillation_state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">bedroom_fan/oscillation/state"</span>
+    <span class="s">oscillation_command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">bedroom_fan/oscillation/set"</span>
+    <span class="s">speed_state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">bedroom_fan/speed/state"</span>
+    <span class="s">speed_command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">bedroom_fan/speed/set"</span>
+    <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+    <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">false"</span>
+    <span class="s">payload_oscillation_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+    <span class="s">payload_oscillation_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">false"</span>
+    <span class="s">payload_low_speed</span><span class="pi">:</span> <span class="s2">"</span><span class="s">low"</span>
+    <span class="s">payload_medium_speed</span><span class="pi">:</span> <span class="s2">"</span><span class="s">medium"</span>
+    <span class="s">payload_high_speed</span><span class="pi">:</span> <span class="s2">"</span><span class="s">high"</span>
+    <span class="s">speeds</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">low</span>
+      <span class="pi">-</span> <span class="s">medium</span>
+      <span class="pi">-</span> <span class="s">high</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -181,9 +215,6 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
         <li><a href='/components/device_tracker.mqtt/'>
           MQTT Device Tracker
         </a></li>
-        <li><a href='/components/garage_door.mqtt/'>
-          MQTT Garage door
-        </a></li>
         <li><a href='/components/light.mqtt/'>
           MQTT Light
         </a></li>
@@ -192,9 +223,6 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
         </a></li>
         <li><a href='/components/notify.mqtt/'>
           MQTT Notifications
-        </a></li>
-        <li><a href='/components/rollershutter.mqtt/'>
-          MQTT Rollershutter
         </a></li>
         <li><a href='/components/sensor.mqtt/'>
           MQTT Sensor

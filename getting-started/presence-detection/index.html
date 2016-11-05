@@ -94,7 +94,7 @@
 We care about privacy. Collected data is <b>only</b> stored in your instance of Home Assistant.
 </p>
 
-<p>Presence detection detects if people are home, an important input for automation. The most important piece of information is to know if anyone is home. But knowing who is home or where they are will open a whole range of other automation options:</p>
+<p>Presence detection detects if people are home, which is the most important input for automation. Knowing who is home or where they are will open a whole range of other automation options:</p>
 
 <ul>
   <li>Send me a notification when my child arrives at school</li>
@@ -110,12 +110,12 @@ Screenshot of Home Assistant showing a school, work and home zone and two people
 
 <p>The device tracker component offers presence detection for Home Assistant. It supports two different methods for presence detection: scan for connected devices on the local network and connect to third party service.</p>
 
-<p>Scanning for connected devices is easy to setup. See the instructions for our <a href="/components/#presence-detection">supported routers</a> or <a href="/components/device_tracker.nmap_tracker/">scan the network using nmap</a>. This approach does have its limitations however, it will only be able to detect if a device is home. It also struggles with iPhones because they disconnect from WiFi if idle, marking them as not home when they actually are.</p>
+<p>Scanning for connected devices is easy to setup. See the instructions for our <a href="/components/#presence-detection">supported routers</a> or <a href="/components/device_tracker.nmap_tracker/">scan the network using nmap</a>. This approach does have its limitations, however: it will only be able to detect if a device is home, and iPhones may show as not home inaccurately (as iPhones disconnect from WiFi if idle).</p>
 
-<p>Home Assistant currently supports two third party services for presence detection: <a href="/components/device_tracker.owntracks/">OwnTracks</a> and <a href="/components/device_tracker.locative/">Locative</a>. OwnTracks is an app that you install on your iPhone or Android phone that allows you to push the location of your device to Home Assistant using an MQTT broker. An MQTT broker is an Internet of Things communication platform that you can <a href="/components/mqtt/#run-your-own">freely host yourself</a> or get <a href="/components/mqtt/#run-your-own">a private instance for free in the cloud</a>.</p>
+<p>Home Assistant currently supports two third-party services for presence detection: <a href="/components/device_tracker.owntracks/">OwnTracks</a> and <a href="/components/device_tracker.locative/">Locative</a>. OwnTracks is an app that you install on your iPhone or Android phone that allows you to push the location of your device to Home Assistant using an MQTT broker. An MQTT broker is an Internet of Things communication platform that you can <a href="/components/mqtt/#run-your-own">freely host yourself</a> or get <a href="/components/mqtt/#run-your-own">a private instance for free in the cloud</a>.</p>
 
 <p class="note">
-OwnTracks communicates directly with your MQTT broker, no data will pass through their servers.
+OwnTracks communicates directly with your MQTT broker; no data will pass through their servers.
 </p>
 
 <h3><a class="title-link" name="zones" href="#zones"></a> Zones</h3>

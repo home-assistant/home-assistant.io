@@ -92,6 +92,8 @@
 
   <p>The <code class="highlighter-rouge">matrix</code> platform allows you to deliver notifications from Home Assistant to a Matrix room. Rooms can be both direct as well as group chats.</p>
 
+<p>To enable Matrix notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">matrix</span>
@@ -134,7 +136,7 @@
       <img src='/images/supported_brands/matrix.png' />
   </div>
     <div class='section'>
-    Introduced in release: 0.31
+    Introduced in release: 0.32
     </div>
     <div class='section'>
       This is a platform for
@@ -196,6 +198,9 @@
         </li>
         <li>
             <a href='/components/notify.message_bird/'>MessageBird</a>
+        </li>
+        <li>
+            <a href='/components/notify.nfandroidtv/'>Notifications for Android TV / FireTV</a>
         </li>
         <li>
             <a href='/components/notify.group/'>Notify Group</a>

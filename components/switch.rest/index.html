@@ -106,8 +106,9 @@
 <ul>
   <li><strong>resource</strong> (<em>Required</em>): The resource or endpoint that contains the value.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the REST switch.</li>
-  <li><strong>body_on</strong> (<em>Optional</em>): The body that represents enabled state. Default is “ON”.</li>
-  <li><strong>body_off</strong> (<em>Optional</em>):The body that represents disabled state. Default is “OFF”.</li>
+  <li><strong>body_on</strong> (<em>Optional</em>): The body of the POST request that commands the switch to become enabled. Default is “ON”. This value can be a <a href="/topics/templating/">template</a>, which is useful if the POST request needs to depend on the state of the system. For example, to enable remote-temperature-sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. On can achieve this using the template <code class="highlighter-rouge">'{"rem_temp":}'</code>.</li>
+  <li><strong>body_off</strong> (<em>Optional</em>): The body of the POST request that commands the switch to become disabled. Default is “OFF”. This value can also be a template.</li>
+  <li><strong>is_on_template</strong> (<em>Optional</em>): A <a href="/topics/templating/">template</a> that determines the state of the switch from the value returned by the GET request on the resource url. This template should compute to a boolean (True or False). Default is equivalent to <code class="highlighter-rouge">'{{ value.json == body_on }}'</code>. This means that by default, the state of the switch is on if and only if the response to the GET request matches <code class="highlighter-rouge">body_on</code>.</li>
 </ul>
 
 <p class="note warning">
@@ -189,7 +190,13 @@ Make sure that the URL matches exactly your endpoint or resource.
             <a href='/components/switch.isy994/'>ISY994 Switch</a>
         </li>
         <li>
+            <a href='/components/switch.litejet/'>LiteJet Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.mqtt/'>MQTT Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.mochad/'>Mochad Switch</a>
         </li>
         <li>
             <a href='/components/switch.modbus/'>Modbus Switch</a>

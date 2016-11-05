@@ -104,28 +104,20 @@
 
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): The name of the sensor. If not specified, it defaults to <em>Yahoo Stock</em>.</li>
-  <li><strong>symbol</strong> (<em>Optional</em>): The stock market symbol for a given company. If not specified, it defaults to <em>Yahoo (YHOO)</em>.</li>
+  <li><strong>symbols</strong> array (<em>Optional</em>): List of stock market symbols for given companies. If not specified, it defaults to <em>Yahoo (YHOO)</em>.</li>
 </ul>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
 <p>In this section you find some real life examples of how to use this sensor.</p>
 
-<h3><a class="title-link" name="red-hat" href="#red-hat"></a> Red Hat</h3>
+<h3><a class="title-link" name="red-hat-and-google" href="#red-hat-and-google"></a> Red Hat and Google</h3>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yahoo_finance</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Red Hat Inc.</span>
-    <span class="s">symbol</span><span class="pi">:</span> <span class="s">RHT</span>
-</code></pre>
-</div>
-
-<h3><a class="title-link" name="google" href="#google"></a> Google</h3>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yahoo_finance</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Google</span>
-    <span class="s">symbol</span><span class="pi">:</span> <span class="s">GOOGL</span>
+    <span class="s">symbols</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">RHT</span>
+      <span class="pi">-</span> <span class="s">GOOGL</span>
 </code></pre>
 </div>
 
@@ -160,6 +152,9 @@
         </li>
         <li>
             <a href='/components/sensor.coinmarketcap/'>CoinMarketCap</a>
+        </li>
+        <li>
+            <a href='/components/sensor.currencylayer/'>Currencylayer</a>
         </li>
         <li>
             <a href='/components/sensor.fixer/'>Fixer.io</a>
