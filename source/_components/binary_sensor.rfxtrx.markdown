@@ -43,8 +43,8 @@ Do not forget to tweak the configuration variables:
 - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **off_delay** (*Optional*): For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
 - **data_bits** (*Optional*): For PT-2262 based sensors, defines how many data bits are used by the device in its RF messages.
-- **cmd_on** (*Optional*): For PT-2262 based sensors, defines the data bits value that is sent by the device upon an 'On' command.
-- **cmd_off** (*Optional*): For PT-2262 based sensors, defines the data bits value that is sent by the device upon an 'Off' command.
+- **command_on** (*Optional*): For PT-2262 based sensors, defines the data bits value that is sent by the device upon an 'On' command.
+- **command_off** (*Optional*): For PT-2262 based sensors, defines the data bits value that is sent by the device upon an 'Off' command.
 
 ## Managing single-signal and multiple-signal sensors
 Some sensors always send the same signal. For example, a motion sensor sends "motion detected" signals, but usually does not send any "no more motion" signal. It stays "on" for a few seconds and goes back to sleep, ready to signal other motion events. Some doorbells may also only send "on" signals when the toggle switch is pressed, but no "off" signal when the switch is released.
@@ -71,8 +71,8 @@ binary_sensor:
       name: window_room2
       sensor_class: opening
       data_bits: 4
-      cmd_on: 0x0e
-      cmd_off: 0x07
+      command_on: 0x0e
+      command_off: 0x07
 ```
 
 
