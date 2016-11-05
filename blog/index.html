@@ -132,40 +132,40 @@
 
 <h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
 
-<p><img src="/images/supported_brands/icloud.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/influxdb.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/emby.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/synologydsm.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+<p><img src="/images/supported_brands/icloud.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/influxdb.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/emby.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/synologydsm.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/garadget_logo.jpg" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/yeelight.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/philips.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/nfandroidtv.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/currencylayer.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/influxdb.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
 
 <ul>
-  <li>Config: Exclude dirs/files prefixed with . (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Cover: New <a href="https://home-assistant.io/components/garadget/">garadget</a> platform (<a href="https://github.com/JasonCarter80">@JasonCarter80</a>)</li>
+  <li>Media player: New support for <a href="https://home-assistant.io/components/media_player.emby/">Emby</a> (<a href="https://github.com/mezz64">@mezz64</a>)</li>
+  <li><a href="https://home-assistant.io/components/litejet/">LiteJet</a> switches and lights support (<a href="https://github.com/joncar">@joncar</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/light.yeelight/">Yeelight</a> Wifi bulbs are now supported (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>Media player: <a href="https://home-assistant.io/components/media_player.philips_js/">Philips TVs</a> with jointSPACE API re now supported (<a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.synologydsm/">Synology DSM</a> (<a href="https://github.com/StaticCube">@StaticCube</a>)</li>
+  <li>Sensor: Monitoring support for <a href="https://home-assistant.io/components/sensor.dovado/">Dovado routers</a> (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Sensor: Support for monitoring <a href="https://home-assistant.io/components/sensor.cups/">printers</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Add mochad component (<a href="https://github.com/mtreinish">@mtreinish</a>)</li>
-  <li>Notify: Added support for <a href="https://home-assistant.io/components/notify.nfandroidtv/">Android TV/FireTV</a> (<a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Notify: Added support for <a href="https://home-assistant.io/components/notify.nfandroidtv/">Android TV/FireTV</a> - Sensor: New finance platform <a href="https://home-assistant.io/components/sensor.currencylayer/">CurrencyLayer</a> (<a href="https://github.com/arsaboo">@arsaboo</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.influxdb/">InfluxDB sensors</a> (<a href="https://github.com/bestlibre">@bestlibre</a>)</li>
+  <li>Sensor: New support <a href="https://home-assistant.io/components/sensor.hddtemp/">HDDTemp sensors</a> (<a href="https://github.com/fabaff">@fabaff</a>)
+(<a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Media player: <a href="https://home-assistant.io/components/media_player.sonos/">Sonos</a> improvements incl. timer setting functionality (<a href="https://github.com/bjarniivarsson">@bjarniivarsson</a>, <a href="https://github.com/americanwookie">@americanwookie</a>)</li>
+  <li>Media player: Discovery support for <a href="https://home-assistant.io/components/media_player.yamaha/">Yamaha</a> (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Config: Exclude dirs/files prefixed with . (<a href="https://github.com/lwis">@lwis</a>)</li>
   <li>HTTP: Migrate WSGI to asyncio (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Configurator: Support for <code class="highlighter-rouge">entity_picture</code> (<a href="https://github.com/armills">@amills</a>)</li>
   <li>Core: Configuration validation error prints line numbers (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>Media player: <a href="https://home-assistant.io/components/media_player.sonos/">Sonos</a> improvements incl. timer setting functionality (<a href="https://github.com/bjarniivarsson">@bjarniivarsson</a>, <a href="https://github.com/americanwookie">@americanwookie</a>)</li>
   <li>Zoneminder: SSL/TLS support (<a href="https://github.com/Khabi">@Khabi</a>)</li>
-  <li>Media player: Discovery support for <a href="https://home-assistant.io/components/media_player.yamaha/">Yamaha</a> (<a href="https://github.com/sdague">@sdague</a>)</li>
-  <li>Sensor: New finance platform <a href="https://home-assistant.io/components/sensor.currencylayer/">CurrencyLayer</a> (<a href="https://github.com/arsaboo">@arsaboo</a>)</li>
-  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.influxdb/">InfluxDB sensors</a> (<a href="https://github.com/bestlibre">@bestlibre</a>)</li>
-  <li>Sensor: New support <a href="https://home-assistant.io/components/sensor.hddtemp/">HDDTemp sensors</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Camera: Improvements to <a href="https://home-assistant.io/components/camera.rpi_camera/">RPi camera</a> (<a href="https://github.com/postlund">@postlund</a>)</li>
   <li><a href="https://home-assistant.io/components/thingspeak/">ThingSpeak</a> component (<a href="https://github.com/simonszu">@simonszu</a>)</li>
   <li>Core: New property <code class="highlighter-rouge">hass.data</code>  to store internal data (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Switch: Templating and configurable timeout for <a href="https://home-assistant.io/components/switch.rest/">REST</a> (<a href="https://github.com/aa755">@aa755</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/light.yeelight/">Yeelight</a> Wifi bulbs are now supported (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
   <li>Sensor: New <a href="https://home-assistant.io/components/sensor.random/">random number</a> sensor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Media player: New support for <a href="https://home-assistant.io/components/media_player.emby/">Emby</a> (<a href="https://github.com/mezz64">@mezz64</a>)</li>
-  <li><a href="https://home-assistant.io/components/litejet/">LiteJet</a> switches and lights support (<a href="https://github.com/joncar">@joncar</a>)</li>
-  <li>Cover: New <a href="https://home-assistant.io/components/garadget/">garadget</a> platform (<a href="https://github.com/JasonCarter80">@JasonCarter80</a>)</li>
   <li>Pilight: <code class="highlighter-rouge">send_delay</code> feature (<a href="https://github.com/janLo">@janLo</a>)</li>
   <li>Config: Improvements for <code class="highlighter-rouge">known_devices</code> (<a href="https://github.com/kellerza">@kellerza</a>)</li>
   <li>Device tracker: New discovered event (<a href="https://github.com/lwis">@lwis</a>)</li>
   <li>Device tracker: Improvements and new features for the Volvo on Call platform (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
   <li>Climate: Use unit of measurement from a Vera device (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Media player: <a href="https://home-assistant.io/components/media_player.philips_js/">Philips TVs</a> with jointSPACE API re now supported (<a href="https://github.com/danielperna84">@danielperna84</a>)</li>
-  <li>Device tracker: <a href="https://home-assistant.io/components/device_tracker.icloud/">ICloud</a> improvements (<a href="https://github.com/Bart274">@Bart274</a>)</li>
-  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.synologydsm/">Synology DSM</a> (<a href="https://github.com/StaticCube">@StaticCube</a>)</li>
-  <li>Sensor: Monitoring support for <a href="https://home-assistant.io/components/sensor.dovado/">Dovado routers</a> (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
-  <li>Sensor: Support for monitoring <a href="https://home-assistant.io/components/sensor.cups/">printers</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Device tracker: <a href="https://home-assistant.io/components/device_tracker.icloud/">iCloud</a> improvements (<a href="https://github.com/Bart274">@Bart274</a>)</li>
   <li>Minor features and bug fixes by <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/DavidLP">@DavidLP</a>, <a href="https://github.com/Bart274">@Bart274</a>, <a href="https://github.com/sdague">@sdague</a>, <a href="https://github.com/mtreinish">@mtreinish</a>, <a href="https://github.com/Khabi">@Khabi</a>, <a href="https://github.com/bbesset">@bbesset</a>, <a href="https://github.com/bestlibre">@bestlibre</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/devdelay">@devdelay</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/postlund">@postlund</a>, <a href="https://github.com/wokar">@wokar</a>, <a href="https://github.com/armills">@amills</a>, <a href="https://github.com/arsaboo">@arsaboo</a>, <a href="https://github.com/hartmms">@hartmms</a>, <a href="https://github.com/nsideras">@nsideras</a>, <a href="https://github.com/tbeckha">@tbeckha</a>, and <a href="https://github.com/kirichkov">@kirichkov</a>.</li>
 </ul>
 

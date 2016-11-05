@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-05T16:45:45+00:00</updated>
+  <updated>2016-11-05T17:31:39+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -37,39 +37,39 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 
 ### <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
-<img src='https://home-assistant.io/images/supported_brands/icloud.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/synologydsm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+<img src='https://home-assistant.io/images/supported_brands/icloud.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/synologydsm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/garadget_logo.jpg' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/yeelight.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/philips.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/nfandroidtv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/currencylayer.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
-- Config: Exclude dirs/files prefixed with . ([@lwis])
+- Cover: New [garadget] platform ([@JasonCarter80])
+- Media player: New support for [Emby][emby-media] ([@mezz64])
+- [LiteJet][litejet] switches and lights support ([@joncar])
+- Light: [Yeelight][yeelight] Wifi bulbs are now supported ([@HydrelioxGitHub])
+- Media player: [Philips TVs][philips_player] with jointSPACE API re now supported ([@danielperna84])
+- Sensor: Support for [Synology DSM][synologydsm] ([@StaticCube])
+- Sensor: Monitoring support for [Dovado routers][dovado-sensor] ([@molobrakos])
+- Sensor: Support for monitoring [printers][cups-sensor] ([@fabaff])
 - Add mochad component ([@mtreinish])
-- Notify: Added support for [Android TV/FireTV](https://home-assistant.io/components/notify.nfandroidtv/) ([@danielperna84])
+- Notify: Added support for [Android TV/FireTV](https://home-assistant.io/components/notify.nfandroidtv/) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
+- Sensor: Support for [InfluxDB sensors][influx-sensor] ([@bestlibre])
+- Sensor: New support [HDDTemp sensors][hddtemp-sensor] ([@fabaff])
+([@danielperna84])
+- Media player: [Sonos] improvements incl. timer setting functionality ([@bjarniivarsson], [@americanwookie])
+- Media player: Discovery support for [Yamaha] ([@sdague])
+- Config: Exclude dirs/files prefixed with . ([@lwis])
 - HTTP: Migrate WSGI to asyncio ([@balloob])
 - Configurator: Support for `entity_picture` ([@amills])
 - Core: Configuration validation error prints line numbers ([@persandstrom])
-- Media player: [Sonos] improvements incl. timer setting functionality ([@bjarniivarsson], [@americanwookie])
 - Zoneminder: SSL/TLS support ([@Khabi])
-- Media player: Discovery support for [Yamaha] ([@sdague])
-- Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
-- Sensor: Support for [InfluxDB sensors][influx-sensor] ([@bestlibre])
-- Sensor: New support [HDDTemp sensors][hddtemp-sensor] ([@fabaff])
 - Camera: Improvements to [RPi camera][rpi-camera] ([@postlund])
 - [ThingSpeak][thingspeak] component ([@simonszu])
 - Core: New property `hass.data`  to store internal data ([@balloob])
 - Switch: Templating and configurable timeout for [REST][rest-switch] ([@aa755])
-- Light: [Yeelight][yeelight] Wifi bulbs are now supported ([@HydrelioxGitHub])
 - Sensor: New [random number][random-sensor] sensor ([@fabaff])
-- Media player: New support for [Emby][emby-media] ([@mezz64])
-- [LiteJet][litejet] switches and lights support ([@joncar])
-- Cover: New [garadget] platform ([@JasonCarter80])
 - Pilight: `send_delay` feature ([@janLo])
 - Config: Improvements for `known_devices` ([@kellerza])
 - Device tracker: New discovered event ([@lwis])
 - Device tracker: Improvements and new features for the Volvo on Call platform ([@molobrakos])
 - Climate: Use unit of measurement from a Vera device ([@pavoni])
-- Media player: [Philips TVs][philips_player] with jointSPACE API re now supported ([@danielperna84])
-- Device tracker: [ICloud][icloud] improvements ([@Bart274])
-- Sensor: Support for [Synology DSM][synologydsm] ([@StaticCube])
-- Sensor: Monitoring support for [Dovado routers][dovado-sensor] ([@molobrakos])
-- Sensor: Support for monitoring [printers][cups-sensor] ([@fabaff])
+- Device tracker: [iCloud][icloud] improvements ([@Bart274])
 - Minor features and bug fixes by [@fabaff], [@kellerza], [@robbiet480], [@balloob], [@DavidLP], [@Bart274], [@sdague], [@mtreinish], [@Khabi], [@bbesset], [@bestlibre], [@pvizeli], [@turbokongen], [@devdelay], [@molobrakos], [@postlund], [@wokar], [@amills], [@arsaboo], [@hartmms], [@nsideras], [@tbeckha], and [@kirichkov].
 
 ### <a class='title-link' name='misc' href='#misc'></a> Misc 
