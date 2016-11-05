@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dovado"
-description: "How to integrate Dovado sensorswithin Home Assistant."
+description: "How to integrate Dovado sensors within Home Assistant."
 date: 2016-11-05 08:00
 sidebar: true
 comments: false
