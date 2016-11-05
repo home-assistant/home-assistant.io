@@ -56,9 +56,9 @@ If you need to generate codes for switches you can use a template (usefull for e
 
 - Go to home-assistant-IP:8123/dev-template
 - Use this code to generate a code:
-```yaml
-0b11000{{ range(0,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
-```
+
+{% raw %}0b11000{{ range(0,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70{% endraw %}
+
 - Use this code to add a new switch in your configuration.yaml
 - Launch your homeassistant and go the website.
 - Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
@@ -84,7 +84,7 @@ switch:
       fire_event: True
 ```
 
-Doorbell configuration:
+Light hallway if doorbell is pressed (when is sun down):
 
 ```yaml
 # Example configuration.yaml entry
@@ -118,7 +118,7 @@ automation:
         entity_id: switch.hall
 ```
 
-Use remote to enable scene:
+Use remote to enable scene (using event_data):
 
 ```yaml
 # Example configuration.yaml entry
