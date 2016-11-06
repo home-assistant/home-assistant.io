@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "OpenWeatherMap"
+title: "OpenWeatherMap Sensor"
 description: "Instructions how to integrate OpenWeatherMap within Home Assistant."
 date: 2015-04-25 9:06
 sidebar: true
