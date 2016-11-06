@@ -65,6 +65,14 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Device tracker: [iCloud][icloud] improvements ([@Bart274])
 - Minor features and bug fixes by [@fabaff], [@kellerza], [@robbiet480], [@balloob], [@DavidLP], [@Bart274], [@sdague], [@mtreinish], [@Khabi], [@bbesset], [@bestlibre], [@pvizeli], [@turbokongen], [@devdelay], [@molobrakos], [@postlund], [@wokar], [@amills], [@arsaboo], [@hartmms], [@nsideras], [@tbeckha], and [@kirichkov].
 
+### {% linkable_title Release 0.32.1 - November 6 %}
+
+We've added a warning to 0.32 to catch platforms accidentally slowing down Home Assistant. Our aim is to fix these quickly when reported, so here is 0.32.1 with all reported platforms fixed.
+
+ - Fix Sonos doing I/O inside the event loop ([@pvizeli])
+ - Fix Radiotherm doing I/O inside the event loop ([@balloob])
+ - Fix camera MJPEG streams when using HTTP 1.0 ([@balloob])
+
 ### {% linkable_title Misc %}
 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
