@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-05T20:00:12+00:00</updated>
+  <updated>2016-11-06T00:18:41+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -71,6 +71,14 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Climate: Use unit of measurement from a Vera device ([@pavoni])
 - Device tracker: [iCloud][icloud] improvements ([@Bart274])
 - Minor features and bug fixes by [@fabaff], [@kellerza], [@robbiet480], [@balloob], [@DavidLP], [@Bart274], [@sdague], [@mtreinish], [@Khabi], [@bbesset], [@bestlibre], [@pvizeli], [@turbokongen], [@devdelay], [@molobrakos], [@postlund], [@wokar], [@amills], [@arsaboo], [@hartmms], [@nsideras], [@tbeckha], and [@kirichkov].
+
+### <a class='title-link' name='release-0321---november-6' href='#release-0321---november-6'></a> Release 0.32.1 - November 6 
+
+We've added a warning to 0.32 to catch platforms accidentally slowing down Home Assistant. Our aim is to fix these quickly when reported, so here is 0.32.1 with all reported platforms fixed.
+
+ - Fix Sonos doing I/O inside the event loop ([@pvizeli])
+ - Fix Radiotherm doing I/O inside the event loop ([@balloob])
+ - Fix camera MJPEG streams when using HTTP 1.0 ([@balloob])
 
 ### <a class='title-link' name='misc' href='#misc'></a> Misc 
 
