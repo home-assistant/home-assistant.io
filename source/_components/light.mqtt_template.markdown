@@ -67,13 +67,13 @@ light:
   - platform: mqtt_template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}"
+    command_on_template: "{% raw %}on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}{% endraw %}"
     command_off_template: "off"
-    state_template: "{{ value.split(',')[0] }}"  # must return `on` or `off`
-    brightness_template: "{{ value.split(',')[1] }}"
-    red_template: "{{ value.split(',')[2].split('-')[0] }}"
-    green_template: "{{ value.split(',')[2].split('-')[1] }}"
-    blue_template: "{{ value.split(',')[2].split('-')[2] }}"
+    state_template: "{% raw %}{{ value.split(',')[0] }}{% endraw %}"  # must return `on` or `off`
+    brightness_template: "{% raw %}{{ value.split(',')[1] }}{% endraw %}"
+    red_template: "{% raw %}{{ value.split(',')[2].split('-')[0] }}{% endraw %}"
+    green_template: "{% raw %}{{ value.split(',')[2].split('-')[1] }}{% endraw %}"
+    blue_template: "{% raw %}{{ value.split(',')[2].split('-')[2] }}{% endraw %}"
 ```
 
 ### {% linkable_title JSON payload %}
@@ -86,7 +86,7 @@ light:
   - platform: mqtt_template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: >
+    command_on_template: >{% raw %}
       {"state": "on"
       {%- if brightness is defined -%}
       , "brightness": {{ brightness }}
@@ -94,13 +94,13 @@ light:
       {%- if red is defined and green is defined and blue is defined -%}
       , "color": [{{ red }}, {{ green }}, {{ blue }}]
       {%- endif -%}
-      }
+      }{% endraw %}
     command_off_template: '{"state": "off"}'
-    state_template: '{{ value_json.state }}'
-    brightness_template: '{{ value_json.brightness }}'
-    red_template: '{{ value_json.color[0] }}'
-    green_template: '{{ value_json.color[1] }}'
-    blue_template: '{{ value_json.color[2] }}'
+    state_template: '{% raw %}{{ value_json.state }}{% endraw %}'
+    brightness_template: '{% raw %}{{ value_json.brightness }}{% endraw %}'
+    red_template: '{% raw %}{{ value_json.color[0] }}{% endraw %}'
+    green_template: '{% raw %}{{ value_json.color[1] }}{% endraw %}'
+    blue_template: '{% raw %}{{ value_json.color[2] }}{% endraw %}'
 ```
 
 ### {% linkable_title No brightness or color support %}
