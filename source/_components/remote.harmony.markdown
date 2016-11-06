@@ -36,6 +36,7 @@ remote:
     host: 10.168.1.13
     port: 5222
     activity: BedroomTV
+    scan_interval: 45
   - platform: harmony
     name: Family Room
     username: !secret username
@@ -43,6 +44,7 @@ remote:
     host: 10.168.1.16
     port: 5222
     activity: Kodi
+    scan_interval: 60
 ```
 
 **Configuration variables**:
@@ -53,7 +55,7 @@ remote:
 - **host** (*Required*): The Harmony device's IP address.
 - **port** (*Required*): The Harmony device's port, 5222 is default.
 - **activity** (*Optional*): Activity to use when turnon service is called without any data.
-
+- **scan_interval** (*Optional*): Amount in seconds in between polling for device's current activity, defaults to 30 seconds
 **Configuration File**: 
 Upon startup one file will be written to your HASS configuration directory per device in the following format: harmony_REMOTENAME.conf.  The file will contain:
 
