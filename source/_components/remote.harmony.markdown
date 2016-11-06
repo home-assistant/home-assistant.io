@@ -67,7 +67,7 @@ Upon startup one file will be written to your HASS configuration directory per d
 
 - **Turn Off**: Turn off all devices that were switched on from the start of the current activity
 
-- **Turn On**:Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your HASS config directory.  The service will respond faster if the activity ID is passed instead of the name
+- **Turn On**: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your HASS config directory.  The service will respond faster if the activity ID is passed instead of the name
 
 - **Send Command**: Send a command to one device, device ID and available commands are written to the configuration file at startup
 
@@ -77,15 +77,16 @@ Upon startup one file will be written to your HASS configuration directory per d
 **Examples**
 
 - *Template sensors can be utilized to display current activity in the frontend.*
+
 ```yaml
 sensor:
   - platform: template
     sensors:
       family_room:
-        value_template: '{{ states.remote.family_room.attributes.current_activity }}'
+        value_template: {% raw %}'{{ states.remote.family_room.attributes.current_activity }}'{% endraw %}
         friendly_name: 'Family Room'
       bedroom:
-        value_template: '{{ states.remote.bedroom.attributes.current_activity }}'
+        value_template: {% raw %}'{{ states.remote.bedroom.attributes.current_activity }}'{% endraw %}
         friendly_name: 'bedroom'
 ```
 
@@ -93,16 +94,14 @@ sensor:
 - *The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity.  The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is PowerOff.*
 
 ```yaml
-Automation:
+automation:
 - alias: "Watch TV started from harmony hub"
   trigger:
     platform: state
     entity_id: remote.family_room
   condition:
     condition: template
-    {% raw %}
-    value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
-    {% endraw %}
+    value_template: {% raw %}'{{ trigger.to_state.attributes.current_activity == "Kodi" }}'{% endraw %}
   action:
     service: input_boolean.turn_on
     entity_id: input_boolean.notify
@@ -112,9 +111,7 @@ Automation:
     entity_id: remote.family_room
   condition:
     condition: template
-    {% raw %}
-    value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
-    {% endraw %}
+    value_template: {% raw %}'{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'{% endraw %}
   action:
     service: input_boolean.turn_off
     entity_id: input_boolean.notify
