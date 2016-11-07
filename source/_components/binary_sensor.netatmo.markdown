@@ -27,6 +27,7 @@ If you want to select a specific sensor, set discovery to False for [netatmo](/c
 binary_sensor:
   platform: netatmo
   home: home_name
+  timeout: 15
   cameras:
     - camera_name1
   monitored_conditions:
@@ -38,6 +39,7 @@ binary_sensor:
 Configuration variables:
 
 - **home** (*Optional*): Will use the cameras of this home only.
+- **timeout** (*Optional*): The binary sensors will reflect the events from the last X minutes (default: 15)
 - **cameras** array (*Optional*): Cameras to use. Multiple enties allowed.
     - 'camera_name': Name of the camera to display.
 - **monitored_conditions** array (*Optional*): List of monitored conditions.
