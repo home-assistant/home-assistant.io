@@ -49,7 +49,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Media player: Discovery support for [Yamaha] ([@sdague])
 - Config: Exclude dirs/files prefixed with . ([@lwis])
 - HTTP: Migrate WSGI to asyncio ([@balloob])
-- Configurator: Support for `entity_picture` ([@amills])
+- Configurator: Support for `entity_picture` ([@armills])
 - Core: Configuration validation error prints line numbers ([@persandstrom])
 - Zoneminder: SSL/TLS support ([@Khabi])
 - Camera: Improvements to [RPi camera][rpi-camera] ([@postlund])
@@ -63,7 +63,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Device tracker: Improvements and new features for the Volvo on Call platform ([@molobrakos])
 - Climate: Use unit of measurement from a Vera device ([@pavoni])
 - Device tracker: [iCloud][icloud] improvements ([@Bart274])
-- Minor features and bug fixes by [@fabaff], [@kellerza], [@robbiet480], [@balloob], [@DavidLP], [@Bart274], [@sdague], [@mtreinish], [@Khabi], [@bbesset], [@bestlibre], [@pvizeli], [@turbokongen], [@devdelay], [@molobrakos], [@postlund], [@wokar], [@amills], [@arsaboo], [@hartmms], [@nsideras], [@tbeckha], and [@kirichkov].
+- Minor features and bug fixes by [@fabaff], [@kellerza], [@robbiet480], [@balloob], [@DavidLP], [@Bart274], [@sdague], [@mtreinish], [@Khabi], [@bbesset], [@bestlibre], [@pvizeli], [@turbokongen], [@devdelay], [@molobrakos], [@postlund], [@wokar], [@armills], [@arsaboo], [@hartmms], [@nsideras], [@tbeckha], and [@kirichkov].
 
 ### {% linkable_title Release 0.32.1 - November 6 %}
 
@@ -72,6 +72,13 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
  - Fix Sonos doing I/O inside the event loop ([@pvizeli])
  - Fix Radiotherm doing I/O inside the event loop ([@balloob])
  - Fix camera MJPEG streams when using HTTP 1.0 ([@balloob])
+
+### {% linkable_title Release 0.32.2 - November 7 %}
+
+ - Move Honeywell I/O out of the event loop ([@balloob])
+ - Use sequential updates for non-async entities to prevent race conditions ([@pvizeli])
+ - Fix setting temperature in Celsius on Radiotherm CT50 thermostats ([@andyat])
+ - Fix PiLight config validation ([@DavidLP])
 
 ### {% linkable_title Misc %}
 
@@ -93,7 +100,8 @@ Our website has now an additional category called "Ecosystem". This will become 
 
 [@aa755]: https://github.com/aa755
 [@americanwookie]: https://github.com/americanwookie
-[@amills]: https://github.com/armills
+[@armills]: https://github.com/armills
+[@andyat]: https://github.com/andyat
 [@arsaboo]: https://github.com/arsaboo
 [@balloob]: https://github.com/balloob
 [@Bart274]: https://github.com/Bart274
