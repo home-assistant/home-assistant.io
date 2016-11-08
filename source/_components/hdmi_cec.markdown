@@ -48,6 +48,7 @@ $ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/pytho
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
 *  at the command line type: `echo scan | cec-client -s -d 1`
 *  This will give you the list of devices that are on the bus
+
 ```bash
 opening a connection to the CEC adapter...
 requesting CEC bus information ...
@@ -61,8 +62,8 @@ osd string:    BD
 CEC version:   1.4
 power status:  on
 language:      ???
-
 ```
+
 **Note the address: line above this will be used to configure HA, this address is represented below as 3: BlueRay player**
 
 ## {% linkable_title Configuration Example %}
