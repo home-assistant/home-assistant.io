@@ -38,6 +38,8 @@ sensor:
       - heat_index_c
       - heat_index_f
       - heat_index_string
+      - elevation
+      - location
       - observation_time
       - precip_1hr_in
       - precip_1hr_metric
@@ -82,6 +84,8 @@ Configuration variables:
   - **heat_index_c**: Heat index (combined effects of the temperature and humidity of the air) in Celsius
   - **heat_index_f**: Heat index (combined effects of the temperature and humidity of the air) in Fahrenheit
   - **heat_index_string**: Text summary of current heat index
+  - **elevation**: Elevation in feet
+  - **location**: City and State
   - **observation_time**: Text summary of observation time
   - **precip_today_in**: Total precipitation in inches
   - **precip_today_metric**: Total precipitation in metric units
