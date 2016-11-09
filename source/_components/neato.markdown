@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: neato.png
 ha_category: Hub
+ha_release: 0.33
 featured: true
 ---
 
