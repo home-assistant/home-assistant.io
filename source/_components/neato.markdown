@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Neato"
+title: "Neato Robotics"
 description: "Instructions how to integrate your Neato within Home Assistant."
 date: 2016-10-09 20:15
 sidebar: true
