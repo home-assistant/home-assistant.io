@@ -82,7 +82,7 @@ Will add a light with out the white mode:
       mode: "rgb"
 ```
 
-Will add a light wit white mode (default). Changing the brightness will set the bulb in white mode:
+Will add a light with white mode (default). Changing the brightness will set the bulb in white mode:
 
 ```yaml
     192.168.1.10:
