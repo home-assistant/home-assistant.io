@@ -15,7 +15,7 @@ ha_release: 0.16
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
 
 <p class='note warning'>
-The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely.
+The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely. The `turn_off` variable is there to help you call a script when you have figured out how to remotely turn off your computer.
 </p>
 
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
@@ -32,4 +32,4 @@ Configuration variables:
 - **mac_address** (*Required*): MAC address to send the wake up command to.
 - **name** (*Optional*): The name of the switch. Default is 'Wake on LAN'.
 - **host** (*Optional*): The IP address or hostname to check the state of the device (on/off).
-
+- **turn_off** (*Optional*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
