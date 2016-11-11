@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: cisco.png
 ha_category: Presence Detection
+ha_release: 0.33
 ---
 
 This is a presence detection scanner for [Cisco](http://www.cisco.com) IOS devices.
@@ -17,7 +18,7 @@ This is a presence detection scanner for [Cisco](http://www.cisco.com) IOS devic
 This device tracker needs SSH to be enabled on the router.
 </p>
 
-Before using this scanner it is recommended that you lower the arp cache timeout on your router, as Cisco IOS normally comes with a 4 hour default arp cache timeout. 
+Before using this scanner it is recommended that you lower the ARP cache timeout on your router, as Cisco IOS normally comes with a 4 hour default ARP cache timeout. 
 
 For example, the following commands will lower the timeout to 2 minutes on Vlan1:
 
@@ -42,7 +43,7 @@ copy running-config startup-config
 ```
 
 <p class='note warning'>
-If you have a very large number of devices on your VLan (+1000), then you may want to adjust the arp cache timeout to suit your needs. See [this discussion](https://supportforums.cisco.com/discussion/10169296/arp-timeout) to learn more. 
+If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://supportforums.cisco.com/discussion/10169296/arp-timeout) to learn more. 
 </p>
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
@@ -50,10 +51,10 @@ To use this device tracker in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: cisco_ios
-  host: ROUTER_IP_ADDRESS
-  username: YOUR_ADMIN_USERNAME
-  password: YOUR_ADMIN_PASSWORD
+  - platform: cisco_ios
+    host: ROUTER_IP_ADDRESS
+    username: YOUR_ADMIN_USERNAME
+    password: YOUR_ADMIN_PASSWORD
 ```
 
 Configuration variables:
@@ -64,5 +65,4 @@ Configuration variables:
 
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
-
 
