@@ -14,7 +14,11 @@ ha_iot_class: depends
 ---
 
 
-This `synologydms` sensor allows getting various statistics from your [Synology NAS](https://www.synology.com). Please note that using this sensor wakes up your synology if in hibernation mode.
+This `synologydms` sensor allows getting various statistics from your [Synology NAS](https://www.synology.com).
+
+<p class='note warning'>
+This sensor will wake up your Synology NAS if it's in hibernation mode.
+</p>
 
 To use the SynologyDSM sensor in your installation, add the following to your `configuration.yaml` file:
 
