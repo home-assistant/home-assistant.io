@@ -70,6 +70,27 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 
 The `correction_factor` will make sure that the value is shown in a useful format in the frontend.
 
+### {% Monitoring the failed login attempt on HA %}
+
+If you want to get the fillowing in case you want to know if someone is hammering your server is open on the net
+
+
+```yaml
+# Example configuration.yaml entry
+sensor 6:
+  platform: command_line
+  name: badlogin
+  command: grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log
+```
+*Make sure to configure the logger to monitor the proper component at the proper level*
+
+```yaml
+# Example working logger settings that works
+logger:
+  default: critical
+  logs:
+    homeassistant.components.http: warning
+```
 
 ### {% linkable_title Details about the upstream Home Assistant release %}
 
