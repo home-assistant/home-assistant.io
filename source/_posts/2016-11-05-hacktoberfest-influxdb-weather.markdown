@@ -80,6 +80,22 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
  - Fix setting temperature in Celsius on Radiotherm CT50 thermostats ([@andyat])
  - Fix PiLight config validation ([@DavidLP])
 
+### {% linkable_title Release 0.32.3 - November 11 %}
+
+ - Fix OpenWeather weather platform doing I/O in event loop ([@lwis])
+ - Fix Alarm.com doing I/O in event loop ([@jnewland])
+ - Fix Tellstick doing I/O in event loop ([@balloob])
+ - Fix KNX doing I/O in event loop ([@balloob])
+ - Increase warning threshold for catching platforms that do I/O ([@balloob])
+ - Change pilight systemcode validation ([@janLo])
+ - Fix Yamaha discovering already configured receivers ([@sdague])
+ - Fix Sonos from installing dependency each time HA was started ([@pvizeli])
+ - Fix Synology camera SSL and error handling ([@pvizeli])
+ - Fix Panasonic Viera doing I/O in event loop ([@balloob])
+ - Improve generic camera error handling ([@kellerza])
+ - Light - Flux Led Lights: allow specifying mode if light does not support white mode ([@DanielHiversen])
+ - Fix Rest switch default template ([@pvizeli])
+
 ### {% linkable_title Misc %}
 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
@@ -137,6 +153,7 @@ Our website has now an additional category called "Ecosystem". This will become 
 [@tchellomello]: https://github.com/tchellomello
 [@turbokongen]: https://github.com/turbokongen
 [@wokar]: https://github.com/wokar
+[@jnewland]: https://github.com/jnewland
 
 [currencylayer]: https://home-assistant.io/components/sensor.currencylayer/
 [yahoo]: https://home-assistant.io/components/sensor.yahoo_finance/
