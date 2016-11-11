@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-11T00:57:51+00:00</updated>
+  <updated>2016-11-11T06:05:09+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -87,6 +87,22 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
  - Fix setting temperature in Celsius on Radiotherm CT50 thermostats ([@andyat])
  - Fix PiLight config validation ([@DavidLP])
 
+### <a class='title-link' name='release-0323---november-11' href='#release-0323---november-11'></a> Release 0.32.3 - November 11 
+
+ - Fix OpenWeather weather platform doing I/O in event loop ([@lwis])
+ - Fix Alarm.com doing I/O in event loop ([@jnewland])
+ - Fix Tellstick doing I/O in event loop ([@balloob])
+ - Fix KNX doing I/O in event loop ([@balloob])
+ - Increase warning threshold for catching platforms that do I/O ([@balloob])
+ - Change pilight systemcode validation ([@janLo])
+ - Fix Yamaha discovering already configured receivers ([@sdague])
+ - Fix Sonos from installing dependency each time HA was started ([@pvizeli])
+ - Fix Synology camera SSL and error handling ([@pvizeli])
+ - Fix Panasonic Viera doing I/O in event loop ([@balloob])
+ - Improve generic camera error handling ([@kellerza])
+ - Light - Flux Led Lights: allow specifying mode if light does not support white mode ([@DanielHiversen])
+ - Fix Rest switch default template ([@pvizeli])
+
 ### <a class='title-link' name='misc' href='#misc'></a> Misc 
 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
@@ -144,6 +160,7 @@ Our website has now an additional category called "Ecosystem". This will become 
 [@tchellomello]: https://github.com/tchellomello
 [@turbokongen]: https://github.com/turbokongen
 [@wokar]: https://github.com/wokar
+[@jnewland]: https://github.com/jnewland
 
 [currencylayer]: https://home-assistant.io/components/sensor.currencylayer/
 [yahoo]: https://home-assistant.io/components/sensor.yahoo_finance/
