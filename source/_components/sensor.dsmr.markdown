@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "DSMR"
+title: "DSMR/Slimme meter"
 description: "Instructions how to integrate DSMR Smartmeter within Home Assistant."
 date: 2016-11-12 12:00
 sidebar: true
@@ -12,13 +12,13 @@ ha_category: Energy
 ha_iot_class: "Local Push"
 ---
 
-A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements).
+A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
 
 Currently support DSMR V2.2 and V4 through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 
 For official information about DSMR refer to: [DSMR Document](http://www.netbeheernederland.nl/themas/hotspot/hotspot-documenten/?dossierid=11010056&title=Slimme%20meter&onderdeel=Documenten)
 
-For unofficial hardware examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
+For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 
 ```yaml
 # Example configuration.yaml entry
