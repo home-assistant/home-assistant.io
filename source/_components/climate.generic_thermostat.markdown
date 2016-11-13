@@ -33,9 +33,9 @@ Configuration variables:
 - **max_temp** (*Optional*): Set maximum set point available (default: 35)
 - **target_temp** (*Optional*): Set intital target temperature. Failure to set this variable will result in target temperature being set to null on startup.
 - **ac_mode** (*Optional*): Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
-- **min_cycle_duration** (*Optional*): Set a minimum amount of time that the switch specified in the *heater* option must be in it's current state prior to being switched either off or on.
+- **delta_temp** (*Optional*): Set temperature interval between _on_ and _off_ state. For example, if **target_temp** is 22.0 and **delta_temp** is 0.2 (default), heater will switch on when sensor reported temperature is 21.9 or lower, and will switch off when measured temperature rasies to at least 22.1. The **delta_temp** is also called [hysteresis](https://en.wikipedia.org/wiki/Hysteresis) and prevents short heating cycles. Its value must exceed **target_sensor** resolution.
 
-A full configuration example looks like the one below. `min_cycle_duration` must contains at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
+A full configuration example looks like the one below.
 
 ```yaml
 # Full example configuration.yaml entry
@@ -47,6 +47,5 @@ climate:
     min_temp: 15
     max_temp: 21
     target_temp: 17
-    min_cycle_duration:
-      seconds: 5
+    delta_temp: 0.2
 ```
