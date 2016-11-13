@@ -36,7 +36,7 @@ Configuration variables:
   - **device**  (*Required*): This is the device id from your Garadget portal.
   - Either:
     - **username** (*Required*): Your Garadget account username.
-    - **device**   (*Required*): Your Garadget account password.
+    - **password** (*Required*): Your Garadget account password.
   - Or: 
     - **access_token**   (*Required*): A generated access_token from your garadget account
   - **name** (*Optional*): Name to use in the Frontend, will use name configured in Garadget otherwise.
