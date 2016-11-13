@@ -35,7 +35,9 @@ device_tracker:
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g. fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
 
-BTLE tracking requires root privileges.
+<p class='note warning'>
+BT LE tracking requires root privileges.
+</p>
 
 For running Home Assistant as non root user we can give python3 the missing capabilities to access the bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
