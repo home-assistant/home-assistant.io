@@ -1,0 +1,268 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Flash lights when intruder detected - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Detect intruders by checking if the light is turning on while no one is home.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/python_component_simple_alarm/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Flash lights when intruder detected">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/python_component_simple_alarm/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Detect intruders by checking if the light is turning on while no one is home.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Flash lights when intruder detected">
+    <meta name="twitter:description" content="Detect intruders by checking if the light is turning on while no one is home.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Flash Lights When Intruder Detected
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>This example component will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via <a href="/components/notify/">the notify component</a>. It will also flash a specific light when a known person comes home.</p>
+
+<p>This component depends on the components <a href="/components/device_tracker/">device_tracker</a> and <a href="/components/light/">light</a> being setup.</p>
+
+<p>To set it up, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">simple_alarm</span><span class="pi">:</span>
+  <span class="s">known_light</span><span class="pi">:</span> <span class="s">light.Bowl</span>
+  <span class="s">unknown_light</span><span class="pi">:</span> <span class="s">group.living_room</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>known_light</strong> (<em>Optional</em>): Which light/light group has to flash when a known device comes home.</li>
+  <li><strong>unknown_light</strong> (<em>Optional</em>): Which light/light group has to flash red when light turns on while no one home.</li>
+</ul>
+
+<p>Create the file <code class="highlighter-rouge">&lt;config dir&gt;/custom_components/simple_alarm.py</code> and copy paste the content below:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="s">"""Simple alarm component."""</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">homeassistant.loader</span> <span class="kn">as</span> <span class="nn">loader</span>
+<span class="kn">from</span> <span class="nn">homeassistant.components</span> <span class="kn">import</span> <span class="n">device_tracker</span><span class="p">,</span> <span class="n">light</span><span class="p">,</span> <span class="n">notify</span>
+<span class="kn">from</span> <span class="nn">homeassistant.helpers.event</span> <span class="kn">import</span> <span class="n">track_state_change</span>
+<span class="kn">from</span> <span class="nn">homeassistant.const</span> <span class="kn">import</span> <span class="n">STATE_ON</span><span class="p">,</span> <span class="n">STATE_OFF</span><span class="p">,</span> <span class="n">STATE_HOME</span><span class="p">,</span> <span class="n">STATE_NOT_HOME</span>
+
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">"simple_alarm"</span>
+
+<span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s">'group'</span><span class="p">,</span> <span class="s">'device_tracker'</span><span class="p">,</span> <span class="s">'light'</span><span class="p">]</span>
+
+<span class="c"># Attribute to tell which light has to flash when a known person comes home</span>
+<span class="c"># If omitted will flash all.</span>
+<span class="n">CONF_KNOWN_LIGHT</span> <span class="o">=</span> <span class="s">"known_light"</span>
+
+<span class="c"># Attribute to tell which light has to flash when an unknown person comes home</span>
+<span class="c"># If omitted will flash all.</span>
+<span class="n">CONF_UNKNOWN_LIGHT</span> <span class="o">=</span> <span class="s">"unknown_light"</span>
+
+<span class="c"># Services to test the alarms</span>
+<span class="n">SERVICE_TEST_KNOWN_ALARM</span> <span class="o">=</span> <span class="s">"test_known"</span>
+<span class="n">SERVICE_TEST_UNKNOWN_ALARM</span> <span class="o">=</span> <span class="s">"test_unknown"</span>
+
+
+<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="s">""" Sets up the simple alarms. """</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+    <span class="n">light_ids</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">conf_key</span> <span class="ow">in</span> <span class="p">(</span><span class="n">CONF_KNOWN_LIGHT</span><span class="p">,</span> <span class="n">CONF_UNKNOWN_LIGHT</span><span class="p">):</span>
+        <span class="n">light_id</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">DOMAIN</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">conf_key</span><span class="p">,</span> <span class="n">light</span><span class="o">.</span><span class="n">ENTITY_ID_ALL_LIGHTS</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">light_id</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="s">'Light id </span><span class="si">%</span><span class="s">s could not be found in state machine'</span><span class="p">,</span> <span class="n">light_id</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="n">light_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">light_id</span><span class="p">)</span>
+
+    <span class="c"># pylint: disable=unbalanced-tuple-unpacking</span>
+    <span class="n">known_light_id</span><span class="p">,</span> <span class="n">unknown_light_id</span> <span class="o">=</span> <span class="n">light_ids</span>
+
+    <span class="k">if</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">device_tracker</span><span class="o">.</span><span class="n">ENTITY_ID_ALL_DEVICES</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">'No devices are being tracked, cannot setup alarm'</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">known_alarm</span><span class="p">():</span>
+        <span class="s">""" Fire an alarm if a known person arrives home. """</span>
+        <span class="n">light</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">known_light_id</span><span class="p">,</span> <span class="n">flash</span><span class="o">=</span><span class="n">light</span><span class="o">.</span><span class="n">FLASH_SHORT</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">unknown_alarm</span><span class="p">():</span>
+        <span class="s">""" Fire an alarm if the light turns on while no one is home. """</span>
+        <span class="n">light</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span>
+            <span class="n">hass</span><span class="p">,</span> <span class="n">unknown_light_id</span><span class="p">,</span>
+            <span class="n">flash</span><span class="o">=</span><span class="n">light</span><span class="o">.</span><span class="n">FLASH_LONG</span><span class="p">,</span> <span class="n">rgb_color</span><span class="o">=</span><span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+        <span class="c"># Send a message to the user</span>
+        <span class="n">notify</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span>
+            <span class="n">hass</span><span class="p">,</span> <span class="s">"The lights just got turned on while no one was home."</span><span class="p">)</span>
+
+    <span class="c"># Setup services to test the effect</span>
+    <span class="n">hass</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="n">DOMAIN</span><span class="p">,</span> <span class="n">SERVICE_TEST_KNOWN_ALARM</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">call</span><span class="p">:</span> <span class="n">known_alarm</span><span class="p">())</span>
+    <span class="n">hass</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+        <span class="n">DOMAIN</span><span class="p">,</span> <span class="n">SERVICE_TEST_UNKNOWN_ALARM</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">call</span><span class="p">:</span> <span class="n">unknown_alarm</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">unknown_alarm_if_lights_on</span><span class="p">(</span><span class="n">entity_id</span><span class="p">,</span> <span class="n">old_state</span><span class="p">,</span> <span class="n">new_state</span><span class="p">):</span>
+        <span class="s">""" Called when a light has been turned on. """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">device_tracker</span><span class="o">.</span><span class="n">is_on</span><span class="p">(</span><span class="n">hass</span><span class="p">):</span>
+            <span class="n">unknown_alarm</span><span class="p">()</span>
+
+    <span class="n">track_state_change</span><span class="p">(</span>
+        <span class="n">hass</span><span class="p">,</span> <span class="n">light</span><span class="o">.</span><span class="n">ENTITY_ID_ALL_LIGHTS</span><span class="p">,</span>
+        <span class="n">unknown_alarm_if_lights_on</span><span class="p">,</span> <span class="n">STATE_OFF</span><span class="p">,</span> <span class="n">STATE_ON</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">ring_known_alarm</span><span class="p">(</span><span class="n">entity_id</span><span class="p">,</span> <span class="n">old_state</span><span class="p">,</span> <span class="n">new_state</span><span class="p">):</span>
+        <span class="s">""" Called when a known person comes home. """</span>
+        <span class="k">if</span> <span class="n">light</span><span class="o">.</span><span class="n">is_on</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">known_light_id</span><span class="p">):</span>
+            <span class="n">known_alarm</span><span class="p">()</span>
+
+    <span class="c"># Track home coming of each device</span>
+    <span class="n">track_state_change</span><span class="p">(</span>
+        <span class="n">hass</span><span class="p">,</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">entity_ids</span><span class="p">(</span><span class="n">device_tracker</span><span class="o">.</span><span class="n">DOMAIN</span><span class="p">),</span>
+        <span class="n">ring_known_alarm</span><span class="p">,</span> <span class="n">STATE_NOT_HOME</span><span class="p">,</span> <span class="n">STATE_HOME</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="bp">True</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/python_component_simple_alarm.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <a href='/cookbook'>Back to the cookbook</a>
+  </div>
+  <div class='section'>
+    <h1 class="title delta">Automation in Python Examples</h1>
+    <ul class='divided'>
+          <li>
+              Flash lights when intruder detected
+          </li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
