@@ -121,6 +121,11 @@ Some BTLE devices (e.g. fitness trackers) are only visible to the devices that t
 </code></pre>
 </div>
 
+<p><em>If you have installed HA with AIO, you need to do the following command, this will grant acess to hass to run the required command</em></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo setcap cap_net_raw,cap_net_admin+eip /srv/hass/hass_venv/bin/python3
+</code></pre>
+</div>
+
 <p>A restart of Home Assistant is required.</p>
 
 <p>For additional configuration variables check the <a href="/components/device_tracker/">Device tracker page</a>.</p>
