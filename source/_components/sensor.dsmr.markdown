@@ -28,7 +28,7 @@ sensor:
 
 Configuration variables:
 
-- **device** string (*Optional*): Serial device to which Smartmeter is connected (default: /dev/ttyUSB0).
+- **port** string (*Optional*): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0).
 - **dsmr_version_** string (*Optional*): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).
 
 A full configuration example can be found below:
@@ -37,7 +37,7 @@ A full configuration example can be found below:
 # Example configuration.yaml entry
 sensor:
   - platform: dsmr
-    device: /dev/ttyUSB1
+    port: /dev/ttyUSB1
     dsmr_version: 4
 
 group:
