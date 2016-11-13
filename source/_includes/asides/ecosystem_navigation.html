@@ -1,6 +1,8 @@
 {% assign url_parts = page.url | split: "/" %}
 {% if url_parts[2] == "ios" %}
   {% include asides/ecosystem_ios_navigation.html | compact_newlines %}
+{% elsif url_parts[2] == "hadashboard" %}
+  {% include asides/ecosystem_hadashboard_navigation.html | compact_newlines %}
 {% comment %}
 {% elsif url_parts[2] == "cookbook" %}
   {% include asides/cookbook_navigation.html | compact_newlines %}
