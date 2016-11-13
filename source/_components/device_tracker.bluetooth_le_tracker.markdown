@@ -21,7 +21,7 @@ Requires PyBluez. If you are on Raspbian, make sure you first install `bluetooth
 </p>
 
 <p class='note warning'>
-Requires gattlib, which is not compatible with windows. This tracker won't work on windows!
+Requires gattlib, which is not compatible with Windows. This tracker won't work on Windows!
 </p>
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
@@ -44,13 +44,11 @@ $ sudo apt-get install libcap2-bin
 $ sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
 ```
 
+If you have installed Home Assistant with [AIO](/getting-started/installation-raspberry-pi-all-in-one/), you need to do the following command, this will grant access to Home Assistant to run the required command.
 
-*If you have installed HA with AIO, you need to do the following command, this will grant acess to hass to run the required command*
 ```bash
 $ sudo setcap cap_net_raw,cap_net_admin+eip /srv/hass/hass_venv/bin/python3
 ```
-
-
 
 A restart of Home Assistant is required.
 
