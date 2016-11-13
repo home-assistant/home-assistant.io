@@ -46,8 +46,8 @@ sensor:
   - platform: template
     sensors:
       furnace_on:
-        value_template: {% raw %}{{ states.sensor.furnace.state > 2.5 }}{% endraw %}
-        friendly_name: 'Furnace Running
+        value_template: '{{ states.sensor.furnace.state > 2.5 }}'
+        friendly_name: 'Furnace Running'
         sensor_class: heat
 ```
 
