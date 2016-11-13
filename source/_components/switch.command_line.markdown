@@ -73,7 +73,7 @@ This switch will shutdown your host immediately, there will be no confirmation.
 switch:
   platform: command_line
   switches:
-    Home Assistant system shutdown:
+    home_assistant_system_shutdown:
       command_off: "/usr/sbin/poweroff"
 ```
 
@@ -87,7 +87,7 @@ This switch will control a local VLC media player ([Source](https://community.ho
 switch:
   platform: command_line
   switches:
-    VLC:
+    vlc:
       command_on: "cvlc 1.mp3 vlc://quit &"
       command_off: "pkill vlc"
 ```
