@@ -44,6 +44,14 @@ $ sudo apt-get install libcap2-bin
 $ sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
 ```
 
+
+*If you have installed HA with AIO, you need to do the following command, this will grant acess to hass to run the required command*
+```bash
+$ sudo setcap cap_net_raw,cap_net_admin+eip /srv/hass/hass_venv/bin/python3
+```
+
+
+
 A restart of Home Assistant is required.
 
 For additional configuration variables check the [Device tracker page](/components/device_tracker/).
