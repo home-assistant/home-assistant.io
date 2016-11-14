@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: netbeheernederland.jpg
 ha_category: Energy
+ha_version: 0.34
 ha_iot_class: "Local Push"
 ---
 
@@ -20,10 +21,21 @@ For official information about DSMR refer to: [DSMR Document](http://www.netbehe
 
 For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 
+<p class='img'>
+<img src='/images/screenshots/dsmr.png' />
+</p>
+
 This component is known to work for:
 
 - Iskra ME382 / MT382 (DSMR 2.2)
-- Landis & Gyr E350 (DMSR 4)
+- Landis+Gyr E350 (DMSR 4)
+- Landis+Gyr ZCF110 / ZM F110 (DSMR 4.2)
+- Kaifa E0026
+
+And USB serial converters:
+
+- Cheap (Banggood/ebay) Generic PL2303
+- https://sites.google.com/site/nta8130p1smartmeter/webshop
 
 ```yaml
 # Example configuration.yaml entry
