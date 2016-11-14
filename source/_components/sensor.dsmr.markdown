@@ -20,6 +20,11 @@ For official information about DSMR refer to: [DSMR Document](http://www.netbehe
 
 For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 
+This component is known to work for:
+
+- Iskra ME382 / MT382 (DSMR 2.2)
+- Landis & Gyr E350 (DMSR 4)
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
