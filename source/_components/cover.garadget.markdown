@@ -47,7 +47,7 @@ If provided, the **access_token** will be used, otherwise the **username** and *
 
 **Example with more detail:**
 <p class='img'>
-<img src={{site_root}}/images/components/garadget/cover_garadget_details.png' />
+  <img src='{{site_root}}/images/components/garadget/cover_garadget_details.png' />
 </p>
 
 ```yaml
