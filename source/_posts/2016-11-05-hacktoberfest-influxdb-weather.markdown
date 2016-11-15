@@ -160,6 +160,7 @@ Our website has now an additional category called "Ecosystem". This will become 
 [@turbokongen]: https://github.com/turbokongen
 [@wokar]: https://github.com/wokar
 [@jnewland]: https://github.com/jnewland
+[@DanielHiversen]: https://github.com/DanielHiversen
 
 [currencylayer]: https://home-assistant.io/components/sensor.currencylayer/
 [yahoo]: https://home-assistant.io/components/sensor.yahoo_finance/
