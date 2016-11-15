@@ -47,10 +47,9 @@ If provided, the **access_token** will be used, otherwise the **username** and *
 
 **Example with more detail:**
 <p class='img'>
-<img src='/source/images/components/garadget/cover_garadget_details.png' />
+<img src={{site_root}}/images/components/garadget/cover_garadget_details.png' />
 </p>
 
-{% raw %}
 ```yaml
 # Related configuration.yaml entry
 cover:
@@ -65,13 +64,13 @@ sensor:
   sensors:
     garage_door_status:
       friendly_name: 'State of the door'
-      value_template: '{{ states.cover.garage_door.state }}'
+      value_template: {% raw %}'{{ states.cover.garage_door.state }}'{% endraw %}
     garage_door_time_in_state:
       friendly_name: 'Since'
-      value_template: '{{ states.cover.garage_door.attributes["time in state"] }}'
+      value_template: {% raw %}'{{ states.cover.garage_door.attributes["time in state"] }}'{% endraw %}
     garage_door_wifi_signal_strength:
       friendly_name: 'WiFi strength'
-      value_template: '{{ states.cover.garage_door.attributes["wifi signal strength (dB)"] }}'
+      value_template: {% raw %}'{{ states.cover.garage_door.attributes["wifi signal strength (dB)"] }}'{% endraw %}
       unit_of_measurement: 'dB'
 
 group:
@@ -89,4 +88,4 @@ customize:
   sensor.garage_door_wifi_signal_strength:
     icon: mdi:wifi
 ```
-{% endraw %}
+
