@@ -29,6 +29,16 @@ mqtt:
   password: PASSWORD
   certificate: /home/paulus/dev/addtrustexternalcaroot.crt
   protocol: 3.1
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+    qos: 1
+    retain: true
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+    qos: 1
+    retain: true
 ```
 
 Configuration variables:
@@ -43,6 +53,16 @@ Configuration variables:
 - **client_key** (*Optional*): Client key (example: `/home/user/owntracks/cookie.key`)
 - **client_cert** (*Optional*): Client certificate (example: `/home/user/owntracks/cookie.crt`)
 - **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.
+- **birth_message** (*Optional*):
+  - **topic** (*Required*): The MQTT topic to publish the message.
+  - **payload** (*Required*): The message content.
+  - **qos** (*Optional*): The maximum QoS level of the topic. Default is 0.
+  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True`.
+- **will_message** (*Optional*):
+  - **topic** (*Required*): The MQTT topic to publish the message.
+  - **payload** (*Required*): The message content.
+  - **qos** (*Optional*): The maximum QoS level of the topic. Default is 0.
+  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True`.
 
 ## {% linkable_title Picking a broker %}
 
