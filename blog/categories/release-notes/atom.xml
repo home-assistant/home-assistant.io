@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-14T21:48:29+00:00</updated>
+  <updated>2016-11-15T06:10:14+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -103,6 +103,11 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
  - Light - Flux Led Lights: allow specifying mode if light does not support white mode ([@DanielHiversen])
  - Fix Rest switch default template ([@pvizeli])
 
+### <a class='title-link' name='release-0324---november-15' href='#release-0324---november-15'></a> Release 0.32.4 - November 15 
+
+ - Fix device tracker from crashing HASS when a new device was discovered ([@balloob])
+ - HTTP: Fix X-Forwarded-For feature ([@mweinelt])
+
 ### <a class='title-link' name='misc' href='#misc'></a> Misc 
 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
@@ -121,6 +126,7 @@ Our website has now an additional category called "Ecosystem". This will become 
 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
+[@mweinelt]: https://github.com/mweinelt
 [@aa755]: https://github.com/aa755
 [@americanwookie]: https://github.com/americanwookie
 [@armills]: https://github.com/armills

@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-14T21:48:29+00:00</updated>
+  <updated>2016-11-15T06:10:14+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -109,6 +109,13 @@
   <li>Improve generic camera error handling (<a href="https://github.com/kellerza">@kellerza</a>)</li>
   <li>Light - Flux Led Lights: allow specifying mode if light does not support white mode ([@DanielHiversen])</li>
   <li>Fix Rest switch default template (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0324---november-15" href="#release-0324---november-15"></a> Release 0.32.4 - November 15</h3>
+
+<ul>
+  <li>Fix device tracker from crashing HASS when a new device was discovered (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>HTTP: Fix X-Forwarded-For feature (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="misc" href="#misc"></a> Misc</h3>
