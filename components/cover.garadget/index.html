@@ -131,6 +131,51 @@
 
 <p>If provided, the <strong>access_token</strong> will be used, otherwise the <strong>username</strong> and <strong>password</strong> will be used to automatically generate an access token at start time.</p>
 
+<p><strong>Example with more detail:</strong></p>
+<p class="img">
+<img src="/source/images/components/garadget/cover_garadget_details.png" />
+</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Related configuration.yaml entry</span>
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">garadget</span>
+  <span class="s">covers</span><span class="pi">:</span>
+    <span class="s">190028001947343412342341</span><span class="pi">:</span>
+      <span class="s">access_token</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">garadget_access_token</span>
+      <span class="s">name</span><span class="pi">:</span>  <span class="s">Garage door</span>
+
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+  <span class="s">sensors</span><span class="pi">:</span>
+    <span class="s">garage_door_status</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">State</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">door'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.state</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">garage_door_time_in_state</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Since'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.attributes["time</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">state"]</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">garage_door_wifi_signal_strength</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">WiFi</span><span class="nv"> </span><span class="s">strength'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.attributes["wifi</span><span class="nv"> </span><span class="s">signal</span><span class="nv"> </span><span class="s">strength</span><span class="nv"> </span><span class="s">(dB)"]</span><span class="nv"> </span><span class="s">}}'</span>
+      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">dB'</span>
+
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">garage_door</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Garage door</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">cover.garage_door</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_status</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_time_in_state</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_wifi_signal_strength</span>
+
+<span class="s">customize</span><span class="pi">:</span>
+  <span class="s">sensor.garage_door_time_in_state</span><span class="pi">:</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:timer-sand</span>
+  <span class="s">sensor.garage_door_wifi_signal_strength</span><span class="pi">:</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:wifi</span>
+</code></pre>
+</div>
+
+
 
 </article>
 
