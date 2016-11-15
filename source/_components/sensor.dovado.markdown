@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: System Monitoring
+ha_category: System Monitor
 logo: dovado.png
 ha_release: 0.32
 ---
