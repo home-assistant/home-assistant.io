@@ -96,12 +96,12 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">transmission</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">monitored_variables</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">current_status'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">download_speed'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">upload_speed'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">transmission</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">monitored_variables</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">current_status'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">download_speed'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">upload_speed'</span>
 </code></pre>
 </div>
 
@@ -125,13 +125,13 @@
 <p>To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to <strong>Edit</strong> -&gt; <strong>Preferences</strong> and choose the tab <strong>Remote</strong>. Check <strong>Allow remote access</strong>, enter your username and your password, and uncheck the network restriction as needed.</p>
 
 <p class="img">
-  <img src="/images/screenshots/transmission_perf.png" />
+  <img src="/images/components/transmission/transmission_perf.png" />
 </p>
 
 <p>If everything is setup correctly, the details will show up in the frontend.</p>
 
 <p class="img">
-  <img src="/images/screenshots/transmission.png" />
+  <img src="/images/components/transmission/transmission.png" />
 </p>
 
 
