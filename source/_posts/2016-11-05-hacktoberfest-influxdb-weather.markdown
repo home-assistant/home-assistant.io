@@ -96,6 +96,11 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
  - Light - Flux Led Lights: allow specifying mode if light does not support white mode ([@DanielHiversen])
  - Fix Rest switch default template ([@pvizeli])
 
+### {% linkable_title Release 0.32.4 - November 15 %}
+
+ - Fix device tracker from crashing HASS when a new device was discovered ([@balloob])
+ - HTTP: Fix X-Forwarded-For feature ([@mweinelt])
+
 ### {% linkable_title Misc %}
 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
@@ -114,6 +119,7 @@ Our website has now an additional category called "Ecosystem". This will become 
 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
+[@mweinelt]: https://github.com/mweinelt
 [@aa755]: https://github.com/aa755
 [@americanwookie]: https://github.com/americanwookie
 [@armills]: https://github.com/armills
