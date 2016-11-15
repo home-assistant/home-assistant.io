@@ -30,7 +30,7 @@ automation:
     - platform: state
       entity_id: group.all_devices
       state: 'home'
-    - platform: time
+    - condition: time
       after: '16:00:00'
       before: '23:00:00'
   action:
@@ -55,7 +55,7 @@ automation:
     zone: zone.home
     entity_id: device_tracker.paulus
   condition:
-    platform: time
+    condition: time
     after: '20:00'
   action:
     service: notify.notify
