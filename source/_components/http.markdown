@@ -33,6 +33,8 @@ Configuration variables:
 - **ssl_key** (*Optional*): Path to your TLS/SSL key to serve Home Assistant over a secure connection.
 - **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://home-assistant.io` will allow requests from `https://home-assistant.io` but __not__ `http://home-assistant.io`.
 - **trusted_networks** (*Optional*): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.
+- **ip_ban_enabled** (*Optional*): Flag indicating whether additional IP filtering is enabled. Defaults to False.
+- **login_attempts_threshold** (*Optional*): Number of failed login attemt from single IP after which it will be automatically banned if `ip_ban_enabled` is True.
 
 The sample below shows a configuration entry with possible values: 
 
@@ -51,6 +53,8 @@ http:
     - ::1
     - 192.168.0.0/24
     - 2001:DB8:ABCD::/48
+  ip_ban_enabled: True
+  login_attempts_threshold: 5
 ```
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
@@ -64,3 +68,16 @@ To use those kind of [sensors](/components/sensor.http/) or [binary sensors](com
 All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the `.homeassistant` configuration path. The static files in `.homeassistant/www/` can be accessed by the following URL `http://your.domain:8123/local/`.
+
+If you want to apply additional IP filtering, and automatically ban bruteforce attempts, set `ip_ban_enabled` to `True` and select number of attempts. After first ban file `ip_bans.yaml` will be created in the root configuration folder. It will have IP address and time in UTC when it was added: 
+
+```yaml
+127.0.0.1:
+  banned_at: '2016-11-16T19:20:03'
+```
+
+After ban was added, Persistent Notification is populated to HASS UI. 
+
+<p class='note warning'>
+Please note, that sources from `trusted_networks` won't be banned automatically. 
+</p>
