@@ -70,7 +70,7 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 
 ### {% linkable_title Monitoring the failed login attempt on HA %}
 
-If you want to get the fillowing in case you want to know if someone is hammering your server is open on the net
+If you'd like to know how much failed login attempts are made to HA proceed with the following
 
 
 ```yaml
