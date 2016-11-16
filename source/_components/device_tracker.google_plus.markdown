@@ -28,7 +28,6 @@ device_tracker 3:
   data_freq: '...'
   data_at: '...'
 ```
-In Self Mode, additionally add `header_host: 'aboutme.google.com'`.
 
 ###How to obtain the values shown as '...' (credits to @icovada):
 
