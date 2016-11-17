@@ -122,6 +122,10 @@
   </li>
 </ul>
 
+<p>A note on <code class="highlighter-rouge">friendly_name</code>:</p>
+
+<p>When set, the <code class="highlighter-rouge">friendly_name</code> had been previously used for API calls and backend configuration instead of the <code class="highlighter-rouge">object_id</code> (“identifier”), but <a href="https://github.com/home-assistant/home-assistant/pull/4343">this behavior is changing</a> to make the <code class="highlighter-rouge">friendly_name</code> for display purposes only. This allows users to set an <code class="highlighter-rouge">identifier</code> that emphasizes uniqueness and predictability for API and config purposes but have a prettier <code class="highlighter-rouge">friendly_name</code> still show up in the UI. As an additional benefit, if a user wanted to change the <code class="highlighter-rouge">friendly_name</code> / display name (e.g. from “Kitchen Lightswitch” to “Kitchen Switch” or “Living Room Light”, or remove the <code class="highlighter-rouge">friendly_name</code> altogether), he or she could do so without needing to change existing automations or API calls. See aREST device below for an example.</p>
+
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
 <p>In this section you find some real life examples of how to use this switch.</p>
@@ -134,14 +138,16 @@
 <span class="s">switch</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
   <span class="s">switches</span><span class="pi">:</span>
-    <span class="s">arest_pin4</span><span class="pi">:</span>
+    <span class="s">arest_pin_four</span><span class="pi">:</span>
       <span class="s">command_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/1"</span>
       <span class="s">command_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/0"</span>
       <span class="s">command_state</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4"</span>
       <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">return_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"1"</span><span class="nv"> </span><span class="s">}}'</span>
-      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">aREST Pin 4</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kitchen Lightswitch</span>
 </code></pre>
 </div>
+
+<p>Given this example, in the UI one would see the <code class="highlighter-rouge">friendly_name</code> of “Kitchen Light”. However, the <code class="highlighter-rouge">identifier</code> is <code class="highlighter-rouge">arest_pin_four</code>, making the <code class="highlighter-rouge">entity_id</code> <code class="highlighter-rouge">switch.arest_pin_four</code>, which is what one would use in <a href="https://home-assistant.io/components/automation/"><code class="highlighter-rouge">automation</code></a> or in <a href="https://home-assistant.io/developers/">API calls</a>.</p>
 
 <h3><a class="title-link" name="shutdown-your-local-host" href="#shutdown-your-local-host"></a> Shutdown your local host</h3>
 
