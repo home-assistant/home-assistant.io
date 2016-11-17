@@ -62,11 +62,7 @@ If you want to test the server-sent events without creating a website, the Pytho
 $ pip3 install sseclient
 ```
 
-<<<<<<< HEAD
-The simplest script to consume the SSE looks like the following snippet.
-=======
-The simplest script to consume the SSE in Python looks like this:
->>>>>>> current
+A simple script to consume SSE in Python looks like this:
 
 ```python
 from sseclient import SSEClient
@@ -75,4 +71,3 @@ messages = SSEClient('http://localhost:8123/api/stream?api_password=YOUR_PASSWOR
 for msg in messages:
     print(msg)
 ```
-
