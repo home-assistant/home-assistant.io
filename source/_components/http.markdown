@@ -34,7 +34,7 @@ Configuration variables:
 - **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://home-assistant.io` will allow requests from `https://home-assistant.io` but __not__ `http://home-assistant.io`.
 - **trusted_networks** (*Optional*): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.
 - **ip_ban_enabled** (*Optional*): Flag indicating whether additional IP filtering is enabled. Defaults to False.
-- **login_attempts_threshold** (*Optional*): Number of failed login attemt from single IP after which it will be automatically banned if `ip_ban_enabled` is True.
+- **login_attempts_threshold** (*Optional*): Number of failed login attemt from single IP after which it will be automatically banned if `ip_ban_enabled` is True. Defaults to -1, meaning that no new automatic bans will be added.
 
 The sample below shows a configuration entry with possible values: 
 
@@ -76,7 +76,7 @@ If you want to apply additional IP filtering, and automatically ban bruteforce a
   banned_at: '2016-11-16T19:20:03'
 ```
 
-After ban was added, Persistent Notification is populated to HASS UI. 
+After a ban is added a Persistent Notification is populated to the Home Assistant frontend. 
 
 <p class='note warning'>
 Please note, that sources from `trusted_networks` won't be banned automatically. 
