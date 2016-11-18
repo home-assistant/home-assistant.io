@@ -78,4 +78,3 @@ The following services are supported by Envisalink and can be used to script or 
 - **alarm_arm_away**: Arms the alarm in standard away mode.
 - **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 - **alarm_keypress**: Sends a string of up to 6 characters to the alarm. *DSC alarms only*
-- **alarm_output_control**: Activates the specified programmable output on the alarm to control a connected device. *DSC alarms only*
