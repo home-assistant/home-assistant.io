@@ -190,6 +190,50 @@
 </code></pre>
 </div>
 
+<p>Exampleof <code class="highlighter-rouge">input_slider</code> being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="c1"># Example configuration.yaml entry using 'input_slider' in an action in an automation</span>
+   
+<span class="c1"># Define input_slider</span>
+<span class="s">input_slider</span><span class="pi">:</span>
+  <span class="s">target_temp</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Target Heater Temperature Slider</span>
+    <span class="s">min</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">max</span><span class="pi">:</span> <span class="s">30</span>
+    <span class="s">step</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">step</span>  
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:target</span>
+
+<span class="c1"># Automation.     </span>
+ <span class="c1"># This automation script runs when a value is received via MQTT on retained topic: setTemperature</span>
+ <span class="c1"># It sets the value slider on the GUI. This slides also had its own automation when the value is changed.</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Set temp slider</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">setTemperature"</span>
+   <span class="c1"># entity_id: input_slider.target_temp</span>
+  <span class="s">action</span><span class="pi">:</span>
+     <span class="s">service</span><span class="pi">:</span> <span class="s">input_slider.select_value</span>
+     <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_slider.target_temp</span>
+      <span class="s">value</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.payload}}'</span>
+
+ <span class="c1"># This automation script runs when the target temperature slider is moved.</span>
+ <span class="c1"># It publishes its value to the same MQTT topic it is also subscribed to.</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Temp slider moved</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_slider.target_temp</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">mqtt.publish</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">setTemperature"</span>
+      <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.input_slider.target_temp.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int</span><span class="nv"> </span><span class="s">}}'</span>
+
+</code></pre>
+</div>
 
 
 </article>
