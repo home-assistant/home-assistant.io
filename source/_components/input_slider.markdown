@@ -155,6 +155,3 @@ input_slider:
       payload: '{{ states.input_slider.target_temp.state | int }}'
 {% endraw %}
 ```
-
-
-
