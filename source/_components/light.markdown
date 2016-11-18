@@ -54,7 +54,7 @@ Turns one or multiple lights off.
 
 ### {% linkable_title Service `light.toggle` %}
 
-Toggles the state of one or multiple lights using [groups]({{site_root}}/components/group/). 
+Toggles the state of one or multiple lights using [groups]({{site_root}}/components/group/).
 
 *Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light.
 
@@ -62,3 +62,17 @@ Toggles the state of one or multiple lights using [groups]({{site_root}}/compone
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds.
+
+### {% linkable_title Service `light.hue_activate_scene` %}
+
+If you have hue lights, there is a service call to directly activate
+scenes that are stored in your hue hub. This will have all the bulbs
+transitioned at once, instead of one at a time using standard scenes
+in Home Assistant.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `group_name` | no | The group/room name of the lights. Find this in the Hue official app.
+| `scene_name` | no | The name of the Scene. Find this in the Hue official app.
+
+*Note*: `group_name` is not linked to Home Assistant group name.
