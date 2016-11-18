@@ -9,7 +9,7 @@ sharing: true
 logo: prometheus.png
 footer: true
 ha_category: "History"
-ha_release: 0.12
+ha_release: 0.34
 ---
 
 The `prometheus` component exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
