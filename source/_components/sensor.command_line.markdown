@@ -44,7 +44,7 @@ There are several ways to get the temperature of your hard drive. A simple solut
 $ hddtemp -n /dev/sda
 ```
 
-To use those information, the entry for a command-line sensor in the `configuration.yaml` file will look like this.
+To use this information, the entry for a command-line sensor in the `configuration.yaml` file will look like this.
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,10 +68,9 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
     value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
 ```
 
-### {% linkable_title Monitoring the failed login attempt on HA %}
+### {% linkable_title Monitoring failed login attempts on Home Assistant %}
 
-If you'd like to know how much failed login attempts are made to HA proceed with the following
-
+If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -81,7 +80,7 @@ sensor:
     command: grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log
 ```
 
-Make sure to configure the logger to monitor the proper component at the proper level.
+Make sure to configure the [logger component](/components/logger) to monitor the [http component](https://home-assistant.io/components/http/) at least the `warning` level.
 
 ```yaml
 # Example working logger settings that works
@@ -115,7 +114,7 @@ sensor:
 
 ### {% linkable_title Use an external script %}
 
-The example is doing the same as the [aREST sensor](/components/sensor.arest/) but with an external Python script. It should give you an idea about interacting with devices which are exposing a RESTful API.
+The example is doing the same as the [aREST sensor](/components/sensor.arest/) but with an external Python script. It should give you an idea about interfacing with devices which are exposing a RESTful API.
 
 The one-line script to retrieve a value is shown below. Of course would it be possible to use this directly in the `configuration.yaml` file but need extra care about the quotation marks.
 
