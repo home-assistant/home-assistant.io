@@ -110,3 +110,48 @@ automation:
 {% endraw %}
 ```
 
+
+Exampleof `input_slider` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
+
+```yaml
+{% raw %}
+# Example configuration.yaml entry using 'input_slider' in an action in an automation
+   
+# Define input_slider
+input_slider:
+  target_temp:
+    name: Target Heater Temperature Slider
+    min: 1
+    max: 30
+    step: 1
+    unit_of_measurement: step  
+    icon: mdi:target
+
+# Automation.     
+ # This automation script runs when a value is received via MQTT on retained topic: setTemperature
+ # It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
+- alias: Set temp slider
+  trigger:
+    platform: mqtt
+    topic: "setTemperature"
+   # entity_id: input_slider.target_temp
+  action:
+     service: input_slider.select_value
+     data_template:
+      entity_id: input_slider.target_temp
+      value: '{{ trigger.payload}}'
+
+ # This automation script runs when the target temperature slider is moved.
+ # It publishes its value to the same MQTT topic it is also subscribed to.
+- alias: Temp slider moved
+  trigger:
+    platform: state
+    entity_id: input_slider.target_temp
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "setTemperature"
+      retain: true
+      payload: '{{ states.input_slider.target_temp.state | int }}'
+{% endraw %}
+```
