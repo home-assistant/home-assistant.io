@@ -10,7 +10,7 @@ footer: true
 logo: google_calendar.png
 ha_category: Calendar
 ha_iot_class: "Cloud Polling"
-ha_release: unknown
+ha_release: 0.33
 ---
 
 
@@ -22,7 +22,7 @@ Generate a Client ID and Client Secret on [Google Developers Console](https://co
 
 1. Follow the wizard using the following information.
 1. When it gets to the point of asking _Which API are you using?_ just click cancel.
-1. Click on the tab 'OAuth consent screen'
+1. Click on the tab 'OAuth consent screen'.
 1. Set 'Product name shown to users' to anything you want. We suggest Home-Assistant.
 1. Save this page. You don't have to fill out anything else there.
 1. Click 'Create credentials' -> OAuth client ID.
@@ -42,19 +42,19 @@ google:
 
 Configuration variables:
 
-- **client_id** (*Required*): Use the value you generated in the Prerequisites stage
-- **client_secret** (*Required*): Use the value you generated in the Prerequisites stage
+- **client_id** (*Required*): Use the value you generated in the Prerequisites stage.
+- **client_secret** (*Required*): Use the value you generated in the Prerequisites stage.
 - **track_new_calendar** (*Optional*): Will automatically generate a binary sensor when a new calendar is detected. The system scans for new calendars on startup. By default this is set to `True`.
 
 The next steps will require you to have Home Assistant running.
 
-After you have it running complete the Google authentication that pops up. It will give you a url and a code to enter. This will grant your Home Assistant service access to all the Google Calendars that the account you authenticate with can read. This is a Read-Only view of these calendars.
+After you have it running complete the Google authentication that pops up. It will give you a URL and a code to enter. This will grant your Home Assistant service access to all the Google Calendars that the account you authenticate with can read. This is a Read-Only view of these calendars.
 
 
 ### {% linkable_title Calendar Configuration %}
 Editing `google_calendars.yaml`
 
-A basic entry for a single calendar looks like
+A basic entry for a single calendar looks like:
 
 ```yaml
 - cal_id: "***************************@group.calendar.google.com"
@@ -81,15 +81,15 @@ Variables:
 
 - **entities**: Yes, you can have multiple sensors for a calendar!
 
-  - **device_id**: (*Required*): The name that all your automations/scripts will use to reference this device
+  - **device_id**: (*Required*): The name that all your automations/scripts will use to reference this device.
   
-  - **name**: (*Required*): What is the name of your sensor that you'll see in the UI
+  - **name**: (*Required*): What is the name of your sensor that you'll see in the frontend.
   
   - **track**: (*Required*): Should we create a sensor `True` or ignore it `False`?
   
-  - **search**: (*Optional*): If set will only trigger for matched events
+  - **search**: (*Optional*): If set will only trigger for matched events.
   
-  - **offset**: (*Optional*): A set of characters that preceed a number in the event title for desginating a pre-trigger state change on the sensor. (Default: `!!`)
+  - **offset**: (*Optional*): A set of characters that precede a number in the event title for designating a pre-trigger state change on the sensor. (Default: `!!`)
   
 From this we will end up with the binary sensors `calendar.test_unimportant` and `calendar.test_important` which will toggle themselves on/off based on events on the same calendar that match the search value set for each. You'll also have a sensor `calendar.test_everything` that will not filter events out and always show the next event available.
 
