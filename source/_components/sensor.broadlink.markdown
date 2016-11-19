@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: broadlink.png
 ha_category: Sensor
+ha_release: 0.34
 ---
 
 
