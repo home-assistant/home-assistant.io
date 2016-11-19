@@ -122,7 +122,7 @@
 </code></pre>
 </div>
 
-<p>To use those information, the entry for a command-line sensor in the <code class="highlighter-rouge">configuration.yaml</code> file will look like this.</p>
+<p>To use this information, the entry for a command-line sensor in the <code class="highlighter-rouge">configuration.yaml</code> file will look like this.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -146,9 +146,9 @@
 </code></pre>
 </div>
 
-<h3><a class="title-link" name="monitoring-the-failed-login-attempt-on-ha" href="#monitoring-the-failed-login-attempt-on-ha"></a> Monitoring the failed login attempt on HA</h3>
+<h3><a class="title-link" name="monitoring-failed-login-attempts-on-home-assistant" href="#monitoring-failed-login-attempts-on-home-assistant"></a> Monitoring failed login attempts on Home Assistant</h3>
 
-<p>If you’d like to know how much failed login attempts are made to HA proceed with the following</p>
+<p>If you’d like to know how many failed login attempts are made to Home Assistant, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -158,7 +158,7 @@
 </code></pre>
 </div>
 
-<p>Make sure to configure the logger to monitor the proper component at the proper level.</p>
+<p>Make sure to configure the <a href="/components/logger">logger component</a> to monitor the <a href="https://home-assistant.io/components/http/">http component</a> at least the <code class="highlighter-rouge">warning</code> level.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example working logger settings that works</span>
 <span class="s">logger</span><span class="pi">:</span>
@@ -192,7 +192,7 @@
 
 <h3><a class="title-link" name="use-an-external-script" href="#use-an-external-script"></a> Use an external script</h3>
 
-<p>The example is doing the same as the <a href="/components/sensor.arest/">aREST sensor</a> but with an external Python script. It should give you an idea about interacting with devices which are exposing a RESTful API.</p>
+<p>The example is doing the same as the <a href="/components/sensor.arest/">aREST sensor</a> but with an external Python script. It should give you an idea about interfacing with devices which are exposing a RESTful API.</p>
 
 <p>The one-line script to retrieve a value is shown below. Of course would it be possible to use this directly in the <code class="highlighter-rouge">configuration.yaml</code> file but need extra care about the quotation marks.</p>
 

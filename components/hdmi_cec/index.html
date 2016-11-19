@@ -110,21 +110,33 @@
 </code></pre>
 </div>
 
-<p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi-all-in-one/">Raspberry Pi AIO</a> the command would be as follows.</p>
+<p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi-all-in-one/">Raspberry Pi All-In-One installation</a> the command would be as follows.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
 </code></pre>
 </div>
 
 <p class="note">If after symlinking and adding <code class="highlighter-rouge">hdmi_cec:</code> to your configuration you are getting the following error in your logs, 
-<code class="highlighter-rouge">* failed to open vchiq instance</code> you will also need to add the user account Home Asssistant runs under, to the <code class="highlighter-rouge">video</code> group. To add the Home Assisitant’s user account to the <code class="highlighter-rouge">video</code> group, run the following command. <code class="highlighter-rouge">$ usermod -a -G video &lt;hass_user_account&gt;</code>
+<code class="highlighter-rouge">* failed to open vchiq instance</code> you will also need to add the user account Home Asssistant runs under, to the <code class="highlighter-rouge">video</code> group. To add the Home Assistant user account to the <code class="highlighter-rouge">video</code> group, run the following command. <code class="highlighter-rouge">$ usermod -a -G video &lt;hass_user_account&gt;</code>
 </p>
 
 <h2><a class="title-link" name="testing-your-installation" href="#testing-your-installation"></a> Testing your installation</h2>
 
 <ul>
-  <li>Login to Raspberry Pi <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
-  <li>at the command line type: <code class="highlighter-rouge">echo scan | cec-client -s -d 1</code></li>
+  <li>Login to Raspberry Pi</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ssh pi@your_raspberry_pi_ip
+</code></pre>
+</div>
+<ul>
+  <li>at the command line type:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">echo </span>scan | cec-client -s -d 1
+</code></pre>
+</div>
+<ul>
   <li>This will give you the list of devices that are on the bus</li>
 </ul>
 
