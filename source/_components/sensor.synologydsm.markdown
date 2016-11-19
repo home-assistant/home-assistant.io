@@ -16,10 +16,6 @@ ha_iot_class: depends
 
 This `synologydms` sensor allows getting various statistics from your [Synology NAS](https://www.synology.com).
 
-<p class='note warning'>
-This sensor will wake up your Synology NAS if it's in hibernation mode.
-</p>
-
 To use the `synologydsm` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -34,12 +30,19 @@ sensor:
       - memory_real_usage
       - network_up
 ```
-Note: After booting Home Assistant it can take up to 15 minutes for the sensors to show up. This is due to the fact that sensors are created after Home Assistant has fully been initialized.
+
+<p class='note'>
+After booting Home Assistant it can take up to 15 minutes for the sensors to show up. This is due to the fact that sensors are created after Home Assistant has fully been initialized.
+</p>
+
+<p class='note warning'>
+This sensor will wake up your Synology NAS if it's in hibernation mode.
+</p>
 
 Configuration variables:
 
 - **host** (*Required*): The IP address of the Synology NAS to monitor
-- **port** (*Optional*): The port number on which the Synology NAS is reachable. Defaults to `5000`. 
+- **port** (*Optional*): The port number on which the Synology NAS is reachable. Defaults to `5000`.
 - **username** (*Required*): An user to connect to the Synology NAS (a separate account is advised, see the Separate User Configuration section below for details).
 - **password** (*Required*): The password of the user to connect to the Synology NAS.
 - **volumes** (*Optional*): Array of volumes to monitor. Defaults to all volumes.
@@ -78,6 +81,6 @@ Configuration variables:
 
 Separate User Configuration:
 
-Due to the nature of the Synology DSM API it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module. 
+Due to the nature of the Synology DSM API it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
 
 When creating the user it is possible to deny access to all locations and applications. By doing this the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.

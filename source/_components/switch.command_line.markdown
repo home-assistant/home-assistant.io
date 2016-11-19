@@ -38,6 +38,10 @@ Configuration variables:
     - **value_template** (*Optional*): If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on.
     - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
 
+A note on `friendly_name`:
+
+When set, the `friendly_name` had been previously used for API calls and backend configuration instead of the `object_id` ("identifier"), but [this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343) to make the `friendly_name` for display purposes only. This allows users to set an `identifier` that emphasizes uniqueness and predictability for API and config purposes but have a prettier `friendly_name` still show up in the UI. As an additional benefit, if a user wanted to change the `friendly_name` / display name (e.g. from "Kitchen Lightswitch" to "Kitchen Switch" or "Living Room Light", or remove the `friendly_name` altogether), he or she could do so without needing to change existing automations or API calls. See aREST device below for an example. 
+
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this switch.
@@ -51,13 +55,15 @@ The example below is doing the same as the [aREST switch](/components/switch.are
 switch:
   platform: command_line
   switches:
-    arest_pin4:
+    arest_pin_four:
       command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
       command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
       command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
       value_template: '{% raw %}{{ return_value == "1" }}{% endraw %}'
-      friendly_name: aREST Pin 4
+      friendly_name: Kitchen Lightswitch
 ```
+
+Given this example, in the UI one would see the `friendly_name` of "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the `entity_id` `switch.arest_pin_four`, which is what one would use in [`automation`](https://home-assistant.io/components/automation/) or in [API calls](https://home-assistant.io/developers/).
 
 ### {% linkable_title Shutdown your local host %}
 
