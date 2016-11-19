@@ -20,7 +20,7 @@ This platform allows you to connect to your [Google Calendars](https://calendar.
 
 Generate a Client ID and Client Secret on [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 
-1. To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+1. Follow the wizard using the following information.
 1. When it gets to the point of asking _Which API are you using?_ just click cancel.
 1. Click on the tab 'OAuth consent screen'
 1. Set 'Product name shown to users' to anything you want. We suggest Home-Assistant.
@@ -36,9 +36,8 @@ To integrate Google Calendar in Home Assistant, add the following section to you
 ```yaml
 # Example configuration.yaml entry
 google:
-  client_id: a384yb6ia83h4y68-USE-THE-VALUE-YOU-GENERATED
-  client_secret: kuhnih-USE-THE-VALUE-YOU-GENERATED
-  track_new_calendar: no
+  client_id: *Value_created_from_steps_above*
+  client_secret: *Value_created_from_steps_above*
 ```
 
 Configuration variables:
@@ -50,23 +49,6 @@ Configuration variables:
 The next steps will require you to have Home Assistant running.
 
 After you have it running complete the Google authentication that pops up. It will give you a url and a code to enter. This will grant your Home Assistant service access to all the Google Calendars that the account you authenticate with can read. This is a Read-Only view of these calendars.
-
-
-### {% linkable_title Sensor attributes %}
-
- - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
-
- - **all_day**: `True`/`False` if this is an all day event. Will be `False` if there is no event found.
-
- - **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting`
-
- - **description**: The event description.
-
- - **location**: The event Location.
-
- - **start_time**: Start time of event.
-
- - **end_time**: End time of event.
 
 
 ### {% linkable_title Calendar Configuration %}
@@ -99,18 +81,35 @@ Variables:
 
 - **entities**: Yes, you can have multiple sensors for a calendar!
 
-  - **device_id**: The name that all your automations/scripts will use to reference this device
+  - **device_id**: (*Required*): The name that all your automations/scripts will use to reference this device
   
-  - **name**: What is the name of your sensor that you'll see in the UI
+  - **name**: (*Required*): What is the name of your sensor that you'll see in the UI
   
-  - **track**: Should we create a sensor `True` or ignore it `False`?
+  - **track**: (*Required*): Should we create a sensor `True` or ignore it `False`?
   
-  - **search**: (*Optional*) If set will only trigger for matched events
+  - **search**: (*Optional*): If set will only trigger for matched events
   
-  - **offset**: (*Optional*) A set of characters that preceed a number in the event title for desginating a pre-trigger state change on the sensor. (Default: `!!`)
+  - **offset**: (*Optional*): A set of characters that preceed a number in the event title for desginating a pre-trigger state change on the sensor. (Default: `!!`)
   
 From this we will end up with the binary sensors `calendar.test_unimportant` and `calendar.test_important` which will toggle themselves on/off based on events on the same calendar that match the search value set for each. You'll also have a sensor `calendar.test_everything` that will not filter events out and always show the next event available.
 
 But what if you only wanted it to toggle based on all events? Just leave out the *search* parameter.
 
 **Note**: If you use a `#` sign for search then wrap it up. It's better to be safe!
+
+
+### {% linkable_title Sensor attributes %}
+
+ - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
+
+ - **all_day**: `True`/`False` if this is an all day event. Will be `False` if there is no event found.
+
+ - **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting`
+
+ - **description**: The event description.
+
+ - **location**: The event Location.
+
+ - **start_time**: Start time of event.
+
+ - **end_time**: End time of event.
