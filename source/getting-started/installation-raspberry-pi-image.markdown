@@ -54,7 +54,7 @@ $ ssh pi@ip-address-of-pi
 
 Windows users start [Putty][ssh-putty], enter the IP address of the Raspberry Pi in the *Host name* field and port 22 in the *Port* field. Then click *Open* and a terminal window will open. Enter the credentials. Default user name is `pi` and password is `raspberry`.
 
-Starting with Windows 10 anniversary update, you can use the built-in '[Bash on Windows][bash-windows]' to use SSH without the need to download or install a 3rd party tool. 
+Optionally, starting with Windows 10 anniversary update, you can use the built-in '[Bash on Windows][bash-windows]' to use SSH if your in Developer mode and have enabled the "Windows Subsystem for Linux (beta)" feature.
 
 #### {% linkable_title Start/Stop/Restart Home Assistant on HaSSbian %}
 Log in as the `pi` account account and execute the following commands:
