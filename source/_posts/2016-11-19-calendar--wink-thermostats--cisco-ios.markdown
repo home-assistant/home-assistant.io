@@ -1,15 +1,18 @@
---
+---
 layout: post
-title: "0.33: "
-description: ""
-date: 2016-11-14 03:04:05 +0000
-date_formatted: "November 14, 2016"
+title: "0.33: New Calendar component, Wink thermostats and Cisco IOS"
+description: "Continued our upgrade to Async, fixed tons of bugs and added a few new things."
+date: 2016-11-19 03:04:05 +0000
+date_formatted: "November 19, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
 comments: true
 categories: Release-Notes
 ---
 
+For this release we put a lot of focus on finishing our async upgrade and fix a bunch of bugs in the process.
+
+But a new release wouldn't be awesome if it didn't had some new goodies and this release is no different. This release includes a new calendar component by [@mnestor]. It comes now with Google Calendar support, which should allow you to automate things based on your calendar events!
 
 ## Changes
 
