@@ -43,6 +43,29 @@ $ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/pytho
 `* failed to open vchiq instance` you will also need to add the user account Home Asssistant runs under, to the `video` group. To add the Home Assisitant's user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
 </p>
 
+## {% linkable_title Testing your installation %}
+
+*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+*  at the command line type: `echo scan | cec-client -s -d 1`
+*  This will give you the list of devices that are on the bus
+
+```bash
+opening a connection to the CEC adapter...
+requesting CEC bus information ...
+CEC bus information
+===================
+device #4: Playback 1
+address:       3.0.0.0
+active source: no
+vendor:        Sony
+osd string:    BD
+CEC version:   1.4
+power status:  on
+language:      ???
+```
+
+**Note the address: line above this will be used to configure HA, this address is represented below as 3: BlueRay player**
+
 ## {% linkable_title Configuration Example %}
 
 In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
@@ -55,6 +78,7 @@ hdmi_cec:
       1: Fire TV Stick
       2: Chromecast
       3: Another Device
+    3: BlueRay player
 ```
 
 ## {% linkable_title Services %}

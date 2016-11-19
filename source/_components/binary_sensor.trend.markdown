@@ -41,7 +41,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title Temperature trend %}
 
-This example indicates `true` if the temperture is rising:
+This example indicates `true` if the temperature is rising:
 
 ```yaml
 binary_sensor:
@@ -53,7 +53,7 @@ binary_sensor:
         sensor_class: heat
 ```
 
-And this one indicates `true` if the temperture is falling:
+And this one indicates `true` if the temperature is falling:
 
 ```yaml
 binary_sensor:

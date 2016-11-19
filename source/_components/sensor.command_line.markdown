@@ -44,15 +44,15 @@ There are several ways to get the temperature of your hard drive. A simple solut
 $ hddtemp -n /dev/sda
 ```
 
-To use those information, the entry for a sensor in the `configuration.yaml` file will look like this.
+To use those information, the entry for a command-line sensor in the `configuration.yaml` file will look like this.
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: command_line
-  name: HD Temperature
-  command: "hddtemp -n /dev/sda"
-  unit_of_measurement: "°C"
+  - platform: command_line
+    name: HD Temperature
+    command: "hddtemp -n /dev/sda"
+    unit_of_measurement: "°C"
 ```
 
 ### {% linkable_title CPU temperature %}
@@ -68,14 +68,35 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
     value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
 ```
 
-The `correction_factor` will make sure that the value is shown in a useful format in the frontend.
+### {% linkable_title Monitoring the failed login attempt on HA %}
 
+If you want to get the fillowing in case you want to know if someone is hammering your server is open on the net
+
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: command_line
+    name: badlogin
+    command: grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log
+```
+
+Make sure to configure the logger to monitor the proper component at the proper level.
+
+```yaml
+# Example working logger settings that works
+logger:
+  default: critical
+  logs:
+    homeassistant.components.http: warning
+```
 
 ### {% linkable_title Details about the upstream Home Assistant release %}
 
 You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
 ```yaml
+sensor:
   - platform: command_line
     command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
     name: HA release
@@ -86,6 +107,7 @@ You can see directly in the frontend (**Developer tools** -> **About**) what rel
 If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value. 
 
 ```yaml
+sensor:
   - platform: command_line
     command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
     name: File value
@@ -115,8 +137,8 @@ To use the script you need to add something like the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: command_line
-  name: Brightness
-  command: "python3 /path/to/script/arest-value.py"
-  unit_of_measurement: "°C"
+  - platform: command_line
+    name: Brightness
+    command: "python3 /path/to/script/arest-value.py"
+    unit_of_measurement: "°C"
 ```

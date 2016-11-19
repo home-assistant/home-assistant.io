@@ -21,7 +21,7 @@ Requires PyBluez. If you are on Raspbian, make sure you first install `bluetooth
 </p>
 
 <p class='note warning'>
-Requires gattlib, which is not compatible with windows. This tracker won't work on windows!
+Requires gattlib, which is not compatible with Windows. This tracker won't work on Windows!
 </p>
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
@@ -35,13 +35,21 @@ device_tracker:
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g. fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
 
-BTLE tracking requires root privileges.
+<p class='note warning'>
+BT LE tracking requires root privileges.
+</p>
 
 For running Home Assistant as non root user we can give python3 the missing capabilities to access the bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
 ```bash
 $ sudo apt-get install libcap2-bin
 $ sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
+```
+
+If you have installed Home Assistant with [AIO](/getting-started/installation-raspberry-pi-all-in-one/), you need to do the following command, this will grant access to Home Assistant to run the required command.
+
+```bash
+$ sudo setcap cap_net_raw,cap_net_admin+eip /srv/hass/hass_venv/bin/python3
 ```
 
 A restart of Home Assistant is required.
