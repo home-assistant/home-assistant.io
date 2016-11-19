@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Turn on lights for 10 minutes after motion detected - Home Assistant</title>
+    <title>Examples using first light - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Turn on lights for 10 minutes when motion detected.">
+    <meta name="description" content="Automation examples that trigger lights in the morning.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/cookbook/turn_on_light_for_10_minutes_when_motion_detected/">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/automation_first_light/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Turn on lights for 10 minutes after motion detected">
+    <meta property="og:title" content="Examples using first light">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/cookbook/turn_on_light_for_10_minutes_when_motion_detected/">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/automation_first_light/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Turn on lights for 10 minutes when motion detected.">
+    <meta property="og:description" content="Automation examples that trigger lights in the morning.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Turn on lights for 10 minutes after motion detected">
-    <meta name="twitter:description" content="Turn on lights for 10 minutes when motion detected.">
+    <meta name="twitter:title" content="Examples using first light">
+    <meta name="twitter:description" content="Automation examples that trigger lights in the morning.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,52 +84,121 @@
   
   <header>
     <h1 class="title indent">
-      Turn on Lights for 10 Minutes After Motion Detected
+      Examples Using First Light
     </h1>
   </header>
   <hr class="divider">
   
 
-  <h4><a class="title-link" name="turn-on-lights-with-a-resettable-off-timer" href="#turn-on-lights-with-a-resettable-off-timer"></a> Turn on lights with a resettable off timer</h4>
+  #### <a class='title-link' name='create-an-input_boolean-in-your-configurationyaml' href='#create-an-input_boolean-in-your-configurationyaml'></a> Create an input_boolean in your configuration.yaml  
 
-<p>This recipe will turn on a light when there is motion and turn off the light when ten minutes has passed without any motion events.</p>
+```yaml
+input_boolean:
+  trigger_first_morning:
+    name: Waiting for first morning motion
+    icon: mdi:kettle
+```
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
-  <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on kitchen lights when there is movement</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.motion_sensor</span>
-      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.timed_lamp</span>
+#### <a class='title-link' name='the-main-automation' href='#the-main-automation'></a> The Main Automation  
 
-<span class="s">script</span><span class="pi">:</span>
-  <span class="s">timed_lamp</span><span class="pi">:</span>
-    <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Turn</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">lamp</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">timer"</span>
-    <span class="s">sequence</span><span class="pi">:</span>
-      <span class="c1"># Cancel ev. old timers</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_off</span>
-        <span class="s">data</span><span class="pi">:</span>
-           <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.timer_off</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen</span>
-      <span class="c1"># Set new timer</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.timer_off</span>
+```yaml
+## These first two control t input_boolean that allows the "first morning action" to occur
+## If the action is triggered, it will also disable this boolean. This assumes you have the sun platform enabled.
 
-  <span class="s">timer_off</span><span class="pi">:</span>
-    <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Turn</span><span class="nv"> </span><span class="s">off</span><span class="nv"> </span><span class="s">lamp</span><span class="nv"> </span><span class="s">after</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">minutes"</span>
-    <span class="s">sequence</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
-          <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen</span>
-</code></pre>
-</div>
+automation:
+#turns it on at 5am
+  - alias: Enable First Morning Trigger
+    trigger:
+      - platform: time
+        after: '5:00'
+    action: 
+      service: homeassistant.turn_on
+      entity_id: input_boolean.trigger_first_morning
+
+# turns it off an hour after sunrise
+  - alias: Disable First Morning Trigger
+    trigger:
+      - platform: sun
+        event: sunrise
+        offset: "01:00:00"
+    action: 
+      service: homeassistant.turn_off
+      entity_id: input_boolean.trigger_first_morning
+
+
+      
+# This is the main automation. It triggers when my motion sensor is triggered
+# (in this case, a motion sensor from a security system attached to my Vera)
+  - alias: First Morning Motion
+    trigger:
+      platform: state
+      entity_id: binary_sensor.livingroom_motion
+      to: 'on'
+    # only complete the automation if we're still waiting for the first motion
+    condition:
+        condition: state
+        entity_id: input_boolean.trigger_first_morning
+        state: 'on'
+        
+    action:
+      # turn off the "waiting" boolean regardless of whether lights will turn on
+      # so that this happens only once
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.trigger_first_morning
+        
+      # But only turn on lights if the living room and kitchen lights are off or dimmed
+      # If a condition tests false, the automation will end 
+      - condition: and
+        conditions: 
+          - condition: numeric_state
+            entity_id: light.livingroom_ec
+            # if light is off, force a 0, otherwise use the brightness value
+            value_template: '{% if states.light.livingroom_ec.state == "on"  %}{{ states.light.livingroom_ec.attributes.brightness }}{% else %}0{% endif %}'
+            # brightness below 50% (255 = 100%)
+            below: 127
+          - condition: numeric_state
+            entity_id: light.kitchen_bar
+            value_template: '{% if states.light.kitchen_bar.state == "on"  %}{{ states.light.kitchen_bar.attributes.brightness }}{% else %}0{% endif %}'
+            below: 127
+          - condition: numeric_state
+            entity_id: light.kitchen_ceiling
+            value_template: '{% if states.light.kitchen_ceiling.state == "on"  %}{{ states.light.kitchen_ceiling.attributes.brightness }}{% else %}0{% endif %}'
+            below: 127
+                
+      # Trigger a scene
+      # You could add as many services or scenes as you'd like
+      - service: scene.turn_on
+        entity_id: scene.morning_first_motion
+
+      
+```
+
+#### <a class='title-link' name='the-scene' href='#the-scene'></a> The Scene 
+
+Here is the Scene that is called via the Automations above.
+
+```yaml
+# here's the scene that gets called. Lights in 
+# my living room and kitchen turn on.
+scene:
+  - name: Morning First Motion
+    entities:
+      light.kitchen_ceiling:
+        state: on
+        brightness: 127
+      light.kitchen_bar:
+        state: on
+        brightness: 178
+      light.kitchen_above_cabinet:
+        state: on
+        brightness: 178
+      light.livingroom_ec:
+        state: on
+        brightness: 153
+      light.livingroom_track:
+        state: on
+        brightness: 153
+```
 
 
 </article>
@@ -143,7 +212,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/turn_on_light_for_10_minutes_when_motion_detected.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/automation_first_light'>Edit this page on GitHub</a></div>
   <div class='section'>
     <a href='/cookbook'>Back to the cookbook</a>
   </div>
@@ -160,7 +229,7 @@
               <a href='/cookbook/automation_flashing_lights/'>Examples for flashing lights</a>
           </li>
           <li>
-              <a href='/cookbook/automation_first_light/'>Examples using first light</a>
+              Examples using first light
           </li>
           <li>
               <a href='/cookbook/automation_sun/'>Examples using the sun</a>
@@ -190,7 +259,7 @@
               <a href='/cookbook/track_battery_level/'>Track your battery level</a>
           </li>
           <li>
-              Turn on lights for 10 minutes after motion detected
+              <a href='/cookbook/turn_on_light_for_10_minutes_when_motion_detected/'>Turn on lights for 10 minutes after motion detected</a>
           </li>
           <li>
               <a href='/cookbook/automation_using_timeinterval_inputboolean/'>Using time interval and input boolean</a>
