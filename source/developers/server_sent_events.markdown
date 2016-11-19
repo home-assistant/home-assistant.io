@@ -44,7 +44,7 @@ Visit [http://localhost:8123/local/sse.html](http://localhost:8123/local/sse.htm
 
 ## {% linkable_title Examples %}
 
-A simple way to consume server-sent events is to use a command-line http client like [httpie][https://httpie.org/]. Installation info is on the site (if you use Homebrew, it's `brew install httpie`). Once installed, run this snippet from your terminal:
+A simple way to consume server-sent events is to use a command-line http client like [httpie](https://httpie.org/). Installation info is on the site (if you use Homebrew, it's `brew install httpie`). Once installed, run this snippet from your terminal:
 
 ```bash
 $ http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD content-type:application/json
