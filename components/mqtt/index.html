@@ -104,6 +104,16 @@
   <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
   <span class="s">certificate</span><span class="pi">:</span> <span class="s">/home/paulus/dev/addtrustexternalcaroot.crt</span>
   <span class="s">protocol</span><span class="pi">:</span> <span class="s">3.1</span>
+  <span class="s">birth_message</span><span class="pi">:</span>
+    <span class="s">topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">hass/status'</span>
+    <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">online'</span>
+    <span class="s">qos</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">will_message</span><span class="pi">:</span>
+    <span class="s">topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">hass/status'</span>
+    <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">offline'</span>
+    <span class="s">qos</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
 
@@ -120,6 +130,22 @@
   <li><strong>client_key</strong> (<em>Optional</em>): Client key (example: <code class="highlighter-rouge">/home/user/owntracks/cookie.key</code>)</li>
   <li><strong>client_cert</strong> (<em>Optional</em>): Client certificate (example: <code class="highlighter-rouge">/home/user/owntracks/cookie.crt</code>)</li>
   <li><strong>protocol</strong> (<em>Optional</em>): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.</li>
+  <li><strong>birth_message</strong> (<em>Optional</em>):
+    <ul>
+      <li><strong>topic</strong> (<em>Required</em>): The MQTT topic to publish the message.</li>
+      <li><strong>payload</strong> (<em>Required</em>): The message content.</li>
+      <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the topic. Default is 0.</li>
+      <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not. Defaults to <code class="highlighter-rouge">True</code>.</li>
+    </ul>
+  </li>
+  <li><strong>will_message</strong> (<em>Optional</em>):
+    <ul>
+      <li><strong>topic</strong> (<em>Required</em>): The MQTT topic to publish the message.</li>
+      <li><strong>payload</strong> (<em>Required</em>): The message content.</li>
+      <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the topic. Default is 0.</li>
+      <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not. Defaults to <code class="highlighter-rouge">True</code>.</li>
+    </ul>
+  </li>
 </ul>
 
 <h2><a class="title-link" name="picking-a-broker" href="#picking-a-broker"></a> Picking a broker</h2>
@@ -495,6 +521,9 @@ Home Assistant will automatically load the correct certificate if you connect to
         </li>
         <li>
             <a href='/components/mysensors/'>MySensors</a>
+        </li>
+        <li>
+            <a href='/components/neato/'>Neato Robotics</a>
         </li>
         <li>
             <a href='/components/nest/'>Nest</a>

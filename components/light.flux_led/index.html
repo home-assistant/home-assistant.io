@@ -153,6 +153,22 @@
 </code></pre>
 </div>
 
+<p>Will add a light with out the white mode:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">192.168.1.10</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
+      <span class="s">mode</span><span class="pi">:</span> <span class="s2">"</span><span class="s">rgb"</span>
+</code></pre>
+</div>
+
+<p>Will add a light with white mode (default). Changing the brightness will set the bulb in white mode:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">192.168.1.10</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
+      <span class="s">mode</span><span class="pi">:</span> <span class="s2">"</span><span class="s">rgbw"</span>
+</code></pre>
+</div>
+
 
 </article>
 
@@ -220,6 +236,9 @@
         </li>
         <li>
             <a href='/components/light.mqtt/'>MQTT Light</a>
+        </li>
+        <li>
+            <a href='/components/light.mqtt_template/'>MQTT Template Light</a>
         </li>
         <li>
             <a href='/components/light.mysensors/'>MySensors Light</a>

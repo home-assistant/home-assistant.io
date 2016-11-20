@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-19T23:39:26+00:00</updated>
+  <updated>2016-11-20T00:05:39+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.33: New Calendar component, Wink thermostats and Cisco IOS]]></title>
+    <link href="https://home-assistant.io/blog/2016/11/19/calendar-wink-thermostats-cisco-ios/"/>
+    <updated>2016-11-19T03:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/11/19/calendar--wink-thermostats--cisco-ios</id>
+    <content type="html"><![CDATA[<p>For this release we put a lot of focus on finishing our async upgrade and fix a bunch of bugs in the process.</p>
+
+<p>But a new release wouldn’t be awesome if it didn’t had some new goodies and this release is no different. This release includes a new calendar component by <a href="https://github.com/mnestor">@mnestor</a>. It comes now with Google Calendar support, which should allow you to automate things based on your calendar events!</p>
+
+<h3><a class="title-link" name="changes" href="#changes"></a> Changes</h3>
+
+<ul>
+  <li>New <a href="https://home-assistant.io/components/calendar.google/">calendar component</a> including Google support (<a href="https://github.com/mnestor">@mnestor</a>)</li>
+  <li>Final core upgrade for async (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li><a href="https://home-assistant.io/components/neato/">Neato</a> refactor + sensor support (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Device Tracker: <a href="https://home-assistant.io/components/device_tracker.swisscom/">Swisscom Internet-Box</a> now supported (<a href="https://github.com/betrisey">@betrisey</a>)</li>
+  <li>Device Tracker - Locative: <a href="https://home-assistant.io/components/device_tracker.locative/">Map support</a> added (<a href="https://github.com/danijelst">@danijelst</a>)</li>
+  <li><a href="https://home-assistant.io/components/emulated_hue/">Emulated Hue</a> will now sent request info as variables to scripts that get called (<a href="https://github.com/bah2830">@bah2830</a>)</li>
+  <li>Wink: <a href="https://home-assistant.io/components/climate.wink/">Thermostats</a> are now supported (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Light: New <a href="https://home-assistant.io/components/light.mqtt_template/">MQTT template</a> platform for custom communication (<a href="https://github.com/Diaoul">@Diaoul</a>)</li>
+  <li><a href="https://home-assistant.io/components/switch.wake_on_lan/">Wake on Lan switch</a> can now configure a custom OFF script (<a href="https://github.com/Chris-V">@Chris-V</a>)</li>
+  <li>Device Tracker: <a href="https://home-assistant.io/components/device_tracker.cisco_ios/">Cisco IOS</a> now supported (<a href="https://github.com/fbradyirl">@fbradyirl</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.pvoutput/">PVOutput</a> snesor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Sensor: Show count of connected clients to the <a href="https://home-assistant.io/components/sensor.api_stream/">API stream</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix platforms from doing I/O in the event loop (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Switch - <a href="https://home-assistant.io/components/switch.tplink/">TP Link</a>: Add daily consumption (<a href="https://github.com/">@gonzalezcalleja</a>)</li>
+  <li>Templates: Add new <code class="highlighter-rouge">strptime</code> <a href="https://home-assistant.io/topics/templating/#home-assistant-template-extensions/">template function</a> for parsing times (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li><a href="https://home-assistant.io/components/http/">HTTP</a> component: Fix X-Forwarded-For parsing (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Switch - <a href="https://home-assistant.io/components/switch.command_line/">Command Line</a>: Use configured object_id for entity IDs (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
+  <li><a href="https://home-assistant.io/components/mqtt/">MQTT</a> now supports birth and last will messages (<a href="https://github.com/bestlibre">@bestlibre</a>)</li>
+  <li>Better handling of accented characters in slugify (<a href="https://github.com/magicus">@magicus</a>)</li>
+  <li>Alarm Control Panel - <a href="https://home-assistant.io/components/envisalink/">Envisalink</a>: Add new keypress service (<a href="https://github.com/jnimmo">@jnimmo</a>)</li>
+  <li>Light - <a href="https://home-assistant.io/components/light.hue/">Hue</a>: Add service to activate scenes defined in Hue app (<a href="https://github.com/sdague">@sdague</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now <code class="highlighter-rouge">Tèst Mörê</code> will become <code class="highlighter-rouge">test_more</code> instead of <code class="highlighter-rouge">tst_mr</code>.</li>
+  <li>Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.32: Hacktoberfest, InfluxDB sensor, Error reporting, and Weather]]></title>
@@ -2179,65 +2224,6 @@ SQLite version 3.11.0 2016-02-15 17:29:24
 </p>
 
 <p>Most of the graphs are pretty ugly. So, further beautification will be needed. If you have created a nice report including some amazing graphs then the Home Assistant community would be grateful for sharing them in our <a href="https://community.home-assistant.io/">forum</a>.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.24: SQLAlchemy, KNX, Join by Joaoapps, and SimpliSafe.]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/"/>
-    <updated>2016-07-16T12:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/16/sqlalchemy-knx-join-simplisafe</id>
-    <content type="html"><![CDATA[<p>It’s time for Home Assistant 0.24 and it’s full of new integration for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.</p>
-
-<p><a href="https://www.mapquest.com/">MapQuest</a> discontinued their free and direct tile access by Monday, July 11, 2016. With <a href="https://carto.com/">CARTO</a> we found a very cool and suitable solution. They allow us to use their tile for the map. Thank you, <a href="https://carto.com/">CARTO</a>.</p>
-
-<p><a href="https://github.com/rhooper/">Roy Hooper</a> did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use <strong>any</strong> SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install SQLAlchemy
-<span class="gp">$ </span>hass --script db_migrator --config /path/to/config
-</code></pre>
-</div>
-
-<p>You can omit the <code class="highlighter-rouge">--config</code> option if you use the default configuration directory. Run the script with <code class="highlighter-rouge">--help</code> to get more options.</p>
-
-<p><img src="https://home-assistant.io/images/supported_brands/yahooweather.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/joaoapps_join.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/knx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/tp-link.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Config: Improved support for storing <a href="https://home-assistant.io/topics/secrets/">secrets</a> (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
-  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.yweather/">Yahoo! Weather</a> (<a href="https://github.com/pvizeli/">@pvizeli</a>)</li>
-  <li>Add scripts to command line to expose advanced options (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Alarm: <a href="https://home-assistant.io/components/alarm_control_panel.simplisafe/">SimpliSafe</a> is now supported (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
-  <li>Core: Switch to SQLAlchemy for the Recorder component (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
-  <li>Support for <a href="https://home-assistant.io/components/joaoapps_join/">Join by Joaoapps</a> added incl. <a href="https://home-assistant.io/components/notify.joaoapps_join/">Join Notify</a> (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>Media Player: <a href="https://home-assistant.io/components/media_player.plex/">Plex</a> will no longer spam the logs if server goes offline (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.apcupsd/">APCUPSd Sensor</a> now supports names, icons and units (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
-  <li>Lock: <a href="https://home-assistant.io/components/lock.verisure/">Verisure</a> entities will now use name instead of serial number for entity id (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li><a href="https://home-assistant.io/components/statsd/">StatsD</a> can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
-  <li>Support for <a href="https://home-assistant.io/components/knx/">KNX</a> added (<a href="https://github.com/usul27">@usul27</a>)</li>
-  <li>Switch: <a href="https://home-assistant.io/components/switch.tplink/">TPLink</a> HS100/HS110 now supported (<a href="https://github.com/GadgetReactor">@GadgetReactor</a>)</li>
-  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> (<a href="https://github.com/danielhiversen">@Danielhiversen</a>)</li>
-  <li>Tweaks to <a href="https://home-assistant.io/components/zwave/">Z-Wave</a> (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/light/">Brightness</a> now clamped to 0-255 (<a href="https://github.com/keatontaylor">@keatontaylor</a>)</li>
-  <li>Thermostat: <a href="https://home-assistant.io/components/thermostat.radiotherm/">Radiotherm</a> HVAC mode now supported (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.google_travel_time/">Google Travel</a> times can now use dynamic locations for start/end (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
-  <li>Notify: Allow sending photos to <a href="https://home-assistant.io/components/notify.telegram/">Telegram</a> (<a href="https://github.com/pvizeli/">@pvizeli</a>)</li>
-  <li>Frontend: Improve loading times (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Frontend: Fix stream not reconnecting after standby (<a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>Frontend: Wait up to two seconds for new state before resetting toggle after toggling state (<a href="https://github.com/balloob/">@balloob</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0241---july-21" href="#hotfix-0241---july-21"></a> Hotfix 0.24.1 - July 21</h3>
-
-<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to <a href="https://github.com/n8henrie/">@n8henrie</a> and <a href="https://github.com/AlucardZero/">@AlucardZero</a>.</p>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li>Migrating existing databases (see above).</li>
-  <li>The <a href="https://home-assistant.io/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
-  <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
-</ul>
 
 ]]></content>
   </entry>

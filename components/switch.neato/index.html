@@ -92,28 +92,7 @@
 
   <p>The <code class="highlighter-rouge">neato</code> switch platform allows you to control your <a href="https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/">Neato Botvac Connected</a>.</p>
 
-<p>This will automatically add a switch for each Botvac Connected that you have. The switch will start a full home cleaning when turned ON and return the robot to base when turned OFF.</p>
-
-<p>To enable this switch in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">switch</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">neato</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-</code></pre>
-</div>
-
-<p>Configuration variables:</p>
-
-<ul>
-  <li><strong>username</strong> (<em>Required</em>): Username for the Neato account.</li>
-  <li><strong>password</strong> (<em>Required</em>): Password for the Neato account.</li>
-</ul>
-
-<p class="note">
-The Home Assistant Neato platform has only be tested with a Botvac Connected. There is no support for the Botvac D3 Connected and Botvac D5 Connected robots at this time.
-</p>
+<p>To add <code class="highlighter-rouge">neato</code> switch to your installation, follow instructions in <a href="/components/neato/">Neato component</a>.</p>
 
 
 </article>
@@ -137,6 +116,17 @@ The Home Assistant Neato platform has only be tested with a Botvac Connected. Th
     <div class='section'>
       This is a platform for
       <a href='/components/switch/'>the Switches component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/neato/'>
+          Neato Robotics
+        </a></li>
+        <li><a href='/components/sensor.neato/'>
+          Neato Robotics Sensor
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Switch</h1>

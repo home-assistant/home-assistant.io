@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>This <code class="highlighter-rouge">synologydsm</code> sensor allows getting various statistics from your <a href="https://www.synology.com">Synology NAS</a>. Please note that using this sensor wakes up your Synology NAS if in hibernation mode.</p>
+  <p>This <code class="highlighter-rouge">synologydms</code> sensor allows getting various statistics from your <a href="https://www.synology.com">Synology NAS</a>.</p>
 
 <p>To use the <code class="highlighter-rouge">synologydsm</code> sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -106,7 +106,14 @@
       <span class="pi">-</span> <span class="s">network_up</span>
 </code></pre>
 </div>
-<p>Note: After booting Home Assistant it can take up to 15 minutes for the sensors to show up. This is due to the fact that sensors are created after Home Assistant has fully been initialized.</p>
+
+<p class="note">
+After booting Home Assistant it can take up to 15 minutes for the sensors to show up. This is due to the fact that sensors are created after Home Assistant has fully been initialized.
+</p>
+
+<p class="note warning">
+This sensor will wake up your Synology NAS if it’s in hibernation mode.
+</p>
 
 <p>Configuration variables:</p>
 
@@ -188,6 +195,9 @@
             <a href='/components/sensor.apcupsd/'>APCUPSd Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.api_stream/'>API Stream Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.arwn/'>ARWN Sensor</a>
         </li>
         <li>
@@ -195,6 +205,9 @@
         </li>
         <li>
             <a href='/components/sensor.bloomsky/'>BloomSky Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.broadlink/'>Broadlink RM2 and A1 sensor</a>
         </li>
         <li>
             <a href='/components/sensor.command_line/'>Command line Sensor</a>
@@ -252,6 +265,9 @@
         </li>
         <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.nest/'>Nest Sensor</a>

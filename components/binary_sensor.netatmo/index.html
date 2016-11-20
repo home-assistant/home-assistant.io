@@ -104,6 +104,7 @@
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">netatmo</span>
   <span class="s">home</span><span class="pi">:</span> <span class="s">home_name</span>
+  <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
   <span class="s">cameras</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">camera_name1</span>
   <span class="s">monitored_conditions</span><span class="pi">:</span>
@@ -117,6 +118,7 @@
 
 <ul>
   <li><strong>home</strong> (<em>Optional</em>): Will use the cameras of this home only.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): The binary sensors will reflect the events from the last X minutes (default: 15)</li>
   <li><strong>cameras</strong> array (<em>Optional</em>): Cameras to use. Multiple enties allowed.
     <ul>
       <li>‘camera_name’: Name of the camera to display.</li>

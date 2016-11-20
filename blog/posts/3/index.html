@@ -83,6 +83,97 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/">0.24: SQLAlchemy, KNX, Join by Joaoapps, and SimpliSafe.</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-07-16T12:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 16, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>It’s time for Home Assistant 0.24 and it’s full of new integration for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.</p>
+
+<p><a href="https://www.mapquest.com/">MapQuest</a> discontinued their free and direct tile access by Monday, July 11, 2016. With <a href="https://carto.com/">CARTO</a> we found a very cool and suitable solution. They allow us to use their tile for the map. Thank you, <a href="https://carto.com/">CARTO</a>.</p>
+
+<p><a href="https://github.com/rhooper/">Roy Hooper</a> did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use <strong>any</strong> SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install SQLAlchemy
+<span class="gp">$ </span>hass --script db_migrator --config /path/to/config
+</code></pre>
+</div>
+
+<p>You can omit the <code class="highlighter-rouge">--config</code> option if you use the default configuration directory. Run the script with <code class="highlighter-rouge">--help</code> to get more options.</p>
+
+<p><img src="/images/supported_brands/yahooweather.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/joaoapps_join.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/knx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/tp-link.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Config: Improved support for storing <a href="/topics/secrets/">secrets</a> (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
+  <li>Sensor: Support for <a href="/components/sensor.yweather/">Yahoo! Weather</a> (<a href="https://github.com/pvizeli/">@pvizeli</a>)</li>
+  <li>Add scripts to command line to expose advanced options (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Alarm: <a href="/components/alarm_control_panel.simplisafe/">SimpliSafe</a> is now supported (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
+  <li>Core: Switch to SQLAlchemy for the Recorder component (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
+  <li>Support for <a href="/components/joaoapps_join/">Join by Joaoapps</a> added incl. <a href="/components/notify.joaoapps_join/">Join Notify</a> (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>Media Player: <a href="/components/media_player.plex/">Plex</a> will no longer spam the logs if server goes offline (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
+  <li>Sensor: <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> now supports names, icons and units (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
+  <li>Lock: <a href="/components/lock.verisure/">Verisure</a> entities will now use name instead of serial number for entity id (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li><a href="/components/statsd/">StatsD</a> can now also export attributes (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
+  <li>Support for <a href="/components/knx/">KNX</a> added (<a href="https://github.com/usul27">@usul27</a>)</li>
+  <li>Switch: <a href="/components/switch.tplink/">TPLink</a> HS100/HS110 now supported (<a href="https://github.com/GadgetReactor">@GadgetReactor</a>)</li>
+  <li>Stability fixes for <a href="//components/rfxtrx/">RFXtrx</a> (<a href="https://github.com/danielhiversen">@Danielhiversen</a>)</li>
+  <li>Tweaks to <a href="/components/zwave/">Z-Wave</a> (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>Light: <a href="/components/light/">Brightness</a> now clamped to 0-255 (<a href="https://github.com/keatontaylor">@keatontaylor</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.radiotherm/">Radiotherm</a> HVAC mode now supported (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
+  <li>Sensor: <a href="/components/sensor.google_travel_time/">Google Travel</a> times can now use dynamic locations for start/end (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
+  <li>Notify: Allow sending photos to <a href="/components/notify.telegram/">Telegram</a> (<a href="https://github.com/pvizeli/">@pvizeli</a>)</li>
+  <li>Frontend: Improve loading times (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Frontend: Fix stream not reconnecting after standby (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Frontend: Wait up to two seconds for new state before resetting toggle after toggling state (<a href="https://github.com/balloob/">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0241---july-21" href="#hotfix-0241---july-21"></a> Hotfix 0.24.1 - July 21</h3>
+
+<p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to <a href="https://github.com/n8henrie/">@n8henrie</a> and <a href="https://github.com/AlucardZero/">@AlucardZero</a>.</p>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>Migrating existing databases (see above).</li>
+  <li>The <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+  <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
+</ul>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/07/06/pocketchip-running-home-assistant/">PocketCHIP running Home Assistant</a>
   </h1>
   
@@ -699,87 +790,6 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
 
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/VGl3KTrYo6s" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/05/21/release-020/">0.20: Roku, Last.fm, AWS, Twilio</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-05-21T18:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 21, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/05/21/release-020/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><img src="/images/supported_brands/roku.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/lastfm.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/gpmdp.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/twilio.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/aws_lambda.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/aws_sns.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/aws_sqs.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
-
-<p>Tons of new supported things in 0.20.</p>
-
-<ul>
-  <li>Restarting now supported without forking (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
-  <li>Add <a href="/components/recorder/">purge days option</a> to recorder component (<a href="https://github.com/justyns">@justyns</a>, <a href="https://github.com/infamy">@infamy</a>)</li>
-  <li>Generic load_platform mechanism for entity components (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Template: new <a href="/topics/templating/#home-assistant-template-extensions"><code class="highlighter-rouge">relative_time</code></a> function to render ie. <code class="highlighter-rouge">7 seconds ago</code> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Sensor: <a href="/components/sensor.supervisord/">supervisord</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li>Docker: we should no longer get SSL errors with requests (<a href="https://github.com/lwis">@lwis</a>)</li>
-  <li>Media Player: <a href="/components/media_player.gpmdp/">Google Play Music Desktop Player</a> now supported (<a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
-  <li>Notify: <a href="/components/notify.twilio_sms/">Twilio SMS</a> platform added (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">Asus WRT</a> will now default to SSH (but telnet is still an option) (<a href="https://github.com/froz">@froz</a>)</li>
-  <li>Support <a href="/components/sensor.nest/">Nest Protect</a> smoke alarms (<a href="https://github.com/khabi">@khabi</a>)</li>
-  <li>Configurator: allow supplying a link to the user (<a href="https://github.com/mnestor">@mnestor</a>)</li>
-  <li>Media Player: <a href="/components/media_player.roku/">Roku</a> now supported (<a href="https://github.com/bah2830">@bah2830</a>)</li>
-  <li>Sensor: <a href="/components/sensor.lastfm/">Last.fm</a> now supported (<a href="https://github.com/darookee">@darookee</a>, <a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
-  <li>Notify: Amazon <a href="/components/notify.aws_lambda/">Lambda</a>, <a href="/components/notify.aws_sns/">SNS</a>, <a href="/components/notify.aws_sqs/">SQS</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Light: allow human readable colors in turn_on command (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>YAML: new include dir options <a href="/topics/splitting_configuration/#advanced-usage"><code class="highlighter-rouge">!include_dir_merge_list</code></a> and <a href="/topics/splitting_configuration/#advanced-usage"><code class="highlighter-rouge">!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li>Media Player: <a href="/components/media_player.lg_netcast/">LG Netcast TVs</a> now supported (<a href="https://github.com/wokar">@wokar</a>)</li>
-  <li>Media Player: Allow enqueuing media on Sonos (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
-  <li>Notify: <a href="/components/notify.ecobee/">Ecobee thermostats</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>Sensor: <a href="/components/sensor.moldindicator/">Mold indicator</a> added (<a href="https://github.com/xifle">@xifle</a>)</li>
-  <li>Export to <a href="/components/logentries/">Logentries</a> support added (<a href="https://github.com/omgapuppy">@omgapuppy</a>)</li>
-  <li>Group more info dialog allows control of group domain if available (<a href="https://github.com/fignuts">@fignuts</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li>Asus WRT will now default to SSH with Telnet being an option</li>
-</ul>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">asuswrt</span>
-  <span class="s">protocol</span><span class="pi">:</span> <span class="s">telnet</span>
-</code></pre>
 </div>
 
 

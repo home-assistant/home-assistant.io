@@ -227,6 +227,37 @@ The light component supports multiple entries in <code>configuration.yaml</code>
   </tbody>
 </table>
 
+<h3><a class="title-link" name="service-lighthue_activate_scene" href="#service-lighthue_activate_scene"></a> Service <code class="highlighter-rouge">light.hue_activate_scene</code></h3>
+
+<p>If you have hue lights, there is a service call to directly activate
+scenes that are stored in your hue hub. This will have all the bulbs
+transitioned at once, instead of one at a time using standard scenes
+in Home Assistant.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">group_name</code></td>
+      <td>no</td>
+      <td>The group/room name of the lights. Find this in the Hue official app.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">scene_name</code></td>
+      <td>no</td>
+      <td>The name of the Scene. Find this in the Hue official app.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Note</em>: <code class="highlighter-rouge">group_name</code> is not linked to Home Assistant group name.</p>
+
 
 </article>
 
@@ -282,6 +313,9 @@ The light component supports multiple entries in <code>configuration.yaml</code>
           </a></li>
           <li><a href='/components/light.mqtt/'>
             MQTT Light
+          </a></li>
+          <li><a href='/components/light.mqtt_template/'>
+            MQTT Template Light
           </a></li>
           <li><a href='/components/light.mysensors/'>
             MySensors Light

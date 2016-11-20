@@ -103,34 +103,45 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">wunderground</span>
     <span class="s">api_key</span><span class="pi">:</span> <span class="s">your_api_key</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">weather</span>
-      <span class="pi">-</span> <span class="s">temp_f</span>
-      <span class="pi">-</span> <span class="s">temp_c</span>
-      <span class="pi">-</span> <span class="s">station_id</span>
+      <span class="pi">-</span> <span class="s">alerts</span>
+      <span class="pi">-</span> <span class="s">dewpoint_c</span>
+      <span class="pi">-</span> <span class="s">dewpoint_f</span>
+      <span class="pi">-</span> <span class="s">dewpoint_string</span>
       <span class="pi">-</span> <span class="s">feelslike_c</span>
       <span class="pi">-</span> <span class="s">feelslike_f</span>
       <span class="pi">-</span> <span class="s">feelslike_string</span>
       <span class="pi">-</span> <span class="s">heat_index_c</span>
       <span class="pi">-</span> <span class="s">heat_index_f</span>
       <span class="pi">-</span> <span class="s">heat_index_string</span>
-      <span class="pi">-</span> <span class="s">dewpoint_c</span>
-      <span class="pi">-</span> <span class="s">dewpoint_f</span>
-      <span class="pi">-</span> <span class="s">dewpoint_string</span>
-      <span class="pi">-</span> <span class="s">wind_kph</span>
-      <span class="pi">-</span> <span class="s">wind_mph</span>
-      <span class="pi">-</span> <span class="s">UV</span>
-      <span class="pi">-</span> <span class="s">pressure_in</span>
-      <span class="pi">-</span> <span class="s">pressure_mb</span>
-      <span class="pi">-</span> <span class="s">wind_dir</span>
-      <span class="pi">-</span> <span class="s">wind_string</span>
-      <span class="pi">-</span> <span class="s">relative_humidity</span>
-      <span class="pi">-</span> <span class="s">visibility_mi</span>
-      <span class="pi">-</span> <span class="s">visibility_km</span>
+      <span class="pi">-</span> <span class="s">elevation</span>
+      <span class="pi">-</span> <span class="s">location</span>
+      <span class="pi">-</span> <span class="s">observation_time</span>
+      <span class="pi">-</span> <span class="s">precip_1hr_in</span>
+      <span class="pi">-</span> <span class="s">precip_1hr_metric</span>
+      <span class="pi">-</span> <span class="s">precip_1hr_string</span>
       <span class="pi">-</span> <span class="s">precip_today_in</span>
       <span class="pi">-</span> <span class="s">precip_today_metric</span>
       <span class="pi">-</span> <span class="s">precip_today_string</span>
+      <span class="pi">-</span> <span class="s">pressure_in</span>
+      <span class="pi">-</span> <span class="s">pressure_mb</span>
+      <span class="pi">-</span> <span class="s">pressure_trend</span>
+      <span class="pi">-</span> <span class="s">relative_humidity</span>
+      <span class="pi">-</span> <span class="s">station_id</span>
       <span class="pi">-</span> <span class="s">solarradiation</span>
-      <span class="pi">-</span> <span class="s">alerts</span>
+      <span class="pi">-</span> <span class="s">temperature_string</span>
+      <span class="pi">-</span> <span class="s">temp_c</span>
+      <span class="pi">-</span> <span class="s">temp_f</span>
+      <span class="pi">-</span> <span class="s">UV</span>
+      <span class="pi">-</span> <span class="s">visibility_km</span>
+      <span class="pi">-</span> <span class="s">visibility_mi</span>
+      <span class="pi">-</span> <span class="s">weather</span>
+      <span class="pi">-</span> <span class="s">wind_degrees</span>
+      <span class="pi">-</span> <span class="s">wind_dir</span>
+      <span class="pi">-</span> <span class="s">wind_gust_kph</span>
+      <span class="pi">-</span> <span class="s">wind_gust_mph</span>
+      <span class="pi">-</span> <span class="s">wind_kph</span>
+      <span class="pi">-</span> <span class="s">wind_mph</span>
+      <span class="pi">-</span> <span class="s">wind_string</span>
 
 </code></pre>
 </div>
@@ -141,34 +152,42 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
   <li><strong>pws_id</strong> (Optional): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available <a href="https://www.wunderground.com/weatherstation/ListStations.asp">here</a>. If you do not enter a PWS ID, the current location information (latitude and longitude) from your <code class="highlighter-rouge">configuration.yaml</code> will be used to display weather conditions.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend. The following conditions can be monitored.
     <ul>
-      <li><strong>weather</strong>: A human-readable text summary with picture from Wunderground.</li>
-      <li><strong>temp_f</strong>: Current temperature in Fahrenheit</li>
-      <li><strong>temp_c</strong>: Current temperature in Celsius</li>
-      <li><strong>station_id</strong>: Your personal weather station (PWS) ID</li>
+      <li><strong>alerts</strong>: Current severe weather advisories</li>
+      <li><strong>dewpoint_c</strong>: Temperature in Celsius below which water droplets begin to condense and dew can form</li>
+      <li><strong>dewpoint_f</strong>: Temperature in Fahrenheit below which water droplets begin to condense and dew can form</li>
+      <li><strong>dewpoint_string</strong>: Text summary of dew point</li>
       <li><strong>feelslike_c</strong>: Feels like (or apparent) temperature in Celsius</li>
       <li><strong>feelslike_f</strong>: Feels like (or apparent) temperature in Fahrenheit</li>
       <li><strong>feelslike_string</strong>: Text summary of how the current temperature feels like</li>
       <li><strong>heat_index_c</strong>: Heat index (combined effects of the temperature and humidity of the air) in Celsius</li>
       <li><strong>heat_index_f</strong>: Heat index (combined effects of the temperature and humidity of the air) in Fahrenheit</li>
       <li><strong>heat_index_string</strong>: Text summary of current heat index</li>
-      <li><strong>dewpoint_c</strong>: Temperature in Celsius below which water droplets begin to condense and dew can form</li>
-      <li><strong>dewpoint_f</strong>: Temperature in Fahrenheit below which water droplets begin to condense and dew can form</li>
-      <li><strong>dewpoint_string</strong>: Text summary of dew point</li>
-      <li><strong>wind_kph</strong>: Current wind speed in kph</li>
-      <li><strong>wind_mph</strong>: Current wind speed in mph</li>
-      <li><strong>UV</strong>: Current levels of UV radiation. See <a href="https://www.wunderground.com/resources/health/uvindex.asp">here</a> for explanation.</li>
-      <li><strong>pressure_in</strong>: Atmospheric air pressure in inches</li>
-      <li><strong>pressure_mb</strong>: Atmospheric air pressure in millibars</li>
-      <li><strong>wind_dir</strong>: Wind direction</li>
-      <li><strong>wind_string</strong>: Text summary of current wind conditions</li>
-      <li><strong>relative_humidity</strong>: Relative humidity</li>
-      <li><strong>visibility_mi</strong>: Average visibility in miles</li>
-      <li><strong>visibility_km</strong>: Average visibility in km</li>
+      <li><strong>elevation</strong>: Elevation in feet</li>
+      <li><strong>location</strong>: City and State</li>
+      <li><strong>observation_time</strong>: Text summary of observation time</li>
       <li><strong>precip_today_in</strong>: Total precipitation in inches</li>
       <li><strong>precip_today_metric</strong>: Total precipitation in metric units</li>
       <li><strong>precip_today_string</strong>: Text summary of precipitation today</li>
+      <li><strong>pressure_in</strong>: Atmospheric air pressure in inches</li>
+      <li><strong>pressure_mb</strong>: Atmospheric air pressure in millibars</li>
+      <li><strong>pressure_trend</strong>: Atmospheric air presure trend signal (+/-)</li>
+      <li><strong>relative_humidity</strong>: Relative humidity</li>
+      <li><strong>station_id</strong>: Your personal weather station (PWS) ID</li>
       <li><strong>solarradiation</strong>: Current levels of solar radiation</li>
-      <li><strong>alerts</strong>: Current severe weather advisories</li>
+      <li><strong>temperature_string</strong>: Temperature text combinding Fahrenheit and Celsius</li>
+      <li><strong>temp_c</strong>: Current temperature in Celsius</li>
+      <li><strong>temp_f</strong>: Current temperature in Fahrenheit</li>
+      <li><strong>UV</strong>: Current levels of UV radiation. See <a href="https://www.wunderground.com/resources/health/uvindex.asp">here</a> for explanation.</li>
+      <li><strong>visibility_km</strong>: Average visibility in km</li>
+      <li><strong>visibility_mi</strong>: Average visibility in miles</li>
+      <li><strong>weather</strong>: A human-readable text summary with picture from Wunderground.</li>
+      <li><strong>wind_degrees</strong>: Wind degrees</li>
+      <li><strong>wind_dir</strong>: Wind direction</li>
+      <li><strong>wind_gust_kph</strong>: Wind gusts speed in kph</li>
+      <li><strong>wind_gust_mph</strong>: Wind gusts speed in mph</li>
+      <li><strong>wind_kph</strong>: Current wind speed in kph</li>
+      <li><strong>wind_mph</strong>: Current wind speed in mph</li>
+      <li><strong>wind_string</strong>: Text summary of current wind conditions</li>
     </ul>
   </li>
 </ul>
