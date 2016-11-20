@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-20T00:05:39+00:00</updated>
+  <updated>2016-11-20T00:20:53+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[0.33: New Calendar component, Wink thermostats and Cisco IOS]]></title>
-    <link href="https://home-assistant.io/blog/2016/11/19/calendar-wink-thermostats-cisco-ios/"/>
-    <updated>2016-11-19T03:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/11/19/calendar--wink-thermostats--cisco-ios</id>
+    <link href="https://home-assistant.io/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/"/>
+    <updated>2016-11-20T00:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/11/20/calendar--wink-thermostats--cisco-ios</id>
     <content type="html"><![CDATA[For this release we put a lot of focus on finishing our async upgrade and fix a bunch of bugs in the process.
 
 But a new release wouldn't be awesome if it didn't had some new goodies and this release is no different. This release includes a new calendar component by [@mnestor]. It comes now with Google Calendar support, which should allow you to automate things based on your calendar events!
