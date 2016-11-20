@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Hub
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ha_release: 0.32
 ---
 
@@ -27,17 +27,11 @@ Your LiteJet MCP should be configured for 19.2 K baud, 8 data bits, 1 stop bit, 
 
 You can also configure the Home Assistant to ignore lights, scenes, and switches via their name. This is highly recommended since LiteJet has a fixed number of each of these and with most systems many will be unused.
 
-```yaml
-litejet:
-```
-
 Configuration variables:
 
 - **port** (*Required*): The path to the serial port connected to the LiteJet.
 - **exclude_names** (*Optional*): A list of light or switch names that should be ignored.
 - **include_switches** (*Optional*): Cause entities to be created for all the LiteJet switches. Default is `false`. This can be useful when debugging your lighting as you can press/release switches remotely.
-
-
 
 ```yaml
 litejet:
@@ -48,4 +42,27 @@ litejet:
   - 'Timed Scene#'
   - 'LV Rel #'
   - 'Fan #'
+```
+
+### Trigger
+
+LiteJet switches can be used as triggers too to allow those buttons to behave differently based on hold time. For example, automation can distinguish quick tap versus long hold.
+
+- **platform** (*Required*): Must be 'litejet'.
+- **number** (*Required*): The switch number to be monitored.
+- **held_more_than** (*Optional*): The minimum time the switch must be held before the trigger can activate.
+- **held_less_than** (*Optional*): The maximum time the switch can be held for the trigger to activate.
+
+The trigger will activate at the earliest moment both held_more_than and held_less_than are known to be satisfied. If neither are specified, the trigger activates the moment the switch is pressed. If only held_more_than is specified, the trigger will activate the moment the switch has been held down at least that time. If held_less_than specified, the trigger can only activate when the switch is released.
+
+```yaml
+automation:
+- trigger:
+    platform: litejet
+    number: 55
+    held_more_than:
+      milliseconds: 1000
+    held_less_than:
+      milliseconds: 2000
+  ...
 ```
