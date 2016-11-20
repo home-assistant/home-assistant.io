@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-20T17:15:14+00:00</updated>
+  <updated>2016-11-20T22:05:22+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -46,6 +46,12 @@
   <li>Better handling of accented characters in slugify (<a href="https://github.com/magicus">@magicus</a>)</li>
   <li>Alarm Control Panel - <a href="https://home-assistant.io/components/envisalink/">Envisalink</a>: Add new keypress service (<a href="https://github.com/jnimmo">@jnimmo</a>)</li>
   <li>Light - <a href="https://home-assistant.io/components/light.hue/">Hue</a>: Add service to activate scenes defined in Hue app (<a href="https://github.com/sdague">@sdague</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0331---november-20" href="#release-0331---november-20"></a> Release 0.33.1 - November 20</h3>
+
+<ul>
+  <li>Fix Z-Wave lights (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>

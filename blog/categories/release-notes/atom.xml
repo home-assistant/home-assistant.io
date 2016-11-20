@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-20T17:15:14+00:00</updated>
+  <updated>2016-11-20T22:05:22+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -45,6 +45,10 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 - Better handling of accented characters in slugify ([@magicus])
 - Alarm Control Panel - [Envisalink]: Add new keypress service ([@jnimmo])
 - Light - [Hue]: Add service to activate scenes defined in Hue app ([@sdague])
+
+### <a class='title-link' name='release-0331---november-20' href='#release-0331---november-20'></a> Release 0.33.1 - November 20 
+
+ - Fix Z-Wave lights ([@turbokongen])
 
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
