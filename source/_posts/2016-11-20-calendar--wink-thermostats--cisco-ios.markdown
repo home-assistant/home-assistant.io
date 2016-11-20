@@ -39,6 +39,10 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 - Alarm Control Panel - [Envisalink]: Add new keypress service ([@jnimmo])
 - Light - [Hue]: Add service to activate scenes defined in Hue app ([@sdague])
 
+### {% linkable_title Release 0.33.1 - November 20 %}
+
+ - Fix Z-Wave lights ([@turbokongen])
+
 ### {% linkable_title Breaking changes %}
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
