@@ -53,7 +53,7 @@ LiteJet switches can be used as triggers too to allow those buttons to behave di
 - **held_more_than** (*Optional*): The minimum time the switch must be held before the trigger can activate.
 - **held_less_than** (*Optional*): The maximum time the switch can be held for the trigger to activate.
 
-The trigger will activate at the earliest moment both held_more_than and held_less_than are known to be satisfied. If neither are specified, the trigger activates the moment the switch is pressed. If only held_more_than is specified, the trigger will activate the moment the switch has been held down at least that time. If held_less_than specified, the trigger can only activate when the switch is released.
+The trigger will activate at the earliest moment both `held_more_than` and `held_less_than` are known to be satisfied. If neither are specified, the trigger activates the moment the switch is pressed. If only `held_more_than` is specified, the trigger will activate the moment the switch has been held down at least that time. If `held_less_than` specified, the trigger can only activate when the switch is released.
 
 ```yaml
 automation:
