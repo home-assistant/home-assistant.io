@@ -15,7 +15,7 @@ ha_release: 0.34
 
 This `sonarr` sensor platform pulls data from a given Sonarr instance.
 
-To use your Sonarr sensor in your installation, add the following to your `configuration.yaml` file:
+To use your [Sonarr](https://sonarr.tv/) sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yml entry
@@ -91,7 +91,7 @@ sensor:
 
 ### {% linkable_title Get disk space for listed storage locations %}
 
-The storage locations Sonarr returns arein the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
+The storage locations Sonarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
 
 ```yaml
 # Example configuration.yml entry
