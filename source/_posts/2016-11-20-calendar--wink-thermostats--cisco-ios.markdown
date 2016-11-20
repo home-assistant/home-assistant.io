@@ -2,7 +2,7 @@
 layout: post
 title: "0.33: New Calendar component, Wink thermostats and Cisco IOS"
 description: "Continued our upgrade to Async, fixed tons of bugs and added a few new things."
-date: 2016-11-19 03:04:05 +0000
+date: 2016-11-20 00:04:05 +0000
 date_formatted: "November 20, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
