@@ -90,115 +90,115 @@
   <hr class="divider">
   
 
-  #### <a class='title-link' name='create-an-input_boolean-in-your-configurationyaml' href='#create-an-input_boolean-in-your-configurationyaml'></a> Create an input_boolean in your configuration.yaml  
+  <h4><a class="title-link" name="create-an-input_boolean-in-your-configurationyaml" href="#create-an-input_boolean-in-your-configurationyaml"></a> Create an input_boolean in your configuration.yaml</h4>
 
-```yaml
-input_boolean:
-  trigger_first_morning:
-    name: Waiting for first morning motion
-    icon: mdi:kettle
-```
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">input_boolean</span><span class="pi">:</span>
+  <span class="s">trigger_first_morning</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Waiting for first morning motion</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:kettle</span>
+</code></pre>
+</div>
 
-#### <a class='title-link' name='the-main-automation' href='#the-main-automation'></a> The Main Automation  
+<h4><a class="title-link" name="the-main-automation" href="#the-main-automation"></a> The Main Automation</h4>
 
-```yaml
-## These first two control t input_boolean that allows the "first morning action" to occur
-## If the action is triggered, it will also disable this boolean. This assumes you have the sun platform enabled.
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">## These first two control t input_boolean that allows the "first morning action" to occur</span>
+<span class="c1">## If the action is triggered, it will also disable this boolean. This assumes you have the sun platform enabled.</span>
 
-automation:
-#turns it on at 5am
-  - alias: Enable First Morning Trigger
-    trigger:
-      - platform: time
-        after: '5:00'
-    action: 
-      service: homeassistant.turn_on
-      entity_id: input_boolean.trigger_first_morning
+<span class="s">automation</span><span class="pi">:</span>
+<span class="c1">#turns it on at 5am</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Enable First Morning Trigger</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5:00'</span>
+    <span class="s">action</span><span class="pi">:</span> 
+      <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.trigger_first_morning</span>
 
-# turns it off an hour after sunrise
-  - alias: Disable First Morning Trigger
-    trigger:
-      - platform: sun
-        event: sunrise
-        offset: "01:00:00"
-    action: 
-      service: homeassistant.turn_off
-      entity_id: input_boolean.trigger_first_morning
+<span class="c1"># turns it off an hour after sunrise</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Disable First Morning Trigger</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+        <span class="s">event</span><span class="pi">:</span> <span class="s">sunrise</span>
+        <span class="s">offset</span><span class="pi">:</span> <span class="s2">"</span><span class="s">01:00:00"</span>
+    <span class="s">action</span><span class="pi">:</span> 
+      <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.trigger_first_morning</span>
 
 
       
-# This is the main automation. It triggers when my motion sensor is triggered
-# (in this case, a motion sensor from a security system attached to my Vera)
-  - alias: First Morning Motion
-    trigger:
-      platform: state
-      entity_id: binary_sensor.livingroom_motion
-      to: 'on'
-    # only complete the automation if we're still waiting for the first motion
-    condition:
-        condition: state
-        entity_id: input_boolean.trigger_first_morning
-        state: 'on'
+<span class="c1"># This is the main automation. It triggers when my motion sensor is triggered</span>
+<span class="c1"># (in this case, a motion sensor from a security system attached to my Vera)</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">First Morning Motion</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.livingroom_motion</span>
+      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="c1"># only complete the automation if we're still waiting for the first motion</span>
+    <span class="s">condition</span><span class="pi">:</span>
+        <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.trigger_first_morning</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
         
-    action:
-      # turn off the "waiting" boolean regardless of whether lights will turn on
-      # so that this happens only once
-      - service: homeassistant.turn_off
-        entity_id: input_boolean.trigger_first_morning
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="c1"># turn off the "waiting" boolean regardless of whether lights will turn on</span>
+      <span class="c1"># so that this happens only once</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.trigger_first_morning</span>
         
-      # But only turn on lights if the living room and kitchen lights are off or dimmed
-      # If a condition tests false, the automation will end 
-      - condition: and
-        conditions: 
-          - condition: numeric_state
-            entity_id: light.livingroom_ec
-            # if light is off, force a 0, otherwise use the brightness value
-            value_template: '{% if states.light.livingroom_ec.state == "on"  %}{{ states.light.livingroom_ec.attributes.brightness }}{% else %}0{% endif %}'
-            # brightness below 50% (255 = 100%)
-            below: 127
-          - condition: numeric_state
-            entity_id: light.kitchen_bar
-            value_template: '{% if states.light.kitchen_bar.state == "on"  %}{{ states.light.kitchen_bar.attributes.brightness }}{% else %}0{% endif %}'
-            below: 127
-          - condition: numeric_state
-            entity_id: light.kitchen_ceiling
-            value_template: '{% if states.light.kitchen_ceiling.state == "on"  %}{{ states.light.kitchen_ceiling.attributes.brightness }}{% else %}0{% endif %}'
-            below: 127
+      <span class="c1"># But only turn on lights if the living room and kitchen lights are off or dimmed</span>
+      <span class="c1"># If a condition tests false, the automation will end </span>
+      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">and</span>
+        <span class="s">conditions</span><span class="pi">:</span> 
+          <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
+            <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.livingroom_ec</span>
+            <span class="c1"># if light is off, force a 0, otherwise use the brightness value</span>
+            <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.light.livingroom_ec.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"on"</span><span class="nv">  </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">states.light.livingroom_ec.attributes.brightness</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}0{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
+            <span class="c1"># brightness below 50% (255 = 100%)</span>
+            <span class="s">below</span><span class="pi">:</span> <span class="s">127</span>
+          <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
+            <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen_bar</span>
+            <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.light.kitchen_bar.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"on"</span><span class="nv">  </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">states.light.kitchen_bar.attributes.brightness</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}0{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
+            <span class="s">below</span><span class="pi">:</span> <span class="s">127</span>
+          <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
+            <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen_ceiling</span>
+            <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.light.kitchen_ceiling.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"on"</span><span class="nv">  </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">states.light.kitchen_ceiling.attributes.brightness</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}0{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
+            <span class="s">below</span><span class="pi">:</span> <span class="s">127</span>
                 
-      # Trigger a scene
-      # You could add as many services or scenes as you'd like
-      - service: scene.turn_on
-        entity_id: scene.morning_first_motion
+      <span class="c1"># Trigger a scene</span>
+      <span class="c1"># You could add as many services or scenes as you'd like</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.morning_first_motion</span>
 
       
-```
+</code></pre>
+</div>
 
-#### <a class='title-link' name='the-scene' href='#the-scene'></a> The Scene 
+<h4><a class="title-link" name="the-scene" href="#the-scene"></a> The Scene</h4>
 
-Here is the Scene that is called via the Automations above.
+<p>Here is the Scene that is called via the Automations above.</p>
 
-```yaml
-# here's the scene that gets called. Lights in 
-# my living room and kitchen turn on.
-scene:
-  - name: Morning First Motion
-    entities:
-      light.kitchen_ceiling:
-        state: on
-        brightness: 127
-      light.kitchen_bar:
-        state: on
-        brightness: 178
-      light.kitchen_above_cabinet:
-        state: on
-        brightness: 178
-      light.livingroom_ec:
-        state: on
-        brightness: 153
-      light.livingroom_track:
-        state: on
-        brightness: 153
-```
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># here's the scene that gets called. Lights in </span>
+<span class="c1"># my living room and kitchen turn on.</span>
+<span class="s">scene</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Morning First Motion</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="s">light.kitchen_ceiling</span><span class="pi">:</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">127</span>
+      <span class="s">light.kitchen_bar</span><span class="pi">:</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">178</span>
+      <span class="s">light.kitchen_above_cabinet</span><span class="pi">:</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">178</span>
+      <span class="s">light.livingroom_ec</span><span class="pi">:</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">153</span>
+      <span class="s">light.livingroom_track</span><span class="pi">:</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">153</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -212,7 +212,7 @@ scene:
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/automation_first_light'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/automation_first_light.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <a href='/cookbook'>Back to the cookbook</a>
   </div>
