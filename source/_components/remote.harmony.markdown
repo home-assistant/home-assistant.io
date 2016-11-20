@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: harmony.png
+logo: logitech.png
 ha_category: Remote
 ha_iot_class: "Local Polling"
 ha_release: "0.33"
