@@ -59,9 +59,9 @@ $ sudo apt-get install libmysqlclient-dev
 $ pip3 install mysqlclient
 ```
 
-### {% linkable_title PostGreSQL %}
+### {% linkable_title PostgreSQL %}
 
-For PostGreSQL you may have to install a few dependencies:
+For PostgreSQL you may have to install a few dependencies:
 
 ```bash
 $ sudo apt-get install postgresql-server-dev-X.Y
