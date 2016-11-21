@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-When launched for the first time, Home Assistant will write a default configuration file enabling the web interface and device discovery. It can take up to a minute for your devices to be discovered and show up in the user interface.
+When launched for the first time, Home Assistant will write a default configuration file enabling the web interface and device discovery. It can take up to a minute for your devices to be discovered and appear in the user interface.
 
 The location of the folder differs between operating systems:
 
@@ -21,7 +21,7 @@ The location of the folder differs between operating systems:
 
 If you want to use a different folder for configuration, use the config command line parameter: `hass --config path/to/config`.
 
-Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains which components will be loaded and what their configuration is. Throughout the documentation you will find snippets that you can add to your configuration file to enable that functionality.
+Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains components to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
 
 <p class='note'>
   You will have to restart Home Assistant for changes to `configuration.yaml` to take effect.

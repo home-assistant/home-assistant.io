@@ -27,6 +27,7 @@ Available demo platforms:
 - [Notification](/components/notify/) (`notify`)
 - [Sensor](/components/sensor/) (`sensor`)
 - [Switch](/components/switch/) (`switch`)
+- [Weather](/components/weather/) (`weather`)
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 

@@ -40,9 +40,9 @@ As the results are processed on-the-fly you still need to use the data from your
 
 ### {% linkable_title REST! We don't... %}
 
-There was a lot of work done on our implementation which are working with RESTful APIs. [@w1ll1am23] extended the [aREST] platforms to display if an aREST unit is available or not. The aREST is now covered by the configuration check as well. Please check the Breaking changes section for more details.
+There was a lot of work done on our implementation which are working with RESTful APIs. [@w1ll1am23] extended the [aREST] platforms to display if an aREST unit is available or not. The aREST implementations are now covered by the configuration check as well. Please check the Breaking changes section for more details.
 
-The [REST sensor][rest-sensor] supports now HTTP authentication (basic and digest) and custom header. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.
+The [REST sensor][rest-sensor] supports now HTTP authentication (basic and digest) and custom headers. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.
 
 ```yaml
 sensor

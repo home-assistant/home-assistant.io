@@ -17,6 +17,7 @@ All states will always have an entity id, a state and a timestamp when last upda
 
 Field | Description
 ----- | -----------
+`state.state` | String representation of the current state of the entity. Example `off`
 `state.entity_id` | Entity ID. Format: `<domain>.<object_id>`. Example: `light.kitchen`.
 `state.domain` | Domain of the entity. Example: `light`.
 `state.object_id` | Object ID of entity. Example: `kitchen`.

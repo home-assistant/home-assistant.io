@@ -20,6 +20,7 @@ Supported units:
 
 - HS100
 - HS110
+- HS200
 
 To use your TPLink switch in your installation, add the following to your `configuration.yaml` file:
 

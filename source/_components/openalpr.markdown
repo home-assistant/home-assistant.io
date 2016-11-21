@@ -91,7 +91,7 @@ Configuration variables:
 ```yaml
 # Example configuration.yaml entry
 openalpr:
-  engine: local
+  engine: cloud
   region: eu
   api_key: SK_AAABBBBCCCEEEE
   entities:

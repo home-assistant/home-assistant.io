@@ -23,7 +23,6 @@ To add a TV to your installation, add the following to your `configuration.yaml`
 # Example configuration.yaml entry
 media_player:
   - platform: webostv
-    host: 192.168.0.10
 ```
 
 Configuration variables:

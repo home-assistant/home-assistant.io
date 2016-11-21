@@ -25,9 +25,10 @@ You should check OZW.log to see if your new setting has been set
 Example entry in dev-service, setting binary reports for an Aeotec Multisensor 6:
 ```yaml
 # Example entry in dev-service
-{"entity_id": "sensor.aetoec_multisensor_6_luminance_5",
-"parameter": "5",
-"value": "2"
+{
+"node_id": 42,
+"parameter": 5,
+"value": 2
 }
 ```
 

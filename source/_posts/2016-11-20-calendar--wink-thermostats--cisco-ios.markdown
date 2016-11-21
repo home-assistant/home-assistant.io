@@ -1,0 +1,86 @@
+---
+layout: post
+title: "0.33: New Calendar component, Wink thermostats and Cisco IOS"
+description: "Continued our upgrade to Async, fixed tons of bugs and added a few new things."
+date: 2016-11-19 03:04:05 +0000
+date_formatted: "November 20, 2016"
+author: Fabian Affolter
+author_twitter: fabaff
+comments: true
+categories: Release-Notes
+---
+
+For this release we put a lot of focus on finishing our async upgrade and fix a bunch of bugs in the process.
+
+But a new release wouldn't be awesome if it didn't had some new goodies and this release is no different. This release includes a new calendar component by [@mnestor]. It comes now with Google Calendar support, which should allow you to automate things based on your calendar events!
+
+### {% linkable_title Changes %}
+
+- New [calendar component][google] including Google support ([@mnestor])
+- Final core upgrade for async ([@pvizeli])
+-  [Neato] refactor + sensor support ([@turbokongen])
+- Device Tracker: [Swisscom Internet-Box][swisscom] now supported ([@betrisey])
+- Device Tracker - Locative: [Map support][locative] added ([@danijelst])
+-  [Emulated Hue] will now sent request info as variables to scripts that get called ([@bah2830])
+- Wink: [Thermostats][wink-climate] are now supported ([@w1ll1am23])
+- Light: New [MQTT template][mqtt-template] platform for custom communication ([@Diaoul])
+-  [Wake on Lan switch] can now configure a custom OFF script ([@Chris-V])
+- Device Tracker: [Cisco IOS][cisco] now supported ([@fbradyirl])
+- Sensor: Support for [PVOutput][pvoutput] snesor ([@fabaff])
+- Sensor: Show count of connected clients to the [API stream][api-stream] ([@balloob])
+- Fix platforms from doing I/O in the event loop ([@balloob], [@pvizeli], [@lwis], [@kellerza])
+- Switch - [TP Link]: Add daily consumption ([@gonzalezcalleja])
+- Templates: Add new `strptime` [template function] for parsing times ([@lwis])
+-  [HTTP] component: Fix X-Forwarded-For parsing ([@mweinelt])
+- Switch - [Command Line]: Use configured object_id for entity IDs ([@n8henrie])
+-  [MQTT] now supports birth and last will messages ([@bestlibre])
+- Better handling of accented characters in slugify ([@magicus])
+- Alarm Control Panel - [Envisalink]: Add new keypress service ([@jnimmo])
+- Light - [Hue]: Add service to activate scenes defined in Hue app ([@sdague])
+
+### {% linkable_title Breaking changes %}
+
+ - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
+ - Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.
+
+[@bah2830]: https://github.com/bah2830
+[@balloob]: https://github.com/balloob
+[@bestlibre]: https://github.com/bestlibre
+[@betrisey]: https://github.com/betrisey
+[@Chris-V]: https://github.com/Chris-V
+[@danijelst]: https://github.com/danijelst
+[@Diaoul]: https://github.com/Diaoul
+[@fabaff]: https://github.com/fabaff
+[@fbradyirl]: https://github.com/fbradyirl
+[@gonzalezcalleja]: https://github.com/
+[@jnimmo]: https://github.com/jnimmo
+[@kellerza]: https://github.com/kellerza
+[@lwis]: https://github.com/lwis
+[@magicus]: https://github.com/magicus
+[@mnestor]: https://github.com/mnestor
+[@mweinelt]: https://github.com/mweinelt
+[@n8henrie]: https://github.com/n8henrie
+[@pvizeli]: https://github.com/pvizeli
+[@sdague]: https://github.com/sdague
+[@turbokongen]: https://github.com/turbokongen
+[@w1ll1am23]: https://github.com/w1ll1am23
+
+[api-stream]: /components/sensor.api_stream/
+[cisco]: /components/device_tracker.cisco_ios/
+[Command Line]: /components/switch.command_line/
+[Envisalink]: /components/envisalink/
+[google]: /components/calendar.google/
+[Hue]: /components/light.hue/
+[locative]: /components/device_tracker.locative/
+[mqtt-template]: /components/light.mqtt_template/
+[mqtt-will]: /components/mqtt/
+[pvoutput]: /components/sensor.pvoutput/
+[swisscom]: /components/device_tracker.swisscom/
+[TP Link]: /components/switch.tplink/
+[wink-climate]: /components/climate.wink/
+[neato]: /components/neato/
+[Emulated Hue]: /components/emulated_hue/
+[Wake on Lan switch]: /components/switch.wake_on_lan/
+[template function]: /topics/templating/#home-assistant-template-extensions
+[HTTP]: /components/http/
+[MQTT]: /components/mqtt/

@@ -20,13 +20,13 @@ To allow Home Assistant to talk to your Z-Wave USB stick you will have to compil
 Make sure you have the correct dependencies installed before running the script:
 
 ```bash
-$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
+$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools git
 ```
 
-Make sure you have at least version 0.23 of cython.
+Make sure you have at least version 0.23 and at the most 0.24.1 of cython.
 
 ```bash
-$ sudo pip3 install --upgrade cython
+$ sudo pip3 install --upgrade cython==0.24.1
 ```
 
 Then get the OpenZWave files and switch to the `python3` branch:
@@ -43,10 +43,12 @@ $ sudo PYTHON_EXEC=$(which python3) make install
 
 <p class='note'>
 Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
-
-```$ sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave```
-
 </p>
+
+```bash
+$ sudo apt-get install -y checkinstall
+$ sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave
+```
 
 With this installation, your `config_path` needed below will resemble:
 
@@ -77,6 +79,8 @@ Configuration variables:
 - **customize** (*Optional*): This attribute contains node-specific override values:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
   - **ignored** (*Optional*): Ignore this entitiy completely. It won't be shown in the Web Interface and no events are generated for it.
+  - **refresh_value** (*Optional*): Enable refreshing of the node value. Only light component uses this. Defaults to 2 second delay.
+  - **delay** (*Optional*): Specify the delay to wait for refresh of node value if you want other than 2 seconds.
 
 To find the path of your Z-Wave USB stick or module, run:
 
@@ -218,7 +222,7 @@ The `zwave` component exposes multiple services to help maintain the network.
 | ------- | ----------- |
 | add_node | Put the Z-Wave controller in inclusion mode. Allows one to add a new device to the Z-Wave network.|
 | add_node_secure | Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network. |
-| association | Add or remove an association in th Z-Wave network
+| change_association | Add or remove an association in th Z-Wave network
 | cancel_command | Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
 | heal_network | Tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|

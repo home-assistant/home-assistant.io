@@ -84,6 +84,13 @@ The following are attributes that can be applied in the `customize` section:
 - **emulated_hue** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. The default value for this attribute is controlled by the `expose_by_default` option.
 - **emulated_hue_name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
 
+### {% linkable_title Troubleshooting %}
+
+You can verify that the `emulated_hue` component has been loaded and is responding by pointing a local browser to the following URL: 
+http://`<HA IP Address>`:8300/description.xml - This URL should return a descriptor file in the form of an XML file.
+http://`<HA IP Address>`:8300/api/pi/lights - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
+
+
 ### {% linkable_title License %}
 
 Much of this code is based on work done by Bruce Locke on his [ha-local-echo](https://github.com/blocke/ha-local-echo) project, originally released under the MIT License. The license is located [here](https://github.com/blocke/ha-local-echo/blob/b9bf5dcaae6d8e305e2283179ffba64bde9ed29e/LICENSE).

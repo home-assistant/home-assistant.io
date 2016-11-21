@@ -73,3 +73,19 @@ automation:
       entity_id: light.flux_living_room_lamp
       effect: random
 ```
+
+Will add a light with out the white mode:
+
+```yaml
+    192.168.1.10:
+      name: NAME
+      mode: "rgb"
+```
+
+Will add a light with white mode (default). Changing the brightness will set the bulb in white mode:
+
+```yaml
+    192.168.1.10:
+      name: NAME
+      mode: "rgbw"
+```

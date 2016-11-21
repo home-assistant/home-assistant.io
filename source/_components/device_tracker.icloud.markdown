@@ -25,12 +25,14 @@ device_tracker:
   - platform: icloud
     username: USERNAME
     password: PASSWORD
+    account_name: accountname
 ```
 
 Configuration variables:
 
 - **username** (*Required*): The username for the iCloud account.
 - **password** (*Required*): The password for your given username.
+- **account_name** (*Optional*): The friendly name for the account_name. If this isn't given, it will use the account_name of the username (so the part before the `@` in the email address).
 
 <p class='note warning'>
 This may cause battery drainage as it wakes up your device to get the current location.
@@ -40,7 +42,13 @@ This may cause battery drainage as it wakes up your device to get the current lo
 You may receive an email from Apple stating that someone has logged into your account.
 </p>
 
-<p class='note warning'>
-If you have two-factor authentication enabled on your iCloud account you will not be able to use this presence detection in HA, even with an app-specific password.
-</p>
+To disable the drainage of the battery, a dynamic interval is being used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 
+2 Steps Authentication is enabled for iCloud. The component will ask which device you want to use as Trusted Device and then you can enter the code that has been sent to that device. The duration of this authentication is determined by Apple, but is now at 2 months, so you will only need to verify your account each two months, even after restarting Home Assistant.
+2 Factor Authentication is the improved version of 2 Steps Authentication, this is still not supported by the pyicloud library. Therefore it's not possible to use it with the device_tracker yet.
+
+4 services are available for this component:
+- **icloud_update**: This service can be used to ask for an update of a certain iDevice. The `account_name` and `device_name` are optional.
+- **icloud_lost_iphone**: This service will play the Lost iPhone sound on a certain iDevice. The `account_name` and `device_name` are optional.
+- **icloud_set_interval**: This service will change the dynamic interval of an iDevice. The `account_name` and `device_name` are optional. If `interval` is used in the service_data, the iDevice will be updated with that new interval. That interval will be fixed until the iDevice changes zone or if this service is called again. If `interval` isn't used in the service_data, the interval for that iDevice will revert back to it's default dynamic interval based on it's current zone, it's distance towards home and it's battery level.
+- **icloud_reset_account**: This service can be used to reset an iCloud account. This is helpful when not all devices are being found by the component or if you have added a new iDevice to your account. The `account_name` is optional.

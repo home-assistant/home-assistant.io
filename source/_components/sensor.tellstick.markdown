@@ -45,3 +45,4 @@ sensor:
     only_named: True
     temperature_scale: "°C"
     datatype_mask: 1
+```

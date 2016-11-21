@@ -39,30 +39,13 @@ homeassistant:
 
 | Attribute | Description |
 | --------- | ----------- |
-| friendly_name | Name of the entity
-| hidden    | Set to `true` to hide the entity.
-| entity_picture | Url to use as picture for entity
-| icon | Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com). Prefix name with `mdi:`, ie `mdi:home`.
-| assumed_state | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
-| sensor_class | Sets the class of the sensor, changing the device state and icon that is displayed on the UI (see below).
+| `friendly_name` | Name of the entity
+| `hidden`    | Set to `true` to hide the entity.
+| `entity_picture` | Url to use as picture for entity
+| `icon` | Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com). Prefix name with `mdi:`, ie `mdi:home`.
+| `assumed_state` | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
+| `sensor_class` | Sets the [class of the sensor](/components/binary_sensor/), changing the device state and icon that is displayed on the UI (see below).
 
-| sensor_class | Description |
-| ------------ | ----------- |
-| cold | On means cold (or too cold) |
-| connectivity | On means connection present, Off means no connection
-| gas | CO, CO2, etc. |
-| heat | On means hot (or too hot) |
-| light | Lightness threshold |
-| moisture | Specifically a wetness sensor |
-| motion | Motion sensor |
-| moving | On means moving, Off means stopped |
-| occupancy | On means occupied, Off means not occupied |
-| opening | Door, window, etc. |
-| power | Power, over-current, etc. |
-| safety | On means unsafe, Off means safe |
-| smoke | Smoke detector |
-| sound | On means sound detected, Off means no sound |
-| vibration | On means vibration detected, Off means no vibration |
 
 ### {% linkable_title Reloading customize %}
 
