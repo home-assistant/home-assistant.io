@@ -122,6 +122,7 @@
 <ul>
   <li>Check out the list of <a href="/getting-started/installation-raspberry-pi/#raspberry-pi-hardware-specific-components">Raspberry Pi hardware specific components</a>.</li>
   <li>Z-Wave support can be installed by following the <a href="/getting-started/z-wave/">Getting started instructions for Z-Wave</a>.</li>
+  <li>Run <code class="highlighter-rouge">sudo raspi-config</code> to change the locale, timezone and keyboard layout.</li>
 </ul>
 
 <h3><a class="title-link" name="technical-details" href="#technical-details"></a> Technical Details</h3>
@@ -144,6 +145,8 @@ Linux and Mac OS users execute the following command in a terminal.</p>
 </div>
 
 <p>Windows users start <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a>, enter the IP address of the Raspberry Pi in the <em>Host name</em> field and port 22 in the <em>Port</em> field. Then click <em>Open</em> and a terminal window will open. Enter the credentials. Default user name is <code class="highlighter-rouge">pi</code> and password is <code class="highlighter-rouge">raspberry</code>.</p>
+
+<p>Optionally, starting with Windows 10 anniversary update, you can use the built-in ‘<a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">Bash on Windows</a>’ to use SSH if you have enabled Developer mode and have installed the “Windows Subsystem for Linux (beta)” feature.</p>
 
 <h4><a class="title-link" name="startstoprestart-home-assistant-on-hassbian" href="#startstoprestart-home-assistant-on-hassbian"></a> Start/Stop/Restart Home Assistant on HaSSbian</h4>
 <p>Log in as the <code class="highlighter-rouge">pi</code> account account and execute the following commands:</p>
