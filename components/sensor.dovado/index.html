@@ -111,19 +111,20 @@
 <ul>
   <li><strong>username</strong> (<em>Required</em>): Your username.</li>
   <li><strong>password</strong> (<em>Required</em>): Your password.</li>
-  <li><strong>host</strong> (<em>Optional</em>): The IP address of your router, e.g. <code class="highlighter-rouge">192.168.1.1</code>.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port number of your router, e.g. <code class="highlighter-rouge">999</code>.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The IP address of your router, e.g. <code class="highlighter-rouge">192.168.1.1</code>. If no host is provided, the gateway for the same network as Home Assistant will automatically be used.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port number of your router, e.g. <code class="highlighter-rouge">999</code>. If no port is provided, the default API port (6435) will be used.</li>
   <li><strong>sensors</strong> array (<em>Required</em>): Conditions to display in the frontend.
     <ul>
-      <li><strong>network</strong>: Network state.</li>
-      <li><strong>signal</strong>: The signal strength.</li>
+      <li><strong>network</strong>: Network state (3G, 4G, etc).</li>
+      <li><strong>signal</strong>: The signal strength (%).</li>
       <li><strong>download</strong>: The download speed.</li>
       <li><strong>upload</strong>: The upload speed.</li>
-      <li><strong>sms</strong>: Unread text messages</li>
+      <li><strong>sms</strong>: Number of unread text messages</li>
     </ul>
   </li>
 </ul>
 
+<p>If the router provides SMS functionality, a service for sending SMS will also be registered in Home Assistant.</p>
 
 
 </article>

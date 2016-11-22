@@ -175,6 +175,15 @@
 </code></pre>
 </div>
 
+<p>Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your <code class="highlighter-rouge">configuration.yaml</code> to exclude those entries.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">logbook</span><span class="pi">:</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_time_in_state</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_wifi_signal_strength</span>
+</code></pre>
+</div>
 
 
 </article>
