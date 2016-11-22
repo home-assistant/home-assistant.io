@@ -39,7 +39,7 @@ Configuration variables:
 - **secret** (*Required*): The API secret to access your Västtrafik account.
 - **departures** array (*Required*): List of travelling routes.
   - **name** (*Optional*): Name of the route.
-  - **from** (*Optional*): The start station.
+  - **from** (*Required*): The start station.
   - **heading** (*Optional*): Direction of the travelling.
   - **delay** (*Optional*): Delay in minutes.
 
