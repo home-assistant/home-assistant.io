@@ -89,7 +89,7 @@ customize:
     icon: mdi:wifi
 ```
 
-Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your `configuration.yaml` to exclude those pesky entries.
+Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your `configuration.yaml` to exclude those entries.
 
 ```yaml
 logbook:
