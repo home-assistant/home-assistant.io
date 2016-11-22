@@ -35,3 +35,30 @@ Configuration variables:
 It's recommended to set `scan_interval:` according to a value greater than 60 seconds. The service only allows 60 requests per hour but the sensor's default is 30 seconds.
 </p>
 
+To format the PVoutput sensor you can you the [template component](/topics/templating/). For example:
+
+```yaml
+sensor:
+  - platform: pvoutput
+    system_id: YOUR_SYSTEM_ID
+    api_key: YOUR_API_KEY
+    scan_interval: 150
+  - platform: template
+    sensors:
+      power_consumption:
+        value_template: '{% if is_state_attr("sensor.pvoutput", "power_consumption", "NaN") %}0{% else %}{{ states.sensor.pvoutput.attributes.power_consumption }}{% endif %}'
+        friendly_name: 'Using'
+        unit_of_measurement: 'Watt'
+      energy_consumption:
+        value_template: '{{ "%0.1f"|format(states.sensor.pvoutput.attributes.energy_consumption|float/1000) }}'
+        friendly_name: 'Used'
+        unit_of_measurement: 'kWh'
+      power_generation:
+        value_template: '{% if is_state_attr("sensor.pvoutput", "power_generation", "NaN") %}0{% else %}{{ states.sensor.pvoutput.attributes.power_generation }}{% endif %}'
+        friendly_name: 'Generating'
+        unit_of_measurement: 'Watt'
+      energy_generation:
+        value_template: '{% if is_state_attr("sensor.pvoutput", "energy_generation", "NaN") %}0{% else %}{{ "%0.2f"|format(states.sensor.pvoutput.attributes.energy_generation|float/1000) }}{% endif %}'
+        friendly_name: 'Generated'
+        unit_of_measurement: 'kWh'
+```
