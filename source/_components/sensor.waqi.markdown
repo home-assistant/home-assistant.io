@@ -31,9 +31,11 @@ Configuration variables:
 
 The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:
 
-- from 0 to 50 - **Good**. Air quality is considered satisfactory, and air pollution poses little or no risk,
-- from 51 to 100 - **Moderate**. Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution,
-- from 101 - 150 - **Unhealthy for Sensitive Groups**. Members of sensitive groups may experience health effects. The general public is not likely to be affected,
-- from 151 to 200 - **Unhealthy**. Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects,
-- from 201 to 300 - **Very unhealthy**. Health warnings of emergency conditions. The entire population is more likely to be affected,
-- from 301. **Hazardous**. Health alert: everyone may experience more serious health effects
+AQI | Status | Description
+------- | :----------------: | ----------
+0 - 50  | **Good** | Air quality is considered satisfactory, and air pollution poses little or no risk
+51 - 100  | **Moderate** | Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution
+101 - 150 | **Unhealthy for Sensitive Groups** | Members of sensitive groups may experience health effects. The general public is not likely to be affected
+151 - 200 | **Unhealthy** | Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects
+201 - 300 | **Very unhealthy** | Health warnings of emergency conditions. The entire population is more likely to be affected
+301+ | **Hazardous** | Health alert: everyone may experience more serious health effects
