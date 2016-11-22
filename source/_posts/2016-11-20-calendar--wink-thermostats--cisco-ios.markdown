@@ -43,6 +43,15 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 
  - Fix Z-Wave lights ([@turbokongen])
 
+### {% linkable_title Release 0.33.2 - November 22 %}
+
+ - Fix Device Tracker init ([@pvizeli])
+ - Fix Discovery init ([@pvizeli])
+ - Fix TP-Link switch ([@mweinelt])
+ - Fix Zwave light naming & configurable refresh ([@jchapple])
+ - Neato fixes ([@turbokongen])
+ - Fix 'Unknown' status for Nest Protect devices ([@Khabi])
+
 ### {% linkable_title Breaking changes %}
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
@@ -69,6 +78,8 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 [@sdague]: https://github.com/sdague
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
+[@jchapple]: https://github.com/jchapple
+[@Khabi]: https://github.com/Khabi
 
 [api-stream]: /components/sensor.api_stream/
 [cisco]: /components/device_tracker.cisco_ios/
