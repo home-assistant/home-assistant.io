@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-21T13:20:41+00:00</updated>
+  <updated>2016-11-22T04:48:52+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -50,6 +50,15 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 
  - Fix Z-Wave lights ([@turbokongen])
 
+### <a class='title-link' name='release-0332---november-22' href='#release-0332---november-22'></a> Release 0.33.2 - November 22 
+
+ - Fix Device Tracker init ([@pvizeli])
+ - Fix Discovery init ([@pvizeli])
+ - Fix TP-Link switch ([@mweinelt])
+ - Fix Zwave light naming & configurable refresh ([@jchapple])
+ - Neato fixes ([@turbokongen])
+ - Fix 'Unknown' status for Nest Protect devices ([@Khabi])
+
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
@@ -76,6 +85,8 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 [@sdague]: https://github.com/sdague
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
+[@jchapple]: https://github.com/jchapple
+[@Khabi]: https://github.com/Khabi
 
 [api-stream]: /components/sensor.api_stream/
 [cisco]: /components/device_tracker.cisco_ios/

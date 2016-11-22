@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-21T13:20:41+00:00</updated>
+  <updated>2016-11-22T04:48:52+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -52,6 +52,17 @@
 
 <ul>
   <li>Fix Z-Wave lights (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0332---november-22" href="#release-0332---november-22"></a> Release 0.33.2 - November 22</h3>
+
+<ul>
+  <li>Fix Device Tracker init (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Discovery init (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix TP-Link switch (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Fix Zwave light naming &amp; configurable refresh (<a href="https://github.com/jchapple">@jchapple</a>)</li>
+  <li>Neato fixes (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Fix ‘Unknown’ status for Nest Protect devices (<a href="https://github.com/Khabi">@Khabi</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
