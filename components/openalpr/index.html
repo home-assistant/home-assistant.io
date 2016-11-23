@@ -100,7 +100,7 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
 
 <p>If you want process all data local you need the command line tool <code class="highlighter-rouge">alpr</code> in version &gt; 2.3.1</p>
 
-<p>If you don’t found binarys for you distribution you can compile from source. A documention how to build a openalpr is found <a href="https://github.com/openalpr/openalpr/wiki">here</a>.</p>
+<p>If you don’t find binaries for your distribution you can compile from source. Documention of how to build openalpr is found <a href="https://github.com/openalpr/openalpr/wiki">here</a>.</p>
 
 <p>On a debian system you can use this cmake command to build only the command line tool (which second part on linux build instruction - ubuntu 14.04+):</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>cmake -DWITH_TEST<span class="o">=</span>FALSE -DWITH_BINDING_JAVA<span class="o">=</span>FALSE --DWITH_BINDING_PYTHON<span class="o">=</span>FALSE --DWITH_BINDING_GO<span class="o">=</span>FALSE -DWITH_DAEMON<span class="o">=</span>FALSE -DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/usr ..
@@ -140,7 +140,7 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
   <li><strong>region</strong> (<em>Required</em>): Country or region. List of Supported <a href="https://github.com/openalpr/openalpr/tree/master/runtime_data/config">value</a>.</li>
   <li><strong>confidence</strong> (<em>Optional</em>): Default 80. The minimum of confidence in percent to process with Home-Assistant.</li>
   <li><strong>entities</strong> (<em>Required</em>): A list of device to add in Home-Assistant.</li>
-  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your openalpr entitie.</li>
+  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your openalpr entity.</li>
   <li><strong>interval</strong> (<em>Optional</em>): Default 2. Time in seconds to poll a picture. If the interval is 0 It don’t poll and it only process data with <code class="highlighter-rouge">openalpr.scan</code> service.</li>
   <li><strong>render</strong> (<em>Optional</em>): default is with ffmpeg. How is Home-Assistant to get a picture from. It support <code class="highlighter-rouge">ffmpeg</code> for video streams and <code class="highlighter-rouge">image</code> for a still image.</li>
   <li><strong>input</strong> (<em>Required</em>): The source from getting pictures. With ffmpeg it could by all supported input. Image only support a url.</li>

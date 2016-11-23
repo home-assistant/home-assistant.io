@@ -93,7 +93,7 @@
   <p>The <code class="highlighter-rouge">tplink</code> platform allows you to detect presence by looking at connected devices to a <a href="https://www.tp-link.com">TP-Link</a> device. This includes the ArcherC9 line.</p>
 
 <p class="note">
-TP-Link devices typically only allow one login at a time to the admin console.  This component will count torwards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant (and waiting a few minutes for the session to timeout) before you’ll be able to login.
+TP-Link devices typically only allow one login at a time to the admin console.  This component will count towards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant (and waiting a few minutes for the session to timeout) before you’ll be able to login.
 </p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -117,7 +117,7 @@ TP-Link devices typically only allow one login at a time to the admin console.  
 
 <ol>
   <li>Go to the login page of your router. (default: 192.168.0.1)</li>
-  <li>Type in the password you use to login into the passsword field.</li>
+  <li>Type in the password you use to login into the password field.</li>
   <li>Click somewhere else on the page so that the password field is not selected anymore.</li>
   <li>Open the JavaScript console of your browser (usually by pressing F12 and then clicking on “Console”).</li>
   <li>Type <code class="highlighter-rouge">document.getElementById("login-password").value;</code>.</li>

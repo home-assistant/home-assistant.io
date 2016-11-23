@@ -94,7 +94,7 @@
 entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo with no set up cost outside of configuration changes.</p>
 
 <p class="note">
-  It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresss, and if the IP changes, the Echo won’t be able to control it. This is easiest done from your router, see your router’s manual for details.
+  It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won’t be able to control it. This is easiest done from your router, see your router’s manual for details.
 </p>
 
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
@@ -124,7 +124,7 @@ entities. The driving use case behind this functionality is to allow Home Assist
     </ul>
   </li>
   <li>
-    <p><strong>expose_by_default</strong> (<em>Optional</em>): Whether or not entities should be exposed via the bridge by default instead of explicitly (see the ‘emulated_hue’ customization below). If not specified, this defaults to true.  Warning: If you have a lot of devices (more than 49 total across all exposed domains), you should be careful with this opton.  Exposing more devices than Alexa supports can result in it not seeing any of them.  If you are having trouble getting any devices to show up, try disabling this, and explicitly exposing just a few devices at a time to see if that fixes it.</p>
+    <p><strong>expose_by_default</strong> (<em>Optional</em>): Whether or not entities should be exposed via the bridge by default instead of explicitly (see the ‘emulated_hue’ customization below). If not specified, this defaults to true. Warning: If you have a lot of devices (more than 49 total across all exposed domains), you should be careful with this option. Exposing more devices than Alexa supports can result in it not seeing any of them.  If you are having trouble getting any devices to show up, try disabling this, and explicitly exposing just a few devices at a time to see if that fixes it.</p>
   </li>
   <li><strong>exposed_domains</strong> (<em>Optional</em>): The domains that are exposed by default if <code class="highlighter-rouge">expose_by_default</code> is set to true. If not specified, this defaults to the following list:
     <ul>

@@ -102,7 +102,7 @@
   <li>Simple remote controls</li>
 </ul>
 
-<p>If you want to see if a specific device you have is supported, head over to the <a href="https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes">pyhomematic</a> repository and browse through the sourcecode. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom.</p>
+<p>If you want to see if a specific device you have is supported, head over to the <a href="https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes">pyhomematic</a> repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom.</p>
 
 <p>We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
 You can manually override the created entities be using Home Assistants <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing</a> feature. With it you are able to hide entities you don’t need to see within the UI.</p>
@@ -124,7 +124,7 @@ You can manually override the created entities be using Home Assistants <a href=
   <li><strong>resolvenames</strong> (<em>Optional</em>): &lt;metadata, json, xml&gt; Try to fetch device names. Defaults to <code class="highlighter-rouge">False</code> if not specified.</li>
   <li><strong>username</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.</li>
   <li><strong>password</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.</li>
-  <li><strong>delay</strong> (<em>Optional</em>): <Float> Delay fetching of current state per deivce on startup. Used to prevent overloading of the CCU. Defaults to 0.5.</Float></li>
+  <li><strong>delay</strong> (<em>Optional</em>): <Float> Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.</Float></li>
   <li><strong>variables</strong> (<em>Optional</em>): True or False if you want use CCU2/Homegear variables. Default False.</li>
 </ul>
 

@@ -329,7 +329,7 @@ Home Assistant will automatically load the correct certificate if you connect to
 
 <h2><a class="title-link" name="testing-your-setup" href="#testing-your-setup"></a> Testing your setup</h2>
 
-<p>The <code class="highlighter-rouge">mosquitto</code> broker package ships commandline tools to send and recieve MQTT messages. As an alternative have a look at <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html">hbmqtt_pub</a> and <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html">hbmqtt_sub</a> which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:</p>
+<p>The <code class="highlighter-rouge">mosquitto</code> broker package ships commandline tools to send and receive MQTT messages. As an alternative have a look at <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html">hbmqtt_pub</a> and <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html">hbmqtt_sub</a> which are provided by HBMQTT. For sending test messages to a broker running on localhost check the example below:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m <span class="s2">"Switch is ON"</span>
 </code></pre>
