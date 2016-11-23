@@ -63,6 +63,11 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
  - Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.
 
+### {% linkable_title Reporting issues %}
+
+Experiencing issues introduced by this release? Please report them in our [issue tracker]. Make sure to fill in all fields of the issue template.
+
+[issue tracker]: https://github.com/home-assistant/home-assistant/issues
 [@bah2830]: https://github.com/bah2830
 [@balloob]: https://github.com/balloob
 [@bestlibre]: https://github.com/bestlibre
