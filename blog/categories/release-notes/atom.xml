@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-22T14:50:36+00:00</updated>
+  <updated>2016-11-23T04:44:00+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -58,6 +58,12 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
  - Fix Zwave light naming & configurable refresh ([@jchapple])
  - Neato fixes ([@turbokongen])
  - Fix 'Unknown' status for Nest Protect devices ([@Khabi])
+
+### <a class='title-link' name='release-0333---november-23' href='#release-0333---november-23'></a> Release 0.33.3 - November 23 
+
+ - Update Yr.no entities every hour ([@kellerza])
+ - Bump Netdisco to 0.7.7 (fixes discovery on Synology)
+ - Fix discovery race condition (most obvious in Wemo) ([@balloob])
 
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
