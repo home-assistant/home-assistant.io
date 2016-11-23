@@ -114,6 +114,33 @@
 It’s recommended to set <code class="highlighter-rouge">scan_interval:</code> according to a value greater than 60 seconds. The service only allows 60 requests per hour but the sensor’s default is 30 seconds.
 </p>
 
+<p>To format the PVoutput sensor you can you the <a href="/topics/templating/">template component</a>. For example:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pvoutput</span>
+    <span class="s">system_id</span><span class="pi">:</span> <span class="s">YOUR_SYSTEM_ID</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+    <span class="s">scan_interval</span><span class="pi">:</span> <span class="s">150</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">power_consumption</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Using'</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Watt'</span>
+      <span class="s">energy_consumption</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%0.1f'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Used'</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">kWh'</span>
+      <span class="s">power_generation</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Generating'</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Watt'</span>
+      <span class="s">energy_generation</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%0.2f'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Generated'</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">kWh'</span>
+</code></pre>
+</div>
 
 
 </article>

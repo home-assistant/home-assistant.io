@@ -107,10 +107,10 @@
   <span class="s">condition</span><span class="pi">:</span>
     <span class="c1"># Prefix the first line of each condition configuration</span>
     <span class="c1"># with a '-'' to enter multiple</span>
-    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
       <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
-    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">time</span>
       <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16:00:00'</span>
       <span class="s">before</span><span class="pi">:</span> <span class="s1">'</span><span class="s">23:00:00'</span>
   <span class="s">action</span><span class="pi">:</span>
@@ -135,7 +135,7 @@
     <span class="s">zone</span><span class="pi">:</span> <span class="s">zone.home</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
   <span class="s">condition</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">condition</span><span class="pi">:</span> <span class="s">time</span>
     <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">20:00'</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
