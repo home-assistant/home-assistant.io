@@ -52,6 +52,12 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
  - Neato fixes ([@turbokongen])
  - Fix 'Unknown' status for Nest Protect devices ([@Khabi])
 
+### {% linkable_title Release 0.33.3 - November 23 %}
+
+ - Update Yr.no entities every hour ([@kellerza])
+ - Bump Netdisco to 0.7.7 (fixes discovery on Synology)
+ - Fix discovery race condition (most obvious in Wemo) ([@balloob])
+
 ### {% linkable_title Breaking changes %}
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
