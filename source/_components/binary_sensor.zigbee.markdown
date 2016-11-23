@@ -27,8 +27,8 @@ binary_sensor:
 
 Configuration variables:
 
-- **name** (*Required*): The name you wouldd like to give the binary sensor in Home Assistant.
+- **name** (*Required*): The name you would like to give the binary sensor in Home Assistant.
 - **pin** (*Required*): The number identifying which pin to use.
-- **address** (*Optional*): The long 64bit address of the remote ZigBee device whose digital input pin you'd like to sample. Do not include this variable if you want to sample the local ZigBee device's pins.
+- **address** (*Optional*): The long 64-bit address of the remote ZigBee device whose digital input pin you'd like to sample. Do not include this variable if you want to sample the local ZigBee device's pins.
 - **on_state** (*Optional*): Either `high` (default) or `low`, depicting whether the binary sensor is considered `on` when the pin is `high` or `low`.
 

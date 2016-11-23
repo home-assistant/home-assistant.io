@@ -13,7 +13,7 @@ ha_release: 0.21
 ha_iot_class: "Local Push"
 ---
 
-This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55. Other devices will most likely not work without changing the Home Asisstant code.
+This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55. Other devices will most likely not work without changing the Home Assistant code.
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
 
@@ -27,5 +27,5 @@ binary_sensor:
 Configuration variables:
 
 - **id** (*Required*): The ID of the device. This is the 4 bytes long number written on the dimmer.
-- **name** (*Optional*): An identifier for the Ligh in the frontend.
+- **name** (*Optional*): An identifier for the switch in the frontend.
 - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.

@@ -55,8 +55,8 @@ pilight:
 
 ## {% linkable_title Troubleshooting %}
 
-- A list of tested RF transceiver hardware is available [here](https://wiki.pilight.org/doku.php/electronics). This might be usefull before buying.
-- Sending commands is simple when the protocol is known by pilight, but receiving commands can be rather difficult. It can happend that the code is not correctly recognized due to different timings in the sending hardware or the RF receiver. If this happens follow these steps:
+- A list of tested RF transceiver hardware is available [here](https://wiki.pilight.org/doku.php/electronics). This might be useful before buying.
+- Sending commands is simple when the protocol is known by pilight, but receiving commands can be rather difficult. It can happen that the code is not correctly recognized due to different timings in the sending hardware or the RF receiver. If this happens follow these steps:
 
 1. [Install](https://www.pilight.org/get-started/installation/) pilight from source (do not worry that is very easy) and only activate the protocols you are expecting in the pop up menu. This reduces false positives.
 2. Check the real timings of your device + RF receiver by running `pilight-debug`. Remember the `pulslen` parameter.

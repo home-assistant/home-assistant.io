@@ -36,7 +36,7 @@ Determine your bulb ip (using router, software, ping ...)
 </p>
 
 <p class='note warning'>
-Tests are only made with a YLDP03YL model. Because it's the only hardware developer owns. If you have bugs with another kind of model, you could open an issue on [Home Assitant Github](https://github.com/home-assistant/home-assistant)
+Tests are only made with a YLDP03YL model. Because it's the only hardware developer owns. If you have bugs with another kind of model, you could open an issue on [Home Assistant Github](https://github.com/home-assistant/home-assistant)
 </p>
 
 

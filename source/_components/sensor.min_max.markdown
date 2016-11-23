@@ -14,7 +14,7 @@ ha_release: "0.31"
 ---
 
 
-The `min_max` sensor platform is consuming the state from other sensors and determine the minimum, maximum, and the mean of the collected states. The sensor will always show you the highest/lowest value which was received from your all monitored sensors. If you have spikes in your values, it's recommanded filter/equalize your values with a [statistics sensor](/components/sensor.statistics/) first.
+The `min_max` sensor platform is consuming the state from other sensors and determine the minimum, maximum, and the mean of the collected states. The sensor will always show you the highest/lowest value which was received from your all monitored sensors. If you have spikes in your values, it's recommended filter/equalize your values with a [statistics sensor](/components/sensor.statistics/) first.
 
 It's an alternative to the [template sensor](/components/sensor.template/)'s `value_template:` to get the average of multiple sensors.
 

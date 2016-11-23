@@ -54,7 +54,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the REST binary sensor.
 - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
-- **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
+- **payload** (*Optional*): The payload to send with a POST request. Usually formed as a dictionary.
 - **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
 - **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.
 - **username** (*Optional*): The username for accessing the REST endpoint.
