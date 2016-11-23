@@ -86,7 +86,7 @@ switch:
       fire_event: True
 ```
 
-Doorbell configuration:
+Light hallway if doorbell is pressed (when is sun down):
 
 ```yaml
 # Example configuration.yaml entry
@@ -120,7 +120,7 @@ automation:
         entity_id: switch.hall
 ```
 
-Use remote to enable scene:
+Use remote to enable scene (using event_data):
 
 ```yaml
 # Example configuration.yaml entry
