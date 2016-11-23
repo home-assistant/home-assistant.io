@@ -207,7 +207,7 @@ This allows you to mix several AND and OR conditions together.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">time</span>
 <span class="c1"># At least one of the following is required.</span>
 <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">15:00:00'</span>
-<span class="s">before</span><span class="pi">:</span> <span class="s1">'</span><span class="s">23:00:00'</span>
+<span class="s">before</span><span class="pi">:</span> <span class="s1">'</span><span class="s">02:00:00'</span>
 <span class="s">weekday</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">mon</span>
   <span class="pi">-</span> <span class="s">wed</span>
@@ -215,7 +215,8 @@ This allows you to mix several AND and OR conditions together.</p>
 </code></pre>
 </div>
 
-<p>Valid values for <code class="highlighter-rouge">weekday</code> are <code class="highlighter-rouge">mon</code>, <code class="highlighter-rouge">tue</code>, <code class="highlighter-rouge">wed</code>, <code class="highlighter-rouge">thu</code>, <code class="highlighter-rouge">fri</code>, <code class="highlighter-rouge">sat</code>, <code class="highlighter-rouge">sun</code>.</p>
+<p>Valid values for <code class="highlighter-rouge">weekday</code> are <code class="highlighter-rouge">mon</code>, <code class="highlighter-rouge">tue</code>, <code class="highlighter-rouge">wed</code>, <code class="highlighter-rouge">thu</code>, <code class="highlighter-rouge">fri</code>, <code class="highlighter-rouge">sat</code>, <code class="highlighter-rouge">sun</code>.
+Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am.</p>
 
 <h3><a class="title-link" name="zone-condition" href="#zone-condition"></a> Zone condition</h3>
 
