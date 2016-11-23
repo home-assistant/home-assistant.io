@@ -14,7 +14,7 @@ ha_release: 0.33
 ---
 
 
-The `mqtt_template` light platform lets you control a MQTT-enabled light that receive commands on a command topic and optionaly sends status update on a state topic.
+The `mqtt_template` light platform lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e. string, JSON), just configure it with templating.
 
 This platform supports on/off, brightness, RGB colors, transitions, and short/long flashing.
