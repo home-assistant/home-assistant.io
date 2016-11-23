@@ -106,12 +106,12 @@
   <tbody>
     <tr>
       <td>S_HVAC</td>
-      <td>V_HVAC_FLOW_STATE*, V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_SPEED</td>
+      <td>V_HVAC_FLOW_STATE*, V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_SPEED, V_TEMP</td>
     </tr>
   </tbody>
 </table>
 
-<p>V_HVAC_FLOW_STATE is mapped to the state of the Climate component in HA as follows:</p>
+<p>V_HVAC_FLOW_STATE is mapped to the state of the Climate component in Home Assistant as follows:</p>
 
 <table>
   <thead>
@@ -145,6 +145,8 @@
 <p>Set the target temperature using V_HVAC_SETPOINT_HEAT in Heat mode, and V_HVAC_SETPOINT_COOL in Cool Mode. In case of any Auto Change Over mode you can use V_HVAC_SETPOINT_HEAT as well as V_HVAC_SETPOINT_COOL to set the both the low bound and the high bound temperature of the device.</p>
 
 <p>You can use V_HVAC_SPEED to control the Speed setting of the Fan in the HVAC.</p>
+
+<p>You can use V_TEMP to send the current temperature from the node to Home Assistant.</p>
 
 <p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
 
