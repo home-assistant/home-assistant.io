@@ -38,7 +38,7 @@ Set the target temperature using V_HVAC_SETPOINT_HEAT in Heat mode, and V_HVAC_S
 
 You can use V_HVAC_SPEED to control the Speed setting of the Fan in the HVAC.
 
-You can use V_TEMP to send the current temperature from the node to HASS.
+You can use V_TEMP to send the current temperature from the node to Home Assistant.
 
 For more information, visit the [serial api] of MySensors.
 
