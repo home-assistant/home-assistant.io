@@ -27,7 +27,7 @@ automation:
   condition:
     # Prefix the first line of each condition configuration
     # with a '-'' to enter multiple
-    - platform: state
+    - condition: state
       entity_id: group.all_devices
       state: 'home'
     - condition: time
