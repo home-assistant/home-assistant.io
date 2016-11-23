@@ -23,7 +23,7 @@ S_TYPE | V_TYPE
 -------|-----------------------------------------------------------------------------
 S_HVAC | V_HVAC_FLOW_STATE*, V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_SPEED, V_TEMP
 
-V_HVAC_FLOW_STATE is mapped to the state of the Climate component in HA as follows:
+V_HVAC_FLOW_STATE is mapped to the state of the Climate component in Home Assistant as follows:
 
 Home Assistant State | MySensors State
 ---------------------|----------------
