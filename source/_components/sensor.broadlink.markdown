@@ -13,7 +13,7 @@ ha_release: 0.34
 ---
 
 
-The `broadlink` sensor platform let you monitor data from an RM2 and A1 E-air. 
+The `Broadlink` sensor platform let you monitor data from an RM2 and A1 E-air [devices](http://www.ibroadlink.com/). 
 There is currently no support for the cloud API.
 
 To set it up, add the following information to your `configuration.yaml` file:

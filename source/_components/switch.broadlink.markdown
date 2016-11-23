@@ -12,7 +12,7 @@ ha_category: Switch
 ha_release: 0.34
 ---
 
-This `Broadlink RM` switch platform allow to you control Broadlink RM2 Pro and RM mini IR+RF devices
+This `Broadlink` switch platform allow to you control Broadlink RM2 Pro and RM mini IR+RF [devices](http://www.ibroadlink.com/rm/)
 
 To enable it, add the following lines to your `configuration.yaml`:
 
