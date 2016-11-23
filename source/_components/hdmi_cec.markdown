@@ -40,7 +40,7 @@ $ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/pytho
 ```
 
 <p class='note'>If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
-`* failed to open vchiq instance` you will also need to add the user account Home Assistant runs under, to the `video` group. To add the Home Assisstant user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
+`* failed to open vchiq instance` you will also need to add the user account Home Assistant runs under, to the `video` group. To add the Home Assistant user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
 </p>
 
 ## {% linkable_title Testing your installation %}
