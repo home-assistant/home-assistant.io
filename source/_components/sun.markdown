@@ -22,7 +22,7 @@ sun:
 
 Configuration variables:
 
-- **elevation** (*Optional*): The (physical) elevation of your location, in metres above sea level. If ommitted will be retrieved from Google Maps.
+- **elevation** (*Optional*): The (physical) elevation of your location, in metres above sea level. If omitted will be retrieved from Google Maps.
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sun.png' />

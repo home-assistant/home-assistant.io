@@ -48,7 +48,7 @@ recorder:
 
 ## {% linkable_title Installation notes %}
 
-Not all Python bindings for the choosen database engine can be installed directly. This section contains additional details which should help you to get it working. 
+Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
 ### {% linkable_title MYSQL %}
 

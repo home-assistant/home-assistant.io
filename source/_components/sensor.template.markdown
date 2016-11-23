@@ -118,7 +118,7 @@ sensor:
 Please note the blank line to close the multi-line template.
 </p>
 
-### {% linkable_title Change the unit of measurment %}
+### {% linkable_title Change the unit of measurement %}
 
 With a template sensor it's easy to convert given values into others if the unit of measurement don't fit your needs.
 

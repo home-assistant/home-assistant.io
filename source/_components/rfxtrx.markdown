@@ -26,8 +26,8 @@ Configuration variables:
 
 - **device** (*Required*): The path to your device, e.g. `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0`
 - **debug** (*Optional*): If you want to receive debug output.
-- **dummy** (*Optional*): Then you have need a connected drive to test your settings. Can be usefull for debugging and testing.
+- **dummy** (*Optional*): Then you have need a connected drive to test your settings. Can be useful for debugging and testing.
 
 Supported protocols
 
-Not all protocols as advertised are enabled on inital setup of your transceiver. Enabling all protocols is not recommmended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Categories/Downloads) and enable the required protocol.
+Not all protocols as advertised are enabled on initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Categories/Downloads) and enable the required protocol.

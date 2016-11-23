@@ -33,7 +33,7 @@ Configuration variables:
   - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   - **entity_id** (*Required*): The entity that this sensor tracks.
   - **attribute** (*Optional*): The attribute of the entity that this sensor tracks. If no attribute is specified then the sensor will track the state.
-  - **invert** (*Optional*): Invert the result (so `true` means decending rather than ascending)
+  - **invert** (*Optional*): Invert the result (so `true` means descending rather than ascending)
 
 ## {% linkable_title Examples %}
 

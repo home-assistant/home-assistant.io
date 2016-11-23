@@ -64,7 +64,7 @@ Take a snapshot of what is currently playing on one or more speakers. This servi
 
 ### {% linkable_title Service `sonos_restore` %}
 
-Restore a previosly taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
+Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -32,7 +32,7 @@ Configuration variables:
 - **waypoints** (*Optional*): Owntracks users can define [waypoints](http://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `True`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions. Defaults to `True`.
 - **waypoint_whitelist** (*Optional*): A list of user names (as defined for [Owntracks](https://home-assistant.io/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant. Defaults to all users who are connected to Home Assistant via Owntracks.
 
-A full sample configuration for the `owntracks` plaftfrom is shown below:
+A full sample configuration for the `owntracks` platform is shown below:
 
 ```yaml
 # Example configuration.yaml entry

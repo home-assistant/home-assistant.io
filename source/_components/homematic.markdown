@@ -24,7 +24,7 @@ Device support is currently available for most of:
 - Sensors (shutter contacts, motion detectors, power meters and more)
 - Simple remote controls
 
-If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the sourcecode. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom.
+If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom.
 
 We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
 You can manually override the created entities be using Home Assistants [Customizing](https://home-assistant.io/getting-started/customizing-devices/) feature. With it you are able to hide entities you don't need to see within the UI.
@@ -45,7 +45,7 @@ Configuration variables:
 - **resolvenames** (*Optional*): <metadata, json, xml> Try to fetch device names. Defaults to `False` if not specified.
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
-- **delay** (*Optional*): <Float> Delay fetching of current state per deivce on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
+- **delay** (*Optional*): <Float> Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
 - **variables** (*Optional*): True or False if you want use CCU2/Homegear variables. Default False.
 
 To further explain the `resolvenames` option:

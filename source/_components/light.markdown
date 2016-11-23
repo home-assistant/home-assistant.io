@@ -35,8 +35,8 @@ Turns one light on or multiple lights on using [groups]({{site_root}}/components
 | `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds. *not supported by Wink
 | `profile` | yes | String with the name of one of the built-in profiles (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness or xy color then the profile values will be overwritten.
-| `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma seperated floats that represent the color in XY.
-| `rgb_color` | yes | A list containing three integers representing the rgb color you want the light to be. Three comma seperated integers that represent the color in RGB.  You can find a great chart here: [Hue Color Chart](http://www.developers.meethue.com/documentation/hue-xy-values)
+| `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma separated floats that represent the color in XY.
+| `rgb_color` | yes | A list containing three integers representing the rgb color you want the light to be. Three comma separated integers that represent the color in RGB.  You can find a great chart here: [Hue Color Chart](http://www.developers.meethue.com/documentation/hue-xy-values)
 | `color_temp` | yes | An INT in mireds representing the color temperature you want the light to be.
 | `color_name` | yes | A human readable string of a color name, such as `blue` or `goldenrod` or [`chucknorris`](http://stackoverflow.com/questions/8318911/why-does-html-think-chucknorris-is-a-color). If your browser can display it, so can Home Assistant.
 | `brightness` | yes | Integer between 0 and 255 for how bright the color should be.

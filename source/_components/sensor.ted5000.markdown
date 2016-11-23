@@ -33,7 +33,7 @@ Configuration variables:
 - **port** (*Optional*): The port of your ted gateway. Defaults to 80.
 - **name** (*Optional*): Name of the ted gateway. Defaults to ted.
 
-For each plugged MTU, using an index starting at 1, the platorm creates 2 sensors:
+For each plugged MTU, using an index starting at 1, the platform creates 2 sensors:
 ```yaml
 sensor.<name>_mtu<MTU id>_power
 sensor.<name>_mtu<MTU id>_voltage
