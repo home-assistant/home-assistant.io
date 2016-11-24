@@ -58,6 +58,12 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
  - Bump Netdisco to 0.7.7 (fixes discovery on Synology)
  - Fix discovery race condition (most obvious in Wemo) ([@balloob])
 
+### {% linkable_title Release 0.33.4 - November 24 %}
+
+ - Set executor pool size to 10 (as intended) ([@pvizeli])
+
+This should fix occasional performance problems that some people have reported.
+
 ### {% linkable_title Breaking changes %}
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
