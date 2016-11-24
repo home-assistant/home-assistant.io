@@ -31,14 +31,11 @@ Configuration variables:
 #### Getting the access token ####
 
 After you have registered your APP on your [My Apps Page](https://foursquare.com/developers/apps) you get a `CLIENT_ID` and you have specified a
-`REDIRECT_URL` which can be any URL you like, but since it will get your access token via a HTTP GET request, it should be a URL which will ignore the `access_token` HTTP GET variable. 
+`REDIRECT_URL` which can be any URL you like, but since it will get your access token via a HTTP GET request, it should be a URL which will ignore the `access_token` HTTP GET variable. A good idea is to choose the URL of your Home Assistant. 
 Visit the following URL in your browser:
 
 ```
-https://foursquare.com/oauth2/authenticate
-    ?client_id=CLIENT_ID
-    &response_type=token
-    &redirect_uri=YOUR_REGISTERED_REDIRECT_URI
+https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&response_type=token&redirect_uri=YOUR_REGISTERED_REDIRECT_URI
 ```
 
 and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual values. 
