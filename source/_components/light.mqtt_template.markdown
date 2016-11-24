@@ -2,7 +2,7 @@
 layout: page
 title: "MQTT Template Light"
 description: "Instructions for how to setup MQTT Template lights within Home Assistant."
-date: 2016-11-23 23:14
+date: 2016-11-06 21:16
 sidebar: true
 comments: false
 sharing: true
@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Light
 ha_iot_class: "Local Push"
-ha_release: 0.34
+ha_release: 0.33
 ---
 
 
