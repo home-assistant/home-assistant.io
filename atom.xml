@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-24T13:17:49+00:00</updated>
+  <updated>2016-11-24T23:55:10+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -72,6 +72,14 @@
   <li>Bump Netdisco to 0.7.7 (fixes discovery on Synology)</li>
   <li>Fix discovery race condition (most obvious in Wemo) (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
+
+<h3><a class="title-link" name="release-0334---november-24" href="#release-0334---november-24"></a> Release 0.33.4 - November 24</h3>
+
+<ul>
+  <li>Set executor pool size to 10 (as intended) (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<p>This should fix occasional performance problems that some people have reported.</p>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 

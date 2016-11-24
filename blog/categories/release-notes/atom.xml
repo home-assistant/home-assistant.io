@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-11-24T13:17:49+00:00</updated>
+  <updated>2016-11-24T23:55:10+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -64,6 +64,12 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
  - Update Yr.no entities every hour ([@kellerza])
  - Bump Netdisco to 0.7.7 (fixes discovery on Synology)
  - Fix discovery race condition (most obvious in Wemo) ([@balloob])
+
+### <a class='title-link' name='release-0334---november-24' href='#release-0334---november-24'></a> Release 0.33.4 - November 24 
+
+ - Set executor pool size to 10 (as intended) ([@pvizeli])
+
+This should fix occasional performance problems that some people have reported.
 
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
