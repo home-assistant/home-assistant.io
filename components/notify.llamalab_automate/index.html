@@ -1,0 +1,302 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>LlamaLab Automate - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to add user notifications to Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/notify.llamalab_automate/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="LlamaLab Automate">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/notify.llamalab_automate/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to add user notifications to Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="LlamaLab Automate">
+    <meta name="twitter:description" content="Instructions how to add user notifications to Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      LlamaLab Automate
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The <code class="highlighter-rouge">llamalab_automate</code> platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab <a href="https://llamalab.com/automate/">Automate</a> app. This can serve as an alternative to Tasker + AutoRemote.</p>
+
+<p>Go to <a href="https://llamalab.com/automate/cloud/">https://llamalab.com/automate/cloud/</a> and create a new API key/secret.</p>
+
+<p>To add Automate to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">llamalab_automate</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s">example@gmail.com</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>api_key</strong> (<em>Required</em>): Enter the API key for Automate.</li>
+  <li><strong>to</strong> (<em>Required</em>): E-Mail address the Automate-Fiber is configured for.</li>
+  <li><strong>device</strong> (<em>Optional</em>): Name of the target device to receive the messages.</li>
+</ul>
+
+<p>Receiving cloud messages in Automate:</p>
+
+<ol>
+  <li>Add a new flow</li>
+  <li>Insert block “Messaging -&gt; Cloud message receive”</li>
+  <li>Insert block “Interface -&gt; Toast show”</li>
+  <li>Connect OK from Flow beginning to IN of Cloud receive</li>
+  <li>Connect OK from Cloud receive to Toast show</li>
+  <li>Connect OK form Toast show to IN of Cloud receive</li>
+  <li>Tap Cloud receive and select the E-Mail account as setup in your configuration</li>
+  <li>Assign a variable name for the Payload</li>
+  <li>Tap Toast show and set the message value to the variable you’ve specified</li>
+</ol>
+
+<p>If you have multiple devices paired to one Google Mail account and want to control each instance of Automate individually, you can set the notifier to target a specific device. To determine your devices name, add a Cloud Message send block to your flow, tap it and scroll all the way to the bottom. Device names are case sensitive.</p>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/notify.llamalab_automate.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/llamalab_automate.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.27
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/notify/'>the Notifications component</a>.
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Notifications</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/notify.apns/'>APNS</a>
+        </li>
+        <li>
+            <a href='/components/notify.aws_lambda/'>AWS Lambda</a>
+        </li>
+        <li>
+            <a href='/components/notify.aws_sns/'>AWS SNS</a>
+        </li>
+        <li>
+            <a href='/components/notify.aws_sqs/'>AWS SQS</a>
+        </li>
+        <li>
+            <a href='/components/notify.command_line/'>Command line Notify</a>
+        </li>
+        <li>
+            <a href='/components/notify.ecobee/'>Ecobee Notify</a>
+        </li>
+        <li>
+            <a href='/components/notify.file/'>File</a>
+        </li>
+        <li>
+            <a href='/components/notify.free_mobile/'>Free Mobile</a>
+        </li>
+        <li>
+            <a href='/components/notify.gntp/'>GNTP (Growl)</a>
+        </li>
+        <li>
+            <a href='/components/notify.instapush/'>Instapush</a>
+        </li>
+        <li>
+            <a href='/components/notify.xmpp/'>Jabber (XMPP)</a>
+        </li>
+        <li>
+            <a href='/components/notify.joaoapps_join/'>Join Notify</a>
+        </li>
+        <li>
+            <a href='/components/notify.kodi/'>Kodi</a>
+        </li>
+        <li>
+            <a href='/components/notify.webostv/'>LG WebOS TV notifications</a>
+        </li>
+        <li>
+            LlamaLab Automate
+        </li>
+        <li>
+            <a href='/components/notify.mqtt/'>MQTT Notifications</a>
+        </li>
+        <li>
+            <a href='/components/notify.matrix/'>Matrix</a>
+        </li>
+        <li>
+            <a href='/components/notify.message_bird/'>MessageBird</a>
+        </li>
+        <li>
+            <a href='/components/notify.nfandroidtv/'>Notifications for Android TV / FireTV</a>
+        </li>
+        <li>
+            <a href='/components/notify.group/'>Notify Group</a>
+        </li>
+        <li>
+            <a href='/components/notify.nma/'>Notify My Android</a>
+        </li>
+        <li>
+            <a href='/components/notify.html5/'>Push Notifications</a>
+        </li>
+        <li>
+            <a href='/components/notify.pushbullet/'>Pushbullet</a>
+        </li>
+        <li>
+            <a href='/components/notify.pushetta/'>Pushetta</a>
+        </li>
+        <li>
+            <a href='/components/notify.pushover/'>Pushover</a>
+        </li>
+        <li>
+            <a href='/components/notify.rest/'>REST</a>
+        </li>
+        <li>
+            <a href='/components/notify.smtp/'>SMTP</a>
+        </li>
+        <li>
+            <a href='/components/notify.sendgrid/'>SendGrid</a>
+        </li>
+        <li>
+            <a href='/components/notify.simplepush/'>Simplepush</a>
+        </li>
+        <li>
+            <a href='/components/notify.slack/'>Slack</a>
+        </li>
+        <li>
+            <a href='/components/notify.syslog/'>Syslog</a>
+        </li>
+        <li>
+            <a href='/components/notify.telegram/'>Telegram</a>
+        </li>
+        <li>
+            <a href='/components/notify.telstra/'>Telstra</a>
+        </li>
+        <li>
+            <a href='/components/notify.twilio_sms/'>Twilio SMS</a>
+        </li>
+        <li>
+            <a href='/components/notify.twitter/'>Twitter</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

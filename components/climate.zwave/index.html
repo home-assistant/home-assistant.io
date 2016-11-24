@@ -1,0 +1,297 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Z-Wave Climate - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to setup the Z-Wave thermostat or HVAC within Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/climate.zwave/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Z-Wave Climate">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/climate.zwave/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to setup the Z-Wave thermostat or HVAC within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Z-Wave Climate">
+    <meta name="twitter:description" content="Instructions how to setup the Z-Wave thermostat or HVAC within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Z-Wave Climate
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow the instructions for the general <a href="/getting-started/z-wave/">Z-Wave component</a>.</p>
+
+<p class="note">
+Thermostats with support for fan modes or different operating modes, will be handled like a HVAC device and will also be detected as one. 
+
+If the thermostat support different operating modes, you will get one thermostat entity for each mode. These can be hidden with settings using the customize setting in the <code class="highlighter-rouge">configuration.yaml</code> file.
+</p>
+
+<p>To enable the climate component for your Z-Wave network, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">climate</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">zwave</span>
+</code></pre>
+</div>
+
+<p>Once enabled, any Z-Wave climate devices will be available to Home Assistant. Multiple entities may be created. The following entities are created for a Remotec ZXT-120.</p>
+
+<ul>
+  <li><strong>climate.remotec_zxt120_heating_1_id</strong> Allows you to control the connected device. See below for examples.</li>
+  <li><strong>sensor.remotec_zxt120_temperature_38</strong> A sensor which returns the current temperature set on the attached device.</li>
+</ul>
+
+<h3><a class="title-link" name="automating-z-wave-climate-devices" href="#automating-z-wave-climate-devices"></a> Automating Z-Wave Climate Devices</h3>
+
+<p>The following examples will instruct a Remotec ZXT-120 to turn the attached device mode to Heating, and set the temperature at 24 degrees after 8pm. Add it to <code class="highlighter-rouge">automation.yaml</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on Heater at 8pm</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">20:00:00"</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_operation_mode</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.remotec_zxt120_heating_1_id</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">operation_mode</span><span class="pi">:</span> <span class="s">Heat</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_temperature</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.remotec_zxt120_heating_1_39</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">temperature</span><span class="pi">:</span> <span class="s">24</span>
+</code></pre>
+</div>
+
+<p>Generally in Home Assistant you can use the <code class="highlighter-rouge">homeassistant/turn_off</code> service to turn devices off. For the Remotec ZXT-120, you must instead make a service call like the following.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn off Heater at 9pm</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">21:00:00"</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_operation_mode</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.remotec_zxt120_heating_1_id</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">operation_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Off'</span>
+</code></pre>
+</div>
+
+<p><strong>Note:</strong> In the example above, the word <code class="highlighter-rouge">Off</code> is encased in single quotes to be valid YAML.</p>
+
+<h3><a class="title-link" name="test-if-it-works" href="#test-if-it-works"></a> Test if it works</h3>
+
+<p>A simple way to test if your Z-Wave climate device is working is to use <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong>. Choose the applicable Climate service from the list of <strong>Available services:</strong> and enter something like the sample below into  the <strong>Service Data</strong> field and then press <strong>CALL SERVICE</strong>.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"climate.remotec_zxt120_heating_1_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"operation_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Heat"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/climate.zwave.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/z-wave.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.17
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/climate/'>the Climate component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/zwave/'>
+          Z-Wave
+        </a></li>
+        <li><a href='/components/binary_sensor.zwave/'>
+          Z-Wave Binary Sensor
+        </a></li>
+        <li><a href='/components/cover.zwave/'>
+          Z-Wave Cover
+        </a></li>
+        <li><a href='/components/light.zwave/'>
+          Z-Wave Light
+        </a></li>
+        <li><a href='/components/lock.zwave/'>
+          Z-Wave Lock
+        </a></li>
+        <li><a href='/components/sensor.zwave/'>
+          Z-Wave Sensor
+        </a></li>
+        <li><a href='/components/switch.zwave/'>
+          Z-Wave Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Climate</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/climate.eq3btsmart/'>EQ3 Bluetooth Smart Thermostats</a>
+        </li>
+        <li>
+            <a href='/components/climate.ecobee/'>Ecobee Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/climate.generic_thermostat/'>Generic Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/climate.heatmiser/'>Heatmiser Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/climate.homematic/'>Homematic Thermostats</a>
+        </li>
+        <li>
+            <a href='/components/climate.honeywell/'>Honeywell Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/climate.mysensors/'>MySensors HVAC</a>
+        </li>
+        <li>
+            <a href='/components/climate.nest/'>Nest Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/climate.netatmo/'>Netatmo Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/climate.proliphix/'>Proliphix Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/climate.radiotherm/'>Radiotherm Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/climate.vera/'>Vera Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/climate.wink/'>Wink Thermostat</a>
+        </li>
+        <li>
+            Z-Wave Climate
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ESP8266 | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/esp8266/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2016-11-23T14:59:54+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ESP8266 and MicroPython - Part 2]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/"/>
+    <updated>2016-08-31T04:17:25+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2</id>
+    <content type="html"><![CDATA[<img src='https://home-assistant.io/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
+So, part 1 of [ESP8266 and MicroPython](/blog/2016/07/28/esp8266-and-micropython-part1/) was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.
+
+<!--more-->
+
+Beside [HTTP POST](https://en.wikipedia.org/wiki/POST_(HTTP)) requests, MQTT is the quickest way (from the author's point of view) to publish information with DIY devices. 
+
+You have to make a decision: Do you want to pull or to poll? For slowly changing values like temperature it's perfectly fine to wait a couple of seconds to retrieve the value. If it's a motion detector the state change should be available instantly. This means the sensor must take initiative. 
+
+An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
+
+### <a class='title-link' name='mqtt' href='#mqtt'></a> MQTT 
+
+You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
+
+The example below is adopted from the work of [@davea](https://github.com/davea) as we don't want to re-invent the wheel. The configuration feature is crafty and simplyfies the code with the usage of a file called `/config.json` which stores the configuration details. The ESP8266 device will send the value of a pin every 5 seconds.
+
+
+```python
+import machine
+import time
+import ubinascii
+import webrepl
+
+from umqtt.simple import MQTTClient
+
+# These defaults are overwritten with the contents of /config.json by load_config()
+CONFIG = {
+    "broker": "192.168.1.19",
+    "sensor_pin": 0, 
+    "client_id": b"esp8266_" + ubinascii.hexlify(machine.unique_id()),
+    "topic": b"home",
+}
+
+client = None
+sensor_pin = None
+
+def setup_pins():
+    global sensor_pin
+    sensor_pin = machine.ADC(CONFIG['sensor_pin'])
+
+def load_config():
+    import ujson as json
+    try:
+        with open("/config.json") as f:
+            config = json.loads(f.read())
+    except (OSError, ValueError):
+        print("Couldn't load /config.json")
+        save_config()
+    else:
+        CONFIG.update(config)
+        print("Loaded config from /config.json")
+
+def save_config():
+    import ujson as json
+    try:
+        with open("/config.json", "w") as f:
+            f.write(json.dumps(CONFIG))
+    except OSError:
+        print("Couldn't save /config.json")
+
+def main():
+    client = MQTTClient(CONFIG['client_id'], CONFIG['broker'])
+    client.connect()
+    print("Connected to {}".format(CONFIG['broker']))
+    while True:
+        data = sensor_pin.read()
+        client.publish('{}/{}'.format(CONFIG['topic'],
+                                          CONFIG['client_id']),
+                                          bytes(str(data), 'utf-8'))
+        print('Sensor state: {}'.format(data))
+        time.sleep(5)
+
+if __name__ == '__main__':
+    load_config()
+    setup_pins()
+    main()
+```
+
+Subscribe to the topic `home/#` or create a [MQTT sensor](/components/sensor.mqtt/) to check if the sensor values are published.
+
+```bash
+$ mosquitto_sub -h 192.168.1.19 -v -t "home/#"
+```
+
+```yaml
+sensor:
+  - platform: mqtt
+    state_topic: "home/esp8266_[last part of the MAC address]"
+    name: "MicroPython"
+```
+
+[@davea](https://github.com/davea) created [sonoff-mqtt](https://github.com/davea/sonoff-mqtt). This code will work on ESP8622 based devices too and shows how to use a button to control a relay.
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ESP8266 and MicroPython - Part 1]]></title>
+    <link href="https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1/"/>
+    <updated>2016-07-28T04:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1</id>
+    <content type="html"><![CDATA[<img src='https://home-assistant.io/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
+The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The [documentation](http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html) covers a lot of ground. This post is providing only a little summary which should get you started.
+
+Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers of the Kickstarter campaign. This has changed now and it is available to the public for [download](https://micropython.org/download/#esp8266).
+
+<!--more-->
+
+The easiest way is to use [esptool.py](https://github.com/themadinventor/esptool) for firmware handling tasks. First erase the flash:
+
+```bash
+$ sudo python esptool.py --port /dev/ttyUSB0 erase_flash
+esptool.py v1.0.2-dev
+Connecting...
+Erasing flash (this may take a while)...
+```
+
+and then load the firmware. You may adjust the file name of the firmware binary. 
+
+```bash
+$ sudo python esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=8m 0 esp8266-2016-07-10-v1.8.2.bin
+esptool.py v1.2-dev
+Connecting...
+Running Cesanta flasher stub...
+Flash params set to 0x0020
+Writing 540672 @ 0x0... 540672 (100 %)
+Wrote 540672 bytes at 0x0 in 13.1 seconds (330.8 kbit/s)...
+Leaving...
+```
+
+Now reset the device. You should then be able to use the [REPL (Read Evaluate Print Loop)](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt). On Linux there is `minicom` or `picocom`, on a Mac you can use `screen` (eg. `screen /dev/tty.SLAB_USBtoUART 115200`), and on Windows there is Putty to open a serial connection and get the REPL prompt.
+
+The [WebREPL](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at [http://micropython.org/webrepl](http://micropython.org/webrepl). Alternatively, you can create a local clone of their [GitHub repository](https://github.com/micropython/webrepl). This is neccessary if your want to use the command-line tool `webrepl_cli.py` which is mentionend later in this post.
+
+```bash
+$ sudo minicom -D /dev/ttyUSB0
+#4 ets_task(4020e374, 29, 3fff70e8, 10)                                                          
+WebREPL daemon started on ws://192.168.4.1:8266
+Started webrepl in setup mode
+could not open file 'main.py' for reading
+
+#5 ets_task(4010035c, 3, 3fff6360, 4)
+MicroPython v1.8.2-9-g805c2b9 on 2016-07-10; ESP module with ESP8266
+Type "help()" for more information.
+>>> 
+```
+
+<p class='note'>
+The public build of the firmware may be different than the firmware distributed to the backers of the Kickstarter campaign. Especially in regard of the [available modules](http://docs.micropython.org/en/latest/esp8266/py-modindex.html), turned on debug messages, and alike. Also, the WebREPL may not be started by default.
+</p>
+
+Connect a LED to pin 5 (or another pin of your choosing) to check if the ESP8266 is working as expected. 
+
+```python
+>>> import machine
+>>> pin = machine.Pin(5, machine.Pin.OUT)
+>>> pin.high()
+```
+
+You can toogle the LED by changing its state with `pin.high()` and `pin.low()`.
+
+Various ESP8266 development board are shipped with an onboard photocell or a light dependent resistors (LDR) connected to the analog pin of your ESP8266 check if you are able to obtain a value.
+
+```python
+>>> import machine
+>>> brightness = machine.ADC(0)
+>>> brightness.read()
+```
+
+Make sure that you are familiar with REPL and WebREPL because this will be needed soon. Keep in mind the password for the WebREPL access.
+
+Read the [instructions](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html) about how to setup your wireless connection. Basically you need to upload a `boot.py` file to the microcontroller and this file is taking care of the connection setup. Below you find a sample which is more or less the same as shown in the [documentation](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html#configuration-of-the-wifi).
+
+```python
+def do_connect():
+    import network
+
+    SSID = 'SSID'
+    PASSWORD = 'PASSWORD'
+
+    sta_if = network.WLAN(network.STA_IF)
+    ap_if = network.WLAN(network.AP_IF)
+    if ap_if.active():
+        ap_if.active(False)
+    if not sta_if.isconnected():
+        print('connecting to network...')
+        sta_if.active(True)
+        sta_if.connect(SSID, PASSWORD)
+        while not sta_if.isconnected():
+            pass
+    print('Network configuration:', sta_if.ifconfig())
+```
+
+Upload this file with `webrepl_cli.py` or the WebREPL:
+
+```bash
+$ python webrepl_cli.py boot.py 192.168.4.1:/boot.py
+```
+
+If you reboot, you should see your current IP address in the terminal.
+
+```bash
+>>> Network configuration: ('192.168.0.10', '255.255.255.0', '192.168.0.1', '192.168.0.1')
+```
+
+First let's create a little consumer for Home Assistant sensor's state. The code to place in `main.py` is a mixture of code from above and the [RESTful API](/developers/rest_api/) of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on. 
+
+<p class='note'>
+If a module is missing then you need to download it from the [MicroPython Library overview](https://github.com/micropython/micropython-lib) and upload it to the ESP8266 with `webrepl_cli.py` manually.
+</p>
+
+```python
+# Sample code to request the state of a Home Assistant entity.
+
+API_PASSWORD = 'YOUR_PASSWORD'
+URL = 'http://192.168.0.5:8123/api/states/'
+ENTITY = 'sensor.kitchen_temperature'
+TIMEOUT = 30
+PIN = 5
+
+def get_data():
+    import urequests
+    url = '{}{}'.format(URL, ENTITY)
+    headers = {'x-ha-access': API_PASSWORD,
+               'content-type': 'application/json'}
+    resp = urequests.get(URL, headers=headers)
+    return resp.json()['state']
+
+def main():
+    import machine
+    import time
+
+    pin = machine.Pin(PIN, machine.Pin.OUT)
+    while True:
+        try:
+            if int(get_data()) >= 20:
+                pin.high()
+            else:
+                pin.low()
+        except TypeError:
+            pass
+        time.sleep(TIMEOUT)
+
+if __name__ == '__main__':
+    print('Get the state of {}'.format(ENTITY))
+    main()
+```
+
+Upload `main.py` the same way as `boot.py`. After a reboot (`>>> import machine` and `>>> machine.reboot()`) or power-cycling your physical notifier is ready.
+
+If you run into trouble, press "Ctrl+c" in the REPL to stop the execution of the code, enter `>>> import webrepl` and `>>> webrepl.start()`, and upload your fixed file.
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Report the temperature with ESP8266 to MQTT]]></title>
+    <link href="https://home-assistant.io/blog/2015/10/11/measure-temperature-with-esp8266-and-report-to-mqtt/"/>
+    <updated>2015-10-11T19:10:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2015/10/11/measure-temperature-with-esp8266-and-report-to-mqtt</id>
+    <content type="html"><![CDATA[{::options coderay_line_numbers="table" /}
+
+I recently learned about the ESP8266, a $5 chip that includes WiFi and is Arduino compatible. This means that all your DIY projects can now be done for a fraction of the price.
+
+For this tutorial, I'll walk through how to get going with ESP8266, get the temperature and humidity and report it to MQTT where Home Asssistant can pick it up.
+
+<p class='img'>
+<img src='https://home-assistant.io/images/blog/2015-10-esp8266-temp/setup.png' />
+Picture of the final setup (+ 2 LED for decoration)
+</p>
+
+<p class='img'>
+<img src='https://home-assistant.io/images/blog/2015-10-esp8266-temp/ha-sensor.png' />
+Home Assistant will keep track of historical values and allow you to integrate it into automation.
+</p>
+
+<!--more-->
+
+### <a class='title-link' name='components' href='#components'></a> Components 
+
+I've been using Adafruit for my shopping:
+
+ - [Adafruit HUZZAH ESP8266 Breakout](http://www.adafruit.com/product/2471) ([assembly instructions](https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/assembly))
+ - [Adafruit HDC1008 Temperature & Humidity Sensor Breakout Board](http://www.adafruit.com/product/2635) ([assembly instructions](https://learn.adafruit.com/adafruit-hdc1008-temperature-and-humidity-sensor-breakout/assembly))
+ - [MQTT server](/components/mqtt/#picking-a-broker)
+
+_Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
+
+### <a class='title-link' name='alternatives' href='#alternatives'></a> Alternatives 
+
+Since this article has been published the HDC1008 has been discontinued. Updated sketches are available for the following alternatives:
+
+ - [DHT22 sensor](https://www.adafruit.com/product/385) and [updated sketch](https://gist.github.com/balloob/1176b6d87c2816bd07919ce6e29a19e9).
+ - [BME280 sensor](https://www.adafruit.com/product/2652) and [updated sketch](https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419).
+
+### <a class='title-link' name='connections' href='#connections'></a> Connections 
+
+On your breadboard, make the following connections from your ESP8266 to the HDC1008:
+
+| ESP8266 | HDC1008 |
+| ------- | ------- |
+| GND | GND
+| 3V | Vin
+| 14 | SCL
+| #2 | SDA
+
+_I picked `#2` and `14` myself, you can configure them in the sketch._
+
+### <a class='title-link' name='preparing-your-ide' href='#preparing-your-ide'></a> Preparing your IDE 
+
+Follow [these instructions](https://github.com/esp8266/Arduino#installing-with-boards-manager) on how to install and prepare the Arduino IDE for ESP8266 development.
+
+After you're done installing, open the Arduino IDE, in the menu click on `sketch` -> `include library` -> `manage libraries` and install the following libraries:
+
+- PubSubClient by Nick 'O Leary
+- Adafruit HDC1000
+
+### <a class='title-link' name='sketch' href='#sketch'></a> Sketch 
+
+If you have followed the previous steps, you're all set.
+
+ - Open Arduino IDE and create a new sketch (`File` -> `New`)
+ - Copy and paste the below sketch to the Arduino IDE
+ - Adjust the values line 6 - 14 to match your setup
+ - Optional: If you want to connect to an MQTT server without a username or password, adjust line 62.
+ - To have the ESP8266 accept our new sketch, we have to put it in upload mode. On the ESP8266 device keep the GPIO0 button pressed while pressing the reset button. The red led will glow half bright to indicate it is in upload mode.
+ - Press the upload button in Arduino IDE
+ - Open the serial monitor (`Tools` -> `Serial Monitor`) to see the output from your device
+
+This sketch will connect to your WiFi network and MQTT broker. It will read the temperature and humidity from the sensor every second. It will report it to the MQTT server if the difference is > 1 since last reported value. Reports to the MQTT broker are sent with retain set to `True`. This means that anyone connecting to the MQTT topic will automatically be notified of the last reported value.
+
+```cpp
+#include <ESP8266WiFi.h>
+#include <Wire.h>
+#include <PubSubClient.h>
+#include <Adafruit_HDC1000.h>
+
+#define wifi_ssid "YOUR WIFI SSID"
+#define wifi_password "WIFI PASSWORD"
+
+#define mqtt_server "YOUR_MQTT_SERVER_HOST"
+#define mqtt_user "your_username"
+#define mqtt_password "your_password"
+
+#define humidity_topic "sensor/humidity"
+#define temperature_topic "sensor/temperature"
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+Adafruit_HDC1000 hdc = Adafruit_HDC1000();
+
+void setup() {
+  Serial.begin(115200);
+  setup_wifi();
+  client.setServer(mqtt_server, 1883);
+
+  // Set SDA and SDL ports
+  Wire.begin(2, 14);
+
+  // Start sensor
+  if (!hdc.begin()) {
+    Serial.println("Couldn't find sensor!");
+    while (1);
+  }
+}
+
+void setup_wifi() {
+  delay(10);
+  // We start by connecting to a WiFi network
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(wifi_ssid);
+
+  WiFi.begin(wifi_ssid, wifi_password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+void reconnect() {
+  // Loop until we're reconnected
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    // Attempt to connect
+    // If you do not want to use a username and password, change next line to
+    // if (client.connect("ESP8266Client")) {
+    if (client.connect("ESP8266Client", mqtt_user, mqtt_password)) {
+      Serial.println("connected");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
+}
+
+bool checkBound(float newValue, float prevValue, float maxDiff) {
+  return !isnan(newValue) &&
+         (newValue < prevValue - maxDiff || newValue > prevValue + maxDiff);
+}
+
+long lastMsg = 0;
+float temp = 0.0;
+float hum = 0.0;
+float diff = 1.0;
+
+void loop() {
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+
+  long now = millis();
+  if (now - lastMsg > 1000) {
+    lastMsg = now;
+
+    float newTemp = hdc.readTemperature();
+    float newHum = hdc.readHumidity();
+
+    if (checkBound(newTemp, temp, diff)) {
+      temp = newTemp;
+      Serial.print("New temperature:");
+      Serial.println(String(temp).c_str());
+      client.publish(temperature_topic, String(temp).c_str(), true);
+    }
+
+    if (checkBound(newHum, hum, diff)) {
+      hum = newHum;
+      Serial.print("New humidity:");
+      Serial.println(String(hum).c_str());
+      client.publish(humidity_topic, String(hum).c_str(), true);
+    }
+  }
+}
+```
+
+### <a class='title-link' name='configuring-home-assistant' href='#configuring-home-assistant'></a> Configuring Home Assistant 
+
+The last step is to integrate the sensor values into Home Assistant. This can be done by setting up Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.
+
+```yaml
+mqtt:
+  broker: YOUR_MQTT_SERVER_HOST
+  username: your_username
+  password: your_password
+
+sensor:
+  platform: mqtt
+  name: "Temperature"
+  state_topic: "sensor/temperature"
+  qos: 0
+  unit_of_measurement: "ºC"
+
+sensor 2:
+  platform: mqtt
+  name: "Humidity"
+  state_topic: "sensor/humidity"
+  qos: 0
+  unit_of_measurement: "%"
+```
+]]></content>
+  </entry>
+  
+</feed>
