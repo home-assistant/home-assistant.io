@@ -19,11 +19,6 @@ To use this sensor platform, you need to add the following to your `configuratio
 # Example configuration.yaml entry
 sensor:
   - platform: nut
-    name: UPS Name
-    host: 192.168.11.5
-    alias: ups_name
-    username: user
-    password: pass
     resources:
       - ups.load
       - ups.realpower.nominal
@@ -80,13 +75,17 @@ Given the following example output from NUT (Your variables may differ):
 'input.transfer.reason': 'input voltage out of range', 
 ```
 
-Use the (case insensitive) values from the left hand column:
+Use the (case insensitive) values from the left hand column.  Support is included for most values with ups, battery, and input prefixes.
 
 ```yaml
 sensor:
   - platform: nut
     name: UPS Name
     host: 192.168.11.5
+    port: 3493
+    alias: ups_name
+    username: user
+    password: pass
     resources:
       - ups.load
       - ups.realpower.nominal
