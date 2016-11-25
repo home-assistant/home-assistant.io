@@ -27,7 +27,7 @@ camera:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your camera.
+- **host** (*Required*): The IP address or hostname of your camera. If using hostname, make sure the DNS works as expected.
 - **username** (*Required*): The username for accessing your camera.
 - **password** (*Required*): The password for accessing your camera.
 - **name** (*Optional*): This parameter allows you to override the name of your camera. The default is "Amcrest Camera".
