@@ -9,9 +9,10 @@ sharing: true
 footer: true
 logo: nut.png
 ha_category: Sensor
+ha_version: 0.34
 ---
 
-The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from the NUT server.
+The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](http://networkupstools.org/) (Network UPS Tools) server.
 
 To use this sensor platform, you need to add the following to your `configuration.yaml` file:
 
@@ -31,7 +32,7 @@ Configuration variables:
 - **name** (*Optional*): Name prefix for defined sensors. Defaults to 'NUT UPS'.
 - **host** (*Optional*): The host name or address of the device that is running NUT. Defaults to localhost.
 - **port** (*Optional*): The port number. Defaults to 3493.
-- **alias** (*Optional*): Name of the ups on the NUT server. Will default to the first ups name listed.
+- **alias** (*Optional*): Name of the ups on the NUT server. Will default to the first UPS name listed.
 - **username** (*Optional*): Username to login to the NUT server. Default is none.
 - **password** (*Optional*): Password to login to the NUT server. Default is none.
 - **resources** array (*Required*): Contains all entries to display.
@@ -75,7 +76,7 @@ Given the following example output from NUT (Your variables may differ):
 'input.transfer.reason': 'input voltage out of range', 
 ```
 
-Use the (case insensitive) values from the left hand column.  Support is included for most values with ups, battery, and input prefixes.
+Use the values from the left hand column.  Support is included for most values with 'ups', 'battery', and 'input' prefixes.
 
 ```yaml
 sensor:
