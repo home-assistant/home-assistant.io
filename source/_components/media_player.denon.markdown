@@ -22,7 +22,7 @@ Supported devices:
 - Denon RCD-N8 (untested)
 - Denon RCD-N9 (partial support)
 - Denon AVR receivers with Integrated Network support (partial support)
-- Denon AVR-X4100W (via http interface)
+- Denon AVR-X4100W (via denonavr interface)
 
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
@@ -35,11 +35,11 @@ media_player:
     host: IP_ADDRESS
 ```
 
-http interface
+denonavr interface
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  - platform: denon_http
+  - platform: denonavr
     host: IP_ADDRESS
 ```
 
@@ -56,4 +56,4 @@ A few notes:
 - Play and pause are supported, toggling is not possible.
 - Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
 - Additional option the control Denon receivers with a builtin web server is using the http interface
-- http interface supports some additional functionalities like album covers and is supporting more than simultaneous one connection
+- denonavr interface supports some additional functionalities like album covers and is supporting more than simultaneous one connection
