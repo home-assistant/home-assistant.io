@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title: "GPSLogger"
@@ -9,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Presence Detection
+ha_release: 0.34
 ---
 
 This platform allows you to detect presence using [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `GET` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
@@ -21,9 +21,9 @@ device_tracker:
   - platform: gpslogger
 ```
 
-Install on your smartphone:
+## {% linkable_title Setup on your smartphone %}
 
-- [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger)
+- [GPSLogger for Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger)
 
 To configure GPSLogger, you must set up the app to send a `GET` request to your Home Assistant server at `http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&battery=%BATT&device=%SER&accuracy=%ACC`. Make sure to include the API password if you have configured a password in Home Assistant (add `?api_password=<password>` to the end of the URL). Configure that options under "General Options":
 
