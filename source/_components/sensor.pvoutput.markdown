@@ -35,7 +35,7 @@ Configuration variables:
 It's recommended to set `scan_interval:` according to a value greater than 60 seconds. The service only allows 60 requests per hour but the sensor's default is 30 seconds.
 </p>
 
-To format the PVoutput sensor you can you the [template component](/topics/templating/). For example:
+To format the PVoutput sensor it's recommended to use the [template component](/topics/templating/). For example:
 
 ```yaml
 sensor:
