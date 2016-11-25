@@ -110,3 +110,13 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
        object_id: aeon_labs_minimote_1
        scene_id: 8
 ```
+
+##### Pine64 Z-wave Module
+
+The following configuration works for the offical Pine64 Z-Wave module:
+
+```
+zwave:
+  usb_path: /dev/ttyS2
+
+```
