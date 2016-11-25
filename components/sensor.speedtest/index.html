@@ -100,11 +100,11 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">ping</span>
-    <span class="pi">-</span> <span class="s">download</span>
-    <span class="pi">-</span> <span class="s">upload</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">speedtest</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">ping</span>
+      <span class="pi">-</span> <span class="s">download</span>
+      <span class="pi">-</span> <span class="s">upload</span>
 </code></pre>
 </div>
 
@@ -113,7 +113,7 @@
 <ul>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Sensors to display in the frontend.
     <ul>
-      <li><strong>ping</strong>: Reaction time in ms of your connection, (how fast you get a response after you’ve sent out a request).</li>
+      <li><strong>ping</strong>: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).</li>
       <li><strong>download</strong>: Download speed in Mbps.</li>
       <li><strong>upload</strong>: Upload speed in Mbps.</li>
     </ul>
