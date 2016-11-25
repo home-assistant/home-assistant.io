@@ -22,7 +22,8 @@ Supported devices:
 - Denon RCD-N8 (untested)
 - Denon RCD-N9 (partial support)
 - Denon AVR receivers with Integrated Network support (partial support)
-- Denon AVR-X4100W (via denonavr interface)
+- Denon AVR-X4100W (via denonavr platform)
+- Denon AVR receivers (via denonavr platform (untested))
 
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
@@ -55,5 +56,5 @@ A few notes:
 - To be able to wake up the receiver, activate the "remote" setting in the receiver's settings.
 - Play and pause are supported, toggling is not possible.
 - Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
-- Additional option the control Denon receivers with a builtin web server is using the http interface
-- denonavr interface supports some additional functionalities like album covers and is supporting more than simultaneous one connection
+- Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform
+- denonavr platform supports some additional functionalities like album covers and is supporting more than simultaneous one connection
