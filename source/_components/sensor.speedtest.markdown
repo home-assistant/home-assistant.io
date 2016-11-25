@@ -24,17 +24,17 @@ Once per hour, on the hour (default):
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: speedtest
-  monitored_conditions:
-    - ping
-    - download
-    - upload
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload
 ```
 
 Configuration variables:
 
 - **monitored_conditions** array (*Required*): Sensors to display in the frontend.
-  - **ping**: Reaction time in ms of your connection, (how fast you get a response after you've sent out a request).
+  - **ping**: Reaction time in ms of your connection (how fast you get a response after you've sent out a request).
   - **download**: Download speed in Mbps.
   - **upload**: Upload speed in Mbps.
 - **server_id** (*Optional*): Specify the speedtest server to perform test against.
