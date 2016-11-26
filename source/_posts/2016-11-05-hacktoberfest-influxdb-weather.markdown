@@ -30,40 +30,76 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 
 ### {% linkable_title All changes %}
 
-<img src='/images/supported_brands/icloud.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/synologydsm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+<img src='/images/supported_brands/icloud.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/synologydsm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/garadget_logo.jpg' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/yeelight.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/philips.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/nfandroidtv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/currencylayer.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
-- Config: Exclude dirs/files prefixed with . ([@lwis])
+- Cover: New [garadget] platform ([@JasonCarter80])
+- Media player: New support for [Emby][emby-media] ([@mezz64])
+- [LiteJet][litejet] switches and lights support ([@joncar])
+- Light: [Yeelight][yeelight] Wifi bulbs are now supported ([@HydrelioxGitHub])
+- Media player: [Philips TVs][philips_player] with jointSPACE API re now supported ([@danielperna84])
+- Sensor: Support for [Synology DSM][synologydsm] ([@StaticCube])
+- Sensor: Monitoring support for [Dovado routers][dovado-sensor] ([@molobrakos])
+- Sensor: Support for monitoring [printers][cups-sensor] ([@fabaff])
 - Add mochad component ([@mtreinish])
-- Notify: Added support for [Android TV/FireTV](https://home-assistant.io/components/notify.nfandroidtv/) ([@danielperna84])
-- HTTP: Migrate WSGI to asyncio ([@balloob])
-- Configurator: Support for `entity_picture` ([@amills])
-- Core: Configuration validation error prints line numbers ([@persandstrom])
-- Media player: [Sonos] improvements incl. timer setting functionality ([@bjarniivarsson], [@americanwookie])
-- Zoneminder: SSL/TLS support ([@Khabi])
-- Media player: Discovery support for [Yamaha] ([@sdague])
-- Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
+- Notify: Added support for [Android TV/FireTV](https://home-assistant.io/components/notify.nfandroidtv/) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
 - Sensor: Support for [InfluxDB sensors][influx-sensor] ([@bestlibre])
 - Sensor: New support [HDDTemp sensors][hddtemp-sensor] ([@fabaff])
+([@danielperna84])
+- Media player: [Sonos] improvements incl. timer setting functionality ([@bjarniivarsson], [@americanwookie])
+- Media player: Discovery support for [Yamaha] ([@sdague])
+- Config: Exclude dirs/files prefixed with . ([@lwis])
+- HTTP: Migrate WSGI to asyncio ([@balloob])
+- Configurator: Support for `entity_picture` ([@armills])
+- Core: Configuration validation error prints line numbers ([@persandstrom])
+- Zoneminder: SSL/TLS support ([@Khabi])
 - Camera: Improvements to [RPi camera][rpi-camera] ([@postlund])
 - [ThingSpeak][thingspeak] component ([@simonszu])
 - Core: New property `hass.data`  to store internal data ([@balloob])
 - Switch: Templating and configurable timeout for [REST][rest-switch] ([@aa755])
-- Light: [Yeelight][yeelight] Wifi bulbs are now supported ([@HydrelioxGitHub])
 - Sensor: New [random number][random-sensor] sensor ([@fabaff])
-- Media player: New support for [Emby][emby-media] ([@mezz64])
-- [LiteJet][litejet] switches and lights support ([@joncar])
-- Cover: New [garadget] platform ([@JasonCarter80])
 - Pilight: `send_delay` feature ([@janLo])
 - Config: Improvements for `known_devices` ([@kellerza])
 - Device tracker: New discovered event ([@lwis])
 - Device tracker: Improvements and new features for the Volvo on Call platform ([@molobrakos])
 - Climate: Use unit of measurement from a Vera device ([@pavoni])
-- Media player: [Philips TVs][philips_player] with jointSPACE API re now supported ([@danielperna84])
-- Device tracker: [ICloud][icloud] improvements ([@Bart274])
-- Sensor: Support for [Synology DSM][synologydsm] ([@StaticCube])
-- Sensor: Monitoring support for [Dovado routers][dovado-sensor] ([@molobrakos])
-- Sensor: Support for monitoring [printers][cups-sensor] ([@fabaff])
-- Minor features and bug fixes by [@fabaff], [@kellerza], [@robbiet480], [@balloob], [@DavidLP], [@Bart274], [@sdague], [@mtreinish], [@Khabi], [@bbesset], [@bestlibre], [@pvizeli], [@turbokongen], [@devdelay], [@molobrakos], [@postlund], [@wokar], [@amills], [@arsaboo], [@hartmms], [@nsideras], [@tbeckha], and [@kirichkov].
+- Device tracker: [iCloud][icloud] improvements ([@Bart274])
+- Minor features and bug fixes by [@fabaff], [@kellerza], [@robbiet480], [@balloob], [@DavidLP], [@Bart274], [@sdague], [@mtreinish], [@Khabi], [@bbesset], [@bestlibre], [@pvizeli], [@turbokongen], [@devdelay], [@molobrakos], [@postlund], [@wokar], [@armills], [@arsaboo], [@hartmms], [@nsideras], [@tbeckha], and [@kirichkov].
+
+### {% linkable_title Release 0.32.1 - November 6 %}
+
+We've added a warning to 0.32 to catch platforms accidentally slowing down Home Assistant. Our aim is to fix these quickly when reported, so here is 0.32.1 with all reported platforms fixed.
+
+ - Fix Sonos doing I/O inside the event loop ([@pvizeli])
+ - Fix Radiotherm doing I/O inside the event loop ([@balloob])
+ - Fix camera MJPEG streams when using HTTP 1.0 ([@balloob])
+
+### {% linkable_title Release 0.32.2 - November 7 %}
+
+ - Move Honeywell I/O out of the event loop ([@balloob])
+ - Use sequential updates for non-async entities to prevent race conditions ([@pvizeli])
+ - Fix setting temperature in Celsius on Radiotherm CT50 thermostats ([@andyat])
+ - Fix PiLight config validation ([@DavidLP])
+
+### {% linkable_title Release 0.32.3 - November 11 %}
+
+ - Fix OpenWeather weather platform doing I/O in event loop ([@lwis])
+ - Fix Alarm.com doing I/O in event loop ([@jnewland])
+ - Fix Tellstick doing I/O in event loop ([@balloob])
+ - Fix KNX doing I/O in event loop ([@balloob])
+ - Increase warning threshold for catching platforms that do I/O ([@balloob])
+ - Change pilight systemcode validation ([@janLo])
+ - Fix Yamaha discovering already configured receivers ([@sdague])
+ - Fix Sonos from installing dependency each time HA was started ([@pvizeli])
+ - Fix Synology camera SSL and error handling ([@pvizeli])
+ - Fix Panasonic Viera doing I/O in event loop ([@balloob])
+ - Improve generic camera error handling ([@kellerza])
+ - Light - Flux Led Lights: allow specifying mode if light does not support white mode ([@DanielHiversen])
+ - Fix Rest switch default template ([@pvizeli])
+
+### {% linkable_title Release 0.32.4 - November 15 %}
+
+ - Fix device tracker from crashing HASS when a new device was discovered ([@balloob])
+ - HTTP: Fix X-Forwarded-For feature ([@mweinelt])
 
 ### {% linkable_title Misc %}
 
@@ -83,9 +119,11 @@ Our website has now an additional category called "Ecosystem". This will become 
 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
+[@mweinelt]: https://github.com/mweinelt
 [@aa755]: https://github.com/aa755
 [@americanwookie]: https://github.com/americanwookie
-[@amills]: https://github.com/armills
+[@armills]: https://github.com/armills
+[@andyat]: https://github.com/andyat
 [@arsaboo]: https://github.com/arsaboo
 [@balloob]: https://github.com/balloob
 [@Bart274]: https://github.com/Bart274
@@ -121,6 +159,8 @@ Our website has now an additional category called "Ecosystem". This will become 
 [@tchellomello]: https://github.com/tchellomello
 [@turbokongen]: https://github.com/turbokongen
 [@wokar]: https://github.com/wokar
+[@jnewland]: https://github.com/jnewland
+[@DanielHiversen]: https://github.com/DanielHiversen
 
 [currencylayer]: https://home-assistant.io/components/sensor.currencylayer/
 [yahoo]: https://home-assistant.io/components/sensor.yahoo_finance/

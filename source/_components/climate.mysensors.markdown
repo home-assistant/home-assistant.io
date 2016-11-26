@@ -29,8 +29,8 @@ Home Assistant State | MySensors State
 ---------------------|----------------
 STATE_COOL           | CoolOn
 STATE_HEAT           | HeatOn
-STATE_AUTO           | Off
-STATE_OFF            | AutoChangeOver
+STATE_AUTO           | AutoChangeOver
+STATE_OFF            | Off
 
 Currently humidity, away_mode, aux_heat, swing_mode is not supported. This will be included in later versions as feasible.
 

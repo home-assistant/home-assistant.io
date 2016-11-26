@@ -33,15 +33,46 @@ Create a symlink to the `cec` installation.
 $ ln -s /usr/local/lib/python3.4/dist-packages/cec /path/to/your/venv/lib/python3.4/site-packages
 ```
 
-For the default virtual environment of a [Raspberry Pi AIO](/getting-started/installation-raspberry-pi-all-in-one/) the command would be as follows.
+For the default virtual environment of a [Raspberry Pi All-In-One installation](/getting-started/installation-raspberry-pi-all-in-one/) the command would be as follows.
 
 ```bash
 $ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
 ```
 
 <p class='note'>If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
-`* failed to open vchiq instance` you will also need to add the user account Home Asssistant runs under, to the `video` group. To add the Home Assisitant's user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
+`* failed to open vchiq instance` you will also need to add the user account Home Asssistant runs under, to the `video` group. To add the Home Assistant user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
 </p>
+
+## {% linkable_title Testing your installation %}
+
+*  Login to Raspberry Pi 
+
+```bash
+ssh pi@your_raspberry_pi_ip
+```
+*  at the command line type: 
+
+```bash
+echo scan | cec-client -s -d 1
+```
+*  This will give you the list of devices that are on the bus
+
+```bash
+opening a connection to the CEC adapter...
+requesting CEC bus information ...
+CEC bus information
+===================
+device #4: Playback 1
+address:       3.0.0.0
+active source: no
+vendor:        Sony
+osd string:    BD
+CEC version:   1.4
+power status:  on
+language:      ???
+```
+
+**Note the address: line above this will be used to configure HA, this address is represented below as 3: BlueRay player**
 
 ## {% linkable_title Configuration Example %}
 
@@ -55,6 +86,7 @@ hdmi_cec:
       1: Fire TV Stick
       2: Chromecast
       3: Another Device
+    3: BlueRay player
 ```
 
 ## {% linkable_title Services %}

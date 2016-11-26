@@ -47,7 +47,7 @@ Configuration variables:
 
 - **devices** (*Required*): A list of devices with their name to use in the frontend.
 - **automatic_add** (*Optional*): To enable the automatic addition of new switches.
-- **signal_repetitions** (*Optional*): Because the rxftrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
+- **signal_repetitions** (*Optional*): Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before, for example a doorbell switch. Can also be used for automations.
 
 Generate codes:
@@ -56,9 +56,11 @@ If you need to generate codes for switches you can use a template (usefull for e
 
 - Go to home-assistant-IP:8123/dev-template
 - Use this code to generate a code:
+
 ```yaml
-{% raw %}0b11000{{ range(0,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70{% endraw %}
+{% raw %}0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70{% endraw %}
 ```
+
 - Use this code to add a new switch in your configuration.yaml
 - Launch your homeassistant and go the website.
 - Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)

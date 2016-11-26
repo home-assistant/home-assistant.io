@@ -20,7 +20,7 @@ To allow Home Assistant to talk to your Z-Wave USB stick you will have to compil
 Make sure you have the correct dependencies installed before running the script:
 
 ```bash
-$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
+$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools git
 ```
 
 Make sure you have at least version 0.23 and at the most 0.24.1 of cython.
@@ -79,6 +79,8 @@ Configuration variables:
 - **customize** (*Optional*): This attribute contains node-specific override values:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
   - **ignored** (*Optional*): Ignore this entitiy completely. It won't be shown in the Web Interface and no events are generated for it.
+  - **refresh_value** (*Optional*): Enable refreshing of the node value. Only light component uses this. Defaults to 2 second delay.
+  - **delay** (*Optional*): Specify the delay to wait for refresh of node value if you want other than 2 seconds.
 
 To find the path of your Z-Wave USB stick or module, run:
 
