@@ -1,0 +1,21 @@
+If you're trying to run ozwcp, why not just create a service for it and run it 24/7? That way, you can just stop the zwave network inside of hass, open your browser to the ozwcp page, connect, do you thing, disconnect, and then start the zwave network back up in hass?
+sudo nano /etc/systemd/system/ozwcp.service
+ [Unit]
+Description=OpenZWave Control Panel
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/open-zwave-control-panel
+ExecStart=/root/open-zwave-control-panel/ozwcp
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Make sure to update the directories to match your own.
+Ctrl+X, Y, Enter
+sudo systemctl daemon-reload
+sudo systemctl enable ozwcp.service
+sudo systemctl start ozwcp.service
+And then you're good to use it whenever you want!
