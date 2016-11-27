@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: smtp.png
 ha_category: Sensor
-ha_release: 0.32
+ha_release: 0.34
 ha_iot_class: "Local Polling"
 ---
 
