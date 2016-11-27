@@ -10,7 +10,7 @@ footer: true
 logo: dunehd.png
 ha_category: Media Player
 ha_iot_class: "Local Polling"
-ha_release: 0.34.0
+ha_release: 0.34
 ---
 
 
@@ -28,6 +28,6 @@ media_player:
 ```
 Configuration variables:
 
-- **host** (*Required*): IP address of the device. Example: 192.168.1.32
+- **host** (*Required*): IP address or hostname of the device. Example: 192.168.1.32
 - **name** (*Optional*): Name of the device
 - **sources** (*Optional*): A name-value dictionary of sources that HA component can request to play.
