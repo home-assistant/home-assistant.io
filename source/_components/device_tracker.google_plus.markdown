@@ -36,7 +36,7 @@ device_tracker 3:
 - If using this component in Self Mode, open Firefox and log into Google as main@google.com 
 and visit aboutme.google.com.
 If instead, you wish to use this component in Safe Mode, log into dummy@google.com, 
-and visit the Google Plus profile page of main@google.com. 
+and visit the Google Plus profile page of main@google.com. You may want to select the "remember this computer" option while logging in, so that the cookie fields don't get invalidated every few days.
 - Open the Instruments pane (Ctrl + Shift + C)
 - Click the network tab
 - If in Self Mode, click the three bar menu on the top left. If in Safe Mode, skip this step.
@@ -51,3 +51,5 @@ for python requests. If you don't trust that website, note that they provide sou
 - The python code contains dictionaries with keys that have names similar to the above 
 fields in the config file. Copy the corresponding values to the config file.
 - The URL field is the first argument of `requests.post` in the last line of the python code.
+
+These steps may have to be repeated every 14 days. The `cookie_*` fileds seems to persist if the "remember this computer" option was selected when logging in.
