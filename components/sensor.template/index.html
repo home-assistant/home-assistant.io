@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">template</code> platform supports sensors which breaks out <code class="highlighter-rouge">state_attributes</code> from other entities.</p>
+  <p>The <code class="highlighter-rouge">template</code> platform supports sensors which break out <code class="highlighter-rouge">state_attributes</code> from other entities.</p>
 
 <p>To enable Template sensors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -162,7 +162,7 @@
 </code></pre>
 </div>
 
-<p>By comparing the details published on the <a href="/topics/templating/">template</a> page the same can be archived with a different approach:</p>
+<p>By comparing the details published on the <a href="/topics/templating/">template</a> page the same can be achieved with a different approach:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%if</span><span class="nv"> </span><span class="s">states.sensor.ENTITY_ID.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">%}running{%elif</span><span class="nv"> </span><span class="s">states.switch.ENTITY_ID.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'off'</span><span class="nv"> </span><span class="s">%}not</span><span class="nv"> </span><span class="s">running{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}"</span>
 </code></pre>
@@ -172,7 +172,7 @@
 
 <h3><a class="title-link" name="multiline-example-with-an-if-test" href="#multiline-example-with-an-if-test"></a> Multiline example with an if test</h3>
 
-<p>This example shows a multiple line template with and if test. It looks at a sensing switch and shows on/off in the frontend.</p>
+<p>This example shows a multiple line template with an if test. It looks at a sensing switch and shows on/off in the frontend.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
@@ -201,7 +201,7 @@ Please note the blank line to close the multi-line template.
 
 <h3><a class="title-link" name="change-the-unit-of-measurement" href="#change-the-unit-of-measurement"></a> Change the unit of measurement</h3>
 
-<p>With a template sensor it’s easy to convert given values into others if the unit of measurement don’t fit your needs.</p>
+<p>With a template sensor it’s easy to convert given values into others if the unit of measurement doesn’t fit your needs.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
