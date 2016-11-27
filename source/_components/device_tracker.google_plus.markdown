@@ -1,13 +1,14 @@
 ---
 layout: page
 title: "Google Plus"
-description: "Instructions how to use Google Plus to track Android devices in Home Assistant."
+description: "Instructions how to use Google Plus to track mobile devices in Home Assistant."
 date: 2016-11-1 19:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Presence Detection
+ha_version: TBD
 ---
 If you share your Android's location with Google, this component fetches those locations from Google's servers to your Home Assistant. This component does NOT directly communicate with your phone, thus using this component does not cause any additional battery drain.
 Suppose your Android phone is linked to your Google Account, say main@gmail.com.
@@ -17,19 +18,19 @@ This component can be used in 2 modes:
 
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry. See below for instructions for obtaining the values of fields.
 device_tracker 3:
   platform: gplus
   id: 'phone'
-  url: '...'
-  cookie_sid: '...'
-  cookie_hsid: '...'
-  cookie_ssid: '...'
-  data_freq: '...'
-  data_at: '...'
+  url: 'POST requests for location are sent to this URL'
+  cookie_sid: 'POST requests send this cookie for authenticating the google account'
+  cookie_hsid: 'POST requests send this cookie for authenticating the google account'
+  cookie_ssid: 'POST requests send this cookie for authenticating the google account'
+  data_freq: 'POST data payload for requesting location'
+  data_at: 'POST data payload for requesting location'
 ```
 
-###How to obtain the values shown as '...' (credits to @icovada):
+###How to obtain the values shown as '...':
 
 
 - If using this component in Self Mode, open Firefox and log into Google as main@google.com 
@@ -49,4 +50,4 @@ looks like data?ds.extension
 for python requests. If you don't trust that website, note that they provide sources of the tool. So run the tool on your local machine.
 - The python code contains dictionaries with keys that have names similar to the above 
 fields in the config file. Copy the corresponding values to the config file.
-- The url field is the first argument of `requests.post` in the last line of the python code.
+- The URL field is the first argument of `requests.post` in the last line of the python code.
