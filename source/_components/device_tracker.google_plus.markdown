@@ -18,19 +18,19 @@ This component can be used in 2 modes:
 
 
 ```yaml
-# Example configuration.yaml entry. See below for instructions for obtaining the values of fields.
+# Overview of the fields in configuration.yaml entry. See below for instructions for obtaining the values of these fields.
 device_tracker 3:
   platform: gplus
-  id: 'phone'
-  url: 'POST requests for location are sent to this URL'
-  cookie_sid: 'POST requests send this cookie for authenticating the google account'
-  cookie_hsid: 'POST requests send this cookie for authenticating the google account'
-  cookie_ssid: 'POST requests send this cookie for authenticating the google account'
-  data_freq: 'POST data payload for requesting location'
-  data_at: 'POST data payload for requesting location'
+  id: A name to identify this device
+  url: POST requests for location are sent to this URL
+  cookie_sid: POST requests send this cookie for authenticating the google account
+  cookie_hsid: POST requests send this cookie for authenticating the google account
+  cookie_ssid: POST requests send this cookie for authenticating the google account
+  data_freq: POST data payload for requesting location
+  data_at: POST data payload for requesting location
 ```
 
-###How to obtain the values shown as '...':
+###How to obtain the above values (except `platform` and `id`):
 
 
 - If using this component in Self Mode, open Firefox and log into Google as main@google.com 
