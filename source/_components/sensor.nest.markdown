@@ -38,19 +38,25 @@ sensor:
 Configuration variables:
 
 - **monitored_conditions** array (*Required*): States to monitor.
-  - 'temperature'
-  - 'target'
-  - 'humidity'
-  - 'operation_mode'
-  - 'last_ip'
-  - 'local_ip'
-  - 'last_connection'
+
+The following conditions can be monitored with a Nest Thermostat or Protect.
   - 'battery_level'
-  - 'weather_condition'
-  - 'weather_temperature'
-  - 'weather_humidity'
-  - 'wind_speed'
-  - 'wind_direction'
-  - 'co_status' # Nest Protect only
-  - 'smoke_status' # Nest Protect only
+  
+The following conditions can be monitored with a Nest Thermostat only.
+  - 'temperature'
+  - 'target' 
+  - 'humidity'  
+  - 'operation_mode'  
+  - 'last_ip'  
+  - 'local_ip' 
+  - 'last_connection'  
+  - 'weather_condition'  
+  - 'weather_temperature' 
+  - 'weather_humidity' 
+  - 'wind_speed'  
+  - 'wind_direction'  
+  
+The following conditions can be monitored with a Nest Protect only. 
+  - 'co_status'
+  - 'smoke_status'
 
