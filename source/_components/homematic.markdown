@@ -18,7 +18,7 @@ The [Homematic](http://www.homematic.com/) component provides bi-directional com
 
 Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010.
 
-If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the sourcecode. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.
+If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.
 
 We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
 You can manually rename the created entities by using Home Assistants [Customizing](https://home-assistant.io/getting-started/customizing-devices/) feature. With it you are also able to hide entities you don't want to see in the UI.
@@ -35,7 +35,7 @@ Configuration variables (global):
 
 - **local_ip** (*Optional*): IP of device running Home Assistant. Override autodetected value for exotic network setups.
 - **local_port** (*Optional*): Port for connection with Home Assistant. By default it is randomly assigned.
-- **delay** (*Optional*): <Float> Delay fetching of current state per deivce on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
+- **delay** (*Optional*): <Float> Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
 
 Configuration variables (host):
 
