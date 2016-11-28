@@ -73,7 +73,7 @@ An alternative solution could look like this:
 binary_sensor:
   platform: command_line
   name: Printer
-  command: ping -c 1 192.168.1.10 &> /dev/null && echo success || echo fail
+  command: ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail
   sensor_class: connectivity
   payload_on: "success"
   payload_off: "fail"
