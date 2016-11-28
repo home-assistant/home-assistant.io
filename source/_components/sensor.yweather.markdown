@@ -46,7 +46,7 @@ Configuration variables:
 - **name** (*Optional*): The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option. Defaults to `Yweather`. 
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **weather**: A human-readable text summary with picture from yahoo.
-  - **weather_current**: A human-readable text summary with picture from yahoo from current conditon.
+  - **weather_current**: A human-readable text summary with picture from yahoo from current condition.
   - **temperature**: The current temperature.
   - **temp_min**: The minimal temperature of this day.
   - **temp_max**: The maximum temperature of this day.

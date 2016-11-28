@@ -31,7 +31,7 @@ Configuration variables:
 - **target_sensor** (*Required*): `entity_id` for a temperature sensor, target_sensor.state must be temperature.
 - **min_temp** (*Optional*): Set minimum set point available (default: 7)
 - **max_temp** (*Optional*): Set maximum set point available (default: 35)
-- **target_temp** (*Optional*): Set intital target temperature. Failure to set this variable will result in target temperature being set to null on startup.
+- **target_temp** (*Optional*): Set initial target temperature. Failure to set this variable will result in target temperature being set to null on startup.
 - **ac_mode** (*Optional*): Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
 - **min_cycle_duration** (*Optional*): Set a minimum amount of time that the switch specified in the *heater* option must be in it's current state prior to being switched either off or on.
 - **tolerance** (*Optional*): Set a minimum amount of temperature change that the sensor specified in the *target_sensor* option must change prior to being switched either off or on.

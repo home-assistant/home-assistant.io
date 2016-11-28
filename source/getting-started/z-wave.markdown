@@ -222,7 +222,7 @@ The `zwave` component exposes multiple services to help maintain the network.
 | ------- | ----------- |
 | add_node | Put the Z-Wave controller in inclusion mode. Allows one to add a new device to the Z-Wave network.|
 | add_node_secure | Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network. |
-| change_association | Add or remove an association in th Z-Wave network
+| change_association | Add or remove an association in the Z-Wave network
 | cancel_command | Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
 | heal_network | Tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|

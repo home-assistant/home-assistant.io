@@ -58,7 +58,7 @@ The universal media player will primarily imitate one of its *children*. The fir
 
 It is recommended that the command *turn_on*, the command *turn_off*, and the attribute *state* all be provided together. The *state* attribute indicates if the Media Player is on or off. If *state* indicates the media player is off, this status will take precedent over the states of the children. If all the children are idle/off and *state* is on, the universal media player's state will be on.
 
-It is also recomended that the command *volume_up*, the command *volume_down*, the command *volume_mute*, and the attribute *is_volume_muted* all be provided together. The attribute *is_volume_muted* should return either True or the on state when the volume is muted. The *volume_mute* service should toggle the mute setting.
+It is also recommended that the command *volume_up*, the command *volume_down*, the command *volume_mute*, and the attribute *is_volume_muted* all be provided together. The attribute *is_volume_muted* should return either True or the on state when the volume is muted. The *volume_mute* service should toggle the mute setting.
 
 Below is an example configuration.
 

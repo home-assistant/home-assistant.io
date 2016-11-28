@@ -32,7 +32,7 @@ switch:
 
 Configuration variables:
 
-- **sink_name** (*Required*): The name of the Pulseaudio sink that will recieve the audio.
+- **sink_name** (*Required*): The name of the Pulseaudio sink that will receive the audio.
 - **source_name** (*Required*): The name of the Pulseaudio source that will supply the audio.
 - **name** (*Optional*): Name of the switch.
 - **host** (*Optional*): The IP address or host name of the PulseAudio server.  If not specified, 127.0.0.1 is used.

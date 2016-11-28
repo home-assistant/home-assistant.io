@@ -137,7 +137,7 @@ User-Agent: Home Assistant
 
 ### {% linkable_title Use GitHub to get the latest release of Home Assistant %}
 
-This sample is very similar to the [`updater`](/components/updater/) component but the information is recieved from GitHub.
+This sample is very similar to the [`updater`](/components/updater/) component but the information is received from GitHub.
 
 ```yaml
 sensor:
