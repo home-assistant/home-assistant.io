@@ -35,7 +35,7 @@ Configuration variables:
 It's recommended to set `scan_interval:` according to a value greater than 60 seconds. The service only allows 60 requests per hour but the sensor's default is 30 seconds.
 </p>
 
-To format the PVoutput sensor you can you the [template component](/topics/templating/). For example:
+To format the PVoutput sensor it's recommended to use the [template component](/topics/templating/). For example:
 
 ```yaml
 sensor:
@@ -46,19 +46,19 @@ sensor:
   - platform: template
     sensors:
       power_consumption:
-        value_template: '{% if is_state_attr("sensor.pvoutput", "power_consumption", "NaN") %}0{% else %}{{ states.sensor.pvoutput.attributes.power_consumption }}{% endif %}'
+        value_template: '{% raw %}{% if is_state_attr("sensor.pvoutput", "power_consumption", "NaN") %}0{% else %}{{ states.sensor.pvoutput.attributes.power_consumption }}{% endif %}{% endraw %}'
         friendly_name: 'Using'
         unit_of_measurement: 'Watt'
       energy_consumption:
-        value_template: '{{ "%0.1f"|format(states.sensor.pvoutput.attributes.energy_consumption|float/1000) }}'
+        value_template: '{% raw %}{ "%0.1f"|format(states.sensor.pvoutput.attributes.energy_consumption|float/1000) }}{% endraw %}'
         friendly_name: 'Used'
         unit_of_measurement: 'kWh'
       power_generation:
-        value_template: '{% if is_state_attr("sensor.pvoutput", "power_generation", "NaN") %}0{% else %}{{ states.sensor.pvoutput.attributes.power_generation }}{% endif %}'
+        value_template: '{% raw %}{% if is_state_attr("sensor.pvoutput", "power_generation", "NaN") %}0{% else %}{{ states.sensor.pvoutput.attributes.power_generation }}{% endif %}{% endraw %}'
         friendly_name: 'Generating'
         unit_of_measurement: 'Watt'
       energy_generation:
-        value_template: '{% if is_state_attr("sensor.pvoutput", "energy_generation", "NaN") %}0{% else %}{{ "%0.2f"|format(states.sensor.pvoutput.attributes.energy_generation|float/1000) }}{% endif %}'
+        value_template: '{% raw %}{% if is_state_attr("sensor.pvoutput", "energy_generation", "NaN") %}0{% else %}{{ "%0.2f"|format(states.sensor.pvoutput.attributes.energy_generation|float/1000) }}{% endif %}{% endraw %}'
         friendly_name: 'Generated'
         unit_of_measurement: 'kWh'
 ```
