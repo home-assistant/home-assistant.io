@@ -10,7 +10,7 @@ footer: true
 logo: logitech.png
 ha_category: Remote
 ha_iot_class: "Local Polling"
-ha_release: "0.33"
+ha_release: "0.34"
 ---
 
 
@@ -31,16 +31,12 @@ To use your Harmony remote in your installation, add the following to your `conf
 remote:
   - platform: harmony
     name: Bedroom
-    username: !secret username
-    password: !secret password
     host: 10.168.1.13
     port: 5222
     activity: BedroomTV
     scan_interval: 45
   - platform: harmony
     name: Family Room
-    username: !secret username
-    password: !secret password
     host: 10.168.1.16
     port: 5222
     activity: Kodi
@@ -50,8 +46,6 @@ remote:
 **Configuration variables**:
 
 - **name** (*Required*): The hub's name to display in the front end.
-- **username** (*Required*): The email address used to login to the Harmony website.
-- **password** (*Required*): The password used to login to the Harmony website.
 - **host** (*Required*): The Harmony device's IP address.
 - **port** (*Required*): The Harmony device's port, 5222 is default.
 - **activity** (*Optional*): Activity to use when turnon service is called without any data.
