@@ -61,7 +61,6 @@ Here's an example configuration for a single device:
 devicename:
   name: Friendly Name
   mac: EA:AA:55:E7:C6:94
-  icon:  mdi:face-profile
   picture: https://home-assistant.io/images/favicon-192x192.png
   gravatar: test@example.com
   track: yes
@@ -72,7 +71,6 @@ devicename:
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
 | `name`         | Host name or "Unnamed Device" | The friendly name of the device                                                                         |
 | `mac`          | None                          | The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP     |
-| `icon`         | None                          | A name of an MDI Icon.                                                                                  |
 | `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your configuration.yaml file and just use `picture: /local/favicon-192x192.png`.                                      |
 | `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`                        |
 | `track`        | False                         | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update |

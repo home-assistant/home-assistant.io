@@ -36,7 +36,7 @@ sensor:
 Configuration variables:
 
 - **host** (*Required*): The host where your SABnzbd instance is running, eg. 192.168.1.32
-- **port** (*Optional*): The port to use whith SABnzbd instance. Defaults to `8080`.
+- **port** (*Optional*): The port to use with SABnzbd instance. Defaults to `8080`.
 - **api_key** (*Required*): Name that will be used in the frontend for the pin.
 - **name** (*Optional*): The name to use when displaying this SABnzbd instance.
 - **ssl** (*Optional*): Use `https` instead of `http` to connect. Defaults to False.
@@ -46,7 +46,7 @@ Configuration variables:
   - **queue_size**: Size of the queue
   - **queue_remaining**: Remaining elements in the queue
   - **disk_size**: Disk size of the storage location
-  - **disk_free**: Free disk space at the sotrage location
+  - **disk_free**: Free disk space at the storage location
 
 Note that this will create sensors under the name 'sab' and NOT 'sabnzbd' as follows:
 

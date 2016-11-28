@@ -11,6 +11,7 @@ logo: philips_hue.png
 ha_category: Light
 ha_iot_class: "Local Polling"
 featured: true
+ha_release: pre 0.7
 ---
 
 Philips Hue support is integrated into Home Assistant as a light platform. The preferred way to setup the Philips Hue platform is by enabling the [discovery component](/components/discovery/).

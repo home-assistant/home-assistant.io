@@ -20,8 +20,8 @@ To add Kodi to your installation, add the following to your `configuration.yaml`
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - name: NOTIFIER_NAME
-    platform: kodi
+  - platform: kodi
+    name: NOTIFIER_NAME
     host: http://192.168.0.123
 ```
 

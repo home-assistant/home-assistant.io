@@ -24,7 +24,7 @@ If you want use a video stream. You need setup the [ffmpeg](/components/ffmpeg) 
 
 If you want process all data local you need the command line tool `alpr` in version > 2.3.1
 
-If you don't found binarys for you distribution you can compile from source. A documention how to build a openalpr is found [here](https://github.com/openalpr/openalpr/wiki).
+If you don't find binaries for your distribution you can compile from source. Documention of how to build openalpr is found [here](https://github.com/openalpr/openalpr/wiki).
 
 On a debian system you can use this cmake command to build only the command line tool (which second part on linux build instruction - ubuntu 14.04+):
 ```bash
@@ -63,7 +63,7 @@ Configuration variables:
 - **region** (*Required*): Country or region. List of Supported [value](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
 - **confidence** (*Optional*): Default 80. The minimum of confidence in percent to process with Home-Assistant.
 - **entities** (*Required*): A list of device to add in Home-Assistant.
-- **name** (*Optional*): This parameter allows you to override the name of your openalpr entitie.
+- **name** (*Optional*): This parameter allows you to override the name of your openalpr entity.
 - **interval** (*Optional*): Default 2. Time in seconds to poll a picture. If the interval is 0 It don't poll and it only process data with `openalpr.scan` service.
 - **render** (*Optional*): default is with ffmpeg. How is Home-Assistant to get a picture from. It support `ffmpeg` for video streams and `image` for a still image.
 - **input** (*Required*): The source from getting pictures. With ffmpeg it could by all supported input. Image only support a url.

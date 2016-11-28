@@ -48,7 +48,7 @@ recorder:
 
 ## {% linkable_title Installation notes %}
 
-Not all Python bindings for the choosen database engine can be installed directly. This section contains additional details which should help you to get it working. 
+Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
 ### {% linkable_title MYSQL %}
 
@@ -59,3 +59,11 @@ $ sudo apt-get install libmysqlclient-dev
 $ pip3 install mysqlclient
 ```
 
+### {% linkable_title PostgreSQL %}
+
+For PostgreSQL you may have to install a few dependencies:
+
+```bash
+$ sudo apt-get install postgresql-server-dev-X.Y
+$ pip3 install psycopg2
+```

@@ -44,7 +44,7 @@ wink:
   client_secret: YOUR_WINK_CLIENT_SECRET
 ```
 
-The following can also be provied to allow access to the Wink Relay sensors. This value could change at any time.
+The following can also be provided to allow access to the Wink Relay sensors. This value could change at any time.
 
 ```yaml
 wink:
@@ -54,10 +54,10 @@ wink:
 Configuration variables:
 
 - **access_token** (*Required if the below aren't present.*): The retrieved access token.
-- **email** (*Required if access token isn't provied*): Your Wink login email.
-- **password** (*Required if access token isn't provied*): Your Wink loging password.
-- **client_id** (*Required if access token isn't provied*): Your provided Wink client_id.
-- **client_secret** (*Required if access token isn't provied*): Your provided Wink client_secret.
+- **email** (*Required if access token isn't provided*): Your Wink login email.
+- **password** (*Required if access token isn't provided*): Your Wink login password.
+- **client_id** (*Required if access token isn't provided*): Your provided Wink client_id.
+- **client_secret** (*Required if access token isn't provided*): Your provided Wink client_secret.
 - **user_agent** (*Optional*): The user-agent passed in the API calls to Wink.
 
 This will connect to the Wink hub and automatically set up any lights, switches and sensors that it finds.

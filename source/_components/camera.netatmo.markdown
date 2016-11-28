@@ -31,7 +31,7 @@ camera:
 Configuration variables:
 
 - **home** (*Optional*): Will display the cameras of this home only.
-- **cameras** array (*Optional*): Cameras to use. Multiple enties allowed.
+- **cameras** array (*Optional*): Cameras to use. Multiple entities allowed.
     - **camera_name**: Name of the camera to display.
 
 If **home** and **cameras** are not provided, all cameras will be displayed. For more control over your cameras check the configuration sample below.

@@ -14,7 +14,7 @@ ha_category: Climate
 
 The `radiotherm` climate platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
 
-The underlaying library supports:
+The underlying library supports:
 
 - CT50 V1.09
 - CT50 V1.88
@@ -36,7 +36,7 @@ Configuration variables:
 
 Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to `False` if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.
 
-Multiple thermostats could be assigned by using `host:` if auto-detetion is not used.
+Multiple thermostats could be assigned by using `host:` if auto-detection is not used.
 
 ```yaml
 climate:

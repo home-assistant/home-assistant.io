@@ -40,7 +40,7 @@ Configuration variables:
 
 - **home** (*Optional*): Will use the cameras of this home only.
 - **timeout** (*Optional*): The binary sensors will reflect the events from the last X minutes (default: 15)
-- **cameras** array (*Optional*): Cameras to use. Multiple enties allowed.
+- **cameras** array (*Optional*): Cameras to use. Multiple entities allowed.
     - 'camera_name': Name of the camera to display.
 - **monitored_conditions** array (*Optional*): List of monitored conditions.
     - 'Someone known'

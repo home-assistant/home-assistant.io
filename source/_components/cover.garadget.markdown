@@ -89,3 +89,12 @@ customize:
     icon: mdi:wifi
 ```
 
+Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your `configuration.yaml` to exclude those entries.
+
+```yaml
+logbook:
+  exclude:
+    entities:
+      - sensor.garage_door_time_in_state
+      - sensor.garage_door_wifi_signal_strength
+```

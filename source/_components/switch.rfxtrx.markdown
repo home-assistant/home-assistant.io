@@ -52,7 +52,7 @@ Configuration variables:
 
 Generate codes:
 
-If you need to generate codes for switches you can use a template (usefull for example COCO switches).
+If you need to generate codes for switches you can use a template (useful for example COCO switches).
 
 - Go to home-assistant-IP:8123/dev-template
 - Use this code to generate a code:
@@ -64,7 +64,7 @@ If you need to generate codes for switches you can use a template (usefull for e
 - Use this code to add a new switch in your configuration.yaml
 - Launch your homeassistant and go the website.
 - Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
-- Toggle your new switch in the homeassisant interface
+- Toggle your new switch in the Home Assistant interface
 
 ## {% linkable_title Examples %}
 
@@ -86,7 +86,7 @@ switch:
       fire_event: True
 ```
 
-Doorbell configuration:
+Light hallway if doorbell is pressed (when is sun down):
 
 ```yaml
 # Example configuration.yaml entry
@@ -120,7 +120,7 @@ automation:
         entity_id: switch.hall
 ```
 
-Use remote to enable scene:
+Use remote to enable scene (using event_data):
 
 ```yaml
 # Example configuration.yaml entry

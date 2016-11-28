@@ -2,12 +2,13 @@
 layout: post
 title: "0.33: New Calendar component, Wink thermostats and Cisco IOS"
 description: "Continued our upgrade to Async, fixed tons of bugs and added a few new things."
-date: 2016-11-19 03:04:05 +0000
+date: 2016-11-20 00:04:05 +0000
 date_formatted: "November 20, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
 comments: true
 categories: Release-Notes
+og_image: /images/blog/2016-11-0.33/social.png
 ---
 
 For this release we put a lot of focus on finishing our async upgrade and fix a bunch of bugs in the process.
@@ -38,11 +39,41 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 - Alarm Control Panel - [Envisalink]: Add new keypress service ([@jnimmo])
 - Light - [Hue]: Add service to activate scenes defined in Hue app ([@sdague])
 
+### {% linkable_title Release 0.33.1 - November 20 %}
+
+ - Fix Z-Wave lights ([@turbokongen])
+
+### {% linkable_title Release 0.33.2 - November 22 %}
+
+ - Fix Device Tracker init ([@pvizeli])
+ - Fix Discovery init ([@pvizeli])
+ - Fix TP-Link switch ([@mweinelt])
+ - Fix Zwave light naming & configurable refresh ([@jchapple])
+ - Neato fixes ([@turbokongen])
+ - Fix 'Unknown' status for Nest Protect devices ([@Khabi])
+
+### {% linkable_title Release 0.33.3 - November 23 %}
+
+ - Update Yr.no entities every hour ([@kellerza])
+ - Bump Netdisco to 0.7.7 (fixes discovery on Synology)
+ - Fix discovery race condition (most obvious in Wemo) ([@balloob])
+
+### {% linkable_title Release 0.33.4 - November 24 %}
+
+ - Set executor pool size to 10 (as intended) ([@pvizeli])
+
+This should fix occasional performance problems that some people have reported.
+
 ### {% linkable_title Breaking changes %}
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
  - Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.
 
+### {% linkable_title Reporting issues %}
+
+Experiencing issues introduced by this release? Please report them in our [issue tracker]. Make sure to fill in all fields of the issue template.
+
+[issue tracker]: https://github.com/home-assistant/home-assistant/issues
 [@bah2830]: https://github.com/bah2830
 [@balloob]: https://github.com/balloob
 [@bestlibre]: https://github.com/bestlibre
@@ -64,6 +95,8 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 [@sdague]: https://github.com/sdague
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
+[@jchapple]: https://github.com/jchapple
+[@Khabi]: https://github.com/Khabi
 
 [api-stream]: /components/sensor.api_stream/
 [cisco]: /components/device_tracker.cisco_ios/
