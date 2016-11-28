@@ -16,7 +16,7 @@ ha_release: pre 0.7
 The `nest` binary sensor platform let you monitor various states of a thermostat from [Nest](https://nest.com).
 
 <p class='note'>
-You must have the [Nest component](/components/nest/) configured to use this sensors.
+You must have the [Nest component](/components/nest/) configured to use these sensors.  A nest thermostat can provide any of the below sensors.  A nest protect can only report the 'online' condition. 
 </p>
 
 To set it up, add the following information to your `configuration.yaml` file:
