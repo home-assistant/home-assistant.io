@@ -150,7 +150,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">Printer</span>
-  <span class="s">command</span><span class="pi">:</span> <span class="s">ping -c 1 192.168.1.10 &amp;&gt; /dev/null &amp;&amp; echo success || echo fail</span>
+  <span class="s">command</span><span class="pi">:</span> <span class="s">ping -W 1 -c 1 192.168.1.10 &gt; /dev/null 2&gt;&amp;1 &amp;&amp; echo success || echo fail</span>
   <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">connectivity</span>
   <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">success"</span>
   <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fail"</span>

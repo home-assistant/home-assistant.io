@@ -115,25 +115,34 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.
-    <ul>
-      <li>‘temperature’</li>
-      <li>‘target’</li>
-      <li>‘humidity’</li>
-      <li>‘operation_mode’</li>
-      <li>‘last_ip’</li>
-      <li>‘local_ip’</li>
-      <li>‘last_connection’</li>
-      <li>‘battery_level’</li>
-      <li>‘weather_condition’</li>
-      <li>‘weather_temperature’</li>
-      <li>‘weather_humidity’</li>
-      <li>‘wind_speed’</li>
-      <li>‘wind_direction’</li>
-      <li>‘co_status’ # Nest Protect only</li>
-      <li>‘smoke_status’ # Nest Protect only</li>
-    </ul>
-  </li>
+  <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.</li>
+</ul>
+
+<p>The following conditions can be monitored with a Nest Thermostat or Protect.</p>
+<ul>
+  <li>‘battery_level’</li>
+</ul>
+
+<p>The following conditions can be monitored with a Nest Thermostat only.</p>
+<ul>
+  <li>‘temperature’</li>
+  <li>‘target’</li>
+  <li>‘humidity’</li>
+  <li>‘operation_mode’</li>
+  <li>‘last_ip’</li>
+  <li>‘local_ip’</li>
+  <li>‘last_connection’</li>
+  <li>‘weather_condition’</li>
+  <li>‘weather_temperature’</li>
+  <li>‘weather_humidity’</li>
+  <li>‘wind_speed’</li>
+  <li>‘wind_direction’</li>
+</ul>
+
+<p>The following conditions can be monitored with a Nest Protect only.</p>
+<ul>
+  <li>‘co_status’</li>
+  <li>‘smoke_status’</li>
 </ul>
 
 
