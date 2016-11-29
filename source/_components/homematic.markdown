@@ -27,55 +27,59 @@ To set up the component, add the following information to your `configuration.ya
 
 ```yaml
 homematic:
-  wireless:
-    ip: 127.0.0.1
+  hosts:
+    wireless:
+      ip: 127.0.0.1
 ```
 
 Configuration variables (global):
 
+- **hosts** (*Required*): Configuration for each host to integrate into Home Assistant.
 - **local_ip** (*Optional*): IP of device running Home Assistant. Override autodetected value for exotic network setups.
 - **local_port** (*Optional*): Port for connection with Home Assistant. By default it is randomly assigned.
-- **delay** (*Optional*): <Float> Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
+- **delay** (*Optional*): [Float] Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
 
 Configuration variables (host):
 
 - **ip** (*Required*): IP of CCU/Homegear
 - **port** (*Optional*): Port of Homegear/CCU XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)
-- **resolvenames** (*Optional*): <metadata, json, xml> Try to fetch device names. Defaults to `False` if not specified.
+- **resolvenames** (*Optional*): [`metadata`, `json`, `xml`] Try to fetch device names. Defaults to `false` if not specified.
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
-- **primary** (*Optional*): Set to True when using multiple hosts and this host should provide the services and variables.
-- **variables** (*Optional*): Set to True if you want to use CCU2/Homegear variables. Should only be enabled for the primary host.
+- **primary** (*Optional*): Set to `true` when using multiple hosts and this host should provide the services and variables.
+- **variables** (*Optional*): Set to `true` if you want to use CCU2/Homegear variables. Should only be enabled for the primary host.
 
 #### Example configuration with multiple protocols and some other options set:
 
 ```yaml
 homematic:
-  rf:
-    ip: 127.0.0.1
-    resolvenames: json
-    username: Admin
-    password: secret
-    primary: true
-    variables: true
-  wired:
-    ip: 127.0.0.1
-    port: 2000
-    resolvenames: json
-    username: Admin
-    password: secret
-  ip:
-    ip: 127.0.0.1
-    port: 2010
+  delay: 1.0
+  hosts:
+    rf:
+      ip: 127.0.0.1
+      resolvenames: json
+      username: Admin
+      password: secret
+      primary: true
+      variables: true
+    wired:
+      ip: 127.0.0.1
+      port: 2000
+      resolvenames: json
+      username: Admin
+      password: secret
+    ip:
+      ip: 127.0.0.1
+      port: 2010
 ```
 
 ### The `resolvenames` option
 
 We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won't include non-ASCII characters in entity-names.
 
-1. The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work you need to add valid credentials to your component-configuration. Guest-access is sufficient to query for device names.
-2. If you use a CCU, there is an add-on called the "XML-API". With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don't support authentication with this method.
-3. Homegear provides device-names through the metadata devices internally have. When using an HM-CFG-LAN interface, you typically use a configuration software ("HomeMatic-Komponenten konfigurieren" is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you'll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.
+1. `json`: The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work you need to add valid credentials to your component-configuration. Guest-access is sufficient to query for device names.
+2. `xml`: If you use a CCU, there is an add-on called the "XML-API". With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don't support authentication with this method.
+3. `metadata`: Homegear provides device-names through the metadata devices internally have. When using an HM-CFG-LAN interface, you typically use a configuration software ("HomeMatic-Komponenten konfigurieren" is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you'll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.
 
 Resolving names can take some time. So when you start Home Assistant you won't see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.
 
@@ -126,7 +130,9 @@ The name depends on if you chose to resolve names or not. If not, it will be the
 ### Services
 
 * *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
-* *homematic.set_value*: Set the value of a system variable.
+* *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
+* *homematic.set_var_value*: Set the value of a system variable.
+* *homematic.set_dev_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
 
 #### Examples
 Simulate a button being pressed
@@ -150,12 +156,43 @@ action:
     channel: 1
     param: OPEN
 ```
+
 Set variable
 ```yaml
 ...
 action:
-  service: homematic.set_value
+  service: homematic.set_var_value
   data:
     entity_id: homematic.varname_bool
     value: true
+```
+
+
+#### Advanced examples
+
+If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.  
+Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above `rf`, `wired` and `ip` would be valid values.
+
+Manually turn on a switch actor
+```yaml
+...
+action:
+  service: homematic.set_dev_value
+  data:
+    address: LEQ1234567
+    channel: 1
+    param: STATE
+    value: true
+```
+
+Manually set temperature on thermostat
+```yaml
+...
+action:
+  service: homematic.set_dev_value
+  data:
+    address: LEQ1234567
+    channel: 4
+    param: SET_TEMPERATURE
+    value: 23.0
 ```
