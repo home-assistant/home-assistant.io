@@ -7,6 +7,7 @@
   "release_notes_path": "{{ recent_release_post.url }}",
   "release_title": "{{ recent_release_post.title }}",
   "release_description": "{{ recent_release_post.description }}",
+  "patch_version_notes": "{{ site.patch_version_notes }}"
   "root_url": "{{ site.url }}",
   "semantic_version": {
     "major": {{ site.current_major_version }},
