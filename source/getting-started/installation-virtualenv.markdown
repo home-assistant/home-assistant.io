@@ -116,7 +116,7 @@ $ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
 Then, activate your virtualenv (steps 3 and 5 above) and upgrade cython.
 
 ```bash
-(hass)$ pip3 install --upgrade cython
+(hass)$ pip3 install --upgrade cython==0.24.1
 ```
 
 Finally, get and install `python-openzwave`.
