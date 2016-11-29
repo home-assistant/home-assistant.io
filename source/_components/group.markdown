@@ -45,6 +45,7 @@ Configuration variables:
 - **view** (*Optional*): If yes then the entry will be shown as a view (tab).
 - **name** (*Optional*): Name of the group.
 - **icon** (*Optional*): If the group is a view, this icon will show at the top in the frontend instead of the name. If it's not a view, then the icon shows when this group is used in another group.
+- **hide_switch** (*Optional*): If yes then the group switch will be hidden.
 - **entities** (*Required*): array or comma delimited string, list of entities to group.
 
 <p class='img'>
