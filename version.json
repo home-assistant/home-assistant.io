@@ -5,7 +5,7 @@
   "release_notes_path": "/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/",
   "release_title": "0.33: New Calendar component, Wink thermostats and Cisco IOS",
   "release_description": "Continued our upgrade to Async, fixed tons of bugs and added a few new things.",
-  "patch_version_notes": "#release-0334---november-24"
+  "patch_version_notes": "#release-0334---november-24",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
