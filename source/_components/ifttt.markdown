@@ -74,6 +74,31 @@ automation:
     data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
 ```
 
+IFTTT can also be used in scripts and with `data_template`.  Here is the above automation broken into an automation and script using variables and data_templates.
+
+```yaml
+# Example configuration.yaml Automation entry
+automation:
+  alias: Startup Notification
+  trigger:
+    platform: event
+    event_type: homeassistant_start
+  action:
+    service: script.ifttt_notify
+    data_template:
+      value1: 'HA Status:'
+      value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
+      value3: "{{ trigger.event.data.to_state.state }}"
+```
+
+```yaml
+#Example Script to send TestHA_Trigger to IFTTT but with some other data (homeassistant UP).
+ifttt_notify:
+  sequence:
+    - service: ifttt.trigger
+      data_template: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
+```
+
 ### {% linkable_title Sending events from IFTTT to Home Assistant %}
 
 To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web. This can be achieved by forwarding port 8123 from your router to the device running Home Assistant. If your ISP is giving you a new IP address from time to time, consider using [DuckDNS](https://duckdns.org).
