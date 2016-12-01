@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Ecosystem - Home Assistant</title>
+    <title>Reboot - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="External tools for Home Assistant">
+    <meta name="description" content="Reboot">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/ecosystem/">
+    <link rel="canonical" href="https://home-assistant.io/ecosystem/hadashboard/reboot/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Ecosystem">
+    <meta property="og:title" content="Reboot">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/ecosystem/">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="External tools for Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/ecosystem/hadashboard/reboot/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Reboot">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Ecosystem">
-    <meta name="twitter:description" content="External tools for Home Assistant">
+    <meta name="twitter:title" content="Reboot">
+    <meta name="twitter:description" content="Reboot">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -86,13 +86,17 @@
   
   <header>
     <h1 class="title indent">
-      Ecosystem
+      Reboot
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Ecosystem includes documentation for related tools and projects that extend Home Assistant to new platforms and systems. Use the sidebar to discover documentation for projects.</p>
+  <p>To run Dashing and <code class="highlighter-rouge">hapush</code> at reboot, I have provided sample init scripts in the <code class="highlighter-rouge">./init</code> directory. These have been tested on a Raspberry PI - your mileage may vary on other systems.</p>
+
+<p>Instructions for automaticaly starting a docker install can be found (here)[https://docs.docker.com/engine/admin/host_integration/].</p>
+
+<p>For docker you may also want to use docker-compose - there is a sample compose file in the <code class="highlighter-rouge">./init</code> directory.</p>
 
 
 </article>
@@ -106,15 +110,18 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-    <div class="section">
-      <h1 class="title delta">Ecosystem</h1>
-      <ul class="divided">
-            <li><a href="/ecosystem/hadashboard/">HADashboard</a></li>
-            <li><a href="/ecosystem/scenegen/">SceneGen</a></li>
-            <li><a href="/ecosystem/ios/">iOS</a></li>
-      </ul>
-    </div>
-  </section>
+  <div class="section">
+    <h1 class="title delta">HADashboard</h1>
+    <ul class="divided sidebar-menu">
+      <li><a  href='/ecosystem/hadashboard/'>General </a></li>
+      <li><a  href='/ecosystem/hadashboard/installation/'>Installation </a></li>
+      <li><a  href='/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
+      <li><a  href='/ecosystem/hadashboard/hapush/'>HAPush </a></li>
+      <li><a class='active' href='/ecosystem/hadashboard/reboot/'>Reboot </a></li>
+      <li><a  href='/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
+    </ul>
+  </div>
+</section>
   
 </div>
         </aside>
