@@ -45,7 +45,7 @@ Configuration variables:
 - **view** (*Optional*): If yes then the entry will be shown as a view (tab).
 - **name** (*Optional*): Name of the group.
 - **icon** (*Optional*): If the group is a view, this icon will show at the top in the frontend instead of the name. If it's not a view, then the icon shows when this group is used in another group.
-- **hide_switch** (*Optional*): If yes then the group switch will be hidden.
+- **control** (*Optional*): If hidden then the group switch will be hidden.
 - **entities** (*Required*): array or comma delimited string, list of entities to group.
 
 <p class='img'>
@@ -53,7 +53,7 @@ Configuration variables:
 Example of groups shown as views in the frontend.
 </p>
 
-If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once.
+If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once. If you want to hide this switch, set `control` to `hidden`.
 
 You can create views (tabs) that contain other groups.
 Notice in the example below that in order to refer to the group "Living Room", you use `group.living_room` (lowercase and spaces replaced with underscores).
