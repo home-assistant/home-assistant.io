@@ -36,6 +36,8 @@ sensor:
       - type: cost
         period: day
         currency: $
+      - type: amount
+        period: day
 ```
 
 Configuration variables:
@@ -45,6 +47,10 @@ Configuration variables:
 negative number of minutes your timezone is ahead/behind UTC time.
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **type** (*Required*): Name of the variable.
+      - **instant_readings**: Instant energy consumption.
+      - **budget**: Monthly budget.
+      - **cost**: The cost for energy consumption (with the tariff that has been set in Efergy) over a given period.
+      - **amount**: The amount of energy consumed over a given period.
   - **period** (*Optional*): Some variables take a period argument. Valid options are "day", "week", "month", and "year".
   - **currency** (*Optional*): This is used to display the cost/period as the unit when monitoring the cost. It should correspond to the actual currency used in your dashboard.
 
