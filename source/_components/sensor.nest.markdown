@@ -36,21 +36,22 @@ Configuration variables:
 
 The following conditions can be monitored with a Nest Thermostat or Protect.
   - 'battery_level'
-  
+
 The following conditions can be monitored with a Nest Thermostat only.
+
   - 'temperature'
-  - 'target' 
+  - 'target'
   - 'humidity'
   - 'operation_mode'
   - 'last_ip'
-  - 'local_ip' 
+  - 'local_ip'
   - 'last_connection'
   - 'weather_condition'
-  - 'weather_temperature' 
-  - 'weather_humidity' 
+  - 'weather_temperature'
+  - 'weather_humidity'
   - 'wind_speed'
   - 'wind_direction'
-  
+
 The following conditions can be monitored with a Nest Protect only. 
   - 'co_status'
   - 'smoke_status'
