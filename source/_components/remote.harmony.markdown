@@ -32,20 +32,19 @@ remote:
   - platform: harmony
     name: Bedroom
     host: 10.168.1.13
-    port: 5222
 ```
 
 Configuration variables:
 
 - **name** (*Required*): The hub's name to display in the front end.
 - **host** (*Required*): The Harmony device's IP address.
-- **port** (*Required*): The Harmony device's port. 5222 is default.
+- **port** (*Optional*): The Harmony device's port. 5222 is default.
 - **activity** (*Optional*): Activity to use when turnon service is called without any data.
 - **scan_interval** (*Optional*): Amount in seconds in between polling for device's current activity. Defaults to 30 seconds.
 
 Configuration file:
 
-Upon startup one file will be written to your HASS configuration directory per device in the following format: `harmony_REMOTENAME.conf`. The file will contain:
+Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_REMOTENAME.conf`. The file will contain:
 
 - List of all programmed activity names and ID numbers
 - List of all programmed device names and ID numbers
