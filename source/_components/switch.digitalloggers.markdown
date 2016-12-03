@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: digitalloggers.png
 ha_category: Switch
+ha_release: 0.35
 ---
 
 
@@ -28,10 +29,10 @@ switch:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your DIN III relay, eg. `192.168.1.32`.
-- **name** (*Optional*): The name to use when controlling this relay.  Default: `DINRelay` 
-- **username** (*Optional*): Credentials for controlling this relay. Default: `admin`
-- **password** (*Optional*): Credentials for controlling this relay. Default: `admin`
+- **host** (*Required*): The IP address or FQDN of your DIN III relay, eg. `192.168.1.32` or `myrelay.example.com`.
+- **name** (*Optional*): The name to use when controlling this relay.  Default: `DINRelay`.
+- **username** (*Optional*): Credentials for controlling this relay. Default: `admin`.
+- **password** (*Optional*): Credentials for controlling this relay. Default: `admin`.
 - **timeout** (*Optional*): Default timeout as set by the underlying python-dlipower library is `20` seconds.  Override it if you need to.  Valid range is 1 to 600.
 - **cycletime** (*Optional*): This is the delay enforced by the library when you send multiple commands to the same device.  The default relay cycle time is `2` seconds. Override it if you need to.  Valid range is 1 to 600. A delay is a recommendation of Digital Loggers: 
 >Many loads draw more power when they are initially switched on. Sequencing prevents circuit overloads when loads devices are attached to a single circuit. 
@@ -39,4 +40,4 @@ Configuration variables:
 
 Your relays will be available in the form `switch.fantasticrelaydevice_individualrelayname`
 
-**Note:** It is a current limitation of the [dlipower library](https://github.com/dwighthubbard/python-dlipower) used that only port 80 communication is currently supported.
+**Note:** There is currently a limitation of the [dlipower library](https://github.com/dwighthubbard/python-dlipower) used by the `digitalloggers` component that communication is only available over port 80.
