@@ -29,5 +29,5 @@ media_player:
 Configuration variables:
 
 - **host** (*Required*): IP address or hostname of the device. Example: 192.168.1.32
-- **name** (*Optional*): Name of the device
+- **name** (*Optional*): Name of the device.
 - **sources** (*Optional*): A name-value dictionary of sources that HA component can request to play.
