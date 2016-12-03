@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-03T22:07:04+00:00</updated>
+  <updated>2016-12-03T22:21:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -48,7 +48,7 @@
 
 <h3><a class="title-link" name="websocket-api" href="#websocket-api"></a> Websocket API</h3>
 
-<p>This release includes a new <a href="https://home-assistant.io/developers/websockets_api/">websockets</a> based API by <a href="https://github.com/balloob">@balloob</a> to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.</p>
+<p>This release includes a new <a href="https://home-assistant.io/developers/websocket_api/">websockets</a> based API by <a href="https://github.com/balloob">@balloob</a> to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.</p>
 
 <h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
 
@@ -76,7 +76,7 @@
   <li>Sensor - Systemmonitor: Support for removable network adapters (<a href="https://github.com/mnoorenberghe">@mnoorenberghe</a>)</li>
   <li>LiteJet: New trigger option (<a href="https://github.com/joncar">@joncar</a>)</li>
   <li>Media player - Bose: Add Bose SoundTouch device support (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a>)</li>
-  <li>HTTP: Re-organisation and <a href="https://home-assistant.io/developers/websockets_api/">websockets</a> support (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>HTTP: Re-organisation and <a href="https://home-assistant.io/developers/websocket_api/">websockets</a> support (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>HTTP: Advanced <a href="https://home-assistant.io/components/http/">IP filtering</a> (<a href="https://github.com/vkorn">@vkorn</a>)</li>
   <li>Sensor - KNX: Fix unit of mesaurement (<a href="https://github.com/cyberjunky">@cyberjunky</a>)</li>
   <li>Climate: New precision properties (<a href="https://github.com/sdague">@sdague</a>)</li>

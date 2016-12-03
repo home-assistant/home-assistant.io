@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-03T22:07:04+00:00</updated>
+  <updated>2016-12-03T22:21:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -178,7 +178,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tellstick]: https://home-assistant.io/components/tellstick/
 [temper]: https://home-assistant.io/components/sensor.temper/
 [threshold]: https://home-assistant.io/components/binary_sensor.threshold/
-[websockets]: https://home-assistant.io/developers/websockets_api/
+[websockets]: https://home-assistant.io/developers/websocket_api/
 [waqi]: https://home-assistant.io/components/sensor.waqi/
 
 ]]></content>
