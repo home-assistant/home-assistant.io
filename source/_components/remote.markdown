@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: "0.34"
 ---
 
 Keeps track which remotes are in your environment, their state and allows you to control them.
