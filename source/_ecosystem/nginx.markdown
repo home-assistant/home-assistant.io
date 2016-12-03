@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "NGINX"
-description: "Documentation about setting up NGINX to set up Home Assistant."
+description: "Documentation about setting up Home Assistant with NGINX."
 release_date: 2016-12-02 15:00:00 -0700
 sidebar: true
 comments: false
