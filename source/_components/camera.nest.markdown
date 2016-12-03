@@ -17,3 +17,11 @@ The `nest` platform allows you to watch the live stream of your [Nest](https://n
 <p class='note'>
 You must have the [Nest component](/components/nest/) configured to use those thermostats.
 </p>
+
+To set it up, add the following information to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: nest
+```

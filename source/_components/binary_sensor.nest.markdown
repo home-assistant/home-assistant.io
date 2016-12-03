@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: nest_thermostat.png
+logo: nest.png
 ha_category: Binary Sensor
 ha_release: pre 0.7
 ---
@@ -22,19 +22,12 @@ You must have the [Nest component](/components/nest/) configured to use these se
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 binary_sensor:
   - platform: nest
     monitored_conditions:
       - 'fan'
       - 'hvac_ac_state'
-      - 'hvac_heater_state'
-      - 'hvac_aux_heater_state'
-      - 'hvac_heat_x2_state'
-      - 'hvac_heat_x3_state'
-      - 'hvac_alt_heat_state'
-      - 'hvac_alt_heat_x2_state'
-      - 'hvac_emer_heat_state'
-      - 'online'
 ```
 
 Configuration variables:

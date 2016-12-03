@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: nest_thermostat.png
+logo: nest.png
 ha_category: Weather
 ha_iot_class: "Cloud Poll"
 ---
@@ -26,18 +26,14 @@ sensor:
   - platform: nest
     monitored_conditions:
       - 'weather_temperature'
-      - 'weather_humidity'
-      - 'weather_condition'
-      - 'wind_speed'
-      - 'wind_direction'
 ```
 
 Configuration variables:
 
 - **monitored_conditions** array (*Required*): States to monitor.
-    - 'weather_temperature'
-    - 'weather_humidity'
-    - 'weather_condition'
-    - 'wind_speed'
-    - 'wind_direction'
+  - 'weather_temperature'
+  - 'weather_humidity'
+  - 'weather_condition'
+  - 'wind_speed'
+  - 'wind_direction'
 
