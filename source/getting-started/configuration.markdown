@@ -15,7 +15,7 @@ The location of the folder differs between operating systems:
 
 | OS | Path |
 | -- | ---- |
-| OS X | `~/.homeassistant` |
+| macOS | `~/.homeassistant` |
 | Linux | `~/.homeassistant` |
 | Windows | `%APPDATA%/.homeassistant` |
 

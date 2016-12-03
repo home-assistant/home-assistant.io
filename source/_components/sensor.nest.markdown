@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: nest_thermostat.png
+logo: nest.png
 ha_category: Sensor
 ha_release: pre 0.7
 ---
@@ -24,15 +24,10 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: nest
-  monitored_conditions:
-    - 'temperature'
-    - 'target'
-    - 'humidity'
-    - 'operation_mode'
-    - 'last_connection'
-    - 'co_status' # Nest Protect only
-    - 'smoke_status' # Nest Protect only
+  - platform: nest
+    monitored_conditions:
+      - 'temperature'
+      - 'target'
 ```
 
 Configuration variables:
@@ -41,21 +36,22 @@ Configuration variables:
 
 The following conditions can be monitored with a Nest Thermostat or Protect.
   - 'battery_level'
-  
+
 The following conditions can be monitored with a Nest Thermostat only.
+
   - 'temperature'
-  - 'target' 
-  - 'humidity'  
-  - 'operation_mode'  
-  - 'last_ip'  
-  - 'local_ip' 
-  - 'last_connection'  
-  - 'weather_condition'  
-  - 'weather_temperature' 
-  - 'weather_humidity' 
-  - 'wind_speed'  
-  - 'wind_direction'  
-  
+  - 'target'
+  - 'humidity'
+  - 'operation_mode'
+  - 'last_ip'
+  - 'local_ip'
+  - 'last_connection'
+  - 'weather_condition'
+  - 'weather_temperature'
+  - 'weather_humidity'
+  - 'wind_speed'
+  - 'wind_direction'
+
 The following conditions can be monitored with a Nest Protect only. 
   - 'co_status'
   - 'smoke_status'

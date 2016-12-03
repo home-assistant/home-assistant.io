@@ -87,8 +87,8 @@ automation:
     service: script.ifttt_notify
     data_template:
       value1: 'HA Status:'
-      value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
-      value3: "{{ trigger.event.data.to_state.state }}"
+      value2: {% raw %}"{{ trigger.event.data.entity_id.split('_')[1] }} is "{% endraw %}
+      value3: {% raw %}"{{ trigger.event.data.to_state.state }}"{% endraw %}
 ```
 
 ```yaml

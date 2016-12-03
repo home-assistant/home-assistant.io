@@ -1,20 +1,18 @@
 ---
 layout: page
-title: "Nest Fan"
-description: "Instructions how to integrate Nest fans within Home Assistant."
-date: 2015-03-23 19:59
+title: "Nest Camera"
+description: "Instructions how to integrate Nest cameras into Home Assistant."
+date: 2016-12-03 08:10
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: nest.png
-ha_category: Fan
-ha_release: 0.29
-ha_iot_class: "Local Polling"
+ha_category: Camera
+ha_release: 0.34
 ---
 
-
-The `nest` fan platform let you control a fan from [Nest](https://nest.com).
+The `nest` platform allows you to watch the live stream of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
 
 <p class='note'>
 You must have the [Nest component](/components/nest/) configured to use those thermostats.
@@ -24,7 +22,6 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-fan:
+camera:
   - platform: nest
 ```
-

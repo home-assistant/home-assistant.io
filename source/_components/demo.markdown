@@ -25,6 +25,7 @@ Available demo platforms:
 - [Light](/components/light/) (`light`)
 - [Lock](/components/lock/) (`lock`)
 - [Notification](/components/notify/) (`notify`)
+- [Remote](/components/remote/) (`remote`)
 - [Sensor](/components/sensor/) (`sensor`)
 - [Switch](/components/switch/) (`switch`)
 - [Weather](/components/weather/) (`weather`)
