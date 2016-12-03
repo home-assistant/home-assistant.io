@@ -2,7 +2,7 @@
 layout: page
 title: "Broadlink RM2 and A1 sensor"
 description: "Instructions how to integrate Broadlink RM2 and/or A1 E-air sensors within Home Assistant."
-date: 2016-11-08 21:59
+date: 2020-11-08 21:59
 sidebar: true
 comments: false
 sharing: true
