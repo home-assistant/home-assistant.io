@@ -171,6 +171,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tellstick]: https://home-assistant.io/components/tellstick/
 [temper]: https://home-assistant.io/components/sensor.temper/
 [threshold]: https://home-assistant.io/components/binary_sensor.threshold/
-[websockets]: https://home-assistant.io/developers/websockets_api/
+[websockets]: https://home-assistant.io/developers/websocket_api/
 [waqi]: https://home-assistant.io/components/sensor.waqi/
 
