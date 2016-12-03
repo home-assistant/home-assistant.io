@@ -35,13 +35,7 @@ WantedBy=multi-user.target
 EOF'
 ```
 
-There is also another [sample service file](https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service) available. To use this one, just download it.
-
-```bash
-$ sudo wget https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service -O /etc/systemd/system/home-assistant@[your user].service
-```
-
-If you've setup Home Assistant in virtualenv following the guide the following template should work for you.
+If you've setup Home Assistant in `virtualenv` following the guide the following template should work for you.
 
 ```
 [Unit]
