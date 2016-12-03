@@ -80,6 +80,8 @@ This release includes a new [websockets][websockets] based API by [@balloob] to 
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.
+- If you are using NGINX, you will have to [adapt your configuration][nginx].
+- [Nest][nest] contains changes which will require your attention.
 
 ### {% linkable_title If you need help... %}
 
@@ -158,6 +160,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homematic]: https://home-assistant.io/components/homematic/
 [hook]: https://home-assistant.io/components/switch.hook/
 [nest-cam]: https://home-assistant.io/components/camera.nest/
+[nest]: https://home-assistant.io/components/nest/
+[nginx]: https://home-assistant.io/ecosystem/nginx/
 [nut]: https://home-assistant.io/components/sensor.nut/
 [philips]: https://home-assistant.io/components/media_palyer.dunehd/
 [remote]: https://home-assistant.io/components/remote/
