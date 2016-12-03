@@ -92,17 +92,48 @@
 
   <p>The Nest component is the main component to integrate all <a href="https://nest.com/">Nest</a> related platforms. To connect Nest, you will have to <a href="https://developers.nest.com/products">sign up for a developer account</a> and get a client_id and client_secret.</p>
 
+<h3><a class="title-link" name="setting-up-developer-account" href="#setting-up-developer-account"></a> Setting up developer account</h3>
+
+<ol>
+  <li>Log into <a href="https://developers.nest.com/">https://developers.nest.com/</a></li>
+  <li>Fill in account details
+    <ul>
+      <li>The compnay details can be any made up information.</li>
+    </ul>
+  </li>
+  <li>Submit changes</li>
+  <li>Click “<a href="https://developers.nest.com/products">Products</a>” at top of page</li>
+  <li>Click “<a href="https://developers.nest.com/products/new">Create New Product</a>” to start a new api client</li>
+  <li>Fill in details
+    <ul>
+      <li>Product name must be unique. I recommend [email] - Home Assistant.</li>
+      <li>The description, users, urls can all be anything you want</li>
+    </ul>
+  </li>
+  <li>For permissions check every box and if it’s an option select the read/write option.
+    <ul>
+      <li>The description requires a specific format to be accepted.</li>
+      <li>Use “[Home Assistant] [Edit] [For Home Automation]” as the description as it is not super important.</li>
+    </ul>
+  </li>
+  <li>Click “Create Product”</li>
+  <li>Once the new product page opens the “Product ID” and “Product Secret” are located on the right side.</li>
+  <li>After these configs are updated and Home Assistant is started a configurator will pop up asking you to log in and copy a authorization code into Home Assistant.</li>
+</ol>
+
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">nest</span><span class="pi">:</span>
-  <span class="s">client_id</span><span class="pi">:</span> <span class="s">ABCD</span>
-  <span class="s">client_secret</span><span class="pi">:</span> <span class="s">ABCD</span>
+  <span class="s">client_id</span><span class="pi">:</span> <span class="s">CLIENT_ID</span>
+  <span class="s">client_secret</span><span class="pi">:</span> <span class="s">CLIENT_SECRET</span>
 </code></pre>
 </div>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry to show only devices at your vacation and primary homes</span>
 <span class="s">nest</span><span class="pi">:</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+  <span class="s">client_id</span><span class="pi">:</span> <span class="s">CLIENT_ID</span>
+  <span class="s">client_secret</span><span class="pi">:</span> <span class="s">CLIENT_SECRET</span>
   <span class="s">structure</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">Vacation</span>
     <span class="pi">-</span> <span class="s">Primary</span>
