@@ -4,6 +4,7 @@ title: "0.31: Reading you the news, some serious business, spooky hackery and a 
 description: "Alexa Flash Briefing API support, Markdown in persistent notifications, a new updater component, Hacktoberfest and breaking Z-Wave changes."
 date: 2016-10-22 13:00:00 -0700
 date_formatted: "October 22, 2016"
+release_date: 2016-10-23 21:57:00 -0700
 author: Robbie Trencheny
 author_twitter: robbie
 comments: true
@@ -62,41 +63,51 @@ Finally, you can also reset your unique identifier by deleting the `.uuid` file 
 
 Here is what my production Home Assistant instance looks like from the server side:
 
-| Name                  | Description                                | Example                            | Data Source    |
-|-----------------------|--------------------------------------------|------------------------------------|----------------|
-| `arch`                | CPU Architecture                           | `x86_64`                           | Local Instance |
-| `distribution`        | Linux Distribution name (only Linux)       | `Ubuntu`                           | Local Instance |
-| `docker`              | True if running inside Docker              | `false`                            | Local Instance |
-| `first_seen_datetime` | First time instance ID was submitted       | `2016-10-22T19:56:03.542Z`         | Update Server  |
-| `geo_city`            | GeoIP determined city                      | `Oakland`                          | Update Server  |
-| `geo_country_code`    | GeoIP determined country code              | `US`                               | Update Server  |
-| `geo_country_name`    | GeoIP determined country name              | `United States`                    | Update Server  |
-| `geo_latitude`        | GeoIP determined latitude                  | `37.8047`                          | Update Server  |
-| `geo_longitude`       | GeoIP determined longitude                 | `-122.2124`                        | Update Server  |
-| `geo_metro_code`      | GeoIP determined metro code                | `807`                              | Update Server  |
-| `geo_region_code`     | GeoIP determined region code               | `CA`                               | Update Server  |
-| `geo_region_name`     | GeoIP determined region name               | `California`                       | Update Server  |
-| `geo_time_zone`       | GeoIP determined time zone                 | `America/Los_Angeles`              | Update Server  |
-| `geo_zip_code`        | GeoIP determined zip code                  | `94602`                            | Update Server  |
-| `last_seen_datetime`  | Most recent time instance ID was submitted | `2016-10-22T19:56:03.542Z`         | Update Server  |
-| `os_name`             | Operating system name                      | `Darwin`                           | Local Instance |
-| `os_version`          | Operating system version                   | `10.12`                            | Local Instance |
-| `python_version`      | Python version                             | `3.5.2`                            | Local Instance |
-| `timezone`            | Timezone                                   | `America/Los_Angeles`              | Local Instance |
-| `user_agent`          | User agent used to submit analytics        | `python-requests/2.11.1`           | Local Instance |
-| `uuid`                | Unique identifier                          | `10321ee6094d4a2ebb5ed55c675d5f5e` | Local Instance |
-| `version`             | Home Assistant version                     | `0.31.0`                           | Local Instance |
-| `virtualenv`          | True if running inside virtualenv          | `true`                             | Local Instance |
+| Name                  | Description                                | Example                            |
+|-----------------------|--------------------------------------------|------------------------------------|
+| `arch`                | CPU Architecture                           | `x86_64`                           |
+| `distribution`        | Linux Distribution name (only Linux)       | `Ubuntu`                           |
+| `docker`              | True if running inside Docker              | `false`                            |
+| `os_name`             | Operating system name                      | `Darwin`                           |
+| `os_version`          | Operating system version                   | `10.12`                            |
+| `python_version`      | Python version                             | `3.5.2`                            |
+| `timezone`            | Timezone                                   | `America/Los_Angeles`              |
+| `user_agent`          | User agent used to submit analytics        | `python-requests/2.11.1`           |
+| `uuid`                | Unique identifier                          | `10321ee6094d4a2ebb5ed55c675d5f5e` |
+| `version`             | Home Assistant version                     | `0.31.0`                           |
+| `virtualenv`          | True if running inside virtualenv          | `true`                             |
 
-In addition to the above collected data, the server will also use your IP address to do a geographic IP address lookup to determine a general geographic area that your address is located in. To be extremely, extremely clear about this bit: __The Home Assistant updater does not: store your IP address in a database and also does not submit the location information from your `configuration.yaml`.__ Our tests show that at best, we get 4 digits of accuracy on your IP address location which is a 5 mile radius of your actual IP location, assuming that it is even correct in the first place (geo IP look ups are very hit or miss). Here's what the accuracy looks like for my data above: ![Robbie's GeoIP accuracy level](/images/blog/2016-10-flash-briefing-updater-hacktoberfest/map.png)
+In addition to the above collected data, the server will also use your IP address to do a geographic IP address lookup to determine the city that you are from. To be extremely, extremely clear about this bit: __The Home Assistant updater does not: store your IP address in a database and also does not submit the location information from your `configuration.yaml`.__
 
-The server also adds two timestamps to the data: the original date your instance UUID was first seen and the timestamp of the last time we have seen your instance.
+<p class='img'>
+  <img src='/images/blog/2016-10-flash-briefing-updater-hacktoberfest/map.png' />
+  Geo-lookup on my IP resolves to Oakland with latitude/longitude pointing at the geographical center of the city.
+</p>
+
+The server also adds two timestamps to the data: the original date your instance UUID was first seen and the timestamp of the last time we have seen your instance. This gives us the following extra data:
+
+| Name                  | Description                                | Example                            |
+|-----------------------|--------------------------------------------|------------------------------------|
+| `first_seen_datetime` | First time instance ID was submitted       | `2016-10-22T19:56:03.542Z`         |
+| `geo_city`            | GeoIP determined city                      | `Oakland`                          |
+| `geo_country_code`    | GeoIP determined country code              | `US`                               |
+| `geo_country_name`    | GeoIP determined country name              | `United States`                    |
+| `geo_latitude`        | GeoIP determined latitude (of the city)    | `37.8047`                          |
+| `geo_longitude`       | GeoIP determined longitude (of the city)   | `-122.2124`                        |
+| `geo_metro_code`      | GeoIP determined metro code                | `807`                              |
+| `geo_region_code`     | GeoIP determined region code               | `CA`                               |
+| `geo_region_name`     | GeoIP determined region name               | `California`                       |
+| `geo_time_zone`       | GeoIP determined time zone                 | `America/Los_Angeles`              |
+| `geo_zip_code`        | GeoIP determined zip code                  | `94602`                            |
+| `last_seen_datetime`  | Most recent time instance ID was submitted | `2016-10-22T19:56:03.542Z`         |
 
 This data is held in the highest security. The update system runs in a secured Amazon Web Services account owned by me ([@robbiet480]). I personally have 5 years of experience with complex AWS deployments and have an extensive security background. I have audited the entire system and made sure to take every step to protect the data, including limiting who has access (just [@balloob] and myself). While not directly personally identifiable we absolutely understand some users hesistance to giving this information out. Please understand that we are only collecting this information to better understand our user base to provide better long term support and feature development then is currently possible.
 
 We currently have no plans to publicly expose any of this information. If we did do such a thing in the future we would of course notify you in advance. It must also be stated that we will never sell or allow the use of this information for non-Home Assistant purposes.
 
 We thank you for understanding why we are collecting this data and hope that you leave the feature enabled but fully understand if you feel uncomfortable with this.
+
+_This section was updated on October 24 to be more clear about geo-lookups being on the city level. [See original version.][blog-orig]_
 
 Now, back to the fun stuff...
 
@@ -110,7 +121,10 @@ Home Assistant got a crazy idea recently that it couldn't do enough already and 
 
 Now I know how to best get to [my real job][runway] (no, Home Assistant is _not_ my real job, it does seem like it sometimes though) every morning. Obviously not the best home automation example, but I think you get the idea. I could see this being used to tell you any major events that happened in your home overnight or reading you your hyperlocal weather report. Thanks to the audio support you could even replace all of the default Alexa Flash Briefing sources with your own news feeds. Home Assistant supports both text and audio content as well as displaying data in the Alexa app. I also want to point out that unlike the existing Skill integration, the Flash Briefing API does _not_ require HTTPS (_but you should still be using HTTPS if possible_). For more information, check out the new [docs][flash-briefing-docs].
 
-![You stay classy, San Diego. (It's funny, because balloob lives in San Diego))](/images/blog/2016-10-flash-briefing-updater-hacktoberfest/stay-classy.jpg)
+<p class='img'>
+  <img src='/images/blog/2016-10-flash-briefing-updater-hacktoberfest/stay-classy.jpg'>
+  You stay classy, San Diego. (It's funny, because balloob lives in San Diego))
+</p>
 
 ## {% linkable_title Major breaking Z-Wave changes ahead %}
 
@@ -179,9 +193,18 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 - iOS support ([@robbiet480])
 - Minor features and bug fixes by [@mtl010957], [@molobrakos], [@flyte], [@fabaff], [@phardy], [@sander76], [@T3m3z], [@c-w], [@balloob], [@robbiet480], [@StaticCube], [@vittoriom], [@hartmms], [@kirichkov], [@mezz64], [@ishults], [@Danielhiversen] and [@tchellomello].
 
+### {% linkable_title Release 0.31.1 - October 24 %}
+
+ - Identify special character encoding error in YAML files ([@kellerza], [@lwis])
+ - iOS app component bug fixes ([@robbiet480])
+ - Fix a spelling problem on user-facing error ([@robbiet480])
+ - YAML includes will ignore dirs/files prefixed with . ([@lwis])
+
 ## {% linkable_title Breaking changes %}
+
  - The [HTTP] component now takes a different format for authenticating IPs
- - Config format has changed for [Proximity]
+ - Configuration format has changed for [Proximity]
+ - The [Arduino] platform are now covered by the configuration check. Please check the documentation to see how. 
  - The Z-Wave entity ID change mentioned above
 
 ## {% linkable_title If you need help... %}
@@ -241,6 +264,7 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [@vittoriom]: https://github.com/vittoriom
 [@wokar]: https://github.com/wokar
 
+[Arduino]: https://home-assistant.io/components/arduino/
 [APNS]: https://home-assistant.io/components/notify.apns/
 [ARWN]: https://home-assistant.io/components/sensor.arwn/
 [Concord232]: https://home-assistant.io/components/alarm_control_panel.concord232/
@@ -271,7 +295,7 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [netatmo-discovery]: https://home-assistant.io/components/netatmo/
 [nmap]: https://home-assistant.io/components/device_tracker.nmap_tracker/
 [pers-notify]: https://home-assistant.io/components/persistent_notification/
-[runway]: https://runway.is
+[runway]: http://runway.is
 [scrape]: https://home-assistant.io/components/sensor.scrape/
 [updater]: https://home-assistant.io/components/updater/
 [z-wave-issue]: https://github.com/home-assistant/home-assistant/pull/3759
@@ -279,3 +303,4 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [zero-two-seven-release]: /blog/2016/08/28/notifications-hue-fake-unification/
 [twitter]: https://twitter.com/home_assistant
 [robbie-twitter]: https://twitter.com/robbie
+[blog-orig]: https://github.com/home-assistant/home-assistant.github.io/blob/c937242d154e509d2d84d10c51f654e20556fa21/source/_posts/2016-10-22-flash-briefing-updater-hacktoberfest.markdown

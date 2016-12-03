@@ -64,7 +64,7 @@ Take a snapshot of what is currently playing on one or more speakers. This servi
 
 ### {% linkable_title Service `sonos_restore` %}
 
-Restore a previosly taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
+Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -85,4 +85,21 @@ Remove one or more speakers from a group of speakers. If no `entity_id` is provi
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will be separated from their coordinator speaker.
+
+### {% linkable_title Service `sonos_set_sleep_timer` %}
+
+Sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
+ 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their timers set. Must be a coordinator speaker.
+| `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
+
+### {% linkable_title Service `sonos_clear_sleep_timer` %}
+
+Clear the sleep timer on a speaker, if one is set.
+ 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 

@@ -87,7 +87,7 @@ And that's it... you now have Home Assistant installed, and you can be sure that
 
 ### {% linkable_title Finally... Run Home Assistant %}
 
-There are two ways to launch Home Assistant. If you are **in** the virtualenv, you can just run `hass` and it will work as normal. If the virtualenv is not activated, you just use the `hass` executable in the `bin` directory mentioned earlier. There is one caveat... Because Home Assistant stores it's configuration in the user's home directory, we need to be the user `hass` user or specify the configuration with `-c`.
+There are two ways to launch Home Assistant. If you are **in** the virtualenv, you can just run `hass` and it will work as normal. If the virtualenv is not activated, you just use the `hass` executable in the `bin` directory mentioned earlier. There is one caveat... Because Home Assistant stores its configuration in the user's home directory, we need to be the user `hass` user or specify the configuration with `-c`.
 
 ```bash
 $ sudo -u hass -H /srv/hass/bin/hass
@@ -116,7 +116,7 @@ $ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
 Then, activate your virtualenv (steps 3 and 5 above) and upgrade cython.
 
 ```bash
-(hass)$ pip3 install --upgrade cython
+(hass)$ pip3 install --upgrade cython==0.24.1
 ```
 
 Finally, get and install `python-openzwave`.

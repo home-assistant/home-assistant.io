@@ -40,13 +40,13 @@ $ cd /volume1/@appstore/py3k/usr/local/bin
 Install PIP (Python's package management system)
 
 ```bash
-$ python -m ensurepip
+$ ./python3 -m ensurepip
 ```
 
 Use PIP to install Homeassistant package
 
 ```bash
-$ pip3 install homeassistant
+$ ./python3 -m pip install homeassistant
 ```
 
 Create homeassistant config directory & switch to it
@@ -77,7 +77,7 @@ REDIRECT="> $INSTALL_DIR/home-assistant.log 2>&1"
 
 start_daemon ()
 {
-    su ${USER} -s /bin/sh -c "$PYTHON $HASS $FLAGS $REDIRECT;"
+    sudo -u ${USER} /bin/sh -c "$PYTHON $HASS $FLAGS $REDIRECT;"
 }
 
 stop_daemon ()
@@ -204,25 +204,25 @@ Here are some useful commands:
 - Start Home Assistant:
 
 ```bash
-$ sh hass-daemon start
+$ sudo /volume1/homeassistant/hass-daemon start
 ```
 
 - Stop Home Assistant:
 
 ```bash
-$ sh hass-daemon stop
+$ sudo /volume1/homeassistant/hass-daemon stop
 ```
 
 - Restart Home Assistant:
 
 ```bash
-$ sh hass-daemon restart
+$ sudo /volume1/homeassistant/hass-daemon restart
 ```
 
 - Upgrade Home Assistant::
 
 ```bash
-$ python3 -m pip install --upgrade homeassistant
+$  /volume1/@appstore/py3k/usr/local/bin/python3 -m pip install --upgrade homeassistant
 ```
 
 ### {% linkable_title Troubleshooting %}

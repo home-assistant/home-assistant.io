@@ -141,5 +141,5 @@ automation:
     entity_id: device_tracker.paulus
     zone: zone.home
     # Event is either enter or leave
-    event: enter
+    event: enter  # or "leave"
 ```

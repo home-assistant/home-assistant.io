@@ -89,7 +89,7 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{% raw %}{{ state.attributes.elevation }}{% end raw %}'
+    value_template: '{% raw %}{{ state.attributes.elevation }}{% endraw %}'
     below: 1.5
   action:
     service: scene.turn_on

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: influxdb.png
-ha_category: "History"
+ha_category: History
 ha_release: 0.9
 ---
 
@@ -25,13 +25,14 @@ You will still need to create a database named `home_assistant` via InfluxDB's w
 
 Configuration variables:
 
-- **host** (*Optional*): IP address of your database host, eg. http://192.168.1.10. Defaults to `localhost`.
+- **host** (*Optional*): IP address of your database host, eg. 192.168.1.10. Defaults to `localhost`.
 - **port** (*Optional*): Port to use. Defaults to 8086.
 - **username** (*Optional*): The username of the database user.
 - **password** (*Optional*): The password for the database user account.
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
+- **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **blacklist** (*Optional*): List of entities not logged to InfluxDB.
 - **whitelist** (*Optional*): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the **blacklist** option will prevail.
 - **tags** (*Optional*): Tags to mark the data.
@@ -51,6 +52,7 @@ influxdb:
   password: MY_PASSWORD
   ssl: true
   verify_ssl: true
+  default_measurement: state
   blacklist:
      - entity.id1
      - entity.id2

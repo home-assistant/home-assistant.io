@@ -25,6 +25,6 @@ mqtt_eventstream:
 
 Configuration variables:
 
-- **publish_topic** (*Required*): Topic for pushlishing local events
-- **subscribe_topic** (*Required*): Topic to recieve events from the remote server.
+- **publish_topic** (*Required*): Topic for publishing local events
+- **subscribe_topic** (*Required*): Topic to receive events from the remote server.
 

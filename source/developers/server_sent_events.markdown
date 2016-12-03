@@ -44,7 +44,7 @@ Visit [http://localhost:8123/local/sse.html](http://localhost:8123/local/sse.htm
 
 ## {% linkable_title Examples %}
 
-A simple way to consume server-sent events is to use a command-line http client like [httpie][https://httpie.org/]. Installation info is on the site (if you use Homebrew, it's `brew install httpie`). Once installed, run this snippet from your terminal:
+A simple way to consume server-sent events is to use a command-line http client like [httpie](https://httpie.org/). Installation info is on the site (if you use Homebrew, it's `brew install httpie`). Once installed, run this snippet from your terminal:
 
 ```bash
 $ http --stream http://localhost:8123/api/stream x-ha-access:YOUR_PASSWORD content-type:application/json
@@ -62,11 +62,7 @@ If you want to test the server-sent events without creating a website, the Pytho
 $ pip3 install sseclient
 ```
 
-<<<<<<< HEAD
-The simplest script to consume the SSE looks like the following snippet.
-=======
-The simplest script to consume the SSE in Python looks like this:
->>>>>>> current
+A simple script to consume SSE in Python looks like this:
 
 ```python
 from sseclient import SSEClient
@@ -75,4 +71,3 @@ messages = SSEClient('http://localhost:8123/api/stream?api_password=YOUR_PASSWOR
 for msg in messages:
     print(msg)
 ```
-

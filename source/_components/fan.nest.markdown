@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: nest_thermostat.png
+logo: nest.png
 ha_category: Fan
 ha_release: 0.29
 ha_iot_class: "Local Polling"
@@ -23,7 +23,8 @@ You must have the [Nest component](/components/nest/) configured to use those th
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 fan:
-  platform: nest
+  - platform: nest
 ```
 

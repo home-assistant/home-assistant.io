@@ -11,7 +11,7 @@ footer: true
 
 Submit your improvements, fixes, and new features to Home Assistant one at a time, using GitHub [Pull Requests](https://help.github.com/articles/using-pull-requests). Here are the steps:
 
- 1. From your fork, create a new branch to hold your changes:
+ 1. From your fork's dev branch, create a new branch to hold your changes:
  
       `git checkout -b some-feature`
     

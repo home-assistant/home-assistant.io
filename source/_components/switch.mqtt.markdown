@@ -13,7 +13,7 @@ ha_release: 0.7
 ha_iot_class: depends
 ---
 
-The `mqtt` switch platform let you control your MQTT enabled light.
+The `mqtt` switch platform let you control your MQTT enabled switch.
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.
 

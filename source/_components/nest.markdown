@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: nest_thermostat.png
+logo: nest.png
 ha_category: Hub
 featured: true
 ---

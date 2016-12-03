@@ -132,7 +132,7 @@ The time condition can test if it is after a specified time, before a specified 
 condition: time
 # At least one of the following is required.
 after: '15:00:00'
-before: '23:00:00'
+before: '02:00:00'
 weekday:
   - mon
   - wed
@@ -140,6 +140,7 @@ weekday:
 ```
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
+Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am. 
 
 ### {% linkable_title Zone condition %}
 

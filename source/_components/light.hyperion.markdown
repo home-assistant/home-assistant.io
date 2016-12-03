@@ -14,7 +14,7 @@ ha_release: 0.7.6
 
 This platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant.
 
-Hyperion is an opensource Ambilight implementation which runs on many platforms.
+Hyperion is an open source Ambilight implementation which runs on many platforms.
 
 ```yaml
 # Example configuration.yaml entry
