@@ -14,8 +14,9 @@ featured: true
 
 The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a client_id and client_secret.
 
-###Setting up developer account
-1. Log into https://developers.nest.com/
+### {% linkable_title Setting up developer account %}
+
+1. Log into [https://developers.nest.com/](https://developers.nest.com/)
 2. Fill in account details 
   - The compnay details can be any made up information.
 3. Submit changes
@@ -31,7 +32,7 @@ The Nest component is the main component to integrate all [Nest](https://nest.co
 9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side.
 10. After these configs are updated and Home Assistant is started a configurator will pop up asking you to log in and copy a authorization code into Home Assistant.
 
-
+### {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
