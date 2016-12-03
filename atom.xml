@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-03T21:45:56+00:00</updated>
+  <updated>2016-12-03T21:52:10+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -18,15 +18,15 @@
     <link href="https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr/"/>
     <updated>2016-12-03T08:04:05+00:00</updated>
     <id>https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr</id>
-    <content type="html"><![CDATA[<p>Here we go…0.34. Let’s call it the “Santa Claus” release. Rodolfo was faster than expected and there are a lot of goodies on the sled. Of course, more work on async programming done by <a href="https://github.com/pvizeli">@pvizeli</a> and <a href="https://github.com/balloob">@balloob</a>, a new components, new platforms, major improvements, and much more.</p>
+    <content type="html"><![CDATA[<p>Here we go… 0.34. Let’s call it the “Santa Claus” release. Rudolph was faster than expected and there’s lot’s of goodies on the sleigh. Of course, more work on async programming done by <a href="https://github.com/pvizeli">@pvizeli</a> and <a href="https://github.com/balloob">@balloob</a>, new components, new platforms, major improvements, and much more.</p>
 
 <h3><a class="title-link" name="gpslogger" href="#gpslogger"></a> GPSLogger</h3>
 
-<p>The work of <a href="https://github.com/dainok">@dainok</a> let you use your Android device, with the Geolocation feature enabled, to track itself using the GPS sensor or WiFi networks with <a href="https://play.google.com/store/apps/details?id=com.mendhak.gpslogger">GPSLogger</a> app. GPSLogger can use multiple source: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.</p>
+<p>The work of <a href="https://github.com/dainok">@dainok</a> let’s you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the <a href="https://play.google.com/store/apps/details?id=com.mendhak.gpslogger">GPSLogger</a> app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.</p>
 
 <h3><a class="title-link" name="remote-component" href="#remote-component"></a> Remote component</h3>
 
-<p>The brand new <a href="https://home-assistant.io/components/remote/"><code class="highlighter-rouge">remote</code></a> component made by <a href="https://github.com/iandday">@iandday</a> will simplyfy the integration of all kind remote control units. The first platform for <a href="https://home-assistant.io/components/remote.harmony/">Harmony</a> is included in this release.</p>
+<p>The brand new <a href="https://home-assistant.io/components/remote/"><code class="highlighter-rouge">remote</code></a> component made by <a href="https://github.com/iandday">@iandday</a> will simplify the integration of all kinds of remote control units. The first platform for <a href="https://home-assistant.io/components/remote.harmony/">Harmony</a> is included in this release.</p>
 
 <h3><a class="title-link" name="homematic" href="#homematic"></a> HomeMatic</h3>
 
@@ -55,16 +55,16 @@
 <ul>
   <li>Sensor: <a href="https://home-assistant.io/components/sensor.broadlink/">Broadlink</a> RM2 and A1 E-air support (<a href="https://github.com/skyval">@skyval</a>)</li>
   <li>New services and improved device support for <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/danielperna84">@danielperna84</a>)</li>
-  <li>Device tracker: New support for [GPSLogger][gpslogger] (<a href="https://github.com/dainok">@dainok</a>)</li>
-  <li>Sensor: Support for [Sonarr][sonarr] (<a href="https://github.com/hborawski">@hborawski</a>)</li>
-  <li>Sensor: [World Air Quality Index][waqi] sensor (<a href="https://github.com/valentinalexeev">@valentinalexeev</a>, <a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Device tracker: New support for <a href="https://home-assistant.io/components/device_tracker.gpslogger/">GPSLogger</a> (<a href="https://github.com/dainok">@dainok</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.sonarr/">Sonarr</a> (<a href="https://github.com/hborawski">@hborawski</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.waqi/">World Air Quality Index</a> sensor (<a href="https://github.com/valentinalexeev">@valentinalexeev</a>, <a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.dsmr/">Dutch Smart Meter Requirements</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
   <li>Switch: <a href="https://home-assistant.io/components/switch.hook/">Hook</a> support by hooksmarthome.com (<a href="https://github.com/dasos">@dasos</a>)</li>
   <li>Camera: Integration for <a href="https://home-assistant.io/components/camera.nest/">Nest cameras</a> (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
   <li>Light: Support for light effects (<a href="https://github.com/Diaoul">@Diaoul</a>)</li>
   <li>Sensor: New <a href="https://home-assistant.io/components/binary_sensor.threshold/">Threshold</a> sensor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Media player: New <a href="https://home-assistant.io/components/dunehd/">DuneHD</a> integration(<a href="https://github.com/valentinalexeev">@valentinalexeev</a>)</li>
-  <li>Media player: Controlling support for <a href="https://home-assistant.io/components/media_palyer.dunehd/">Philips TVs</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Media player: Controlling support for <a href="https://home-assistant.io/components/media_player.philips_js/">Philips TVs</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
   <li>Camera: Support for <a href="https://home-assistant.io/components/camera.amcrest/">Amcrest</a> cameras (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
   <li>
     <p>Sensor: Monitoring support for <a href="https://home-assistant.io/components/sensor.nut/">Network UPS Tools (NUT)</a> (<a href="https://github.com/mezz64">@mezz64</a>)</p>
@@ -81,7 +81,7 @@
   <li>Sensor - KNX: Fix unit of mesaurement (<a href="https://github.com/cyberjunky">@cyberjunky</a>)</li>
   <li>Climate: New precision properties (<a href="https://github.com/sdague">@sdague</a>)</li>
   <li>Sensor - TEMPer: Reset <a href="https://home-assistant.io/components/sensor.temper/">devices</a> on address change (<a href="https://github.com/vemek">@vemek</a>)</li>
-  <li>Core: Color names now follows w3.org recommandations (<a href="https://github.com/srcLurker">@srcLurker</a>)</li>
+  <li>Core: Color names now follow w3.org recommandations (<a href="https://github.com/srcLurker">@srcLurker</a>)</li>
   <li>Updater: Robustness improvements (<a href="https://github.com/balloob">@balloob</a>])</li>
   <li>Media player - MPD: Reconnect to daemon (<a href="https://github.com/janLo">@janLo</a>)</li>
   <li>Device tracker: Fall-back for MAC address lookup (<a href="https://github.com/aequitas">@aequitas</a>)</li>
@@ -102,7 +102,7 @@
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
 
-<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use these communication channels. Thanks.</p>
 
 <h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
 
