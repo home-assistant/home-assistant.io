@@ -74,6 +74,8 @@ Double check this configuration to ensure all settings are correct and start ngi
 
 Forward ports 443 and 80 to your server on your router. Do not forward port 8123.
 
+### {% linkable_title NGINX Config %}
+
 ```
 http {
     map $http_upgrade $connection_upgrade {
