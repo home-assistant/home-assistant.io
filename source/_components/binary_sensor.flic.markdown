@@ -33,5 +33,5 @@ Configuration variables:
 
 A few notes:
 
-- If auto scan is enabled, you can add a new button by pressing it for at least 7s. The button will be paired with the flic service and added to home assistant. Otherwise, you have to manually pair it with the flic service. The home assistant platform will not scan for new buttons and will only connect to buttons already paired.
+- If auto scan is enabled, you can add a new button by pressing it for at least 7s. The button will be paired with the flic service and added to Home Assistant. Otherwise, you have to manually pair it with the flic service. The Home Assistant platform will not scan for new buttons and will only connect to buttons already paired.
 - For each of the three click types (single, double and long click) a event is fired by the device. The event data contains the name and bluetooth address of the button.
