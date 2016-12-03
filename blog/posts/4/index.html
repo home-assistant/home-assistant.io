@@ -83,6 +83,58 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/05/22/get-started-with-all-in-one-installer/">Raspberry Pi all-in-one installer</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-05-22T16:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 22, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Video</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/05/22/get-started-with-all-in-one-installer/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That’s why <a href="https://github.com/jbags81">@jbags81</a> recently introduced the <a href="/getting-started/installation-raspberry-pi-all-in-one/">all-in-one installer</a>. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh <span class="o">&amp;&amp;</span> bash hass_rpi_installer.sh;
+</code></pre>
+</div>
+
+<p>This feature wouldn’t be complete if it wasn’t accompanied by a new video by Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a>. The video shows how to install Raspbian Jessie on your Raspberry Pi and use the new installation script to get a full Home Assistant system up and running.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/VGl3KTrYo6s" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/05/21/release-020/">0.20: Roku, Last.fm, AWS, Twilio</a>
   </h1>
   
@@ -686,71 +738,6 @@
 <p>Today it has been almost 1.5 years since we started the website. We now have <a href="/components/">264 components and platforms</a> under our belt and have been honored with 1.5 million page views ✨. And hopefully we now also have documentation that our community deserves.</p>
 
 <p>Finally, if you see some content that could use more clarifcation or is outdated, don’t hesitate to use the ‘Edit in GitHub’ link that is present on each page.</p>
-
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/">0.17: Onkyo, Panasonic, GTFS and config validation</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-04-09T06:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 9, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we’ve been hard at work to introduce config validation! Especially huge thanks to <a href="https://github.com/jaharkes/">@jaharkes</a> for his hard work on this. Config validation is still in it’s early stages. More common platforms and components have been added but we didn’t do everything yet.</p>
-
-<p>When we encounter an invalid config we will now write a warning to your logs. You can see those in the frontend by clicking on the last developer tool. We’re looking into options to make it more clear - it is a work in progress.</p>
-
-<p>Another big thing is the addition of GTFS support. You probably don’t know it, but GTFS is the standard that public transit companies all over the world use to distribute their schedule. This means that you can now have the time of the next bus/train/etc right in your frontend.</p>
-
-<p><img src="/images/supported_brands/onkyo.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/loop.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/panasonic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Config validation (<a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/jaharkes/">@jaharkes</a>)</li>
-  <li>Sensor: <a href="/components/sensor.gtfs/">GTFS</a> support (public transit open standard) (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
-  <li>Camera: <a href="/components/camera.rpi_camera/">Raspberry PI</a> support added (<a href="https://github.com/LucaSoldi/">@LucaSoldi</a>)</li>
-  <li>Z-Wave: improved startup reliability (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
-  <li>Media Player: <a href="/components/media_player.onkyo/">Onkyo receiver</a> now supported (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
-  <li>Sensor: <a href="/components/sensor.loop_energy/">Loop Energy</a> now supported (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.zwave/">Z-Wave</a> now supported (<a href="https://github.com/coteyr/">@coteyr</a>, <a href="https://github.com/turbokongen/">@turbokongen</a>, <a href="https://github.com/luxus/">@luxus</a>)</li>
-  <li>Sensor: <a href="/components/sensor.nzbget/">NZBGet</a> now supported (<a href="https://github.com/justyns/">@justyns</a>)</li>
-  <li>Media Player: <a href="/components/media_player.panasonic_viera/">Panasonic Viera TV</a> now supported (<a href="https://github.com/florianholzapfel/">@florianholzapfel</a>)</li>
-  <li>Thermostats: Use whole degrees if user uses Fahrenheit (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
-  <li>Frontend: more material love (<a href="https://github.com/balloob/">@balloob</a>)</li>
-</ul>
-
-<h3>Breaking changes</h3>
-
-<p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code class="highlighter-rouge">execute_service</code> in their script configs. This should be <code class="highlighter-rouge">service</code>.</p>
 
     
   </div>

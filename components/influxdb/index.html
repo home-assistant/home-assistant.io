@@ -111,6 +111,7 @@
   <li><strong>database</strong> (<em>Optional</em>): Name of the database to use. Defaults to <code class="highlighter-rouge">home_assistant</code>. The database must already exist.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
+  <li><strong>default_measurement</strong> (<em>Optional</em>): Measurement name to use when an entity doesn’t have a unit. Defaults to entity id.</li>
   <li><strong>blacklist</strong> (<em>Optional</em>): List of entities not logged to InfluxDB.</li>
   <li><strong>whitelist</strong> (<em>Optional</em>): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the <strong>blacklist</strong> option will prevail.</li>
   <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
@@ -128,6 +129,7 @@
   <span class="s">password</span><span class="pi">:</span> <span class="s">MY_PASSWORD</span>
   <span class="s">ssl</span><span class="pi">:</span> <span class="s">true</span>
   <span class="s">verify_ssl</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">default_measurement</span><span class="pi">:</span> <span class="s">state</span>
   <span class="s">blacklist</span><span class="pi">:</span>
      <span class="pi">-</span> <span class="s">entity.id1</span>
      <span class="pi">-</span> <span class="s">entity.id2</span>

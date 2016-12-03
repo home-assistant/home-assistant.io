@@ -118,6 +118,8 @@
       <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">cost</span>
         <span class="s">period</span><span class="pi">:</span> <span class="s">day</span>
         <span class="s">currency</span><span class="pi">:</span> <span class="s">$</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">amount</span>
+        <span class="s">period</span><span class="pi">:</span> <span class="s">day</span>
 </code></pre>
 </div>
 
@@ -129,7 +131,14 @@
 negative number of minutes your timezone is ahead/behind UTC time.</li>
   <li><strong>monitored_variables</strong> array (<em>Required</em>): Variables to monitor.
     <ul>
-      <li><strong>type</strong> (<em>Required</em>): Name of the variable.</li>
+      <li><strong>type</strong> (<em>Required</em>): Name of the variable.
+        <ul>
+          <li><strong>instant_readings</strong>: Instant energy consumption.</li>
+          <li><strong>budget</strong>: Monthly budget.</li>
+          <li><strong>cost</strong>: The cost for energy consumption (with the tariff that has been set in Efergy) over a given period.</li>
+          <li><strong>amount</strong>: The amount of energy consumed over a given period.</li>
+        </ul>
+      </li>
       <li><strong>period</strong> (<em>Optional</em>): Some variables take a period argument. Valid options are “day”, “week”, “month”, and “year”.</li>
       <li><strong>currency</strong> (<em>Optional</em>): This is used to display the cost/period as the unit when monitoring the cost. It should correspond to the actual currency used in your dashboard.</li>
     </ul>
@@ -162,6 +171,9 @@ negative number of minutes your timezone is ahead/behind UTC time.</li>
     <div class='section'>
     <h1 class="title delta">Category Energy</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/sensor.dsmr/'>DSMR/Slimme meter</a>
+        </li>
         <li>
             <a href='/components/sensor.dte_energy_bridge/'>DTE Energy Bridge</a>
         </li>

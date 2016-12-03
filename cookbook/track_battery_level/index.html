@@ -90,11 +90,12 @@
   <hr class="divider">
   
 
-  <p>iOS Devices</p>
+  <h3><a class="title-link" name="ios-devices" href="#ios-devices"></a> iOS Devices</h3>
 
 <p>If you have a device running iOS (iPhone, iPad, etc), The <a href="/components/device_tracker.icloud/">iCloud</a> is gathering various details about your device including the battery level. To display it in the Frontend use a <a href="/components/sensor.template/">template sensor</a>.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">battery_iphone</span><span class="pi">:</span>
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
@@ -109,7 +110,7 @@
 
 <p>The <code class="highlighter-rouge">else</code> part is used to have the sensor keep it’s last state if the newest <a href="/components/device_tracker.icloud/">iCloud</a> update doesn’t have any battery state in it (which happens sometimes). Otherwise the sensor will be blank.</p>
 
-<p>Android and iOS Devices</p>
+<h3><a class="title-link" name="android-and-ios-devices" href="#android-and-ios-devices"></a> Android and iOS Devices</h3>
 
 <p>While running the <a href="/components/device_tracker.owntracks/">Owntracks</a> device tracker you can retrieve the battery level with a MQTT sensor.</p>
 

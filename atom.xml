@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-03T16:47:28+00:00</updated>
+  <updated>2016-12-03T21:07:09+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,104 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.34: New Remote component, Websockets, Sonarr, GPSLogger]]></title>
+    <link href="https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr/"/>
+    <updated>2016-12-03T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr</id>
+    <content type="html"><![CDATA[<p>Here we go…0.34. Let’s call it the “Santa Claus” release. Rodolfo was faster than expected and there are a lot of goodies on the sled. Of course, more work on async programming done by <a href="https://github.com/pvizeli">@pvizeli</a> and <a href="https://github.com/balloob">@balloob</a>, a new components, new platforms, major improvements, and much more.</p>
+
+<h3><a class="title-link" name="gpslogger" href="#gpslogger"></a> GPSLogger</h3>
+
+<p>The work of <a href="https://github.com/dainok">@dainok</a> let you use your Android device, with the Geolocation feature enabled, to track itself using the GPS sensor or WiFi networks with <a href="https://play.google.com/store/apps/details?id=com.mendhak.gpslogger">GPSLogger</a> app. GPSLogger can use multiple source: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.</p>
+
+<h3><a class="title-link" name="remote-component" href="#remote-component"></a> Remote component</h3>
+
+<p>The brand new <a href="https://home-assistant.io/components/remote/"><code class="highlighter-rouge">remote</code></a> component made by <a href="https://github.com/iandday">@iandday</a> will simplyfy the integration of all kind remote control units. The first platform for <a href="https://home-assistant.io/components/remote.harmony/">Harmony</a> is included in this release.</p>
+
+<h3><a class="title-link" name="homematic" href="#homematic"></a> HomeMatic</h3>
+
+<p>The <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> component has received some updates worth mentioning:</p>
+
+<ul>
+  <li>Additional services
+    <ul>
+      <li><code class="highlighter-rouge">reconnect</code>: Reconnect to your CCU/Homegear without restarting Home Assistant.</li>
+      <li><code class="highlighter-rouge">set_dev_value</code>: Manually control a device, even if it’s not supported by Home Assistant yet.</li>
+    </ul>
+  </li>
+  <li>Support for multiple HomeMatic hosts</li>
+  <li>Support for HomeMatic Wired (most devices) and HomeMatic IP (a few devices)</li>
+  <li>Various improvements and fixes, especially for HM-Sec-Key (KeyMatic)</li>
+</ul>
+
+<p>The support for multiple hosts is a result of allowing mixed configurations with wireless, wired, and IP devices. This has the drawback of making the update a breaking change (along with the renamed <code class="highlighter-rouge">set_value</code> service). However, the benefits and possibilities gained will be worth it.</p>
+
+<h3><a class="title-link" name="websocket-api" href="#websocket-api"></a> Websocket API</h3>
+
+<p>This release includes a new <a href="https://home-assistant.io/developers/websockets_api/">websockets</a> based API by <a href="https://github.com/balloob">@balloob</a> to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.</p>
+
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+
+<ul>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.broadlink/">Broadlink</a> RM2 and A1 E-air support (<a href="https://github.com/skyval">@skyval</a>)</li>
+  <li>New services and improved device support for <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Device tracker: New support for [GPSLogger][gpslogger] (<a href="https://github.com/dainok">@dainok</a>)</li>
+  <li>Sensor: Support for [Sonarr][sonarr] (<a href="https://github.com/hborawski">@hborawski</a>)</li>
+  <li>Sensor: [World Air Quality Index][waqi] sensor (<a href="https://github.com/valentinalexeev">@valentinalexeev</a>, <a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.dsmr/">Dutch Smart Meter Requirements</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/switch.hook/">Hook</a> support by hooksmarthome.com (<a href="https://github.com/dasos">@dasos</a>)</li>
+  <li>Camera: Integration for <a href="https://home-assistant.io/components/camera.nest/">Nest cameras</a> (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Light: Support for light effects (<a href="https://github.com/Diaoul">@Diaoul</a>)</li>
+  <li>Sensor: New <a href="https://home-assistant.io/components/binary_sensor.threshold/">Threshold</a> sensor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Media player: New <a href="https://home-assistant.io/components/dunehd/">DuneHD</a> integration(<a href="https://github.com/valentinalexeev">@valentinalexeev</a>)</li>
+  <li>Media player: Controlling support for <a href="https://home-assistant.io/components/media_palyer.dunehd/">Philips TVs</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Camera: Support for <a href="https://home-assistant.io/components/camera.amcrest/">Amcrest</a> cameras (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>
+    <p>Sensor: Monitoring support for <a href="https://home-assistant.io/components/sensor.nut/">Network UPS Tools (NUT)</a> (<a href="https://github.com/mezz64">@mezz64</a>)</p>
+  </li>
+  <li>Mediap player - Denon: Source selection support (<a href="https://github.com/Gilles95">@Gilles95</a>)</li>
+  <li>Sensor - MinMax: Precision now configurable (<a href="https://github.com/exxamalte">@exxamalte</a>)</li>
+  <li>Tellstick: Massive <a href="https://home-assistant.io/components/tellstick/">improvement</a> (<a href="https://github.com/magicus">@magicus</a>)</li>
+  <li>Light - Osram: New requirement (<a href="https://github.com/tfriedel">@tfriedel</a>)</li>
+  <li>Sensor - Systemmonitor: Support for removable network adapters (<a href="https://github.com/mnoorenberghe">@mnoorenberghe</a>)</li>
+  <li>LiteJet: New trigger option (<a href="https://github.com/joncar">@joncar</a>)</li>
+  <li>Media player - Bose: Add Bose SoundTouch device support (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a>)</li>
+  <li>HTTP: Re-organisation and <a href="https://home-assistant.io/developers/websockets_api/">websockets</a> support (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>HTTP: Advanced <a href="https://home-assistant.io/components/http/">IP filtering</a> (<a href="https://github.com/vkorn">@vkorn</a>)</li>
+  <li>Sensor - KNX: Fix unit of mesaurement (<a href="https://github.com/cyberjunky">@cyberjunky</a>)</li>
+  <li>Climate: New precision properties (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Sensor - TEMPer: Reset <a href="https://home-assistant.io/components/sensor.temper/">devices</a> on address change (<a href="https://github.com/vemek">@vemek</a>)</li>
+  <li>Core: Color names now follows w3.org recommandations (<a href="https://github.com/srcLurker">@srcLurker</a>)</li>
+  <li>Updater: Robustness improvements (<a href="https://github.com/balloob">@balloob</a>])</li>
+  <li>Media player - MPD: Reconnect to daemon (<a href="https://github.com/janLo">@janLo</a>)</li>
+  <li>Device tracker: Fall-back for MAC address lookup (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Sensor - Efergy: Get the amount of <a href="https://home-assistant.io/components/sensor.efergy/">energy consumed</a> (<a href="https://github.com/gonzalezcalleja">@gonzalezcalleja</a>)</li>
+  <li>Zeroconf: Fix for IPv6 support (<a href="https://github.com/rcloran">@rcloran</a>)</li>
+  <li>Minor and not so minor features and bug fixes by <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/sdague">@sdague</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/chapple">@chapple</a>, <a href="https://github.com/mweinelt">@mweinelt</a>, <a href="https://github.com/Khabi">@Khabi</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/mnestor">@mnestor</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/Morrisai">@Morrisai</a>,
+<a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/bjarniivarsson">@bjarniivarsson</a>, <a href="https://github.com/danielperna84">@danielperna84</a>, <a href="https://github.com/LinuxChristian">@LinuxChristian</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/dethpickle">@dethpickle</a>, <a href="https://github.com/jnewland">@jnewland</a>, <a href="https://github.com/lichtteil">@lichtteil</a>, <a href="https://github.com/brandonweeks">@brandonweeks</a>, <a href="https://github.com/partofthething">@partofthething</a>, <a href="https://github.com/mnoorenberghe">@mnoorenberghe</a>, <a href="https://github.com/bah2830">@bah2830</a>, and <a href="https://github.com/albertoarias">@albertoarias</a>.</li>
+</ul>
+
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
+
+<ul>
+  <li>The <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> component now uses a different syntax for hosts and the <code class="highlighter-rouge">set_value</code> service has been renamed.</li>
+  <li>All <a href="https://home-assistant.io/components/rfxtrx/">RFXtrx</a> sensors will get a new entity ID.</li>
+  <li>If you are using NGINX, you will have to <a href="https://home-assistant.io/ecosystem/nginx/">adapt your configuration</a>.</li>
+  <li><a href="https://home-assistant.io/components/nest/">Nest</a> contains changes which will require your attention.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
+
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.33: New Calendar component, Wink thermostats and Cisco IOS]]></title>
@@ -2153,115 +2251,6 @@ One of the graphs created with this tutorial.
 <p>Thanks to the magic of Jupyter, all of the code is customizable: want to selectively display your data, only covering a specific entity? Sure thing! Want to change the properties of the plots? No problem!</p>
 
 <p>While you learn and explore your IoT data, we will be working on providing more ready-to-use Jupyter Notebooks. Feel free to ask questions or provide suggestions. Would you like to see a specific visualization? Is there a particular facet of data you’re interested in? Let’s talk about it, let’s dive into the world of data together!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Visualize your IoT data]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/"/>
-    <updated>2016-07-19T16:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-reporting/mpl-sensor.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /></p>
-
-<p>The <a href="https://home-assistant.io/components/history/">history component</a> is tracking everything that is going on within Home Assistant. This means that you have access to all stored information about your home. Our history is not a full-fledged graphical processing and visualization component as you may know from systems and network monitoring tools. The current limitation is that you only can select a day for a visual output of your information and not a period. Also, there is no possibility to drill down on a specific entity.</p>
-
-<p>This blog post will show you ways to export data for reporting, visualization, or further analysis of automation rules.</p>
-
-<!--more-->
-
-<p>In this blog post I use the temperature of the <a href="https://en.wikipedia.org/wiki/Aare">Aare</a> river close to where I live as a show case. The temperatures were recorded with the <a href="https://home-assistant.io/components/sensor.swiss_hydrological_data/">Swiss Hydrological Data sensor</a> and the name of the sensor is <code class="highlighter-rouge">sensor.aare</code>.</p>
-
-<p>The database is stored at <code class="highlighter-rouge">&lt;path to config dir&gt;/.homeassistant/home-assistant_v2.db</code> as <a href="https://www.sqlite.org/">SQLite database</a>. In all examples we are going to use the path: <code class="highlighter-rouge">/home/ha/.homeassistant/home-assistant_v2.db</code></p>
-
-<p>If you are just curious what’s stored in your database then you can use the <code class="highlighter-rouge">sqlite3</code> command-line tool or a graphical one like <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>.</p>
-
-<p>The table that is holding the states is called <code class="highlighter-rouge">states</code>. The <code class="highlighter-rouge">events</code> tables is responsible for storing the events which occurred. So, we will first check how many entries there are in the <code class="highlighter-rouge">states</code> table. <code class="highlighter-rouge">sqlite3</code> needs to know where the databases is located. To work with your database make sure that Home Assistant is not running or create a copy of the existing database. It’s recommended to work with a copy.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sqlite3 /home/ha/.homeassistant/home-assistant_v2.db 
-SQLite version 3.11.0 2016-02-15 17:29:24
-<span class="gp">sqlite&gt; </span>SELECT count<span class="o">(</span><span class="k">*</span><span class="o">)</span> FROM states;
-24659
-</code></pre>
-</div>
-
-<p>Let’s have a look at a sample <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> query. This query will show all states in a period for the sensor <code class="highlighter-rouge">sensor.aare</code>.</p>
-
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">state</span><span class="p">,</span> <span class="n">last_changed</span> <span class="k">FROM</span> <span class="n">states</span>
-  <span class="k">WHERE</span>
-    <span class="n">entity_id</span> <span class="o">=</span> <span class="s1">'sensor.aare'</span>
-  <span class="k">AND</span>
-     <span class="n">last_changed</span> <span class="k">BETWEEN</span>
-    <span class="s1">'2016-07-05 00:00:00.000000'</span> <span class="k">AND</span> <span class="s1">'2016-07-07 00:00:00.000000'</span><span class="p">;</span>
-</code></pre>
-</div>
-
-<p>The SQL statement can be formed that it fits exactly what you need. This means that you can process the data in any way you want for further use. Often it makes sense to eliminate certain entries like <code class="highlighter-rouge">Unknown</code> or peaks.</p>
-
-<p>If the above query is executed in DB Browser for SQLite you would be able to save the sensor’s graph as png.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-07-reporting/db-browser.png" />
-  Visualization with DB Browser for SQLite
-</p>
-
-<p>You may ask: Why not do this with LibreOffice Calc or another spreadsheet application? As most spreadsheet applications are not able to work directly with SQLite database we are going to export the data from the database to <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a>.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sqlite3 -header -csv /home/ha/.homeassistant/home-assistant_v2.db <span class="s2">"SELECT last_changed, state FROM states WHERE entity_id = 'sensor.aare' AND last_changed BETWEEN '2016-07-05 00:00:00.000000' AND '2016-07-07 00:00:00.000000';"</span> &gt; sensor.csv
-</code></pre>
-</div>
-
-<p>The ordering for the <code class="highlighter-rouge">SELECT</code> was changed to get the time stamps first and then the state. Now we can import the CSV file into the application of your choice, here it’s LibreOffice Calc.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-07-reporting/libreoffice-import.png" />
-  Import of the CSV file 
-</p>
-
-<p>After the import a graph can be created over the existing data.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-07-reporting/libreoffice-graph.png" />
-  Graph in LibreOffice
-</p>
-
-<p>You can also use <a href="http://matplotlib.org/">matplotlib</a> to generate graphs as an alternative to a spreadsheet application. This is a powerful Python 2D plotting library. With the built-in support for SQLite in Python it will only take a couple lines of code to visualize your data.</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">dates</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-
-<span class="kn">import</span> <span class="nn">homeassistant.util.dt</span> <span class="kn">as</span> <span class="nn">dt</span>
-
-<span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">timestamps</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">'/home/ha/.homeassistant/home-assistant_v2.db'</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT state, last_changed FROM states WHERE "</span>
-                    <span class="s">"entity_id = 'sensor.aare' AND last_changed BETWEEN "</span>
-                    <span class="s">"'2016-07-05 00:00:00.000000' AND "</span>
-                    <span class="s">"'2016-07-07 00:00:00.000000'"</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="n">timestamps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">parse_datetime</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
-    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot_date</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">timestamps</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">"r-"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Temperature'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Time line'</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'sensor.png'</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<p>Creating a connection to the database and executing a query is similar to the ways already seen. The return values from the query are splitted into two lists. The time stamps must be converted in an value which is accepted by matplotlib and then the graph is generated and saved as image.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-07-reporting/mpl-sensor.png" />
-  Sensor graph generated by matplotlib
-</p>
-
-<p>Most of the graphs are pretty ugly. So, further beautification will be needed. If you have created a nice report including some amazing graphs then the Home Assistant community would be grateful for sharing them in our <a href="https://community.home-assistant.io/">forum</a>.</p>
-
 ]]></content>
   </entry>
   

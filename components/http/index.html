@@ -114,6 +114,8 @@ It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_p
   <li><strong>cors_allowed_origins</strong> (<em>Optional</em>): A list of origin domain names to allow <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> requests from. Enabling this will set the <code class="highlighter-rouge">Access-Control-Allow-Origin</code> header to the Origin header if it is found in the list, and the <code class="highlighter-rouge">Access-Control-Allow-Headers</code> header to <code class="highlighter-rouge">Origin, Accept, X-Requested-With, Content-type, X-HA-access</code>. You must provide the exact Origin, i.e. <code class="highlighter-rouge">https://home-assistant.io</code> will allow requests from <code class="highlighter-rouge">https://home-assistant.io</code> but <strong>not</strong> <code class="highlighter-rouge">http://home-assistant.io</code>.</li>
   <li><strong>use_x_forwarded_for</strong> (<em>Optional</em>): Enable parsing of the <code class="highlighter-rouge">X-Forwarded-For</code> header, passing on the client’s correct IP address in proxied setups. You should only enable this in a trustworthy network environment, as clients passing that header could easily spoof their source IP address.</li>
   <li><strong>trusted_networks</strong> (<em>Optional</em>): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.</li>
+  <li><strong>ip_ban_enabled</strong> (<em>Optional</em>): Flag indicating whether additional IP filtering is enabled. Defaults to False.</li>
+  <li><strong>login_attempts_threshold</strong> (<em>Optional</em>): Number of failed login attemt from single IP after which it will be automatically banned if <code class="highlighter-rouge">ip_ban_enabled</code> is True. Defaults to -1, meaning that no new automatic bans will be added.</li>
 </ul>
 
 <p>The sample below shows a configuration entry with possible values:</p>
@@ -132,6 +134,8 @@ It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_p
     <span class="pi">-</span> <span class="s">::1</span>
     <span class="pi">-</span> <span class="s">192.168.0.0/24</span>
     <span class="pi">-</span> <span class="s">2001:DB8:ABCD::/48</span>
+  <span class="s">ip_ban_enabled</span><span class="pi">:</span> <span class="s">True</span>
+  <span class="s">login_attempts_threshold</span><span class="pi">:</span> <span class="s">5</span>
 </code></pre>
 </div>
 
@@ -146,6 +150,19 @@ It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_p
 <p>All <a href="/developers/rest_api/#post-apistatesltentity_id">requests</a> need to be sent to the endpoint of the device and must be <strong>POST</strong>.</p>
 
 <p>If you want to use Home Assistant to host or serve static files then create a directory called <code class="highlighter-rouge">www</code> under the <code class="highlighter-rouge">.homeassistant</code> configuration path. The static files in <code class="highlighter-rouge">.homeassistant/www/</code> can be accessed by the following URL <code class="highlighter-rouge">http://your.domain:8123/local/</code>.</p>
+
+<p>If you want to apply additional IP filtering, and automatically ban bruteforce attempts, set <code class="highlighter-rouge">ip_ban_enabled</code> to <code class="highlighter-rouge">True</code> and select number of attempts. After first ban file <code class="highlighter-rouge">ip_bans.yaml</code> will be created in the root configuration folder. It will have IP address and time in UTC when it was added:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">127.0.0.1</span><span class="pi">:</span>
+  <span class="s">banned_at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2016-11-16T19:20:03'</span>
+</code></pre>
+</div>
+
+<p>After a ban is added a Persistent Notification is populated to the Home Assistant frontend.</p>
+
+<p class="note warning">
+Please note, that sources from <code class="highlighter-rouge">trusted_networks</code> won’t be banned automatically. 
+</p>
 
 
 </article>

@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">zoneminder</code> sensor platform let you monitor the current state of your zoneminder install including the number of events and the current state of the cameras.</p>
+  <p>The <code class="highlighter-rouge">zoneminder</code> sensor platform let you monitor the current state of your ZoneMinder install including the number of events and the current state of the cameras.</p>
 
 <p class="note">
 You must have the <a href="/components/zoneminder/">ZoneMinder component</a> configured to use those sensors.
@@ -101,8 +101,15 @@ You must have the <a href="/components/zoneminder/">ZoneMinder component</a> con
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">zoneminder</span>
+    <span class="s">include_archived</span><span class="pi">:</span> <span class="s">false</span>
 </code></pre>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>include_archived</strong> (<em>Optional</em>): Whether to include archived ZoneMinder events in event counts. Default is <code class="highlighter-rouge">false</code>.</li>
+</ul>
 
 
 </article>
@@ -213,6 +220,9 @@ You must have the <a href="/components/zoneminder/">ZoneMinder component</a> con
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.nut/'>NUT Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
         </li>
         <li>
@@ -241,6 +251,9 @@ You must have the <a href="/components/zoneminder/">ZoneMinder component</a> con
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sonarr/'>Sonarr Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.statistics/'>Statistics Sensor</a>
@@ -274,6 +287,9 @@ You must have the <a href="/components/zoneminder/">ZoneMinder component</a> con
         </li>
         <li>
             <a href='/components/sensor.wink/'>Wink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.waqi/'>World Air Quality Index</a>
         </li>
         <li>
             <a href='/components/sensor.zwave/'>Z-Wave Sensor</a>

@@ -113,6 +113,59 @@
   <li><strong>filename</strong> (<em>Optional</em>): Make this unique if specifying multiple Hue hubs.</li>
 </ul>
 
+<h3><a class="title-link" name="using-hue-scenes-in-home-assistant" href="#using-hue-scenes-in-home-assistant"></a> Using Hue Scenes in Home Assistant</h3>
+
+<p>The Hue platform has it’s own concept of Scenes for setting the colors
+of a group of lights at once. Hue Scenes are very cheap, get created
+by all kinds of apps (as it is the only way to have 2 or more lights
+change at the same time), and are rarely deleted. A typical Hue hub
+might have hundreds of scenes stored in them, many that you’ve never
+used, almost all very poorly named.</p>
+
+<p>To avoid user interface overload we don’t expose Scenes
+directly. Instead there is a
+[light.hue_activate_scene]/(/components/light/#service-lighthue_activate_scene)
+service which can be used by <code class="highlighter-rouge">automation</code> or <code class="highlighter-rouge">script</code> components. For
+instance:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>script:
+  porch_on:
+    sequence:
+      - service: light.hue_activate_scene
+        data:
+          group_name: "Porch"
+          scene_name: "Porch Orange"
+</code></pre>
+</div>
+
+<p><em>** Finding Group and Scene Names **</em></p>
+
+<p>How do you find these names?</p>
+
+<p>The easiest way to do this is only use the scenes from the 2nd
+generation Hue app. That is organized by Room (Group) and Scene
+Name. Use the values of Room name and Scene name that you see in the
+app. You can test these work on the <code class="highlighter-rouge">dev-service</code> console of your Home
+Assistant instance.</p>
+
+<p>Alternatively, you can dump all rooms and scene names using this
+<a href="https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578">gist</a>. This
+does <strong>not</strong> tell you which groups and scenes work together but it’s
+sufficient to get values that you can test in the <code class="highlighter-rouge">dev-service</code> console.</p>
+
+<p><em>** Caveats **</em></p>
+
+<p>The Hue API doesn’t activate Scenes directly, only on a Hue Group
+(typically Rooms, especially if using the 2nd gen app). But Hue Scenes
+don’t actually reference their group. So heuristic matching is used.</p>
+
+<p>Neither Group names or Scene names are guarunteed unique in Hue. If
+you are getting non deterministic behavior, adjust your Hue scenes via
+the App to be more identifying.</p>
+
+<p>The Hue hub has limitted spaces for Scenes, and will delete Scenes if
+new ones get created that would overflow that space. The API docs say
+this is based on Least Recently Used.</p>
 
 
 </article>

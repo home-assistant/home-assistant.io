@@ -105,10 +105,6 @@
 
 <p>You can also configure the Home Assistant to ignore lights, scenes, and switches via their name. This is highly recommended since LiteJet has a fixed number of each of these and with most systems many will be unused.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">litejet</span><span class="pi">:</span>
-</code></pre>
-</div>
-
 <p>Configuration variables:</p>
 
 <ul>
@@ -128,6 +124,31 @@
 </code></pre>
 </div>
 
+<h3>Trigger</h3>
+
+<p>LiteJet switches can be used as triggers too to allow those buttons to behave differently based on hold time. For example, automation can distinguish quick tap versus long hold.</p>
+
+<ul>
+  <li><strong>platform</strong> (<em>Required</em>): Must be ‘litejet’.</li>
+  <li><strong>number</strong> (<em>Required</em>): The switch number to be monitored.</li>
+  <li><strong>held_more_than</strong> (<em>Optional</em>): The minimum time the switch must be held before the trigger can activate.</li>
+  <li><strong>held_less_than</strong> (<em>Optional</em>): The maximum time the switch can be held for the trigger to activate.</li>
+</ul>
+
+<p>The trigger will activate at the earliest moment both <code class="highlighter-rouge">held_more_than</code> and <code class="highlighter-rouge">held_less_than</code> are known to be satisfied. If neither are specified, the trigger activates the moment the switch is pressed. If only <code class="highlighter-rouge">held_more_than</code> is specified, the trigger will activate the moment the switch has been held down at least that time. If <code class="highlighter-rouge">held_less_than</code> specified, the trigger can only activate when the switch is released.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">litejet</span>
+    <span class="s">number</span><span class="pi">:</span> <span class="s">55</span>
+    <span class="s">held_more_than</span><span class="pi">:</span>
+      <span class="s">milliseconds</span><span class="pi">:</span> <span class="s">1000</span>
+    <span class="s">held_less_than</span><span class="pi">:</span>
+      <span class="s">milliseconds</span><span class="pi">:</span> <span class="s">2000</span>
+  <span class="s">...</span>
+</code></pre>
+</div>
+
 
 </article>
 
@@ -144,7 +165,7 @@
   <div class='brand-logo-container section'>
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
     </div>
     <div class='section'>
     Introduced in release: 0.32

@@ -1,15 +1,15 @@
 {
-  "current_version": "0.33.4",
-  "release_date": "2016-11-23T00:00:00+00:00",
-  "release_notes": "https://home-assistant.io/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/",
-  "release_notes_path": "/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/",
-  "release_title": "0.33: New Calendar component, Wink thermostats and Cisco IOS",
-  "release_description": "Continued our upgrade to Async, fixed tons of bugs and added a few new things.",
-  "patch_version_notes": "#release-0334---november-24",
+  "current_version": "0.34.0",
+  "release_date": "2016-12-03T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr/",
+  "release_notes_path": "/blog/2016/12/03/remote-websockets-sonarr/",
+  "release_title": "0.34: New Remote component, Websockets, Sonarr, GPSLogger",
+  "release_description": "Major improvements of HomeMatic, Tellstick, the HTTP component, and more.",
+  "patch_version_notes": "#",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
-    "minor": 33,
-    "patch": 4
+    "minor": 34,
+    "patch": 0
   }
 }

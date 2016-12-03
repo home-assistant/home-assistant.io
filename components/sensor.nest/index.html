@@ -100,15 +100,10 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">temperature'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">target'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">humidity'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">operation_mode'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">last_connection'</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">co_status'</span> <span class="c1"># Nest Protect only</span>
-    <span class="pi">-</span> <span class="s1">'</span><span class="s">smoke_status'</span> <span class="c1"># Nest Protect only</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">temperature'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">target'</span>
 </code></pre>
 </div>
 
@@ -124,6 +119,7 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
 </ul>
 
 <p>The following conditions can be monitored with a Nest Thermostat only.</p>
+
 <ul>
   <li>‘temperature’</li>
   <li>‘target’</li>
@@ -160,7 +156,7 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.nest.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/nest_thermostat.png' />
+      <img src='/images/supported_brands/nest.png' />
   </div>
     <div class='section'>
     Introduced in release: pre 0.7
@@ -173,6 +169,9 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
         </a></li>
         <li><a href='/components/binary_sensor.nest/'>
           Nest Binary Sensor
+        </a></li>
+        <li><a href='/components/camera.nest/'>
+          Nest Camera
         </a></li>
         <li><a href='/components/fan.nest/'>
           Nest Fan
@@ -261,6 +260,9 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.nut/'>NUT Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
         </li>
         <li>
@@ -289,6 +291,9 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sonarr/'>Sonarr Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.statistics/'>Statistics Sensor</a>
@@ -322,6 +327,9 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
         </li>
         <li>
             <a href='/components/sensor.wink/'>Wink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.waqi/'>World Air Quality Index</a>
         </li>
         <li>
             <a href='/components/sensor.zwave/'>Z-Wave Sensor</a>

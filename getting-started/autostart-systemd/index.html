@@ -116,13 +116,7 @@ EOF'</span>
 </code></pre>
 </div>
 
-<p>There is also another <a href="https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service">sample service file</a> available. To use this one, just download it.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo wget https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service -O /etc/systemd/system/home-assistant@[your user].service
-</code></pre>
-</div>
-
-<p>If you’ve setup Home Assistant in virtualenv following the guide the following template should work for you.</p>
+<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following the guide the following template should work for you.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
@@ -244,7 +238,8 @@ WantedBy=multi-user.target
         <ul>
           <li><a class='active' href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
           <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
-          <li><a  href='/getting-started/autostart-macos/'>OS X </a></li>
+          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
           <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
         </ul>
       </li>

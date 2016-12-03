@@ -90,61 +90,109 @@
   <hr class="divider">
   
 
-  <p>The <a href="http://www.homematic.com/">Homematic</a> component provides bi-directional communication of Homematic platforms with their real world counterparts. This implementation does in no way modify your existing setup. Instead it queries your setup for its devices and subscribes to them to send and receive events.</p>
+  <p>The <a href="http://www.homematic.com/">Homematic</a> component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.</p>
 
-<p>Device support is currently available for most of:</p>
+<p>Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010.</p>
 
-<ul>
-  <li>Switch/Dimmer-actors</li>
-  <li>Thermostats</li>
-  <li>Rollershutters</li>
-  <li>Sensors (shutter contacts, motion detectors, power meters and more)</li>
-  <li>Simple remote controls</li>
-</ul>
-
-<p>If you want to see if a specific device you have is supported, head over to the <a href="https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes">pyhomematic</a> repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom.</p>
+<p>If you want to see if a specific device you have is supported, head over to the <a href="https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes">pyhomematic</a> repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.</p>
 
 <p>We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
-You can manually override the created entities be using Home Assistants <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing</a> feature. With it you are able to hide entities you don’t need to see within the UI.</p>
+You can manually rename the created entities by using Home Assistants <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing</a> feature. With it you are also able to hide entities you don’t want to see in the UI.</p>
 
 <p>To set up the component, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homematic</span><span class="pi">:</span>
-  <span class="s">local_ip</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+  <span class="s">hosts</span><span class="pi">:</span>
+    <span class="s">wireless</span><span class="pi">:</span>
+      <span class="s">ip</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
 </code></pre>
 </div>
 
-<p>Configuration variables:</p>
+<p>Configuration variables (global):</p>
 
 <ul>
-  <li><strong>local_ip</strong> (<em>Required</em>): IP of device running Home Assistant</li>
-  <li><strong>local_port</strong> (<em>Optional</em>): Port for connection with Home Assistant. Defaults to 8943.</li>
-  <li><strong>remote_ip</strong> (<em>Required</em>): IP of CCU/Homegear</li>
-  <li><strong>remote_port</strong> (<em>Optional</em>): Port of Homegear/CCU XML-RPC Server (usually 2001)</li>
-  <li><strong>resolvenames</strong> (<em>Optional</em>): &lt;metadata, json, xml&gt; Try to fetch device names. Defaults to <code class="highlighter-rouge">False</code> if not specified.</li>
-  <li><strong>username</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.</li>
-  <li><strong>password</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.</li>
-  <li><strong>delay</strong> (<em>Optional</em>): <Float> Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.</Float></li>
-  <li><strong>variables</strong> (<em>Optional</em>): True or False if you want use CCU2/Homegear variables. Default False.</li>
+  <li><strong>hosts</strong> (<em>Required</em>): Configuration for each host to integrate into Home Assistant.</li>
+  <li><strong>local_ip</strong> (<em>Optional</em>): IP of device running Home Assistant. Override autodetected value for exotic network setups.</li>
+  <li><strong>local_port</strong> (<em>Optional</em>): Port for connection with Home Assistant. By default it is randomly assigned.</li>
+  <li><strong>delay</strong> (<em>Optional</em>): [Float] Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.</li>
 </ul>
 
-<p>To further explain the <code class="highlighter-rouge">resolvenames</code> option:
-We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won’t include non-ASCII characters in entity-names.</p>
+<p>Configuration variables (host):</p>
+
+<ul>
+  <li><strong>ip</strong> (<em>Required</em>): IP of CCU/Homegear</li>
+  <li><strong>port</strong> (<em>Optional</em>): Port of Homegear/CCU XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)</li>
+  <li><strong>resolvenames</strong> (<em>Optional</em>): [<code class="highlighter-rouge">metadata</code>, <code class="highlighter-rouge">json</code>, <code class="highlighter-rouge">xml</code>] Try to fetch device names. Defaults to <code class="highlighter-rouge">false</code> if not specified.</li>
+  <li><strong>username</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.</li>
+  <li><strong>password</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.</li>
+  <li><strong>primary</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">true</code> when using multiple hosts and this host should provide the services and variables.</li>
+  <li><strong>variables</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">true</code> if you want to use CCU2/Homegear variables. Should only be enabled for the primary host.</li>
+</ul>
+
+<h4>Example configuration with multiple protocols and some other options set:</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homematic</span><span class="pi">:</span>
+  <span class="s">delay</span><span class="pi">:</span> <span class="s">1.0</span>
+  <span class="s">hosts</span><span class="pi">:</span>
+    <span class="s">rf</span><span class="pi">:</span>
+      <span class="s">ip</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+      <span class="s">resolvenames</span><span class="pi">:</span> <span class="s">json</span>
+      <span class="s">username</span><span class="pi">:</span> <span class="s">Admin</span>
+      <span class="s">password</span><span class="pi">:</span> <span class="s">secret</span>
+      <span class="s">primary</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">variables</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">wired</span><span class="pi">:</span>
+      <span class="s">ip</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+      <span class="s">port</span><span class="pi">:</span> <span class="s">2000</span>
+      <span class="s">resolvenames</span><span class="pi">:</span> <span class="s">json</span>
+      <span class="s">username</span><span class="pi">:</span> <span class="s">Admin</span>
+      <span class="s">password</span><span class="pi">:</span> <span class="s">secret</span>
+    <span class="s">ip</span><span class="pi">:</span>
+      <span class="s">ip</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+      <span class="s">port</span><span class="pi">:</span> <span class="s">2010</span>
+</code></pre>
+</div>
+
+<h3>The <code class="highlighter-rouge">resolvenames</code> option</h3>
+
+<p>We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won’t include non-ASCII characters in entity-names.</p>
 
 <ol>
-  <li>The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work you need to add valid credentials to your component-configuration. Guest-access is sufficient to query for device names.</li>
-  <li>If you use a regular CCU, there is an add-on called the “XML-API”. With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don’t support authentication with this method.</li>
-  <li>Homegear provides device-names through the metadata devices internally have. When using an HM-CFG-LAN interface, you typically use a configuration software (“HomeMatic-Komponenten konfigurieren” is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you’ll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.</li>
+  <li><code class="highlighter-rouge">json</code>: The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work you need to add valid credentials to your component-configuration. Guest-access is sufficient to query for device names.</li>
+  <li><code class="highlighter-rouge">xml</code>: If you use a CCU, there is an add-on called the “XML-API”. With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don’t support authentication with this method.</li>
+  <li><code class="highlighter-rouge">metadata</code>: Homegear provides device-names through the metadata devices internally have. When using an HM-CFG-LAN interface, you typically use a configuration software (“HomeMatic-Komponenten konfigurieren” is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you’ll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.</li>
 </ol>
 
 <p>Resolving names can take some time. So when you start Home Assistant you won’t see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.</p>
 
-<p><strong>Devices with buttons</strong></p>
+<h3>Multiple hosts</h3>
+
+<p>In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.<br />
+Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.<br />
+This does <em>not</em> affect the entites in Home Assistant. They all use their own connection and work as expected.</p>
+
+<h3>Variables</h3>
+
+<p>It is possible to read and set values of system variables you have setup on the CCU/Homegear. An example of how that is done can be found below. The supported types for setting values are float- and bool-variables.<br />
+Each variable will be available as it’s own entity in the form of <code class="highlighter-rouge">homematic.name</code>. The predefined <code class="highlighter-rouge">homematic.homematic</code> variable has the number of service messages as it’s value. You can use these variable-entities like any other entity in Home Assistant to trigger automations.<br />
+The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.</p>
+
+<h3>Events</h3>
+
+<p>When HomeMatic devices change their state or some other internal value, the CCU/Homegear sends event messages to Home Assistant. These events are automatically parsed and the entities in Home Assistant are updated. However, you can also manually use these events to trigger automations. Two event-types are available:</p>
+
+<ul>
+  <li><strong>homematic.keypress</strong>: For devices with buttons, see information below</li>
+  <li><strong>homematic.impulse</strong>: For impulse sensors</li>
+</ul>
+
+<h4>Devices with buttons</h4>
 
 <p>Devices with buttons (e.g. HM-Sen-MDIR-WM55, remote controls) may not be fully visible in the UI. This is intended, as buttons don’t serve any value here and all they do is trigger events.
 As an example:
-The HM-Sen-MDIR-WM55 motion detector will be displayed as 2 entities. A motion sensor and a brightness sensor. On top of that we have 2 sets (one set per button) of 4 events: PRESS_SHORT, PRESS_LONG, PRESS_CONT, PRESS_LONG_RELEASE. Be aware, that there are devices which don’t provide all of these events. But in general: if you can press it, it at least has PRESS_SHORT.
-Here’s an example of how to use these events for automations:</p>
+The HM-Sen-MDIR-WM55 motion detector will be displayed as 2 entities. A motion sensor and a brightness sensor. On top of that we have 2 sets (one set per button) of 4 events: PRESS_SHORT, PRESS_LONG, PRESS_CONT, PRESS_LONG_RELEASE. Be aware, that there are devices which don’t provide all of these events. But in general: if you can press it, it usually at least has PRESS_SHORT.</p>
+
+<p>Here’s an example of how to use these events for automations:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
    <span class="s">trigger</span><span class="pi">:</span>
@@ -157,25 +205,24 @@ Here’s an example of how to use these events for automations:</p>
    <span class="s">action</span><span class="pi">:</span>
      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.Kitchen_Ambience</span>
-
 </code></pre>
 </div>
 
 <p>The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
 The name depends on if you chose to resolve names or not. If not, it will be the device ID (e.g. LEQ1234657). If you chose to resolve names (and that is successful), it will be the name you have set in your CCU or in the metadata (e.g. “Kitchen Switch”).</p>
 
-<p><strong>Other events</strong></p>
+<h3>Services</h3>
 
-<p><em>homematic.keypress</em>: See above.</p>
+<ul>
+  <li><em>homematic.virtualkey</em>: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.</li>
+  <li><em>homematic.reconnect</em>: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)</li>
+  <li><em>homematic.set_var_value</em>: Set the value of a system variable.</li>
+  <li><em>homematic.set_dev_value</em>: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.</li>
+</ul>
 
-<p><em>homematic.impulse</em>: For impulse sensors with event_data ‘name’ and ‘channel’.</p>
-
-<p><strong>Service</strong></p>
-
-<p><em>homematic/virtualkey</em>: Simulate a keypress on CCU/Homegear with device or virtual keys.</p>
-
+<h4>Examples</h4>
+<p>Simulate a button being pressed</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
-
 <span class="s">action</span><span class="pi">:</span>
   <span class="s">service</span><span class="pi">:</span> <span class="s">homematic.virtualkey</span>
   <span class="s">data</span><span class="pi">:</span>
@@ -185,15 +232,53 @@ The name depends on if you chose to resolve names or not. If not, it will be the
 </code></pre>
 </div>
 
-<p><em>homematic/set_value</em>: Set the value of a system variable.</p>
-
+<p>Open KeyMatic</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
-
 <span class="s">action</span><span class="pi">:</span>
-  <span class="s">service</span><span class="pi">:</span> <span class="s">homematic.set_value</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">homematic.virtualkey</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">LEQ1234567</span>
+    <span class="s">channel</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">param</span><span class="pi">:</span> <span class="s">OPEN</span>
+</code></pre>
+</div>
+
+<p>Set variable</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">homematic.set_var_value</span>
   <span class="s">data</span><span class="pi">:</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">homematic.varname_bool</span>
     <span class="s">value</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<h4>Advanced examples</h4>
+
+<p>If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.<br />
+Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above <code class="highlighter-rouge">rf</code>, <code class="highlighter-rouge">wired</code> and <code class="highlighter-rouge">ip</code> would be valid values.</p>
+
+<p>Manually turn on a switch actor</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">homematic.set_dev_value</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">LEQ1234567</span>
+    <span class="s">channel</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">param</span><span class="pi">:</span> <span class="s">STATE</span>
+    <span class="s">value</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<p>Manually set temperature on thermostat</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">homematic.set_dev_value</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">LEQ1234567</span>
+    <span class="s">channel</span><span class="pi">:</span> <span class="s">4</span>
+    <span class="s">param</span><span class="pi">:</span> <span class="s">SET_TEMPERATURE</span>
+    <span class="s">value</span><span class="pi">:</span> <span class="s">23.0</span>
 </code></pre>
 </div>
 

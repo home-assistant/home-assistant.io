@@ -181,8 +181,8 @@ You need to setup a unique trigger for each event you sent to IFTTT.
     <span class="s">service</span><span class="pi">:</span> <span class="s">script.ifttt_notify</span>
     <span class="s">data_template</span><span class="pi">:</span>
       <span class="s">value1</span><span class="pi">:</span> <span class="s1">'</span><span class="s">HA</span><span class="nv"> </span><span class="s">Status:'</span>
-      <span class="s">value2</span><span class="pi">:</span> <span class="s2">"</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">"</span>
-      <span class="s">value3</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="s">value2</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.entity_id.split('_')[1]</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">"</span>
+      <span class="s">value3</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.to_state.state</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
 

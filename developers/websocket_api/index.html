@@ -1,0 +1,554 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Websocket API - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Home Assistant Websocket API documentation">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/developers/websocket_api/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Websocket API">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/developers/websocket_api/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Home Assistant Websocket API documentation">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Websocket API">
+    <meta name="twitter:description" content="Home Assistant Websocket API documentation">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Websocket API
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Home Assistant contains a websocket API. This API can be used to stream information from the Home Assistant server to any client that implements websockets. Implementations in different languages:</p>
+
+<ul>
+  <li><a href="https://github.com/home-assistant/home-assistant-js-websocket">JavaScript</a> - powers the frontend</li>
+</ul>
+
+<h1>Server states</h1>
+
+<ol>
+  <li>Client connects</li>
+  <li>Authentication phase starts
+a. If no further authentication necessary for the user: go to 3
+b. Server sends <code class="highlighter-rouge">auth_required</code> message
+c. Client sends <code class="highlighter-rouge">auth</code> message
+d. If <code class="highlighter-rouge">auth</code> message correct: go to 3.
+e. Server sends <code class="highlighter-rouge">auth_invalid</code>. Go to 6.</li>
+  <li>Send <code class="highlighter-rouge">auth_ok</code> message</li>
+  <li>Authentication phase ends.</li>
+  <li>Command phase starts.
+a. Client can send commands.
+b. Server can send results of previous commands.</li>
+  <li>Client or server disconnects session.</li>
+</ol>
+
+<p>During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it’s origin.</p>
+
+<h1>Message format</h1>
+
+<p>Each API message is a JSON serialized object containing a <code class="highlighter-rouge">type</code> key. After the authentication phase messages also must contain an <code class="highlighter-rouge">id</code>, an integer that contains the number of interactions.</p>
+
+<p>Example of an auth message:</p>
+
+<pre><code class="language-json5">{
+  "type": "auth",
+  "api_password": "supersecret"
+}
+</code></pre>
+
+<pre><code class="language-json5">{
+   "id" 5,
+   "type":"event",
+   "event":{
+      "data":{},
+      "event_type":"test_event",
+      "time_fired":"2016-11-26T01:37:24.265429+00:00",
+      "origin":"LOCAL"
+   }
+}
+</code></pre>
+
+<h1>Authentication phase</h1>
+
+<p>When a client connects to the server, the server will test if the client is authenticated. Authentication will not be necessary if no api_password is set or if the user fulfills one of the other criteria for authentication (trusted network, password in url/header).</p>
+
+<p>If no authentication is needed, the authentication phase will complete and the server will send an <code class="highlighter-rouge">auth_ok</code> message.</p>
+
+<pre><code class="language-json5">{
+  "type": "auth_ok"
+}
+</code></pre>
+
+<p>If authentication is necessary, the server sends out <code class="highlighter-rouge">auth_required</code>.</p>
+
+<pre><code class="language-json5">{
+  "type": "auth_required"
+}
+</code></pre>
+
+<p>This means that the next message from the client should be an auth message:</p>
+
+<pre><code class="language-json5">{
+  "type": "auth",
+  "api_password": "supersecret"
+}
+</code></pre>
+
+<p>If the client supplies valid authentication, the authentication phase will complete by the server sending the <code class="highlighter-rouge">auth_ok</code> message:</p>
+
+<pre><code class="language-json5">{
+  "type": "auth_ok"
+}
+</code></pre>
+
+<p>If the data is incorrect, the server will reply with <code class="highlighter-rouge">auth_invalid</code> message and disconnect the session.</p>
+
+<pre><code class="language-json5">{
+  "type": "auth_invalid",
+  "message": "Invalid password"
+}
+</code></pre>
+
+<h1>Command phase</h1>
+
+<p>During this phase the client can give commands to the server. The server will respond to each command with a <code class="highlighter-rouge">result</code> message indicating when the command is done and if it was successful.</p>
+
+<pre><code class="language-json5">{
+  "id": 6.
+  "type": "result",
+  "success": true,
+  // Can contain extra result info
+  "result": null
+}
+</code></pre>
+
+<h2>Subscribe to events</h2>
+
+<p>The command <code class="highlighter-rouge">subscribe_events</code> will subscribe your client to the event bus. You can either listen to all events or to a specific event type. If you want to listen to multiple event types, you will have to send multiple <code class="highlighter-rouge">subscribe_events</code> commands.</p>
+
+<pre><code class="language-json5">{
+  "id": 18,
+  "type": "subscribe_events",
+  // Optional
+  "event_type": "state_changed"
+}
+</code></pre>
+
+<p>The server will respond with a result message to indicate that the subscription is active.</p>
+
+<pre><code class="language-json5">{
+  "id": 18,
+  "type": "result",
+  "success": true,
+  "result": null
+}
+</code></pre>
+
+<p>For each event that matches, the server will send a message of type <code class="highlighter-rouge">event</code>. The <code class="highlighter-rouge">id</code> in the message will point at the original <code class="highlighter-rouge">id</code> of the <code class="highlighter-rouge">listen_event</code> command.</p>
+
+<pre><code class="language-json5">{
+   "id": 18,
+   "type":"event",
+   "event":{
+      "data":{
+         "entity_id":"light.bed_light",
+         "new_state":{
+            "entity_id":"light.bed_light",
+            "last_changed":"2016-11-26T01:37:24.265390+00:00",
+            "state":"on",
+            "attributes":{
+               "rgb_color":[
+                  254,
+                  208,
+                  0
+               ],
+               "color_temp":380,
+               "supported_features":147,
+               "xy_color":[
+                  0.5,
+                  0.5
+               ],
+               "brightness":180,
+               "white_value":200,
+               "friendly_name":"Bed Light"
+            },
+            "last_updated":"2016-11-26T01:37:24.265390+00:00"
+         },
+         "old_state":{
+            "entity_id":"light.bed_light",
+            "last_changed":"2016-11-26T01:37:10.466994+00:00",
+            "state":"off",
+            "attributes":{
+               "supported_features":147,
+               "friendly_name":"Bed Light"
+            },
+            "last_updated":"2016-11-26T01:37:10.466994+00:00"
+         }
+      },
+      "event_type":"state_changed",
+      "time_fired":"2016-11-26T01:37:24.265429+00:00",
+      "origin":"LOCAL"
+   }
+}
+</code></pre>
+
+<h2>Unsubscribing from events</h2>
+
+<p>You can unsubscribe from previously created subscription events. Pass the id of the original subscription command as value to the subscription field.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "unsubscribe_events",
+  "subscription": 18
+}
+</code></pre>
+
+<p>The server will respond with a result message to indicate that unsubscribing was successful.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "result",
+  "success": true,
+  "result": null
+}
+</code></pre>
+
+<h2>Calling a service</h2>
+
+<p>This will call a service in Home Assistant. Right now there is no return value. The client can listen to <code class="highlighter-rouge">state_changed</code> events if it is interested in changed entities as a result of a service call.</p>
+
+<pre><code class="language-json5">{
+  "id": 24,
+  "type": "call_service",
+  "domain": "light",
+  "service": "turn_on",
+  // Optional
+  "service_data": {
+    "entity_id": "light.kitchen"
+  }
+}
+</code></pre>
+
+<p>The server will indicate with a message indicating that the service is done executing.</p>
+
+<pre><code class="language-json5">{
+  "id": 24,
+  "type": "result",
+  "success": true,
+  "result": null
+}
+</code></pre>
+
+<h2>Fetching states</h2>
+
+<p>This will get a dump of all the current states in Home Assistant.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "get_states"
+}
+</code></pre>
+
+<p>The server will respond with a result message containing the states.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "result",
+  "success": true,
+  "result": [ … ]
+}
+</code></pre>
+
+<h2>Fetching config</h2>
+
+<p>This will get a dump of the current config in Home Assistant.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "get_config"
+}
+</code></pre>
+
+<p>The server will respond with a result message containing the config.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "result",
+  "success": true,
+  "result": { … }
+}
+</code></pre>
+
+<h2>Fetching services</h2>
+
+<p>This will get a dump of the current services in Home Assistant.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "get_config"
+}
+</code></pre>
+
+<p>The server will respond with a result message containing the services.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "result",
+  "success": true,
+  "result": { … }
+}
+</code></pre>
+
+<h2>Fetching panels</h2>
+
+<p>This will get a dump of the current registered panels in Home Assistant.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "get_panels"
+}
+</code></pre>
+
+<p>The server will respond with a result message containing the current registered panels.</p>
+
+<pre><code class="language-json5">{
+  "id": 19,
+  "type": "result",
+  "success": true,
+  "result": [ … ]
+}
+</code></pre>
+
+<h1>Error handling</h1>
+
+<p>If an error occurs, the <code class="highlighter-rouge">success</code> key in the <code class="highlighter-rouge">result</code> message will be set to <code class="highlighter-rouge">false</code>. It will contain an <code class="highlighter-rouge">error</code> key containing an object with two keys: <code class="highlighter-rouge">code</code> and <code class="highlighter-rouge">message</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>A non-increasing identifier has been supplied.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Received message is not in expected format (voluptuous validation error).</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Requested item cannot be found</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code class="language-json5">{
+   "id": 12,
+   "type":"result",
+   "success": false,
+   "error": {
+      "code": 2,
+      "message": "Message incorrectly formatted: expected str for dictionary value @ data['event_type']. Got 100"
+   }
+}
+</code></pre>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/websocket_api.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Development Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/developers/'>Introduction </a>
+        <ul>
+          <li><a  href='/developers/architecture/'>Architecture </a></li>
+          <li><a  href='/developers/architecture_components/'>Components </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/development/'>Starting with Development </a>
+        <ul>
+          <li><a  href='/developers/development_environment/'>Setting up Environment </a></li>
+          <li><a  href='/developers/development_submitting/'>Submit your Work </a></li>
+          <li><a  href='/developers/development_checklist/'>Checklist </a></li>
+          <li><a  href='/developers/development_testing/'>Testing </a></li>
+          <li><a  href='/developers/development_catching_up/'>Catching up with Reality </a></li>
+          <li><a  href='/developers/development_validation/'>Validation </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
+        <ul>
+          <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
+          <li><a  href='/developers/platform_example_light/'>Example light platform </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/creating_components/'>Adding a new component </a>
+        <ul>
+          <li><a  href='/developers/component_loading/'>Loading components </a></li>
+          <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
+          <li><a  href='/developers/component_initialization/'>Initialization </a></li>
+          <li><a  href='/developers/component_events/'>Handling events </a></li>
+          <li><a  href='/developers/component_states/'>States </a></li>
+          <li><a  href='/developers/component_visibility/'>Visibility </a></li>
+          <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
+          <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/asyncio/'>Asynchronous Programming </a>
+        <ul>
+          <li><a  href='/developers/asyncio_categorizing_functions/'>Categorizing Functions </a></li>
+          <li><a  href='/developers/asyncio_working_with_async/'>Working with Async </a></li>
+          <li><a  href='/developers/asyncio_misc/'>Miscellaneous </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/frontend/'>Frontend Development </a>
+        <ul>
+          <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_creating_custom_panels/'>Add Custom Panels </a></li>
+        </ul>
+      </li>
+      <li>
+        API
+        <ul>
+          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Home Assistant API </a></li>
+          <li><a class='active' href='/developers/websocket_api/'>Websocket API </a></li>
+          <li><a  href='/developers/rest_api/'>RESTful API </a></li>
+          <li><a  href='/developers/python_api/'>Python API </a></li>
+          <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
+        </ul>
+      </li>
+      <li><a  href='/developers/helpers/'>Online helpers </a></li>
+      <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
+      <li><a  href='/developers/website/'>Home-Assistant.io </a></li>
+      <li><a  href='/developers/credits/'>Credits </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

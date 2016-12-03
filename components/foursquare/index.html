@@ -106,6 +106,20 @@
   <li><strong>push_secret</strong> (<em>Required</em>): The push secret that Foursquare provides to you in the app dashboard.</li>
 </ul>
 
+<h4>Getting the access token</h4>
+
+<p>After you have registered your APP on your <a href="https://foursquare.com/developers/apps">My Apps Page</a> you get a <code class="highlighter-rouge">CLIENT_ID</code> and you have specified a
+<code class="highlighter-rouge">REDIRECT_URL</code> which can be any URL you like, but since it will get your access token via a HTTP GET request, it should be a URL which will ignore the <code class="highlighter-rouge">access_token</code> HTTP GET variable. A good idea is to choose the URL of your Home Assistant. 
+Visit the following URL in your browser:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&amp;response_type=token&amp;redirect_uri=YOUR_REGISTERED_REDIRECT_URI
+</code></pre>
+</div>
+
+<p>and change the <code class="highlighter-rouge">CLIENT_ID</code> and <code class="highlighter-rouge">YOUR_REGISTERED_REDIRECT_URL</code> to your actual values. 
+You will receive an OAuth request landing page, asking you if you want to connect your Foursquare account to your newly created app. Say “Yes”.
+After that, you will get redirected to your <code class="highlighter-rouge">REDIRECT_URL</code> with the <code class="highlighter-rouge">access_token</code> as a HTTP GET variable. Copy everything after the = and paste it in your configuration.yaml as the <code class="highlighter-rouge">access_token</code>.</p>
+
 <h3><a class="title-link" name="real-time-api" href="#real-time-api"></a> Real-Time API</h3>
 
 <p>The component accepts pushes from Foursquare at <code class="highlighter-rouge">/api/foursquare</code>. The route does not require authentication.</p>

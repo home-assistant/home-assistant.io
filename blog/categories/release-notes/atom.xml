@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-03T16:47:28+00:00</updated>
+  <updated>2016-12-03T21:07:09+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,175 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.34: New Remote component, Websockets, Sonarr, GPSLogger]]></title>
+    <link href="https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr/"/>
+    <updated>2016-12-03T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr</id>
+    <content type="html"><![CDATA[Here we go...0.34. Let's call it the "Santa Claus" release. Rodolfo was faster than expected and there are a lot of goodies on the sled. Of course, more work on async programming done by [@pvizeli] and [@balloob], a new components, new platforms, major improvements, and much more.
+
+### <a class='title-link' name='gpslogger' href='#gpslogger'></a> GPSLogger 
+
+The work of [@dainok] let you use your Android device, with the Geolocation feature enabled, to track itself using the GPS sensor or WiFi networks with [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) app. GPSLogger can use multiple source: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
+
+###  <a class='title-link' name='remote-component' href='#remote-component'></a> Remote component 
+
+The brand new [`remote`][remote] component made by [@iandday] will simplyfy the integration of all kind remote control units. The first platform for [Harmony][harmony] is included in this release.
+
+### <a class='title-link' name='homematic' href='#homematic'></a> HomeMatic 
+
+The [HomeMatic][homematic] component has received some updates worth mentioning:
+
+* Additional services
+  * `reconnect`: Reconnect to your CCU/Homegear without restarting Home Assistant.
+  * `set_dev_value`: Manually control a device, even if it's not supported by Home Assistant yet.
+* Support for multiple HomeMatic hosts
+* Support for HomeMatic Wired (most devices) and HomeMatic IP (a few devices)
+* Various improvements and fixes, especially for HM-Sec-Key (KeyMatic)
+
+The support for multiple hosts is a result of allowing mixed configurations with wireless, wired, and IP devices. This has the drawback of making the update a breaking change (along with the renamed `set_value` service). However, the benefits and possibilities gained will be worth it.
+
+### <a class='title-link' name='websocket-api' href='#websocket-api'></a> Websocket API 
+
+This release includes a new [websockets][websockets] based API by [@balloob] to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.
+
+## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes  
+
+- Sensor: [Broadlink][boradlink] RM2 and A1 E-air support ([@skyval])
+- New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
+- Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
+- Sensor: Support for [Sonarr][sonarr] ([@hborawski])
+- Sensor: [World Air Quality Index][waqi] sensor ([@valentinalexeev], [@fabaff])
+- Sensor: Support for [Dutch Smart Meter Requirements][dsmr] ([@aequitas])
+- Switch: [Hook][hook] support by hooksmarthome.com ([@dasos])
+- Camera: Integration for [Nest cameras][nest-cam] ([@technicalpickles])
+- Light: Support for light effects ([@Diaoul])
+- Sensor: New [Threshold][threshold] sensor ([@fabaff])
+- Media player: New [DuneHD][dunehd] integration([@valentinalexeev])
+- Media player: Controlling support for [Philips TVs][philips] ([@aequitas])
+- Camera: Support for [Amcrest][amcrest] cameras ([@tchellomello])
+- Sensor: Monitoring support for [Network UPS Tools (NUT)][nut] ([@mezz64])
+
+- Mediap player - Denon: Source selection support ([@Gilles95])
+- Sensor - MinMax: Precision now configurable ([@exxamalte])
+- Tellstick: Massive [improvement][tellstick] ([@magicus])
+- Light - Osram: New requirement ([@tfriedel])
+- Sensor - Systemmonitor: Support for removable network adapters ([@mnoorenberghe])
+- LiteJet: New trigger option ([@joncar])
+- Media player - Bose: Add Bose SoundTouch device support ([@CharlesBlonde])
+- HTTP: Re-organisation and [websockets] support ([@balloob])
+- HTTP: Advanced [IP filtering][filtering] ([@vkorn])
+- Sensor - KNX: Fix unit of mesaurement ([@cyberjunky])
+- Climate: New precision properties ([@sdague])
+- Sensor - TEMPer: Reset [devices][temper] on address change ([@vemek])
+- Core: Color names now follows w3.org recommandations ([@srcLurker])
+- Updater: Robustness improvements ([@balloob]])
+- Media player - MPD: Reconnect to daemon ([@janLo])
+- Device tracker: Fall-back for MAC address lookup ([@aequitas])
+- Sensor - Efergy: Get the amount of [energy consumed][efergy] ([@gonzalezcalleja])
+- Zeroconf: Fix for IPv6 support ([@rcloran])
+- Minor and not so minor features and bug fixes by [@turbokongen], [@sdague], [@pvizeli], [@fabaff], [@chapple], [@mweinelt], [@Khabi], [@balloob], [@mnestor], [@kellerza], [@Morrisai],
+[@michaelarnauts], [@tchellomello], [@lwis], [@bjarniivarsson], [@danielperna84], [@LinuxChristian], [@MartinHjelmare], [@dethpickle], [@jnewland], [@lichtteil], [@brandonweeks], [@partofthething], [@mnoorenberghe], [@bah2830], and [@albertoarias].
+
+## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
+
+- The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
+- All [RFXtrx][rfxtrx] sensors will get a new entity ID.
+- If you are using NGINX, you will have to [adapt your configuration][nginx].
+- [Nest][nest] contains changes which will require your attention.
+
+### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
+
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+### <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
+
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
+
+[@aequitas]: https://github.com/aequitas
+[@albertoarias]: https://github.com/albertoarias
+[@bah2830]: https://github.com/bah2830
+[@balloob]: https://github.com/balloob
+[@bjarniivarsson]: https://github.com/bjarniivarsson
+[@brandonweeks]: https://github.com/brandonweeks
+[@cawilliamson]: https://github.com/cawilliamson
+[@chapple]: https://github.com/chapple
+[@CharlesBlonde]: https://github.com/CharlesBlonde
+[@cyberjunky]: https://github.com/cyberjunky
+[@dainok]: https://github.com/dainok
+[@danielperna84]: https://github.com/danielperna84
+[@dasos]: https://github.com/dasos
+[@dethpickle]: https://github.com/dethpickle
+[@Diaoul]: https://github.com/Diaoul
+[@exxamalte]: https://github.com/exxamalte
+[@fabaff]: https://github.com/fabaff
+[@Gilles95]: https://github.com/Gilles95
+[@gonzalezcalleja]: https://github.com/gonzalezcalleja
+[@hartmms]: https://github.com/hartmms
+[@hborawski]: https://github.com/hborawski
+[@iandday]: https://github.com/iandday
+[@janLo]: https://github.com/janLo
+[@jnewland]: https://github.com/jnewland
+[@joncar]: https://github.com/joncar
+[@kellerza]: https://github.com/kellerza
+[@Khabi]: https://github.com/Khabi
+[@lichtteil]: https://github.com/lichtteil 
+[@LinuxChristian]: https://github.com/LinuxChristian
+[@lwis]: https://github.com/lwis
+[@magicus]: https://github.com/magicus
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@mezz64]: https://github.com/mezz64
+[@mezz64]: https://github.com/mezz64
+[@michaelarnauts]: https://github.com/michaelarnauts
+[@mnestor]: https://github.com/mnestor
+[@mnoorenberghe]: https://github.com/mnoorenberghe
+[@molobrakos]: https://github.com/molobrakos
+[@Morrisai]: https://github.com/Morrisai
+[@mtreinish]:  https://github.com/mtreinish
+[@mweinelt]: https://github.com/mweinelt
+[@nsideras]: https://github.com/nsideras
+[@partofthething]: https://github.com/partofthething
+[@pavoni]: https://github.com/pavoni
+[@persandstrom]: https://github.com/persandstrom
+[@postlund]: https://github.com/postlund
+[@pvizeli]: https://github.com/pvizeli
+[@rcloran]: https://github.com/rcloran
+[@sdague]: https://github.com/sdague
+[@skyval]: https://github.com/skyval
+[@srcLurker]: https://github.com/srcLurker
+[@tchellomello]: https://github.com/tchellomello
+[@technicalpickles]: https://github.com/technicalpickles
+[@tfriedel]: https://github.com/tfriedel
+[@turbokongen]: https://github.com/turbokongen
+[@valentinalexeev]: https://github.com/valentinalexeev
+[@vemek]: https://github.com/vemek
+[@vkorn]: https://github.com/vkorn
+
+[amcrest]: https://home-assistant.io/components/camera.amcrest/
+[boradlink]: https://home-assistant.io/components/sensor.broadlink/
+[dsmr]: https://home-assistant.io/components/sensor.dsmr/
+[dunehd]: https://home-assistant.io/components/dunehd/
+[efergy]: https://home-assistant.io/components/sensor.efergy/
+[filtering]: https://home-assistant.io/components/http/
+[harmony]: https://home-assistant.io/components/remote.harmony/
+[homematic]: https://home-assistant.io/components/homematic/
+[hook]: https://home-assistant.io/components/switch.hook/
+[nest-cam]: https://home-assistant.io/components/camera.nest/
+[nest]: https://home-assistant.io/components/nest/
+[nginx]: https://home-assistant.io/ecosystem/nginx/
+[nut]: https://home-assistant.io/components/sensor.nut/
+[philips]: https://home-assistant.io/components/media_palyer.dunehd/
+[remote]: https://home-assistant.io/components/remote/
+[rfxtrx]: https://home-assistant.io/components/rfxtrx/
+[tellstick]: https://home-assistant.io/components/tellstick/
+[temper]: https://home-assistant.io/components/sensor.temper/
+[threshold]: https://home-assistant.io/components/binary_sensor.threshold/
+[websockets]: https://home-assistant.io/developers/websockets_api/
+[wqai]: https://home-assistant.io/components/sensor.waqi/
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.33: New Calendar component, Wink thermostats and Cisco IOS]]></title>
@@ -791,192 +960,6 @@ sensor
 [vasttrafik]: /components/sensor.vasttrafik/
 [Volvo]: /components/device_tracker.volvooncall/
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants]]></title>
-    <link href="https://home-assistant.io/blog/2016/09/29/async-sleepiq-emoncms-stocks/"/>
-    <updated>2016-09-29T03:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/09/29/async-sleepiq-emoncms-stocks</id>
-    <content type="html"><![CDATA[Two weeks ago, September 17 marked our 3 year anniversary. In this time Home Assistant managed to grow from a simple script that turned on my lights when the sun set to a kick ass open source project with the best community an open-source project could wish for. This release contains features, bug fixes and performance tweaks by a total of **50** different people! We have also managed to cross the 1000 forks on GitHub. Talking about momentum!
-
-This is a big release as we've completely overhauled the internals of Home Assistant. When I initially wrote Home Assistant, still figuring out the ins and outs of Python, I went for an approach that I was familiar with for an application with many moving parts: threads and locks. This approach has served us well over the years but it was slower than it needed to be, especially on limited hardware.
-
-This all changed when [@bbangert] came around and took on the tough job to migrate the core over to use asynchronous programming. He did an amazing job and I am happy to say that the initial port has been done and is included in this release! On top of that, we have been able to keep our simple and straightforward API at the same time. We are still in the process of migrating more and more components over to the asynchronous API, so expect more speedups and awesome features in the upcoming releases.
-
-### <a class='title-link' name='sleepiq-and-openalpr' href='#sleepiq-and-openalpr'></a> SleepIQ and OpenALPR 
-
-There now is support for two new super cool things: Beds and license plates. [@technicalpickles] created a [SleepIQ] component that let you monitor the sensor data of your bed. [@pvizeli] has added license plate recognition based on [OpenALPR]! This means that you can now be notified about which car is parked on your driveway or in your garage. I also would like to use this opportunity to give a big shoutout to [@pvizeli] for being such an awesome member of our community. He joined us at the end of June and has helped crush bugs and add awesome features ever since (65 pull requests already!).
-
-### <a class='title-link' name='configuration-validation' href='#configuration-validation'></a> Configuration validation 
-
-On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.
-
-### <a class='title-link' name='delayed-release' href='#delayed-release'></a> Delayed Release 
-
-As you might have noticed, this release has been delayed by 5 days. This was due to a rare, difficult to reproduce problem with the Python interpreter. A huuuuge thanks to all the people that have helped countless hours in researching, debugging and fixing this issue: [@bbangert], [@turbokongen], [@lwis], [@kellerza], [@technicalpickles], [@pvizeli], [@persandstrom] and [@joyrider3774]. I am grateful to have all of you as part of the Home Assistant community.
-
-### <a class='title-link' name='hide-automation-rules' href='#hide-automation-rules'></a> Hide automation rules 
-
-Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend. By default all automation rules are shown. If you want to [hide an automation rule](/getting-started/automation-create-first/), use `hide_entity: True`.
-
-### <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
-
-<img src='https://home-assistant.io/images/supported_brands/emoncms.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/sleepiq.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/openalpr.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
-
-- Convert core from thread-based to be async-based ([@bbangert], [@balloob])
-- New [SleepIQ] support ([@technicalpickles])
-- Cover: [Vera] is now supported ([@pavoni])
-- Climate: Vera [climate] devices are now supported ([@robjohnson189])
-- Climate: [MySensors] is now supported ([@kaustubhphatak])
-- Control Home Assistant with [keyboard shortcuts][keyboard_remote] ([@deisi])
-- More voluptuous config validations ([@fabaff], [@kellerza], [@balloob])
-- New [Nuimo] controller support added ([@gross1989])
-- Sensor: [BOM] Weather component ([@tinglis1])
-- Automation: Option added to hide entity ([@milaq])
-- Sensor: [Emoncms] feeds now supported ([@joyrider])
-- Sensor: Mi Flora [plant] sensor now supported ([@open-homeautomation])
-- Logbook: Allow [filtering] entities and hide hidden entities ([@wokar])
-- Notify: [Kodi] support added ([@chrom3])
-- Notify: Support for [Simplepush] added ([@fabaff])
-- Sensor: [KNX] sensors now supported ([@daBONDi])
-- [Wink] improvements ([@w1ll1am23])
-- [ISY] improvements ([@Teagan42])
-- Link to relevant docs in config validation error messages ([@fabaff])
-- Greatly improve the performance of templates ([@balloob], [@pvizeli])
-- Notify - [Slack]: Support for username/icon ([@Khabi])
-- MQTT room detection: Away [timeout] now supported ([@mKeRix])
-- Climate: [Nest] can now control the fan ([@jawilson])
-- Modbus: Major cleanup for [Modbus] switches and sensors ([@persandstrom])
-- HTTP: Allow [passwordless] logins from whitelisted IP addresses ([@Danielhiversen])
-- Sensor: Yahoo! Finance [stocks] now supported ([@tchellomello])
-- Sensor: Set value based on incoming [email] ([@sam-io])
-- Light: White value now supported ([@mxtra], [@MartinHjelmare])
-- [InfluxDB] now allows attaching extra data ([@lwis])
-- [OpenALPR] support ([@pvizeli])
-- Minor features and bug fixes by [@fabaff], [@w1ll1am23], [@turbokongen], [@clach04], [@mKeRix], [@pvizeli], [@DavidLP], [@nvella], [@Teagan42], [@ericwclymer], [@wokar], [@kellerza], [@nkgilley], [@jawilson], [@Danielhiversen], [@ej81], [@danieljkemp], [@balloob], [@philhawthorne], [@LinuxChristian], [@milas], [@simonszu], [@Cinntax], [@irvingwa], [@sytone], [@kk7ds], [@robbiet480].
-
-### <a class='title-link' name='hotfix-0291---september-29' href='#hotfix-0291---september-29'></a> Hotfix 0.29.1 - September 29 
-
-- Fix typo in Nest climate platform. [We are still experiencing issues with Nest.][nest-issues] ([@tchellomello])
-
-### <a class='title-link' name='hotfix-0292---september-29' href='#hotfix-0292---september-29'></a> Hotfix 0.29.2 - September 29 
-
- - InfluxDB config fix ([@fabaff], reported by [@lwis])
- - Netatmo config fix ([@jabesq])
-
-### <a class='title-link' name='hotfix-0293---september-29' href='#hotfix-0293---september-29'></a> Hotfix 0.29.3 - September 29 
-
- - Hue config fix ([@pvizeli])
-
-### <a class='title-link' name='hotfix-0294---september-30' href='#hotfix-0294---september-30'></a> Hotfix 0.29.4 - September 30 
-
- - Alexa config fix ([@balloob], reported by [@lwis])
- - Envisalink discovery fix ([@cinntax])
- - Acer Projector config fix ([@pvizeli])
-
-### <a class='title-link' name='hotfix-0295---september-30' href='#hotfix-0295---september-30'></a> Hotfix 0.29.5 - September 30 
-
- - Fix Climate Nest platform ([@tchellomello], [@jawilson])
-
-### <a class='title-link' name='hotfix-0296---october-1' href='#hotfix-0296---october-1'></a> Hotfix 0.29.6 - October 1 
-
- - Fix segmentation fault ([@bbangert]) 🎉
- - Fix nested templates in `data_template` would incorrectly get cached ([@balloob])
-
-### <a class='title-link' name='hotfix-0297---october-5' href='#hotfix-0297---october-5'></a> Hotfix 0.29.7 - October 5 
-
- - Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) ([@pvizeli])
-
-### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
-
- - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.
- - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
- - `ffmpeg` is now a component for manage some things central. All `ffmpeg_bin` options have moved to this compoment from platforms.
- - Config has changed for [X10] lights.
- - For Wink, make sure your config only contains the access token as in the [docs][Wink].
- - Nest sensor 'mode' has been renamed to 'operation_mode'
-
-### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
-
-[nest-issues]: https://github.com/home-assistant/home-assistant/issues/3574
-[@jabesq]: https://github.com/jabesq
-[@joyrider3774]: https://github.com/joyrider3774
-[@balloob]: https://github.com/balloob
-[@bbangert]: https://github.com/bbangert
-[@chrom3]: https://github.com/chrom3
-[@Cinntax]: https://github.com/Cinntax
-[@clach04]: https://github.com/clach04
-[@daBONDi]: https://github.com/daBONDi
-[@Danielhiversen]: https://github.com/Danielhiversen
-[@danieljkemp]: https://github.com/danieljkemp
-[@DavidLP]: https://github.com/DavidLP
-[@deisi]: https://github.com/deisi
-[@ej81]: https://github.com/ej81
-[@ericwclymer]: https://github.com/ericwclymer
-[@fabaff]: https://github.com/fabaff
-[@gross1989]: https://github.com/gross1989
-[@irvingwa]: https://github.com/irvingwa
-[@jawilson]: https://github.com/jawilson
-[@joyrider]: https://github.com/joyrider
-[@kaustubhphatak]: https://github.com/kaustubhphatak
-[@kellerza]: https://github.com/kellerza
-[@Khabi]: https://github.com/Khabi
-[@kk7ds]: https://github.com/kk7ds
-[@LinuxChristian]: https://github.com/LinuxChristian
-[@lwis]: https://github.com/lwis
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@milaq]: https://github.com/milaq
-[@milas]: https://github.com/milas
-[@mKerix]: https://github.com/mKerix
-[@mxtra]: https://github.com/mxtra
-[@nkgilley]: https://github.com/nkgilley
-[@nvella]: https://github.com/nvella
-[@open-homeautomation]: https://github.com/open-homeautomation
-[@pavoni]: https://github.com/pavoni
-[@persandstrom]: https://github.com/persandstrom
-[@philhawthorne]: https://github.com/philhawthorne
-[@pvizeli]: https://github.com/pvizeli
-[@robbiet480]: https://github.com/robbiet480
-[@robjohnson189]: https://github.com/robjohnson189
-[@sam-io]: https://github.com/sam-io
-[@simonszu]: https://github.com/simonszu
-[@sytone]: https://github.com/sytone
-[@tchellomello]: https://github.com/tchellomello
-[@Teagan42]: https://github.com/Teagan42
-[@technicalpickles]: https://github.com/technicalpickles
-[@tinglis1]: https://github.com/tinglis1
-[@turbokongen]: https://github.com/turbokongen
-[@w1ll1am23]: https://github.com/w1ll1am23
-[@wokar]: https://github.com/wokar
-
-[BOM]: /components/sensor.bom/
-[climate]: /components/climate.vera/
-[email]: /components/sensor.imap_email_content/
-[Emoncms]: /components/sensor.emoncms/
-[filtering]: /components/logbook/
-[InfluxDB]: /components/influxdb/
-[ISY]: /components/isy994/
-[KNX]: /components/sensor.knx/
-[Kodi]: /components/notify.kodi/
-[Modbus]: /components/modbus/
-[Nest]: /components/fan.nest/
-[Nuimo]: /components/nuimo_controller/
-[OpenALPR]: /components/openalpr/
-[passwordless]: /components/http/
-[Simplepush]: /components/notify.simplepush/
-[Slack]: /components/notify.slack/
-[SleepIQ]: /components/sleepiq/
-[stocks]: /components/sensor.yahoo_finance/
-[timeout]: /components/sensor.mqtt_room/
-[Vera]: /components/cover.vera/
-[Wink]: /components/wink/
-[plant]: /components/sensor.miflora/
-[MySensors]: /components/climate.mysensors/
-[keyboard_remote]: /components/keyboard_remote
-[X10]: /components/light.x10/
 ]]></content>
   </entry>
   

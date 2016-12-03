@@ -90,26 +90,12 @@
   <hr class="divider">
   
 
-  <p>The Nest component is the main component to integrate all <a href="https://nest.com/">Nest</a> related platforms. Besides this component you will have to setup your thermostat and any connected sensors separately.</p>
+  <p>The Nest component is the main component to integrate all <a href="https://nest.com/">Nest</a> related platforms. To connect Nest, you will have to <a href="https://developers.nest.com/products">sign up for a developer account</a> and get a client_id and client_secret.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">nest</span><span class="pi">:</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-
-<span class="s">climate</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
-</code></pre>
-</div>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry to show only devices at your vacation home</span>
-<span class="s">nest</span><span class="pi">:</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-  <span class="s">structure</span><span class="pi">:</span> <span class="s">Vacation</span>
-
-<span class="s">climate</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+  <span class="s">client_id</span><span class="pi">:</span> <span class="s">ABCD</span>
+  <span class="s">client_secret</span><span class="pi">:</span> <span class="s">ABCD</span>
 </code></pre>
 </div>
 
@@ -120,17 +106,14 @@
   <span class="s">structure</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">Vacation</span>
     <span class="pi">-</span> <span class="s">Primary</span>
-
-<span class="s">climate</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>username</strong> (<em>Required</em>): Your Nest username.</li>
-  <li><strong>password</strong> (<em>Required</em>): Your Nest password.</li>
+  <li><strong>client_id</strong> (<em>Required</em>): Your Nest developer client id.</li>
+  <li><strong>client_secret</strong> (<em>Required</em>): Your Nest developer client secret.</li>
   <li><strong>structure</strong> (<em>Optional</em>): The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.</li>
 </ul>
 
@@ -148,13 +131,16 @@
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/nest.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/nest_thermostat.png' />
+      <img src='/images/supported_brands/nest.png' />
   </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
         <li><a href='/components/binary_sensor.nest/'>
           Nest Binary Sensor
+        </a></li>
+        <li><a href='/components/camera.nest/'>
+          Nest Camera
         </a></li>
         <li><a href='/components/fan.nest/'>
           Nest Fan
