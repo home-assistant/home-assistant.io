@@ -33,7 +33,10 @@ Configuration variables:
 - **username** (*Optional*): Credentials for controlling this relay. Default: `admin`
 - **password** (*Optional*): Credentials for controlling this relay. Default: `admin`
 - **timeout** (*Optional*): Default timeout as set by the underlying python-dlipower library is `20` seconds.  Override it if you need to.  Valid range is 1 to 600.
-- **cycletime** (*Optional*): Minimum default relay cycle time is `3` seconds. Override it if you need to.  Valid range is 1 to 600.
+- **cycletime** (*Optional*): This is the delay enforced by the library when you send multiple commands to the same device.  The default relay cycle time is `2` seconds. Override it if you need to.  Valid range is 1 to 600. A delay is a recommendation of Digital Loggers: 
+>Many loads draw more power when they are initially switched on. Sequencing prevents circuit overloads when loads devices are attached to a single circuit. 
 
 
-Your relays will be available in the form `switch.fantasticrelaydevice.relaynumberXname`
+Your relays will be available in the form `switch.fantasticrelaydevice_individualrelayname`
+
+**Note:** It is a current limitation of the [dlipower library](https://github.com/dwighthubbard/python-dlipower) used that only port 80 communication is currently supported.
