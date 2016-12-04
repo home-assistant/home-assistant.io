@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Amcrest Camera - Home Assistant</title>
+    <title>Amcrest IP Camera - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate Amcrest camera into Home Assistant.">
+    <meta name="description" content="Instructions how to integrate Amcrest IP cameras within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/camera.amcrest/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Amcrest Camera">
+    <meta property="og:title" content="Amcrest IP Camera">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/camera.amcrest/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Amcrest camera into Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate Amcrest IP cameras within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Amcrest Camera">
-    <meta name="twitter:description" content="Instructions how to integrate Amcrest camera into Home Assistant.">
+    <meta name="twitter:title" content="Amcrest IP Camera">
+    <meta name="twitter:description" content="Instructions how to integrate Amcrest IP cameras within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,15 +84,15 @@
   
   <header>
     <h1 class="title indent">
-      Amcrest Camera
+      Amcrest IP Camera
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">amcrest</code> platform allows you to watch the live stream of your <a href="https://amcrest.com/">Amcrest</a> IP camera in Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">amcrest</code> platform allows you to integrate your <a href="https://amcrest.com/">Amcrest</a> IP camera in Home Assistant.</p>
 
-<p>To enable your Amcrest camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To enable your camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">camera</span><span class="pi">:</span>
@@ -106,12 +106,13 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address your camera.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port that the camera is running on. The default is 80.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address or hostname of your camera. If using hostname, make sure the DNS works as expected.</li>
   <li><strong>username</strong> (<em>Required</em>): The username for accessing your camera.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for accessing your camera.</li>
-  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera.</li>
+  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera. The default is “Amcrest Camera”.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port that the camera is running on. The default is 80.</li>
 </ul>
+
 
 
 </article>
@@ -140,7 +141,7 @@
     <h1 class="title delta">Category Camera</h1>
     <ul class='divided'>
         <li>
-            Amcrest Camera
+            Amcrest IP Camera
         </li>
         <li>
             <a href='/components/camera.bloomsky/'>BloomSky Camera</a>
