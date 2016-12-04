@@ -98,6 +98,13 @@ We are working on a better solution for 0.35.
 - Revert TP-Link upgrade to fix issues ([@mweinelt])
 - Fix CORS ([@balloob])
 
+### {% linkable_title Release 0.34.2 - December 5 %}
+
+- Fix Nest interpreting Celsius as Fahrenheit and converting it ([@balloob])
+- Fix Nest sensor platforms throwing errors ([@technicalpickles])
+- Frontend will now always show persistent_notification and configurator entities even if not part of the active view ([@balloob])
+- Fixed media player cards taking up unnecessary space ([@balloob])
+
 ### {% linkable_title Breaking changes %}
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
