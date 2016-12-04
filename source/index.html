@@ -21,7 +21,7 @@ hide_github_edit: true
         Released: <span class='release-date'>{{ site.date_released | date: '%B %d, %Y' }}</span>
 
         <div class='links'>
-          <a href='{{ root_url }}{{ recent_release_post.url }}'>Release notes</a>
+          <a href='{{ root_url }}{{ recent_release_post.url }}{{ site.patch_version_notes }}'>Release notes</a>
         </div>
       </div>
       <div class='join-community material-card text'>
