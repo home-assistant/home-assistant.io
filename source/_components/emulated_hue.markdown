@@ -86,9 +86,10 @@ The following are attributes that can be applied in the `customize` section:
 
 ### {% linkable_title Troubleshooting %}
 
-You can verify that the `emulated_hue` component has been loaded and is responding by pointing a local browser to the following URL: 
-http://`<HA IP Address>`:8300/description.xml - This URL should return a descriptor file in the form of an XML file.
-http://`<HA IP Address>`:8300/api/pi/lights - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
+You can verify that the `emulated_hue` component has been loaded and is responding by pointing a local browser to the following URL:
+
+ - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
+ - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
 
 ### {% linkable_title License %}
