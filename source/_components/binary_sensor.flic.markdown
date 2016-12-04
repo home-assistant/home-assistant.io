@@ -25,7 +25,7 @@ binary_sensor:
 
 Configuration variables:
 
-- **host** (*Optional*): The IP of the flic service server. (default: `localhost`)
+- **host** (*Optional*): The IP or hostname of the flic service server. (default: `localhost`)
 - **port** (*Optional*): The port of the flic service. (default: `5551`)
 - **double_click_threshold** (*Optional*): The maximum number of seconds between to clicks to identify them as double click. (default: `0.5`)
 - **long_click_threshold** (*Optional*): The minimum number of seconds a button has to be pressed to identify click as long click. (default: `0.3`)
