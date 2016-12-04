@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-04T19:58:34+00:00</updated>
+  <updated>2016-12-04T20:28:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -47,7 +47,6 @@ This release includes a new [websockets][websockets] based API by [@balloob] to 
 
 ## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes  
 
-- Sensor: [Broadlink][boradlink] RM2 and A1 E-air support ([@skyval])
 - New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
 - Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
 - Sensor: Support for [Sonarr][sonarr] ([@hborawski])
