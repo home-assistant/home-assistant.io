@@ -67,3 +67,14 @@ group:
       - sensor.power_production_normal
       - sensor.gas_consumption
 ```
+
+HASSBIAN users have to give dialout permission to the user 'homeassistant':
+
+```
+$ sudo usermod -a -G dialout homeassistant
+```
+and after that you need to reboot!
+```
+$ sudo reboot
+
+```
