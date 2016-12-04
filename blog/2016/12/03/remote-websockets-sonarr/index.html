@@ -88,7 +88,7 @@
   <div class="meta clearfix">
     <time datetime="2016-12-03T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 3, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter et al.</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -154,7 +154,7 @@
   <li>Camera: Integration for <a href="https://home-assistant.io/components/camera.nest/">Nest cameras</a> (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
   <li>Light: Support for light effects (<a href="https://github.com/Diaoul">@Diaoul</a>)</li>
   <li>Sensor: New <a href="https://home-assistant.io/components/binary_sensor.threshold/">Threshold</a> sensor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Media player: New <a href="https://home-assistant.io/components/dunehd/">DuneHD</a> integration(<a href="https://github.com/valentinalexeev">@valentinalexeev</a>)</li>
+  <li>Media player: New <a href="https://home-assistant.io/components/media_player.dunehd/">DuneHD</a> integration(<a href="https://github.com/valentinalexeev">@valentinalexeev</a>)</li>
   <li>Media player: Controlling support for <a href="https://home-assistant.io/components/media_player.philips_js/">Philips TVs</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
   <li>Camera: Support for <a href="https://home-assistant.io/components/camera.amcrest/">Amcrest</a> cameras (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
   <li>
@@ -182,7 +182,32 @@
 <a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/bjarniivarsson">@bjarniivarsson</a>, <a href="https://github.com/danielperna84">@danielperna84</a>, <a href="https://github.com/LinuxChristian">@LinuxChristian</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/dethpickle">@dethpickle</a>, <a href="https://github.com/jnewland">@jnewland</a>, <a href="https://github.com/lichtteil">@lichtteil</a>, <a href="https://github.com/brandonweeks">@brandonweeks</a>, <a href="https://github.com/partofthething">@partofthething</a>, <a href="https://github.com/mnoorenberghe">@mnoorenberghe</a>, <a href="https://github.com/bah2830">@bah2830</a>, and <a href="https://github.com/albertoarias">@albertoarias</a>.</li>
 </ul>
 
-<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
+<h3><a class="title-link" name="release-0341---december-4" href="#release-0341---december-4"></a> Release 0.34.1 - December 4</h3>
+
+<p>This release has a bunch of bug fixes including a big one: emulated_hue will now work with Google Home! We usually reserve patch releases for small bug fixes but we considered this more impactful bug fix so important that we’re including it now instead of having people wait two weeks.</p>
+
+<p>To make the fix backwards compatible (it is a patch release after all) you will have to add two new configuration option to emulated_hue to have it work with Google Home:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">emulated_hue</span><span class="pi">:</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s">google_home</span>
+  <span class="c1"># This is important. Sadly, Google Home will not work with other ports.</span>
+  <span class="s">listen_port</span><span class="pi">:</span> <span class="s">80</span>
+</code></pre>
+</div>
+
+<p>We are working on a better solution for 0.35.</p>
+
+<ul>
+  <li>Fix emulated_hue with Google Home (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Sonos invalid config error (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Synology DSM doing I/O inside event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Nest camera issues (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Fix occasional hangs in Homematic (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Revert TP-Link upgrade to fix issues (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Fix CORS (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 
 <ul>
   <li>The <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> component now uses a different syntax for hosts and the <code class="highlighter-rouge">set_value</code> service has been renamed.</li>

@@ -1,15 +1,15 @@
 {
-  "current_version": "0.34.0",
-  "release_date": "2016-12-03T00:00:00+00:00",
+  "current_version": "0.34.1",
+  "release_date": "2016-12-04T00:00:00+00:00",
   "release_notes": "https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr/",
   "release_notes_path": "/blog/2016/12/03/remote-websockets-sonarr/",
   "release_title": "0.34: New Remote component, Websockets, Sonarr, GPSLogger",
   "release_description": "Major improvements of HomeMatic, Tellstick, the HTTP component, and more.",
-  "patch_version_notes": "#",
+  "patch_version_notes": "#release-0341---december-4",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
     "minor": 34,
-    "patch": 0
+    "patch": 1
   }
 }

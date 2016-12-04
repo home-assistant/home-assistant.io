@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Pilight Sensor - Home Assistant</title>
+    <title>Broadlink RM2 and A1 sensor - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate pilight sensors within Home Assistant.">
+    <meta name="description" content="Instructions how to integrate Broadlink RM2 and/or A1 E-air sensors within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/sensor.pilight/">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.broadlink/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Pilight Sensor">
+    <meta property="og:title" content="Broadlink RM2 and A1 sensor">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/sensor.pilight/">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.broadlink/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate pilight sensors within Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate Broadlink RM2 and/or A1 E-air sensors within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Pilight Sensor">
-    <meta name="twitter:description" content="Instructions how to integrate pilight sensors within Home Assistant.">
+    <meta name="twitter:title" content="Broadlink RM2 and A1 sensor">
+    <meta name="twitter:description" content="Instructions how to integrate Broadlink RM2 and/or A1 E-air sensors within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,60 +84,60 @@
   
   <header>
     <h1 class="title indent">
-      Pilight Sensor
+      Broadlink RM2 and A1 Sensor
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>This <code class="highlighter-rouge">pilight</code> sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g. <em>uuid</em>) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight home assistant hub has to be set up.</p>
+  <p>The <code class="highlighter-rouge">broadlink</code> sensor platform let you monitor data from an RM2 and A1 E-air.
+There is currently no support for the cloud API.</p>
 
-<p>To use your sensor via pilight, make sure it is <a href="https://wiki.pilight.org/doku.php/protocols">supported</a> and add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
-    <span class="s">variable</span><span class="pi">:</span> <span class="s">temperature</span>
-    <span class="s">payload</span><span class="pi">:</span>
-      <span class="s">uuid</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0000-b8-27-eb-f447d3'</span>
+<p>Obtain sensor data from an A1:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+    <span class="s">update_interval</span><span class="pi">:</span> <span class="s">60</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">humidity</span>
+      <span class="pi">-</span> <span class="s">air_quality</span>
+      <span class="pi">-</span> <span class="s">light</span>
+      <span class="pi">-</span> <span class="s">noise</span>
 </code></pre>
 </div>
 
-<p>Configuration variables:</p>
+<p>Obtain temperature data from an RM2:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+    <span class="s">update_interval</span><span class="pi">:</span> <span class="s">60</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+</code></pre>
+</div>
 
+<p>Configuration options:</p>
 <ul>
-  <li><strong>variable</strong> (<em>Required</em>): The variable name in the data stream that defines the sensor value.</li>
-  <li><strong>payload</strong> (<em>Required</em>): Message payload identifiers. Only if all identifiers are matched the sensor value is set.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the sensor.</li>
-  <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Default BL. Sensor name</li>
+  <li><strong>update_interval</strong> (<em>Optional</em>): Default 300. Time in seconds to fetch data from sensors</li>
+  <li><strong>host</strong> (<em>Required</em>): The hostname/IP address to connect to.</li>
+  <li><strong>mac</strong> (<em>Required</em>):  Device mac address.</li>
+  <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.
+    <ul>
+      <li>‘temperature’</li>
+      <li>‘humidity’</li>
+      <li>‘air_quality’</li>
+      <li>‘light’</li>
+      <li>‘noise’</li>
+    </ul>
+  </li>
 </ul>
 
-<h2><a class="title-link" name="example-weather-station" href="#example-weather-station"></a> Example: Weather station</h2>
-
-<p>This section shows a real life example how to use values of a weather station.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temperature'</span>
-    <span class="s">variable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">temperature'</span>
-    <span class="s">payload</span><span class="pi">:</span>
-      <span class="s">uuid</span><span class="pi">:</span> <span class="s">0000-b8-27-eb-f1f72e</span>
-    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidity'</span>
-    <span class="s">variable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">humidity'</span>
-    <span class="s">payload</span><span class="pi">:</span>
-      <span class="s">uuid</span><span class="pi">:</span> <span class="s">0000-b8-27-eb-f1f72e</span>
-    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Battery'</span>
-    <span class="s">variable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">battery'</span>
-    <span class="s">payload</span><span class="pi">:</span>
-      <span class="s">uuid</span><span class="pi">:</span> <span class="s">0000-b8-27-eb-f1f72e</span>
-    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
-</code></pre>
-</div>
 
 
 </article>
@@ -151,26 +151,12 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.pilight.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.broadlink.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/pilight.png' />
+      <img src='/images/supported_brands/broadlink.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: depends
-    </div>
-    <div class='section'>
-    Introduced in release: 0.31
-    </div>
-          <div class='section'>
-          <h1 class='title delta'>Related components</h1>
-          <ul class='divided'>
-        <li><a href='/components/pilight/'>
-          Pilight
-        </a></li>
-        <li><a href='/components/switch.pilight/'>
-          Pilight Switch
-        </a></li>
-    </ul>
+    Introduced in release: 0.34
     </div>
     <div class='section'>
     <h1 class="title delta">Category Sensor</h1>
@@ -191,7 +177,7 @@
             <a href='/components/sensor.bloomsky/'>BloomSky Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.broadlink/'>Broadlink RM2 and A1 sensor</a>
+            Broadlink RM2 and A1 sensor
         </li>
         <li>
             <a href='/components/sensor.command_line/'>Command line Sensor</a>
@@ -266,7 +252,7 @@
             <a href='/components/sensor.onewire/'>One wire Sensor</a>
         </li>
         <li>
-            Pilight Sensor
+            <a href='/components/sensor.pilight/'>Pilight Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.rest/'>RESTful Sensor</a>
