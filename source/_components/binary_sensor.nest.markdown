@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ---
 
 
-The `nest` binary sensor platform let you monitor various states of a thermostat from [Nest](https://nest.com).
+The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
 <p class='note'>
 You must have the [Nest component](/components/nest/) configured to use these sensors.  The `nest` binary sensor will automatically be setup when you do.
@@ -46,15 +46,15 @@ Configuration variables:
 
 The following conditions are available by device:
 
-- Nest Thermostat
+- Nest Thermostat:
   - online
   - fan
   - is\_using\_emergency\_heat
   - is\_locked
   - has\_leaf
-- Nest Protect
+- Nest Protect:
   - online
-- Nest Camera
+- Nest Camera:
   - online
   - motion\_detected
   - person\_detected

@@ -13,13 +13,13 @@ ha_release: pre 0.7
 ---
 
 
-The `nest` sensor platform let you monitor sensors connected to your [Nest](https://nest.com) thermostat and/or your Nest Protect Smoke Alarm.
+The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
 <p class='note'>
-You must have the [Nest component](/components/nest/) configured to use those sensors.
+You must have the [Nest component](/components/nest/) configured to use these sensors.  The `nest` binary sensor will automatically be setup when you do.
 </p>
 
-To set it up, add the following information to your `configuration.yaml` file:
+To customize which sensors are enabled, you can add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -30,29 +30,21 @@ sensor:
       - 'target'
 ```
 
+If you leave `monitored_conditions` blank, all sensors that are available for your devices will be used.
+
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): States to monitor.
+- **monitored_conditions** array (*Optional*): States to monitor.
 
-The following conditions can be monitored with a Nest Thermostat or Protect.
-  - 'battery_level'
+The following conditions are available by device:
 
-The following conditions can be monitored with a Nest Thermostat only.
-
-  - 'temperature'
-  - 'target'
-  - 'humidity'
-  - 'operation_mode'
-  - 'last_ip'
-  - 'local_ip'
-  - 'last_connection'
-  - 'weather_condition'
-  - 'weather_temperature'
-  - 'weather_humidity'
-  - 'wind_speed'
-  - 'wind_direction'
-
-The following conditions can be monitored with a Nest Protect only. 
-  - 'co_status'
-  - 'smoke_status'
+- Nest Thermostat:
+  - humidity
+  - operation\_mode
+  - temperature
+  - target
+- Nest Protect:
+  - co\_status
+  - smoke\_status 
+- Nest Camera: none
 
