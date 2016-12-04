@@ -76,7 +76,30 @@ This release includes a new [websockets][websockets] based API by [@balloob] to 
 - Minor and not so minor features and bug fixes by [@turbokongen], [@sdague], [@pvizeli], [@fabaff], [@chapple], [@mweinelt], [@Khabi], [@balloob], [@mnestor], [@kellerza], [@Morrisai],
 [@michaelarnauts], [@tchellomello], [@lwis], [@bjarniivarsson], [@danielperna84], [@LinuxChristian], [@MartinHjelmare], [@dethpickle], [@jnewland], [@lichtteil], [@brandonweeks], [@partofthething], [@mnoorenberghe], [@bah2830], and [@albertoarias].
 
-## {% linkable_title Breaking changes %}
+### {% linkable_title Release 0.34.1 - December 4 %}
+
+This release has a bunch of bug fixes including a big one: emulated_hue will now work with Google Home! We usually reserve patch releases for small bug fixes but we considered this more impactful bug fix so important that we're including it now instead of having people wait two weeks.
+
+To make the fix backwards compatible (it is a patch release after all) you will have to add two new configuration option to emulated_hue to have it work with Google Home:
+
+```yaml
+emulated_hue:
+  type: google_home
+  # This is important. Sadly, Google Home will not work with other ports.
+  listen_port: 80
+```
+
+We are working on a better solution for 0.35.
+
+- Fix emulated_hue with Google Home ([@balloob])
+- Fix Sonos invalid config error ([@pvizeli])
+- Fix Synology DSM doing I/O inside event loop ([@balloob])
+- Fix Nest camera issues ([@technicalpickles])
+- Fix occasional hangs in Homematic ([@pvizeli])
+- Revert TP-Link upgrade to fix issues ([@mweinelt])
+- Fix CORS ([@balloob])
+
+### {% linkable_title Breaking changes %}
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.
@@ -153,7 +176,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [amcrest]: https://home-assistant.io/components/camera.amcrest/
 [boradlink]: https://home-assistant.io/components/sensor.broadlink/
 [dsmr]: https://home-assistant.io/components/sensor.dsmr/
-[dunehd]: https://home-assistant.io/components/dunehd/
+[dunehd]: https://home-assistant.io/components/media_player.dunehd/
 [efergy]: https://home-assistant.io/components/sensor.efergy/
 [filtering]: https://home-assistant.io/components/http/
 [gpslogger]: https://home-assistant.io/components/device_tracker.gpslogger/
