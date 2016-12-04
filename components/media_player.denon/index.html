@@ -99,16 +99,28 @@
   <li>Denon RCD-N8 (untested)</li>
   <li>Denon RCD-N9 (partial support)</li>
   <li>Denon AVR receivers with Integrated Network support (partial support)</li>
+  <li>Denon AVR-X4100W (via denonavr platform)</li>
+  <li>Denon AVR receivers (via denonavr platform (untested))</li>
 </ul>
 
 <p>To add a Denon Network Receiver to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
+<p>Telnet interface</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">denon</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
 </code></pre>
 </div>
+
+<p>denonavr interface</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">denonavr</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+</code></pre>
+</div>
+
 <p>Configuration variables:</p>
 
 <ul>
@@ -124,6 +136,8 @@
   <li>To be able to wake up the receiver, activate the “remote” setting in the receiver’s settings.</li>
   <li>Play and pause are supported, toggling is not possible.</li>
   <li>Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.</li>
+  <li>Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform</li>
+  <li>denonavr platform supports some additional functionalities like album covers and is supporting more than simultaneous one connection</li>
 </ul>
 
 
