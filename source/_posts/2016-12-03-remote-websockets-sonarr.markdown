@@ -40,7 +40,6 @@ This release includes a new [websockets][websockets] based API by [@balloob] to 
 
 ## {% linkable_title All changes  %}
 
-- Sensor: [Broadlink][boradlink] RM2 and A1 E-air support ([@skyval])
 - New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
 - Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
 - Sensor: Support for [Sonarr][sonarr] ([@hborawski])
