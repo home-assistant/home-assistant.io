@@ -175,9 +175,12 @@ entities. The driving use case behind this functionality is to allow Home Assist
 
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
 
-<p>You can verify that the <code class="highlighter-rouge">emulated_hue</code> component has been loaded and is responding by pointing a local browser to the following URL: 
-http://<code class="highlighter-rouge">&lt;HA IP Address&gt;</code>:8300/description.xml - This URL should return a descriptor file in the form of an XML file.
-http://<code class="highlighter-rouge">&lt;HA IP Address&gt;</code>:8300/api/pi/lights - This will return a list of devices, lights, scenes, groups, etc.. that <code class="highlighter-rouge">emulated_hue</code> is exposing to Alexa.</p>
+<p>You can verify that the <code class="highlighter-rouge">emulated_hue</code> component has been loaded and is responding by pointing a local browser to the following URL:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">http://&lt;HA IP Address&gt;:8300/description.xml</code> - This URL should return a descriptor file in the form of an XML file.</li>
+  <li><code class="highlighter-rouge">http://&lt;HA IP Address&gt;:8300/api/pi/lights</code> - This will return a list of devices, lights, scenes, groups, etc.. that <code class="highlighter-rouge">emulated_hue</code> is exposing to Alexa.</li>
+</ul>
 
 <h3><a class="title-link" name="license" href="#license"></a> License</h3>
 
