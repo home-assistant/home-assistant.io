@@ -1,7 +1,24 @@
-If you're trying to run ozwcp, just create a service for it and run it 24/7! That way, you can just stop the zwave network inside of hass, open your browser to the ozwcp page, connect, do you thing, disconnect, and then start the zwave network back up in Home-Assistant
-<code>sudo nano /etc/systemd/system/ozwcp.service</code>
+---
+layout: page
+title: "OZWCP panel iframe"
+description: " Create an Panel iframe for OZWCP."
+date: 2016-12-04 00:01
+sidebar: true
+comments: false
+sharing: true
+footer: true
+ha_category: User Interface
+---
 
+#### {% linkable_title Create an Panel iframe for OZWCP %}
+
+If you're trying to run OZWCP, just create a service for it and run it 24/7! That way, you can just stop the Z-wave network inside of Home Assistant, open your browser to the OZWCP page, connect, do your thing, disconnect, and then start the Z-wave network back up in Home Assistant. 
+
+```shell
+sudo nano /etc/systemd/system/ozwcp.service
 ```
+
+```shell
 [Unit]
 Description=OpenZWave Control Panel
 After=network.target
@@ -16,9 +33,9 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-##For the AIO Raspberry installer the example would look like this:
+##For the All-In-One Raspberry installer the example would look like this:
 
-```
+```shell
 [Unit]
 Description=OpenZWave Control Panel
 After=network.target
@@ -33,16 +50,18 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-<br>
-<code>sudo systemctl daemon-reload </code> <br>
-<code>sudo systemctl enable ozwcp.service </code><br>
-<code>sudo systemctl start ozwcp.service </code><br>
-And then you're good to use it whenever you want!<br>
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl enable ozwcp.service
+sudo systemctl start ozwcp.service
+```
+And then you're good to use it whenever you want!
 
 To integrate the panel in Home Assistant just add a iframe in your configuration.yaml like this:
 
-<br>
-```
+
+```yaml
 panel_iframe:
 ozwcp:
   title: Open Z-wave Control Panel
@@ -51,12 +70,10 @@ ozwcp:
 ```
 
 With the initd script the OZWCP will start on boot and will be available and should look like this:
-<br>
 ![Alt text](https://files.gitter.im/home-assistant/home-assistant/KN7a/blob "OZWCP")
 
-<br>
 To be able to wórk in the OZWCP you must stop the z-wave network e.g. in hass via service:
-<br>
+
 ![Alt text](https://files.gitter.im/home-assistant/home-assistant/6D4K/blob "Stop z-wave network")
-<br>
-When you finished working in OWZCP hit "close" and you are done. Now you just want to start the z-wave network in Home-Assistant again.
+
+When you finished working in OWZCP hit "close" and you are done. Now you just want to start the Z-wave network in Home Assistant again.
