@@ -35,18 +35,24 @@ Configuration variables:
 - **host** (*Optional*): The IP address or hostname to check the state of the device (on/off).
 - **turn_off** (*Optional*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
 
-Suggested recipe for letting the turn_off script suspend a Linux computer (the target)
-from Home Assistant running on another Linux computer (the server)
+## {% linkable_title Examples %}
 
-1) On the server, log in as the user account Home Assistant is running under. (I'm using 'hass' in this example)
-2) On the server, create ssh keys by running 'ssh-keygen'. Just press enter on all questions.
-3) On the target, create a new account that Home Assistant can ssh into: 'sudo adduser hass'. Just press enter on all questions except password. I recommend using the same user name as on the server.
-4) On the server, transfer your public ssh key by 'ssh-copy-id hass@TARGET' where TARGET is your target machine's name or IP address. Enter the password you created in step 3.
-5) On the server, verify that you can reach your target machine without password by 'ssh TARGET'.
-6) On the target, we need to let the hass user execute the program needed to suspend/shut down the target computer. I'm using 'pm-suspend', use 'poweroff' to turn off the computer. First, get the full path: 'which pm-suspend'. On my system, this is '/usr/sbin/pm-suspend'
-7) On the target, using an account with sudo access (typically your main account), 'sudo visudo'. Add this line last in the file: 'hass ALL=NOPASSWD:/usr/sbin/pm-suspend', where you replace 'hass' with the name of your user on the target, if different, and '/usr/sbin/pm-suspend' with the command of your choice, if different.
-8) On the server, add the following to your configuration:
+Here are some real life examples of how to use the **turn_off** variable.
+
+### {% linkable_title Suspending linux %}
+Suggested recipe for letting the turn_off script suspend a Linux computer (the **target**)
+from Home Assistant running on another Linux computer (the **server**).
+
+1. On the **server**, log in as the user account Home Assistant is running under. (I'm using `hass` in this example)
+2. On the **server**, create ssh keys by running `ssh-keygen`. Just press enter on all questions.
+3. On the **target**, create a new account that Home Assistant can ssh into: `sudo adduser hass`. Just press enter on all questions except password. I recommend using the same user name as on the server. If you do, you can leave out `hass@` in the ssh commands below.
+4. On the **server**, transfer your public ssh key by `ssh-copy-id hass@TARGET` where TARGET is your target machine's name or IP address. Enter the password you created in step 3.
+5. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
+6. On the **target**, we need to let the hass user execute the program needed to suspend/shut down the target computer. I'm using `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.
+7. On the **target**, using an account with sudo access (typically your main account), `sudo visudo`. Add this line last in the file: `hass ALL=NOPASSWD:/usr/sbin/pm-suspend`, where you replace `hass` with the name of your user on the target, if different, and `/usr/sbin/pm-suspend` with the command of your choice, if different.
+8. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
 ``` yaml
+switch:
   - platform: wake_on_lan
     name: "TARGET"
     ...
