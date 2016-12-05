@@ -31,6 +31,7 @@ This component is known to work for:
 - Landis+Gyr E350 (DMSR 4)
 - Landis+Gyr ZCF110 / ZM F110 (DSMR 4.2)
 - Kaifa E0026
+- Kamstrup 382JxC (DSMR 2.2)
 
 And USB serial converters:
 
