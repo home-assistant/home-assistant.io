@@ -76,6 +76,8 @@ To access this instance by using https://countryside.example.org add to `/etc/ht
   ProxyPreserveHost On
   ProxyRequests Off
   ServerName countryside.example.org
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket
+  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
   ProxyPass / http://localhost:8124/
   ProxyPassReverse / http://localhost:8124/
 </VirtualHost>
