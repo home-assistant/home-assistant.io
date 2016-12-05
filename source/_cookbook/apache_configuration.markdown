@@ -30,6 +30,8 @@ To be able to access to your home assistant instance by using https://home.examp
   ProxyPreserveHost On
   ProxyRequests Off
   ServerName home.example.org
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket
+  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
   ProxyPass / http://localhost:8123/
   ProxyPassReverse / http://localhost:8123/
 </VirtualHost>
