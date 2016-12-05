@@ -90,42 +90,68 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">nest</code> binary sensor platform let you monitor various states of a thermostat from <a href="https://nest.com">Nest</a>.</p>
+  <p>The <code class="highlighter-rouge">nest</code> binary sensor platform lets you monitor various states of your <a href="https://nest.com">Nest</a> devices.</p>
 
 <p class="note">
-You must have the <a href="/components/nest/">Nest component</a> configured to use these sensors.  A nest thermostat can provide any of the below sensors.  A nest protect can only report the ‘online’ condition. 
+You must have the <a href="/components/nest/">Nest component</a> configured to use these sensors.  The <code class="highlighter-rouge">nest</code> binary sensor will automatically be setup when you do.
 </p>
 
-<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To customize which binary sensors are enabled, you can add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s1">'</span><span class="s">fan'</span>
-      <span class="pi">-</span> <span class="s1">'</span><span class="s">hvac_ac_state'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">is_using_emergency_heat'</span>
 </code></pre>
 </div>
+
+<p>If you leave <code class="highlighter-rouge">monitored_conditions</code> blank, all sensors that are available for your devices will be used.</p>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.
+  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): States to monitor.
     <ul>
-      <li>‘fan’</li>
-      <li>‘hvac_ac_state’</li>
-      <li>‘hvac_aux_heater_state’</li>
-      <li>‘hvac_heat_x2_state’</li>
-      <li>‘hvac_heat_x3_state’</li>
-      <li>‘hvac_alt_heat_state’</li>
-      <li>‘hvac_alt_heat_x2_state’</li>
-      <li>‘hvac_emer_heat_state’</li>
-      <li>‘online’</li>
+      <li>online</li>
+      <li>fan</li>
+      <li>is_using_emergency_heat</li>
+      <li>is_locked</li>
+      <li>has_leaf</li>
+      <li>motion_detected</li>
+      <li>person_detected</li>
+      <li>sound_detected</li>
     </ul>
   </li>
-  <li><strong>scan_interval</strong> (<em>Optional</em>): Interval in seconds to scan.</li>
 </ul>
 
+<p>The following conditions are available by device:</p>
+
+<ul>
+  <li>Nest Thermostat:
+    <ul>
+      <li>online</li>
+      <li>fan</li>
+      <li>is_using_emergency_heat</li>
+      <li>is_locked</li>
+      <li>has_leaf</li>
+    </ul>
+  </li>
+  <li>Nest Protect:
+    <ul>
+      <li>online</li>
+    </ul>
+  </li>
+  <li>Nest Camera:
+    <ul>
+      <li>online</li>
+      <li>motion_detected</li>
+      <li>person_detected</li>
+      <li>sound_detected</li>
+    </ul>
+  </li>
+</ul>
 
 
 </article>

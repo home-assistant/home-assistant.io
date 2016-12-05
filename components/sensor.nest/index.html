@@ -90,13 +90,13 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">nest</code> sensor platform let you monitor sensors connected to your <a href="https://nest.com">Nest</a> thermostat and/or your Nest Protect Smoke Alarm.</p>
+  <p>The <code class="highlighter-rouge">nest</code> sensor platform lets you monitor sensors connected to your <a href="https://nest.com">Nest</a> devices.</p>
 
 <p class="note">
-You must have the <a href="/components/nest/">Nest component</a> configured to use those sensors.
+You must have the <a href="/components/nest/">Nest component</a> configured to use these sensors.  The <code class="highlighter-rouge">nest</code> binary sensor will automatically be setup when you do.
 </p>
 
-<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To customize which sensors are enabled, you can add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -107,38 +107,32 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
 </code></pre>
 </div>
 
+<p>If you leave <code class="highlighter-rouge">monitored_conditions</code> blank, all sensors that are available for your devices will be included.</p>
+
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.</li>
+  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): States to monitor.</li>
 </ul>
 
-<p>The following conditions can be monitored with a Nest Thermostat or Protect.</p>
-<ul>
-  <li>‘battery_level’</li>
-</ul>
-
-<p>The following conditions can be monitored with a Nest Thermostat only.</p>
+<p>The following conditions are available by device:</p>
 
 <ul>
-  <li>‘temperature’</li>
-  <li>‘target’</li>
-  <li>‘humidity’</li>
-  <li>‘operation_mode’</li>
-  <li>‘last_ip’</li>
-  <li>‘local_ip’</li>
-  <li>‘last_connection’</li>
-  <li>‘weather_condition’</li>
-  <li>‘weather_temperature’</li>
-  <li>‘weather_humidity’</li>
-  <li>‘wind_speed’</li>
-  <li>‘wind_direction’</li>
-</ul>
-
-<p>The following conditions can be monitored with a Nest Protect only.</p>
-<ul>
-  <li>‘co_status’</li>
-  <li>‘smoke_status’</li>
+  <li>Nest Thermostat:
+    <ul>
+      <li>humidity</li>
+      <li>operation_mode</li>
+      <li>temperature</li>
+      <li>target</li>
+    </ul>
+  </li>
+  <li>Nest Protect:
+    <ul>
+      <li>co_status</li>
+      <li>smoke_status</li>
+    </ul>
+  </li>
+  <li>Nest Camera: none</li>
 </ul>
 
 
