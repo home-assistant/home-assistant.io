@@ -29,12 +29,12 @@ Configuration variables:
 
 - **host** (*Optional*): The IP or hostname of the flic service server. (default: `localhost`)
 - **port** (*Optional*): The port of the flic service. (default: `5551`)
-- **auto_scan** (*Optional*): If `true`, the component is configured to constantly scan for new buttons. (default: `true`)
+- **discovery** (*Optional*): If `true`, the component is configured to constantly scan for new buttons. (default: `true`)
 
 
-#### {% linkable_title Auto scan %}
+#### {% linkable_title Discovery %}
 
-If auto scan is enabled, you can add a new button by pressing it for at least 7s. The button will be paired with the flic service and added to Home Assistant. Otherwise, you have to manually pair it with the flic service. The Home Assistant platform will not scan for new buttons and will only connect to buttons already paired.
+If discovery is enabled, you can add a new button by pressing it for at least 7s. The button will be paired with the flic service and added to Home Assistant. Otherwise, you have to manually pair it with the flic service. The Home Assistant platform will not scan for new buttons and will only connect to buttons already paired.
 
 
 #### {% linkable_title Events %}
