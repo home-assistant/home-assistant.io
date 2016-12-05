@@ -30,7 +30,7 @@ sensor:
       - 'target'
 ```
 
-If you leave `monitored_conditions` blank, all sensors that are available for your devices will be used.
+If you leave `monitored_conditions` blank, all sensors that are available for your devices will be included.
 
 Configuration variables:
 
