@@ -68,13 +68,14 @@ group:
       - sensor.gas_consumption
 ```
 
-HASSBIAN users have to give dialout permission to the user 'homeassistant':
+[HASSbian](/getting-started/installation-raspberry-pi-image/) users have to give dialout permission to the user `homeassistant`:
 
 ```
 $ sudo usermod -a -G dialout homeassistant
 ```
+
 and after that you need to reboot!
+
 ```
 $ sudo reboot
-
 ```
