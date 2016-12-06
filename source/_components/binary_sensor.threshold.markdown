@@ -26,7 +26,7 @@ To enable the threshold sensor, add the following lines to your `configuration.y
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   - platform: threshold
     threshold: 15
     type: lower
