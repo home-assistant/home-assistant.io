@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-05T20:04:55+00:00</updated>
+  <updated>2016-12-06T07:45:55+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -122,6 +122,15 @@
   <li>Fix Nest sensor platforms throwing errors (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
   <li>Frontend will now always show persistent_notification and configurator entities even if not part of the active view (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Fixed media player cards taking up unnecessary space (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0343---december-6" href="#release-0343---december-6"></a> Release 0.34.3 - December 6</h3>
+
+<ul>
+  <li>Fix Hook connections (<a href="https://github.com/dasos">@dasos</a>)</li>
+  <li>Fix random websocket connections (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Google Home sometimes not finding our emulated_hue (<a href="https://github.com/jawilson">@jawilson</a>)</li>
+  <li>Fix EnOcean config validation (<a href="https://github.com/rubund">@rubund</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
