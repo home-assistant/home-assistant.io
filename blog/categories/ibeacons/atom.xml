@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iBeacons | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/ibeacons/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-06T08:09:11+00:00</updated>
+  <updated>2016-12-06T08:21:33+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -23,7 +23,7 @@
 
 In [Part 1](/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better) I talked about using iBeacons to improve presence tracking. In part 2 I’ll talk about how to track things like keys that can’t track themselves by using iBeacons.
 
-### {% linkable_title Tracking things using iBeacons %}
+### <a class='title-link' name='tracking-things-using-ibeacons' href='#tracking-things-using-ibeacons'></a> Tracking things using iBeacons 
 In the first part I mentioned that iBeacons just send out *I’m here* packets, and we used this to trigger an update when your phone came close to a fixed beacon.
 
 But beacons don’t have to be fixed.
@@ -89,10 +89,10 @@ automation:
   - alias: 'Forgotten keys'
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'
     condition:
       condition: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != "home" }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != "home" }}'
     action:
       service: script.turn_on
       entity_id: script.send_key_alert
@@ -100,7 +100,7 @@ automation:
   - alias: 'Forgotten keys - cancel'
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}'
     condition:
       - condition: state
         entity_id: script.send_key_alert
@@ -128,7 +128,7 @@ script:
 2. I’ve found that beacons (especially the low power Estimote Nearables) can get disconnected for a few seconds so it’s best to wait a minute or so before deciding that you’ve left your keys behind)
 
 
-### {% linkable_title Using both types of iBeacons at the same time %}
+### <a class='title-link' name='using-both-types-of-ibeacons-at-the-same-time' href='#using-both-types-of-ibeacons-at-the-same-time'></a> Using both types of iBeacons at the same time 
 Of course you can use both fixed and mobile beacons at the same time. I want my gates to open when I arrive home in the car - so I use an iBeacon in the car so that I can track the car, and a iBeacon on my drive so that a location update is triggered when I arrive. I've been experimenting with a high power beacon in a waterproof box on my drive which seems to work well to notice when I get home.
 
 <p class='img'>
@@ -142,7 +142,7 @@ Long range / High power beacon
 Waterproof beacon
 
 
-### {% linkable_title Buying Beacons %}
+### <a class='title-link' name='buying-beacons' href='#buying-beacons'></a> Buying Beacons 
 This isn’t a buyer's guide, but I just wanted to mention the iBeacons I’ve been using. I think you should be able to use any iBeacon with HA and OwnTracks. You generally can’t buy beacons in your local electronics shop - so I just wanted to briefly mention the two suppliers I’ve used so far.
 
 I’ve bought quite a few iBeacons from a company called [Blue Sense Networks](http://bluesensenetworks.com/). I work in the tech startup sector in the UK so I partly chose them because they are a local start-up who seemed worth supporting. The products, support and software all seem good. I use a number of their beacons - from a simple USB dongle, to a long range beacon. All their products have batteries that can be changed (or no batteries in the case of the externally powered USB device) - and you can configure all the parameters you’d want to using their software. I had one software issue, support got back to me at a weekend(!) - and the issue was resolved with a software release two days later.
@@ -155,12 +155,12 @@ I’ve mainly used these as *devices to track* rather that *location* beacons. E
 
 The larger Blue Sense Network beacons seem to be better at maintaining a connection that the Estimotes - although that might be because I’m reluctant to turn the power to maximum and reduce the gap between sending packets on the Estimotes where I can’t replace the batteries!
 
-### {% linkable_title Conclusion %}
+### <a class='title-link' name='conclusion' href='#conclusion'></a> Conclusion 
 As I said in [part 1](/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better), I’ve found iBeacons to be a good way of improving presence detection. I also used them to track devices like my car and my keys that can’t track themselves.
 
 I'm still experimenting, so I hope I can do more with iBeacons. I hope I've encouraged you do so the same. If you do please share your experiences.
 
-### {% linkable_title Notes %}
+### <a class='title-link' name='notes' href='#notes'></a> Notes 
 
 Please see the [notes at the end of Part 1](/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/#tips) for documentation information.
 
@@ -179,7 +179,7 @@ In 2013 Apple introduced iBeacons: a class of Bluetooth low energy (LE) devices 
 
 The reason I started using iBeacons was to improve presence detection (and I think that’s the case with most people) so that's what I’ll discuss in _part 1_. In _part 2_ I’ll talk about using iBeacons to track devices that can’t track themselves.
 
-### {% linkable_title Using beacons to improve OwnTracks location data %}
+### <a class='title-link' name='using-beacons-to-improve-owntracks-location-data' href='#using-beacons-to-improve-owntracks-location-data'></a> Using beacons to improve OwnTracks location data 
 
 When you use OwnTracks in standard _major move_ mode (which is kind to your phone battery) it sometimes fails to update when you’d like it to. In my case I found that it would often send a location update as I was on my way home, but then not update when I got home. The result would be that Home Assistant would think I was 500M away from home, and take quite a while to notice I was home. It would also mean that the automation that should turn on my lights when I got home didn’t work very well! There were a few times when my phone location updated at 2am and turned the lights on for me. Fortunately my wife is very patient!
 
@@ -187,7 +187,7 @@ Luckily, OwnTracks supports iBeacons so I could use them to make presence detect
 
 <!--more-->
 
-### {% linkable_title Getting Started %}
+### <a class='title-link' name='getting-started' href='#getting-started'></a> Getting Started 
 
 To do this you first need to set up [MQTT] and [OwnTracks] in Home assistant - and make sure that HA can track your phone.
 
@@ -196,7 +196,7 @@ To do this you first need to set up [MQTT] and [OwnTracks] in Home assistant - a
 
 You then have to (A) tell Home Assistant where the beacon is located and (B) tell OwnTracks to recognise the beacon.
 
-#### {% linkable_title A. Tell Home Assistant where your beacon is located %}
+#### <a class='title-link' name='a-tell-home-assistant-where-your-beacon-is-located' href='#a-tell-home-assistant-where-your-beacon-is-located'></a> A. Tell Home Assistant where your beacon is located 
 
 You tell HomeAssistant about fixed locations by creating a Zone with the longitude and latitude of your beacon. You should also give the zone a name which you will also use when you set up OwnTracks. An an example this zone specifies the location of my drive way.
 
@@ -215,7 +215,7 @@ The radius isn’t used by the beacon code, but it is used by the GPS location s
 
 Once you’ve created the zone - you need to restart HA. The next step is:-
 
-#### {% linkable_title B. Tell OwnTracks to track  your beacon %}
+#### <a class='title-link' name='b-tell-owntracks-to-track--your-beacon' href='#b-tell-owntracks-to-track--your-beacon'></a> B. Tell OwnTracks to track  your beacon 
 
 1. Go to the OwnTracks app on your phone
 2. Touch the `Regions` menu at the bottom of the screen
@@ -244,7 +244,7 @@ So with the steps above you should be able to improve the reliability of trackin
 
 I’m also pleased to say I no longer get an _arrive home_ event at 2am that turns the lights on. I hope I’ve convinced you that iBeacons are worth trying!
 
-### {% linkable_title Mixing Beacons and GPS locations %}
+### <a class='title-link' name='mixing-beacons-and-gps-locations' href='#mixing-beacons-and-gps-locations'></a> Mixing Beacons and GPS locations 
 
 You will probably use beacons to make entry into your existing GPS zones more reliable. By default either a beacon or a GPS location can cause you to enter a zone - and HA has some logic that should make them two work well together (it ignores GPS updates when you’re in an iBeacon Zone).
 
@@ -275,17 +275,17 @@ You could use this technique to try to detect which room someone is in. This mig
 
 To get this to work you’ll probably need to experiment with the beacon signal strength to try to match the beacon reception area to the location you want to track. Let me know if you get this to work (it doesn’t make sense in my open plan house)
 
-### {% linkable_title Conclusion %}
+### <a class='title-link' name='conclusion' href='#conclusion'></a> Conclusion 
 
 Presence tracking sounds easy - and it's an important part of Home Automation. Trying it shows how difficult it is to get presence detection right.  I've found that iBeacons have improved the reliability and timeliness of knowing where I am, and I hope I encouraged you to try them too.
 
-### {% linkable_title Tips %}
+### <a class='title-link' name='tips' href='#tips'></a> Tips 
 
 You can find out more about configuring the OwnTracks application and beacons [here](http://owntracks.org/booklet/features/beacons/)
 
 There is information about configuring Homeassistant to use beacons [here](https://home-assistant.io/components/device_tracker.owntracks/)
 
-#### {% linkable_title Connections and disconnecting %}
+#### <a class='title-link' name='connections-and-disconnecting' href='#connections-and-disconnecting'></a> Connections and disconnecting 
 
 Owntracks treats a region name with a leading `-` as a hint that it shouldn't disconnect after a single missed packet. This improves the ability to keep a connection to a beacon.
 
@@ -293,7 +293,7 @@ However, even when using this feature I’ve noticed that you can still lose con
 
 In automations you can use a `for:` to avoid triggering during a brief disconnect, or use a script with a delay. Stay tuned for _part 2_ for an example of this.
 
-#### {% linkable_title Using Multiple beacons for the same Zone %}
+#### <a class='title-link' name='using-multiple-beacons-for-the-same-zone' href='#using-multiple-beacons-for-the-same-zone'></a> Using Multiple beacons for the same Zone 
 iBeacons have a `UUID` (usually set to the same value for beacons from the same manufacturer), as well as a `minor` and `major` number. If you set two beacons to have exactly same details then OwnTracks will think multiple beacons are at the same location.
 
 This means you can have more than one beacon around your home - and a connection to any of them will count as `home` to OwnTracks and HA. This reduces disconnections.

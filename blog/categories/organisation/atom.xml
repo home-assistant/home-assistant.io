@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Organisation | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/organisation/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-06T08:09:11+00:00</updated>
+  <updated>2016-12-06T08:21:33+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -20,10 +20,10 @@
     <id>https://home-assistant.io/blog/2016/10/25/explaining-the-updater</id>
     <content type="html"><![CDATA[On Saturday, we released [Home Assistant 0.31][0.31] which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.
 
-## {% linkable_title Why we changed the updater %}
+## <a class='title-link' name='why-we-changed-the-updater' href='#why-we-changed-the-updater'></a> Why we changed the updater 
 This change was driven by two important factors.
 
-### {% linkable_title Improving the security of the users. %}
+### <a class='title-link' name='improving-the-security-of-the-users' href='#improving-the-security-of-the-users'></a> Improving the security of the users. 
 
 As a user, you will be able to be notified if you are running a Home Assistant version that includes components that have known security flaws.
 
@@ -31,7 +31,7 @@ Although we hope to not have to use this feature often, it is important for us t
 
 Please note that this functionality is not done yet but will be available in a future release.
 
-### {% linkable_title Focusing our resources where it matters %}
+### <a class='title-link' name='focusing-our-resources-where-it-matters' href='#focusing-our-resources-where-it-matters'></a> Focusing our resources where it matters 
 
 As developers of Home Assistant, we will be able to see in what kind of environments Home Assistant is running. Here’s a few data points we didn’t have until now:
 
@@ -42,19 +42,19 @@ As developers of Home Assistant, we will be able to see in what kind of environm
 * How popular is our new [Raspberry Pi image][rpi-image]?
 
 
-## {% linkable_title Why we look up your IP address with GeoIP %}
+## <a class='title-link' name='why-we-look-up-your-ip-address-with-geoip' href='#why-we-look-up-your-ip-address-with-geoip'></a> Why we look up your IP address with GeoIP 
 We store the city so that we can see where our users are from. This information will be used to give us a better insight in where our users are from. This will help us gather data to see if we should for example prioritize internationalization. In addition, we previously had a nasty bug with the `sun` component in which users above a certain latitude were having crashes multiple times a day. Had the updater component been in place we could have targeted a special priority update notification only to them.
 
 As stated in the release blog post, the location information is _not_ provided by your local Home Assistant installation but is instead gathered by comparing your IP address against the [GeoLite2 data created by MaxMind][geolite]. From their documentation:
 
 > IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household.
 
-## {% linkable_title Why is it enabled by default %}
+## <a class='title-link' name='why-is-it-enabled-by-default' href='#why-is-it-enabled-by-default'></a> Why is it enabled by default 
 We decided to have it enabled by default because we consider the information that is gathered not harmful. We understand that not everyone will agree with us and so we have provided [multiple ways to opt out][opt-out].
 
 It is in our short-term planning to add an option to control this to our frontend.
 
-## {% linkable_title Source Code %}
+## <a class='title-link' name='source-code' href='#source-code'></a> Source Code 
 The source code of our updater AWS Lambda function is now available [here][source].
 
 
@@ -113,7 +113,7 @@ Paulus
 The new logo follows Googles material design spec. It uses the blue color that Home Assistant uses in the interface and it comes in two versions: a high detailed version (for homescreen icon etc) and a simple version (for favicon etc).
 
 <p class='img'>
-<img src='{{site_root}}/images/blog/ha-logo-history.png' />
+<img src='/images/blog/ha-logo-history.png' />
 The old logo, the new detailed logo and the new simple logo.
 </p>
 ]]></content>

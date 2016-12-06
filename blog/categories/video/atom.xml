@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Video | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/video/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-06T08:09:11+00:00</updated>
+  <updated>2016-12-06T08:21:33+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -68,11 +68,11 @@ I've had a really great time at PyCon. It was awesome to meet everyone in person
     <id>https://home-assistant.io/blog/2016/06/01/community-highlights</id>
     <content type="html"><![CDATA[Our community is amazingly helpful and creative. If you haven't been there yet, make sure to stop by our [chat room] and come hang out with us. In this blog post I want to highlight a few recent awesome projects and videos from the community.
 
-### {% linkable_title SceneGen - cli for making scenes %}
+### <a class='title-link' name='scenegen---cli-for-making-scenes' href='#scenegen---cli-for-making-scenes'></a> SceneGen - cli for making scenes 
 
 [SceneGen] is a new command line utility developed by [Andrew Cockburn] that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.
 
-### {% linkable_title Videos %}
+### <a class='title-link' name='videos' href='#videos'></a> Videos 
 
 [Nick Touran] has been working on integrating IR remotes with Home Assistant. He made it into a component which should be available in the next release which should arrive in a couple of days. In the meanwhile, he wrote up [a blog post] and has put out a video showing the new integration, very cool!
 

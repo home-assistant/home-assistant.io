@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Device-Tracking | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/device-tracking/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-06T08:09:11+00:00</updated>
+  <updated>2016-12-06T08:21:33+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -23,7 +23,7 @@
 
 In [Part 1](/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better) I talked about using iBeacons to improve presence tracking. In part 2 I’ll talk about how to track things like keys that can’t track themselves by using iBeacons.
 
-### {% linkable_title Tracking things using iBeacons %}
+### <a class='title-link' name='tracking-things-using-ibeacons' href='#tracking-things-using-ibeacons'></a> Tracking things using iBeacons 
 In the first part I mentioned that iBeacons just send out *I’m here* packets, and we used this to trigger an update when your phone came close to a fixed beacon.
 
 But beacons don’t have to be fixed.
@@ -89,10 +89,10 @@ automation:
   - alias: 'Forgotten keys'
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'
     condition:
       condition: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != "home" }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != "home" }}'
     action:
       service: script.turn_on
       entity_id: script.send_key_alert
@@ -100,7 +100,7 @@ automation:
   - alias: 'Forgotten keys - cancel'
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}'
     condition:
       - condition: state
         entity_id: script.send_key_alert
@@ -128,7 +128,7 @@ script:
 2. I’ve found that beacons (especially the low power Estimote Nearables) can get disconnected for a few seconds so it’s best to wait a minute or so before deciding that you’ve left your keys behind)
 
 
-### {% linkable_title Using both types of iBeacons at the same time %}
+### <a class='title-link' name='using-both-types-of-ibeacons-at-the-same-time' href='#using-both-types-of-ibeacons-at-the-same-time'></a> Using both types of iBeacons at the same time 
 Of course you can use both fixed and mobile beacons at the same time. I want my gates to open when I arrive home in the car - so I use an iBeacon in the car so that I can track the car, and a iBeacon on my drive so that a location update is triggered when I arrive. I've been experimenting with a high power beacon in a waterproof box on my drive which seems to work well to notice when I get home.
 
 <p class='img'>
@@ -142,7 +142,7 @@ Long range / High power beacon
 Waterproof beacon
 
 
-### {% linkable_title Buying Beacons %}
+### <a class='title-link' name='buying-beacons' href='#buying-beacons'></a> Buying Beacons 
 This isn’t a buyer's guide, but I just wanted to mention the iBeacons I’ve been using. I think you should be able to use any iBeacon with HA and OwnTracks. You generally can’t buy beacons in your local electronics shop - so I just wanted to briefly mention the two suppliers I’ve used so far.
 
 I’ve bought quite a few iBeacons from a company called [Blue Sense Networks](http://bluesensenetworks.com/). I work in the tech startup sector in the UK so I partly chose them because they are a local start-up who seemed worth supporting. The products, support and software all seem good. I use a number of their beacons - from a simple USB dongle, to a long range beacon. All their products have batteries that can be changed (or no batteries in the case of the externally powered USB device) - and you can configure all the parameters you’d want to using their software. I had one software issue, support got back to me at a weekend(!) - and the issue was resolved with a software release two days later.
@@ -155,12 +155,12 @@ I’ve mainly used these as *devices to track* rather that *location* beacons. E
 
 The larger Blue Sense Network beacons seem to be better at maintaining a connection that the Estimotes - although that might be because I’m reluctant to turn the power to maximum and reduce the gap between sending packets on the Estimotes where I can’t replace the batteries!
 
-### {% linkable_title Conclusion %}
+### <a class='title-link' name='conclusion' href='#conclusion'></a> Conclusion 
 As I said in [part 1](/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better), I’ve found iBeacons to be a good way of improving presence detection. I also used them to track devices like my car and my keys that can’t track themselves.
 
 I'm still experimenting, so I hope I can do more with iBeacons. I hope I've encouraged you do so the same. If you do please share your experiences.
 
-### {% linkable_title Notes %}
+### <a class='title-link' name='notes' href='#notes'></a> Notes 
 
 Please see the [notes at the end of Part 1](/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/#tips) for documentation information.
 

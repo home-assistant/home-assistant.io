@@ -1,0 +1,291 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Garadget Cover - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate Garadget covers within Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/cover.garadget/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Garadget Cover">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/cover.garadget/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate Garadget covers within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Garadget Cover">
+    <meta name="twitter:description" content="Instructions how to integrate Garadget covers within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Garadget Cover
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The <code class="highlighter-rouge">garadget</code> cover platform lets you control <a href="http://www.garadget.com/">Garadget</a> garage door futurizers through Home Assistant.</p>
+
+<p>To enable Garadget Covers in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">garadget</span>
+  <span class="s">covers</span><span class="pi">:</span>
+      <span class="s">190028001947343412342341</span><span class="pi">:</span>
+        <span class="s">username</span><span class="pi">:</span>  <span class="s">UseYourLogin@garadget.com</span>
+        <span class="s">password</span><span class="pi">:</span>  <span class="s">abc123</span>
+        <span class="s">name</span><span class="pi">:</span>  <span class="s">Left Garage Door</span>
+      <span class="s">4c003f001151353432134214</span><span class="pi">:</span>
+        <span class="s">access_token</span><span class="pi">:</span> <span class="s">df4cc785ff818f2b01396c44142342fccdef</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>covers</strong> array (<em>Required</em>): List of your doors.
+    <ul>
+      <li><strong>device</strong>  (<em>Required</em>): This is the device id from your Garadget portal.</li>
+      <li>Either:
+        <ul>
+          <li><strong>username</strong> (<em>Required</em>): Your Garadget account username.</li>
+          <li><strong>password</strong> (<em>Required</em>): Your Garadget account password.</li>
+        </ul>
+      </li>
+      <li>Or:
+        <ul>
+          <li><strong>access_token</strong>   (<em>Required</em>): A generated access_token from your garadget account</li>
+        </ul>
+      </li>
+      <li><strong>name</strong> (<em>Optional</em>): Name to use in the Frontend, will use name configured in Garadget otherwise.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>If provided, the <strong>access_token</strong> will be used, otherwise the <strong>username</strong> and <strong>password</strong> will be used to automatically generate an access token at start time.</p>
+
+<p><strong>Example with more detail:</strong></p>
+<p class="img">
+  <img src="/images/components/garadget/cover_garadget_details.png" />
+</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Related configuration.yaml entry</span>
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">garadget</span>
+  <span class="s">covers</span><span class="pi">:</span>
+    <span class="s">190028001947343412342341</span><span class="pi">:</span>
+      <span class="s">access_token</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">garadget_access_token</span>
+      <span class="s">name</span><span class="pi">:</span>  <span class="s">Garage door</span>
+
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+  <span class="s">sensors</span><span class="pi">:</span>
+    <span class="s">garage_door_status</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">State</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">door'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.state</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">garage_door_time_in_state</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Since'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.attributes["time</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">state"]</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">garage_door_wifi_signal_strength</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">WiFi</span><span class="nv"> </span><span class="s">strength'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.attributes["wifi</span><span class="nv"> </span><span class="s">signal</span><span class="nv"> </span><span class="s">strength</span><span class="nv"> </span><span class="s">(dB)"]</span><span class="nv"> </span><span class="s">}}'</span>
+      <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">dB'</span>
+
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">garage_door</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Garage door</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">cover.garage_door</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_status</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_time_in_state</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_wifi_signal_strength</span>
+
+<span class="s">customize</span><span class="pi">:</span>
+  <span class="s">sensor.garage_door_time_in_state</span><span class="pi">:</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:timer-sand</span>
+  <span class="s">sensor.garage_door_wifi_signal_strength</span><span class="pi">:</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:wifi</span>
+</code></pre>
+</div>
+
+<p>Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your <code class="highlighter-rouge">configuration.yaml</code> to exclude those entries.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">logbook</span><span class="pi">:</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_time_in_state</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_door_wifi_signal_strength</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/cover.garadget.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/garadget_logo.jpg' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.32
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/cover/'>the Covers component</a>.
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Cover</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/cover.command_line/'>Command Line Cover</a>
+        </li>
+        <li>
+            Garadget Cover
+        </li>
+        <li>
+            <a href='/components/cover.homematic/'>Homematic Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.isy994/'>ISY994 Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.mqtt/'>MQTT Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.mysensors/'>MySensors Cover</a>
+        </li>
+        <li>
+            <a href='/components/scene.hunterdouglas_powerview/'>PowerView Scenes</a>
+        </li>
+        <li>
+            <a href='/components/cover.rfxtrx/'>RFXtrx Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.rpi_gpio/'>Raspberry Pi Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.scsgate/'>SCSGate Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.vera/'>Vera Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.wink/'>Wink Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.zwave/'>Z-Wave Cover</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

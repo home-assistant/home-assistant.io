@@ -1,0 +1,1703 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Home Assistant is an open-source home automation platform running on Python 3.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Home Assistant">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Home Assistant">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+            
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/12/03/remote-websockets-sonarr/">0.34: New Remote component, Websockets, Sonarr, GPSLogger</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-12-03T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 3, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter et al.</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/12/03/remote-websockets-sonarr/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Here we go… 0.34. Let’s call it the “Santa Claus” release. Rudolph was faster than expected and there’s lot’s of goodies on the sleigh. Of course, more work on async programming done by <a href="https://github.com/pvizeli">@pvizeli</a> and <a href="https://github.com/balloob">@balloob</a>, new components, new platforms, major improvements, and much more.</p>
+
+<h3><a class="title-link" name="gpslogger" href="#gpslogger"></a> GPSLogger</h3>
+
+<p>The work of <a href="https://github.com/dainok">@dainok</a> let’s you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the <a href="https://play.google.com/store/apps/details?id=com.mendhak.gpslogger">GPSLogger</a> app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.</p>
+
+<h3><a class="title-link" name="remote-component" href="#remote-component"></a> Remote component</h3>
+
+<p>The brand new <a href="https://home-assistant.io/components/remote/"><code class="highlighter-rouge">remote</code></a> component made by <a href="https://github.com/iandday">@iandday</a> will simplify the integration of all kinds of remote control units. The first platform for <a href="https://home-assistant.io/components/remote.harmony/">Harmony</a> is included in this release.</p>
+
+<h3><a class="title-link" name="homematic" href="#homematic"></a> HomeMatic</h3>
+
+<p>The <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> component has received some updates worth mentioning:</p>
+
+<ul>
+  <li>Additional services
+    <ul>
+      <li><code class="highlighter-rouge">reconnect</code>: Reconnect to your CCU/Homegear without restarting Home Assistant.</li>
+      <li><code class="highlighter-rouge">set_dev_value</code>: Manually control a device, even if it’s not supported by Home Assistant yet.</li>
+    </ul>
+  </li>
+  <li>Support for multiple HomeMatic hosts</li>
+  <li>Support for HomeMatic Wired (most devices) and HomeMatic IP (a few devices)</li>
+  <li>Various improvements and fixes, especially for HM-Sec-Key (KeyMatic)</li>
+</ul>
+
+<p>The support for multiple hosts is a result of allowing mixed configurations with wireless, wired, and IP devices. This has the drawback of making the update a breaking change (along with the renamed <code class="highlighter-rouge">set_value</code> service). However, the benefits and possibilities gained will be worth it.</p>
+
+<h3><a class="title-link" name="websocket-api" href="#websocket-api"></a> Websocket API</h3>
+
+<p>This release includes a new <a href="https://home-assistant.io/developers/websocket_api/">websockets</a> based API by <a href="https://github.com/balloob">@balloob</a> to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.</p>
+
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+
+<ul>
+  <li>New services and improved device support for <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Device tracker: New support for <a href="https://home-assistant.io/components/device_tracker.gpslogger/">GPSLogger</a> (<a href="https://github.com/dainok">@dainok</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.sonarr/">Sonarr</a> (<a href="https://github.com/hborawski">@hborawski</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.waqi/">World Air Quality Index</a> sensor (<a href="https://github.com/valentinalexeev">@valentinalexeev</a>, <a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.dsmr/">Dutch Smart Meter Requirements</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/switch.hook/">Hook</a> support by hooksmarthome.com (<a href="https://github.com/dasos">@dasos</a>)</li>
+  <li>Camera: Integration for <a href="https://home-assistant.io/components/camera.nest/">Nest cameras</a> (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Light: Support for light effects (<a href="https://github.com/Diaoul">@Diaoul</a>)</li>
+  <li>Sensor: New <a href="https://home-assistant.io/components/binary_sensor.threshold/">Threshold</a> sensor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Media player: New <a href="https://home-assistant.io/components/media_player.dunehd/">DuneHD</a> integration(<a href="https://github.com/valentinalexeev">@valentinalexeev</a>)</li>
+  <li>Media player: Controlling support for <a href="https://home-assistant.io/components/media_player.philips_js/">Philips TVs</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Camera: Support for <a href="https://home-assistant.io/components/camera.amcrest/">Amcrest</a> cameras (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>
+    <p>Sensor: Monitoring support for <a href="https://home-assistant.io/components/sensor.nut/">Network UPS Tools (NUT)</a> (<a href="https://github.com/mezz64">@mezz64</a>)</p>
+  </li>
+  <li>Mediap player - Denon: Source selection support (<a href="https://github.com/Gilles95">@Gilles95</a>)</li>
+  <li>Sensor - MinMax: Precision now configurable (<a href="https://github.com/exxamalte">@exxamalte</a>)</li>
+  <li>Tellstick: Massive <a href="https://home-assistant.io/components/tellstick/">improvement</a> (<a href="https://github.com/magicus">@magicus</a>)</li>
+  <li>Light - Osram: New requirement (<a href="https://github.com/tfriedel">@tfriedel</a>)</li>
+  <li>Sensor - Systemmonitor: Support for removable network adapters (<a href="https://github.com/mnoorenberghe">@mnoorenberghe</a>)</li>
+  <li>LiteJet: New trigger option (<a href="https://github.com/joncar">@joncar</a>)</li>
+  <li>Media player - Bose: Add Bose SoundTouch device support (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a>)</li>
+  <li>HTTP: Re-organisation and <a href="https://home-assistant.io/developers/websocket_api/">websockets</a> support (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>HTTP: Advanced <a href="https://home-assistant.io/components/http/">IP filtering</a> (<a href="https://github.com/vkorn">@vkorn</a>)</li>
+  <li>Sensor - KNX: Fix unit of mesaurement (<a href="https://github.com/cyberjunky">@cyberjunky</a>)</li>
+  <li>Climate: New precision properties (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Sensor - TEMPer: Reset <a href="https://home-assistant.io/components/sensor.temper/">devices</a> on address change (<a href="https://github.com/vemek">@vemek</a>)</li>
+  <li>Core: Color names now follow w3.org recommandations (<a href="https://github.com/srcLurker">@srcLurker</a>)</li>
+  <li>Updater: Robustness improvements (<a href="https://github.com/balloob">@balloob</a>])</li>
+  <li>Media player - MPD: Reconnect to daemon (<a href="https://github.com/janLo">@janLo</a>)</li>
+  <li>Device tracker: Fall-back for MAC address lookup (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Sensor - Efergy: Get the amount of <a href="https://home-assistant.io/components/sensor.efergy/">energy consumed</a> (<a href="https://github.com/gonzalezcalleja">@gonzalezcalleja</a>)</li>
+  <li>Zeroconf: Fix for IPv6 support (<a href="https://github.com/rcloran">@rcloran</a>)</li>
+  <li>Minor and not so minor features and bug fixes by <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/sdague">@sdague</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/chapple">@chapple</a>, <a href="https://github.com/mweinelt">@mweinelt</a>, <a href="https://github.com/Khabi">@Khabi</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/mnestor">@mnestor</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/Morrisai">@Morrisai</a>,
+<a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/bjarniivarsson">@bjarniivarsson</a>, <a href="https://github.com/danielperna84">@danielperna84</a>, <a href="https://github.com/LinuxChristian">@LinuxChristian</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/dethpickle">@dethpickle</a>, <a href="https://github.com/jnewland">@jnewland</a>, <a href="https://github.com/lichtteil">@lichtteil</a>, <a href="https://github.com/brandonweeks">@brandonweeks</a>, <a href="https://github.com/partofthething">@partofthething</a>, <a href="https://github.com/mnoorenberghe">@mnoorenberghe</a>, <a href="https://github.com/bah2830">@bah2830</a>, and <a href="https://github.com/albertoarias">@albertoarias</a>.</li>
+</ul>
+
+<h3><a class="title-link" name="release-0341---december-4" href="#release-0341---december-4"></a> Release 0.34.1 - December 4</h3>
+
+<p>This release has a bunch of bug fixes including a big one: emulated_hue will now work with Google Home! We usually reserve patch releases for small bug fixes but we considered this more impactful bug fix so important that we’re including it now instead of having people wait two weeks.</p>
+
+<p>To make the fix backwards compatible (it is a patch release after all) you will have to add two new configuration option to emulated_hue to have it work with Google Home:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">emulated_hue</span><span class="pi">:</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s">google_home</span>
+  <span class="c1"># This is important. Sadly, Google Home will not work with other ports.</span>
+  <span class="s">listen_port</span><span class="pi">:</span> <span class="s">80</span>
+</code></pre>
+</div>
+
+<p>We are working on a better solution for 0.35.</p>
+
+<ul>
+  <li>Fix emulated_hue with Google Home (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Sonos invalid config error (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Synology DSM doing I/O inside event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Nest camera issues (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Fix occasional hangs in Homematic (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Revert TP-Link upgrade to fix issues (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Fix CORS (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0342---december-5" href="#release-0342---december-5"></a> Release 0.34.2 - December 5</h3>
+
+<ul>
+  <li>Fix Nest interpreting Celsius as Fahrenheit and converting it (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Nest sensor platforms throwing errors (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Frontend will now always show persistent_notification and configurator entities even if not part of the active view (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fixed media player cards taking up unnecessary space (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0343---december-6" href="#release-0343---december-6"></a> Release 0.34.3 - December 6</h3>
+
+<ul>
+  <li>Fix Hook connections (<a href="https://github.com/dasos">@dasos</a>)</li>
+  <li>Fix random websocket connections (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Google Home sometimes not finding our emulated_hue (<a href="https://github.com/jawilson">@jawilson</a>)</li>
+  <li>Fix EnOcean config validation (<a href="https://github.com/rubund">@rubund</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>The <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> component now uses a different syntax for hosts and the <code class="highlighter-rouge">set_value</code> service has been renamed.</li>
+  <li>All <a href="https://home-assistant.io/components/rfxtrx/">RFXtrx</a> sensors will get a new entity ID.</li>
+  <li>If you are using NGINX, you will have to <a href="https://home-assistant.io/ecosystem/nginx/">adapt your configuration</a>.</li>
+  <li><a href="https://home-assistant.io/components/nest/">Nest</a> contains changes which will require your attention.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use these communication channels. Thanks.</p>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
+
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/">0.33: New Calendar component, Wink thermostats and Cisco IOS</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-11-20T00:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 20, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>For this release we put a lot of focus on finishing our async upgrade and fix a bunch of bugs in the process.</p>
+
+<p>But a new release wouldn’t be awesome if it didn’t had some new goodies and this release is no different. This release includes a new calendar component by <a href="https://github.com/mnestor">@mnestor</a>. It comes now with Google Calendar support, which should allow you to automate things based on your calendar events!</p>
+
+<h3><a class="title-link" name="changes" href="#changes"></a> Changes</h3>
+
+<ul>
+  <li>New <a href="/components/calendar.google/">calendar component</a> including Google support (<a href="https://github.com/mnestor">@mnestor</a>)</li>
+  <li>Final core upgrade for async (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li><a href="/components/neato/">Neato</a> refactor + sensor support (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.swisscom/">Swisscom Internet-Box</a> now supported (<a href="https://github.com/betrisey">@betrisey</a>)</li>
+  <li>Device Tracker - Locative: <a href="/components/device_tracker.locative/">Map support</a> added (<a href="https://github.com/danijelst">@danijelst</a>)</li>
+  <li><a href="/components/emulated_hue/">Emulated Hue</a> will now sent request info as variables to scripts that get called (<a href="https://github.com/bah2830">@bah2830</a>)</li>
+  <li>Wink: <a href="/components/climate.wink/">Thermostats</a> are now supported (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Light: New <a href="/components/light.mqtt_template/">MQTT template</a> platform for custom communication (<a href="https://github.com/Diaoul">@Diaoul</a>)</li>
+  <li><a href="/components/switch.wake_on_lan/">Wake on Lan switch</a> can now configure a custom OFF script (<a href="https://github.com/Chris-V">@Chris-V</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.cisco_ios/">Cisco IOS</a> now supported (<a href="https://github.com/fbradyirl">@fbradyirl</a>)</li>
+  <li>Sensor: Support for <a href="/components/sensor.pvoutput/">PVOutput</a> snesor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Sensor: Show count of connected clients to the <a href="/components/sensor.api_stream/">API stream</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix platforms from doing I/O in the event loop (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Switch - <a href="/components/switch.tplink/">TP Link</a>: Add daily consumption (<a href="https://github.com/">@gonzalezcalleja</a>)</li>
+  <li>Templates: Add new <code class="highlighter-rouge">strptime</code> <a href="/topics/templating/#home-assistant-template-extensions">template function</a> for parsing times (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li><a href="/components/http/">HTTP</a> component: Fix X-Forwarded-For parsing (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Switch - <a href="/components/switch.command_line/">Command Line</a>: Use configured object_id for entity IDs (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
+  <li><a href="/components/mqtt/">MQTT</a> now supports birth and last will messages (<a href="https://github.com/bestlibre">@bestlibre</a>)</li>
+  <li>Better handling of accented characters in slugify (<a href="https://github.com/magicus">@magicus</a>)</li>
+  <li>Alarm Control Panel - <a href="/components/envisalink/">Envisalink</a>: Add new keypress service (<a href="https://github.com/jnimmo">@jnimmo</a>)</li>
+  <li>Light - <a href="/components/light.hue/">Hue</a>: Add service to activate scenes defined in Hue app (<a href="https://github.com/sdague">@sdague</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0331---november-20" href="#release-0331---november-20"></a> Release 0.33.1 - November 20</h3>
+
+<ul>
+  <li>Fix Z-Wave lights (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0332---november-22" href="#release-0332---november-22"></a> Release 0.33.2 - November 22</h3>
+
+<ul>
+  <li>Fix Device Tracker init (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Discovery init (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix TP-Link switch (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Fix Zwave light naming &amp; configurable refresh (<a href="https://github.com/jchapple">@jchapple</a>)</li>
+  <li>Neato fixes (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Fix ‘Unknown’ status for Nest Protect devices (<a href="https://github.com/Khabi">@Khabi</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0333---november-23" href="#release-0333---november-23"></a> Release 0.33.3 - November 23</h3>
+
+<ul>
+  <li>Update Yr.no entities every hour (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Bump Netdisco to 0.7.7 (fixes discovery on Synology)</li>
+  <li>Fix discovery race condition (most obvious in Wemo) (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0334---november-24" href="#release-0334---november-24"></a> Release 0.33.4 - November 24</h3>
+
+<ul>
+  <li>Set executor pool size to 10 (as intended) (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<p>This should fix occasional performance problems that some people have reported.</p>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now <code class="highlighter-rouge">Tèst Mörê</code> will become <code class="highlighter-rouge">test_more</code> instead of <code class="highlighter-rouge">tst_mr</code>.</li>
+  <li>Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.</li>
+</ul>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting issues</h3>
+
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/11/05/hacktoberfest-influxdb-weather/">0.32: Hacktoberfest, InfluxDB sensor, Error reporting, and Weather</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-11-05T03:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 05, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> six minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/11/05/hacktoberfest-influxdb-weather/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Another two weeks have passed and we are pleased to present Home Assistant 0.32.</p>
+
+<h3><a class="title-link" name="hacktoberfest" href="#hacktoberfest"></a> Hacktoberfest</h3>
+<p>The <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a> is over now. Home Assistant made the 2nd and the 3rd place out of almost 30’000 participating repositories with a total of 528 pull requests closed - that’s an average of 17 pull requests a day! Thanks to all the contributors but also to the team of reviewers. This wouldn’t been possible without you 👏 .</p>
+
+<h3><a class="title-link" name="improved-error-reporting" href="#improved-error-reporting"></a> Improved error reporting</h3>
+<p>This release has improved the reporting when a config validation error occurs. Thanks to <a href="https://github.com/kellerza">@kellerza</a> you will now get a persistent notification added to your UI when this happens.</p>
+
+<h3><a class="title-link" name="asynchronous" href="#asynchronous"></a> Asynchronous</h3>
+<p>This release contains the first asynchronous sensor and camera platforms. <a href="https://github.com/pvizeli">@pvizeli</a> and <a href="https://github.com/fabaff">@fabaff</a> ported most of the “internal” sensors to async programming. We hope that you will enjoy the new speed.</p>
+
+<p><a href="https://github.com/balloob">@balloob</a> and <a href="https://github.com/pvizeli">@pvizeli</a> worked a lot on the improvement of the core itself.</p>
+
+<h3><a class="title-link" name="weather-component" href="#weather-component"></a> Weather component</h3>
+
+<p>For a long time we have had a bunch of <a href="https://home-assistant.io/components/#weather">weather sensors</a> but it’s getting better: There is now a <a href="https://home-assistant.io/components/weather/">Weather component</a>. Sorry, not much more to tell right now. The plans are to create a weather UI element and to improve the initial implementation.</p>
+
+<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
+
+<p><img src="/images/supported_brands/icloud.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/influxdb.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/emby.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/synologydsm.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/garadget_logo.jpg" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/yeelight.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/philips.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/nfandroidtv.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/currencylayer.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/influxdb.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+
+<ul>
+  <li>Cover: New <a href="https://home-assistant.io/components/garadget/">garadget</a> platform (<a href="https://github.com/JasonCarter80">@JasonCarter80</a>)</li>
+  <li>Media player: New support for <a href="https://home-assistant.io/components/media_player.emby/">Emby</a> (<a href="https://github.com/mezz64">@mezz64</a>)</li>
+  <li><a href="https://home-assistant.io/components/litejet/">LiteJet</a> switches and lights support (<a href="https://github.com/joncar">@joncar</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/light.yeelight/">Yeelight</a> Wifi bulbs are now supported (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>Media player: <a href="https://home-assistant.io/components/media_player.philips_js/">Philips TVs</a> with jointSPACE API re now supported (<a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.synologydsm/">Synology DSM</a> (<a href="https://github.com/StaticCube">@StaticCube</a>)</li>
+  <li>Sensor: Monitoring support for <a href="https://home-assistant.io/components/sensor.dovado/">Dovado routers</a> (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Sensor: Support for monitoring <a href="https://home-assistant.io/components/sensor.cups/">printers</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Add mochad component (<a href="https://github.com/mtreinish">@mtreinish</a>)</li>
+  <li>Notify: Added support for <a href="https://home-assistant.io/components/notify.nfandroidtv/">Android TV/FireTV</a> - Sensor: New finance platform <a href="https://home-assistant.io/components/sensor.currencylayer/">CurrencyLayer</a> (<a href="https://github.com/arsaboo">@arsaboo</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.influxdb/">InfluxDB sensors</a> (<a href="https://github.com/bestlibre">@bestlibre</a>)</li>
+  <li>Sensor: New support <a href="https://home-assistant.io/components/sensor.hddtemp/">HDDTemp sensors</a> (<a href="https://github.com/fabaff">@fabaff</a>)
+(<a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Media player: <a href="https://home-assistant.io/components/media_player.sonos/">Sonos</a> improvements incl. timer setting functionality (<a href="https://github.com/bjarniivarsson">@bjarniivarsson</a>, <a href="https://github.com/americanwookie">@americanwookie</a>)</li>
+  <li>Media player: Discovery support for <a href="https://home-assistant.io/components/media_player.yamaha/">Yamaha</a> (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Config: Exclude dirs/files prefixed with . (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>HTTP: Migrate WSGI to asyncio (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Configurator: Support for <code class="highlighter-rouge">entity_picture</code> (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Core: Configuration validation error prints line numbers (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Zoneminder: SSL/TLS support (<a href="https://github.com/Khabi">@Khabi</a>)</li>
+  <li>Camera: Improvements to <a href="https://home-assistant.io/components/camera.rpi_camera/">RPi camera</a> (<a href="https://github.com/postlund">@postlund</a>)</li>
+  <li><a href="https://home-assistant.io/components/thingspeak/">ThingSpeak</a> component (<a href="https://github.com/simonszu">@simonszu</a>)</li>
+  <li>Core: New property <code class="highlighter-rouge">hass.data</code>  to store internal data (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Switch: Templating and configurable timeout for <a href="https://home-assistant.io/components/switch.rest/">REST</a> (<a href="https://github.com/aa755">@aa755</a>)</li>
+  <li>Sensor: New <a href="https://home-assistant.io/components/sensor.random/">random number</a> sensor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Pilight: <code class="highlighter-rouge">send_delay</code> feature (<a href="https://github.com/janLo">@janLo</a>)</li>
+  <li>Config: Improvements for <code class="highlighter-rouge">known_devices</code> (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Device tracker: New discovered event (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Device tracker: Improvements and new features for the Volvo on Call platform (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Climate: Use unit of measurement from a Vera device (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Device tracker: <a href="https://home-assistant.io/components/device_tracker.icloud/">iCloud</a> improvements (<a href="https://github.com/Bart274">@Bart274</a>)</li>
+  <li>Minor features and bug fixes by <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/DavidLP">@DavidLP</a>, <a href="https://github.com/Bart274">@Bart274</a>, <a href="https://github.com/sdague">@sdague</a>, <a href="https://github.com/mtreinish">@mtreinish</a>, <a href="https://github.com/Khabi">@Khabi</a>, <a href="https://github.com/bbesset">@bbesset</a>, <a href="https://github.com/bestlibre">@bestlibre</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/devdelay">@devdelay</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/postlund">@postlund</a>, <a href="https://github.com/wokar">@wokar</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/arsaboo">@arsaboo</a>, <a href="https://github.com/hartmms">@hartmms</a>, <a href="https://github.com/nsideras">@nsideras</a>, <a href="https://github.com/tbeckha">@tbeckha</a>, and <a href="https://github.com/kirichkov">@kirichkov</a>.</li>
+</ul>
+
+<h3><a class="title-link" name="release-0321---november-6" href="#release-0321---november-6"></a> Release 0.32.1 - November 6</h3>
+
+<p>We’ve added a warning to 0.32 to catch platforms accidentally slowing down Home Assistant. Our aim is to fix these quickly when reported, so here is 0.32.1 with all reported platforms fixed.</p>
+
+<ul>
+  <li>Fix Sonos doing I/O inside the event loop (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Radiotherm doing I/O inside the event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix camera MJPEG streams when using HTTP 1.0 (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0322---november-7" href="#release-0322---november-7"></a> Release 0.32.2 - November 7</h3>
+
+<ul>
+  <li>Move Honeywell I/O out of the event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Use sequential updates for non-async entities to prevent race conditions (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix setting temperature in Celsius on Radiotherm CT50 thermostats (<a href="https://github.com/andyat">@andyat</a>)</li>
+  <li>Fix PiLight config validation (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0323---november-11" href="#release-0323---november-11"></a> Release 0.32.3 - November 11</h3>
+
+<ul>
+  <li>Fix OpenWeather weather platform doing I/O in event loop (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Fix Alarm.com doing I/O in event loop (<a href="https://github.com/jnewland">@jnewland</a>)</li>
+  <li>Fix Tellstick doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix KNX doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Increase warning threshold for catching platforms that do I/O (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Change pilight systemcode validation (<a href="https://github.com/janLo">@janLo</a>)</li>
+  <li>Fix Yamaha discovering already configured receivers (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Fix Sonos from installing dependency each time HA was started (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Synology camera SSL and error handling (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Panasonic Viera doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Improve generic camera error handling (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Light - Flux Led Lights: allow specifying mode if light does not support white mode (<a href="https://github.com/DanielHiversen">@DanielHiversen</a>)</li>
+  <li>Fix Rest switch default template (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0324---november-15" href="#release-0324---november-15"></a> Release 0.32.4 - November 15</h3>
+
+<ul>
+  <li>Fix device tracker from crashing HASS when a new device was discovered (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>HTTP: Fix X-Forwarded-For feature (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="misc" href="#misc"></a> Misc</h3>
+
+<p>Our website has now an additional category called “Ecosystem”. This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.</p>
+
+<ul>
+  <li><a href="https://home-assistant.io/ecosystem/ios/">iOS</a></li>
+  <li><a href="https://home-assistant.io/ecosystem/scenegen/">SceneGen</a></li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>The <a href="https://home-assistant.io/components/sensor.yahoo_finance/">Yahoo Finance</a> platform supports now multiple stock. Please adjust your configuration.</li>
+  <li>Deprecated components <code class="highlighter-rouge">garage_door</code>, <code class="highlighter-rouge">rollershutter</code>, <code class="highlighter-rouge">thermostat</code>, and <code class="highlighter-rouge">hvac</code> have been removed.</li>
+  <li>The minimum Python version on Windows has been bumped to Python 3.5.</li>
+  <li>The Insteon Hub integration has been disabled due to a <a href="https://github.com/home-assistant/home-assistant/issues/3811">request from Insteon</a>.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/10/25/explaining-the-updater/">Explaining the Updater</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-10-25T04:30:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 24, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Organisation</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/10/25/explaining-the-updater/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>On Saturday, we released <a href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/#comment-2965607849">Home Assistant 0.31</a> which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.</p>
+
+<h2><a class="title-link" name="why-we-changed-the-updater" href="#why-we-changed-the-updater"></a> Why we changed the updater</h2>
+<p>This change was driven by two important factors.</p>
+
+<h3><a class="title-link" name="improving-the-security-of-the-users" href="#improving-the-security-of-the-users"></a> Improving the security of the users.</h3>
+
+<p>As a user, you will be able to be notified if you are running a Home Assistant version that includes components that have known security flaws.</p>
+
+<p>Although we hope to not have to use this feature often, it is important for us to be able to reach out to impacted users. We had the need for such a feature once in the past. Due to a bug the forecast.io sensor was making a huge amount of API requests causing some of our users to get charged because they went over the free quota.</p>
+
+<p>Please note that this functionality is not done yet but will be available in a future release.</p>
+
+<h3><a class="title-link" name="focusing-our-resources-where-it-matters" href="#focusing-our-resources-where-it-matters"></a> Focusing our resources where it matters</h3>
+
+<p>As developers of Home Assistant, we will be able to see in what kind of environments Home Assistant is running. Here’s a few data points we didn’t have until now:</p>
+
+<ul>
+  <li>Total number of instances</li>
+  <li>Which operating systems versions and flavors are in use</li>
+  <li>Python version</li>
+  <li>What option is more popular: Docker, Virtualenv or bare metal installs?</li>
+  <li>How popular is our new <a href="/blog/2016/10/01/we-have-raspberry-image-now/">Raspberry Pi image</a>?</li>
+</ul>
+
+<h2><a class="title-link" name="why-we-look-up-your-ip-address-with-geoip" href="#why-we-look-up-your-ip-address-with-geoip"></a> Why we look up your IP address with GeoIP</h2>
+<p>We store the city so that we can see where our users are from. This information will be used to give us a better insight in where our users are from. This will help us gather data to see if we should for example prioritize internationalization. In addition, we previously had a nasty bug with the <code class="highlighter-rouge">sun</code> component in which users above a certain latitude were having crashes multiple times a day. Had the updater component been in place we could have targeted a special priority update notification only to them.</p>
+
+<p>As stated in the release blog post, the location information is <em>not</em> provided by your local Home Assistant installation but is instead gathered by comparing your IP address against the <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/">GeoLite2 data created by MaxMind</a>. From their documentation:</p>
+
+<blockquote>
+  <p>IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household.</p>
+</blockquote>
+
+<h2><a class="title-link" name="why-is-it-enabled-by-default" href="#why-is-it-enabled-by-default"></a> Why is it enabled by default</h2>
+<p>We decided to have it enabled by default because we consider the information that is gathered not harmful. We understand that not everyone will agree with us and so we have provided <a href="/components/updater/">multiple ways to opt out</a>.</p>
+
+<p>It is in our short-term planning to add an option to control this to our frontend.</p>
+
+<h2><a class="title-link" name="source-code" href="#source-code"></a> Source Code</h2>
+<p>The source code of our updater AWS Lambda function is now available <a href="https://github.com/home-assistant/Analytics-Receiver">here</a>.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/">0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-10-22T20:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 22, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Robbie Trencheny</span>
+    <span><i class='icon-time'></i> 14 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Hello again friend,</p>
+
+<p>How are you? Having a good day? We sure are. If you aren’t having a good day, this might cheer you up…</p>
+
+<p>Every other weekend around here gets a little hectic leading to a big sigh of relief as we release a new version of Home Assistant to the world. And this time is no different. Our developer community has once again built us a beautiful new release with lots of new features and improvements. We hope you like it.</p>
+
+<p>One last thing before we get going though, I should warn you… <a href="https://github.com/balloob">@balloob</a> got a bit lazy this week and let me (<a href="https://github.com/robbiet480">@robbiet480</a>) step up to the plate again to write the blog post and do the release. I guess I didn’t do such a bad job in <a href="/blog/2016/08/28/notifications-hue-fake-unification/">0.27</a>. You’ll never know what surprises I have in store. Now that i’ve got all that stuff out of the way, let’s get started…</p>
+
+<h2><a class="title-link" name="stats-update" href="#stats-update"></a> Stats Update</h2>
+<p>Sadly, no big amazing stats to update you with this time, but we did recently pass 7,000 commits! This release featured submissions from 45 contributors. Hopefully with the new updater component we will be able to give you some really good stats in the 0.32 blog post.</p>
+
+<h2><a class="title-link" name="hacktoberfest" href="#hacktoberfest"></a> Hacktoberfest</h2>
+
+<p><img src="/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktoberfest logo" /></p>
+
+<p>October means Hacktoberfest time and our community has really come through with some excellent improvements and additions. As of this writing, we have 194 merged and 41 open pull requests to the <a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">home-assistant repository</a> and 209 merged/28 open pull requests submitted to the <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">home-assistant.github.io repository</a>. If you want to get in on the fun check out our <a href="/blog/2016/10/02/hacktoberfest/">Hacktoberfest</a> blog post or the <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a>. You get an awesome t-shirt for free if you have 4 pull requests merged in the month of October! We even have tasks that a non-developer can easily accomplish with a tiny bit of work. Better hurry up though, only 9 days left and most of the easy tasks are gone!</p>
+
+<h2><a class="title-link" name="-a-greatly-improved-updater-component-please-read-this-" href="#-a-greatly-improved-updater-component-please-read-this-"></a> ⚠️ A greatly improved updater component (Please read this!) ⚠️</h2>
+
+<p>This release includes an update to our <a href="https://home-assistant.io/components/updater/">updater</a> component. The responsibility of the updater component is to check if a new version is available and notify the user if this is the case.</p>
+
+<p>It used to be that this component would check with <a href="https://pypi.python.org/pypi">PyPi</a> (the Python package manager) to see if a new update was available. This had a couple of problems:</p>
+
+<ol>
+  <li>We are unable to do a slow rollout</li>
+  <li>We are unable to show the user extra information (like a link to a changelog or the release date)</li>
+  <li>We are unable to warn users for critical security updates</li>
+</ol>
+
+<p>So to work around these problems, we decided to start hosting the version check service ourselves. Since we had to get some infrastructure spun up anyway, we figured we would take it a step further. Which leads me to this bit of the update (the most important part):</p>
+
+<h3><a class="title-link" name="what-you-need-to-know-the-important-bit" href="#what-you-need-to-know-the-important-bit"></a> What you need to know (the important bit!)</h3>
+
+<p>Remember how I mentioned that up there in the title that there is some serious business in this release? Well, we also added some basic analytics to the updater component which get sent to the server and stored so that we get a better idea of our user base.</p>
+
+<p>Each Home Assistant instance running the updater component will generate a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">unique ID</a> (based on UUIDv4) that will be used for the updater to be able to differentiate between instances. This UUID will be stored in your config directory in a file called <code class="highlighter-rouge">.uuid</code>.</p>
+
+<h4>Opting out</h4>
+
+<p>There are two ways to opt-out. The first way is by using the new <code class="highlighter-rouge">opt_out</code> option for the updater. This way the updater will continue to check for updates, but no information about your system will be shared with us.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">updater</span><span class="pi">:</span>
+  <span class="s">reporting</span><span class="pi">:</span> <span class="s">no</span>
+</code></pre>
+</div>
+
+<p>You can also disable the updater component entirely by removing <code class="highlighter-rouge">updater:</code> from your <code class="highlighter-rouge">configuration.yaml</code> although <strong>we would not suggest you do this</strong> as you would miss any critical updates.</p>
+
+<p>Finally, you can also reset your unique identifier by deleting the <code class="highlighter-rouge">.uuid</code> file and restarting Home Assistant.</p>
+
+<h4>Data stored on the Home Assistant update server</h4>
+
+<p>Here is what my production Home Assistant instance looks like from the server side:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">arch</code></td>
+      <td>CPU Architecture</td>
+      <td><code class="highlighter-rouge">x86_64</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">distribution</code></td>
+      <td>Linux Distribution name (only Linux)</td>
+      <td><code class="highlighter-rouge">Ubuntu</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">docker</code></td>
+      <td>True if running inside Docker</td>
+      <td><code class="highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">os_name</code></td>
+      <td>Operating system name</td>
+      <td><code class="highlighter-rouge">Darwin</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">os_version</code></td>
+      <td>Operating system version</td>
+      <td><code class="highlighter-rouge">10.12</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">python_version</code></td>
+      <td>Python version</td>
+      <td><code class="highlighter-rouge">3.5.2</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timezone</code></td>
+      <td>Timezone</td>
+      <td><code class="highlighter-rouge">America/Los_Angeles</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">user_agent</code></td>
+      <td>User agent used to submit analytics</td>
+      <td><code class="highlighter-rouge">python-requests/2.11.1</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">uuid</code></td>
+      <td>Unique identifier</td>
+      <td><code class="highlighter-rouge">10321ee6094d4a2ebb5ed55c675d5f5e</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">version</code></td>
+      <td>Home Assistant version</td>
+      <td><code class="highlighter-rouge">0.31.0</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">virtualenv</code></td>
+      <td>True if running inside virtualenv</td>
+      <td><code class="highlighter-rouge">true</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In addition to the above collected data, the server will also use your IP address to do a geographic IP address lookup to determine the city that you are from. To be extremely, extremely clear about this bit: <strong>The Home Assistant updater does not: store your IP address in a database and also does not submit the location information from your <code class="highlighter-rouge">configuration.yaml</code>.</strong></p>
+
+<p class="img">
+  <img src="/images/blog/2016-10-flash-briefing-updater-hacktoberfest/map.png" />
+  Geo-lookup on my IP resolves to Oakland with latitude/longitude pointing at the geographical center of the city.
+</p>
+
+<p>The server also adds two timestamps to the data: the original date your instance UUID was first seen and the timestamp of the last time we have seen your instance. This gives us the following extra data:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">first_seen_datetime</code></td>
+      <td>First time instance ID was submitted</td>
+      <td><code class="highlighter-rouge">2016-10-22T19:56:03.542Z</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_city</code></td>
+      <td>GeoIP determined city</td>
+      <td><code class="highlighter-rouge">Oakland</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_country_code</code></td>
+      <td>GeoIP determined country code</td>
+      <td><code class="highlighter-rouge">US</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_country_name</code></td>
+      <td>GeoIP determined country name</td>
+      <td><code class="highlighter-rouge">United States</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_latitude</code></td>
+      <td>GeoIP determined latitude (of the city)</td>
+      <td><code class="highlighter-rouge">37.8047</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_longitude</code></td>
+      <td>GeoIP determined longitude (of the city)</td>
+      <td><code class="highlighter-rouge">-122.2124</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_metro_code</code></td>
+      <td>GeoIP determined metro code</td>
+      <td><code class="highlighter-rouge">807</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_region_code</code></td>
+      <td>GeoIP determined region code</td>
+      <td><code class="highlighter-rouge">CA</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_region_name</code></td>
+      <td>GeoIP determined region name</td>
+      <td><code class="highlighter-rouge">California</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_time_zone</code></td>
+      <td>GeoIP determined time zone</td>
+      <td><code class="highlighter-rouge">America/Los_Angeles</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">geo_zip_code</code></td>
+      <td>GeoIP determined zip code</td>
+      <td><code class="highlighter-rouge">94602</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">last_seen_datetime</code></td>
+      <td>Most recent time instance ID was submitted</td>
+      <td><code class="highlighter-rouge">2016-10-22T19:56:03.542Z</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This data is held in the highest security. The update system runs in a secured Amazon Web Services account owned by me (<a href="https://github.com/robbiet480">@robbiet480</a>). I personally have 5 years of experience with complex AWS deployments and have an extensive security background. I have audited the entire system and made sure to take every step to protect the data, including limiting who has access (just <a href="https://github.com/balloob">@balloob</a> and myself). While not directly personally identifiable we absolutely understand some users hesistance to giving this information out. Please understand that we are only collecting this information to better understand our user base to provide better long term support and feature development then is currently possible.</p>
+
+<p>We currently have no plans to publicly expose any of this information. If we did do such a thing in the future we would of course notify you in advance. It must also be stated that we will never sell or allow the use of this information for non-Home Assistant purposes.</p>
+
+<p>We thank you for understanding why we are collecting this data and hope that you leave the feature enabled but fully understand if you feel uncomfortable with this.</p>
+
+<p><em>This section was updated on October 24 to be more clear about geo-lookups being on the city level. <a href="https://github.com/home-assistant/home-assistant.github.io/blob/c937242d154e509d2d84d10c51f654e20556fa21/source/_posts/2016-10-22-flash-briefing-updater-hacktoberfest.markdown">See original version.</a></em></p>
+
+<p>Now, back to the fun stuff…</p>
+
+<h2><a class="title-link" name="good-evening-im-ron-burgundy-and-heres-what-happening-in-your-world-tonight" href="#good-evening-im-ron-burgundy-and-heres-what-happening-in-your-world-tonight"></a> Good evening. I’m Ron Burgundy and here’s what happening in your world tonight.</h2>
+
+<p>Home Assistant got a crazy idea recently that it couldn’t do enough already and wanted to challenge itself even more. I really don’t understand how it came up with this kooky idea, but it now thinks that its newest hobby should be a minor career in journalism.</p>
+
+<p>0.31 adds support for the brand spanking new <a href="https://developer.amazon.com/alexa-skills-kit/flash-briefing">Alexa Flash Briefing API</a>, allowing you to get updates from Home Assistant anytime you ask Alexa to read your flash briefing. What’s the use case you ask? Well, now when I wake up in the morning and get my flash briefing, Home Assistant adds this to the end of it for me:</p>
+
+<blockquote>
+  <p>Drive time with traffic is 35 minutes. There is an UberPOOL that will cost $11.52, estimated to be 2 minutes away, for a total of 37 minutes. BART is currently estimated to take 29 minutes. You should take BART, as it is estimated to be faster by 8 minutes.</p>
+</blockquote>
+
+<p>Now I know how to best get to <a href="http://runway.is">my real job</a> (no, Home Assistant is <em>not</em> my real job, it does seem like it sometimes though) every morning. Obviously not the best home automation example, but I think you get the idea. I could see this being used to tell you any major events that happened in your home overnight or reading you your hyperlocal weather report. Thanks to the audio support you could even replace all of the default Alexa Flash Briefing sources with your own news feeds. Home Assistant supports both text and audio content as well as displaying data in the Alexa app. I also want to point out that unlike the existing Skill integration, the Flash Briefing API does <em>not</em> require HTTPS (<em>but you should still be using HTTPS if possible</em>). For more information, check out the new <a href="https://home-assistant.io/components/alexa/">docs</a>.</p>
+
+<p class="img">
+  <img src="/images/blog/2016-10-flash-briefing-updater-hacktoberfest/stay-classy.jpg" />
+  You stay classy, San Diego. (It’s funny, because balloob lives in San Diego))
+</p>
+
+<h2><a class="title-link" name="major-breaking-z-wave-changes-ahead" href="#major-breaking-z-wave-changes-ahead"></a> Major breaking Z-Wave changes ahead</h2>
+
+<p>A rather nasty Z-Wave <a href="https://github.com/home-assistant/home-assistant/pull/3759">issue</a> was discovered recently by <a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>. There was a somewhat large chance that if you had multiple of the same model Z-Wave device they may both try to use the same entity IDs. To fix the issue the internal Z-Wave index is now appended to the end of all Z-Wave entity IDs.</p>
+
+<p>What this means for all you Z-Wave users is that you will need to update your configurations to reflect the change. I personally have quite a few (17) Z-Wave devices and went through the process this week. Here’s what I had to do:</p>
+
+<ul>
+  <li>Update customizations</li>
+  <li>Update groups</li>
+  <li>Update my <code class="highlighter-rouge">zwave.customize</code> section</li>
+  <li>Update my Alexa skills that used old entity IDs</li>
+  <li>Because I use <code class="highlighter-rouge">emulated_hue</code> with Alexa and <code class="highlighter-rouge">emulated_hue</code> uses the entity ID as a unique identifier I also had to remove all Z-Wave devices from Alexa and re-add them.</li>
+</ul>
+
+<p>Your todo list may be a little different from mine, I just wanted to outline the steps I took to give you an idea of what you need to think about. It’s not a very hard process, especially when using global find and replace in Sublime Text but did take me about 20 minutes to complete.</p>
+
+<p>This is super annoying, I know, especially since we had said in <a href="/blog/2016/01/30/insteon-lifx-twitter-and-zigbee/#backwards-incompatible-changes">0.12</a> that Z-Wave IDs should hopefully never change again, but we are now forced to eat those words. I will state again that Z-Wave IDs shouldn’t change in the future but obviously we see how that went. To sum up on this section… sorry but it had to happen.</p>
+
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+
+<ul>
+  <li><a href="https://home-assistant.io/components/updater/">Updater</a> component (<a href="https://github.com/infamy">@infamy</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Continue to setup other platforms when 1 platform config is invalid (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Create <a href="https://home-assistant.io/components/persistent_notification/">persistent notifications</a> when a platform contains invalid config (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Logbook: Allow <a href="https://home-assistant.io/components/logbook/">filtering</a> domains and entities to be shown (<a href="https://github.com/wokar">@wokar</a>)</li>
+  <li>HTTP: Change <code class="highlighter-rouge">approved_ips</code> from string to CIDR validation (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Persistent Notifications: Allow using <a href="https://home-assistant.io/components/persistent_notification/">markdown</a> (<a href="https://github.com/justweb1">@justweb1</a>)</li>
+  <li>Netatmo: Add <a href="https://home-assistant.io/components/netatmo/">discovery</a> support (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Netatmo Welcome camera: Add <a href="https://home-assistant.io/components/binary_sensor.netatmo/">binary sensor</a> (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Support added for <a href="https://home-assistant.io/components/sensor.haveibeenpwned/">HaveIBeenPwned</a> (<a href="https://github.com/joyrider3774">@joyrider3774</a>)</li>
+  <li>Device tracker: <code class="highlighter-rouge">known_devices.yaml</code> reading and writing tweaks and fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Fix climate platforms showing the wrong temperature unit (<a href="https://github.com/rcloran">@rcloran</a>)</li>
+  <li>Lots of voluptuous love (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Ensure proper attribution for weather platforms (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Fix Telegram in Docker (<a href="https://github.com/jeanregisser">@jeanregisser</a>)</li>
+  <li>Support recursive config inclusions in YAML (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Camera: <a href="https://home-assistant.io/components/camera.synology/">Synology</a> SS cameras now supported (<a href="https://github.com/jgriff2">@jgriff2</a>)</li>
+  <li>History: Allow filtering domains and entities to be shown (<a href="https://github.com/wokar">@wokar</a>)</li>
+  <li>Media Player - Squeezebox: Now able to show artist and album (<a href="https://github.com/ih8gates">@ih8gates</a>)</li>
+  <li>Alexa: Flash Briefing skill support added (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Device Tracker: Add support for Bbox Modem Router (<a href="https://github.com/HydrelioxGithub">@HydrelioxGithub</a>)</li>
+  <li>Sensor: Add support for Bbox Modem Router (<a href="https://github.com/HydrelioxGithub">@HydrelioxGithub</a>)</li>
+  <li>Input select: Services added to pick next and prev option (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.arwn/">ARWN</a> now supported (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Pushbullet: Push an URL note if an url is provided inside data (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Z-Wave: Allow certain devices to be not added to Home Assistant (<a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>)</li>
+  <li>New support for <a href="https://home-assistant.io/components/zoneminder/">Zoneminder</a> added (<a href="https://github.com/Khabi">@Khabi</a>)</li>
+  <li>Weather: Allow tracking severe weather alerts with <a href="https://home-assistant.io/components/sensor.wunderground/">WUnderground</a> (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Sensor: New support added to track <a href="https://home-assistant.io/components/sensor.min_max/">min/max/mean</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Convert EntityComponent to be async (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Z-Wave: Add assocation service (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Frontend - Services dev tool: persist state and tweak UI (<a href="https://github.com/justweb1">@justweb1</a>)</li>
+  <li>Sensor: Support added for <a href="https://home-assistant.io/components/sensor.scrape/">scraping</a> websites (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Clean up of tests (<a href="https://github.com/capellini">@capellini</a>)</li>
+  <li>New <code class="highlighter-rouge">fail</code> filter added to templates to raise on UndefinedError (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Support added for <a href="https://home-assistant.io//components/emoncms_history/">Emoncms history</a> (<a href="https://github.com/joyrider3774">@joyrider3774</a>)</li>
+  <li>Support for <a href="https://home-assistant.io/components/notify.apns/">Apple Push Notifications Service</a> (<a href="https://github.com/sam-io">@sam-io</a>)</li>
+  <li>Thermostat: Netatmo now supported (<a href="https://github.com/gieljnssns">@gieljnssns</a>)</li>
+  <li>Alarm control panel: <a href="https://home-assistant.io/components/alarm_control_panel.concord232/">Concord232</a> now supported (<a href="https://github.com/JasonCarter80">@JasonCarter80</a>)</li>
+  <li>Notify: <a href="https://home-assistant.io//components/notify.matrix/">Matrix</a> support added (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Device tracker - nmap: Allow specifying multiple inputs for <a href="https://home-assistant.io/components/device_tracker.nmap_tracker/">nmap</a> (<a href="https://github.com/hcooper">@hcooper</a>)</li>
+  <li>Device Tracker - snmp: SNMPv3 now supported (<a href="https://github.com/T3m3z">@T3m3z</a>)</li>
+  <li>Notify: <a href="https://home-assistant.io/components/notify.telstra/">Telstra</a> SMS now supported (<a href="https://github.com/nvella">@nvella</a>)</li>
+  <li>Camera: <a href="https://home-assistant.io/components/camera.verisure/">Verisure</a> now supported (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Support added for <a href="https://home-assistant.io/components/switch.neato/">Neato</a> Connected Robot (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Media player: More options for <a href="https://home-assistant.io/components/media_player.yamaha/">Yamaha</a> AVR (<a href="https://github.com/ehagan">@ehagan</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.pilight/">Pilight</a> sensor (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
+  <li>iOS support (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Minor features and bug fixes by <a href="https://github.com/mtl010957">@mtl010957</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/flyte">@flyte</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/phardy">@phardy</a>, <a href="https://github.com/sander76">@sander76</a>, <a href="https://github.com/T3m3z">@T3m3z</a>, <a href="https://github.com/c-w">@c-w</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/StaticCube">@StaticCube</a>, <a href="https://github.com/vittoriom">@vittoriom</a>, <a href="https://github.com/hartmms">@hartmms</a>, <a href="https://github.com/kirichkov">@kirichkov</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/ishults">@ishults</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a> and <a href="https://github.com/tchellomello">@tchellomello</a>.</li>
+</ul>
+
+<h3><a class="title-link" name="release-0311---october-24" href="#release-0311---october-24"></a> Release 0.31.1 - October 24</h3>
+
+<ul>
+  <li>Identify special character encoding error in YAML files (<a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>iOS app component bug fixes (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Fix a spelling problem on user-facing error (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>YAML includes will ignore dirs/files prefixed with . (<a href="https://github.com/lwis">@lwis</a>)</li>
+</ul>
+
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
+
+<ul>
+  <li>The <a href="https://home-assistant.io/components/http/">HTTP</a> component now takes a different format for authenticating IPs</li>
+  <li>Configuration format has changed for <a href="https://home-assistant.io/components/proximity/">Proximity</a></li>
+  <li>The <a href="https://home-assistant.io/components/arduino/">Arduino</a> platform are now covered by the configuration check. Please check the documentation to see how.</li>
+  <li>The Z-Wave entity ID change mentioned above</li>
+</ul>
+
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
+
+<h2><a class="title-link" name="until-next-time" href="#until-next-time"></a> Until next time</h2>
+
+<p>Thanks for reading all of the above, especially since this week was a pretty long post. We should be back with a new post around November 5th announcing the arrival of 0.32.</p>
+
+<p>– Robbie</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/10/08/hassbian-rest-digital-ocean/">0.30: More Async, HASSbian, Digital Ocean, statistics, REST</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-10-08T03:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 08, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> seven minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/10/08/hassbian-rest-digital-ocean/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Yes, after only nine days comes 0.30. Don’t worry, we will try to keep our usual release cycle and not start to release every day.</p>
+
+<p>We guess that you already know: The <a href="/blog/2016/10/01/we-have-raspberry-image-now/">Raspberry Pi image</a> is available now. For Hassbian, <a href="https://github.com/Landrash">@Landrash</a> has combined the most essential parts for a Home Assistant setup in an easy-to-use image for the Raspberry Pi device family. Hassbian is quite young, thus we are looking forward to recieve <a href="https://community.home-assistant.io/c/installation/hassbian">feedback</a>, <a href="https://community.home-assistant.io/c/installation/hassbian">issue report</a>, and <a href="https://community.home-assistant.io/c/installation/hassbian">suggestions</a> to improve it.</p>
+
+<p>A large amount of resources of the development are still focusing on the effort to move Home Assistant further to asynchronous programming. It’s a labor-intensive task, comes with segmentation faults, and unstable instances when certain combinations of sensors are used. The benefit will be more speed in the near future.</p>
+
+<p>To reduce the run-time of your tests, <a href="https://github.com/balloob">@balloob</a> did a lot of tweaking. For now the RFXtrx tests are excluded which cut the needed time for running on your Pull Request in half.</p>
+
+<h3><a class="title-link" name="documentation" href="#documentation"></a> Documentation</h3>
+
+<p>All configuration sample entries are now minimized. This should help to avoid problem for starters and newbies as they only get what’s needed and not a full sample with all optional entries. If there is an issue with an entry in your <code class="highlighter-rouge">configuration.yaml</code> file the error message will provide you an URL that point to the documentation.</p>
+
+<p class="img">
+  <img src="/images/screenshots/config-validation-url.png" />
+</p>
+
+<p>As soon as the <a href="/blog/2016/10/02/hacktoberfest/">Hacktoberfest</a> started there were a lot of incoming Pull Requests for the documentation. A huge “Thank you” to all participants. Especially, we would like to give a cookie to <a href="https://github.com/hillaryfraley">@hillaryfraley</a>. She created around a dozen Pull Requests so far and didn’t only fix typos but complete sections. The <a href="/blog/2016/10/02/hacktoberfest/">Hacktoberfest</a> is still on-going and we are looking forward to get more Pull Requests.</p>
+
+<h3><a class="title-link" name="statistics" href="#statistics"></a> Statistics</h3>
+
+<p>With the <a href="/components/sensor.statistics/">statistics sensor</a> we would like to introduce a new sensor that is similar to the <a href="/components/sensor.template/">template sensor</a> or the <a href="/components/binary_sensor.trend/">trend sensor</a>. This sensor is consuming values from another sensor and is doing some statistical analysis of the data. Over a group of samples is the average/mean, the min/max, the total, the standard deviation, and the variance calculated which can be used in your automation rules. If the source is a binary sensor then the state changes are counted.</p>
+
+<p class="img">
+  <img src="/images/screenshots/stats-sensor.png" />
+</p>
+
+<p>As the results are processed on-the-fly you still need to use the data from your database for a in-depth analysis of your stored information. Check the latest <a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb">notebook</a> for doing statistics with your Home Assistant database.</p>
+
+<h3><a class="title-link" name="rest-we-dont" href="#rest-we-dont"></a> REST! We don’t…</h3>
+
+<p>There was a lot of work done on our implementation which are working with RESTful APIs. <a href="https://github.com/w1ll1am23">@w1ll1am23</a> extended the <a href="https://arest.io/">aREST</a> platforms to display if an aREST unit is available or not. The aREST implementations are now covered by the configuration check as well. Please check the Breaking changes section for more details.</p>
+
+<p>The <a href="/components/sensor.rest/">REST sensor</a> supports now HTTP authentication (basic and digest) and custom headers. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span>
+  <span class="s">- platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">https://api.github.com/repos/home-assistant/home-assistant/releases/latest</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_GITHUB_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_GITHUB_ACCESS_TOKEN</span>
+    <span class="s">authentication</span><span class="pi">:</span> <span class="s">basic</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.tag_name</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">headers</span><span class="pi">:</span>
+      <span class="s">Accept</span><span class="pi">:</span> <span class="s">application/vnd.github.v3+json</span>
+      <span class="s">Content-Type</span><span class="pi">:</span> <span class="s">application/json</span>
+      <span class="s">User-Agent</span><span class="pi">:</span> <span class="s">Home Assistant REST sensor</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="misc" href="#misc"></a> Misc</h3>
+
+<ul>
+  <li>GitHub released with a recent update a review feature. This will give you more control over your comments while you review an open Pull Request.</li>
+  <li>Thanks to <a href="https://github.com/robbiet480">@robbiet480</a> we are now running <a href="https://github.com/mention-bot">mention-bot</a>. It will help you when you create a new Pull Request to identify potential reviewers.</li>
+  <li>The <a href="https://community.home-assistant.io/">Home Assistant Community Forum</a> has now an additional section called “Installation”.</li>
+</ul>
+
+<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
+
+<p><img src="/images/supported_brands/digital_ocean.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/volvo.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/dark_sky.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/vasttrafik.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+
+<ul>
+  <li>Core: A lot of stuff is now async (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Nest: Support for operation modes (<a href="https://github.com/jawilson">@jawilson</a>)</li>
+  <li>Z-Wave: Massive update for command classes and device classes  (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Digital Ocean: New <a href="/components/switch.digital_ocean/">switch</a> to control and <a href="/components/binary_sensor.digital_ocean/">binary sensor</a> to monitor droplets (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Cover: Support for <a href="/components/cover.mysensors/">MySensors cover</a> (<a href="https://github.com/OttoWinter">@OttoWinter</a>)</li>
+  <li>Wink: Support for oAuth2 and relay sensors (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Sensor: <a href="/components/sensor.darksky/">Forecast</a> update interval is now configurable (<a href="https://github.com/KlaasH">@KlaasH</a>)</li>
+  <li>Core: Failed login attempts are reported as persistent notifications (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Climate: Temperature convert now available in the Climate object (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Notify: Update to accept a list (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Device tracker: Support for tracking of your <a href="/components/device_tracker.volvooncall/">Volvo</a> (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Switch: Flux improvements (<a href="https://github.com/jawilson">@jawilson</a>)</li>
+  <li>InfluxDB: Time-out for connections (<a href="https://github.com/simonszu">@simonszu</a>)</li>
+  <li>Sensor: New MySensors types available (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Switch: <a href="/components/switch.anel_pwrctrl/">ANEL PwrCtrl</a> devices are now supported (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Frontend: Path of the configuration file now visible on the frontend (<a href="https://github.com/justweb1">@justweb1</a>)</li>
+  <li>Homematic:  Extended device support (RF, IP and wired devices) (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Sensor: New sensor for <a href="/components/sensor.statistics/">statistical analysis</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Sensor: Support for headers and HTTP authentication for <a href="/components/sensor.rest/">REST sensors</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Device tracker: Support for encrypted Owntracks payload (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Tests: Improvement of the HTML5 notify tests (<a href="https://github.com/capellini">@capellini</a>)</li>
+  <li>Wink: Support for Wink Smoke and CO detectors (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Sensor: <a href="/components/sensor.ted5000/">TED5000</a> sensor was included (<a href="https://github.com/gwendalg">@gwendalg</a>)</li>
+  <li>Sensor: Support for <a href="/components/sensor.vasttrafik/">Västtrafik</a> public transport (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Notify: <a href="/components/notify.pushetta/">Pushetta</a> no longer sends message on start up (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Sensor: <a href="/components/sensor.forecast/">Forecast.io</a> sensor was replaced by <a href="/components/sensor.darksky/">Dark Sky</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Device Tracker: The <code class="highlighter-rouge">known_device.yaml</code> file is now validated (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Minor features and bug fixes by <a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/persandstrom">@persandstrom</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/sam-io">@sam-io</a>, <a href="https://github.com/bbangert">@bbangert</a>, and you if you are missing here.</li>
+</ul>
+
+<h3><a class="title-link" name="release-0301---october-8" href="#release-0301---october-8"></a> Release 0.30.1 - October 8</h3>
+
+<ul>
+  <li>Device Tracker <code class="highlighter-rouge">known_devices.yaml</code> validation is now more accepting (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Handle X10 light numbers greater than 9 (<a href="https://github.com/mtl010957">@mtl010957</a>)</li>
+  <li>Fix command line covers without a template (<a href="https://github.com/roidayan">@roidayan</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0302---october-12" href="#release-0302---october-12"></a> Release 0.30.2 - October 12</h3>
+
+<ul>
+  <li>Handle Volvo’s with dashes in their name (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Fix some html5 push notification configuration options were discarded after first use (<a href="https://github.com/T3m3z">@T3m3z</a>)</li>
+  <li>Fix Homematic device name with autodiscovery (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Make ‘pin’ optional for zigbee device config (<a href="https://github.com/flyte">@flyte</a>)</li>
+  <li>Fix when sending a notification to a service with target attached (i.e. <code class="highlighter-rouge">notify.html5_unnamed_device_2</code>) the target was not submitted to the platform as a list causing iteration over every character in the string. (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Fix for Slack targets (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Fix for Pushover targets (<a href="https://github.com/Nixon506E">@Nixon506E</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>All deprecated condition options from <code class="highlighter-rouge">automation</code> have been removed (deprecated since May and have printed warnings to your console):
+    <ul>
+      <li><code class="highlighter-rouge">use_trigger_values</code> is gone. You have to copy your triggers to conditions and adjust for the correct config.</li>
+      <li><code class="highlighter-rouge">condition_type</code> is gone. Use <code class="highlighter-rouge">condition: or</code> instead.</li>
+      <li>To specify the type of a condition, use <code class="highlighter-rouge">condition:</code> instead of <code class="highlighter-rouge">platform:</code>.</li>
+    </ul>
+  </li>
+  <li>The <a href="/components/sensor.forecast/">Forecast.io</a> was renamed to <a href="/components/sensor.darksky/">Dark Sky</a>. Replace your <code class="highlighter-rouge">- platform: forecast</code> with <code class="highlighter-rouge">- platform: darksky</code>.</li>
+  <li>The <a href="https://arest.io/">aREST</a> configuration between the <a href="/components/sensor.arest/">sensor</a> and the <a href="/components/switch.arest/">switch</a> platform was aligned.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/10/02/hacktoberfest/">Participating in Hacktoberfest</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-10-02T00:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 2, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Community</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/10/02/hacktoberfest/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Home Assistant will join this year for <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a>, an event organised by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features and documentation enhancements and that you, a current or future contributor, will fix them. If you submit four pull-requests during the month of October you will have earned yourself a limited edition Hacktoberfest T-shirt!</p>
+
+<p>Why contribute to Home Assistant:</p>
+
+<ul>
+  <li>Written in Python3 with 94% test coverage</li>
+  <li>Active and helpful community</li>
+  <li>Friendly to new contributors</li>
+</ul>
+
+<p>Resources to get started:</p>
+
+<ul>
+  <li><a href="https://hacktoberfest.digitalocean.com/sign_up/register">Sign up for Hacktoberfest</a></li>
+  <li><a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">List of entry-level issues for Home Assistant</a></li>
+  <li><a href="/developers/development_environment/">Instructions to setup your development environment</a></li>
+  <li><a href="https://gitter.im/home-assistant/home-assistant/devs">Home Assistant Development Chat</a></li>
+  <li><a href="https://community.home-assistant.io/c/development">Home Assistant Development Forums</a></li>
+  <li><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a></li>
+</ul>
+
+<p>Are you not a programmer but still want to contribute to Home Assistant? Check out our <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">list of entry-level issues for the Home Assistant website</a>.</p>
+
+<p><a href="https://hacktoberfest.digitalocean.com/"><img src="/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktober fest logo" /></a></p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/10/01/we-have-raspberry-image-now/">We have a Raspberry Pi image now</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-10-01T05:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 1, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Technology</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/10/01/we-have-raspberry-image-now/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Today we’re happy to announce our brand new Raspberry Pi image! It is based on Raspbian Lite combined with HASS so we decided to call it Hassbian.</p>
+
+<p>This image comes pre-installed with everything you need to get started with Home Assistant right away.</p>
+
+<p>To get started, check out the installation instructions in <a href="/getting-started/installation-raspberry-pi-image/">the getting started section</a> or watch the latest video by <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUHAutomation</a>:</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/iIz6XqDwHEk" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h3><a class="title-link" name="under-the-hood" href="#under-the-hood"></a> Under the hood</h3>
+
+<p>It’s based on Raspbian Lite and generated with a fork of the same <a href="https://github.com/home-assistant/pi-gen">script</a> that builds the <a href="https://raspberrypi.org/downloads/raspbian/">official Raspbian images</a>. For installation of HASS it follows the same install instructions as the <a href="/getting-started/installation-raspberry-pi/">Manual installation</a>. Please note that this project has no association with the Raspberry Pi foundation or their projects.</p>
+
+<p>On first boot the latest release of Home Assistant will be installed and can be reached after 3~5 minutes. Pre-installed on this image is the MQTT broker <a href="https://mosquitto.org/">Mosquitto</a>, Bluetooth support and settings for the <code class="highlighter-rouge">homeassistant</code> account to use the GPIO pins of the Raspberry Pi. Mosquitto is not activated by default.</p>
+
+<p>As it is today there is no pre-compiled Z-Wave support but it can be installed by following the <a href="/getting-started/z-wave/">Getting started instructions for Z-Wave</a>.</p>
+
+<p>Happy Automating!</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/09/29/async-sleepiq-emoncms-stocks/">0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-09-29T03:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 29, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen & Fabian Affolter</span>
+    <span><i class='icon-time'></i> six minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/09/29/async-sleepiq-emoncms-stocks/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Two weeks ago, September 17 marked our 3 year anniversary. In this time Home Assistant managed to grow from a simple script that turned on my lights when the sun set to a kick ass open source project with the best community an open-source project could wish for. This release contains features, bug fixes and performance tweaks by a total of <strong>50</strong> different people! We have also managed to cross the 1000 forks on GitHub. Talking about momentum!</p>
+
+<p>This is a big release as we’ve completely overhauled the internals of Home Assistant. When I initially wrote Home Assistant, still figuring out the ins and outs of Python, I went for an approach that I was familiar with for an application with many moving parts: threads and locks. This approach has served us well over the years but it was slower than it needed to be, especially on limited hardware.</p>
+
+<p>This all changed when <a href="https://github.com/bbangert">@bbangert</a> came around and took on the tough job to migrate the core over to use asynchronous programming. He did an amazing job and I am happy to say that the initial port has been done and is included in this release! On top of that, we have been able to keep our simple and straightforward API at the same time. We are still in the process of migrating more and more components over to the asynchronous API, so expect more speedups and awesome features in the upcoming releases.</p>
+
+<h3><a class="title-link" name="sleepiq-and-openalpr" href="#sleepiq-and-openalpr"></a> SleepIQ and OpenALPR</h3>
+
+<p>There now is support for two new super cool things: Beds and license plates. <a href="https://github.com/technicalpickles">@technicalpickles</a> created a <a href="/components/sleepiq/">SleepIQ</a> component that let you monitor the sensor data of your bed. <a href="https://github.com/pvizeli">@pvizeli</a> has added license plate recognition based on <a href="/components/openalpr/">OpenALPR</a>! This means that you can now be notified about which car is parked on your driveway or in your garage. I also would like to use this opportunity to give a big shoutout to <a href="https://github.com/pvizeli">@pvizeli</a> for being such an awesome member of our community. He joined us at the end of June and has helped crush bugs and add awesome features ever since (65 pull requests already!).</p>
+
+<h3><a class="title-link" name="configuration-validation" href="#configuration-validation"></a> Configuration validation</h3>
+
+<p>On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.</p>
+
+<h3><a class="title-link" name="delayed-release" href="#delayed-release"></a> Delayed Release</h3>
+
+<p>As you might have noticed, this release has been delayed by 5 days. This was due to a rare, difficult to reproduce problem with the Python interpreter. A huuuuge thanks to all the people that have helped countless hours in researching, debugging and fixing this issue: <a href="https://github.com/bbangert">@bbangert</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/technicalpickles">@technicalpickles</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/persandstrom">@persandstrom</a> and <a href="https://github.com/joyrider3774">@joyrider3774</a>. I am grateful to have all of you as part of the Home Assistant community.</p>
+
+<h3><a class="title-link" name="hide-automation-rules" href="#hide-automation-rules"></a> Hide automation rules</h3>
+
+<p>Since 0.28 <a href="/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules">automation rules</a> can be reloaded directly from the frontend. By default all automation rules are shown. If you want to <a href="/getting-started/automation-create-first/">hide an automation rule</a>, use <code class="highlighter-rouge">hide_entity: True</code>.</p>
+
+<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
+
+<p><img src="/images/supported_brands/emoncms.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/sleepiq.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/openalpr.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+
+<ul>
+  <li>Convert core from thread-based to be async-based (<a href="https://github.com/bbangert">@bbangert</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>New <a href="/components/sleepiq/">SleepIQ</a> support (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Cover: <a href="/components/cover.vera/">Vera</a> is now supported (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Climate: Vera <a href="/components/climate.vera/">climate</a> devices are now supported (<a href="https://github.com/robjohnson189">@robjohnson189</a>)</li>
+  <li>Climate: <a href="/components/climate.mysensors/">MySensors</a> is now supported (<a href="https://github.com/kaustubhphatak">@kaustubhphatak</a>)</li>
+  <li>Control Home Assistant with <a href="/components/keyboard_remote">keyboard shortcuts</a> (<a href="https://github.com/deisi">@deisi</a>)</li>
+  <li>More voluptuous config validations (<a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>New <a href="/components/nuimo_controller/">Nuimo</a> controller support added (<a href="https://github.com/gross1989">@gross1989</a>)</li>
+  <li>Sensor: <a href="/components/sensor.bom/">BOM</a> Weather component (<a href="https://github.com/tinglis1">@tinglis1</a>)</li>
+  <li>Automation: Option added to hide entity (<a href="https://github.com/milaq">@milaq</a>)</li>
+  <li>Sensor: <a href="/components/sensor.emoncms/">Emoncms</a> feeds now supported (<a href="https://github.com/joyrider">@joyrider</a>)</li>
+  <li>Sensor: Mi Flora <a href="/components/sensor.miflora/">plant</a> sensor now supported (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Logbook: Allow <a href="/components/logbook/">filtering</a> entities and hide hidden entities (<a href="https://github.com/wokar">@wokar</a>)</li>
+  <li>Notify: <a href="/components/notify.kodi/">Kodi</a> support added (<a href="https://github.com/chrom3">@chrom3</a>)</li>
+  <li>Notify: Support for <a href="/components/notify.simplepush/">Simplepush</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Sensor: <a href="/components/sensor.knx/">KNX</a> sensors now supported (<a href="https://github.com/daBONDi">@daBONDi</a>)</li>
+  <li><a href="/components/wink/">Wink</a> improvements (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li><a href="/components/isy994/">ISY</a> improvements (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Link to relevant docs in config validation error messages (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Greatly improve the performance of templates (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Notify - <a href="/components/notify.slack/">Slack</a>: Support for username/icon (<a href="https://github.com/Khabi">@Khabi</a>)</li>
+  <li>MQTT room detection: Away <a href="/components/sensor.mqtt_room/">timeout</a> now supported (<a href="https://github.com/mKerix">@mKeRix</a>)</li>
+  <li>Climate: <a href="/components/fan.nest/">Nest</a> can now control the fan (<a href="https://github.com/jawilson">@jawilson</a>)</li>
+  <li>Modbus: Major cleanup for <a href="/components/modbus/">Modbus</a> switches and sensors (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>HTTP: Allow <a href="/components/http/">passwordless</a> logins from whitelisted IP addresses (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Sensor: Yahoo! Finance <a href="/components/sensor.yahoo_finance/">stocks</a> now supported (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Sensor: Set value based on incoming <a href="/components/sensor.imap_email_content/">email</a> (<a href="https://github.com/sam-io">@sam-io</a>)</li>
+  <li>Light: White value now supported (<a href="https://github.com/mxtra">@mxtra</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li><a href="/components/influxdb/">InfluxDB</a> now allows attaching extra data (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li><a href="/components/openalpr/">OpenALPR</a> support (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Minor features and bug fixes by <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/w1ll1am23">@w1ll1am23</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/clach04">@clach04</a>, <a href="https://github.com/mKerix">@mKeRix</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/DavidLP">@DavidLP</a>, <a href="https://github.com/nvella">@nvella</a>, <a href="https://github.com/Teagan42">@Teagan42</a>, <a href="https://github.com/ericwclymer">@ericwclymer</a>, <a href="https://github.com/wokar">@wokar</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/nkgilley">@nkgilley</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/ej81">@ej81</a>, <a href="https://github.com/danieljkemp">@danieljkemp</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/philhawthorne">@philhawthorne</a>, <a href="https://github.com/LinuxChristian">@LinuxChristian</a>, <a href="https://github.com/milas">@milas</a>, <a href="https://github.com/simonszu">@simonszu</a>, <a href="https://github.com/Cinntax">@Cinntax</a>, <a href="https://github.com/irvingwa">@irvingwa</a>, <a href="https://github.com/sytone">@sytone</a>, <a href="https://github.com/kk7ds">@kk7ds</a>, <a href="https://github.com/robbiet480">@robbiet480</a>.</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0291---september-29" href="#hotfix-0291---september-29"></a> Hotfix 0.29.1 - September 29</h3>
+
+<ul>
+  <li>Fix typo in Nest climate platform. <a href="https://github.com/home-assistant/home-assistant/issues/3574">We are still experiencing issues with Nest.</a> (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0292---september-29" href="#hotfix-0292---september-29"></a> Hotfix 0.29.2 - September 29</h3>
+
+<ul>
+  <li>InfluxDB config fix (<a href="https://github.com/fabaff">@fabaff</a>, reported by <a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Netatmo config fix (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0293---september-29" href="#hotfix-0293---september-29"></a> Hotfix 0.29.3 - September 29</h3>
+
+<ul>
+  <li>Hue config fix (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0294---september-30" href="#hotfix-0294---september-30"></a> Hotfix 0.29.4 - September 30</h3>
+
+<ul>
+  <li>Alexa config fix (<a href="https://github.com/balloob">@balloob</a>, reported by <a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Envisalink discovery fix (<a href="https://github.com/Cinntax">@cinntax</a>)</li>
+  <li>Acer Projector config fix (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0295---september-30" href="#hotfix-0295---september-30"></a> Hotfix 0.29.5 - September 30</h3>
+
+<ul>
+  <li>Fix Climate Nest platform (<a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/jawilson">@jawilson</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0296---october-1" href="#hotfix-0296---october-1"></a> Hotfix 0.29.6 - October 1</h3>
+
+<ul>
+  <li>Fix segmentation fault (<a href="https://github.com/bbangert">@bbangert</a>) 🎉</li>
+  <li>Fix nested templates in <code class="highlighter-rouge">data_template</code> would incorrectly get cached (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0297---october-5" href="#hotfix-0297---october-5"></a> Hotfix 0.29.7 - October 5</h3>
+
+<ul>
+  <li>Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>The template methods <code class="highlighter-rouge">now</code> and <code class="highlighter-rouge">utcnow</code> have been changed from variables to methods. To get the current time replace <code class="highlighter-rouge">now</code> with <code class="highlighter-rouge">now()</code>.</li>
+  <li><code class="highlighter-rouge">yahooweather</code> default name is now <code class="highlighter-rouge">yweather</code>. Also min and max temperature are now correctly called <code class="highlighter-rouge">Temperature Min</code> and <code class="highlighter-rouge">Temperature Max</code>.</li>
+  <li><code class="highlighter-rouge">ffmpeg</code> is now a component for manage some things central. All <code class="highlighter-rouge">ffmpeg_bin</code> options have moved to this compoment from platforms.</li>
+  <li>Config has changed for <a href="/components/light.x10/">X10</a> lights.</li>
+  <li>For Wink, make sure your config only contains the access token as in the <a href="/components/wink/">docs</a>.</li>
+  <li>Nest sensor ‘mode’ has been renamed to ‘operation_mode’</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/09/10/notify-group-reload-api-pihole/">0.28: Reload automation and groups, API documentation, car tracking, Pi-Hole stats</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-09-10T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 10, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/09/10/notify-group-reload-api-pihole/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>It’s already time for 0.28 thanks to our super short release cycles. Now, it’ official…we hit 4000 stars on Github. That’s amazing. Sorry, not as amazing as all the stuff that was going on for 0.27 but still pretty awesome.</p>
+
+<h3><a class="title-link" name="reload-automation-rules" href="#reload-automation-rules"></a> Reload automation rules</h3>
+
+<p>This release brings you a huge improvement of the <a href="/components/automation/">automation</a> and <a href="/components/group/">group</a> handling. Both can be reloaded without a Home Assistant restart by calling their new reload services. The automations can be controlled directly from the frontend.</p>
+
+<p class="img">
+  <img src="/images/screenshots/automation-switches.png" />
+</p>
+
+<h3><a class="title-link" name="raspberry-pi-installation-guide" href="#raspberry-pi-installation-guide"></a> Raspberry Pi installation guide</h3>
+<p>Singleboard computers are very popular to run Home Assistant. To support this fact, the <a href="/getting-started/installation-raspberry-pi/">installation documentation</a> for the Raspberry Pi devices was re-written to get users started as quickly as possible. <a href="https://github.com/Landrash">@Landrash</a> took the lead with on this tasks with help from <a href="https://github.com/kellerza">@kellerza</a> and <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>.</p>
+
+<h3><a class="title-link" name="climate-and--cover" href="#climate-and--cover"></a> Climate and  cover</h3>
+<p>There are countless bugfixes included in this release which will make your experience with the <code class="highlighter-rouge">climate</code> and the <code class="highlighter-rouge">cover</code> platforms better. Two week ago was the biggest merger of implementations released that ever happened in the history of Home Assistant. Thanks to <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/djbanks">@djbanks</a>, <a href="https://github.com/danielperna84">@danielperna84</a>, and others the improvements on the code and the frontend side is continuing…</p>
+
+<h3><a class="title-link" name="api-documentation" href="#api-documentation"></a> API documentation</h3>
+<p>The <a href="https://dev-docs.home-assistant.io/en/dev/">Home Assistant API Documentation</a> is a great addition to the already exisiting user documentation. The focus is not end-users but developers who whant to get details about the code without actually browsing the code on Github.</p>
+
+<h3><a class="title-link" name="configuration-validation" href="#configuration-validation"></a> Configuration validation</h3>
+<p>The validation of the configuration is still on-going. Approximatly 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/Teagan42">@Teagan42</a>, and <a href="https://github.com/pvizeli">@pvizeli</a> for your effort!</p>
+
+<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
+
+<p><img src="/images/supported_brands/xbox-live.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/automatic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/pi_hole.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+
+<ul>
+  <li>Light: Added bitfield to Flux LED since we are supporting effects (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Device tracker: <a href="/components/device_tracker.owntracks/">Owntracks</a> waypoint import (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Climate: A lot of bugfix (<a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/djbanks">@djbanks</a>)</li>
+  <li>Notify: Improvement of the title handling (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>RFXtrx: Sensor cleanup (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Device tracker: Fix for BLE device tracker (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Device tracker: Allow ‘None’ MAC addresses to be loaded from <code class="highlighter-rouge">known_devices</code> file (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Cover: Bugfixes (<a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Sensor: Support for displaying details about <a href="/components/sensor.coinmarketcap">crypto currencies</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Device tracker: Support for <a href="/components/device_tracker.automatic/">automatic</a> to track your vehicles (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Devie tracker: Add exclude option to <a href="/components/device_tracker.nmap_scanner/">Nmap</a> device tracker (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
+  <li>Device tracker: Improved login errors for Asus device tracker (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Sensor: Support for displaying the status of <a href="/components/sensor.xbox_live/">Xbox</a> Live accounts (<a href="https://github.com/mKerix">@mKerix</a>)</li>
+  <li>Notify: Adding <code class="highlighter-rouge">link_names</code> for sending Slack message (<a href="https://github.com/salt-lick">@salt-lick</a>)</li>
+  <li>Binary sensor: Add the occupancy sensor class (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Fan: Add supoort for <a href="/components/fan.mqtt/">MQTT fans</a> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Docs: Add Sphinx API doc generation (<a href="https://github.com/bbangert">@bbangert</a>)</li>
+  <li>Core: Allow reloading automation without restart (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Sensor: Added scale and offset to the <a href="/components/sensor.temper/">Temper</a> sensor (<a href="https://github.com/mKerix">@mKerix</a>)</li>
+  <li>Sensor: New support for [Trend] sensor (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Device tracker: Keep looking for new BLE devices (<a href="https://github.com/Bart274">@Bart274</a>)</li>
+  <li>Switch: Added device state attributes and support for legacy firmware for D-Link switches (<a href="https://github.com/LinuxChristian">@LinuxChristian</a>)</li>
+  <li>Sensor: Improve 1-Wire device family detection (<a href="https://github.com/Ardetus">@Ardetus</a>)</li>
+  <li>Modbus: Update to be thread safe (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Camera: FFMpeg is abale to get the images (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Core: Reload groups without restart (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Core: Fix remove listener (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Sensor: Support for monitoring your <a href="/components/sensor.linux_battery">battery</a> on a Linux host (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Core: Add support for complex template structures to <code class="highlighter-rouge">data_template</code> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li><code class="highlighter-rouge">check_config</code>: Improve yaml fault tolerance and handle border cases (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Core: Add additional <a href="/topics/templating/">template</a> for custom date formats (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Sensor: Support for getting stats from Pi-Hole systems (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Modbus: New <code class="highlighter-rouge">write_registers</code> <a href="/components/modbus/">Modbus</a> service (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Device tracker: Fix TP-Link Archer C7 long passwords (<a href="https://github.com/snikch">@snikch</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0281---september-12" href="#hotfix-0281---september-12"></a> Hotfix 0.28.1 - September 12</h3>
+
+<ul>
+  <li>Fix: Simplisafe alarm control panels accept any string for code (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Fix: Z-Wave would sometimes not detect all thermostats (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Fix: Automatic device tracker when 2 or more cars are tracked (<a href="https://github.com/Teagan42">@teagan42</a>)</li>
+  <li>Fix: Group ordering is now based on config again (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0282---september-13" href="#hotfix-0282---september-13"></a> Hotfix 0.28.2 - September 13</h3>
+
+<ul>
+  <li>Light - pilight: Fix send RF code (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
+  <li>Recorder: Fix specifying SQLite (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Wink: Fix garage door detection (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Climate - Ecobee: Fix inverted high and low temperatures (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Allow changing covers using scenes (<a href="https://github.com/nvella">@nvella</a>)</li>
+  <li>Device tracker - Automatic: Fix polling (<a href="https://github.com/Teagan42">@teagan42</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li><a href="/components/sensor.openweathermap/">OpenweatherMap</a> entity IDs are now like <code class="highlighter-rouge">sensor.owm_temperature</code>. Previously they were like <code class="highlighter-rouge">sensor.weather_temperature</code>. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.</li>
+  <li>Updates of configuration variables due to configuration check or alignment with other platforms. Please update your configuration entries according to the documentation:
+    <ul>
+      <li><a href="/components/octoprint/">OctoPrint</a> component</li>
+      <li>mFi platform (<a href="/components/switch.mfi/">switch</a> and <a href="/components/sensor.mfi/">sensor</a>)</li>
+      <li>NX584 Alarm Control Panel</li>
+      <li>Mediaplayer platforms <a href="/components/media_player.firetv/">FireTV</a>, <a href="/components/media_player.kodi/">Kodi</a> and <a href="/components/media_player.mpd/">MPD</a></li>
+      <li><a href="/components/switch.command_line/">switch</a> and the <a href="/components/cover.command_line/">cover</a> <code class="highlighter-rouge">command_line</code> platforms</li>
+    </ul>
+  </li>
+  <li>Custom components extending <code class="highlighter-rouge">BaseNotificationService</code> need to be aware that <code class="highlighter-rouge">kwargs.get(ATTR_TITLE)</code> will now return <code class="highlighter-rouge">None</code> if a title has not been set, and will need to specify <code class="highlighter-rouge">kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT)</code> if they always require a title.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+
+  <div class="pagination">
+    
+      <a class="btn pull-left" href="/blog/posts/2">&larr; Older</a>
+    
+
+    
+  </div>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+
+    
+      <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Categories</h1>
+  <ul class="divided">
+    
+    
+      <li><a href="/blog/categories/community/">Community</a></li>
+    
+      <li><a href="/blog/categories/device-tracking/">Device Tracking</a></li>
+    
+      <li><a href="/blog/categories/esp8266/">ESP8266</a></li>
+    
+      <li><a href="/blog/categories/how-to/">How To</a></li>
+    
+      <li><a href="/blog/categories/internet-of-things/">Internet of Things</a></li>
+    
+      <li><a href="/blog/categories/iot-data/">IoT Data</a></li>
+    
+      <li><a href="/blog/categories/mqtt/">MQTT</a></li>
+    
+      <li><a href="/blog/categories/micropython/">Micropython</a></li>
+    
+      <li><a href="/blog/categories/organisation/">Organisation</a></li>
+    
+      <li><a href="/blog/categories/owntracks/">OwnTracks</a></li>
+    
+      <li><a href="/blog/categories/presence-detection/">Presence Detection</a></li>
+    
+      <li><a href="/blog/categories/public-service-announcement/">Public Service Announcement</a></li>
+    
+      <li><a href="/blog/categories/release-notes/">Release Notes</a></li>
+    
+      <li><a href="/blog/categories/survey/">Survey</a></li>
+    
+      <li><a href="/blog/categories/talks/">Talks</a></li>
+    
+      <li><a href="/blog/categories/technology/">Technology</a></li>
+    
+      <li><a href="/blog/categories/user-stories/">User Stories</a></li>
+    
+      <li><a href="/blog/categories/video/">Video</a></li>
+    
+      <li><a href="/blog/categories/website/">Website</a></li>
+    
+      <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
+    
+  </ul>
+</section>
+    
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    var disqus_script = 'count.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>

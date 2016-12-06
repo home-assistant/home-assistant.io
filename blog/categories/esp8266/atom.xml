@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ESP8266 | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/esp8266/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-06T08:09:11+00:00</updated>
+  <updated>2016-12-06T08:21:33+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -29,7 +29,7 @@ You have to make a decision: Do you want to pull or to poll? For slowly changing
 
 An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
 
-### {% linkable_title MQTT %}
+### <a class='title-link' name='mqtt' href='#mqtt'></a> MQTT 
 
 You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
 
@@ -297,7 +297,7 @@ Home Assistant will keep track of historical values and allow you to integrate i
 
 <!--more-->
 
-### {% linkable_title Components %}
+### <a class='title-link' name='components' href='#components'></a> Components 
 
 I've been using Adafruit for my shopping:
 
@@ -307,14 +307,14 @@ I've been using Adafruit for my shopping:
 
 _Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 
-### {% linkable_title Alternatives %}
+### <a class='title-link' name='alternatives' href='#alternatives'></a> Alternatives 
 
 Since this article has been published the HDC1008 has been discontinued. Updated sketches are available for the following alternatives:
 
  - [DHT22 sensor](https://www.adafruit.com/product/385) and [updated sketch](https://gist.github.com/balloob/1176b6d87c2816bd07919ce6e29a19e9).
  - [BME280 sensor](https://www.adafruit.com/product/2652) and [updated sketch](https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419).
 
-### {% linkable_title Connections %}
+### <a class='title-link' name='connections' href='#connections'></a> Connections 
 
 On your breadboard, make the following connections from your ESP8266 to the HDC1008:
 
@@ -327,7 +327,7 @@ On your breadboard, make the following connections from your ESP8266 to the HDC1
 
 _I picked `#2` and `14` myself, you can configure them in the sketch._
 
-### {% linkable_title Preparing your IDE %}
+### <a class='title-link' name='preparing-your-ide' href='#preparing-your-ide'></a> Preparing your IDE 
 
 Follow [these instructions](https://github.com/esp8266/Arduino#installing-with-boards-manager) on how to install and prepare the Arduino IDE for ESP8266 development.
 
@@ -336,7 +336,7 @@ After you're done installing, open the Arduino IDE, in the menu click on `sketch
 - PubSubClient by Nick 'O Leary
 - Adafruit HDC1000
 
-### {% linkable_title Sketch %}
+### <a class='title-link' name='sketch' href='#sketch'></a> Sketch 
 
 If you have followed the previous steps, you're all set.
 
@@ -464,7 +464,7 @@ void loop() {
 }
 ```
 
-### {% linkable_title Configuring Home Assistant %}
+### <a class='title-link' name='configuring-home-assistant' href='#configuring-home-assistant'></a> Configuring Home Assistant 
 
 The last step is to integrate the sensor values into Home Assistant. This can be done by setting up Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.
 

@@ -1,0 +1,378 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pilight Sensor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate pilight sensors within Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.pilight/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Pilight Sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.pilight/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate pilight sensors within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Pilight Sensor">
+    <meta name="twitter:description" content="Instructions how to integrate pilight sensors within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Pilight Sensor
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>This <code class="highlighter-rouge">pilight</code> sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g. <em>uuid</em>) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight home assistant hub has to be set up.</p>
+
+<p>To use your sensor via pilight, make sure it is <a href="https://wiki.pilight.org/doku.php/protocols">supported</a> and add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
+    <span class="s">variable</span><span class="pi">:</span> <span class="s">temperature</span>
+    <span class="s">payload</span><span class="pi">:</span>
+      <span class="s">uuid</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0000-b8-27-eb-f447d3'</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>variable</strong> (<em>Required</em>): The variable name in the data stream that defines the sensor value.</li>
+  <li><strong>payload</strong> (<em>Required</em>): Message payload identifiers. Only if all identifiers are matched the sensor value is set.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the sensor.</li>
+  <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
+</ul>
+
+<h2><a class="title-link" name="example-weather-station" href="#example-weather-station"></a> Example: Weather station</h2>
+
+<p>This section shows a real life example how to use values of a weather station.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temperature'</span>
+    <span class="s">variable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">temperature'</span>
+    <span class="s">payload</span><span class="pi">:</span>
+      <span class="s">uuid</span><span class="pi">:</span> <span class="s">0000-b8-27-eb-f1f72e</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidity'</span>
+    <span class="s">variable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">humidity'</span>
+    <span class="s">payload</span><span class="pi">:</span>
+      <span class="s">uuid</span><span class="pi">:</span> <span class="s">0000-b8-27-eb-f1f72e</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Battery'</span>
+    <span class="s">variable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">battery'</span>
+    <span class="s">payload</span><span class="pi">:</span>
+      <span class="s">uuid</span><span class="pi">:</span> <span class="s">0000-b8-27-eb-f1f72e</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.pilight.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/pilight.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: depends
+    </div>
+    <div class='section'>
+    Introduced in release: 0.31
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/pilight/'>
+          Pilight
+        </a></li>
+        <li><a href='/components/switch.pilight/'>
+          Pilight Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Sensor</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/sensor.apcupsd/'>APCUPSd Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.api_stream/'>API Stream Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.arwn/'>ARWN Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.bbox/'>Bbox Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.bloomsky/'>BloomSky Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.broadlink/'>Broadlink RM2 and A1 sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.command_line/'>Command line Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.dweet/'>Dweet.io</a>
+        </li>
+        <li>
+            <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.enocean/'>EnOcean Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.gpsd/'>GPSD</a>
+        </li>
+        <li>
+            <a href='/components/sensor.http/'>HTTP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.haveibeenpwned/'>HaveIBeenPwned Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.homematic/'>Homematic Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.imap_email_content/'>IMAP Email Content</a>
+        </li>
+        <li>
+            <a href='/components/sensor.imap/'>IMAP Unread E-mail</a>
+        </li>
+        <li>
+            <a href='/components/sensor.isy994/'>ISY994 Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mqtt/'>MQTT Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.min_max/'>Min/max Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.modbus/'>Modbus Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.moldindicator/'>Mold Indicator</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.nut/'>NUT Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.nest/'>Nest Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.onewire/'>One wire Sensor</a>
+        </li>
+        <li>
+            Pilight Sensor
+        </li>
+        <li>
+            <a href='/components/sensor.rest/'>RESTful Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rfxtrx/'>RFXtrx Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.random/'>Random Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.scrape/'>Scrape Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sonarr/'>Sonarr Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.synologydsm/'>SynologyDSM Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tcp/'>TCP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.temper/'>TEMPer Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tellstick/'>TellStick Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tellduslive/'>Telldus Live sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.template/'>Template Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.vera/'>Vera Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.verisure/'>Verisure Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.wink/'>Wink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.waqi/'>World Air Quality Index</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zwave/'>Z-Wave Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zigbee/'>ZigBee Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zoneminder/'>ZoneMinder Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.arest/'>aREST Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mfi/'>mFi Sensor</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

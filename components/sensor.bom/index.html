@@ -1,0 +1,264 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Bureau of Meteorology (BOM) Australia - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.bom/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Bureau of Meteorology (BOM) Australia">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.bom/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Bureau of Meteorology (BOM) Australia">
+    <meta name="twitter:description" content="Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Bureau of Meteorology (BOM) Australia
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The <code class="highlighter-rouge">bom</code> platform allows you to get the current weather conditions from the <a href="http://www.bom.gov.au/">Bureau of Meteorology (BOM)</a> Australia.</p>
+
+<ul>
+  <li>Each sensor will be given the <code class="highlighter-rouge">device_id</code> of “bom [optionalname] friendlyname units”</li>
+  <li>A name is optional but if multiple BOM weather stations are used a name will be required.</li>
+  <li>The sensor will update every minute 35 minutes after last data timestamp. This allows for the 30 minute observation cycle and the approximate 5 minute update delay in publishing the data.</li>
+</ul>
+
+<p>To get the station ID <code class="highlighter-rouge">[zone_id]</code> and <code class="highlighter-rouge">[wmo_id]</code> for your local BOM station:</p>
+<ul>
+  <li>Find your station on these maps:</li>
+  <li>NSW: http://www.bom.gov.au/nsw/observations/map.shtml</li>
+  <li>QLD: http://www.bom.gov.au/qld/observations/map.shtml</li>
+  <li>VIC: http://www.bom.gov.au/vic/observations/map.shtml</li>
+  <li>WA: http://www.bom.gov.au/wa/observations/map.shtml</li>
+  <li>SA: http://www.bom.gov.au/sa/observations/map.shtml</li>
+  <li>TAS: http://www.bom.gov.au/tas/observations/map.shtml</li>
+  <li>ACT: http://www.bom.gov.au/act/observations/canberramap.shtml</li>
+  <li>NT: http://www.bom.gov.au/nt/observations/map.shtml</li>
+  <li>alternatively, from the <a href="http://www.bom.gov.au/">BOM website</a>, navigate to State -&gt; Observations -&gt; Latest Observations -&gt; Choose the station.</li>
+  <li>The URL will look like: http://www.bom.gov.au/products/[zone_id]/[zone_id].[wmo_id].shtml</li>
+  <li>For Adelaide, the URL will look like http://www.bom.gov.au/products/IDS60801/IDS60801.94675.shtml.</li>
+</ul>
+
+<p>To add the BOM weather observation to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bom</span>
+    <span class="s">zone_id</span><span class="pi">:</span> <span class="s">IDS60801</span>
+    <span class="s">wmo_id</span><span class="pi">:</span> <span class="s">94675</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">wmo</span>
+      <span class="pi">-</span> <span class="s">name</span>
+      <span class="pi">-</span> <span class="s">history_product</span>
+      <span class="pi">-</span> <span class="s">local_date_time</span>
+      <span class="pi">-</span> <span class="s">local_date_time_full</span>
+      <span class="pi">-</span> <span class="s">aifstime_utc</span>
+      <span class="pi">-</span> <span class="s">lat</span>
+      <span class="pi">-</span> <span class="s">lon</span>
+      <span class="pi">-</span> <span class="s">apparent_t</span>
+      <span class="pi">-</span> <span class="s">cloud</span>
+      <span class="pi">-</span> <span class="s">cloud_base_m</span>
+      <span class="pi">-</span> <span class="s">cloud_oktas</span>
+      <span class="pi">-</span> <span class="s">cloud_type_id</span>
+      <span class="pi">-</span> <span class="s">cloud_type</span>
+      <span class="pi">-</span> <span class="s">delta_t</span>
+      <span class="pi">-</span> <span class="s">gust_kmh</span>
+      <span class="pi">-</span> <span class="s">gust_kt</span>
+      <span class="pi">-</span> <span class="s">air_temp</span>
+      <span class="pi">-</span> <span class="s">dewpt</span>
+      <span class="pi">-</span> <span class="s">press</span>
+      <span class="pi">-</span> <span class="s">press_qnh</span>
+      <span class="pi">-</span> <span class="s">press_msl</span>
+      <span class="pi">-</span> <span class="s">press_tend</span>
+      <span class="pi">-</span> <span class="s">rain_trace</span>
+      <span class="pi">-</span> <span class="s">rel_hum</span>
+      <span class="pi">-</span> <span class="s">sea_state</span>
+      <span class="pi">-</span> <span class="s">swell_dir_worded</span>
+      <span class="pi">-</span> <span class="s">swell_height</span>
+      <span class="pi">-</span> <span class="s">swell_period</span>
+      <span class="pi">-</span> <span class="s">vis_km</span>
+      <span class="pi">-</span> <span class="s">weather</span>
+      <span class="pi">-</span> <span class="s">wind_dir</span>
+      <span class="pi">-</span> <span class="s">wind_spd_kmh</span>
+      <span class="pi">-</span> <span class="s">wind_spd_kt</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>zone_id</strong> (<em>Required</em>): The zone_id as identified from the BOM website.</li>
+  <li><strong>wmo_id</strong> (<em>Required</em>): The wmo as identified from the BOM website.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the weather station.</li>
+  <li><strong>monitored_conditions</strong> (<em>Required</em>): A list of the conditions to monitor.</li>
+</ul>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.bom.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/bom.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.29
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Weather</h1>
+    <ul class='divided'>
+        <li>
+            Bureau of Meteorology (BOM) Australia
+        </li>
+        <li>
+            <a href='/components/sensor.darksky/'>Dark Sky</a>
+        </li>
+        <li>
+            <a href='/components/sensor.nest_weather/'>Nest Weather Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.netatmo/'>Netatmo Sensor</a>
+        </li>
+        <li>
+            <a href='/components/weather.openweathermap/'>OpenWeatherMap</a>
+        </li>
+        <li>
+            <a href='/components/sensor.openweathermap/'>OpenWeatherMap Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sun/'>Sun</a>
+        </li>
+        <li>
+            <a href='/components/sensor.swiss_hydrological_data/'>Swiss Hydrological Data</a>
+        </li>
+        <li>
+            <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
+        </li>
+        <li>
+            <a href='/components/sensor.yr/'>YR</a>
+        </li>
+        <li>
+            <a href='/components/sensor.yweather/'>Yahoo Weather</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
