@@ -67,7 +67,7 @@ switch:
   - platform: template
     switches:
       tv:
-        value_template: "{% if is_state('remote.family_room', 'on') %}on{% else %}off{% endif %}"
+        value_template: "{% raw %}{% if is_state('remote.family_room', 'on') %}on{% else %}off{% endif %}{% endraw %}"
         turn_on:
           service: remote.turn_on
           entity_id: remote.family_room
