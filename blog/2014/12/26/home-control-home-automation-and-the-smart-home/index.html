@@ -1,0 +1,310 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home Control, Automation &amp; the Smart Home - Home Assistant</title>
+    <meta name="author" content="Paulus Schoutsen">
+    <meta name="description" content="Overview of how the internet of things relates to home control, home automation and the smart home.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2014/12/26/home-control-home-automation-and-the-smart-home/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Home Control, Automation &amp; the Smart Home">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2014/12/26/home-control-home-automation-and-the-smart-home/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Overview of how the internet of things relates to home control, home automation and the smart home.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@balloob">
+    <meta name="twitter:title" content="Home Control, Automation &amp; the Smart Home">
+    <meta name="twitter:description" content="Overview of how the internet of things relates to home control, home automation and the smart home.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  
+  <header>
+  
+  <h1 class="title indent">Home Control, Automation &amp; the Smart Home</h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2014-12-26T18:23:13+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 26, 2014</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Internet-of-Things</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <p>The internet has been buzzing over the last year about home automation. A lot of different terms fly around like the internet of things, home automation and the smart home.
+This article will try to explain how they all relate.</p>
+
+<p>The first thing to introduce is the <strong>Internet of Things</strong> (IoT). This refers to a new generation of devices that cannot only be controlled by humans via buttons or remotes but also provide an interface to communicate with other devices and applications. For example, an IoT-capable coffee machine could receive commands to create different types of coffee and be able to broadcast the amount of water left in its resevoir.</p>
+
+<p>There is no widely adopted open standard for smart device communication. This prevents a lot of devices to communicate with one another. And even if they could, most devices are not designed to manage other devices. To solve this we need a device to be able to communicate with and manage all these connected devices. This device is called a <strong>hub</strong>.</p>
+
+<p>As a bare minimum a hub has to keep track of the state of each device and should be able to control them if possible. For example, it has to know which lights are on or off and offer a way to control the lights. For a sensor it only has to know the value. A hub with these capabilities offers <strong>home control</strong>.</p>
+
+<p class="img">
+  <a href="/images/screenshots/nexus_7_dashboard.png">
+    <img alt="Hub dashboard example" src="/images/screenshots/nexus_7_dashboard.png" />
+  </a>
+  Example of a hub’s dashboard. Showing the state of 2 persons, 4 lights and the sun.
+</p>
+<a name="read-more"></a>
+<p>A step up from home control is to have the user setup triggers to send commands based on information in the home control layer. For example, to turn on the lights when a person arrives home. A hub with these capabilities is capable of <strong>home automation</strong>.</p>
+
+<p>Most hubs on the market today offer this in various degrees of functionality and usability. Some IoT-capable devices offer this too, but only control themselves and are usually limited to location and time-based events.</p>
+
+<p>The last category, and this is still very much in the future, is the <strong>smart home</strong>. A self-learning and adopting system that will decide which events should impact other devices.</p>
+
+<p>An example of a smart home in action is that it observes that when person A comes home, the lights in the living room and the kitchen switch on. While if person B comes home, the lights in the living room and the study room are switched on. The next time person A or B comes home, the smart home will turn on its preferred lights without any configuration being set by the user.</p>
+
+<p>A glimpse today at how the future can look is the <a href="https://nest.com/">Nest thermostat</a>. A thermostat smart enough to learn your schedule and adjust its own temperature accordingly.</p>
+
+<p>All this results in the following overview of Home Automation.</p>
+
+<p class="img">
+  <a href="/images/architecture/home_automation_landscape.png">
+    <img alt="Home Automation landscape" src="/images/architecture/home_automation_landscape.png" />
+  </a>
+  Overview of the home automation landscape.
+</p>
+
+<h3>Challenges</h3>
+
+<p>You are probably wondering, this all seems relatively simple, why don’t I have my very own smart home yet? There are a couple of challenges today that keep us from stepping into the future.</p>
+
+<h4>More Internet of Things-capable devices</h4>
+
+<p>The majority of the IoT products out there are either lights, switches or presence detection. That’s not enough for your home to be very smart about. We need televisions, fridges, ovens and more to join the party to increase the number of devices that we can control.</p>
+
+<h4>More data</h4>
+
+<p>Most first generation IoT devices are only exposing information that is needed for controlling it. We need to be able to track all interactions with each device for our smart home to learn how interaction with devices influence other things. For example, we need to be able to track how many cups of coffee were made or how often the fridge was open. This will increase the information flow and open up a whole bunch of new possibilities. For example, the smart home can order new coffee when you’re running low.</p>
+
+<h4>Easy to use, open software that we can trust</h4>
+
+<p>To increase adoption we will need people to trust their smart home system. It will be very tough to convince people to upgrade all their devices and upload all interactions with each of them to the cloud. This data could reveal their whole life including all bad habits. That’s why such a system should be simple and open-source so people can validate that their data generated at home stays home.</p>
+
+<p>Anoter important booster for adoption is that the software should be easy to set up and use by the average user. A lot of people are not burning their hands yet on Home Automation because they are scared of configurating it.</p>
+
+<p>Home Assistant is trying to be this software. It is not there yet but trying hard. Device discovery and a user interface for configuring home automation are problems we hope to tackle in 2015 while not sacrificing any modularity or usability.</p>
+
+<p>Happy new year!</p>
+</article>
+
+
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+
+    
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2014/12/26/home-control-home-automation-and-the-smart-home/"
+     data-counturl="https://home-assistant.io/blog/2014/12/26/home-control-home-automation-and-the-smart-home/" >Tweet</a>
+  
+  
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2014/12/26/home-control-home-automation-and-the-smart-home/"
+         data-layout="button_count">
+    </div>
+  
+  
+  <div class="g-plusone" data-size="standard"></div>
+  
+</section>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      
+        <li class="post">
+          <a href="/blog/2016/12/03/remote-websockets-sonarr/">0.34: New Remote component, Websockets, Sonarr, GPSLogger</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/">0.33: New Calendar component, Wink thermostats and Cisco IOS</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/11/05/hacktoberfest-influxdb-weather/">0.32: Hacktoberfest, InfluxDB sensor, Error reporting, and Weather</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/25/explaining-the-updater/">Explaining the Updater</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/">0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change</a>
+        </li>
+      
+    
+  </ul>
+</section>
+    
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2014/12/26/home-control-home-automation-and-the-smart-home/';
+    var disqus_url = 'https://home-assistant.io/blog/2014/12/26/home-control-home-automation-and-the-smart-home/';
+    var disqus_script = 'embed.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>

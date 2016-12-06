@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Video | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/video/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2016-12-06T19:56:33+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant at PyCon 2016]]></title>
+    <link href="https://home-assistant.io/blog/2016/06/13/home-assistant-at-pycon-2016/"/>
+    <updated>2016-06-13T01:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/06/13/home-assistant-at-pycon-2016</id>
+    <content type="html"><![CDATA[It's been already almost two weeks ago that a few of the Home Assistant developers headed towards Portland for [PyCon 2016] - the conference about everything Python. We were there to learn all the nifty tricks to make our code better but most of all, to talk Home Automation.
+
+<p class='img'>
+  <img src='https://home-assistant.io/images/blog/2016-06-pycon/crew.jpg' alt='Home Assistant developers' />
+  Couple of Home Assistant devs. Left to right: [Paulus (@balloob)], [Alex (@infamy)], [Ryan (@rmkraus)].
+</p>
+
+On Monday I (Paulus) gave a presentation about Home Assistant to an audience of over 400 people! It was a bit scary at first but after a couple of minutes it went all great including some great questions afterwards. Slides can be found [here][slides] and the talk is embedded right below:
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UhccJacWhdM" frameborder="0" allowfullscreen></iframe>
+</div>
+
+One of the things that really impressed me was the amount of people that approached us to tell how they love Home Assistant, how it has replaced their previous solution, how they enjoyed contributing to Home Assistant and how helpful our community is. It makes me proud of Home Assistant and especially our community.
+
+<!--more-->
+PyCon has a few great concepts that I haven't seen at other conferences: open spaces and sprints. Open spaces give anyone the opportunity to get a room and host a session for an hour to talk about any topic. Sprints happen after the conference part of PyCon is over. For four days there are rooms available for participants to get together and hack on their favorite open source projects.
+
+My talk had limited time for Q&A so open spaces offered a great opportunity to get all pending questions answered and connect with the commmunity. There was more interest after the first day so we ended up hosting another open space on the second day.
+
+<blockquote markdown="0" class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/anschoen">@anschoen</a> <a href="https://twitter.com/home_assistant">@home_assistant</a> I&#39;m located in Detroit. I could facilitate a workshop. What are we talking (group, potential dates, etc)?</p>&mdash; Jonathan Baginski (@jbags81) <a href="https://twitter.com/jbags81/status/739057625636167680">June 4, 2016</a></blockquote>
+
+We've had such positive reception on our open spaces that [Jonathan Baginski][@jbags81] decided to repeat it online. We will be hosting a free online webinar [Home Assistant Support 101 - Getting around in Home Assistant][webinar] later this month. Make sure to RSVP.
+
+After the conference part of PyCon was over we spent one extra day to host a Home Assistant sprint. This allowed us to help people get started with hacking on Home Assistant which lead to some great contributions.
+
+<p class='img'>
+  <img src='https://home-assistant.io/images/blog/2016-06-pycon/sprint.jpg' alt='Home Assistant sprint group photo' />
+  Home Assistant sprint group photo.
+</p>
+
+I've had a really great time at PyCon. It was awesome to meet everyone in person and I hope to see many of you next year!
+
+[PyCon 2016]: https://us.pycon.org/2016/
+[Paulus (@balloob)]: https://github.com/balloob/
+[Alex (@infamy)]: https://github.com/infamy/
+[Ryan (@rmkraus)]: https://github.com/rmkraus/
+[@jbags81]: https://github.com/jbags81/
+[slides]: https://docs.google.com/presentation/d/1F1pGOoSf0dD79Dl5dgys0ll7xiuIA4XiQeNeJ-xlqMg/edit
+[webinar]: https://www.eventbrite.com/e/home-assistant-support-101-getting-around-in-home-assistant-tickets-25943868810
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Community Highlights]]></title>
+    <link href="https://home-assistant.io/blog/2016/06/01/community-highlights/"/>
+    <updated>2016-06-01T18:34:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/06/01/community-highlights</id>
+    <content type="html"><![CDATA[Our community is amazingly helpful and creative. If you haven't been there yet, make sure to stop by our [chat room] and come hang out with us. In this blog post I want to highlight a few recent awesome projects and videos from the community.
+
+### <a class='title-link' name='scenegen---cli-for-making-scenes' href='#scenegen---cli-for-making-scenes'></a> SceneGen - cli for making scenes 
+
+[SceneGen] is a new command line utility developed by [Andrew Cockburn] that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.
+
+### <a class='title-link' name='videos' href='#videos'></a> Videos 
+
+[Nick Touran] has been working on integrating IR remotes with Home Assistant. He made it into a component which should be available in the next release which should arrive in a couple of days. In the meanwhile, he wrote up [a blog post] and has put out a video showing the new integration, very cool!
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6I_Lfpda0hc" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Ben from [BRUH Automation] has put out another great video how to get started tracking your location in Home Assistant using MQTT and OwnTracks.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VaWdvVVYU3A" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Muhammed Kilic has created a video how to make your Home Assistant instance accessible from the internet using the free dynamic DNS service DuckDNS.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UM15pRk56h8" frameborder="0" allowfullscreen></iframe>
+</div>
+
+[chat room]: https://gitter.im/home-assistant/home-assistant
+[SceneGen]: https://github.com/acockburn/scenegen
+[Andrew Cockburn]: https://github.com/acockburn
+[BRUH Automation]: http://www.bruhautomation.com/
+[Nick Touran]: https://partofthething.com
+[a blog post]: https://partofthething.com/thoughts/?p=1010
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Raspberry Pi all-in-one installer]]></title>
+    <link href="https://home-assistant.io/blog/2016/05/22/get-started-with-all-in-one-installer/"/>
+    <updated>2016-05-22T16:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/05/22/get-started-with-all-in-one-installer</id>
+    <content type="html"><![CDATA[We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That's why [@jbags81] recently introduced the [all-in-one installer]. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:
+
+```bash
+wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && bash hass_rpi_installer.sh;
+```
+
+This feature wouldn't be complete if it wasn't accompanied by a new video by Ben from [BRUH Automation](http://www.bruhautomation.com). The video shows how to install Raspbian Jessie on your Raspberry Pi and use the new installation script to get a full Home Assistant system up and running.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VGl3KTrYo6s" frameborder="0" allowfullscreen></iframe>
+</div>
+
+[@jbags81]: https://github.com/jbags81
+[all-in-one installer]: /getting-started/installation-raspberry-pi-all-in-one/
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Video: How To Configure Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2016/05/12/video-configuring-home-assistant/"/>
+    <updated>2016-05-12T00:09:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/05/12/video-configuring-home-assistant</id>
+    <content type="html"><![CDATA[Ben from [BRUH Automation](http://www.bruhautomation.com) authors a lot of great video's about how he is using Home Assistant and how you can get started with it too. The video below will walk you through how to configure Home Assistant. Enjoy!
+
+Make sure to subscribe to [his YouTube channel](https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w) for more Home Assistant video's.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hFDVB2H6TNo" frameborder="0" allowfullscreen></iframe>
+</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Talk: Automating your home with Home Assistant (OpenIoT Summit)]]></title>
+    <link href="https://home-assistant.io/blog/2016/05/06/open-iot-summit-talk/"/>
+    <updated>2016-05-06T14:09:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/05/06/open-iot-summit-talk</id>
+    <content type="html"><![CDATA[At the beginning of April I gave a talk about Home Assistant at the OpenIoT summit in San Diego. I talk about the Home Assistant architecture and explain how to get started integrating your devices. Big thanks to my employer AppFolio ([we're hiring!]) for letting me attend. [Slides.]
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4-6rTwKl6ww" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+[Slides.]: https://docs.google.com/presentation/d/1P2WsmwGSSni4gAriY5IA0-m-FUGO1kno3gIkRYz20Kw/edit#slide=id.p
+[we're hiring!]: http://www.appfolioinc.com/jobs-openings
+]]></content>
+  </entry>
+  
+</feed>

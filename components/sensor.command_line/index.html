@@ -1,0 +1,465 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Command line Sensor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate command line sensors into Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.command_line/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Command line Sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.command_line/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate command line sensors into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Command line Sensor">
+    <meta name="twitter:description" content="Instructions how to integrate command line sensors into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Command Line Sensor
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The <code class="highlighter-rouge">command_line</code> sensor platform that issues specific commands to get data. This might become our most powerful platform as it allows anyone to integrate any type of sensor into Home Assistant that can get data from the command line.</p>
+
+<p>To enable it, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s">SENSOR_COMMAND</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>command</strong> (<em>Required</em>): The action to take to get the value.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the command sensor.</li>
+  <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
+  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
+</ul>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>In this section you find some real life examples of how to use this sensor.</p>
+
+<h3><a class="title-link" name="hard-drive-temperature" href="#hard-drive-temperature"></a> Hard drive temperature</h3>
+
+<p>There are several ways to get the temperature of your hard drive. A simple solution is to use <a href="https://savannah.nongnu.org/projects/hddtemp/">hddtemp</a>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hddtemp -n /dev/sda
+</code></pre>
+</div>
+
+<p>To use this information, the entry for a command-line sensor in the <code class="highlighter-rouge">configuration.yaml</code> file will look like this.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">HD Temperature</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hddtemp</span><span class="nv"> </span><span class="s">-n</span><span class="nv"> </span><span class="s">/dev/sda"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="cpu-temperature" href="#cpu-temperature"></a> CPU temperature</h3>
+
+<p>Thanks to the <a href="https://en.wikipedia.org/wiki/Procfs"><code class="highlighter-rouge">proc</code></a> file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">CPU Temperature</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cat</span><span class="nv"> </span><span class="s">/sys/class/thermal/thermal_zone0/temp"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">multiply(0.001)</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="monitoring-failed-login-attempts-on-home-assistant" href="#monitoring-failed-login-attempts-on-home-assistant"></a> Monitoring failed login attempts on Home Assistant</h3>
+
+<p>If you’d like to know how many failed login attempts are made to Home Assistant, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">badlogin</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s">grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log</span>
+</code></pre>
+</div>
+
+<p>Make sure to configure the <a href="/components/logger">logger component</a> to monitor the <a href="https://home-assistant.io/components/http/">http component</a> at least the <code class="highlighter-rouge">warning</code> level.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example working logger settings that works</span>
+<span class="s">logger</span><span class="pi">:</span>
+  <span class="s">default</span><span class="pi">:</span> <span class="s">critical</span>
+  <span class="s">logs</span><span class="pi">:</span>
+    <span class="s">homeassistant.components.http</span><span class="pi">:</span> <span class="s">warning</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="details-about-the-upstream-home-assistant-release" href="#details-about-the-upstream-home-assistant-release"></a> Details about the upstream Home Assistant release</h3>
+
+<p>You can see directly in the frontend (<strong>Developer tools</strong> -&gt; <strong>About</strong>) what release of Home Assistant you are running. The Home Assistant releases are available on the <a href="https://pypi.python.org/pypi">Python Package Index</a>. This makes it possible to get the current release.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s">python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">HA release</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="read-value-out-of-a-remote-text-file" href="#read-value-out-of-a-remote-text-file"></a> Read value out of a remote text file</h3>
+
+<p>If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor’s value.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s">python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">File value</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="use-an-external-script" href="#use-an-external-script"></a> Use an external script</h3>
+
+<p>The example is doing the same as the <a href="/components/sensor.arest/">aREST sensor</a> but with an external Python script. It should give you an idea about interfacing with devices which are exposing a RESTful API.</p>
+
+<p>The one-line script to retrieve a value is shown below. Of course would it be possible to use this directly in the <code class="highlighter-rouge">configuration.yaml</code> file but need extra care about the quotation marks.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -c <span class="s2">"import requests; print(requests.get('http://10.0.0.48/analog/2').json()['return_value'])"</span>
+</code></pre>
+</div>
+
+<p>The script (saved as <code class="highlighter-rouge">arest-value.py</code>) that is used looks like the example below.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/python3</span>
+<span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">get</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="s">'http://10.0.0.48/analog/2'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s">'return_value'</span><span class="p">])</span>
+</code></pre>
+</div>
+
+<p>To use the script you need to add something like the following to your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Brightness</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">python3</span><span class="nv"> </span><span class="s">/path/to/script/arest-value.py"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.command_line.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/command_line.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+    Introduced in release: pre 0.7
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/cover.command_line/'>
+          Command Line Cover
+        </a></li>
+        <li><a href='/components/binary_sensor.command_line/'>
+          Command line Binary Sensor
+        </a></li>
+        <li><a href='/components/notify.command_line/'>
+          Command line Notify
+        </a></li>
+        <li><a href='/components/switch.command_line/'>
+          Command line Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Sensor</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/sensor.apcupsd/'>APCUPSd Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.api_stream/'>API Stream Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.arwn/'>ARWN Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.bbox/'>Bbox Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.bloomsky/'>BloomSky Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.broadlink/'>Broadlink RM2 and A1 sensor</a>
+        </li>
+        <li>
+            Command line Sensor
+        </li>
+        <li>
+            <a href='/components/sensor.dweet/'>Dweet.io</a>
+        </li>
+        <li>
+            <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.enocean/'>EnOcean Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.gpsd/'>GPSD</a>
+        </li>
+        <li>
+            <a href='/components/sensor.http/'>HTTP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.haveibeenpwned/'>HaveIBeenPwned Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.homematic/'>Homematic Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.imap_email_content/'>IMAP Email Content</a>
+        </li>
+        <li>
+            <a href='/components/sensor.imap/'>IMAP Unread E-mail</a>
+        </li>
+        <li>
+            <a href='/components/sensor.isy994/'>ISY994 Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mqtt/'>MQTT Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.min_max/'>Min/max Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.modbus/'>Modbus Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.moldindicator/'>Mold Indicator</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.nut/'>NUT Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.nest/'>Nest Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.onewire/'>One wire Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.pilight/'>Pilight Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rest/'>RESTful Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rfxtrx/'>RFXtrx Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.random/'>Random Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.scrape/'>Scrape Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sonarr/'>Sonarr Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.synologydsm/'>SynologyDSM Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tcp/'>TCP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.temper/'>TEMPer Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tellstick/'>TellStick Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tellduslive/'>Telldus Live sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.template/'>Template Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.vera/'>Vera Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.verisure/'>Verisure Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.wink/'>Wink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.waqi/'>World Air Quality Index</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zwave/'>Z-Wave Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zigbee/'>ZigBee Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zoneminder/'>ZoneMinder Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.arest/'>aREST Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mfi/'>mFi Sensor</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

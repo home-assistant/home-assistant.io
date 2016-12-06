@@ -1,0 +1,323 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>0.25: Custom frontend panels, Jupyter notebooks, DirecTV. - Home Assistant</title>
+    <meta name="author" content="Fabian Affolter & Paulus Schoutsen">
+    <meta name="description" content="Frontend became blazing fast and extensible. DirecTV support added.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="0.25: Custom frontend panels, Jupyter notebooks, DirecTV.">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Frontend became blazing fast and extensible. DirecTV support added.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@fabaff">
+    <meta name="twitter:title" content="0.25: Custom frontend panels, Jupyter notebooks, DirecTV.">
+    <meta name="twitter:description" content="Frontend became blazing fast and extensible. DirecTV support added.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  
+  <header>
+  
+  <h1 class="title indent">0.25: Custom frontend panels, Jupyter notebooks, DirecTV.</h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-07-30T12:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 30, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter & Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <p>When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!</p>
+
+<p>Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can <a href="/developers/frontend_creating_custom_panels/">add it’s own page to the frontend</a>. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you’ll come up with!</p>
+
+<p>We have also seen an exciting trend of people starting to visualize their Internet of Things data using <a href="http://jupyter.org/">Jupyter</a> Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the <a href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">blog</a> post by <a href="https://github.com/kireyeu">@kireyeu</a> shows an advanced usecase while our <a href="/cookbook/#jupyter-notebooks">Notebooks</a> in the <a href="https://github.com/home-assistant/home-assistant-notebooks">Home Assistant Notebooks repository</a> cover the basics.</p>
+
+<p>This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant can talk to 26 different media players!</p>
+
+<p>The brand-new <a href="/components/panel_iframe/">iFrame panel component</a> allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.</p>
+
+<p>I would like to do a shoutout to <a href="https://github.com/fabianhjr">@fabianhjr</a>. He has started adding <a href="https://docs.python.org/3/library/typing.html">typing</a> data (<a href="https://www.python.org/dev/peps/pep-0484/">PEP484</a>) to the Home Assistant core. This will help us identify issues before they are released.</p>
+
+<p><img src="/images/supported_brands/russound.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/jupyter.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/directv.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Frontend: Support for <a href="/components/panel_iframe/">iFrame panels</a> to adding other sites to sidebar (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Allow components to register <a href="/developers/frontend_creating_custom_panels/">custom frontend panels</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Add example custom_component <a href="/cookbook/custom_panel_using_react/">react_panel</a> showing custom panels (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Light: <a href="/components/light.flux_led/">MagicLight/Flux WiFi Color LED Light</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Script: Specify a delay <a href="/getting-started/scripts/#delay">using templates</a> (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Media player: <a href="/components/media_player.russound_rnet/">Russound RNET</a> integration (<a href="https://github.com/laf">@laf</a>)</li>
+  <li>Remote: Option specifying custom timeout when calling Home Assistant API (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
+  <li>Thermostat: Integration of <a href="/components/thermostat.knx/">KNX</a> thermostats (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Thermostat: Support for HVAC mode of <a href="/components/thermostat.nest/">Nest</a> devices (<a href="https://github.com/vladonemo">@vladonemo</a>)</li>
+  <li>InfluxDB: Option to specify additional <a href="/components/influxdb/">tags</a> (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Input slider: Support for float value (<a href="https://github.com/ngraziano">@ngraziano</a>)</li>
+  <li>Template: New <a href="/topics/templating/#home-assistant-template-extensions">filters</a> (<code class="highlighter-rouge">timestamp_local</code> and <code class="highlighter-rouge">timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Binary sensor - Wink: Water leak sensor support added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor (<a href="https://github.com/PetitCircuitLab">@PetitCircuitLab</a>)</li>
+  <li>Switch - RPi GPIO: Fix when inverted logic (<a href="https://github.com/zeroDenial">@zeroDenial</a>)</li>
+  <li>Z-Wave: Rollershutter update (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>RFXtrx: Fire events when receiving signals from sensors and tests added (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Core: Add <a href="https://docs.python.org/3/library/typing.html">type</a> checking using mypy to the core (<a href="https://github.com/fabianhjr">@fabianhjr</a>)</li>
+  <li>Remote: Support for getting the <a href="/developers/python_api/#get-configuration">Configuration</a> through the Python API (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Media player: Support for <a href="/components/media_player.directv/">DirecTV</a> (<a href="https://github.com/cbulock">@cbulock</a>)</li>
+  <li>Use browser timezone for frontend logbook and history dates (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Light: New support for <a href="/components/light.x10/">X10</a> lights (<a href="https://github.com/fotoetienne">@fotoetienne</a>)</li>
+  <li>Sensor: Support for observing <a href="/components/sensor.imap/">IMAP</a> accounts (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
+  <li>Media Player: Integration for <a href="/components/media_player.mpchc/">MPC-HC</a> (Media Player Classic - Home Cinema) mediaplayer (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
+  <li>Notify: <code class="highlighter-rouge">location</code> extension for <a href="/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Groups: Lock states will now be properly grouped (<a href="https://github.com/jwl17330536">@jwl17330536</a>)</li>
+  <li>Media Player: Added tests for Sonos to improve code quality (<a href="https://github.com/americanwookie">@americanwookie</a>)</li>
+  <li>Device Tracker: iCloud stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Sensor: Speedtest with improved error handling and state restoring (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>Recorder: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Qwikswitch: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Light: <a href="/components/light.hyperion/">Hyperion</a> keeps now track of active color (<a href="https://github.com/schneefux">@schneefux</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0251---august-1" href="#hotfix-0251---august-1"></a> Hotfix 0.25.1 - August 1</h3>
+
+<ul>
+  <li>Light - Z-Wave: Bring back delayed value update behavior (<a href="https://github.com/jnewland">@jnewland</a>)</li>
+  <li>Recorder: Properly close session after execute (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Media Player - Kodi: No longer block startup if connecting to wrong port (<a href="https://github.com/shoekstra">@shoekstra</a>)</li>
+  <li>Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0252---august-2" href="#hotfix-0252---august-2"></a> Hotfix 0.25.2 - August 2</h3>
+
+<ul>
+  <li>Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>Google Voice SMS notification support was removed.</li>
+</ul>
+</article>
+
+
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+
+    
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/"
+     data-counturl="https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/" >Tweet</a>
+  
+  
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/"
+         data-layout="button_count">
+    </div>
+  
+  
+  <div class="g-plusone" data-size="standard"></div>
+  
+</section>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      
+        <li class="post">
+          <a href="/blog/2016/12/03/remote-websockets-sonarr/">0.34: New Remote component, Websockets, Sonarr, GPSLogger</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/">0.33: New Calendar component, Wink thermostats and Cisco IOS</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/11/05/hacktoberfest-influxdb-weather/">0.32: Hacktoberfest, InfluxDB sensor, Error reporting, and Weather</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/25/explaining-the-updater/">Explaining the Updater</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/">0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change</a>
+        </li>
+      
+    
+  </ul>
+</section>
+    
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/';
+    var disqus_script = 'embed.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>

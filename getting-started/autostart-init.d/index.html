@@ -1,0 +1,339 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Autostart using init.d - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Documentation about setting up Home Assistant as a daemon running under init.d.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/autostart-init.d/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Autostart using init.d">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/autostart-init.d/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Documentation about setting up Home Assistant as a daemon running under init.d.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Autostart using init.d">
+    <meta name="twitter:description" content="Documentation about setting up Home Assistant as a daemon running under init.d.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Autostart Using init.d
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Home Assistant can run as a daemon within init.d with the script below.</p>
+
+<h3><a class="title-link" name="1-copy-script" href="#1-copy-script"></a> 1. Copy script</h3>
+
+<p>Copy the script at the end of this page to <code class="highlighter-rouge">/etc/init.d/hass-daemon</code>.</p>
+
+<p>After that, set the script to be executable:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo chmod +x /etc/init.d/hass-daemon
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="2-select-a-user" href="#2-select-a-user"></a> 2. Select a user.</h3>
+
+<p>Create or pick a user that the Home Assistant daemon will run under. Update script to set <code class="highlighter-rouge">RUN_AS</code> to the username that should be used to execute hass.</p>
+
+<h3><a class="title-link" name="3-register-the-daemon-with-linux" href="#3-register-the-daemon-with-linux"></a> 3. Register the daemon with Linux</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo update-rc.d hass-daemon defaults
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="4-install-this-service" href="#4-install-this-service"></a> 4. Install this service</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo service hass-daemon install
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="5-restart-machine" href="#5-restart-machine"></a> 5. Restart Machine</h3>
+
+<p>That’s it. Restart your machine and Home Assistant should start automatically.</p>
+
+<p>If HA does not start, check the log file output for errors at <code class="highlighter-rouge">/var/opt/homeassistant/home-assistant.log</code></p>
+
+<h3><a class="title-link" name="extra-running-commands-before-hass-executes" href="#extra-running-commands-before-hass-executes"></a> Extra: Running commands before hass executes</h3>
+
+<p>If any commands need to run before executing hass (like loading a virutal environment), put them in PRE_EXEC. This command must end with a semicolon.</p>
+
+<h3><a class="title-link" name="daemon-script" href="#daemon-script"></a> Daemon script</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="c">### BEGIN INIT INFO</span>
+<span class="c"># Provides:          hass</span>
+<span class="c"># Required-Start:    $local_fs $network $named $time $syslog</span>
+<span class="c"># Required-Stop:     $local_fs $network $named $time $syslog</span>
+<span class="c"># Default-Start:     2 3 4 5</span>
+<span class="c"># Default-Stop:      0 1 6</span>
+<span class="c"># Description:       Home\ Assistant</span>
+<span class="c">### END INIT INFO</span>
+
+<span class="c"># /etc/init.d Service Script for Home Assistant</span>
+<span class="c"># Created with: https://gist.github.com/naholyr/4275302#file-new-service-sh</span>
+<span class="nv">PRE_EXEC</span><span class="o">=</span><span class="s2">""</span>
+<span class="nv">RUN_AS</span><span class="o">=</span><span class="s2">"USER"</span>
+<span class="nv">PID_FILE</span><span class="o">=</span><span class="s2">"/var/run/hass.pid"</span>
+<span class="nv">CONFIG_DIR</span><span class="o">=</span><span class="s2">"/var/opt/homeassistant"</span>
+<span class="nv">FLAGS</span><span class="o">=</span><span class="s2">"-v --config </span><span class="nv">$CONFIG_DIR</span><span class="s2"> --pid-file </span><span class="nv">$PID_FILE</span><span class="s2"> --daemon"</span>
+<span class="gp">REDIRECT="&gt; </span><span class="nv">$CONFIG_DIR</span>/home-assistant.log 2&gt;&amp;1<span class="s2">"
+
+start() {
+  if [ -f </span><span class="nv">$PID_FILE</span><span class="s2"> ] &amp;&amp; kill -0 </span><span class="k">$(</span>cat <span class="nv">$PID_FILE</span><span class="k">)</span><span class="s2"> 2&gt; /dev/null; then
+    echo 'Service already running' &gt;&amp;2
+    return 1
+  fi
+  echo 'Starting service…' &gt;&amp;2
+  local CMD="</span><span class="nv">$PRE_EXEC</span> hass <span class="nv">$FLAGS</span> <span class="nv">$REDIRECT</span>;<span class="s2">"
+  su -c "</span><span class="nv">$CMD</span><span class="s2">" </span><span class="nv">$RUN_AS</span><span class="s2">
+  echo 'Service started' &gt;&amp;2
+}
+
+stop() {
+    if [ ! -f "</span><span class="nv">$PID_FILE</span><span class="s2">" ] || ! kill -0 </span><span class="k">$(</span>cat <span class="s2">"</span><span class="nv">$PID_FILE</span><span class="s2">"</span><span class="k">)</span><span class="s2"> 2&gt; /dev/null; then
+    echo 'Service not running' &gt;&amp;2
+    return 1
+  fi
+  echo 'Stopping service…' &gt;&amp;2
+  kill </span><span class="k">$(</span>cat <span class="s2">"</span><span class="nv">$PID_FILE</span><span class="s2">"</span><span class="k">)</span><span class="s2">
+  while ps -p </span><span class="k">$(</span>cat <span class="s2">"</span><span class="nv">$PID_FILE</span><span class="s2">"</span><span class="k">)</span><span class="s2"> &gt; /dev/null 2&gt;&amp;1; do sleep 1;done;
+  echo 'Service stopped' &gt;&amp;2
+}
+
+install() {
+    echo "</span>Installing Home Assistant Daemon <span class="o">(</span>hass-daemon<span class="o">)</span><span class="s2">"
+    echo "</span>999999<span class="s2">" &gt; </span><span class="nv">$PID_FILE</span><span class="s2">
+    chown </span><span class="nv">$RUN_AS</span><span class="s2"> </span><span class="nv">$PID_FILE</span><span class="s2">
+    mkdir -p </span><span class="nv">$CONFIG_DIR</span><span class="s2">
+    chown </span><span class="nv">$RUN_AS</span><span class="s2"> </span><span class="nv">$CONFIG_DIR</span><span class="s2">
+}
+
+uninstall() {
+  echo -n "</span>Are you really sure you want to uninstall this service? That cannot be undone. <span class="o">[</span>yes|No] <span class="s2">"
+  local SURE
+  read SURE
+  if [ "</span><span class="nv">$SURE</span><span class="s2">" = "</span>yes<span class="s2">" ]; then
+    stop
+    rm -fv "</span><span class="nv">$PID_FILE</span><span class="s2">"
+    echo "</span>Notice: The config directory has not been removed<span class="s2">"
+    echo </span><span class="nv">$CONFIG_DIR</span><span class="s2">
+    update-rc.d -f hass-daemon remove
+    rm -fv "</span><span class="nv">$0</span><span class="s2">"
+    echo "</span>Home Assistant Daemon has been removed. Home Assistant is still installed.<span class="s2">"
+  fi
+}
+
+case "</span><span class="nv">$1</span><span class="s2">" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  install)
+    install
+    ;;
+  uninstall)
+    uninstall
+    ;;
+  restart)
+    stop
+    start
+    ;;
+  *)
+    echo "</span>Usage: <span class="nv">$0</span> <span class="o">{</span>start|stop|restart|install|uninstall<span class="o">}</span><span class="s2">"
+esac
+</span></code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/autostart-init.d.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/updating/'>Updating </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
+          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
+          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/getting-started/z-wave-controllers/'>Controllers </a></li>
+          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/autostart/'>Autostart </a>
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a class='active' href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a  href='/topics/'>Advanced Topics </a></li>
+      <li><a  href='/details/'>Details </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

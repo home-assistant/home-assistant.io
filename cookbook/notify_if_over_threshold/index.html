@@ -1,0 +1,232 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Send notification based on sensor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Basic example of how to send a templated notification if a sensor is over a given threshold">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/notify_if_over_threshold/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Send notification based on sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/notify_if_over_threshold/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Basic example of how to send a templated notification if a sensor is over a given threshold">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Send notification based on sensor">
+    <meta name="twitter:description" content="Basic example of how to send a templated notification if a sensor is over a given threshold">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Send Notification Based on Sensor
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The following example sends a notification via pushbullet if a sensor is over a critical value:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="s">notify me</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">pushbullet</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">API_KEY_HERE"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">mypushbullet</span>
+
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">FanOn</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.furnace</span>
+      <span class="s">above</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.mypushbullet</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Furnace</span><span class="nv"> </span><span class="s">fan</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">running"</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Fan</span><span class="nv"> </span><span class="s">running</span><span class="nv"> </span><span class="s">because</span><span class="nv"> </span><span class="s">current</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.furnace.state</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">amps"</span>
+</code></pre>
+</div>
+
+<p>If you also want a notification when it drops back down below that limit, you could add this as well:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">FanOff</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.furnace</span>
+      <span class="s">below</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.mypushbullet</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Furnace</span><span class="nv"> </span><span class="s">fan</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">stopped"</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Fan</span><span class="nv"> </span><span class="s">stopped</span><span class="nv"> </span><span class="s">because</span><span class="nv"> </span><span class="s">current</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.furnace.state</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">amps"</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/notify_if_over_threshold.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <a href='/cookbook'>Back to the cookbook</a>
+  </div>
+  <div class='section'>
+    <h1 class="title delta">Automation Examples</h1>
+    <ul class='divided'>
+          <li>
+              <a href='/cookbook/automation_for_rainy_days/'>Automation for rainy days</a>
+          </li>
+          <li>
+              <a href='/cookbook/dim_lights_when_playing_media/'>Dim lights when playing media</a>
+          </li>
+          <li>
+              <a href='/cookbook/automation_flashing_lights/'>Examples for flashing lights</a>
+          </li>
+          <li>
+              <a href='/cookbook/automation_first_light/'>Examples using first light</a>
+          </li>
+          <li>
+              <a href='/cookbook/automation_sun/'>Examples using the sun</a>
+          </li>
+          <li>
+              <a href='/cookbook/foscam_away_mode_PTZ/'>Foscam Recording during Away Mode Only using Pan/Tilt/Zoom Control and Motion Detection</a>
+          </li>
+          <li>
+              <a href='/cookbook/perform_actions_based_on_input_select/'>Perform actions based on input select</a>
+          </li>
+          <li>
+              <a href='/cookbook/restart_ha_if_wemo_switch_is_not_detected/'>Restart Home Assistant if Wemo Switch is not detected</a>
+          </li>
+          <li>
+              <a href='/cookbook/send_a_reminder/'>Send a reminder</a>
+          </li>
+          <li>
+              Send notification based on sensor
+          </li>
+          <li>
+              <a href='/cookbook/notify_if__new_ha_release/'>Send notification if new Home Assistant release</a>
+          </li>
+          <li>
+              <a href='/cookbook/automation_enocean_phue/'>Switch Philips Hue with enocean</a>
+          </li>
+          <li>
+              <a href='/cookbook/track_battery_level/'>Track your battery level</a>
+          </li>
+          <li>
+              <a href='/cookbook/turn_on_light_for_10_minutes_when_motion_detected/'>Turn on lights for 10 minutes after motion detected</a>
+          </li>
+          <li>
+              <a href='/cookbook/automation_using_timeinterval_inputboolean/'>Using time interval and input boolean</a>
+          </li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

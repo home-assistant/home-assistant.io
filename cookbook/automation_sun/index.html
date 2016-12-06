@@ -1,0 +1,292 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples using the sun - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Automation examples that use the sun.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/automation_sun/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Examples using the sun">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/automation_sun/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Automation examples that use the sun.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Examples using the sun">
+    <meta name="twitter:description" content="Automation examples that use the sun.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Examples Using the Sun
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <h4><a class="title-link" name="turn-on-the-living-room-lights-45-minutes-before-sunset-if-anyone-is-at-home" href="#turn-on-the-living-room-lights-45-minutes-before-sunset-if-anyone-is-at-home"></a> Turn on the living room lights 45 minutes before sunset if anyone is at home</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+    <span class="s">offset</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-00:45:00"</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s">home</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room_lights</span>
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="natural-wake-up-light" href="#natural-wake-up-light"></a> Natural wake up light</h4>
+
+<p><em>Note, Philips Hue is currently the only light platform that support transitions.</em></p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.bedroom</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="c1"># 900 seconds = 15 minutes</span>
+      <span class="s">transition</span><span class="pi">:</span> <span class="s">900</span>
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="send-sun-risesun-set-notifications" href="#send-sun-risesun-set-notifications"></a> Send sun rise/sun set notifications</h4>
+
+<p>Send notifications through <a href="/components/notify.pushbullet/">PushBullet</a> when the sun state is changed.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Send</span><span class="nv"> </span><span class="s">notification</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">sun</span><span class="nv"> </span><span class="s">rises'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+      <span class="s">event</span><span class="pi">:</span> <span class="s">sunrise</span>
+      <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">+00:00:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.pushbullet</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">The</span><span class="nv"> </span><span class="s">sun</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">up.'</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Send</span><span class="nv"> </span><span class="s">notification</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">sun</span><span class="nv"> </span><span class="s">sets'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+      <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+      <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">+00:00:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.pushbullet</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">The</span><span class="nv"> </span><span class="s">sun</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">down.'</span>
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="automations-for-lights-and-blinds-based-on-solar-elevation" href="#automations-for-lights-and-blinds-based-on-solar-elevation"></a> Automations for lights and blinds based on solar elevation</h4>
+
+<p>Solar elevation automations can cope with offsets from sunset / sunrise as the seasons change better than using a time based offsets.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Turn</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">few</span><span class="nv"> </span><span class="s">lights</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sun</span><span class="nv"> </span><span class="s">gets</span><span class="nv"> </span><span class="s">dim'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.attributes.elevation</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">below</span><span class="pi">:</span> <span class="s">3.5</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.background_lights</span>
+
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Turn</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">lights</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sun</span><span class="nv"> </span><span class="s">gets</span><span class="nv"> </span><span class="s">dimmer'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.attributes.elevation</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">below</span><span class="pi">:</span> <span class="s">1.5</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.more_lights</span>
+
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Close</span><span class="nv"> </span><span class="s">blind</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">dusk'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.attributes.elevation</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">below</span><span class="pi">:</span> <span class="s">-2.5</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_off</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.blind</span>
+
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/automation_sun.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <a href='/cookbook'>Back to the cookbook</a>
+  </div>
+  <div class='section'>
+    <h1 class="title delta">Automation Examples</h1>
+    <ul class='divided'>
+          <li>
+              <a href='/cookbook/automation_for_rainy_days/'>Automation for rainy days</a>
+          </li>
+          <li>
+              <a href='/cookbook/dim_lights_when_playing_media/'>Dim lights when playing media</a>
+          </li>
+          <li>
+              <a href='/cookbook/automation_flashing_lights/'>Examples for flashing lights</a>
+          </li>
+          <li>
+              <a href='/cookbook/automation_first_light/'>Examples using first light</a>
+          </li>
+          <li>
+              Examples using the sun
+          </li>
+          <li>
+              <a href='/cookbook/foscam_away_mode_PTZ/'>Foscam Recording during Away Mode Only using Pan/Tilt/Zoom Control and Motion Detection</a>
+          </li>
+          <li>
+              <a href='/cookbook/perform_actions_based_on_input_select/'>Perform actions based on input select</a>
+          </li>
+          <li>
+              <a href='/cookbook/restart_ha_if_wemo_switch_is_not_detected/'>Restart Home Assistant if Wemo Switch is not detected</a>
+          </li>
+          <li>
+              <a href='/cookbook/send_a_reminder/'>Send a reminder</a>
+          </li>
+          <li>
+              <a href='/cookbook/notify_if_over_threshold/'>Send notification based on sensor</a>
+          </li>
+          <li>
+              <a href='/cookbook/notify_if__new_ha_release/'>Send notification if new Home Assistant release</a>
+          </li>
+          <li>
+              <a href='/cookbook/automation_enocean_phue/'>Switch Philips Hue with enocean</a>
+          </li>
+          <li>
+              <a href='/cookbook/track_battery_level/'>Track your battery level</a>
+          </li>
+          <li>
+              <a href='/cookbook/turn_on_light_for_10_minutes_when_motion_detected/'>Turn on lights for 10 minutes after motion detected</a>
+          </li>
+          <li>
+              <a href='/cookbook/automation_using_timeinterval_inputboolean/'>Using time interval and input boolean</a>
+          </li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

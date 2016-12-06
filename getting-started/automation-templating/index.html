@@ -1,0 +1,492 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Automation Templating - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Advanced automation documentation using templating.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/automation-templating/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Automation Templating">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/automation-templating/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Advanced automation documentation using templating.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Automation Templating">
+    <meta name="twitter:description" content="Advanced automation documentation using templating.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Automation Templating
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>In Home Assistant 0.19 we introduced a new powerful feature: variables in scripts and automations. This makes it possible to adjust your condition and action based on the information of the trigger.</p>
+
+<p>The trigger data made is available during <a href="/topics/templating/">template</a> rendering as the <code class="highlighter-rouge">trigger</code> variable.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entries</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">Paulus just changed from {{ trigger.from_state.state }}</span>
+        <span class="no">to {{ trigger.to_state.state }}</span>
+
+<span class="s">automation 2</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">topic</span><span class="pi">:</span> <span class="s">/notify/+</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+      <span class="no">notify.{{ trigger.topic.split('/')[-1] }}</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">trigger.payload</span> <span class="pi">}}</span>
+</code></pre>
+</div>
+
+<h2><a class="title-link" name="important-template-rules" href="#important-template-rules"></a> Important Template Rules</h2>
+
+<p>There are a few very important rules to remember when writing automation templates:</p>
+
+<ol>
+  <li>You <strong><em>must</em></strong> use <code class="highlighter-rouge">data_template</code> in place of <code class="highlighter-rouge">data</code> when using templates in the <code class="highlighter-rouge">data</code> section of a service call.</li>
+  <li>You <strong><em>must</em></strong> use <code class="highlighter-rouge">service_template</code> in place of <code class="highlighter-rouge">service</code> when using templates in the <code class="highlighter-rouge">service</code> section of a service call.</li>
+  <li>You <strong><em>must</em></strong> surround single-line templates with double quotes (<code class="highlighter-rouge">"</code>) or single quotes (<code class="highlighter-rouge">'</code>).</li>
+  <li>It is advised that you prepare for undefined variables by using <code class="highlighter-rouge">if ... is not none</code> or the <a href="http://jinja.pocoo.org/docs/dev/templates/#default"><code class="highlighter-rouge">default</code> filter</a>, or both.</li>
+  <li>It is advised that when comparing numbers, you convert the number(s) to a <a href="http://jinja.pocoo.org/docs/dev/templates/#float"><code class="highlighter-rouge">float</code></a> or an <a href="http://jinja.pocoo.org/docs/dev/templates/#int"><code class="highlighter-rouge">int</code></a> by using the respective <a href="http://jinja.pocoo.org/docs/dev/templates/#list-of-builtin-filters">filter</a>.</li>
+  <li>While the <a href="http://jinja.pocoo.org/docs/dev/templates/#float"><code class="highlighter-rouge">float</code></a> and <a href="http://jinja.pocoo.org/docs/dev/templates/#int"><code class="highlighter-rouge">int</code></a> filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.</li>
+</ol>
+
+<p>Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.</p>
+
+<h2><a class="title-link" name="available-trigger-data" href="#available-trigger-data"></a> Available Trigger Data</h2>
+
+<p>The following tables show the available trigger data per platform.</p>
+
+<h3><a class="title-link" name="event" href="#event"></a> event</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">event</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.event</code></td>
+      <td>Event object that matched.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="mqtt" href="#mqtt"></a> mqtt</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">mqtt</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.topic</code></td>
+      <td>Topic that received payload.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.payload</code></td>
+      <td>Payload.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.qos</code></td>
+      <td>QOS of payload.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="numeric_state" href="#numeric_state"></a> numeric_state</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">numeric_state</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
+      <td>Entity ID that we observe.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.below</code></td>
+      <td>The below threshold, if any.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.above</code></td>
+      <td>The above threshold, if any.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.from_state</code></td>
+      <td>The previous <a href="/topics/state_object/">state object</a> of the entity.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.to_state</code></td>
+      <td>The new <a href="/topics/state_object/">state object</a> that triggered trigger.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="state" href="#state"></a> state</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">state</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
+      <td>Entity ID that we observe.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.from_state</code></td>
+      <td>The previous <a href="/topics/state_object/">state object</a> of the entity.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.to_state</code></td>
+      <td>The new <a href="/topics/state_object/">state object</a> that triggered trigger.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.for</code></td>
+      <td>Timedelta object how long state has been to state, if any.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="sun" href="#sun"></a> sun</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">sun</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.event</code></td>
+      <td>The event that just happened: <code class="highlighter-rouge">sunset</code> or <code class="highlighter-rouge">sunrise</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.offset</code></td>
+      <td>Timedelta object with offset to the event, if any.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="template" href="#template"></a> template</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">template</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
+      <td>Entity ID that caused change.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.from_state</code></td>
+      <td>Previous <a href="/topics/state_object/">state object</a> of entity that caused change.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.to_state</code></td>
+      <td>New <a href="/topics/state_object/">state object</a> of entity that caused template to change.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="time" href="#time"></a> time</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">time</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.now</code></td>
+      <td>DateTime object that triggered the time trigger.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="zone" href="#zone"></a> zone</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template variable</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.platform</code></td>
+      <td>Hardcoded: <code class="highlighter-rouge">zone</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
+      <td>Entity ID that we are observing.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.from_state</code></td>
+      <td>Previous <a href="/topics/state_object/">state object</a> of the entity.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.to_state</code></td>
+      <td>New <a href="/topics/state_object/">state object</a> of the entity.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.zone</code></td>
+      <td>State object of zone</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trigger.event</code></td>
+      <td>Event that trigger observed: <code class="highlighter-rouge">enter</code> or <code class="highlighter-rouge">leave</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/automation-templating.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/updating/'>Updating </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
+          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
+          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a class='active' href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/getting-started/z-wave-controllers/'>Controllers </a></li>
+          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/autostart/'>Autostart </a>
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a  href='/topics/'>Advanced Topics </a></li>
+      <li><a  href='/details/'>Details </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
