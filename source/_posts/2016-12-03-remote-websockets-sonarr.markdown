@@ -105,6 +105,13 @@ We are working on a better solution for 0.35.
 - Frontend will now always show persistent_notification and configurator entities even if not part of the active view ([@balloob])
 - Fixed media player cards taking up unnecessary space ([@balloob])
 
+### {% linkable_title Release 0.34.3 - December 6 %}
+
+ - Fix Hook connections ([@dasos])
+ - Fix random websocket connections ([@balloob])
+ - Fix Google Home sometimes not finding our emulated_hue ([@jawilson])
+ - Fix EnOcean config validation ([@rubund])
+
 ### {% linkable_title Breaking changes %}
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
@@ -120,6 +127,8 @@ We are working on a better solution for 0.35.
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
+[@jawilson]: https://github.com/jawilson
+[@rubund]: https://github.com/rubund
 [@aequitas]: https://github.com/aequitas
 [@albertoarias]: https://github.com/albertoarias
 [@bah2830]: https://github.com/bah2830
