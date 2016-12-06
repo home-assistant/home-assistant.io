@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-06T07:45:55+00:00</updated>
+  <updated>2016-12-06T08:09:11+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -20,15 +20,15 @@
     <id>https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr</id>
     <content type="html"><![CDATA[Here we go... 0.34. Let's call it the "Santa Claus" release. Rudolph was faster than expected and there's lot's of goodies on the sleigh. Of course, more work on async programming done by [@pvizeli] and [@balloob], new components, new platforms, major improvements, and much more.
 
-### <a class='title-link' name='gpslogger' href='#gpslogger'></a> GPSLogger 
+### {% linkable_title GPSLogger %}
 
 The work of [@dainok] let's you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
 
-###  <a class='title-link' name='remote-component' href='#remote-component'></a> Remote component 
+###  {% linkable_title Remote component %}
 
 The brand new [`remote`][remote] component made by [@iandday] will simplify the integration of all kinds of remote control units. The first platform for [Harmony][harmony] is included in this release.
 
-### <a class='title-link' name='homematic' href='#homematic'></a> HomeMatic 
+### {% linkable_title HomeMatic %}
 
 The [HomeMatic][homematic] component has received some updates worth mentioning:
 
@@ -41,11 +41,11 @@ The [HomeMatic][homematic] component has received some updates worth mentioning:
 
 The support for multiple hosts is a result of allowing mixed configurations with wireless, wired, and IP devices. This has the drawback of making the update a breaking change (along with the renamed `set_value` service). However, the benefits and possibilities gained will be worth it.
 
-### <a class='title-link' name='websocket-api' href='#websocket-api'></a> Websocket API 
+### {% linkable_title Websocket API %}
 
 This release includes a new [websockets][websockets] based API by [@balloob] to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.
 
-## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes  
+## {% linkable_title All changes  %}
 
 - New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
 - Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
@@ -82,7 +82,7 @@ This release includes a new [websockets][websockets] based API by [@balloob] to 
 - Minor and not so minor features and bug fixes by [@turbokongen], [@sdague], [@pvizeli], [@fabaff], [@chapple], [@mweinelt], [@Khabi], [@balloob], [@mnestor], [@kellerza], [@Morrisai],
 [@michaelarnauts], [@tchellomello], [@lwis], [@bjarniivarsson], [@danielperna84], [@LinuxChristian], [@MartinHjelmare], [@dethpickle], [@jnewland], [@lichtteil], [@brandonweeks], [@partofthething], [@mnoorenberghe], [@bah2830], and [@albertoarias].
 
-### <a class='title-link' name='release-0341---december-4' href='#release-0341---december-4'></a> Release 0.34.1 - December 4 
+### {% linkable_title Release 0.34.1 - December 4 %}
 
 This release has a bunch of bug fixes including a big one: emulated_hue will now work with Google Home! We usually reserve patch releases for small bug fixes but we considered this more impactful bug fix so important that we're including it now instead of having people wait two weeks.
 
@@ -105,32 +105,32 @@ We are working on a better solution for 0.35.
 - Revert TP-Link upgrade to fix issues ([@mweinelt])
 - Fix CORS ([@balloob])
 
-### <a class='title-link' name='release-0342---december-5' href='#release-0342---december-5'></a> Release 0.34.2 - December 5 
+### {% linkable_title Release 0.34.2 - December 5 %}
 
 - Fix Nest interpreting Celsius as Fahrenheit and converting it ([@balloob])
 - Fix Nest sensor platforms throwing errors ([@technicalpickles])
 - Frontend will now always show persistent_notification and configurator entities even if not part of the active view ([@balloob])
 - Fixed media player cards taking up unnecessary space ([@balloob])
 
-### <a class='title-link' name='release-0343---december-6' href='#release-0343---december-6'></a> Release 0.34.3 - December 6 
+### {% linkable_title Release 0.34.3 - December 6 %}
 
  - Fix Hook connections ([@dasos])
  - Fix random websocket connections ([@balloob])
  - Fix Google Home sometimes not finding our emulated_hue ([@jawilson])
  - Fix EnOcean config validation ([@rubund])
 
-### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
+### {% linkable_title Breaking changes %}
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.
 - If you are using NGINX, you will have to [adapt your configuration][nginx].
 - [Nest][nest] contains changes which will require your attention.
 
-### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
+### {% linkable_title If you need help... %}
 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use these communication channels. Thanks.
 
-### <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
+### {% linkable_title Reporting Issues %}
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
@@ -231,7 +231,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 But a new release wouldn't be awesome if it didn't had some new goodies and this release is no different. This release includes a new calendar component by [@mnestor]. It comes now with Google Calendar support, which should allow you to automate things based on your calendar events!
 
-### <a class='title-link' name='changes' href='#changes'></a> Changes 
+### {% linkable_title Changes %}
 
 - New [calendar component][google] including Google support ([@mnestor])
 - Final core upgrade for async ([@pvizeli])
@@ -255,11 +255,11 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 - Alarm Control Panel - [Envisalink]: Add new keypress service ([@jnimmo])
 - Light - [Hue]: Add service to activate scenes defined in Hue app ([@sdague])
 
-### <a class='title-link' name='release-0331---november-20' href='#release-0331---november-20'></a> Release 0.33.1 - November 20 
+### {% linkable_title Release 0.33.1 - November 20 %}
 
  - Fix Z-Wave lights ([@turbokongen])
 
-### <a class='title-link' name='release-0332---november-22' href='#release-0332---november-22'></a> Release 0.33.2 - November 22 
+### {% linkable_title Release 0.33.2 - November 22 %}
 
  - Fix Device Tracker init ([@pvizeli])
  - Fix Discovery init ([@pvizeli])
@@ -268,24 +268,24 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
  - Neato fixes ([@turbokongen])
  - Fix 'Unknown' status for Nest Protect devices ([@Khabi])
 
-### <a class='title-link' name='release-0333---november-23' href='#release-0333---november-23'></a> Release 0.33.3 - November 23 
+### {% linkable_title Release 0.33.3 - November 23 %}
 
  - Update Yr.no entities every hour ([@kellerza])
  - Bump Netdisco to 0.7.7 (fixes discovery on Synology)
  - Fix discovery race condition (most obvious in Wemo) ([@balloob])
 
-### <a class='title-link' name='release-0334---november-24' href='#release-0334---november-24'></a> Release 0.33.4 - November 24 
+### {% linkable_title Release 0.33.4 - November 24 %}
 
  - Set executor pool size to 10 (as intended) ([@pvizeli])
 
 This should fix occasional performance problems that some people have reported.
 
-### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
+### {% linkable_title Breaking changes %}
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
  - Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.
 
-### <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting issues 
+### {% linkable_title Reporting issues %}
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker]. Make sure to fill in all fields of the issue template.
 
@@ -343,22 +343,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
     <id>https://home-assistant.io/blog/2016/11/05/hacktoberfest-influxdb-weather</id>
     <content type="html"><![CDATA[Another two weeks have passed and we are pleased to present Home Assistant 0.32.
 
-### <a class='title-link' name='hacktoberfest' href='#hacktoberfest'></a> Hacktoberfest 
+### {% linkable_title Hacktoberfest %}
 The [Hacktoberfest] is over now. Home Assistant made the 2nd and the 3rd place out of almost 30'000 participating repositories with a total of 528 pull requests closed - that's an average of 17 pull requests a day! Thanks to all the contributors but also to the team of reviewers. This wouldn't been possible without you 👏 .
 
-### <a class='title-link' name='improved-error-reporting' href='#improved-error-reporting'></a> Improved error reporting 
+### {% linkable_title Improved error reporting %}
 This release has improved the reporting when a config validation error occurs. Thanks to [@kellerza] you will now get a persistent notification added to your UI when this happens.
 
-### <a class='title-link' name='asynchronous' href='#asynchronous'></a> Asynchronous 
+### {% linkable_title Asynchronous %}
 This release contains the first asynchronous sensor and camera platforms. [@pvizeli] and [@fabaff] ported most of the "internal" sensors to async programming. We hope that you will enjoy the new speed. 
 
 [@balloob] and [@pvizeli] worked a lot on the improvement of the core itself.
 
-### <a class='title-link' name='weather-component' href='#weather-component'></a> Weather component 
+### {% linkable_title Weather component %}
 
 For a long time we have had a bunch of [weather sensors][weather-sensors] but it's getting better: There is now a [Weather component][weather-component]. Sorry, not much more to tell right now. The plans are to create a weather UI element and to improve the initial implementation.
 
-### <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
+### {% linkable_title All changes %}
 
 <img src='https://home-assistant.io/images/supported_brands/icloud.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/synologydsm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/garadget_logo.jpg' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/yeelight.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/philips.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/nfandroidtv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/currencylayer.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
@@ -395,7 +395,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Device tracker: [iCloud][icloud] improvements ([@Bart274])
 - Minor features and bug fixes by [@fabaff], [@kellerza], [@robbiet480], [@balloob], [@DavidLP], [@Bart274], [@sdague], [@mtreinish], [@Khabi], [@bbesset], [@bestlibre], [@pvizeli], [@turbokongen], [@devdelay], [@molobrakos], [@postlund], [@wokar], [@armills], [@arsaboo], [@hartmms], [@nsideras], [@tbeckha], and [@kirichkov].
 
-### <a class='title-link' name='release-0321---november-6' href='#release-0321---november-6'></a> Release 0.32.1 - November 6 
+### {% linkable_title Release 0.32.1 - November 6 %}
 
 We've added a warning to 0.32 to catch platforms accidentally slowing down Home Assistant. Our aim is to fix these quickly when reported, so here is 0.32.1 with all reported platforms fixed.
 
@@ -403,14 +403,14 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
  - Fix Radiotherm doing I/O inside the event loop ([@balloob])
  - Fix camera MJPEG streams when using HTTP 1.0 ([@balloob])
 
-### <a class='title-link' name='release-0322---november-7' href='#release-0322---november-7'></a> Release 0.32.2 - November 7 
+### {% linkable_title Release 0.32.2 - November 7 %}
 
  - Move Honeywell I/O out of the event loop ([@balloob])
  - Use sequential updates for non-async entities to prevent race conditions ([@pvizeli])
  - Fix setting temperature in Celsius on Radiotherm CT50 thermostats ([@andyat])
  - Fix PiLight config validation ([@DavidLP])
 
-### <a class='title-link' name='release-0323---november-11' href='#release-0323---november-11'></a> Release 0.32.3 - November 11 
+### {% linkable_title Release 0.32.3 - November 11 %}
 
  - Fix OpenWeather weather platform doing I/O in event loop ([@lwis])
  - Fix Alarm.com doing I/O in event loop ([@jnewland])
@@ -426,26 +426,26 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
  - Light - Flux Led Lights: allow specifying mode if light does not support white mode ([@DanielHiversen])
  - Fix Rest switch default template ([@pvizeli])
 
-### <a class='title-link' name='release-0324---november-15' href='#release-0324---november-15'></a> Release 0.32.4 - November 15 
+### {% linkable_title Release 0.32.4 - November 15 %}
 
  - Fix device tracker from crashing HASS when a new device was discovered ([@balloob])
  - HTTP: Fix X-Forwarded-For feature ([@mweinelt])
 
-### <a class='title-link' name='misc' href='#misc'></a> Misc 
+### {% linkable_title Misc %}
 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
 
 - [iOS](https://home-assistant.io/ecosystem/ios/)
 - [SceneGen](https://home-assistant.io/ecosystem/scenegen/)
 
-### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
+### {% linkable_title Breaking changes %}
 
 - The [Yahoo Finance][yahoo] platform supports now multiple stock. Please adjust your configuration.
 - Deprecated components `garage_door`, `rollershutter`, `thermostat`, and `hvac` have been removed.
 - The minimum Python version on Windows has been bumped to Python 3.5.
 - The Insteon Hub integration has been disabled due to a [request from Insteon][req-insteon].
 
-### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
+### {% linkable_title If you need help... %}
 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
@@ -535,16 +535,16 @@ Every other weekend around here gets a little hectic leading to a big sigh of re
 
 One last thing before we get going though, I should warn you... [@balloob] got a bit lazy this week and let me ([@robbiet480]) step up to the plate again to write the blog post and do the release. I guess I didn't do such a bad job in [0.27][zero-two-seven-release]. You'll never know what surprises I have in store. Now that i've got all that stuff out of the way, let's get started...
 
-## <a class='title-link' name='stats-update' href='#stats-update'></a> Stats Update 
+## {% linkable_title Stats Update %}
 Sadly, no big amazing stats to update you with this time, but we did recently pass 7,000 commits! This release featured submissions from 45 contributors. Hopefully with the new updater component we will be able to give you some really good stats in the 0.32 blog post.
 
-## <a class='title-link' name='hacktoberfest' href='#hacktoberfest'></a> Hacktoberfest 
+## {% linkable_title Hacktoberfest %}
 
 ![Hacktoberfest logo][logo]
 
 October means Hacktoberfest time and our community has really come through with some excellent improvements and additions. As of this writing, we have 194 merged and 41 open pull requests to the [home-assistant repository][hacktoberfest-ha-prs] and 209 merged/28 open pull requests submitted to the [home-assistant.github.io repository][hacktoberfest-site-prs]. If you want to get in on the fun check out our [Hacktoberfest][hacktoberfest-blog] blog post or the [Hacktoberfest website][hacktoberfest-website]. You get an awesome t-shirt for free if you have 4 pull requests merged in the month of October! We even have tasks that a non-developer can easily accomplish with a tiny bit of work. Better hurry up though, only 9 days left and most of the easy tasks are gone!
 
-## <a class='title-link' name='-a-greatly-improved-updater-component-please-read-this-' href='#-a-greatly-improved-updater-component-please-read-this-'></a> ⚠️ A greatly improved updater component (Please read this!) ⚠️ 
+## {% linkable_title ⚠️ A greatly improved updater component (Please read this!) ⚠️ %}
 
 This release includes an update to our [updater] component. The responsibility of the updater component is to check if a new version is available and notify the user if this is the case.
 
@@ -556,7 +556,7 @@ It used to be that this component would check with [PyPi] (the Python package ma
 
 So to work around these problems, we decided to start hosting the version check service ourselves. Since we had to get some infrastructure spun up anyway, we figured we would take it a step further. Which leads me to this bit of the update (the most important part):
 
-### <a class='title-link' name='what-you-need-to-know-the-important-bit' href='#what-you-need-to-know-the-important-bit'></a> What you need to know (the important bit!) 
+### {% linkable_title What you need to know (the important bit!) %}
 
 Remember how I mentioned that up there in the title that there is some serious business in this release? Well, we also added some basic analytics to the updater component which get sent to the server and stored so that we get a better idea of our user base.
 
@@ -627,7 +627,7 @@ _This section was updated on October 24 to be more clear about geo-lookups being
 
 Now, back to the fun stuff...
 
-## <a class='title-link' name='good-evening-im-ron-burgundy-and-heres-what-happening-in-your-world-tonight' href='#good-evening-im-ron-burgundy-and-heres-what-happening-in-your-world-tonight'></a> Good evening. I'm Ron Burgundy and here's what happening in your world tonight. 
+## {% linkable_title Good evening. I'm Ron Burgundy and here's what happening in your world tonight. %}
 
 Home Assistant got a crazy idea recently that it couldn't do enough already and wanted to challenge itself even more. I really don't understand how it came up with this kooky idea, but it now thinks that its newest hobby should be a minor career in journalism.
 
@@ -642,7 +642,7 @@ Now I know how to best get to [my real job][runway] (no, Home Assistant is _not_
   You stay classy, San Diego. (It's funny, because balloob lives in San Diego))
 </p>
 
-## <a class='title-link' name='major-breaking-z-wave-changes-ahead' href='#major-breaking-z-wave-changes-ahead'></a> Major breaking Z-Wave changes ahead 
+## {% linkable_title Major breaking Z-Wave changes ahead %}
 
 A rather nasty Z-Wave [issue][z-wave-issue] was discovered recently by [@lukas-hetzenecker]. There was a somewhat large chance that if you had multiple of the same model Z-Wave device they may both try to use the same entity IDs. To fix the issue the internal Z-Wave index is now appended to the end of all Z-Wave entity IDs.
 
@@ -658,7 +658,7 @@ Your todo list may be a little different from mine, I just wanted to outline the
 
 This is super annoying, I know, especially since we had said in [0.12][zero-one-two-release] that Z-Wave IDs should hopefully never change again, but we are now forced to eat those words. I will state again that Z-Wave IDs shouldn't change in the future but obviously we see how that went. To sum up on this section... sorry but it had to happen.
 
-## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
+## {% linkable_title All changes %}
 
 - [Updater] component ([@infamy], [@robbiet480], [@kellerza])
 - Continue to setup other platforms when 1 platform config is invalid ([@kellerza])
@@ -709,24 +709,24 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 - iOS support ([@robbiet480])
 - Minor features and bug fixes by [@mtl010957], [@molobrakos], [@flyte], [@fabaff], [@phardy], [@sander76], [@T3m3z], [@c-w], [@balloob], [@robbiet480], [@StaticCube], [@vittoriom], [@hartmms], [@kirichkov], [@mezz64], [@ishults], [@Danielhiversen] and [@tchellomello].
 
-### <a class='title-link' name='release-0311---october-24' href='#release-0311---october-24'></a> Release 0.31.1 - October 24 
+### {% linkable_title Release 0.31.1 - October 24 %}
 
  - Identify special character encoding error in YAML files ([@kellerza], [@lwis])
  - iOS app component bug fixes ([@robbiet480])
  - Fix a spelling problem on user-facing error ([@robbiet480])
  - YAML includes will ignore dirs/files prefixed with . ([@lwis])
 
-## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
+## {% linkable_title Breaking changes %}
 
  - The [HTTP] component now takes a different format for authenticating IPs
  - Configuration format has changed for [Proximity]
  - The [Arduino] platform are now covered by the configuration check. Please check the documentation to see how. 
  - The Z-Wave entity ID change mentioned above
 
-## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
+## {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
-## <a class='title-link' name='until-next-time' href='#until-next-time'></a> Until next time 
+## {% linkable_title Until next time %}
 
 Thanks for reading all of the above, especially since this week was a pretty long post. We should be back with a new post around November 5th announcing the arrival of 0.32.
 
@@ -836,27 +836,27 @@ A large amount of resources of the development are still focusing on the effort 
 
 To reduce the run-time of your tests, [@balloob] did a lot of tweaking. For now the RFXtrx tests are excluded which cut the needed time for running on your Pull Request in half. 
 
-### <a class='title-link' name='documentation' href='#documentation'></a> Documentation 
+### {% linkable_title Documentation %}
 
 All configuration sample entries are now minimized. This should help to avoid problem for starters and newbies as they only get what's needed and not a full sample with all optional entries. If there is an issue with an entry in your `configuration.yaml` file the error message will provide you an URL that point to the documentation.
 
 <p class='img'>
-  <img src='/images/screenshots/config-validation-url.png' />
+  <img src='{{site_root}}/images/screenshots/config-validation-url.png' />
 </p>
 
 As soon as the [Hacktoberfest] started there were a lot of incoming Pull Requests for the documentation. A huge "Thank you" to all participants. Especially, we would like to give a cookie to [@hillaryfraley]. She created around a dozen Pull Requests so far and didn't only fix typos but complete sections. The [Hacktoberfest] is still on-going and we are looking forward to get more Pull Requests.
 
-### <a class='title-link' name='statistics' href='#statistics'></a> Statistics 
+### {% linkable_title Statistics %}
 
 With the [statistics sensor][stats-sensor] we would like to introduce a new sensor that is similar to the [template sensor][template-sensor] or the [trend sensor][trend-sensor]. This sensor is consuming values from another sensor and is doing some statistical analysis of the data. Over a group of samples is the average/mean, the min/max, the total, the standard deviation, and the variance calculated which can be used in your automation rules. If the source is a binary sensor then the state changes are counted.
 
 <p class='img'>
-  <img src='/images/screenshots/stats-sensor.png' />
+  <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
 </p>
 
 As the results are processed on-the-fly you still need to use the data from your database for a in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
 
-### <a class='title-link' name='rest-we-dont' href='#rest-we-dont'></a> REST! We don't... 
+### {% linkable_title REST! We don't... %}
 
 There was a lot of work done on our implementation which are working with RESTful APIs. [@w1ll1am23] extended the [aREST] platforms to display if an aREST unit is available or not. The aREST implementations are now covered by the configuration check as well. Please check the Breaking changes section for more details.
 
@@ -869,20 +869,20 @@ sensor
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: '{{ value_json.tag_name }}'
+    value_template: '{% raw %}{{ value_json.tag_name }}{% endraw %}'
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
       User-Agent: Home Assistant REST sensor
 ```
 
-### <a class='title-link' name='misc' href='#misc'></a> Misc 
+### {% linkable_title Misc %}
 
 - GitHub released with a recent update a review feature. This will give you more control over your comments while you review an open Pull Request.
 - Thanks to [@robbiet480] we are now running [mention-bot]. It will help you when you create a new Pull Request to identify potential reviewers.
 - The [Home Assistant Community Forum][forum] has now an additional section called "Installation".
 
-### <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
+### {% linkable_title All changes %}
 
 <img src='https://home-assistant.io/images/supported_brands/digital_ocean.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/volvo.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/dark_sky.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/vasttrafik.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
@@ -915,13 +915,13 @@ sensor
 - Device Tracker: The `known_device.yaml` file is now validated ([@kellerza]) 
 - Minor features and bug fixes by [@tchellomello], [@pavoni], [@fabaff], [@pvizeli], [@lwis], [@turbokongen], [@Danielhiversen], [@persandstrom], [@balloob], [@robbiet480], [@sam-io], [@bbangert], and you if you are missing here.
 
-### <a class='title-link' name='release-0301---october-8' href='#release-0301---october-8'></a> Release 0.30.1 - October 8 
+### {% linkable_title Release 0.30.1 - October 8 %}
 
  - Device Tracker `known_devices.yaml` validation is now more accepting ([@kellerza])
  - Handle X10 light numbers greater than 9 ([@mtl010957])
  - Fix command line covers without a template ([@roidayan])
 
-### <a class='title-link' name='release-0302---october-12' href='#release-0302---october-12'></a> Release 0.30.2 - October 12 
+### {% linkable_title Release 0.30.2 - October 12 %}
 
 - Handle Volvo's with dashes in their name ([@molobrakos])
 - Fix some html5 push notification configuration options were discarded after first use ([@T3m3z])
@@ -931,7 +931,7 @@ sensor
 - Fix for Slack targets ([@fabaff])
 - Fix for Pushover targets ([@Nixon506E])
 
-### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
+### {% linkable_title Breaking changes %}
 
 - All deprecated condition options from `automation` have been removed (deprecated since May and have printed warnings to your console):
   - `use_trigger_values` is gone. You have to copy your triggers to conditions and adjust for the correct config.
@@ -940,7 +940,7 @@ sensor
 - The [Forecast.io][forecast] was renamed to [Dark Sky][darksky]. Replace your `- platform: forecast` with `- platform: darksky`.
 - The [aREST][arest] configuration between the [sensor][arest-sensor] and the [switch][arest-switch] platform was aligned. 
 
-### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
+### {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
 [@balloob]: https://github.com/balloob

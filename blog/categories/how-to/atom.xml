@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-06T07:45:55+00:00</updated>
+  <updated>2016-12-06T08:09:11+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -29,7 +29,7 @@ You have to make a decision: Do you want to pull or to poll? For slowly changing
 
 An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
 
-### <a class='title-link' name='mqtt' href='#mqtt'></a> MQTT 
+### {% linkable_title MQTT %}
 
 You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
 
@@ -143,7 +143,7 @@ Heatmap
 
 <!--more-->
 
-## <a class='title-link' name='another-take-on-automation' href='#another-take-on-automation'></a> Another Take on Automation 
+## {% linkable_title Another Take on Automation %}
 
 If you haven't yet read Paulus' excellent Blog entry on [Perfect Home Automation](https://home-assistant.io/blog/2016/01/19/perfect-home-automation/) I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a lightswitch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the "Automation" in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation to bring this all together in the vast and chaotic ecosystem that is the "Internet of Things".
 
@@ -170,11 +170,11 @@ So why `AppDaemon`? `AppDaemon` is not meant to replace Home Assistant Automatio
 
 It is in fact a testament to Home Assistant's open nature that a component like `AppDaemon` can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant's underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for `AppDaemon` - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additonal functions to make things that were already possible easier.
 
-## <a class='title-link' name='how-it-works' href='#how-it-works'></a> How it Works 
+## {% linkable_title How it Works %}
 
 The best way to show what `AppDaemon` does is through a few simple examples.
 
-### <a class='title-link' name='sunrisesunset-lighting' href='#sunrisesunset-lighting'></a> Sunrise/Sunset Lighting 
+### {% linkable_title Sunrise/Sunset Lighting %}
 
 Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its `initialize()` function called which gives it a chance to register a callback for `AppDaemons`'s scheduler for a specific time. In this case we are using `run_at_sunrise()` and `run_at_sunset()` to register 2 separate callbacks. The argument `0` is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python's `datetime.timedelta` class for calculations. When sunrise or sunset occurs, the appropriate callback function, `sunrise_cb()` or `sunset_cb()`  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables `args["on_scene"]` and `args["off_scene"]` are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.
 
@@ -196,7 +196,7 @@ class OutsideLights(appapi.AppDaemon):
 
 This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.
 
-### <a class='title-link' name='motion-light' href='#motion-light'></a> Motion Light 
+### {% linkable_title Motion Light %}
 
 Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the `initialize()` function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell `AppDaemon` that we are only interested in state changes where the motion detector comes on by adding an additional parameter to the callback registration - `new = "on"`. When the motion is detected, the callack function `motion()` is called, and we check whether or not the sun has set using a built-in convenience function: `sun_down()`. Next, we turn the light on with `turn_on()`, then set a timer using `run_in()` to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in `AppDaemon` calling `light_off()` 60 seconds later using the `turn_off()` call to actually turn the light off. This is still pretty simple in code terms:
 
@@ -450,7 +450,7 @@ _TL; DR: Use [this Jupyter Notebook][nb-prev] to visualize of your data_
 
 <!--more-->
 
-### <a class='title-link' name='dependencies' href='#dependencies'></a> Dependencies 
+### {% linkable_title Dependencies %}
 
 In order to run the provided Jupyter notebook, please make sure you have the following applications/libraries installed on your computer:
 
@@ -464,11 +464,11 @@ As a Windows user myself, I find the easiest, quickest and most hassle-free way 
 
 [WinPython]: https://winpython.github.io/
 
-#### <a class='title-link' name='why-jupyter' href='#why-jupyter'></a> Why Jupyter? 
+#### {% linkable_title Why Jupyter? %}
 
 While all Home Assistant implementations can have varying setup, components and scripts, the underlying data structure is standardized and well-defined. This allows us to write Python code that is environmentally agnostic. Wrapping it in a Jupyter notebook ensures the code, visualizations and directions/explanations are kept digestible and neatly-packaged. One of the amazing features of Jupyter is the ability to change code as you go along, customizing all outputs and visualizations on the fly!
 
-#### <a class='title-link' name='where-do-i-start' href='#where-do-i-start'></a> Where do I start? 
+#### {% linkable_title Where do I start? %}
 
 This tutorial is based around a heavily commented Jupyter Notebook that we created. So to get started, you will have to open that:
 
@@ -487,7 +487,7 @@ After just those few steps, you will be greeted with beautiful formatted data li
 One of the graphs created with this tutorial.
 </p>
 
-#### <a class='title-link' name='whats-next' href='#whats-next'></a> What’s next? 
+#### {% linkable_title What’s next? %}
 
 Thanks to the magic of Jupyter, all of the code is customizable: want to selectively display your data, only covering a specific entity? Sure thing! Want to change the properties of the plots? No problem!
 

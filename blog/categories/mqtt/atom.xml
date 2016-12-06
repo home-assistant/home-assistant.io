@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MQTT | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/mqtt/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-06T07:45:55+00:00</updated>
+  <updated>2016-12-06T08:09:11+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -29,7 +29,7 @@ You have to make a decision: Do you want to pull or to poll? For slowly changing
 
 An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
 
-### <a class='title-link' name='mqtt' href='#mqtt'></a> MQTT 
+### {% linkable_title MQTT %}
 
 You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
 
@@ -352,7 +352,7 @@ Home Assistant will keep track of historical values and allow you to integrate i
 
 <!--more-->
 
-### <a class='title-link' name='components' href='#components'></a> Components 
+### {% linkable_title Components %}
 
 I've been using Adafruit for my shopping:
 
@@ -362,14 +362,14 @@ I've been using Adafruit for my shopping:
 
 _Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 
-### <a class='title-link' name='alternatives' href='#alternatives'></a> Alternatives 
+### {% linkable_title Alternatives %}
 
 Since this article has been published the HDC1008 has been discontinued. Updated sketches are available for the following alternatives:
 
  - [DHT22 sensor](https://www.adafruit.com/product/385) and [updated sketch](https://gist.github.com/balloob/1176b6d87c2816bd07919ce6e29a19e9).
  - [BME280 sensor](https://www.adafruit.com/product/2652) and [updated sketch](https://gist.github.com/mtl010957/9ee85fb404f65e15c440b08c659c0419).
 
-### <a class='title-link' name='connections' href='#connections'></a> Connections 
+### {% linkable_title Connections %}
 
 On your breadboard, make the following connections from your ESP8266 to the HDC1008:
 
@@ -382,7 +382,7 @@ On your breadboard, make the following connections from your ESP8266 to the HDC1
 
 _I picked `#2` and `14` myself, you can configure them in the sketch._
 
-### <a class='title-link' name='preparing-your-ide' href='#preparing-your-ide'></a> Preparing your IDE 
+### {% linkable_title Preparing your IDE %}
 
 Follow [these instructions](https://github.com/esp8266/Arduino#installing-with-boards-manager) on how to install and prepare the Arduino IDE for ESP8266 development.
 
@@ -391,7 +391,7 @@ After you're done installing, open the Arduino IDE, in the menu click on `sketch
 - PubSubClient by Nick 'O Leary
 - Adafruit HDC1000
 
-### <a class='title-link' name='sketch' href='#sketch'></a> Sketch 
+### {% linkable_title Sketch %}
 
 If you have followed the previous steps, you're all set.
 
@@ -519,7 +519,7 @@ void loop() {
 }
 ```
 
-### <a class='title-link' name='configuring-home-assistant' href='#configuring-home-assistant'></a> Configuring Home Assistant 
+### {% linkable_title Configuring Home Assistant %}
 
 The last step is to integrate the sensor values into Home Assistant. This can be done by setting up Home Assistant to connect to the MQTT broker and subscribe to the sensor topics.
 
@@ -561,7 +561,7 @@ This post will give you a small overview of some other possibilities on how to u
 
 <!--more-->
 
-### <a class='title-link' name='manual-usage' href='#manual-usage'></a> Manual usage 
+### {% linkable_title Manual usage %}
 
 The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let's create a "Mood" sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snipplets to add to the `configuration.yaml` file consists of two parts: one for the broker and one for the sensor.
 
@@ -590,7 +590,7 @@ $ mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
 
 This is a really bad example. Don't do this in the real world because you won't be able to create diagrams of historical data. Better use a numerical value.
 
-### <a class='title-link' name='python-mqtt-bindings' href='#python-mqtt-bindings'></a> Python MQTT bindings 
+### {% linkable_title Python MQTT bindings %}
 
 The last section was pretty boring, I know. Nobody wants to send MQTT messages by hand if there is a computer on the desk. If you are playing the lottery this section is for you. If not, read it anyway because the lottery is just an example :-).
 
@@ -643,7 +643,7 @@ Every 5 seconds a message with a new number is sent to the broker and picked up 
 
 With only a few lines of Python and an MQTT broker you can create your own "smartdevice" or send information to Home Assistant which you haven't think of. Of course this is not limited to Python. If there is an MQTT library available, the device can be used with Home Assistant now.
 
-### <a class='title-link' name='arduino' href='#arduino'></a> Arduino 
+### {% linkable_title Arduino %}
 
 To get started with real hardware that is capable to send MQTT messages, the Arduino platform is an inexpensive way to do it. In this section an Arduino UNO with an Ethernet shield and a photo resistor is used. The photo resistor is connected to analog pin 0 (A0) and has an output from 0 to 1024.
 
