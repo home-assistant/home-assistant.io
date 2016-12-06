@@ -37,5 +37,5 @@ Configuration variables:
   - **down_max_bandwidth**: Maximum bandwidth available for download.
   - **up_max_bandwidth**: Maximum bandwidth available for upload.
   - **current_down_bandwidth**: Instant measure of the current used bandwidth for download.
-  - **current_up_bandwidth**: Instant measure of the current used bandwidthfor upload.
+  - **current_up_bandwidth**: Instant measure of the current used bandwidth for upload.
 

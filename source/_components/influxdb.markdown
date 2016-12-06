@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: influxdb.png
-ha_category: "History"
+ha_category: History
 ha_release: 0.9
 ---
 
@@ -32,6 +32,7 @@ Configuration variables:
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
+- **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **blacklist** (*Optional*): List of entities not logged to InfluxDB.
 - **whitelist** (*Optional*): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the **blacklist** option will prevail.
 - **tags** (*Optional*): Tags to mark the data.
@@ -51,6 +52,7 @@ influxdb:
   password: MY_PASSWORD
   ssl: true
   verify_ssl: true
+  default_measurement: state
   blacklist:
      - entity.id1
      - entity.id2

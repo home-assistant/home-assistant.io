@@ -29,6 +29,6 @@ media_player:
 Configuration variables:
 
 - **host** (*Required*): The host name or address of the device that is running Emby.
-- **api_key** (*Requred*): The api-key you would like home-assistant to use to authenticate.
+- **api_key** (*Required*): The api-key you would like home-assistant to use to authenticate.
 - **ssl** (*Optional*): True if you want to connect with https. Be sure to set the port also.
 - **port** (*Optional*): The port number. Defaults to 8096.

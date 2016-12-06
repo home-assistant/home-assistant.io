@@ -30,7 +30,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the REST switch.
 - **body_on** (*Optional*): The body of the POST request that commands the switch to become enabled. Default is "ON". This value can be a [template](/topics/templating/), which is useful if the POST request needs to depend on the state of the system. For example, to enable remote-temperature-sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. On can achieve this using the template `'{"rem_temp":{{states.sensor.bedroom_temp.state}}}'`.
 - **body_off** (*Optional*): The body of the POST request that commands the switch to become disabled. Default is "OFF". This value can also be a template.
-- **is_on_template** (*Optional*): A [template](/topics/templating/) that determines the state of the switch from the value returned by the GET request on the resource url. This template should compute to a boolean (True or False). Default is equivalent to `'{{ value.json == body_on }}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches `body_on`.
+- **is_on_template** (*Optional*): A [template](/topics/templating/) that determines the state of the switch from the value returned by the GET request on the resource url. This template should compute to a boolean (True or False). Default is equivalent to `'{% raw %}{{ value.json == body_on }}{% endraw %}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches `body_on`.
 
 
 <p class='note warning'>

@@ -31,7 +31,7 @@ Configuration variables:
 - **url** (*Required*): The URL to your synology, including port.
 - **username** (*Required*): The username for accessing surveillance station.
 - **password** (*Required*): The password for accessing surveillance station.
-- **whitelist** (*Optional*): A list of which cameras you want to add, the names must be the same as in Surveillance Station.  If omited all cameras are added.
+- **whitelist** (*Optional*): A list of which cameras you want to add, the names must be the same as in Surveillance Station.  If omitted all cameras are added.
 - **verify_ssl** (*Optional*): True to require a valid certificate, False to disable certificate checking. Defaults to `True`.
 
 A full sample configuration for the `synology` platform is shown below:

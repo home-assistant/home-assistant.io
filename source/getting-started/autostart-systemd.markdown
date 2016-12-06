@@ -35,10 +35,21 @@ WantedBy=multi-user.target
 EOF'
 ```
 
-There is also another [sample service file](https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service) available. To use this one, just download it.
+If you've setup Home Assistant in `virtualenv` following the guide the following template should work for you.
 
-```bash
-$ sudo wget https://raw.githubusercontent.com/home-assistant/home-assistant/master/script/home-assistant%40.service -O /etc/systemd/system/home-assistant@[your user].service
+```
+[Unit]
+Description=Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=hass
+ExecStartPre=source /srv/hass/bin/activate
+ExecStart=/srv/hass/bin/hass -c "/home/hass/.homeassistant"
+
+[Install]
+WantedBy=multi-user.target
 ```
 
 You need to reload `systemd` to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.

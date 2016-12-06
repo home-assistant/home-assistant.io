@@ -10,6 +10,7 @@ footer: true
 logo: vera.png
 ha_category: Sensor
 ha_iot_class: "Local Push"
+ha_release: pre 0.7
 ---
 
 The `vera` platform allows you to get data from your [Vera](http://getvera.com/) sensors from within Home Assistant.

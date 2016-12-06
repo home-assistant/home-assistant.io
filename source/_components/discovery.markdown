@@ -18,7 +18,13 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Belkin WeMo switches
  * Philips Hue
  * Netgear routers
- * Plex Media Server
+ * Plex media server
+ * Panasonic Viera
+ * Roku media player
+ * Sono Speaker
+ * Yamaha media player
+ * Logitech media server (Squeezebox)
+ * DirecTV
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -30,8 +36,8 @@ discovery:
 ```
 
 <p class='note'>
-The home-assistant server must be on the same network as the devices for uPnP discovery to work. 
-If running home-assistant in a docker container use switch `--net=host` to put it on the host's network.
+Home Assistant must be on the same network as the devices for uPnP discovery to work. 
+If running Home Assistant in a Docker container use switch `--net=host` to put it on the host's network.
 </p>
 
 If you are developing a new platform, please read [how to make your platform discoverable]({{site_root}}/developers/add_new_platform/#discovery).

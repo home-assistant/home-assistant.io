@@ -26,9 +26,9 @@ automation:
     service: light.turn_on
 ```
 
-Starting with 0.28 automation rules can be reloaded from the [frontend](/components/automation/) and are shown by default. With [`hide_entity:`](/components/automation/) you can control this behaviour. It's is very handy if you are working on your rules but when a rule is finished and you don't want to see that rule in your frontend, you can set `hide_entity:` to `True`. To set an automation to be disabled when HASS starts set `initial_state:` to `False`. 
+Starting with 0.28 automation rules can be reloaded from the [frontend](/components/automation/) and are shown by default. With [`hide_entity:`](/components/automation/) you can control this behaviour. It's very handy if you are working on your rules but when a rule is finished and you don't want to see that rule in your frontend, you can set `hide_entity:` to `True`. To set an automation to be disabled when HASS starts set `initial_state:` to `False`. 
 
-After a few days of running this automation rule you come to realize that this automation rule is not good enough. It was already dark when the lights went on and the one day you weren't home, the lights turned on anyway. Time for some tweaking. Let's add an offset to the sunset trigger and a condition to only turn on the lights if anyone is home.
+After a few days of running this automation rule, you come to realize that this automation rule is not good enough. It was already dark when the lights went on and the one day you weren't home, the lights turned on anyway. Time for some tweaking. Let's add an offset to the sunset trigger and a condition to only turn on the lights if anyone is home.
 
 ```yaml
 # Example configuration.yaml entry

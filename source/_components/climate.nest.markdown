@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: nest_thermostat.png
+logo: nest.png
 ha_category: Climate
 ---
 
@@ -21,8 +21,9 @@ You must have the [Nest component](/components/nest/) configured to use those th
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 climate:
-  platform: nest
+  - platform: nest
 ```
 
 <p class='img'>

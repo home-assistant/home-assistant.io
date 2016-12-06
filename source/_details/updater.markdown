@@ -1,13 +1,12 @@
 ---
 layout: page
-title: "Details about the updater"
+title: "Updater"
 description: "Details what the updater component is reporting about your Home Assistant instance."
 date: 2016-10-22 08:00
 sidebar: false
 comments: false
 sharing: true
 footer: true
-ha_category: Infrastructure
 ---
 
 Starting with 0.31 the [updater component](/components/updater/) sends an optional report about Home Assistant instance.

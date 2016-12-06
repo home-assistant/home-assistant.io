@@ -1,13 +1,12 @@
 ---
 layout: page
-title: "Details about the web server"
+title: "Web server"
 description: "Use nmap to scan your Home Assistant instance."
 date: 2016-10-06 08:00
 sidebar: false
 comments: false
 sharing: true
 footer: true
-ha_category: Infrastructure
 ---
 
 It was only a matter of time till the first queries for tools like [https://www.shodan.io](https://www.shodan.io/search?query=Home+Assistant) to search for Home Assistant instances showed up.

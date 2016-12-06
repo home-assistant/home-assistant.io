@@ -18,7 +18,7 @@ hide_github_edit: true
     <div class="grid__item one-third lap-one-third palm-one-whole">
       <div class='current-version material-card text'>
         <h1>Current Version: {{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}</h1>
-        Released: <span class='release-date' title='{{ recent_release_post.release_date }}'>{{ recent_release_post.release_date | date: '%B %d, %Y' }}</span>
+        Released: <span class='release-date'>{{ site.date_released | date: '%B %d, %Y' }}</span>
 
         <div class='links'>
           <a href='{{ root_url }}{{ recent_release_post.url }}'>Release notes</a>

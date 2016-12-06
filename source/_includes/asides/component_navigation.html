@@ -33,7 +33,7 @@
     </div>
   {% endif %}
 
-  {% if is_platform and parent_name != 'sensor' and parent_name != 'binary_sensor' %}
+  {% if is_platform and parent_name != 'sensor' %}
     <div class='section'>
       This is a platform for
       <a href='{{parent_component.url}}'>the {{parent_component.title}} component</a>.

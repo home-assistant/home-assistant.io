@@ -37,7 +37,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the IMAP sensor to use in the frontend.
 - **username** (*Required*): Username for the IMAP server.
 - **password** (*Required*): Password for the IMAP server.
-- **senders** (*Required*): A list of sender email addresses that are allowed to report state via email. Only emails recieved from these addresses will be processed.
+- **senders** (*Required*): A list of sender email addresses that are allowed to report state via email. Only emails received from these addresses will be processed.
 - **value_template** (*Optional*): If specified this template will be used to render the state of sensor. If a template is not supplied the raw message body will be used for the sensor value. The following attributes will be supplied to the template:
 
    * **from**: The from address of the email

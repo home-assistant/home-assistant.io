@@ -29,6 +29,16 @@ mqtt:
   password: PASSWORD
   certificate: /home/paulus/dev/addtrustexternalcaroot.crt
   protocol: 3.1
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+    qos: 1
+    retain: true
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+    qos: 1
+    retain: true
 ```
 
 Configuration variables:
@@ -43,6 +53,16 @@ Configuration variables:
 - **client_key** (*Optional*): Client key (example: `/home/user/owntracks/cookie.key`)
 - **client_cert** (*Optional*): Client certificate (example: `/home/user/owntracks/cookie.crt`)
 - **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.
+- **birth_message** (*Optional*):
+  - **topic** (*Required*): The MQTT topic to publish the message.
+  - **payload** (*Required*): The message content.
+  - **qos** (*Optional*): The maximum QoS level of the topic. Default is 0.
+  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True`.
+- **will_message** (*Optional*):
+  - **topic** (*Required*): The MQTT topic to publish the message.
+  - **payload** (*Required*): The message content.
+  - **qos** (*Optional*): The maximum QoS level of the topic. Default is 0.
+  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True`.
 
 ## {% linkable_title Picking a broker %}
 
@@ -191,7 +211,7 @@ logger:
 
 ## {% linkable_title Testing your setup %}
 
-The `mosquitto` broker package ships commandline tools to send and recieve MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:
+The `mosquitto` broker package ships commandline tools to send and receive MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provided by HBMQTT. For sending test messages to a broker running on localhost check the example below:
 
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"

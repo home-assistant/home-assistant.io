@@ -41,7 +41,7 @@ Open [http://localhost:8888/](http://localhost:8888/) in your browser. Press "Ne
   <img src='{{site_root}}/images/screenshots/jupyter-new.png' />
 </p>
 
-You will get an emtpy notebook with one cell. Cells can contain code or text. To get the output of a cell you need to execute them with "Cell" -> "Run Cells" from the menu or by pressing the icon. 
+You will get an empty notebook with one cell. Cells can contain code or text. To get the output of a cell you need to execute them with "Cell" -> "Run Cells" from the menu or by pressing the icon. 
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/jupyter-notebook.png' />
