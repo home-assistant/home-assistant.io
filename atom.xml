@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-06T19:56:33+00:00</updated>
+  <updated>2016-12-07T06:49:08+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -131,6 +131,16 @@
   <li>Fix random websocket connections (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Fix Google Home sometimes not finding our emulated_hue (<a href="https://github.com/jawilson">@jawilson</a>)</li>
   <li>Fix EnOcean config validation (<a href="https://github.com/rubund">@rubund</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0344---december-7" href="#release-0344---december-7"></a> Release 0.34.4 - December 7</h3>
+
+<ul>
+  <li>Fix InfluxDB without authentication (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Kodi without authentication (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix incorrect caching of /api/error_log (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Fix incorrect ordering of service calls which could cause delays inbetween turning on multiple entities (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Nest Climate temperature issues (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
