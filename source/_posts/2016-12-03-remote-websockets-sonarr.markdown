@@ -112,6 +112,14 @@ We are working on a better solution for 0.35.
  - Fix Google Home sometimes not finding our emulated_hue ([@jawilson])
  - Fix EnOcean config validation ([@rubund])
 
+### {% linkable_title Release 0.34.4 - December 7 %}
+
+ - Fix InfluxDB without authentication ([@balloob])
+ - Fix Kodi without authentication ([@balloob])
+ - Fix incorrect caching of /api/error_log ([@armills])
+ - Fix incorrect ordering of service calls which could cause delays inbetween turning on multiple entities ([@balloob])
+ - Fix Nest Climate temperature issues ([@technicalpickles])
+
 ### {% linkable_title Breaking changes %}
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
@@ -127,6 +135,7 @@ We are working on a better solution for 0.35.
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
+[@armills]: https://github.com/armills
 [@jawilson]: https://github.com/jawilson
 [@rubund]: https://github.com/rubund
 [@aequitas]: https://github.com/aequitas
