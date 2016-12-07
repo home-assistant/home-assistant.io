@@ -15,16 +15,8 @@ ha_category: Climate
 The `nest` climate platform let you control a thermostat from [Nest](https://nest.com).
 
 <p class='note'>
-You must have the [Nest component](/components/nest/) configured to use those thermostats.
+You must have the [Nest component](/components/nest/) configured to use these sensors.  The `nest` climate component will automatically be setup when you do.
 </p>
-
-To set it up, add the following information to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: nest
-```
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />

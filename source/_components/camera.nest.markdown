@@ -15,13 +15,5 @@ ha_release: 0.34
 The `nest` platform allows you to watch the live stream of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
 
 <p class='note'>
-You must have the [Nest component](/components/nest/) configured to use those thermostats.
+You must have the [Nest component](/components/nest/) configured to use this camera.  The `nest` camera will automatically be setup when you do.
 </p>
-
-To set it up, add the following information to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: nest
-```

@@ -13,13 +13,13 @@ ha_release: pre 0.7
 ---
 
 
-The `nest` binary sensor platform let you monitor various states of a thermostat from [Nest](https://nest.com).
+The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
 <p class='note'>
-You must have the [Nest component](/components/nest/) configured to use these sensors.  A nest thermostat can provide any of the below sensors.  A nest protect can only report the 'online' condition. 
+You must have the [Nest component](/components/nest/) configured to use these sensors.  The `nest` binary sensor will automatically be setup when you do.
 </p>
 
-To set it up, add the following information to your `configuration.yaml` file:
+To customize which binary sensors are enabled, you can add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,20 +27,35 @@ binary_sensor:
   - platform: nest
     monitored_conditions:
       - 'fan'
-      - 'hvac_ac_state'
+      - 'is_using_emergency_heat'
 ```
+
+If you leave `monitored_conditions` blank, all sensors that are available for your devices will be used.
 
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): States to monitor.
-  - 'fan'
-  - 'hvac_ac_state'
-  - 'hvac_aux_heater_state'
-  - 'hvac_heat_x2_state'
-  - 'hvac_heat_x3_state'
-  - 'hvac_alt_heat_state'
-  - 'hvac_alt_heat_x2_state'
-  - 'hvac_emer_heat_state'
-  - 'online'
-- **scan_interval** (*Optional*): Interval in seconds to scan.
+- **monitored_conditions** array (*Optional*): States to monitor.
+  - online
+  - fan
+  - is\_using\_emergency\_heat
+  - is\_locked
+  - has\_leaf
+  - motion\_detected
+  - person\_detected
+  - sound\_detected
 
+The following conditions are available by device:
+
+- Nest Thermostat:
+  - online
+  - fan
+  - is\_using\_emergency\_heat
+  - is\_locked
+  - has\_leaf
+- Nest Protect:
+  - online
+- Nest Camera:
+  - online
+  - motion\_detected
+  - person\_detected
+  - sound\_detected

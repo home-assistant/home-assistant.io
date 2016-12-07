@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: netbeheernederland.jpg
 ha_category: Energy
-ha_version: 0.34
+ha_release: 0.34
 ha_iot_class: "Local Push"
 ---
 
@@ -31,6 +31,7 @@ This component is known to work for:
 - Landis+Gyr E350 (DMSR 4)
 - Landis+Gyr ZCF110 / ZM F110 (DSMR 4.2)
 - Kaifa E0026
+- Kamstrup 382JxC (DSMR 2.2)
 
 And USB serial converters:
 
@@ -66,4 +67,16 @@ group:
       - sensor.power_production_low
       - sensor.power_production_normal
       - sensor.gas_consumption
+```
+
+[HASSbian](/getting-started/installation-raspberry-pi-image/) users have to give dialout permission to the user `homeassistant`:
+
+```
+$ sudo usermod -a -G dialout homeassistant
+```
+
+and after that you need to reboot!
+
+```
+$ sudo reboot
 ```
