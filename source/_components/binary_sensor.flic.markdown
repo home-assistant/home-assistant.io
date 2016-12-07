@@ -15,7 +15,7 @@ ha_release: 0.33.4
 
 The `flic` platform allows you to connect with multiple [flic](https://flic.io) smart buttons.
 
-The platform does not directly interact with the buttons, but communicates with the flic service that manages the buttons. The service can run on the same instance as home assistant or any other reachable machine. For setup instructions visit the [GitHub repository](https://github.com/50ButtonsEach/fliclib-linux-hci#quick-start) of the service.
+The platform does not directly interact with the buttons, but communicates with the flic service that manages the buttons. The service can run on the same instance as home assistant or any other reachable machine. For setup instructions visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [OS X](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
 
 ### {% linkable_title Configuration %}
 
