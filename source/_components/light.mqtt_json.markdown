@@ -31,6 +31,8 @@ This platform supports on/off, brightness, RGB colors, transitions, and short/lo
 }
 ```
 
+The color format can be changed with the configuration options `rgb_value_template` and `rgb_set_template`. See below for more details and example.
+
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the light will be off.
 
@@ -52,6 +54,8 @@ Configuration variables:
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
 - **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
 - **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
+- **rgb_value_template** (*Optional*): Template to extract the color in the format 'R,G,B' from the state topic JSON. Defaults to `{% raw %}{{ value_json.color.r }},{{ value_json.color.g }},{{ value_json.color.b }}{% endraw %}`.
+- **rgb_set_template** (*Optional*): Template to render the color code to JSON in the command topic. Defaults to `{% raw %}{"color":{"r":{{ value_json.r }},"g":{{ value_json.g }},"b":{{ value_json.b }}}}{% endraw %}`.
 - **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
 - **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.
 - **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.
@@ -92,6 +96,34 @@ light:
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
     brightness: true
+```
+
+### {% linkable_title Custom RGB support %}
+
+To enable a light custom RGB support in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: mqtt_json
+    name: mqtt_json_light_1
+    state_topic: "home/rgb1"
+    command_topic: "home/rgb1/set"
+    brightness: true
+    rgb: true
+    rgb_value_template: "{% raw %}{{ value_json.color[0] }},{{ value_json.color[1] }},{{ value_json.color[2] }}{% endraw %}"
+    rgb_set_template: '{% raw %}{"color": [{{ value_json.r }},{{ value_json.g}},{{ value_json.b }}]}{% endraw %}'
+```
+
+This will allow the color to be set as array instead of JSON object:
+
+```json
+{
+  "brightness": 255,
+  "color": [255, 255, 255],
+  "transition": 2,
+  "state": "ON"
+}
 ```
 
 ### {% linkable_title Implementations %}
