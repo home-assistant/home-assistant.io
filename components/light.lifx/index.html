@@ -95,6 +95,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">lifx</span>
+  <span class="pi">-</span> <span class="s">broadcast</span><span class="pi">:</span> <span class="s">192.168.1.255</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -103,6 +104,8 @@
   <li><strong>server</strong> (<em>Optional</em>): Your server address. Only needed if using more than one network interface. Omit if you are unsure.</li>
   <li><strong>broadcast</strong> (<em>Optional</em>): The broadcast address, set to reach all LIFX bulbs.</li>
 </ul>
+
+<p>If there is an issue with lights not showing up when Home Assistant is restarted, add broadcast to your configuration.</p>
 
 
 
