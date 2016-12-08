@@ -50,3 +50,9 @@ automation:
       title: ""
       message: "Honey, I'm home!"
 ```
+
+You can also set or change the status of an `input_boolean` by using `input_boolean.turn_on` and `input_boolean.turn_off` in your automations.
+
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.notify_home
