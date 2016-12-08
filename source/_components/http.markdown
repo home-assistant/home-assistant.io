@@ -32,7 +32,7 @@ Configuration variables:
 - **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
 - **ssl_key** (*Optional*): Path to your TLS/SSL key to serve Home Assistant over a secure connection.
 - **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://home-assistant.io` will allow requests from `https://home-assistant.io` but __not__ `http://home-assistant.io`.
-- **use_x_forwarded_for** (*Optional*): Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You should only enable this in a trustworthy network environment, as clients passing that header could easily spoof their source IP address.
+- **use_x_forwarded_for** (*Optional*): Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You should only enable this in a trustworthy network environment, as clients passing that header could easily spoof their source IP address. Defaults to False.
 - **trusted_networks** (*Optional*): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.
 - **ip_ban_enabled** (*Optional*): Flag indicating whether additional IP filtering is enabled. Defaults to False.
 - **login_attempts_threshold** (*Optional*): Number of failed login attemt from single IP after which it will be automatically banned if `ip_ban_enabled` is True. Defaults to -1, meaning that no new automatic bans will be added.
@@ -49,6 +49,7 @@ http:
   cors_allowed_origins:
     - https://google.com
     - https://home-assistant.io
+  use_x_forwarded_for: True
   trusted_networks:
     - 127.0.0.1
     - ::1
