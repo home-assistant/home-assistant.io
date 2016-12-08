@@ -73,6 +73,7 @@ sensor:
 Configuration variables:
 - **api_key** (Required): See above.
 - **pws_id** (Optional): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available [here](https://www.wunderground.com/weatherstation/ListStations.asp). If you do not enter a PWS ID, the current location information (latitude and longitude) from your `configuration.yaml` will be used to display weather conditions. 
+- **lang** (Optional): Specify the language that the API returns. The current list of all Wunderground language codes is available [here](https://www.wunderground.com/weather/api/d/docs?d=language-support). If not specified, it defaults to English (EN).
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
   - **alerts**: Current severe weather advisories
   - **dewpoint_c**: Temperature in Celsius below which water droplets begin to condense and dew can form
