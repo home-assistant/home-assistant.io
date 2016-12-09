@@ -48,9 +48,27 @@ Configuration options for a Hikvision Sensor:
 - **ssl** (*Optional*): True if you want to connect with https. Be sure to set the port also.
 - **username** (*Required*): The username to authenticate with.
 - **password** (*Required*): The password to authenticate with.
-- **customize** (*Optional*): This attribute contains sensor-specific override values:
+- **customize** (*Optional*): This attribute contains sensor-specific override values. Only sensor name needs defined:
   - **ignored** (*Optional*): Ignore this sensor completely. It won't be shown in the Web Interface and no events are generated for it.
   - **delay** (*Optional*): Specify the delay to wait after a sensor event ends before notifying Home Assistant. This is useful to catch multiple quick trips in one window without the state toggling on and off.  The default delay is 5 seconds.
+
+Supported sensor/event types are:
+- Motion
+- IO Trigger
+- Line Crossing
+- Field Detection
+- Video Loss
+- Tamper Detection
+- Shelter Alarm
+- Disk Full
+- Disk Error
+- Net Interface Broken
+- IP Conflict
+- Illegal Access
+- Video Mismatch
+- Bad Video
+- PIR Alarm
+- Face Detection
 
 
 Example of a configuration in your `configuration.yaml` that utilizes the customize options:
@@ -64,8 +82,8 @@ binary_sensor:
   username: user
   password: pass
   customize:
-    binary_sensor.name_sensor_name_1:
+    sensor_name_1:
       delay: 30
-    binary_sensor.name_sensor_name_2:
+    sensor_name_2:
       ignored: True
 ```
