@@ -132,6 +132,14 @@
 </code></pre>
 </div>
 
+<p>You can also set or change the status of an <code class="highlighter-rouge">input_boolean</code> by using <code class="highlighter-rouge">input_boolean.turn_on</code> and <code class="highlighter-rouge">input_boolean.turn_off</code> in your automations.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">input_boolean.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.notify_home</span>
+</code></pre>
+</div>
+
 
 </article>
 
