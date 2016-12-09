@@ -7,8 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-regenerate: true
-hide_github_edit: true
 ---
 
 To run Dashing and `hapush` at reboot, I have provided sample init scripts in the `./init` directory. These have been tested on a Raspberry PI - your mileage may vary on other systems.

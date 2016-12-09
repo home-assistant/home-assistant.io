@@ -7,8 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-regenerate: true
-hide_github_edit: true
 ---
 
 (Not necessary if you are using Docker)

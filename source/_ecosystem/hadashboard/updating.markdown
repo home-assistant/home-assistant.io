@@ -7,8 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-regenerate: true
-hide_github_edit: true
 ---
 
 To update the dashboard after new code has been released, just run the following command to update your copy:

@@ -7,8 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-regenerate: true
-hide_github_edit: true
 ---
 
 Installation can be performed using Docker (Contributed by [marijngiesen](https://github.com/marijngiesen)) or manually if Docker doesn't work for you. We also have a Raspberry PI version of Docker contributed by [snizzleorg](https://community.home-assistant.io/users/snizzleorg/activity)
