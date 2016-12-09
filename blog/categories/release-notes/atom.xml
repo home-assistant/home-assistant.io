@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-07T18:27:53+00:00</updated>
+  <updated>2016-12-09T07:04:22+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -131,7 +131,7 @@ We are working on a better solution for 0.35.
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.
-- If you are using NGINX, you will have to [adapt your configuration][nginx].
+- The frontend now uses websockets. If you run a server in front of Home Assistant, you will have to update your config (example [nginx][nginx])
 - [Nest][nest] contains changes which will require your attention.
 
 ### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
