@@ -124,7 +124,7 @@ We are working on a better solution for 0.35.
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.
-- If you are using NGINX, you will have to [adapt your configuration][nginx].
+- The frontend now uses websockets. If you run a server in front of Home Assistant, you will have to update your config (example [nginx][nginx])
 - [Nest][nest] contains changes which will require your attention.
 
 ### {% linkable_title If you need help... %}
