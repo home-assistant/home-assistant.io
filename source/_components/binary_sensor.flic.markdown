@@ -39,7 +39,7 @@ If discovery is enabled, you can add a new button by pressing it for at least 7s
 
 
 ### {% linkable_title Timeout %}
-When the flic button is triggered while disconnected from flicd, it will queue all events and try to connect and transmit them as soon as possible. The timeout variable can be used to stop events from triggering if too much time passed between the action and the notification in Home Assistant.
+When the flic button is triggered while disconnected from flic service, it will queue all events and try to connect and transmit them as soon as possible. The timeout variable can be used to stop events from triggering if too much time passed between the action and the notification in Home Assistant.
 
 
 #### {% linkable_title Events %}
