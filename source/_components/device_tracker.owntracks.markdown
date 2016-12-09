@@ -46,7 +46,7 @@ device_tracker:
 ```
 
 ### {% linkable_title Using Owntracks with other device trackers %}
-Owntracks can also be used with other device trackers, such as [Nmap](/components/device_tracker.nmap_scanner/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the Owntracks entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last. The naming convention for known device list is `<username>_<device-id>` and could be set in app configuration. More details about this config can found in [device tracker](/components/device_tracker/).
+Owntracks can also be used with other device trackers, such as [Nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the Owntracks entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last. The naming convention for known device list is `<username>_<device-id>` and could be set in app configuration. More details about this config can found in [device tracker](/components/device_tracker/).
 
 ### {% linkable_title Using Owntracks regions %}
 Owntracks can track regions, and send region entry and exit information to Home Assistant (HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
