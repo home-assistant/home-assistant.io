@@ -120,13 +120,12 @@ The frontend has a template editor developer tool to help develop and debug temp
   <span class="s">msg_who_is_home</span><span class="pi">:</span>
     <span class="s">sequence</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
-        <span class="s">data_template</span><span class="pi">:</span>
-          <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
-            <span class="no">{% if is_state('device_tracker.paulus', 'home') %}</span>
-              <span class="no">Ha, Paulus is home!</span>
-            <span class="no">{% else %}</span>
-              <span class="no">Paulus is at {{ states('device_tracker.paulus') }}.</span>
-            <span class="no">{% endif %}</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{% if is_state('device_tracker.paulus', 'home') %}</span>
+            <span class="no">Ha, Paulus is home!</span>
+          <span class="no">{% else %}</span>
+            <span class="no">Paulus is at {{ states('device_tracker.paulus') }}.</span>
+          <span class="no">{% endif %}</span>
 </code></pre>
 </div>
 
