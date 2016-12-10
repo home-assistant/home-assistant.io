@@ -31,6 +31,7 @@ sensor
    - light
    - temperature
    - conductivity
+   - battery
 ```
 
 - **mac** (*Required*): The MAC address of your sensor. You can find this be running `hcitool lescan` from command line.
