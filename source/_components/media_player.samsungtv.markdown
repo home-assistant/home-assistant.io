@@ -52,6 +52,7 @@ Currently tested but not working models:
 
 - KU6300 - Shows in GUI but unable to control.
 - H6400 - Shows in GUI but unable to control.
+- J5200 - Unable to see state and unable to control
  
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown).
 The first letter (U, P, L, H & K) represent the screen type, e.g. LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia & Australia. The two numbers following that represent the screen size.
