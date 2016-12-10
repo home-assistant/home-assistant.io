@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-10T22:34:18+00:00</updated>
+  <updated>2016-12-10T22:55:00+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -1127,7 +1127,7 @@
   <li>Cover: Bugfixes (<a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/danielperna84">@danielperna84</a>)</li>
   <li>Sensor: Support for displaying details about <a href="https://home-assistant.io/components/sensor.coinmarketcap">crypto currencies</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Device tracker: Support for <a href="https://home-assistant.io/components/device_tracker.automatic/">automatic</a> to track your vehicles (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li>Devie tracker: Add exclude option to <a href="https://home-assistant.io/components/device_tracker.nmap_scanner/">Nmap</a> device tracker (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
+  <li>Devie tracker: Add exclude option to <a href="https://home-assistant.io/components/device_tracker.nmap_tracker/">Nmap</a> device tracker (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
   <li>Device tracker: Improved login errors for Asus device tracker (<a href="https://github.com/kellerza">@kellerza</a>)</li>
   <li>Sensor: Support for displaying the status of <a href="https://home-assistant.io/components/sensor.xbox_live/">Xbox</a> Live accounts (<a href="https://github.com/mKerix">@mKerix</a>)</li>
   <li>Notify: Adding <code class="highlighter-rouge">link_names</code> for sending Slack message (<a href="https://github.com/salt-lick">@salt-lick</a>)</li>
