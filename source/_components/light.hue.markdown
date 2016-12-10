@@ -81,7 +81,7 @@ The Hue API doesn't activate Scenes directly, only on a Hue Group
 (typically Rooms, especially if using the 2nd gen app). But Hue Scenes
 don't actually reference their group. So heuristic matching is used.
 
-Neither Group names or Scene names are guarunteed unique in Hue. If
+Neither Group names or Scene names are guaranteed unique in Hue. If
 you are getting non deterministic behavior, adjust your Hue scenes via
 the App to be more identifying.
 
