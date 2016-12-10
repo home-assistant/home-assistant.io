@@ -47,6 +47,7 @@ Currently known supported models:
 - EH5600
 - F6400AF
 - D6505
+- D6300SF
 
 Currently tested but not working models:
 
