@@ -90,42 +90,59 @@
   <hr class="divider">
   
 
-  <p>The <a href="https://www.open-homeautomation.com/2016/08/23/reverse-engineering-the-mi-plant-sensor/">Mi Flora plant sensor</a> is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and
-conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.</p>
+  <p>The <a href="https://www.open-homeautomation.com/2016/08/23/reverse-engineering-the-mi-plant-sensor/">Mi Flora plant sensor</a> is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.</p>
 
 <p>To use your Mi Flora plant sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">miflora</span>
-  <span class="s">mac</span><span class="pi">:</span> <span class="s">xx:xx:xx:xx:xx:xx</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Flower 1</span>
-  <span class="s">force_update</span><span class="pi">:</span> <span class="s">false</span>
-  <span class="s">median</span><span class="pi">:</span> <span class="s">3</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
-   <span class="pi">-</span> <span class="s">moisture</span>
-   <span class="pi">-</span> <span class="s">light</span>
-   <span class="pi">-</span> <span class="s">temperature</span>
-   <span class="pi">-</span> <span class="s">conductivity</span>
-   <span class="pi">-</span> <span class="s">battery</span>
+  <span class="s">- platform</span><span class="pi">:</span> <span class="s">miflora</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s">xx:xx:xx:xx:xx:xx</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
 </code></pre>
 </div>
 
 <ul>
   <li><strong>mac</strong> (<em>Required</em>): The MAC address of your sensor. You can find this be running <code class="highlighter-rouge">hcitool lescan</code> from command line.</li>
+  <li><strong>monitored_conditions</strong> array (<em>Required</em>): The paramaters that should be monitored.
+    <ul>
+      <li><strong>moisture</strong>: Moisture in the soil.</li>
+      <li><strong>light</strong>: Brightness at the sensor’s location.</li>
+      <li><strong>temperature</strong>: Temperature at the sensor’s location.</li>
+      <li><strong>conductivity</strong>: Conductivity in the soil.</li>
+      <li><strong>battery</strong>: Battery details.</li>
+    </ul>
+  </li>
   <li><strong>name</strong> (<em>Optional</em>): The name displayed in the frontend.</li>
   <li><strong>force_update</strong> (<em>Optional</em>): Sends update events even if the value hasn’t changed.</li>
-  <li><strong>median</strong> (<em>Optional</em>): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 
-3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes.
-If you never have problems with spikes, median=1 will work fine.</li>
-  <li><strong>monitored_conditions</strong> (<em>Required</em>): The paramaters that should be monitored.</li>
+  <li><strong>median</strong> (<em>Optional</em>): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, <code class="highlighter-rouge">median: 1</code> will work fine.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): Define the timeout value in seconds when polling (defaults to 10 if not defined)</li>
   <li><strong>retries</strong> (<em>Optional</em>): Define the number of retries when polling (defaults to 2 if not defined)</li>
   <li><strong>cache</strong> (<em>Optional</em>): Define cache expiration value in seconds (defaults to 1200 if not defined)</li>
 </ul>
 
-<p>Note that by default the sensor is only polled once every 15 minutes. This means with the median=3 setting, it will take as least 30 minutes before the sensor will report a value after a Home Assistant restart. As the values usually change very slowly, this isn’t a big problem. 
+<p>Note that by default the sensor is only polled once every 15 minutes. This means with the <code class="highlighter-rouge">median: 3</code> setting will take as least 30 minutes before the sensor will report a value after a Home Assistant restart. As the values usually change very slowly, this isn’t a big problem. 
 Reducing polling intervals will have a negative effect on the battery life.</p>
+
+<p>A full configuration example could looks the one below:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span>
+  <span class="s">- platform</span><span class="pi">:</span> <span class="s">miflora</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s">xx:xx:xx:xx:xx:xx</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Flower 1</span>
+    <span class="s">force_update</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">median</span><span class="pi">:</span> <span class="s">3</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">moisture</span>
+      <span class="pi">-</span> <span class="s">light</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">conductivity</span>
+      <span class="pi">-</span> <span class="s">battery</span>
+</code></pre>
+</div>
+
 
 
 </article>
