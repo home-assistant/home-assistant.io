@@ -27,7 +27,7 @@ switch:
   - platform: template
     switches:
       skylight:
-        value_template: {% raw %}'{{ is_state('sensor.skylight', 'on') }}'{% endraw %}
+        value_template: {% raw %}"{{ is_state('sensor.skylight', 'on') }}"{% endraw %}
         turn_on:
           service: switch.turn_on
           entity_id: switch.skylight_open
@@ -64,7 +64,7 @@ switch:
   - platform: template
     switches:
       copy:
-        value_template: {% raw %}'{{ is_state('switch.source', 'on') }}'{% endraw %}
+        value_template: {% raw %}"{{ is_state('switch.source', 'on') }}"{% endraw %}
         turn_on:
           service: switch.turn_on
           entity_id: switch.source
@@ -83,7 +83,7 @@ switch:
     switches:
       blind:
         friendly_name: 'Blind'
-        value_template: {% raw %}'{{ is_state_attr("switch.blind_toggle", "sensor_state", "on") }}'{% endraw %}
+        value_template: {% raw %}"{{ is_state_attr('switch.blind_toggle', 'sensor_state', 'on') }}"{% endraw %}
         turn_on:
           service: switch.toggle
           entity_id: switch.blind_toggle
@@ -102,7 +102,7 @@ switch:
     switches:
       skylight:
         friendly_name: 'Skylight'
-        value_template: {% raw %}'{{ is_state('sensor.skylight.state', 'on') }}'{% endraw %}
+        value_template: {% raw %}"{{ is_state('sensor.skylight.state', 'on') }}"{% endraw %}
         turn_on:
           service: switch.turn_on
           entity_id: switch.skylight_open

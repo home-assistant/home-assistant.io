@@ -3,23 +3,23 @@ layout: post
 title: "0.34: New Remote component, Websockets, Sonarr, GPSLogger"
 description: "Major improvements of HomeMatic, Tellstick, the HTTP component, and more."
 date: 2016-12-03 08:04:05 +0000
-date_formatted: "November 20, 2016"
+date_formatted: "December 3, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2016-11-0.34/social.png
+og_image: /images/blog/2016-12-0.34/social.png
 ---
 
-Here we go...0.34. Let's call it the "Santa Claus" release. Rodolfo was faster than expected and there are a lot of goodies on the sled. Of course, more work on async programming done by [@pvizeli] and [@balloob], a new components, new platforms, major improvements, and much more.
+Here we go... 0.34. Let's call it the "Santa Claus" release. Rudolph was faster than expected and there's lot's of goodies on the sleigh. Of course, more work on async programming done by [@pvizeli] and [@balloob], new components, new platforms, major improvements, and much more.
 
 ### {% linkable_title GPSLogger %}
 
-The work of [@dainok] let you use your Android device, with the Geolocation feature enabled, to track itself using the GPS sensor or WiFi networks with [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) app. GPSLogger can use multiple source: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
+The work of [@dainok] let's you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
 
 ###  {% linkable_title Remote component %}
 
-The brand new [`remote`][remote] component made by [@iandday] will simplyfy the integration of all kind remote control units. The first platform for [Harmony][harmony] is included in this release.
+The brand new [`remote`][remote] component made by [@iandday] will simplify the integration of all kinds of remote control units. The first platform for [Harmony][harmony] is included in this release.
 
 ### {% linkable_title HomeMatic %}
 
@@ -40,7 +40,6 @@ This release includes a new [websockets][websockets] based API by [@balloob] to 
 
 ## {% linkable_title All changes  %}
 
-- Sensor: [Broadlink][boradlink] RM2 and A1 E-air support ([@skyval])
 - New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
 - Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
 - Sensor: Support for [Sonarr][sonarr] ([@hborawski])
@@ -67,7 +66,7 @@ This release includes a new [websockets][websockets] based API by [@balloob] to 
 - Sensor - KNX: Fix unit of mesaurement ([@cyberjunky])
 - Climate: New precision properties ([@sdague])
 - Sensor - TEMPer: Reset [devices][temper] on address change ([@vemek])
-- Core: Color names now follows w3.org recommandations ([@srcLurker])
+- Core: Color names now follow w3.org recommandations ([@srcLurker])
 - Updater: Robustness improvements ([@balloob]])
 - Media player - MPD: Reconnect to daemon ([@janLo])
 - Device tracker: Fall-back for MAC address lookup ([@aequitas])
@@ -76,19 +75,69 @@ This release includes a new [websockets][websockets] based API by [@balloob] to 
 - Minor and not so minor features and bug fixes by [@turbokongen], [@sdague], [@pvizeli], [@fabaff], [@chapple], [@mweinelt], [@Khabi], [@balloob], [@mnestor], [@kellerza], [@Morrisai],
 [@michaelarnauts], [@tchellomello], [@lwis], [@bjarniivarsson], [@danielperna84], [@LinuxChristian], [@MartinHjelmare], [@dethpickle], [@jnewland], [@lichtteil], [@brandonweeks], [@partofthething], [@mnoorenberghe], [@bah2830], and [@albertoarias].
 
-## {% linkable_title Breaking changes %}
+### {% linkable_title Release 0.34.1 - December 4 %}
+
+This release has a bunch of bug fixes including a big one: emulated_hue will now work with Google Home! We usually reserve patch releases for small bug fixes but we considered this more impactful bug fix so important that we're including it now instead of having people wait two weeks.
+
+To make the fix backwards compatible (it is a patch release after all) you will have to add two new configuration option to emulated_hue to have it work with Google Home:
+
+```yaml
+emulated_hue:
+  type: google_home
+  # This is important. Sadly, Google Home will not work with other ports.
+  listen_port: 80
+```
+
+We are working on a better solution for 0.35.
+
+- Fix emulated_hue with Google Home ([@balloob])
+- Fix Sonos invalid config error ([@pvizeli])
+- Fix Synology DSM doing I/O inside event loop ([@balloob])
+- Fix Nest camera issues ([@technicalpickles])
+- Fix occasional hangs in Homematic ([@pvizeli])
+- Revert TP-Link upgrade to fix issues ([@mweinelt])
+- Fix CORS ([@balloob])
+
+### {% linkable_title Release 0.34.2 - December 5 %}
+
+- Fix Nest interpreting Celsius as Fahrenheit and converting it ([@balloob])
+- Fix Nest sensor platforms throwing errors ([@technicalpickles])
+- Frontend will now always show persistent_notification and configurator entities even if not part of the active view ([@balloob])
+- Fixed media player cards taking up unnecessary space ([@balloob])
+
+### {% linkable_title Release 0.34.3 - December 6 %}
+
+ - Fix Hook connections ([@dasos])
+ - Fix random websocket connections ([@balloob])
+ - Fix Google Home sometimes not finding our emulated_hue ([@jawilson])
+ - Fix EnOcean config validation ([@rubund])
+
+### {% linkable_title Release 0.34.4 - December 7 %}
+
+ - Fix InfluxDB without authentication ([@balloob])
+ - Fix Kodi without authentication ([@balloob])
+ - Fix incorrect caching of /api/error_log ([@armills])
+ - Fix incorrect ordering of service calls which could cause delays inbetween turning on multiple entities ([@balloob])
+ - Fix Nest Climate temperature issues ([@technicalpickles])
+
+### {% linkable_title Breaking changes %}
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.
+- If you are using NGINX, you will have to [adapt your configuration][nginx].
+- [Nest][nest] contains changes which will require your attention.
 
 ### {% linkable_title If you need help... %}
 
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use these communication channels. Thanks.
 
 ### {% linkable_title Reporting Issues %}
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
+[@armills]: https://github.com/armills
+[@jawilson]: https://github.com/jawilson
+[@rubund]: https://github.com/rubund
 [@aequitas]: https://github.com/aequitas
 [@albertoarias]: https://github.com/albertoarias
 [@bah2830]: https://github.com/bah2830
@@ -151,20 +200,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [amcrest]: https://home-assistant.io/components/camera.amcrest/
 [boradlink]: https://home-assistant.io/components/sensor.broadlink/
 [dsmr]: https://home-assistant.io/components/sensor.dsmr/
-[dunehd]: https://home-assistant.io/components/dunehd/
+[dunehd]: https://home-assistant.io/components/media_player.dunehd/
 [efergy]: https://home-assistant.io/components/sensor.efergy/
 [filtering]: https://home-assistant.io/components/http/
+[gpslogger]: https://home-assistant.io/components/device_tracker.gpslogger/
 [harmony]: https://home-assistant.io/components/remote.harmony/
 [homematic]: https://home-assistant.io/components/homematic/
 [hook]: https://home-assistant.io/components/switch.hook/
 [nest-cam]: https://home-assistant.io/components/camera.nest/
+[nest]: https://home-assistant.io/components/nest/
+[nginx]: https://home-assistant.io/ecosystem/nginx/
 [nut]: https://home-assistant.io/components/sensor.nut/
-[philips]: https://home-assistant.io/components/media_palyer.dunehd/
+[philips]: https://home-assistant.io/components/media_player.philips_js/
 [remote]: https://home-assistant.io/components/remote/
 [rfxtrx]: https://home-assistant.io/components/rfxtrx/
+[sonarr]: https://home-assistant.io/components/sensor.sonarr/
 [tellstick]: https://home-assistant.io/components/tellstick/
 [temper]: https://home-assistant.io/components/sensor.temper/
 [threshold]: https://home-assistant.io/components/binary_sensor.threshold/
-[websockets]: https://home-assistant.io/developers/websockets_api/
-[wqai]: https://home-assistant.io/components/sensor.waqi/
+[websockets]: https://home-assistant.io/developers/websocket_api/
+[waqi]: https://home-assistant.io/components/sensor.waqi/
 

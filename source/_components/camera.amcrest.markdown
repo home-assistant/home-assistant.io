@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "Amcrest Camera"
-description: "Instructions how to integrate Amcrest camera into Home Assistant."
-date: 2016-12-03 08:10
+title: "Amcrest IP Camera"
+description: "Instructions how to integrate Amcrest IP cameras within Home Assistant."
+date: 2016-11-24 10:00
 sidebar: true
 comments: false
 sharing: true
@@ -12,9 +12,9 @@ ha_category: Camera
 ha_release: 0.34
 ---
 
-The `amcrest` platform allows you to watch the live stream of your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
+The `amcrest` platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
 
-To enable your Amcrest camera in your installation, add the following to your `configuration.yaml` file:
+To enable your camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,8 +27,9 @@ camera:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address your camera.
-- **port** (*Optional*): The port that the camera is running on. The default is 80. 
+- **host** (*Required*): The IP address or hostname of your camera. If using hostname, make sure the DNS works as expected.
 - **username** (*Required*): The username for accessing your camera.
 - **password** (*Required*): The password for accessing your camera.
-- **name** (*Optional*): This parameter allows you to override the name of your camera.
+- **name** (*Optional*): This parameter allows you to override the name of your camera. The default is "Amcrest Camera".
+- **port** (*Optional*): The port that the camera is running on. The default is 80.
+

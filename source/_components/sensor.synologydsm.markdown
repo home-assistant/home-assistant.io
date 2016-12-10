@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: synologydsm.png
+logo: synology.png
 ha_category: Sensor
 ha_release: 0.32
 ha_iot_class: depends

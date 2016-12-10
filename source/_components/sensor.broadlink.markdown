@@ -2,7 +2,7 @@
 layout: page
 title: "Broadlink RM2 and A1 sensor"
 description: "Instructions how to integrate Broadlink RM2 and/or A1 E-air sensors within Home Assistant."
-date: 2016-11-08 21:59
+date: 2016-12-03 21:59
 sidebar: true
 comments: false
 sharing: true
@@ -13,7 +13,7 @@ ha_release: 0.34
 ---
 
 
-The `broadlink` sensor platform let you monitor data from an RM2 and A1 E-air. 
+The `broadlink` sensor platform let you monitor data from an RM2 and A1 E-air.
 There is currently no support for the cloud API.
 
 To set it up, add the following information to your `configuration.yaml` file:
