@@ -29,11 +29,12 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 ### {% linkable_title Videos, interviews, talks, and alike %}
 
+- [Home Assistant - Erweiterungen](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2016-puzzle) at [Puzzle ITC](https://www.puzzle.ch/de/) - December 2016
+- [Automating Your Life - Home Automation](http://slides.com/teagan42/life_automation#/) at Develop Denver 2016 - August
 - [Building Online Communities: Home Assistant](https://medium.com/@gitter/building-online-communities-home-assistant-8818dff671ad#.och4x4rhx) - July 2016
 - [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) ([Slides](https://docs.google.com/presentation/d/1PUnOpeFZxNj4LEjaohGqH_1hOGQGuS5yRHD1ThHr6nk/edit?usp=sharing)) - June 2016
 - [Awaken your home: Python and the Internet of Things](https://www.youtube.com/watch?v=Cfasc9EgbMU&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=1) at PyCon 2016 - June 2016
 - [Automating your Home with Home Assistant](https://www.youtube.com/watch?v=4-6rTwKl6ww&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=2) at OpenIoT 2016 - March 2016
-- [Automating Your Life - Home Automation](http://slides.com/teagan42/life_automation#/) at Develop Denver 2016 - August
 
 Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
