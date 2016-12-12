@@ -120,6 +120,13 @@ We are working on a better solution for 0.35.
  - Fix incorrect ordering of service calls which could cause delays inbetween turning on multiple entities ([@balloob])
  - Fix Nest Climate temperature issues ([@technicalpickles])
 
+### {% linkable_title Release 0.34.5 - December 12 %}
+
+ - Fix Nest sensors doing I/O inside event loop ([@balloob])
+ - Fix Nest version bump not triggering re-install ([@R1chardTM])
+ - Fix Nest cameras without activity zones ([@technicalpickles])
+ - Fix Plex doing I/O inside event loop ([@balloob])
+
 ### {% linkable_title Breaking changes %}
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
@@ -135,6 +142,7 @@ We are working on a better solution for 0.35.
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
+[@R1chardTM]: https://github.com/R1chardTM
 [@armills]: https://github.com/armills
 [@jawilson]: https://github.com/jawilson
 [@rubund]: https://github.com/rubund
