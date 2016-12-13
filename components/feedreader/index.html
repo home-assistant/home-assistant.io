@@ -121,6 +121,19 @@
 </code></pre>
 </div>
 
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Send notification of RSS feed title when updated</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">feedreader</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+      <span class="s">data_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre>
+</div>
+
+<p>*Any field under the <code class="highlighter-rouge">&lt;entry&gt;</code> tag in the feed can be used for example <code class="highlighter-rouge">tigger.event.data.content</code> will get the body of the feed entry.</p>
+
 <p>For more advanced use cases, a custom component registering to the <code class="highlighter-rouge">feedreader</code> event type could be used instead:</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">EVENT_FEEDREADER</span> <span class="o">=</span> <span class="s">"feedreader"</span>
