@@ -20,11 +20,12 @@ To set it up, add the following information to your `configuration.yaml` file:
 climate:
   platform: honeywell
   username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 Configuration variables:
 
-- **username** (*Required*: The username of an user with access.
+- **username** (*Required*): The username of an user with access.
 - **password** (*Required*): The password for your given admin account.
 - **away_temperature** (*optional*): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.
 - **region** (*optional*): Region identifier (either 'eu' or 'us'). Defaults to 'eu' if not provided.
