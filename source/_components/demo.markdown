@@ -28,6 +28,7 @@ Available demo platforms:
 - [Remote](/components/remote/) (`remote`)
 - [Sensor](/components/sensor/) (`sensor`)
 - [Switch](/components/switch/) (`switch`)
+- [Text-to-speak](/components/tts/) (`tts`)
 - [Weather](/components/weather/) (`weather`)
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
