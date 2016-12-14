@@ -12,7 +12,7 @@ ha_category: Text-to-speak
 ha_release: 0.35
 ---
 
-The `google` text-to-speak platform uses [Google](https://www.google.com) Text-to-Speech engine to read a text with natural sounding voices.
+The `google` text-to-speech platform uses [Google](https://www.google.com) Text-to-Speech engine to read a text with natural sounding voices.
 
 To enable text-to-speak with Google, add the following lines to your `configuration.yaml`:
 
@@ -26,7 +26,7 @@ Configuration variables:
 
 - **language** (*Optional*): The language to use. Defaults to `en`.
 - **cache** (*Optional*): If you want to use the caching feature. Defaults to `true`.
-- **cache_dir** (*Optional*): The port on which the APCUPSd NIS is listening. Defaults to `tts`.
+- **cache_dir** (*Optional*): The location of the caching directory. Defaults to `tts`.
 - **time_memory** (*Optional*): The time span for caching in seconds. Defaults to `300`. Minimum is 60 s and the maximum 57600 s (16 hours).
 
 
