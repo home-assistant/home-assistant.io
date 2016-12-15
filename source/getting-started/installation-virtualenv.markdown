@@ -52,7 +52,7 @@ $ sudo chown hass /srv/hass
 This is obviously only necessary if you created a `hass` user, but if you did, be sure to switch to that user whenever you install things in your virtualenv, otherwise you'll end up with mucked up permissions.
 
 ```bash
-$ sudo su -s /bin/bash hass
+$ sudo -u hass -s -H
 ```
 
 The `su` command means 'switch' user. We use the '-s' flag because the `hass` user is a system user and doesn't have a default shell by default (to prevent attackers from being able to log in as that user).

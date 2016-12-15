@@ -62,7 +62,7 @@ $ sudo chown homeassistant:homeassistant homeassistant
 
 Next up is to create and change to a virtual environment for Home Assistant. This will be done as the `homeassistant` account.
 ```bash
-$ sudo su -s /bin/bash homeassistant 
+$ sudo -u homeassistant -s -H
 $ cd /srv/homeassistant
 $ python3 -m venv homeassistant_venv
 $ source /srv/homeassistant/homeassistant_venv/bin/activate
