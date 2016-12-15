@@ -24,11 +24,7 @@ tts:
 
 Configuration variables:
 
-- **language** (*Optional*): The language to use. Defaults to `en`.
-- **cache** (*Optional*): If you want to use the caching feature. Defaults to `true`.
-- **cache_dir** (*Optional*): The location of the caching directory. Defaults to `tts`.
-- **time_memory** (*Optional*): The time span for caching in seconds. Defaults to `300`. Minimum is 60 s and the maximum 57600 s (16 hours).
-
+- **language** (*Optional*): The language to use. Defaults to `en`. 
 
 A full configuration sample:
 
