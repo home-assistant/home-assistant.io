@@ -14,7 +14,7 @@ ha_release: 0.31
 
 ### {% linkable_title Basic Configuration %}
 
-The `netatmo` binary sensor platform is consuming the information provided by a [Netatmo Welcome](https://www.netatmo.com) camera. This component allows you to get the latest event seen by the camera.
+The `netatmo` binary sensor platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This component allows you to get the latest event seen by the camera.
 
 To enable the Netatmo binary sensor, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your binary sensor.
 
@@ -28,24 +28,36 @@ binary_sensor:
   platform: netatmo
   home: home_name
   timeout: 15
+  offset: 90
   cameras:
     - camera_name1
-  monitored_conditions:
+  welcome_sensors:
     - Someone known
-    - Someone unknown 
+    - Someone unknown
     - Motion
+  presence_sensors:
+    - Outdoor motion
+    - Outdoor human
+    - Outdoor animal
+    - Outdoor vehicle
 ```
 
 Configuration variables:
 
 - **home** (*Optional*): Will use the cameras of this home only.
-- **timeout** (*Optional*): The binary sensors will reflect the events from the last X minutes (default: 15)
+- **timeout** (*Optional*): The Welcome binary sensors will reflect the events from the last X minutes. (default: 15)
+- **offset** (*Optional*): The Presence binary sensors will stay on for X seconds after detection. (default: 90)
 - **cameras** array (*Optional*): Cameras to use. Multiple entities allowed.
     - 'camera_name': Name of the camera to display.
-- **monitored_conditions** array (*Optional*): List of monitored conditions.
+- **welcome_sensors** array (*Optional*): List of monitored conditions.
     - 'Someone known'
     - 'Someone unknown'
     - 'Motion'
+- **presence_sensors** array (*Optional*): List of monitored conditions.
+    - 'Outdoor motion'
+    - 'Outdoor human'
+    - 'Outdoor animal'
+    - 'Outdoor vehicle'
 
 If **home** and **cameras** is not provided, all cameras will be used. If multiple cameras are available then each monitored conditions will create a specific sensor for each camera
 
