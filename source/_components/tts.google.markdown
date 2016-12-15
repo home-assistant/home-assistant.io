@@ -14,7 +14,7 @@ ha_release: 0.35
 
 The `google` text-to-speech platform uses [Google](https://www.google.com) Text-to-Speech engine to read a text with natural sounding voices.
 
-To enable text-to-speak with Google, add the following lines to your `configuration.yaml`:
+To enable text-to-speech with Google, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
