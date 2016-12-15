@@ -11,11 +11,11 @@ footer: true
 
 Installation can be performed using Docker (Contributed by [marijngiesen](https://github.com/marijngiesen)) or manually if Docker doesn't work for you. We also have a Raspberry PI version of Docker contributed by [snizzleorg](https://community.home-assistant.io/users/snizzleorg/activity)
 
-## Using Docker (Non Raspian)
+## {% linkable_title Using Docker (Non Raspian) %}
 
 Assuming you already have Docker installed, installation is fairly easy.
 
-### Clone the Repository
+### {% linkable_title  Clone the Repository %}
 Clone the **hadashboard** repository to the current local directory on your machine.
 
 ``` bash
@@ -28,7 +28,7 @@ Change your working directory to the repository root. Moving forward, we will be
 $ cd hadashboard
 ```
 
-### Build the docker image
+### {% linkable_title Build the docker image %}
 
 ```bash
 $ docker build -t hadashboard .
@@ -48,7 +48,7 @@ By default, the docker instance should pick up your timezone but if you want to 
  -e "TZ=Europe/Amsterdam"
  ```
 
-### Docker on Raspberry Pi
+### {% linkable_title Docker on Raspberry Pi %}
 
 Raspberry pi needs to use a different docker build file so the build command is slightly different:
 
@@ -60,9 +60,9 @@ Apart from that the other steps are identical.
 
 *Note - this is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything*
 
-## Manual Installation
+## {% linkable_title Manual Installation %}
 
-### Clone the Repository
+### {% linkable_title Clone the Repository %}
 Clone the **hadashboard** repository to the current local directory on your machine.
 
 ``` bash
@@ -75,7 +75,7 @@ Change your working directory to the repository root. Moving forward, we will be
 $ cd hadashboard
 ```
 
-### 2. Install Dashing and prereqs
+### {% linkable_title 2. Install Dashing and prereqs %}
 
 Essentially, you want to make sure that you have Ruby installed on your local machine. Then, install the Dashing gem:
 

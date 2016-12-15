@@ -24,18 +24,21 @@ $ sudo pip3 install configobj
 ```
 
 Some users are reporting errors with `InsecureRequestWarning`:
+
 ```
 Traceback (most recent call last):
   File "./hapush.py", line 21, in <module>
     from requests.packages.urllib3.exceptions import InsecureRequestWarning
 ImportError: cannot import name 'InsecureRequestWarning'
 ```
+
 This can be fixed with:
-```
+
+```bash
 $ sudo pip3 install --upgrade requests
 ```
 
-# Configuring hapush (all installation methods)
+## {% linkable_title Configuring hapush (all installation methods) %}
 
 When you have all the prereqs in place, copy the hapush.cfg.example file to hapush.cfg then edit it to reflect your environment:
 
@@ -53,7 +56,7 @@ logfile = "/etc/hapush/hapush.log"
 - `dash_dir` is the path on the machine that stores your dashboards. This will be the subdirectory `dashboards` relative to the path you cloned `hadashboard` to. For Docker installs this should be set to `/app/dashboards`
 - `logfile` is the path to where you want `hapush` to keep its logs. When run from the command line this is not used - log messages come out on the terminal. When running as a daemon this is where the log information will go. In the example above I created a directory specifically for hapush to run from, although there is no reason you can't keep it in the `hapush` subdirectory of the cloned repository. For Docker installs this should be set to `/app/hapush/hapush.log`
 
-# Running hapush
+## {% linkable_title Running hapush %}
 
 For a manual installation you can then run hapush from the command line as follows:
 
@@ -63,9 +66,9 @@ $ ./hapush.py hapush.cfg
 
 For docker installs, hapush will be started automatically when you run the startup command.
 
-If all is well, you should start to see `hapush` responding to events as they occur. For a docker install you should see these messages in hapush/hapush.log
+If all is well, you should start to see `hapush` responding to events as they occur. For a docker installation you should see these messages in `hapush/hapush.log`.
 
-```
+```bash
 2016-06-19 10:05:59,693 INFO Reading dashboard: /srv/hass/src/hadashboard/dashboards/main.erb
 2016-06-19 10:06:12,362 INFO switch.wendy_bedside -> state = on, brightness = 50
 2016-06-19 10:06:13,334 INFO switch.andrew_bedside -> state = on, brightness = 50

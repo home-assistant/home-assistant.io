@@ -16,6 +16,7 @@ $ git pull origin
 ```
 
 For some releases you may also need to rerun the bundle command:
+
 ``` bash
 $ bundle
 ```
