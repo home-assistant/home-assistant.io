@@ -25,16 +25,23 @@ tts:
 
 Configuration variables:
 
-- **ssl** (*Optional*): Use SSL for API calls. Default is 'true'
+- **api_key** (*Requered*): API Key for use this service.
+- **ssl** (*Optional*): Use SSL for API calls. Default is 'true'.
 - **language** (*Optional*): The language to use. Defaults to `en-us`.
-- **codec** (*Optional*): Audo codec. Default is 'mp3'
-- **format** (*Optional*): 
+- **codec** (*Optional*): Audo codec. Default is 'mp3'.
+- **format** (*Optional*): Audio sample format. Default is '8khz_8bit_mono'
+
+See on api [documentation](http://www.voicerss.org/api/documentation.aspx) for allow values.
 
 A full configuration sample:
 
 ```yaml
 # Example configuration.yaml entry
 tts:
-  - platform: google
-    language: 'de'
+  - platform: voicerss
+    api_key: 'XXXXX'
+    ssl: true
+    language: 'de-de'
+    codec: mp3
+    format: 8khz_8bit_mono
 ```
