@@ -180,7 +180,7 @@ data-unit="&deg;F"
 
 If omitted, no units will be shown.
 
-### {% linkable_title News
+### {% linkable_title News %}
 Widget type ***News*** (contributed by [KRiS](https://community.home-assistant.io/users/kris/activity))
 
 This is an RSS widget that can be used for displaying travel information, news etc. on the dashboard. The RSS feed will update every 60 minutes. To configure this, first it is necessary to add your desired feeds in `homeassistant/lib/ha_conf.rb` in the `$news_feeds` section. By default it comes with 2 sample feeds:
