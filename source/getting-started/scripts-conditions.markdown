@@ -74,12 +74,13 @@ For above, the condition passes if `value >= above`. For below, the condition pa
 You can optionally use a `value_template` to process the value of the state before testing it.
 
 ```yaml
-condition: numeric_state
-entity_id: sensor.temperature
-above: 17
-below: 25
-# If your sensor value needs to be adjusted
-value_template: {% raw %}{{ float(state.state) + 2 }}{% endraw %}
+condition:
+  condition: numeric_state
+  entity_id: sensor.temperature
+  above: 17
+  below: 25
+  # If your sensor value needs to be adjusted
+  value_template: {% raw %}{{ float(state.state) + 2 }}{% endraw %}
 ```
 
 ### {% linkable_title State condition %}
@@ -87,14 +88,15 @@ value_template: {% raw %}{{ float(state.state) + 2 }}{% endraw %}
 Tests if an entity is a specified state.
 
 ```yaml
-condition: state
-entity_id: device_tracker.paulus
-state: not_home
-# optional: trigger only if state was this for last X time.
-for:
-  hours: 1
-  minutes: 10
-  seconds: 5
+condition:
+  condition: state
+  entity_id: device_tracker.paulus
+  state: not_home
+  # optional: trigger only if state was this for last X time.
+  for:
+    hours: 1
+    minutes: 10
+    seconds: 5
 ```
 
 ### {% linkable_title Sun condition %}
@@ -104,10 +106,11 @@ The sun condition can test if the sun has already set or risen when a trigger oc
 [sun_trigger]: /getting-started/automation-trigger/#sun-trigger
 
 ```yaml
-condition: sun
-after: sunset
-# Optional offset value
-after_offset: "-1:00:00"
+condition:
+  condition: sun
+  after: sunset
+  # Optional offset value
+  after_offset: "-1:00:00"
 ```
 
 ### {% linkable_title Template condition %}
@@ -115,8 +118,9 @@ after_offset: "-1:00:00"
 The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
 
 ```yaml
-condition: template
-value_template: '{% raw %}{{ states.device_tracker.iphone.attributes.battery > 50 }}{% endraw %}'
+condition:
+  condition: template
+  value_template: '{% raw %}{{ states.device_tracker.iphone.attributes.battery > 50 }}{% endraw %}'
 ```
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
@@ -129,14 +133,15 @@ Within an automation, template conditions also have access to the `trigger` vari
 The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week
 
 ```yaml
-condition: time
-# At least one of the following is required.
-after: '15:00:00'
-before: '02:00:00'
-weekday:
-  - mon
-  - wed
-  - fri
+condition:
+  condition: time
+  # At least one of the following is required.
+  after: '15:00:00'
+  before: '02:00:00'
+  weekday:
+    - mon
+    - wed
+    - fri
 ```
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
@@ -147,9 +152,10 @@ Time condition windows can span across the midnight threshold. In the example ab
 Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) and the [iCloud platform](/components/device_tracker.icloud/).
 
 ```yaml
-condition: zone
-entity_id: device_tracker.paulus
-zone: zone.home
+condition:
+  condition: zone
+  entity_id: device_tracker.paulus
+  zone: zone.home
 ```
 
 ### {% linkable_title Examples %}
