@@ -32,8 +32,5 @@ A full configuration sample:
 # Example configuration.yaml entry
 tts:
   - platform: google
-    language: de
-    cache: true
-    cache_dir: /tmp/tts
-    time_memory: 600
+    language: 'de'
 ```
