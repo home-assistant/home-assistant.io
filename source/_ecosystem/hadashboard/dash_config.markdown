@@ -16,11 +16,13 @@ Hadashboard is a Dashing application, so make sure to read all the instructions 
 Make a copy of `dashboards/example.erb` and call it `main.erb`, then edit this file to reference the items you want to display and control and to get the layout that you want. Leave the original `example.erb` intact and unchanged so that you don't run into problems when trying to update using the git commands mentioned later in "Updating the Dashboard".
 
 The basic anatomy of a widget is this:
+
 ``` html
  	<li data-row="" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="office" data-view="Hadimmer" data-title="Office Lamp"></div>
     </li>
 ```
+
 - **data-row**, **data-col**: The position of the widget in the grid.
 - **data-sizex**, **data-sizey**: The size of the widget in terms of grid tile.
 - **data-id**: The homeassitant entity id without the entity type (e.g. `light.office` becomes `office`).
@@ -44,7 +46,7 @@ This may break `hapush`'s parsing of the file, so keep to the line format first 
 
 Please, refer to the Dashing website for instructions on how to change the grid and tile size, as well as more general instructions about widgets, their properties, and how to create new widgets.
 
-## {% linkable_title Supported Widgets %]
+## {% linkable_title Supported Widgets %}
 
 At this time I have provided support for the following Home Assistant entity types.
 
