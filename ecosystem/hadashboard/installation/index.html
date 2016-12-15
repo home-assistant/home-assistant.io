@@ -94,11 +94,11 @@
 
   <p>Installation can be performed using Docker (Contributed by <a href="https://github.com/marijngiesen">marijngiesen</a>) or manually if Docker doesn’t work for you. We also have a Raspberry PI version of Docker contributed by <a href="https://community.home-assistant.io/users/snizzleorg/activity">snizzleorg</a></p>
 
-<h2>Using Docker (Non Raspian)</h2>
+<h2><a class="title-link" name="using-docker-non-raspian" href="#using-docker-non-raspian"></a> Using Docker (Non Raspian)</h2>
 
 <p>Assuming you already have Docker installed, installation is fairly easy.</p>
 
-<h3>Clone the Repository</h3>
+<h3><a class="title-link" name="clone-the-repository" href="#clone-the-repository"></a> Clone the Repository</h3>
 <p>Clone the <strong>hadashboard</strong> repository to the current local directory on your machine.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/home-assistant/hadashboard.git
@@ -111,7 +111,7 @@
 </code></pre>
 </div>
 
-<h3>Build the docker image</h3>
+<h3><a class="title-link" name="build-the-docker-image" href="#build-the-docker-image"></a> Build the docker image</h3>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker build -t hadashboard .
 </code></pre>
@@ -130,7 +130,7 @@
 <div class="highlighter-rouge"><pre class="highlight"><code> -e "TZ=Europe/Amsterdam"
  ```
 
-### Docker on Raspberry Pi
+### &lt;a class='title-link' name='docker-on-raspberry-pi' href='#docker-on-raspberry-pi'&gt;&lt;/a&gt; Docker on Raspberry Pi 
 
 Raspberry pi needs to use a different docker build file so the build command is slightly different:
 
@@ -143,9 +143,9 @@ $ docker build -f Docker-raspi/Dockerfile -t hadashboard .
 
 <p><em>Note - this is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything</em></p>
 
-<h2>Manual Installation</h2>
+<h2><a class="title-link" name="manual-installation" href="#manual-installation"></a> Manual Installation</h2>
 
-<h3>Clone the Repository</h3>
+<h3><a class="title-link" name="clone-the-repository" href="#clone-the-repository"></a> Clone the Repository</h3>
 <p>Clone the <strong>hadashboard</strong> repository to the current local directory on your machine.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/home-assistant/hadashboard.git
@@ -158,7 +158,7 @@ $ docker build -f Docker-raspi/Dockerfile -t hadashboard .
 </code></pre>
 </div>
 
-<h3>2. Install Dashing and prereqs</h3>
+<h3><a class="title-link" name="2-install-dashing-and-prereqs" href="#2-install-dashing-and-prereqs"></a> 2. Install Dashing and prereqs</h3>
 
 <p>Essentially, you want to make sure that you have Ruby installed on your local machine. Then, install the Dashing gem:</p>
 

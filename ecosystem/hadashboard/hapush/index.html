@@ -107,18 +107,21 @@
 </div>
 
 <p>Some users are reporting errors with <code class="highlighter-rouge">InsecureRequestWarning</code>:</p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code>Traceback (most recent call last):
   File "./hapush.py", line 21, in &lt;module&gt;
     from requests.packages.urllib3.exceptions import InsecureRequestWarning
 ImportError: cannot import name 'InsecureRequestWarning'
 </code></pre>
 </div>
+
 <p>This can be fixed with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo pip3 install --upgrade requests
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo pip3 install --upgrade requests
 </code></pre>
 </div>
 
-<h1>Configuring hapush (all installation methods)</h1>
+<h2><a class="title-link" name="configuring-hapush-all-installation-methods" href="#configuring-hapush-all-installation-methods"></a> Configuring hapush (all installation methods)</h2>
 
 <p>When you have all the prereqs in place, copy the hapush.cfg.example file to hapush.cfg then edit it to reflect your environment:</p>
 
@@ -138,7 +141,7 @@ logfile = "/etc/hapush/hapush.log"
   <li><code class="highlighter-rouge">logfile</code> is the path to where you want <code class="highlighter-rouge">hapush</code> to keep its logs. When run from the command line this is not used - log messages come out on the terminal. When running as a daemon this is where the log information will go. In the example above I created a directory specifically for hapush to run from, although there is no reason you can’t keep it in the <code class="highlighter-rouge">hapush</code> subdirectory of the cloned repository. For Docker installs this should be set to <code class="highlighter-rouge">/app/hapush/hapush.log</code></li>
 </ul>
 
-<h1>Running hapush</h1>
+<h2><a class="title-link" name="running-hapush" href="#running-hapush"></a> Running hapush</h2>
 
 <p>For a manual installation you can then run hapush from the command line as follows:</p>
 
@@ -148,11 +151,11 @@ logfile = "/etc/hapush/hapush.log"
 
 <p>For docker installs, hapush will be started automatically when you run the startup command.</p>
 
-<p>If all is well, you should start to see <code class="highlighter-rouge">hapush</code> responding to events as they occur. For a docker install you should see these messages in hapush/hapush.log</p>
+<p>If all is well, you should start to see <code class="highlighter-rouge">hapush</code> responding to events as they occur. For a docker installation you should see these messages in <code class="highlighter-rouge">hapush/hapush.log</code>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>2016-06-19 10:05:59,693 INFO Reading dashboard: /srv/hass/src/hadashboard/dashboards/main.erb
-2016-06-19 10:06:12,362 INFO switch.wendy_bedside -&gt; state = on, brightness = 50
-2016-06-19 10:06:13,334 INFO switch.andrew_bedside -&gt; state = on, brightness = 50
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>2016-06-19 10:05:59,693 INFO Reading dashboard: /srv/hass/src/hadashboard/dashboards/main.erb
+2016-06-19 10:06:12,362 INFO switch.wendy_bedside -&gt; state <span class="o">=</span> on, brightness <span class="o">=</span> 50
+2016-06-19 10:06:13,334 INFO switch.andrew_bedside -&gt; state <span class="o">=</span> on, brightness <span class="o">=</span> 50
 2016-06-19 10:06:13,910 INFO script.night -&gt; Night
 2016-06-19 10:06:13,935 INFO script.night_quiet -&gt; Night
 2016-06-19 10:06:13,959 INFO script.day -&gt; Night
@@ -165,8 +168,8 @@ logfile = "/etc/hapush/hapush.log"
 2016-06-19 10:06:21,698 INFO script.evening -&gt; Day
 2016-06-19 10:06:21,724 INFO input_select.house_mode -&gt; Day
 2016-06-19 10:06:21,748 INFO script.morning -&gt; Day
-2016-06-19 10:06:31,084 INFO switch.andrew_bedside -&gt; state = off, brightness = 30
-2016-06-19 10:06:32,501 INFO switch.wendy_bedside -&gt; state = off, brightness = 30
+2016-06-19 10:06:31,084 INFO switch.andrew_bedside -&gt; state <span class="o">=</span> off, brightness <span class="o">=</span> 30
+2016-06-19 10:06:32,501 INFO switch.wendy_bedside -&gt; state <span class="o">=</span> off, brightness <span class="o">=</span> 30
 2016-06-19 10:06:52,280 INFO sensor.side_multisensor_luminance_25 -&gt; 871.0
 2016-06-19 10:07:50,574 INFO sensor.side_temp_corrected -&gt; 70.7
 2016-06-19 10:07:51,478 INFO sensor.side_multisensor_relative_humidity_25 -&gt; 52.0
