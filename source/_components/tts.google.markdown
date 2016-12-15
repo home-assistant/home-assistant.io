@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: google.png
-ha_category: Text-to-speak
+ha_category: Text-to-speech
 ha_release: 0.35
 ---
 
