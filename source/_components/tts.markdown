@@ -32,7 +32,7 @@ The following optional parameters can be used with any platform. However tts com
 |---------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `cache` | True    | Allow TTS to cache voice file to local storage. |
 | `cache_dir`  | tts      | Foldername or path to folder for caching files. |
-| `time_memory`     | 300     | Time to hold the voice data inside memory for fast play on media player. |
+| `time_memory`     | 300     | Time to hold the voice data inside memory for fast play on media player. Minimum is 60 s and the maximum 57600 s (16 hours). |
 
 The extended example from above would look like the following sample:
 
