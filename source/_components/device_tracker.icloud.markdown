@@ -18,7 +18,7 @@ The `icloud` platform allows you to detect presence using the [iCloud](https://w
 It does require that your device is registered with "Find My iPhone".
 
 If automatic install does not install it, use `pip3 install pyicloud`
-The erro will look like: `Not initializing device_tracker.icloud because could not install dependency pyicloud==0.9.1`
+The error will look like: `Not initializing device_tracker.icloud because could not install dependency pyicloud==0.9.1`
 
 To integrate iCloud in Home Assistant, add the following section to your `configuration.yaml` file:
 
