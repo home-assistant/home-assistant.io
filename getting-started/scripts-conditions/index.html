@@ -154,12 +154,13 @@ This allows you to mix several AND and OR conditions together.</p>
 
 <p>You can optionally use a <code class="highlighter-rouge">value_template</code> to process the value of the state before testing it.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
-<span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.temperature</span>
-<span class="s">above</span><span class="pi">:</span> <span class="s">17</span>
-<span class="s">below</span><span class="pi">:</span> <span class="s">25</span>
-<span class="c1"># If your sensor value needs to be adjusted</span>
-<span class="s">value_template</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">float(state.state) + 2</span> <span class="pi">}}</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
+  <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
+  <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.temperature</span>
+  <span class="s">above</span><span class="pi">:</span> <span class="s">17</span>
+  <span class="s">below</span><span class="pi">:</span> <span class="s">25</span>
+  <span class="c1"># If your sensor value needs to be adjusted</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">float(state.state) + 2</span> <span class="pi">}}</span>
 </code></pre>
 </div>
 
@@ -167,14 +168,15 @@ This allows you to mix several AND and OR conditions together.</p>
 
 <p>Tests if an entity is a specified state.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
-<span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
-<span class="s">state</span><span class="pi">:</span> <span class="s">not_home</span>
-<span class="c1"># optional: trigger only if state was this for last X time.</span>
-<span class="s">for</span><span class="pi">:</span>
-  <span class="s">hours</span><span class="pi">:</span> <span class="s">1</span>
-  <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
-  <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
+  <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+  <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
+  <span class="s">state</span><span class="pi">:</span> <span class="s">not_home</span>
+  <span class="c1"># optional: trigger only if state was this for last X time.</span>
+  <span class="s">for</span><span class="pi">:</span>
+    <span class="s">hours</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
+    <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
 </code></pre>
 </div>
 
@@ -182,10 +184,11 @@ This allows you to mix several AND and OR conditions together.</p>
 
 <p>The sun condition can test if the sun has already set or risen when a trigger occurs. The <code class="highlighter-rouge">before</code> and <code class="highlighter-rouge">after</code> keys can only be set to <code class="highlighter-rouge">sunset</code> or <code class="highlighter-rouge">sunrise</code>. They have a corresponding optional offset value (<code class="highlighter-rouge">before_offset</code>, <code class="highlighter-rouge">after_offset</code>) that can be added, similar to the <a href="/getting-started/automation-trigger/#sun-trigger">sun trigger</a>.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">sun</span>
-<span class="s">after</span><span class="pi">:</span> <span class="s">sunset</span>
-<span class="c1"># Optional offset value</span>
-<span class="s">after_offset</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-1:00:00"</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
+  <span class="s">condition</span><span class="pi">:</span> <span class="s">sun</span>
+  <span class="s">after</span><span class="pi">:</span> <span class="s">sunset</span>
+  <span class="c1"># Optional offset value</span>
+  <span class="s">after_offset</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-1:00:00"</span>
 </code></pre>
 </div>
 
@@ -193,8 +196,9 @@ This allows you to mix several AND and OR conditions together.</p>
 
 <p>The template condition will test if the <a href="/topics/templating/">given template</a> renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render ‘true’.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">template</span>
-<span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.device_tracker.iphone.attributes.battery</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">50</span><span class="nv"> </span><span class="s">}}'</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
+  <span class="s">condition</span><span class="pi">:</span> <span class="s">template</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.device_tracker.iphone.attributes.battery</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">50</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 
@@ -204,14 +208,15 @@ This allows you to mix several AND and OR conditions together.</p>
 
 <p>The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">time</span>
-<span class="c1"># At least one of the following is required.</span>
-<span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">15:00:00'</span>
-<span class="s">before</span><span class="pi">:</span> <span class="s1">'</span><span class="s">02:00:00'</span>
-<span class="s">weekday</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">mon</span>
-  <span class="pi">-</span> <span class="s">wed</span>
-  <span class="pi">-</span> <span class="s">fri</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
+  <span class="s">condition</span><span class="pi">:</span> <span class="s">time</span>
+  <span class="c1"># At least one of the following is required.</span>
+  <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">15:00:00'</span>
+  <span class="s">before</span><span class="pi">:</span> <span class="s1">'</span><span class="s">02:00:00'</span>
+  <span class="s">weekday</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">mon</span>
+    <span class="pi">-</span> <span class="s">wed</span>
+    <span class="pi">-</span> <span class="s">fri</span>
 </code></pre>
 </div>
 
@@ -222,9 +227,10 @@ Time condition windows can span across the midnight threshold. In the example ab
 
 <p>Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the <a href="/components/device_tracker.owntracks/">OwnTracks platform</a> and the <a href="/components/device_tracker.icloud/">iCloud platform</a>.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span> <span class="s">zone</span>
-<span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
-<span class="s">zone</span><span class="pi">:</span> <span class="s">zone.home</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
+  <span class="s">condition</span><span class="pi">:</span> <span class="s">zone</span>
+  <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
+  <span class="s">zone</span><span class="pi">:</span> <span class="s">zone.home</span>
 </code></pre>
 </div>
 
