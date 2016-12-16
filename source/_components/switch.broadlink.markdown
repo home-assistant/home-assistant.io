@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: broadlink.png
 ha_category: Switch
-ha_release: 0.34
+ha_release: 0.35
 ---
 
 This `Broadlink` switch platform allow to you control Broadlink RM2 Pro and RM mini IR+RF [devices](http://www.ibroadlink.com/rm/).
