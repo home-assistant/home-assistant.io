@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Radiotherm Thermostat - Home Assistant</title>
+    <title>Radio Thermostat (3M Filtrete) Thermostat - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate Radiotherm thermostats within Home Assistant.">
+    <meta name="description" content="Instructions how to integrate Radio Thermostat (3M Filtrete) thermostats within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/climate.radiotherm/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Radiotherm Thermostat">
+    <meta property="og:title" content="Radio Thermostat (3M Filtrete) Thermostat">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/climate.radiotherm/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Radiotherm thermostats within Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate Radio Thermostat (3M Filtrete) thermostats within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Radiotherm Thermostat">
-    <meta name="twitter:description" content="Instructions how to integrate Radiotherm thermostats within Home Assistant.">
+    <meta name="twitter:title" content="Radio Thermostat (3M Filtrete) Thermostat">
+    <meta name="twitter:description" content="Instructions how to integrate Radio Thermostat (3M Filtrete) thermostats within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,13 +84,13 @@
   
   <header>
     <h1 class="title indent">
-      Radiotherm Thermostat
+      Radio Thermostat (3M Filtrete) Thermostat
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">radiotherm</code> climate platform let you control a thermostat from <a href="http://www.radiothermostat.com/">Radio Thermostat</a>.</p>
+  <p>The <code class="highlighter-rouge">radiotherm</code> climate platform let you control a thermostat from <a href="http://www.radiothermostat.com/">Radio Thermostat</a> or <a href="http://www.radiothermostat.com/filtrete/products/">3M Filtrete</a>. Your thermostat must have the Wi-Fi module installed and connected to your network.</p>
 
 <p>The underlying library supports:</p>
 
@@ -113,12 +113,16 @@
 
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): List of your Radiotherm thermostats. If not provided the thermostats will be auto-detected.</li>
+  <li><strong>away_temperature_heat</strong> (<em>Optional</em>): Target heating temperature in Fahrenheit for away mode. This is separate from away mode in the app. Defaults to ‘60’.</li>
+  <li><strong>away_temperature_cool</strong> (<em>Optional</em>): Target cooling temperature in Fahrenheit for away mode. This is separate from away mode in the app. Defaults to ‘85’.</li>
   <li><strong>hold_temp</strong> (<em>Optional</em>): Boolean to control if Home Assistant temperature adjustments hold (<code class="highlighter-rouge">True</code>) or are temporary (<code class="highlighter-rouge">False</code>). Defaults to <code class="highlighter-rouge">False</code>.</li>
 </ul>
 
-<p>Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to <code class="highlighter-rouge">False</code> if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.</p>
+<p>Set <code class="highlighter-rouge">hold_temp: True</code> if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.</p>
 
-<p>Multiple thermostats could be assigned by using <code class="highlighter-rouge">host:</code> if auto-detection is not used.</p>
+<p>The away mode functions similarly to the away mode feature of the website and apps, but cannot detect if you set away mode outside of Home Assistant.</p>
+
+<p>Multiple thermostats can be assigned by using <code class="highlighter-rouge">host:</code> if auto-detection is not used.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">climate</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">radiotherm</span>
@@ -182,7 +186,7 @@
             <a href='/components/climate.proliphix/'>Proliphix Thermostat</a>
         </li>
         <li>
-            Radiotherm Thermostat
+            Radio Thermostat (3M Filtrete) Thermostat
         </li>
         <li>
             <a href='/components/climate.vera/'>Vera Thermostat</a>
