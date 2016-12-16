@@ -208,7 +208,7 @@ The frontend has a template editor developer tool to help develop and debug temp
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
-{{ as_timestamp(now) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 </code></pre>
 </div>
 
