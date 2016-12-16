@@ -131,7 +131,7 @@ Print out a list of all the sensor states.
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
-{{ as_timestamp(now) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}{% endraw %}
+{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}{% endraw %}
 ```
 
 ### {% linkable_title Distance examples %}
