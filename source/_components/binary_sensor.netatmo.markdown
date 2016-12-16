@@ -60,7 +60,3 @@ Configuration variables:
     - 'Outdoor vehicle'
 
 If **home** and **cameras** is not provided, all cameras will be used. If multiple cameras are available then each monitored conditions will create a specific sensor for each camera
-
-<p class='note'>
-[Welcome tags](https://www.netatmo.com/product/security/welcome/tags) are not yet supported, but will be in a next update.
-</p>
