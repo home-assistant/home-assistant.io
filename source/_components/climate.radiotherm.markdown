@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Radiotherm Thermostat"
-description: "Instructions how to integrate Radiotherm thermostats within Home Assistant."
+title: "Radio Thermostat (3M Filtrete) Thermostat"
+description: "Instructions how to integrate Radio Thermostat (3M Filtrete) thermostats within Home Assistant."
 date: 2015-10-18 17:15
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Climate
 ---
 
 
-The `radiotherm` climate platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/).
+The `radiotherm` climate platform let you control a thermostat from [Radio Thermostat](http://www.radiothermostat.com/) or [3M Filtrete](http://www.radiothermostat.com/filtrete/products/). Your thermostat must have the Wi-Fi module installed and connected to your network.
 
 The underlying library supports:
 
@@ -32,11 +32,15 @@ climate:
 Configuration variables:
 
 - **host** (*Optional*): List of your Radiotherm thermostats. If not provided the thermostats will be auto-detected.
+- **away_temperature_heat** (*Optional*): Target heating temperature in Fahrenheit for away mode. This is separate from away mode in the app. Defaults to '60'.
+- **away_temperature_cool** (*Optional*): Target cooling temperature in Fahrenheit for away mode. This is separate from away mode in the app. Defaults to '85'.
 - **hold_temp** (*Optional*): Boolean to control if Home Assistant temperature adjustments hold (`True`) or are temporary (`False`). Defaults to `False`.
 
-Temperature settings from Home Assistant will be sent to thermostat and then hold at that temperature. Set to `False` if you set a thermostat schedule on the thermostat itself and just want Home Assistant to send temporary temperature changes.
+Set `hold_temp: True` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
 
-Multiple thermostats could be assigned by using `host:` if auto-detection is not used.
+The away mode functions similarly to the away mode feature of the website and apps, but cannot detect if you set away mode outside of Home Assistant.
+
+Multiple thermostats can be assigned by using `host:` if auto-detection is not used.
 
 ```yaml
 climate:
