@@ -32,7 +32,7 @@ Let you control [VLC media player][vlc-media] and  play sound on connected speak
 
 This Broadlink [switch][bl-switch] platform allow to you control Broadlink RM2 Pro and RM mini IR+RF devices. This Broadlink [sensor][bl-sensor] platform adds support for Broadlink RM2 and A1 Devices.
 
-The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) now also supports attributes as the speed, direction, altitude, provider and activity.
+The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) now also supports attributes as the speed, direction, altitude, provider, and activity.
 
 ## All changes
 - Media player: Support for Sharp [AquaosTV][aquostv] ([@titilambert])
@@ -46,7 +46,7 @@ The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) 
 - Binary sensor: [Hikvision][hikvision] binary sensor support ([@mezz64])
 - [Text-to-speech][tts] support ([@pvizeli])
 - Sensor: Support for Broadlink [sensors][bl-sensor] ([@Danielhiversen])
-- Switch: Broadlink [switches][bl-switch] supoorted now ([@Danielhiversen])
+- Switch: Broadlink [switches][bl-switch] supported now ([@Danielhiversen])
 
 - Media player: Add `source_list` to universal media player ([@danieljkemp])
 - Binary Sensor: Support improvement for Wink ([@w1ll1am23])
