@@ -90,11 +90,11 @@
   <hr class="divider">
   
 
-  <p>Groups allow the user to combine multiple entities into one. A group can be promoted to a <strong>view</strong> by setting the <code class="highlighter-rouge">view</code> option to <code class="highlighter-rouge">yes</code>. This will make the group available as a new tab in the frontend.</p>
+  <p>Groups allow the user to combine multiple entities into one. A group can be promoted to a <strong>view</strong> by setting <code class="highlighter-rouge">view: yes</code> under the group definition. This will make the group available as a new tab in the frontend.</p>
 
 <p>Check the <strong>Set State</strong> <img src="/images/screenshots/developer-tool-states-icon.png" class="no-shadow" height="38" /> page from the <strong>Developer Tools</strong> and browse the <strong>Current entities:</strong> listing for all available entities.</p>
 
-<p>By default, every group appears in the HOME tab. If you name a group <code class="highlighter-rouge">default_view</code> it will REPLACE the contents of the HOME tab so you can customize it as you wish.</p>
+<p>By default, every group appears in the HOME tab. If you create a group <code class="highlighter-rouge">default_view</code> it will REPLACE the contents of the HOME tab so you can customize the HOME tab as you wish.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">group</span><span class="pi">:</span>
