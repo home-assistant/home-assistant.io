@@ -41,7 +41,7 @@ automation:
     entity_id: binary_sensor.motion_garage
     to: 'on'
   condition:
-    platform: state
+    condition: state
     entity_id: input_boolean.notify_home
     state: 'on'
   action:
