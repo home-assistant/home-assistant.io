@@ -101,6 +101,7 @@
   <span class="s">default_view</span><span class="pi">:</span>
     <span class="s">view</span><span class="pi">:</span> <span class="s">yes</span>
     <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">group.kitchen</span>
       <span class="pi">-</span> <span class="s">group.awesome_people</span>
       <span class="pi">-</span> <span class="s">group.climate</span>
   <span class="s">kitchen</span><span class="pi">:</span>
@@ -116,13 +117,28 @@
       <span class="pi">-</span> <span class="s">camera.demo_camera</span>
       <span class="pi">-</span> <span class="s">device_tracker.demo_paulus</span>
       <span class="pi">-</span> <span class="s">group.garden</span>
+  <span class="s">climate</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Climate</span>
+    <span class="s">view</span><span class="pi">:</span> <span class="s">no</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.bedroom_temp</span>
+      <span class="pi">-</span> <span class="s">sensor.porch_temp</span>
+      <span class="pi">-</span> <span class="s">sensor.bathroom_humidity</span>
+  <span class="s">awesome_people</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Awesome People</span>
+    <span class="s">view</span><span class="pi">:</span> <span class="s">no</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">device_tracker.dad_smith</span>
+      <span class="pi">-</span> <span class="s">device_tracker.mom_smith</span>
+      <span class="pi">-</span> <span class="s">device_tracker.dog_smith</span>
+      
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>view</strong> (<em>Optional</em>): If yes then the entry will be shown as a view (tab).</li>
+  <li><strong>view</strong> (<em>Optional</em>): If yes then the entry will be shown as a view (tab) at the top.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the group.</li>
   <li><strong>icon</strong> (<em>Optional</em>): If the group is a view, this icon will show at the top in the frontend instead of the name. If it’s not a view, then the icon shows when this group is used in another group.</li>
   <li><strong>entities</strong> (<em>Required</em>): array or comma delimited string, list of entities to group.</li>
