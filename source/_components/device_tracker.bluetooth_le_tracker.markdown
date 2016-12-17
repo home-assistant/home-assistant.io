@@ -17,7 +17,7 @@ This tracker discovers new devices on boot and in regular intervals and tracks b
 Devices discovered are stored with 'BLE_' as the prefix for device mac addresses in `known_devices.yaml`.
 
 <p class='note'>
-Requires PyBluez. If you are on Raspbian, make sure you first install `bluetooth` and `libbluetooth-dev` by running `sudo apt install bluetooth libbluetooth-dev`
+Requires PyBluez. If you are on Raspbian, run the following command to install the needed dependencies. `sudo apt install bluetooth libbluetooth-dev pkg-config libboost-python-dev libboost-thread-dev libglib2.0-dev python-dev`
 </p>
 
 <p class='note warning'>
