@@ -15,8 +15,11 @@ ha_iot_class: "Local Poll"
 
 The `eq3btsmart` climate platform allows you to integrate EQ3 Bluetooth Smart Thermostats.
 
-The only functionality is to set the temperature, there doesn't seem to be any way to query the temperature sensor or battery level ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)).
+The current functionality allows setting the temperature as well as controlling the supported modes with help of [bluepy_devices](https://github.com/bimbar/bluepy_devices) library.
+As the device doesn't contain a temperature sensor ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)),
+we report target temperature also as current one.
 
+### Initial setup ###
 Setup is a bit more cumbersome than for most other thermostats. It has to be paired first:
 
 ```bash
@@ -31,28 +34,28 @@ disconnect <MAC>
 exit
 ```
 
-Then check with gatttool if the connection works as expected:
+### Testing the connectivity ###
+Connectivity can be tested with eq3cli tool:.
 
 ```bash
-gatttool -b 00:11:22:33:44:55 -I
-[00:11:22:33:44:55][LE]> connect
-Attempting to connect to 00:11:22:33:44:55
-Connection successful
-[00:11:22:33:44:55][LE]> char-write-req 0x0411 03
-Characteristic value was written successfully
-Notification handle = 0x0421 value: 02 01 09 14 04 2d
-[00:11:22:33:44:55][LE]> disconnect
-[00:11:22:33:44:55][LE]> exit
-```
+eq3cli --mac 00:11:22:33:44:55
 
-Important: For gatttool or homeassistant to work, the thermostat needs to be disconnected from bluetoothd, so I found it best to modify the hass-daemon startscript by adding:
+MAC: 00:11:22:33:44:55 Mode: 2 = auto dst T: 21.0
+Locked: False
+Batter low: False
+Window open: False
+Boost: False
+Current target temp: 21.0
+Current mode: auto dst
+Valve: 0
+``` 
+Important: The thermostat can only be connected by one device at a time, so it needs to be connected from bluetoothd.
 
 ```bash
 /usr/bin/bt-device -d CC-RT-BLE
 ```
 
-to the start function of /etc/init.d/hass-daemon.
-
+### Configuration ###
 
 ```yaml
 # Example configuration.yaml entry
