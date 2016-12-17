@@ -24,6 +24,8 @@ Currently known supported models:
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io).
 
+Some Panasonic Viera TVs allow Home Assistant to turn them on, if you specify the MAC address with `mac:`.
+
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -36,5 +38,6 @@ media_player:
 Configuration variables:
 
 - **host** (*Required*): The IP of the Panasonic Viera TV, e.g. `192.168.0.10`.
-- **port** (*Optional*): The port of your Panasonic Viera TV. Defaults to `55000`.
+- **port** (*Optional*): The port number of your Panasonic Viera TV. Defaults to `55000`.
+- **mac** (*Optional*): The MAC address of your Panasonic Viera TV, e.g. `AA:BB:CC:DD:99:1A`.
 - **name** (*Optional*): The name you would like to give to the Panasonic Viera TV.
