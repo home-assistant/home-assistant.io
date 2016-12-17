@@ -10,7 +10,7 @@ footer: true
 logo: flic.png
 ha_category: Binary Sensor
 ha_iot_class: "Local Push"
-ha_release: 0.33.4
+ha_release: 0.35
 ---
 
 The `flic` platform allows you to connect with multiple [flic](https://flic.io) smart buttons.
