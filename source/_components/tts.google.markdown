@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Google"
-description: "Instructions how to setup Google TTS with Home Assistant."
+title: "Google Text-to-Speech"
+description: "Instructions how to setup Google Text-to-Speech with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Text-to-speech
 ha_release: 0.35
 ---
 
-The `google` text-to-speech platform uses [Google](https://www.google.com) Text-to-Speech engine to read a text with natural sounding voices.
+The `google` text-to-speech platform uses [Google Text-to-Speech engine](https://console.developers.google.com/apis/api/speech.googleapis.com/overview) Text-to-Speech engine to read a text with natural sounding voices.
 
 To enable text-to-speech with Google, add the following lines to your `configuration.yaml`:
 

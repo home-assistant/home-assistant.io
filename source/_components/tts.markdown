@@ -12,13 +12,13 @@ ha_release: 0.35
 
 Text-to-speech (TTS) enables Home Assistant to speak to you.
 
-# {% linkable_title Cache %}
+## {% linkable_title Cache %}
 
-The component have 2 cache. A long time cache on file system, they can controll with `cache` option on platform config or service call `say`. And a in memory cache for fast response to media player, they will be auto cleanup after several time.
+The component have two caches. Both caches can be controlled with the `cache` option in the  platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
 
-# {% linkable_title Configuring a `tts` platform %}
+## {% linkable_title Configuring a `tts` platform %}
 
-To get started add the following lines to your `configuration.yaml` (example for google):
+To get started, add the following lines to your `configuration.yaml` (example for google):
 
 ```yaml
 # Example configuration.yaml entry for google tts service
@@ -26,7 +26,7 @@ tts:
   - platform: google
 ```
 
-The following optional parameters can be used with any platform. However tts component will only look for global settings under the configuration of the first configured platform:
+The following optional parameters can be used with any platform. However the TTS component will only look for global settings under the configuration of the first configured platform:
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -45,7 +45,7 @@ tts:
     time_memory: 300
 ```
 
-# {% linkable_title Service say %}
+## {% linkable_title Service say %}
 
 Say to all `media_player` device entities:
 
