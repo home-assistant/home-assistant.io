@@ -11,7 +11,7 @@ logo: home-assistant.png
 ha_category: Organization
 ---
 
-Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting the `view` option to `yes`. This will make the group available as a new tab in the frontend.
+Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting `view: yes` under the group definition. This will make the group available as a new tab in the frontend.
 
 Check the **Set State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
 
