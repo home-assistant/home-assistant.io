@@ -93,6 +93,24 @@
   <p>The <code class="highlighter-rouge">broadlink</code> sensor platform let you monitor data from an RM2 and A1 E-air.
 There is currently no support for the cloud API.</p>
 
+<p>Configuration options:</p>
+<ul>
+  <li><strong>name</strong> (<em>Optional</em>): Default BL. Sensor name</li>
+  <li><strong>update_interval</strong> (<em>Optional</em>): Default 300. Time in seconds to fetch data from sensors</li>
+  <li><strong>host</strong> (<em>Required</em>): The hostname/IP address to connect to.</li>
+  <li><strong>mac</strong> (<em>Required</em>):  Device mac address.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): Timeout in seconds for the connection to the device</li>
+  <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.
+    <ul>
+      <li>‘temperature’</li>
+      <li>‘humidity’</li>
+      <li>‘air_quality’</li>
+      <li>‘light’</li>
+      <li>‘noise’</li>
+    </ul>
+  </li>
+</ul>
+
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <p>Obtain sensor data from an A1:</p>
@@ -121,24 +139,6 @@ There is currently no support for the cloud API.</p>
 </code></pre>
 </div>
 
-<p>Configuration options:</p>
-<ul>
-  <li><strong>name</strong> (<em>Optional</em>): Default BL. Sensor name</li>
-  <li><strong>update_interval</strong> (<em>Optional</em>): Default 300. Time in seconds to fetch data from sensors</li>
-  <li><strong>host</strong> (<em>Required</em>): The hostname/IP address to connect to.</li>
-  <li><strong>mac</strong> (<em>Required</em>):  Device mac address.</li>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.
-    <ul>
-      <li>‘temperature’</li>
-      <li>‘humidity’</li>
-      <li>‘air_quality’</li>
-      <li>‘light’</li>
-      <li>‘noise’</li>
-    </ul>
-  </li>
-</ul>
-
-
 
 </article>
 
@@ -156,7 +156,15 @@ There is currently no support for the cloud API.</p>
       <img src='/images/supported_brands/broadlink.png' />
   </div>
     <div class='section'>
-    Introduced in release: 0.34
+    Introduced in release: 0.35
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/switch.broadlink/'>
+          Broadlink RM Switch
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Sensor</h1>
@@ -265,6 +273,9 @@ There is currently no support for the cloud API.</p>
         </li>
         <li>
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sensehat/'>Sense HAT</a>
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>

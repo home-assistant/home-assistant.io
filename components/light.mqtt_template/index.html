@@ -93,7 +93,7 @@
   <p>The <code class="highlighter-rouge">mqtt_template</code> light platform lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e. string, JSON), just configure it with templating.</p>
 
-<p>This platform supports on/off, brightness, RGB colors, transitions, and short/long flashing.</p>
+<p>This platform supports on/off, brightness, RGB colors, transitions, short/long flashing and effects.</p>
 
 <p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the light will be off.</p>
 
@@ -114,15 +114,17 @@ It is format-agnostic so you can use any data format you want (i.e. string, JSON
 
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): The name of the light. Default is “MQTT Template Light.”</li>
+  <li><strong>effect_list</strong> (<em>Optional</em>): List of possible effects.</li>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the light’s state.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
-  <li><strong>command_on_template</strong> (<em>Required</em>): The template for <em>on</em> state changes. Available variables: <code class="highlighter-rouge">state</code>, <code class="highlighter-rouge">brightness</code>, <code class="highlighter-rouge">red</code>, <code class="highlighter-rouge">green</code>, <code class="highlighter-rouge">blue</code>, <code class="highlighter-rouge">flash</code> and <code class="highlighter-rouge">transition</code>.</li>
+  <li><strong>command_on_template</strong> (<em>Required</em>): The template for <em>on</em> state changes. Available variables: <code class="highlighter-rouge">state</code>, <code class="highlighter-rouge">brightness</code>, <code class="highlighter-rouge">red</code>, <code class="highlighter-rouge">green</code>, <code class="highlighter-rouge">blue</code>, <code class="highlighter-rouge">flash</code>, <code class="highlighter-rouge">transition</code> and <code class="highlighter-rouge">effect</code>.</li>
   <li><strong>command_off_template</strong> (<em>Required</em>): The template for <em>off</em> state changes. Available variables: <code class="highlighter-rouge">state</code> and <code class="highlighter-rouge">transition</code>.</li>
   <li><strong>state_template</strong> (<em>Optional</em>): Template to extract state from the state payload value.</li>
   <li><strong>brightness_template</strong> (<em>Optional</em>): Template to extract brightness from the state payload value.</li>
   <li><strong>red_template</strong> (<em>Optional</em>): Template to extract red color from the state payload value.</li>
   <li><strong>green_template</strong> (<em>Optional</em>): Template to extract green color from the state payload value.</li>
   <li><strong>blue_template</strong> (<em>Optional</em>): Template to extract blue color from the state payload value.</li>
+  <li><strong>effect_template</strong> (<em>Optional</em>): Template to extract effect from the state payload value.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if the light works in optimistic mode. Default is true if no state topic or state template is defined, else false.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
 </ul>
@@ -156,11 +158,14 @@ It is format-agnostic so you can use any data format you want (i.e. string, JSON
 
 <h3><a class="title-link" name="json-payload" href="#json-payload"></a> JSON payload</h3>
 
-<p>For a JSON payload with the format <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="p">,</span><span class="w"> </span><span class="nt">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">]}</span></code>, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>For a JSON payload with the format <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="p">,</span><span class="w"> </span><span class="nt">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">],</span><span class="w"> </span><span class="nt">"effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rainbow"</span><span class="p">}</span></code>, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt_template</span>
+    <span class="s">effect_list</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">rainbow</span>
+      <span class="pi">-</span> <span class="s">colorloop</span>
     <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/rgb1/set"</span>
     <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/rgb1/status"</span>
     <span class="s">command_on_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
@@ -171,6 +176,9 @@ It is format-agnostic so you can use any data format you want (i.e. string, JSON
       <span class="no">{%- if red is defined and green is defined and blue is defined -%}</span>
       <span class="no">, "color": [{{ red }}, {{ green }}, {{ blue }}]</span>
       <span class="no">{%- endif -%}</span>
+      <span class="no">{%- if effect is defined -%}</span>
+      <span class="no">, "effect": "{{ effect }}"</span>
+      <span class="no">{%- endif -%}</span>
       <span class="no">}</span>
     <span class="s">command_off_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{"state":</span><span class="nv"> </span><span class="s">"off"}'</span>
     <span class="s">state_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.state</span><span class="nv"> </span><span class="s">}}'</span>
@@ -178,12 +186,13 @@ It is format-agnostic so you can use any data format you want (i.e. string, JSON
     <span class="s">red_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.color[0]</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">green_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.color[1]</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">blue_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.color[2]</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">effect_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.effect</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 
 <h3><a class="title-link" name="no-brightness-or-color-support" href="#no-brightness-or-color-support"></a> No brightness or color support</h3>
 
-<p>If you don’t want brightness or color support, just omit the corresponding configuration sections.</p>
+<p>If you don’t want brightness, color or effect support, just omit the corresponding configuration sections.</p>
 
 
 

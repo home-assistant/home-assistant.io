@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-17T16:35:11+00:00</updated>
+  <updated>2016-12-17T22:56:14+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,132 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.35: Text-to-speech, VLC, Flic, netdata]]></title>
+    <link href="https://home-assistant.io/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/"/>
+    <updated>2016-12-17T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/12/17/text-to-speech-aquostv-flic-zamg</id>
+    <content type="html"><![CDATA[5000 stars on GitHub, 2000 people in out Gitter chatroom and over a million monthly pageviews. I don't think we could wish for a better place to be at the end of 2016. Feels like an early Christmas present! Our early one for you is 0.35. It's not a single thing inside a nice wrapping, more like several little gifts inside the 0.35 box.
+
+This will be the last release of 2016 as our developers are taking a well deserved break. We will be back in 2017!
+
+## <a class='title-link' name='text-to-speech' href='#text-to-speech'></a> Text to Speech 
+With the addition of a [text-to-speech][tts] component by [@pvizeli] we have been able to bring Home Assistant to a whole new level. The text-to-speech component will take in any text and will play it on a media player that supports to play media. We have tested this on Sonos, Chromecast, and Google Home.
+
+https://www.youtube.com/watch?v=Ke0QuoJ4tRM
+
+## <a class='title-link' name='call-for-help-with-hassbian-our-raspberry-pi-image' href='#call-for-help-with-hassbian-our-raspberry-pi-image'></a> Call for help with HASSbian (our Raspberry Pi image) 
+In an effort to make Home Assistant, we're planning to extend the things that people can do out of the box with HASSbian, our Raspberry Pi image. As you might know, the image is currently maintained by [@Landrash]. However he also spends a lot of time on improving the docs and helping out with a ton of other things.
+
+So if you know your Linux-foo and would love to contribute to open source, join the [Hassbian developer chat](https://gitter.im/home-assistant/hassbian) and take a stab at one of [our open issues](https://github.com/home-assistant/pi-gen/issues).
+
+## <a class='title-link' name='vlc-media-player-broadlink-and-gpslogger' href='#vlc-media-player-broadlink-and-gpslogger'></a> VLC media player, Broadlink, and GPSLogger 
+Let you control [VLC media player][vlc-media] and  play sound on connected speakers.
+
+This Broadlink [switch][bl-switch] platform allow to you control Broadlink RM2 Pro and RM mini IR+RF devices. This Broadlink [sensor][bl-sensor] platform adds support for Broadlink RM2 and A1 Devices.
+
+The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) now also supports attributes as the speed, direction, altitude, provider, and activity.
+
+## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
+- Media player: Support for Sharp [AquaosTV][aquostv] ([@titilambert])
+- Media player: [VLC][vlc-media] support ([@Danielhiversen])
+- Switch: Digital Loggers relay([@dethpickle])
+- Sensor: Support for [Netdata][netdata] ([@fabaff], [@ezar])
+- Sensor: Support weather conditions from Austrian [ZAMG][zamg] ([@mjl])
+- Verisure: Add Verisure smartcam capture service ([@turbokongen])
+- Binary sensor: [Flic][flic] button support added ([@soldag])
+- Sensor: Support for [SenseHat][sensehat] ([@farminf])
+- Binary sensor: [Hikvision][hikvision] binary sensor support ([@mezz64])
+- [Text-to-speech][tts] support ([@pvizeli])
+- Sensor: Support for Broadlink [sensors][bl-sensor] ([@Danielhiversen])
+- Switch: Broadlink [switches][bl-switch] supported now ([@Danielhiversen])
+
+- Media player: Add `source_list` to universal media player ([@danieljkemp])
+- Binary Sensor: Support improvement for Wink ([@w1ll1am23])
+- Sensor: More features for DSMR ([@aequitas])
+- Automation: Parse payload as JSON ([@balloob])
+- Mediap player - Cast: New progress indicator ([@balloob])
+- Device tracker: New attributes ([@balloob], [@Danielhiversen])
+- Binary sensor - netatmo: Add support for tags ([@jabesq])
+- Climate: Add `away_mode` for RadioThermostat ([@trisk])
+- Device tracker - nmap: Make scan option configurable ([@Danielhiversen])
+- Climate - Ecobee: Add SmartAway option ([@devdelay])
+- Light - Hue: Add support for Hue LightGroups ([@michaelarnauts])
+- Media player - Emby: New support for trailer and media position ([@mezz64])
+- Camera - Amcrest: Support for resolution ([@tchellomello])
+- Media player - Kodi: Authentification fixed and fan art ([@balloob], [@joopert])
+- Minor and not so minor features and bug fixes by [@pvizeli], [@jminn], [@magicus], [@teodoc], [@fabaff], [@technicalpickles], [@balloob], [@lukas-hetzenecker], [@rubund], [@dasos], [@trisk], [@armills], [@auduny], [@lwis], [@nkgilley], [@janLo], [@keatontaylor], [@stefan-jonasson], [@Jypy], [@jawilson], [@DavidLP], [@molobrakos], [@jabesq], [@joerocklin], [@kellerza], [@kirichkov], and [@danielperna84].
+
+### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+### <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
+
+
+[@aequitas]: https://github.com/aequitas
+[@armills]: https://github.com/armills
+[@auduny]: https://github.com/auduny
+[@balloob]: https://github.com/balloob
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@danieljkemp]: https://github.com/danieljkemp
+[@danielperna84]: https://github.com/danielperna84
+[@dasos]: https://github.com/dasos
+[@DavidLP]: https://github.com/DavidLP
+[@dethpickle]: https://github.com/dethpickle
+[@devdelay]: https://github.com/devdelay
+[@ezar]: https://github.com/ezar
+[@fabaff]: https://github.com/fabaff
+[@farminf]: https://github.com/farminf
+[@jabesq]: https://github.com/jabesq
+[@janLo]: https://github.com/janLo
+[@janLo]: https://github.com/janLo
+[@jawilson]: https://github.com/jawilson
+[@jawilson]: https://github.com/jawilson
+[@jminn]: https://github.com/jminn
+[@joerocklin]: https://github.com/joerocklin
+[@joopert]: https://github.com/joopert
+[@Jypy]: https://github.com/Jypy
+[@keatontaylor]: https://github.com/keatontaylor
+[@kellerza]: https://github.com/kellerza
+[@kirichkov]: https://github.com/kirichkov
+[@Landrash]: https://github.com/Landrash
+[@lukas-hetzenecker]: https://github.com/lukas-hetzenecker
+[@lwis]: https://github.com/lwis
+[@magicus]: https://github.com/magicus
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@mezz64]: https://github.com/mezz64
+[@michaelarnauts]: https://github.com/michaelarnauts
+[@mjl]: https://github.com/mjl
+[@molobrakos]: https://github.com/molobrakos
+[@nkgilley]: https://github.com/nkgilley
+[@pvizeli]: https://github.com/pvizeli
+[@rubund]: https://github.com/rubund
+[@rubund]: https://github.com/rubund
+[@soldag]: https://github.com/soldag
+[@stefan-jonasson]: https://github.com/stefan-jonasson
+[@tchellomello]: https://github.com/tchellomello
+[@technicalpickles]: https://github.com/technicalpickles
+[@teodoc]: https://github.com/teodoc
+[@titilambert]: https://github.com/titilambert
+[@trisk]: https://github.com/trisk
+[@turbokongen]: https://github.com/turbokongen
+[@w1ll1am23]: https://github.com/w1ll1am23
+
+[vlc-media]: https://home-assistant.io/components/media_player.vlc/
+[aquostv]: https://home-assistant.io/components/media_player.aquostv/
+[digitalloggers]: https://home-assistant.io/components/switch.digitalloggers/
+[netdata]: https://home-assistant.io/components/switch.digitalloggers/
+[bl-sensor]: https://home-assistant.io/components/sensor.broadlink/
+[bl-switch]: https://home-assistant.io/components/switch.broadlink/
+[hikvision]: https://home-assistant.io/components/binary_sensor.hikvision/
+[zamg]: https://home-assistant.io/components/sensor.zamg/
+[flic]: https://home-assistant.io/components/binary_sensor.flic/
+[sensehat]: https://home-assistant.io/components/sensor.sensehat/
+[tts]: https://home-assistant.io/components/tts/
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.34: New Remote component, Websockets, Sonarr, GPSLogger]]></title>
@@ -837,186 +963,6 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [twitter]: https://twitter.com/home_assistant
 [robbie-twitter]: https://twitter.com/robbie
 [blog-orig]: https://github.com/home-assistant/home-assistant.github.io/blob/c937242d154e509d2d84d10c51f654e20556fa21/source/_posts/2016-10-22-flash-briefing-updater-hacktoberfest.markdown
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.30: More Async, HASSbian, Digital Ocean, statistics, REST]]></title>
-    <link href="https://home-assistant.io/blog/2016/10/08/hassbian-rest-digital-ocean/"/>
-    <updated>2016-10-08T03:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/10/08/hassbian-rest-digital-ocean</id>
-    <content type="html"><![CDATA[Yes, after only nine days comes 0.30. Don't worry, we will try to keep our usual release cycle and not start to release every day.
-
-We guess that you already know: The [Raspberry Pi image][pi-image] is available now. For Hassbian, [@Landrash] has combined the most essential parts for a Home Assistant setup in an easy-to-use image for the Raspberry Pi device family. Hassbian is quite young, thus we are looking forward to recieve [feedback][hassbian-forum], [issue report][hassbian-forum], and [suggestions][hassbian-forum] to improve it. 
-
-A large amount of resources of the development are still focusing on the effort to move Home Assistant further to asynchronous programming. It's a labor-intensive task, comes with segmentation faults, and unstable instances when certain combinations of sensors are used. The benefit will be more speed in the near future.
-
-To reduce the run-time of your tests, [@balloob] did a lot of tweaking. For now the RFXtrx tests are excluded which cut the needed time for running on your Pull Request in half. 
-
-### <a class='title-link' name='documentation' href='#documentation'></a> Documentation 
-
-All configuration sample entries are now minimized. This should help to avoid problem for starters and newbies as they only get what's needed and not a full sample with all optional entries. If there is an issue with an entry in your `configuration.yaml` file the error message will provide you an URL that point to the documentation.
-
-<p class='img'>
-  <img src='/images/screenshots/config-validation-url.png' />
-</p>
-
-As soon as the [Hacktoberfest] started there were a lot of incoming Pull Requests for the documentation. A huge "Thank you" to all participants. Especially, we would like to give a cookie to [@hillaryfraley]. She created around a dozen Pull Requests so far and didn't only fix typos but complete sections. The [Hacktoberfest] is still on-going and we are looking forward to get more Pull Requests.
-
-### <a class='title-link' name='statistics' href='#statistics'></a> Statistics 
-
-With the [statistics sensor][stats-sensor] we would like to introduce a new sensor that is similar to the [template sensor][template-sensor] or the [trend sensor][trend-sensor]. This sensor is consuming values from another sensor and is doing some statistical analysis of the data. Over a group of samples is the average/mean, the min/max, the total, the standard deviation, and the variance calculated which can be used in your automation rules. If the source is a binary sensor then the state changes are counted.
-
-<p class='img'>
-  <img src='/images/screenshots/stats-sensor.png' />
-</p>
-
-As the results are processed on-the-fly you still need to use the data from your database for a in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
-
-### <a class='title-link' name='rest-we-dont' href='#rest-we-dont'></a> REST! We don't... 
-
-There was a lot of work done on our implementation which are working with RESTful APIs. [@w1ll1am23] extended the [aREST] platforms to display if an aREST unit is available or not. The aREST implementations are now covered by the configuration check as well. Please check the Breaking changes section for more details.
-
-The [REST sensor][rest-sensor] supports now HTTP authentication (basic and digest) and custom headers. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.
-
-```yaml
-sensor
-  - platform: rest
-    resource: https://api.github.com/repos/home-assistant/home-assistant/releases/latest
-    username: YOUR_GITHUB_USERNAME
-    password: YOUR_GITHUB_ACCESS_TOKEN
-    authentication: basic
-    value_template: '{{ value_json.tag_name }}'
-    headers:
-      Accept: application/vnd.github.v3+json
-      Content-Type: application/json
-      User-Agent: Home Assistant REST sensor
-```
-
-### <a class='title-link' name='misc' href='#misc'></a> Misc 
-
-- GitHub released with a recent update a review feature. This will give you more control over your comments while you review an open Pull Request.
-- Thanks to [@robbiet480] we are now running [mention-bot]. It will help you when you create a new Pull Request to identify potential reviewers.
-- The [Home Assistant Community Forum][forum] has now an additional section called "Installation".
-
-### <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
-
-<img src='https://home-assistant.io/images/supported_brands/digital_ocean.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/volvo.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/dark_sky.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://home-assistant.io/images/supported_brands/vasttrafik.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
-
-- Core: A lot of stuff is now async ([@balloob])
-- Nest: Support for operation modes ([@jawilson])
-- Z-Wave: Massive update for command classes and device classes  ([@turbokongen])
-- Digital Ocean: New [switch][do-switch] to control and [binary sensor][do-bin-sensor] to monitor droplets ([@fabaff])
-- Cover: Support for [MySensors cover][mysensors-cover] ([@OttoWinter])
-- Wink: Support for oAuth2 and relay sensors ([@w1ll1am23])
-- Sensor: [Forecast][darksky] update interval is now configurable ([@KlaasH])
-- Core: Failed login attempts are reported as persistent notifications ([@fabaff])
-- Climate: Temperature convert now available in the Climate object ([@pvizeli])
-- Notify: Update to accept a list ([@robbiet480]) 
-- Device tracker: Support for tracking of your [Volvo] ([@molobrakos])
-- Switch: Flux improvements ([@jawilson])
-- InfluxDB: Time-out for connections ([@simonszu])
-- Sensor: New MySensors types available ([@MartinHjelmare])
-- Switch: [ANEL PwrCtrl][pwrctrl-switch] devices are now supported ([@mweinelt])
-- Frontend: Path of the configuration file now visible on the frontend ([@justweb1])
-- Homematic:  Extended device support (RF, IP and wired devices) ([@pvizeli], [@danielperna84])
-- Sensor: New sensor for [statistical analysis][stats-sensor] ([@fabaff])
-- Sensor: Support for headers and HTTP authentication for [REST sensors][rest-sensor] ([@fabaff])
-- Device tracker: Support for encrypted Owntracks payload ([@molobrakos])
-- Tests: Improvement of the HTML5 notify tests ([@capellini])
-- Wink: Support for Wink Smoke and CO detectors ([@w1ll1am23])
-- Sensor: [TED5000][ted5000] sensor was included ([@gwendalg])
-- Sensor: Support for [Västtrafik][vasttrafik] public transport ([@persandstrom])
-- Notify: [Pushetta][pushetta] no longer sends message on start up ([@Danielhiversen])
-- Sensor: [Forecast.io][forecast] sensor was replaced by [Dark Sky][darksky] ([@fabaff])
-- Device Tracker: The `known_device.yaml` file is now validated ([@kellerza]) 
-- Minor features and bug fixes by [@tchellomello], [@pavoni], [@fabaff], [@pvizeli], [@lwis], [@turbokongen], [@Danielhiversen], [@persandstrom], [@balloob], [@robbiet480], [@sam-io], [@bbangert], and you if you are missing here.
-
-### <a class='title-link' name='release-0301---october-8' href='#release-0301---october-8'></a> Release 0.30.1 - October 8 
-
- - Device Tracker `known_devices.yaml` validation is now more accepting ([@kellerza])
- - Handle X10 light numbers greater than 9 ([@mtl010957])
- - Fix command line covers without a template ([@roidayan])
-
-### <a class='title-link' name='release-0302---october-12' href='#release-0302---october-12'></a> Release 0.30.2 - October 12 
-
-- Handle Volvo's with dashes in their name ([@molobrakos])
-- Fix some html5 push notification configuration options were discarded after first use ([@T3m3z])
-- Fix Homematic device name with autodiscovery ([@pvizeli])
-- Make 'pin' optional for zigbee device config ([@flyte])
-- Fix when sending a notification to a service with target attached (i.e. `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
-- Fix for Slack targets ([@fabaff])
-- Fix for Pushover targets ([@Nixon506E])
-
-### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
-
-- All deprecated condition options from `automation` have been removed (deprecated since May and have printed warnings to your console):
-  - `use_trigger_values` is gone. You have to copy your triggers to conditions and adjust for the correct config.
-  - `condition_type` is gone. Use `condition: or` instead.
-  - To specify the type of a condition, use `condition:` instead of `platform:`. 
-- The [Forecast.io][forecast] was renamed to [Dark Sky][darksky]. Replace your `- platform: forecast` with `- platform: darksky`.
-- The [aREST][arest] configuration between the [sensor][arest-sensor] and the [switch][arest-switch] platform was aligned. 
-
-### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
-
-[@balloob]: https://github.com/balloob
-[@bbangert]: https://github.com/bbangert
-[@capellini]: https://github.com/capellini
-[@Danielhiversen]: https://github.com/Danielhiversen
-[@danielperna84]: https://github.com/danielperna84
-[@fabaff]: https://github.com/fabaff
-[@gwendalg]: https://github.com/gwendalg
-[@hillaryfraley]: https://github.com/hillaryfraley
-[@jawilson]: https://github.com/jawilson
-[@justweb1]: https://github.com/justweb1
-[@kellerza]: https://github.com/kellerza
-[@KlaasH]: https://github.com/KlaasH
-[@Landrash]: https://github.com/Landrash
-[@lwis]: https://github.com/lwis
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@molobrakos]: https://github.com/molobrakos
-[@mweinelt]: https://github.com/mweinelt
-[@OttoWinter]: https://github.com/OttoWinter
-[@pavoni]: https://github.com/pavoni
-[@persandstrom]: https://github.com/persandstrom
-[@pvizeli]: https://github.com/pvizeli
-[@robbiet480]: https://github.com/robbiet480
-[@sam-io]: https://github.com/sam-io
-[@simonszu]: https://github.com/simonszu
-[@tchellomello]: https://github.com/tchellomello
-[@turbokongen]: https://github.com/turbokongen
-[@w1ll1am23]: https://github.com/w1ll1am23
-[@mtl010957]: https://github.com/mtl010957
-[@roidayan]: https://github.com/roidayan
-[@T3m3z]: https://github.com/T3m3z
-[@flyte]: https://github.com/flyte
-[@Nixon506E]: https://github.com/Nixon506E
-
-[arest]: https://arest.io/
-[arest-sensor]: /components/sensor.arest/
-[arest-switch]: /components/switch.arest/
-[darksky]: /components/sensor.darksky/
-[do-bin-sensor]: /components/binary_sensor.digital_ocean/
-[do-switch]: /components/switch.digital_ocean/
-[forecast]: /components/sensor.forecast/
-[forum]: https://community.home-assistant.io/
-[Hacktoberfest]: /blog/2016/10/02/hacktoberfest/
-[hassbian-forum]: https://community.home-assistant.io/c/installation/hassbian
-[mention-bot]: https://github.com/mention-bot
-[mysensors-cover]: /components/cover.mysensors/
-[notebook]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb
-[pi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
-[pushetta]: /components/notify.pushetta/
-[pwrctrl-switch]: /components/switch.anel_pwrctrl/
-[rest-sensor]: /components/sensor.rest/
-[stats-sensor]: /components/sensor.statistics/
-[ted5000]: /components/sensor.ted5000/
-[template-sensor]: /components/sensor.template/
-[trend-sensor]: /components/binary_sensor.trend/
-[vasttrafik]: /components/sensor.vasttrafik/
-[Volvo]: /components/device_tracker.volvooncall/
-
 ]]></content>
   </entry>
   

@@ -117,9 +117,15 @@
 </code></pre>
 </div>
 
-<p>When the build completes, you can run the dashboard with:</p>
+<p>When the build completes, you can run the dashboard with the following command for unix based systems:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run --name<span class="o">=</span><span class="s2">"hadashboard"</span> -d -v &lt;path_to_hadashboard&gt;/dashboards:/app/dashboards -v &lt;path_to_hadashboard&gt;/lib/ha_conf.rb:/app/lib/ha_conf.rb -v &lt;path_to_hadashboard&gt;/hapush:/app/hapush --net<span class="o">=</span>host hadashboard
+</code></pre>
+</div>
+
+<p>If you are running docker on windows you should not use the <code class="highlighter-rouge">--net</code> command and explicitly specify the port, aslo for security reason <code class="highlighter-rouge">--net=host</code> should not be used so the following can also be used in unix. This will also set the process to start when the docker process starts so you do not have to worry about reboots. To map the volumes make sure you have ticked the shred drives in the settings. In this example I am using <code class="highlighter-rouge">c:\hadashboard</code> as the location where the git clone was done and mapping to port 3030 on the host.</p>
+
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code>docker run --restart<span class="o">=</span>always --name<span class="o">=</span><span class="s2">"hadashboard"</span> -p 3030:3030 -d -v C:/hadashboard/dashboards:/app/dashboards -v C:/hadashboard/lib/ha_conf.rb:/app/lib/ha_conf.rb -v C:/hadashboard/hapush:/app/hapush hadashboard 
 </code></pre>
 </div>
 
@@ -127,15 +133,15 @@
 
 <p>By default, the docker instance should pick up your timezone but if you want to explicitly set it you can add an environment variable for your specific zone as follows:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> -e "TZ=Europe/Amsterdam"
- ```
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code> -e <span class="s2">"TZ=Europe/Amsterdam"</span>
+</code></pre>
+</div>
 
-### &lt;a class='title-link' name='docker-on-raspberry-pi' href='#docker-on-raspberry-pi'&gt;&lt;/a&gt; Docker on Raspberry Pi 
+<h3><a class="title-link" name="docker-on-raspberry-pi" href="#docker-on-raspberry-pi"></a> Docker on Raspberry Pi</h3>
 
-Raspberry pi needs to use a different docker build file so the build command is slightly different:
+<p>Raspberry pi needs to use a different docker build file so the build command is slightly different:</p>
 
-```bash
-$ docker build -f Docker-raspi/Dockerfile -t hadashboard .
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker build -f Docker-raspi/Dockerfile -t hadashboard .
 </code></pre>
 </div>
 
@@ -194,6 +200,8 @@ $ docker build -f Docker-raspi/Dockerfile -t hadashboard .
 
 <p>Note: This is currently running on various versions of Ruby and there are no strong dependencies however your mileage may vary.</p>
 
+<h2><a class="title-link" name="updating-configuration-manual-and-docker" href="#updating-configuration-manual-and-docker"></a> Updating configuration (Manual and Docker)</h2>
+
 <p>Next, in the <code class="highlighter-rouge">./lib</code> directory, copy the ha_conf.rb.example file to ha_conf.rb and edit its settings to reflect your installation, pointing to the machine Home Assistant is running on and adding your api_key.</p>
 
 <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="vg">$ha_url</span> <span class="o">=</span> <span class="s2">"http://192.168.1.10:8123"</span>
@@ -215,15 +223,16 @@ $ docker build -f Docker-raspi/Dockerfile -t hadashboard .
 </code></pre>
 </div>
 
-<p>You can leave these alone for now or if you prefer customize them as described in the News widget section below.</p>
+<p>You can leave these alone for now or if you prefer customize them as described in the News widget section.</p>
 
-<p>When you are done, you can start a local webserver like this:</p>
+<p>When you are done, you can start a local webserver like this or if you are on docker it should start when you start the container.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>dashing start
 </code></pre>
 </div>
 
-<p>Point your browser to <strong>http://localhost:3030</strong> to access the hadashboard on your local machine.and you should see the supplied default dashboard.</p>
+<p>Point your browser to <strong>http://localhost:3030</strong> to access the hadashboard on your local machine.and you should see the supplied default dashboard. If you want to access it remotely ensure you have opened any required firewall rules.</p>
+
 
 
 </article>

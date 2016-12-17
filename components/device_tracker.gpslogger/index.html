@@ -106,7 +106,7 @@
   <li><a href="https://play.google.com/store/apps/details?id=com.mendhak.gpslogger">GPSLogger for Android</a></li>
 </ul>
 
-<p>To configure GPSLogger, you must set up the app to send a <code class="highlighter-rouge">GET</code> request to your Home Assistant server at <code class="highlighter-rouge">http://&lt;ha_server&gt;/api/gpslogger?latitude=%LAT&amp;longitude=%LON&amp;battery=%BATT&amp;device=%SER&amp;accuracy=%ACC</code>. Make sure to include the API password if you have configured a password in Home Assistant (add <code class="highlighter-rouge">&amp;api_password=&lt;password&gt;</code> to the end of the URL). Configure that options under “General Options”:</p>
+<p>To configure GPSLogger, you must set up the app to send a <code class="highlighter-rouge">GET</code> request to your Home Assistant server at <code class="highlighter-rouge">http://&lt;ha_server&gt;/api/gpslogger?latitude=%LAT&amp;longitude=%LON&amp;device=%SER&amp;accuracy=%ACC&amp;battery=%BATT&amp;speed=%SPD&amp;direction=%DIR&amp;altitude=%ALT&amp;provider=%PROV&amp;activity=%ACT</code>. Make sure to include the API password if you have configured a password in Home Assistant (add <code class="highlighter-rouge">&amp;api_password=&lt;password&gt;</code> to the end of the URL). Configure that options under “General Options”:</p>
 
 <ul>
   <li>Start on boot: yes</li>
@@ -118,7 +118,7 @@
 <ul>
   <li>Log to GPX: no</li>
   <li>Log to KML: no</li>
-  <li>Log to custom URL: yes and set <code class="highlighter-rouge">http://&lt;ha_server&gt;/api/gpslogger?latitude=%LAT&amp;longitude=%LON&amp;battery=%BATT&amp;device=%SER&amp;accuracy=%ACC</code> (be sure you include API password (<code class="highlighter-rouge">&amp;api_password=&lt;password&gt;</code>) if needed, or you can also use HTTP Basic authentication <code class="highlighter-rouge">http://&lt;username&gt;:&lt;password&gt;@&lt;ha_server&gt;/api/gpslogger...</code>)</li>
+  <li>Log to custom URL: yes and set <code class="highlighter-rouge">http://&lt;ha_server&gt;/api/gpslogger?latitude=%LAT&amp;longitude=%LON&amp;device=%SER&amp;accuracy=%ACC&amp;battery=%BATT&amp;speed=%SPD&amp;direction=%DIR&amp;altitude=%ALT&amp;provider=%PROV&amp;activity=%ACT</code> (be sure you include API password (<code class="highlighter-rouge">&amp;api_password=&lt;password&gt;</code>) if needed, or you can also use HTTP Basic authentication <code class="highlighter-rouge">http://&lt;username&gt;:&lt;password&gt;@&lt;ha_server&gt;/api/gpslogger...</code>)</li>
   <li>Log to OpenGTS Server: no</li>
   <li>Log to Plain Text: no</li>
   <li>Log to NMEA: no</li>

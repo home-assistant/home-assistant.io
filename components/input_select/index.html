@@ -123,6 +123,44 @@
 
 <p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:car</code>, <code class="highlighter-rouge">mdi:ambulance</code>, or  <code class="highlighter-rouge">mdi:motorbike</code>.</p>
 
+<h3><a class="title-link" name="services" href="#services"></a> Services</h3>
+
+<p>This components provide three services to modify the state of the <code class="highlighter-rouge">input_select</code>:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">input_select.select_option</code>: This can be used to select a specific option. The option is passed as <code class="highlighter-rouge">option</code> attribute in the service data.</li>
+  <li><code class="highlighter-rouge">input_select.select_previous</code>: Select the previous option.</li>
+  <li><code class="highlighter-rouge">input_select.select_next</code>: Select the next option.</li>
+</ul>
+
+<p>The following example shows the usage of the <code class="highlighter-rouge">input_select.select_option</code> service in an automation:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">example automation</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">MY_CUSTOM_EVENT</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">input_select.select_option</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_select.who_cooks</span>
+          <span class="s">option</span><span class="pi">:</span> <span class="s">Paulus</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="scenes" href="#scenes"></a> Scenes</h3>
+
+<p>To specify a target option in a <a href="/components/scene/">Scene</a> you have to specify the target as <code class="highlighter-rouge">option</code> attribute:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">scene</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Example1</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="s">input_select.who_cooks</span><span class="pi">:</span>
+        <span class="s">option</span><span class="pi">:</span> <span class="s">Paulus</span>
+</code></pre>
+</div>
 
 
 </article>

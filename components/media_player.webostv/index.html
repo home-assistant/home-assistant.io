@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>LG WebOS TV - Home Assistant</title>
+    <title>LG webOS Smart TV - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate a LG WebOS TV within Home Assistant.">
+    <meta name="description" content="Instructions how to integrate a LG webOS Smart TV within Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/media_player.webostv/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="LG WebOS TV">
+    <meta property="og:title" content="LG webOS Smart TV">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/media_player.webostv/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate a LG WebOS TV within Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate a LG webOS Smart TV within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="LG WebOS TV">
-    <meta name="twitter:description" content="Instructions how to integrate a LG WebOS TV within Home Assistant.">
+    <meta name="twitter:title" content="LG webOS Smart TV">
+    <meta name="twitter:description" content="Instructions how to integrate a LG webOS Smart TV within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,13 +84,13 @@
   
   <header>
     <h1 class="title indent">
-      LG WebOS TV
+      LG webOS Smart TV
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">webostv</code> platform allows you to control a <a href="http://www.lg.com">LG</a> WebOS Smart TV.</p>
+  <p>The <code class="highlighter-rouge">webostv</code> platform allows you to control a <a href="http://www.lg.com/">LG</a> webOS Smart TV.</p>
 
 <p>When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.</p>
 
@@ -105,8 +105,9 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): The IP of the LG WebOS Smart TV, eg. 192.168.0.10</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the LG WebOS Smart TV.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The IP of the LG webOS Smart TV, e.g. <code class="highlighter-rouge">192.168.0.10</code>.</li>
+  <li><strong>mac</strong> (<em>Optional</em>): The MAC address of the TV, e.g. <code class="highlighter-rouge">C8:08:E9:99:99:1A</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the LG webOS Smart TV.</li>
   <li><strong>customize</strong> array (<em>Optional</em>): List of options to customize.
     <ul>
       <li><em><strong>sources</strong> array (</em>Optional*): List of hardware inputs.</li>
@@ -114,7 +115,8 @@
   </li>
 </ul>
 
-<p>If you do not provide a host name, all LG WebOS Smart TV’s within your network will be auto-discovered if your TV network name is set to <code class="highlighter-rouge">[LG] webOS TV</code>.</p>
+<p>If you do not specify <code class="highlighter-rouge">host:</code>, all LG webOS Smart TVs within your network will be auto-discovered if they use the default name setting of <code class="highlighter-rouge">[LG] webOS TV</code>.
+Home Assistant is able to turn on a LG webOS Smart TV if you specify its MAC address with <code class="highlighter-rouge">mac:</code>. Some models require the <strong>Mobile TV On</strong> setting and/or a wired network connection to use Wake-on-LAN.</p>
 
 <p>A full configuration example will look like the sample below:</p>
 
@@ -122,6 +124,7 @@
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s">C8:08:E9:99:99:1A</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
     <span class="s">customize</span><span class="pi">:</span>
       <span class="s">sources</span><span class="pi">:</span>
@@ -196,7 +199,7 @@
             <a href='/components/media_player.lg_netcast/'>LG Netcast TV</a>
         </li>
         <li>
-            LG WebOS TV
+            LG webOS Smart TV
         </li>
         <li>
             <a href='/components/media_player.squeezebox/'>Logitech Squeezebox</a>
@@ -238,6 +241,9 @@
             <a href='/components/media_player.samsungtv/'>Samsung Smart TV</a>
         </li>
         <li>
+            <a href='/components/media_player.aquostv/'>Sharp Aquos TV</a>
+        </li>
+        <li>
             <a href='/components/media_player.snapcast/'>Snapcast</a>
         </li>
         <li>
@@ -251,6 +257,9 @@
         </li>
         <li>
             <a href='/components/media_player.universal/'>Universal</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vlc/'>VLC</a>
         </li>
         <li>
             <a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a>

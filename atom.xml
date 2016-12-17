@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-17T16:35:11+00:00</updated>
+  <updated>2016-12-17T22:56:14+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.35: Text-to-speech, VLC, Flic, netdata]]></title>
+    <link href="https://home-assistant.io/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/"/>
+    <updated>2016-12-17T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/12/17/text-to-speech-aquostv-flic-zamg</id>
+    <content type="html"><![CDATA[<p>5000 stars on GitHub, 2000 people in out Gitter chatroom and over a million monthly pageviews. I don’t think we could wish for a better place to be at the end of 2016. Feels like an early Christmas present! Our early one for you is 0.35. It’s not a single thing inside a nice wrapping, more like several little gifts inside the 0.35 box.</p>
+
+<p>This will be the last release of 2016 as our developers are taking a well deserved break. We will be back in 2017!</p>
+
+<h2><a class="title-link" name="text-to-speech" href="#text-to-speech"></a> Text to Speech</h2>
+<p>With the addition of a <a href="https://home-assistant.io/components/tts/">text-to-speech</a> component by <a href="https://github.com/pvizeli">@pvizeli</a> we have been able to bring Home Assistant to a whole new level. The text-to-speech component will take in any text and will play it on a media player that supports to play media. We have tested this on Sonos, Chromecast, and Google Home.</p>
+
+<p>https://www.youtube.com/watch?v=Ke0QuoJ4tRM</p>
+
+<h2><a class="title-link" name="call-for-help-with-hassbian-our-raspberry-pi-image" href="#call-for-help-with-hassbian-our-raspberry-pi-image"></a> Call for help with HASSbian (our Raspberry Pi image)</h2>
+<p>In an effort to make Home Assistant, we’re planning to extend the things that people can do out of the box with HASSbian, our Raspberry Pi image. As you might know, the image is currently maintained by <a href="https://github.com/Landrash">@Landrash</a>. However he also spends a lot of time on improving the docs and helping out with a ton of other things.</p>
+
+<p>So if you know your Linux-foo and would love to contribute to open source, join the <a href="https://gitter.im/home-assistant/hassbian">Hassbian developer chat</a> and take a stab at one of <a href="https://github.com/home-assistant/pi-gen/issues">our open issues</a>.</p>
+
+<h2><a class="title-link" name="vlc-media-player-broadlink-and-gpslogger" href="#vlc-media-player-broadlink-and-gpslogger"></a> VLC media player, Broadlink, and GPSLogger</h2>
+<p>Let you control <a href="https://home-assistant.io/components/media_player.vlc/">VLC media player</a> and  play sound on connected speakers.</p>
+
+<p>This Broadlink <a href="https://home-assistant.io/components/switch.broadlink/">switch</a> platform allow to you control Broadlink RM2 Pro and RM mini IR+RF devices. This Broadlink <a href="https://home-assistant.io/components/sensor.broadlink/">sensor</a> platform adds support for Broadlink RM2 and A1 Devices.</p>
+
+<p>The <a href="https://home-assistant.io/components/device_tracker.gpslogger/">GPSLogger</a> now also supports attributes as the speed, direction, altitude, provider, and activity.</p>
+
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+<ul>
+  <li>Media player: Support for Sharp <a href="https://home-assistant.io/components/media_player.aquostv/">AquaosTV</a> (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+  <li>Media player: <a href="https://home-assistant.io/components/media_player.vlc/">VLC</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Switch: Digital Loggers relay(<a href="https://github.com/dethpickle">@dethpickle</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/switch.digitalloggers/">Netdata</a> (<a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/ezar">@ezar</a>)</li>
+  <li>Sensor: Support weather conditions from Austrian <a href="https://home-assistant.io/components/sensor.zamg/">ZAMG</a> (<a href="https://github.com/mjl">@mjl</a>)</li>
+  <li>Verisure: Add Verisure smartcam capture service (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.flic/">Flic</a> button support added (<a href="https://github.com/soldag">@soldag</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.sensehat/">SenseHat</a> (<a href="https://github.com/farminf">@farminf</a>)</li>
+  <li>Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.hikvision/">Hikvision</a> binary sensor support (<a href="https://github.com/mezz64">@mezz64</a>)</li>
+  <li><a href="https://home-assistant.io/components/tts/">Text-to-speech</a> support (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Sensor: Support for Broadlink <a href="https://home-assistant.io/components/sensor.broadlink/">sensors</a> (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>
+    <p>Switch: Broadlink <a href="https://home-assistant.io/components/switch.broadlink/">switches</a> supported now (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</p>
+  </li>
+  <li>Media player: Add <code class="highlighter-rouge">source_list</code> to universal media player (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
+  <li>Binary Sensor: Support improvement for Wink (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Sensor: More features for DSMR (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Automation: Parse payload as JSON (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Mediap player - Cast: New progress indicator (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Device tracker: New attributes (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Binary sensor - netatmo: Add support for tags (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Climate: Add <code class="highlighter-rouge">away_mode</code> for RadioThermostat (<a href="https://github.com/trisk">@trisk</a>)</li>
+  <li>Device tracker - nmap: Make scan option configurable (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Climate - Ecobee: Add SmartAway option (<a href="https://github.com/devdelay">@devdelay</a>)</li>
+  <li>Light - Hue: Add support for Hue LightGroups (<a href="https://github.com/michaelarnauts">@michaelarnauts</a>)</li>
+  <li>Media player - Emby: New support for trailer and media position (<a href="https://github.com/mezz64">@mezz64</a>)</li>
+  <li>Camera - Amcrest: Support for resolution (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Media player - Kodi: Authentification fixed and fan art (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/joopert">@joopert</a>)</li>
+  <li>Minor and not so minor features and bug fixes by <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/jminn">@jminn</a>, <a href="https://github.com/magicus">@magicus</a>, <a href="https://github.com/teodoc">@teodoc</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/technicalpickles">@technicalpickles</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>, <a href="https://github.com/rubund">@rubund</a>, <a href="https://github.com/dasos">@dasos</a>, <a href="https://github.com/trisk">@trisk</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/auduny">@auduny</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/nkgilley">@nkgilley</a>, <a href="https://github.com/janLo">@janLo</a>, <a href="https://github.com/keatontaylor">@keatontaylor</a>, <a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>, <a href="https://github.com/Jypy">@Jypy</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/DavidLP">@DavidLP</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/joerocklin">@joerocklin</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/kirichkov">@kirichkov</a>, and <a href="https://github.com/danielperna84">@danielperna84</a>.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.34: New Remote component, Websockets, Sonarr, GPSLogger]]></title>
@@ -2239,79 +2307,6 @@ If a module is missing then you need to download it from the <a href="https://gi
 
 <p>If you run into trouble, press “Ctrl+c” in the REPL to stop the execution of the code, enter <code class="highlighter-rouge">&gt;&gt;&gt; import webrepl</code> and <code class="highlighter-rouge">&gt;&gt;&gt; webrepl.start()</code>, and upload your fixed file.</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[IoT Data Exploration with Jupyter Notebooks]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/"/>
-    <updated>2016-07-23T18:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks</id>
-    <content type="html"><![CDATA[<p><em>This is the first blog post by Anton Kireyeu. A new contributor to Home Assistant who will focus on exploring and visualizing Home Assistant data.</em></p>
-
-<p>As we learned in the recent <a href="https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/">blog post by Fabian</a>, all operational data of your Home Assistant application is stored locally and is available for exploration. Our first steps were querying data with the <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>, exporting the data extract as a CSV file and graphing in LibreOffice. But what else can be done with this data and what tools are there available?</p>
-
-<p>This post will help you get set up using a few popular data scientist tools to allow you to locally process your data:</p>
-
-<ul>
-  <li> <a href="http://pandas.pydata.org/">Pandas</a>: an open source tool for data analysis for Python</li>
-  <li> <a href="http://matplotlib.org/">matplotlib</a>: a Python plotting library</li>
-  <li> <a href="https://jupyter.org/">Jupyter notebook</a>: application for creation and sharing of documents containing live code, visualizations and explanatory text</li>
-</ul>
-
-<p class="img">
-<img src="https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png" />
-One of the graphs created with this tutorial.
-</p>
-
-<p><em>TL; DR: Use <a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">this Jupyter Notebook</a> to visualize of your data</em></p>
-
-<!--more-->
-
-<h3><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h3>
-
-<p>In order to run the provided Jupyter notebook, please make sure you have the following applications/libraries installed on your computer:</p>
-
-<ul>
-  <li>Pandas</li>
-  <li>NumPy</li>
-  <li>Matplotlib</li>
-  <li>SQLAlchemy</li>
-  <li>Jupyter</li>
-</ul>
-
-<p>As a Windows user myself, I find the easiest, quickest and most hassle-free way of installing all of these dependencies is to use <a href="https://winpython.github.io/">WinPython</a>. This free open-source portable distribution includes all of the dependencies required for this notebook, as well as a few other essential Python libraries you may require for data exploration in the future.</p>
-
-<h4><a class="title-link" name="why-jupyter" href="#why-jupyter"></a> Why Jupyter?</h4>
-
-<p>While all Home Assistant implementations can have varying setup, components and scripts, the underlying data structure is standardized and well-defined. This allows us to write Python code that is environmentally agnostic. Wrapping it in a Jupyter notebook ensures the code, visualizations and directions/explanations are kept digestible and neatly-packaged. One of the amazing features of Jupyter is the ability to change code as you go along, customizing all outputs and visualizations on the fly!</p>
-
-<h4><a class="title-link" name="where-do-i-start" href="#where-do-i-start"></a> Where do I start?</h4>
-
-<p>This tutorial is based around a heavily commented Jupyter Notebook that we created. So to get started, you will have to open that:</p>
-
-<ul>
-  <li><a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">download the tutorial Jupyter Notebook</a> (leads to preview page, from there click download top-right)</li>
-  <li>launch the Jupyter Notebook App</li>
-  <li>Click the ‘upload’ button to add the downloaded notebook to Jupyter</li>
-  <li>Adjust the <code class="highlighter-rouge">DB_URL</code> at the beginning of the notebook to point at your Home Assistant database</li>
-  <li>Select in top menu: Cell -&gt; Run All</li>
-</ul>
-
-<p>That’s it! The included code will walk you through importing the required libraries, show running raw SQL against your local database, plotting basic data from the states table, and in the end output a few plots of changes for every entity in your system as well as the mean daily value for the past 20 days.</p>
-
-<p>After just those few steps, you will be greeted with beautiful formatted data like this:</p>
-
-<p class="img">
-<img src="https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png" />
-One of the graphs created with this tutorial.
-</p>
-
-<h4><a class="title-link" name="whats-next" href="#whats-next"></a> What’s next?</h4>
-
-<p>Thanks to the magic of Jupyter, all of the code is customizable: want to selectively display your data, only covering a specific entity? Sure thing! Want to change the properties of the plots? No problem!</p>
-
-<p>While you learn and explore your IoT data, we will be working on providing more ready-to-use Jupyter Notebooks. Feel free to ask questions or provide suggestions. Would you like to see a specific visualization? Is there a particular facet of data you’re interested in? Let’s talk about it, let’s dive into the world of data together!</p>
 ]]></content>
   </entry>
   

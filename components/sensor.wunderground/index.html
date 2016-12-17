@@ -150,6 +150,7 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
 <ul>
   <li><strong>api_key</strong> (Required): See above.</li>
   <li><strong>pws_id</strong> (Optional): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available <a href="https://www.wunderground.com/weatherstation/ListStations.asp">here</a>. If you do not enter a PWS ID, the current location information (latitude and longitude) from your <code class="highlighter-rouge">configuration.yaml</code> will be used to display weather conditions.</li>
+  <li><strong>lang</strong> (Optional): Specify the language that the API returns. The current list of all Wunderground language codes is available <a href="https://www.wunderground.com/weather/api/d/docs?d=language-support">here</a>. If not specified, it defaults to English (EN).</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend. The following conditions can be monitored.
     <ul>
       <li><strong>alerts</strong>: Current severe weather advisories</li>
@@ -254,6 +255,9 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
         </li>
         <li>
             <a href='/components/sensor.yweather/'>Yahoo Weather</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zamg/'>ZAMG Sensor</a>
         </li>
     </ul>
     </div>

@@ -130,8 +130,8 @@
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The name to assign the player</li>
   <li><strong>children</strong> (<em>Required</em>): Ordered list of child media players this entity will control</li>
-  <li><strong>commands</strong> (<em>Optional</em>): Commands to be overwritten. Possible entries are <em>turn_on</em>, <em>turn_off</em>, <em>volume_up</em>, <em>volume_down</em>, and <em>volume_mute</em>.</li>
-  <li><strong>attributes</strong> (<em>Optional</em>): Attributes that can be overwritten. Possible entries are <em>is_volume_muted</em> and <em>state</em>. The values should be an entity id and state attribute separated by a bar (|). If the entity id’s state should be used, then only the entity id should be provided.</li>
+  <li><strong>commands</strong> (<em>Optional</em>): Commands to be overwritten. Possible entries are <em>turn_on</em>, <em>turn_off</em>, <em>select_source</em>, <em>volume_set</em>, <em>volume_up</em>, <em>volume_down</em>, and <em>volume_mute</em>.</li>
+  <li><strong>attributes</strong> (<em>Optional</em>): Attributes that can be overwritten. Possible entries are <em>is_volume_muted</em>, <em>state</em>, <em>source</em>, <em>source_list, and *volume_level</em>. The values should be an entity id and state attribute separated by a bar (|). If the entity id’s state should be used, then only the entity id should be provided.</li>
 </ul>
 
 <p>The universal media player will primarily imitate one of its <em>children</em>. The first child in the list that is active (not idle/off) will be controlled the universal media player. The universal media player will also inherit its state from the first active child. Entities in the <em>children</em> list must be media players.</p>
@@ -139,6 +139,8 @@
 <p>It is recommended that the command <em>turn_on</em>, the command <em>turn_off</em>, and the attribute <em>state</em> all be provided together. The <em>state</em> attribute indicates if the Media Player is on or off. If <em>state</em> indicates the media player is off, this status will take precedent over the states of the children. If all the children are idle/off and <em>state</em> is on, the universal media player’s state will be on.</p>
 
 <p>It is also recommended that the command <em>volume_up</em>, the command <em>volume_down</em>, the command <em>volume_mute</em>, and the attribute <em>is_volume_muted</em> all be provided together. The attribute <em>is_volume_muted</em> should return either True or the on state when the volume is muted. The <em>volume_mute</em> service should toggle the mute setting.</p>
+
+<p>When providing <em>select_source</em> as a command, it is recomended to also provide the attributes <em>source</em>, and <em>source_list</em>. The <em>source</em> attribute is the currently select source, while the <em>source_list</em> attribute is a list of all available sources.</p>
 
 <p>Below is an example configuration.</p>
 
@@ -169,13 +171,28 @@
       <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
       <span class="s">data</span><span class="pi">:</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_mute</span>
+    <span class="s">select_source</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.select_source</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.receiver</span>
+        <span class="s">source</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+    <span class="s">volume_set</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.volume_set</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.receiver</span>
+        <span class="s">volume_level</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+
   <span class="s">attributes</span><span class="pi">:</span>
     <span class="s">state</span><span class="pi">:</span> <span class="s">switch.living_room_tv</span>
     <span class="s">is_volume_muted</span><span class="pi">:</span> <span class="s">switch.living_room_mute</span>
+    <span class="s">volume_level</span><span class="pi">:</span> <span class="s">media_player.receiver|volume_level</span>
+    <span class="s">source</span><span class="pi">:</span> <span class="s">media_player.receiver|source</span>
+    <span class="s">source_list</span><span class="pi">:</span> <span class="s">media_player.receiver|source_list</span>
+
 </code></pre>
 </div>
 
-<p>In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The <em>turn_on</em> and <em>turn_off</em> commands will be redirected to the television and the volume commands will be redirected to an audio receiver.</p>
+<p>In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The <em>turn_on</em> and <em>turn_off</em> commands will be redirected to the television and the volume commands will be redirected to an audio receiver. The <em>select_source</em> command will be passed directly to an A/V receiver.</p>
 
 <p>The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the Universal Media player will change to reflect its status.</p>
 
@@ -230,7 +247,7 @@
             <a href='/components/media_player.lg_netcast/'>LG Netcast TV</a>
         </li>
         <li>
-            <a href='/components/media_player.webostv/'>LG WebOS TV</a>
+            <a href='/components/media_player.webostv/'>LG webOS Smart TV</a>
         </li>
         <li>
             <a href='/components/media_player.squeezebox/'>Logitech Squeezebox</a>
@@ -272,6 +289,9 @@
             <a href='/components/media_player.samsungtv/'>Samsung Smart TV</a>
         </li>
         <li>
+            <a href='/components/media_player.aquostv/'>Sharp Aquos TV</a>
+        </li>
+        <li>
             <a href='/components/media_player.snapcast/'>Snapcast</a>
         </li>
         <li>
@@ -285,6 +305,9 @@
         </li>
         <li>
             Universal
+        </li>
+        <li>
+            <a href='/components/media_player.vlc/'>VLC</a>
         </li>
         <li>
             <a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a>

@@ -1,0 +1,350 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hikvision Binary Sensor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions on how to set up Hikvision camera binary sensors within Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.hikvision/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Hikvision Binary Sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.hikvision/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions on how to set up Hikvision camera binary sensors within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Hikvision Binary Sensor">
+    <meta name="twitter:description" content="Instructions on how to set up Hikvision camera binary sensors within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Hikvision Binary Sensor
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The Hikvision Binary Sensor is a platform that parses the event stream of a <a href="http://www.hikvision.com/">Hikvision IP Camera</a> and presents the camera events to Home Assistant as binary sensors with either an “off” or “on” state.</p>
+
+<p>The platform will automatically add all sensors to Home Assistant that are configured within the camera interface to “Notify the surveillance center” as a trigger.  If you would like to hide a sensor type you can do so by either unchecking “Notify the surveillance center” in the camera configuration or by using the “ignored” customize option detailed below.</p>
+
+<p>For example, if you configure a camera with the name “Front Porch” that has motion detection and line crossing events enabled to notify the surveillance center the following binary sensors will be added to Home Assistant:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>binary_sensor.front_porch_motion
+binary_sensor.front_port_line_crossing
+</code></pre>
+</div>
+
+<p>This platform should work with all Hikvision cameras, and has been confirmed to work with the following models:</p>
+<ul>
+  <li>DS-2CD3132-I</li>
+  <li>DS-2CD2232-I5</li>
+  <li>DS-2CD2032-I</li>
+  <li>DS-2CD2142FWD-I</li>
+</ul>
+
+<p>To enable this sensor, the following lines are required in your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hikvision</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">user</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">pass</span>
+</code></pre>
+</div>
+
+<p>Configuration options for a Hikvision Sensor:</p>
+
+<ul>
+  <li><strong>name</strong> (<em>Optional</em>): The name you’d like to give the camera in Home Assistant, defaults to name defined in the camera.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of the camera you would like to connect to.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port to connect to the camera on, defaults to 80.</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): True if you want to connect with https. Be sure to set the port also.</li>
+  <li><strong>username</strong> (<em>Required</em>): The username to authenticate with.</li>
+  <li><strong>password</strong> (<em>Required</em>): The password to authenticate with.</li>
+  <li><strong>customize</strong> (<em>Optional</em>): This attribute contains sensor-specific override values. Only sensor name needs defined:
+    <ul>
+      <li><strong>ignored</strong> (<em>Optional</em>): Ignore this sensor completely. It won’t be shown in the Web Interface and no events are generated for it.</li>
+      <li><strong>delay</strong> (<em>Optional</em>): Specify the delay to wait after a sensor event ends before notifying Home Assistant. This is useful to catch multiple quick trips in one window without the state toggling on and off.  The default delay is 5 seconds.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Supported sensor/event types are:</p>
+<ul>
+  <li>Motion</li>
+  <li>IO Trigger</li>
+  <li>Line Crossing</li>
+  <li>Field Detection</li>
+  <li>Video Loss</li>
+  <li>Tamper Detection</li>
+  <li>Shelter Alarm</li>
+  <li>Disk Full</li>
+  <li>Disk Error</li>
+  <li>Net Interface Broken</li>
+  <li>IP Conflict</li>
+  <li>Illegal Access</li>
+  <li>Video Mismatch</li>
+  <li>Bad Video</li>
+  <li>PIR Alarm</li>
+  <li>Face Detection</li>
+</ul>
+
+<p>Example of a configuration in your <code class="highlighter-rouge">configuration.yaml</code> that utilizes the customize options:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hikvision</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.X.X</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">80</span>
+  <span class="s">ssl</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">user</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">pass</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">sensor_name_1</span><span class="pi">:</span>
+      <span class="s">delay</span><span class="pi">:</span> <span class="s">30</span>
+    <span class="s">sensor_name_2</span><span class="pi">:</span>
+      <span class="s">ignored</span><span class="pi">:</span> <span class="s">True</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/binary_sensor.hikvision.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/hikvision.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
+    Introduced in release: 0.35
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/binary_sensor/'>the Binary Sensor component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/switch.hikvision/'>
+          Hikvision Camera Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Binary Sensor</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/binary_sensor.apcupsd/'>APCUPSd Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bloomsky/'>BloomSky Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.concord232/'>Concord232 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.envisalink/'>Envisalink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ffmpeg/'>FFmpeg Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.flic/'>Flic Smart Button</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.http/'>HTTP Binary Sensor</a>
+        </li>
+        <li>
+            Hikvision Binary Sensor
+        </li>
+        <li>
+            <a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.isy994/'>ISY994 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.knx/'>KNX Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.modbus/'>Modbus Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mysensors/'>MySensors Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nx584/'>NX584 zones</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nest/'>Nest Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.netatmo/'>Netatmo Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.octoprint/'>OctoPrint Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rest/'>RESTful Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rpi_gpio/'>Raspberry PI GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.sleepiq/'>SleepIQ Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tcp/'>TCP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.template/'>Template Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.threshold/'>Threshold Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.trend/'>Trend Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.vera/'>Vera Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.wink/'>Wink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zwave/'>Z-Wave Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zigbee/'>ZigBee Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.arest/'>aREST Binary Sensor</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

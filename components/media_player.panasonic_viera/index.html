@@ -102,6 +102,8 @@
 
 <p>If your model is not on the list then give it a test, if everything works correctly then add it to the list on <a href="https://github.com/home-assistant/home-assistant.io">GitHub</a>.</p>
 
+<p>Some Panasonic Viera TVs allow Home Assistant to turn them on, if you specify the MAC address with <code class="highlighter-rouge">mac:</code>.</p>
+
 <p>To add a TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -115,7 +117,8 @@
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP of the Panasonic Viera TV, e.g. <code class="highlighter-rouge">192.168.0.10</code>.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port of your Panasonic Viera TV. Defaults to <code class="highlighter-rouge">55000</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port number of your Panasonic Viera TV. Defaults to <code class="highlighter-rouge">55000</code>.</li>
+  <li><strong>mac</strong> (<em>Optional</em>): The MAC address of your Panasonic Viera TV, e.g. <code class="highlighter-rouge">AA:BB:CC:DD:99:1A</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the Panasonic Viera TV.</li>
 </ul>
 
@@ -176,7 +179,7 @@
             <a href='/components/media_player.lg_netcast/'>LG Netcast TV</a>
         </li>
         <li>
-            <a href='/components/media_player.webostv/'>LG WebOS TV</a>
+            <a href='/components/media_player.webostv/'>LG webOS Smart TV</a>
         </li>
         <li>
             <a href='/components/media_player.squeezebox/'>Logitech Squeezebox</a>
@@ -218,6 +221,9 @@
             <a href='/components/media_player.samsungtv/'>Samsung Smart TV</a>
         </li>
         <li>
+            <a href='/components/media_player.aquostv/'>Sharp Aquos TV</a>
+        </li>
+        <li>
             <a href='/components/media_player.snapcast/'>Snapcast</a>
         </li>
         <li>
@@ -231,6 +237,9 @@
         </li>
         <li>
             <a href='/components/media_player.universal/'>Universal</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vlc/'>VLC</a>
         </li>
         <li>
             <a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a>

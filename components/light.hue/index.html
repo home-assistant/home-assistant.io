@@ -113,28 +113,52 @@
   <li><strong>filename</strong> (<em>Optional</em>): Make this unique if specifying multiple Hue hubs.</li>
 </ul>
 
+<h3><a class="title-link" name="using-hue-groups-in-home-assistant" href="#using-hue-groups-in-home-assistant"></a> Using Hue Groups in Home Assistant</h3>
+
+<p>The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be usefull to use Hue Groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaniously.</p>
+
+<p>These Hue Groups can be a <code class="highlighter-rouge">Luminaire</code>, <code class="highlighter-rouge">Lightsource</code>, <code class="highlighter-rouge">LightGroup</code> or <code class="highlighter-rouge">Room</code>. The <code class="highlighter-rouge">Luminaire</code> and <code class="highlighter-rouge">Lightsource</code> can’t be created manually since the Hue bridge manages these automatically based on the discovered bulbs. The <code class="highlighter-rouge">Room</code> and <code class="highlighter-rouge">LightGroup</code> can be created manually trough the API, or the mobile app. A bulb can only exist in one <code class="highlighter-rouge">Room</code>, but can exist in multiple <code class="highlighter-rouge">LightGroup</code>. The <code class="highlighter-rouge">LightGroup</code> can be usefull to link certain bulbs together since.</p>
+
+<p>The 2nd generation Hue app only allows to create a <code class="highlighter-rouge">Room</code>. You need to use the first generation app or the API to create a <code class="highlighter-rouge">LightGroup</code>.</p>
+
+<p>Example:</p>
+
+<p>To create a <code class="highlighter-rouge">LightGroup</code> named <code class="highlighter-rouge">Ceiling lights</code> that contains the lights 1, 2 and 3, execute the following command:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -XPOST -d <span class="s1">'{"name": "Ceiling lights", "lights": ["1", "2", "3"]}'</span> http://&lt;bridge&gt;/api/&lt;username&gt;/groups
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">&lt;username&gt;</code> is the string that is used to register Home Assistant on the bridge, you can find it in the <code class="highlighter-rouge">phue.conf</code> file in your configuration path. <code class="highlighter-rouge">&lt;bridge&gt;</code> is the IP address or hostname of your Hue bridge.</p>
+
+<p>You can find out the ids of your lights by executing the following command:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl http://&lt;bridge&gt;/api/&lt;username&gt;/lights
+</code></pre>
+</div>
+
+<p>Home Assistant will automatically detect your new <code class="highlighter-rouge">LightGroup</code> and add it to the interface.</p>
+
+<p class="note warning">
+  To support Hue Light Groups, your bridge needs to have at least firmware 1.13 (released on June 3, 2016).
+</p>
+
+<p>More information can be found on the <a href="https://www.developers.meethue.com/documentation/groups-api#22_create_group">Philips Hue API documentation</a> website.</p>
+
 <h3><a class="title-link" name="using-hue-scenes-in-home-assistant" href="#using-hue-scenes-in-home-assistant"></a> Using Hue Scenes in Home Assistant</h3>
 
-<p>The Hue platform has it’s own concept of Scenes for setting the colors
-of a group of lights at once. Hue Scenes are very cheap, get created
-by all kinds of apps (as it is the only way to have 2 or more lights
-change at the same time), and are rarely deleted. A typical Hue hub
-might have hundreds of scenes stored in them, many that you’ve never
-used, almost all very poorly named.</p>
+<p>The Hue platform has it’s own concept of Scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you’ve never used, almost all very poorly named.</p>
 
-<p>To avoid user interface overload we don’t expose Scenes
-directly. Instead there is a
-[light.hue_activate_scene]/(/components/light/#service-lighthue_activate_scene)
-service which can be used by <code class="highlighter-rouge">automation</code> or <code class="highlighter-rouge">script</code> components. For
+<p>To avoid user interface overload we don’t expose Scenes directly. Instead there is a <a href="/components/light/#service-lighthue_activate_scene">light.hue_activate_scene</a> service which can be used by <code class="highlighter-rouge">automation</code> or <code class="highlighter-rouge">script</code> components. For
 instance:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>script:
-  porch_on:
-    sequence:
-      - service: light.hue_activate_scene
-        data:
-          group_name: "Porch"
-          scene_name: "Porch Orange"
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">porch_on</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.hue_activate_scene</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">group_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Porch"</span>
+          <span class="s">scene_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Porch</span><span class="nv"> </span><span class="s">Orange"</span>
 </code></pre>
 </div>
 
@@ -142,30 +166,18 @@ instance:</p>
 
 <p>How do you find these names?</p>
 
-<p>The easiest way to do this is only use the scenes from the 2nd
-generation Hue app. That is organized by Room (Group) and Scene
-Name. Use the values of Room name and Scene name that you see in the
-app. You can test these work on the <code class="highlighter-rouge">dev-service</code> console of your Home
-Assistant instance.</p>
+<p>The easiest way to do this is only use the scenes from the 2nd generation Hue app. That is organized by Room (Group) and Scene
+Name. Use the values of Room name and Scene name that you see in the app. You can test these work on the <code class="highlighter-rouge">dev-service</code> console of your Home Assistant instance.</p>
 
-<p>Alternatively, you can dump all rooms and scene names using this
-<a href="https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578">gist</a>. This
-does <strong>not</strong> tell you which groups and scenes work together but it’s
-sufficient to get values that you can test in the <code class="highlighter-rouge">dev-service</code> console.</p>
+<p>Alternatively, you can dump all rooms and scene names using this <a href="https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578">gist</a>. This does <strong>not</strong> tell you which groups and scenes work together but it’s sufficient to get values that you can test in the <code class="highlighter-rouge">dev-service</code> console.</p>
 
 <p><em>** Caveats **</em></p>
 
-<p>The Hue API doesn’t activate Scenes directly, only on a Hue Group
-(typically Rooms, especially if using the 2nd gen app). But Hue Scenes
-don’t actually reference their group. So heuristic matching is used.</p>
+<p>The Hue API doesn’t activate Scenes directly, only on a Hue Group (typically Rooms, especially if using the 2nd gen app). But Hue Scenes don’t actually reference their group. So heuristic matching is used.</p>
 
-<p>Neither Group names or Scene names are guaranteed unique in Hue. If
-you are getting non deterministic behavior, adjust your Hue scenes via
-the App to be more identifying.</p>
+<p>Neither Group names or Scene names are guaranteed unique in Hue. If you are getting non deterministic behavior, adjust your Hue scenes via the App to be more identifying.</p>
 
-<p>The Hue hub has limitted spaces for Scenes, and will delete Scenes if
-new ones get created that would overflow that space. The API docs say
-this is based on Least Recently Used.</p>
+<p>The Hue hub has limitted spaces for Scenes, and will delete Scenes if new ones get created that would overflow that space. The API docs say this is based on Least Recently Used.</p>
 
 
 </article>

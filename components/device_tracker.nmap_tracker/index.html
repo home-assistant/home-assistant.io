@@ -111,6 +111,7 @@
   <li><strong>hosts</strong> (<em>Required</em>): The network address to scan (in any supported NMap format). Mixing subnets and IPs is possible.</li>
   <li><strong>home_interval</strong> (<em>Optional</em>): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.</li>
   <li><strong>exclude</strong> (<em>Optional</em>): Hosts not to include in nmap scanning.</li>
+  <li><strong>scan_options</strong> (<em>Optional</em>): Configurable scan options for nmap. Default to <code class="highlighter-rouge">-F --host-timeout 5s</code></li>
 </ul>
 
 <p>A full example for the <code class="highlighter-rouge">nmap</code> tracker could look like the following sample:</p>
@@ -135,6 +136,20 @@
       <span class="pi">-</span> <span class="s">192.168.1.1/24</span>
       <span class="pi">-</span> <span class="s">10.0.0.2</span>
       <span class="pi">-</span> <span class="s">10.0.0.15</span>
+</code></pre>
+</div>
+
+<p>An example of how the Nmap scanner can be customized:</p>
+
+<p>Add the capabilities to Nmap. Be sure to specify the full path to wherever you installed Nmap:</p>
+
+<p><code class="highlighter-rouge">sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
+</code></p>
+
+<p>And you can set up the device tracker as</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
+  <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.1-25</span>
+  <span class="s">scan_options</span><span class="pi">:</span> <span class="s2">"</span><span class="nv"> </span><span class="s">--privileged</span><span class="nv"> </span><span class="s">-sP</span><span class="nv"> </span><span class="s">"</span>
 </code></pre>
 </div>
 

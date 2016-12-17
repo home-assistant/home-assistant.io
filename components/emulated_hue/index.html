@@ -91,7 +91,8 @@
   
 
   <p>The <code class="highlighter-rouge">emulated_hue</code> component provides a virtual Philips Hue bridge, written entirely in software, that allows services that work with the Hue API to interact with Home Assistant
-entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo with no set up cost outside of configuration changes.</p>
+entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no set up cost outside of configuration changes.
+The virtual bridge has the ability to turn entities on or off, or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.</p>
 
 <p class="note">
   It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won’t be able to control it. This is easiest done from your router, see your router’s manual for details.

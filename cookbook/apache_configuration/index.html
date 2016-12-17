@@ -111,6 +111,8 @@ Your home assistant is correctly working on this web server and available at loc
   ProxyPreserveHost On
   ProxyRequests Off
   ServerName home.example.org
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket
+  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
   ProxyPass / http://localhost:8123/
   ProxyPassReverse / http://localhost:8123/
 &lt;/VirtualHost&gt;
@@ -156,6 +158,8 @@ The configuration file for this home assistant is available in <code class="high
   ProxyPreserveHost On
   ProxyRequests Off
   ServerName countryside.example.org
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket
+  ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
   ProxyPass / http://localhost:8124/
   ProxyPassReverse / http://localhost:8124/
 &lt;/VirtualHost&gt;

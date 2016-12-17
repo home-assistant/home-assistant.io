@@ -83,6 +83,109 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/02/12/classifying-the-internet-of-things/">Classifying the Internet of Things</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-02-12T06:31:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 12, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> seven minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Internet-of-Things</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/02/12/classifying-the-internet-of-things/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>The core of home automation is knowing what’s going on. The faster we know about a state change, the better we can serve the user. If you want to have your lights to turn on when you arrive at home, it doesn’t help if it only knows about it after you’ve already opened the door and manually (!!) turned on the light.</p>
+
+<p>Each smart device consists of the ‘normal’ device and the piece that makes it ‘smart’: the connectivity. The connectivity part of a device can consists of either control, state or both.</p>
+
+<p>State describes what a device is up to right now. For example, a light can be on with a red color and a medium brightness.</p>
+
+<p>Control is about controlling the smart device by sending commands via an API. These commands can vary from configuring how a device works till mimicking how a user would interact with a device. A media player can allow skipping to the next track and a sensor could allow to configure its sensitivity or polling interval.</p>
+
+<p>The Home Assistant APIs are setup to be as convenient as possible. However, a network is always as weak as it’s weakest link. In our case these are the integrations. Take for example controlling a light that does not report state. The only state Home Assistant can report on after sending a command is the assumed state: what do we expect the state of the light to be if the command worked.</p>
+
+<p>We want our users to get the best home automation experience out there and this starts with making sure they have devices that work well with Home Assistant. That’s why we will start applying the following classifiers to our integrations:</p>
+
+<p><a name="classifiers"></a></p>
+<table>
+  <tr>
+    <th colspan="2">Classifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><i class="icon-adjust"></i></td>
+    <td style="white-space: nowrap;">Assumed State</td>
+    <td>
+      We are unable to get the state of the device. Best we can do is to assume the state based on our last command.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-cloud-upload"></i></td>
+    <td>Cloud Polling</td>
+    <td>
+      Integration of this device happens via the cloud and requires an active internet connection. Polling the state means that an update might be noticed later.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-cloud-download"></i></td>
+    <td>Cloud Push</td>
+    <td>
+      Integration of this device happens via the cloud and requires an active internet connection. Home Assistant will be notified as soon as a new state is available.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-download-alt"></i></td>
+    <td>Local Polling</td>
+    <td>
+      Offers direct communication with device. Polling the state means that an update might be noticed later.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-upload-alt"></i></td>
+    <td>Local Push</td>
+    <td>
+      Offers direct communication with device. Home Assistant will be notified as soon as a new state is available.
+    </td>
+  </tr>
+</table>
+
+<p>The background to how we got to these classifiers can be read after the break.</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/02/12/classifying-the-internet-of-things/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/">Smarter SmartThings with MQTT and Home Assistant</a>
   </h1>
   
@@ -597,67 +700,6 @@ The <a href="https://influxdb.com/">InfluxDB</a> database is a so-called time se
 
     
       <a class="btn pull-right" href="/blog/2015/12/07/influxdb-and-grafana/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2015/12/06/locks-rollershutters-binary-sensors-and-influxdb-support/">0.9: Rollershutters, locks, binary sensors and InfluxDB</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2015-12-06T19:29:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 6, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> Less than one minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2015/12/06/locks-rollershutters-binary-sensors-and-influxdb-support/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>It’s been a few weeks but we managed to polish a nice new release of Home Assistant for y’all!</p>
-
-<p><img src="/images/supported_brands/homematic.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="238" /><img src="/images/supported_brands/ecobee.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="238" /><img src="/images/supported_brands/influxdb.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="238" /></p>
-
-<ul>
-  <li>New <a href="/components/lock/">lock component</a> including <a href="/components/lock.wink/">Wink</a> support (<a href="https://github.com/miniconfig">@miniconfig</a>)</li>
-  <li>New <a href="/components/binary_sensor/">binary sensor component</a> including <a href="/components/binary_sensor.arest/">aRest</a> and <a href="/components/binary_sensor.mqtt/">MQTT</a> support (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>New <a href="/components/rollershutter/">rollershutter component</a> including <a href="/components/rollershutter.mqtt/">MQTT</a> support (<a href="https://github.com/sfam">@sfam</a>)</li>
-  <li>New <a href="/components/influxdb/">InfluxDB component</a> to store data in InfluxDB (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.ecobee/">Ecobee</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.homematic/">Homematic</a> now supported (<a href="https://github.com/goir">@goir</a>)</li>
-  <li>Support for <a href="/components/mqtt/#processing-json">parsing JSON values</a> received over MQTT (<a href="https://github.com/mcdeck">@mcdeck</a>)</li>
-  <li>Bunch of bug fixes and optimizations</li>
-</ul>
-
-<p>To update, run <code class="highlighter-rouge">pip3 install --upgrade homeassistant</code>.</p>
-
-<p class="img">
-<img src="/images/screenshots/lock-and-rollershutter-card.png" />
-</p>
-
-
     
   </div>
   </article>
