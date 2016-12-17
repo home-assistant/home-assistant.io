@@ -46,14 +46,16 @@ The 2nd generation Hue app only allows to create a `Room`. You need to use the f
 Example:
 
 To create a `LightGroup` named `Ceiling lights` that contains the lights 1, 2 and 3, execute the following command:
-```shell
+
+```bash
 $ curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
 ```
 
 The `<username>` is the string that is used to register Home Assistant on the bridge, you can find it in the `phue.conf` file in your configuration path. `<bridge>` is the IP address or hostname of your Hue bridge.
 
 You can find out the ids of your lights by executing the following command:
-```shell
+
+```bash
 $ curl http://<bridge>/api/<username>/lights
 ```
 
@@ -68,17 +70,9 @@ More information can be found on the [Philips Hue API documentation](https://www
 
 ### {% linkable_title Using Hue Scenes in Home Assistant %}
 
-The Hue platform has it's own concept of Scenes for setting the colors
-of a group of lights at once. Hue Scenes are very cheap, get created
-by all kinds of apps (as it is the only way to have 2 or more lights
-change at the same time), and are rarely deleted. A typical Hue hub
-might have hundreds of scenes stored in them, many that you've never
-used, almost all very poorly named.
+The Hue platform has it's own concept of Scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you've never used, almost all very poorly named.
 
-To avoid user interface overload we don't expose Scenes
-directly. Instead there is a
-[light.hue_activate_scene](/components/light/#service-lighthue_activate_scene)
-service which can be used by `automation` or `script` components. For
+To avoid user interface overload we don't expose Scenes directly. Instead there is a [light.hue_activate_scene](/components/light/#service-lighthue_activate_scene) service which can be used by `automation` or `script` components. For
 instance:
 
 ```yaml
@@ -95,27 +89,15 @@ script:
 
 How do you find these names?
 
-The easiest way to do this is only use the scenes from the 2nd
-generation Hue app. That is organized by Room (Group) and Scene
-Name. Use the values of Room name and Scene name that you see in the
-app. You can test these work on the `dev-service` console of your Home
-Assistant instance.
+The easiest way to do this is only use the scenes from the 2nd generation Hue app. That is organized by Room (Group) and Scene
+Name. Use the values of Room name and Scene name that you see in the app. You can test these work on the `dev-service` console of your Home Assistant instance.
 
-Alternatively, you can dump all rooms and scene names using this
-[gist](https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578). This
-does **not** tell you which groups and scenes work together but it's
-sufficient to get values that you can test in the `dev-service` console.
+Alternatively, you can dump all rooms and scene names using this [gist](https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578). This does **not** tell you which groups and scenes work together but it's sufficient to get values that you can test in the `dev-service` console.
 
 *** Caveats ***
 
-The Hue API doesn't activate Scenes directly, only on a Hue Group
-(typically Rooms, especially if using the 2nd gen app). But Hue Scenes
-don't actually reference their group. So heuristic matching is used.
+The Hue API doesn't activate Scenes directly, only on a Hue Group (typically Rooms, especially if using the 2nd gen app). But Hue Scenes don't actually reference their group. So heuristic matching is used.
 
-Neither Group names or Scene names are guarunteed unique in Hue. If
-you are getting non deterministic behavior, adjust your Hue scenes via
-the App to be more identifying.
+Neither Group names or Scene names are guaranteed unique in Hue. If you are getting non deterministic behavior, adjust your Hue scenes via the App to be more identifying.
 
-The Hue hub has limitted spaces for Scenes, and will delete Scenes if
-new ones get created that would overflow that space. The API docs say
-this is based on Least Recently Used.
+The Hue hub has limitted spaces for Scenes, and will delete Scenes if new ones get created that would overflow that space. The API docs say this is based on Least Recently Used.

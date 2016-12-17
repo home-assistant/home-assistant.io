@@ -7,17 +7,15 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-regenerate: true
-hide_github_edit: true
 ---
 
 Installation can be performed using Docker (Contributed by [marijngiesen](https://github.com/marijngiesen)) or manually if Docker doesn't work for you. We also have a Raspberry PI version of Docker contributed by [snizzleorg](https://community.home-assistant.io/users/snizzleorg/activity)
 
-## Using Docker (Non Raspian)
+## {% linkable_title Using Docker (Non Raspian) %}
 
 Assuming you already have Docker installed, installation is fairly easy.
 
-### Clone the Repository
+### {% linkable_title  Clone the Repository %}
 Clone the **hadashboard** repository to the current local directory on your machine.
 
 ``` bash
@@ -30,7 +28,7 @@ Change your working directory to the repository root. Moving forward, we will be
 $ cd hadashboard
 ```
 
-### Build the docker image
+### {% linkable_title Build the docker image %}
 
 ```bash
 $ docker build -t hadashboard .
@@ -52,12 +50,11 @@ This will use all of the same configuration files as specified below in the conf
 
 By default, the docker instance should pick up your timezone but if you want to explicitly set it you can add an environment variable for your specific zone as follows:
 
-```
+```bash
  -e "TZ=Europe/Amsterdam"
 ```
 
-
-### Docker on Raspberry Pi
+### {% linkable_title Docker on Raspberry Pi %}
 
 Raspberry pi needs to use a different docker build file so the build command is slightly different:
 
@@ -69,9 +66,9 @@ Apart from that the other steps are identical.
 
 *Note - this is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything*
 
-## Manual Installation
+## {% linkable_title Manual Installation %}
 
-### Clone the Repository
+### {% linkable_title Clone the Repository %}
 Clone the **hadashboard** repository to the current local directory on your machine.
 
 ``` bash
@@ -84,7 +81,7 @@ Change your working directory to the repository root. Moving forward, we will be
 $ cd hadashboard
 ```
 
-### 2. Install Dashing and prereqs
+### {% linkable_title 2. Install Dashing and prereqs %}
 
 Essentially, you want to make sure that you have Ruby installed on your local machine. Then, install the Dashing gem:
 
@@ -118,7 +115,7 @@ You will need to research what works on your particular architecture and also be
 
 Note: This is currently running on various versions of Ruby and there are no strong dependencies however your mileage may vary.
 
-## Updating configuration (Manual and Docker)
+## {% linkable_title Updating configuration (Manual and Docker) %}
 
 Next, in the `./lib` directory, copy the ha_conf.rb.example file to ha_conf.rb and edit its settings to reflect your installation, pointing to the machine Home Assistant is running on and adding your api_key.
 
@@ -143,8 +140,9 @@ You can leave these alone for now or if you prefer customize them as described i
 
 When you are done, you can start a local webserver like this or if you are on docker it should start when you start the container.
 
-``` bash
+```bash
 $ dashing start
 ```
 
 Point your browser to **http://localhost:3030** to access the hadashboard on your local machine.and you should see the supplied default dashboard. If you want to access it remotely ensure you have opened any required firewall rules. 
+

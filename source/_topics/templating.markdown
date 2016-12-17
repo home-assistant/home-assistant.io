@@ -44,13 +44,12 @@ script:
   msg_who_is_home:
     sequence:
       - service: notify.notify
-        data_template:
-          message: >
-            {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
-              Ha, Paulus is home!
-            {% else %}
-              Paulus is at {{ states('device_tracker.paulus') }}.
-            {% endif %}{% endraw %}
+        message: >
+          {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
+            Ha, Paulus is home!
+          {% else %}
+            Paulus is at {{ states('device_tracker.paulus') }}.
+          {% endif %}{% endraw %}
 ```
 
 [Jinja2](http://jinja.pocoo.org/) supports a width variety of operations:
@@ -132,7 +131,7 @@ Print out a list of all the sensor states.
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
-{{ as_timestamp(now) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}{% endraw %}
+{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}{% endraw %}
 ```
 
 ### {% linkable_title Distance examples %}

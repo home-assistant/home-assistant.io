@@ -18,7 +18,7 @@ To add this platform to your installation, add the following to your `configurat
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+switch:
   - platform: mfi
     host: IP_ADDRESS
     username: USERNAME

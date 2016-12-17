@@ -41,7 +41,7 @@ automation:
     entity_id: binary_sensor.motion_garage
     to: 'on'
   condition:
-    platform: state
+    condition: state
     entity_id: input_boolean.notify_home
     state: 'on'
   action:
@@ -49,4 +49,12 @@ automation:
     data:
       title: ""
       message: "Honey, I'm home!"
+```
+
+You can also set or change the status of an `input_boolean` by using `input_boolean.turn_on` and `input_boolean.turn_off` in your automations.
+
+```yaml
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.notify_home
 ```

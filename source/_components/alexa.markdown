@@ -290,7 +290,7 @@ First create a file called `alexa_confirm.yaml` with something like the followin
           ] | random }} {% endraw %}
 ```
 
-Then, wherever you would but some simple text for a response like`OK`, replace it with a reference to the file so that:
+Then, wherever you would put some simple text for a response like `OK`, replace it with a reference to the file so that:
 
 ```
 text: OK

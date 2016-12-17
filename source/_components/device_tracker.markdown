@@ -49,7 +49,7 @@ device_tracker:
     track_new_devices: yes
 ```
 
-Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/) and [Nmap](/components/device_tracker.nmap_tracker/). The state of the device will be determined by the source that reported last.
+Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/device_tracker.nmap_tracker/). The state of the device will be determined by the source that reported last.
 
 # {% linkable_title `known_devices.yaml` %}
 

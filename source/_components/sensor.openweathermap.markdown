@@ -26,13 +26,6 @@ sensor:
     api_key: YOUR_API_KEY
     monitored_conditions:
       - weather
-      - temperature
-      - wind_speed
-      - humidity
-      - pressure
-      - clouds
-      - rain
-      - snow
 ```
 
 Configuration variables:
@@ -53,5 +46,4 @@ Configuration variables:
 Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).
 
 Only metric measurements are supported at the moment.
-
 

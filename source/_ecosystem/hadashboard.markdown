@@ -7,8 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-regenerate: true
-hide_github_edit: true
 ---
 
 HADashboard is a dashboard for [Home Assistant](https://home-assistant.io/) that is intended to be wall mounted, and is optimized for distance viewing.
