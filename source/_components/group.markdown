@@ -23,6 +23,7 @@ group:
   default_view:
     view: yes
     entities:
+      - group.kitchen
       - group.awesome_people
       - group.climate
   kitchen:
@@ -38,11 +39,26 @@ group:
       - camera.demo_camera
       - device_tracker.demo_paulus
       - group.garden
+  climate:
+    name: Climate
+    view: no
+    entities:
+      - sensor.bedroom_temp
+      - sensor.porch_temp
+      - sensor.bathroom_humidity
+  awesome_people:
+    name: Awesome People
+    view: no
+    entities:
+      - device_tracker.dad_smith
+      - device_tracker.mom_smith
+      - device_tracker.dog_smith
+      
 ```
 
 Configuration variables:
 
-- **view** (*Optional*): If yes then the entry will be shown as a view (tab).
+- **view** (*Optional*): If yes then the entry will be shown as a view (tab) at the top.
 - **name** (*Optional*): Name of the group.
 - **icon** (*Optional*): If the group is a view, this icon will show at the top in the frontend instead of the name. If it's not a view, then the icon shows when this group is used in another group.
 - **entities** (*Required*): array or comma delimited string, list of entities to group.
