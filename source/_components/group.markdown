@@ -15,7 +15,7 @@ Groups allow the user to combine multiple entities into one. A group can be prom
 
 Check the **Set State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
 
-By default, every group appears in the HOME tab. If you name a group `default_view` it will REPLACE the contents of the HOME tab so you can customize it as you wish.
+By default, every group appears in the HOME tab. If you create a group `default_view` it will REPLACE the contents of the HOME tab so you can customize the HOME tab as you wish.
 
 ```yaml
 # Example configuration.yaml entry
