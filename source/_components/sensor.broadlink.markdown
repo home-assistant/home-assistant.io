@@ -9,12 +9,26 @@ sharing: true
 footer: true
 logo: broadlink.png
 ha_category: Sensor
-ha_release: 0.34
+ha_release: 0.35
 ---
 
 
 The `broadlink` sensor platform let you monitor data from an RM2 and A1 E-air.
 There is currently no support for the cloud API.
+
+
+Configuration options:
+- **name** (*Optional*): Default BL. Sensor name
+- **update_interval** (*Optional*): Default 300. Time in seconds to fetch data from sensors
+- **host** (*Required*): The hostname/IP address to connect to.
+- **mac** (*Required*):  Device mac address.
+- **timeout** (*Optional*): Timeout in seconds for the connection to the device
+- **monitored_conditions** array (*Required*): States to monitor.
+    - 'temperature'
+    - 'humidity'
+    - 'air_quality'
+    - 'light'
+    - 'noise'
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -43,16 +57,3 @@ sensor:
     monitored_conditions:
       - temperature
 ```
-
-Configuration options:
-- **name** (*Optional*): Default BL. Sensor name
-- **update_interval** (*Optional*): Default 300. Time in seconds to fetch data from sensors
-- **host** (*Required*): The hostname/IP address to connect to.
-- **mac** (*Required*):  Device mac address.
-- **monitored_conditions** array (*Required*): States to monitor.
-    - 'temperature'
-    - 'humidity'
-    - 'air_quality'
-    - 'light'
-    - 'noise'
-

@@ -29,6 +29,8 @@ scene:
         state: on
         brightness: 100
       light.ceiling: off
+      media_player.sony_bravia_tv:
+        source: HDMI 1
 ```
 
 Configuration variables:

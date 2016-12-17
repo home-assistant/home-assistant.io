@@ -34,7 +34,7 @@ Configuration variables:
 - **target_temp** (*Optional*): Set initial target temperature. Failure to set this variable will result in target temperature being set to null on startup.
 - **ac_mode** (*Optional*): Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
 - **min_cycle_duration** (*Optional*): Set a minimum amount of time that the switch specified in the *heater* option must be in it's current state prior to being switched either off or on.
-- **tolerance** (*Optional*): Set a minimum amount of temperature change that the sensor specified in the *target_sensor* option must change prior to being switched either off or on.
+- **tolerance** (*Optional*): Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched either off or on. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will start when the sensor goes below 24.5 and it will stop when the sensor goes above 25.5.
 
 A full configuration example looks like the one below. `min_cycle_duration` must contains at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
 

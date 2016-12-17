@@ -9,7 +9,9 @@ sharing: true
 footer: true
 ---
 
-(Not necessary if you are using Docker)
+# Installing hapush (Manual install only)
+
+This is not necessary if you are using Docker as it is already installed. 
 
 When you have the dashboard correctly displaying and interacting with Home Assistant you are ready to install the final component - `hapush`. Without `hapush` the dashboard would not respond to events that happen outside of the hadashboard system. For instance, if someone uses the Home Assistant interface to turn on a light, or even another App or physical switch, there is no way for the Dashboard to reflect this change. This is where `hapush` comes in.
 

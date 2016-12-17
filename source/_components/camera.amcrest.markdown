@@ -32,4 +32,5 @@ Configuration variables:
 - **password** (*Required*): The password for accessing your camera.
 - **name** (*Optional*): This parameter allows you to override the name of your camera. The default is "Amcrest Camera".
 - **port** (*Optional*): The port that the camera is running on. The default is 80.
+- **resolution** (*Optional*): This parameter allows you to specify the camera resolution. For a high resolution (1080/720p), specify the option `high`. For VGA resolution (640x480p), specify the option `low`. If omitted, it defaults to *high*.
 
