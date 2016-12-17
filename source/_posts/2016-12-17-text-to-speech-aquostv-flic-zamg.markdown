@@ -15,26 +15,24 @@ og_image: /images/blog/2016-12-0.35/social.png
 
 This will be the last release of 2016 as our developers are taking a well deserved break. We will be back in 2017!
 
-## Text to Speech
-
+## {% linkable_title Text to Speech %}
 With the addition of a [text-to-speech][tts] component by [@pvizeli] we have been able to bring Home Assistant to a whole new level. The text-to-speech component will take in any text and will play it on a media player that supports to play media. We have tested this on Sonos, Chromecast, and Google Home.
 
 https://www.youtube.com/watch?v=Ke0QuoJ4tRM
 
-## Call for help with HASSbian (our Raspberry Pi image)
-
+## {% linkable_title Call for help with HASSbian (our Raspberry Pi image) %}
 In an effort to make Home Assistant, we're planning to extend the things that people can do out of the box with HASSbian, our Raspberry Pi image. As you might know, the image is currently maintained by [@Landrash]. However he also spends a lot of time on improving the docs and helping out with a ton of other things.
 
 So if you know your Linux-foo and would love to contribute to open source, join the [Hassbian developer chat](https://gitter.im/home-assistant/hassbian) and take a stab at one of [our open issues](https://github.com/home-assistant/pi-gen/issues).
 
-## VLC media player, Broadlink, and GPSLogger
+## {% linkable_title VLC media player, Broadlink, and GPSLogger %}
 Let you control [VLC media player][vlc-media] and  play sound on connected speakers.
 
 This Broadlink [switch][bl-switch] platform allow to you control Broadlink RM2 Pro and RM mini IR+RF devices. This Broadlink [sensor][bl-sensor] platform adds support for Broadlink RM2 and A1 Devices.
 
 The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) now also supports attributes as the speed, direction, altitude, provider, and activity.
 
-## All changes
+## {% linkable_title All changes %}
 - Media player: Support for Sharp [AquaosTV][aquostv] ([@titilambert])
 - Media player: [VLC][vlc-media] support ([@Danielhiversen])
 - Switch: Digital Loggers relay([@dethpickle])
@@ -64,10 +62,10 @@ The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) 
 - Media player - Kodi: Authentification fixed and fan art ([@balloob], [@joopert])
 - Minor and not so minor features and bug fixes by [@pvizeli], [@jminn], [@magicus], [@teodoc], [@fabaff], [@technicalpickles], [@balloob], [@lukas-hetzenecker], [@rubund], [@dasos], [@trisk], [@armills], [@auduny], [@lwis], [@nkgilley], [@janLo], [@keatontaylor], [@stefan-jonasson], [@Jypy], [@jawilson], [@DavidLP], [@molobrakos], [@jabesq], [@joerocklin], [@kellerza], [@kirichkov], and [@danielperna84].
 
-### If you need help...
+### {% linkable_title  If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-### Reporting Issues
+### {% linkable_title  Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 

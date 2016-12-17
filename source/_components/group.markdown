@@ -45,15 +45,12 @@ group:
     entities:
       - sensor.bedroom_temp
       - sensor.porch_temp
-      - sensor.bathroom_humidity
   awesome_people:
     name: Awesome People
     view: no
     entities:
       - device_tracker.dad_smith
       - device_tracker.mom_smith
-      - device_tracker.dog_smith
-      
 ```
 
 Configuration variables:
