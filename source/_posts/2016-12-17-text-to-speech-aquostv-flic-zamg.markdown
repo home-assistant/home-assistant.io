@@ -11,14 +11,14 @@ categories: Release-Notes
 og_image: /images/blog/2016-12-0.35/social.png
 ---
 
-5000 stars on GitHub, 2000 people in out Gitter chatroom and over a million monthly pageviews. I don't think we could wish for a better place to be at the end of 2016. Feels like an early Christmas present! Our early one for you is 0.35. It's not a single thing inside a nice wrapping, more like several little gifts inside the 0.35 box.
+5000 stars on GitHub, 2000 people in out Gitter chatroom and over a million monthly page views. I don't think we could wish for a better place to be at the end of 2016. Feels like an early Christmas present! Our early one for you is 0.35. It's not a single thing inside a nice wrapping, more like several little gifts inside the 0.35 box.
 
 This will be the last release of 2016 as our developers are taking a well deserved break. We will be back in 2017!
 
 ## {% linkable_title Text to Speech %}
 With the addition of a [text-to-speech][tts] component by [@pvizeli] we have been able to bring Home Assistant to a whole new level. The text-to-speech component will take in any text and will play it on a media player that supports to play media. We have tested this on Sonos, Chromecast, and Google Home.
 
-https://www.youtube.com/watch?v=Ke0QuoJ4tRM
+[https://www.youtube.com/watch?v=Ke0QuoJ4tRM](https://www.youtube.com/watch?v=Ke0QuoJ4tRM)
 
 ## {% linkable_title Call for help with HASSbian (our Raspberry Pi image) %}
 In an effort to make Home Assistant, we're planning to extend the things that people can do out of the box with HASSbian, our Raspberry Pi image. As you might know, the image is currently maintained by [@Landrash]. However he also spends a lot of time on improving the docs and helping out with a ton of other things.
@@ -40,7 +40,7 @@ The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) 
 - Sensor: Support weather conditions from Austrian [ZAMG][zamg] ([@mjl])
 - Verisure: Add Verisure smartcam capture service ([@turbokongen])
 - Binary sensor: [Flic][flic] button support added ([@soldag])
-- Sensor: Support for [SenseHat][sensehat] ([@farminf])
+- Sensor: Support for [Sense HAT][sensehat] ([@farminf])
 - Binary sensor: [Hikvision][hikvision] binary sensor support ([@mezz64])
 - [Text-to-speech][tts] support ([@pvizeli])
 - Sensor: Support for Broadlink [sensors][bl-sensor] ([@Danielhiversen])
