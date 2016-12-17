@@ -63,6 +63,18 @@ Configuration variables:
 - **device** (*Optional*): The device ID. Defaults to `default`.
 - **name** (*Optional*): The friendly name of the device, default is 'Amazon Fire TV'.
 
+### Controlling applications ###
+
+Since recently it is also possible to control applications, which is leveraged by Home Assistant by allowing you to start and stop applications, as well as track their state:
+
+```yaml
+# Example configuration with application tracking
+- platform: firetv
+  name: "My Fire"
+  apps:
+    Netflix:
+      app_id: com.netflix.ninja
+
 
 <p class='note warning'>
 Note that python-firetv has support for multiple Amazon Fire TV devices. If you have more than one configured, be sure to specify the device ID in `device`. Run `firetv-server -h` and/or view the source for complete capabilities.
