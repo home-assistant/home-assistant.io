@@ -18,7 +18,7 @@ This platform enables you to set manual alarms in Home Assistant.
 ```yaml
 # Example configuration.yaml entry
 alarm_control_panel:
-  platform: manual
+  - platform: manual
 ```
 
 Configuration variables:
