@@ -27,6 +27,26 @@ To enable Raspberry Pi Covers in your installation, add the following to your `c
 # Example configuration.yaml entry
 cover:
   platform: rpi_gpio
+  covers:
+    - relay_pin: 10
+      state_pin: 11
+```
+
+Configuration variables:
+
+- **relay_time** (*Optional*): The time that the relay will be on for in seconds. Default is .2 seconds.
+- **state_pull_mode** (*Optional*): The direction the State pin is pulling. It can be UP or DOWN. Default is UP.
+- **covers** array (*Required*): List of your doors.
+  - **relay_pin** (*Required*): The pin of your Raspberry Pi where the relay is connected.
+  - **state_pin** (*Required*): The pin of your Raspberry Pi to retrieve the state.
+  - **name** (*Optional*): Name to use in the frontend.
+
+Full example:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  platform: rpi_gpio
   relay_time: 0.2
   state_pull_mode: 'UP'
   covers:
@@ -37,12 +57,4 @@ cover:
       name: 'Right door'
 ```
 
-Configuration variables:
-
-- **covers** array (*Required*): List of your doors.
-  - **name** (*Optional*): Name to use in the Frontend.
-  - **relay_pin** (*Required*): The pin of your Raspberry Pi where the relay is connected.
-  - **state_pin** (*Required*): The pin of your Raspberry Pi to retrieve the state.
-  - **state_pull_mode** (*Optional*): The direction the State pin is pulling. It can be UP or DOWN. Default is UP.
-  - **relay_time** (*Optional*): The time that the relay will be on for in seconds. Default is .2 seconds.
 
