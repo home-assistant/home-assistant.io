@@ -51,7 +51,7 @@ Owntracks can also be used with other device trackers, such as [Nmap](/component
 An example showing the inclusion of the `mac` field for multiple component tracking. The `mac` field will need to be added to the `owntracks` device and will enable tracking by all components that track via the `mac` address.
 
 ```yaml
-<username>\_<device-id>:
+USERNAME_DEVICE_ID:
   name: Friendly Name
   mac: EA:AA:55:E7:C6:94
   picture: https://home-assistant.io/images/favicon-192x192.png
