@@ -58,7 +58,7 @@ USERNAME_DEVICE_ID:
   gravatar: test@example.com
   track: yes
   hide_if_away: no
-  ```
+```
 
 ### {% linkable_title Using Owntracks regions %}
 Owntracks can track regions, and send region entry and exit information to Home Assistant (HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
