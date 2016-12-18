@@ -51,7 +51,7 @@ Owntracks can also be used with other device trackers, such as [Nmap](/component
 An example showing the inclusion of the `mac` field for multiple component tracking. The `mac` field will need to be added to the `owntracks` device and will enable tracking by all components that track via the `mac` address.
 
 ```yaml
-<username>_<device-id>:
+<username>\_<device-id>:
   name: Friendly Name
   mac: EA:AA:55:E7:C6:94
   picture: https://home-assistant.io/images/favicon-192x192.png
@@ -65,7 +65,7 @@ Owntracks can track regions, and send region entry and exit information to Home 
 
 Home Assistant will use the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.
 
-When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS co-ordinates), you may want to set your Zone radius in HA to be slightly smaller that the Owntracks region radius.
+When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS coordinates), you may want to set your Zone radius in HA to be slightly smaller that the Owntracks region radius.
 
 ### {% linkable_title Using Owntracks regions - forcing Owntracks to update using  %}iBeacons
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
