@@ -72,7 +72,7 @@ class NightLight(appapi.AppDaemon):
 
 To summarize - an App's lifecycle consists of being initialized, which allows it to set one or more state and/or schedule callbacks. When those callbacks are activated, the App will typically use one of the Service Calling calls to effect some change to the devices of the system and then wait for the next relevant state change. That's all there is to it!
 
-## {% linkable_title About the API
+## {% linkable_title About the API %}
 
 The implementation of the API is located in the AppDaemon class that Apps are derived from. The code for the functions is therefore available to the App simply by invoking the name of the function from the object namespace using the `self` keyword, as in the above examples. `self.turn_on()` for example is just a method defined in the parent class and made available to the child. This design decision was made to simplify some of the implementation and hide passing of unnecessary variables during the API invocation.
 
@@ -289,7 +289,7 @@ get_state(entity = None, attribute = None)
 
 `get_state()` returns a `dictionary` or single value, the structure of which varies according to the parameters used.
 
-#### {% linkable_title Parameters
+#### {% linkable_title Parameters %}
 
 All parameters are optional, and if `get_state()` is called with no parameters it will return the entire state of Home Assistant at that given time. This will consist of a dictionary with a key for each entity. Under that key will be the standard entity state information.
 
@@ -450,7 +450,7 @@ The value of the state after the state change.
 
 A dictionary containing any constraints and/or additional user specific keyword arguments supplied to the `listen_state()` call.
 
-### l{% linkable_title isten_state()
+### {% linkable_title listen_state() %}
 
 `listen_state()` allows the user to register a callback for a wide variety of state changes.
 
@@ -1574,7 +1574,7 @@ self.fire_event("MODE_CHANGE", mode = "Day")
 
 Presence in Home Assistant is tracked using Device Trackers. The state of all device trackers can be found using the `get_state()` call, however AppDaemon provides several convenience functions to make this easier.
 
-### {% linkable_title get_trackers()
+### {% linkable_title get_trackers() %}
 
 Return a list of all device trackers. This is designed to be iterated over.
 
