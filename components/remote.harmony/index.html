@@ -142,6 +142,22 @@
 
 <h3><a class="title-link" name="examples" href="#examples"></a> Examples</h3>
 
+<p>A template switch can be used to display and control the state of an activity in the frontend.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">tv</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state('remote.family_room',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">%}on{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}off{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}"</span>
+        <span class="s">turn_on</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">remote.turn_on</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">remote.family_room</span>
+        <span class="s">turn_off</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">remote.turn_off</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">remote.family_room</span>
+</code></pre>
+</div>
+
 <p>Template sensors can be utilized to display current activity in the frontend.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>

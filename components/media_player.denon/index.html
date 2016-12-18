@@ -105,7 +105,7 @@
 
 <p>To add a Denon Network Receiver to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<p>Telnet interface</p>
+<p><strong>Telnet interface</strong></p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">denon</span>
@@ -113,7 +113,23 @@
 </code></pre>
 </div>
 
-<p>denonavr interface</p>
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>host</strong> (<em>Required</em>): IP address of the device. Example: 192.168.1.32</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the device.</li>
+</ul>
+
+<p>A few notes for platform: denon</p>
+<ul>
+  <li>The receiver handles only one telnet connection and refuses others.</li>
+  <li>Be careful with the volume. 100% or even 50% is very loud.</li>
+  <li>To be able to wake up the receiver, activate the “remote” setting in the receiver’s settings.</li>
+  <li>Play and pause are supported, toggling is not possible.</li>
+  <li>Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.</li>
+</ul>
+
+<p><strong>denonavr interface</strong></p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">denonavr</span>
@@ -124,20 +140,15 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): IP address of the device. Example: 192.168.1.32</li>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the device</li>
+  <li><strong>host</strong> (<em>Optional</em>): IP address of the device. Example: 192.168.1.32. If not set, auto discovery is used.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the device. If not set, friendlyName of receiver is used.</li>
 </ul>
 
-<p>A few notes:</p>
-
+<p>A few notes for platform: denonavr</p>
 <ul>
-  <li>The receiver handles only one telnet connection and refuses others.</li>
-  <li>Be careful with the volume. 100% or even 50% is very loud.</li>
-  <li>To be able to wake up the receiver, activate the “remote” setting in the receiver’s settings.</li>
-  <li>Play and pause are supported, toggling is not possible.</li>
-  <li>Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.</li>
   <li>Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform</li>
-  <li>denonavr platform supports some additional functionalities like album covers and is supporting more than simultaneous one connection</li>
+  <li>denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery</li>
+  <li>Still be careful with the volume. 100% in an action movie will tear down your walls.</li>
 </ul>
 
 
