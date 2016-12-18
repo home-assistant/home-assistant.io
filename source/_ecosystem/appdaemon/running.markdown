@@ -11,9 +11,9 @@ regenerate: true
 hide_github_edit: true
 ---
 
-As configured, AppDaemon comes with a single HelloWorld App that will send a greeting to the logfile to show that everything is working correctly.
+As configured, `AppDaemon` comes with a single HelloWorld App that will send a greeting to the logfile to show that everything is working correctly.
 
-## Docker
+## {% linkable_title Docker %}
 
 Assuming you have set the config up as described above for Docker, you can run it with the command:
 
@@ -42,7 +42,7 @@ $ docker logs appdaemon
 
 Note that for Docker, the error and regular logs are combined.
 
-## PIP3
+## {% linkable_title `pip3` %}
 
 You can then run AppDaemon from the command line as follows:
 
@@ -61,7 +61,7 @@ $ appdaemon -c conf/appdaemon.cfg
 2016-08-22 10:08:16,584 INFO You are now ready to run Apps!
 ```
 
-## AppDaemon arguments
+## {% linkable_title AppDaemon arguments %}
 
 ```
 usage: appdaemon [-h] [-c CONFIG] [-p PIDFILE] [-t TICK] [-s STARTTIME]
@@ -87,8 +87,8 @@ optional arguments:
   -d, --daemon          run as a background process
 ```
 
--c is the path to the configuration file. If not specified, AppDaemon will look for a file named `appdaemon.cfg` first in `~/.homeassistant` then in `/etc/appdaemon`. If the file is not specified and it is not found in either location, AppDaemon will raise an exception.                        
-                        
+-c is the path to the configuration file. If not specified, AppDaemon will look for a file named `appdaemon.cfg` first in `~/.homeassistant` then in `/etc/appdaemon`. If the file is not specified and it is not found in either location, AppDaemon will raise an exception.
+
 -d and -p are used by the init file to start the process as a daemon and are not required if running from the command line. 
 
 -D can be used to increase the debug level for internal AppDaemon operations as well as apps using the logging function.

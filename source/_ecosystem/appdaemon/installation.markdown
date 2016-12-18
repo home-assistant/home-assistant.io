@@ -11,9 +11,9 @@ regenerate: true
 hide_github_edit: true
 ---
 
-Installation is either by pip3 or Docker.
+Installation is either by `pip3` or Docker.
 
-## Clone the Repository
+## {% linkable_title Clone the Repository %}
 
 For either method you will need to clone the **AppDaemon** repository to the current local directory on your machine.
 
@@ -27,7 +27,7 @@ Change your working directory to the repository root. Moving forward, we will be
 $ cd appdaemon
 ```
 
-## Install using Docker
+## {% linkable_title Install using Docker %}
 
 To build the Docker image run the following:
 
@@ -37,7 +37,7 @@ $ docker build -t appdaemon .
 
 (Note the period at the end of the above command)
 
-## Install Using PIP3
+## {% linkable_title Install using `pip3` %}
 
 Before running `AppDaemon` you will need to install the package:
 
