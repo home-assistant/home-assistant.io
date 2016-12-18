@@ -1,0 +1,229 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Configuration - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="AppDaemon Configuration">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/ecosystem/appdaemon/configuration/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Configuration">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/ecosystem/appdaemon/configuration/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="AppDaemon Configuration">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Configuration">
+    <meta name="twitter:description" content="AppDaemon Configuration">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Configuration
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>When you have appdaemon installed by either method, copy the <code class="highlighter-rouge">conf/appdaemon.cfg.example</code> file to <code class="highlighter-rouge">conf/appdaemon.cfg</code>, then edit the <code class="highlighter-rouge">[AppDaemon]</code> section to reflect your environment:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[AppDaemon]
+ha_url = &lt;some_url&gt;
+ha_key = &lt;some key&gt;
+logfile = STDOUT
+errorfile = STDERR
+app_dir = &lt;Path to appdaemon dir&gt;/conf/apps
+threads = 10
+latitude = &lt;latitude&gt;
+longitude = &lt;longitude&gt;
+elevation = &lt;elevation
+timezone = &lt;timezone&gt;
+cert_path = &lt;path/to/root/CA/cert&gt;
+# Apps
+[hello_world]
+module = hello
+class = HelloWorld
+</code></pre>
+</div>
+
+<ul>
+  <li><code class="highlighter-rouge">ha_url</code> is a reference to your home assistant installation and must include the correct port number and scheme (<code class="highlighter-rouge">http://</code> or <code class="highlighter-rouge">https://</code> as appropriate)</li>
+  <li><code class="highlighter-rouge">ha_key</code> should be set to your key if you have one, otherwise it can be removed.</li>
+  <li><code class="highlighter-rouge">logfile</code> (optional) is the path to where you want <code class="highlighter-rouge">AppDaemon</code> to keep its main log. When run from the command line this is not used - log messages come out on the terminal. When running as a daemon this is where the log information will go. In the example above I created a directory specifically for AppDaemon to run from, although there is no reason you can’t keep it in the <code class="highlighter-rouge">appdaemon</code> directory of the cloned repository. If <code class="highlighter-rouge">logfile = STDOUT</code>, output will be sent to stdout instead of stderr when running in the foreground, if not specified, output will be sent to STDOUT.</li>
+  <li><code class="highlighter-rouge">errorfile</code> (optional) is the name of the logfile for errors - this will usually be errors during compilation and execution of the apps. If <code class="highlighter-rouge">errorfile = STDERR</code> errors will be sent to stderr instead of a file, if not specified, output will be sent to STDERR.</li>
+  <li><code class="highlighter-rouge">app_dir</code> (optional) is the directory the apps are placed in. If not specified, AppDaemon will look first in <code class="highlighter-rouge">~/.homeassistant</code> then <code class="highlighter-rouge">/etc/appdaemon</code> for a subdirectory named <code class="highlighter-rouge">apps</code></li>
+  <li><code class="highlighter-rouge">threads</code> - the number of dedicated worker threads to create for running the apps. Note, this will bear no resembelance to the number of apps you have, the threads are re-used and only active for as long as required to tun a particular callback or initialization, leave this set to 10 unless you experience thread starvation</li>
+  <li><code class="highlighter-rouge">latitude</code>, <code class="highlighter-rouge">longitude</code>, <code class="highlighter-rouge">elevation</code>, <code class="highlighter-rouge">timezone</code> - should all be copied from your home assistant configuration file</li>
+  <li><code class="highlighter-rouge">cert_path</code> (optional) - path to root CA cert directory - use only if you are using self signed certs.</li>
+</ul>
+
+<p>The <code class="highlighter-rouge">#Apps</code> section is the configuration for the Hello World program and should be left in place for initial testing but can be removed later if desired, as other Apps are added, App configuration is described in the <a href="API.md">API doc</a>.</p>
+
+<h2><a class="title-link" name="docker" href="#docker"></a> Docker</h2>
+
+<p>For Docker Configuration you need to take a couple of extra things into consideration.</p>
+
+<p>Our Docker image is designed to load your configuration and apps from a volume at <code class="highlighter-rouge">/conf</code> so that you can manage them in your own git repository, or place them anywhere else on the system and map them using the Docker command line.</p>
+
+<p>For example, if you have a local repository in <code class="highlighter-rouge">/Users/foo/ha-config</code> containing the following files:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git ls-files
+configuration.yaml
+customize.yaml
+known_devices.yaml
+appdaemon.cfg
+apps
+apps/magic.py
+</code></pre>
+</div>
+
+<p>You will need to modify the <code class="highlighter-rouge">appdaemon.cfg</code> file to point to these apps in <code class="highlighter-rouge">/conf/apps</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[AppDaemon]
+ha_url = &lt;some_url&gt;
+ha_key = &lt;some key&gt;
+logfile = STDOUT
+errorfile = STDERR
+app_dir = /conf/apps
+threads = 10
+latitude = &lt;latitude&gt;
+longitude = &lt;longitude&gt;
+elevation = &lt;elevation
+timezone = &lt;timezone&gt;
+</code></pre>
+</div>
+
+<p>You can run Docker and point the conf volume to that directory.</p>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class="section">
+    <h1 class="title delta">AppDaemon</h1>
+    <ul class="divided sidebar-menu">
+      <li><a  href='/ecosystem/appdaemon/'>General </a></li>
+      <li><a  href='/ecosystem/appdaemon/installation/'>Installation </a></li>
+      <li><a class='active' href='/ecosystem/appdaemon/configuration/'>AppDaemon Configuration </a></li>
+      <li><a  href='/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
+      <li><a  href='/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
+      <li><a  href='/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
+      <li><a  href='/ecosystem/appdaemon/operation/'>AppDaemon Operation </a></li>
+      <li><a  href='/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
+      <li><a  href='/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
+      <li><a  href='/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
+      <li><a  href='/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

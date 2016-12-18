@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Synology - Home Assistant</title>
+    <title>Installation - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to get Home Assistant up and running on Synology">
+    <meta name="description" content="AppDaemon Installation">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/ecosystem/synology/">
+    <link rel="canonical" href="https://home-assistant.io/ecosystem/appdaemon/installation/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Synology">
+    <meta property="og:title" content="Installation">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/ecosystem/synology/">
+    <meta property="og:url" content="https://home-assistant.io/ecosystem/appdaemon/installation/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to get Home Assistant up and running on Synology">
+    <meta property="og:description" content="AppDaemon Installation">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Synology">
-    <meta name="twitter:description" content="Instructions how to get Home Assistant up and running on Synology">
+    <meta name="twitter:title" content="Installation">
+    <meta name="twitter:description" content="AppDaemon Installation">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -80,31 +80,49 @@
           <article class="page">
   
   
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_ecosystem/synology.markdown'>Edit this page on GitHub</a></div>
+    
   
 
   
   <header>
     <h1 class="title indent">
-      Synology
+      Installation
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Synology NAS are the perfect companion to running Home Assistant.</p>
+  <p>Installation is either by <code class="highlighter-rouge">pip3</code> or Docker.</p>
 
-<h3><a class="title-link" name="http-configuration" href="#http-configuration"></a> HTTP Configuration</h3>
+<h2><a class="title-link" name="clone-the-repository" href="#clone-the-repository"></a> Clone the Repository</h2>
 
-<p>Synology will require some extra configuration to get the Home Assistant frontend working.</p>
+<p>For either method you will need to clone the <strong>AppDaemon</strong> repository to the current local directory on your machine.</p>
 
-<ul>
-  <li>Copy the Home Assistant specific Reverse Proxy settings from the existing <code class="highlighter-rouge">/etc/nginx/app.d/server.ReverseProxy.conf</code> to <code class="highlighter-rouge">/usr/local/etc/nginx/conf.d/http.HomeAssistant.conf</code></li>
-  <li>Include these lines in the location declaration:</li>
-</ul>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/acockburn/appdaemon.git
+</code></pre>
+</div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
+<p>Change your working directory to the repository root. Moving forward, we will be working from this directory.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>appdaemon
+</code></pre>
+</div>
+
+<h2><a class="title-link" name="install-using-docker" href="#install-using-docker"></a> Install using Docker</h2>
+
+<p>To build the Docker image run the following:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker build -t appdaemon .
+</code></pre>
+</div>
+
+<p>(Note the period at the end of the above command)</p>
+
+<h2><a class="title-link" name="install-using-pip3" href="#install-using-pip3"></a> Install using <code class="highlighter-rouge">pip3</code></h2>
+
+<p>Before running <code class="highlighter-rouge">AppDaemon</code> you will need to install the package:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo pip3 install .
 </code></pre>
 </div>
 
@@ -120,19 +138,23 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_ecosystem/synology.markdown'>Edit this page on GitHub</a></div>
-    <div class="section">
-      <h1 class="title delta">Ecosystem</h1>
-      <ul class="divided">
-            <li><a href="/ecosystem/appdaemon/">AppDaemon</a></li>
-            <li><a href="/ecosystem/hadashboard/">HADashboard</a></li>
-            <li><a href="/ecosystem/nginx/">NGINX</a></li>
-            <li><a href="/ecosystem/scenegen/">SceneGen</a></li>
-            <li><a href="/ecosystem/synology/">Synology</a></li>
-            <li><a href="/ecosystem/ios/">iOS</a></li>
-      </ul>
-    </div>
-  </section>
+  <div class="section">
+    <h1 class="title delta">AppDaemon</h1>
+    <ul class="divided sidebar-menu">
+      <li><a  href='/ecosystem/appdaemon/'>General </a></li>
+      <li><a class='active' href='/ecosystem/appdaemon/installation/'>Installation </a></li>
+      <li><a  href='/ecosystem/appdaemon/configuration/'>AppDaemon Configuration </a></li>
+      <li><a  href='/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
+      <li><a  href='/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
+      <li><a  href='/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
+      <li><a  href='/ecosystem/appdaemon/operation/'>AppDaemon Operation </a></li>
+      <li><a  href='/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
+      <li><a  href='/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
+      <li><a  href='/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
+      <li><a  href='/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
+    </ul>
+  </div>
+</section>
   
 </div>
         </aside>

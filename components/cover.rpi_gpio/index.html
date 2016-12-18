@@ -105,31 +105,42 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">cover</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_gpio</span>
-  <span class="s">relay_time</span><span class="pi">:</span> <span class="s">0.2</span>
-  <span class="s">state_pull_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">UP'</span>
-  <span class="s">covers</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">10</span>
-      <span class="s">state_pin</span><span class="pi">:</span> <span class="s">11</span>
-    <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">12</span>
-      <span class="s">state_pin</span><span class="pi">:</span> <span class="s">13</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Right</span><span class="nv"> </span><span class="s">door'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_gpio</span>
+    <span class="s">covers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">10</span>
+        <span class="s">state_pin</span><span class="pi">:</span> <span class="s">11</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
+  <li><strong>relay_time</strong> (<em>Optional</em>): The time that the relay will be on for in seconds. Default is .2 seconds.</li>
+  <li><strong>state_pull_mode</strong> (<em>Optional</em>): The direction the State pin is pulling. It can be UP or DOWN. Default is UP.</li>
   <li><strong>covers</strong> array (<em>Required</em>): List of your doors.
     <ul>
-      <li><strong>name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
       <li><strong>relay_pin</strong> (<em>Required</em>): The pin of your Raspberry Pi where the relay is connected.</li>
       <li><strong>state_pin</strong> (<em>Required</em>): The pin of your Raspberry Pi to retrieve the state.</li>
-      <li><strong>state_pull_mode</strong> (<em>Optional</em>): The direction the State pin is pulling. It can be UP or DOWN. Default is UP.</li>
-      <li><strong>relay_time</strong> (<em>Optional</em>): The time that the relay will be on for in seconds. Default is .2 seconds.</li>
+      <li><strong>name</strong> (<em>Optional</em>): Name to use in the frontend.</li>
     </ul>
   </li>
 </ul>
+
+<p>Full example:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_gpio</span>
+    <span class="s">relay_time</span><span class="pi">:</span> <span class="s">0.2</span>
+    <span class="s">state_pull_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">UP'</span>
+    <span class="s">covers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">10</span>
+        <span class="s">state_pin</span><span class="pi">:</span> <span class="s">11</span>
+      <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">12</span>
+        <span class="s">state_pin</span><span class="pi">:</span> <span class="s">13</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Right</span><span class="nv"> </span><span class="s">door'</span>
+</code></pre>
+</div>
 
 
 
