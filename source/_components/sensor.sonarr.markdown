@@ -38,6 +38,7 @@ Configuration variables:
   - **diskspace**: Available disk space.
 - **host** (*Optional*): The host Sonarr is running on (Default: localhost).
 - **port** (*Optional*): The port Sonarr is running on (Default: 8989).
+- **urlbase** (*Optional*): The base URL Sonarr is running under (Default: /).
 - **days** (*Optional*): How many days to look ahead for the upcoming sensor, 1 means today only (Default: 1).
 - **included_paths** (*Optional*): Array of filepaths to include when calculating diskspace. Leave blank to include all.
 - **unit**: (*Optional*): The unit to display disk space in (Default: GB).
