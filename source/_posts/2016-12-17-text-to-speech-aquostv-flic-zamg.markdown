@@ -121,7 +121,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vlc-media]: https://home-assistant.io/components/media_player.vlc/
 [aquostv]: https://home-assistant.io/components/media_player.aquostv/
 [digitalloggers]: https://home-assistant.io/components/switch.digitalloggers/
-[netdata]: https://home-assistant.io/components/switch.digitalloggers/
+[netdata]: https://home-assistant.io/components/sensor.netdata/
 [bl-sensor]: https://home-assistant.io/components/sensor.broadlink/
 [bl-switch]: https://home-assistant.io/components/switch.broadlink/
 [hikvision]: https://home-assistant.io/components/binary_sensor.hikvision/
