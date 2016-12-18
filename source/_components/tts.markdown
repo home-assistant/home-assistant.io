@@ -50,13 +50,14 @@ tts:
 Say to all `media_player` device entities:
 
 ```yaml
-service: tts.platform_say
+# Replace google_say with <platform>_say when you use a different platform.
+service: tts.google_say
 data:
   message: 'May the Force be with you.'
 ```
 
 ```yaml
-service: tts.platform_say
+service: tts.google_say
 entity_id: media_player.floor
 data:
   message: 'May the Force be with you.'
@@ -65,7 +66,7 @@ data:
 With a template:
 
 ```yaml
-service: tts.platform_say
+service: tts.google_say
 data_template:
   message: 'Temperature is {% raw %}{{ sensor.temperature }}{% endraw %}.'
   cache: false
