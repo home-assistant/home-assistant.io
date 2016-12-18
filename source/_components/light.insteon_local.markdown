@@ -2,7 +2,7 @@
 layout: page
 title: "Insteon (Local) Light"
 description: "Instructions how to setup the Insteon Hub Lights locally within Home Assistant."
-date: 2016-09-10 08:00
+date:  2016-12-18 08:00
 sidebar: true
 comments: false
 sharing: true

@@ -2,7 +2,7 @@
 layout: page
 title: "Insteon(local)"
 description: "Instructions how to setup the Insteon Hub locally within Home Assistant."
-date: 2016-01-27 08:00
+date:  2016-12-18 08:00
 sidebar: true
 comments: false
 sharing: true
@@ -32,6 +32,16 @@ light:
       living_room:
         device_id: 30D927
         name: Living Room
+# Example configuration.yaml switch entry
+switch:
+   - platform: insteon_local
+     switches:
+       dining_room:
+         device_id: 30DA8A
+         name: Dining Room
+       living_room:
+         device_id: 30D927
+         name: Living Room
 ```
 
 Configuration variables:
