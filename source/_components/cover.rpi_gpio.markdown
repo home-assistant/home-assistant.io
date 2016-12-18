@@ -27,6 +27,8 @@ To enable Raspberry Pi Covers in your installation, add the following to your `c
 # Example configuration.yaml entry
 cover:
   platform: rpi_gpio
+  relay_time: 0.2
+  state_pull_mode: 'UP'
   covers:
     - relay_pin: 10
       state_pin: 11
