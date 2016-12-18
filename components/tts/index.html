@@ -150,13 +150,14 @@
 
 <p>Say to all <code class="highlighter-rouge">media_player</code> device entities:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.platform_say</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Replace google_say with &lt;platform&gt;_say when you use a different platform.</span>
+<span class="s">service</span><span class="pi">:</span> <span class="s">tts.google_say</span>
 <span class="s">data</span><span class="pi">:</span>
   <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">May</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Force</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">you.'</span>
 </code></pre>
 </div>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.platform_say</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.google_say</span>
 <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.floor</span>
 <span class="s">data</span><span class="pi">:</span>
   <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">May</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Force</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">you.'</span>
@@ -165,7 +166,7 @@
 
 <p>With a template:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.platform_say</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.google_say</span>
 <span class="s">data_template</span><span class="pi">:</span>
   <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temperature</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">sensor.temperature</span><span class="nv"> </span><span class="s">}}.'</span>
   <span class="s">cache</span><span class="pi">:</span> <span class="s">false</span>
