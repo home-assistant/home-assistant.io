@@ -11,7 +11,7 @@ regenerate: true
 hide_github_edit: true
 ---
 
-## Another Take on Automation
+## {% linkable_title Another Take on Automation %}
 
 If you haven't yet read Paulus' excellent Blog entry on [Perfect Home Automation](https://home-assistant.io/blog/2016/01/19/perfect-home-automation/) I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a lightswitch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the "Automation" in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation in bring this all together in the vast and chaotic ecosystem that is the "Internet of Things".
 
@@ -38,11 +38,11 @@ So why `AppDaemon`? AppDaemon is not meant to replace Home Assistant Automations
 
 It is in fact a testament to Home Assistant's open nature that a component like `AppDaemon` can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant's underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for `AppDaemon` - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additonal functions to make things that were already possible easier.
 
-## How it Works
+## {% linkable_title How it Works %}
 
 The best way to show what AppDaemon does is through a few simple examples.
 
-### Sunrise/Sunset Lighting
+### {% linkable_title Sunrise/Sunset Lighting %}
 
 Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its `initialize()` function called which gives it a chance to register a callback for AppDaemons's scheduler for a specific time. In this case we are using `run_at_sunrise()` and `run_at_sunset()` to register 2 separate callbacks. The argument `0` is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python's `datetime.timedelta` class for calculations. When sunrise or sunset occurs, the appropriate callback function, `sunrise_cb()` or `sunset_cb()`  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables `args["on_scene"]` and `args["off_scene"]` are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.
 
@@ -126,5 +126,4 @@ Some people will maybe look at all of this and say "what use is this, I can alre
 If this has whet your appetite, feel free to give it a try. 
 
 Happy Automating!
-
 

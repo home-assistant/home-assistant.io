@@ -18,6 +18,6 @@ AppDaemon runs under windows and has been tested with the official 3.5.2 release
 
 AppDaemon can be installed exactly as per the instructions for every other version using pip3.
 
-## Windows Under the Linux Subsystem
+## {% linkable_title Windows Under the Linux Subsystem %}
 
 Windows 10 now supports a full Linux bash environment that is capable of running Python. This is essentially an Ubuntu distribution and works extremely well. It is possible to run AppDaemon in exactly the same way as for Linux distributions, and none of the above Windows Caveats apply to this version. This is the reccomended way to run AppDaemon in a Windows 10 and later environment.
