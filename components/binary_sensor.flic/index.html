@@ -108,11 +108,15 @@
   <li><strong>host</strong> (<em>Optional</em>): The IP or hostname of the flic service server. (default: <code class="highlighter-rouge">localhost</code>)</li>
   <li><strong>port</strong> (<em>Optional</em>): The port of the flic service. (default: <code class="highlighter-rouge">5551</code>)</li>
   <li><strong>discovery</strong> (<em>Optional</em>): If <code class="highlighter-rouge">true</code>, the component is configured to constantly scan for new buttons. (default: <code class="highlighter-rouge">true</code>)</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): Maximum time in seconds an event can be queued locally on a button before discarding the event. (default: <code class="highlighter-rouge">3</code>)</li>
 </ul>
 
 <h4><a class="title-link" name="discovery" href="#discovery"></a> Discovery</h4>
 
 <p>If discovery is enabled, you can add a new button by pressing it for at least 7s. The button will be paired with the flic service and added to Home Assistant. Otherwise, you have to manually pair it with the flic service. The Home Assistant platform will not scan for new buttons and will only connect to buttons already paired.</p>
+
+<h4><a class="title-link" name="timeout" href="#timeout"></a> Timeout</h4>
+<p>+When the flic button is triggered while disconnected from flic service, it will queue all events and try to connect and transmit them as soon as possible. The timeout variable can be used to stop events from triggering if too much time passed between the action and the notification in Home Assistant.</p>
 
 <h4><a class="title-link" name="events" href="#events"></a> Events</h4>
 
@@ -139,6 +143,7 @@
   <li><strong>button_name</strong>: The name of the button, that triggered the event.</li>
   <li><strong>button_address</strong>: The bluetooth address of the button, that triggered the event.</li>
   <li><strong>click_type</strong>: The type of click. Possible values are <code class="highlighter-rouge">single</code>, <code class="highlighter-rouge">double</code> and <code class="highlighter-rouge">hold</code>.</li>
+  <li><strong>queued_time</strong>: The amount of time this event was queued on the button, in seconds.</li>
 </ul>
 
 
