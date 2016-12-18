@@ -63,7 +63,7 @@ Configuration variables:
 - **device** (*Optional*): The device ID. Defaults to `default`.
 - **name** (*Optional*): The friendly name of the device, default is 'Amazon Fire TV'.
 
-### Controlling applications ###
+### {% linkable_title Controlling applications %}
 
 Since recently it is also possible to control applications, which is leveraged by Home Assistant by allowing you to start and stop applications, as well as track their state:
 
