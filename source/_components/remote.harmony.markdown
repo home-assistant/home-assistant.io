@@ -60,6 +60,22 @@ Supported services:
 
 ### {% linkable_title Examples %}
 
+A template switch can be used to display and control the state of an activity in the frontend.
+
+```yaml
+switch:
+  - platform: template
+    switches:
+      tv:
+        value_template: "{% raw %}{% if is_state('remote.family_room', 'on') %}on{% else %}off{% endif %}{% endraw %}"
+        turn_on:
+          service: remote.turn_on
+          entity_id: remote.family_room
+        turn_off:
+          service: remote.turn_off
+          entity_id: remote.family_room
+```
+
 Template sensors can be utilized to display current activity in the frontend.
 
 ```yaml
