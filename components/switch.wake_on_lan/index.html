@@ -94,6 +94,7 @@
 
 <p class="note warning">
 The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely. The <code class="highlighter-rouge">turn_off</code> variable is there to help you call a script when you have figured out how to remotely turn off your computer.
+See below for suggestions on how to do this.
 </p>
 
 <p>To enable this switch in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
@@ -113,6 +114,39 @@ The WOL switch can only turn on your computer and monitor the state. There is no
   <li><strong>host</strong> (<em>Optional</em>): The IP address or hostname to check the state of the device (on/off).</li>
   <li><strong>turn_off</strong> (<em>Optional</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the switch is turned off.</li>
 </ul>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>Here are some real life examples of how to use the <strong>turn_off</strong> variable.</p>
+
+<h3><a class="title-link" name="suspending-linux" href="#suspending-linux"></a> Suspending linux</h3>
+<p>Suggested recipe for letting the turn_off script suspend a Linux computer (the <strong>target</strong>)
+from Home Assistant running on another Linux computer (the <strong>server</strong>).</p>
+
+<ol>
+  <li>On the <strong>server</strong>, log in as the user account Home Assistant is running under. (I’m using <code class="highlighter-rouge">hass</code> in this example)</li>
+  <li>On the <strong>server</strong>, create ssh keys by running <code class="highlighter-rouge">ssh-keygen</code>. Just press enter on all questions.</li>
+  <li>On the <strong>target</strong>, create a new account that Home Assistant can ssh into: <code class="highlighter-rouge">sudo adduser hass</code>. Just press enter on all questions except password. I recommend using the same user name as on the server. If you do, you can leave out <code class="highlighter-rouge">hass@</code> in the ssh commands below.</li>
+  <li>On the <strong>server</strong>, transfer your public ssh key by <code class="highlighter-rouge">ssh-copy-id hass@TARGET</code> where TARGET is your target machine’s name or IP address. Enter the password you created in step 3.</li>
+  <li>On the <strong>server</strong>, verify that you can reach your target machine without password by <code class="highlighter-rouge">ssh TARGET</code>.</li>
+  <li>On the <strong>target</strong>, we need to let the hass user execute the program needed to suspend/shut down the target computer. I’m using <code class="highlighter-rouge">pm-suspend</code>, use <code class="highlighter-rouge">poweroff</code> to turn off the computer. First, get the full path: <code class="highlighter-rouge">which pm-suspend</code>. On my system, this is <code class="highlighter-rouge">/usr/sbin/pm-suspend</code>.</li>
+  <li>On the <strong>target</strong>, using an account with sudo access (typically your main account), <code class="highlighter-rouge">sudo visudo</code>. Add this line last in the file: <code class="highlighter-rouge">hass ALL=NOPASSWD:/usr/sbin/pm-suspend</code>, where you replace <code class="highlighter-rouge">hass</code> with the name of your user on the target, if different, and <code class="highlighter-rouge">/usr/sbin/pm-suspend</code> with the command of your choice, if different.</li>
+  <li>On the <strong>server</strong>, add the following to your configuration, replacing TARGET with the target’s name:
+``` yaml
+switch:
+    <ul>
+      <li>platform: wake_on_lan
+ name: “TARGET”
+ …
+ turn_off:
+   service: shell_command.turn_off_TARGET</li>
+    </ul>
+  </li>
+</ol>
+
+<p>shell_command:
+  turn_off_TARGET: ‘ssh hass@TARGET sudo pm-suspend’
+```</p>
 
 
 </article>
