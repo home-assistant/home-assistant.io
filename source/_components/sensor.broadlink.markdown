@@ -57,3 +57,12 @@ sensor:
     monitored_conditions:
       - temperature
 ```
+
+**note**: The pycrypto library needs to be available on your platform.
+on a typical windows sysytem `pip install pycrypto` will fail, as a compiler needs to be installed.
+
+The quickest way around this is to use a pre-built binary, e.g. from here:
+https://github.com/sfbahr/PyCrypto-Wheels
+
+be sure to get the correct 64 or 32-bit binary for your system, the full commandline will look someting like this (64bit):
+`pip install --use-wheel --no-index --find-links=https://github.com/sfbahr/PyCrypto-Wheels/raw/master/pycrypto-2.6.1-cp35-none-win_amd64.whl pycrypto`
