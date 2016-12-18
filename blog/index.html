@@ -91,7 +91,7 @@
   <div class="meta clearfix">
     <time datetime="2016-12-17T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 17, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter et al.</span>
-    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -165,6 +165,22 @@
   <li>Camera - Amcrest: Support for resolution (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
   <li>Media player - Kodi: Authentification fixed and fan art (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/joopert">@joopert</a>)</li>
   <li>Minor and not so minor features and bug fixes by <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/jminn">@jminn</a>, <a href="https://github.com/magicus">@magicus</a>, <a href="https://github.com/teodoc">@teodoc</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/technicalpickles">@technicalpickles</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>, <a href="https://github.com/rubund">@rubund</a>, <a href="https://github.com/dasos">@dasos</a>, <a href="https://github.com/trisk">@trisk</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/auduny">@auduny</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/nkgilley">@nkgilley</a>, <a href="https://github.com/janLo">@janLo</a>, <a href="https://github.com/keatontaylor">@keatontaylor</a>, <a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>, <a href="https://github.com/Jypy">@Jypy</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/DavidLP">@DavidLP</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/joerocklin">@joerocklin</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/kirichkov">@kirichkov</a>, and <a href="https://github.com/danielperna84">@danielperna84</a>.</li>
+</ul>
+
+<h3><a class="title-link" name="release-0351---december-18" href="#release-0351---december-18"></a> Release 0.35.1 - December 18</h3>
+
+<p>Some issues have been reported with TTS that will be addressed by 0.35.1. The TTS component had issues linking the media player to the right media file if you were using Docker or SSL certificates. This can be fixed by exposing to your HTTP config what url you use for hosting Home Assistant:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">base_url</span><span class="pi">:</span> <span class="s">example.duckdns.org</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Fix exit hanging on OS X with async logging (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Text to speech clearing cache (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Allow setting a base API url in HTTP component (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix occasional errors in automation (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-18T18:25:26+00:00</updated>
+  <updated>2016-12-18T22:25:25+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -69,6 +69,20 @@ The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) 
 - Media player - Kodi: Authentification fixed and fan art ([@balloob], [@joopert])
 - Minor and not so minor features and bug fixes by [@pvizeli], [@jminn], [@magicus], [@teodoc], [@fabaff], [@technicalpickles], [@balloob], [@lukas-hetzenecker], [@rubund], [@dasos], [@trisk], [@armills], [@auduny], [@lwis], [@nkgilley], [@janLo], [@keatontaylor], [@stefan-jonasson], [@Jypy], [@jawilson], [@DavidLP], [@molobrakos], [@jabesq], [@joerocklin], [@kellerza], [@kirichkov], and [@danielperna84].
 
+### <a class='title-link' name='release-0351---december-18' href='#release-0351---december-18'></a> Release 0.35.1 - December 18 
+
+Some issues have been reported with TTS that will be addressed by 0.35.1. The TTS component had issues linking the media player to the right media file if you were using Docker or SSL certificates. This can be fixed by exposing to your HTTP config what url you use for hosting Home Assistant:
+
+```yaml
+http:
+  base_url: example.duckdns.org
+```
+
+ - Fix exit hanging on OS X with async logging ([@balloob])
+ - Fix Text to speech clearing cache ([@pvizeli])
+ - Allow setting a base API url in HTTP component ([@balloob])
+ - Fix occasional errors in automation ([@pvizeli])
+
 ### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -92,8 +106,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@farminf]: https://github.com/farminf
 [@jabesq]: https://github.com/jabesq
 [@janLo]: https://github.com/janLo
-[@janLo]: https://github.com/janLo
-[@jawilson]: https://github.com/jawilson
 [@jawilson]: https://github.com/jawilson
 [@jminn]: https://github.com/jminn
 [@joerocklin]: https://github.com/joerocklin
@@ -113,7 +125,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@molobrakos]: https://github.com/molobrakos
 [@nkgilley]: https://github.com/nkgilley
 [@pvizeli]: https://github.com/pvizeli
-[@rubund]: https://github.com/rubund
 [@rubund]: https://github.com/rubund
 [@soldag]: https://github.com/soldag
 [@stefan-jonasson]: https://github.com/stefan-jonasson
