@@ -76,6 +76,10 @@ http:
  - Allow setting a base API url in HTTP component ([@balloob])
  - Fix occasional errors in automation ([@pvizeli])
 
+### {% linkable_title Release 0.35.2 - December 19 %}
+
+ - When base url specified, do not combine it with `server_port` ([@balloob])
+
 ### {% linkable_title  If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
