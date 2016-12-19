@@ -25,6 +25,7 @@ weather:
     api_key: YOUR_API_KEY
     latitude: 46.1234
     longitude: 7.1234
+    forecast: True
 ```
 
 Configuration variables:
@@ -32,6 +33,7 @@ Configuration variables:
 - **api_key** (*Required*): Your API key for http://openweathermap.org/.
 - **latitude** (*Optional*): Latitude of the location to display the weather. Defaults to the latitude in your your `configuration.yaml` file. 
 - **longitude** (*Optional*): Longitude of the location to display the weather. Defaults to the longitude in your `configuration.yaml` file.
+- **forecast** (*Optional*): Wether the plugin should retrieve forecast data. Defaults to False.
 
 <p class='note'>
 This platform is an alternative to the [`openweathermap`](/components/sensor.openweathermap/) sensor. 
