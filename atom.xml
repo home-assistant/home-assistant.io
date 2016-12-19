@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-18T22:25:25+00:00</updated>
+  <updated>2016-12-19T01:42:50+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -86,6 +86,12 @@
   <li>Fix Text to speech clearing cache (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
   <li>Allow setting a base API url in HTTP component (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Fix occasional errors in automation (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0352---december-19" href="#release-0352---december-19"></a> Release 0.35.2 - December 19</h3>
+
+<ul>
+  <li>When base url specified, do not combine it with <code class="highlighter-rouge">server_port</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>

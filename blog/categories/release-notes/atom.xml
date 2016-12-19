@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-18T22:25:25+00:00</updated>
+  <updated>2016-12-19T01:42:50+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -82,6 +82,10 @@ http:
  - Fix Text to speech clearing cache ([@pvizeli])
  - Allow setting a base API url in HTTP component ([@balloob])
  - Fix occasional errors in automation ([@pvizeli])
+
+### <a class='title-link' name='release-0352---december-19' href='#release-0352---december-19'></a> Release 0.35.2 - December 19 
+
+ - When base url specified, do not combine it with `server_port` ([@balloob])
 
 ### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
