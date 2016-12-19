@@ -19,7 +19,22 @@ So if you are making calls to the core (the hass object) from within a callback 
 
 ## {% linkable_title Implementing an async component %}
 
-We currently do not support async setup for components. We do however support using async functions as service handlers. Just define your handlers as a callback or coroutine and register them as usual.
+To make a component async, implement an async_setup.
+
+```python
+def setup(hass, config):
+    # Setup your component outside of the event loop.
+```
+
+Will turn into:
+
+```python
+import asyncio
+
+@asyncio.coroutine
+def async_setup(hass, config):
+    # Setup your component inside of the event loop.
+```
 
 ## {% linkable_title Implementing an async platform %}
 
