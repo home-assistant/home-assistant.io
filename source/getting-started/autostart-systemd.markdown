@@ -20,7 +20,7 @@ If the preceding command returns the string `systemd`, you are likely using `sys
 If you want Home Assistant to be launched automatically, an extra step is needed to setup `systemd`. You need a service file to control Home Assistant with `systemd`. If you are using a Raspberry Pi with Raspbian then replace the `[your user]` with `pi` otherwise use your user you want to run Home Assistant. `ExecStart` contains the path to `hass` and this may vary. Check with `whereis hass` for the location.
 
 ```bash
-$ su -c 'cat <<EOF >> /etc/systemd/system/home-assistant@[your user].service
+$ sudo su -c 'cat <<EOF >> /etc/systemd/system/home-assistant@[your user].service
 [Unit]
 Description=Home Assistant
 After=network.target
@@ -73,6 +73,13 @@ $ sudo systemctl status home-assistant@[your user] -l
            └─30426 /usr/bin/python3 /usr/bin/hass
 [...]
 ```
+
+IF, you get an error message, and it fails to start Home Assistant, double check that your ExecStart=/usr/bin/hass points to the correct location...it's likely ExecStart=/usr/local/bin/hass  If you didn't update it correctly, you may have to remove the home-assistant@pi.service file and then start over at the top of this instruction set using the correct directory.
+
+'''bash
+$ sudo rm /etc/systemd/system/home-assistant@pi.service
+$ sudo systemctl --system daemon-reload
+'''
 
 To get Home Assistant's logging output, simple use `journalctl`.
 
