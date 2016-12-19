@@ -92,10 +92,6 @@
 
   <p>Text-to-speech (TTS) enables Home Assistant to speak to you.</p>
 
-<h2><a class="title-link" name="cache" href="#cache"></a> Cache</h2>
-
-<p>The component have two caches. Both caches can be controlled with the <code class="highlighter-rouge">cache</code> option in the  platform configuration or the service call <code class="highlighter-rouge">say</code>. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.</p>
-
 <h2><a class="title-link" name="configuring-a-tts-platform" href="#configuring-a-tts-platform"></a> Configuring a <code class="highlighter-rouge">tts</code> platform</h2>
 
 <p>To get started, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> (example for google):</p>
@@ -146,6 +142,10 @@
 </code></pre>
 </div>
 
+<p class="note">
+If you are running Home Assistant over SSL or from within a container, you will have to setup a base url inside the <a href="/components/http/">http component</a>.
+</p>
+
 <h2><a class="title-link" name="service-say" href="#service-say"></a> Service say</h2>
 
 <p>Say to all <code class="highlighter-rouge">media_player</code> device entities:</p>
@@ -173,6 +173,9 @@
 </code></pre>
 </div>
 
+<h2><a class="title-link" name="cache" href="#cache"></a> Cache</h2>
+
+<p>The component have two caches. Both caches can be controlled with the <code class="highlighter-rouge">cache</code> option in the  platform configuration or the service call <code class="highlighter-rouge">say</code>. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.</p>
 
 
 </article>

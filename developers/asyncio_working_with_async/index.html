@@ -100,7 +100,22 @@
 
 <h2><a class="title-link" name="implementing-an-async-component" href="#implementing-an-async-component"></a> Implementing an async component</h2>
 
-<p>We currently do not support async setup for components. We do however support using async functions as service handlers. Just define your handlers as a callback or coroutine and register them as usual.</p>
+<p>To make a component async, implement an async_setup.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="c"># Setup your component outside of the event loop.</span>
+</code></pre>
+</div>
+
+<p>Will turn into:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="nd">@asyncio.coroutine</span>
+<span class="k">def</span> <span class="nf">async_setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="c"># Setup your component inside of the event loop.</span>
+</code></pre>
+</div>
 
 <h2><a class="title-link" name="implementing-an-async-platform" href="#implementing-an-async-platform"></a> Implementing an async platform</h2>
 
