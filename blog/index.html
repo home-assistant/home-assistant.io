@@ -83,6 +83,64 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/12/19/thank-you/">Thank You</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-12-19T05:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 19, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Community</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/12/19/thank-you/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>A year ago <a href="https://home-assistant.io/blog/2015/12/22/amazon-echo-icloud-and-templates/">Home Assistant 0.10</a> landed. Last weekend we released 0.35. Doing 25 releases in a year is a big accomplishment by the community and each release has moved us forwards leaps and bounds. In this year alone we have seen 2800 pull requests on the main repo alone, that’s more than 7 a day!</p>
+
+<p>One of the things that Jon Walker, the founder of the company I work for (<a href="http://www.appfolioinc.com/">AppFolio</a>), has taught me is that the biggest advantage that you can create for yourself compared to your competitors is to release more often. Everytime you release you are able to get the new features into the hands of the users and developers. The faster people start using it, the faster you get feedback on the good and bad parts and thus the faster can you evolve.</p>
+
+<p>That’s why I structured Home Assistant around a two week release cycle. It makes sure that features get out fast and it also forces us to not accumulate a backlog of things to document or test properly. Every two weeks we can start fresh. This makes it easy for new people to start contributing because it’s clear when things go out and people are not afraid to miss a release.</p>
+
+<p>However, being on a two week release cycle also means that the community has to rally each two weeks to make sure everything is ready to go. A lot of people are involved in making sure that all pieces are in place, to all of those: thank you! Thank you for all the time and effort you put in to make Home Assistant the best home automation software out there.</p>
+
+<p>Another big thanks goes out to the developers of the Python language and all the open source libraries and tools that Home Assistant depends on. Making quality software is not a small feat and all of you can be proud of yourself.</p>
+
+<p>Also a big thanks for the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thanks <a href="https://GitHub.com">GitHub</a>, <a href="https://Travis-ci.org">TravisCI</a>, <a href="https://CloudFlare.com">CloudFlare</a> and <a href="https://Discourse.com">Discourse</a>!</p>
+
+<p>And finally thank you community for being so helpful and awesome 🙇.</p>
+
+<p>We’re taking a well deserved break and we will be back again in 2017 with more awesomeness. Happy holidays!</p>
+
+<p>– Paulus</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/">0.35: Text-to-speech, VLC, Flic, netdata</a>
   </h1>
   
@@ -1403,166 +1461,6 @@
 <p>As it is today there is no pre-compiled Z-Wave support but it can be installed by following the <a href="/getting-started/z-wave/">Getting started instructions for Z-Wave</a>.</p>
 
 <p>Happy Automating!</p>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/09/29/async-sleepiq-emoncms-stocks/">0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-09-29T03:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 29, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen & Fabian Affolter</span>
-    <span><i class='icon-time'></i> six minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/09/29/async-sleepiq-emoncms-stocks/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Two weeks ago, September 17 marked our 3 year anniversary. In this time Home Assistant managed to grow from a simple script that turned on my lights when the sun set to a kick ass open source project with the best community an open-source project could wish for. This release contains features, bug fixes and performance tweaks by a total of <strong>50</strong> different people! We have also managed to cross the 1000 forks on GitHub. Talking about momentum!</p>
-
-<p>This is a big release as we’ve completely overhauled the internals of Home Assistant. When I initially wrote Home Assistant, still figuring out the ins and outs of Python, I went for an approach that I was familiar with for an application with many moving parts: threads and locks. This approach has served us well over the years but it was slower than it needed to be, especially on limited hardware.</p>
-
-<p>This all changed when <a href="https://github.com/bbangert">@bbangert</a> came around and took on the tough job to migrate the core over to use asynchronous programming. He did an amazing job and I am happy to say that the initial port has been done and is included in this release! On top of that, we have been able to keep our simple and straightforward API at the same time. We are still in the process of migrating more and more components over to the asynchronous API, so expect more speedups and awesome features in the upcoming releases.</p>
-
-<h3><a class="title-link" name="sleepiq-and-openalpr" href="#sleepiq-and-openalpr"></a> SleepIQ and OpenALPR</h3>
-
-<p>There now is support for two new super cool things: Beds and license plates. <a href="https://github.com/technicalpickles">@technicalpickles</a> created a <a href="/components/sleepiq/">SleepIQ</a> component that let you monitor the sensor data of your bed. <a href="https://github.com/pvizeli">@pvizeli</a> has added license plate recognition based on <a href="/components/openalpr/">OpenALPR</a>! This means that you can now be notified about which car is parked on your driveway or in your garage. I also would like to use this opportunity to give a big shoutout to <a href="https://github.com/pvizeli">@pvizeli</a> for being such an awesome member of our community. He joined us at the end of June and has helped crush bugs and add awesome features ever since (65 pull requests already!).</p>
-
-<h3><a class="title-link" name="configuration-validation" href="#configuration-validation"></a> Configuration validation</h3>
-
-<p>On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.</p>
-
-<h3><a class="title-link" name="delayed-release" href="#delayed-release"></a> Delayed Release</h3>
-
-<p>As you might have noticed, this release has been delayed by 5 days. This was due to a rare, difficult to reproduce problem with the Python interpreter. A huuuuge thanks to all the people that have helped countless hours in researching, debugging and fixing this issue: <a href="https://github.com/bbangert">@bbangert</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/technicalpickles">@technicalpickles</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/persandstrom">@persandstrom</a> and <a href="https://github.com/joyrider3774">@joyrider3774</a>. I am grateful to have all of you as part of the Home Assistant community.</p>
-
-<h3><a class="title-link" name="hide-automation-rules" href="#hide-automation-rules"></a> Hide automation rules</h3>
-
-<p>Since 0.28 <a href="/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules">automation rules</a> can be reloaded directly from the frontend. By default all automation rules are shown. If you want to <a href="/getting-started/automation-create-first/">hide an automation rule</a>, use <code class="highlighter-rouge">hide_entity: True</code>.</p>
-
-<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
-
-<p><img src="/images/supported_brands/emoncms.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/sleepiq.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/openalpr.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
-
-<ul>
-  <li>Convert core from thread-based to be async-based (<a href="https://github.com/bbangert">@bbangert</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>New <a href="/components/sleepiq/">SleepIQ</a> support (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
-  <li>Cover: <a href="/components/cover.vera/">Vera</a> is now supported (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Climate: Vera <a href="/components/climate.vera/">climate</a> devices are now supported (<a href="https://github.com/robjohnson189">@robjohnson189</a>)</li>
-  <li>Climate: <a href="/components/climate.mysensors/">MySensors</a> is now supported (<a href="https://github.com/kaustubhphatak">@kaustubhphatak</a>)</li>
-  <li>Control Home Assistant with <a href="/components/keyboard_remote">keyboard shortcuts</a> (<a href="https://github.com/deisi">@deisi</a>)</li>
-  <li>More voluptuous config validations (<a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>New <a href="/components/nuimo_controller/">Nuimo</a> controller support added (<a href="https://github.com/gross1989">@gross1989</a>)</li>
-  <li>Sensor: <a href="/components/sensor.bom/">BOM</a> Weather component (<a href="https://github.com/tinglis1">@tinglis1</a>)</li>
-  <li>Automation: Option added to hide entity (<a href="https://github.com/milaq">@milaq</a>)</li>
-  <li>Sensor: <a href="/components/sensor.emoncms/">Emoncms</a> feeds now supported (<a href="https://github.com/joyrider">@joyrider</a>)</li>
-  <li>Sensor: Mi Flora <a href="/components/sensor.miflora/">plant</a> sensor now supported (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Logbook: Allow <a href="/components/logbook/">filtering</a> entities and hide hidden entities (<a href="https://github.com/wokar">@wokar</a>)</li>
-  <li>Notify: <a href="/components/notify.kodi/">Kodi</a> support added (<a href="https://github.com/chrom3">@chrom3</a>)</li>
-  <li>Notify: Support for <a href="/components/notify.simplepush/">Simplepush</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Sensor: <a href="/components/sensor.knx/">KNX</a> sensors now supported (<a href="https://github.com/daBONDi">@daBONDi</a>)</li>
-  <li><a href="/components/wink/">Wink</a> improvements (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li><a href="/components/isy994/">ISY</a> improvements (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li>Link to relevant docs in config validation error messages (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Greatly improve the performance of templates (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Notify - <a href="/components/notify.slack/">Slack</a>: Support for username/icon (<a href="https://github.com/Khabi">@Khabi</a>)</li>
-  <li>MQTT room detection: Away <a href="/components/sensor.mqtt_room/">timeout</a> now supported (<a href="https://github.com/mKerix">@mKeRix</a>)</li>
-  <li>Climate: <a href="/components/fan.nest/">Nest</a> can now control the fan (<a href="https://github.com/jawilson">@jawilson</a>)</li>
-  <li>Modbus: Major cleanup for <a href="/components/modbus/">Modbus</a> switches and sensors (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>HTTP: Allow <a href="/components/http/">passwordless</a> logins from whitelisted IP addresses (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Sensor: Yahoo! Finance <a href="/components/sensor.yahoo_finance/">stocks</a> now supported (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-  <li>Sensor: Set value based on incoming <a href="/components/sensor.imap_email_content/">email</a> (<a href="https://github.com/sam-io">@sam-io</a>)</li>
-  <li>Light: White value now supported (<a href="https://github.com/mxtra">@mxtra</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
-  <li><a href="/components/influxdb/">InfluxDB</a> now allows attaching extra data (<a href="https://github.com/lwis">@lwis</a>)</li>
-  <li><a href="/components/openalpr/">OpenALPR</a> support (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Minor features and bug fixes by <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/w1ll1am23">@w1ll1am23</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/clach04">@clach04</a>, <a href="https://github.com/mKerix">@mKeRix</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/DavidLP">@DavidLP</a>, <a href="https://github.com/nvella">@nvella</a>, <a href="https://github.com/Teagan42">@Teagan42</a>, <a href="https://github.com/ericwclymer">@ericwclymer</a>, <a href="https://github.com/wokar">@wokar</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/nkgilley">@nkgilley</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/ej81">@ej81</a>, <a href="https://github.com/danieljkemp">@danieljkemp</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/philhawthorne">@philhawthorne</a>, <a href="https://github.com/LinuxChristian">@LinuxChristian</a>, <a href="https://github.com/milas">@milas</a>, <a href="https://github.com/simonszu">@simonszu</a>, <a href="https://github.com/Cinntax">@Cinntax</a>, <a href="https://github.com/irvingwa">@irvingwa</a>, <a href="https://github.com/sytone">@sytone</a>, <a href="https://github.com/kk7ds">@kk7ds</a>, <a href="https://github.com/robbiet480">@robbiet480</a>.</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0291---september-29" href="#hotfix-0291---september-29"></a> Hotfix 0.29.1 - September 29</h3>
-
-<ul>
-  <li>Fix typo in Nest climate platform. <a href="https://github.com/home-assistant/home-assistant/issues/3574">We are still experiencing issues with Nest.</a> (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0292---september-29" href="#hotfix-0292---september-29"></a> Hotfix 0.29.2 - September 29</h3>
-
-<ul>
-  <li>InfluxDB config fix (<a href="https://github.com/fabaff">@fabaff</a>, reported by <a href="https://github.com/lwis">@lwis</a>)</li>
-  <li>Netatmo config fix (<a href="https://github.com/jabesq">@jabesq</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0293---september-29" href="#hotfix-0293---september-29"></a> Hotfix 0.29.3 - September 29</h3>
-
-<ul>
-  <li>Hue config fix (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0294---september-30" href="#hotfix-0294---september-30"></a> Hotfix 0.29.4 - September 30</h3>
-
-<ul>
-  <li>Alexa config fix (<a href="https://github.com/balloob">@balloob</a>, reported by <a href="https://github.com/lwis">@lwis</a>)</li>
-  <li>Envisalink discovery fix (<a href="https://github.com/Cinntax">@cinntax</a>)</li>
-  <li>Acer Projector config fix (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0295---september-30" href="#hotfix-0295---september-30"></a> Hotfix 0.29.5 - September 30</h3>
-
-<ul>
-  <li>Fix Climate Nest platform (<a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/jawilson">@jawilson</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0296---october-1" href="#hotfix-0296---october-1"></a> Hotfix 0.29.6 - October 1</h3>
-
-<ul>
-  <li>Fix segmentation fault (<a href="https://github.com/bbangert">@bbangert</a>) 🎉</li>
-  <li>Fix nested templates in <code class="highlighter-rouge">data_template</code> would incorrectly get cached (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0297---october-5" href="#hotfix-0297---october-5"></a> Hotfix 0.29.7 - October 5</h3>
-
-<ul>
-  <li>Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li>The template methods <code class="highlighter-rouge">now</code> and <code class="highlighter-rouge">utcnow</code> have been changed from variables to methods. To get the current time replace <code class="highlighter-rouge">now</code> with <code class="highlighter-rouge">now()</code>.</li>
-  <li><code class="highlighter-rouge">yahooweather</code> default name is now <code class="highlighter-rouge">yweather</code>. Also min and max temperature are now correctly called <code class="highlighter-rouge">Temperature Min</code> and <code class="highlighter-rouge">Temperature Max</code>.</li>
-  <li><code class="highlighter-rouge">ffmpeg</code> is now a component for manage some things central. All <code class="highlighter-rouge">ffmpeg_bin</code> options have moved to this compoment from platforms.</li>
-  <li>Config has changed for <a href="/components/light.x10/">X10</a> lights.</li>
-  <li>For Wink, make sure your config only contains the access token as in the <a href="/components/wink/">docs</a>.</li>
-  <li>Nest sensor ‘mode’ has been renamed to ‘operation_mode’</li>
-</ul>
-
-<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
-<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
 
 
     

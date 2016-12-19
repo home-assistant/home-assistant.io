@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-19T16:38:30+00:00</updated>
+  <updated>2016-12-19T17:06:59+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Thank You]]></title>
+    <link href="https://home-assistant.io/blog/2016/12/19/thank-you/"/>
+    <updated>2016-12-19T05:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/12/19/thank-you</id>
+    <content type="html"><![CDATA[<p>A year ago <a href="https://home-assistant.io/blog/2015/12/22/amazon-echo-icloud-and-templates/">Home Assistant 0.10</a> landed. Last weekend we released 0.35. Doing 25 releases in a year is a big accomplishment by the community and each release has moved us forwards leaps and bounds. In this year alone we have seen 2800 pull requests on the main repo alone, that’s more than 7 a day!</p>
+
+<p>One of the things that Jon Walker, the founder of the company I work for (<a href="http://www.appfolioinc.com/">AppFolio</a>), has taught me is that the biggest advantage that you can create for yourself compared to your competitors is to release more often. Everytime you release you are able to get the new features into the hands of the users and developers. The faster people start using it, the faster you get feedback on the good and bad parts and thus the faster can you evolve.</p>
+
+<p>That’s why I structured Home Assistant around a two week release cycle. It makes sure that features get out fast and it also forces us to not accumulate a backlog of things to document or test properly. Every two weeks we can start fresh. This makes it easy for new people to start contributing because it’s clear when things go out and people are not afraid to miss a release.</p>
+
+<p>However, being on a two week release cycle also means that the community has to rally each two weeks to make sure everything is ready to go. A lot of people are involved in making sure that all pieces are in place, to all of those: thank you! Thank you for all the time and effort you put in to make Home Assistant the best home automation software out there.</p>
+
+<p>Another big thanks goes out to the developers of the Python language and all the open source libraries and tools that Home Assistant depends on. Making quality software is not a small feat and all of you can be proud of yourself.</p>
+
+<p>Also a big thanks for the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thanks <a href="https://GitHub.com">GitHub</a>, <a href="https://Travis-ci.org">TravisCI</a>, <a href="https://CloudFlare.com">CloudFlare</a> and <a href="https://Discourse.com">Discourse</a>!</p>
+
+<p>And finally thank you community for being so helpful and awesome 🙇.</p>
+
+<p>We’re taking a well deserved break and we will be back again in 2017 with more awesomeness. Happy holidays!</p>
+
+<p>– Paulus</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.35: Text-to-speech, VLC, Flic, netdata]]></title>
@@ -2169,165 +2195,6 @@ Heatmap
 <ul>
   <li>Google Voice SMS notification support was removed.</li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ESP8266 and MicroPython - Part 1]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1/"/>
-    <updated>2016-07-28T04:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
-The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html">documentation</a> covers a lot of ground. This post is providing only a little summary which should get you started.</p>
-
-<p>Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers of the Kickstarter campaign. This has changed now and it is available to the public for <a href="https://micropython.org/download/#esp8266">download</a>.</p>
-
-<!--more-->
-
-<p>The easiest way is to use <a href="https://github.com/themadinventor/esptool">esptool.py</a> for firmware handling tasks. First erase the flash:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo python esptool.py --port /dev/ttyUSB0 erase_flash
-esptool.py v1.0.2-dev
-Connecting...
-Erasing flash <span class="o">(</span>this may take a <span class="k">while</span><span class="o">)</span>...
-</code></pre>
-</div>
-
-<p>and then load the firmware. You may adjust the file name of the firmware binary.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo python esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size<span class="o">=</span>8m 0 esp8266-2016-07-10-v1.8.2.bin
-esptool.py v1.2-dev
-Connecting...
-Running Cesanta flasher stub...
-Flash params <span class="nb">set </span>to 0x0020
-Writing 540672 @ 0x0... 540672 <span class="o">(</span>100 %<span class="o">)</span>
-Wrote 540672 bytes at 0x0 <span class="k">in </span>13.1 seconds <span class="o">(</span>330.8 kbit/s<span class="o">)</span>...
-Leaving...
-</code></pre>
-</div>
-
-<p>Now reset the device. You should then be able to use the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt">REPL (Read Evaluate Print Loop)</a>. On Linux there is <code class="highlighter-rouge">minicom</code> or <code class="highlighter-rouge">picocom</code>, on a Mac you can use <code class="highlighter-rouge">screen</code> (eg. <code class="highlighter-rouge">screen /dev/tty.SLAB_USBtoUART 115200</code>), and on Windows there is Putty to open a serial connection and get the REPL prompt.</p>
-
-<p>The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi">WebREPL</a> work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at <a href="http://micropython.org/webrepl">http://micropython.org/webrepl</a>. Alternatively, you can create a local clone of their <a href="https://github.com/micropython/webrepl">GitHub repository</a>. This is neccessary if your want to use the command-line tool <code class="highlighter-rouge">webrepl_cli.py</code> which is mentionend later in this post.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo minicom -D /dev/ttyUSB0
-<span class="c">#4 ets_task(4020e374, 29, 3fff70e8, 10)                                                          </span>
-WebREPL daemon started on ws://192.168.4.1:8266
-Started webrepl <span class="k">in </span>setup mode
-could not open file <span class="s1">'main.py'</span> <span class="k">for </span>reading
-
-<span class="c">#5 ets_task(4010035c, 3, 3fff6360, 4)</span>
-MicroPython v1.8.2-9-g805c2b9 on 2016-07-10; ESP module with ESP8266
-Type <span class="s2">"help()"</span> <span class="k">for </span>more information.
-<span class="gp">&gt;&gt;&gt; </span>
-</code></pre>
-</div>
-
-<p class="note">
-The public build of the firmware may be different than the firmware distributed to the backers of the Kickstarter campaign. Especially in regard of the <a href="http://docs.micropython.org/en/latest/esp8266/py-modindex.html">available modules</a>, turned on debug messages, and alike. Also, the WebREPL may not be started by default.
-</p>
-
-<p>Connect a LED to pin 5 (or another pin of your choosing) to check if the ESP8266 is working as expected.</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">machine</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pin</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
-</code></pre>
-</div>
-
-<p>You can toogle the LED by changing its state with <code class="highlighter-rouge">pin.high()</code> and <code class="highlighter-rouge">pin.low()</code>.</p>
-
-<p>Various ESP8266 development board are shipped with an onboard photocell or a light dependent resistors (LDR) connected to the analog pin of your ESP8266 check if you are able to obtain a value.</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">machine</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">brightness</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">brightness</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</code></pre>
-</div>
-
-<p>Make sure that you are familiar with REPL and WebREPL because this will be needed soon. Keep in mind the password for the WebREPL access.</p>
-
-<p>Read the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html">instructions</a> about how to setup your wireless connection. Basically you need to upload a <code class="highlighter-rouge">boot.py</code> file to the microcontroller and this file is taking care of the connection setup. Below you find a sample which is more or less the same as shown in the <a href="http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html#configuration-of-the-wifi">documentation</a>.</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">do_connect</span><span class="p">():</span>
-    <span class="kn">import</span> <span class="nn">network</span>
-
-    <span class="n">SSID</span> <span class="o">=</span> <span class="s">'SSID'</span>
-    <span class="n">PASSWORD</span> <span class="o">=</span> <span class="s">'PASSWORD'</span>
-
-    <span class="n">sta_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
-    <span class="n">ap_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">AP_IF</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">ap_if</span><span class="o">.</span><span class="n">active</span><span class="p">():</span>
-        <span class="n">ap_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'connecting to network...'</span><span class="p">)</span>
-        <span class="n">sta_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-        <span class="n">sta_if</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">SSID</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">)</span>
-        <span class="k">while</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
-            <span class="k">pass</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Network configuration:'</span><span class="p">,</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
-</code></pre>
-</div>
-
-<p>Upload this file with <code class="highlighter-rouge">webrepl_cli.py</code> or the WebREPL:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python webrepl_cli.py boot.py 192.168.4.1:/boot.py
-</code></pre>
-</div>
-
-<p>If you reboot, you should see your current IP address in the terminal.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt;&gt;&gt; </span>Network configuration: <span class="o">(</span><span class="s1">'192.168.0.10'</span>, <span class="s1">'255.255.255.0'</span>, <span class="s1">'192.168.0.1'</span>, <span class="s1">'192.168.0.1'</span><span class="o">)</span>
-</code></pre>
-</div>
-
-<p>First let’s create a little consumer for Home Assistant sensor’s state. The code to place in <code class="highlighter-rouge">main.py</code> is a mixture of code from above and the <a href="https://home-assistant.io/developers/rest_api/">RESTful API</a> of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on.</p>
-
-<p class="note">
-If a module is missing then you need to download it from the <a href="https://github.com/micropython/micropython-lib">MicroPython Library overview</a> and upload it to the ESP8266 with <code class="highlighter-rouge">webrepl_cli.py</code> manually.
-</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Sample code to request the state of a Home Assistant entity.</span>
-
-<span class="n">API_PASSWORD</span> <span class="o">=</span> <span class="s">'YOUR_PASSWORD'</span>
-<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://192.168.0.5:8123/api/states/'</span>
-<span class="n">ENTITY</span> <span class="o">=</span> <span class="s">'sensor.kitchen_temperature'</span>
-<span class="n">TIMEOUT</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">PIN</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
-    <span class="kn">import</span> <span class="nn">urequests</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s">'{}{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">ENTITY</span><span class="p">)</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'x-ha-access'</span><span class="p">:</span> <span class="n">API_PASSWORD</span><span class="p">,</span>
-               <span class="s">'content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">urequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s">'state'</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="kn">import</span> <span class="nn">machine</span>
-    <span class="kn">import</span> <span class="nn">time</span>
-
-    <span class="n">pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">PIN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_data</span><span class="p">())</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">:</span>
-                <span class="n">pin</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">pin</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
-        <span class="k">except</span> <span class="nb">TypeError</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">TIMEOUT</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Get the state of {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ENTITY</span><span class="p">))</span>
-    <span class="n">main</span><span class="p">()</span>
-</code></pre>
-</div>
-
-<p>Upload <code class="highlighter-rouge">main.py</code> the same way as <code class="highlighter-rouge">boot.py</code>. After a reboot (<code class="highlighter-rouge">&gt;&gt;&gt; import machine</code> and <code class="highlighter-rouge">&gt;&gt;&gt; machine.reboot()</code>) or power-cycling your physical notifier is ready.</p>
-
-<p>If you run into trouble, press “Ctrl+c” in the REPL to stop the execution of the code, enter <code class="highlighter-rouge">&gt;&gt;&gt; import webrepl</code> and <code class="highlighter-rouge">&gt;&gt;&gt; webrepl.start()</code>, and upload your fixed file.</p>
 
 ]]></content>
   </entry>

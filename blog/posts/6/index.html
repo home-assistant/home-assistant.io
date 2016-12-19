@@ -83,6 +83,90 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors/">0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-02-13T06:15:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 13, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>The focus of 0.13 was on test coverage, big cheers to <a href="https://github.com/rmkraus/">@rmkraus</a> for his hard work on this. I’m proud to announce that we’ve hit the 90% test coverage of the core + important components. A big milestone for the project.</p>
+
+<p class="img">
+  <img src="/images/blog/2016-02-release-13/input_select__input_boolean__weblink.png" />
+  Examples of the new <a href="/components/input_select/">input_select</a> and <a href="/components/weblink/">weblink</a> components.
+</p>
+
+<p>Not only did we gain a lot of test coverage, we also attracted a lot of new developers that contributed a variety of components and platforms:</p>
+
+<p><img src="/images/supported_brands/speedtest.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="70" /><img src="/images/supported_brands/apcupsd.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/splunk.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/bloomsky.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/ubiquiti.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/networx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/samsung.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Core: Add service to restart Home Assistant (<a href="https://github.com/rmkraus/">@rmkraus</a>)</li>
+  <li>Core: Allow device to report as unavailable (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Core: Allow overriding polling interval in platforms and <a href="/cookbook/customize_polling_interval/">via config</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Frontend: support for a <a href="/components/group/">default view</a> have been added to replace the show all view (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Component: Added <a href="/components/apcupsd/">apcupsd</a> component (<a href="https://github.com/flyte/">@flyte</a>)</li>
+  <li>Component: Added component to log values to <a href="/components/splunk/">Splunk</a> (<a href="https://github.com/miniconfig/">@miniconfig</a>)</li>
+  <li>Component: Added <a href="/components/garage_door/">garage door</a> component including <a href="/components/garage_door.wink/">Wink</a> support (<a href="https://github.com/xrolfex/">@xrolfex</a>)</li>
+  <li>Component: Added <a href="/components/input_select/">input_select</a> component (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Component: Added <a href="/components/proximity/">proximity</a> component to track people closest to a location (<a href="https://github.com/nickwaring/">@nickwaring</a>, <a href="https://github.com/Bart274/">@Bart274</a> )</li>
+  <li>Component: Added support for <a href="/components/bloomsky/">Bloomsky Weather Station</a> (<a href="https://github.com/haraldnagel/">@haraldnagel</a>)</li>
+  <li>Component: Added support for pushing stats to <a href="/components/graphite/">graphite</a> (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Component: Added support for <a href="/components/scsgate/">SCSGate</a> devices (<a href="https://github.com/flavio/">@flavio</a>)</li>
+  <li>Component: Added <a href="/components/weblink/">weblink</a> component to link to other pages (<a href="https://github.com/MagnusKnutas/">@MagnusKnutas</a>)</li>
+  <li>Component: Support for Ubiquiti mFI <a href="/components/sensor.mfi/">sensors</a> and <a href="/components/switch.mfi/">switchable devices</a> added (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Alarm control panel: Added <a href="/components/alarm_control_panel.nx584/">Caddx/GE/Interlogix NetworX</a> support (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Camera: <a href="/components/camera.mjpeg/">MJPEG</a> camera’s will now show real stream instead of a 2fps stream (<a href="https://github.com/stjohnjohnson/">@stjohnjohnson</a>)</li>
+  <li>Camera: Added <a href="/components/camera.uvc/">Unifi video cameras</a> support (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.aruba/">Aruba</a> platform now uses SSH instead of telnet (<a href="https://github.com/carlosmgr/">@carlosmgr</a>)</li>
+  <li>History: Show correct graphs for thermostats (<a href="https://github.com/sdague/">@sdague</a>)</li>
+  <li>Light: Added <a href="/components/light.mysensors/">MySensors</a> support (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Lock: Added <a href="/components/lock.verisure/">Verisure</a> support (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>Media Player: Added <a href="/components/media_player.samsungtv/">Samsung TV</a> support (<a href="https://github.com/stefan-jonasson/">@stefan-jonasson</a>)</li>
+  <li>Media Player: Added <a href="/components/media_player.snapcast/">Snapcast</a> support (<a href="https://github.com/happyleavesaoc/">@happyleavesaoc</a>)</li>
+  <li>MQTT: Allow using templates in <a href="/components/mqtt/#publish-service">publish service</a> (<a href="https://github.com/flyte/">@flyte</a>)</li>
+  <li>Notify: Added <a href="/components/notify.rest/">REST</a> support (<a href="https://github.com/Theb-1/">@Theb-1</a>)</li>
+  <li>Sensor: Added <a href="/components/sensor.speedtest/">Speedtest.net</a> support (<a href="https://github.com/nkgilley/">@nkgilley</a>)</li>
+  <li>Switch: Added <a href="/components/switch.template/">template</a> platform (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
+  <li>Thermostat: Support for <a href="/components/thermostat.honeywell/">Honeywell</a> in the US added (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Z-Wave: Allow <a href="/components/zwave/#configuration">configuring polling</a> and <a href="/components/zwave/#events">support scenes</a> (<a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>)</li>
+  <li>Bug fixes and improvements by <a href="https://github.com/persandstrom/">@persandstrom</a>, <a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/pavoni/">@pavoni</a>, <a href="https://github.com/philipbl/">@philipbl</a>, <a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>, <a href="https://github.com/rmkraus/">@rmkraus</a>, <a href="https://github.com/molobrakos/">@molobrakos</a>, <a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>, <a href="https://github.com/TangoAlpha/">@TangoAlpha</a>, <a href="https://github.com/deisi/">@deisi</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>, <a href="https://github.com/roqeer/">@roqeer</a>, <a href="https://github.com/jaharkes/">@jaharkes</a></li>
+</ul>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/02/12/classifying-the-internet-of-things/">Classifying the Internet of Things</a>
   </h1>
   
@@ -653,53 +737,6 @@ In this tutorial I will explain how you can activate Tasker tasks from Home Assi
 
     
       <a class="btn pull-right" href="/blog/2015/12/10/activating-tasker-tasks-from-home-assistant-using-command-line-switches/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2015/12/07/influxdb-and-grafana/">InfluxDB and Grafana</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2015-12-07T14:15:13+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 07, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>How-To</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2015/12/07/influxdb-and-grafana/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><img src="/images/supported_brands/influxdb.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><img src="/images/supported_brands/grafana.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
-The <a href="https://influxdb.com/">InfluxDB</a> database is a so-called time series database primarly designed to store sensor data and real-time analytics.</p>
-
-<p>The <code class="highlighter-rouge">influxdb</code> component makes it possible to transfer all state changes from Home Assistant to an external <a href="https://influxdb.com/">InfluxDB</a> database.</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2015/12/07/influxdb-and-grafana/#read-more">Read on &rarr;</a>
     
   </div>
   </article>
