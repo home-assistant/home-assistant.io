@@ -41,6 +41,7 @@ Configuration variables:
 - **minute** (*Optional*): Specify the minute(s) of the hour to schedule the speedtest. Use a list for multiple entries. Default is 0.
 - **hour** (*Optional*): Specify the hour(s) of the day to schedule the speedtest. Use a list for multiple entries. Default is None.
 - **day** (*Optional*): Specify the day(s) of the month to schedule the speedtest. Use a list for multiple entries. Default is None.
+- **manual** (*Optional*): When set to true the sensor will not update unless the service is called. Default is False. 
 
 This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net. Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.
 
@@ -81,6 +82,21 @@ sensor:
     - 6
     - 12
     - 18
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+```
+
+### {% linkable_title Run manually %}
+
+Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  platform: speedtest
+  manual: true
   monitored_conditions:
     - ping
     - download
