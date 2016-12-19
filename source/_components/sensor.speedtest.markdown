@@ -90,7 +90,7 @@ sensor:
 
 ### {% linkable_title Run manually %}
 
-Never updates unless sensor.speed_test is run:
+Never updates the sensor unless service sensor.speed_test is called:
 
 ```yaml
 # Example configuration.yaml entry
