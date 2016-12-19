@@ -60,7 +60,7 @@ The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) 
 - Media player - Emby: New support for trailer and media position ([@mezz64])
 - Camera - Amcrest: Support for resolution ([@tchellomello])
 - Media player - Kodi: Authentification fixed and fan art ([@balloob], [@joopert])
-- Minor and not so minor features and bug fixes by [@pvizeli], [@jminn], [@magicus], [@teodoc], [@fabaff], [@technicalpickles], [@balloob], [@lukas-hetzenecker], [@rubund], [@dasos], [@trisk], [@armills], [@auduny], [@lwis], [@nkgilley], [@janLo], [@keatontaylor], [@stefan-jonasson], [@Jypy], [@jawilson], [@DavidLP], [@molobrakos], [@jabesq], [@joerocklin], [@kellerza], [@kirichkov], and [@danielperna84].
+- Minor and not so minor features and bug fixes by [@pvizeli], [@jminn], [@magicus], [@teodoc], [@fabaff], [@technicalpickles], [@balloob], [@lukas-hetzenecker], [@rubund], [@dasos], [@trisk], [@armills], [@auduny], [@lwis], [@nkgilley], [@janLo], [@keatontaylor], [@stefan-jonasson], [@Jypy], [@jawilson], [@DavidLP], [@molobrakos], [@jabesq], [@joerocklin], [@kellerza], [@kirichkov], [@r-jordan] and [@danielperna84].
 
 ### {% linkable_title Release 0.35.1 - December 18 %}
 
@@ -87,6 +87,7 @@ http:
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 
+[@r-jordan]: https://github.com/r-jordan
 [@aequitas]: https://github.com/aequitas
 [@armills]: https://github.com/armills
 [@auduny]: https://github.com/auduny
