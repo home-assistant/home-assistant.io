@@ -90,7 +90,7 @@ sensor:
 
 ### {% linkable_title Run manually %}
 
-Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
+Never updates unless sensor.speed_test is run:
 
 ```yaml
 # Example configuration.yaml entry
