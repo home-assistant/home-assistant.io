@@ -29,6 +29,7 @@ switch:
 ```
 
 Configuration variables:
+
 - **host** (*Required*): The hostname/IP address to connect to.
 - **mac** (*Required*):  Device mac address.
 - **timeout** (*Optional*): Timeout in seconds for the connection to the device
@@ -37,7 +38,6 @@ Configuration variables:
     - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
     - **command_on** (*Required*): Base64 encoded packet from RM device to take for on.
     - **command_off** (*Required*): Base64 encoded packet from RM device to take for off.
-
 
 
 How to obtain IR/RF packets?
