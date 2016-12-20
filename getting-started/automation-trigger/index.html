@@ -193,7 +193,7 @@
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
     <span class="c1"># Matches every hour at 5 minutes past whole</span>
     <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
-    <span class="s">seconds</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">seconds</span><span class="pi">:</span> <span class="s">00</span>
 
 <span class="s">automation 2</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
@@ -207,9 +207,12 @@
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
     <span class="c1"># You can also match on interval. This will match every 5 minutes</span>
     <span class="s">minutes</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/5'</span>
-    <span class="s">seconds</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">seconds</span><span class="pi">:</span> <span class="s">00</span>
 </code></pre>
 </div>
+<p class="note warning">
+  Rememebr that if you are using matching to include both <code class="highlighter-rouge">minutes</code> and <code class="highlighter-rouge">seconds</code>.  Without <code class="highlighter-rouge">seconds</code>, your automation will trigger 60 times during the matching minute. 
+</p>
 
 <h3><a class="title-link" name="zone-trigger" href="#zone-trigger"></a> Zone trigger</h3>
 
