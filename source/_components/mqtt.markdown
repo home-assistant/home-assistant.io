@@ -99,6 +99,13 @@ mqtt:
     # Your HBMQTT config here. Example at:
     # http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration
 ```
+<p class='note'>
+If you used the All In One installer, HA will have been configured to use [Mosquitto](http://mosquitto.org/).  If you would like to change the default password for that installation, you can run the following command.
+`sudo mosquitto_passwd /etc/mosquitto/pwfile pi`
+
+Be sure to update your configuration.yaml to reflect the change.
+</p>
+
 
 ### {% linkable_title Run your own %}
 
