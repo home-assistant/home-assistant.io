@@ -75,3 +75,17 @@ data_template:
 ## {% linkable_title Cache %}
 
 The component have two caches. Both caches can be controlled with the `cache` option in the  platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
+
+## {% linkable_title Known problem with pulseaudio %}
+
+If you run hass with root user, you probably need to do that :
+addgroup --system pulse
+adduser --system --ingroup pulse --home /var/run/pulse pulse
+addgroup --system pulse-access
+adduser pulse audio
+adduser root pulse-access
+
+then:
+pulseaudio -D --system
+
+You will have to execute pulseaudio -D --system at server startup .
