@@ -108,8 +108,8 @@ The easiest way to find your sensors is to add this to your <code class="highlig
 <img src="/images/components/rfxtrx/sensor.png" />
 </p>
 
-<p>Here the name is <code class="highlighter-rouge">0a52080000301004d240259</code> and you can verify that it works from the frontend.
-Then you should update your configuration to:</p>
+<p>Here the name is <code class="highlighter-rouge">0a52080000301004d240259</code> or <code class="highlighter-rouge">0a52080000301004d240259_temperature</code> and you can verify that it works from the frontend.
+Then you should update your configuration to (_temperature is not needed):</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -133,6 +133,19 @@ Then you should update your configuration to:</p>
        <span class="pi">-</span> <span class="s">Temperature</span>
 </code></pre>
 </div>
+<p>Only these data_type are valid :</p>
+<ul>
+  <li><em>Temperature</em></li>
+  <li><em>Humidity</em></li>
+  <li><em>Barometer</em></li>
+  <li><em>Wind direction</em></li>
+  <li><em>Rain rate</em></li>
+  <li><em>Energy usage</em></li>
+  <li><em>Total usage</em></li>
+  <li><em>Sound</em></li>
+  <li><em>Sensor Status</em></li>
+  <li><em>Counter value</em></li>
+</ul>
 
 <p>Example configuration:</p>
 
@@ -160,6 +173,7 @@ Then you should update your configuration to:</p>
   <li><strong>data_type</strong>  (<em>Optional</em>): Which data type the sensor should show</li>
   <li><strong>fire_event</strong> (<em>Optional</em>): Fires an event even if the state is the same as before. Can be used for automations.</li>
 </ul>
+
 
 
 </article>
