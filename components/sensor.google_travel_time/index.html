@@ -116,6 +116,7 @@
     <ul>
       <li><strong>departure_time</strong> (<em>Optional</em>): Can be <code class="highlighter-rouge">now</code>, a Unix timestamp, or a 24 hour time string like <code class="highlighter-rouge">08:00:00</code>. If you provide a time string, it will be combined with the current date to get travel time for that moment.</li>
       <li><strong>arrival_time</strong> (<em>Optional</em>): See notes above for <code class="highlighter-rouge">departure_time</code>. <code class="highlighter-rouge">arrival_time</code> can not be <code class="highlighter-rouge">now</code>, only a Unix timestamp or time string. You can not provide both <code class="highlighter-rouge">departure_time</code> and <code class="highlighter-rouge">arrival_time</code>. If you do provide both, <code class="highlighter-rouge">arrival_time</code> will be removed from the request.</li>
+      <li><strong>units</strong> (<em>Optional</em>): Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in <code class="highlighter-rouge">unit_system:</code>.</li>
     </ul>
   </li>
 </ul>
@@ -139,6 +140,14 @@
     <span class="s">api_key</span><span class="pi">:</span> <span class="s">XXXX_XXXXX_XXXXX</span>
     <span class="s">origin</span><span class="pi">:</span> <span class="s">zone.home</span>
     <span class="s">destination</span><span class="pi">:</span> <span class="s">Eddies House</span>    <span class="c1"># Friendly name of a zone</span>
+    
+  <span class="c1"># Tracking entity in imperial unit</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">google_travel_time</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">XXXX_XXXXX_XXXXX</span>
+    <span class="s">destination</span><span class="pi">:</span> <span class="s">zone.home</span>
+    <span class="s">options</span><span class="pi">:</span>
+      <span class="s">units</span><span class="pi">:</span> <span class="s">imperial</span>    <span class="c1"># 'metric' for Metric, 'imperial' for Imperial</span>
+    
 </code></pre>
 </div>
 
