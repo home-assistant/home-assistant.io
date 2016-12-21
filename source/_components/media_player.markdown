@@ -32,7 +32,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. Defaults to all. |
-| `volume_level`         |       no | Integer for volume level                         |
+| `volume_level`         |       no | Float for volume level                         |
 
 #### {% linkable_title Service `media_player/media_seek` %}
 
