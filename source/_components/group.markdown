@@ -74,6 +74,7 @@ Notice in the example below that in order to refer to the group "Living Room", y
 ```yaml
 # Example configuration.yaml entry that shows two groups, referred to in a view group (tab)
   Living Room:
+    control: hidden
     entities:
       - light.light_family_1
       - binary_sensor.motion_living
