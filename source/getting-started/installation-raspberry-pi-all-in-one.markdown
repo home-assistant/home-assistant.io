@@ -69,6 +69,13 @@ After upgrading, you can restart Home Assistant a few different ways:
 * Restarting the Raspberry Pi `sudo reboot`
 * Restarting the Home-Assistant Service `sudo systemctl restart home-assistant.service`
 
+### {% linkable_title To change the MQTT default password %} 
+ 
+*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+*  Change password `sudo mosquitto_passwd /etc/mosquitto/pwfile pi`
+*  Restart mosquitto `sudo systemctl restart mosquitto.service`
+*  Be sure to update your `configuration.yaml` to reflect the new password.
+
 ### {% linkable_title Using the OZWCP web application %}
 
 To launch the OZWCP web application:
