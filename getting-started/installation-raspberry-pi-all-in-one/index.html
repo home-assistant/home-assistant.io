@@ -162,6 +162,15 @@
   <li>Restarting the Home-Assistant Service <code class="highlighter-rouge">sudo systemctl restart home-assistant.service</code></li>
 </ul>
 
+<h3><a class="title-link" name="to-change-the-mqtt-default-password" href="#to-change-the-mqtt-default-password"></a> To change the MQTT default password</h3>
+
+<ul>
+  <li>Login to Raspberry Pi <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
+  <li>Change password <code class="highlighter-rouge">sudo mosquitto_passwd /etc/mosquitto/pwfile pi</code></li>
+  <li>Restart mosquitto <code class="highlighter-rouge">sudo systemctl restart mosquitto.service</code></li>
+  <li>Be sure to update your <code class="highlighter-rouge">configuration.yaml</code> to reflect the new password.</li>
+</ul>
+
 <h3><a class="title-link" name="using-the-ozwcp-web-application" href="#using-the-ozwcp-web-application"></a> Using the OZWCP web application</h3>
 
 <p>To launch the OZWCP web application:</p>
