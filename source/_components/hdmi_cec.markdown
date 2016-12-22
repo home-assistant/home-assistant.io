@@ -13,7 +13,7 @@ ha_release: 0.23
 ha_iot_class: "Local Push"
 ---
 
-The CEC component provides services that allow selecting the active device, powering on all devices, and setting all devices to standby. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
+The HDMI CEC component provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entites for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
 
 ## {% linkable_title CEC Setup %}
 
@@ -81,25 +81,32 @@ In the following example, a Pi Zero running Home Assistant is on a TV's HDMI por
 ```yaml
 hdmi_cec:
   devices:
-    1: Pi Zero
-    2:
-      1: Fire TV Stick
-      2: Chromecast
-      3: Another Device
-    3: BlueRay player
+    TV: 0.0.0.0
+    Pi Zero: 1.0.0.0
+    Fire TV Stick: 2.1.0.0
+    Chromecast: 2.2.0.0
+    Another Device: 2.3.0.0
+    BlueRay player: 3.0.0.0
 ```
 
 ## {% linkable_title Services %}
 
 ### {% linkable_title Select Device %}
 
-Call the `hdmi_cec/select_device` service with the name of the device to select, for example:
+Call the `hdmi_cec/select_device` service with the name of the device from config or entity_id or prysical address"to select it, for example:
 
 ```json
-{
-  "device": "Chromecast"
-}
+{"device": "Chromecast"}
 ```
+
+```json
+{"device": "switch.hdmi_3"}
+```
+
+```json
+{"device": "1.1.0.0"}
+```
+
 So an Automation action using the example above would look something like this.
 
 ```yaml
