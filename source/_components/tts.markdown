@@ -63,6 +63,14 @@ data:
   message: 'May the Force be with you.'
 ```
 
+```yaml
+service: tts.google_say
+entity_id: media_player.floor
+data:
+  message: 'Que la force soit avec toi.'
+  language: 'fr'
+```
+
 With a template:
 
 ```yaml
@@ -71,6 +79,7 @@ data_template:
   message: 'Temperature is {% raw %}{{ sensor.temperature }}{% endraw %}.'
   cache: false
 ```
+
 
 ## {% linkable_title Cache %}
 
