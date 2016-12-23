@@ -55,23 +55,12 @@ service: tts.google_say
 data:
   message: 'May the Force be with you.'
 ```
-Say to the `media_player.floor` device entitie:
 
 ```yaml
 service: tts.google_say
 entity_id: media_player.floor
 data:
   message: 'May the Force be with you.'
-```
-
-Say to the `media_player.floor` device entitie in french:
-
-```yaml
-service: tts.google_say
-entity_id: media_player.floor
-data:
-  message: 'Que la force soit avec toi.'
-  language: 'fr'
 ```
 
 With a template:
@@ -82,7 +71,6 @@ data_template:
   message: 'Temperature is {% raw %}{{ sensor.temperature }}{% endraw %}.'
   cache: false
 ```
-
 
 ## {% linkable_title Cache %}
 
