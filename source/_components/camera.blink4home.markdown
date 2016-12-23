@@ -13,7 +13,7 @@ ha_release: 0.36
 ---
 
 
-The [Blink4Home](https://blinkforhome.com/) platform allows you to arm and disarm your Blink4Home camera network (as configured through the app) in  Home Assistant. Besides providing these two services, it also allows you to add a binary sensor that will indicate if the camera network is armed or not.
+The [Blink4Home](https://blinkforhome.com/) platform allows you to arm and disarm your Blink4Home camera network (as configured through the app) in Home Assistant. Besides providing these two services, it also allows you to add a binary sensor that will indicate if the camera network is armed or not.
 
 To enable your Blink4Home camera network in your installation, add the following to your `configuration.yaml` file:
 
