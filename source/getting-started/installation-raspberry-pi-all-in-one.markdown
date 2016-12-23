@@ -11,7 +11,7 @@ The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric
 
 The only requirement is that you have a Raspberry Pi with a fresh installation of [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) connected to your network.
 
-<p class='note note'>
+<p class='note'>
 Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images.  Adding an empty file called `ssh` to `/boot/` or the FAT32 partition will enable it.  More information is on the Raspberry Pi Foundation [Blog](https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel)
 </p>
 
