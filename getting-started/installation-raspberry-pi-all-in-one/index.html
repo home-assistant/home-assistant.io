@@ -94,6 +94,10 @@
 
 <p>The only requirement is that you have a Raspberry Pi with a fresh installation of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> connected to your network.</p>
 
+<p class="note">
+Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images.  Adding an empty file called <code class="highlighter-rouge">ssh</code> to <code class="highlighter-rouge">/boot/</code> or the FAT32 partition will enable it.  More information is on the Raspberry Pi Foundation <a href="https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel">Blog</a>
+</p>
+
 <ul>
   <li>Login to Raspberry Pi. For example with <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
   <li>Run the following command</li>
