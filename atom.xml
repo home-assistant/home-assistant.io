@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2016-12-23T13:19:44+00:00</updated>
+  <updated>2016-12-23T15:21:01+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -118,6 +118,15 @@
 
 <ul>
   <li>When base url specified, do not combine it with <code class="highlighter-rouge">server_port</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0353---december-23" href="#release-0353---december-23"></a> Release 0.35.3 - December 23</h3>
+
+<ul>
+  <li>Fix issue with voicerrs and post api (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix async component update on service calls (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix async log handle do not close (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix nest component with various KeyError exceptions (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
 </ul>
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
