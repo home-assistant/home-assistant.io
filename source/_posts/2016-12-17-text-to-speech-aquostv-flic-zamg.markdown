@@ -80,6 +80,13 @@ http:
 
  - When base url specified, do not combine it with `server_port` ([@balloob])
 
+### {% linkable_title Release 0.35.3 - December 23 %}
+
+ - Fix issue with voicerrs and post api ([@pvizeli])
+ - Fix async component update on service calls ([@pvizeli])
+ - Fix async log handle do not close ([@pvizeli])
+ - Fix nest component with various KeyError exceptions ([@technicalpickles])
+ 
 ### {% linkable_title  If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
