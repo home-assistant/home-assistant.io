@@ -106,7 +106,7 @@ Choose just one schema. Mixing both approaches is not possible.
 
 ### {% linkable_title Select Device %}
 
-Call the `hdmi_cec/select_device` service with the name of the device from config or entity_id or prysical address"to select it, for example:
+Call the `hdmi_cec/select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
 
 ```json
 {"device": "Chromecast"}
@@ -136,6 +136,47 @@ Call the `hdmi_cec/power_on` service (no arguments) to power on any devices that
 ### {% linkable_title Standby %}
 
 Call the `hdmi_cec/standby` service (no arguments) to place in standby any devices that support this function.
+
+### {% linkable_title Change volume level %}
+
+Call the `hdmi_cec/volume` service with one of following commands:
+
+#### Volume up
+Increase volume three times:
+```json
+{"up": 3}
+```
+Keep increasing volume until release is called:
+```json
+{"up": "press"}
+```
+Stop increasing volume:
+```json
+{"up": "release"}
+```
+
+
+#### Volume down
+Decrease volume three times:
+```json
+{"down": 3}
+```
+Keep decreasing volume until release is called:
+```json
+{"down": "press"}
+```
+Stop decreasing volume:
+```json
+{"down": "release"}
+```
+
+#### Volume mute
+Toggle mute:
+```json
+{"mute": ""}
+```
+value is ignores.
+
 
 ## {% linkable_title Useful References %}
 
