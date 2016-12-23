@@ -55,6 +55,7 @@ service: tts.google_say
 data:
   message: 'May the Force be with you.'
 ```
+Say to the `media_player.floor` device entitie:
 
 ```yaml
 service: tts.google_say
@@ -62,6 +63,8 @@ entity_id: media_player.floor
 data:
   message: 'May the Force be with you.'
 ```
+
+Say to the `media_player.floor` device entitie in french:
 
 ```yaml
 service: tts.google_say
