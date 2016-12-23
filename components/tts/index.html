@@ -156,22 +156,11 @@ If you are running Home Assistant over SSL or from within a container, you will 
   <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">May</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Force</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">you.'</span>
 </code></pre>
 </div>
-<p>Say to the <code class="highlighter-rouge">media_player.floor</code> device entitie:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.google_say</span>
 <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.floor</span>
 <span class="s">data</span><span class="pi">:</span>
   <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">May</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Force</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">you.'</span>
-</code></pre>
-</div>
-
-<p>Say to the <code class="highlighter-rouge">media_player.floor</code> device entitie in french:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.google_say</span>
-<span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.floor</span>
-<span class="s">data</span><span class="pi">:</span>
-  <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Que</span><span class="nv"> </span><span class="s">la</span><span class="nv"> </span><span class="s">force</span><span class="nv"> </span><span class="s">soit</span><span class="nv"> </span><span class="s">avec</span><span class="nv"> </span><span class="s">toi.'</span>
-  <span class="s">language</span><span class="pi">:</span> <span class="s1">'</span><span class="s">fr'</span>
 </code></pre>
 </div>
 
