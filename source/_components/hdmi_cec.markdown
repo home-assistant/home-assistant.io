@@ -78,6 +78,7 @@ language:      ???
 
 In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
 
+You can use either direct mapping name to physical address of device
 ```yaml
 hdmi_cec:
   devices:
@@ -88,6 +89,18 @@ hdmi_cec:
     Another Device: 2.3.0.0
     BlueRay player: 3.0.0.0
 ```
+or port mapping tree
+```yaml
+hdmi_cec:
+  devices:
+    1: Pi Zero
+    2:
+      1: Fire TV Stick
+      2: Chromecast
+      3: Another Device
+    3: BlueRay player
+```
+Choose just one schema. Mixing both approaches is not possible.
 
 ## {% linkable_title Services %}
 
