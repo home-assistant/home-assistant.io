@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: insteon.png
 ha_category: Switch
+ha_version: 0.36
 ---
 
 The `insteon_local` switch component lets you control your switches connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
@@ -20,15 +21,13 @@ insteon_local:
   host: YOUR HUB IP
   username: YOUR HUB USERNAME
   password: YOUR HUB PASSWORD
-# Example configuration.yaml light entry  
+  timeout: 10
+  port: 25105
+```
+
+To add switches to your set-up, add the platform to your light configuration:
+```yaml
 switch:
-   - platform: insteon_local
-     switches:
-       dining_room:
-         device_id: 30DA8A
-         name: Dining Room Outlet
-       living_room:
-         device_id: 30D927
-         name: Living Room Outlet
+  - platform: insteon_local
 ```
 

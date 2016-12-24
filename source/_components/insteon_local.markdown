@@ -10,6 +10,7 @@ footer: true
 logo: insteon.png
 ha_category: Hub
 ha_iot_class: "Local Polling"
+ha_version: 0.36
 ---
 
 The `insteon-local` component lets you use your [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
@@ -22,30 +23,32 @@ insteon_local:
   host: YOUR HUB IP
   username: YOUR HUB USERNAME
   password: YOUR HUB PASSWORD
-# Example configuration.yaml light entry  
+  timeout: 10
+  port: 25105
+```
+
+The Insteon(local) component currently supports both lights(dimmers) and switches. A full configuration may look like so:
+
+```yaml
+# Example configuration.yaml platform entry
+insteon_local:
+  host: YOUR HUB IP
+  username: YOUR HUB USERNAME
+  password: YOUR HUB PASSWORD
+  timeout: 10
+  port: 25105
+
 light:
   - platform: insteon_local
-    lights:
-      dining_room:
-        device_id: 30DA8A
-        name: Dining Room
-      living_room:
-        device_id: 30D927
-        name: Living Room
-# Example configuration.yaml switch entry
+  
 switch:
-   - platform: insteon_local
-     switches:
-       dining_room:
-         device_id: 30DA8A
-         name: Dining Room
-       living_room:
-         device_id: 30D927
-         name: Living Room
+  - platform: insteon_local  
 ```
 
 Configuration variables:
 
-- **username** (*Required*): The username used to access the Insteon interface (find in your insteon app).
+- **username** (*Required*): The username used to access the Insteon interface (find in your Insteon app).
 - **password** (*Required*): The password used to access the Insteon interface.
 - **host** (*Required*): The ip address of your hub.
+- **timeout** (*Optional*): Timeout to wait for connection. (default: 10)
+- **port** (*Optional*): The port your hub is configured to listen to.  (default: 25105)
