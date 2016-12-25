@@ -12,7 +12,7 @@ ha_category: Switch
 ha_release: 0.35
 ---
 
-This `Broadlink` switch platform allow to you control Broadlink RM2 Pro and RM mini IR+RF [devices](http://www.ibroadlink.com/rm/).
+This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/rm/).
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -33,6 +33,7 @@ Configuration variables:
 - **host** (*Required*): The hostname/IP address to connect to.
 - **mac** (*Required*):  Device mac address.
 - **timeout** (*Optional*): Timeout in seconds for the connection to the device
+- **types** (*Optional*): Switch type. (rm, rm2, rm_mini, rm_pro_phicomm, rm2_home_plus, rm2_home_plus_gdt, rm2_pro_plus, rm2_pro_plus2, rm2_pro_plus_bl, rm_mini_shate, sp1, sp2, honeywell_sp2, sp3, spmini2 or spminiplus)
 - **switches** (*Optional*): The array that contains all switches.
   - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
     - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
@@ -77,4 +78,26 @@ Example config:
       friendly_name: "LG Tv"
       command_on: 'JgBIAAABIpQPFBITETgSEw8UEhQSEhEVDzgSOBAUETgQOQ84EjgRNxITETgSExA5EDgREhI3EhMROBMSEDkQFBETEjYTEhE4EQANBQ=='
       command_off: 'JgBIAAABH5YPFBETETgUERAUEBURFBATETgROBEUETcSNxE4ETcSOBISEBUQFREUEjUSFBA5ETcRNxE4ETkQOBAUEjcRFRAUEQANBQ=='
+``` 
+
+
+```yaml
+switch 1:
+  platform: broadlink
+  host: 192.168.1.2
+  mac: 'B4:43:0D:CC:0F:58'
+  timeout: 15
+# Will work on most Phillips tvs:
+    tv:
+      friendly_name: "Phillips Tv"
+      command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
+
+switch 2:
+  platform: broadlink
+  host: IP_ADDRESS
+  mac: 'MAC_ADDRESS'
+  type:  sp1
+  switches:
+    sp_switch:
+    
 ``` 
