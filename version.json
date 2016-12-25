@@ -1,6 +1,6 @@
 {
-  "current_version": "0.35.2",
-  "release_date": "2016-12-19T00:00:00+00:00",
+  "current_version": "0.35.3",
+  "release_date": "2016-12-23T00:00:00+00:00",
   "release_notes": "https://home-assistant.io/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/",
   "release_notes_path": "/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/",
   "release_title": "0.35: Text-to-speech, VLC, Flic, netdata",
@@ -10,6 +10,6 @@
   "semantic_version": {
     "major": 0,
     "minor": 35,
-    "patch": 2
+    "patch": 3
   }
 }
