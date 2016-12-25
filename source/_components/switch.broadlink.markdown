@@ -98,6 +98,6 @@ switch 2:
   mac: 'MAC_ADDRESS'
   type:  sp1
   switches:
-    sp_switch:
-    
+    humidifier:
+      friendly_name: 'Humidifier'
 ``` 
