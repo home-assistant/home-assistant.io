@@ -57,8 +57,8 @@ The All-In-One Installer script will do the following automatically:
 To upgrade the All-In-One setup manually:
 
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
-*  Change to homeassistant user `sudo su -s /bin/bash homeassistant`
-*  Change to virtual enviroment `source /srv/homeassistant/homeassistant_venv/bin/activate`
+*  Change to homeassistant user `sudo su -s /bin/bash hass`
+*  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
 *  Update HA `pip3 install --upgrade homeassistant`
 *  Type `exit` to logout the hass user and return to the `pi` user.
   
