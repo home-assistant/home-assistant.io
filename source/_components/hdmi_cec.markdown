@@ -102,6 +102,12 @@ hdmi_cec:
 ```
 Choose just one schema. Mixing both approaches is not possible.
 
+Another option you can use in config is specifiing of default platform of HDMI devices. "switch" and "media_player" are supported. Switch is default.
+```yaml
+hdmi_cec:
+  platform: media_player
+```
+
 ## {% linkable_title Services %}
 
 ### {% linkable_title Select Device %}
