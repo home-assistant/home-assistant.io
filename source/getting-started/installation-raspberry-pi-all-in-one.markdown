@@ -61,6 +61,16 @@ To upgrade the All-In-One setup manually:
 *  Change to virtual enviroment `source /srv/homeassistant/homeassistant_venv/bin/activate`
 *  Update HA `pip3 install --upgrade homeassistant`
 *  Type `exit` to logout the hass user and return to the `pi` user.
+
+<p class='note note'>
+If you deployed Home Assistant via the AiO installer prior to December 2016, you will need to use the following commands:
+*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+*  Change to homeassistant user `sudo su -s /bin/bash hass`
+*  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
+*  Update HA `pip3 install --upgrade homeassistant`
+*  Type `exit` to logout the hass user and return to the `pi` user.
+</p>
+
   
 To upgrade with fabric:
 
