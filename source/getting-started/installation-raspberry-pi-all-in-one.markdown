@@ -31,7 +31,7 @@ Installation will take approx. 1-2 hours depending on the Raspberry Pi model the
 
 Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at [http://your_raspberry_pi_ip:8123](http://your_raspberry_pi_ip:8123).
 
-The Home Assistant configuration is located at `/home/hass/.homeassistant`. The [virtualenv](https://virtualenv.pypa.io/en/latest/) with the Home Assistant installation is located at `/srv/homeassistant/homeassistant_venv`. As part of the secure installation, a new user (**homeassistant**) is added to your Raspberry Pi to run Home Assistant. This is a system account and does not have login or other abilities by design. When editing your `configuration.yaml` files, you will need to run the commands with `sudo` or by switching user.
+The Home Assistant configuration is located at `/home/homeassistant/.homeassistant` (or `/home/hass/.homeassistant` if installed prior to December 2016). The [virtualenv](https://virtualenv.pypa.io/en/latest/) with the Home Assistant installation is located at `/srv/homeassistant/homeassistant_venv`. As part of the secure installation, a new user (**homeassistant**) is added to your Raspberry Pi to run Home Assistant. This is a system account and does not have login or other abilities by design. When editing your `configuration.yaml` files, you will need to run the commands with `sudo` or by switching user.
 
 <p class='note note'>
   *Windows users*: Setting up WinSCP to allow this seemlessly is at the end of this page.
