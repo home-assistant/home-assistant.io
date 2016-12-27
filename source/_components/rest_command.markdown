@@ -49,3 +49,15 @@ Service variables:
 - **params** (*Optional*): URL query arguments as dict
 - **username** (*Optional*): username for HTTP authentication
 - **password** (*Optional*): password for HTTP authentication
+
+`rest_command.post` and `rest_command.put` could also have payload like:
+
+```yaml
+service: rest_command.post
+data:
+  url: 'https://example.com/'
+  payload: 'bla'
+```
+
+Service variables:
+- **payload** (*Optional*): A string or dict (for form encoding) to send with request.
