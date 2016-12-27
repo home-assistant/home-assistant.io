@@ -150,7 +150,7 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
 
 <p>Keep an eye on ratining messages to keep the state as you don’t want to unlock your door by accident when you restart something.</p>
 
-<p>For a check you can use the command line tools <code class="highlighter-rouge">mosquitto_pub</code> shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. This allows you to operate your cover manually:</p>
+<p>For a check you can use the command line tools <code class="highlighter-rouge">mosquitto_pub</code> shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. This allows you to operate your lock manually:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/frontdoor/set -m <span class="s2">"LOCK"</span>
 </code></pre>
