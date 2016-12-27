@@ -184,21 +184,19 @@ The component will only write a log message. Keep in mind for later that you hav
 </code></pre>
 </div>
 
-<p>Thanks to <code class="highlighter-rouge">DEFAULT_TEXT</code> variable the component will launch even if no <code class="highlighter-rouge">text:</code> field is used in the <code class="highlighter-rouge">configuration.yaml</code> file. Quite often there are variables which are required. It’s important to check if all mandatory configuration variables are provided. If not, the setup should fail. We will use the <code class="highlighter-rouge">validate_config</code> function as a helper to achive this. The next listing shows the essential parts.</p>
+<p>Thanks to <code class="highlighter-rouge">DEFAULT_TEXT</code> variable the component will launch even if no <code class="highlighter-rouge">text:</code> field is used in the <code class="highlighter-rouge">configuration.yaml</code> file. Quite often there are variables which are required. It’s important to check if all mandatory configuration variables are provided. If not, the setup should fail. We will use <code class="highlighter-rouge">voluptuous</code> as a helper to achive this. The next listing shows the essential parts.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.helpers</span> <span class="kn">import</span> <span class="n">validate_config</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">voluptuous</span> <span class="kn">as</span> <span class="nn">vol</span>
+
+<span class="kn">import</span> <span class="nn">homeassistant.helpers.config_validation</span> <span class="kn">as</span> <span class="nn">cv</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="p">{</span><span class="n">DOMAIN</span><span class="p">:</span> <span class="p">[</span><span class="n">CONF_TEXT</span><span class="p">]},</span> <span class="n">_LOGGER</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">False</span>
+<span class="n">PLATFORM_SCHEMA</span> <span class="o">=</span> <span class="n">PLATFORM_SCHEMA</span><span class="o">.</span><span class="n">extend</span><span class="p">({</span>
+    <span class="n">vol</span><span class="o">.</span><span class="n">Required</span><span class="p">(</span><span class="n">CONF_TEXT</span><span class="p">):</span> <span class="n">cv</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+<span class="p">})</span>
 </code></pre>
 </div>
 
 <p>If <code class="highlighter-rouge">text:</code> is missing, there will be a warning in the log file.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>16-03-12 14:37:37 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>custom_components.hello_state] Missing required configuration items <span class="k">in </span>hello_state: text
-16-03-12 14:37:37 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>homeassistant.bootstrap] component hello_state failed to initialize
-</code></pre>
-</div>
 
 <p>After a start or a restart of Home Assistant the component will be visible in the frontend if the <code class="highlighter-rouge">configuration.yaml</code> file is up-to-date.</p>
 

@@ -92,9 +92,9 @@
 
   <p>The <code class="highlighter-rouge">mqtt</code> switch platform let you control your MQTT enabled switch.</p>
 
-<p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.</p>
+<p>In an ideal scenario, the MQTT device will have a <code class="highlighter-rouge">state_topic</code> to publish state changes. If these messages are published with <code class="highlighter-rouge">RETAIN</code> flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.</p>
 
-<p>When a state topic is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from device (message from <code class="highlighter-rouge">state_topic</code>).</p>
+<p>When a <code class="highlighter-rouge">state_topic</code> is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from device (message from <code class="highlighter-rouge">state_topic</code>).</p>
 
 <p>Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect switch operation.</p>
 
@@ -115,7 +115,7 @@
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the switch state.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
-  <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.</li>
+  <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no <code class="highlighter-rouge">state_topic</code> defined, else <code class="highlighter-rouge">false</code>.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
@@ -147,7 +147,7 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
 </code></pre>
 </div>
 
-<p>For a check you can use the command line tools <code class="highlighter-rouge">mosquitto_pub</code> shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. This allows you to operate your cover manually:</p>
+<p>For a check you can use the command line tools <code class="highlighter-rouge">mosquitto_pub</code> shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. This allows you to operate your switch manually:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1set -m <span class="s2">"ON"</span>
 </code></pre>
