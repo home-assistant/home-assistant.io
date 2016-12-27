@@ -69,7 +69,7 @@ lock:
   value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
-Keep an eye on ratining messages to keep the state as you don't want to unlock your door by accident when you restart something. 
+Keep an eye on retaining messages to keep the state as you don't want to unlock your door by accident when you restart something. 
 
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your lock manually:
 
