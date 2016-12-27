@@ -116,3 +116,38 @@ automation:
       service: input_boolean.turn_off
       entity_id: input_boolean.notify
 ````
+
+The automation example below shows how to send a command via the harmony remote using the `send_command` service to send the 'Pause' command to the hub, which is already defined as an IR code for each device to be used via the Harmony app. It is checking for the activity name as exposed through the sensor in the harmony remote component using Jinga if statements to set the device_id, sending the correct Pause command for the given activity. This requires checking your activity list and device_id from the `harmony_REMOTENAME.conf` file created when you start the component. In this example, the harmony hub is named bedroom.
+```yaml
+automation:
+  - alias: Harmony Pause contextual for activity
+    trigger:
+    # trigger happens to be from a flic button - could be any valid event
+      platform: event
+      event_type: flic_click
+      event_data:
+        button_name: flic_80e4da70bbb1
+        click_type: double
+    action:
+      service: remote.send_command
+      data_template:
+      # using a data template to have if brances for relavant device
+        # Always the same entity_id - the harmony hub
+        entity_id: remote.bedroom 
+        # Always the same command - the Pause key
+        command: Pause
+        # select device based upon the activity being undertaken.
+        device: >
+          # when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101 
+          {% if is_state("sensor.bedroom", "WATCH TV") %}
+            22987101
+          # when in WATCH APPLE TV activity, the pause key relates to an Apple TV, which is device 23002316
+          {% elif is_state("sensor.bedroom", "WATCH APPLE TV") %}
+            23002316
+          {% elif is_state("sensor.bedroom", "PLEX") %}
+            23048786
+          {% elif is_state("sensor.bedroom", "WATCH BLU RAY") %}
+            23043122
+          {% endif %}
+
+````
