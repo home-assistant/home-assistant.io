@@ -71,7 +71,7 @@ lock:
 
 Keep an eye on ratining messages to keep the state as you don't want to unlock your door by accident when you restart something. 
 
-For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your cover manually:
+For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your lock manually:
 
 ```bash
 $  mosquitto_pub -h 127.0.0.1 -t home-assistant/frontdoor/set -m "LOCK"
