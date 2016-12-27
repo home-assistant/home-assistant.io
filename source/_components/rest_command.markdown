@@ -48,4 +48,4 @@ Service variables:
 - **url** (*Required*): URL for sending request.
 - **params** (*Optional*): URL query arguments as dict
 - **username** (*Optional*): username for HTTP authentication
-- **password** (*Optional*): 
+- **password** (*Optional*): password for HTTP authentication
