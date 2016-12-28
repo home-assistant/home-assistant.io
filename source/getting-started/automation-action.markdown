@@ -47,24 +47,3 @@ automation 2:
       data:
         message: Oh wow you really missed something great.
 ```
-
-
-Conditions can also be part of an action:
-
-```yaml
-automation:
-- alias: 'Enciende Despacho'
-  trigger:
-    platform: state
-    entity_id: sensor.mini_despacho
-    to: 'ON'
-  action:
-    - condition: or
-      conditions:
-        - condition: template
-          value_template: '{% raw %}{{ states.sun.sun.attributes.elevation < 4 }}{% endraw %}'
-        - condition: template
-          value_template: '{% raw %}{{ states.sensor.sensorluz_7_0.state < 10 }}{% endraw %}'
-    - service: scene.turn_on
-      entity_id: scene.DespiertaDespacho
-```
