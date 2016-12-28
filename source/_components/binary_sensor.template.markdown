@@ -42,12 +42,12 @@ In this section you find some real life examples of how to use this sensor.
 This example indicates true if a sensor is above a given threshold. Assuming a sensor of `furnace` that provides a current reading for the fan motor, we can determine if the furnace is running by checking that it is over some threshold:
 
 ```yaml
-sensor:
+binary_sensor:
   - platform: template
     sensors:
       furnace_on:
-        value_template: {% raw %}{{ states.sensor.furnace.state > 2.5 }}{% endraw %}
-        friendly_name: 'Furnace Running
+        value_template: '{{ states.sensors.furnace | float > 2.5}}'
+        friendly_name: 'Furnace Running'
         sensor_class: heat
 ```
 
