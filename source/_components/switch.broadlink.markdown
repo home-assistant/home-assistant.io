@@ -33,6 +33,7 @@ Configuration variables:
 - **host** (*Required*): The hostname/IP address to connect to.
 - **mac** (*Required*):  Device mac address.
 - **timeout** (*Optional*): Timeout in seconds for the connection to the device
+- **friendly_name** (*Optional*): The name used to display the switch in the frontend.
 - **types** (*Optional*): Switch type. (rm, rm2, rm_mini, rm_pro_phicomm, rm2_home_plus, rm2_home_plus_gdt, rm2_pro_plus, rm2_pro_plus2, rm2_pro_plus_bl, rm_mini_shate, sp1, sp2, honeywell_sp2, sp3, spmini2 or spminiplus)
 - **switches** (*Optional*): The array that contains all switches.
   - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
@@ -97,7 +98,13 @@ switch 2:
   host: IP_ADDRESS
   mac: 'MAC_ADDRESS'
   type:  sp1
-  switches:
-    humidifier:
-      friendly_name: 'Humidifier'
+  friendly_name: 'Humidifier'
+  
+switch 3:
+  platform: broadlink
+  host: IP_ADDRESS
+  mac: 'MAC_ADDRESS'
+  type:  sp2
+  friendly_name: 'Humidifier'
+
 ``` 
