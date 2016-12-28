@@ -139,15 +139,15 @@ automation:
         # select device based upon the activity being undertaken.
         device: >
           # when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101 
-          {% if is_state("sensor.bedroom", "WATCH TV") %}
+          {% raw %}{% if is_state("sensor.bedroom", "WATCH TV") %}{% raw %}
             22987101
           # when in WATCH APPLE TV activity, the pause key relates to an Apple TV, which is device 23002316
-          {% elif is_state("sensor.bedroom", "WATCH APPLE TV") %}
+          {% raw %}{% elif is_state("sensor.bedroom", "WATCH APPLE TV") %}{% endraw %}
             23002316
-          {% elif is_state("sensor.bedroom", "PLEX") %}
+          {% raw %}{% elif is_state("sensor.bedroom", "PLEX") %}{% endraw %}
             23048786
-          {% elif is_state("sensor.bedroom", "WATCH BLU RAY") %}
+          {% raw %}{% elif is_state("sensor.bedroom", "WATCH BLU RAY") %}{% endraw %}
             23043122
-          {% endif %}
+          {% raw %}{% endif %}{% endraw %}
 
 ````
