@@ -63,7 +63,7 @@ light:
         name: flux_living_room_lamp
 
 automation:
-  random_flux_living_room_lamp:
+  alias: random_flux_living_room_lamp
   trigger:
     platform: time
     seconds: '/45'
