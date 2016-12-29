@@ -96,5 +96,5 @@ Some devices such as the Ledenet RGBW controller use a slightly differenct proto
 ```yaml
     192.168.1.10:
     name: NAME
-    protocol: 'LEDENET'
+    protocol: 'ledenet'
 ```
