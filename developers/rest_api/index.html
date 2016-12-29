@@ -277,7 +277,7 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </code></pre>
 </div>
 
-<h4><a class="title-link" name="get-apihistory" href="#get-apihistory"></a> GET /api/history</h4>
+<h4><a class="title-link" name="get-apihistoryperiodlttimestamp" href="#get-apihistoryperiodlttimestamp"></a> GET /api/history/period/&lt;timestamp&gt;</h4>
 <p>Returns an array of state changes in the past. Each object contains further details for the entities.</p>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
@@ -311,13 +311,13 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-       http://localhost:8123/api/history/period/2016-02-06
+       http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00
 </code></pre>
 </div>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-       http://localhost:8123/api/history/period/2016-02-06?filter_entity_id<span class="o">=</span>sensor.temperature
+       http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00?filter_entity_id<span class="o">=</span>sensor.temperature
 </code></pre>
 </div>
 
