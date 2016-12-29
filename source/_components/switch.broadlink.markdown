@@ -47,10 +47,11 @@ How to obtain IR/RF packets?
 Choose Call Service from the Developer Tools. Choose the service broadlink/learn_command from the list of Available services:  and hit CALL SERVICE. Press the button on your remote with in 20 seconds. The packet will be printed in the log and as a persistent notification.
 
 
-Example config:
+Example config for rm, rm2, rm_mini, rm_pro_phicomm, rm2_home_plus, rm2_home_plus_gdt, rm2_pro_plus, rm2_pro_plus2, rm2_pro_plus_bl and rm_mini_shate devices:
 
 ```yaml
-- platform: broadlink
+switch 2:
+  platform: broadlink
   host: 192.168.1.2
   mac: 'B4:43:0D:CC:0F:58'
   timeout: 15
@@ -79,11 +80,9 @@ Example config:
       friendly_name: "LG Tv"
       command_on: 'JgBIAAABIpQPFBITETgSEw8UEhQSEhEVDzgSOBAUETgQOQ84EjgRNxITETgSExA5EDgREhI3EhMROBMSEDkQFBETEjYTEhE4EQANBQ=='
       command_off: 'JgBIAAABH5YPFBETETgUERAUEBURFBATETgROBEUETcSNxE4ETcSOBISEBUQFREUEjUSFBA5ETcRNxE4ETkQOBAUEjcRFRAUEQANBQ=='
-``` 
 
 
-```yaml
-switch 1:
+switch 2:
   platform: broadlink
   host: 192.168.1.2
   mac: 'B4:43:0D:CC:0F:58'
@@ -93,14 +92,21 @@ switch 1:
       friendly_name: "Phillips Tv"
       command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
 
-switch 2:
+
+``` 
+
+
+ Example config for sp1, sp2, honeywell_sp2, sp3, spmini2 and spminiplus devices:
+
+```yaml
+switch 1:
   platform: broadlink
   host: IP_ADDRESS
   mac: 'MAC_ADDRESS'
   type:  sp1
   friendly_name: 'Humidifier'
   
-switch 3:
+switch 2:
   platform: broadlink
   host: IP_ADDRESS
   mac: 'MAC_ADDRESS'
