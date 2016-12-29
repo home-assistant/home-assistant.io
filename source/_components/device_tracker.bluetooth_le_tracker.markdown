@@ -32,6 +32,10 @@ device_tracker:
   - platform: bluetooth_le_tracker
 ```
 
+Configuration variables:
+
+- **device_id** (*Optional*): The device ID for the bluetooth device to be used for tracking. Defaults to `hci0`.
+
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g. fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
 
