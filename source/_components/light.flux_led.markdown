@@ -91,10 +91,13 @@ Will add a light with white mode (default). Changing the brightness will set the
       mode: "rgbw"
 ```
 
-Some devices such as the Ledenet RGBW controller use a slightly differenct protocol for communicating the brightness to each color channel. If your device is only turning on or off but not changing color or brightness try adding the LEDENET protocol.
+Some devices such as the Ledenet RGBW controller use a slightly difference protocol for communicating the brightness to each color channel. If your device is only turning on or off but not changing color or brightness try adding the LEDENET protocol.
 
 ```yaml
-    192.168.1.10:
-    name: NAME
-    protocol: 'ledenet'
+light:
+  - platform: flux_led
+    devices:
+      192.168.1.10:
+        name: NAME
+        protocol: 'ledenet'
 ```
