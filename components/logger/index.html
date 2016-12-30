@@ -94,7 +94,11 @@
 
 <p>To enable the logger in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
-<p>By default log all messages and ignore events lower than critical for specified components.</p>
+<p>To have a full log and log everything only this entry is needed (without any qualifier):</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">logger</span><span class="pi">:</span>
+</code></pre>
+</div>
+<p>To log all messages and ignore events lower than critical for specified components.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">logger</span><span class="pi">:</span>
@@ -105,7 +109,7 @@
 </code></pre>
 </div>
 
-<p>By default ignore all messages lower than critical and log event for specified components.</p>
+<p>To ignore all messages lower than critical and log event for specified components.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">logger</span><span class="pi">:</span>
