@@ -132,7 +132,7 @@ from Home Assistant running on another Linux computer (the <strong>server</stron
   <li>On the <strong>target</strong>, we need to let the hass user execute the program needed to suspend/shut down the target computer. I’m using <code class="highlighter-rouge">pm-suspend</code>, use <code class="highlighter-rouge">poweroff</code> to turn off the computer. First, get the full path: <code class="highlighter-rouge">which pm-suspend</code>. On my system, this is <code class="highlighter-rouge">/usr/sbin/pm-suspend</code>.</li>
   <li>On the <strong>target</strong>, using an account with sudo access (typically your main account), <code class="highlighter-rouge">sudo visudo</code>. Add this line last in the file: <code class="highlighter-rouge">hass ALL=NOPASSWD:/usr/sbin/pm-suspend</code>, where you replace <code class="highlighter-rouge">hass</code> with the name of your user on the target, if different, and <code class="highlighter-rouge">/usr/sbin/pm-suspend</code> with the command of your choice, if different.</li>
   <li>On the <strong>server</strong>, add the following to your configuration, replacing TARGET with the target’s name:
-``` yaml
+```yaml
 switch:
     <ul>
       <li>platform: wake_on_lan
