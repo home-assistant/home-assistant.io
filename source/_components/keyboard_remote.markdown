@@ -24,13 +24,13 @@ The `evdev` package is used to interface with the keyboard and thus this is Linu
 # Example configuration.yaml entry
 keyboard_remote:
   device_descriptor: '/dev/input/by-id/foo'
-  key_value: 'key_up'
+  type: 'key_up'
 ```
 
 Configuration variables:
 
 - **device_descriptor** (*Required*): List of URLS for your feeds.
-- **key_value** (*Required*): Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.
+- **type** (*Required*): Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.
 
 And an automation rule to breathe life into it:
 
