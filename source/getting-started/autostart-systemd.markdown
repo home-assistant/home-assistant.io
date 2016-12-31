@@ -35,7 +35,7 @@ WantedBy=multi-user.target
 EOF'
 ```
 
-If you've setup Home Assistant in `virtualenv` following the guide the following template should work for you.
+If you've setup Home Assistant in `virtualenv` following our [manual installation guide](https://home-assistant.io/getting-started/installation-raspberry-pi/), the following template should work for you.
 
 ```
 [Unit]
@@ -44,9 +44,9 @@ After=network.target
 
 [Service]
 Type=simple
-User=hass
-ExecStartPre=source /srv/hass/bin/activate
-ExecStart=/srv/hass/bin/hass -c "/home/hass/.homeassistant"
+User=homeassistant
+ExecStartPre=source /srv/homeassistant/homeassistant_venv/bin/activate
+ExecStart=/srv/homeassistant/homeassistant_venv/bin/hass -c "/home/homeassistant/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target
