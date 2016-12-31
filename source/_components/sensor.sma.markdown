@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SMA Solar WebConnect"
-description: "Instructions on how to connect your SMA Inverter to Home Assistant."
+description: "Instructions on how to connect your SMA Solar Inverter to Home Assistant."
 date: 2015-12-28 21:45
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category:
 logo: sma.png
-ha_iot_class: "Cloud Polling"
+ha_iot_class: "Local Polling"
 ha_release: 0.36
 ---
 
@@ -20,24 +20,23 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+sensor sma:
   - platform: sma
-    ip:
+    host: 192.168.88.199
     password: !secret sma_password
     sensors:
-      - CURRENT_POWER:
-      - CURRENT_CONSUMPTION: [TOTAL_CONSUMPTION]
-    keys:
-      - 
+      current_consumption: [total_consumption]
+      current_power: 
+      total_yield: 
 ```
 
 Configuration variables:
 
-- **ip** (*Required*): The IP address of the SMA WebConnect module.
+- **host** (*Required*): The IP address of the SMA WebConnect module.
 - **password** (*Required*): The password of the SMA WebConnect module.
 - **group** (*Optional*): The user group, which can be either `user` (the default) or `installer`.
-- **sensors** (*Required*): A list of sensors that will be added.
-- **keys** (*Optional*): A dictionary of `SENSOR_NAME: SENSOR_KEY` values (e.g. `YESTERDAY_CONSUMPTION_KWH: "6400_00543A01"`). These sesnors will be added to the standard ones in the [pysma library](https://github.com/kellerza/pysma/blob/master/pysma/__init__.py#L18)
+- **sensors** (*Required*): A dictionary of sensors that will be added. The value of the dictionary can include sensor names that will be shown as attributes.
+- **custom** (*Optional*): A dictionary of custom sensor key values and units
 
 Sensor configuration:
 
@@ -47,9 +46,21 @@ The sensors can be any one of the following:
 - total_power
 - total_consumption
 
-You can also create composite sensors, where the sub-sensors will be attributes of the main sensor, e.g.
+You can create composite sensors, where the sub-sensors will be attributes of the main sensor, e.g.
 
 ```yaml
     sensors:
       - current_power: [total_power, total_consumption]
 ```
+
+The SMA WebConnect module supports a wide variety of sensors, and not all these have been mapped to standard sensors. Custom sensors can be defined by using the `custom` section of the configuration. You will need: A sensor name (no spaces), the SMA sensor key and the unit
+
+Example:
+```yaml
+   custom:
+      yesterday_consumption: 
+         key: 6400_00543A01
+         unit: W
+```         
+
+Over time more sensors will be added as standard sensors to the [pysma library](https://github.com/kellerza/pysma/blob/master/pysma/__init__.py#L18). Feel free to submit additional sensors on that repository.
