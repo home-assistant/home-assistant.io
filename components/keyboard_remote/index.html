@@ -99,7 +99,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">keyboard_remote</span><span class="pi">:</span>
   <span class="s">device_descriptor</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/dev/input/by-id/foo'</span>
-  <span class="s">key_value</span><span class="pi">:</span> <span class="s1">'</span><span class="s">key_up'</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">key_up'</span>
 </code></pre>
 </div>
 
@@ -107,7 +107,7 @@
 
 <ul>
   <li><strong>device_descriptor</strong> (<em>Required</em>): List of URLS for your feeds.</li>
-  <li><strong>key_value</strong> (<em>Required</em>): Possible values are <code class="highlighter-rouge">key_up</code>, <code class="highlighter-rouge">key_down</code>, and <code class="highlighter-rouge">key_hold</code>. Be careful, <code class="highlighter-rouge">key_hold</code> will fire a lot of events.</li>
+  <li><strong>type</strong> (<em>Required</em>): Possible values are <code class="highlighter-rouge">key_up</code>, <code class="highlighter-rouge">key_down</code>, and <code class="highlighter-rouge">key_hold</code>. Be careful, <code class="highlighter-rouge">key_hold</code> will fire a lot of events.</li>
 </ul>
 
 <p>And an automation rule to breathe life into it:</p>
