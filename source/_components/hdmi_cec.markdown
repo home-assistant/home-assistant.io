@@ -102,11 +102,25 @@ hdmi_cec:
 ```
 Choose just one schema. Mixing both approaches is not possible.
 
-Another option you can use in config is specifiing of default platform of HDMI devices. "switch" and "media_player" are supported. Switch is default.
+Another option you can use in config is `platform` which specifying of default platform of HDMI devices. "switch" and "media_player" are supported. Switch is default.
 ```yaml
 hdmi_cec:
   platform: media_player
 ```
+Then you set individual platform for devices in customizations:
+```yaml
+homeassistant:
+  customize:
+    hdmi_cec.hdmi_5:
+      platform: media_player
+```
+
+And the last option is `host`. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (`python -m pycec`), you can then run homeassistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:
+```yaml
+hdmi_cec:
+  host: 192.168.1.3
+```
+
 
 ## {% linkable_title Services %}
 
