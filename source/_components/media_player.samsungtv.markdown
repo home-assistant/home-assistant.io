@@ -29,7 +29,7 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): The IP of the Samsung Smart TV, eg. `192.168.0.10^.
+- **host** (*Required*): The IP of the Samsung Smart TV, eg. `192.168.0.10`.
 - **port** (*Optional*): The port of the Samsung Smart TV. Defaults to 55000.
 - **name** (*Optional*): The name you would like to give to the Samsung Smart TV.
 - **timeout** (*Optional*): The time-out for the communication with the TV. Defaults to 0.
