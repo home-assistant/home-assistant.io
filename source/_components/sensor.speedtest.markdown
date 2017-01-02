@@ -74,15 +74,15 @@ Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: speedtest
-  minute: 30
-  hour:
-    - 0
-    - 6
-    - 12
-    - 18
-  monitored_conditions:
-    - ping
-    - download
-    - upload
+  - platform: speedtest
+    minute: 30
+    hour:
+      - 0
+      - 6
+      - 12
+      - 18
+    monitored_conditions:
+      - ping
+      - download
+      - upload
 ```
