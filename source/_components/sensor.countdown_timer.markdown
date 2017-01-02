@@ -2,7 +2,7 @@
 layout: page
 title: "Countdown Timer"
 description: "Countdown Time for Home Assistant"
-date: 2016-12-27 19:00
+date: 2016-12-20 22:00
 sidebar: true
 comments: false
 sharing: true
@@ -11,7 +11,7 @@ footer: true
 
 
 **Description:**
-Countdown Time for [Home Assistant](https://github.com/home-assistant/home-assistant)
+Countdown Timer for [Home Assistant](https://github.com/home-assistant/home-assistant)
 
 Combines one or more binary_sensors (typically PIR sensors) 
 and a switch to provide a switch that automatically
@@ -42,6 +42,7 @@ sensor countdown_timer:
     - **sensors** (*Required*): One or more binary sensor (comma separated).
     - **switch** (*Required*): Light (or other) switch.
     - **delay** (*Optional*): delay time. default: 20 seconds.
+    - **restart** (*Optional*): True/False, restart timer when HA is restarted. Default: False
 
 **My hardware:**
 
@@ -61,11 +62,13 @@ sensor countdown_timer:
     fr_timed_light:
       sensors:    binary_sensor.fr_pir_sensor_9_0 #,binary_sensor.fr_pir_2_sensor_10_0
       switch:     switch.fr_light_switch_19_0
+      restart:    True
     garage_timed_light:
       sensors:    binary_sensor.garage_side_pir_sensor_14_0 #,binary_sensor.garage_back_pir_sensor_13_0
       switch:     switch.garage_light_switch_12_0
+      restart:    True
 ```
-**Suggestions**
+**Suggestions:**
 ```yaml
 #In group.yaml something like this:
 
