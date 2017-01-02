@@ -46,16 +46,36 @@ sensor:
 
 Configuration variables:
 
-- **port** string (*Optional*): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0).
-- **dsmr_version_** string (*Optional*): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).
+- **port** string (*Optional*): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001).
+- **host** string (*Optional*): Host to which Smartmeter is connected (default: '' (connected via serial or USB, see **port**)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13).
+- **dsmr_version** string (*Optional*): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).
 
-A full configuration example can be found below:
+Full configuration examples can be found below:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for USB connected Smartmeter
 sensor:
   - platform: dsmr
     port: /dev/ttyUSB1
+    dsmr_version: 4
+
+group:
+  meter_readings:
+    name: Meter readings
+    entities:
+      - sensor.power_consumption_low
+      - sensor.power_consumption_normal
+      - sensor.power_production_low
+      - sensor.power_production_normal
+      - sensor.gas_consumption
+```
+
+```yaml
+# Example configuration.yaml entry for remote (TCP/IP, i.e. via ser2net) connection to host which is connected to Smartmeter
+sensor:
+  - platform: dsmr
+    host: 192.168.1.13
+    port: 2001
     dsmr_version: 4
 
 group:
