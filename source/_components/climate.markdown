@@ -75,6 +75,28 @@ automation:
         away_mode: true
 ```
 
+### {% linkable_title Service `climate.set_home_mode` %}
+
+Turn home mode on/off for climate device
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `home_mode` | no | New value of home mode.
+
+#### {% linkable_title Automation example  %}
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    after: "07:15:00"
+  action:
+    - service: climate.set_home_mode
+      data:
+        entity_id: climate.kitchen
+        home_mode: true
+```
 ### {% linkable_title Service `climate.set_temperature` %}
 
 Set target temperature of climate device
