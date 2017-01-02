@@ -49,7 +49,7 @@ $ sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
 If you have installed Home Assistant with [AIO](/getting-started/installation-raspberry-pi-all-in-one/), you need to do the following command, this will grant access to Home Assistant to run the required command.
 
 ```bash
-$ sudo setcap cap_net_raw,cap_net_admin+eip /srv/hass/hass_venv/bin/python3
+$ sudo setcap cap_net_raw,cap_net_admin+eip /srv/homeassistant/homeassistant_venv/bin/python3
 ```
 
 A restart of Home Assistant is required.
