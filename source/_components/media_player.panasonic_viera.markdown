@@ -21,6 +21,7 @@ Currently known supported models:
 - TX-P42STW50
 - TC-P65VT30
 - TX-55CX700E
+- TX-49DX650B
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io).
 
