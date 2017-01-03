@@ -83,6 +83,66 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/10/01/we-have-raspberry-image-now/">We have a Raspberry Pi image now</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-10-01T05:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 1, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Technology</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/10/01/we-have-raspberry-image-now/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Today we’re happy to announce our brand new Raspberry Pi image! It is based on Raspbian Lite combined with HASS so we decided to call it Hassbian.</p>
+
+<p>This image comes pre-installed with everything you need to get started with Home Assistant right away.</p>
+
+<p>To get started, check out the installation instructions in <a href="/getting-started/installation-raspberry-pi-image/">the getting started section</a> or watch the latest video by <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUHAutomation</a>:</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/iIz6XqDwHEk" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h3><a class="title-link" name="under-the-hood" href="#under-the-hood"></a> Under the hood</h3>
+
+<p>It’s based on Raspbian Lite and generated with a fork of the same <a href="https://github.com/home-assistant/pi-gen">script</a> that builds the <a href="https://raspberrypi.org/downloads/raspbian/">official Raspbian images</a>. For installation of HASS it follows the same install instructions as the <a href="/getting-started/installation-raspberry-pi/">Manual installation</a>. Please note that this project has no association with the Raspberry Pi foundation or their projects.</p>
+
+<p>On first boot the latest release of Home Assistant will be installed and can be reached after 3~5 minutes. Pre-installed on this image is the MQTT broker <a href="https://mosquitto.org/">Mosquitto</a>, Bluetooth support and settings for the <code class="highlighter-rouge">homeassistant</code> account to use the GPIO pins of the Raspberry Pi. Mosquitto is not activated by default.</p>
+
+<p>As it is today there is no pre-compiled Z-Wave support but it can be installed by following the <a href="/getting-started/z-wave/">Getting started instructions for Z-Wave</a>.</p>
+
+<p>Happy Automating!</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/09/29/async-sleepiq-emoncms-stocks/">0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants</a>
   </h1>
   
@@ -998,116 +1058,6 @@ Heatmap
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/">0.25: Custom frontend panels, Jupyter notebooks, DirecTV.</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-07-30T12:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 30, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter & Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!</p>
-
-<p>Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can <a href="/developers/frontend_creating_custom_panels/">add it’s own page to the frontend</a>. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you’ll come up with!</p>
-
-<p>We have also seen an exciting trend of people starting to visualize their Internet of Things data using <a href="http://jupyter.org/">Jupyter</a> Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the <a href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">blog</a> post by <a href="https://github.com/kireyeu">@kireyeu</a> shows an advanced usecase while our <a href="/cookbook/#jupyter-notebooks">Notebooks</a> in the <a href="https://github.com/home-assistant/home-assistant-notebooks">Home Assistant Notebooks repository</a> cover the basics.</p>
-
-<p>This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant can talk to 26 different media players!</p>
-
-<p>The brand-new <a href="/components/panel_iframe/">iFrame panel component</a> allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.</p>
-
-<p>I would like to do a shoutout to <a href="https://github.com/fabianhjr">@fabianhjr</a>. He has started adding <a href="https://docs.python.org/3/library/typing.html">typing</a> data (<a href="https://www.python.org/dev/peps/pep-0484/">PEP484</a>) to the Home Assistant core. This will help us identify issues before they are released.</p>
-
-<p><img src="/images/supported_brands/russound.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/jupyter.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/directv.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Frontend: Support for <a href="/components/panel_iframe/">iFrame panels</a> to adding other sites to sidebar (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Allow components to register <a href="/developers/frontend_creating_custom_panels/">custom frontend panels</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Add example custom_component <a href="/cookbook/custom_panel_using_react/">react_panel</a> showing custom panels (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="/components/light.flux_led/">MagicLight/Flux WiFi Color LED Light</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Script: Specify a delay <a href="/getting-started/scripts/#delay">using templates</a> (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li>Media player: <a href="/components/media_player.russound_rnet/">Russound RNET</a> integration (<a href="https://github.com/laf">@laf</a>)</li>
-  <li>Remote: Option specifying custom timeout when calling Home Assistant API (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
-  <li>Thermostat: Integration of <a href="/components/thermostat.knx/">KNX</a> thermostats (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Thermostat: Support for HVAC mode of <a href="/components/thermostat.nest/">Nest</a> devices (<a href="https://github.com/vladonemo">@vladonemo</a>)</li>
-  <li>InfluxDB: Option to specify additional <a href="/components/influxdb/">tags</a> (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Input slider: Support for float value (<a href="https://github.com/ngraziano">@ngraziano</a>)</li>
-  <li>Template: New <a href="/topics/templating/#home-assistant-template-extensions">filters</a> (<code class="highlighter-rouge">timestamp_local</code> and <code class="highlighter-rouge">timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Binary sensor - Wink: Water leak sensor support added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li>Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor (<a href="https://github.com/PetitCircuitLab">@PetitCircuitLab</a>)</li>
-  <li>Switch - RPi GPIO: Fix when inverted logic (<a href="https://github.com/zeroDenial">@zeroDenial</a>)</li>
-  <li>Z-Wave: Rollershutter update (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>RFXtrx: Fire events when receiving signals from sensors and tests added (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Core: Add <a href="https://docs.python.org/3/library/typing.html">type</a> checking using mypy to the core (<a href="https://github.com/fabianhjr">@fabianhjr</a>)</li>
-  <li>Remote: Support for getting the <a href="/developers/python_api/#get-configuration">Configuration</a> through the Python API (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Media player: Support for <a href="/components/media_player.directv/">DirecTV</a> (<a href="https://github.com/cbulock">@cbulock</a>)</li>
-  <li>Use browser timezone for frontend logbook and history dates (<a href="https://github.com/armills">@armills</a>)</li>
-  <li>Light: New support for <a href="/components/light.x10/">X10</a> lights (<a href="https://github.com/fotoetienne">@fotoetienne</a>)</li>
-  <li>Sensor: Support for observing <a href="/components/sensor.imap/">IMAP</a> accounts (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
-  <li>Media Player: Integration for <a href="/components/media_player.mpchc/">MPC-HC</a> (Media Player Classic - Home Cinema) mediaplayer (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
-  <li>Notify: <code class="highlighter-rouge">location</code> extension for <a href="/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Groups: Lock states will now be properly grouped (<a href="https://github.com/jwl17330536">@jwl17330536</a>)</li>
-  <li>Media Player: Added tests for Sonos to improve code quality (<a href="https://github.com/americanwookie">@americanwookie</a>)</li>
-  <li>Device Tracker: iCloud stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Sensor: Speedtest with improved error handling and state restoring (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>Recorder: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Qwikswitch: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Light: <a href="/components/light.hyperion/">Hyperion</a> keeps now track of active color (<a href="https://github.com/schneefux">@schneefux</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0251---august-1" href="#hotfix-0251---august-1"></a> Hotfix 0.25.1 - August 1</h3>
-
-<ul>
-  <li>Light - Z-Wave: Bring back delayed value update behavior (<a href="https://github.com/jnewland">@jnewland</a>)</li>
-  <li>Recorder: Properly close session after execute (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Media Player - Kodi: No longer block startup if connecting to wrong port (<a href="https://github.com/shoekstra">@shoekstra</a>)</li>
-  <li>Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0252---august-2" href="#hotfix-0252---august-2"></a> Hotfix 0.25.2 - August 2</h3>
-
-<ul>
-  <li>Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.</li>
-</ul>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li>Google Voice SMS notification support was removed.</li>
-</ul>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -1186,6 +1136,8 @@ Heatmap
       <li><a href="/blog/categories/video/">Video</a></li>
     
       <li><a href="/blog/categories/website/">Website</a></li>
+    
+      <li><a href="/blog/categories/community/">community</a></li>
     
       <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
     

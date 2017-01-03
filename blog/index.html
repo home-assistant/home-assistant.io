@@ -83,6 +83,76 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2017/01/03/control-my-christmas-tree-stats/">Control My Christmas Tree Stats</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2017-01-03T18:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 3, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Ben</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>community</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2017/01/03/control-my-christmas-tree-stats/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Hello and Happy New Year!</p>
+
+<p>I am not Paulus. My name is Ben. I’m the creator of the <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUH Automation YouTube channel</a>. If you’ve ever seen any of my videos then you’ll know I love home automation and Home Assistant.</p>
+
+<p>I wanted to share some exciting stats from one of my latest projects - <a href="https://github.com/bruhautomation/BRUH-Christmas-Tree-2016">Control My Christmas tree!</a> For this project, I created a Home Assistant instance on a Raspberry Pi 2 that was publically accessible via DuckDNS. Paulus was great in helping me disable several of the developer services that could have been exploited to disable the Home Assistant instance.</p>
+
+<p>I added three devices to the Home Assistant instance - a Wemo Insight, Sonoff Switch (running MQTT firmware), and a DIY MQTT Digital LED strip. After adding a few 3D printed Star War decorations, the tree was ready to go!</p>
+
+<p class="img">
+  <img src="/images/blog/2017-01-bruh-christmas/christmas-tree.gif" />
+  The Christmas tree in action.
+</p>
+
+<p>During the time by tree was set up, I had 7,366 visitors from 88 countries connect to my Home Assistant instance. This generated an estimated 100,000 clicks on the switches in my Home Assistant instance - thanks in part to some folks who posted up with macros for 6-8 hour stretches.</p>
+
+<p class="img">
+  <img src="/images/blog/2017-01-bruh-christmas/stats.png" />
+  View counts of the video.
+</p>
+
+<p>I’m very excited to report that Home Assistant didn’t crash a single time. In fact, it didn’t even bog down or need to be restarted. The Wemo Insight and Sonoff relays were incredibly resilient, as well. I only had one Sonoff failure and two Wemo Insight failures both of which were resolved by power cycling them. The digital LED strips also fared pretty well, hanging up only twice, aside from a loose connector.</p>
+
+<p>I would like to send a big thank you to the Home Assistant developers who have worked so hard on making Home Assistant run so well. This project is a testament to your hard work on making Home Assistant one of the best home automation platforms out there. Thank you!</p>
+
+<p>I’m looking forward to continuing my home automation adventures with Home Assistant and I can’t wait for next Christmas with an even bigger and badder tree. :)</p>
+
+<p>Wishing everyone the best in 2017!</p>
+
+<p>Cheers! -Ben</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/12/19/thank-you/">Thank You</a>
   </h1>
   
@@ -1417,66 +1487,6 @@
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/10/01/we-have-raspberry-image-now/">We have a Raspberry Pi image now</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-10-01T05:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 1, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Technology</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/10/01/we-have-raspberry-image-now/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Today we’re happy to announce our brand new Raspberry Pi image! It is based on Raspbian Lite combined with HASS so we decided to call it Hassbian.</p>
-
-<p>This image comes pre-installed with everything you need to get started with Home Assistant right away.</p>
-
-<p>To get started, check out the installation instructions in <a href="/getting-started/installation-raspberry-pi-image/">the getting started section</a> or watch the latest video by <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUHAutomation</a>:</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/iIz6XqDwHEk" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-<h3><a class="title-link" name="under-the-hood" href="#under-the-hood"></a> Under the hood</h3>
-
-<p>It’s based on Raspbian Lite and generated with a fork of the same <a href="https://github.com/home-assistant/pi-gen">script</a> that builds the <a href="https://raspberrypi.org/downloads/raspbian/">official Raspbian images</a>. For installation of HASS it follows the same install instructions as the <a href="/getting-started/installation-raspberry-pi/">Manual installation</a>. Please note that this project has no association with the Raspberry Pi foundation or their projects.</p>
-
-<p>On first boot the latest release of Home Assistant will be installed and can be reached after 3~5 minutes. Pre-installed on this image is the MQTT broker <a href="https://mosquitto.org/">Mosquitto</a>, Bluetooth support and settings for the <code class="highlighter-rouge">homeassistant</code> account to use the GPIO pins of the Raspberry Pi. Mosquitto is not activated by default.</p>
-
-<p>As it is today there is no pre-compiled Z-Wave support but it can be installed by following the <a href="/getting-started/z-wave/">Getting started instructions for Z-Wave</a>.</p>
-
-<p>Happy Automating!</p>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -1553,6 +1563,8 @@
       <li><a href="/blog/categories/video/">Video</a></li>
     
       <li><a href="/blog/categories/website/">Website</a></li>
+    
+      <li><a href="/blog/categories/community/">community</a></li>
     
       <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
     

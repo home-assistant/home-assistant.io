@@ -83,6 +83,62 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/02/18/multi-room-audio-with-snapcast/">Multi-room audio with Snapcast, Mopidy, and Home Assistant</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-02-18T05:10:56+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 18, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> happyleavesaoc</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>How-To</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/02/18/multi-room-audio-with-snapcast/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Would you like to listen to music in every room in your home, controlled from one source? Then multi-room audio is for you.</p>
+
+<p>Multi-room audio can be achieved by having a computer attached to speakers in every room. On each computer, services run to play and/or control the audio. With this DIY approach, the kind of computer and speakers is very much up to you. It could be your desktop computer with attached powered speakers, your HTPC hooked up to your TV and receiver, a Raspberry Pi with Amp or DAC, or even an Android device.</p>
+
+<p>You’ll need two key software packages, besides Home Assistant. The first is <a href="https://www.mopidy.com/">Mopidy</a>, a music server that can play local files, or connect to streaming music services like Spotify. The second is <a href="https://github.com/badaix/snapcast/">Snapcast</a>, which enables synchronized audio streaming across your network. Both can be integrated into Home Assistant. Each room audio device will run an instance of the Snapcast client, and optionally a Mopidy instance. Your server will run a special instance of Mopidy and the Snapcast server.</p>
+
+<p>Finally, you also need a player to control Mopidy. Any MPD-compatible player will work, and there are several <a href="https://docs.mopidy.com/en/latest/ext/web/#ext-web">Mopidy-only web-based options</a> available. On Android, <a href="https://play.google.com/store/apps/details?id=se.anil.remotedy">Remotedy</a> is particularly nice since you can access multiple Mopidy instances in one place.</p>
+
+<p>Home Assistant will provide device status, and volume control for each room. If you want to play music in all your rooms (on all your clients), access the server instance of Mopidy. If you want to play music only in a specific room, access that specific Mopidy instance. If you’re using a web UI for Mopidy, you can add links to each instance in Home Assistant with the <a href="/components/weblink/">weblink</a> component.</p>
+
+<p class="img">
+  <img src="/images/blog/2016-02-snapcast/diagram.png" />
+</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/02/18/multi-room-audio-with-snapcast/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors/">0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors</a>
   </h1>
   
@@ -695,53 +751,6 @@ Philips Hue FAQ entries regarding reversing the decision.
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2015/12/10/activating-tasker-tasks-from-home-assistant-using-command-line-switches/">Activating Tasker tasks from Home Assistant using command line switches</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2015-12-10T10:39:41+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 10, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Rowan Hine</span>
-    <span><i class='icon-time'></i> three minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>How-To</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2015/12/10/activating-tasker-tasks-from-home-assistant-using-command-line-switches/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><img src="/images/blog/2015-12-tasker/tasker-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
-In this tutorial I will explain how you can activate Tasker tasks from Home Assistant command line switches. We are going to set up a switch that when toggled will make your Android device say either “On” or “Off”.</p>
-
-<p>You could also do this with the automation component instead so whenever you put your house to sleep mode for example your Android device will open up Google Play Books or the Kindle app ready for you to read as well as dimming your lights, but this tutorial is all about the switches.</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2015/12/10/activating-tasker-tasks-from-home-assistant-using-command-line-switches/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -820,6 +829,8 @@ In this tutorial I will explain how you can activate Tasker tasks from Home Assi
       <li><a href="/blog/categories/video/">Video</a></li>
     
       <li><a href="/blog/categories/website/">Website</a></li>
+    
+      <li><a href="/blog/categories/community/">community</a></li>
     
       <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
     

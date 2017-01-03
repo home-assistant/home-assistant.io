@@ -83,6 +83,116 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/">0.25: Custom frontend panels, Jupyter notebooks, DirecTV.</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-07-30T12:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 30, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter & Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!</p>
+
+<p>Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can <a href="/developers/frontend_creating_custom_panels/">add it’s own page to the frontend</a>. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you’ll come up with!</p>
+
+<p>We have also seen an exciting trend of people starting to visualize their Internet of Things data using <a href="http://jupyter.org/">Jupyter</a> Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the <a href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">blog</a> post by <a href="https://github.com/kireyeu">@kireyeu</a> shows an advanced usecase while our <a href="/cookbook/#jupyter-notebooks">Notebooks</a> in the <a href="https://github.com/home-assistant/home-assistant-notebooks">Home Assistant Notebooks repository</a> cover the basics.</p>
+
+<p>This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant can talk to 26 different media players!</p>
+
+<p>The brand-new <a href="/components/panel_iframe/">iFrame panel component</a> allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.</p>
+
+<p>I would like to do a shoutout to <a href="https://github.com/fabianhjr">@fabianhjr</a>. He has started adding <a href="https://docs.python.org/3/library/typing.html">typing</a> data (<a href="https://www.python.org/dev/peps/pep-0484/">PEP484</a>) to the Home Assistant core. This will help us identify issues before they are released.</p>
+
+<p><img src="/images/supported_brands/russound.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/jupyter.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/directv.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Frontend: Support for <a href="/components/panel_iframe/">iFrame panels</a> to adding other sites to sidebar (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Allow components to register <a href="/developers/frontend_creating_custom_panels/">custom frontend panels</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Add example custom_component <a href="/cookbook/custom_panel_using_react/">react_panel</a> showing custom panels (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Light: <a href="/components/light.flux_led/">MagicLight/Flux WiFi Color LED Light</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Script: Specify a delay <a href="/getting-started/scripts/#delay">using templates</a> (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Media player: <a href="/components/media_player.russound_rnet/">Russound RNET</a> integration (<a href="https://github.com/laf">@laf</a>)</li>
+  <li>Remote: Option specifying custom timeout when calling Home Assistant API (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
+  <li>Thermostat: Integration of <a href="/components/thermostat.knx/">KNX</a> thermostats (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Thermostat: Support for HVAC mode of <a href="/components/thermostat.nest/">Nest</a> devices (<a href="https://github.com/vladonemo">@vladonemo</a>)</li>
+  <li>InfluxDB: Option to specify additional <a href="/components/influxdb/">tags</a> (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Input slider: Support for float value (<a href="https://github.com/ngraziano">@ngraziano</a>)</li>
+  <li>Template: New <a href="/topics/templating/#home-assistant-template-extensions">filters</a> (<code class="highlighter-rouge">timestamp_local</code> and <code class="highlighter-rouge">timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Binary sensor - Wink: Water leak sensor support added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor (<a href="https://github.com/PetitCircuitLab">@PetitCircuitLab</a>)</li>
+  <li>Switch - RPi GPIO: Fix when inverted logic (<a href="https://github.com/zeroDenial">@zeroDenial</a>)</li>
+  <li>Z-Wave: Rollershutter update (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>RFXtrx: Fire events when receiving signals from sensors and tests added (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Core: Add <a href="https://docs.python.org/3/library/typing.html">type</a> checking using mypy to the core (<a href="https://github.com/fabianhjr">@fabianhjr</a>)</li>
+  <li>Remote: Support for getting the <a href="/developers/python_api/#get-configuration">Configuration</a> through the Python API (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Media player: Support for <a href="/components/media_player.directv/">DirecTV</a> (<a href="https://github.com/cbulock">@cbulock</a>)</li>
+  <li>Use browser timezone for frontend logbook and history dates (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Light: New support for <a href="/components/light.x10/">X10</a> lights (<a href="https://github.com/fotoetienne">@fotoetienne</a>)</li>
+  <li>Sensor: Support for observing <a href="/components/sensor.imap/">IMAP</a> accounts (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
+  <li>Media Player: Integration for <a href="/components/media_player.mpchc/">MPC-HC</a> (Media Player Classic - Home Cinema) mediaplayer (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
+  <li>Notify: <code class="highlighter-rouge">location</code> extension for <a href="/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Groups: Lock states will now be properly grouped (<a href="https://github.com/jwl17330536">@jwl17330536</a>)</li>
+  <li>Media Player: Added tests for Sonos to improve code quality (<a href="https://github.com/americanwookie">@americanwookie</a>)</li>
+  <li>Device Tracker: iCloud stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Sensor: Speedtest with improved error handling and state restoring (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>Recorder: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Qwikswitch: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Light: <a href="/components/light.hyperion/">Hyperion</a> keeps now track of active color (<a href="https://github.com/schneefux">@schneefux</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0251---august-1" href="#hotfix-0251---august-1"></a> Hotfix 0.25.1 - August 1</h3>
+
+<ul>
+  <li>Light - Z-Wave: Bring back delayed value update behavior (<a href="https://github.com/jnewland">@jnewland</a>)</li>
+  <li>Recorder: Properly close session after execute (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Media Player - Kodi: No longer block startup if connecting to wrong port (<a href="https://github.com/shoekstra">@shoekstra</a>)</li>
+  <li>Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0252---august-2" href="#hotfix-0252---august-2"></a> Hotfix 0.25.2 - August 2</h3>
+
+<ul>
+  <li>Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>Google Voice SMS notification support was removed.</li>
+</ul>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 and MicroPython - Part 1</a>
   </h1>
   
@@ -674,108 +784,6 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/06/08/super-fast-web-enocean-lirc/">0.21: Improved Web and support for EnOcean, LIRC and Osram Lightify</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-06-08T01:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 8, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/06/08/super-fast-web-enocean-lirc/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>It’s time for release 0.21 and it contains massive core improvements: replacement of our home grown HTTP stack with a standardized WSGI stack. This will improve performance, speed, security and make future development of advanced HTTP features a breeze.</p>
-
-<p>This work was driven by the amazing Josh Wright. His knowledge, high standards and drive for security has helped improve Home Assistant a lot ever since he started helping out. Hip hip hurray for Josh!</p>
-
-<p>Alright, time for the changes:</p>
-
-<p><img src="/images/supported_brands/enocean.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/osramlightify.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/lirc.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>New HTTP stack based on WSGI (<a href="https://github.com/JshWright">@JshWright</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Frontend: lots of performance improvements (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Initial support for EnOcean <a href="/components/light.enocean/">lights</a>, <a href="/components/sensor.enocean/">sensors</a> and <a href="/components/switch.enocean/">switches</a> added (<a href="https://github.com/rubund">@rubund</a>)</li>
-  <li>Light: <a href="/components/light.osramlightify/">Osram Lightify</a> is now supported (<a href="https://github.com/olimpiurob">@olimpiurob</a>)</li>
-  <li>Light: <a href="/components/insteon_hub/">Insteon Hub</a> now supports brightness (<a href="https://github.com/wkonkel">@wkonkel</a>)</li>
-  <li>Add support for adding HA as Windows 10 tile (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Condition: <a href="/getting-started/scripts-conditions/#time-condition">time condition</a> can now cross midnight (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
-  <li>Template based sensors should now throw less warnings (<a href="https://github.com/Bart274">@Bart274</a>)</li>
-  <li>New <a href="/components/lirc/">LIRC component</a> allows receiving IR commands (<a href="https://github.com/partofthething">@partofthething</a>)</li>
-  <li>The <a href="/components/feedreader/">Feedreader</a> component will now persist data to disk to prevent duplicate events (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
-  <li>Sun: azimuth attribute added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>New <a href="/components/switch.flux/">Flux like switch platform</a> to change light intensity in the evening (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>We no longer crash if you live in a part of the world where the sun never sets (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Rollershutter: <a href="/components/rfxtrx/">RFXTRX</a> now supported (<a href="https://github.com/jacobtomlinson">@jacobtomlinson</a>)</li>
-  <li>Switch: <a href="/components/switch.template/">Template switches</a> can now execute scripts (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Z-Wave: automatically heal the network at midnight (<a href="https://github.com/infamy">@infamy</a>)</li>
-  <li>Sensor: <a href="/components/sensor.dte_energy_bridge/">DTE Energy Bridge</a> now supported (<a href="https://github.com/kylehendricks">@kylehendricks</a>)</li>
-  <li>Media Player: <a href="/components/media_player.kodi/">Kodi</a> now supports different turn off commands (<a href="https://github.com/armills">@armills</a>)</li>
-</ul>
-
-<h3>Breaking Changes</h3>
-
-<ul>
-  <li>Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error</li>
-  <li>The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have <a href="/developers/rest_api/">been updated</a>.</li>
-  <li>Make sure your configuration.yaml file contains <code class="highlighter-rouge">frontend:</code> to serve the frontend</li>
-</ul>
-
-<h3>Hotfixes 0.21.1 and 0.21.2</h3>
-
-<p>We released two hotfixes to address some issues that couldn’t wait till the next release.</p>
-
-<h5>0.21.1 - June 12</h5>
-
-<ul>
-  <li>Add eventlet to base requirements to resolve some installation issues (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>GTFS will filter out routes in the wrong direction (<a href="https://github.com/imrehg">@imrehg</a>)</li>
-  <li>Recover from rare error condition from LIRC (<a href="https://github.com/partofthething">@partofthething</a>)</li>
-  <li>Z-Wave autoheal will no longer raise exception (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Alexa will now execute the script before making reply (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Fix MJPEG camera streaming (<a href="https://github.com/stjohnjohnson">@stjohnjohnson</a>)</li>
-  <li>Fix frontend in older browsers (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Fix history in more info dialog being cut off (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
-<h5>0.21.2 - June 15</h5>
-
-<ul>
-  <li>Fix input_select calling the set_option service again when changed (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>Fix more info dialog not being able to open on Safari (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Add support for OPTIONS HTTP command to get CORS working (<a href="https://github.com/JshWright">@JshWright</a>)</li>
-</ul>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -854,6 +862,8 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
       <li><a href="/blog/categories/video/">Video</a></li>
     
       <li><a href="/blog/categories/website/">Website</a></li>
+    
+      <li><a href="/blog/categories/community/">community</a></li>
     
       <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
     

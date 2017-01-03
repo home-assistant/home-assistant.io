@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-03T19:12:36+00:00</updated>
+  <updated>2017-01-03T21:55:07+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Control My Christmas Tree Stats]]></title>
+    <link href="https://home-assistant.io/blog/2017/01/03/control-my-christmas-tree-stats/"/>
+    <updated>2017-01-03T18:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/01/03/control-my-christmas-tree-stats</id>
+    <content type="html"><![CDATA[<p>Hello and Happy New Year!</p>
+
+<p>I am not Paulus. My name is Ben. I’m the creator of the <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUH Automation YouTube channel</a>. If you’ve ever seen any of my videos then you’ll know I love home automation and Home Assistant.</p>
+
+<p>I wanted to share some exciting stats from one of my latest projects - <a href="https://github.com/bruhautomation/BRUH-Christmas-Tree-2016">Control My Christmas tree!</a> For this project, I created a Home Assistant instance on a Raspberry Pi 2 that was publically accessible via DuckDNS. Paulus was great in helping me disable several of the developer services that could have been exploited to disable the Home Assistant instance.</p>
+
+<p>I added three devices to the Home Assistant instance - a Wemo Insight, Sonoff Switch (running MQTT firmware), and a DIY MQTT Digital LED strip. After adding a few 3D printed Star War decorations, the tree was ready to go!</p>
+
+<p class="img">
+  <img src="https://home-assistant.io/images/blog/2017-01-bruh-christmas/christmas-tree.gif" />
+  The Christmas tree in action.
+</p>
+
+<p>During the time by tree was set up, I had 7,366 visitors from 88 countries connect to my Home Assistant instance. This generated an estimated 100,000 clicks on the switches in my Home Assistant instance - thanks in part to some folks who posted up with macros for 6-8 hour stretches.</p>
+
+<p class="img">
+  <img src="https://home-assistant.io/images/blog/2017-01-bruh-christmas/stats.png" />
+  View counts of the video.
+</p>
+
+<p>I’m very excited to report that Home Assistant didn’t crash a single time. In fact, it didn’t even bog down or need to be restarted. The Wemo Insight and Sonoff relays were incredibly resilient, as well. I only had one Sonoff failure and two Wemo Insight failures both of which were resolved by power cycling them. The digital LED strips also fared pretty well, hanging up only twice, aside from a loose connector.</p>
+
+<p>I would like to send a big thank you to the Home Assistant developers who have worked so hard on making Home Assistant run so well. This project is a testament to your hard work on making Home Assistant one of the best home automation platforms out there. Thank you!</p>
+
+<p>I’m looking forward to continuing my home automation adventures with Home Assistant and I can’t wait for next Christmas with an even bigger and badder tree. :)</p>
+
+<p>Wishing everyone the best in 2017!</p>
+
+<p>Cheers! -Ben</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Thank You]]></title>
@@ -2125,84 +2163,6 @@ Heatmap
 
 <ul>
   <li><a href="http://www.instructables.com/id/Uber-Home-Automation-w-Arduino-Pi/step13/Washer-Dryer-Smartifier-Water-Leak-Sensor/">Inspiration and Help with Arduino code</a></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.25: Custom frontend panels, Jupyter notebooks, DirecTV.]]></title>
-    <link href="https://home-assistant.io/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/"/>
-    <updated>2016-07-30T12:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/07/30/custom-frontend-panels--jupyter-notebooks--directv</id>
-    <content type="html"><![CDATA[<p>When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!</p>
-
-<p>Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can <a href="https://home-assistant.io/developers/frontend_creating_custom_panels/">add it’s own page to the frontend</a>. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you’ll come up with!</p>
-
-<p>We have also seen an exciting trend of people starting to visualize their Internet of Things data using <a href="http://jupyter.org/">Jupyter</a> Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the <a href="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">blog</a> post by <a href="https://github.com/kireyeu">@kireyeu</a> shows an advanced usecase while our <a href="https://home-assistant.io/cookbook/#jupyter-notebooks/">Notebooks</a> in the <a href="https://github.com/home-assistant/home-assistant-notebooks">Home Assistant Notebooks repository</a> cover the basics.</p>
-
-<p>This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant can talk to 26 different media players!</p>
-
-<p>The brand-new <a href="https://home-assistant.io/components/panel_iframe/">iFrame panel component</a> allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.</p>
-
-<p>I would like to do a shoutout to <a href="https://github.com/fabianhjr">@fabianhjr</a>. He has started adding <a href="https://docs.python.org/3/library/typing.html">typing</a> data (<a href="https://www.python.org/dev/peps/pep-0484/">PEP484</a>) to the Home Assistant core. This will help us identify issues before they are released.</p>
-
-<p><img src="https://home-assistant.io/images/supported_brands/russound.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/jupyter.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="https://home-assistant.io/images/supported_brands/directv.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Frontend: Support for <a href="https://home-assistant.io/components/panel_iframe/">iFrame panels</a> to adding other sites to sidebar (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Allow components to register <a href="https://home-assistant.io/developers/frontend_creating_custom_panels/">custom frontend panels</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Add example custom_component <a href="https://home-assistant.io/cookbook/custom_panel_using_react/">react_panel</a> showing custom panels (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/light.flux_led/">MagicLight/Flux WiFi Color LED Light</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Script: Specify a delay <a href="https://home-assistant.io/getting-started/scripts/#delay/">using templates</a> (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li>Media player: <a href="https://home-assistant.io/components/media_player.russound_rnet/">Russound RNET</a> integration (<a href="https://github.com/laf">@laf</a>)</li>
-  <li>Remote: Option specifying custom timeout when calling Home Assistant API (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
-  <li>Thermostat: Integration of <a href="https://home-assistant.io/components/thermostat.knx/">KNX</a> thermostats (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Thermostat: Support for HVAC mode of <a href="https://home-assistant.io/components/thermostat.nest/">Nest</a> devices (<a href="https://github.com/vladonemo">@vladonemo</a>)</li>
-  <li>InfluxDB: Option to specify additional <a href="https://home-assistant.io/components/influxdb/">tags</a> (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Input slider: Support for float value (<a href="https://github.com/ngraziano">@ngraziano</a>)</li>
-  <li>Template: New <a href="https://home-assistant.io/topics/templating/#home-assistant-template-extensions/">filters</a> (<code class="highlighter-rouge">timestamp_local</code> and <code class="highlighter-rouge">timestamp_utc</code>) (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Binary sensor - Wink: Water leak sensor support added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li>Sensor - Tellduslive: Support for luminance of Fibaro Motion Sensor (<a href="https://github.com/PetitCircuitLab">@PetitCircuitLab</a>)</li>
-  <li>Switch - RPi GPIO: Fix when inverted logic (<a href="https://github.com/zeroDenial">@zeroDenial</a>)</li>
-  <li>Z-Wave: Rollershutter update (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>RFXtrx: Fire events when receiving signals from sensors and tests added (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Core: Add <a href="https://docs.python.org/3/library/typing.html">type</a> checking using mypy to the core (<a href="https://github.com/fabianhjr">@fabianhjr</a>)</li>
-  <li>Remote: Support for getting the <a href="https://home-assistant.io/developers/python_api/#get-configuration/">Configuration</a> through the Python API (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Media player: Support for <a href="https://home-assistant.io/components/media_player.directv/">DirecTV</a> (<a href="https://github.com/cbulock">@cbulock</a>)</li>
-  <li>Use browser timezone for frontend logbook and history dates (<a href="https://github.com/armills">@armills</a>)</li>
-  <li>Light: New support for <a href="https://home-assistant.io/components/light.x10/">X10</a> lights (<a href="https://github.com/fotoetienne">@fotoetienne</a>)</li>
-  <li>Sensor: Support for observing <a href="https://home-assistant.io/components/sensor.imap/">IMAP</a> accounts (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
-  <li>Media Player: Integration for <a href="https://home-assistant.io/components/media_player.mpchc/">MPC-HC</a> (Media Player Classic - Home Cinema) mediaplayer (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
-  <li>Notify: <code class="highlighter-rouge">location</code> extension for <a href="https://home-assistant.io/components/notify.telegram/">Telegram</a> and photo bug fixed (<a href="https://github.com/keatontaylor">@keatontaylor</a> and <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Groups: Lock states will now be properly grouped (<a href="https://github.com/jwl17330536">@jwl17330536</a>)</li>
-  <li>Media Player: Added tests for Sonos to improve code quality (<a href="https://github.com/americanwookie">@americanwookie</a>)</li>
-  <li>Device Tracker: iCloud stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Sensor: Speedtest with improved error handling and state restoring (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
-  <li>Recorder: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Qwikswitch: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Light: <a href="https://home-assistant.io/components/light.hyperion/">Hyperion</a> keeps now track of active color (<a href="https://github.com/schneefux">@schneefux</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0251---august-1" href="#hotfix-0251---august-1"></a> Hotfix 0.25.1 - August 1</h3>
-
-<ul>
-  <li>Light - Z-Wave: Bring back delayed value update behavior (<a href="https://github.com/jnewland">@jnewland</a>)</li>
-  <li>Recorder: Properly close session after execute (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Media Player - Kodi: No longer block startup if connecting to wrong port (<a href="https://github.com/shoekstra">@shoekstra</a>)</li>
-  <li>Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0252---august-2" href="#hotfix-0252---august-2"></a> Hotfix 0.25.2 - August 2</h3>
-
-<ul>
-  <li>Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.</li>
-</ul>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li>Google Voice SMS notification support was removed.</li>
 </ul>
 
 ]]></content>
