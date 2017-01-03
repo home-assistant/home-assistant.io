@@ -15,7 +15,7 @@ ha_release: 0.36
 
 Both [Anthem]'s current and last generation of A/V Receivers and and Processors
 support IP-based, network control.  This Home Assistant platform adds proper
-"local push" support for and of these receivers on your network.
+"local push" support for any of these receivers on your network.
 
 ## {% linkable_title Supported Models %}
 
