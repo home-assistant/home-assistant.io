@@ -24,5 +24,5 @@ light:
 
 Configuration variables:
 
-- **host** (*Optional*): To enable the automatic addition of lights on startup.
-- **port** (*Optional*): A list of devices with their ip address and a custom name to use in the frontend.
+- **host** (*Optional*): IP Address of the device the Hyperion service is running on.
+- **port** (*Optional*): The Port used to comunicate with the Hyperion service (defualt is 19444).
