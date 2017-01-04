@@ -37,6 +37,7 @@ switch:
       protocol: 5
       code_on: 654321
       code_off: 654320
+      signal_repetitions: 15
 ```
 
 Configuration variables:
@@ -48,4 +49,4 @@ Configuration variables:
     - **code_off** (*Required*): Decimal code to switch the device off.
     - **protocol** (*Optional*): RF Protocol (Default is `1`).
     - **pulselength** (*Optional*): Pulselength (Default is the protocol default).
-
+    - **signal_repetitions** (*Optional*): Number of times to repeat transmission (default is 10, can increase to try to improve reliability).
