@@ -45,9 +45,8 @@ media_player:
 Item Name       | Type | Required?   | Description
 ----------------|------|-------------|-------------------------------------------
 `host`          | str  | *required*  | Hostname or IP Address of device
-`port`          | int  | *required*  | TCP port number of device
+`port`          | int  |  optional   | TCP port number of device
 `name`          | str  |  optional   | Defaults to model name if not provided
-`scan_interval` | int  |  optional   | Unused.  Defaults to 120 (seconds)
 
 ## Notes and Limitations
 
