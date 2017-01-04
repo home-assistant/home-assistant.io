@@ -65,6 +65,26 @@ rflink:
   host: 192.168.0.10
   port: 1234
 ```
+# Ignoring devices
+Rflink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433Mhz technology.
+
+For example:
+
+```yaml
+# Example configuration.yaml entry
+rflink:
+  port: /dev/serial/by-id/usb-id01234
+  wait_for_ack: False
+  ignore_devices:
+    - newkaku_000001_01
+    - digitech_*
+    - kaku_1_*
+```
+
+This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
+
+Wildcards only work at the end of the ID, not in the middle of front!
 
 # Device support
 Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or create an issue and mention `@aequitas` in the description: https://github.com/home-assistant/home-assistant/issues/new
+

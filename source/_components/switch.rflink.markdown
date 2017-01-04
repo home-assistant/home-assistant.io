@@ -1,0 +1,68 @@
+---
+layout: page
+title: "Rflink Switch"
+description: "Instructions how to integrate Rflink switches into Home Assistant."
+date: 2016-01-04
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: rflink.png
+ha_category: Switch
+ha_release: 0.36
+---
+
+The `rflink` component support devices that use [Rflink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo Rflink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). Rflink gateway is an Arduino firmware that allows communication with 433Mhz devices using cheap hardware (Arduino + 433Mhz tranceiver).
+
+First you have to set up your [rflink hub](/components/rflink/).
+
+The Rflink component does not know the difference between a `switch` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
+
+Rflink switch/light ID's are composed of: protocol, id, switch. For example: `newkaku_0000c6c2_1`.
+
+Once the ID of a switch is known it can be used to configure it as a switch type in HA, for example to add it to a different group, hide it or configure a nice name.
+
+Configuring a device as switch with a nice name:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  platform: rflink
+  devices:
+    newkaku_0000c6c2_1:
+      name: Ceiling fan
+      icon: mdi:fan
+    conrad_00785c_0a:
+      name: Motion sensor kitchen
+      icon: mdi:run
+
+```
+
+Configuration variables:
+
+- **devices**  (*Optional*): A list of devices with their name to use in the frontend.
+
+# Switch state
+
+Initially the state of a switch is unknown. When the switch is turned on or off (via frontend or 433Mhz remote) the state is known and will be shown in the frontend.
+
+Sometimes a switch is controlled by multiple 433Mhz remotes, each remote has its own code programmed in the switch. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliasses:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  platform: rflink
+  devices:
+    newkaku_0000c6c2_1:
+      name: Ceiling fan
+      icon: mdi:fan
+      aliasses:
+        - newkaku_000000001_2
+        - kaku_000001_a
+```
+
+Any on/off command from any switch updates the current state of the switch. However when sending a command through the frontend only the primary ID is used.
+
+# Device support
+Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or create an issue and mention `@aequitas` in the description: https://github.com/home-assistant/home-assistant/issues/new
+
