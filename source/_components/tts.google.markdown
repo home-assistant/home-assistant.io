@@ -35,10 +35,12 @@ tts:
     language: 'de'
 ```
 
-Note: If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `html` component as follows:
+If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `html` component as follows:
+
 ```yaml
 #Example configuration.yaml entry
 html:
   base_url: example.duckdns.org
 ```
+
 The `base_url` configuration variable was added in 0.35.1, so make sure your Home Assistant version is **0.35.1 or above.**
