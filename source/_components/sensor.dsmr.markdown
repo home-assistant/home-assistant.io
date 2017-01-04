@@ -33,10 +33,15 @@ This component is known to work for:
 - Kaifa E0026
 - Kamstrup 382JxC (DSMR 2.2)
 
-And USB serial converters:
+,USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
 - https://sites.google.com/site/nta8130p1smartmeter/webshop
+- https://www.sossolutions.nl/slimme-meter-kabel
+
+And Serial to network proxies:
+
+- ser2net - http://ser2net.sourceforge.net/
 
 ```yaml
 # Example configuration.yaml entry
@@ -53,7 +58,7 @@ Configuration variables:
 Full configuration examples can be found below:
 
 ```yaml
-# Example configuration.yaml entry for USB connected Smartmeter
+# Example configuration.yaml entry for USB/serial connected Smartmeter
 sensor:
   - platform: dsmr
     port: /dev/ttyUSB1
@@ -87,6 +92,12 @@ group:
       - sensor.power_production_low
       - sensor.power_production_normal
       - sensor.gas_consumption
+```
+
+Optional configuration example for ser2net:
+```sh
+# Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv4 smart meters
+2001:raw:600:/dev/ttyUSB0:115200 NONE 1STOPBIT 8DATABITS XONXOFF LOCAL -RTSCTS
 ```
 
 [HASSbian](/getting-started/installation-raspberry-pi-image/) users have to give dialout permission to the user `homeassistant`:
