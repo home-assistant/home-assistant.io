@@ -115,6 +115,14 @@
 </code></pre>
 </div>
 
+<p>Note: If you are using SSL certificate or Docker, you may need to add the <code class="highlighter-rouge">base_url</code> configuration variable to your <code class="highlighter-rouge">html</code> component as follows:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">#Example configuration.yaml entry</span>
+<span class="s">html</span><span class="pi">:</span>
+  <span class="s">base_url</span><span class="pi">:</span> <span class="s">example.duckdns.org</span>
+</code></pre>
+</div>
+<p>The <code class="highlighter-rouge">base_url</code> configuration variable was added in 0.35.1, so make sure your Home Assistant version is <strong>0.35.1 or above.</strong></p>
+
 
 </article>
 
