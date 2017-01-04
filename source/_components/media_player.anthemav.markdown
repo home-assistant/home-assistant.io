@@ -36,17 +36,15 @@ currently supported.
 # Example configuration.yaml entry
 media_player:
   - platform: anthemav
-    host: IP_ADDRESS
+    host: 10.0.0.42
     port: 14999
 ```
 
-### Supported Options
+### Configuration Variables
 
-Item Name       | Type | Required?   | Description
-----------------|------|-------------|-------------------------------------------
-`host`          | str  | *required*  | Hostname or IP Address of device
-`port`          | int  |  optional   | TCP port number of device
-`name`          | str  |  optional   | Defaults to model name if not provided
+- **host** (*Required*): The host name or address of the device that is running XBMC/Kodi
+- **port** (*Optional*): The port number. Defaults to 14999.
+- **name** (*Optional*): The name of the device used in the frontend.
 
 ## Notes and Limitations
 
