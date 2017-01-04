@@ -28,6 +28,7 @@ OID examples:
 - OpenWrt: `1.3.6.1.2.1.4.22.1.2` (tested on Chaos Calmer 15.05 firmware, need to install snmpd package)
 - pfSense: `1.3.6.1.2.1.4.22.1.2` (tested on 2.2.4-RELEASE, need to enable SNMP service)
 - TPLink: `1.3.6.1.2.1.3.1.1.2.19.1` (Archer VR2600v, need to enable SNMP service)
+- EdgeRouter `1.3.6.1.2.1.4.22.1.2` (EdgeRouter Lite v1.9.0, need to enable SNMP service)
 
 To use the SNMP version 1 platform in your installation, add the following to your `configuration.yaml` file:
 
