@@ -20,8 +20,9 @@ This component can expose regular rest commands as services. Services can be cal
 To enable this switch, add the following lines to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
+# Exposes service rest_command.example_request 
 rest_command:
-  example_rest_command:
+  example_request:
     url: 'http://example.com/'
 ```
 
@@ -33,5 +34,5 @@ Configuration variables:
 - **password** (*Optional*): password for HTTP authentication
 - **timeout** (*Optional*): Timeout for requests, default 10 seconds.
 
-Service call support variables.
+The commands can be dynamic, using templates to insert values of other entities. Service call support variables for template stuff.
 
