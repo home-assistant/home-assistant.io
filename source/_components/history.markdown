@@ -39,8 +39,8 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be excluded from the history.
   - **domains** (*Optional*): The list of domains to be excluded from the history.
 - **include** (*Optional*): Configure which components should be displayed. 
-  - **entities** (*Optional*): The list of entity ids to be included from the history.
-  - **domains** (*Optional*): The list of domains to be included from the history.
+  - **entities** (*Optional*): The list of entity ids to be included to the history.
+  - **domains** (*Optional*): The list of domains to be included to the history.
 
 Without any `include` or `exclude` configuration the history displays graphs for every entity (well that's not exactly true - for instance `hidden` entities or `scenes` are never shown) on a given date. If you are only interested in some of the entities you several options:
 
