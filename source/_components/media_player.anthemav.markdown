@@ -42,7 +42,7 @@ media_player:
 
 ### Configuration Variables
 
-- **host** (*Required*): The host name or address of the device that is running XBMC/Kodi
+- **host** (*Required*): The host name or address of the device.
 - **port** (*Optional*): The port number. Defaults to 14999.
 - **name** (*Optional*): The name of the device used in the frontend.
 
