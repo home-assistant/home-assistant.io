@@ -11,7 +11,7 @@ footer: true
 
 When all your devices are set up, it's time to put the cherry on the pie: automation. Home Assistant offers [a few built-in automations](/components/#automation) – but you'll be using the automation component to set up your own rules, for the most part.
 
-Home Assistant offers a wide range of automation configurations. In the next few pages,, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available][cookbook-config].
+Home Assistant offers a wide range of automation configurations. In the next few pages, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available][cookbook-config].
 
 [cookbook-config]: /cookbook/#example-configurationyaml
 
