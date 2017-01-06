@@ -39,7 +39,7 @@ If you are using SSL certificate or Docker, you may need to add the `base_url` c
 
 ```yaml
 #Example configuration.yaml entry
-html:
+http:
   base_url: example.duckdns.org
 ```
 
