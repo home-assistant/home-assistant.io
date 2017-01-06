@@ -27,7 +27,7 @@ device_tracker:
 
 Configuration variables:
 
-- **hosts** array (*Required*): List of hostnames and their corresponding IP addresses.
-- **count** (*Optional*: Number of packet used for each device (avoid false detection).
+- **hosts** array (*Required*): List of device names and their corresponding IP address or hostname.
+- **count** (*Optional*): Number of packet used for each device (avoid false detection).
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
