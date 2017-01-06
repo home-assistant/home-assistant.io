@@ -112,7 +112,7 @@
   <li><strong>payload</strong> (<em>Required</em>): What to send to the host in order to get the response we’re interested in.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to <code class="highlighter-rouge">10</code></li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the value. By default it’s assumed that the entire response is the value.</li>
-  <li><strong>unit</strong> (<em>Optional</em>): The unit of measurement to use for the value.</li>
+  <li><strong>unit_of_measurement</strong> (<em>Optional</em>): The unit of measurement to use for the value.</li>
   <li><strong>buffer_size</strong> (<em>Optional</em>): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to <code class="highlighter-rouge">1024</code>.</li>
 </ul>
 
@@ -140,7 +140,7 @@
   <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
   <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="s">r</span><span class="nv"> </span><span class="s">WaterPressure</span><span class="se">\n</span><span class="s">"</span>
   <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.split(';')[0]</span><span class="nv"> </span><span class="s">}}"</span>
-  <span class="s">unit</span><span class="pi">:</span> <span class="s">Bar</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">Bar</span>
 </code></pre>
 </div>
 
@@ -174,7 +174,7 @@ Escape character is <span class="s1">'^]'</span>.
   <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
   <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="se">\n</span><span class="s">"</span>
   <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.split('|')[3]</span><span class="nv"> </span><span class="s">}}"</span>
-  <span class="s">unit</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
 </code></pre>
 </div>
 
