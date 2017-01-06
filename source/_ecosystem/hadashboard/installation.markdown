@@ -146,3 +146,5 @@ $ dashing start
 
 Point your browser to **http://localhost:3030** to access the hadashboard on your local machine.and you should see the supplied default dashboard. If you want to access it remotely ensure you have opened any required firewall rules. 
 
+If the page never finishes loading and shows up all white, edit the dashboard config to match your own setup, instructions in the next step
+
