@@ -198,6 +198,41 @@
 </code></pre>
 </div>
 
+<p>The automation example below shows how to send a command via the harmony remote using the <code class="highlighter-rouge">send_command</code> service to send the ‘Pause’ command to the hub, which is already defined as an IR code for each device to be used via the Harmony app. It is checking for the activity name as exposed through the sensor in the harmony remote component using Jinga if statements to set the device_id, sending the correct Pause command for the given activity. This requires checking your activity list and device_id from the <code class="highlighter-rouge">harmony_REMOTENAME.conf</code> file created when you start the component. In this example, the harmony hub is named bedroom.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Harmony Pause contextual for activity</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+    <span class="c1"># trigger happens to be from a flic button - could be any valid event</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">flic_click</span>
+      <span class="s">event_data</span><span class="pi">:</span>
+        <span class="s">button_name</span><span class="pi">:</span> <span class="s">flic_80e4da70bbb1</span>
+        <span class="s">click_type</span><span class="pi">:</span> <span class="s">double</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">remote.send_command</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+      <span class="c1"># using a data template to have if brances for relavant device</span>
+        <span class="c1"># Always the same entity_id - the harmony hub</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">remote.bedroom</span> 
+        <span class="c1"># Always the same command - the Pause key</span>
+        <span class="s">command</span><span class="pi">:</span> <span class="s">Pause</span>
+        <span class="c1"># select device based upon the activity being undertaken.</span>
+        <span class="s">device</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no"># when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101 </span>
+          <span class="no">{% if is_state("sensor.bedroom", "WATCH TV") %}{% raw %}</span>
+            <span class="no">22987101</span>
+          <span class="no"># when in WATCH APPLE TV activity, the pause key relates to an Apple TV, which is device 23002316</span>
+          <span class="no">{% raw %}{% elif is_state("sensor.bedroom", "WATCH APPLE TV") %}</span>
+            <span class="no">23002316</span>
+          <span class="no">{% elif is_state("sensor.bedroom", "PLEX") %}</span>
+            <span class="no">23048786</span>
+          <span class="no">{% elif is_state("sensor.bedroom", "WATCH BLU RAY") %}</span>
+            <span class="no">23043122</span>
+          <span class="no">{% endif %}</span>
+
+</code></pre>
+</div>
+
 
 </article>
 
