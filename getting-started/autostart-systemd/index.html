@@ -116,7 +116,7 @@ EOF'</span>
 </code></pre>
 </div>
 
-<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following the guide the following template should work for you.</p>
+<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide</a>, the following template should work for you.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
@@ -124,9 +124,9 @@ After=network.target
 
 [Service]
 Type=simple
-User=hass
-ExecStartPre=source /srv/hass/bin/activate
-ExecStart=/srv/hass/bin/hass -c "/home/hass/.homeassistant"
+User=homeassistant
+ExecStartPre=source /srv/homeassistant/homeassistant_venv/bin/activate
+ExecStart=/srv/homeassistant/homeassistant_venv/bin/hass -c "/home/homeassistant/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target
