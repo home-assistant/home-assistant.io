@@ -175,7 +175,8 @@
 
 <h3><a class="title-link" name="template-trigger" href="#template-trigger"></a> Template trigger</h3>
 
-<p>Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render ‘true’. This is achieved by having the template result in a true boolean expression (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('device_tracker.paulus',</span><span class="w"> </span><span class="err">'home')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>) or by having the template render ‘true’ (example below).</p>
+<p>Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render ‘true’. This is achieved by having the template result in a true boolean expression (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('device_tracker.paulus',</span><span class="w"> </span><span class="err">'home')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>) or by having the template render ‘true’ (example below).
+With template triggers you can also evaluate attribute changes by using is_state_attr (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state_attr('climate.living_room',</span><span class="w"> </span><span class="err">'away_mode',</span><span class="w"> </span><span class="err">'off')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>)</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
