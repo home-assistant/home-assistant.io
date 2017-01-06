@@ -29,6 +29,8 @@ Configuration variables:
 
 - **purge_days** (*Optional*): Delete events and states older than x days.
 - **db_url** (*Optional*): The URL which point to your database. 
+- **exclude_entities** (*Optional*): A list of entities that will be excluded from recording.
+- **include_entities** (*Optional*): A list of entities that will be included in recordings. If set, all other entities will not be recorded.
 
 
 ```yaml
@@ -36,6 +38,9 @@ Configuration variables:
 recorder:
   purge_days: 5
   db_url: sqlite:///home/user/.homeassistant/test
+  # Don't record sun data
+  exclude_entities:
+    - sun.sun
 ```
 
 | Database engine | `db_url`                                                 | 
