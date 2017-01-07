@@ -178,5 +178,4 @@ Sending a heartbeat from the MySensors device to Home Assistant activates the Sm
 
 Visit the [library api] of MySensors for more information.
 
-[MySensors 1.x library api]: https://www.mysensors.org/download/sensor_api_15
-[MySensors 2.x library api]: https://www.mysensors.org/download/sensor_api_20
+[MySensors library api]: http://www.mysensors.org/download
