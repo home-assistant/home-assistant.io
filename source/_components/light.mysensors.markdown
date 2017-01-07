@@ -111,11 +111,10 @@ void incomingMessage(const MyMessage &message) {
 ### {% linkable_title MySensors 2.x example sketch %}
 
 ```cpp
-/**
- * Created by Henrik Ekblad <henrik.ekblad@mysensors.org>
- * Copyright (C) 2013-2015 Sensnology AB
- * Full contributor list: https://github.com/mysensors/Arduino/graphs/contributors
- *
+/* 
+ * Example Dimmable Light
+ * Code adapted from http://github.com/mysensors/MySensors/tree/master/examples/DimmableLight
+ * 
  * Documentation: http://www.mysensors.org
  * Support Forum: http://forum.mysensors.org
  *
@@ -132,121 +131,114 @@ void incomingMessage(const MyMessage &message) {
 
 #define CHILD_ID_LIGHT 1
 
-#define EPROM_LIGHT_STATE 1
-#define EPROM_DIMMER_LEVEL 2
-
 #define LIGHT_OFF 0
 #define LIGHT_ON 1
 
-#define SN "Dimable Light"
+#define SN "Dimmable Light"
 #define SV "1.0"
 
-int16_t LastLightState=LIGHT_OFF;
-int16_t LastDimValue=100;
+int16_t last_state = LIGHT_ON;
+int16_t last_dim = 100;
 
-MyMessage lightMsg(CHILD_ID_LIGHT, V_LIGHT);
-MyMessage dimmerMsg(CHILD_ID_LIGHT, V_DIMMER);
+MyMessage light_msg( CHILD_ID_LIGHT, V_LIGHT );
+MyMessage dimmer_msg( CHILD_ID_LIGHT, V_DIMMER );
 
 void setup()
 {
-	//Retreive our last light state from the eprom
-	int LightState=loadState(EPROM_LIGHT_STATE);
-	if (LightState<=1) {
-		LastLightState=LightState;
-		int DimValue=loadState(EPROM_DIMMER_LEVEL);
-		if ((DimValue>0)&&(DimValue<=100)) {
-			//There should be no Dim value of 0, this would mean LIGHT_OFF
-			LastDimValue=DimValue;
-		}
-	}
-
-	//Here you actualy switch on/off the light with the last known dim level
-	SetCurrentState2Hardware();
-
-	Serial.println( "Node ready to receive messages..." );
-}
-
-void presentation()
-{
-	// Send the Sketch Version Information to the Gateway
-	sendSketchInfo(SN, SV);
-
-	present(CHILD_ID_LIGHT, S_DIMMER );
+  update_light();
+  Serial.println( "Node ready to receive messages..." );
 }
 
 void loop()
 {
+  //In MySensors2.x, first message must come from within loop()
+  static bool first_message_sent = false;
+  if ( first_message_sent == false ) {
+    Serial.println( "Sending initial state..." );
+    send_dimmer_message();
+    send_status_message();
+    first_message_sent = true;
+  }
+}
+
+void presentation()
+{
+  // Send the sketch version information to the gateway
+  sendSketchInfo( SN, SV );
+  present( CHILD_ID_LIGHT, S_DIMMER );
 }
 
 void receive(const MyMessage &message)
 {
-	if (message.type == V_LIGHT) {
-		Serial.println( "V_LIGHT command received..." );
+  //When receiving a V_LIGHT command, switch the light between OFF 
+  //and the last received dimmer value  
+  if ( message.type == V_LIGHT ) {
+    Serial.println( "V_LIGHT command received..." );
 
-		int lstate= atoi( message.data );
-		if ((lstate<0)||(lstate>1)) {
-			Serial.println( "V_LIGHT data invalid (should be 0/1)" );
-			return;
-		}
-		LastLightState=lstate;
-		saveState(EPROM_LIGHT_STATE, LastLightState);
+    int lstate = message.getInt();
+    if (( lstate < 0 ) || ( lstate > 1 )) {
+      Serial.println( "V_LIGHT data invalid (should be 0/1)" );
+      return;
+    }
+    last_state = lstate;
 
-		if ((LastLightState==LIGHT_ON)&&(LastDimValue==0)) {
-			//In the case that the Light State = On, but the dimmer value is zero,
-			//then something (probably the controller) did something wrong,
-			//for the Dim value to 100%
-			LastDimValue=100;
-			saveState(EPROM_DIMMER_LEVEL, LastDimValue);
-		}
+    //If last dimmer state is zero, set dimmer to 100
+    if (( last_state == LIGHT_ON ) && ( last_dim == 0 )) {
+      last_dim=100;
+    }
 
-		//When receiving a V_LIGHT command we switch the light between OFF and the last received dimmer value
-		//This means if you previously set the lights dimmer value to 50%, and turn the light ON
-		//it will do so at 50%
-	} else if (message.type == V_DIMMER) {
-		Serial.println( "V_DIMMER command received..." );
-		int dimvalue= atoi( message.data );
-		if ((dimvalue<0)||(dimvalue>100)) {
-			Serial.println( "V_DIMMER data invalid (should be 0..100)" );
-			return;
-		}
-		if (dimvalue==0) {
-			LastLightState=LIGHT_OFF;
-		} else {
-			LastLightState=LIGHT_ON;
-			LastDimValue=dimvalue;
-			saveState(EPROM_DIMMER_LEVEL, LastDimValue);
-		}
-	} else {
-		Serial.println( "Invalid command received..." );
-		return;
-	}
+    //Update constroller status
+    send_status_message();
+    
+  } else if ( message.type == V_DIMMER ) {
+    Serial.println( "V_DIMMER command received..." );
+    int dim_value = constrain( message.getInt(), 0, 100 );
+    if ( dim_value == 0 ) {
+      last_state = LIGHT_OFF;
 
-	//Here you set the actual light state/level
-	SetCurrentState2Hardware();
+      //Update constroller with dimmer value & status
+      send_dimmer_message();
+      send_status_message();      
+    } else {
+      last_state = LIGHT_ON;
+      last_dim = dim_value;
+     
+      //Update constroller with dimmer value
+      send_dimmer_message();
+    }
+        
+  } else {
+    Serial.println( "Invalid command received..." );
+    return;
+  }
+
+  //Here you set the actual light state/level
+  update_light();
 }
 
-void SetCurrentState2Hardware()
+void update_light()
 {
-	if (LastLightState==LIGHT_OFF) {
-		Serial.println( "Light state: OFF" );
-	} else {
-		Serial.print( "Light state: ON, Level: " );
-		Serial.println( LastDimValue );
-	}
-
-	//Send current state to the controller
-	SendCurrentState2Controller();
+  //For this example, just print the light status to console.
+  if ( last_state == LIGHT_OFF ) {
+    Serial.println( "Light state: OFF" );
+  } else {
+    Serial.print( "Light state: ON, Level: " );
+    Serial.println( last_dim );
+  }
 }
 
-void SendCurrentState2Controller()
+void send_dimmer_message()
 {
-	if ((LastLightState==LIGHT_OFF)||(LastDimValue==0)) {
-		send(dimmerMsg.set((int16_t)0));
-    send(lightMsg.set((int16_t)0));
-	} else {
-		send(dimmerMsg.set(LastDimValue));
-    send(lightMsg.set((int16_t)0));
-	}
+  send( dimmer_msg.set( last_dim ) );
+}
+
+void send_status_message()
+{
+  if ( last_state == LIGHT_OFF ) {
+    send( light_msg.set( (int16_t)0) );
+  } else {
+    send( light_msg.set( (int16_t)1) );
+  }
 }
 ```
 [main component]: /components/mysensors/
