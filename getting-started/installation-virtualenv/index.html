@@ -124,7 +124,7 @@
 <p>This can be anywhere you want. As example we put it in <code class="highlighter-rouge">/srv</code>. You also need to change the ownership of the directory to the user you created above (if you created one).</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo mkdir /srv/homeassistant
-<span class="gp">$ </span>sudo chown hass /srv/homeassistant
+<span class="gp">$ </span>sudo chown homeassistant /srv/homeassistant
 </code></pre>
 </div>
 
@@ -154,13 +154,13 @@
 </code></pre>
 </div>
 
-<p>After that, your prompt should include <code class="highlighter-rouge">(hass)</code>.</p>
+<p>After that, your prompt should include <code class="highlighter-rouge">(homeassistant)</code>.</p>
 
 <h3><a class="title-link" name="step-6-install-home-assistant" href="#step-6-install-home-assistant"></a> Step 6: Install Home Assistant</h3>
 
-<p>Once your virtualenv has been activated, you don’t need to <code class="highlighter-rouge">sudo</code> any of your <code class="highlighter-rouge">pip</code> commands. <code class="highlighter-rouge">pip</code> will be installing things in the virtualenv, which the <code class="highlighter-rouge">hass</code> user has permission to modify.</p>
+<p>Once your virtualenv has been activated, you don’t need to <code class="highlighter-rouge">sudo</code> any of your <code class="highlighter-rouge">pip</code> commands. <code class="highlighter-rouge">pip</code> will be installing things in the virtualenv, which the <code class="highlighter-rouge">homeassistant</code> user has permission to modify.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(hass)$ </span>pip3 install --upgrade homeassistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(homeassistant)$ </span>pip3 install --upgrade homeassistant
 </code></pre>
 </div>
 
@@ -168,7 +168,7 @@
 
 <h3><a class="title-link" name="finally-run-home-assistant" href="#finally-run-home-assistant"></a> Finally… Run Home Assistant</h3>
 
-<p>There are two ways to launch Home Assistant. If you are <strong>in</strong> the virtualenv, you can just run <code class="highlighter-rouge">hass</code> and it will work as normal. If the virtualenv is not activated, you just use the <code class="highlighter-rouge">hass</code> executable in the <code class="highlighter-rouge">bin</code> directory mentioned earlier. There is one caveat… Because Home Assistant stores its configuration in the user’s home directory, we need to be the user <code class="highlighter-rouge">hass</code> user or specify the configuration with <code class="highlighter-rouge">-c</code>.</p>
+<p>There are two ways to launch Home Assistant. If you are <strong>in</strong> the virtualenv, you can just run <code class="highlighter-rouge">hass</code> and it will work as normal. If the virtualenv is not activated, you just use the <code class="highlighter-rouge">hass</code> executable in the <code class="highlighter-rouge">bin</code> directory mentioned earlier. There is one caveat… Because Home Assistant stores its configuration in the user’s home directory, we need to be the user <code class="highlighter-rouge">homeassistant</code> user or specify the configuration with <code class="highlighter-rouge">-c</code>.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo -u homeassistant -H /srv/homeassistant/bin/hass
 </code></pre>
@@ -182,13 +182,13 @@
 
 <h3><a class="title-link" name="starting-home-assistant-on-boot" href="#starting-home-assistant-on-boot"></a> Starting Home Assistant on boot</h3>
 
-<p>The <a href="/getting-started/autostart/">autostart instructions</a> will work just fine, just be sure to replace <code class="highlighter-rouge">/usr/bin/hass</code> with <code class="highlighter-rouge">/srv/hass/bin/hass</code> and specify the <code class="highlighter-rouge">hass</code> user where appropriate.</p>
+<p>The <a href="/getting-started/autostart/">autostart instructions</a> will work just fine, just be sure to replace <code class="highlighter-rouge">/usr/bin/hass</code> with <code class="highlighter-rouge">/srv/homeassistant/bin/hass</code> and specify the <code class="highlighter-rouge">homeassistant</code> user where appropriate.</p>
 
 <h3><a class="title-link" name="installing-python-openzwave" href="#installing-python-openzwave"></a> Installing python-openzwave</h3>
 
 <p>If you want to use Z-Wave devices, you will need to install <code class="highlighter-rouge">python-openzwave</code> in your virtualenv. This requires a small tweak to the instructions in <a href="/getting-started/z-wave/">the Z-Wave Getting Started documentation</a></p>
 
-<p>Install the dependencies as normal (Note: you will need to do this as your normal user, since <code class="highlighter-rouge">hass</code> isn’t a sudoer).</p>
+<p>Install the dependencies as normal (Note: you will need to do this as your normal user, since <code class="highlighter-rouge">homeassistant</code> isn’t a sudoer).</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
 </code></pre>
@@ -196,19 +196,19 @@
 
 <p>Then, activate your virtualenv (steps 3 and 5 above) and upgrade cython.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(hass)$ </span>pip3 install --upgrade <span class="nv">cython</span><span class="o">==</span>0.24.1
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(homeassistant)$ </span>pip3 install --upgrade <span class="nv">cython</span><span class="o">==</span>0.24.1
 </code></pre>
 </div>
 
 <p>Finally, get and install <code class="highlighter-rouge">python-openzwave</code>.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(hass)$ </span>mkdir /srv/homeassistant/src
-<span class="gp">(hass)$ </span><span class="nb">cd</span> /srv/homeassistant/src
-<span class="gp">(hass)$ </span>git clone https://github.com/OpenZWave/python-openzwave.git
-<span class="gp">(hass)$ </span><span class="nb">cd </span>python-openzwave
-<span class="gp">(hass)$ </span>git checkout python3
-<span class="gp">(hass)$ </span><span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="sb">`</span>which python3<span class="sb">`</span> make build
-<span class="gp">(hass)$ </span><span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="sb">`</span>which python3<span class="sb">`</span> make install
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(homeassistant)$ </span>mkdir /srv/homeassistant/src
+<span class="gp">(homeassistant)$ </span><span class="nb">cd</span> /srv/homeassistant/src
+<span class="gp">(homeassistant)$ </span>git clone https://github.com/OpenZWave/python-openzwave.git
+<span class="gp">(homeassistant)$ </span><span class="nb">cd </span>python-openzwave
+<span class="gp">(homeassistant)$ </span>git checkout python3
+<span class="gp">(homeassistant)$ </span><span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="sb">`</span>which python3<span class="sb">`</span> make build
+<span class="gp">(homeassistant)$ </span><span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="sb">`</span>which python3<span class="sb">`</span> make install
 </code></pre>
 </div>
 
