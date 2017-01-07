@@ -95,6 +95,10 @@ To launch the OZWCP web application:
 *  Open a web browser to `http://your_pi_ip:8888`
 *  Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
 
+<p class='note note'>
+    If you deployed Home Assistant via the AiO installer prior to December 2016, replace `cd /srv/homeassistant/src/open-zwave-control-panel/` with `cd /srv/hass/src/open-zwave-control-panel/`
+</p>
+
 <p class='note warning'>
   Don't check the USB box regardless of using a USB based device.
 </p>
