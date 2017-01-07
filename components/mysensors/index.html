@@ -255,7 +255,11 @@ The MQTT gateway requires MySensors version 2.0 and only the MQTT client gateway
 </code></pre>
 </div>
 
-<p>Visit the <a href="https://www.mysensors.org/download/sensor_api_15">library api</a> of MySensors for more information.</p>
+<h3><a class="title-link" name="heartbeats" href="#heartbeats"></a> Heartbeats</h3>
+
+<p>Sending a heartbeat from the MySensors device to Home Assistant activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands.  See the MySensors library API for information on how to send heartbeats and sleep device.</p>
+
+<p>Visit the [library api] of MySensors for more information.</p>
 
 
 
