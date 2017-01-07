@@ -140,8 +140,8 @@ void incomingMessage(const MyMessage &message) {
 int16_t last_state = LIGHT_ON;
 int16_t last_dim = 100;
 
-MyMessage light_msg( CHILD_ID_LIGHT, V_LIGHT );
-MyMessage dimmer_msg( CHILD_ID_LIGHT, V_DIMMER );
+MyMessage light_msg( CHILD_ID_LIGHT, V_STATUS );
+MyMessage dimmer_msg( CHILD_ID_LIGHT, V_PERCENTAGE );
 
 void setup()
 {
@@ -170,14 +170,14 @@ void presentation()
 
 void receive(const MyMessage &message)
 {
-  //When receiving a V_LIGHT command, switch the light between OFF 
+  //When receiving a V_STATUS command, switch the light between OFF 
   //and the last received dimmer value  
-  if ( message.type == V_LIGHT ) {
-    Serial.println( "V_LIGHT command received..." );
+  if ( message.type == V_STATUS ) {
+    Serial.println( "V_STATUS command received..." );
 
     int lstate = message.getInt();
     if (( lstate < 0 ) || ( lstate > 1 )) {
-      Serial.println( "V_LIGHT data invalid (should be 0/1)" );
+      Serial.println( "V_STATUS data invalid (should be 0/1)" );
       return;
     }
     last_state = lstate;
@@ -190,8 +190,8 @@ void receive(const MyMessage &message)
     //Update constroller status
     send_status_message();
     
-  } else if ( message.type == V_DIMMER ) {
-    Serial.println( "V_DIMMER command received..." );
+  } else if ( message.type == V_PERCENTAGE ) {
+    Serial.println( "V_PERCENTAGE command received..." );
     int dim_value = constrain( message.getInt(), 0, 100 );
     if ( dim_value == 0 ) {
       last_state = LIGHT_OFF;
@@ -242,4 +242,4 @@ void send_status_message()
 }
 ```
 [main component]: /components/mysensors/
-[serial api]: https://www.mysensors.org/download/serial_api_15
+[serial api]: http://www.mysensors.org/download
