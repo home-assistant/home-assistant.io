@@ -79,7 +79,7 @@ Configuration variables:
 - **customize** (*Optional*): This attribute contains node-specific override values:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
   - **ignored** (*Optional*): Ignore this entitiy completely. It won't be shown in the Web Interface and no events are generated for it.
-  - **refresh_value** (*Optional*): Enable refreshing of the node value. Only light component uses this. Defaults to 2 second delay.
+  - **refresh_value** (*Optional*): Enable refreshing of the node value. Only light component uses this. Defaults to `False`.
   - **delay** (*Optional*): Specify the delay to wait for refresh of node value if you want other than 2 seconds.
 
 To find the path of your Z-Wave USB stick or module, run:
