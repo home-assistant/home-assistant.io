@@ -132,11 +132,11 @@
   </tbody>
 </table>
 
-<p>V_TYPES with a star (*) denotes required V_TYPES. Use either V_LIGHT or V_STATUS and either V_DIMMER or V_PERCENTAGE for an applicable actuator.</p>
+<p>V_TYPES with a star (*) denote V_TYPES that should be sent at sketch startup. For an S_DIMMER, send both a V_DIMMER/V_PERCENTAGE and a V_LIGHT/V_STATUS message.  For an S_RGB_LIGHT, send both a V_RGB and a V_LIGHT/V_STATUS message with a V_DIMMER/V_PERCENTAGE message being optional.  Sketch should acknowledge a command sent from controller with the same type.  If command invokes a change to off state (including a V_PERCENTAGE or V_RGB message of zero), only a V_STATUS of zero message should be sent.  See sketches below for examples.</p>
 
-<p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
+<p>For more information, visit the <a href="http://www.mysensors.org/download">serial api</a> of MySensors.</p>
 
-<h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
+<h3><a class="title-link" name="mysensors-1x-example-sketch" href="#mysensors-1x-example-sketch"></a> MySensors 1.x example sketch</h3>
 
 <div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
  * Documentation: http://www.mysensors.org
@@ -210,7 +210,139 @@
 <span class="p">}</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="mysensors-2x-example-sketch" href="#mysensors-2x-example-sketch"></a> MySensors 2.x example sketch</h3>
 
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/* 
+ * Example Dimmable Light
+ * Code adapted from http://github.com/mysensors/MySensors/tree/master/examples/DimmableLight
+ * 
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ */</span>
+
+<span class="c1">// Enable debug prints
+</span><span class="cp">#define MY_DEBUG
+</span>
+<span class="c1">// Enable and select radio type attached
+</span><span class="cp">#define MY_RADIO_NRF24
+</span><span class="c1">//#define MY_RADIO_RFM69
+</span>
+<span class="cp">#include &lt;MySensors.h&gt;
+</span>
+<span class="cp">#define CHILD_ID_LIGHT 1
+</span>
+<span class="cp">#define LIGHT_OFF 0
+#define LIGHT_ON 1
+</span>
+<span class="cp">#define SN "Dimmable Light"
+#define SV "1.0"
+</span>
+<span class="kt">int16_t</span> <span class="n">last_state</span> <span class="o">=</span> <span class="n">LIGHT_ON</span><span class="p">;</span>
+<span class="kt">int16_t</span> <span class="n">last_dim</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="n">MyMessage</span> <span class="n">light_msg</span><span class="p">(</span> <span class="n">CHILD_ID_LIGHT</span><span class="p">,</span> <span class="n">V_STATUS</span> <span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">dimmer_msg</span><span class="p">(</span> <span class="n">CHILD_ID_LIGHT</span><span class="p">,</span> <span class="n">V_PERCENTAGE</span> <span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">update_light</span><span class="p">();</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"Node ready to receive messages..."</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//In MySensors2.x, first message must come from within loop()
+</span>  <span class="k">static</span> <span class="kt">bool</span> <span class="n">first_message_sent</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="n">first_message_sent</span> <span class="o">==</span> <span class="nb">false</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"Sending initial state..."</span> <span class="p">);</span>
+    <span class="n">send_dimmer_message</span><span class="p">();</span>
+    <span class="n">send_status_message</span><span class="p">();</span>
+    <span class="n">first_message_sent</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">presentation</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// Send the sketch version information to the gateway
+</span>  <span class="n">sendSketchInfo</span><span class="p">(</span> <span class="n">SN</span><span class="p">,</span> <span class="n">SV</span> <span class="p">);</span>
+  <span class="n">present</span><span class="p">(</span> <span class="n">CHILD_ID_LIGHT</span><span class="p">,</span> <span class="n">S_DIMMER</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">receive</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">//When receiving a V_STATUS command, switch the light between OFF 
+</span>  <span class="c1">//and the last received dimmer value  
+</span>  <span class="k">if</span> <span class="p">(</span> <span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_STATUS</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"V_STATUS command received..."</span> <span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">lstate</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">getInt</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">((</span> <span class="n">lstate</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">||</span> <span class="p">(</span> <span class="n">lstate</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">))</span> <span class="p">{</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"V_STATUS data invalid (should be 0/1)"</span> <span class="p">);</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">last_state</span> <span class="o">=</span> <span class="n">lstate</span><span class="p">;</span>
+
+    <span class="c1">//If last dimmer state is zero, set dimmer to 100
+</span>    <span class="k">if</span> <span class="p">((</span> <span class="n">last_state</span> <span class="o">==</span> <span class="n">LIGHT_ON</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span> <span class="n">last_dim</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">))</span> <span class="p">{</span>
+      <span class="n">last_dim</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">//Update constroller status
+</span>    <span class="n">send_status_message</span><span class="p">();</span>
+    
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_PERCENTAGE</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"V_PERCENTAGE command received..."</span> <span class="p">);</span>
+    <span class="kt">int</span> <span class="n">dim_value</span> <span class="o">=</span> <span class="n">constrain</span><span class="p">(</span> <span class="n">message</span><span class="p">.</span><span class="n">getInt</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span> <span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">dim_value</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="n">last_state</span> <span class="o">=</span> <span class="n">LIGHT_OFF</span><span class="p">;</span>
+
+      <span class="c1">//Update constroller with dimmer value &amp; status
+</span>      <span class="n">send_dimmer_message</span><span class="p">();</span>
+      <span class="n">send_status_message</span><span class="p">();</span>      
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">last_state</span> <span class="o">=</span> <span class="n">LIGHT_ON</span><span class="p">;</span>
+      <span class="n">last_dim</span> <span class="o">=</span> <span class="n">dim_value</span><span class="p">;</span>
+     
+      <span class="c1">//Update constroller with dimmer value
+</span>      <span class="n">send_dimmer_message</span><span class="p">();</span>
+    <span class="p">}</span>
+        
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"Invalid command received..."</span> <span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//Here you set the actual light state/level
+</span>  <span class="n">update_light</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">update_light</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//For this example, just print the light status to console.
+</span>  <span class="k">if</span> <span class="p">(</span> <span class="n">last_state</span> <span class="o">==</span> <span class="n">LIGHT_OFF</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"Light state: OFF"</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span> <span class="s">"Light state: ON, Level: "</span> <span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="n">last_dim</span> <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">send_dimmer_message</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">send</span><span class="p">(</span> <span class="n">dimmer_msg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span> <span class="n">last_dim</span> <span class="p">)</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">send_status_message</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="n">last_state</span> <span class="o">==</span> <span class="n">LIGHT_OFF</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">send</span><span class="p">(</span> <span class="n">light_msg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span> <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span><span class="mi">0</span><span class="p">)</span> <span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">send</span><span class="p">(</span> <span class="n">light_msg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span> <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span><span class="mi">1</span><span class="p">)</span> <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 
 </article>
