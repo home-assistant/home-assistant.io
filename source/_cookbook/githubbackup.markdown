@@ -7,15 +7,12 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: github.png
 ha_category: Infrastructure
 ---
 
-### {% linkable_title Summary %}
+Backing up and regularly syncing your Home Assistant configuration to [GitHub](http://GitHub.com) has several benefits:
 
-Backing up and regularly syncing your Home Assistant configration to [GitHub](http://GitHub.com) has several benefits:
-
-- A remote copy of your key Home Assistant YAML files in case you need to recover
+- A remote copy of your Home Assistant YAML files in case you need to recover
 - A documented history of your changes for troubleshooting purposes
 - It will help the Home Assistant community learn from your configuration examples
 
