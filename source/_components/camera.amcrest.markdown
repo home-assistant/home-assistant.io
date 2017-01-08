@@ -33,4 +33,6 @@ Configuration variables:
 - **name** (*Optional*): This parameter allows you to override the name of your camera. The default is "Amcrest Camera".
 - **port** (*Optional*): The port that the camera is running on. The default is 80.
 - **resolution** (*Optional*): This parameter allows you to specify the camera resolution. For a high resolution (1080/720p), specify the option `high`. For VGA resolution (640x480p), specify the option `low`. If omitted, it defaults to *high*.
+- **stream_source** (*Optional*): The data source for the live stream. `mjpeg` will use the camera's native MJPEG stream, whereas `snapshot` will use the camera's snapshot API to create a stream from still images. If omitted, it defaults to *mjpeg*.
 
+**Note:** Amcrest cameras with newer firmwares no longer have the ability to stream `high` definition video with MJPEG encoding. You may need to use `low` resolution stream or the `snapshot` stream source instead.
