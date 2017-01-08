@@ -1,0 +1,344 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Configuration Backup to GitHub - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how backup your Home Assistant configuration to GitHub">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/githubbackup/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Configuration Backup to GitHub">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/githubbackup/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how backup your Home Assistant configuration to GitHub">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Configuration Backup to GitHub">
+    <meta name="twitter:description" content="Instructions how backup your Home Assistant configuration to GitHub">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Configuration Backup to GitHub
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <h3><a class="title-link" name="summary" href="#summary"></a> Summary</h3>
+
+<p>Backing up and regularly syncing your Home Assistant configration to <a href="http://GitHub.com">GitHub</a> has several benefits:</p>
+
+<ul>
+  <li>A remote copy of your key Home Assistant YAML files in case you need to recover</li>
+  <li>A documented history of your changes for troubleshooting purposes</li>
+  <li>It will help the Home Assistant community learn from your configuration examples</li>
+</ul>
+
+<p class="note">
+This is not a comprehensive tutorial on using GitHub, more information can be found in the <a href="https://help.github.com/">GitHub Help</a> pages.  This guide assumes the user has an intermediate experience level and is comfortable with such concepts as: navigating the Home Assistant directory structure, logging in as the Home Assistant user, and working with the command line.
+</p>
+
+<p class="note">
+This will not create a full backup of your Home Assistant files or your OS. In addition to backing up to Github, you should consider having regular backups of all your Home Assistant configuration files and images of your SD card if applicable.
+</p>
+
+<h3><a class="title-link" name="important-best-practices" href="#important-best-practices"></a> Important Best Practices</h3>
+
+<p>Some best practices to consider before putting your configuration on GitHub:</p>
+
+<ul>
+  <li>Extensive use of <a href="https://home-assistant.io/topics/secrets/">secrets.yaml</a> to hide sensitive information like usernames, passwords, device information, and location</li>
+  <li>Exclusion of some files, including <code class="highlighter-rouge">secrets.yaml</code> and device-specific information using a <a href="https://git-scm.com/docs/gitignore"><code class="highlighter-rouge">.gitignore</code></a> file</li>
+  <li>Regularly commiting your configuration to GitHub to make sure that your backup is up to date</li>
+  <li>Use a README.md to document your configuration and include screenshots of your Home Assistant GUI</li>
+</ul>
+
+<h3><a class="title-link" name="step-1-installing-and-initializing-git" href="#step-1-installing-and-initializing-git"></a> Step 1: Installing and Initializing Git</h3>
+
+<p>In order to put your configuration on GitHub, you must install the git package on your Home Assistant server (instructions below will work on Raspberry Pi, Ubunutu, or any Debian-based system):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get update
+<span class="gp">$ </span>sudo apt-get install git
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="step-2-creating" href="#step-2-creating"></a> Step 2: Creating  <code class="highlighter-rouge">.gitignore</code></h3>
+
+<p class="note warning">
+Before creating and pushing your Home Assistant configuration to GitHub, please make sure to follow the <code class="highlighter-rouge">secrets.yaml</code> best practice mentioned above and scrub your configuration for any passwords or sensitive information.
+</p>
+
+<p>Creating a <code class="highlighter-rouge">.gitignore</code> file in your repository will tell git which files NOT to push to the GitHub server. This should be used to prevent publishing sensitive files to the public. It should contain a list of filenames and pattern matches. This list should include at least your <code class="highlighter-rouge">secrets.yaml</code> file, device configuration files, and the Home Assistant database/directory structure.  The <code class="highlighter-rouge">.gitignore</code> file should be placed in your Home Assistant directory.</p>
+
+<p>Here is a sane example, but yours should be based on the files in your structure:</p>
+
+<p><code class="highlighter-rouge">.gitignore</code></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="k">*</span>.pid
+<span class="k">*</span>.xml
+<span class="k">*</span>.csr
+<span class="k">*</span>.crt
+<span class="k">*</span>.key
+www
+OZW_Log.txt
+home-assistant.log
+home-assistant_v2.db
+<span class="k">*</span>.db-journal
+lib
+deps
+tts
+secrets.yaml
+known_devices.yaml
+<span class="k">*</span>.conf
+plex.conf
+phue.conf
+harmony_media_room.conf
+pyozw.sqlite
+.<span class="k">*</span>
+!/.gitignore
+</code></pre>
+</div>
+
+<p>More information on the layout of the file can be found in the <a href="https://git-scm.com/docs/gitignore">.gitignore manual</a>.</p>
+
+<h3><a class="title-link" name="step-3-preparing-your-home-assistant-directory-for-github" href="#step-3-preparing-your-home-assistant-directory-for-github"></a> Step 3: Preparing your Home Assistant directory for GitHub</h3>
+
+<p>In your Home Assistant directory, type the following commands as the Home Assistant user, replacing the email address and name with your information:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git init
+<span class="gp">$ </span>git config user.email <span class="s2">"you@example.com"</span>
+<span class="gp">$ </span>git config user.name <span class="s2">"Your Name"</span>
+<span class="gp">$ </span>git add .
+<span class="gp">$ </span>git commit
+</code></pre>
+</div>
+
+<p>After the <code class="highlighter-rouge">git commit</code> command, you will be asked to enter a message for the commit.  This will add a comment beside each file on GitHub describing the purpose for the commit.  In this case, you can enter something like “Initial commit of my Home Assistant configuration.”</p>
+
+<h3><a class="title-link" name="step-4-creating-repository-on-github" href="#step-4-creating-repository-on-github"></a> Step 4: Creating Repository on GitHub</h3>
+
+<ul>
+  <li>Connect to <a href="https://github.com">GitHub</a> and login to your account (or create an account if you don’t already have one).</li>
+  <li>Click “<a href="https://github.com/new">New Repository</a>” and give your repository a name/description (<code class="highlighter-rouge">Home-AssistantConfig</code> is used in the example below).  You do NOT need to change any other options.</li>
+  <li>Click “Create Repository”</li>
+</ul>
+
+<h3><a class="title-link" name="step-5-your-initial-commit-to-github" href="#step-5-your-initial-commit-to-github"></a> Step 5: Your initial commit to GitHub</h3>
+
+<p>Once you are sure you are using <code class="highlighter-rouge">secrets.yaml</code> and <code class="highlighter-rouge">.gitignore</code> correctly, it is time to push your configuration to the GitHub Repository that you just created.</p>
+
+<p>In your Home Assistant directory, type the following commands as the Home Assistant user, replacing “username” in the URL with your GitHub username:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git remote add origin https://github.com/username/Home-AssistantConfig
+<span class="gp">$ </span>git push -u origin master
+</code></pre>
+</div>
+
+<p>You will be asked to enter your GitHub username and password (or ssh key passphrase if you use <a href="https://help.github.com/categories/ssh/">GitHub with ssh</a>).</p>
+
+<p>Congratulations, you now have a copy of your current Home Assistant Configuration on GitHub!</p>
+
+<h3><a class="title-link" name="step-6-keeping-your-repository-up-to-date" href="#step-6-keeping-your-repository-up-to-date"></a> Step 6: Keeping your repository up to date</h3>
+
+<p>You should update your repository on a regular basis; ideally after you make a major configuration change (new device, new component, etc.). The below script will update your repository with any changed configuration files and allow you to add a comment with the commit for tracking purposes:</p>
+
+<p class="note">
+You may need to adjust the paths in the script depending on your Home Assistant configuration.
+</p>
+
+<p><code class="highlighter-rouge">gitupdate.sh</code></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">cd</span> /home/homeassistant/.homeassistant
+<span class="nb">source</span> /srv/homeassistant/homeassistant_venv/bin/activate
+hass --script check_config
+
+git add .
+git status
+<span class="nb">echo</span> -n <span class="s2">"Enter the Description for the Change: "</span> <span class="o">[</span>Minor Update]
+<span class="nb">read </span>CHANGE_MSG
+git commit -m <span class="s2">"</span><span class="k">${</span><span class="nv">CHANGE_MSG</span><span class="k">}</span><span class="s2">"</span>
+git push origin master
+
+<span class="nb">exit</span>
+</code></pre>
+</div>
+
+<p>Every time you run this script, you will be prompted for a comment to describe the change(s) that you are commiting. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use <a href="https://help.github.com/categories/ssh/">GitHub with ssh</a>).</p>
+
+<h3><a class="title-link" name="extra-commands" href="#extra-commands"></a> Extra commands</h3>
+
+<p>You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not commited yet:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git ls-files
+<span class="gp">$ </span>git status
+</code></pre>
+</div>
+<p>Examples:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>homeassistant@raspberrypi:~/.homeassistant <span class="nv">$ </span>git ls-files    
+.gitignore
+README.md
+automation.yaml
+configuration.yaml
+customize.yaml
+device_tracker.yaml
+group.yaml
+script.yaml
+
+homeassistant@raspberrypi:~/.homeassistant <span class="nv">$ </span>git status
+On branch master
+Your branch is up-to-date with <span class="s1">'origin/master'</span>.
+Changes not staged <span class="k">for </span>commit:
+  <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to update what will be committed<span class="o">)</span>
+  <span class="o">(</span>use <span class="s2">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="k">in </span>working directory<span class="o">)</span>
+
+        modified:   .gitignore
+        modified:   automation.yaml
+        modified:   customize.yaml
+        modified:   group.yaml
+
+no changes added to commit <span class="o">(</span>use <span class="s2">"git add"</span> and/or <span class="s2">"git commit -a"</span><span class="o">)</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/githubbackup.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <a href='/cookbook'>Back to the cookbook</a>
+  </div>
+  <div class='section'>
+    <h1 class="title delta">Infrastructure</h1>
+    <ul class='divided'>
+          <li>
+              <a href='/cookbook/apache_configuration/'>Apache Configuration</a>
+          </li>
+          <li>
+              Configuration Backup to GitHub
+          </li>
+          <li>
+              <a href='/cookbook/owntracks_two_mqtt_broker/'>OwnTracks with two MQTT brokers</a>
+          </li>
+          <li>
+              <a href='/cookbook/tls_self_signed_certificate/'>Self-signed certificate for SSL/TLS</a>
+          </li>
+          <li>
+              <a href='/cookbook/tor_configuration/'>Tor Onion Service Configuration</a>
+          </li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
