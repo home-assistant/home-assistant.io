@@ -81,8 +81,8 @@ action:
 
 - **url** or **file** (*Required*): For local or remote path to an image.
 - **caption** (*Optional*): The title of the image.
-- **username** (*Optional*): Username for an URL which require HTTP basic authentication.
-- **password** (*Optional*): Username for an URL which require HTTP basic authentication.
+- **username** (*Optional*): Username for a URL which require HTTP basic authentication.
+- **password** (*Optional*): Username for a URL which require HTTP basic authentication.
 
 ### {% linkable_title Document support %}
 
@@ -102,8 +102,8 @@ action:
 
 - **url** or **file** (*Required*): For local or remote path to a document.
 - **caption** (*Optional*): The title of the document.
-- **username** (*Optional*): Username for an URL which require HTTP basic authentication.
-- **password** (*Optional*): Username for an URL which require HTTP basic authentication.
+- **username** (*Optional*): Username for a URL which require HTTP basic authentication.
+- **password** (*Optional*): Username for a URL which require HTTP basic authentication.
 
 ### {% linkable_title Location support %}
 
