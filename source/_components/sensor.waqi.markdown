@@ -24,14 +24,15 @@ sensor:
     locations:
       - beijing
     stations:
-      - 3303
+      - Beijing US Embassy
 ```
 
 Configuration variables:
 
 - **locations** (*Required*): a list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant
 
-- **stations** (*Optional*): a list of station ids to look for air quality data. When station is set, location setting would be ignored. station id can be found by inspect element of a station page in aqicn.org, searching for 'aqiStation'.
+- **stations** (*Optional*): a list of station names to look for air quality data. Station should be within locations specified above.
+
 The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:
 
 AQI | Status | Description
