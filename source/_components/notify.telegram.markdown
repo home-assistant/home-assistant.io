@@ -67,7 +67,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send an images
-    message: That's a example that sends an image.
+    message: That's an example that sends an image.
     data:
       photo:
         - url: http://192.168.1.28/camera.jpg
@@ -92,7 +92,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send a document
-    message: That's a example that sends a document.
+    message: That's an example that sends a document.
     data:
       document:
         file: /tmp/whatever.odf
