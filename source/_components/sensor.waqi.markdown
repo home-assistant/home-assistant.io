@@ -22,13 +22,16 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: waqi
     locations:
-      - beijin
+      - beijing
+    stations:
+      - 3303
 ```
 
 Configuration variables:
 
 - **locations** (*Required*): a list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant
 
+- **stations** (*Optional*): a list of station ids to look for air quality data. When station is set, location setting would be ignored. station id can be found by inspect element of a station page in aqicn.org, searching for 'aqiStation'.
 The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:
 
 AQI | Status | Description
