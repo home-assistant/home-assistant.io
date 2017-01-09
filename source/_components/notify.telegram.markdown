@@ -96,12 +96,12 @@ action:
     data:
       document:
         file: /tmp/whatever.odf
-        caption: Picture Title xy
+        caption: Document Title xy
         
 ```
 
-- **url** or **file** (*Required*): For local or remote path to an image.
-- **caption** (*Optional*): The title of the image.
+- **url** or **file** (*Required*): For local or remote path to a document.
+- **caption** (*Optional*): The title of the document.
 - **username** (*Optional*): Username for an URL which require HTTP basic authentication.
 - **password** (*Optional*): Username for an URL which require HTTP basic authentication.
 
