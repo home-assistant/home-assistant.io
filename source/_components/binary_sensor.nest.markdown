@@ -30,8 +30,6 @@ nest:
       - 'target'
 ```
 
-If you leave `monitored_conditions` blank, all sensors that are available for your devices will be used.
-
 Configuration variables:
 
 - **monitored_conditions** array (*Optional*): States to monitor.
