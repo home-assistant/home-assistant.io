@@ -63,7 +63,14 @@ There are some rules for packages that will be merged:
 
 1. Component names may only use the basic form (e.g. `switch` and `switch 1` or `switch aa` is not accepted)
 2. Platform based components (`light`, `switch`, etc) can always be merged
-3. Components where entities are identified by a key that will represent the entity_id (`{key: config}`) need to have unique 'keys' between packages and the main configuration file (`input_boolean`, `group`)
+3. Components where entities are identified by a key that will represent the entity_id (`{key: config}`) need to have unique 'keys' between packages and the main configuration file. 
+
+    For example if we have the following in the main config. You are not allowed to re-use "my_input" again for `input_boolean` in a package:
+    
+    ```yaml
+    input_boolean:
+      my_input:
+    ```
 4. Any component that is not a platform [2], or dictionaries with Entity ID keys [3] cannot be merged and can only occur once between all packages and the main config
 
 
