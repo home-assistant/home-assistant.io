@@ -28,6 +28,9 @@ To add Dark Sky to your installation, add the following to your `configuration.y
 sensor:
   - platform: darksky
     api_key: YOUR_API_KEY
+    forecast:
+    - 1
+    - 2
     monitored_conditions:
       - summary
       - icon
@@ -60,6 +63,7 @@ Configuration variables:
 
 - **api_key** (*Required*): Your API key.
 - **name** (*Optional*): Additional name for the sensors. Default to platform name.
+- **forecast** array (*Optional*): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Requires at least one of the following `monitored_conditions`; `temperature_max`, `temperature_min`, `apparent_temperature_max`, `apparent_temperature_min`, `precip_intensity_max`
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **summary**: A human-readable text summary of the current conditions.
   - **precip_type**: The type of precipitation occurring.
