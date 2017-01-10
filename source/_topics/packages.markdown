@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-## {% linkable_title About }
+## {% linkable_title About %}
 
 Packages in Home Assistant provides a way to bundle different component's configuration together. We were already introduced to the two configuration styles (specifying platforms entries together or individually) on the [adding devices](/getting-started/devices) page. Both of these configuration methods require you to create the component key in the main `configuration.yaml` file. With packages we have a way to include different components, or parts of configuration using any of the `!include` directives introduced in [splitting the configuration](/topics/splitting_configuration).
 
@@ -72,7 +72,7 @@ Components inside packages can only specify platform entries using configuration
 </p>
 
 
-### {% linkable_title Create a packages folder }
+### {% linkable_title Create a packages folder %}
 
 One way to organise packages would be to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a yaml file. This entry in your `configuration.yaml` will load all packages:
 
