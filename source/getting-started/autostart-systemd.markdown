@@ -52,6 +52,25 @@ ExecStart=/srv/hass/bin/hass -c "/home/hass/.homeassistant"
 WantedBy=multi-user.target
 ```
 
+If you want to use docker, the following template should work for you.
+
+```
+[Unit]
+Description=Home Assistant
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+RestartSec=3
+ExecStart=/usr/bin/docker run --name="home-assistant-%i" -v /home/%i/.homeassistant/:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant 
+ExecStop=/usr/bin/docker stop -t 2 home-assistant-%i
+ExecStopPost=/usr/bin/docker rm -f home-assistant-%i
+
+[Install]
+WantedBy=multi-user.target
+```
+
 You need to reload `systemd` to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.
 
 ```bash
